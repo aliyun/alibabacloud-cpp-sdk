@@ -52,8 +52,9 @@ namespace Models
 
 
   protected:
-    // 详细的协议配置信息
+    // Detailed protocol configuration information
     shared_ptr<vector<ProtocolSettings>> protocolSettings_ {};
+    // Protocol Type
     shared_ptr<string> type_ {};
   };
 

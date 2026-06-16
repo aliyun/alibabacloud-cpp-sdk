@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 版本描述
+    // A description of the agent runtime version.
     shared_ptr<string> description_ {};
   };
 

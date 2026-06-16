@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The network mode.
     shared_ptr<string> networkMode_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
+    // An array of VSwitch IDs.
     shared_ptr<vector<string>> vswitchIds_ {};
   };
 

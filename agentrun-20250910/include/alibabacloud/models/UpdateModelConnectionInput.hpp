@@ -117,13 +117,13 @@ namespace Models
 
 
   protected:
-    // 更新绑定的消费者API密钥列表
+    // A list of consumer API keys to associate with the model connection.
     shared_ptr<vector<UpdateModelConnectionInput::ConsumerApiKeys>> consumerApiKeys_ {};
-    // 更新后的描述信息
+    // A new description for the model connection.
     shared_ptr<string> description_ {};
-    // 更新后的模型元数据配置列表
+    // A new list of model metadata configurations.
     shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ {};
-    // 更新后的模型提供商配置信息
+    // A new configuration for the model provider.
     shared_ptr<ModelConnectionProviderSettings> providerSettings_ {};
   };
 

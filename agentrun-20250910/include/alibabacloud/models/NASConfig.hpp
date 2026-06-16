@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The group ID for file system access.
     shared_ptr<int32_t> groupId_ {};
+    // A list of mount point configurations.
     shared_ptr<vector<NASMountConfig>> mountPoints_ {};
+    // The user ID for file system access.
     shared_ptr<int32_t> userId_ {};
   };
 

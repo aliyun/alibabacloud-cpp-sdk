@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // 消费者API密钥列表
+    // A list of consumer API keys.
     shared_ptr<vector<ConsumerAPIKey>> items_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 符合条件的消费者API密钥总数
+    // The total number of matching consumer API keys.
     shared_ptr<int32_t> total_ {};
   };
 

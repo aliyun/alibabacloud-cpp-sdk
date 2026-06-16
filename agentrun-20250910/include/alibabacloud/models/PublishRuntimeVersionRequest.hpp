@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request body for publishing a version.
     shared_ptr<PublishRuntimeVersionInput> body_ {};
   };
 

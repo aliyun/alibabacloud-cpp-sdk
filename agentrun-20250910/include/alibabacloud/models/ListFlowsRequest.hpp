@@ -75,14 +75,15 @@ namespace Models
 
 
   protected:
-    // 根据工作流名称进行模糊匹配过滤
+    // Filter by flow name
     shared_ptr<string> flowName_ {};
-    // 当前页码，从1开始计数
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页返回的记录数量
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
-    // 根据工作空间ID进行过滤，用于资源隔离和权限管理
+    // Workspace ID
     shared_ptr<string> workspaceId_ {};
+    // List of workspace IDs
     shared_ptr<string> workspaceIds_ {};
   };
 

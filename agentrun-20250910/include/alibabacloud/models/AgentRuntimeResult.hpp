@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+    // Returns `SUCCESS` if the operation is successful; otherwise, returns an error code such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
     shared_ptr<string> code_ {};
-    // 智能体运行时的详细信息
+    // Detailed information about the agent runtime.
     shared_ptr<AgentRuntime> data_ {};
-    // 唯一的请求标识符，用于问题追踪
+    // A unique request ID for issue tracking.
     shared_ptr<string> requestId_ {};
   };
 

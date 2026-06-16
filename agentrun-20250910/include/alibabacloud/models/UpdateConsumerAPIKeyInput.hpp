@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 是否启用该密钥
+    // Indicates if the key is active.
     shared_ptr<bool> active_ {};
-    // 更新后的描述信息
+    // A new description for the key.
     shared_ptr<string> description_ {};
   };
 

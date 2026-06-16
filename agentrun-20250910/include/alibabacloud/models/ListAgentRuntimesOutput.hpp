@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // Project List
     shared_ptr<vector<AgentRuntime>> items_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    // Total count
     shared_ptr<int32_t> total_ {};
   };
 

@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // 工作流端点的描述信息
+    // The description of the flow endpoint.
     shared_ptr<string> description_ {};
-    // 是否禁用该端点的公网访问
+    // Specifies whether to disable public network access for the flow endpoint.
     shared_ptr<bool> disablePublicNetworkAccess_ {};
-    // 工作流端点的唯一标识名称
+    // The unique name of the flow endpoint.
     shared_ptr<string> flowEndpointName_ {};
-    // 工作流端点的版本路由配置，用于流量分配
+    // The routing configuration that defines traffic distribution for the flow endpoint.
     shared_ptr<vector<FlowEndpointRoutingConfig>> routingConfiguration_ {};
-    // 工作流端点指向的目标版本号
+    // The target version for the flow endpoint.
     shared_ptr<string> targetVersion_ {};
   };
 

@@ -146,21 +146,29 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud Resource Name (ARN) of the agent runtime endpoint.
     shared_ptr<string> agentRuntimeEndpointArn_ {};
+    // The unique identifier of the agent runtime endpoint.
     shared_ptr<string> agentRuntimeEndpointId_ {};
+    // The name of the agent runtime endpoint.
     shared_ptr<string> agentRuntimeEndpointName_ {};
+    // The unique identifier of the agent runtime.
     shared_ptr<string> agentRuntimeId_ {};
+    // The description of the agent runtime endpoint.
     shared_ptr<string> description_ {};
-    // 是否禁用该端点的公网访问
+    // If `true`, public access for this endpoint is disabled.
     shared_ptr<bool> disablePublicNetworkAccess_ {};
-    // 智能体运行时端点的公网访问地址
+    // The public access address for the agent runtime endpoint.
     shared_ptr<string> endpointPublicUrl_ {};
-    // 智能体运行时端点的路由配置，支持多版本权重分配
+    // The configuration for weight-based routing across multiple agent versions.
     shared_ptr<RoutingConfiguration> routingConfiguration_ {};
     // 端点的弹性伸缩状态，包括最小/目标/当前实例数及定时策略（复用 ScalingStatus）
     shared_ptr<ScalingStatus> scalingStatus_ {};
+    // The current status of the agent runtime endpoint.
     shared_ptr<string> status_ {};
+    // The reason for the current status of the endpoint.
     shared_ptr<string> statusReason_ {};
+    // The agent version that the endpoint targets.
     shared_ptr<string> targetVersion_ {};
   };
 

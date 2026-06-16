@@ -121,23 +121,25 @@ namespace Models
 
 
   protected:
-    // 根据智能体运行时名称进行模糊匹配过滤
+    // Filters the results by agent runtime name.
     shared_ptr<string> agentRuntimeName_ {};
-    // 用于服务发现的资源组标识符
+    // The service discovery resource group ID.
     shared_ptr<string> discoveryResourceGroupId_ {};
-    // 当前页码，从1开始计数
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页返回的记录数量
+    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the resource group. This parameter is deprecated.
     shared_ptr<string> resourceGroupId_ {};
-    // 查询模式，支持精确查询和模糊查询
+    // The search mode.
     shared_ptr<string> searchMode_ {};
-    // 根据状态进行过滤，多个状态用逗号分隔，支持精确匹配
+    // Filters the results by status.
     shared_ptr<string> status_ {};
-    // 根据系统标签进行过滤，多个标签用逗号分隔，支持精确匹配
+    // Filters the results by system tags. Separate multiple tags with commas. This parameter supports only exact matches.
     shared_ptr<string> systemTags_ {};
-    // 根据工作空间ID进行过滤，用于资源隔离和权限管理
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
+    // A comma-separated string of workspace IDs.
     shared_ptr<string> workspaceIds_ {};
   };
 

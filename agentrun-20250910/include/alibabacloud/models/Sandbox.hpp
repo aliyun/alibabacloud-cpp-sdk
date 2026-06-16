@@ -132,24 +132,35 @@ namespace Models
 
 
   protected:
-    // 沙箱创建时间
+    // Sandbox Creation Time
     // 
     // This parameter is required.
     shared_ptr<string> createdAt_ {};
+    // Sandbox stop time
     shared_ptr<string> endedAt_ {};
-    // 最后更新时间
+    // Last Update Time
     shared_ptr<string> lastUpdatedAt_ {};
+    // Sandbox metadata
     Darabonba::Json metadata_ {};
+    // Sandbox resource ARN
     shared_ptr<string> sandboxArn_ {};
+    // Sandbox ID
+    // 
     // This parameter is required.
     shared_ptr<string> sandboxId_ {};
+    // Sandbox lifecycle duration (deprecated)
     shared_ptr<int32_t> sandboxIdleTTLInSeconds_ {};
-    // 沙箱空闲超时时间（秒）
+    // Sandbox idle timeout (seconds)
     shared_ptr<int32_t> sandboxIdleTimeoutSeconds_ {};
+    // Status
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
+    // Template ID
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // Template Name
     shared_ptr<string> templateName_ {};
   };
 

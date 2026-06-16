@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // 智能体运行时的ARN
+    // The ARN of the agent runtime.
     shared_ptr<string> agentRuntimeArn_ {};
-    // 智能体运行时的ID
+    // The ID of the agent runtime.
     shared_ptr<string> agentRuntimeId_ {};
-    // 智能体运行时的名称
+    // The name of the agent runtime.
     shared_ptr<string> agentRuntimeName_ {};
-    // 已发布版本的版本号
+    // The version of the agent runtime.
     shared_ptr<string> agentRuntimeVersion_ {};
-    // 此版本的描述
+    // The description of the agent runtime version.
     shared_ptr<string> description_ {};
-    // 最后更新的时间戳
+    // The timestamp of the agent runtime version\\"s last update.
     shared_ptr<string> lastUpdatedAt_ {};
   };
 

@@ -94,11 +94,21 @@ namespace Models
 
 
   protected:
+    // The model type. Valid values:
+    // 
+    // - `system`: A built-in model.
+    // 
+    // - `deployment`: A model from a custom deployment.
+    // 
     // This parameter is required.
     shared_ptr<string> modelType_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The cloud provider. Currently, only Alibaba Cloud is supported.
     shared_ptr<string> provider_ {};
+    // The provider type.
     shared_ptr<string> providerType_ {};
     shared_ptr<string> workspaceId_ {};
     shared_ptr<string> workspaceIds_ {};

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The parameters for creating a credential.
     shared_ptr<CreateCredentialInput> body_ {};
   };
 

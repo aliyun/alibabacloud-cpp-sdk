@@ -122,23 +122,35 @@ namespace Models
 
 
   protected:
+    // The credential name for authenticating with the cloud provider.
     shared_ptr<string> credentialName_ {};
+    // An optional description of the model service.
     shared_ptr<string> description_ {};
-    // modelInfoConfigs
+    // A list of configurations for models in the service.
     shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ {};
-    // modelServiceName
+    // The name of the model service.
     // 
     // This parameter is required.
     shared_ptr<string> modelServiceName_ {};
+    // The model type. Valid values include:
+    // 
+    // - `system`: A built-in model that the service provides.
+    // 
+    // - `deployment`: A custom model that a user deploys.
+    // 
     // This parameter is required.
     shared_ptr<string> modelType_ {};
+    // The network configuration for the model service. See `NetworkConfiguration` for details.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // The cloud provider for the model service. Currently, only Alibaba Cloud is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
-    // providerSettings
+    // Provider-specific configuration settings. See `ProviderSettings` for details.
     // 
     // This parameter is required.
     shared_ptr<ProviderSettings> providerSettings_ {};
+    // The ID of the workspace in which to create the model service.
     shared_ptr<string> workspaceId_ {};
   };
 

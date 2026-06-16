@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The discovery endpoint configuration to apply.
     shared_ptr<UpdateDiscoveryEndpointsInput> body_ {};
   };
 

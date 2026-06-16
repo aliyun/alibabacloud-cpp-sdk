@@ -21,7 +21,9 @@ namespace AgentRun20250910
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Enable the TemplateMCP service.
+       * @summary Activates the `MCP service` for a `sandbox` `template`. This enables a client to access the `sandbox` using the MCP protocol.
+       *
+       * @description After activation, the platform automatically deploys the `MCP service` `function` for the specified `sandbox` `template`. The `MCP service` ensures a unique mapping between an `mcp-session-id` and a `SandboxID`. When an MCP `client` invokes a `tool`, the `MCP service` automatically creates a `sandbox`.
        *
        * @param request ActivateTemplateMCPRequest
        * @param headers map
@@ -31,7 +33,9 @@ namespace AgentRun20250910
       Models::ActivateTemplateMCPResponse activateTemplateMCPWithOptions(const string &templateName, const Models::ActivateTemplateMCPRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enable the TemplateMCP service.
+       * @summary Activates the `MCP service` for a `sandbox` `template`. This enables a client to access the `sandbox` using the MCP protocol.
+       *
+       * @description After activation, the platform automatically deploys the `MCP service` `function` for the specified `sandbox` `template`. The `MCP service` ensures a unique mapping between an `mcp-session-id` and a `SandboxID`. When an MCP `client` invokes a `tool`, the `MCP service` automatically creates a `sandbox`.
        *
        * @param request ActivateTemplateMCPRequest
        * @return ActivateTemplateMCPResponse
@@ -39,9 +43,9 @@ namespace AgentRun20250910
       Models::ActivateTemplateMCPResponse activateTemplateMCP(const string &templateName, const Models::ActivateTemplateMCPRequest &request);
 
       /**
-       * @summary 转换Flow DSL
+       * @summary Converts a Flow DSL.
        *
-       * @description 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+       * @description This operation converts a third-party workflow DSL, such as Dify or n8n, into an AgentRun Flow definition. It performs compatibility checks, identifies plugins, and extracts metadata. The operation runs in dry-run mode, returning the converted Flow configuration, a compatibility analysis report, and the required Toolset installation configuration without creating a Flow resource.
        *
        * @param request ConvertFlowDSLRequest
        * @param headers map
@@ -51,9 +55,9 @@ namespace AgentRun20250910
       Models::ConvertFlowDSLResponse convertFlowDSLWithOptions(const Models::ConvertFlowDSLRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 转换Flow DSL
+       * @summary Converts a Flow DSL.
        *
-       * @description 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+       * @description This operation converts a third-party workflow DSL, such as Dify or n8n, into an AgentRun Flow definition. It performs compatibility checks, identifies plugins, and extracts metadata. The operation runs in dry-run mode, returning the converted Flow configuration, a compatibility analysis report, and the required Toolset installation configuration without creating a Flow resource.
        *
        * @param request ConvertFlowDSLRequest
        * @return ConvertFlowDSLResponse
@@ -61,7 +65,7 @@ namespace AgentRun20250910
       Models::ConvertFlowDSLResponse convertFlowDSL(const Models::ConvertFlowDSLRequest &request);
 
       /**
-       * @summary CreateAgentRuntime
+       * @summary Creates an agent runtime.
        *
        * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
        *
@@ -73,7 +77,7 @@ namespace AgentRun20250910
       Models::CreateAgentRuntimeResponse createAgentRuntimeWithOptions(const Models::CreateAgentRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateAgentRuntime
+       * @summary Creates an agent runtime.
        *
        * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
        *
@@ -83,9 +87,9 @@ namespace AgentRun20250910
       Models::CreateAgentRuntimeResponse createAgentRuntime(const Models::CreateAgentRuntimeRequest &request);
 
       /**
-       * @summary 创建智能体运行时端点
+       * @summary Create an access endpoint for an agent runtime
        *
-       * @description 为指定的智能体运行时创建新的端点，用于外部访问和调用。端点是智能体运行时对外提供服务的入口。
+       * @description Creates a new endpoint for the specified agent runtime, used for external access and invocation. An endpoint serves as the entry point through which an agent runtime provides services externally.
        *
        * @param request CreateAgentRuntimeEndpointRequest
        * @param headers map
@@ -95,9 +99,9 @@ namespace AgentRun20250910
       Models::CreateAgentRuntimeEndpointResponse createAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const Models::CreateAgentRuntimeEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建智能体运行时端点
+       * @summary Create an access endpoint for an agent runtime
        *
-       * @description 为指定的智能体运行时创建新的端点，用于外部访问和调用。端点是智能体运行时对外提供服务的入口。
+       * @description Creates a new endpoint for the specified agent runtime, used for external access and invocation. An endpoint serves as the entry point through which an agent runtime provides services externally.
        *
        * @param request CreateAgentRuntimeEndpointRequest
        * @return CreateAgentRuntimeEndpointResponse
@@ -105,9 +109,9 @@ namespace AgentRun20250910
       Models::CreateAgentRuntimeEndpointResponse createAgentRuntimeEndpoint(const string &agentRuntimeId, const Models::CreateAgentRuntimeEndpointRequest &request);
 
       /**
-       * @summary 创建浏览器实例
+       * @summary Create Browser Sandbox
        *
-       * @description 创建一个新的浏览器实例，用于执行网页自动化任务。浏览器实例提供网页浏览、元素操作、截图录制等功能。
+       * @description Create a new browser instance for executing web automation tasks. The browser instance provides features such as web browsing, element manipulation, and screenshot recording.
        *
        * @param request CreateBrowserRequest
        * @param headers map
@@ -117,9 +121,9 @@ namespace AgentRun20250910
       Models::CreateBrowserResponse createBrowserWithOptions(const Models::CreateBrowserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建浏览器实例
+       * @summary Create Browser Sandbox
        *
-       * @description 创建一个新的浏览器实例，用于执行网页自动化任务。浏览器实例提供网页浏览、元素操作、截图录制等功能。
+       * @description Create a new browser instance for executing web automation tasks. The browser instance provides features such as web browsing, element manipulation, and screenshot recording.
        *
        * @param request CreateBrowserRequest
        * @return CreateBrowserResponse
@@ -127,7 +131,7 @@ namespace AgentRun20250910
       Models::CreateBrowserResponse createBrowser(const Models::CreateBrowserRequest &request);
 
       /**
-       * @summary 创建代码解释器
+       * @summary Creates a code interpreter.
        *
        * @description 创建一个新的代码解释器实例，用于执行代码解释和运行任务。代码解释器提供Python代码执行、数据处理、机器学习等功能。
        *
@@ -139,7 +143,7 @@ namespace AgentRun20250910
       Models::CreateCodeInterpreterResponse createCodeInterpreterWithOptions(const Models::CreateCodeInterpreterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建代码解释器
+       * @summary Creates a code interpreter.
        *
        * @description 创建一个新的代码解释器实例，用于执行代码解释和运行任务。代码解释器提供Python代码执行、数据处理、机器学习等功能。
        *
@@ -149,7 +153,9 @@ namespace AgentRun20250910
       Models::CreateCodeInterpreterResponse createCodeInterpreter(const Models::CreateCodeInterpreterRequest &request);
 
       /**
-       * @summary Create a credential
+       * @summary Creates a new credential.
+       *
+       * @description This operation creates a credential for an agent.
        *
        * @param request CreateCredentialRequest
        * @param headers map
@@ -159,7 +165,9 @@ namespace AgentRun20250910
       Models::CreateCredentialResponse createCredentialWithOptions(const Models::CreateCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a credential
+       * @summary Creates a new credential.
+       *
+       * @description This operation creates a credential for an agent.
        *
        * @param request CreateCredentialRequest
        * @return CreateCredentialResponse
@@ -167,7 +175,7 @@ namespace AgentRun20250910
       Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
 
       /**
-       * @summary 创建自定义域名
+       * @summary Creates a custom domain.
        *
        * @param request CreateCustomDomainRequest
        * @param headers map
@@ -177,7 +185,7 @@ namespace AgentRun20250910
       Models::CreateCustomDomainResponse createCustomDomainWithOptions(const Models::CreateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义域名
+       * @summary Creates a custom domain.
        *
        * @param request CreateCustomDomainRequest
        * @return CreateCustomDomainResponse
@@ -185,9 +193,9 @@ namespace AgentRun20250910
       Models::CreateCustomDomainResponse createCustomDomain(const Models::CreateCustomDomainRequest &request);
 
       /**
-       * @summary 创建工作流
+       * @summary Creates a workflow.
        *
-       * @description 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+       * @description Creates a flow orchestration agent. Flow orchestration is a core component of the AgentRun service that supports visual orchestration and version management.
        *
        * @param request CreateFlowRequest
        * @param headers map
@@ -197,9 +205,9 @@ namespace AgentRun20250910
       Models::CreateFlowResponse createFlowWithOptions(const Models::CreateFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工作流
+       * @summary Creates a workflow.
        *
-       * @description 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+       * @description Creates a flow orchestration agent. Flow orchestration is a core component of the AgentRun service that supports visual orchestration and version management.
        *
        * @param request CreateFlowRequest
        * @return CreateFlowResponse
@@ -207,7 +215,7 @@ namespace AgentRun20250910
       Models::CreateFlowResponse createFlow(const Models::CreateFlowRequest &request);
 
       /**
-       * @summary 创建工作流端点
+       * @summary Creates a flow endpoint.
        *
        * @description 为指定工作流创建一个新的端点，用于对外提供服务访问。
        *
@@ -219,7 +227,7 @@ namespace AgentRun20250910
       Models::CreateFlowEndpointResponse createFlowEndpointWithOptions(const string &flowName, const Models::CreateFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工作流端点
+       * @summary Creates a flow endpoint.
        *
        * @description 为指定工作流创建一个新的端点，用于对外提供服务访问。
        *
@@ -229,9 +237,9 @@ namespace AgentRun20250910
       Models::CreateFlowEndpointResponse createFlowEndpoint(const string &flowName, const Models::CreateFlowEndpointRequest &request);
 
       /**
-       * @summary 创建 IM Bot
+       * @summary Creates an IM Bot.
        *
-       * @description POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+       * @description A successful request returns an HTTP 201 status code. Once created, an IM Bot\\"s status is always `running`. The response is in a standard format, and its `data` field contains an `IMBotInfo` object.
        *
        * @param request CreateIMBotRequest
        * @param headers map
@@ -241,9 +249,9 @@ namespace AgentRun20250910
       Models::CreateIMBotResponse createIMBotWithOptions(const Models::CreateIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 IM Bot
+       * @summary Creates an IM Bot.
        *
-       * @description POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+       * @description A successful request returns an HTTP 201 status code. Once created, an IM Bot\\"s status is always `running`. The response is in a standard format, and its `data` field contains an `IMBotInfo` object.
        *
        * @param request CreateIMBotRequest
        * @return CreateIMBotResponse
@@ -251,7 +259,7 @@ namespace AgentRun20250910
       Models::CreateIMBotResponse createIMBot(const Models::CreateIMBotRequest &request);
 
       /**
-       * @summary 创建知识库
+       * @summary Creates a knowledge base.
        *
        * @param request CreateKnowledgeBaseRequest
        * @param headers map
@@ -261,7 +269,7 @@ namespace AgentRun20250910
       Models::CreateKnowledgeBaseResponse createKnowledgeBaseWithOptions(const Models::CreateKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建知识库
+       * @summary Creates a knowledge base.
        *
        * @param request CreateKnowledgeBaseRequest
        * @return CreateKnowledgeBaseResponse
@@ -269,7 +277,7 @@ namespace AgentRun20250910
       Models::CreateKnowledgeBaseResponse createKnowledgeBase(const Models::CreateKnowledgeBaseRequest &request);
 
       /**
-       * @summary 添加记忆存储
+       * @summary Creates a memory collection.
        *
        * @param request CreateMemoryCollectionRequest
        * @param headers map
@@ -279,7 +287,7 @@ namespace AgentRun20250910
       Models::CreateMemoryCollectionResponse createMemoryCollectionWithOptions(const Models::CreateMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加记忆存储
+       * @summary Creates a memory collection.
        *
        * @param request CreateMemoryCollectionRequest
        * @return CreateMemoryCollectionResponse
@@ -287,7 +295,9 @@ namespace AgentRun20250910
       Models::CreateMemoryCollectionResponse createMemoryCollection(const Models::CreateMemoryCollectionRequest &request);
 
       /**
-       * @summary 新增模型
+       * @summary Creates a Model Proxy.
+       *
+       * @description This operation creates a Model Proxy based on the specified configuration.
        *
        * @param request CreateModelProxyRequest
        * @param headers map
@@ -297,7 +307,9 @@ namespace AgentRun20250910
       Models::CreateModelProxyResponse createModelProxyWithOptions(const Models::CreateModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增模型
+       * @summary Creates a Model Proxy.
+       *
+       * @description This operation creates a Model Proxy based on the specified configuration.
        *
        * @param request CreateModelProxyRequest
        * @return CreateModelProxyResponse
@@ -305,7 +317,9 @@ namespace AgentRun20250910
       Models::CreateModelProxyResponse createModelProxy(const Models::CreateModelProxyRequest &request);
 
       /**
-       * @summary 新增模型
+       * @summary Creates a model service.
+       *
+       * @description This operation creates a model service, such as a code interpreter, based on the specified configuration.
        *
        * @param request CreateModelServiceRequest
        * @param headers map
@@ -315,7 +329,9 @@ namespace AgentRun20250910
       Models::CreateModelServiceResponse createModelServiceWithOptions(const Models::CreateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增模型
+       * @summary Creates a model service.
+       *
+       * @description This operation creates a model service, such as a code interpreter, based on the specified configuration.
        *
        * @param request CreateModelServiceRequest
        * @return CreateModelServiceResponse
@@ -323,9 +339,9 @@ namespace AgentRun20250910
       Models::CreateModelServiceResponse createModelService(const Models::CreateModelServiceRequest &request);
 
       /**
-       * @summary 创建沙箱
+       * @summary Creates a sandbox.
        *
-       * @description 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+       * @description Creates a new sandbox instance from a specified template. A sandbox provides an isolated execution environment to run code or launch a browser.
        *
        * @param request CreateSandboxRequest
        * @param headers map
@@ -335,9 +351,9 @@ namespace AgentRun20250910
       Models::CreateSandboxResponse createSandboxWithOptions(const Models::CreateSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建沙箱
+       * @summary Creates a sandbox.
        *
-       * @description 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+       * @description Creates a new sandbox instance from a specified template. A sandbox provides an isolated execution environment to run code or launch a browser.
        *
        * @param request CreateSandboxRequest
        * @return CreateSandboxResponse
@@ -345,9 +361,9 @@ namespace AgentRun20250910
       Models::CreateSandboxResponse createSandbox(const Models::CreateSandboxRequest &request);
 
       /**
-       * @summary Create a template.
+       * @summary Creates a template.
        *
-       * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+       * @description Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
        *
        * @param request CreateTemplateRequest
        * @param headers map
@@ -357,9 +373,9 @@ namespace AgentRun20250910
       Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a template.
+       * @summary Creates a template.
        *
-       * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+       * @description Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -367,9 +383,9 @@ namespace AgentRun20250910
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
-       * @summary 创建工具
+       * @summary Creates a tool.
        *
-       * @description 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+       * @description This operation creates various types of tools, such as MCP, function call, and skill. An Agent can then call a tool to extend its capabilities.
        *
        * @param request CreateToolRequest
        * @param headers map
@@ -379,9 +395,9 @@ namespace AgentRun20250910
       Models::CreateToolResponse createToolWithOptions(const Models::CreateToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工具
+       * @summary Creates a tool.
        *
-       * @description 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+       * @description This operation creates various types of tools, such as MCP, function call, and skill. An Agent can then call a tool to extend its capabilities.
        *
        * @param request CreateToolRequest
        * @return CreateToolResponse
@@ -389,9 +405,9 @@ namespace AgentRun20250910
       Models::CreateToolResponse createTool(const Models::CreateToolRequest &request);
 
       /**
-       * @summary 创建工作空间
+       * @summary Creates a workspace.
        *
-       * @description 创建工作空间
+       * @description Creates a workspace.
        *
        * @param request CreateWorkspaceRequest
        * @param headers map
@@ -401,9 +417,9 @@ namespace AgentRun20250910
       Models::CreateWorkspaceResponse createWorkspaceWithOptions(const Models::CreateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工作空间
+       * @summary Creates a workspace.
        *
-       * @description 创建工作空间
+       * @description Creates a workspace.
        *
        * @param request CreateWorkspaceRequest
        * @return CreateWorkspaceResponse
@@ -411,9 +427,9 @@ namespace AgentRun20250910
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
-       * @summary 删除智能体运行时
+       * @summary Delete Agent Runtime
        *
-       * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Deletes a specified agent runtime instance, including all associated resources and data. This operation is irreversible. Proceed with caution.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -422,16 +438,16 @@ namespace AgentRun20250910
       Models::DeleteAgentRuntimeResponse deleteAgentRuntimeWithOptions(const string &agentRuntimeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除智能体运行时
+       * @summary Delete Agent Runtime
        *
-       * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Deletes a specified agent runtime instance, including all associated resources and data. This operation is irreversible. Proceed with caution.
        *
        * @return DeleteAgentRuntimeResponse
        */
       Models::DeleteAgentRuntimeResponse deleteAgentRuntime(const string &agentRuntimeId);
 
       /**
-       * @summary Delete an agent runtime endpoint
+       * @summary Delete Agent Runtime Endpoint
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -440,16 +456,16 @@ namespace AgentRun20250910
       Models::DeleteAgentRuntimeEndpointResponse deleteAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete an agent runtime endpoint
+       * @summary Delete Agent Runtime Endpoint
        *
        * @return DeleteAgentRuntimeEndpointResponse
        */
       Models::DeleteAgentRuntimeEndpointResponse deleteAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId);
 
       /**
-       * @summary 删除浏览器实例
+       * @summary Delete Browser Sandbox
        *
-       * @description 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Delete the specified browser instance, including all its associated resources and data. The deletion is irreversible. Please proceed with caution.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -458,18 +474,18 @@ namespace AgentRun20250910
       Models::DeleteBrowserResponse deleteBrowserWithOptions(const string &browserId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除浏览器实例
+       * @summary Delete Browser Sandbox
        *
-       * @description 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Delete the specified browser instance, including all its associated resources and data. The deletion is irreversible. Please proceed with caution.
        *
        * @return DeleteBrowserResponse
        */
       Models::DeleteBrowserResponse deleteBrowser(const string &browserId);
 
       /**
-       * @summary 删除代码解释器
+       * @summary Delete Code Interpreter
        *
-       * @description 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Delete a specified code interpreter instance, including all its associated resources and data. This operation is irreversible. Please proceed with caution.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -478,16 +494,18 @@ namespace AgentRun20250910
       Models::DeleteCodeInterpreterResponse deleteCodeInterpreterWithOptions(const string &codeInterpreterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除代码解释器
+       * @summary Delete Code Interpreter
        *
-       * @description 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Delete a specified code interpreter instance, including all its associated resources and data. This operation is irreversible. Please proceed with caution.
        *
        * @return DeleteCodeInterpreterResponse
        */
       Models::DeleteCodeInterpreterResponse deleteCodeInterpreter(const string &codeInterpreterId);
 
       /**
-       * @summary Delete a credential
+       * @summary Deletes the specified credential.
+       *
+       * @description This operation deletes the specified credential. This action cannot be undone.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -496,14 +514,16 @@ namespace AgentRun20250910
       Models::DeleteCredentialResponse deleteCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a credential
+       * @summary Deletes the specified credential.
+       *
+       * @description This operation deletes the specified credential. This action cannot be undone.
        *
        * @return DeleteCredentialResponse
        */
       Models::DeleteCredentialResponse deleteCredential(const string &credentialName);
 
       /**
-       * @summary Delete a custom domain
+       * @summary Deletes a custom domain.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -512,16 +532,16 @@ namespace AgentRun20250910
       Models::DeleteCustomDomainResponse deleteCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a custom domain
+       * @summary Deletes a custom domain.
        *
        * @return DeleteCustomDomainResponse
        */
       Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName);
 
       /**
-       * @summary 删除工作流
+       * @summary Deletes a flow.
        *
-       * @description 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Deletes a specified flow instance, along with all its related resources and data. This operation is irreversible and cannot be undone. Use with caution.
        *
        * @param request DeleteFlowRequest
        * @param headers map
@@ -531,9 +551,9 @@ namespace AgentRun20250910
       Models::DeleteFlowResponse deleteFlowWithOptions(const string &flowName, const Models::DeleteFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作流
+       * @summary Deletes a flow.
        *
-       * @description 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       * @description Deletes a specified flow instance, along with all its related resources and data. This operation is irreversible and cannot be undone. Use with caution.
        *
        * @param request DeleteFlowRequest
        * @return DeleteFlowResponse
@@ -541,9 +561,9 @@ namespace AgentRun20250910
       Models::DeleteFlowResponse deleteFlow(const string &flowName, const Models::DeleteFlowRequest &request);
 
       /**
-       * @summary 删除工作流端点
+       * @summary Deletes a flow endpoint.
        *
-       * @description 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+       * @description Deletes the specified flow endpoint. This operation is irreversible. Proceed with caution.
        *
        * @param request DeleteFlowEndpointRequest
        * @param headers map
@@ -553,9 +573,9 @@ namespace AgentRun20250910
       Models::DeleteFlowEndpointResponse deleteFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const Models::DeleteFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作流端点
+       * @summary Deletes a flow endpoint.
        *
-       * @description 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+       * @description Deletes the specified flow endpoint. This operation is irreversible. Proceed with caution.
        *
        * @param request DeleteFlowEndpointRequest
        * @return DeleteFlowEndpointResponse
@@ -563,9 +583,9 @@ namespace AgentRun20250910
       Models::DeleteFlowEndpointResponse deleteFlowEndpoint(const string &flowName, const string &flowEndpointName, const Models::DeleteFlowEndpointRequest &request);
 
       /**
-       * @summary 删除工作流版本
+       * @summary Deletes a workflow version.
        *
-       * @description 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+       * @description Deletes a specified version of a workflow. This operation is irreversible. Proceed with caution.
        *
        * @param request DeleteFlowVersionRequest
        * @param headers map
@@ -575,9 +595,9 @@ namespace AgentRun20250910
       Models::DeleteFlowVersionResponse deleteFlowVersionWithOptions(const string &flowName, const string &flowVersion, const Models::DeleteFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作流版本
+       * @summary Deletes a workflow version.
        *
-       * @description 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+       * @description Deletes a specified version of a workflow. This operation is irreversible. Proceed with caution.
        *
        * @param request DeleteFlowVersionRequest
        * @return DeleteFlowVersionResponse
@@ -585,9 +605,9 @@ namespace AgentRun20250910
       Models::DeleteFlowVersionResponse deleteFlowVersion(const string &flowName, const string &flowVersion, const Models::DeleteFlowVersionRequest &request);
 
       /**
-       * @summary 删除 IM Bot
+       * @summary Deletes an IM bot.
        *
-       * @description DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+       * @description This operation deletes an IM bot via a `DELETE` request to the `/2025-09-10/agents/im-bots/{imBotId}` endpoint. A successful request returns an HTTP `204 No Content` status code and an empty response body.
        *
        * @param request DeleteIMBotRequest
        * @param headers map
@@ -597,9 +617,9 @@ namespace AgentRun20250910
       Models::DeleteIMBotResponse deleteIMBotWithOptions(const string &imBotId, const Models::DeleteIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 IM Bot
+       * @summary Deletes an IM bot.
        *
-       * @description DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+       * @description This operation deletes an IM bot via a `DELETE` request to the `/2025-09-10/agents/im-bots/{imBotId}` endpoint. A successful request returns an HTTP `204 No Content` status code and an empty response body.
        *
        * @param request DeleteIMBotRequest
        * @return DeleteIMBotResponse
@@ -607,7 +627,8 @@ namespace AgentRun20250910
       Models::DeleteIMBotResponse deleteIMBot(const string &imBotId, const Models::DeleteIMBotRequest &request);
 
       /**
-       * @summary 删除知识库
+       * @summary Deletes a knowledge base.
+       * > This operation is permanent and cannot be undone.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,14 +637,15 @@ namespace AgentRun20250910
       Models::DeleteKnowledgeBaseResponse deleteKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除知识库
+       * @summary Deletes a knowledge base.
+       * > This operation is permanent and cannot be undone.
        *
        * @return DeleteKnowledgeBaseResponse
        */
       Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const string &knowledgeBaseName);
 
       /**
-       * @summary 删除记忆存储
+       * @summary Deletes a memory collection.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -632,14 +654,16 @@ namespace AgentRun20250910
       Models::DeleteMemoryCollectionResponse deleteMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除记忆存储
+       * @summary Deletes a memory collection.
        *
        * @return DeleteMemoryCollectionResponse
        */
       Models::DeleteMemoryCollectionResponse deleteMemoryCollection(const string &memoryCollectionName);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes a model proxy.
+       *
+       * @description This operation deletes the specified model proxy configuration without deleting the underlying models or related resources.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -648,14 +672,18 @@ namespace AgentRun20250910
       Models::DeleteModelProxyResponse deleteModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes a model proxy.
+       *
+       * @description This operation deletes the specified model proxy configuration without deleting the underlying models or related resources.
        *
        * @return DeleteModelProxyResponse
        */
       Models::DeleteModelProxyResponse deleteModelProxy(const string &modelProxyName);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes a model service.
+       *
+       * @description This operation deletes a model service. You must specify the name of the service to delete.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -664,14 +692,18 @@ namespace AgentRun20250910
       Models::DeleteModelServiceResponse deleteModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes a model service.
+       *
+       * @description This operation deletes a model service. You must specify the name of the service to delete.
        *
        * @return DeleteModelServiceResponse
        */
       Models::DeleteModelServiceResponse deleteModelService(const string &modelServiceName);
 
       /**
-       * @summary 删除Sandbox
+       * @summary Deletes a sandbox instance.
+       *
+       * @description Deletes a sandbox instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -680,16 +712,18 @@ namespace AgentRun20250910
       Models::DeleteSandboxResponse deleteSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Sandbox
+       * @summary Deletes a sandbox instance.
+       *
+       * @description Deletes a sandbox instance.
        *
        * @return DeleteSandboxResponse
        */
       Models::DeleteSandboxResponse deleteSandbox(const string &sandboxId);
 
       /**
-       * @summary 删除模板
+       * @summary Deletes a template.
        *
-       * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+       * @description Deletes the specified template. After you delete a template, you can no longer use it to create new sandboxes.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -698,18 +732,18 @@ namespace AgentRun20250910
       Models::DeleteTemplateResponse deleteTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模板
+       * @summary Deletes a template.
        *
-       * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+       * @description Deletes the specified template. After you delete a template, you can no longer use it to create new sandboxes.
        *
        * @return DeleteTemplateResponse
        */
       Models::DeleteTemplateResponse deleteTemplate(const string &templateName);
 
       /**
-       * @summary 删除工具
+       * @summary Delete a tool
        *
-       * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+       * @description Delete the specified tool. The delete operation is irreversible. Proceed with caution. After the tool is deleted, all Agents that reference this tool will no longer be able to use it.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -718,18 +752,18 @@ namespace AgentRun20250910
       Models::DeleteToolResponse deleteToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工具
+       * @summary Delete a tool
        *
-       * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+       * @description Delete the specified tool. The delete operation is irreversible. Proceed with caution. After the tool is deleted, all Agents that reference this tool will no longer be able to use it.
        *
        * @return DeleteToolResponse
        */
       Models::DeleteToolResponse deleteTool(const string &toolName);
 
       /**
-       * @summary 删除工作空间
+       * @summary Deletes a workspace.
        *
-       * @description 删除工作空间
+       * @description Deletes the specified workspace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -738,16 +772,18 @@ namespace AgentRun20250910
       Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作空间
+       * @summary Deletes a workspace.
        *
-       * @description 删除工作空间
+       * @description Deletes the specified workspace.
        *
        * @return DeleteWorkspaceResponse
        */
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId);
 
       /**
-       * @summary Get access token for a resource
+       * @summary Obtains an access token.
+       *
+       * @description Obtains a temporary accessToken that is used to authenticate subsequent API requests.
        *
        * @param request GetAccessTokenRequest
        * @param headers map
@@ -757,7 +793,9 @@ namespace AgentRun20250910
       Models::GetAccessTokenResponse getAccessTokenWithOptions(const Models::GetAccessTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get access token for a resource
+       * @summary Obtains an access token.
+       *
+       * @description Obtains a temporary accessToken that is used to authenticate subsequent API requests.
        *
        * @param request GetAccessTokenRequest
        * @return GetAccessTokenResponse
@@ -765,9 +803,9 @@ namespace AgentRun20250910
       Models::GetAccessTokenResponse getAccessToken(const Models::GetAccessTokenRequest &request);
 
       /**
-       * @summary 获取智能体运行时详情
+       * @summary Get Agent Runtime
        *
-       * @description 根据智能体运行时ID获取指定智能体运行时的详细信息，包括配置、状态、资源使用情况等。
+       * @description Retrieves detailed information about a specified agent runtime by its agent runtime ID, including configuration, status, resource usage, and more.
        *
        * @param request GetAgentRuntimeRequest
        * @param headers map
@@ -777,9 +815,9 @@ namespace AgentRun20250910
       Models::GetAgentRuntimeResponse getAgentRuntimeWithOptions(const string &agentRuntimeId, const Models::GetAgentRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取智能体运行时详情
+       * @summary Get Agent Runtime
        *
-       * @description 根据智能体运行时ID获取指定智能体运行时的详细信息，包括配置、状态、资源使用情况等。
+       * @description Retrieves detailed information about a specified agent runtime by its agent runtime ID, including configuration, status, resource usage, and more.
        *
        * @param request GetAgentRuntimeRequest
        * @return GetAgentRuntimeResponse
@@ -787,7 +825,7 @@ namespace AgentRun20250910
       Models::GetAgentRuntimeResponse getAgentRuntime(const string &agentRuntimeId, const Models::GetAgentRuntimeRequest &request);
 
       /**
-       * @summary Get an agent runtime endpoint
+       * @summary Get Agent Runtime Access Endpoint
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -796,16 +834,16 @@ namespace AgentRun20250910
       Models::GetAgentRuntimeEndpointResponse getAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get an agent runtime endpoint
+       * @summary Get Agent Runtime Access Endpoint
        *
        * @return GetAgentRuntimeEndpointResponse
        */
       Models::GetAgentRuntimeEndpointResponse getAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId);
 
       /**
-       * @summary 获取浏览器实例详情
+       * @summary GetBrowserSandbox
        *
-       * @description 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
+       * @description Retrieves detailed information about a specified browser instance by browser ID, including configuration, status, resource usage, and more.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -814,16 +852,16 @@ namespace AgentRun20250910
       Models::GetBrowserResponse getBrowserWithOptions(const string &browserId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取浏览器实例详情
+       * @summary GetBrowserSandbox
        *
-       * @description 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
+       * @description Retrieves detailed information about a specified browser instance by browser ID, including configuration, status, resource usage, and more.
        *
        * @return GetBrowserResponse
        */
       Models::GetBrowserResponse getBrowser(const string &browserId);
 
       /**
-       * @summary 获取代码解释器详情
+       * @summary Retrieves an interpreter.
        *
        * @description 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
        *
@@ -834,7 +872,7 @@ namespace AgentRun20250910
       Models::GetCodeInterpreterResponse getCodeInterpreterWithOptions(const string &codeInterpreterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取代码解释器详情
+       * @summary Retrieves an interpreter.
        *
        * @description 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
        *
@@ -843,7 +881,9 @@ namespace AgentRun20250910
       Models::GetCodeInterpreterResponse getCodeInterpreter(const string &codeInterpreterId);
 
       /**
-       * @summary Get a credential
+       * @summary Retrieves information about a specific credential.
+       *
+       * @description Retrieves detailed information about a specified credential, including its configuration, metadata, and related resources.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -852,14 +892,16 @@ namespace AgentRun20250910
       Models::GetCredentialResponse getCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get a credential
+       * @summary Retrieves information about a specific credential.
+       *
+       * @description Retrieves detailed information about a specified credential, including its configuration, metadata, and related resources.
        *
        * @return GetCredentialResponse
        */
       Models::GetCredentialResponse getCredential(const string &credentialName);
 
       /**
-       * @summary 获取自定义域名详情
+       * @summary Retrieves the configuration of a custom domain.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -868,14 +910,14 @@ namespace AgentRun20250910
       Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义域名详情
+       * @summary Retrieves the configuration of a custom domain.
        *
        * @return GetCustomDomainResponse
        */
       Models::GetCustomDomainResponse getCustomDomain(const string &domainName);
 
       /**
-       * @summary 获取工作流详情
+       * @summary Get flow details
        *
        * @description 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
        *
@@ -887,7 +929,7 @@ namespace AgentRun20250910
       Models::GetFlowResponse getFlowWithOptions(const string &flowName, const Models::GetFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流详情
+       * @summary Get flow details
        *
        * @description 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
        *
@@ -897,7 +939,7 @@ namespace AgentRun20250910
       Models::GetFlowResponse getFlow(const string &flowName, const Models::GetFlowRequest &request);
 
       /**
-       * @summary 获取工作流草稿
+       * @summary Get the workflow draft.
        *
        * @description 获取指定工作流的草稿版本，返回草稿中的配置信息。
        *
@@ -909,7 +951,7 @@ namespace AgentRun20250910
       Models::GetFlowDraftResponse getFlowDraftWithOptions(const string &flowName, const Models::GetFlowDraftRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流草稿
+       * @summary Get the workflow draft.
        *
        * @description 获取指定工作流的草稿版本，返回草稿中的配置信息。
        *
@@ -919,7 +961,7 @@ namespace AgentRun20250910
       Models::GetFlowDraftResponse getFlowDraft(const string &flowName, const Models::GetFlowDraftRequest &request);
 
       /**
-       * @summary 获取工作流端点详情
+       * @summary Retrieves the details of a workflow endpoint.
        *
        * @description 根据工作流ID和端点ID获取指定工作流端点的详细信息。
        *
@@ -931,7 +973,7 @@ namespace AgentRun20250910
       Models::GetFlowEndpointResponse getFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const Models::GetFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流端点详情
+       * @summary Retrieves the details of a workflow endpoint.
        *
        * @description 根据工作流ID和端点ID获取指定工作流端点的详细信息。
        *
@@ -941,9 +983,9 @@ namespace AgentRun20250910
       Models::GetFlowEndpointResponse getFlowEndpoint(const string &flowName, const string &flowEndpointName, const Models::GetFlowEndpointRequest &request);
 
       /**
-       * @summary 获取工作流版本详情
+       * @summary Retrieves the details of a workflow version.
        *
-       * @description 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+       * @description Retrieves the details of a specific workflow version, including a complete configuration snapshot of its definition, environment variables, tracing configuration, and logging configuration.
        *
        * @param request GetFlowVersionRequest
        * @param headers map
@@ -953,9 +995,9 @@ namespace AgentRun20250910
       Models::GetFlowVersionResponse getFlowVersionWithOptions(const string &flowName, const string &flowVersion, const Models::GetFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作流版本详情
+       * @summary Retrieves the details of a workflow version.
        *
-       * @description 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+       * @description Retrieves the details of a specific workflow version, including a complete configuration snapshot of its definition, environment variables, tracing configuration, and logging configuration.
        *
        * @param request GetFlowVersionRequest
        * @return GetFlowVersionResponse
@@ -963,7 +1005,7 @@ namespace AgentRun20250910
       Models::GetFlowVersionResponse getFlowVersion(const string &flowName, const string &flowVersion, const Models::GetFlowVersionRequest &request);
 
       /**
-       * @summary 获取 IM Bot
+       * @summary Gets the details of a specific IM Bot.
        *
        * @description GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
        *
@@ -975,7 +1017,7 @@ namespace AgentRun20250910
       Models::GetIMBotResponse getIMBotWithOptions(const string &imBotId, const Models::GetIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 IM Bot
+       * @summary Gets the details of a specific IM Bot.
        *
        * @description GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
        *
@@ -985,7 +1027,7 @@ namespace AgentRun20250910
       Models::GetIMBotResponse getIMBot(const string &imBotId, const Models::GetIMBotRequest &request);
 
       /**
-       * @summary 获取知识库
+       * @summary Gets information about a knowledge base.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -994,14 +1036,14 @@ namespace AgentRun20250910
       Models::GetKnowledgeBaseResponse getKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取知识库
+       * @summary Gets information about a knowledge base.
        *
        * @return GetKnowledgeBaseResponse
        */
       Models::GetKnowledgeBaseResponse getKnowledgeBase(const string &knowledgeBaseName);
 
       /**
-       * @summary 查询记忆存储详情
+       * @summary Retrieves details for a specific memory collection.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1010,14 +1052,16 @@ namespace AgentRun20250910
       Models::GetMemoryCollectionResponse getMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询记忆存储详情
+       * @summary Retrieves details for a specific memory collection.
        *
        * @return GetMemoryCollectionResponse
        */
       Models::GetMemoryCollectionResponse getMemoryCollection(const string &memoryCollectionName);
 
       /**
-       * @summary 查看model
+       * @summary Retrieves model governance information.
+       *
+       * @description This operation retrieves the configuration details of a specific model proxy.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1026,14 +1070,18 @@ namespace AgentRun20250910
       Models::GetModelProxyResponse getModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看model
+       * @summary Retrieves model governance information.
+       *
+       * @description This operation retrieves the configuration details of a specific model proxy.
        *
        * @return GetModelProxyResponse
        */
       Models::GetModelProxyResponse getModelProxy(const string &modelProxyName);
 
       /**
-       * @summary 查看model
+       * @summary Retrieves the details of a specified model service.
+       *
+       * @description Retrieves the details of a specified model service.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1042,16 +1090,18 @@ namespace AgentRun20250910
       Models::GetModelServiceResponse getModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看model
+       * @summary Retrieves the details of a specified model service.
+       *
+       * @description Retrieves the details of a specified model service.
        *
        * @return GetModelServiceResponse
        */
       Models::GetModelServiceResponse getModelService(const string &modelServiceName);
 
       /**
-       * @summary 获取沙箱
+       * @summary Retrieves the details of a specific sandbox.
        *
-       * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+       * @description Retrieves the details of a specific sandbox by its `sandboxId`, including its status and configuration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1060,18 +1110,18 @@ namespace AgentRun20250910
       Models::GetSandboxResponse getSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取沙箱
+       * @summary Retrieves the details of a specific sandbox.
        *
-       * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+       * @description Retrieves the details of a specific sandbox by its `sandboxId`, including its status and configuration.
        *
        * @return GetSandboxResponse
        */
       Models::GetSandboxResponse getSandbox(const string &sandboxId);
 
       /**
-       * @summary 获取模板
+       * @summary Retrieves a template.
        *
-       * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+       * @description Retrieves the details of a template by its name. The response includes the template\\"s configuration and status.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1080,18 +1130,18 @@ namespace AgentRun20250910
       Models::GetTemplateResponse getTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取模板
+       * @summary Retrieves a template.
        *
-       * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+       * @description Retrieves the details of a template by its name. The response includes the template\\"s configuration and status.
        *
        * @return GetTemplateResponse
        */
       Models::GetTemplateResponse getTemplate(const string &templateName);
 
       /**
-       * @summary 获取工具详情
+       * @summary Get a tool
        *
-       * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+       * @description Obtain the complete configuration information of a tool by its name, including basic information, resource configuration, network configuration, running status, and all other detailed information.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1100,18 +1150,18 @@ namespace AgentRun20250910
       Models::GetToolResponse getToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工具详情
+       * @summary Get a tool
        *
-       * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+       * @description Obtain the complete configuration information of a tool by its name, including basic information, resource configuration, network configuration, running status, and all other detailed information.
        *
        * @return GetToolResponse
        */
       Models::GetToolResponse getTool(const string &toolName);
 
       /**
-       * @summary 查看工作空间
+       * @summary Retrieves the details of a specific workspace.
        *
-       * @description 查看工作空间
+       * @description Retrieves the details of a specific workspace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1120,16 +1170,16 @@ namespace AgentRun20250910
       Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看工作空间
+       * @summary Retrieves the details of a specific workspace.
        *
-       * @description 查看工作空间
+       * @description Retrieves the details of a specific workspace.
        *
        * @return GetWorkspaceResponse
        */
       Models::GetWorkspaceResponse getWorkspace(const string &workspaceId);
 
       /**
-       * @summary 获取工作空间下的发现端点
+       * @summary Gets the discovery endpoints for a workspace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1138,14 +1188,14 @@ namespace AgentRun20250910
       Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作空间下的发现端点
+       * @summary Gets the discovery endpoints for a workspace.
        *
        * @return GetWorkspaceDiscoveryEndpointsResponse
        */
       Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpoints(const string &workspaceId);
 
       /**
-       * @summary Retrieve the list of access endpoints for an agent runtime
+       * @summary List Agent Runtime Endpoints
        *
        * @description 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
        *
@@ -1157,7 +1207,7 @@ namespace AgentRun20250910
       Models::ListAgentRuntimeEndpointsResponse listAgentRuntimeEndpointsWithOptions(const string &agentRuntimeId, const Models::ListAgentRuntimeEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the list of access endpoints for an agent runtime
+       * @summary List Agent Runtime Endpoints
        *
        * @description 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
        *
@@ -1167,7 +1217,7 @@ namespace AgentRun20250910
       Models::ListAgentRuntimeEndpointsResponse listAgentRuntimeEndpoints(const string &agentRuntimeId, const Models::ListAgentRuntimeEndpointsRequest &request);
 
       /**
-       * @summary List agent runtime versions
+       * @summary Retrieves agent runtime versions.
        *
        * @param request ListAgentRuntimeVersionsRequest
        * @param headers map
@@ -1177,7 +1227,7 @@ namespace AgentRun20250910
       Models::ListAgentRuntimeVersionsResponse listAgentRuntimeVersionsWithOptions(const string &agentRuntimeId, const Models::ListAgentRuntimeVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List agent runtime versions
+       * @summary Retrieves agent runtime versions.
        *
        * @param request ListAgentRuntimeVersionsRequest
        * @return ListAgentRuntimeVersionsResponse
@@ -1185,9 +1235,9 @@ namespace AgentRun20250910
       Models::ListAgentRuntimeVersionsResponse listAgentRuntimeVersions(const string &agentRuntimeId, const Models::ListAgentRuntimeVersionsRequest &request);
 
       /**
-       * @summary 列出智能体运行时
+       * @summary Retrieves a list of agent runtimes.
        *
-       * @description 获取当前用户的所有智能体运行时列表，支持按名称、标签等条件过滤，支持分页查询。
+       * @description Retrieves a list of agent runtimes for the current user. You can filter the results based on criteria such as name and tags. This operation supports pagination.
        *
        * @param request ListAgentRuntimesRequest
        * @param headers map
@@ -1197,9 +1247,9 @@ namespace AgentRun20250910
       Models::ListAgentRuntimesResponse listAgentRuntimesWithOptions(const Models::ListAgentRuntimesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出智能体运行时
+       * @summary Retrieves a list of agent runtimes.
        *
-       * @description 获取当前用户的所有智能体运行时列表，支持按名称、标签等条件过滤，支持分页查询。
+       * @description Retrieves a list of agent runtimes for the current user. You can filter the results based on criteria such as name and tags. This operation supports pagination.
        *
        * @param request ListAgentRuntimesRequest
        * @return ListAgentRuntimesResponse
@@ -1207,9 +1257,9 @@ namespace AgentRun20250910
       Models::ListAgentRuntimesResponse listAgentRuntimes(const Models::ListAgentRuntimesRequest &request);
 
       /**
-       * @summary 列出浏览器实例
+       * @summary List Browser Sandboxes
        *
-       * @description 获取当前用户的所有浏览器实例列表，支持按名称、状态等条件过滤，支持分页查询。
+       * @description Retrieves a list of all browser instances for the current user. Supports filtering by conditions such as name and status, and supports paginated queries.
        *
        * @param request ListBrowsersRequest
        * @param headers map
@@ -1219,9 +1269,9 @@ namespace AgentRun20250910
       Models::ListBrowsersResponse listBrowsersWithOptions(const Models::ListBrowsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出浏览器实例
+       * @summary List Browser Sandboxes
        *
-       * @description 获取当前用户的所有浏览器实例列表，支持按名称、状态等条件过滤，支持分页查询。
+       * @description Retrieves a list of all browser instances for the current user. Supports filtering by conditions such as name and status, and supports paginated queries.
        *
        * @param request ListBrowsersRequest
        * @return ListBrowsersResponse
@@ -1229,9 +1279,9 @@ namespace AgentRun20250910
       Models::ListBrowsersResponse listBrowsers(const Models::ListBrowsersRequest &request);
 
       /**
-       * @summary 列出代码解释器
+       * @summary List Code Interpreters
        *
-       * @description 获取当前用户的所有代码解释器实例列表，支持按名称等条件过滤，支持分页查询。
+       * @description Retrieve a list of all code interpreter instances for the current user, with support for filtering by name and pagination.
        *
        * @param request ListCodeInterpretersRequest
        * @param headers map
@@ -1241,9 +1291,9 @@ namespace AgentRun20250910
       Models::ListCodeInterpretersResponse listCodeInterpretersWithOptions(const Models::ListCodeInterpretersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出代码解释器
+       * @summary List Code Interpreters
        *
-       * @description 获取当前用户的所有代码解释器实例列表，支持按名称等条件过滤，支持分页查询。
+       * @description Retrieve a list of all code interpreter instances for the current user, with support for filtering by name and pagination.
        *
        * @param request ListCodeInterpretersRequest
        * @return ListCodeInterpretersResponse
@@ -1251,7 +1301,9 @@ namespace AgentRun20250910
       Models::ListCodeInterpretersResponse listCodeInterpreters(const Models::ListCodeInterpretersRequest &request);
 
       /**
-       * @summary List credentials
+       * @summary Lists all credentials.
+       *
+       * @description Lists the credentials in your account. This operation supports filtering and pagination.
        *
        * @param request ListCredentialsRequest
        * @param headers map
@@ -1261,7 +1313,9 @@ namespace AgentRun20250910
       Models::ListCredentialsResponse listCredentialsWithOptions(const Models::ListCredentialsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List credentials
+       * @summary Lists all credentials.
+       *
+       * @description Lists the credentials in your account. This operation supports filtering and pagination.
        *
        * @param request ListCredentialsRequest
        * @return ListCredentialsResponse
@@ -1269,7 +1323,7 @@ namespace AgentRun20250910
       Models::ListCredentialsResponse listCredentials(const Models::ListCredentialsRequest &request);
 
       /**
-       * @summary 自定义域名列表
+       * @summary Lists custom domains.
        *
        * @param request ListCustomDomainsRequest
        * @param headers map
@@ -1279,7 +1333,7 @@ namespace AgentRun20250910
       Models::ListCustomDomainsResponse listCustomDomainsWithOptions(const Models::ListCustomDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义域名列表
+       * @summary Lists custom domains.
        *
        * @param request ListCustomDomainsRequest
        * @return ListCustomDomainsResponse
@@ -1287,9 +1341,9 @@ namespace AgentRun20250910
       Models::ListCustomDomainsResponse listCustomDomains(const Models::ListCustomDomainsRequest &request);
 
       /**
-       * @summary 列出工作流端点
+       * @summary List workflow endpoints.
        *
-       * @description 获取指定工作流的所有端点列表，支持分页查询。
+       * @description Retrieve all endpoints for a specified workflow, with pagination support.
        *
        * @param request ListFlowEndpointsRequest
        * @param headers map
@@ -1299,9 +1353,9 @@ namespace AgentRun20250910
       Models::ListFlowEndpointsResponse listFlowEndpointsWithOptions(const string &flowId, const Models::ListFlowEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出工作流端点
+       * @summary List workflow endpoints.
        *
-       * @description 获取指定工作流的所有端点列表，支持分页查询。
+       * @description Retrieve all endpoints for a specified workflow, with pagination support.
        *
        * @param request ListFlowEndpointsRequest
        * @return ListFlowEndpointsResponse
@@ -1309,9 +1363,9 @@ namespace AgentRun20250910
       Models::ListFlowEndpointsResponse listFlowEndpoints(const string &flowId, const Models::ListFlowEndpointsRequest &request);
 
       /**
-       * @summary 列出工作流版本
+       * @summary Lists the versions of a flow.
        *
-       * @description 获取指定工作流的所有版本列表，支持分页查询。
+       * @description Returns a paginated list of all versions for a specified flow.
        *
        * @param request ListFlowVersionsRequest
        * @param headers map
@@ -1321,9 +1375,9 @@ namespace AgentRun20250910
       Models::ListFlowVersionsResponse listFlowVersionsWithOptions(const string &flowName, const Models::ListFlowVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出工作流版本
+       * @summary Lists the versions of a flow.
        *
-       * @description 获取指定工作流的所有版本列表，支持分页查询。
+       * @description Returns a paginated list of all versions for a specified flow.
        *
        * @param request ListFlowVersionsRequest
        * @return ListFlowVersionsResponse
@@ -1331,7 +1385,7 @@ namespace AgentRun20250910
       Models::ListFlowVersionsResponse listFlowVersions(const string &flowName, const Models::ListFlowVersionsRequest &request);
 
       /**
-       * @summary 列出工作流
+       * @summary List flows
        *
        * @description 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
        *
@@ -1343,7 +1397,7 @@ namespace AgentRun20250910
       Models::ListFlowsResponse listFlowsWithOptions(const Models::ListFlowsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出工作流
+       * @summary List flows
        *
        * @description 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
        *
@@ -1353,9 +1407,9 @@ namespace AgentRun20250910
       Models::ListFlowsResponse listFlows(const Models::ListFlowsRequest &request);
 
       /**
-       * @summary 分页列举 IM Bots
+       * @summary Retrieves a paginated list of IM bots.
        *
-       * @description GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+       * @description Send a GET request to the `/2025-09-10/agents/im-bots` endpoint to retrieve a paginated list of IM bots. Use the `botName`, `agentRuntimeId`, `botBizType`, and `status` query parameters to filter the results. For pagination, the `pageNumber` defaults to 1 and the `pageSize` defaults to 20, with a maximum of 100.
        *
        * @param request ListIMBotsRequest
        * @param headers map
@@ -1365,9 +1419,9 @@ namespace AgentRun20250910
       Models::ListIMBotsResponse listIMBotsWithOptions(const Models::ListIMBotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页列举 IM Bots
+       * @summary Retrieves a paginated list of IM bots.
        *
-       * @description GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+       * @description Send a GET request to the `/2025-09-10/agents/im-bots` endpoint to retrieve a paginated list of IM bots. Use the `botName`, `agentRuntimeId`, `botBizType`, and `status` query parameters to filter the results. For pagination, the `pageNumber` defaults to 1 and the `pageSize` defaults to 20, with a maximum of 100.
        *
        * @param request ListIMBotsRequest
        * @return ListIMBotsResponse
@@ -1375,7 +1429,7 @@ namespace AgentRun20250910
       Models::ListIMBotsResponse listIMBots(const Models::ListIMBotsRequest &request);
 
       /**
-       * @summary 列出知识库
+       * @summary Lists the knowledge bases in your account.
        *
        * @param request ListKnowledgeBasesRequest
        * @param headers map
@@ -1385,7 +1439,7 @@ namespace AgentRun20250910
       Models::ListKnowledgeBasesResponse listKnowledgeBasesWithOptions(const Models::ListKnowledgeBasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出知识库
+       * @summary Lists the knowledge bases in your account.
        *
        * @param request ListKnowledgeBasesRequest
        * @return ListKnowledgeBasesResponse
@@ -1393,7 +1447,7 @@ namespace AgentRun20250910
       Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
 
       /**
-       * @summary 查询记忆存储列表
+       * @summary Returns a paginated list of memory collections.
        *
        * @param request ListMemoryCollectionsRequest
        * @param headers map
@@ -1403,7 +1457,7 @@ namespace AgentRun20250910
       Models::ListMemoryCollectionsResponse listMemoryCollectionsWithOptions(const Models::ListMemoryCollectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询记忆存储列表
+       * @summary Returns a paginated list of memory collections.
        *
        * @param request ListMemoryCollectionsRequest
        * @return ListMemoryCollectionsResponse
@@ -1411,7 +1465,9 @@ namespace AgentRun20250910
       Models::ListMemoryCollectionsResponse listMemoryCollections(const Models::ListMemoryCollectionsRequest &request);
 
       /**
-       * @summary 查询支持的模型提供商及其模型
+       * @summary Lists all model providers.
+       *
+       * @description Lists the available model providers. This operation supports filtering and pagination.
        *
        * @param request ListModelProvidersRequest
        * @param headers map
@@ -1421,7 +1477,9 @@ namespace AgentRun20250910
       Models::ListModelProvidersResponse listModelProvidersWithOptions(const Models::ListModelProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询支持的模型提供商及其模型
+       * @summary Lists all model providers.
+       *
+       * @description Lists the available model providers. This operation supports filtering and pagination.
        *
        * @param request ListModelProvidersRequest
        * @return ListModelProvidersResponse
@@ -1429,7 +1487,9 @@ namespace AgentRun20250910
       Models::ListModelProvidersResponse listModelProviders(const Models::ListModelProvidersRequest &request);
 
       /**
-       * @summary model列表
+       * @summary Lists all Model Proxies.
+       *
+       * @description Retrieves a paginated list of all Model Proxies for the current user. You can filter the list by status.
        *
        * @param request ListModelProxiesRequest
        * @param headers map
@@ -1439,7 +1499,9 @@ namespace AgentRun20250910
       Models::ListModelProxiesResponse listModelProxiesWithOptions(const Models::ListModelProxiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary model列表
+       * @summary Lists all Model Proxies.
+       *
+       * @description Retrieves a paginated list of all Model Proxies for the current user. You can filter the list by status.
        *
        * @param request ListModelProxiesRequest
        * @return ListModelProxiesResponse
@@ -1447,7 +1509,9 @@ namespace AgentRun20250910
       Models::ListModelProxiesResponse listModelProxies(const Models::ListModelProxiesRequest &request);
 
       /**
-       * @summary model列表
+       * @summary Lists all models.
+       *
+       * @description Retrieves a list of all models for the current user. You can filter the models by type and paginate the results.
        *
        * @param request ListModelServicesRequest
        * @param headers map
@@ -1457,7 +1521,9 @@ namespace AgentRun20250910
       Models::ListModelServicesResponse listModelServicesWithOptions(const Models::ListModelServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary model列表
+       * @summary Lists all models.
+       *
+       * @description Retrieves a list of all models for the current user. You can filter the models by type and paginate the results.
        *
        * @param request ListModelServicesRequest
        * @return ListModelServicesResponse
@@ -1465,9 +1531,9 @@ namespace AgentRun20250910
       Models::ListModelServicesResponse listModelServices(const Models::ListModelServicesRequest &request);
 
       /**
-       * @summary 列出沙箱
+       * @summary Returns a list of sandboxes.
        *
-       * @description 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+       * @description Retrieves a list of sandboxes for the current user. You can filter the results by template name, template type, or status. This operation supports pagination.
        *
        * @param request ListSandboxesRequest
        * @param headers map
@@ -1477,9 +1543,9 @@ namespace AgentRun20250910
       Models::ListSandboxesResponse listSandboxesWithOptions(const Models::ListSandboxesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出沙箱
+       * @summary Returns a list of sandboxes.
        *
-       * @description 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+       * @description Retrieves a list of sandboxes for the current user. You can filter the results by template name, template type, or status. This operation supports pagination.
        *
        * @param request ListSandboxesRequest
        * @return ListSandboxesResponse
@@ -1487,9 +1553,9 @@ namespace AgentRun20250910
       Models::ListSandboxesResponse listSandboxes(const Models::ListSandboxesRequest &request);
 
       /**
-       * @summary 列出模板
+       * @summary Lists templates.
        *
-       * @description 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+       * @description Lists all templates for the current user. You can filter the results by template type and use pagination.
        *
        * @param request ListTemplatesRequest
        * @param headers map
@@ -1499,9 +1565,9 @@ namespace AgentRun20250910
       Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出模板
+       * @summary Lists templates.
        *
-       * @description 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+       * @description Lists all templates for the current user. You can filter the results by template type and use pagination.
        *
        * @param request ListTemplatesRequest
        * @return ListTemplatesResponse
@@ -1509,9 +1575,9 @@ namespace AgentRun20250910
       Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
-       * @summary 工具列表
+       * @summary List tools
        *
-       * @description 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+       * @description Query the tool list. Support paged query and conditional filtering by tool type, workspace, and other criteria. Return the list of tools that meet the conditions and paging information.
        *
        * @param request ListToolsRequest
        * @param headers map
@@ -1521,9 +1587,9 @@ namespace AgentRun20250910
       Models::ListToolsResponse listToolsWithOptions(const Models::ListToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工具列表
+       * @summary List tools
        *
-       * @description 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+       * @description Query the tool list. Support paged query and conditional filtering by tool type, workspace, and other criteria. Return the list of tools that meet the conditions and paging information.
        *
        * @param request ListToolsRequest
        * @return ListToolsResponse
@@ -1531,9 +1597,9 @@ namespace AgentRun20250910
       Models::ListToolsResponse listTools(const Models::ListToolsRequest &request);
 
       /**
-       * @summary 获取工作空间列表
+       * @summary Lists all workspaces in your account.
        *
-       * @description 获取工作空间列表
+       * @description Lists all workspaces.
        *
        * @param request ListWorkspacesRequest
        * @param headers map
@@ -1543,9 +1609,9 @@ namespace AgentRun20250910
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作空间列表
+       * @summary Lists all workspaces in your account.
        *
-       * @description 获取工作空间列表
+       * @description Lists all workspaces.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -1553,9 +1619,10 @@ namespace AgentRun20250910
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
 
       /**
-       * @summary 暂停沙箱
+       * @summary Pause the sandbox and retain snapshots of its memory and file system. The sandbox enters the PAUSED state so that it can be recovered later.
        *
-       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       * @description This API is used to pause a sandbox. When invoked, the system takes a snapshot of the sandbox, capturing and persisting the memory and disk states. The user can recover the sandbox at a later time.  
+       * Note that sandbox snapshots are retained for only 30 days. After 30 days, recovery becomes unavailable.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1564,18 +1631,19 @@ namespace AgentRun20250910
       Models::PauseSandboxResponse pauseSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 暂停沙箱
+       * @summary Pause the sandbox and retain snapshots of its memory and file system. The sandbox enters the PAUSED state so that it can be recovered later.
        *
-       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       * @description This API is used to pause a sandbox. When invoked, the system takes a snapshot of the sandbox, capturing and persisting the memory and disk states. The user can recover the sandbox at a later time.  
+       * Note that sandbox snapshots are retained for only 30 days. After 30 days, recovery becomes unavailable.
        *
        * @return PauseSandboxResponse
        */
       Models::PauseSandboxResponse pauseSandbox(const string &sandboxId);
 
       /**
-       * @summary 发布工作流版本
+       * @summary Publishes a workflow version.
        *
-       * @description 为指定工作流发布新版本，用于版本管理和回滚。
+       * @description Publishes a new version of a specified workflow. This operation supports version management and rollbacks.
        *
        * @param request PublishFlowVersionRequest
        * @param headers map
@@ -1585,9 +1653,9 @@ namespace AgentRun20250910
       Models::PublishFlowVersionResponse publishFlowVersionWithOptions(const string &flowName, const Models::PublishFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布工作流版本
+       * @summary Publishes a workflow version.
        *
-       * @description 为指定工作流发布新版本，用于版本管理和回滚。
+       * @description Publishes a new version of a specified workflow. This operation supports version management and rollbacks.
        *
        * @param request PublishFlowVersionRequest
        * @return PublishFlowVersionResponse
@@ -1595,9 +1663,9 @@ namespace AgentRun20250910
       Models::PublishFlowVersionResponse publishFlowVersion(const string &flowName, const Models::PublishFlowVersionRequest &request);
 
       /**
-       * @summary 发布运行时版本
+       * @summary Publishes a new version of an agent runtime.
        *
-       * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
+       * @description Publishes a new version for a specified agent runtime for version management and deployment. The new version can include code updates, configuration changes, and other content.
        *
        * @param request PublishRuntimeVersionRequest
        * @param headers map
@@ -1607,9 +1675,9 @@ namespace AgentRun20250910
       Models::PublishRuntimeVersionResponse publishRuntimeVersionWithOptions(const string &agentRuntimeId, const Models::PublishRuntimeVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布运行时版本
+       * @summary Publishes a new version of an agent runtime.
        *
-       * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
+       * @description Publishes a new version for a specified agent runtime for version management and deployment. The new version can include code updates, configuration changes, and other content.
        *
        * @param request PublishRuntimeVersionRequest
        * @return PublishRuntimeVersionResponse
@@ -1617,7 +1685,9 @@ namespace AgentRun20250910
       Models::PublishRuntimeVersionResponse publishRuntimeVersion(const string &agentRuntimeId, const Models::PublishRuntimeVersionRequest &request);
 
       /**
-       * @summary 恢复沙箱
+       * @summary Resume a paused sandbox instance to restore it from the PAUSED state to the READY (running) state.
+       *
+       * @description This API resumes a sandbox instance from the paused state to the ready state, allowing the user to invoke it and restore it to the state it was in before being paused.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1626,16 +1696,18 @@ namespace AgentRun20250910
       Models::ResumeSandboxResponse resumeSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复沙箱
+       * @summary Resume a paused sandbox instance to restore it from the PAUSED state to the READY (running) state.
+       *
+       * @description This API resumes a sandbox instance from the paused state to the ready state, allowing the user to invoke it and restore it to the state it was in before being paused.
        *
        * @return ResumeSandboxResponse
        */
       Models::ResumeSandboxResponse resumeSandbox(const string &sandboxId);
 
       /**
-       * @summary 停止沙箱
+       * @summary Stops a sandbox.
        *
-       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       * @description Stops the specified sandbox instance. After the operation, the sandbox enters the TERMINATED state.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1644,16 +1716,18 @@ namespace AgentRun20250910
       Models::StopSandboxResponse stopSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止沙箱
+       * @summary Stops a sandbox.
        *
-       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       * @description Stops the specified sandbox instance. After the operation, the sandbox enters the TERMINATED state.
        *
        * @return StopSandboxResponse
        */
       Models::StopSandboxResponse stopSandbox(const string &sandboxId);
 
       /**
-       * @summary Stop the TemplateMCP service.
+       * @summary Stops the TemplateMCP service.
+       *
+       * @description Stopping the MCP service deletes the associated MCP resources and makes the endpoint inaccessible.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1662,16 +1736,18 @@ namespace AgentRun20250910
       Models::StopTemplateMCPResponse stopTemplateMCPWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stop the TemplateMCP service.
+       * @summary Stops the TemplateMCP service.
+       *
+       * @description Stopping the MCP service deletes the associated MCP resources and makes the endpoint inaccessible.
        *
        * @return StopTemplateMCPResponse
        */
       Models::StopTemplateMCPResponse stopTemplateMCP(const string &templateName);
 
       /**
-       * @summary 更新智能体运行时
+       * @summary UpdateAgentRuntime
        *
-       * @description 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
+       * @description Updates the configuration of a specified agent runtime, including resource allocation, network configuration, and environment variables. The update operation triggers a runtime restart.
        *
        * @param request UpdateAgentRuntimeRequest
        * @param headers map
@@ -1681,9 +1757,9 @@ namespace AgentRun20250910
       Models::UpdateAgentRuntimeResponse updateAgentRuntimeWithOptions(const string &agentRuntimeId, const Models::UpdateAgentRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新智能体运行时
+       * @summary UpdateAgentRuntime
        *
-       * @description 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
+       * @description Updates the configuration of a specified agent runtime, including resource allocation, network configuration, and environment variables. The update operation triggers a runtime restart.
        *
        * @param request UpdateAgentRuntimeRequest
        * @return UpdateAgentRuntimeResponse
@@ -1691,7 +1767,7 @@ namespace AgentRun20250910
       Models::UpdateAgentRuntimeResponse updateAgentRuntime(const string &agentRuntimeId, const Models::UpdateAgentRuntimeRequest &request);
 
       /**
-       * @summary Update an agent runtime endpoint
+       * @summary Update Agent Runtime Endpoint
        *
        * @param request UpdateAgentRuntimeEndpointRequest
        * @param headers map
@@ -1701,7 +1777,7 @@ namespace AgentRun20250910
       Models::UpdateAgentRuntimeEndpointResponse updateAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::UpdateAgentRuntimeEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update an agent runtime endpoint
+       * @summary Update Agent Runtime Endpoint
        *
        * @param request UpdateAgentRuntimeEndpointRequest
        * @return UpdateAgentRuntimeEndpointResponse
@@ -1709,7 +1785,9 @@ namespace AgentRun20250910
       Models::UpdateAgentRuntimeEndpointResponse updateAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::UpdateAgentRuntimeEndpointRequest &request);
 
       /**
-       * @summary Update a credential
+       * @summary Updates a credential.
+       *
+       * @description Updates the configuration of a specified credential.
        *
        * @param request UpdateCredentialRequest
        * @param headers map
@@ -1719,7 +1797,9 @@ namespace AgentRun20250910
       Models::UpdateCredentialResponse updateCredentialWithOptions(const string &credentialName, const Models::UpdateCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a credential
+       * @summary Updates a credential.
+       *
+       * @description Updates the configuration of a specified credential.
        *
        * @param request UpdateCredentialRequest
        * @return UpdateCredentialResponse
@@ -1727,7 +1807,7 @@ namespace AgentRun20250910
       Models::UpdateCredentialResponse updateCredential(const string &credentialName, const Models::UpdateCredentialRequest &request);
 
       /**
-       * @summary 更新自定义域名
+       * @summary Updates a custom domain.
        *
        * @param request UpdateCustomDomainRequest
        * @param headers map
@@ -1737,7 +1817,7 @@ namespace AgentRun20250910
       Models::UpdateCustomDomainResponse updateCustomDomainWithOptions(const string &domainName, const Models::UpdateCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义域名
+       * @summary Updates a custom domain.
        *
        * @param request UpdateCustomDomainRequest
        * @return UpdateCustomDomainResponse
@@ -1745,9 +1825,9 @@ namespace AgentRun20250910
       Models::UpdateCustomDomainResponse updateCustomDomain(const string &domainName, const Models::UpdateCustomDomainRequest &request);
 
       /**
-       * @summary 更新工作流
+       * @summary Updates a workflow.
        *
-       * @description 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+       * @description Updates the configuration of a specified workflow, including the definition, execution mode, and environment variables.
        *
        * @param request UpdateFlowRequest
        * @param headers map
@@ -1757,9 +1837,9 @@ namespace AgentRun20250910
       Models::UpdateFlowResponse updateFlowWithOptions(const string &flowName, const Models::UpdateFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新工作流
+       * @summary Updates a workflow.
        *
-       * @description 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+       * @description Updates the configuration of a specified workflow, including the definition, execution mode, and environment variables.
        *
        * @param request UpdateFlowRequest
        * @return UpdateFlowResponse
@@ -1767,7 +1847,7 @@ namespace AgentRun20250910
       Models::UpdateFlowResponse updateFlow(const string &flowName, const Models::UpdateFlowRequest &request);
 
       /**
-       * @summary 更新工作流草稿
+       * @summary Update a flow draft.
        *
        * @description 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
        *
@@ -1779,7 +1859,7 @@ namespace AgentRun20250910
       Models::UpdateFlowDraftResponse updateFlowDraftWithOptions(const string &flowName, const Models::UpdateFlowDraftRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新工作流草稿
+       * @summary Update a flow draft.
        *
        * @description 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
        *
@@ -1789,7 +1869,7 @@ namespace AgentRun20250910
       Models::UpdateFlowDraftResponse updateFlowDraft(const string &flowName, const Models::UpdateFlowDraftRequest &request);
 
       /**
-       * @summary 更新工作流端点
+       * @summary Update Flow Endpoint
        *
        * @description 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
        *
@@ -1801,7 +1881,7 @@ namespace AgentRun20250910
       Models::UpdateFlowEndpointResponse updateFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const Models::UpdateFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新工作流端点
+       * @summary Update Flow Endpoint
        *
        * @description 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
        *
@@ -1811,7 +1891,7 @@ namespace AgentRun20250910
       Models::UpdateFlowEndpointResponse updateFlowEndpoint(const string &flowName, const string &flowEndpointName, const Models::UpdateFlowEndpointRequest &request);
 
       /**
-       * @summary 更新 IM Bot
+       * @summary Updates an IM bot.
        *
        * @description PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
        *
@@ -1823,7 +1903,7 @@ namespace AgentRun20250910
       Models::UpdateIMBotResponse updateIMBotWithOptions(const string &imBotId, const Models::UpdateIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 IM Bot
+       * @summary Updates an IM bot.
        *
        * @description PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
        *
@@ -1833,7 +1913,7 @@ namespace AgentRun20250910
       Models::UpdateIMBotResponse updateIMBot(const string &imBotId, const Models::UpdateIMBotRequest &request);
 
       /**
-       * @summary 更新知识库
+       * @summary Updates the configuration of a knowledge base.
        *
        * @param request UpdateKnowledgeBaseRequest
        * @param headers map
@@ -1843,7 +1923,7 @@ namespace AgentRun20250910
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBaseWithOptions(const string &knowledgeBaseName, const Models::UpdateKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新知识库
+       * @summary Updates the configuration of a knowledge base.
        *
        * @param request UpdateKnowledgeBaseRequest
        * @return UpdateKnowledgeBaseResponse
@@ -1851,7 +1931,7 @@ namespace AgentRun20250910
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const string &knowledgeBaseName, const Models::UpdateKnowledgeBaseRequest &request);
 
       /**
-       * @summary 修改记忆存储信息
+       * @summary Modifies a memory collection.
        *
        * @param request UpdateMemoryCollectionRequest
        * @param headers map
@@ -1861,7 +1941,7 @@ namespace AgentRun20250910
       Models::UpdateMemoryCollectionResponse updateMemoryCollectionWithOptions(const string &memoryCollectionName, const Models::UpdateMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改记忆存储信息
+       * @summary Modifies a memory collection.
        *
        * @param request UpdateMemoryCollectionRequest
        * @return UpdateMemoryCollectionResponse
@@ -1869,7 +1949,9 @@ namespace AgentRun20250910
       Models::UpdateMemoryCollectionResponse updateMemoryCollection(const string &memoryCollectionName, const Models::UpdateMemoryCollectionRequest &request);
 
       /**
-       * @summary 更新模型
+       * @summary Updates the configuration of a model proxy.
+       *
+       * @description Use this operation to update the configuration of a specific model proxy.
        *
        * @param request UpdateModelProxyRequest
        * @param headers map
@@ -1879,7 +1961,9 @@ namespace AgentRun20250910
       Models::UpdateModelProxyResponse updateModelProxyWithOptions(const string &modelProxyName, const Models::UpdateModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型
+       * @summary Updates the configuration of a model proxy.
+       *
+       * @description Use this operation to update the configuration of a specific model proxy.
        *
        * @param request UpdateModelProxyRequest
        * @return UpdateModelProxyResponse
@@ -1887,7 +1971,9 @@ namespace AgentRun20250910
       Models::UpdateModelProxyResponse updateModelProxy(const string &modelProxyName, const Models::UpdateModelProxyRequest &request);
 
       /**
-       * @summary 更新模型
+       * @summary Updates a model service.
+       *
+       * @description This operation modifies the configuration of an existing model service.
        *
        * @param request UpdateModelServiceRequest
        * @param headers map
@@ -1897,7 +1983,9 @@ namespace AgentRun20250910
       Models::UpdateModelServiceResponse updateModelServiceWithOptions(const string &modelServiceName, const Models::UpdateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型
+       * @summary Updates a model service.
+       *
+       * @description This operation modifies the configuration of an existing model service.
        *
        * @param request UpdateModelServiceRequest
        * @return UpdateModelServiceResponse
@@ -1905,9 +1993,9 @@ namespace AgentRun20250910
       Models::UpdateModelServiceResponse updateModelService(const string &modelServiceName, const Models::UpdateModelServiceRequest &request);
 
       /**
-       * @summary 更新模板
+       * @summary Updates a template.
        *
-       * @description 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+       * @description Updates a template\\"s configuration, including its resource configuration, network configuration, and environment variables.
        *
        * @param request UpdateTemplateRequest
        * @param headers map
@@ -1917,9 +2005,9 @@ namespace AgentRun20250910
       Models::UpdateTemplateResponse updateTemplateWithOptions(const string &templateName, const Models::UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模板
+       * @summary Updates a template.
        *
-       * @description 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+       * @description Updates a template\\"s configuration, including its resource configuration, network configuration, and environment variables.
        *
        * @param request UpdateTemplateRequest
        * @return UpdateTemplateResponse
@@ -1927,9 +2015,9 @@ namespace AgentRun20250910
       Models::UpdateTemplateResponse updateTemplate(const string &templateName, const Models::UpdateTemplateRequest &request);
 
       /**
-       * @summary 更新工具
+       * @summary Updates a tool.
        *
-       * @description 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+       * @description Updates the configuration of an existing tool. You can modify its description, resource configuration, network configuration, and more. This operation supports partial updates. You only need to specify the fields that you want to modify.
        *
        * @param request UpdateToolRequest
        * @param headers map
@@ -1939,9 +2027,9 @@ namespace AgentRun20250910
       Models::UpdateToolResponse updateToolWithOptions(const string &toolName, const Models::UpdateToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新工具
+       * @summary Updates a tool.
        *
-       * @description 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+       * @description Updates the configuration of an existing tool. You can modify its description, resource configuration, network configuration, and more. This operation supports partial updates. You only need to specify the fields that you want to modify.
        *
        * @param request UpdateToolRequest
        * @return UpdateToolResponse
@@ -1949,9 +2037,9 @@ namespace AgentRun20250910
       Models::UpdateToolResponse updateTool(const string &toolName, const Models::UpdateToolRequest &request);
 
       /**
-       * @summary 更新工作空间
+       * @summary Updates a workspace.
        *
-       * @description 更新工作空间
+       * @description Updates the properties of a workspace.
        *
        * @param request UpdateWorkspaceRequest
        * @param headers map
@@ -1961,9 +2049,9 @@ namespace AgentRun20250910
       Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const string &workspaceId, const Models::UpdateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新工作空间
+       * @summary Updates a workspace.
        *
-       * @description 更新工作空间
+       * @description Updates the properties of a workspace.
        *
        * @param request UpdateWorkspaceRequest
        * @return UpdateWorkspaceResponse
@@ -1971,7 +2059,7 @@ namespace AgentRun20250910
       Models::UpdateWorkspaceResponse updateWorkspace(const string &workspaceId, const Models::UpdateWorkspaceRequest &request);
 
       /**
-       * @summary 获取工作空间下的发现端点
+       * @summary Updates the discovery endpoint configuration for a specified workspace.
        *
        * @param request UpdateWorkspaceDiscoveryEndpointsRequest
        * @param headers map
@@ -1981,7 +2069,7 @@ namespace AgentRun20250910
       Models::UpdateWorkspaceDiscoveryEndpointsResponse updateWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const Models::UpdateWorkspaceDiscoveryEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作空间下的发现端点
+       * @summary Updates the discovery endpoint configuration for a specified workspace.
        *
        * @param request UpdateWorkspaceDiscoveryEndpointsRequest
        * @return UpdateWorkspaceDiscoveryEndpointsResponse

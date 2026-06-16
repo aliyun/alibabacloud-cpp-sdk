@@ -84,15 +84,17 @@ namespace Models
 
 
   protected:
-    // 当前页码，从 1 开始
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页返回的工具数量，用于分页查询
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    // Tool Name, supports fuzzy search
     shared_ptr<string> toolName_ {};
-    // 按工具类型过滤，可选值：MCP、FUNCTIONCALL、SKILL
+    // Tool type
     shared_ptr<string> toolType_ {};
-    // 按工作空间ID过滤，查询指定工作空间下的工具
+    // Workspace ID
     shared_ptr<string> workspaceId_ {};
+    // List of workspace IDs, separated by commas
     shared_ptr<string> workspaceIds_ {};
   };
 

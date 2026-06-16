@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 智能体运行时版本号
+    // Agent runtime version number
     shared_ptr<string> version_ {};
-    // 流量权重比例（0.0-1.0）
+    // Traffic weight ratio (0.0–1.0)
     shared_ptr<float> weight_ {};
   };
 

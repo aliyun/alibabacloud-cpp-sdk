@@ -106,28 +106,29 @@ namespace Models
 
 
   protected:
-    // 代码解释器的名称，用于标识和区分不同的代码解释器实例
+    // The name of the code interpreter. Use this to identify and distinguish code interpreter instances.
     // 
     // This parameter is required.
     shared_ptr<string> codeInterpreterName_ {};
-    // CPU资源配置（单位：核数）
+    // The amount of CPU to allocate, in cores.
     // 
     // This parameter is required.
     shared_ptr<float> cpu_ {};
+    // The credential ID used for authentication.
     shared_ptr<string> credentialId_ {};
-    // 代码解释器的描述信息，说明该解释器的用途和功能
+    // A description of the code interpreter.
     shared_ptr<string> description_ {};
-    // 此代码解释器的执行角色
+    // The Alibaba Cloud Resource Name (ARN) of the execution role for the code interpreter.
     shared_ptr<string> executionRoleArn_ {};
-    // 内存资源配置（单位：MB）
+    // The amount of memory to allocate, in megabytes (MB).
     // 
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
-    // 代码解释器的网络配置，包括VPC、安全组等网络访问设置
+    // Specifies the network configuration for the code interpreter, including VPC and security group settings.
     // 
     // This parameter is required.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
-    // 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+    // The idle timeout for a session, in seconds. If an instance has no new requests for this duration, its session expires and cannot be reused.
     shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
   };
 

@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Filters the results by memory collection name.
     shared_ptr<string> memoryCollectionName_ {};
+    // The page number. Defaults to 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page. Defaults to 20.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters the results by memory collection status.
     shared_ptr<string> status_ {};
+    // Filters the results by memory collection type.
     shared_ptr<string> type_ {};
+    // The ID of the workspace to filter by.
     shared_ptr<string> workspaceId_ {};
+    // The IDs of the workspaces to filter by, provided as a comma-separated string.
     shared_ptr<string> workspaceIds_ {};
   };
 

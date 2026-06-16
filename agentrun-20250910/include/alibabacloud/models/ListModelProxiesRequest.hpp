@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // The page number for pagination.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The default is 20.
     shared_ptr<int32_t> pageSize_ {};
-    // proxyMode
+    // Specifies the proxy mode.
     shared_ptr<string> proxyMode_ {};
+    // Filters the list by Model Proxy status.
     shared_ptr<string> status_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
+    // A comma-separated list of workspace IDs to query.
     shared_ptr<string> workspaceIds_ {};
   };
 

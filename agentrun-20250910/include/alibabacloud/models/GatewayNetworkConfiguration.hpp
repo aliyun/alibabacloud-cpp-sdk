@@ -60,7 +60,9 @@ namespace Models
 
 
   protected:
+    // Network mode
     shared_ptr<string> networkMode_ {};
+    // Virtual private cloud (VPC) ID
     shared_ptr<string> vpcId_ {};
     shared_ptr<vector<string>> vswitchIds_ {};
   };

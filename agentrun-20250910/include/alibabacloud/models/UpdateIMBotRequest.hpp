@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Contains the configuration details to update for the IM bot.
+    // 
     // This parameter is required.
     shared_ptr<UpdateIMBotInput> body_ {};
   };

@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const OssConfiguration& obj) { 
       DARABONBA_PTR_TO_JSON(bucketName, bucketName_);
+      DARABONBA_PTR_TO_JSON(endpoint, endpoint_);
       DARABONBA_PTR_TO_JSON(mountPoint, mountPoint_);
       DARABONBA_PTR_TO_JSON(permission, permission_);
       DARABONBA_PTR_TO_JSON(prefix, prefix_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, OssConfiguration& obj) { 
       DARABONBA_PTR_FROM_JSON(bucketName, bucketName_);
+      DARABONBA_PTR_FROM_JSON(endpoint, endpoint_);
       DARABONBA_PTR_FROM_JSON(mountPoint, mountPoint_);
       DARABONBA_PTR_FROM_JSON(permission, permission_);
       DARABONBA_PTR_FROM_JSON(prefix, prefix_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && this->mountPoint_ == nullptr && this->permission_ == nullptr && this->prefix_ == nullptr && this->region_ == nullptr; };
+        && this->endpoint_ == nullptr && this->mountPoint_ == nullptr && this->permission_ == nullptr && this->prefix_ == nullptr && this->region_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
     inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline OssConfiguration& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
+
+
+    // endpoint Field Functions 
+    bool hasEndpoint() const { return this->endpoint_ != nullptr;};
+    void deleteEndpoint() { this->endpoint_ = nullptr;};
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline OssConfiguration& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
     // mountPoint Field Functions 
@@ -75,13 +84,22 @@ namespace Models
 
 
   protected:
+    // The name of the OSS bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};
+    shared_ptr<string> endpoint_ {};
+    // The mount point for the OSS bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> mountPoint_ {};
+    // The access permission for the mount point.
     shared_ptr<string> permission_ {};
+    // The object prefix or path within the OSS bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> prefix_ {};
+    // The region where the OSS bucket is located.
     shared_ptr<string> region_ {};
   };
 

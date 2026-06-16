@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Browser session name
     shared_ptr<string> name_ {};
   };
 

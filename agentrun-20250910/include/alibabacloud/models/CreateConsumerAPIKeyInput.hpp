@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 用户自定义的完整API密钥；为空时由服务自动生成
+    // A custom API key. If omitted, the service generates one automatically.
     shared_ptr<string> apiKey_ {};
-    // 消费者API密钥的描述信息，用于说明该密钥的用途
+    // A description for the consumer API key.
     shared_ptr<string> description_ {};
-    // 关联的模型连接标识符
+    // The identifier for the model connection.
     // 
     // This parameter is required.
     shared_ptr<string> modelConnectionId_ {};

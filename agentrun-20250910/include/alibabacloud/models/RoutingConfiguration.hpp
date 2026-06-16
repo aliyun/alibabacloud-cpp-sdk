@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // 不同版本的流量权重配置
+    // Traffic weight configuration for different versions
     shared_ptr<vector<VersionWeight>> versionWeights_ {};
   };
 

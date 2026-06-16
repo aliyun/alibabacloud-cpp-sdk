@@ -80,13 +80,13 @@ namespace Models
 
 
   protected:
-    // 按名称过滤
+    // Filters the results by agent runtime name.
     shared_ptr<string> agentRuntimeName_ {};
-    // 页码
+    // The page number for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 按状态过滤
+    // Filters the results by status.
     shared_ptr<vector<string>> statuses_ {};
     // 按系统标签过滤
     shared_ptr<vector<string>> systemTags_ {};

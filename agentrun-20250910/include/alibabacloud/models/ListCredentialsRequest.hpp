@@ -112,17 +112,23 @@ namespace Models
 
 
   protected:
-    // credentialAuthType
+    // Filters the results by credential type.
     shared_ptr<string> credentialAuthType_ {};
-    // credentialName
+    // Filters the results by credential name.
     shared_ptr<string> credentialName_ {};
-    // credentialSourceType
+    // Filters the results by credential source type.
     shared_ptr<string> credentialSourceType_ {};
+    // Filters the results based on the credential\\"s enabled status.
     shared_ptr<bool> enabled_ {};
+    // The page number of the results to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of credentials to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters the results by provider.
     shared_ptr<string> provider_ {};
+    // Unique identifier of the workspace
     shared_ptr<string> workspaceId_ {};
+    // Multiple workspace identifiers
     shared_ptr<string> workspaceIds_ {};
   };
 

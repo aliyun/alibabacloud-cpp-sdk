@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The WebSocket (WSS) stream endpoint.
     shared_ptr<string> streamEndpoint_ {};
   };
 

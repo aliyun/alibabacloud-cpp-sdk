@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource name of the agent runtime.
     shared_ptr<string> resourceName_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

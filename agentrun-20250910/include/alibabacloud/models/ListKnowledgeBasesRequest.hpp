@@ -75,8 +75,11 @@ namespace Models
 
 
   protected:
+    // The page number to return. The value must be 1 or greater. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results to return per page. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The knowledge base provider.
     shared_ptr<string> provider_ {};
     shared_ptr<string> workspaceId_ {};
     shared_ptr<string> workspaceIds_ {};

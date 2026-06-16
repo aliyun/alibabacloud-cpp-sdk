@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // An array of browser session objects.
     shared_ptr<vector<BrowserSessionOut>> items_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of sessions per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The total number of sessions.
     shared_ptr<int64_t> total_ {};
   };
 

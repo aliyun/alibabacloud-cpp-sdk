@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 根据端点名称进行模糊匹配过滤
+    // Filter by endpoint name.
     shared_ptr<string> endpointName_ {};
-    // 当前页码，从1开始计数
+    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页返回的记录数量
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
-    // 查询模式，支持精确查询和模糊查询
+    // Search mode.
     shared_ptr<string> searchMode_ {};
   };
 

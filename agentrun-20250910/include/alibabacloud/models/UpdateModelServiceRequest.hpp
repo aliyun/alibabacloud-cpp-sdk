@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request body.
     shared_ptr<UpdateModelServiceInput> body_ {};
   };
 

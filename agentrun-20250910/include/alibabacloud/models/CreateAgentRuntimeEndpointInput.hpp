@@ -90,15 +90,17 @@ namespace Models
 
 
   protected:
+    // The name of the agent runtime endpoint.
     shared_ptr<string> agentRuntimeEndpointName_ {};
+    // The description of the agent runtime endpoint.
     shared_ptr<string> description_ {};
-    // 是否禁用该端点的公网访问
+    // Specifies whether to disable public network access for the endpoint.
     shared_ptr<bool> disablePublicNetworkAccess_ {};
-    // 智能体运行时端点的路由配置，支持多版本权重分配
+    // The routing configuration for the agent runtime endpoint. This configuration distributes traffic to multiple versions based on weights.
     shared_ptr<RoutingConfiguration> routingConfiguration_ {};
     // 端点的弹性伸缩配置，包括最小实例数和定时扩容策略（复用 ScalingConfig）
     shared_ptr<ScalingConfig> scalingConfig_ {};
-    // 智能体运行时的目标版本
+    // The target version of the agent runtime.
     shared_ptr<string> targetVersion_ {};
   };
 

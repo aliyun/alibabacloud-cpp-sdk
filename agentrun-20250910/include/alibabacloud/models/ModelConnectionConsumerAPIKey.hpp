@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // 消费者API密钥记录的唯一标识
+    // The unique identifier for the consumer API key.
     shared_ptr<string> apiKeyId_ {};
+    // The value of the consumer API key.
     shared_ptr<string> value_ {};
   };
 

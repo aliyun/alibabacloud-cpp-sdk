@@ -145,25 +145,25 @@ namespace Models
 
 
   protected:
-    // 要绑定的消费者API密钥列表；空表示开放模式
+    // A list of consumer API keys for the model connection. If this list is empty, the connection enters open mode.
     shared_ptr<vector<CreateModelConnectionInput::ConsumerApiKeys>> consumerApiKeys_ {};
-    // 模型连接的描述信息
+    // A description of the model connection.
     shared_ptr<string> description_ {};
-    // 模型连接的唯一名称标识
+    // A unique name for the model connection.
     // 
     // This parameter is required.
     shared_ptr<string> modelConnectionName_ {};
-    // 模型元数据配置列表
+    // A list of model metadata configurations.
     shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ {};
-    // 模型提供商名称
+    // The model provider name.
     // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
-    // 模型提供商的配置信息，包括基础URL、模型列表等
+    // Configuration settings for the model provider, such as the base URL and a list of models.
     // 
     // This parameter is required.
     shared_ptr<ModelConnectionProviderSettings> providerSettings_ {};
-    // 模型连接所属的工作空间标识符
+    // The ID of the workspace containing the model connection.
     shared_ptr<string> workspaceId_ {};
   };
 

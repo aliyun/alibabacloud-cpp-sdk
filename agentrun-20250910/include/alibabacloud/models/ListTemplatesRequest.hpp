@@ -94,15 +94,19 @@ namespace Models
 
 
   protected:
-    // 当前页码，从1开始计数
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页返回的记录数量
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The status of the template. Use this parameter to filter templates.
     shared_ptr<string> status_ {};
+    // The name of the template. Use this parameter to filter templates.
     shared_ptr<string> templateName_ {};
-    // 按模板类型过滤
+    // The type of the template. Use this parameter to filter templates.
     shared_ptr<string> templateType_ {};
+    // The ID of the workspace to which the template belongs.
     shared_ptr<string> workspaceId_ {};
+    // The IDs of the workspaces. You can use this parameter to query templates from multiple workspaces.
     shared_ptr<string> workspaceIds_ {};
   };
 

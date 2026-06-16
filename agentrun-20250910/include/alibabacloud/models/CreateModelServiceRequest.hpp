@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // Parameters for creating the model service.
     shared_ptr<CreateModelServiceInput> body_ {};
   };
 

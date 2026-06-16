@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 灰度版本号
+    // The identifier of the gray version.
     shared_ptr<string> version_ {};
-    // 流量权重比例（0.0-1.0）
+    // The traffic weight, a value from 0.0 to 1.0.
     shared_ptr<float> weight_ {};
   };
 

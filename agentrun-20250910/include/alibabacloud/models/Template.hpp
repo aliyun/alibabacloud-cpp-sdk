@@ -149,8 +149,11 @@ namespace Models
 
 
     protected:
+      // Access Endpoint
       shared_ptr<string> accessEndpoint_ {};
+      // MCP Status
       shared_ptr<string> status_ {};
+      // Status reason
       shared_ptr<string> statusReason_ {};
     };
 
@@ -194,7 +197,9 @@ namespace Models
 
 
     protected:
+      // List of enabled tools
       shared_ptr<vector<string>> enabledTools_ {};
+      // Transport type
       shared_ptr<string> transport_ {};
     };
 
@@ -460,42 +465,77 @@ namespace Models
 
 
   protected:
+    // Indicates whether the data link can invoke APIs to create, stop, or delete sandbox instances
     shared_ptr<bool> allowAnonymousManage_ {};
+    // Custom image configuration
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
+    // Number of CPU cores
+    // 
     // This parameter is required.
     shared_ptr<float> cpu_ {};
+    // Creation Time
     shared_ptr<string> createdAt_ {};
+    // Authentication configuration
     shared_ptr<CredentialConfiguration> credentialConfiguration_ {};
+    // Description
     shared_ptr<string> description_ {};
+    // Disk size
     shared_ptr<int32_t> diskSize_ {};
+    // Sandbox Agent Toggle
     shared_ptr<bool> enableAgent_ {};
     shared_ptr<bool> enablePreStop_ {};
+    // Environment variable configuration for the agent runtime
     shared_ptr<map<string, string>> environmentVariables_ {};
+    // Execution role
     shared_ptr<string> executionRoleArn_ {};
+    // Update Time
     shared_ptr<string> lastUpdatedAt_ {};
+    // Log configuration
     shared_ptr<LogConfiguration> logConfiguration_ {};
+    // MCP options
     shared_ptr<Template::McpOptions> mcpOptions_ {};
+    // MCP server status
     shared_ptr<Template::McpState> mcpState_ {};
+    // Memory specification
+    // 
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
+    // NAS mount configuration item
     shared_ptr<NASConfig> nasConfig_ {};
+    // Network configuration
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // OSS configuration
     shared_ptr<vector<OssConfiguration>> ossConfiguration_ {};
     shared_ptr<int32_t> preStopTimeoutInSeconds_ {};
+    // Resource Name
     shared_ptr<string> resourceName_ {};
+    // Sandbox idle timeout
     shared_ptr<string> sandboxIdleTimeoutInSeconds_ {};
+    // Sandbox lifecycle time to live (deprecated)
     shared_ptr<string> sandboxTTLInSeconds_ {};
+    // Elasticity Status
     shared_ptr<ScalingStatus> scalingStatus_ {};
+    // Status
     shared_ptr<string> status_ {};
+    // Status reason
     shared_ptr<string> statusReason_ {};
+    // Template ARN
     shared_ptr<string> templateArn_ {};
+    // Template Configuration (flexible object structure that varies based on templateType)
     Darabonba::Json templateConfiguration_ {};
+    // Template ID
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // Template Name
+    // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
+    // templatetype
     shared_ptr<string> templateType_ {};
+    // Template Version
     shared_ptr<string> templateVersion_ {};
+    // Associated Space ID
     shared_ptr<string> workspaceId_ {};
   };
 

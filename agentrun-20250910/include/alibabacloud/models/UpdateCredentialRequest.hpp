@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The new configuration for the credential.
     shared_ptr<UpdateCredentialInput> body_ {};
   };
 

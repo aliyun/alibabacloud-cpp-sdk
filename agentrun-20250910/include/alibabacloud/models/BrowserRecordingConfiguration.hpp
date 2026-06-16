@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Is recording enabled
     shared_ptr<bool> enabled_ {};
+    // OSS storage location
     shared_ptr<BrowserOssLocation> ossLocation_ {};
   };
 

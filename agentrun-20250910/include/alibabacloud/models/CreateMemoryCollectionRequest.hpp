@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // Configuration settings to create a memory collection.
     shared_ptr<CreateMemoryCollectionInput> body_ {};
   };
 

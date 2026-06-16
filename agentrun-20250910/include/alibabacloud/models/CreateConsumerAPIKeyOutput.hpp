@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // 密钥是否启用
+    // Indicates whether the consumer API key is active.
     shared_ptr<bool> active_ {};
-    // 完整的API密钥明文，仅在创建时返回一次，请妥善保存
+    // The complete plaintext API key. This key is returned only upon creation and cannot be retrieved again. Store it securely.
     shared_ptr<string> apiKey_ {};
-    // 消费者API密钥的唯一标识符
+    // The unique identifier of the consumer API key.
     shared_ptr<string> consumerApiKeyId_ {};
-    // 创建时间，采用ISO 8601格式
+    // The creation time, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 消费者API密钥的描述信息
+    // A description of the consumer API key.
     shared_ptr<string> description_ {};
-    // 更新时间，采用ISO 8601格式
+    // The last update time, in ISO 8601 format.
     shared_ptr<string> lastUpdatedAt_ {};
-    // API密钥的掩码展示形式
+    // A masked version of the API key for display purposes.
     shared_ptr<string> maskedKey_ {};
-    // 关联的模型连接标识符
+    // The associated model connection identifier.
     shared_ptr<string> modelConnectionId_ {};
   };
 

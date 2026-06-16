@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Local mount folder.
     shared_ptr<string> mountDir_ {};
+    // Remote mount folder
     shared_ptr<string> remoteDir_ {};
   };
 

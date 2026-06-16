@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(disableOndemand, disableOndemand_);
       DARABONBA_PTR_TO_JSON(disableSessionAffinity, disableSessionAffinity_);
       DARABONBA_PTR_TO_JSON(diskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(edition, edition_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(externalAgentEndpointUrl, externalAgentEndpointUrl_);
+      DARABONBA_PTR_TO_JSON(headerFieldName, headerFieldName_);
       DARABONBA_PTR_TO_JSON(healthCheckConfiguration, healthCheckConfiguration_);
       DARABONBA_PTR_TO_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
@@ -51,6 +53,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(port, port_);
       DARABONBA_PTR_TO_JSON(protocolConfiguration, protocolConfiguration_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(sessionAffinityType, sessionAffinityType_);
       DARABONBA_PTR_TO_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -70,6 +73,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(disableOndemand, disableOndemand_);
       DARABONBA_PTR_FROM_JSON(disableSessionAffinity, disableSessionAffinity_);
       DARABONBA_PTR_FROM_JSON(diskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(edition, edition_);
@@ -77,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(externalAgentEndpointUrl, externalAgentEndpointUrl_);
+      DARABONBA_PTR_FROM_JSON(headerFieldName, headerFieldName_);
       DARABONBA_PTR_FROM_JSON(healthCheckConfiguration, healthCheckConfiguration_);
       DARABONBA_PTR_FROM_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
@@ -87,6 +92,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(port, port_);
       DARABONBA_PTR_FROM_JSON(protocolConfiguration, protocolConfiguration_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(sessionAffinityType, sessionAffinityType_);
       DARABONBA_PTR_FROM_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -108,11 +114,12 @@ namespace Models
     virtual bool empty() const override { return this->agentRuntimeArn_ == nullptr
         && this->agentRuntimeId_ == nullptr && this->agentRuntimeName_ == nullptr && this->agentRuntimeVersion_ == nullptr && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr
         && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->createdAt_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr
-        && this->disableSessionAffinity_ == nullptr && this->diskSize_ == nullptr && this->edition_ == nullptr && this->enableSessionIsolation_ == nullptr && this->environmentVariables_ == nullptr
-        && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr && this->logConfiguration_ == nullptr
-        && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr && this->port_ == nullptr
-        && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr
-        && this->statusReason_ == nullptr && this->systemTags_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->disableOndemand_ == nullptr && this->disableSessionAffinity_ == nullptr && this->diskSize_ == nullptr && this->edition_ == nullptr && this->enableSessionIsolation_ == nullptr
+        && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->headerFieldName_ == nullptr && this->healthCheckConfiguration_ == nullptr
+        && this->lastUpdatedAt_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr
+        && this->ossMountConfig_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionAffinityType_ == nullptr
+        && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->systemTags_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};
@@ -194,6 +201,13 @@ namespace Models
     inline AgentRuntime& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // disableOndemand Field Functions 
+    bool hasDisableOndemand() const { return this->disableOndemand_ != nullptr;};
+    void deleteDisableOndemand() { this->disableOndemand_ = nullptr;};
+    inline bool getDisableOndemand() const { DARABONBA_PTR_GET_DEFAULT(disableOndemand_, false) };
+    inline AgentRuntime& setDisableOndemand(bool disableOndemand) { DARABONBA_PTR_SET_VALUE(disableOndemand_, disableOndemand) };
+
+
     // disableSessionAffinity Field Functions 
     bool hasDisableSessionAffinity() const { return this->disableSessionAffinity_ != nullptr;};
     void deleteDisableSessionAffinity() { this->disableSessionAffinity_ = nullptr;};
@@ -243,6 +257,13 @@ namespace Models
     void deleteExternalAgentEndpointUrl() { this->externalAgentEndpointUrl_ = nullptr;};
     inline string getExternalAgentEndpointUrl() const { DARABONBA_PTR_GET_DEFAULT(externalAgentEndpointUrl_, "") };
     inline AgentRuntime& setExternalAgentEndpointUrl(string externalAgentEndpointUrl) { DARABONBA_PTR_SET_VALUE(externalAgentEndpointUrl_, externalAgentEndpointUrl) };
+
+
+    // headerFieldName Field Functions 
+    bool hasHeaderFieldName() const { return this->headerFieldName_ != nullptr;};
+    void deleteHeaderFieldName() { this->headerFieldName_ = nullptr;};
+    inline string getHeaderFieldName() const { DARABONBA_PTR_GET_DEFAULT(headerFieldName_, "") };
+    inline AgentRuntime& setHeaderFieldName(string headerFieldName) { DARABONBA_PTR_SET_VALUE(headerFieldName_, headerFieldName) };
 
 
     // healthCheckConfiguration Field Functions 
@@ -327,6 +348,13 @@ namespace Models
     inline AgentRuntime& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // sessionAffinityType Field Functions 
+    bool hasSessionAffinityType() const { return this->sessionAffinityType_ != nullptr;};
+    void deleteSessionAffinityType() { this->sessionAffinityType_ = nullptr;};
+    inline string getSessionAffinityType() const { DARABONBA_PTR_GET_DEFAULT(sessionAffinityType_, "") };
+    inline AgentRuntime& setSessionAffinityType(string sessionAffinityType) { DARABONBA_PTR_SET_VALUE(sessionAffinityType_, sessionAffinityType) };
+
+
     // sessionConcurrencyLimitPerInstance Field Functions 
     bool hasSessionConcurrencyLimitPerInstance() const { return this->sessionConcurrencyLimitPerInstance_ != nullptr;};
     void deleteSessionConcurrencyLimitPerInstance() { this->sessionConcurrencyLimitPerInstance_ = nullptr;};
@@ -372,70 +400,79 @@ namespace Models
 
 
   protected:
-    // 智能体运行时的全局唯一资源名称
+    // The Alibaba Cloud Resource Name (ARN) of the agent runtime.
     shared_ptr<string> agentRuntimeArn_ {};
-    // 智能体运行时的唯一标识符
+    // The unique identifier of the agent runtime.
     shared_ptr<string> agentRuntimeId_ {};
-    // 智能体运行时的名称，用于标识和区分不同的运行时实例
+    // The name of the agent runtime.
     shared_ptr<string> agentRuntimeName_ {};
-    // 智能体运行时的版本号，用于版本管理和回滚
+    // The version number of the agent runtime.
     shared_ptr<string> agentRuntimeVersion_ {};
-    // 智能体运行时的部署类型，支持Code（代码模式）和Container（容器模式）
+    // The deployment type of the agent runtime. Valid values: `Code` and `Container`.
     shared_ptr<string> artifactType_ {};
-    // 当artifactType为Code时的代码配置信息
+    // The code configuration details. This parameter is applicable when `artifactType` is set to `Code`.
     shared_ptr<CodeConfiguration> codeConfiguration_ {};
-    // 当artifactType为Container时的容器配置信息
+    // The container configuration details. This parameter is applicable when `artifactType` is set to `Container`.
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
-    // 智能体运行时分配的CPU资源，单位为核数
+    // The amount of CPU allocated to the agent runtime, in vCPUs.
     shared_ptr<float> cpu_ {};
-    // 智能体运行时的创建时间，采用ISO 8601格式
+    // The creation time of the agent runtime, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+    // The name of the credential used to authenticate requests to the agent runtime.
     shared_ptr<string> credentialName_ {};
-    // 智能体运行时的描述信息，说明该运行时的用途和功能
+    // The description of the agent runtime.
     shared_ptr<string> description_ {};
-    // 是否禁用会话亲和性。默认为 false（即默认启用会话亲和），设置为 true 时关闭会话亲和
+    // Specifies whether to disable on-demand elasticity. Default: `false`.
+    shared_ptr<bool> disableOndemand_ {};
+    // Specifies whether to disable session affinity. Default: `false`.
     shared_ptr<bool> disableSessionAffinity_ {};
+    // The disk size.
     shared_ptr<int32_t> diskSize_ {};
+    // The edition of the agent runtime.
     shared_ptr<string> edition_ {};
-    // 是否启用会话隔离，启用后每个会话将在独立的环境中运行
+    // Specifies whether to enable session isolation. If enabled, each session runs in an isolated environment.
     shared_ptr<bool> enableSessionIsolation_ {};
-    // 智能体运行时的环境变量配置
+    // The environment variables for the agent runtime.
     shared_ptr<map<string, string>> environmentVariables_ {};
-    // 为智能体运行时提供访问云服务权限的执行角色ARN
+    // The ARN of the execution role that grants the agent runtime permission to access cloud services.
     shared_ptr<string> executionRoleArn_ {};
-    // 外部注册类型的智能体访问端点地址，用于连接已部署在外部的智能体服务
+    // The endpoint URL of an externally deployed agent service.
     shared_ptr<string> externalAgentEndpointUrl_ {};
-    // 智能体运行时的健康检查配置，用于监控运行时实例的健康状态
+    // The name of the request header used for session affinity when `sessionAffinityType` is `HEADER_FIELD`.
+    shared_ptr<string> headerFieldName_ {};
+    // The health check configuration.
     shared_ptr<HealthCheckConfiguration> healthCheckConfiguration_ {};
-    // 智能体运行时最后一次更新的时间，采用ISO 8601格式
+    // The last update time of the agent runtime, in ISO 8601 format.
     shared_ptr<string> lastUpdatedAt_ {};
-    // SLS（简单日志服务）配置
+    // The Log Service configuration.
     shared_ptr<LogConfiguration> logConfiguration_ {};
-    // 智能体运行时分配的内存资源，单位为MB
+    // The amount of memory allocated to the agent runtime, in MB.
     shared_ptr<int32_t> memory_ {};
-    // 文件存储NAS的配置信息，用于挂载NAS文件系统到智能体运行时
+    // The NAS file system configuration.
     shared_ptr<NASConfig> nasConfig_ {};
-    // 智能体运行时的网络配置信息
+    // The network configuration of the agent runtime.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
-    // 对象存储OSS的挂载配置信息，用于挂载OSS存储桶到智能体运行时
+    // The OSS bucket mount configuration.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
-    // 智能体运行时监听的端口号
+    // The port on which the agent runtime listens.
     shared_ptr<int32_t> port_ {};
-    // 智能体运行时的通信协议配置
+    // The communication protocol configuration for the agent runtime.
     shared_ptr<ProtocolConfiguration> protocolConfiguration_ {};
+    // The ID of the resource group to which the agent runtime belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // 每个运行时实例允许的最大并发会话数
+    // The session affinity mode. Valid values: `NONE`, `HEADER_FIELD`, and `GENERATED_COOKIE`. `COOKIE` is a compatibility alias for `GENERATED_COOKIE`.
+    shared_ptr<string> sessionAffinityType_ {};
+    // The maximum number of concurrent sessions allowed per runtime instance.
     shared_ptr<int32_t> sessionConcurrencyLimitPerInstance_ {};
-    // 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+    // The idle timeout period for a session, in seconds. After this period of inactivity, the session expires and can no longer be used.
     shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
-    // 智能体运行时的当前状态，如READY（就绪）、CREATING（创建中）、FAILED（失败）等
+    // The current status of the agent runtime. Possible values: `READY`, `CREATING`, and `FAILED`.
     shared_ptr<string> status_ {};
-    // 当前状态的原因说明（如适用）
+    // The reason for the current status.
     shared_ptr<string> statusReason_ {};
-    // 智能体运行时的系统标签信息，用于系统级别的资源分类和管理
+    // The system tags for the agent runtime.
     shared_ptr<vector<string>> systemTags_ {};
-    // 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
+    // The ID of the workspace for the agent runtime.
     shared_ptr<string> workspaceId_ {};
   };
 

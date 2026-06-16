@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 页码
+    // The page number to retrieve.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

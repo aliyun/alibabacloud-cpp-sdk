@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // 按端点名称过滤
+    // Filter by endpoint name
     shared_ptr<string> endpointName_ {};
-    // 页码
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
-    // 按状态过滤
+    // Filter by status
     shared_ptr<vector<string>> statuses_ {};
   };
 

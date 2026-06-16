@@ -84,13 +84,16 @@ namespace Models
 
 
   protected:
-    // 当前页码，从1开始计数
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next set of results. A non-empty value indicates that more data is available.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> sandboxId_ {};
+    // Filters the results by status.
     shared_ptr<string> status_ {};
-    // 按模板名称过滤
+    // Filters the results by template name.
     shared_ptr<string> templateName_ {};
+    // Filters the results by template type.
     shared_ptr<string> templateType_ {};
   };
 

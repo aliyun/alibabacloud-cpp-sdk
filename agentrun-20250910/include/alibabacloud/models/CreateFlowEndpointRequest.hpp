@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // 创建工作流端点所需的完整配置信息
+    // Request parameters for creating a flow endpoint
     // 
     // This parameter is required.
     shared_ptr<CreateFlowEndpointInput> body_ {};

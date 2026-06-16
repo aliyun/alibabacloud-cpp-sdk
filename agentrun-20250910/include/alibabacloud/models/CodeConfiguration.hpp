@@ -87,15 +87,17 @@ namespace Models
 
 
   protected:
-    // 代码包的CRC-64校验值。如果提供了checksum，则函数计算会校验代码包的checksum是否和提供的一致
+    // The CRC-64 checksum of the code package. If you provide `checksum`, Function Compute verifies that the code package\\"s computed checksum matches this value.
     shared_ptr<string> checksum_ {};
-    // 在运行时中运行的命令（例如：[\"python\"]）
+    // The command and arguments to run in the runtime.
     shared_ptr<vector<string>> command_ {};
-    // 代码运行时的编程语言，如 python3、nodejs 等
+    // The programming language for the function\\"s runtime, such as python3 or nodejs.
     shared_ptr<string> language_ {};
+    // The name of the OSS bucket that contains the function\\"s code package.
     shared_ptr<string> ossBucketName_ {};
+    // The name of the OSS object for the function\\"s code package.
     shared_ptr<string> ossObjectName_ {};
-    // 智能体代码ZIP包的Base64编码
+    // The base64-encoded content of the agent\\"s code package.
     shared_ptr<string> zipFile_ {};
   };
 

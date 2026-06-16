@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The WebSocket URL for the stream endpoint.
     shared_ptr<string> streamEndpoint_ {};
+    // The status of the stream.
     shared_ptr<string> streamStatus_ {};
   };
 

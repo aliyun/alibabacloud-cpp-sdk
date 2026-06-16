@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Request body for creating a code interpreter.
+    // 
     // This parameter is required.
     shared_ptr<CreateCodeInterpreterInput> body_ {};
   };

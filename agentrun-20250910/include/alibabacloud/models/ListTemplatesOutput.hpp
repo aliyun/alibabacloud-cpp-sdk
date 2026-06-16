@@ -70,12 +70,20 @@ namespace Models
 
 
   protected:
+    // An array of template objects.
+    // 
     // This parameter is required.
     shared_ptr<vector<Template>> items_ {};
+    // The page number of the returned results.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of items to return per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The total number of templates available.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> total_ {};
   };

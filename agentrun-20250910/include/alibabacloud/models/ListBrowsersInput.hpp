@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
-    // 按浏览器名称过滤
+    // Filters the results by browser name.
     shared_ptr<string> browserName_ {};
+    // The page number of the results to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

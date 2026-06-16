@@ -103,14 +103,19 @@ namespace Models
 
 
   protected:
+    // The NAS configuration.
     shared_ptr<NASConfig> nasConfig_ {};
+    // The OSS mount configuration.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    // The PolarFS configuration.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
+    // The unique identifier of the sandbox instance.
     shared_ptr<string> sandboxId_ {};
+    // The idle timeout for the sandbox, in seconds.
     shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
-    // 沙箱空闲超时时间（秒）
+    // The idle timeout for the sandbox, in seconds.
     shared_ptr<int32_t> sandboxIdleTimeoutSeconds_ {};
-    // 模板名称（系统内部通过 templateName 查询 template_id）
+    // The template name.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};

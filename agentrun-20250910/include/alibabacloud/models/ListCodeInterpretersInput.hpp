@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
-    // 按代码解释器名称过滤
+    // Filters results by code interpreter name.
     shared_ptr<string> codeInterpreterName_ {};
+    // The page number of the results to return. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // Maximum number of results to return per page. Valid values: 1 to 100. Default: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

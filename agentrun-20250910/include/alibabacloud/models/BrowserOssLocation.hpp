@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the OSS bucket.
     shared_ptr<string> bucket_ {};
+    // The storage prefix within the bucket.
     shared_ptr<string> prefix_ {};
   };
 

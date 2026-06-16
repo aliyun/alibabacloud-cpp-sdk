@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // 创建模板所需的完整配置信息，包括模板名称、类型、资源规格、网络配置等
+    // Contains the parameters for creating the template.
     // 
     // This parameter is required.
     shared_ptr<CreateTemplateInput> body_ {};

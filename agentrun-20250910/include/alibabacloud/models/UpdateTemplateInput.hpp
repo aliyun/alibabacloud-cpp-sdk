@@ -252,32 +252,45 @@ namespace Models
 
 
   protected:
+    // Specifies whether the data link is allowed to invoke APIs to create, stop, or delete sandboxes
     shared_ptr<bool> allowAnonymousManage_ {};
+    // Configuration information for Application Real-Time Monitoring Service (ARMS)
     shared_ptr<ArmsConfiguration> armsConfiguration_ {};
-    // 容器配置（内置的不可改）
+    // Container configuration (built-in and immutable)
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
-    // CPU资源配置（单位：核心）
+    // CPU resource configuration (unit: core)
     shared_ptr<float> cpu_ {};
+    // Credential configuration
     shared_ptr<CredentialConfiguration> credentialConfiguration_ {};
+    // Template description
     shared_ptr<string> description_ {};
+    // Sandbox Agent toggle
     shared_ptr<bool> enableAgent_ {};
     shared_ptr<bool> enablePreStop_ {};
+    // Environment variables
     shared_ptr<map<string, string>> environmentVariables_ {};
+    // Execution role ARN
     shared_ptr<string> executionRoleArn_ {};
+    // Log configuration
     shared_ptr<LogConfiguration> logConfiguration_ {};
-    // 内存资源配置（单位：MB）
+    // Memory resource configuration (unit: MB)
     shared_ptr<int32_t> memory_ {};
+    // NAS mount configuration item
     shared_ptr<NASConfig> nasConfig_ {};
+    // Network configuration
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // OSS mount configuration
     shared_ptr<vector<OssConfiguration>> ossConfiguration_ {};
     shared_ptr<int32_t> preStopTimeoutInSeconds_ {};
-    // 沙箱空闲超时时间（秒）
+    // Sandbox idle timeout (seconds)
     shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
-    // 沙箱存活时间（秒）
+    // Sandbox time to live (seconds)
     shared_ptr<int32_t> sandboxTTLInSeconds_ {};
+    // Elasticity configuration
     shared_ptr<ScalingConfig> scalingConfig_ {};
-    // 模板配置（灵活的对象结构，根据 templateType 不同而不同）
+    // Template configuration (a flexible object structure that varies based on templateType)
     Darabonba::Json templateConfiguration_ {};
+    // Associated Space ID
     shared_ptr<string> workspaceId_ {};
   };
 

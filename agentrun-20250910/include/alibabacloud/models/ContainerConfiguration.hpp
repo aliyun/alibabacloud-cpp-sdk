@@ -90,13 +90,15 @@ namespace Models
 
 
   protected:
-    // 阿里云容器镜像服务（ACR）的实例ID或名称
+    // The instance ID or name of Alibaba Cloud Container Registry (ACR).
     shared_ptr<string> acrInstanceId_ {};
-    // 在容器中运行的命令（例如：[\"python3\", \"app.py\"]）
+    // The sandbox entrypoint command. For example: [\\"python3\\", \\"app.py\\"].
     shared_ptr<vector<string>> command_ {};
+    // The container image URI.
     shared_ptr<string> image_ {};
-    // 容器镜像的来源类型，支持ACR（阿里云容器镜像服务）、ACREE（阿里云容器镜像服务企业版）、CUSTOM（自定义镜像仓库）
+    // The source of the container image. Valid values: ACR (Alibaba Cloud Container Registry), ACREE (Alibaba Cloud Container Registry Enterprise Edition), and CUSTOM (a custom image repository).
     shared_ptr<string> imageRegistryType_ {};
+    // The listening port for the sandbox runtime.
     shared_ptr<int32_t> port_ {};
     // 自定义镜像仓库的配置信息，当imageRegistryType为CUSTOM时使用
     shared_ptr<RegistryConfig> registryConfig_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 当前页码，从1开始计数
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页返回的记录数量
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

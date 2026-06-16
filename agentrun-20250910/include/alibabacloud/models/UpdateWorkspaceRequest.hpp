@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The parameters used to update the workspace.
     shared_ptr<UpdateWorkspaceInput> body_ {};
   };
 

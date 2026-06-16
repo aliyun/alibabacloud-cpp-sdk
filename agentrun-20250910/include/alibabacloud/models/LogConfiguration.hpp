@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // SLS日志库名称
+    // The name of the SLS logstore.
     shared_ptr<string> logstore_ {};
-    // SLS项目名称
+    // The name of the SLS project.
     shared_ptr<string> project_ {};
   };
 

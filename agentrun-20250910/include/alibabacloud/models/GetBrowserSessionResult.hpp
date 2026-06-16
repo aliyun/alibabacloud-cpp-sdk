@@ -60,9 +60,11 @@ namespace Models
 
 
   protected:
-    // SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+    // `SUCCESS` for a successful request; otherwise, an error type such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
     shared_ptr<string> code_ {};
+    // The details of the browser session.
     shared_ptr<BrowserSessionOut> data_ {};
+    // A unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

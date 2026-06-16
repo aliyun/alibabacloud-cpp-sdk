@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // 限流规则列表
+    // The list of rate-limiting rules.
     shared_ptr<vector<RateLimitRule>> items_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 符合条件的限流规则总数
+    // The total number of matching rate-limiting rules.
     shared_ptr<int32_t> total_ {};
   };
 

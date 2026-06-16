@@ -129,12 +129,23 @@ namespace Models
 
 
       protected:
-        // baseUrl
+        // The base URL of the model provider.
         shared_ptr<string> baseUrl_ {};
         // modelInfoConfig
         shared_ptr<ModelInfoConfig> modelInfoConfig_ {};
+        // The model type. Valid values:
+        // 
+        // - `text_embedding`: text embedding
+        // 
+        // - `text_sparse_embedding`: text sparse embedding
+        // 
+        // - `image_embedding`: image embedding
+        // 
+        // - `image_analyze`: image analysis
         shared_ptr<string> modelType_ {};
+        // An array of model names.
         shared_ptr<vector<string>> models_ {};
+        // The name of the model provider.
         shared_ptr<string> providerName_ {};
       };
 
@@ -171,9 +182,13 @@ namespace Models
 
 
     protected:
+      // An array of model provider objects.
       shared_ptr<vector<Data::Items>> items_ {};
+      // 页码
       shared_ptr<int32_t> pageNumber_ {};
+      // 页面大小
       shared_ptr<int32_t> pageSize_ {};
+      // 总数
       shared_ptr<int64_t> total_ {};
     };
 
@@ -203,8 +218,11 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListModelProvidersResponseBody::Data> data_ {};
+    // The unique request identifier. Include this ID when reporting issues.
     shared_ptr<string> requestId_ {};
   };
 

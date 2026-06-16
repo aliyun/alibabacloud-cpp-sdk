@@ -164,21 +164,33 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the browser.
     shared_ptr<string> browserId_ {};
+    // The name of the browser.
     shared_ptr<string> browserName_ {};
+    // The number of CPU cores allocated to the browser.
     shared_ptr<float> cpu_ {};
+    // The time the browser was created, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
+    // The unique identifier for the credential associated with the browser.
     shared_ptr<string> credentialId_ {};
+    // A user-defined description for the browser.
     shared_ptr<string> description_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the execution role used by the browser.
     shared_ptr<string> executionRoleArn_ {};
+    // The time the browser was last updated, in ISO 8601 format.
     shared_ptr<string> lastUpdatedAt_ {};
-    // 内存资源配置（单位：MB）
+    // The memory allocated to the browser, in megabytes (MB).
     shared_ptr<int32_t> memory_ {};
+    // The network configuration for the browser.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // The recording configuration for the browser.
     shared_ptr<BrowserRecordingConfiguration> recording_ {};
+    // The current status of the browser.
     shared_ptr<string> status_ {};
-    // 当前状态的原因说明（如适用）
+    // The reason for the current status, if any.
     shared_ptr<string> statusReason_ {};
+    // The unique identifier of the tenant that owns the browser.
     shared_ptr<string> tenantId_ {};
   };
 

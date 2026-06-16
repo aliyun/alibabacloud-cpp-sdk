@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // 包含要更新的智能体运行时端点配置信息的请求体
+    // Update Agent Runtime Endpoint Input
     // 
     // This parameter is required.
     shared_ptr<UpdateAgentRuntimeEndpointInput> body_ {};

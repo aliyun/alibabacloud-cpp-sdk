@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // SUCCESS 为成功，失败情况返回对应错误类型
+    // A value of `SUCCESS` indicates a successful request. If the request fails, an error code is returned.
     shared_ptr<string> code_ {};
-    // 限流规则列表的详细信息
+    // Detailed information about the rate limit rules.
     shared_ptr<ListRateLimitRulesOutput> data_ {};
-    // 唯一的请求标识符，用于问题追踪
+    // The unique request ID, used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The configuration for the Model Proxy.
     shared_ptr<CreateModelProxyInput> body_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request body used to create a custom domain.
     shared_ptr<CreateCustomDomainInput> body_ {};
   };
 

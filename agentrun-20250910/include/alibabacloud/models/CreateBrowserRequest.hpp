@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Request body for creation parameters
+    // 
     // This parameter is required.
     shared_ptr<CreateBrowserInput> body_ {};
   };

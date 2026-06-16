@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable encryption in transit. This option is supported only for general-purpose NAS.
     shared_ptr<bool> enableTLS_ {};
+    // Specifies the local mount directory.
     shared_ptr<string> mountDir_ {};
+    // Specifies the NAS server address.
     shared_ptr<string> serverAddr_ {};
   };
 

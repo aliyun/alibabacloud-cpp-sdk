@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request body to update the memory collection.
     shared_ptr<UpdateMemoryCollectionInput> body_ {};
   };
 

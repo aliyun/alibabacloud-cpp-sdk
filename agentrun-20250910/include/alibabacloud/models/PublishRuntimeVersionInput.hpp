@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 此版本的描述
+    // Description of this version
     shared_ptr<string> description_ {};
-    // 发布此版本的用户或系统标识
+    // Identity of the user or system that publishes this version
     shared_ptr<string> publisher_ {};
   };
 

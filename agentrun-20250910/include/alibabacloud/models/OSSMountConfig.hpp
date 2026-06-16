@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // An array of OSS mount points.
     shared_ptr<vector<OSSMountPoint>> mountPoints_ {};
   };
 

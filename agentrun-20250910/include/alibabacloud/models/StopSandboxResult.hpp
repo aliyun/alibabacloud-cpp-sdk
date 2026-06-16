@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Result code
     shared_ptr<string> code_ {};
+    // Details of the code interpreter, including all configuration and status information of the interpreter
     shared_ptr<Sandbox> data_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

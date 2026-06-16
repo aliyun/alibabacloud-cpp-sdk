@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // SUCCESS 为成功，失败情况返回对应错误类型
+    // SUCCESS indicates success. In case of failure, the corresponding Error Type is returned.
     shared_ptr<string> code_ {};
-    // 沙箱的详细信息
+    // Detailed information about the sandbox
     // 
     // This parameter is required.
     shared_ptr<Sandbox> data_ {};
-    // 唯一的请求标识符，用于问题追踪
+    // Unique request ID used for troubleshooting
     shared_ptr<string> requestId_ {};
   };
 

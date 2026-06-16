@@ -179,34 +179,49 @@ namespace Models
 
 
   protected:
+    // Specifies the configuration for Application Real-Time Monitoring Service (ARMS).
     shared_ptr<ArmsConfiguration> armsConfiguration_ {};
+    // The number of CPU cores for the proxy.
+    // 
     // This parameter is required.
     shared_ptr<float> cpu_ {};
-    // credentialName
+    // The name of the credential for accessing the model service.
     shared_ptr<string> credentialName_ {};
+    // Optional. A custom description for the model proxy.
     shared_ptr<string> description_ {};
+    // The ARN of the execution role the service assumes to act on your behalf.
     shared_ptr<string> executionRoleArn_ {};
-    // litellmVersion
+    // The version of LiteLLM for the proxy.
     shared_ptr<string> litellmVersion_ {};
+    // The Log Service (SLS) configuration for the Agent runtime.
     shared_ptr<LogConfiguration> logConfiguration_ {};
+    // The memory size for the proxy, in GiB.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
-    // modelProxyName
+    // The unique name for the model proxy.
     // 
     // This parameter is required.
     shared_ptr<string> modelProxyName_ {};
+    // The model type. Valid values:
+    // 
+    // - `system`: Specifies a system model.
+    // 
+    // - `deployment`: Specifies a custom deployment model.
     shared_ptr<string> modelType_ {};
+    // Specifies the network configuration for the proxy.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
-    // ProxyConfig
+    // The configuration settings for the proxy.
     // 
     // This parameter is required.
     shared_ptr<ProxyConfig> proxyConfig_ {};
-    // proxyMode
+    // Specifies the operational mode of the proxy.
     // 
     // This parameter is required.
     shared_ptr<string> proxyMode_ {};
-    // serviceRegionId
+    // The ID of the region for the model service.
     shared_ptr<string> serviceRegionId_ {};
+    // The ID of the workspace that contains the model proxy.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -176,35 +176,35 @@ namespace Models
 
 
   protected:
-    // 工作流的创建时间，采用ISO 8601格式
+    // The time when the workflow was created, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 工作流的定义内容
+    // The definition of the workflow.
     shared_ptr<string> definition_ {};
-    // 工作流的描述信息，说明该工作流的用途和功能
+    // The description of the workflow, which explains the purpose and functionality of the workflow.
     shared_ptr<string> description_ {};
-    // 是否禁用该工作流的公网访问，作为工作流级别的默认策略
+    // Specifies whether to disable public network access for the workflow. This setting serves as the default policy at the workflow level.
     shared_ptr<bool> disablePublicNetworkAccess_ {};
-    // 工作流的环境变量配置，包含一组命名变量列表
+    // The environment variable configuration of the workflow, which contains a list of named variables.
     shared_ptr<EnvironmentConfiguration> environmentConfiguration_ {};
-    // 为工作流提供访问云服务权限的执行角色ARN
+    // The ARN of the execution role that grants the workflow permissions to access cloud services.
     shared_ptr<string> executionRoleArn_ {};
-    // 工作流的外部存储位置
+    // The external storage location of the workflow.
     shared_ptr<string> externalStorageLocation_ {};
-    // 工作流的全局唯一资源名称
+    // The globally unique Alibaba Cloud Resource Name (ARN) of the workflow.
     shared_ptr<string> flowArn_ {};
-    // 工作流的唯一标识符
+    // The unique identifier of the workflow.
     shared_ptr<string> flowId_ {};
-    // 工作流的名称，用于标识和区分不同的工作流实例
+    // The name of the workflow, which is used to identify and distinguish different workflow instances.
     shared_ptr<string> flowName_ {};
-    // 工作流最后一次更新的时间，采用ISO 8601格式
+    // The time when the workflow was last updated, in ISO 8601 format.
     shared_ptr<string> lastUpdatedAt_ {};
-    // 工作流的日志配置
+    // The logging configuration of the workflow.
     shared_ptr<LoggingConfiguration> loggingConfiguration_ {};
-    // 工作流所属的资源组标识符
+    // The ID of the resource group to which the workflow belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // 工作流的链路追踪配置
+    // The Tracing Analysis configuration of the workflow.
     shared_ptr<TracingConfiguration> tracingConfiguration_ {};
-    // 工作流所属的工作空间标识符
+    // The ID of the workspace to which the workflow belongs.
     shared_ptr<string> workspaceId_ {};
   };
 

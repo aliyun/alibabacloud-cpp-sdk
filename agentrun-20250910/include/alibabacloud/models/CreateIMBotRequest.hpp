@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The request body.
+    // 
     // This parameter is required.
     shared_ptr<CreateIMBotInput> body_ {};
   };

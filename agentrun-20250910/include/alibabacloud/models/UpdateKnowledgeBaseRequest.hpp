@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request body for updating a knowledge base.
     shared_ptr<UpdateKnowledgeBaseInput> body_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // ID of the code interpreter.
     shared_ptr<string> codeInterpreterId_ {};
+    // Name of the code interpreter.
     shared_ptr<string> codeInterpreterName_ {};
+    // Status of the code interpreter.
     shared_ptr<string> status_ {};
   };
 

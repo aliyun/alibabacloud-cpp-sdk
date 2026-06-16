@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // A list of Code Interpreter session objects.
     shared_ptr<vector<CodeInterpreterSessionOut>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of sessions per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The total number of sessions.
     shared_ptr<int64_t> total_ {};
   };
 

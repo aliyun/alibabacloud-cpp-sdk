@@ -280,44 +280,63 @@ namespace Models
 
 
   protected:
+    // Controls whether data plane calls can create, stop, or delete the sandbox.
     shared_ptr<bool> allowAnonymousManage_ {};
+    // The Application Real-Time Monitoring Service (ARMS) configuration.
     shared_ptr<ArmsConfiguration> armsConfiguration_ {};
-    // 容器配置，只允许基于 Browser/Code Interpreter 基础镜像的 image
+    // The container configuration. You can only use images based on the Browser or Code Interpreter base images.
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
-    // CPU资源配置（单位：核心）
+    // The number of CPU cores.
     // 
     // This parameter is required.
     shared_ptr<float> cpu_ {};
+    // The credential configuration.
     shared_ptr<CredentialConfiguration> credentialConfiguration_ {};
+    // The template description.
     shared_ptr<string> description_ {};
+    // The disk size in MB.
     shared_ptr<int32_t> diskSize_ {};
+    // Controls whether to enable the Sandbox Agent.
     shared_ptr<bool> enableAgent_ {};
+    // Specifies whether to enable the pre-stop hook.
     shared_ptr<bool> enablePreStop_ {};
+    // The environment variables for the sandbox.
     shared_ptr<map<string, string>> environmentVariables_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the execution role.
     shared_ptr<string> executionRoleArn_ {};
+    // The log configuration.
     shared_ptr<LogConfiguration> logConfiguration_ {};
-    // 内存资源配置（单位：MB）
+    // The memory size in MB.
     // 
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
+    // The Network Attached Storage (NAS) mount configuration.
     shared_ptr<NASConfig> nasConfig_ {};
+    // The network configuration.
+    // 
     // This parameter is required.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // A list of Object Storage Service (OSS) configurations.
     shared_ptr<vector<OssConfiguration>> ossConfiguration_ {};
+    // The timeout for the pre-stop hook, in seconds. This parameter applies only when `enablePreStop` is set to `true`.
     shared_ptr<int32_t> preStopTimeoutInSeconds_ {};
-    // 沙箱空闲超时时间（秒）
+    // The duration in seconds that a sandbox can be idle before it is automatically stopped.
     shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
-    // 沙箱存活时间（秒）
+    // The maximum time-to-live (TTL) in seconds for the sandbox. The sandbox is terminated after this duration, regardless of activity.
     shared_ptr<int32_t> sandboxTTLInSeconds_ {};
+    // The scaling configuration.
     shared_ptr<ScalingConfig> scalingConfig_ {};
-    // 模板配置（灵活的对象结构，根据 templateType 不同而不同）
+    // The template configuration. This is a flexible object whose structure varies depending on the `templateType`.
     Darabonba::Json templateConfiguration_ {};
-    // 模板名称（要求账号唯一的）
+    // A unique name for the template within your account.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
+    // The template type.
+    // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

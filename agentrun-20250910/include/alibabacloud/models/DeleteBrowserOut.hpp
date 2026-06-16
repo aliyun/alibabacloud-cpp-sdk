@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The browser ID.
     shared_ptr<string> browserId_ {};
+    // The browser name.
     shared_ptr<string> browserName_ {};
+    // The operation status.
     shared_ptr<string> status_ {};
   };
 

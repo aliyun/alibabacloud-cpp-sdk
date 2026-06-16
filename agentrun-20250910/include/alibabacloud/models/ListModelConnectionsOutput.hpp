@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // 模型连接列表
+    // A list of ModelConnection objects.
     shared_ptr<vector<ModelConnection>> items_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 符合条件的模型连接总数
+    // The total number of matching ModelConnection objects.
     shared_ptr<int32_t> total_ {};
   };
 

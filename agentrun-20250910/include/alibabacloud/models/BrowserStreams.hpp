@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // automation stream
     shared_ptr<BrowserAutomationStream> automationStream_ {};
+    // real-time view stream
     shared_ptr<BrowserLiveViewStream> liveViewStream_ {};
   };
 

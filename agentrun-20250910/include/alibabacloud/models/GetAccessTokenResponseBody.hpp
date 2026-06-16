@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The personal access token. You can use this token to authenticate subsequent API calls. This authentication method is an alternative to using an Alibaba Cloud AccessKey pair or temporary credentials provided by the Security Token Service (STS).
       shared_ptr<string> accessToken_ {};
     };
 
@@ -90,8 +91,11 @@ namespace Models
 
 
   protected:
+    // The status code of the response. A value of `SUCCESS` indicates that the request was successful. For failures, this parameter returns an error code, such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetAccessTokenResponseBody::Data> data_ {};
+    // The unique request ID. This ID is used for troubleshooting purposes.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The height of the browser viewport in pixels.
     shared_ptr<double> height_ {};
+    // The width of the browser viewport in pixels.
     shared_ptr<double> width_ {};
   };
 

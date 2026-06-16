@@ -143,27 +143,29 @@ namespace Models
 
 
   protected:
-    // 代码解释器的唯一标识符
+    // The unique identifier for the CodeInterpreter.
     shared_ptr<string> codeInterpreterId_ {};
-    // 代码解释器的名称，用于标识和区分不同的代码解释器实例
+    // A user-defined name for the CodeInterpreter instance.
     shared_ptr<string> codeInterpreterName_ {};
+    // The number of CPU cores allocated to the instance.
     shared_ptr<float> cpu_ {};
-    // 代码解释器的创建时间，采用ISO 8601格式
+    // The creation timestamp for the CodeInterpreter, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 代码解释器的描述信息，说明该解释器的用途和功能
+    // The description of the CodeInterpreter.
     shared_ptr<string> description_ {};
-    // 此代码解释器的执行角色
+    // The ARN of the execution role for this CodeInterpreter.
     shared_ptr<string> executionRoleArn_ {};
-    // 代码解释器的最后更新时间，采用ISO 8601格式
+    // The last update timestamp for the CodeInterpreter, in ISO 8601 format.
     shared_ptr<string> lastUpdatedAt_ {};
-    // 内存资源配置（单位：MB）
+    // The memory allocated to the instance, in MB.
     shared_ptr<int32_t> memory_ {};
-    // 代码解释器的网络配置信息
+    // The network configuration for the CodeInterpreter.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
-    // 代码解释器的当前状态，如READY（就绪）、TERMINATED（已终止）等
+    // The current status of the CodeInterpreter, such as READY or TERMINATED.
     shared_ptr<string> status_ {};
-    // 当前状态的原因说明（如适用）
+    // The reason for the current status, if applicable.
     shared_ptr<string> statusReason_ {};
+    // The unique identifier for the tenant.
     shared_ptr<string> tenantId_ {};
   };
 

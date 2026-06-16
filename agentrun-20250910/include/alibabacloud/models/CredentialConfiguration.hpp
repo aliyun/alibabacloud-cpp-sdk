@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 凭证的唯一标识符
+    // The unique identifier for the credential.
     shared_ptr<string> credentialName_ {};
   };
 

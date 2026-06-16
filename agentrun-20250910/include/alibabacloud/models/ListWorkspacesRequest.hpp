@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the workspace. Used to filter the results.
     shared_ptr<string> name_ {};
+    // The page number to return. Default value: 1.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries to return per page.
     shared_ptr<string> pageSize_ {};
+    // The ID of the resource group to which the workspace belongs.
     shared_ptr<string> resourceGroupId_ {};
   };
 

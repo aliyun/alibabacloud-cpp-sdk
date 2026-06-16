@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // 包含版本描述等信息的请求体
+    // The input parameters for publishing a workflow version.
     shared_ptr<PublishFlowVersionInput> body_ {};
   };
 

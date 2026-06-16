@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // 代码解释器会话的环境变量配置
+    // The environment variables for the session, specified as key-value pairs.
     shared_ptr<map<string, string>> environment_ {};
-    // 代码解释器会话的超时时间，单位为秒
+    // The timeout for the session, in seconds.
     shared_ptr<int32_t> timeout_ {};
-    // 代码解释器会话的工作目录路径
+    // The working directory path for the session.
     shared_ptr<string> workingDirectory_ {};
   };
 

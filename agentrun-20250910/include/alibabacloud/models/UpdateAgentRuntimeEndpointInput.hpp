@@ -100,17 +100,19 @@ namespace Models
 
 
   protected:
+    // Agent runtime endpoint Name
     shared_ptr<string> agentRuntimeEndpointName_ {};
     // 为 true 时删除该端点的弹性配置
     shared_ptr<bool> deleteScalingConfig_ {};
+    // Description
     shared_ptr<string> description_ {};
-    // 是否禁用该端点的公网访问
+    // Whether to disable public network access for this endpoint
     shared_ptr<bool> disablePublicNetworkAccess_ {};
-    // 智能体运行时端点的路由配置，支持多版本权重分配
+    // The Ingress configuration of the agent runtime endpoint, which supports weight assignment across multiple versions
     shared_ptr<RoutingConfiguration> routingConfiguration_ {};
     // 端点的弹性伸缩配置，包括最小实例数和定时扩容策略（复用 ScalingConfig）
     shared_ptr<ScalingConfig> scalingConfig_ {};
-    // 智能体运行时的目标版本
+    // Target Version of the agent runtime
     shared_ptr<string> targetVersion_ {};
   };
 

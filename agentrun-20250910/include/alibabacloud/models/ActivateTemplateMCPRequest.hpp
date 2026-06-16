@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of tools to enable.
     shared_ptr<vector<string>> enabledTools_ {};
+    // The transport protocol.
     shared_ptr<string> transport_ {};
   };
 

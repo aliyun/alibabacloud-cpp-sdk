@@ -84,13 +84,17 @@ namespace Models
 
 
   protected:
+    // The ID of the agent runtime.
     shared_ptr<string> agentRuntimeId_ {};
+    // The business type of the bot.
     shared_ptr<string> botBizType_ {};
+    // The name of the IM bot. The system performs a case-insensitive substring search.
     shared_ptr<string> botName_ {};
-    // 默认 1；传入时须 ≥ 1
+    // The page number. Must be greater than or equal to 1. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // 默认 20；传入时须 1–100
+    // The number of entries per page. Valid values: 1–100. Default: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The status of the bot.
     shared_ptr<string> status_ {};
   };
 

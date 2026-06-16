@@ -125,25 +125,25 @@ namespace Models
 
 
   protected:
-    // 工作流端点的创建时间，采用ISO 8601格式
+    // The creation timestamp for the flow endpoint, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 工作流端点的描述信息
+    // The description of the flow endpoint.
     shared_ptr<string> description_ {};
-    // 是否禁用该端点的公网访问
+    // Set to true to disable public network access for this endpoint.
     shared_ptr<bool> disablePublicNetworkAccess_ {};
-    // 工作流端点的全局唯一资源名称
+    // The Alibaba Cloud Resource Name (ARN) of the flow endpoint.
     shared_ptr<string> flowEndpointArn_ {};
-    // 工作流端点的唯一标识符
+    // The unique identifier of the flow endpoint.
     shared_ptr<string> flowEndpointId_ {};
-    // 工作流端点的名称
+    // The name of the flow endpoint.
     shared_ptr<string> flowEndpointName_ {};
-    // 工作流的唯一标识符
+    // The unique identifier of the flow.
     shared_ptr<string> flowId_ {};
-    // 工作流端点最后一次更新的时间，采用ISO 8601格式
+    // The last update timestamp for the flow endpoint, in ISO 8601 format.
     shared_ptr<string> lastUpdatedAt_ {};
-    // 工作流端点的版本路由配置
+    // The routing configuration that distributes traffic to different versions of the flow.
     shared_ptr<vector<FlowEndpointRoutingConfig>> routingConfiguration_ {};
-    // 工作流端点指向的目标版本号
+    // The flow version targeted by the endpoint.
     shared_ptr<string> targetVersion_ {};
   };
 

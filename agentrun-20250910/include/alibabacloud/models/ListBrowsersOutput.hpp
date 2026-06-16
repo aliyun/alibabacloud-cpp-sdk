@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // Browser list
     shared_ptr<vector<Browser>> items_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    // Total count
     shared_ptr<int64_t> total_ {};
   };
 

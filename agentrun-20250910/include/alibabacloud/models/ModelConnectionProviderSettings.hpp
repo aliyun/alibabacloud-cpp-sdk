@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // 模型提供商的默认API基础地址
+    // The default API base URL for the model provider.
     shared_ptr<string> baseUrl_ {};
-    // 该连接支持的模型名称列表
+    // The list of model names supported by this connection.
     shared_ptr<vector<string>> modelNames_ {};
   };
 

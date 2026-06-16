@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // 创建工具的请求参数，包含工具的所有配置信息
+    // The request body.
     shared_ptr<CreateToolInputV2> body_ {};
   };
 

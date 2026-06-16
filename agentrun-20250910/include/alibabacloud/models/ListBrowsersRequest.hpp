@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 根据浏览器实例名称进行模糊匹配过滤
+    // Filter by browser name
     shared_ptr<string> browserName_ {};
-    // 当前页码，从1开始计数
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页返回的记录数量
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
-    // 根据浏览器实例的运行状态进行过滤，可选值：CREATING、READY、DELETING等
+    // Filter by status
     shared_ptr<string> status_ {};
   };
 

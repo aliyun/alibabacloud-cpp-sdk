@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The custom domain name.
     shared_ptr<string> domainName_ {};
+    // The domain type used for filtering. Valid values: STANDARD and SANDBOX.
     shared_ptr<string> domainType_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the resource associated with the custom domain.
     shared_ptr<string> resourceName_ {};
+    // The type of the resource associated with the custom domain.
     shared_ptr<string> resourceType_ {};
   };
 

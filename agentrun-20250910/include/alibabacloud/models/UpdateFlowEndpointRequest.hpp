@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // 包含要更新的工作流端点配置信息的请求体
+    // Update Flow Endpoint Input Parameters
     // 
     // This parameter is required.
     shared_ptr<UpdateFlowEndpointInput> body_ {};

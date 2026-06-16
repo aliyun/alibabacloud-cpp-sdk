@@ -106,22 +106,29 @@ namespace Models
 
 
   protected:
+    // The name of the browser.
+    // 
     // This parameter is required.
     shared_ptr<string> browserName_ {};
-    // CPU资源配置（单位：核）
+    // The CPU cores to allocate to the browser instance.
     // 
     // This parameter is required.
     shared_ptr<float> cpu_ {};
+    // The credential ID used for authentication.
     shared_ptr<string> credentialId_ {};
+    // A description of the browser instance.
     shared_ptr<string> description_ {};
+    // The ARN of the execution role.
     shared_ptr<string> executionRoleArn_ {};
-    // 内存资源配置（单位：MB）
+    // The memory (in MB) to allocate to the browser instance.
     // 
     // This parameter is required.
     shared_ptr<int32_t> memory_ {};
+    // The network configuration for the browser instance.
+    // 
     // This parameter is required.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
-    // 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+    // The idle time in seconds before a session expires. When a session is idle, the instance enters an idle billing mode.
     shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
   };
 

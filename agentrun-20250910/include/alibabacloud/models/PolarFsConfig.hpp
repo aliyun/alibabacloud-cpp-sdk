@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The ID of the group.
     shared_ptr<int32_t> groupId_ {};
+    // The mount points for PFS.
     shared_ptr<vector<PolarFsMountConfig>> mountPoints_ {};
+    // The ID of the user.
     shared_ptr<int32_t> userId_ {};
   };
 

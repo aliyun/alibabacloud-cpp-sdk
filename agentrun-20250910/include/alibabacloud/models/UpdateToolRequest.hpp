@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // 更新工具的请求参数，只需提供需要修改的字段
+    // The request body.
     shared_ptr<UpdateToolInputV2> body_ {};
   };
 

@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // 是否启用该限流规则
+    // Specifies whether to enable the rate limit rule.
     shared_ptr<bool> enabled_ {};
-    // 限流时间窗口配置列表，提供时将整组覆盖
+    // A list of time window configurations. Providing this parameter replaces the entire existing list.
     shared_ptr<vector<WindowLimit>> windows_ {};
   };
 

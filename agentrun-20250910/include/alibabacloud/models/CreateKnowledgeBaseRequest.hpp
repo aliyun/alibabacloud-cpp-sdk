@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The data structure to create a knowledge base.
     shared_ptr<CreateKnowledgeBaseInput> body_ {};
   };
 

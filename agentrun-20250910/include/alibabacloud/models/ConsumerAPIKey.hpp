@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 密钥是否启用，true表示启用，false表示禁用
+    // Specifies if the key is enabled (true) or disabled (false).
     shared_ptr<bool> active_ {};
-    // 消费者API密钥的唯一标识符
+    // The unique identifier of the consumer API key.
     shared_ptr<string> consumerApiKeyId_ {};
-    // 消费者API密钥的创建时间，采用ISO 8601格式
+    // The creation time of the consumer API key, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 消费者API密钥的描述信息
+    // A user-defined description for the consumer API key.
     shared_ptr<string> description_ {};
-    // 消费者API密钥最后一次更新的时间，采用ISO 8601格式
+    // The last update time of the consumer API key, in ISO 8601 format.
     shared_ptr<string> lastUpdatedAt_ {};
-    // API密钥的掩码展示形式，仅显示前后几位字符
+    // The masked API key, showing only the first and last few characters.
     shared_ptr<string> maskedKey_ {};
-    // 关联的模型连接标识符
+    // The identifier of the associated model connection.
     shared_ptr<string> modelConnectionId_ {};
   };
 

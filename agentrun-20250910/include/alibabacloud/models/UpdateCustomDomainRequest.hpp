@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The updated configuration for the custom domain.
     shared_ptr<UpdateCustomDomainInput> body_ {};
   };
 

@@ -94,14 +94,21 @@ namespace Models
 
 
   protected:
+    // The unique identifier for the browser.
     shared_ptr<string> browserId_ {};
+    // The browser name.
     shared_ptr<string> browserName_ {};
+    // The time the session was created.
     shared_ptr<string> createdAt_ {};
+    // The time the session was last updated.
     shared_ptr<string> lastUpdatedAt_ {};
+    // The unique identifier for the session.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // 会话空闲超时时间，单位为秒
+    // The session idle timeout, in seconds.
     shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
+    // The session status.
     shared_ptr<string> status_ {};
   };
 

@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+    // The response status code. `SUCCESS` indicates the request was successful. If the request fails, this field contains an error type, such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
     shared_ptr<string> code_ {};
-    // 代码解释器列表的详细信息
+    // A list of code interpreter objects.
     shared_ptr<ListCodeInterpretersOutput> data_ {};
-    // 唯一的请求标识符，用于问题追踪
+    // The unique request ID, used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

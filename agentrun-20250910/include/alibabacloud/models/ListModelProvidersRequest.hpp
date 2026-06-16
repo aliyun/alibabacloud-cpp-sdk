@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The name of the model to filter by.
     shared_ptr<string> modelName_ {};
+    // The model type to filter by. Valid values:
+    // 
+    // - `system`: A system model.
+    // 
+    // - `deployment`: A custom deployment model.
     shared_ptr<string> modelType_ {};
+    // The page number to retrieve.
     shared_ptr<string> pageNumber_ {};
+    // The number of results to return per page.
     shared_ptr<string> pageSize_ {};
+    // The cloud provider. To specify Alibaba Cloud, use the value \\"Aliyun\\".
     shared_ptr<string> provider_ {};
   };
 
