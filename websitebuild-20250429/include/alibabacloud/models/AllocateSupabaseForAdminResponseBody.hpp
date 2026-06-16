@@ -281,51 +281,53 @@ namespace Models
 
 
     protected:
-      // Anonymity key
+      // The anonymous key.
       shared_ptr<string> anonKey_ {};
-      // Business ID
+      // The business ID.
       shared_ptr<string> bizId_ {};
-      // Creation Time of the database instance
+      // The time when the database instance was created.
       shared_ptr<string> dbInstanceCreateTime_ {};
-      // database instance ID
+      // The database instance ID.
       shared_ptr<string> dbInstanceId_ {};
-      // Database public URL
+      // The public URL of the database.
       shared_ptr<string> dbPublicUrl_ {};
-      // Database type
+      // The database type.
       shared_ptr<string> dbType_ {};
-      // Additional information
+      // The additional information.
       shared_ptr<string> extra_ {};
-      // Instance creation completion time
+      // The time when the instance creation was completed.
       shared_ptr<string> instanceCreateFinishedTime_ {};
-      // Instance creation status
+      // The instance creation status.
       shared_ptr<string> instanceCreateStatus_ {};
-      // Deletion flag
+      // The deletion flag.
       shared_ptr<int32_t> isDeleted_ {};
-      // RDS database access password.
+      // The password for accessing the ApsaraDB RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
-      // Service key
+      // The service key.
       shared_ptr<string> serviceKey_ {};
-      // 0: paused; 1: running
+      // The instance status. Valid values:
+      // - 0: paused
+      // - 1: running.
       shared_ptr<int32_t> status_ {};
-      // Supabase Dashboard password.
+      // The password for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardPassword_ {};
-      // Supabase Dashboard username.
+      // The username for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardUserName_ {};
-      // Creation Time of the Supabase instance
+      // The time when the Supabase instance was created.
       shared_ptr<string> supabaseInstanceCreateTime_ {};
-      // Supabase instance ID
+      // The Supabase instance ID.
       shared_ptr<string> supabaseInstanceId_ {};
       // Supabase Kong URL
       shared_ptr<string> supabaseKongUrl_ {};
-      // PrivateLink connection address of the Supabase instance.
+      // The private endpoint of the Supabase instance.
       shared_ptr<string> supabasePrivateIp_ {};
-      // Public endpoint of the Supabase instance.
+      // The public endpoint of the Supabase instance.
       shared_ptr<string> supabasePublicIp_ {};
-      // Supabase public URL
+      // The public URL of the Supabase instance.
       shared_ptr<string> supabasePublicUrl_ {};
-      // Tenant ID
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -414,27 +416,27 @@ namespace Models
 
 
   protected:
-    // Access denied details
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message.
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<AllocateSupabaseForAdminResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

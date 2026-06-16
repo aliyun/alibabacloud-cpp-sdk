@@ -120,11 +120,11 @@ namespace Models
 
 
       protected:
-        // Child content
+        // The child content.
         shared_ptr<vector<Darabonba::Json>> children_ {};
-        // Full path (relative to workspace)
+        // The full path relative to the workspace.
         shared_ptr<string> key_ {};
-        // Name
+        // The name.
         shared_ptr<string> label_ {};
       };
 
@@ -147,9 +147,9 @@ namespace Models
 
 
     protected:
-      // Current time
+      // The current time.
       shared_ptr<string> currentTime_ {};
-      // Directory structure
+      // The directory structure.
       shared_ptr<vector<Module::DirectoryList>> directoryList_ {};
     };
 
@@ -238,27 +238,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message. Not currently used. Ignore it.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Returned object.
+    // The response object.
     shared_ptr<GetAppWorkspaceDirectoryResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Spare parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

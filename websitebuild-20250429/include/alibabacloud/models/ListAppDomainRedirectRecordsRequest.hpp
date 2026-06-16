@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Application instance business ID
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // The number of results per query.
+    // The number of entries per query.
     // 
-    // Range: 10~100. Default value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Token for the next query. It is empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
   };
 

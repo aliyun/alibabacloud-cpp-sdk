@@ -187,21 +187,21 @@ namespace Models
 
 
       protected:
-        // Acquisition time
+        // The time when the inspiration points were acquired.
         shared_ptr<string> acquisitionTime_ {};
-        // Balance (initQuota - used)
+        // The remaining balance (InitQuota minus used).
         shared_ptr<int64_t> balance_ {};
         shared_ptr<string> balanceStr_ {};
-        // Expiration time of the validity period
+        // The expiration time of the quota.
         shared_ptr<string> endDate_ {};
-        // Indicates whether it has expired (endDate < current time). The frontend uses this to gray out the display.
+        // Indicates whether the quota has expired (EndDate is earlier than the current time). The frontend grays out expired entries based on this value.
         shared_ptr<bool> expired_ {};
-        // Quantity obtained (initial quota)
+        // The acquired quantity (initial quota).
         shared_ptr<int64_t> initQuota_ {};
         shared_ptr<string> initQuotaStr_ {};
-        // Source type code (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
+        // The source type code. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
         shared_ptr<string> sourceType_ {};
-        // Display Name of the source type
+        // The display name of the source type.
         shared_ptr<string> sourceTypeName_ {};
       };
 
@@ -316,21 +316,21 @@ namespace Models
 
 
       protected:
-        // Acquisition Time
+        // The time when the inspiration points were acquired.
         shared_ptr<string> acquisitionTime_ {};
-        // Balance (initQuota - used)
+        // The remaining balance (InitQuota minus used).
         shared_ptr<int64_t> balance_ {};
         shared_ptr<string> balanceStr_ {};
-        // Validity Period expiration time
+        // The expiration time of the quota.
         shared_ptr<string> endDate_ {};
-        // Indicates whether it has expired (endDate < current time). The frontend uses this to gray out the display.
+        // Indicates whether the quota has expired (EndDate is earlier than the current time). The frontend grays out expired entries based on this value.
         shared_ptr<bool> expired_ {};
-        // Quantity obtained (initial quota)
+        // The acquired quantity (initial quota).
         shared_ptr<int64_t> initQuota_ {};
         shared_ptr<string> initQuotaStr_ {};
-        // Source type code (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
+        // The source type code. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
         shared_ptr<string> sourceType_ {};
-        // Source Type Display Name
+        // The display name of the source type.
         shared_ptr<string> sourceTypeName_ {};
         shared_ptr<string> status_ {};
       };
@@ -406,23 +406,23 @@ namespace Models
 
 
     protected:
-      // Current page number.
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // Request result.
+      // The query results.
       shared_ptr<vector<Module::Data>> data_ {};
-      // Decision weight
+      // The decision weight.
       shared_ptr<Module::Next> next_ {};
-      // Indicates whether there is a next page.
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // Page size.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // Indicates whether a previous page exists
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to paging limits, the server-side processes at most the latest 1,000 records for the current query. If the result exceeds 1,000 records, **ResultLimit** is **true**. You can narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
+      // Apart from pagination limits, the server processes up to 1000 recent records for the current query. If the results exceed 1000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
-      // Total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -511,29 +511,29 @@ namespace Models
 
 
   protected:
-    // Access denied details
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:
-    // - false: Retry is not allowed.
-    // - true: Retry is allowed.
+    // Indicates whether a retry is allowed. Valid values:
+    // - false: A retry is not allowed.
+    // - true: A retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application Name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message.
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<QueryInspirationAccountDetailsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether processing is synchronous
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

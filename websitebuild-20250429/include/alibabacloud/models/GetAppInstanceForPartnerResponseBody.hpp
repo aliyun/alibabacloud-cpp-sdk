@@ -516,65 +516,65 @@ namespace Models
 
 
         protected:
-          // Management Console URL
+          // The admin console URL.
           shared_ptr<string> adminUrl_ {};
-          // Application Type Code
+          // The application type code.
           shared_ptr<string> applicationType_ {};
-          // Application type text description
+          // The text description of the application type.
           shared_ptr<string> applicationTypeText_ {};
-          // Attached CNAME record
+          // The bound CNAME record.
           shared_ptr<string> bindCname_ {};
-          // Business ID
+          // The business ID.
           shared_ptr<string> bizId_ {};
-          // Product encoding
+          // The commodity code.
           shared_ptr<string> commodityCode_ {};
-          // [responses_200_schema_properties_Module_properties_RelatedInstanceList_items_properties_CustomerService_description]Customer service information
+          // The customer service information.
           shared_ptr<string> customerService_ {};
-          // Deployment area
+          // The deployment region.
           shared_ptr<string> deployArea_ {};
-          // Domain Name List
+          // The domain name list.
           shared_ptr<string> domainList_ {};
-          // Editor URL
+          // The editor URL.
           shared_ptr<string> editorUrl_ {};
-          // Creation Time
+          // The creation time.
           shared_ptr<string> gmtCreate_ {};
-          // Updated At
+          // The modification time.
           shared_ptr<string> gmtModified_ {};
-          // ICP number
+          // The ICP filing number.
           shared_ptr<string> icpbaNo_ {};
-          // Image list
+          // The image list.
           shared_ptr<string> imageList_ {};
-          // Lenovo instance ID
+          // The Lingxiao instance ID.
           shared_ptr<string> lxInstanceId_ {};
-          // Order Time
+          // The order placement time.
           shared_ptr<string> ordTime_ {};
-          // Order ID
+          // The order ID.
           shared_ptr<string> orderId_ {};
-          // Order Quantity
+          // The number of orders.
           shared_ptr<int32_t> orderNum_ {};
-          // Channel Partner Business ID
+          // The channel partner business ID.
           shared_ptr<string> partnerId_ {};
-          // Payment time
+          // The payment time.
           shared_ptr<string> payTime_ {};
-          // Preview URL
+          // The preview URL.
           shared_ptr<string> previewUrl_ {};
-          // SEO site information
+          // The SEO site information.
           shared_ptr<string> seoSite_ {};
-          // Site logo
+          // The site logo.
           shared_ptr<string> siteLogo_ {};
-          // Site version encoding
+          // The site version code.
           shared_ptr<string> siteVersion_ {};
-          // Site Version Text Description
+          // The text description of the site version.
           shared_ptr<string> siteVersionText_ {};
-          // Source Information
+          // The source information.
           shared_ptr<string> source_ {};
-          // Template ETag identity
+          // The template ETag identifier.
           shared_ptr<string> templateEtag_ {};
-          // Template ID
+          // The template ID.
           shared_ptr<string> templateId_ {};
-          // Text List
+          // The text list.
           shared_ptr<string> textList_ {};
-          // Thumbnail
+          // The thumbnail.
           shared_ptr<string> thumbnail_ {};
           shared_ptr<string> upgradeStatus_ {};
         };
@@ -792,63 +792,63 @@ namespace Models
 
 
       protected:
-        // application sub-type
+        // The application subtype.
         shared_ptr<string> appSubType_ {};
-        // application Type
+        // The application type.
         shared_ptr<string> appType_ {};
-        // application instance business ID
+        // The business ID of the application instance.
         shared_ptr<string> bizId_ {};
-        // Build Type
+        // The build type.
         shared_ptr<string> buildType_ {};
-        // Is Deleted
+        // Indicates whether the instance is deleted.
         shared_ptr<int32_t> deleted_ {};
-        // Application description
+        // The application description.
         shared_ptr<string> description_ {};
         // placeHolder
         shared_ptr<string> designSpecBizId_ {};
-        // Design configuration ID
+        // The ID of the design specification.
         shared_ptr<string> designSpecId_ {};
-        // primary domain name
+        // The primary domain name.
         shared_ptr<string> domain_ {};
-        // End time
+        // The end time.
         shared_ptr<string> endTime_ {};
-        // Environment
+        // The environment.
         shared_ptr<string> env_ {};
-        // Associated Delivery Order ID
+        // The associated delivery order ID.
         shared_ptr<string> espBizId_ {};
-        // Creation Time
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Deletion time
+        // The deletion time.
         shared_ptr<string> gmtDelete_ {};
-        // Updated At
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // Published At
+        // The publish time.
         shared_ptr<string> gmtPublish_ {};
-        // application icon
+        // The application icon URL.
         shared_ptr<string> iconUrl_ {};
-        // Application Name
+        // The application name.
         shared_ptr<string> name_ {};
-        // order ID
+        // The order ID.
         shared_ptr<string> orderId_ {};
-        // Instance configuration
+        // The instance configuration.
         shared_ptr<RelatedInstanceList::Profile> profile_ {};
-        // domain name
+        // The website domain name.
         shared_ptr<string> siteHost_ {};
-        // application identity
+        // The application identifier.
         shared_ptr<string> slug_ {};
-        // Source MARKET_CLOUD_DREAM
+        // The source. Example: MARKET_CLOUD_DREAM.
         shared_ptr<string> sourceType_ {};
-        // Start Time
+        // The start time.
         shared_ptr<string> startTime_ {};
-        // Status
+        // The status.
         shared_ptr<string> status_ {};
-        // Task Status text.
+        // The task status text.
         shared_ptr<string> statusText_ {};
-        // Application thumbnail
+        // The application thumbnail URL.
         shared_ptr<string> thumbnailUrl_ {};
-        // User ID
+        // The user ID.
         shared_ptr<string> userId_ {};
-        // Application instance Version
+        // The application instance version.
         shared_ptr<string> version_ {};
       };
 
@@ -1156,65 +1156,65 @@ namespace Models
 
 
       protected:
-        // Management console URL
+        // The admin console URL.
         shared_ptr<string> adminUrl_ {};
-        // Application type code
+        // The application type code.
         shared_ptr<string> applicationType_ {};
-        // Application type text description
+        // The text description of the application type.
         shared_ptr<string> applicationTypeText_ {};
-        // Attached CNAME record
+        // The bound CNAME record.
         shared_ptr<string> bindCname_ {};
-        // Business ID
+        // The business ID.
         shared_ptr<string> bizId_ {};
-        // Product encoding
+        // The commodity code.
         shared_ptr<string> commodityCode_ {};
-        // Customer Service Information
+        // The customer service information.
         shared_ptr<string> customerService_ {};
-        // Deployment area
+        // The deployment region.
         shared_ptr<string> deployArea_ {};
-        // Domain name list
+        // The domain name list.
         shared_ptr<string> domainList_ {};
-        // Editor URL
+        // The editor URL.
         shared_ptr<string> editorUrl_ {};
-        // Creation time
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Updated At
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // ICP number
+        // The ICP filing number.
         shared_ptr<string> icpbaNo_ {};
-        // Image list
+        // The image list.
         shared_ptr<string> imageList_ {};
-        // Lenovo instance ID
+        // The Lingxiao instance ID.
         shared_ptr<string> lxInstanceId_ {};
-        // Order time
+        // The order placement time.
         shared_ptr<string> ordTime_ {};
-        // Order ID
+        // The order ID.
         shared_ptr<string> orderId_ {};
-        // Order quantity
+        // The number of orders.
         shared_ptr<int32_t> orderNum_ {};
-        // Channel partner business ID
+        // The channel partner business ID.
         shared_ptr<string> partnerId_ {};
-        // Payment time
+        // The payment time.
         shared_ptr<string> payTime_ {};
-        // Preview URL
+        // The preview URL.
         shared_ptr<string> previewUrl_ {};
-        // SEO site information
+        // The SEO site information.
         shared_ptr<string> seoSite_ {};
-        // Site logo
+        // The site logo.
         shared_ptr<string> siteLogo_ {};
-        // Site version encoding
+        // The site version code.
         shared_ptr<string> siteVersion_ {};
-        // Site version text description
+        // The text description of the site version.
         shared_ptr<string> siteVersionText_ {};
-        // Source information
+        // The source information.
         shared_ptr<string> source_ {};
-        // Template ETag identity
+        // The template ETag identifier.
         shared_ptr<string> templateEtag_ {};
-        // Template ID
+        // The template ID.
         shared_ptr<string> templateId_ {};
-        // Text list
+        // The text list.
         shared_ptr<string> textList_ {};
-        // Thumbnail
+        // The thumbnail.
         shared_ptr<string> thumbnail_ {};
         shared_ptr<string> upgradeStatus_ {};
       };
@@ -1346,21 +1346,21 @@ namespace Models
         protected:
           // aliyun_pk
           shared_ptr<string> aliyunPk_ {};
-          // External bizId
+          // The external business ID.
           shared_ptr<string> bizId_ {};
-          // Creation Time
+          // The creation time.
           shared_ptr<string> gmtCreate_ {};
-          // Updated At
+          // The modification time.
           shared_ptr<string> gmtModified_ {};
-          // User who owns the ICP filing service code
+          // The user to whom the ICP filing service code belongs.
           shared_ptr<string> grantAliyunPk_ {};
-          // Phone number
+          // The mobile phone number.
           shared_ptr<string> mobile_ {};
           // parent_pk
           shared_ptr<string> parentPk_ {};
-          // Externally associated partnerId
+          // The external association partner ID.
           shared_ptr<string> partnerId_ {};
-          // Display name of the attached user
+          // The display name of the bound user.
           shared_ptr<string> userDisplayName_ {};
         };
 
@@ -1392,9 +1392,9 @@ namespace Models
       protected:
         // data
         shared_ptr<PartnerDetail::BindData> bindData_ {};
-        // Partner ID, extension parameter
+        // The ID of the partner. This is an extended parameter.
         shared_ptr<string> partnerId_ {};
-        // Possible values: unknown, init, testing, online
+        // Valid values: unknown, init, testing, online.
         shared_ptr<string> status_ {};
       };
 
@@ -1573,25 +1573,25 @@ namespace Models
 
 
         protected:
-          // Business ID
+          // The business ID.
           shared_ptr<string> bizId_ {};
-          // Design Type
+          // The design type.
           shared_ptr<string> designType_ {};
-          // Design type description
+          // The description of the design type.
           shared_ptr<string> designTypeText_ {};
-          // Creation Time
+          // The creation time.
           shared_ptr<string> gmtCreate_ {};
-          // Updated At
+          // The modification time.
           shared_ptr<string> gmtModified_ {};
-          // primary key
+          // The primary key.
           shared_ptr<string> id_ {};
-          // Lingxiao instance ID
+          // The Lingxiao instance ID.
           shared_ptr<string> lxInstanceId_ {};
-          // order ID
+          // The order ID.
           shared_ptr<string> orderId_ {};
-          // Service Specification
+          // The service specification.
           shared_ptr<string> serviceSpec_ {};
-          // Service specification description
+          // The description of the service specification.
           shared_ptr<string> serviceSpecText_ {};
           shared_ptr<string> upgradeStatus_ {};
         };
@@ -1689,13 +1689,13 @@ namespace Models
 
 
           protected:
-            // Operation key used as a UUID for an operation behavior
+            // The action key that uniquely identifies an operation.
             shared_ptr<string> actionKey_ {};
-            // The display text of the action, used to show the action name in the interface.
+            // The display text of the action, which is shown as the action name in the interface.
             shared_ptr<string> actionText_ {};
-            // The enable status, indicating whether the action is active.
+            // Indicates whether the action is enabled.
             shared_ptr<bool> enable_ {};
-            // The URL address to which the hyperlink redirects when the action is clicked.
+            // The URL to which the user is redirected when the action is clicked.
             shared_ptr<string> href_ {};
           };
 
@@ -1755,13 +1755,13 @@ namespace Models
 
 
           protected:
-            // Action key, used as a UUID for an action behavior.
+            // The action key that uniquely identifies an operation.
             shared_ptr<string> actionKey_ {};
-            // Display text for the action, used to show the action name in the interface.
+            // The display text of the action, which is shown as the action name in the interface.
             shared_ptr<string> actionText_ {};
-            // Enable status, indicating whether the action is active.
+            // Indicates whether the action is enabled.
             shared_ptr<bool> enable_ {};
-            // Link address, the URL to which the user is redirected when clicking the action.
+            // The URL to which the user is redirected when the action is clicked.
             shared_ptr<string> href_ {};
           };
 
@@ -1843,25 +1843,25 @@ namespace Models
 
 
         protected:
-          // List of console operation buttons
+          // The list of console action buttons.
           shared_ptr<vector<OperationAddress::Actions>> actions_ {};
-          // AI customer service design URL
+          // The URL for customer service design.
           shared_ptr<string> aiCustomerConfigUrl_ {};
-          // AI design URL
+          // The URL for AI design.
           shared_ptr<string> aiDesignUrl_ {};
-          // Application publish URL
+          // The URL for application publishing.
           shared_ptr<string> appPublishUrl_ {};
-          // List of overview page operation buttons
+          // The list of overview page action buttons.
           shared_ptr<vector<OperationAddress::DashboardActions>> dashboardActions_ {};
-          // Professional design URL
+          // The URL for professional design.
           shared_ptr<string> designUrl_ {};
-          // Application instance logon URL
+          // The logon URL of the application instance.
           shared_ptr<string> instanceLoginUrl_ {};
-          // Renewal and purchase URL
+          // The URL for renewal purchase.
           shared_ptr<string> renewBuyUrl_ {};
-          // Service delivery URL
+          // The URL for service delivery.
           shared_ptr<string> serverDeliveryUrl_ {};
-          // Upgrade purchase URL
+          // The URL for upgrade purchase.
           shared_ptr<string> upgradeBuyUrl_ {};
         };
 
@@ -1978,29 +1978,29 @@ namespace Models
 
 
         protected:
-          // Child folder object
+          // The child folder object.
           shared_ptr<vector<Darabonba::Json>> children_ {};
-          // The ordinal number of the last node.
+          // The sequence number of the last node.
           shared_ptr<int32_t> finalStepNo_ {};
-          // When FinishStatus (baseline instance completion status) is FINISH (completed), the UNIX timestamp of the baseline instance completion time is returned.
+          // The completion timestamp of the baseline instance. This value is returned when FinishStatus is FINISH (completed).
           shared_ptr<int64_t> finishTime_ {};
           // IsContainerNode
           shared_ptr<bool> isContainerNode_ {};
-          // The ID of the OBServer edge zone where the resource node resides.
+          // The ID of the OBServer node where the resource node resides.
           shared_ptr<string> nodeId_ {};
           // <props="china">The name of the matrix.
-          // <props="intl">This parameter is not publicly available.
+          // <props="intl">This parameter is not available for public use..
           shared_ptr<string> nodeName_ {};
-          // Node running status. Valid values:
+          // The running status of the node. Valid values:
           // 
           // - **UP**: The node is running.
-          // - **DOWN**: The node is faulty.
+          // - **DOWN**: The node has failed.
           shared_ptr<string> nodeStatus_ {};
           // The role of the operator.
           shared_ptr<string> operatorRole_ {};
-          // Parent node ID
+          // The ID of the parent node.
           shared_ptr<string> parentNodeId_ {};
-          // Ordinal number of the flow node
+          // The sequence number of the process node.
           shared_ptr<int32_t> stepNo_ {};
         };
 
@@ -2069,15 +2069,15 @@ namespace Models
 
 
         protected:
-          // primary key
+          // The primary key.
           shared_ptr<string> id_ {};
-          // Website Name
+          // The website name.
           shared_ptr<string> name_ {};
           // QrCode
           shared_ptr<string> qrCode_ {};
           // dingtalk wx...
           shared_ptr<string> type_ {};
-          // Temporary access URL for image
+          // The temporary access URL of the image.
           shared_ptr<string> url_ {};
         };
 
@@ -2228,43 +2228,43 @@ namespace Models
 
 
       protected:
-        // Application instance business ID
+        // The business ID of the application instance.
         shared_ptr<string> bizId_ {};
-        // Deletion flag
+        // The deletion flag.
         shared_ptr<int32_t> deleted_ {};
-        // End time
+        // The end time.
         shared_ptr<string> endTime_ {};
         // esp bizId
         shared_ptr<string> espBizId_ {};
-        // Creation Time
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Updated At
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // Application operation address
+        // The application operation address.
         shared_ptr<AppServiceList::Group> group_ {};
-        // Associated business ID
+        // The associated business ID.
         shared_ptr<string> instanceBizId_ {};
-        // Service name
+        // The service name.
         shared_ptr<string> name_ {};
-        // Delivery flow
+        // The delivery process.
         shared_ptr<vector<AppServiceList::NodeList>> nodeList_ {};
-        // Used to uniquely identify an operation behavior
+        // The unique identifier of an operation.
         shared_ptr<AppServiceList::OperationAddress> operationAddress_ {};
-        // Order ID
+        // The order ID.
         shared_ptr<string> orderId_ {};
-        // Instance service configuration
+        // The instance service configuration.
         shared_ptr<AppServiceList::Profile> profile_ {};
-        // Service Type
+        // The service type.
         shared_ptr<string> serviceType_ {};
-        // Service Type Description
+        // The description of the service type.
         shared_ptr<string> serviceTypeText_ {};
-        // Application identity
+        // The application identifier.
         shared_ptr<string> slug_ {};
-        // Start Time
+        // The start time.
         shared_ptr<string> startTime_ {};
-        // Status
+        // The status.
         shared_ptr<string> status_ {};
-        // User ID
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -2361,13 +2361,13 @@ namespace Models
 
 
         protected:
-          // Operation key used to uniquely identify an operation behavior.
+          // The action key that uniquely identifies an operation.
           shared_ptr<string> actionKey_ {};
-          // Action display text used to show the action name in the interface
+          // The display text of the action, which is shown as the action name in the interface.
           shared_ptr<string> actionText_ {};
-          // Enable status indicating whether the action is active
+          // Indicates whether the action is enabled.
           shared_ptr<bool> enable_ {};
-          // Link URL to which the user is redirected when clicking the action
+          // The URL to which the user is redirected when the action is clicked.
           shared_ptr<string> href_ {};
         };
 
@@ -2427,13 +2427,13 @@ namespace Models
 
 
         protected:
-          // Operation key value, used as a UUID for an operation behavior.
+          // The action key that uniquely identifies an operation.
           shared_ptr<string> actionKey_ {};
-          // Action display text, used to show the action name in the interface
+          // The display text of the action, which is shown as the action name in the interface.
           shared_ptr<string> actionText_ {};
-          // Enable status, indicating whether the operation is active.
+          // Indicates whether the action is enabled.
           shared_ptr<bool> enable_ {};
-          // Link address, the URL to which the user is redirected when clicking the action
+          // The URL to which the user is redirected when the action is clicked.
           shared_ptr<string> href_ {};
         };
 
@@ -2515,25 +2515,25 @@ namespace Models
 
 
       protected:
-        // List of console operation buttons
+        // The list of console action buttons.
         shared_ptr<vector<AppOperationAddress::Actions>> actions_ {};
-        // Customer service design URL
+        // The URL for customer service design.
         shared_ptr<string> aiCustomerConfigUrl_ {};
-        // AI Design URL
+        // The URL for AI design.
         shared_ptr<string> aiDesignUrl_ {};
-        // Application publish URL
+        // The URL for application publishing.
         shared_ptr<string> appPublishUrl_ {};
-        // List of action buttons on the overview page
+        // The list of overview page action buttons.
         shared_ptr<vector<AppOperationAddress::DashboardActions>> dashboardActions_ {};
-        // Professional design URL
+        // The URL for professional design.
         shared_ptr<string> designUrl_ {};
-        // Application instance logon URL
+        // The logon URL of the application instance.
         shared_ptr<string> instanceLoginUrl_ {};
-        // Renewal and purchase URL
+        // The URL for renewal purchase.
         shared_ptr<string> renewBuyUrl_ {};
-        // Service delivery URL
+        // The URL for service delivery.
         shared_ptr<string> serverDeliveryUrl_ {};
-        // Upgrade purchase URL
+        // The URL for upgrade purchase.
         shared_ptr<string> upgradeBuyUrl_ {};
       };
 
@@ -2733,21 +2733,25 @@ namespace Models
       protected:
         // bill
         shared_ptr<bool> bilingual_ {};
-        // Customer Business ID
+        // The customer business ID.
         shared_ptr<string> bizId_ {};
         // busincessScope
         shared_ptr<string> businessScope_ {};
-        // Specifies the color. Valid values: - **black**: black - **white**: white - **red**: red - **blue**: blue
+        // The specified color. Valid values:
+        // - **black**: Black.
+        // - **white**: White.
+        // - **red**: Red.
+        // - **blue**: Blue.
         shared_ptr<string> colorStyle_ {};
-        // Company Name
+        // The company name.
         shared_ptr<string> companyName_ {};
-        // deployment region
+        // The deployment region.
         shared_ptr<string> deployArea_ {};
-        // Creation Time
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Updated At
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // primary key
+        // The primary key.
         shared_ptr<int64_t> id_ {};
         // business
         shared_ptr<string> mainBusiness_ {};
@@ -2765,7 +2769,11 @@ namespace Models
         shared_ptr<string> siteStyle_ {};
         // sitetitle
         shared_ptr<string> siteTitle_ {};
-        // Application Type. Web & H5: web, miniapp: miniapp, iOS: ios, Android: android.
+        // The application type. Valid values:
+        // - web: Web & H5.
+        // - miniapp: mini program.
+        // - ios: iOS.
+        // - android: Android.
         shared_ptr<string> siteType_ {};
         // userid
         shared_ptr<string> userId_ {};
@@ -2827,13 +2835,13 @@ namespace Models
 
 
       protected:
-        // Staff ID
+        // The staff ID.
         shared_ptr<string> staffId_ {};
-        // Staff Name
+        // The staff name.
         shared_ptr<string> staffName_ {};
-        // Staff Type
+        // The staff type.
         shared_ptr<string> staffType_ {};
-        // Staff Status
+        // The staff status.
         shared_ptr<string> status_ {};
       };
 
@@ -3105,75 +3113,75 @@ namespace Models
 
 
     protected:
-      // List of AI staff associated with the application
+      // The list of AI staff members associated with the application.
       shared_ptr<vector<Module::AiStaffList>> aiStaffList_ {};
-      // Design order associated with the application
+      // The design specification associated with the application.
       shared_ptr<Module::AppDesignSpec> appDesignSpec_ {};
-      // Application operation address
+      // The application operation address.
       shared_ptr<Module::AppOperationAddress> appOperationAddress_ {};
-      // List of service instances associated with the application
+      // The list of service instances associated with the application.
       shared_ptr<vector<Module::AppServiceList>> appServiceList_ {};
-      // Application subtype
+      // The application subtype.
       shared_ptr<string> appSubType_ {};
-      // Application Type
+      // The application type.
       shared_ptr<string> appType_ {};
-      // Application instance business ID
+      // The business ID of the application instance.
       shared_ptr<string> bizId_ {};
-      // Build Type
+      // The build type.
       shared_ptr<string> buildType_ {};
-      // Is deleted
+      // Indicates whether the instance is deleted.
       shared_ptr<int32_t> deleted_ {};
-      // Application Description
+      // The application description.
       shared_ptr<string> description_ {};
       // placeHolder
       shared_ptr<string> designSpecBizId_ {};
-      // Design Configuration ID
+      // The ID of the design specification.
       shared_ptr<string> designSpecId_ {};
-      // Primary domain name
+      // The primary domain name.
       shared_ptr<string> domain_ {};
-      // End time
+      // The end time.
       shared_ptr<string> endTime_ {};
-      // Environment
+      // The environment.
       shared_ptr<string> env_ {};
-      // Associated delivery order ID
+      // The associated delivery order ID.
       shared_ptr<string> espBizId_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Deletion time
+      // The deletion time.
       shared_ptr<string> gmtDelete_ {};
-      // Updated At
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Published At
+      // The publish time.
       shared_ptr<string> gmtPublish_ {};
-      // Application icon
+      // The application icon URL.
       shared_ptr<string> iconUrl_ {};
-      // Application Name
+      // The application name.
       shared_ptr<string> name_ {};
-      // Order ID
+      // The order ID.
       shared_ptr<string> orderId_ {};
-      // Details
+      // The partner details.
       shared_ptr<Module::PartnerDetail> partnerDetail_ {};
-      // Instance Configuration
+      // The instance configuration.
       shared_ptr<Module::Profile> profile_ {};
-      // List of instances associated with the application
+      // The list of instances associated with the application.
       shared_ptr<vector<Module::RelatedInstanceList>> relatedInstanceList_ {};
-      // Domain name
+      // The website domain name.
       shared_ptr<string> siteHost_ {};
-      // Application identifier
+      // The application identifier.
       shared_ptr<string> slug_ {};
-      // Source MARKET_CLOUD_DREAM
+      // The source. Example: MARKET_CLOUD_DREAM.
       shared_ptr<string> sourceType_ {};
-      // Start Time
+      // The start time.
       shared_ptr<string> startTime_ {};
-      // Status
+      // The status.
       shared_ptr<string> status_ {};
-      // Task Status text.
+      // The task status text.
       shared_ptr<string> statusText_ {};
-      // Application Thumbnail
+      // The application thumbnail URL.
       shared_ptr<string> thumbnailUrl_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> userId_ {};
-      // Application instance Version
+      // The application instance version.
       shared_ptr<string> version_ {};
     };
 
@@ -3262,28 +3270,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason why access was denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // AppName.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<GetAppInstanceForPartnerResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

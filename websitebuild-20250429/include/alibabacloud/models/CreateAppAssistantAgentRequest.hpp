@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Agent name
+    // The name of the agent.
     shared_ptr<string> agentName_ {};
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Platform type
+    // The platform type.
     shared_ptr<string> platformType_ {};
   };
 

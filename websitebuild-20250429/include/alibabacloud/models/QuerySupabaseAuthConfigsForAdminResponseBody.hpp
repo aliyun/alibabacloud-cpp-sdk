@@ -80,14 +80,20 @@ namespace Models
 
 
     protected:
-      // Configuration values. Valid values:  
-      // - cc_rule: CC rule.  
-      // - ddos_dispatch: DDoS filter interaction scheduling.  
-      // - edge_safe: Edge application security.  
-      // - blocked_regions: Geo-blocking.  
-      // - http_acl_policy: Precise ACL rule.  
-      // - bot_manager: Bot traffic Management.  
-      // - ip_reputation: IP reputation investigation.
+      // The configuration value. Valid values:
+      // - cc_rule: HTTP flood mitigation rule.
+      // 
+      // - ddos_dispatch: DDoS interaction scheduling.
+      // 
+      // - edge_safe: edge application security.
+      // 
+      // - blocked_regions: Location Blacklist.
+      // 
+      // - http_acl_policy: Accurate Access Control.
+      // 
+      // - bot_manager: bot traffic management.
+      // 
+      // - ip_reputation: IP reputation library.
       Darabonba::Json configs_ {};
     };
 
@@ -176,27 +182,27 @@ namespace Models
 
 
   protected:
-    // Details of access denied
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message. Not currently used. Ignore it.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Task object
+    // The task object.
     shared_ptr<QuerySupabaseAuthConfigsForAdminResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Fault message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // Job ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -195,35 +195,35 @@ namespace Models
 
 
   protected:
-    // details of access denied
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:  
-    // - false: Retry is not allowed.  
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
     // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // application name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic message.
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // error code. The ErrorCode field is returned only when the request fails. If the request succeeds, this field is not returned. For more information, see the error code list in this topic.
+    // The error code. The ErrorCode field is not returned if the request is successful. The ErrorCode field is returned if the request fails. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
-    // error message.
+    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // response Data
+    // The response data.
     shared_ptr<SubmitMaterialTaskResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The root error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Indicates whether the processing is synchronous.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

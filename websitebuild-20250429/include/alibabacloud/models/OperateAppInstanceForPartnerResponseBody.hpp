@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // error code. The value is described as follows: If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code List in this topic.
+    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
-    // error message.
+    // The error message.
     shared_ptr<string> errorMsg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

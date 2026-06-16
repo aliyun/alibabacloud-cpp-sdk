@@ -112,11 +112,11 @@ namespace Models
 
 
       protected:
-        // Property encoding (system internal identity)
+        // Property code (internal system identifier)
         shared_ptr<string> code_ {};
-        // Attribute Value encoding (internal System value)
+        // Property value code (internal system value)
         shared_ptr<string> value_ {};
-        // Property display name (User-visible Name)
+        // Property display name (user-visible name)
         shared_ptr<string> name_ {};
       };
 
@@ -153,13 +153,13 @@ namespace Models
 
 
     protected:
-      // Property encoding (system internal identity)
+      // Property code (internal system identifier)
       shared_ptr<string> code_ {};
-      // Property display name (User-visible Name)
+      // Property display name (user-visible name)
       shared_ptr<string> name_ {};
-      // Attribute Value encoding (internal System value)
+      // Property value code (internal system value)
       shared_ptr<string> value_ {};
-      // List of module Attribute Values
+      // Module property value list
       shared_ptr<vector<InstanceProperty::Values>> values_ {};
     };
 
@@ -205,15 +205,15 @@ namespace Models
 
 
   protected:
-    // Unique widget encoding (system internal identity)
+    // Component unique code (internal system identifier)
     shared_ptr<string> code_ {};
-    // Widget display name (User-visible name)
+    // Component display name (user-visible name)
     shared_ptr<string> name_ {};
-    // Widget instance property configuration
+    // Component instance property configuration
     shared_ptr<vector<ModuleNextComponentsValue::InstanceProperty>> instanceProperty_ {};
-    // widget instance attribute configuration
+    // Component instance property configuration
     shared_ptr<map<string, ModuleNextComponentsValuePropertiesValue>> properties_ {};
-    // Module attribute status
+    // Module property status
     shared_ptr<int32_t> moduleAttrStatus_ {};
   };
 

@@ -67,11 +67,11 @@ namespace Models
 
   protected:
     shared_ptr<string> logoVersion_ {};
-    // Negative prompt
+    // The negative prompt.
     shared_ptr<string> negativePrompt_ {};
-    // Job parameters
+    // The task parameters.
     shared_ptr<string> parameters_ {};
-    // Positive prompt
+    // The positive prompt.
     shared_ptr<string> prompt_ {};
   };
 

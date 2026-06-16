@@ -106,13 +106,13 @@ namespace Models
 
 
     protected:
-      // Error code when failed; null when passed
+      // The error code when the check fails. This value is null when the check passes.
       shared_ptr<string> errorCode_ {};
-      // Error message when failed; null when passed
+      // The error message when the check fails. This value is null when the check passes.
       shared_ptr<string> errorMessage_ {};
-      // Indicates whether the check passed
+      // Indicates whether the check is passed.
       shared_ptr<bool> passed_ {};
-      // Resource identity
+      // The resource identifier.
       shared_ptr<string> resourceCode_ {};
     };
 
@@ -201,30 +201,30 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:  
-    // - false: Retry is not allowed.  
-    // - true: Retry is allowed.
+    // Indicates whether a retry is allowed. Valid values:
+    // - false: A retry is not allowed.
+    // - true: A retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace `%s` in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response element.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Returned object.
+    // The response object.
     shared_ptr<CheckUserResourceMeasureResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

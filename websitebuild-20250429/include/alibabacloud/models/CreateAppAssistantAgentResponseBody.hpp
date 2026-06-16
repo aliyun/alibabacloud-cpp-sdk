@@ -132,9 +132,9 @@ namespace Models
 
 
       protected:
-        // Extension Fields
+        // The extended field.
         shared_ptr<map<string, string>> extra_ {};
-        // Raw embed script
+        // The raw embedding script.
         shared_ptr<string> rawScript_ {};
       };
 
@@ -178,9 +178,9 @@ namespace Models
 
 
       protected:
-        // Extension field
+        // The extended field.
         shared_ptr<map<string, string>> extra_ {};
-        // Username
+        // The username.
         shared_ptr<string> username_ {};
       };
 
@@ -279,29 +279,29 @@ namespace Models
 
 
     protected:
-      // Agent ID (returned by platform)
+      // The agent ID returned by the platform.
       shared_ptr<string> agentId_ {};
-      // Agent Name
+      // The name of the agent.
       shared_ptr<string> agentName_ {};
-      // Associated application instance bizId
+      // The business ID of the associated application instance.
       shared_ptr<string> bizId_ {};
-      // Credential
+      // The authentication credential.
       shared_ptr<Module::Credential> credential_ {};
-      // Embed Configuration
+      // The embedding configuration.
       shared_ptr<Module::EmbedConfig> embedConfig_ {};
-      // Extension parameters
+      // The extended parameters.
       shared_ptr<map<string, string>> extraParams_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Updated At
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Agent platform appId
+      // The application ID of the agent on the platform.
       shared_ptr<string> platformAppId_ {};
-      // Platform Type
+      // The platform type.
       shared_ptr<string> platformType_ {};
-      // Status
+      // The status.
       shared_ptr<string> status_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -390,28 +390,28 @@ namespace Models
 
 
   protected:
-    // Permission denied information
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<CreateAppAssistantAgentResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

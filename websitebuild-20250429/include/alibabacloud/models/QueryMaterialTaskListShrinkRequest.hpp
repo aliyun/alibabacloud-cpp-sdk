@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Number of results per query.
+    // The number of entries per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Token indicating the start of the next query. This field is empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Sorting field.
+    // Sort field
     shared_ptr<string> orderColumn_ {};
-    // Sorting type: ASC or DESC
+    // Sort type ASC|DESC
     shared_ptr<string> orderType_ {};
-    // Page number. Default value is 1.
+    // Page number. Default value: 1
     shared_ptr<int32_t> pageNum_ {};
-    // Page size. Default value: 10.
+    // Page size. Default value: 10
     shared_ptr<int32_t> pageSize_ {};
-    // List of task statuses.
+    // Task status list
     shared_ptr<string> statusListShrink_ {};
-    // List of task types.
+    // Task type list
     shared_ptr<string> taskTypeListShrink_ {};
   };
 

@@ -75,16 +75,16 @@ namespace Models
 
 
   protected:
-    // Authorization purpose
+    // The purpose of the authorization.
     shared_ptr<string> authPurpose_ {};
-    // Customer business ID
+    // The business ID of the customer.
     shared_ptr<string> bizId_ {};
-    // Whether the port number supports fuzzy query. To enable fuzzy query, set the value of this parameter to **1**. Any other value or an empty value indicates that fuzzy query is not supported.
+    // Specifies whether fuzzy match is supported for port numbers. Set this parameter to **1** to enable fuzzy match. Other values or an empty value indicate that fuzzy match is not supported.
     shared_ptr<string> extend_ {};
-    // Service-linked role.  
-    // > For service-linked roles supported by RDS, see [Service-linked Role](https://help.aliyun.com/document_detail/342840.html).
+    // The service-linked role.
+    // > For information about the service-linked roles supported by ApsaraDB RDS, see [Service-linked roles](https://help.aliyun.com/document_detail/342840.html).
     shared_ptr<string> serviceLinkedRole_ {};
-    // User ID
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

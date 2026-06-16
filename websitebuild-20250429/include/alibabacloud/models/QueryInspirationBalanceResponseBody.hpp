@@ -124,13 +124,13 @@ namespace Models
 
 
     protected:
-      // Remaining (totalQuota - totalUsed)
+      // Remaining (totalQuota - totalUsed).
       shared_ptr<int64_t> remaining_ {};
       shared_ptr<string> remainingStr_ {};
-      // Total quota (sum of initQuota from all valid accounts)
+      // Total quota (sum of initQuota for all active accounts).
       shared_ptr<int64_t> totalQuota_ {};
       shared_ptr<string> totalQuotaStr_ {};
-      // Consumed amount (sum of used from all valid accounts)
+      // Total used (sum of used for all active accounts).
       shared_ptr<int64_t> totalUsed_ {};
       shared_ptr<string> totalUsedStr_ {};
     };
@@ -222,26 +222,26 @@ namespace Models
   protected:
     // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name; query the application with this name
+    // Application name. Query the application with this name.
     shared_ptr<string> appName_ {};
     // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace `%s` in the **ErrMessage** error message.  
+    // Dynamic error message, used to replace `%s` in the **ErrMessage** error message of the response parameters.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Fault parameters.
+    // Error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // Response data.
     shared_ptr<QueryInspirationBalanceResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // Error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // Exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Whether processing is synchronous
+    // Indicates whether to process synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

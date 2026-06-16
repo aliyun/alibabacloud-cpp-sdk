@@ -112,11 +112,11 @@ namespace Models
 
 
       protected:
-        // Property encoding (system internal identity)
+        // 属性编码（系统内部标识）
         shared_ptr<string> code_ {};
-        // Attribute Value encoding (internal System value)
+        // 属性值编码（系统内部值）
         shared_ptr<string> value_ {};
-        // Property display name (User-visible name)
+        // 属性显示名称（用户可见名称）
         shared_ptr<string> name_ {};
       };
 
@@ -153,13 +153,13 @@ namespace Models
 
 
     protected:
-      // Property encoding (system internal identity)
+      // 属性编码（系统内部标识）
       shared_ptr<string> code_ {};
-      // Attribute display name (user-visible name)
+      // 属性显示名称（用户可见名称）
       shared_ptr<string> name_ {};
-      // Attribute Value encoding (internal System value)
+      // 属性值编码（系统内部值）
       shared_ptr<string> value_ {};
-      // List of module Attribute Values
+      // 模块属性值列表
       shared_ptr<vector<InstanceProperty::Values>> values_ {};
     };
 
@@ -205,15 +205,15 @@ namespace Models
 
 
   protected:
-    // Unique component code (system internal identity)
+    // 组件唯一编码（系统内部标识）
     shared_ptr<string> componentCode_ {};
-    // Widget display name (user-visible name)
+    // 组件显示名称（用户可见名称）
     shared_ptr<string> componentName_ {};
-    // Component instance attribute configuration
+    // 组件实例属性配置
     shared_ptr<vector<ModuleVersionsValueComponentsValue::InstanceProperty>> instanceProperty_ {};
-    // Widget instance attribute configuration
+    // 组件实例属性配置
     shared_ptr<map<string, ModuleVersionsValueComponentsValuePropertiesValue>> properties_ {};
-    // Module property status
+    // 模块属性状态
     shared_ptr<int32_t> moduleAttrStatus_ {};
   };
 

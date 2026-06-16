@@ -37,9 +37,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Assign a Supabase instance to a resource
+ * @summary Allocates a Supabase instance for resource allocation.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information associated with a resource.
  *
  * @param request AllocateSupabaseForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -94,9 +94,9 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdminWithOptions(con
 }
 
 /**
- * @summary Assign a Supabase instance to a resource
+ * @summary Allocates a Supabase instance for resource allocation.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information associated with a resource.
  *
  * @param request AllocateSupabaseForAdminRequest
  * @return AllocateSupabaseForAdminResponse
@@ -107,9 +107,9 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const Allocate
 }
 
 /**
- * @summary Batch check resource usage
+ * @summary Checks resource usage in batches.
  *
- * @description Operation resource-related Supabase instance information
+ * @description The Supabase instance information corresponding to the operated resources.
  *
  * @param request BatchCheckResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -160,9 +160,9 @@ BatchCheckResourceMeasureResponse Client::batchCheckResourceMeasureWithOptions(c
 }
 
 /**
- * @summary Batch check resource usage
+ * @summary Checks resource usage in batches.
  *
- * @description Operation resource-related Supabase instance information
+ * @description The Supabase instance information corresponding to the operated resources.
  *
  * @param request BatchCheckResourceMeasureRequest
  * @return BatchCheckResourceMeasureResponse
@@ -173,7 +173,7 @@ BatchCheckResourceMeasureResponse Client::batchCheckResourceMeasure(const BatchC
 }
 
 /**
- * @summary Bind Application Domain
+ * @summary Binds a custom domain name to an application and automatically completes DNS resolution verification.
  *
  * @param request BindAppDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -216,7 +216,7 @@ BindAppDomainResponse Client::bindAppDomainWithOptions(const BindAppDomainReques
 }
 
 /**
- * @summary Bind Application Domain
+ * @summary Binds a custom domain name to an application and automatically completes DNS resolution verification.
  *
  * @param request BindAppDomainRequest
  * @return BindAppDomainResponse
@@ -227,9 +227,67 @@ BindAppDomainResponse Client::bindAppDomain(const BindAppDomainRequest &request)
 }
 
 /**
- * @summary Check resource usage
+ * @summary Verifies a verification code.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Retrieves the configuration information of the code generation plug-in.
+ *
+ * @param request CheckAppVerifyCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckAppVerifyCodeResponse
+ */
+CheckAppVerifyCodeResponse Client::checkAppVerifyCodeWithOptions(const CheckAppVerifyCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasCode()) {
+    query["Code"] = request.getCode();
+  }
+
+  if (!!request.hasTarget()) {
+    query["Target"] = request.getTarget();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckAppVerifyCode"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckAppVerifyCodeResponse>();
+}
+
+/**
+ * @summary Verifies a verification code.
+ *
+ * @description Retrieves the configuration information of the code generation plug-in.
+ *
+ * @param request CheckAppVerifyCodeRequest
+ * @return CheckAppVerifyCodeResponse
+ */
+CheckAppVerifyCodeResponse Client::checkAppVerifyCode(const CheckAppVerifyCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkAppVerifyCodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Checks resource usage.
+ *
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request CheckResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -284,9 +342,9 @@ CheckResourceMeasureResponse Client::checkResourceMeasureWithOptions(const Check
 }
 
 /**
- * @summary Check resource usage
+ * @summary Checks resource usage.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request CheckResourceMeasureRequest
  * @return CheckResourceMeasureResponse
@@ -297,9 +355,9 @@ CheckResourceMeasureResponse Client::checkResourceMeasure(const CheckResourceMea
 }
 
 /**
- * @summary Validate user resource metering
+ * @summary Checks user resource metering.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request CheckUserResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -354,9 +412,9 @@ CheckUserResourceMeasureResponse Client::checkUserResourceMeasureWithOptions(con
 }
 
 /**
- * @summary Validate user resource metering
+ * @summary Checks user resource metering.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request CheckUserResourceMeasureRequest
  * @return CheckUserResourceMeasureResponse
@@ -507,9 +565,9 @@ CopyAppPluginConfigResponse Client::copyAppPluginConfig(const CopyAppPluginConfi
 }
 
 /**
- * @summary Initiate an AI employee conversation asynchronously
+ * @summary Asynchronously initiates a conversation with an AI employee.
  *
- * @description Wan Xiaozhi 2.0 AI conversation
+ * @description Initiates a WanXiaoZhi 2.0 AI conversation.
  *
  * @param request CreateAIStaffChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -560,9 +618,9 @@ CreateAIStaffChatResponse Client::createAIStaffChatWithOptions(const CreateAISta
 }
 
 /**
- * @summary Initiate an AI employee conversation asynchronously
+ * @summary Asynchronously initiates a conversation with an AI employee.
  *
- * @description Wan Xiaozhi 2.0 AI conversation
+ * @description Initiates a WanXiaoZhi 2.0 AI conversation.
  *
  * @param request CreateAIStaffChatRequest
  * @return CreateAIStaffChatResponse
@@ -573,9 +631,9 @@ CreateAIStaffChatResponse Client::createAIStaffChat(const CreateAIStaffChatReque
 }
 
 /**
- * @summary Create an AI agent session
+ * @summary Creates an AI employee session.
  *
- * @description Wan Xiaozhi 2.0 API for creating an AI session
+ * @description Creates an AI session for WanXiaoZhi 2.0.
  *
  * @param request CreateAIStaffConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -606,9 +664,9 @@ CreateAIStaffConversationResponse Client::createAIStaffConversationWithOptions(c
 }
 
 /**
- * @summary Create an AI agent session
+ * @summary Creates an AI employee session.
  *
- * @description Wan Xiaozhi 2.0 API for creating an AI session
+ * @description Creates an AI session for WanXiaoZhi 2.0.
  *
  * @param request CreateAIStaffConversationRequest
  * @return CreateAIStaffConversationResponse
@@ -619,9 +677,9 @@ CreateAIStaffConversationResponse Client::createAIStaffConversation(const Create
 }
 
 /**
- * @summary Create Application Assistant Agent
+ * @summary Creates an application assistant agent.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request CreateAppAssistantAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -660,9 +718,9 @@ CreateAppAssistantAgentResponse Client::createAppAssistantAgentWithOptions(const
 }
 
 /**
- * @summary Create Application Assistant Agent
+ * @summary Creates an application assistant agent.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request CreateAppAssistantAgentRequest
  * @return CreateAppAssistantAgentResponse
@@ -673,9 +731,9 @@ CreateAppAssistantAgentResponse Client::createAppAssistantAgent(const CreateAppA
 }
 
 /**
- * @summary Generate application assistant SSO logon
+ * @summary Generates an SSO logon-free URL for an application assistant agent.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request CreateAppAssistantAgentSsoLoginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -714,9 +772,9 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLoginW
 }
 
 /**
- * @summary Generate application assistant SSO logon
+ * @summary Generates an SSO logon-free URL for an application assistant agent.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request CreateAppAssistantAgentSsoLoginRequest
  * @return CreateAppAssistantAgentSsoLoginResponse
@@ -846,7 +904,7 @@ CreateAppChatResponse Client::createAppChat(const CreateAppChatRequest &request)
 }
 
 /**
- * @summary Create a website instance
+ * @summary Creates a website builder application instance.
  *
  * @param tmpReq CreateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -945,7 +1003,7 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 }
 
 /**
- * @summary Create a website instance
+ * @summary Creates a website builder application instance.
  *
  * @param request CreateAppInstanceRequest
  * @return CreateAppInstanceResponse
@@ -956,7 +1014,7 @@ CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceReque
 }
 
 /**
- * @summary SSO ticket
+ * @summary Creates a login-free ticket for a website builder instance.
  *
  * @param request CreateAppInstanceTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -991,7 +1049,7 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicketWithOptions(const
 }
 
 /**
- * @summary SSO ticket
+ * @summary Creates a login-free ticket for a website builder instance.
  *
  * @param request CreateAppInstanceTicketRequest
  * @return CreateAppInstanceTicketResponse
@@ -1060,9 +1118,99 @@ CreateAppLlmApiKeyForPartnerResponse Client::createAppLlmApiKeyForPartner(const 
 }
 
 /**
- * @summary Activate the Wanxiao Zhi Inspiration Value service
+ * @summary Creates a message notification scenario.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
+ *
+ * @param request CreateAppNotificationSceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppNotificationSceneResponse
+ */
+CreateAppNotificationSceneResponse Client::createAppNotificationSceneWithOptions(const CreateAppNotificationSceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChannelsJson()) {
+    query["ChannelsJson"] = request.getChannelsJson();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEmailFieldsJson()) {
+    query["EmailFieldsJson"] = request.getEmailFieldsJson();
+  }
+
+  if (!!request.hasEmailLimitJson()) {
+    query["EmailLimitJson"] = request.getEmailLimitJson();
+  }
+
+  if (!!request.hasEmailRecipientIdsJson()) {
+    query["EmailRecipientIdsJson"] = request.getEmailRecipientIdsJson();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPhoneRecipientIdsJson()) {
+    query["PhoneRecipientIdsJson"] = request.getPhoneRecipientIdsJson();
+  }
+
+  if (!!request.hasSmsFieldsJson()) {
+    query["SmsFieldsJson"] = request.getSmsFieldsJson();
+  }
+
+  if (!!request.hasSmsLimitJson()) {
+    query["SmsLimitJson"] = request.getSmsLimitJson();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  if (!!request.hasTriggerEventsJson()) {
+    query["TriggerEventsJson"] = request.getTriggerEventsJson();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppNotificationScene"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppNotificationSceneResponse>();
+}
+
+/**
+ * @summary Creates a message notification scenario.
+ *
+ * @description Retrieves the configuration information of the code generation plug-in.
+ *
+ * @param request CreateAppNotificationSceneRequest
+ * @return CreateAppNotificationSceneResponse
+ */
+CreateAppNotificationSceneResponse Client::createAppNotificationScene(const CreateAppNotificationSceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppNotificationSceneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Activates the Wanxiaozhi inspiration value service.
+ *
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request CreateAppTokenServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1093,9 +1241,9 @@ CreateAppTokenServiceResponse Client::createAppTokenServiceWithOptions(const Cre
 }
 
 /**
- * @summary Activate the Wanxiao Zhi Inspiration Value service
+ * @summary Activates the Wanxiaozhi inspiration value service.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request CreateAppTokenServiceRequest
  * @return CreateAppTokenServiceResponse
@@ -1106,7 +1254,7 @@ CreateAppTokenServiceResponse Client::createAppTokenService(const CreateAppToken
 }
 
 /**
- * @summary Commit a job to create a logo.
+ * @summary Submits a task to create a logo.
  *
  * @param request CreateLogoTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1149,7 +1297,7 @@ CreateLogoTaskResponse Client::createLogoTaskWithOptions(const CreateLogoTaskReq
 }
 
 /**
- * @summary Commit a job to create a logo.
+ * @summary Submits a task to create a logo.
  *
  * @param request CreateLogoTaskRequest
  * @return CreateLogoTaskResponse
@@ -1160,7 +1308,7 @@ CreateLogoTaskResponse Client::createLogoTask(const CreateLogoTaskRequest &reque
 }
 
 /**
- * @summary Create a subfolder under the parent folder.
+ * @summary Creates a subfolder under a parent folder.
  *
  * @param request CreateMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1199,7 +1347,7 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary Create a subfolder under the parent folder.
+ * @summary Creates a subfolder under a parent folder.
  *
  * @param request CreateMaterialDirectoryRequest
  * @return CreateMaterialDirectoryResponse
@@ -1210,7 +1358,7 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectory(const CreateMate
 }
 
 /**
- * @summary Delete the SSL certificate of a domain
+ * @summary Deletes and unbinds the SSL certificate that is bound to a website.
  *
  * @param request DeleteAppDomainCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1245,7 +1393,7 @@ DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificateWithOptions
 }
 
 /**
- * @summary Delete the SSL certificate of a domain
+ * @summary Deletes and unbinds the SSL certificate that is bound to a website.
  *
  * @param request DeleteAppDomainCertificateRequest
  * @return DeleteAppDomainCertificateResponse
@@ -1256,7 +1404,7 @@ DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificate(const Dele
 }
 
 /**
- * @summary Delete the domain redirection rules
+ * @summary Deletes 301 redirect records bound to a website.
  *
  * @param request DeleteAppDomainRedirectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1291,7 +1439,7 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const
 }
 
 /**
- * @summary Delete the domain redirection rules
+ * @summary Deletes 301 redirect records bound to a website.
  *
  * @param request DeleteAppDomainRedirectRequest
  * @return DeleteAppDomainRedirectResponse
@@ -1402,6 +1550,56 @@ DeleteAppInstanceFileResponse Client::deleteAppInstanceFile(const DeleteAppInsta
 }
 
 /**
+ * @summary 删除消息通知场景
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request DeleteAppNotificationSceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppNotificationSceneResponse
+ */
+DeleteAppNotificationSceneResponse Client::deleteAppNotificationSceneWithOptions(const DeleteAppNotificationSceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.getSceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppNotificationScene"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppNotificationSceneResponse>();
+}
+
+/**
+ * @summary 删除消息通知场景
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request DeleteAppNotificationSceneRequest
+ * @return DeleteAppNotificationSceneResponse
+ */
+DeleteAppNotificationSceneResponse Client::deleteAppNotificationScene(const DeleteAppNotificationSceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppNotificationSceneWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete Supabase key
  *
  * @description Operation resource corresponds to the supabase instance information
@@ -1452,7 +1650,7 @@ DeleteAppSupabaseSecretsResponse Client::deleteAppSupabaseSecrets(const DeleteAp
 }
 
 /**
- * @summary Delete a material folder
+ * @summary Deletes a material folder.
  *
  * @param request DeleteMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1487,7 +1685,7 @@ DeleteMaterialDirectoryResponse Client::deleteMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary Delete a material folder
+ * @summary Deletes a material folder.
  *
  * @param request DeleteMaterialDirectoryRequest
  * @return DeleteMaterialDirectoryResponse
@@ -1498,7 +1696,7 @@ DeleteMaterialDirectoryResponse Client::deleteMaterialDirectory(const DeleteMate
 }
 
 /**
- * @summary Delete Material Generation Job
+ * @summary Deletes a material generation task.
  *
  * @param tmpReq DeleteMaterialTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1535,7 +1733,7 @@ DeleteMaterialTaskResponse Client::deleteMaterialTaskWithOptions(const DeleteMat
 }
 
 /**
- * @summary Delete Material Generation Job
+ * @summary Deletes a material generation task.
  *
  * @param request DeleteMaterialTaskRequest
  * @return DeleteMaterialTaskResponse
@@ -1546,7 +1744,7 @@ DeleteMaterialTaskResponse Client::deleteMaterialTask(const DeleteMaterialTaskRe
 }
 
 /**
- * @summary Query the DNS resolution records of a domain
+ * @summary Query website DNS resolution records. Supports CNAME resolution and verification resolution queries.
  *
  * @param request DescribeAppDomainDnsRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1585,7 +1783,7 @@ DescribeAppDomainDnsRecordResponse Client::describeAppDomainDnsRecordWithOptions
 }
 
 /**
- * @summary Query the DNS resolution records of a domain
+ * @summary Query website DNS resolution records. Supports CNAME resolution and verification resolution queries.
  *
  * @param request DescribeAppDomainDnsRecordRequest
  * @return DescribeAppDomainDnsRecordResponse
@@ -1596,7 +1794,7 @@ DescribeAppDomainDnsRecordResponse Client::describeAppDomainDnsRecord(const Desc
 }
 
 /**
- * @summary DispatchConsoleAPIForPartner
+ * @summary Calls a general-purpose API operation.
  *
  * @param request DispatchConsoleAPIForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1643,7 +1841,7 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartnerWithOpt
 }
 
 /**
- * @summary DispatchConsoleAPIForPartner
+ * @summary Calls a general-purpose API operation.
  *
  * @param request DispatchConsoleAPIForPartnerRequest
  * @return DispatchConsoleAPIForPartnerResponse
@@ -1654,7 +1852,7 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const 
 }
 
 /**
- * @summary Edit plugin configuration.
+ * @summary Edits a plug-in configuration.
  *
  * @param request EditPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1701,7 +1899,7 @@ EditPluginConfigResponse Client::editPluginConfigWithOptions(const EditPluginCon
 }
 
 /**
- * @summary Edit plugin configuration.
+ * @summary Edits a plug-in configuration.
  *
  * @param request EditPluginConfigRequest
  * @return EditPluginConfigResponse
@@ -1712,7 +1910,7 @@ EditPluginConfigResponse Client::editPluginConfig(const EditPluginConfigRequest 
 }
 
 /**
- * @summary Export material files
+ * @summary Exports a material file.
  *
  * @param tmpReq ExportMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1753,7 +1951,7 @@ ExportMaterialFileResponse Client::exportMaterialFileWithOptions(const ExportMat
 }
 
 /**
- * @summary Export material files
+ * @summary Exports a material file.
  *
  * @param request ExportMaterialFileRequest
  * @return ExportMaterialFileResponse
@@ -1910,9 +2108,9 @@ GetAppConversationResponse Client::getAppConversation(const GetAppConversationRe
 }
 
 /**
- * @summary Obtain session lock status
+ * @summary Retrieves the session lock status.
  *
- * @description Wan Xiaozhi 2.0 API for creating AI sessions
+ * @description Creates an AI session through the WanXiaoZhi 2.0 interface.
  *
  * @param request GetAppConversationLockStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1943,9 +2141,9 @@ GetAppConversationLockStatusResponse Client::getAppConversationLockStatusWithOpt
 }
 
 /**
- * @summary Obtain session lock status
+ * @summary Retrieves the session lock status.
  *
- * @description Wan Xiaozhi 2.0 API for creating AI sessions
+ * @description Creates an AI session through the WanXiaoZhi 2.0 interface.
  *
  * @param request GetAppConversationLockStatusRequest
  * @return GetAppConversationLockStatusResponse
@@ -2056,7 +2254,7 @@ GetAppFileContentResponse Client::getAppFileContent(const GetAppFileContentReque
 }
 
 /**
- * @summary Query Application Instance Details
+ * @summary Queries the details of a website builder application instance.
  *
  * @param request GetAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2087,7 +2285,7 @@ GetAppInstanceResponse Client::getAppInstanceWithOptions(const GetAppInstanceReq
 }
 
 /**
- * @summary Query Application Instance Details
+ * @summary Queries the details of a website builder application instance.
  *
  * @param request GetAppInstanceRequest
  * @return GetAppInstanceResponse
@@ -2144,9 +2342,9 @@ GetAppInstanceEntitlementResponse Client::getAppInstanceEntitlement(const GetApp
 }
 
 /**
- * @summary Query application instance information
+ * @summary Queries application instance information.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request GetAppInstanceForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2181,9 +2379,9 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdminWithOptions(const G
 }
 
 /**
- * @summary Query application instance information
+ * @summary Queries application instance information.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request GetAppInstanceForAdminRequest
  * @return GetAppInstanceForAdminResponse
@@ -2194,9 +2392,9 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdmin(const GetAppInstan
 }
 
 /**
- * @summary Query instance details
+ * @summary Queries instance details.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of a code generation plugin.
  *
  * @param request GetAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2227,9 +2425,9 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartnerWithOptions(con
 }
 
 /**
- * @summary Query instance details
+ * @summary Queries instance details.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of a code generation plugin.
  *
  * @param request GetAppInstanceForPartnerRequest
  * @return GetAppInstanceForPartnerResponse
@@ -2286,9 +2484,9 @@ GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrl(const GetA
 }
 
 /**
- * @summary Obtain plugin configuration information.
+ * @summary Retrieves the configuration information of a plugin.
  *
- * @description Obtain the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of a code generation plugin.
  *
  * @param request GetAppPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2323,9 +2521,9 @@ GetAppPluginConfigResponse Client::getAppPluginConfigWithOptions(const GetAppPlu
 }
 
 /**
- * @summary Obtain plugin configuration information.
+ * @summary Retrieves the configuration information of a plugin.
  *
- * @description Obtain the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of a code generation plugin.
  *
  * @param request GetAppPluginConfigRequest
  * @return GetAppPluginConfigResponse
@@ -2390,9 +2588,9 @@ GetAppPublishStatusResponse Client::getAppPublishStatus(const GetAppPublishStatu
 }
 
 /**
- * @summary Query recommended products
+ * @summary Queries recommended commodities.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppRecommendedCommoditiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2435,9 +2633,9 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommoditiesWithOpt
 }
 
 /**
- * @summary Query recommended products
+ * @summary Queries recommended commodities.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppRecommendedCommoditiesRequest
  * @return GetAppRecommendedCommoditiesResponse
@@ -2448,9 +2646,9 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommodities(const 
 }
 
 /**
- * @summary Requirement query
+ * @summary Queries requirements.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppRequirementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2481,9 +2679,9 @@ GetAppRequirementResponse Client::getAppRequirementWithOptions(const GetAppRequi
 }
 
 /**
- * @summary Requirement query
+ * @summary Queries requirements.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppRequirementRequest
  * @return GetAppRequirementResponse
@@ -2898,9 +3096,9 @@ GetAppTemplateResponse Client::getAppTemplate(const GetAppTemplateRequest &reque
 }
 
 /**
- * @summary Query the Wan Xiaozhi Inspiration Value service
+ * @summary Queries the Wanxiaozhi inspiration value service.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAppTokenServiceResponse
@@ -2922,9 +3120,9 @@ GetAppTokenServiceResponse Client::getAppTokenServiceWithOptions(const Darabonba
 }
 
 /**
- * @summary Query the Wan Xiaozhi Inspiration Value service
+ * @summary Queries the Wanxiaozhi inspiration value service.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @return GetAppTokenServiceResponse
  */
@@ -2934,9 +3132,9 @@ GetAppTokenServiceResponse Client::getAppTokenService() {
 }
 
 /**
- * @summary Obtain the workspace directory structure
+ * @summary Retrieves the directory structure of a workspace.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request GetAppWorkspaceDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2975,9 +3173,9 @@ GetAppWorkspaceDirectoryResponse Client::getAppWorkspaceDirectoryWithOptions(con
 }
 
 /**
- * @summary Obtain the workspace directory structure
+ * @summary Retrieves the directory structure of a workspace.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request GetAppWorkspaceDirectoryRequest
  * @return GetAppWorkspaceDirectoryResponse
@@ -2988,7 +3186,7 @@ GetAppWorkspaceDirectoryResponse Client::getAppWorkspaceDirectory(const GetAppWo
 }
 
 /**
- * @summary Query the Logo creation job
+ * @summary Queries a logo creation task.
  *
  * @param request GetCreateLogoTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3019,7 +3217,7 @@ GetCreateLogoTaskResponse Client::getCreateLogoTaskWithOptions(const GetCreateLo
 }
 
 /**
- * @summary Query the Logo creation job
+ * @summary Queries a logo creation task.
  *
  * @param request GetCreateLogoTaskRequest
  * @return GetCreateLogoTaskResponse
@@ -3030,7 +3228,7 @@ GetCreateLogoTaskResponse Client::getCreateLogoTask(const GetCreateLogoTaskReque
 }
 
 /**
- * @summary Domain name query API provided to service providers
+ * @summary Provides a domain name query API for service providers.
  *
  * @param request GetDomainInfoForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3069,7 +3267,7 @@ GetDomainInfoForPartnerResponse Client::getDomainInfoForPartnerWithOptions(const
 }
 
 /**
- * @summary Domain name query API provided to service providers
+ * @summary Provides a domain name query API for service providers.
  *
  * @param request GetDomainInfoForPartnerRequest
  * @return GetDomainInfoForPartnerResponse
@@ -3080,7 +3278,7 @@ GetDomainInfoForPartnerResponse Client::getDomainInfoForPartner(const GetDomainI
 }
 
 /**
- * @summary Query ICP filing information of a domain name
+ * @summary Queries the China Internet Content Provider (ICP) filing information of a domain name.
  *
  * @param request GetIcpFilingInfoForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3115,7 +3313,7 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartnerWithOptions
 }
 
 /**
- * @summary Query ICP filing information of a domain name
+ * @summary Queries the China Internet Content Provider (ICP) filing information of a domain name.
  *
  * @param request GetIcpFilingInfoForPartnerRequest
  * @return GetIcpFilingInfoForPartnerResponse
@@ -3126,9 +3324,9 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartner(const GetI
 }
 
 /**
- * @summary Query LLM Proxy configuration
+ * @summary Queries the LLM Proxy configuration.
  *
- * @description Query the Supabase instance configuration information corresponding to the resource.
+ * @description Queries the Supabase instance configuration information for a specified resource.
  *
  * @param request GetLlmProxyConfigForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3163,9 +3361,9 @@ GetLlmProxyConfigForAdminResponse Client::getLlmProxyConfigForAdminWithOptions(c
 }
 
 /**
- * @summary Query LLM Proxy configuration
+ * @summary Queries the LLM Proxy configuration.
  *
- * @description Query the Supabase instance configuration information corresponding to the resource.
+ * @description Queries the Supabase instance configuration information for a specified resource.
  *
  * @param request GetLlmProxyConfigForAdminRequest
  * @return GetLlmProxyConfigForAdminResponse
@@ -3428,7 +3626,7 @@ GetTempDownloadUrlResponse Client::getTempDownloadUrl(const GetTempDownloadUrlRe
 }
 
 /**
- * @summary Exchange temporary AccessKey for accessToken
+ * @summary Exchanges a temporary AccessKey pair for an access token.
  *
  * @param request GetUserAccessTokenForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3463,7 +3661,7 @@ GetUserAccessTokenForPartnerResponse Client::getUserAccessTokenForPartnerWithOpt
 }
 
 /**
- * @summary Exchange temporary AccessKey for accessToken
+ * @summary Exchanges a temporary AccessKey pair for an access token.
  *
  * @param request GetUserAccessTokenForPartnerRequest
  * @return GetUserAccessTokenForPartnerResponse
@@ -3474,7 +3672,7 @@ GetUserAccessTokenForPartnerResponse Client::getUserAccessTokenForPartner(const 
 }
 
 /**
- * @summary Partnership obtains temporary credentials for User SLR role authorization
+ * @summary Obtains temporary credentials for a partner to assume a user\\"s service-linked role.
  *
  * @param request GetUserTmpIdentityForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3521,7 +3719,7 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartnerWithOpt
 }
 
 /**
- * @summary Partnership obtains temporary credentials for User SLR role authorization
+ * @summary Obtains temporary credentials for a partner to assume a user\\"s service-linked role.
  *
  * @param request GetUserTmpIdentityForPartnerRequest
  * @return GetUserTmpIdentityForPartnerResponse
@@ -3532,7 +3730,7 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartner(const 
 }
 
 /**
- * @summary Introspection analysis of免登 accessToken
+ * @summary Performs introspection analysis on a China Chinese China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China.
  *
  * @param request IntrospectAppInstanceTicketForPreviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3567,7 +3765,7 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 }
 
 /**
- * @summary Introspection analysis of免登 accessToken
+ * @summary Performs introspection analysis on a China Chinese China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China.
  *
  * @param request IntrospectAppInstanceTicketForPreviewRequest
  * @return IntrospectAppInstanceTicketForPreviewResponse
@@ -3578,9 +3776,9 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 }
 
 /**
- * @summary Obtain incremental SSE events of AI employee conversations
+ * @summary Retrieves incremental SSE events for an AI agent conversation.
  *
- * @description Wan Xiaozhi 2.0 – Retrieve streaming output results of AI sessions
+ * @description Retrieves the streaming output results of an AI conversation.
  *
  * @param request ListAIStaffChatEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3625,9 +3823,9 @@ ListAIStaffChatEventsResponse Client::listAIStaffChatEventsWithOptions(const Lis
 }
 
 /**
- * @summary Obtain incremental SSE events of AI employee conversations
+ * @summary Retrieves incremental SSE events for an AI agent conversation.
  *
- * @description Wan Xiaozhi 2.0 – Retrieve streaming output results of AI sessions
+ * @description Retrieves the streaming output results of an AI conversation.
  *
  * @param request ListAIStaffChatEventsRequest
  * @return ListAIStaffChatEventsResponse
@@ -3638,9 +3836,9 @@ ListAIStaffChatEventsResponse Client::listAIStaffChatEvents(const ListAIStaffCha
 }
 
 /**
- * @summary Paged query of AI employee conversation message list
+ * @summary Queries the conversation message list of an AI employee by paging.
  *
- * @description Wan Xiaozhi 2.0 - API for querying AI session history information
+ * @description Queries the AI session history for WanXiaoZhi 2.0.
  *
  * @param request ListAIStaffChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3685,9 +3883,9 @@ ListAIStaffChatMessagesResponse Client::listAIStaffChatMessagesWithOptions(const
 }
 
 /**
- * @summary Paged query of AI employee conversation message list
+ * @summary Queries the conversation message list of an AI employee by paging.
  *
- * @description Wan Xiaozhi 2.0 - API for querying AI session history information
+ * @description Queries the AI session history for WanXiaoZhi 2.0.
  *
  * @param request ListAIStaffChatMessagesRequest
  * @return ListAIStaffChatMessagesResponse
@@ -3698,9 +3896,9 @@ ListAIStaffChatMessagesResponse Client::listAIStaffChatMessages(const ListAIStaf
 }
 
 /**
- * @summary Query the list of application assistant agents
+ * @summary Queries the list of application assistant agents.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request ListAppAssistantAgentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3735,9 +3933,9 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgentsWithOptions(const L
 }
 
 /**
- * @summary Query the list of application assistant agents
+ * @summary Queries the list of application assistant agents.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request ListAppAssistantAgentsRequest
  * @return ListAppAssistantAgentsResponse
@@ -3812,9 +4010,9 @@ ListAppChatMessagesResponse Client::listAppChatMessages(const ListAppChatMessage
 /**
  * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
  *
- * @summary Product information data
+ * @summary The product information data.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAppCommoditySpecificationsForPartnerResponse
@@ -3838,9 +4036,9 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 /**
  * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
  *
- * @summary Product information data
+ * @summary The product information data.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @return ListAppCommoditySpecificationsForPartnerResponse
  */
@@ -3850,9 +4048,9 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 }
 
 /**
- * @summary Query website building product details
+ * @summary Query Website Build Product Details
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Get QR code plugin configuration information
  *
  * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3887,9 +4085,9 @@ ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpeci
 }
 
 /**
- * @summary Query website building product details
+ * @summary Query Website Build Product Details
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Get QR code plugin configuration information
  *
  * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
  * @return ListAppCommoditySpecificationsV2ForPartnerResponse
@@ -4040,7 +4238,7 @@ ListAppConversationsResponse Client::listAppConversations(const ListAppConversat
 }
 
 /**
- * @summary Query the list of domain redirection rules
+ * @summary Queries the list of HTTP 301 status code redirects for a website.
  *
  * @param request ListAppDomainRedirectRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4079,7 +4277,7 @@ ListAppDomainRedirectRecordsResponse Client::listAppDomainRedirectRecordsWithOpt
 }
 
 /**
- * @summary Query the list of domain redirection rules
+ * @summary Queries the list of HTTP 301 status code redirects for a website.
  *
  * @param request ListAppDomainRedirectRecordsRequest
  * @return ListAppDomainRedirectRecordsResponse
@@ -4090,7 +4288,7 @@ ListAppDomainRedirectRecordsResponse Client::listAppDomainRedirectRecords(const 
 }
 
 /**
- * @summary List all domain names under the application instance
+ * @summary Queries the list of domain names bound to a website.
  *
  * @param request ListAppInstanceDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4149,7 +4347,7 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomainsWithOptions(const L
 }
 
 /**
- * @summary List all domain names under the application instance
+ * @summary Queries the list of domain names bound to a website.
  *
  * @param request ListAppInstanceDomainsRequest
  * @return ListAppInstanceDomainsResponse
@@ -4160,7 +4358,7 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomains(const ListAppInsta
 }
 
 /**
- * @summary Website Instance List Query
+ * @summary Queries the list of application instances.
  *
  * @param tmpReq ListAppInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4241,7 +4439,7 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
 }
 
 /**
- * @summary Website Instance List Query
+ * @summary Queries the list of application instances.
  *
  * @param request ListAppInstancesRequest
  * @return ListAppInstancesResponse
@@ -4648,7 +4846,7 @@ ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigs(const Li
 }
 
 /**
- * @summary Modify the configuration of a building instance
+ * @summary Modifies the specifications of a website building application instance.
  *
  * @param request ModifyAppInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4703,7 +4901,7 @@ ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpecWithOptions(const Mod
 }
 
 /**
- * @summary Modify the configuration of a building instance
+ * @summary Modifies the specifications of a website building application instance.
  *
  * @param request ModifyAppInstanceSpecRequest
  * @return ModifyAppInstanceSpecResponse
@@ -4714,7 +4912,7 @@ ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpec(const ModifyAppInsta
 }
 
 /**
- * @summary Modify a material folder
+ * @summary Modifies a material folder.
  *
  * @param request ModifyMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4753,7 +4951,7 @@ ModifyMaterialDirectoryResponse Client::modifyMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary Modify a material folder
+ * @summary Modifies a material folder.
  *
  * @param request ModifyMaterialDirectoryRequest
  * @return ModifyMaterialDirectoryResponse
@@ -4764,7 +4962,7 @@ ModifyMaterialDirectoryResponse Client::modifyMaterialDirectory(const ModifyMate
 }
 
 /**
- * @summary Modify a material file
+ * @summary Modifies a material file.
  *
  * @param request ModifyMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4803,7 +5001,7 @@ ModifyMaterialFileResponse Client::modifyMaterialFileWithOptions(const ModifyMat
 }
 
 /**
- * @summary Modify a material file
+ * @summary Modifies a material file.
  *
  * @param request ModifyMaterialFileRequest
  * @return ModifyMaterialFileResponse
@@ -4814,7 +5012,7 @@ ModifyMaterialFileResponse Client::modifyMaterialFile(const ModifyMaterialFileRe
 }
 
 /**
- * @summary Modify the status of a material file
+ * @summary Modifies the status of a material file.
  *
  * @param tmpReq ModifyMaterialFileStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4859,7 +5057,7 @@ ModifyMaterialFileStatusResponse Client::modifyMaterialFileStatusWithOptions(con
 }
 
 /**
- * @summary Modify the status of a material file
+ * @summary Modifies the status of a material file.
  *
  * @param request ModifyMaterialFileStatusRequest
  * @return ModifyMaterialFileStatusResponse
@@ -4870,7 +5068,7 @@ ModifyMaterialFileStatusResponse Client::modifyMaterialFileStatus(const ModifyMa
 }
 
 /**
- * @summary Shift material folder
+ * @summary Moves a material file folder.
  *
  * @param request MoveMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4913,7 +5111,7 @@ MoveMaterialDirectoryResponse Client::moveMaterialDirectoryWithOptions(const Mov
 }
 
 /**
- * @summary Shift material folder
+ * @summary Moves a material file folder.
  *
  * @param request MoveMaterialDirectoryRequest
  * @return MoveMaterialDirectoryResponse
@@ -4924,7 +5122,7 @@ MoveMaterialDirectoryResponse Client::moveMaterialDirectory(const MoveMaterialDi
 }
 
 /**
- * @summary Shift material files
+ * @summary Moves media asset files.
  *
  * @param tmpReq MoveMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4969,7 +5167,7 @@ MoveMaterialFileResponse Client::moveMaterialFileWithOptions(const MoveMaterialF
 }
 
 /**
- * @summary Shift material files
+ * @summary Moves media asset files.
  *
  * @param request MoveMaterialFileRequest
  * @return MoveMaterialFileResponse
@@ -4980,7 +5178,61 @@ MoveMaterialFileResponse Client::moveMaterialFile(const MoveMaterialFileRequest 
 }
 
 /**
- * @summary Operate application for Partnership
+ * @summary 数据变更通知触发（for admin）
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request NotifyAppNotificationForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return NotifyAppNotificationForAdminResponse
+ */
+NotifyAppNotificationForAdminResponse Client::notifyAppNotificationForAdminWithOptions(const NotifyAppNotificationForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.getSceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "NotifyAppNotificationForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<NotifyAppNotificationForAdminResponse>();
+}
+
+/**
+ * @summary 数据变更通知触发（for admin）
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request NotifyAppNotificationForAdminRequest
+ * @return NotifyAppNotificationForAdminResponse
+ */
+NotifyAppNotificationForAdminResponse Client::notifyAppNotificationForAdmin(const NotifyAppNotificationForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return notifyAppNotificationForAdminWithOptions(request, runtime);
+}
+
+/**
+ * @summary Operates an application by a partner.
  *
  * @param request OperateAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5015,7 +5267,7 @@ OperateAppInstanceForPartnerResponse Client::operateAppInstanceForPartnerWithOpt
 }
 
 /**
- * @summary Operate application for Partnership
+ * @summary Operates an application by a partner.
  *
  * @param request OperateAppInstanceForPartnerRequest
  * @return OperateAppInstanceForPartnerResponse
@@ -5026,7 +5278,7 @@ OperateAppInstanceForPartnerResponse Client::operateAppInstanceForPartner(const 
 }
 
 /**
- * @summary Partnership operates application services.
+ * @summary Operates application services on behalf of a partner.
  *
  * @param request OperateAppServiceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5069,7 +5321,7 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartnerWithOptio
 }
 
 /**
- * @summary Partnership operates application services.
+ * @summary Operates application services on behalf of a partner.
  *
  * @param request OperateAppServiceForPartnerRequest
  * @return OperateAppServiceForPartnerResponse
@@ -5130,9 +5382,9 @@ OperateAppTemplateLikeResponse Client::operateAppTemplateLike(const OperateAppTe
 }
 
 /**
- * @summary Supabase instance information corresponding to the operation resource
+ * @summary Operates on the Supabase instance information corresponding to a resource.
  *
- * @description Supabase instance information corresponding to the operation resource
+ * @description The Supabase instance information corresponding to the operated resource.
  *
  * @param request OperateSupabaseForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5207,9 +5459,9 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdminWithOptions(const
 }
 
 /**
- * @summary Supabase instance information corresponding to the operation resource
+ * @summary Operates on the Supabase instance information corresponding to a resource.
  *
- * @description Supabase instance information corresponding to the operation resource
+ * @description The Supabase instance information corresponding to the operated resource.
  *
  * @param request OperateSupabaseForAdminRequest
  * @return OperateSupabaseForAdminResponse
@@ -5286,9 +5538,9 @@ PublishAppInstanceResponse Client::publishAppInstance(const PublishAppInstanceRe
 }
 
 /**
- * @summary Push resource metering data
+ * @summary Pushes resource metering data.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request PushResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5351,9 +5603,9 @@ PushResourceMeasureResponse Client::pushResourceMeasureWithOptions(const PushRes
 }
 
 /**
- * @summary Push resource metering data
+ * @summary Pushes resource metering data.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request PushResourceMeasureRequest
  * @return PushResourceMeasureResponse
@@ -5364,9 +5616,9 @@ PushResourceMeasureResponse Client::pushResourceMeasure(const PushResourceMeasur
 }
 
 /**
- * @summary Query the details of inspiration value acquisition (quota account list, including expiration mark)
+ * @summary Queries the details of inspiration point acquisition (quota account list, including expiration flags).
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information associated with a resource.
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5421,9 +5673,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetailsWit
 }
 
 /**
- * @summary Query the details of inspiration value acquisition (quota account list, including expiration mark)
+ * @summary Queries the details of inspiration point acquisition (quota account list, including expiration flags).
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information associated with a resource.
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @return QueryInspirationAccountDetailsResponse
@@ -5434,9 +5686,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetails(co
 }
 
 /**
- * @summary Query the overview of inspiration balance
+ * @summary Query Inspiration Balance Overview
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Query the Supabase instance information corresponding to the resource.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryInspirationBalanceResponse
@@ -5458,9 +5710,9 @@ QueryInspirationBalanceResponse Client::queryInspirationBalanceWithOptions(const
 }
 
 /**
- * @summary Query the overview of inspiration balance
+ * @summary Query Inspiration Balance Overview
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Query the Supabase instance information corresponding to the resource.
  *
  * @return QueryInspirationBalanceResponse
  */
@@ -5470,9 +5722,9 @@ QueryInspirationBalanceResponse Client::queryInspirationBalance() {
 }
 
 /**
- * @summary Query inspiration value consumption details
+ * @summary Queries the details of inspiration point consumption.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request QueryInspirationConsumeRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5527,9 +5779,9 @@ QueryInspirationConsumeRecordsResponse Client::queryInspirationConsumeRecordsWit
 }
 
 /**
- * @summary Query inspiration value consumption details
+ * @summary Queries the details of inspiration point consumption.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request QueryInspirationConsumeRecordsRequest
  * @return QueryInspirationConsumeRecordsResponse
@@ -5540,7 +5792,7 @@ QueryInspirationConsumeRecordsResponse Client::queryInspirationConsumeRecords(co
 }
 
 /**
- * @summary Query the material folder tree
+ * @summary Queries the material folder tree.
  *
  * @param request QueryMaterialDirectoryTreeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5579,7 +5831,7 @@ QueryMaterialDirectoryTreeResponse Client::queryMaterialDirectoryTreeWithOptions
 }
 
 /**
- * @summary Query the material folder tree
+ * @summary Queries the material folder tree.
  *
  * @param request QueryMaterialDirectoryTreeRequest
  * @return QueryMaterialDirectoryTreeResponse
@@ -5590,7 +5842,7 @@ QueryMaterialDirectoryTreeResponse Client::queryMaterialDirectoryTree(const Quer
 }
 
 /**
- * @summary Query Material File Details
+ * @summary Queries the details of a material file.
  *
  * @param request QueryMaterialFileDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5625,7 +5877,7 @@ QueryMaterialFileDetailResponse Client::queryMaterialFileDetailWithOptions(const
 }
 
 /**
- * @summary Query Material File Details
+ * @summary Queries the details of a material file.
  *
  * @param request QueryMaterialFileDetailRequest
  * @return QueryMaterialFileDetailResponse
@@ -5636,7 +5888,7 @@ QueryMaterialFileDetailResponse Client::queryMaterialFileDetail(const QueryMater
 }
 
 /**
- * @summary Query the list of material files
+ * @summary Queries the list of material files.
  *
  * @param tmpReq QueryMaterialFileListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5733,7 +5985,7 @@ QueryMaterialFileListResponse Client::queryMaterialFileListWithOptions(const Que
 }
 
 /**
- * @summary Query the list of material files
+ * @summary Queries the list of material files.
  *
  * @param request QueryMaterialFileListRequest
  * @return QueryMaterialFileListResponse
@@ -5744,7 +5996,7 @@ QueryMaterialFileListResponse Client::queryMaterialFileList(const QueryMaterialF
 }
 
 /**
- * @summary Query file overview
+ * @summary Queries the file overview.
  *
  * @param tmpReq QueryMaterialFileSummaryInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5817,7 +6069,7 @@ QueryMaterialFileSummaryInfoResponse Client::queryMaterialFileSummaryInfoWithOpt
 }
 
 /**
- * @summary Query file overview
+ * @summary Queries the file overview.
  *
  * @param request QueryMaterialFileSummaryInfoRequest
  * @return QueryMaterialFileSummaryInfoResponse
@@ -5828,7 +6080,7 @@ QueryMaterialFileSummaryInfoResponse Client::queryMaterialFileSummaryInfo(const 
 }
 
 /**
- * @summary Query the details of a Material generation Job
+ * @summary Queries the details of a material generation task.
  *
  * @param request QueryMaterialTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5859,7 +6111,7 @@ QueryMaterialTaskDetailResponse Client::queryMaterialTaskDetailWithOptions(const
 }
 
 /**
- * @summary Query the details of a Material generation Job
+ * @summary Queries the details of a material generation task.
  *
  * @param request QueryMaterialTaskDetailRequest
  * @return QueryMaterialTaskDetailResponse
@@ -5870,7 +6122,7 @@ QueryMaterialTaskDetailResponse Client::queryMaterialTaskDetail(const QueryMater
 }
 
 /**
- * @summary Query the list of Material generation Jobs
+ * @summary Query Material Generation Task List
  *
  * @param tmpReq QueryMaterialTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5939,7 +6191,7 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskListWithOptions(const Que
 }
 
 /**
- * @summary Query the list of Material generation Jobs
+ * @summary Query Material Generation Task List
  *
  * @param request QueryMaterialTaskListRequest
  * @return QueryMaterialTaskListResponse
@@ -5950,9 +6202,9 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 }
 
 /**
- * @summary Query the auth configuration information of the Supabase instance corresponding to the resource
+ * @summary Queries the auth configuration of a Supabase instance associated with a resource.
  *
- * @description Query the auth configuration information of the Supabase instance corresponding to the resource
+ * @description Queries the auth configuration of a Supabase instance associated with a resource.
  *
  * @param request QuerySupabaseAuthConfigsForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6011,9 +6263,9 @@ QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdmi
 }
 
 /**
- * @summary Query the auth configuration information of the Supabase instance corresponding to the resource
+ * @summary Queries the auth configuration of a Supabase instance associated with a resource.
  *
- * @description Query the auth configuration information of the Supabase instance corresponding to the resource
+ * @description Queries the auth configuration of a Supabase instance associated with a resource.
  *
  * @param request QuerySupabaseAuthConfigsForAdminRequest
  * @return QuerySupabaseAuthConfigsForAdminResponse
@@ -6024,9 +6276,9 @@ QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdmi
 }
 
 /**
- * @summary Query the Supabase instance configuration information corresponding to the resource.
+ * @summary Queries the Supabase instance configuration information for a specified resource.
  *
- * @description Query the Supabase instance configuration information corresponding to the resource.
+ * @description Queries the Supabase instance configuration information for a specified resource.
  *
  * @param request QuerySupabaseConfigsForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6081,9 +6333,9 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdminWithOpt
 }
 
 /**
- * @summary Query the Supabase instance configuration information corresponding to the resource.
+ * @summary Queries the Supabase instance configuration information for a specified resource.
  *
- * @description Query the Supabase instance configuration information corresponding to the resource.
+ * @description Queries the Supabase instance configuration information for a specified resource.
  *
  * @param request QuerySupabaseConfigsForAdminRequest
  * @return QuerySupabaseConfigsForAdminResponse
@@ -6094,9 +6346,9 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdmin(const 
 }
 
 /**
- * @summary Query the Supabase instance information corresponding to the resource
+ * @summary Queries the Supabase instance information for a specified resource.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information for a specified resource.
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6151,9 +6403,9 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
- * @summary Query the Supabase instance information corresponding to the resource
+ * @summary Queries the Supabase instance information for a specified resource.
  *
- * @description Query the Supabase instance information corresponding to the resource
+ * @description Queries the Supabase instance information for a specified resource.
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @return QuerySupabaseInstanceInfoForAdminResponse
@@ -6164,9 +6416,9 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
- * @summary Reconnect AI conversation
+ * @summary Reconnects an AI conversation.
  *
- * @description Obtain QR code plugin Configuration Information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ReconnectAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6174,22 +6426,22 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
  */
 FutureGenerator<ReconnectAppChatResponse> Client::reconnectAppChatWithSSE(const ReconnectAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasChatId()) {
-    query["ChatId"] = request.getChatId();
+    body["ChatId"] = request.getChatId();
   }
 
   if (!!request.hasConversationId()) {
-    query["ConversationId"] = request.getConversationId();
+    body["ConversationId"] = request.getConversationId();
   }
 
   if (!!request.hasLastEventId()) {
-    query["LastEventId"] = request.getLastEventId();
+    body["LastEventId"] = request.getLastEventId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReconnectAppChat"},
     {"version" , "2025-04-29"},
@@ -6219,9 +6471,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Reconnect AI conversation
+ * @summary Reconnects an AI conversation.
  *
- * @description Obtain QR code plugin Configuration Information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ReconnectAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6229,22 +6481,22 @@ return Darabonba::FutureGenerator<json>(__retrun);
  */
 ReconnectAppChatResponse Client::reconnectAppChatWithOptions(const ReconnectAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasChatId()) {
-    query["ChatId"] = request.getChatId();
+    body["ChatId"] = request.getChatId();
   }
 
   if (!!request.hasConversationId()) {
-    query["ConversationId"] = request.getConversationId();
+    body["ConversationId"] = request.getConversationId();
   }
 
   if (!!request.hasLastEventId()) {
-    query["LastEventId"] = request.getLastEventId();
+    body["LastEventId"] = request.getLastEventId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ReconnectAppChat"},
     {"version" , "2025-04-29"},
@@ -6260,9 +6512,9 @@ ReconnectAppChatResponse Client::reconnectAppChatWithOptions(const ReconnectAppC
 }
 
 /**
- * @summary Reconnect AI conversation
+ * @summary Reconnects an AI conversation.
  *
- * @description Obtain QR code plugin Configuration Information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ReconnectAppChatRequest
  * @return ReconnectAppChatResponse
@@ -6273,7 +6525,7 @@ ReconnectAppChatResponse Client::reconnectAppChat(const ReconnectAppChatRequest 
 }
 
 /**
- * @summary Refresh ticket
+ * @summary Refreshes the password-free login ticket for a website building instance.
  *
  * @param request RefreshAppInstanceTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6312,7 +6564,7 @@ RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicketWithOptions(con
 }
 
 /**
- * @summary Refresh ticket
+ * @summary Refreshes the password-free login ticket for a website building instance.
  *
  * @param request RefreshAppInstanceTicketRequest
  * @return RefreshAppInstanceTicketResponse
@@ -6323,7 +6575,7 @@ RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicket(const RefreshA
 }
 
 /**
- * @summary Refund for channel partner website building service.
+ * @summary Processes a refund for a channel partner website building service.
  *
  * @param request RefundAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6366,7 +6618,7 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartnerWithOptio
 }
 
 /**
- * @summary Refund for channel partner website building service.
+ * @summary Processes a refund for a channel partner website building service.
  *
  * @param request RefundAppInstanceForPartnerRequest
  * @return RefundAppInstanceForPartnerResponse
@@ -6377,7 +6629,7 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartner(const Re
 }
 
 /**
- * @summary Renewal of website building instance
+ * @summary Renews a website builder application instance.
  *
  * @param request RenewAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6428,7 +6680,7 @@ RenewAppInstanceResponse Client::renewAppInstanceWithOptions(const RenewAppInsta
 }
 
 /**
- * @summary Renewal of website building instance
+ * @summary Renews a website builder application instance.
  *
  * @param request RenewAppInstanceRequest
  * @return RenewAppInstanceResponse
@@ -6439,9 +6691,9 @@ RenewAppInstanceResponse Client::renewAppInstance(const RenewAppInstanceRequest 
 }
 
 /**
- * @summary Renewal/Purge Sandbox Environment
+ * @summary Renews or refreshes a sandbox environment.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request RenewAppSandboxRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6472,9 +6724,9 @@ RenewAppSandboxResponse Client::renewAppSandboxWithOptions(const RenewAppSandbox
 }
 
 /**
- * @summary Renewal/Purge Sandbox Environment
+ * @summary Renews or refreshes a sandbox environment.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request RenewAppSandboxRequest
  * @return RenewAppSandboxResponse
@@ -6695,7 +6947,7 @@ SaveAppSupabaseSecretsResponse Client::saveAppSupabaseSecrets(const SaveAppSupab
 }
 
 /**
- * @summary Image retrieval
+ * @summary Searches for images.
  *
  * @param tmpReq SearchImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6788,7 +7040,7 @@ SearchImageResponse Client::searchImageWithOptions(const SearchImageRequest &tmp
 }
 
 /**
- * @summary Image retrieval
+ * @summary Searches for images.
  *
  * @param request SearchImageRequest
  * @return SearchImageResponse
@@ -6799,7 +7051,7 @@ SearchImageResponse Client::searchImage(const SearchImageRequest &request) {
 }
 
 /**
- * @summary Set the SSL certificate for a domain
+ * @summary Sets the SSL certificate for a website.
  *
  * @param request SetAppDomainCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6850,7 +7102,7 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificateWithOptions(const
 }
 
 /**
- * @summary Set the SSL certificate for a domain
+ * @summary Sets the SSL certificate for a website.
  *
  * @param request SetAppDomainCertificateRequest
  * @return SetAppDomainCertificateResponse
@@ -6919,7 +7171,7 @@ SubmitAppSeoIndexResponse Client::submitAppSeoIndex(const SubmitAppSeoIndexReque
 }
 
 /**
- * @summary Submit a Material Generation Job
+ * @summary Submits a material generation task.
  *
  * @param request SubmitMaterialTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6954,7 +7206,7 @@ SubmitMaterialTaskResponse Client::submitMaterialTaskWithOptions(const SubmitMat
 }
 
 /**
- * @summary Submit a Material Generation Job
+ * @summary Submits a material generation task.
  *
  * @param request SubmitMaterialTaskRequest
  * @return SubmitMaterialTaskResponse
@@ -7019,7 +7271,7 @@ SwitchAppConversationResponse Client::switchAppConversation(const SwitchAppConve
 }
 
 /**
- * @summary Partnership synchronizes application instance
+ * @summary Synchronizes an application instance from a partner.
  *
  * @param tmpReq SyncAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7072,7 +7324,7 @@ SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartnerWithOptions(c
 }
 
 /**
- * @summary Partnership synchronizes application instance
+ * @summary Synchronizes an application instance from a partner.
  *
  * @param request SyncAppInstanceForPartnerRequest
  * @return SyncAppInstanceForPartnerResponse
@@ -7083,7 +7335,7 @@ SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartner(const SyncAp
 }
 
 /**
- * @summary Unbind Application Domain
+ * @summary Unbinds a domain name from a website and deletes the related DNS records.
  *
  * @param request UnbindAppDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7118,7 +7370,7 @@ UnbindAppDomainResponse Client::unbindAppDomainWithOptions(const UnbindAppDomain
 }
 
 /**
- * @summary Unbind Application Domain
+ * @summary Unbinds a domain name from a website and deletes the related DNS records.
  *
  * @param request UnbindAppDomainRequest
  * @return UnbindAppDomainResponse
@@ -7683,7 +7935,7 @@ UploadAppSiteValidationFileResponse Client::uploadAppSiteValidationFile(const Up
 }
 
 /**
- * @summary Upload material files
+ * @summary Uploads a material file.
  *
  * @param request UploadMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7726,7 +7978,7 @@ UploadMaterialFileResponse Client::uploadMaterialFileWithOptions(const UploadMat
 }
 
 /**
- * @summary Upload material files
+ * @summary Uploads a material file.
  *
  * @param request UploadMaterialFileRequest
  * @return UploadMaterialFileResponse

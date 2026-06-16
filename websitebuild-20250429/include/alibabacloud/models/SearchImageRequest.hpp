@@ -170,46 +170,46 @@ namespace Models
 
 
   protected:
-    // Color
+    // The color.
     shared_ptr<string> colorHex_ {};
-    // Indicates whether the image contains a person.
+    // Specifies whether the image contains a person.
     shared_ptr<bool> hasPerson_ {};
-    // Image category. Valid values:
-    // - normal: Illustrations or article images.
-    // - banner: Background images or image carousels.
-    // - goods: Product or service images.
+    // The image category. Valid values:
+    // - normal: illustrations or article images.
+    // - banner: background images or carousel images.
+    // - goods: product or service images.
     shared_ptr<string> imageCategory_ {};
-    // Image aspect ratio, including:
+    // The aspect ratio of the image. Valid values:
     // "16:9"
     // "4:3"
     // "2:1"
     // "1:1"
     // "3:4"
-    // "9:16"
+    // "9:16".
     shared_ptr<string> imageRatio_ {};
-    // Maximum image height.
+    // The maximum height of the image.
     shared_ptr<int32_t> maxHeight_ {};
-    // Number of items per page in a paged query. Maximum value is 100. Default value is 20.
+    // The number of entries per page for paging queries. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Maximum image width (inclusive).
+    // The maximum width of the image, inclusive.
     shared_ptr<int32_t> maxWidth_ {};
-    // Minimum image height
+    // The minimum height of the image.
     shared_ptr<int32_t> minHeight_ {};
-    // Minimum image width (inclusive).
+    // The minimum width of the image, inclusive.
     shared_ptr<int32_t> minWidth_ {};
-    // Query credential (Token). Set this parameter to the NextToken value returned in the previous API call. You do not need to set this parameter for the initial API call. If NextToken is specified, the request parameters PageSize and PageNumber become invalid, and the TotalCount in the returned data is also invalid.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request. If NextToken is specified, the PageSize and PageNumber request parameters do not take effect, and the TotalCount value in the response is invalid.
     shared_ptr<string> nextToken_ {};
-    // Osskey。
+    // The OSS key.
     shared_ptr<string> ossKey_ {};
-    // Number of results to return. Default value is 10.
+    // The number of returned results. Default value: 10.
     shared_ptr<int32_t> size_ {};
-    // Starting position of the return result. Valid values: 0 to 499. Default value is 0.
+    // The start position of the returned results. Valid values: 0 to 499. Default value: 0.
     shared_ptr<int32_t> start_ {};
-    // Tags.
+    // The tags.
     shared_ptr<vector<string>> tags_ {};
-    // Description text for searching images.
+    // The description text used to search for images.
     // 
-    // > Supports up to 512 characters.
+    // >Maximum length: 512 characters.
     shared_ptr<string> text_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Platform Type
+    // The platform type.
     shared_ptr<string> platformType_ {};
   };
 

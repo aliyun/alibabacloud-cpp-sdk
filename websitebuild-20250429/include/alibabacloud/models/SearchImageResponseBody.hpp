@@ -172,28 +172,28 @@ namespace Models
 
 
       protected:
-        // Descriptive hues detected in the Image
+        // The descriptive tones identified from the image.
         shared_ptr<string> descriptiveTones_ {};
-        // Image height
+        // The height of the image.
         shared_ptr<int32_t> height_ {};
-        // Image categorization. Valid values:  
-        // - normal: Illustrations or article images.  
-        // - banner: Background images or image carousels.  
-        // - goods: Product or service images.
+        // The image category. Valid values:
+        // - normal: illustrations or article images.
+        // - banner: background images or carousel images.
+        // - goods: product or service images.
         shared_ptr<string> imageCategory_ {};
-        // Aspect ratio
+        // The aspect ratio.
         shared_ptr<string> imageRatio_ {};
-        // Image UUID
+        // The unique identifier of the image.
         shared_ptr<string> imageUuid_ {};
         // oss key
         shared_ptr<string> ossKey_ {};
-        // Quantized color palette (HEX, LAB) extracted by the algorithm
+        // The quantitative palette extracted by the algorithm (HEX, LAB).
         shared_ptr<string> quantitativePalette_ {};
-        // Image tags
+        // The image tags.
         shared_ptr<string> tagsFromImage_ {};
-        // Temporary access URL of the image
+        // The temporary access URL of the image.
         shared_ptr<string> url_ {};
-        // Image width
+        // The width of the image.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -223,13 +223,13 @@ namespace Models
 
 
     protected:
-      // Image List
+      // The image list.
       shared_ptr<vector<ImageResponse::ImageList>> imageList_ {};
-      // Number of results per query.
+      // The number of entries returned per query.
       // 
-      // Value range: 10–100. Default Value: 20.
+      // Valid values: 10 to 100. Default value: 20.
       shared_ptr<int32_t> maxResults_ {};
-      // Token indicating the start of the next query. It is empty when there is no next query.
+      // The token for the next query. This value is empty if there are no more results.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -273,15 +273,15 @@ namespace Models
 
 
   protected:
-    // Error code. The ErrorCode field is not returned if the request succeeded. If the request failed, the ErrorCode field is returned. For more information, see the error code list in this topic.
+    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
-    // error message.
+    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // Image search Result
+    // The image search results.
     shared_ptr<SearchImageResponseBody::ImageResponse> imageResponse_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

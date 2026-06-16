@@ -87,17 +87,17 @@ namespace Models
 
 
     protected:
-      // The job ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The current status of the job:
+      // The current status of the task. Valid values:
       // 
-      // - pending: Pending execution  
-      // - configuring: Configuring  
-      // - success: Succeeded  
-      // - failed: Failed  
-      // - partialFailed: Partially failed
+      // - pending: pending execution
+      // - configuring: being configured
+      // - success: succeeded
+      // - failed: failed
+      // - partialFailed: partially failed.
       shared_ptr<string> taskStatus_ {};
-      // The URLs of the prefetched resources.
+      // The URL of the prefetched resource.
       shared_ptr<vector<string>> urls_ {};
     };
 
@@ -141,15 +141,15 @@ namespace Models
 
 
   protected:
-    // The error code. The ErrorCode field is not returned if the request succeeds. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Job information
+    // The task information.
     shared_ptr<GetCreateLogoTaskResponseBody::Task> task_ {};
   };
 

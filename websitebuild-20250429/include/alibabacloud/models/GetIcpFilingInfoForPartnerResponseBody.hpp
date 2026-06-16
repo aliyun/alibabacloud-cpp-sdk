@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The ICP filing number associated with the domain name. Supports entity ICP filing numbers and website ICP filing numbers.
+      // The ICP filing number associated with the domain name. Both entity ICP filing numbers and website ICP filing numbers are supported.
       shared_ptr<string> icpNumber_ {};
-      // Whether the domain is filed for ICP
+      // Indicates whether the domain name has an ICP filing.
       shared_ptr<bool> recorded_ {};
-      // The website ICP filing number corresponding to the domain name
+      // The website ICP filing number associated with the domain name.
       shared_ptr<string> siteRecordNumber_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // Request result.
+    // The request result.
     shared_ptr<GetIcpFilingInfoForPartnerResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

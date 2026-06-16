@@ -156,19 +156,21 @@ namespace Models
 
 
       protected:
-        // Commodity code (used for both resource plans and Marketing Products)
+        // The commodity code. This code applies to both resource plans and promotional commodities.
         shared_ptr<string> commodityCode_ {};
-        // Extension fields (such as unsupportedReason)
+        // The extension field, such as unsupportedReason.
         shared_ptr<map<string, string>> extend_ {};
-        // Order Type: BUY - Purchase, UPGRADE - upgrade
+        // The order type. Valid values:
+        // - BUY: purchase.
+        // - UPGRADE: upgrade.
         shared_ptr<string> orderType_ {};
-        // Sorting Priority (the smaller the number, the higher the priority)
+        // The sorting priority. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // Marketing Product ID (returned only for new purchases)
+        // The promotional commodity ID. This parameter is returned only for new purchases.
         shared_ptr<string> promotionCommodityId_ {};
-        // Hyperlink URL (returned when a redirect is required, such as during an upgrade)
+        // The redirect URL. This parameter is returned when a redirect is required, such as during an upgrade.
         shared_ptr<string> redirectUrl_ {};
-        // Product Status
+        // The commodity status.
         shared_ptr<string> status_ {};
       };
 
@@ -183,7 +185,7 @@ namespace Models
 
 
     protected:
-      // Marketing product list
+      // The list of promotional commodities.
       shared_ptr<vector<Module::Commodities>> commodities_ {};
     };
 
@@ -272,34 +274,34 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it means the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Data table module.  
+    // The data table module. Valid values:
     // 
-    // - ABTest: Experiment Data Table  
+    // - ABTest: the experiment data table.
     // 
-    // - ExperimentTool: Experiment Tool Table  
+    // - ExperimentTool: the experiment tool table.
     // 
-    // - DataDiagnosis: Data Diagnosis
+    // - DataDiagnosis: data modeling diagnostics.
     shared_ptr<GetAppRecommendedCommoditiesResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether processing is synchronous
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

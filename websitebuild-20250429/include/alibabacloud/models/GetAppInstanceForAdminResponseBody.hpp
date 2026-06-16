@@ -136,34 +136,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application. The name must be 4 to 26 characters in length. The name can contain letters, digits, and underscores (_), and must start with a letter.
+    // The application name that was queried.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace `%s` in the error message of the returned parameter **ErrMessage**.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input request parameter **DtsJobId** is invalid.
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The parameter whose value is invalid.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Data table module.
-    // 
-    // - ABTest: Experiment data table
-    // 
-    // - ExperimentTool: Experiment tool table
-    // 
-    // - DataDiagnosis: Data diagnosis
+    // The response data.
     shared_ptr<AppInstanceAggregate> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error Code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Error message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

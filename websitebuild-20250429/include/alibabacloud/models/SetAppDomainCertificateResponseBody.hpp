@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // Whether it is successful
+      // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -167,29 +167,29 @@ namespace Models
 
 
   protected:
-    // No permission information
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether to allow retry. Values:
-    // - false: Do not allow retry.
-    // - true: Allow retry.
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // 应用名称
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message.
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // Return error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<SetAppDomainCertificateResponseBody::Module> module_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Exception message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Whether it is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

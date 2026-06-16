@@ -106,15 +106,15 @@ namespace Models
 
 
     protected:
-      // Message content
+      // The message content.
       shared_ptr<string> content_ {};
-      // Content type
+      // The content type.
       shared_ptr<string> contentType_ {};
-      // Business extension metadata (in Map format, must be a JSON string)
+      // The business extension metadata in Map format. The value must be a JSON string.
       shared_ptr<map<string, string>> metaData_ {};
-      // Role in the conversation
+      // The conversation role.
       shared_ptr<string> role_ {};
-      // File type
+      // The file type.
       shared_ptr<string> type_ {};
     };
 
@@ -160,15 +160,15 @@ namespace Models
 
 
   protected:
-    // Site ID
+    // The site ID.
     shared_ptr<string> bizId_ {};
-    // Conversation ID (provided when recovering from a break)
+    // The chat ID. Pass in this parameter to resume a conversation after an interruption.
     shared_ptr<string> chatId_ {};
-    // session ID
+    // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // List of conversation messages
+    // The list of conversation messages.
     shared_ptr<vector<CreateAIStaffChatRequest::Messages>> messages_ {};
-    // Additional conversation information
+    // The additional information for the conversation.
     shared_ptr<map<string, string>> metaData_ {};
   };
 

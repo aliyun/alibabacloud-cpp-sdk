@@ -176,32 +176,36 @@ namespace Models
 
 
   protected:
-    // Application type
+    // The application type.
     shared_ptr<string> applicationType_ {};
-    // Whether to enable auto-renewal upon expiration
+    // Specifies whether to enable auto-renewal upon expiration.
     shared_ptr<bool> autoRenew_ {};
-    // Ensures idempotence of the request. Generate a unique value from your client to ensure that it is unique across different requests. ClientToken only supports ASCII characters and cannot exceed 64 characters
+    // The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> createAction_ {};
-    // Deployment area
+    // The deployment region.
     shared_ptr<string> deployArea_ {};
     shared_ptr<string> description_ {};
-    // Required. The number of subscription periods
+    // Required. The number of subscription periods.
     shared_ptr<int32_t> duration_ {};
-    // Extended information
+    // The extended information.
     shared_ptr<string> extend_ {};
     shared_ptr<string> name_ {};
-    // Payment type
+    // The payment type.
     shared_ptr<string> paymentType_ {};
-    // Required. The unit of the subscription period, Year: Year, Month: Month, Day: Day, Hour: Hour
+    // Required. The unit of the subscription period. Valid values:
+    // - Year: year
+    // - Month: month
+    // - Day: day
+    // - Hour: hour.
     shared_ptr<string> pricingCycle_ {};
-    // Required. The quantity of instances to be ordered.
+    // Required. The number of instances to subscribe to.
     shared_ptr<int32_t> quantity_ {};
-    // Resource group ID
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // Site version
+    // The website version.
     shared_ptr<string> siteVersion_ {};
-    // List of tags
+    // The list of tags.
     shared_ptr<string> tagsShrink_ {};
     shared_ptr<string> version_ {};
   };

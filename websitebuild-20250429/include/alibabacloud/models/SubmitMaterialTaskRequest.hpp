@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Job parameters
+    // The parameters of the task.
     // 
     // This parameter is required.
     shared_ptr<string> taskParam_ {};
-    // Task Type
+    // The type of the task.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

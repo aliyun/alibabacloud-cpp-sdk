@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // Bot ID
+      // The chatbot ID.
       shared_ptr<string> botId_ {};
-      // ID of the chat.
+      // The chat ID.
       shared_ptr<string> chatId_ {};
-      // Session ID
+      // The session ID.
       shared_ptr<string> conversationId_ {};
-      // Section ID of the check item.
+      // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+      // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
       shared_ptr<string> siteId_ {};
-      // Current point, equivalent to a news title
+      // The current viewpoint, equivalent to the news title.
       shared_ptr<string> title_ {};
     };
 
@@ -223,27 +223,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message.
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<CreateAIStaffConversationResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Backup parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

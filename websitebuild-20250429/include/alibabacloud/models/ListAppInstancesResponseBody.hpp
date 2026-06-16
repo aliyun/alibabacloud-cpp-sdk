@@ -219,46 +219,46 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
-    // Query result.
+    // The request result.
     shared_ptr<vector<AppInstanceAggregate>> data_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message, not in use, please ignore
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // 返回错误参数
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of results per query.
+    // The number of entries per query.
     // 
-    // Value range: 10~100. Default value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Whether there is a next page.
+    // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
-    // The token for the next query. It is empty when there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Whether there is a previous page
+    // Indicates whether a previous page exists.
     shared_ptr<bool> prePage_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // For the current query, apart from pagination limits, the server processes up to the most recent 1000 records. If the result exceeds 1000 records, **ResultLimit** is **true**, please narrow down the time range and search again; otherwise, **ResultLimit** is **false**.
+    // Indicates whether the result limit is reached. The server processes up to 1000 recent records excluding pagination limits. If the results exceed 1000 records, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     shared_ptr<string> startPosition_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

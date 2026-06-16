@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID of the application instance
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // Domain name
+    // The domain name.
     shared_ptr<string> domainName_ {};
   };
 

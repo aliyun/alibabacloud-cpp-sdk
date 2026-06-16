@@ -88,17 +88,17 @@ namespace Models
 
 
   protected:
-    // Application instance business ID
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // List of subfolders
+    // The list of subfolders.
     shared_ptr<vector<AppMaterialDirectory>> children_ {};
-    // Folder ID.
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // Name
+    // The name.
     shared_ptr<string> name_ {};
-    // Sorting number
+    // The sort number.
     shared_ptr<string> sortNum_ {};
-    // Folder type
+    // The folder type.
     shared_ptr<string> type_ {};
   };
 

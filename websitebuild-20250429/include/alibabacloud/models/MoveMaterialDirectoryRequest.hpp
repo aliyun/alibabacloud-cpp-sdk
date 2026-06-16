@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // Application instance ID
+    // The application instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // Folder ID
+    // The folder ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // Parent folder ID after shift
+    // The parent folder ID after the move.
     // 
     // This parameter is required.
     shared_ptr<string> parentDirectoryId_ {};
-    // Sorting ordinal number
+    // The sort number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sortNum_ {};

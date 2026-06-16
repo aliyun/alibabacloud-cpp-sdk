@@ -164,35 +164,35 @@ namespace Models
 
 
   protected:
-    // access denied details
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:  
-    // - false: Retry is not allowed.  
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
     // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // AppName. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic message
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // error code. The ErrorCode field is returned only when the Request fails. If the Request succeeds, the ErrorCode field is not returned. For more information, see the error code List in this topic.
+    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
-    // error message
+    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // Response data
+    // The response data.
     shared_ptr<AppMaterialTask> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the Request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

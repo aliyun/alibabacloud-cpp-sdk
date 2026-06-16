@@ -158,33 +158,33 @@ namespace Models
 
 
   protected:
-    // Application instance ID
+    // The application instance ID.
     shared_ptr<string> bizId_ {};
-    // Content Type
+    // The content type.
     shared_ptr<string> contentType_ {};
-    // Creation Time.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // Deletion Time
+    // The deletion time.
     shared_ptr<string> deletedTime_ {};
-    // Folder ID
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // File ID
+    // The file ID.
     shared_ptr<string> fileId_ {};
-    // File URL
+    // The file URL.
     shared_ptr<string> fileUrl_ {};
-    // Image height
+    // The image height.
     shared_ptr<int32_t> height_ {};
-    // File name
+    // The file name.
     shared_ptr<string> name_ {};
-    // File Status
+    // The file status.
     shared_ptr<string> status_ {};
-    // Bucket size.
+    // The storage size.
     shared_ptr<string> storageSize_ {};
-    // File suffix
+    // The file name extension.
     shared_ptr<string> suffix_ {};
-    // File Type
+    // The file type.
     shared_ptr<string> type_ {};
-    // Image width
+    // The image width.
     shared_ptr<int32_t> width_ {};
   };
 

@@ -78,7 +78,7 @@ namespace Models
 
 
       protected:
-        // Customer business ID
+        // The customer business ID.
         shared_ptr<string> bizId_ {};
       };
 
@@ -93,7 +93,7 @@ namespace Models
 
 
     protected:
-      // Application instance information
+      // The website instance information.
       shared_ptr<Data::AppInstance> appInstance_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // Request result.
+    // The request result.
     shared_ptr<SyncAppInstanceForPartnerResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Password-free login access token
+    // The SSO access token.
     shared_ptr<string> token_ {};
   };
 

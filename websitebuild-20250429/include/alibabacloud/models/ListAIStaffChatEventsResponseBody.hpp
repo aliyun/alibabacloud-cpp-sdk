@@ -122,11 +122,11 @@ namespace Models
 
 
       protected:
-        // error message.
+        // The fault information.
         shared_ptr<string> data_ {};
-        // primary key
+        // The primary key.
         shared_ptr<int32_t> id_ {};
-        // Website Name
+        // The event name.
         shared_ptr<string> name_ {};
       };
 
@@ -163,13 +163,13 @@ namespace Models
 
 
     protected:
-      // Unique ID of the sentence
+      // The unique ID of a single utterance.
       shared_ptr<string> chatId_ {};
-      // session ID
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // object ID
+      // The event list.
       shared_ptr<vector<Module::Events>> events_ {};
-      // ID of the last SSE event
+      // The ID of the last SSE event.
       shared_ptr<int32_t> lastEventId_ {};
     };
 
@@ -258,28 +258,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message, used to replace `%s` in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the ErrMessage response element.
+    // > For example, if ErrMessage returns **The Value of Input Parameter %s is not valid** and DynamicMessage returns **DtsJobId**, the DtsJobId request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // faulty parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // returned object.
+    // The response object.
     shared_ptr<ListAIStaffChatEventsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

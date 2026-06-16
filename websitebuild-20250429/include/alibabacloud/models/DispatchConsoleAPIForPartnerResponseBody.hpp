@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Request result.
+      // The request result.
       shared_ptr<string> data_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // Error code. The value is as follows: If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
-    // Response data
+    // The response data.
     shared_ptr<DispatchConsoleAPIForPartnerResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

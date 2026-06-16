@@ -117,27 +117,27 @@ namespace Models
 
 
   protected:
-    // Business instance ID
+    // The business instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // Folder ID
+    // The ID of the directory.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // File name
+    // The file name.
     shared_ptr<string> name_ {};
-    // Sorting field
+    // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
-    // Sorting type: ASC or DESC
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
-    // Page number. Default is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // Page size. Default is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // File status
+    // The file status.
     shared_ptr<vector<string>> statusList_ {};
-    // File type
+    // The file type.
     shared_ptr<vector<string>> typeList_ {};
   };
 

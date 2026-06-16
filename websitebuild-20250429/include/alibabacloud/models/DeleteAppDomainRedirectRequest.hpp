@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID of the application instance
+    // Application instance business ID.
     shared_ptr<string> bizId_ {};
-    // ID of the domain redirect record
+    // Domain name redirect record ID.
     shared_ptr<int64_t> recordId_ {};
   };
 

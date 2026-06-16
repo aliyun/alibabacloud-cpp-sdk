@@ -94,19 +94,21 @@ namespace Models
 
 
   protected:
-    // Query End Time
+    // The end time of the query.
     shared_ptr<string> endTime_ {};
-    // Sorting field
+    // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
-    // Sorting type: ASC|DESC
+    // The sort order. Valid values:
+    // - ASC: ascending order.
+    // - DESC: descending order.
     shared_ptr<string> orderType_ {};
-    // Page number, default is 1
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // Page size, default is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Source type filter (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
+    // The source type used to filter results. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
     shared_ptr<string> sourceType_ {};
-    // Query Start Time
+    // The start time of the query.
     shared_ptr<string> startTime_ {};
   };
 

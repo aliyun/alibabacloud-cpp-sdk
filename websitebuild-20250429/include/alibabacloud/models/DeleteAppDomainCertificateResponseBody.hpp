@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // Whether it was successful
+      // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -167,29 +167,29 @@ namespace Models
 
 
   protected:
-    // Details of permission check failure
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed. Values:
-    // - false: Not allowed to retry.
-    // - true: Allowed to retry.
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name. Allows a combination of numbers, letters, and hyphens (-). Must start with a letter, cannot end with a hyphen (-), and must not exceed 36 characters.
+    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
-    // Dynamic code, not in use, please ignore
+    // The dynamic code. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message.
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<DeleteAppDomainCertificateResponseBody::Module> module_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Exception message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Whether it is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Business ID of the application instance
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // SSL certificate name
+    // The SSL certificate name.
     shared_ptr<string> certificateName_ {};
-    // Certificate type: Default free certificate or customer\\"s own certificate
+    // The certificate type: default free certificate or customer-owned certificate.
     shared_ptr<string> certificateType_ {};
-    // Domain name
+    // The domain name.
     shared_ptr<string> domainName_ {};
-    // Private key
+    // The private key.
     shared_ptr<string> privateKey_ {};
-    // Public key
+    // The public key.
     shared_ptr<string> publicKey_ {};
   };
 

@@ -165,39 +165,39 @@ namespace Models
 
 
   protected:
-    // Business ID of the application instance
+    // The business ID of the application instance.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // Folder ID
+    // The folder ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // Maximum file size
+    // The maximum file size.
     shared_ptr<int64_t> maxFileSize_ {};
-    // Number of results per query.
+    // The maximum number of entries to return per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Minimum file size
+    // The minimum file size.
     shared_ptr<int64_t> minFileSize_ {};
-    // Website name
+    // The website name.
     shared_ptr<string> name_ {};
-    // Token indicating the start of the next query. It is empty when there is no subsequent query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Sorting field
+    // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
-    // Sorting type: ASC or DESC
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
-    // Page number. Default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // Page size. Default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Status range
+    // The list of statuses.
     shared_ptr<vector<string>> statusList_ {};
-    // File suffix list
+    // The list of file suffixes.
     shared_ptr<vector<string>> suffixList_ {};
-    // List of file types
+    // The list of file types.
     shared_ptr<vector<string>> typeList_ {};
   };
 

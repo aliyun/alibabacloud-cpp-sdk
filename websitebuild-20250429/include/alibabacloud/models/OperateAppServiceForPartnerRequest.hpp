@@ -66,20 +66,20 @@ namespace Models
 
 
   protected:
-    // Business ID.
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Additional extension information in JSON structure, facilitating future parameter extensions.
+    // Other extended information in JSON format for future parameter expansion.
     shared_ptr<string> extend_ {};
-    // Operation event:  
-    // SERVICE_FINISH: Service completed
+    // The operation event. Valid values:
+    // SERVICE_FINISH: the service is completed.
     shared_ptr<string> operateEvent_ {};
-    // Service Type.  
+    // The service type.
     // 
-    // Valid values:  
+    // Valid values:
     // 
-    // - private: Deployed under the user\\"s account.  
+    // - private: deployment under the user account.
     // 
-    // - managed: Hosted under the service provider\\"s account.  
+    // - managed: hosted under the service provider account.
     // 
     // - operation: Alibaba Cloud Managed Services.
     shared_ptr<string> serviceType_ {};

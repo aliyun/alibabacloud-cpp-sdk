@@ -216,43 +216,43 @@ namespace Models
 
 
     protected:
-      // List of supported models
+      // The list of allowed models.
       shared_ptr<string> allowedModels_ {};
-      // Business ID of the application instance
+      // The business ID of the application instance.
       shared_ptr<string> bizId_ {};
-      // List of blocked models
+      // The list of blocked models.
       shared_ptr<string> blockedModels_ {};
-      // Grants specific permissions to processes within the container. Currently, only NET_ADMIN and NET_RAW are supported.  
+      // The specific permissions granted to processes in the container. Only NET_ADMIN and NET_RAW are supported.
       // 
-      // > NET_RAW is not supported by default. You must submit a ticket to request it.
+      // > NET_RAW is not supported by default. Submit a ticket to apply for this permission.
       shared_ptr<string> capability_ {};
-      // Daily request quota
+      // The maximum number of requests per day.
       shared_ptr<int32_t> dailyLimit_ {};
-      // Daily token quota
+      // The maximum number of tokens per day.
       shared_ptr<int64_t> dailyTokenLimit_ {};
-      // Indicates whether scheduled delivery of resource snapshots is enabled.  
+      // Specifies whether scheduled delivery of resource snapshots is enabled.
       // 
-      // Valid values:  
-      // - true: Enabled.  
-      // - false: Shutdown.
+      // Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> enabled_ {};
-      // Extension configuration (in JSON format)
+      // The extended configuration in JSON format.
       shared_ptr<string> extend_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Updated At
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Primary key
+      // The primary key.
       shared_ptr<int64_t> id_ {};
-      // IP blacklist
+      // The IP blacklist.
       shared_ptr<string> ipBlacklist_ {};
-      // IP whitelist, with multiple entries separated by commas
+      // The IP whitelist. Separate multiple IP addresses with commas (,).
       shared_ptr<string> ipWhitelist_ {};
-      // Requests per minute quota
+      // The maximum number of requests per minute.
       shared_ptr<int32_t> rpmLimit_ {};
-      // trial, draft, live, refunded, expired, released
+      // trial,draft,live,refunded,expired,released
       shared_ptr<int32_t> status_ {};
-      // Reason for pause.
+      // The reason for suspension.
       shared_ptr<string> suspendReason_ {};
     };
 
@@ -341,30 +341,30 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:  
-    // - false: Retry is not allowed.  
-    // - true: Retry is allowed.
+    // Indicates whether retries are allowed. Valid values:
+    // - false: Retries are not allowed.
+    // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // Dynamic code. This parameter is not used and can be ignored.
+    // The dynamic code. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message. This parameter is used to replace the `%s` variable in the **ErrMessage** parameter.
+    // > For example, if the **ErrMessage** parameter returns **The Value of Input Parameter %s is not valid** and the **DynamicMessage** parameter returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Error parameters returned.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<GetLlmProxyConfigForAdminResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

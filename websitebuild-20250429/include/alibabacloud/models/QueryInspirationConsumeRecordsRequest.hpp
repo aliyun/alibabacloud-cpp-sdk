@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // Query end time
+    // The end time of the query.
     shared_ptr<string> endTime_ {};
-    // Sorting field
+    // The field used for sorting.
     shared_ptr<string> orderColumn_ {};
-    // Sorting type: ASC or DESC
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
-    // Page number, default is 1
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // Page size, default is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Scenario Name.
+    // The scenario name.
     shared_ptr<string> sceneName_ {};
-    // Start Time
+    // The start time of the query.
     shared_ptr<string> startTime_ {};
   };
 

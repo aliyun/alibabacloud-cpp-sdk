@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // Indicator of whether the request was successful.
+      // Indicates whether the request is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -167,34 +167,34 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Error Code
+    // The error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace the **%s** in the error message of the returned parameter **ErrMessage**.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response element.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Data table module.
+    // The data table module.
     // 
-    // - ABTest: Experiment data table
+    // - ABTest: experiment data table
     // 
-    // - ExperimentTool: Experiment tool table
+    // - ExperimentTool: experiment tool table
     // 
-    // - DataDiagnosis: Data diagnosis
+    // - DataDiagnosis: data modeling diagnostics.
     shared_ptr<BindAppDomainResponseBody::Module> module_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error Code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Exception Message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Whether to process synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

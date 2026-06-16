@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Customer business ID
+    // The business ID of the customer.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // Gateway plugin ID
+    // The ID of the gateway plugin.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};

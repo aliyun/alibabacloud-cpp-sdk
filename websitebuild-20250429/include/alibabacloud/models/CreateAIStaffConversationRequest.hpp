@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // User question text. The first 100 characters are truncated and used as the session title.
+    // The user question text. The first 100 characters are truncated and used as the session title.
     shared_ptr<string> text_ {};
   };
 

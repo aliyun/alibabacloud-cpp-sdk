@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Session ID
+    // The session ID.
     shared_ptr<string> conversationId_ {};
-    // Directory depth (optional; null or 0 returns all levels)
+    // The directory depth. This parameter is optional. If set to null or 0, all levels are returned.
     shared_ptr<int32_t> deep_ {};
-    // Directory path (optional)
+    // The directory path. This parameter is optional.
     shared_ptr<string> filePath_ {};
   };
 

@@ -139,23 +139,23 @@ namespace Models
 
 
     protected:
-      // Business ID
+      // The business ID.
       shared_ptr<string> bizId_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Updated At
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Primary key
+      // The primary key.
       shared_ptr<int64_t> id_ {};
-      // Specific widget configuration, formatted as a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig and the toJsonString method of its child classes. Developers should inherit this widget configuration class and implement the corresponding widget configuration. The structure of each widget configuration is identical to the MPS queue configuration structure created on the Dataphin Page.
+      // The specific component configuration in JSON string format. Refer to the toJsonString method of the subclasses related to com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig. Developers should inherit this component configuration class and implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin console.
       shared_ptr<string> pluginConfig_ {};
-      // View Description
+      // The description of the plugin.
       shared_ptr<string> pluginDesc_ {};
-      // ID of the attached API Gateway plugin
+      // The ID of the bound API gateway plugin.
       shared_ptr<string> pluginId_ {};
-      // Plugin Name. It can contain uppercase and lowercase English letters, Chinese characters, digits, and underscores (_). The length must be between 4 and 50 characters, and it cannot start with an underscore.
+      // The plugin name. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
       shared_ptr<string> pluginName_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -199,15 +199,15 @@ namespace Models
 
 
   protected:
-    // API status or POP error code
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
-    // Additional information
+    // The additional information.
     shared_ptr<string> message_ {};
-    // Response data
+    // The response data.
     shared_ptr<GetAppPluginConfigResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

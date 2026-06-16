@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Application instance object data
+    // The website instance object data.
     shared_ptr<string> appInstanceShrink_ {};
-    // Type of system event. CREATE, UPDATE, COMPLETE
+    // The type of the system event. Valid values: CREATE, UPDATE, and COMPLETE.
     shared_ptr<string> eventType_ {};
-    // Operator ID
+    // The employee ID of the operator.
     shared_ptr<string> operator_ {};
-    // Source business ID.
+    // The source business ID.
     shared_ptr<string> sourceBizId_ {};
-    // Source: MARKET_CLOUD_DREAM
+    // The source. Set this parameter to MARKET_CLOUD_DREAM.
     shared_ptr<string> sourceType_ {};
   };
 

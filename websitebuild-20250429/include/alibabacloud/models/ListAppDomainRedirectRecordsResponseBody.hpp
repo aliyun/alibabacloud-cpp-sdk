@@ -136,11 +136,11 @@ namespace Models
 
 
       protected:
-        // Redirect record ID
+        // The redirect record ID.
         shared_ptr<string> recordId_ {};
-        // Source domain
+        // The source domain name.
         shared_ptr<string> sourceDomain_ {};
-        // Target domain
+        // The destination domain name.
         shared_ptr<string> targetDomain_ {};
       };
 
@@ -191,11 +191,11 @@ namespace Models
 
 
       protected:
-        // Redirect record ID
+        // The redirect record ID.
         shared_ptr<string> recordId_ {};
-        // Source domain
+        // The source domain name.
         shared_ptr<string> sourceDomain_ {};
-        // 目标域名
+        // The destination domain name.
         shared_ptr<string> targetDomain_ {};
       };
 
@@ -270,23 +270,23 @@ namespace Models
 
 
     protected:
-      // Current page number.
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // Member name.
+      // The member name.
       shared_ptr<vector<Module::Data>> data_ {};
-      // Next feature ID
+      // The next feature ID.
       shared_ptr<Module::Next> next_ {};
-      // Whether there is a next page
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // Page size.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // Whether there is a previous page.
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Apart from pagination limits, the server processes up to the most recent 1000 records. If the result exceeds 1000, **ResultLimit** is **true**, please narrow down the time range and search again; otherwise, **ResultLimit** is **false**.
+      // Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
-      // Total number of items.
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -390,33 +390,33 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Frontend application name.
+    // The frontend application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message, currently unused, please ignore
+    // The dynamic message. Currently not used. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Number of results per query.
+    // The number of entries per query.
     // 
-    // Range: 10~100. Default value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<ListAppDomainRedirectRecordsResponseBody::Module> module_ {};
-    // 下一个查询开始的Token。没有下一个查询时为空。
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Exception message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Whether it is processed synchronously
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

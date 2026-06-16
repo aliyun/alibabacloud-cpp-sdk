@@ -160,17 +160,17 @@ namespace Models
 
 
       protected:
-        // Deployment region
+        // The deployment region.
         shared_ptr<string> deployArea_ {};
-        // Lingxiao instance ID
+        // The LingXiao instance ID.
         shared_ptr<string> lxInstanceId_ {};
-        // Order ID
+        // The order ID.
         shared_ptr<string> orderId_ {};
-        // Version
+        // The version.
         shared_ptr<string> siteVersion_ {};
-        // Template ID
+        // The template identifier.
         shared_ptr<string> templateEtag_ {};
-        // Model template ID
+        // The model template ID.
         shared_ptr<string> templateId_ {};
       };
 
@@ -293,43 +293,43 @@ namespace Models
 
 
     protected:
-      // Application Type: WEBSITE
+      // The application type. Set this parameter to WEBSITE.
       shared_ptr<string> appType_ {};
-      // Website business ID
+      // The website business ID.
       shared_ptr<string> bizId_ {};
-      // Logical deletion
+      // Specifies whether the instance is logically deleted.
       shared_ptr<string> deleted_ {};
-      // Domain name
+      // The domain name.
       shared_ptr<string> domain_ {};
-      // Event end time (UNIX timestamp).
+      // The end time of the event, in UNIX timestamp format.
       shared_ptr<string> endTime_ {};
-      // Deletion time
+      // The deletion time.
       shared_ptr<string> gmtDelete_ {};
-      // Vulnerability published UNIX timestamp, in milliseconds.
+      // The timestamp when the vulnerability was published, in milliseconds.
       shared_ptr<string> gmtPublish_ {};
-      // Application icon URL.
+      // The URL of the application icon.
       shared_ptr<string> iconUrl_ {};
-      // Website name
+      // The website name.
       shared_ptr<string> name_ {};
-      // Website configuration information
+      // The website configuration information.
       shared_ptr<AppInstance::Profile> profile_ {};
       // siteId
       shared_ptr<string> siteHost_ {};
-      // Website SiteID
+      // The website SiteID.
       shared_ptr<string> slug_ {};
-      // Query start time. If no start and end times are provided, all historical deployment records of the instance are queried.
+      // The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried.
       shared_ptr<string> startTime_ {};
-      // Instance running status.  
-      // - NotRun: Not running  
-      // - Running: Running  
-      // - WaitTime: Waiting for TriggerTime  
-      // - CheckingCondition: Checking branch conditions  
-      // - WaitResource: Waiting for resources  
-      // - Failure: Execution failed  
-      // - Success: Execution succeeded  
-      // - Checking: Sent to Data Quality check
+      // The running status of the instance. Valid values:
+      // - NotRun: not running.
+      // - Running: running.
+      // - WaitTime: waiting for TriggerTime.
+      // - CheckingCondition: checking branch conditions.
+      // - WaitResource: waiting for resources.
+      // - Failure: execution failed.
+      // - Success: execution succeeded.
+      // - Checking: submitted for data quality check.
       shared_ptr<string> status_ {};
-      // Thumbnail URL.
+      // The URL of the thumbnail.
       shared_ptr<string> thumbnailUrl_ {};
       // 123123123131232
       shared_ptr<string> userId_ {};
@@ -375,15 +375,15 @@ namespace Models
 
 
   protected:
-    // Application instance object data
+    // The website instance object data.
     shared_ptr<SyncAppInstanceForPartnerRequest::AppInstance> appInstance_ {};
-    // Type of system event. CREATE, UPDATE, COMPLETE
+    // The type of the system event. Valid values: CREATE, UPDATE, and COMPLETE.
     shared_ptr<string> eventType_ {};
-    // Operator ID
+    // The employee ID of the operator.
     shared_ptr<string> operator_ {};
-    // Source business ID.
+    // The source business ID.
     shared_ptr<string> sourceBizId_ {};
-    // Source: MARKET_CLOUD_DREAM
+    // The source. Set this parameter to MARKET_CLOUD_DREAM.
     shared_ptr<string> sourceType_ {};
   };
 

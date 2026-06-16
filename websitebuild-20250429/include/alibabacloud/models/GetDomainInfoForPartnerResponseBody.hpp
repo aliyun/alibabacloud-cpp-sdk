@@ -94,9 +94,9 @@ namespace Models
 
 
       protected:
-        // Member name.
+        // The member name.
         shared_ptr<string> account_ {};
-        // Provider
+        // The provider.
         shared_ptr<string> provider_ {};
       };
 
@@ -133,13 +133,13 @@ namespace Models
 
 
     protected:
-      // Domain name.
+      // The domain name.
       shared_ptr<string> domainName_ {};
-      // List of DNS server IP addresses.
+      // The list of DNS server IP addresses.
       shared_ptr<string> nameServers_ {};
-      // IP ownership.
+      // The IP ownership.
       shared_ptr<Data::Ownership> ownership_ {};
-      // Domain name registrar
+      // The domain name registrar.
       shared_ptr<string> registrar_ {};
     };
 
@@ -162,7 +162,7 @@ namespace Models
 
 
   protected:
-    // Request result.
+    // The request result.
     shared_ptr<GetDomainInfoForPartnerResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

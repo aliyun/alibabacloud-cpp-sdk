@@ -35,6 +35,9 @@
 #include <alibabacloud/models/BindAppDomainRequest.hpp>
 #include <alibabacloud/models/BindAppDomainResponseBody.hpp>
 #include <alibabacloud/models/BindAppDomainResponse.hpp>
+#include <alibabacloud/models/CheckAppVerifyCodeRequest.hpp>
+#include <alibabacloud/models/CheckAppVerifyCodeResponseBody.hpp>
+#include <alibabacloud/models/CheckAppVerifyCodeResponse.hpp>
 #include <alibabacloud/models/CheckResourceMeasureRequest.hpp>
 #include <alibabacloud/models/CheckResourceMeasureResponseBody.hpp>
 #include <alibabacloud/models/CheckResourceMeasureResponse.hpp>
@@ -71,6 +74,9 @@
 #include <alibabacloud/models/CreateAppLlmApiKeyForPartnerRequest.hpp>
 #include <alibabacloud/models/CreateAppLlmApiKeyForPartnerResponseBody.hpp>
 #include <alibabacloud/models/CreateAppLlmApiKeyForPartnerResponse.hpp>
+#include <alibabacloud/models/CreateAppNotificationSceneRequest.hpp>
+#include <alibabacloud/models/CreateAppNotificationSceneResponseBody.hpp>
+#include <alibabacloud/models/CreateAppNotificationSceneResponse.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceRequest.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceResponse.hpp>
@@ -92,6 +98,9 @@
 #include <alibabacloud/models/DeleteAppInstanceFileRequest.hpp>
 #include <alibabacloud/models/DeleteAppInstanceFileResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppInstanceFileResponse.hpp>
+#include <alibabacloud/models/DeleteAppNotificationSceneRequest.hpp>
+#include <alibabacloud/models/DeleteAppNotificationSceneResponseBody.hpp>
+#include <alibabacloud/models/DeleteAppNotificationSceneResponse.hpp>
 #include <alibabacloud/models/DeleteAppSupabaseSecretsRequest.hpp>
 #include <alibabacloud/models/DeleteAppSupabaseSecretsResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppSupabaseSecretsResponse.hpp>
@@ -297,6 +306,9 @@
 #include <alibabacloud/models/MoveMaterialFileShrinkRequest.hpp>
 #include <alibabacloud/models/MoveMaterialFileResponseBody.hpp>
 #include <alibabacloud/models/MoveMaterialFileResponse.hpp>
+#include <alibabacloud/models/NotifyAppNotificationForAdminRequest.hpp>
+#include <alibabacloud/models/NotifyAppNotificationForAdminResponseBody.hpp>
+#include <alibabacloud/models/NotifyAppNotificationForAdminResponse.hpp>
 #include <alibabacloud/models/OperateAppInstanceForPartnerRequest.hpp>
 #include <alibabacloud/models/OperateAppInstanceForPartnerResponseBody.hpp>
 #include <alibabacloud/models/OperateAppInstanceForPartnerResponse.hpp>

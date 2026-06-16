@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Customer business ID
+    // The customer business ID.
     shared_ptr<string> bizId_ {};
-    // Domain name.
+    // The domain name.
     shared_ptr<string> domain_ {};
   };
 

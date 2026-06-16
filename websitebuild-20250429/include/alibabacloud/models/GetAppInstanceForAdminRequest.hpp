@@ -48,14 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery receipt. The delivery receipt ID is the value of the BizId parameter that is returned when you call the SendSms or SendBatchSms operation.
+    // The business instance ID.
     shared_ptr<string> bizId_ {};
     // The domain name.
-    // 
-    // > 
-    // *   Wildcard domain names are supported. You can use the wildcard character asterisk (\\*) to specify a wildcard domain name.
-    // 
-    // For example, you can enter \\*.baidu.com to specify the domain name baidu.com.
     shared_ptr<string> domain_ {};
   };
 

@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // Business instance ID
+    // The business instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // List of file IDs
+    // The list of file IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> fileIds_ {};

@@ -219,44 +219,44 @@ namespace Models
 
 
       protected:
-        // Bot ID.
+        // The bot ID.
         shared_ptr<string> botId_ {};
-        // Current conversation round ID
+        // The ID of the current conversation turn.
         shared_ptr<string> chatId_ {};
-        // Current session status
+        // The current conversation status.
         shared_ptr<string> chatStatus_ {};
-        // ID of the invoked data class API.
+        // The ID of the data API operation that is called.
         shared_ptr<string> content_ {};
-        // Content type
+        // The content type.
         shared_ptr<string> contentType_ {};
-        // Session ID
+        // The conversation ID.
         shared_ptr<string> conversationId_ {};
-        // Creation Time
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Updated At
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // Message ID
+        // The message ID.
         shared_ptr<string> messageId_ {};
-        // Business extension metadata (in Map format, must be a JSON string)
+        // The business extension metadata in Map format. The value must be a JSON string.
         Darabonba::Json metaData_ {};
-        // Indicates the role of the participant in the conversation. Valid values include:
+        // The role of the conversation participant. Valid values:
         // 
-        // - user: User
+        // - user: User.
         // 
-        // - assistant: Assistant
+        // - assistant: Assistant.
         // 
-        // - system: System
-        // - function: Function
+        // - system: System.
+        // - function: Function.
         // 
-        // - plugin: Plugin
+        // - plugin: Plugin.
         // 
-        // - tool: Tool
+        // - tool: Tool.
         shared_ptr<string> role_ {};
-        // Section ID of the inspection item.
+        // The section ID of the check item.
         shared_ptr<string> sectionId_ {};
-        // Site ID.
+        // The site ID.
         shared_ptr<string> siteId_ {};
-        // File type
+        // The file type.
         shared_ptr<string> type_ {};
       };
 
@@ -271,12 +271,12 @@ namespace Models
 
 
     protected:
-      // Sender type.  
+      // The sender type.
       // 
-      // Enumeration values:  
-      // - **ADMIN**: System  
-      // - **CUSTOMER**: Visitor  
-      // - **AGENT**: Agent
+      // Valid values:
+      // - **ADMIN**: System.
+      // - **CUSTOMER**: Visitor.
+      // - **AGENT**: Agent.
       shared_ptr<vector<Module::Messages>> messages_ {};
     };
 
@@ -365,27 +365,27 @@ namespace Models
 
 
   protected:
-    // Permission denied information
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message. Not currently used. Please ignore.
+    // The dynamic message. This parameter is not in use. Ignore it.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<ListAIStaffChatMessagesResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

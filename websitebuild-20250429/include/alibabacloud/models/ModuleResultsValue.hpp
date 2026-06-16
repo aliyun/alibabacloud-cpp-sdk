@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Whether the check is passed
+    // 是否通过检查
     shared_ptr<bool> passed_ {};
-    // Resource identity
+    // 资源标识
     shared_ptr<string> resourceCode_ {};
-    // Error code when failed; null when passed
+    // 失败时的错误码，通过时为null
     shared_ptr<string> errorCode_ {};
-    // Error message when failed; null when passed
+    // 失败时的错误信息，通过时为null
     shared_ptr<string> errorMessage_ {};
   };
 

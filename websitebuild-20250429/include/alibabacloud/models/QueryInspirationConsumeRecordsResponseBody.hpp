@@ -159,15 +159,15 @@ namespace Models
 
 
       protected:
-        // Quantity of inspiration value consumed
+        // The number of inspiration points consumed.
         shared_ptr<int64_t> amount_ {};
         shared_ptr<string> amountStr_ {};
-        // Consumption Time
+        // The consumption time.
         shared_ptr<string> consumeTime_ {};
         shared_ptr<string> consumeType_ {};
-        // Extension information (in JSON string format)
+        // The extended information in JSON string format.
         shared_ptr<string> metaData_ {};
-        // Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
+        // The name of the consumption scenario, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -255,16 +255,16 @@ namespace Models
 
 
       protected:
-        // Quantity of inspiration value consumed
+        // The number of inspiration points consumed.
         shared_ptr<int64_t> amount_ {};
         shared_ptr<string> amountStr_ {};
-        // Consumption time
+        // The consumption time.
         shared_ptr<string> consumeTime_ {};
         shared_ptr<string> consumeType_ {};
-        // Extension information (in JSON string format)
+        // The extended information in JSON string format.
         shared_ptr<string> metaData_ {};
         shared_ptr<string> recordKey_ {};
-        // Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
+        // The name of the consumption scenario, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -339,23 +339,23 @@ namespace Models
 
 
     protected:
-      // Current page number.
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // Request Result.
+      // The request result.
       shared_ptr<vector<Module::Data>> data_ {};
-      // Next feature ID
+      // The ID of the next feature.
       shared_ptr<Module::Next> next_ {};
-      // Indicates whether there is a next page.
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // Paging size.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // Whether there is a previous page.
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to paging limits, the server-side processes at most the latest 1 000 records for the current query. If the result exceeds 1 000 records, **ResultLimit** is **true**; you should narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
+      // Apart from pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
-      // Total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -444,27 +444,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application Name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message. Not currently used. Please ignore.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Whether the deletion succeeded
+    // Indicates whether the deletion is successful.
     shared_ptr<QueryInspirationConsumeRecordsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

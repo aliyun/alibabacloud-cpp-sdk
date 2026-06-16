@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Subscription Type: OPEN_SUBSCRIPTION
+    // The subscription type: OPEN_SUBSCRIPTION.
     shared_ptr<string> createAction_ {};
   };
 

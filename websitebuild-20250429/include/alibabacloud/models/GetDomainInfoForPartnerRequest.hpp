@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Customer business ID
+    // The customer business ID.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // Domain name.
+    // The domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Alibaba Cloud pk
+    // The Alibaba Cloud account ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
