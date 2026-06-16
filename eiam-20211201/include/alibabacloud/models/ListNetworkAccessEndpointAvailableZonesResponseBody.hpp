@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // 可用区名称。
+      // The name of the zone.
       shared_ptr<string> localName_ {};
-      // 可用区ID。
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -95,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of zones that support network endpoints in the current region.
     shared_ptr<vector<ListNetworkAccessEndpointAvailableZonesResponseBody::Zones>> zones_ {};
   };
 

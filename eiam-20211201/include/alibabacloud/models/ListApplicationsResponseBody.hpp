@@ -237,59 +237,77 @@ namespace Models
 
 
     protected:
+      // Indicates how the application was created.
       shared_ptr<string> applicationCreationType_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
+      // The identity type of the application.
       shared_ptr<string> applicationIdentityType_ {};
       // The name of the application.
       shared_ptr<string> applicationName_ {};
-      // The origin of the application. Valid values:
+      // The source used to create the application. Valid values:
       // 
-      // *   urn:alibaba:idaas:app:source:template: The application is created based on a template.
-      // *   urn:alibaba:idaas: The application is created based on the standard protocol.
+      // - `urn:alibaba:idaas:app:source:template`: Application template.
+      // 
+      // - `urn:alibaba:idaas:app:source:standard`: Standard protocol.
       shared_ptr<string> applicationSourceType_ {};
-      // The application template ID.
+      // The ID of the application template.
       shared_ptr<string> applicationTemplateId_ {};
       // The client ID of the application.
       shared_ptr<string> clientId_ {};
-      // The time when the application was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time the application was created, as a Unix timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the application.
       shared_ptr<string> description_ {};
-      // The features that are supported by the application. The value is a JSON array. Valid values:
+      // A string containing a JSON array of features supported by the application. Valid values:
       // 
-      // *   sso: The application supports SSO.
-      // *   slo: The application supports SLO.
-      // *   provision: The application supports account synchronization.
-      // *   api_invoke: The application supports custom APIs.
-      // *   m2m_client: The application supports M2M Client.
-      // *   resource_server: The application supports Resource Server.
-      // *   other: undertake.
+      // - `sso`: SSO.
+      // 
+      // - `slo`: SLO.
+      // 
+      // - `provision`: Provisioning.
+      // 
+      // - `api_invoke`: API invocation.
+      // 
+      // - `m2m_client`: M2M client.
+      // 
+      // - `resource_server`: Resource server.
+      // 
+      // - `other`: Other.
       shared_ptr<string> features_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The URL of the application icon.
+      // The URL of the application logo.
       shared_ptr<string> logoUrl_ {};
       // The service code of the cloud service that manages the application template.
       shared_ptr<string> managedServiceCode_ {};
+      // The unique identifier of the resource server.
       shared_ptr<string> resourceServerIdentifier_ {};
+      // The source type of the resource server.
       shared_ptr<string> resourceServerSourceType_ {};
+      // The status of the resource server.
       shared_ptr<string> resourceServerStatus_ {};
       // Indicates whether the application template is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
-      // The type of the single sign-on (SSO) protocol. Valid values:
+      // The SSO protocol. Valid values:
       // 
-      // *   saml2: the Security Assertion Markup Language (SAML) 2.0 protocol.
-      // *   oidc: the OpenID Connect (OIDC) protocol.
-      // *   oauth2/m2m: the OAuth2.0  protocol M2M.
+      // - `saml2`: SAML 2.0
+      // 
+      // - `oidc`: OpenID Connect (OIDC)
+      // 
+      // - `oauth2/m2m`: OAuth 2.0
+      // 
+      // - `oidc+oauth2/m2m`: OIDC and OAuth 2.0
       shared_ptr<string> ssoType_ {};
       // The status of the application. Valid values:
       // 
-      // *   enabled: The application is enabled.
-      // *   disabled: The application is disabled.
-      // *   deleted: The application is deleted.
+      // - `enabled`: The application is enabled.
+      // 
+      // - `disabled`: The application is disabled.
+      // 
+      // - `deleted`: The application is soft-deleted.
       shared_ptr<string> status_ {};
-      // The time when the application was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time the application was last updated, as a Unix timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -319,11 +337,11 @@ namespace Models
 
 
   protected:
-    // The details of the applications.
+    // The list of applications.
     shared_ptr<vector<ListApplicationsResponseBody::Applications>> applications_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the returned entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

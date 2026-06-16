@@ -82,7 +82,13 @@ namespace Models
 
 
     protected:
+      // Filter condition name. Valid values:
+      // 
+      // - CredentialProviderName: Credential provider name.
+      // 
+      // - CredentialProviderIdentifier: Credential provider identifier.
       shared_ptr<string> name_ {};
+      // List of filter condition values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -147,20 +153,21 @@ namespace Models
 
 
   protected:
-    // 认证令牌提供商ID列表。
+    // List of credential provider IDs.
     shared_ptr<vector<string>> credentialProviderIds_ {};
-    // 认证令牌提供商类型列表。
+    // List of credential provider types.
     shared_ptr<vector<string>> credentialProviderTypes_ {};
+    // List of filter conditions.
     shared_ptr<vector<ListCredentialProvidersRequest::Filter>> filter_ {};
-    // IDaaS EIAM实例的ID。
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 分页查询时每页行数。默认值为20，最大值为100。
+    // Page size for paged queries.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // Query token.
     shared_ptr<string> nextToken_ {};
-    // 认证令牌提供商状态列表。
+    // List of credential provider statuses.
     shared_ptr<vector<string>> statuses_ {};
   };
 

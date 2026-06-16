@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // ResourceServerScope唯一标识
+        // The ID of the scope permission.
         shared_ptr<string> resourceServerScopeId_ {};
-        // ResourceServerScope名称
+        // The name of the scope permission.
         shared_ptr<string> resourceServerScopeName_ {};
       };
 
@@ -131,11 +131,11 @@ namespace Models
 
 
     protected:
-      // 实例唯一标识
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
-      // 资源服务Scope权限集合
+      // A list of granted scope permissions.
       shared_ptr<vector<Users::ResourceServerScopes>> resourceServerScopes_ {};
-      // 用户的唯一标识
+      // The ID of the user account.
       shared_ptr<string> userId_ {};
     };
 
@@ -179,11 +179,15 @@ namespace Models
 
 
   protected:
+    // The number of entries per page for paged queries.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
+    // A list of user accounts.
     shared_ptr<vector<ListUsersForResourceServerResponseBody::Users>> users_ {};
   };
 

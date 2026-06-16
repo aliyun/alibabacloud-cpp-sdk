@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 同步任务ID
+    // The ID of the sync task.
     // 
     // This parameter is required.
     shared_ptr<string> synchronizationJobId_ {};

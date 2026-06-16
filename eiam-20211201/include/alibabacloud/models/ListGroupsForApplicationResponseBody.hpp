@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // 应用角色标识。
+        // The ID of the application role.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
     protected:
-      // 应用角色列表。
+      // The list of application roles. This parameter is not returned for SAML applications.
       shared_ptr<vector<Groups::ApplicationRoles>> applicationRoles_ {};
       // The group ID.
       shared_ptr<string> groupId_ {};
@@ -138,11 +138,11 @@ namespace Models
 
 
   protected:
-    // The group IDs.
+    // The list of groups.
     shared_ptr<vector<ListGroupsForApplicationResponseBody::Groups>> groups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

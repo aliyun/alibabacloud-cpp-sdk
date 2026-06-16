@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The credential ID.
     shared_ptr<string> credentialId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // 应用角色标识。
+        // The ID of the application role.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
     protected:
-      // The ID of the application that the EIAM organization can access.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 应用角色列表。
+      // A list of application roles.
       shared_ptr<vector<Applications::ApplicationRoles>> applicationRoles_ {};
     };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
   protected:
-    // The applications that the EIAM organization can access.
+    // A list of applications that are granted access.
     shared_ptr<vector<ListApplicationsForOrganizationalUnitResponseBody::Applications>> applications_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the returned entries.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // IdP的ID。
+      // The ID of the IdP.
       shared_ptr<string> identityProviderId_ {};
-      // IdP名称。
+      // The name of the IdP.
       shared_ptr<string> identityProviderName_ {};
-      // IDaaS EIAM 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -124,10 +124,13 @@ namespace Models
 
 
   protected:
+    // The collection of IdPs for the network endpoint.
     shared_ptr<vector<ListIdentityProvidersForNetworkAccessEndpointResponseBody::IdentityProvidersForNetworkAccessEndpoint>> identityProvidersForNetworkAccessEndpoint_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token that is returned from the call.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

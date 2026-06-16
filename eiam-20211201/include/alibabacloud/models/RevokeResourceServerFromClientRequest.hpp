@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // The ID of the client application.
     // 
     // This parameter is required.
     shared_ptr<string> clientApplicationId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // IDaaS的应用资源ID。
+    // The ID of the resource server application.
     // 
     // This parameter is required.
     shared_ptr<string> resourceServerApplicationId_ {};

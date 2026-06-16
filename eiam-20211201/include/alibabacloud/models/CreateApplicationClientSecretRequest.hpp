@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the application for which you want to create a client key.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The expiration time. This parameter is a UNIX timestamp. Unit: milliseconds. If you leave this parameter empty, the client secret does not expire. The minimum validity period is 1 day and the maximum validity period is 3 years.
     shared_ptr<int64_t> expirationTime_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 联邦凭证提供方ID
+    // The ID of the federated credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

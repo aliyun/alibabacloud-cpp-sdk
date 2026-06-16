@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // Record number associated with the domain name.
+      // The ICP filing number associated with the domain name.
       shared_ptr<string> icpNumber_ {};
     };
 
@@ -91,11 +91,11 @@ namespace Models
 
 
   protected:
-    // The domain name of the website.
+    // The domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // Registration information parameters.
+    // The parameters for ICP filing information.
     shared_ptr<CreateDomainRequest::Filing> filing_ {};
     // The instance ID.
     // 

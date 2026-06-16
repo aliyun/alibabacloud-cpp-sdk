@@ -135,19 +135,21 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 网络区域描述
+      // The description of the network zone.
       shared_ptr<string> description_ {};
-      // 实例ID。
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The IPv4 CIDR blocks.
       shared_ptr<vector<string>> ipv4Cidrs_ {};
+      // The IPv6 CIDR blocks.
       shared_ptr<vector<string>> ipv6Cidrs_ {};
-      // IDaaS EIAM 网络区域Id
+      // The network zone ID.
       shared_ptr<string> networkZoneId_ {};
-      // IDaaS EIAM 网络区域名称
+      // The network zone name.
       shared_ptr<string> networkZoneName_ {};
-      // IDaaS EIAM 网络区域类型
+      // The type of the network zone.
       shared_ptr<string> networkZoneType_ {};
-      // IDaaS EIAM 专有网络VpcId
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -191,11 +193,15 @@ namespace Models
 
 
   protected:
+    // The list of network zones.
     shared_ptr<vector<ListNetworkZonesResponseBody::NetworkZones>> networkZones_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The token that is used to retrieve the previous page of results.
     shared_ptr<string> previousToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

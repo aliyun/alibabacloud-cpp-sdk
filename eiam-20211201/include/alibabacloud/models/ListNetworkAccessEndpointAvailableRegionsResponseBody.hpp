@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The name of the region.
+      // The region name.
       shared_ptr<string> localName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The information of region.
+    // The collection of available regions.
     shared_ptr<vector<ListNetworkAccessEndpointAvailableRegionsResponseBody::Regions>> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

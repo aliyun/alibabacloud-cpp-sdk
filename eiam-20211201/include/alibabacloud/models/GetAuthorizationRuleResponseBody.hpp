@@ -170,31 +170,51 @@ namespace Models
 
 
     protected:
-      // 授权资源范围，枚举值：global（项目下所有资源）、custom（指定资源）。
+      // Authorization resource scope. Valid values:
+      // 
+      // - global: Global resources under the project
+      // 
+      // - custom: Resources within the specified project scope
       shared_ptr<string> authorizationResourceScope_ {};
-      // 授权规则的创建类型，枚举类型：user_created（用户创建)，approval_created（审批创建)。
+      // Authorization rule creation type. Valid values:
+      // 
+      // - system_init: System created
+      // 
+      // - user_custom: User created
       shared_ptr<string> authorizationRuleCreationType_ {};
-      // 授权规则标识。
+      // Authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // 授权规则名称。
+      // Authorization rule name.
       shared_ptr<string> authorizationRuleName_ {};
-      // 授权规则主体ID，主体类型对应的主体ID。
+      // Subject ID associated with the authorization rule.
       shared_ptr<string> authorizationRuleSubjectId_ {};
-      // 授权规则主体范围，枚举类型：shared（共享型，即支持所有主体，包括账户、应用），exclusive（专属类型）
+      // Authorization rule subject scope. Valid values:
+      // 
+      // - shared: Shared type, supports all subjects, including accounts and applications
+      // 
+      // - exclusive: Exclusive type
       shared_ptr<string> authorizationRuleSubjectScope_ {};
-      // 授权规则主体类型，枚举类型：application（应用)，user（账户)。
+      // Subject type associated with the authorization rule. Valid when the authorization rule subject scope is exclusive. Valid values:
+      // 
+      // - application: Application
+      // 
+      // - user: Account
       shared_ptr<string> authorizationRuleSubjectType_ {};
-      // 创建时间，Unix时间戳格式，单位为毫秒。
+      // Creation time, in UNIX timestamp format, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // 授权规则描述，长度限制为128字符。
+      // Authorization rule description.
       shared_ptr<string> description_ {};
-      // 实例ID。
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
-      // 授权规则关联的项目标识。
+      // Project ID associated with the authorization rule.
       shared_ptr<string> projectId_ {};
-      // 授权规则状态，枚举值：enabled（启用）、disabled（禁用）。
+      // Authorization rule status. Valid values:
+      // 
+      // - enabled: Enabled
+      // 
+      // - disabled: Disabled
       shared_ptr<string> status_ {};
-      // 最近一次更新时间，Unix时间戳格式，单位为毫秒。
+      // Last update time, in UNIX timestamp format, in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -217,7 +237,9 @@ namespace Models
 
 
   protected:
+    // Authorization rule object.
     shared_ptr<GetAuthorizationRuleResponseBody::AuthorizationRule> authorizationRule_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

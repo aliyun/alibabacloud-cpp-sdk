@@ -104,6 +104,7 @@ namespace Models
 
 
         protected:
+          // The content of the certificate.
           shared_ptr<string> content_ {};
         };
 
@@ -133,8 +134,11 @@ namespace Models
 
 
       protected:
+        // The certificates.
         shared_ptr<vector<SamlMetadataConfiguration::Certificates>> certificates_ {};
+        // The entity ID of the SAML identity provider.
         shared_ptr<string> idPEntityId_ {};
+        // The SSO URL of the SAML identity provider.
         shared_ptr<string> idPSsoUrl_ {};
       };
 
@@ -203,15 +207,15 @@ namespace Models
 
 
       protected:
-        // oAuth2 授权端点。
+        // The OAuth 2.0 authorization endpoint.
         shared_ptr<string> authorizationEndpoint_ {};
-        // OIDC issuer信息。
+        // The OIDC issuer.
         shared_ptr<string> issuer_ {};
-        // OIDC jwks地址。
+        // The OIDC JSON Web Key Set (JWKS) URI.
         shared_ptr<string> jwksUri_ {};
-        // oAuth2 Token端点。
+        // The OAuth 2.0 token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
-        // OIDC 用户信息端点。
+        // The OIDC userinfo endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -236,8 +240,9 @@ namespace Models
 
 
     protected:
-      // OIDC IdP的Meta信息。
+      // The OIDC identity provider metadata.
       shared_ptr<IdentityProviderMetadata::OidcOpenIdConfiguration> oidcOpenIdConfiguration_ {};
+      // The SAML identity provider metadata.
       shared_ptr<IdentityProviderMetadata::SamlMetadataConfiguration> samlMetadataConfiguration_ {};
     };
 
@@ -260,7 +265,9 @@ namespace Models
 
 
   protected:
+    // The identity provider metadata.
     shared_ptr<ExecIdentityProviderMetadataUrlResolutionResponseBody::IdentityProviderMetadata> identityProviderMetadata_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

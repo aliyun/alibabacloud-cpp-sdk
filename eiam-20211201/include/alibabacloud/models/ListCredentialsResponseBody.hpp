@@ -136,7 +136,7 @@ namespace Models
 
 
         protected:
-          // OAuth协议的client_id
+          // The client ID of the OAuth client.
           shared_ptr<string> clientId_ {};
         };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
       protected:
-        // OAuth客户端认证凭证类型的凭据内容。
+        // The content of an OAuth client credential.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -282,36 +282,54 @@ namespace Models
 
 
     protected:
-      // 云角色创建时间
+      // The time the credential was created, provided as a Unix timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // 凭据的内容。
+      // The content of the credential.
       shared_ptr<Credentials::CredentialContent> credentialContent_ {};
-      // 凭据的创建类型。
+      // The creation type of the credential. Valid values:
+      // 
+      // - `system_init`: Created by the system.
+      // 
+      // - `user_custom`: Created by a user.
       shared_ptr<string> credentialCreationType_ {};
       shared_ptr<string> credentialExternalId_ {};
-      // 凭据ID。
+      // The ID of the credential.
       shared_ptr<string> credentialId_ {};
-      // 凭据标识
+      // The identifier of the credential.
       shared_ptr<string> credentialIdentifier_ {};
-      // 凭据名称
+      // The name of the credential.
       shared_ptr<string> credentialName_ {};
-      // 凭据的使用场景标签。
+      // The use case label for the credential. Valid values:
+      // 
+      // - `llm`: A large language model.
+      // 
+      // - `saas`: A third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
       shared_ptr<string> credentialSharingScope_ {};
-      // 凭据所属的主体ID。
+      // The ID of the credential\\"s subject.
       shared_ptr<string> credentialSubjectId_ {};
-      // 凭据所属的主体类型。
+      // The type of the credential\\"s subject. Valid value:
+      // 
+      // - `authentication_token_provider`: An authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
-      // 凭据类型。
+      // The type of the credential. Valid values:
+      // 
+      // - `api_key`: An API key.
+      // 
+      // - `oauth_client`: An OAuth client.
       shared_ptr<string> credentialType_ {};
-      // 描述
+      // The description of the credential.
       shared_ptr<string> description_ {};
       shared_ptr<string> exclusiveUserId_ {};
-      // EIAM实例ID。
+      // The ID of the EIAM instance.
       shared_ptr<string> instanceId_ {};
-      // 凭据状态
+      // The status of the credential. Valid values:
+      // 
+      // - `enabled`: The credential is enabled.
+      // 
+      // - `disabled`: The credential is disabled.
       shared_ptr<string> status_ {};
-      // 云角色更新时间
+      // The time the credential was last updated, provided as a Unix timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -355,12 +373,15 @@ namespace Models
 
 
   protected:
+    // A list of credentials.
     shared_ptr<vector<ListCredentialsResponseBody::Credentials>> credentials_ {};
-    // 分页查询时每页行数。
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token used to retrieve the next page of results. If this parameter is not returned, it indicates all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

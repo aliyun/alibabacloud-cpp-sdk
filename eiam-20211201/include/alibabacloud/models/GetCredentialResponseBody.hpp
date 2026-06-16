@@ -129,7 +129,7 @@ namespace Models
 
 
         protected:
-          // OAuth协议的client_id
+          // The OAuth client ID.
           shared_ptr<string> clientId_ {};
         };
 
@@ -144,7 +144,7 @@ namespace Models
 
 
       protected:
-        // OAuth客户端认证凭证类型的凭据内容。
+        // The credential content for an OAuth client. This parameter is returned only when `CredentialType` is `oauth_client`.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -275,36 +275,54 @@ namespace Models
 
 
     protected:
-      // 云角色创建时间
+      // The creation time of the credential, in Unix timestamp format (milliseconds).
       shared_ptr<int64_t> createTime_ {};
-      // 凭据的内容。
+      // The content of the credential.
       shared_ptr<Credential::CredentialContent> credentialContent_ {};
-      // 凭据的创建类型。
+      // How the credential was created. Valid values:
+      // 
+      // - `system_init`: The credential was created by the system.
+      // 
+      // - `user_custom`: The credential was created by a user.
       shared_ptr<string> credentialCreationType_ {};
       shared_ptr<string> credentialExternalId_ {};
-      // 凭据ID。
+      // The ID of the credential.
       shared_ptr<string> credentialId_ {};
-      // 凭据标识
+      // The identifier of the credential.
       shared_ptr<string> credentialIdentifier_ {};
-      // 凭据名称
+      // The name of the credential.
       shared_ptr<string> credentialName_ {};
-      // 凭据的使用场景标签。
+      // The use case of the credential. Valid values:
+      // 
+      // - `llm`: a large language model (LLM).
+      // 
+      // - `saas`: a third-party Software as a Service (SaaS) application.
       shared_ptr<string> credentialScenarioLabel_ {};
       shared_ptr<string> credentialSharingScope_ {};
-      // 凭据所属的主体ID。
+      // The ID of the subject that owns the credential.
       shared_ptr<string> credentialSubjectId_ {};
-      // 凭据所属的主体类型。
+      // The type of the subject that owns the credential. Valid value:
+      // 
+      // - `authentication_token_provider`: The subject is an authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
-      // 凭据类型。
+      // The type of the credential. Valid values:
+      // 
+      // - `api_key`: An API key.
+      // 
+      // - `oauth_client`: An OAuth client.
       shared_ptr<string> credentialType_ {};
-      // 描述
+      // The user-defined description of the credential.
       shared_ptr<string> description_ {};
       shared_ptr<string> exclusiveUserId_ {};
-      // EIAM实例ID。
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
-      // 凭据状态
+      // The status of the credential. Valid values:
+      // 
+      // - `enabled`: The credential is active.
+      // 
+      // - `disabled`: The credential is inactive.
       shared_ptr<string> status_ {};
-      // 云角色更新时间
+      // The time the credential was last updated, in Unix timestamp format (milliseconds).
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -327,7 +345,9 @@ namespace Models
 
 
   protected:
+    // The credential details.
     shared_ptr<GetCredentialResponseBody::Credential> credential_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -2217,8 +2217,9 @@ namespace Models
     protected:
       // The direction of the synchronization job. Valid values:
       // 
-      // *   ingress
-      // *   egress
+      // - ingress
+      // 
+      // - egress
       shared_ptr<string> direction_ {};
       // The end time of the synchronization. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> endTime_ {};
@@ -2228,11 +2229,15 @@ namespace Models
       shared_ptr<int64_t> startTime_ {};
       // The status of the synchronization job. Valid values:
       // 
-      // *   pending
-      // *   running
-      // *   failed
-      // *   partial_success
-      // *   success
+      // - pending
+      // 
+      // - running
+      // 
+      // - failed
+      // 
+      // - partial_success
+      // 
+      // - success
       shared_ptr<string> status_ {};
       // The ID of the synchronization job.
       shared_ptr<string> synchronizationJobId_ {};
@@ -2240,13 +2245,15 @@ namespace Models
       shared_ptr<string> targetId_ {};
       // The type of the synchronization destination. Valid values:
       // 
-      // *   identity_provider
-      // *   application
+      // - identity_provider
+      // 
+      // - application
       shared_ptr<string> targetType_ {};
       // The trigger type of the synchronization. Valid values:
       // 
-      // *   auto
-      // *   manual
+      // - auto
+      // 
+      // - manual
       shared_ptr<string> triggerType_ {};
     };
 

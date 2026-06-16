@@ -237,74 +237,102 @@ namespace Models
 
 
     protected:
-      // Advanced configuration capabilities
+      // Indicates whether advanced configuration is enabled. Valid values:
+      // 
+      // - disabled: The feature is disabled.
+      // 
+      // - enabled: The feature is enabled.
       shared_ptr<string> advancedStatus_ {};
-      // Authentication source product.
-      // - urn:alibaba:idaas:idp:okta:okta
-      // - urn:alibaba:idaas:idp:google:account
-      // - urn:alibaba:idaas:idp:microsoft:aad
-      // - urn:alibaba:idaas:idp:microsoft:ad
-      // - urn:alibaba:idaas:idp:bytedance:lark
-      // - urn:alibaba:idaas:idp:unknown:ldap
-      // - urn:alibaba:idaas:idp:alibaba:idaas
-      // - urn:alibaba:idaas:idp:tencent:wecom
-      // - urn:alibaba:idaas:idp:alibaba:aliyunram
+      // The authentication source product, such as Okta, Google, or Azure AD.
+      // Valid values:
+      // 
+      // - DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk
+      // 
+      // - LDAP: urn:alibaba:idaas:idp:unknown:ldap
+      // 
+      // - Alibaba Cloud IDaaS: urn:alibaba:idaas:idp:alibaba:idaas
+      // 
+      // - WeCom: urn:alibaba:idaas:idp:tencent:wecom
+      // 
+      // - Lark: urn:alibaba:idaas:idp:bytedance:lark
+      // 
+      // - Active Directory: urn:alibaba:idaas:idp:microsoft:ad
+      // 
+      // - Azure Active Directory: urn:alibaba:idaas:idp:microsoft:aad
+      // 
+      // - Alibaba Cloud SASE: urn:alibaba:idaas:idp:alibaba:sase
       shared_ptr<string> authnSourceSupplier_ {};
-      // Authentication method type.
-      // - urn:alibaba:idaas:authntype:oidc
-      // - urn:alibaba:idaas:authntype:saml2
+      // The authentication method type. Valid values:
+      // 
+      // - OIDC: urn:alibaba:idaas:authntype:oidc
+      // 
+      // - SAML: urn:alibaba:idaas:authntype:saml2
       shared_ptr<string> authnSourceType_ {};
-      // Does the corresponding IdP support authentication.
+      // Indicates whether the identity provider supports authentication. Valid values:
+      // 
+      // - disabled: Authentication is disabled.
+      // 
+      // - enabled: Authentication is enabled.
       shared_ptr<string> authnStatus_ {};
-      // The time when the instance was created.
+      // The time when the identity provider was created. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the Identity provider.
+      // The description of the identity provider.
       shared_ptr<string> description_ {};
-      // Identity provider external ID.
+      // The external ID of the identity provider.
       shared_ptr<string> identityProviderExternalId_ {};
-      // Identity provider ID.
+      // The identity provider ID.
       shared_ptr<string> identityProviderId_ {};
-      // Identity provider name.
+      // The name of the identity provider.
       shared_ptr<string> identityProviderName_ {};
-      // Identity provider synchronization type.
+      // The synchronization type of the identity provider.
       // 
-      // - Inbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
+      // - Inbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
       // 
-      // - Outbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
+      // - Outbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
       // 
-      // - Inbound to WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
+      // - Inbound WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
       // 
-      // - Inbound to Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
+      // - Inbound Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
       // 
-      // - Inbound to AD: urn:alibaba:idaas:idp:microsoft:ad:pull
+      // - Inbound AD: urn:alibaba:idaas:idp:microsoft:ad:pull
       // 
-      // - Inbound to LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
+      // - Inbound LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
       // 
       // - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
       // 
-      // - SASE Custom OIDC: urn:alibaba:idaas:idp:alibaba:sase
+      // - Custom OIDC for SASE: urn:alibaba:idaas:idp:alibaba:sase
       shared_ptr<string> identityProviderType_ {};
-      // Incremental callback status, whether to process the incremental callback data from IdP.
+      // The incremental callback status. This indicates whether to process incremental callback data from the identity provider. Valid values:
+      // 
+      // - disabled: The feature is disabled.
+      // 
+      // - enabled: The feature is enabled.
       shared_ptr<string> incrementalCallbackStatus_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Last status check result.
+      // The result of the last status check. A sync task can be triggered only when the status check of the identity provider returns \\`success\\`.
       shared_ptr<string> lastStatusCheckJobResult_ {};
-      // The reason why write operations are locked.
+      // The reason why the identity provider is locked.
       shared_ptr<string> lockReason_ {};
-      // IdP logo url.
+      // The URL of the custom logo for the identity provider.
       shared_ptr<string> logoUrl_ {};
-      // Regular verification status.
+      // The periodic check status. This indicates whether to periodically check for data inconsistencies between IDaaS and the identity provider.
       shared_ptr<string> periodicSyncStatus_ {};
-      // Whether support UD synchronization.Values:
-      // - enabled
-      // - disabled
+      // Indicates whether inbound synchronization is enabled. Valid values:
+      // 
+      // - disabled: The feature is disabled.
+      // 
+      // - enabled: The feature is enabled.
       shared_ptr<string> udPullStatus_ {};
-      // When supporting the range in the UD of ud_pullIDaaS side.
+      // The target node for synchronization.
       shared_ptr<string> udPullTargetScope_ {};
-      // Synchronize capabilities
+      // Indicates whether outbound synchronization is enabled. Valid values:
+      // 
+      // - disabled: The feature is disabled.
+      // 
+      // - enabled: The feature is enabled.
       shared_ptr<string> udPushStatus_ {};
-      // The time when the service was updated.
+      // The time when the identity provider was last updated. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -334,11 +362,11 @@ namespace Models
 
 
   protected:
-    // Identity provider information array.
+    // The list of identity providers.
     shared_ptr<vector<ListIdentityProvidersResponseBody::IdentityProviders>> identityProviders_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // Root证书内容
+        // The content of the PEM-encoded certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -127,11 +127,11 @@ namespace Models
 
 
     protected:
-      // Root证书列表
+      // The root certificates that form the trust anchor.
       shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-      // Root证书获取方式
+      // The source of the trust anchor.
       shared_ptr<string> trustAnchorSource_ {};
-      // Root证书的信任条件
+      // The condition for trusting the root certificate.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -192,7 +192,7 @@ namespace Models
 
 
       protected:
-        // Root证书内容
+        // The content of the PEM-encoded certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -243,17 +243,17 @@ namespace Models
 
 
     protected:
-      // pkcs7证书列表
+      // The certificates for verifying the PKCS7 signature.
       shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-      // CMS验证模式
+      // The Cryptographic Message Syntax (CMS) verification mode.
       shared_ptr<string> cmsVerificationMode_ {};
-      // 签名有效期, 单位秒，1200
+      // The validity period of the signature, in seconds.
       shared_ptr<int64_t> signatureEffectiveTime_ {};
-      // 获取签名时间的表达式
+      // The expression to extract the signing time from the signature.
       shared_ptr<string> signingTimeValueExpression_ {};
-      // 证书信任锚点来源
+      // The source of the trust anchor.
       shared_ptr<string> trustAnchorSource_ {};
-      // 信任条件
+      // The condition that the signature data must meet to be trusted.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -333,16 +333,17 @@ namespace Models
 
 
     protected:
+      // A list of audiences. The `aud` claim in the OIDC token must match a value from this list.
       shared_ptr<vector<string>> audiences_ {};
-      // Issuer
+      // The issuer identifier for the OIDC provider. This value must match the `iss` claim in the token.
       shared_ptr<string> issuer_ {};
-      // Jwks来源
+      // The source of the JSON Web Key Set (JWKS).
       shared_ptr<string> jwksSource_ {};
-      // JWKS 端点
+      // The URI of the JWKS endpoint.
       shared_ptr<string> jwksUri_ {};
-      // 静态获取的jwks
+      // The static JWKS content in JSON format.
       shared_ptr<string> staticJwks_ {};
-      // 信任条件
+      // The condition the OIDC token must meet to be trusted.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -453,27 +454,27 @@ namespace Models
 
   protected:
     shared_ptr<CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
-    // 联邦凭证提供方描述
+    // The description of the federated credential provider.
     shared_ptr<string> description_ {};
-    // 联邦凭证提供方名称
+    // The name of the federated credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderName_ {};
-    // 联邦凭证提供方类型
+    // The type of the federated credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderType_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 网络端点ID
+    // The network access endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // OIDC配置
+    // The configuration for an OIDC-based provider.
     shared_ptr<CreateFederatedCredentialProviderRequest::OidcProviderConfig> oidcProviderConfig_ {};
-    // PKCS7配置
+    // The configuration for a PKCS7-based provider.
     shared_ptr<CreateFederatedCredentialProviderRequest::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
-    // 私有CA配置
+    // The configuration for a private CA-based provider.
     shared_ptr<CreateFederatedCredentialProviderRequest::PrivateCaProviderConfig> privateCaProviderConfig_ {};
   };
 

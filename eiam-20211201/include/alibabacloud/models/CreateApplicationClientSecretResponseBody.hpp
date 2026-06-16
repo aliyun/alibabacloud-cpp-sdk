@@ -80,9 +80,9 @@ namespace Models
     protected:
       // The client ID of the application.
       shared_ptr<string> clientId_ {};
-      // The client key secret of the application.
+      // The value of the client secret.
       shared_ptr<string> clientSecret_ {};
-      // The client key ID of the application.
+      // The ID of the client secret.
       shared_ptr<string> secretId_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The information about the client key.
+    // The information about the client secret.
     shared_ptr<CreateApplicationClientSecretResponseBody::ApplicationClientSecret> applicationClientSecret_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

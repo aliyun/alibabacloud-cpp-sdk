@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // 应用唯一标识
+      // The ID of the application.
       shared_ptr<string> applicationId_ {};
-      // 应用角色的唯一标识
+      // The ID of the application role.
       shared_ptr<string> applicationRoleId_ {};
-      // 应用角色名称
+      // The name of the application role.
       shared_ptr<string> applicationRoleName_ {};
-      // 应用角色值
+      // The value of the application role.
       shared_ptr<string> applicationRoleValue_ {};
-      // 应用角色描述
+      // The description of the application role.
       shared_ptr<string> description_ {};
-      // EIAM 实例唯一标识
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -138,7 +138,9 @@ namespace Models
 
 
   protected:
+    // The details of the application role.
     shared_ptr<GetApplicationRoleResponseBody::ApplicationRole> applicationRole_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

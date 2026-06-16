@@ -129,19 +129,21 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 网络区域描述
+      // The description of the network zone.
       shared_ptr<string> description_ {};
-      // 实例ID。
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The IPv4 CIDR blocks.
       shared_ptr<vector<string>> ipv4Cidrs_ {};
+      // The IPv6 CIDR blocks.
       shared_ptr<vector<string>> ipv6Cidrs_ {};
-      // IDaaS EIAM 网络区域Id
+      // The network zone ID.
       shared_ptr<string> networkZoneId_ {};
-      // IDaaS EIAM 网络区域名称
+      // The name of the network zone.
       shared_ptr<string> networkZoneName_ {};
-      // IDaaS EIAM 网络区域类型
+      // The type of the network zone.
       shared_ptr<string> networkZoneType_ {};
-      // IDaaS EIAM 专有网络VpcId
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -164,7 +166,9 @@ namespace Models
 
 
   protected:
+    // The network zone object.
     shared_ptr<GetNetworkZoneResponseBody::NetworkZone> networkZone_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

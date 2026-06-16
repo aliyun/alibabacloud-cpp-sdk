@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 专属网络端点ID。
+    // The ID of the private network access endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // 专属网络端点名称。
+    // The name of the private network access endpoint. The endpoint type must be private.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointName_ {};

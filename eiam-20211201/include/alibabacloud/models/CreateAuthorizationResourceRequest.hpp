@@ -75,21 +75,25 @@ namespace Models
 
 
   protected:
-    // 授权资源关联的资源标识。
+    // The ID of the resource entity that is associated with the authorization resource.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationResourceEntityId_ {};
-    // 授权资源的资源类型。枚举取值:asset(资产)、credential(凭据)、cloudAccountRole(云账号角色)。
+    // The type of the resource entity that is associated with the authorization resource. Valid value:
+    // 
+    // - cloud_account_role: indicates a cloud role.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationResourceEntityType_ {};
-    // 授权规则标识。
+    // The authorization rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
+    // A client token used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The client token can contain only ASCII characters and must be no more than 64 characters long. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

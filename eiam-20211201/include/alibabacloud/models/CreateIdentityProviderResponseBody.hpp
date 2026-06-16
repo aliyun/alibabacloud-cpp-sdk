@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Identity provider ID.
+    // The ID of the identity provider.
     shared_ptr<string> identityProviderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

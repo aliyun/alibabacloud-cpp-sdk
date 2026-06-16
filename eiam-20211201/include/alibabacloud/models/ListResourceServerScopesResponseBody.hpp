@@ -124,18 +124,19 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 应用Id
+      // Application ID.
       shared_ptr<string> applicationId_ {};
+      // Authorization type.
       shared_ptr<string> authorizationType_ {};
-      // IDaaS EIAM 实例Id
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
-      // IDaaS EIAM ResourceServer下权限Id
+      // Scope permission ID.
       shared_ptr<string> resourceServerScopeId_ {};
-      // IDaaS EIAM ResourceServer下权限名称
+      // Scope permission name.
       shared_ptr<string> resourceServerScopeName_ {};
-      // IDaaS EIAM ResourceServer下权限类型
+      // Scope permission type.
       shared_ptr<string> resourceServerScopeType_ {};
-      // IDaaS EIAM ResourceServer下权限值
+      // Scope permission value.
       shared_ptr<string> resourceServerScopeValue_ {};
     };
 
@@ -186,12 +187,17 @@ namespace Models
 
 
   protected:
+    // Number of rows per page in paginated queries.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // Token for the next page query.
     shared_ptr<string> nextToken_ {};
+    // Token for the previous page query.
     shared_ptr<string> previousToken_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // List of Scope permissions under the ResourceServer.
     shared_ptr<vector<ListResourceServerScopesResponseBody::ResourceServerScopes>> resourceServerScopes_ {};
+    // Total number of items in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

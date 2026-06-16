@@ -119,13 +119,13 @@ namespace Models
 
 
       protected:
-        // 直接分配给当前用户的权限，视为直接授权。
+        // Indicates whether a direct authorization exists.
         shared_ptr<bool> hasDirectAuthorization_ {};
-        // 通过用户隶属的组织、组获取的权限，视为继承权限。
+        // Indicates whether an inherited permission exists.
         shared_ptr<bool> hasInheritAuthorization_ {};
-        // ResourceServerScope唯一标识
+        // The ID of the Scope permission.
         shared_ptr<string> resourceServerScopeId_ {};
-        // ResourceServerScope名称
+        // The name of the Scope permission.
         shared_ptr<string> resourceServerScopeName_ {};
       };
 
@@ -162,12 +162,13 @@ namespace Models
 
 
     protected:
-      // 资源服务应用的唯一标识
+      // The ID of the ResourceServer application.
       shared_ptr<string> applicationId_ {};
-      // 实例唯一标识
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The unique identifier of the ResourceServer.
       shared_ptr<string> resourceServerIdentifier_ {};
-      // 资源服务Scope权限集合
+      // The list of granted Scope permissions.
       shared_ptr<vector<ResourceServers::ResourceServerScopes>> resourceServerScopes_ {};
     };
 
@@ -211,11 +212,15 @@ namespace Models
 
 
   protected:
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of ResourceServer applications.
     shared_ptr<vector<ListResourceServersForUserResponseBody::ResourceServers>> resourceServers_ {};
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

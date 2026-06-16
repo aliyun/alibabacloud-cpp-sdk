@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Domain ID.
+    // The domain ID.
     shared_ptr<string> domainId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

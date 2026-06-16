@@ -78,7 +78,17 @@ namespace Models
 
 
     protected:
+      // The name of the filter field. Valid values:
+      // 
+      // - CloudAccountRoleId: The ID of the cloud role.
+      // 
+      // - CloudAccountRoleName: The name of the cloud role.
+      // 
+      // - CloudAccountRoleExternalId: The external ID of the cloud role.
+      // 
+      // - CloudAccountRoleUsageType: The usage type of the cloud role.
       shared_ptr<string> name_ {};
+      // The list of values for the filter field.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -122,14 +132,25 @@ namespace Models
 
 
   protected:
+    // The ID of the Alibaba Cloud account.
+    // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
+    // The filter conditions.
     shared_ptr<vector<ListCloudAccountRolesRequest::Filter>> filter_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 分页查询时每页行数。默认值为20，最大值为100。
+    // The maximum number of records to return on each page.
+    // 
+    // - The default value is 20.
+    // 
+    // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token that specifies the start of the next page of results.
+    // 
+    // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};
   };
 

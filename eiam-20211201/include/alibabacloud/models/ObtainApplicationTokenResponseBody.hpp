@@ -133,21 +133,23 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 应用Id
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 客户端密钥
+      // The application token.
       shared_ptr<string> applicationToken_ {};
-      // IDaaS EIAM 客户端ID
+      // The application token ID.
       shared_ptr<string> applicationTokenId_ {};
-      // IDaaS EIAM 客户端密钥Id
+      // The type of the application token.
       shared_ptr<string> applicationTokenType_ {};
+      // The time when the application token was created.
       shared_ptr<int64_t> createTime_ {};
+      // The expiration time.
       shared_ptr<int64_t> expirationTime_ {};
-      // IDaaS EIAM 实例Id
+      // The ID of the IDaaS EIAM instance.
       shared_ptr<string> instanceId_ {};
-      // IDaaS EIAM 客户端密钥最近使用时间
+      // The time when the token was last used.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // IDaaS EIAM 客户端密钥状态
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -170,7 +172,9 @@ namespace Models
 
 
   protected:
+    // The application token.
     shared_ptr<ObtainApplicationTokenResponseBody::ApplicationToken> applicationToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

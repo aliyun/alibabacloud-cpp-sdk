@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 分页查询时每页行数。默认值为20，最大值为100。
+    // The number of entries to return on each page.
     shared_ptr<int64_t> maxResults_ {};
-    // 网络端点ID。
+    // The network access endpoint ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

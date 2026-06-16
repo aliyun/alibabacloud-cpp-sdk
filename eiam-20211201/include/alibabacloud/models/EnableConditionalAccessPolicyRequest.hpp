@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Conditional Access Policy ID
+    // The ID of the conditional access policy.
     // 
     // This parameter is required.
     shared_ptr<string> conditionalAccessPolicyId_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

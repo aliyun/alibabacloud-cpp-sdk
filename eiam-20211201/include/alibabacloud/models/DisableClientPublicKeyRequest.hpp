@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用ClientPublicKey的ID
+    // The ID of the ClientPublicKey for the application.
     // 
     // This parameter is required.
     shared_ptr<string> clientPublicKeyId_ {};
+    // A client-generated token that you can use to ensure the idempotence of the request. Make sure that the token is unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

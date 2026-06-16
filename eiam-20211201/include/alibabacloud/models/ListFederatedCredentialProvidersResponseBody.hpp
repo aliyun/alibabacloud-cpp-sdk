@@ -167,9 +167,9 @@ namespace Models
 
 
           protected:
-            // 证书过期时间
+            // The expiration time.
             shared_ptr<int64_t> notAfter_ {};
-            // 证书生效时间
+            // The validity start time.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -199,11 +199,11 @@ namespace Models
 
 
         protected:
-          // 证书元数据
+          // The metadata of the certificate.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // Root证书内容
+          // The content of the root certificate.
           shared_ptr<string> content_ {};
-          // Root证书指纹
+          // The fingerprint of the root certificate.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -233,11 +233,11 @@ namespace Models
 
 
       protected:
-        // Root证书
+        // A list of root certificates.
         shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-        // Root证书获取方式
+        // The method for obtaining the root certificate.
         shared_ptr<string> trustAnchorSource_ {};
-        // Root证书的默认条件
+        // The trust condition.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -331,9 +331,9 @@ namespace Models
 
 
           protected:
-            // 证书过期时间
+            // The expiration time.
             shared_ptr<int64_t> notAfter_ {};
-            // 证书生效时间
+            // The validity start time.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -363,11 +363,11 @@ namespace Models
 
 
         protected:
-          // 证书元数据
+          // The metadata of the certificate.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // Root证书内容
+          // The content of the certificate.
           shared_ptr<string> content_ {};
-          // Root证书指纹
+          // The certificate fingerprint.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -418,17 +418,17 @@ namespace Models
 
 
       protected:
-        // pkcs7证书列表
+        // A list of PKCS7 certificates.
         shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-        // CMS验证模式
+        // The Cryptographic Message Syntax (CMS) verification mode.
         shared_ptr<string> cmsVerificationMode_ {};
-        // 签名有效时间
+        // The validity period of the signature.
         shared_ptr<int64_t> signatureEffectiveTime_ {};
-        // 签名时间
+        // The expression used to obtain the signing time.
         shared_ptr<string> signingTimeValueExpression_ {};
-        // 证书信任锚点来源
+        // The source of the certificate trust anchor.
         shared_ptr<string> trustAnchorSource_ {};
-        // 信任条件
+        // The trust condition.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -527,20 +527,21 @@ namespace Models
 
 
       protected:
-        // oidc凭证的受众列表
+        // The list of audiences for the OIDC credential.
         shared_ptr<vector<string>> audiences_ {};
-        // 动态获取的jwks
+        // The dynamically obtained JWKS.
         shared_ptr<string> dynamicJwks_ {};
-        // Issuer
+        // The issuer.
         shared_ptr<string> issuer_ {};
+        // The timestamp of the last JWKS retrieval.
         shared_ptr<int64_t> jwksLastObtainedTime_ {};
-        // Jwks来源
+        // The JWKS source.
         shared_ptr<string> jwksSource_ {};
-        // JWKS 端点
+        // The JSON Web Key Set (JWKS) endpoint.
         shared_ptr<string> jwksUri_ {};
-        // 静态获取的jwks
+        // The statically obtained JWKS.
         shared_ptr<string> staticJwks_ {};
-        // 默认条件
+        // The trust condition.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -680,29 +681,29 @@ namespace Models
 
     protected:
       shared_ptr<FederatedCredentialProviders::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
-      // 创建时间
+      // The provider\\"s creation time.
       shared_ptr<int64_t> createTime_ {};
-      // 描述
+      // The provider\\"s description.
       shared_ptr<string> description_ {};
-      // Federated Credential Provider ID
+      // The ID of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderId_ {};
-      // 联邦凭证提供方名称
+      // The name of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderName_ {};
-      // 联邦凭证提供方类型
+      // The type of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderType_ {};
-      // EIAM 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 网络访问端点ID
+      // The ID of the network access endpoint.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // OIDC配置
+      // The OpenID Connect (OIDC) configuration.
       shared_ptr<FederatedCredentialProviders::OidcProviderConfig> oidcProviderConfig_ {};
-      // PKCS7配置
+      // The PKCS7 configuration.
       shared_ptr<FederatedCredentialProviders::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
-      // 私有CA配置
+      // The private CA configuration.
       shared_ptr<FederatedCredentialProviders::PrivateCaProviderConfig> privateCaProviderConfig_ {};
-      // 状态
+      // The provider\\"s status.
       shared_ptr<string> status_ {};
-      // 更新时间
+      // The provider\\"s last update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -753,14 +754,17 @@ namespace Models
 
 
   protected:
+    // The list of federated credential providers.
     shared_ptr<vector<ListFederatedCredentialProvidersResponseBody::FederatedCredentialProviders>> federatedCredentialProviders_ {};
-    // 分页查询时每页行数。
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token to retrieve the next page of results. This parameter is empty if all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+    // The token for the previous page of results.
     shared_ptr<string> previousToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

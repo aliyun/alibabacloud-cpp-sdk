@@ -17,7 +17,15 @@ namespace Eiam20211201
 {
 
 AlibabaCloud::Eiam20211201::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"eu-central-1" , "eiam.eu-central-1.aliyuncs.com"},
+    {"cn-hongkong" , "eiam.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "eiam.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-5" , "eiam.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-1" , "eiam.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-2" , "eiam.ap-northeast-2.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eiam", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +44,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 在当前应用下给指定员工添加一个应用账号。
+ * @summary Adds an application account to a specified user in the current application.
  *
  * @param request AddApplicationAccountToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +87,7 @@ AddApplicationAccountToUserResponse Client::addApplicationAccountToUserWithOptio
 }
 
 /**
- * @summary 在当前应用下给指定员工添加一个应用账号。
+ * @summary Adds an application account to a specified user in the current application.
  *
  * @param request AddApplicationAccountToUserRequest
  * @return AddApplicationAccountToUserResponse
@@ -90,7 +98,7 @@ AddApplicationAccountToUserResponse Client::addApplicationAccountToUser(const Ad
 }
 
 /**
- * @summary 将应用添加到授权规则
+ * @summary Adds an application to an authorization rule.
  *
  * @param request AddApplicationToAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -143,7 +151,7 @@ AddApplicationToAuthorizationRuleResponse Client::addApplicationToAuthorizationR
 }
 
 /**
- * @summary 将应用添加到授权规则
+ * @summary Adds an application to an authorization rule.
  *
  * @param request AddApplicationToAuthorizationRuleRequest
  * @return AddApplicationToAuthorizationRuleResponse
@@ -154,7 +162,7 @@ AddApplicationToAuthorizationRuleResponse Client::addApplicationToAuthorizationR
 }
 
 /**
- * @summary 添加条款到品牌
+ * @summary Assign terms to a brand
  *
  * @param request AddCustomPrivacyPoliciesToBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -193,7 +201,7 @@ AddCustomPrivacyPoliciesToBrandResponse Client::addCustomPrivacyPoliciesToBrandW
 }
 
 /**
- * @summary 添加条款到品牌
+ * @summary Assign terms to a brand
  *
  * @param request AddCustomPrivacyPoliciesToBrandRequest
  * @return AddCustomPrivacyPoliciesToBrandResponse
@@ -204,7 +212,7 @@ AddCustomPrivacyPoliciesToBrandResponse Client::addCustomPrivacyPoliciesToBrand(
 }
 
 /**
- * @summary 将组添加到授权规则
+ * @summary Adds a group to an authorization rule.
  *
  * @param request AddGroupToAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -257,7 +265,7 @@ AddGroupToAuthorizationRuleResponse Client::addGroupToAuthorizationRuleWithOptio
 }
 
 /**
- * @summary 将组添加到授权规则
+ * @summary Adds a group to an authorization rule.
  *
  * @param request AddGroupToAuthorizationRuleRequest
  * @return AddGroupToAuthorizationRuleResponse
@@ -268,7 +276,7 @@ AddGroupToAuthorizationRuleResponse Client::addGroupToAuthorizationRule(const Ad
 }
 
 /**
- * @summary 将账户添加到授权规则
+ * @summary Adds a user to an authorization rule.
  *
  * @param request AddUserToAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -321,7 +329,7 @@ AddUserToAuthorizationRuleResponse Client::addUserToAuthorizationRuleWithOptions
 }
 
 /**
- * @summary 将账户添加到授权规则
+ * @summary Adds a user to an authorization rule.
  *
  * @param request AddUserToAuthorizationRuleRequest
  * @return AddUserToAuthorizationRuleResponse
@@ -332,7 +340,7 @@ AddUserToAuthorizationRuleResponse Client::addUserToAuthorizationRule(const AddU
 }
 
 /**
- * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+ * @summary Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
  *
  * @param request AddUserToOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -371,7 +379,7 @@ AddUserToOrganizationalUnitsResponse Client::addUserToOrganizationalUnitsWithOpt
 }
 
 /**
- * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+ * @summary Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
  *
  * @param request AddUserToOrganizationalUnitsRequest
  * @return AddUserToOrganizationalUnitsResponse
@@ -432,7 +440,7 @@ AddUsersToGroupResponse Client::addUsersToGroup(const AddUsersToGroupRequest &re
 }
 
 /**
- * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Grants multiple EIAM groups access to an application.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +483,7 @@ AuthorizeApplicationToGroupsResponse Client::authorizeApplicationToGroupsWithOpt
 }
 
 /**
- * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Grants multiple EIAM groups access to an application.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @return AuthorizeApplicationToGroupsResponse
@@ -486,7 +494,7 @@ AuthorizeApplicationToGroupsResponse Client::authorizeApplicationToGroups(const 
 }
 
 /**
- * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+ * @summary Grants access to an application for multiple EIAM organizations in a batch operation.
  *
  * @param request AuthorizeApplicationToOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -529,7 +537,7 @@ AuthorizeApplicationToOrganizationalUnitsResponse Client::authorizeApplicationTo
 }
 
 /**
- * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+ * @summary Grants access to an application for multiple EIAM organizations in a batch operation.
  *
  * @param request AuthorizeApplicationToOrganizationalUnitsRequest
  * @return AuthorizeApplicationToOrganizationalUnitsResponse
@@ -540,7 +548,7 @@ AuthorizeApplicationToOrganizationalUnitsResponse Client::authorizeApplicationTo
 }
 
 /**
- * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+ * @summary Grants permissions to multiple EIAM accounts to access an application.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -583,7 +591,7 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsersWithOptio
 }
 
 /**
- * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+ * @summary Grants permissions to multiple EIAM accounts to access an application.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @return AuthorizeApplicationToUsersResponse
@@ -594,7 +602,7 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsers(const Au
 }
 
 /**
- * @summary 授权指定ResourceServer下的Scope给Client
+ * @summary Grants a client application permissions for specific scopes on a specified resource server.
  *
  * @param request AuthorizeResourceServerScopesToClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +645,7 @@ AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerSco
 }
 
 /**
- * @summary 授权指定ResourceServer下的Scope给Client
+ * @summary Grants a client application permissions for specific scopes on a specified resource server.
  *
  * @param request AuthorizeResourceServerScopesToClientRequest
  * @return AuthorizeResourceServerScopesToClientResponse
@@ -648,7 +656,7 @@ AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerSco
 }
 
 /**
- * @summary 授予组ResourceServerScope权限
+ * @summary Grants a group permissions for specified scopes on a resource server.
  *
  * @param request AuthorizeResourceServerScopesToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +703,7 @@ AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScop
 }
 
 /**
- * @summary 授予组ResourceServerScope权限
+ * @summary Grants a group permissions for specified scopes on a resource server.
  *
  * @param request AuthorizeResourceServerScopesToGroupRequest
  * @return AuthorizeResourceServerScopesToGroupResponse
@@ -706,7 +714,7 @@ AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScop
 }
 
 /**
- * @summary 授予组织ResourceServerScope权限
+ * @summary Grants scope permissions for a specified resource server to an organization.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -753,7 +761,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary 授予组织ResourceServerScope权限
+ * @summary Grants scope permissions for a specified resource server to an organization.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -764,7 +772,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary 授予用户ResourceServerScope权限
+ * @summary Grants scope permissions for a specified resource server to a user account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -811,7 +819,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary 授予用户ResourceServerScope权限
+ * @summary Grants scope permissions for a specified resource server to a user account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @return AuthorizeResourceServerScopesToUserResponse
@@ -822,7 +830,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary 授权指定ResourceServer给Client
+ * @summary Authorizes a resource server for a client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -861,7 +869,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClientW
 }
 
 /**
- * @summary 授权指定ResourceServer给Client
+ * @summary Authorizes a resource server for a client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @return AuthorizeResourceServerToClientResponse
@@ -872,7 +880,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClient(
 }
 
 /**
- * @summary 绑定三方登录账户
+ * @summary Binds a user to a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -915,7 +923,7 @@ BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMappingWithOptions
 }
 
 /**
- * @summary 绑定三方登录账户
+ * @summary Binds a user to a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @return BindUserAuthnSourceMappingResponse
@@ -926,7 +934,7 @@ BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMapping(const Bind
 }
 
 /**
- * @summary 检查应用同步主组织是否在应用同步范围
+ * @summary Checks whether the primary organizational unit for an application is within the synchronization scope.
  *
  * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +973,7 @@ CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::checkA
 }
 
 /**
- * @summary 检查应用同步主组织是否在应用同步范围
+ * @summary Checks whether the primary organizational unit for an application is within the synchronization scope.
  *
  * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @return CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -976,7 +984,9 @@ CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::checkA
 }
 
 /**
- * @summary 实例删除检查。
+ * @summary Checks if an instance can be deleted.
+ *
+ * @description Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
  *
  * @param request CheckInstanceForDeleteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1007,7 +1017,9 @@ CheckInstanceForDeleteResponse Client::checkInstanceForDeleteWithOptions(const C
 }
 
 /**
- * @summary 实例删除检查。
+ * @summary Checks if an instance can be deleted.
+ *
+ * @description Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
  *
  * @param request CheckInstanceForDeleteRequest
  * @return CheckInstanceForDeleteResponse
@@ -1018,7 +1030,9 @@ CheckInstanceForDeleteResponse Client::checkInstanceForDelete(const CheckInstanc
 }
 
 /**
- * @summary 判断实例是否具有某个模块的功能
+ * @summary Determines whether an instance has a specific module feature.
+ *
+ * @description Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1061,7 +1075,9 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatusWithOptions(c
 }
 
 /**
- * @summary 判断实例是否具有某个模块的功能
+ * @summary Determines whether an instance has a specific module feature.
+ *
+ * @description Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @return CheckInstanceModuleStatusResponse
@@ -1072,9 +1088,9 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatus(const CheckI
 }
 
 /**
- * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Creates an application in the specified EIAM instance.
  *
- * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+ * @description You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
  *
  * @param request CreateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1141,9 +1157,9 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Creates an application in the specified EIAM instance.
  *
- * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+ * @description You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
@@ -1154,7 +1170,7 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+ * @summary Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
  *
  * @param request CreateApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1193,7 +1209,7 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecretWithO
 }
 
 /**
- * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+ * @summary Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
  *
  * @param request CreateApplicationClientSecretRequest
  * @return CreateApplicationClientSecretResponse
@@ -1204,7 +1220,7 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecret(cons
 }
 
 /**
- * @summary 创建应用联邦凭证
+ * @summary Creates an application federated credential.
  *
  * @param request CreateApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1279,7 @@ CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedC
 }
 
 /**
- * @summary 创建应用联邦凭证
+ * @summary Creates an application federated credential.
  *
  * @param request CreateApplicationFederatedCredentialRequest
  * @return CreateApplicationFederatedCredentialResponse
@@ -1274,7 +1290,7 @@ CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedC
 }
 
 /**
- * @summary 创建应用角色
+ * @summary Creates an application role.
  *
  * @param request CreateApplicationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1321,7 +1337,7 @@ CreateApplicationRoleResponse Client::createApplicationRoleWithOptions(const Cre
 }
 
 /**
- * @summary 创建应用角色
+ * @summary Creates an application role.
  *
  * @param request CreateApplicationRoleRequest
  * @return CreateApplicationRoleResponse
@@ -1332,7 +1348,7 @@ CreateApplicationRoleResponse Client::createApplicationRole(const CreateApplicat
 }
 
 /**
- * @summary 创建应用Token
+ * @summary Creates an application token.
  *
  * @param request CreateApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1375,7 +1391,7 @@ CreateApplicationTokenResponse Client::createApplicationTokenWithOptions(const C
 }
 
 /**
- * @summary 创建应用Token
+ * @summary Creates an application token.
  *
  * @param request CreateApplicationTokenRequest
  * @return CreateApplicationTokenResponse
@@ -1386,7 +1402,7 @@ CreateApplicationTokenResponse Client::createApplicationToken(const CreateApplic
 }
 
 /**
- * @summary 创建授权资源
+ * @summary Creates an authorization resource.
  *
  * @param request CreateAuthorizationResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1435,7 +1451,7 @@ CreateAuthorizationResourceResponse Client::createAuthorizationResourceWithOptio
 }
 
 /**
- * @summary 创建授权资源
+ * @summary Creates an authorization resource.
  *
  * @param request CreateAuthorizationResourceRequest
  * @return CreateAuthorizationResourceResponse
@@ -1446,7 +1462,7 @@ CreateAuthorizationResourceResponse Client::createAuthorizationResource(const Cr
 }
 
 /**
- * @summary 创建授权规则
+ * @summary Creates an authorization rule.
  *
  * @param request CreateAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1499,7 +1515,7 @@ CreateAuthorizationRuleResponse Client::createAuthorizationRuleWithOptions(const
 }
 
 /**
- * @summary 创建授权规则
+ * @summary Creates an authorization rule.
  *
  * @param request CreateAuthorizationRuleRequest
  * @return CreateAuthorizationRuleResponse
@@ -1510,7 +1526,7 @@ CreateAuthorizationRuleResponse Client::createAuthorizationRule(const CreateAuth
 }
 
 /**
- * @summary 创建品牌
+ * @summary Creates a brand.
  *
  * @param request CreateBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1545,7 +1561,7 @@ CreateBrandResponse Client::createBrandWithOptions(const CreateBrandRequest &req
 }
 
 /**
- * @summary 创建品牌
+ * @summary Creates a brand.
  *
  * @param request CreateBrandRequest
  * @return CreateBrandResponse
@@ -1556,7 +1572,7 @@ CreateBrandResponse Client::createBrand(const CreateBrandRequest &request) {
 }
 
 /**
- * @summary 创建应用ClientPublicKey
+ * @summary Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
  *
  * @param request CreateClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1603,7 +1619,7 @@ CreateClientPublicKeyResponse Client::createClientPublicKeyWithOptions(const Cre
 }
 
 /**
- * @summary 创建应用ClientPublicKey
+ * @summary Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
  *
  * @param request CreateClientPublicKeyRequest
  * @return CreateClientPublicKeyResponse
@@ -1614,7 +1630,9 @@ CreateClientPublicKeyResponse Client::createClientPublicKey(const CreateClientPu
 }
 
 /**
- * @summary 创建云账号
+ * @summary Creates a cloud account in the specified IDaaS EIAM instance.
+ *
+ * @description **Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1673,7 +1691,9 @@ CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateClo
 }
 
 /**
- * @summary 创建云账号
+ * @summary Creates a cloud account in the specified IDaaS EIAM instance.
+ *
+ * @description **Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @return CreateCloudAccountResponse
@@ -1684,7 +1704,7 @@ CreateCloudAccountResponse Client::createCloudAccount(const CreateCloudAccountRe
 }
 
 /**
- * @summary 创建云角色
+ * @summary Creates a cloud role for a specified Alibaba Cloud account.
  *
  * @param request CreateCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1735,7 +1755,7 @@ CreateCloudAccountRoleResponse Client::createCloudAccountRoleWithOptions(const C
 }
 
 /**
- * @summary 创建云角色
+ * @summary Creates a cloud role for a specified Alibaba Cloud account.
  *
  * @param request CreateCloudAccountRoleRequest
  * @return CreateCloudAccountRoleResponse
@@ -1828,7 +1848,7 @@ CreateConditionalAccessPolicyResponse Client::createConditionalAccessPolicy(cons
 }
 
 /**
- * @summary 创建凭据
+ * @summary Creates a credential in a specified EIAM instance.
  *
  * @param request CreateCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1907,7 +1927,7 @@ CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredent
 }
 
 /**
- * @summary 创建凭据
+ * @summary Creates a credential in a specified EIAM instance.
  *
  * @param request CreateCredentialRequest
  * @return CreateCredentialResponse
@@ -1918,7 +1938,7 @@ CreateCredentialResponse Client::createCredential(const CreateCredentialRequest 
 }
 
 /**
- * @summary 创建凭据提供商
+ * @summary Creates a credential provider.
  *
  * @param request CreateCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1973,7 +1993,7 @@ CreateCredentialProviderResponse Client::createCredentialProviderWithOptions(con
 }
 
 /**
- * @summary 创建凭据提供商
+ * @summary Creates a credential provider.
  *
  * @param request CreateCredentialProviderRequest
  * @return CreateCredentialProviderResponse
@@ -1984,7 +2004,7 @@ CreateCredentialProviderResponse Client::createCredentialProvider(const CreateCr
 }
 
 /**
- * @summary 创建扩展字段
+ * @summary Creates an extension field.
  *
  * @param request CreateCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2063,7 +2083,7 @@ CreateCustomFieldResponse Client::createCustomFieldWithOptions(const CreateCusto
 }
 
 /**
- * @summary 创建扩展字段
+ * @summary Creates an extension field.
  *
  * @param request CreateCustomFieldRequest
  * @return CreateCustomFieldResponse
@@ -2074,7 +2094,7 @@ CreateCustomFieldResponse Client::createCustomField(const CreateCustomFieldReque
 }
 
 /**
- * @summary 创建自定义条款
+ * @summary You can create custom terms.
  *
  * @param request CreateCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2129,7 +2149,7 @@ CreateCustomPrivacyPolicyResponse Client::createCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary 创建自定义条款
+ * @summary You can create custom terms.
  *
  * @param request CreateCustomPrivacyPolicyRequest
  * @return CreateCustomPrivacyPolicyResponse
@@ -2140,7 +2160,7 @@ CreateCustomPrivacyPolicyResponse Client::createCustomPrivacyPolicy(const Create
 }
 
 /**
- * @summary Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
+ * @summary Creates a custom domain name for an EIAM (Entity and Identity Access Management) instance.
  *
  * @param request CreateDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2179,7 +2199,7 @@ CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &
 }
 
 /**
- * @summary Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
+ * @summary Creates a custom domain name for an EIAM (Entity and Identity Access Management) instance.
  *
  * @param request CreateDomainRequest
  * @return CreateDomainResponse
@@ -2236,7 +2256,7 @@ CreateDomainProxyTokenResponse Client::createDomainProxyToken(const CreateDomain
 }
 
 /**
- * @summary 创建联邦凭证提供方
+ * @summary Create an identity provider.
  *
  * @param request CreateFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2299,7 +2319,7 @@ CreateFederatedCredentialProviderResponse Client::createFederatedCredentialProvi
 }
 
 /**
- * @summary 创建联邦凭证提供方
+ * @summary Create an identity provider.
  *
  * @param request CreateFederatedCredentialProviderRequest
  * @return CreateFederatedCredentialProviderResponse
@@ -2364,7 +2384,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary Create Identity Provider
+ * @summary Creates an identity provider.
  *
  * @param request CreateIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2463,7 +2483,7 @@ CreateIdentityProviderResponse Client::createIdentityProviderWithOptions(const C
 }
 
 /**
- * @summary Create Identity Provider
+ * @summary Creates an identity provider.
  *
  * @param request CreateIdentityProviderRequest
  * @return CreateIdentityProviderResponse
@@ -2474,7 +2494,7 @@ CreateIdentityProviderResponse Client::createIdentityProvider(const CreateIdenti
 }
 
 /**
- * @summary 创建IdP状态检查任务
+ * @summary Creates a status check job for an identity provider.
  *
  * @param request CreateIdentityProviderStatusCheckJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2509,7 +2529,7 @@ CreateIdentityProviderStatusCheckJobResponse Client::createIdentityProviderStatu
 }
 
 /**
- * @summary 创建IdP状态检查任务
+ * @summary Creates a status check job for an identity provider.
  *
  * @param request CreateIdentityProviderStatusCheckJobRequest
  * @return CreateIdentityProviderStatusCheckJobResponse
@@ -2562,7 +2582,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary 为实例创建试用版 License
+ * @summary Creates a trial license for an instance.
  *
  * @param request CreateInstanceTrialLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2593,7 +2613,7 @@ CreateInstanceTrialLicenseResponse Client::createInstanceTrialLicenseWithOptions
 }
 
 /**
- * @summary 为实例创建试用版 License
+ * @summary Creates a trial license for an instance.
  *
  * @param request CreateInstanceTrialLicenseRequest
  * @return CreateInstanceTrialLicenseResponse
@@ -2666,7 +2686,7 @@ CreateNetworkAccessEndpointResponse Client::createNetworkAccessEndpoint(const Cr
 }
 
 /**
- * @summary 创建网络区域对象
+ * @summary Creates a network zone object.
  *
  * @param request CreateNetworkZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2725,7 +2745,7 @@ CreateNetworkZoneResponse Client::createNetworkZoneWithOptions(const CreateNetwo
 }
 
 /**
- * @summary 创建网络区域对象
+ * @summary Creates a network zone object.
  *
  * @param request CreateNetworkZoneRequest
  * @return CreateNetworkZoneResponse
@@ -2794,7 +2814,7 @@ CreateOrganizationalUnitResponse Client::createOrganizationalUnit(const CreateOr
 }
 
 /**
- * @summary 创建指定ResourceServer下的Scope
+ * @summary Creates a scope permission for a specified resource server.
  *
  * @param request CreateResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2845,7 +2865,7 @@ CreateResourceServerScopeResponse Client::createResourceServerScopeWithOptions(c
 }
 
 /**
- * @summary 创建指定ResourceServer下的Scope
+ * @summary Creates a scope permission for a specified resource server.
  *
  * @param request CreateResourceServerScopeRequest
  * @return CreateResourceServerScopeResponse
@@ -2856,7 +2876,7 @@ CreateResourceServerScopeResponse Client::createResourceServerScope(const Create
 }
 
 /**
- * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+ * @summary Create an EIAM account in a specific EIAM instance.
  *
  * @param request CreateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2947,7 +2967,7 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 }
 
 /**
- * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+ * @summary Create an EIAM account in a specific EIAM instance.
  *
  * @param request CreateUserRequest
  * @return CreateUserResponse
@@ -3058,7 +3078,7 @@ DeleteApplicationClientSecretResponse Client::deleteApplicationClientSecret(cons
 }
 
 /**
- * @summary 删除应用联邦凭证
+ * @summary Deletes a federated credential for an application.
  *
  * @param request DeleteApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3097,7 +3117,7 @@ DeleteApplicationFederatedCredentialResponse Client::deleteApplicationFederatedC
 }
 
 /**
- * @summary 删除应用联邦凭证
+ * @summary Deletes a federated credential for an application.
  *
  * @param request DeleteApplicationFederatedCredentialRequest
  * @return DeleteApplicationFederatedCredentialResponse
@@ -3108,7 +3128,7 @@ DeleteApplicationFederatedCredentialResponse Client::deleteApplicationFederatedC
 }
 
 /**
- * @summary 删除应用角色
+ * @summary Deletes an application role.
  *
  * @param request DeleteApplicationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3147,7 +3167,7 @@ DeleteApplicationRoleResponse Client::deleteApplicationRoleWithOptions(const Del
 }
 
 /**
- * @summary 删除应用角色
+ * @summary Deletes an application role.
  *
  * @param request DeleteApplicationRoleRequest
  * @return DeleteApplicationRoleResponse
@@ -3158,7 +3178,7 @@ DeleteApplicationRoleResponse Client::deleteApplicationRole(const DeleteApplicat
 }
 
 /**
- * @summary 删除ApplicationToken
+ * @summary Deletes an application token.
  *
  * @param request DeleteApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3197,7 +3217,7 @@ DeleteApplicationTokenResponse Client::deleteApplicationTokenWithOptions(const D
 }
 
 /**
- * @summary 删除ApplicationToken
+ * @summary Deletes an application token.
  *
  * @param request DeleteApplicationTokenRequest
  * @return DeleteApplicationTokenResponse
@@ -3208,7 +3228,7 @@ DeleteApplicationTokenResponse Client::deleteApplicationToken(const DeleteApplic
 }
 
 /**
- * @summary 删除授权资源
+ * @summary Deletes an authorization resource.
  *
  * @param request DeleteAuthorizationResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3247,7 +3267,7 @@ DeleteAuthorizationResourceResponse Client::deleteAuthorizationResourceWithOptio
 }
 
 /**
- * @summary 删除授权资源
+ * @summary Deletes an authorization resource.
  *
  * @param request DeleteAuthorizationResourceRequest
  * @return DeleteAuthorizationResourceResponse
@@ -3258,7 +3278,7 @@ DeleteAuthorizationResourceResponse Client::deleteAuthorizationResource(const De
 }
 
 /**
- * @summary 删除授权规则
+ * @summary Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
  *
  * @param request DeleteAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3293,7 +3313,7 @@ DeleteAuthorizationRuleResponse Client::deleteAuthorizationRuleWithOptions(const
 }
 
 /**
- * @summary 删除授权规则
+ * @summary Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
  *
  * @param request DeleteAuthorizationRuleRequest
  * @return DeleteAuthorizationRuleResponse
@@ -3304,7 +3324,7 @@ DeleteAuthorizationRuleResponse Client::deleteAuthorizationRule(const DeleteAuth
 }
 
 /**
- * @summary 删除品牌
+ * @summary Deletes a brand.
  *
  * @param request DeleteBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3339,7 +3359,7 @@ DeleteBrandResponse Client::deleteBrandWithOptions(const DeleteBrandRequest &req
 }
 
 /**
- * @summary 删除品牌
+ * @summary Deletes a brand.
  *
  * @param request DeleteBrandRequest
  * @return DeleteBrandResponse
@@ -3350,7 +3370,7 @@ DeleteBrandResponse Client::deleteBrand(const DeleteBrandRequest &request) {
 }
 
 /**
- * @summary 删除指定的应用ClientPublicKey
+ * @summary Deletes the ClientPublicKey for a specified application.
  *
  * @param request DeleteClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3389,7 +3409,7 @@ DeleteClientPublicKeyResponse Client::deleteClientPublicKeyWithOptions(const Del
 }
 
 /**
- * @summary 删除指定的应用ClientPublicKey
+ * @summary Deletes the ClientPublicKey for a specified application.
  *
  * @param request DeleteClientPublicKeyRequest
  * @return DeleteClientPublicKeyResponse
@@ -3400,7 +3420,7 @@ DeleteClientPublicKeyResponse Client::deleteClientPublicKey(const DeleteClientPu
 }
 
 /**
- * @summary 删除云账号
+ * @summary Deletes an Alibaba Cloud account resource.
  *
  * @param request DeleteCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3435,7 +3455,7 @@ DeleteCloudAccountResponse Client::deleteCloudAccountWithOptions(const DeleteClo
 }
 
 /**
- * @summary 删除云账号
+ * @summary Deletes an Alibaba Cloud account resource.
  *
  * @param request DeleteCloudAccountRequest
  * @return DeleteCloudAccountResponse
@@ -3446,7 +3466,9 @@ DeleteCloudAccountResponse Client::deleteCloudAccount(const DeleteCloudAccountRe
 }
 
 /**
- * @summary 删除云角色
+ * @summary Deletes a cloud role from a specified Alibaba Cloud account.
+ *
+ * @description You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
  *
  * @param request DeleteCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3485,7 +3507,9 @@ DeleteCloudAccountRoleResponse Client::deleteCloudAccountRoleWithOptions(const D
 }
 
 /**
- * @summary 删除云角色
+ * @summary Deletes a cloud role from a specified Alibaba Cloud account.
+ *
+ * @description You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
  *
  * @param request DeleteCloudAccountRoleRequest
  * @return DeleteCloudAccountRoleResponse
@@ -3496,9 +3520,9 @@ DeleteCloudAccountRoleResponse Client::deleteCloudAccountRole(const DeleteCloudA
 }
 
 /**
- * @summary Delete Conditional Access Policy
+ * @summary Deletes a conditional access policy.
  *
- * @description When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+ * @description Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
  *
  * @param request DeleteConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3533,9 +3557,9 @@ DeleteConditionalAccessPolicyResponse Client::deleteConditionalAccessPolicyWithO
 }
 
 /**
- * @summary Delete Conditional Access Policy
+ * @summary Deletes a conditional access policy.
  *
- * @description When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+ * @description Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
  *
  * @param request DeleteConditionalAccessPolicyRequest
  * @return DeleteConditionalAccessPolicyResponse
@@ -3546,7 +3570,7 @@ DeleteConditionalAccessPolicyResponse Client::deleteConditionalAccessPolicy(cons
 }
 
 /**
- * @summary 删除凭据
+ * @summary Deletes a credential resource.
  *
  * @param request DeleteCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3581,7 +3605,7 @@ DeleteCredentialResponse Client::deleteCredentialWithOptions(const DeleteCredent
 }
 
 /**
- * @summary 删除凭据
+ * @summary Deletes a credential resource.
  *
  * @param request DeleteCredentialRequest
  * @return DeleteCredentialResponse
@@ -3592,7 +3616,7 @@ DeleteCredentialResponse Client::deleteCredential(const DeleteCredentialRequest 
 }
 
 /**
- * @summary 启用凭据提供商
+ * @summary Deletes a credential provider.
  *
  * @param request DeleteCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3627,7 +3651,7 @@ DeleteCredentialProviderResponse Client::deleteCredentialProviderWithOptions(con
 }
 
 /**
- * @summary 启用凭据提供商
+ * @summary Deletes a credential provider.
  *
  * @param request DeleteCredentialProviderRequest
  * @return DeleteCredentialProviderResponse
@@ -3638,7 +3662,7 @@ DeleteCredentialProviderResponse Client::deleteCredentialProvider(const DeleteCr
 }
 
 /**
- * @summary 删除扩展字段
+ * @summary Deletes an extension field.
  *
  * @param request DeleteCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3673,7 +3697,7 @@ DeleteCustomFieldResponse Client::deleteCustomFieldWithOptions(const DeleteCusto
 }
 
 /**
- * @summary 删除扩展字段
+ * @summary Deletes an extension field.
  *
  * @param request DeleteCustomFieldRequest
  * @return DeleteCustomFieldResponse
@@ -3684,7 +3708,7 @@ DeleteCustomFieldResponse Client::deleteCustomField(const DeleteCustomFieldReque
 }
 
 /**
- * @summary 删除自定义条款
+ * @summary Deleting custom clauses
  *
  * @param request DeleteCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3719,7 +3743,7 @@ DeleteCustomPrivacyPolicyResponse Client::deleteCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary 删除自定义条款
+ * @summary Deleting custom clauses
  *
  * @param request DeleteCustomPrivacyPolicyRequest
  * @return DeleteCustomPrivacyPolicyResponse
@@ -3826,7 +3850,7 @@ DeleteDomainProxyTokenResponse Client::deleteDomainProxyToken(const DeleteDomain
 }
 
 /**
- * @summary 删除联邦凭证提供方
+ * @summary Deletes a federated credential provider.
  *
  * @param request DeleteFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3861,7 +3885,7 @@ DeleteFederatedCredentialProviderResponse Client::deleteFederatedCredentialProvi
 }
 
 /**
- * @summary 删除联邦凭证提供方
+ * @summary Deletes a federated credential provider.
  *
  * @param request DeleteFederatedCredentialProviderRequest
  * @return DeleteFederatedCredentialProviderResponse
@@ -4056,7 +4080,7 @@ DeleteNetworkAccessEndpointResponse Client::deleteNetworkAccessEndpoint(const De
 }
 
 /**
- * @summary 删除网络区域对象
+ * @summary Deletes a network zone object.
  *
  * @param request DeleteNetworkZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4091,7 +4115,7 @@ DeleteNetworkZoneResponse Client::deleteNetworkZoneWithOptions(const DeleteNetwo
 }
 
 /**
- * @summary 删除网络区域对象
+ * @summary Deletes a network zone object.
  *
  * @param request DeleteNetworkZoneRequest
  * @return DeleteNetworkZoneResponse
@@ -4194,7 +4218,7 @@ DeleteOrganizationalUnitChildrenResponse Client::deleteOrganizationalUnitChildre
 }
 
 /**
- * @summary 删除指定ResourceServer下的Scope
+ * @summary Deletes a scope permission from a specified resource server.
  *
  * @param request DeleteResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4233,7 +4257,7 @@ DeleteResourceServerScopeResponse Client::deleteResourceServerScopeWithOptions(c
 }
 
 /**
- * @summary 删除指定ResourceServer下的Scope
+ * @summary Deletes a scope permission from a specified resource server.
  *
  * @param request DeleteResourceServerScopeRequest
  * @return DeleteResourceServerScopeResponse
@@ -4244,7 +4268,7 @@ DeleteResourceServerScopeResponse Client::deleteResourceServerScope(const Delete
 }
 
 /**
- * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+ * @summary Deletes a specified EIAM user and purges all related information.
  *
  * @param request DeleteUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4279,7 +4303,7 @@ DeleteUserResponse Client::deleteUserWithOptions(const DeleteUserRequest &reques
 }
 
 /**
- * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+ * @summary Deletes a specified EIAM user and purges all related information.
  *
  * @param request DeleteUserRequest
  * @return DeleteUserResponse
@@ -4290,7 +4314,7 @@ DeleteUserResponse Client::deleteUser(const DeleteUserRequest &request) {
 }
 
 /**
- * @summary 批量删除账号
+ * @summary Deletes multiple accounts in a batch.
  *
  * @param request DeleteUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4325,7 +4349,7 @@ DeleteUsersResponse Client::deleteUsersWithOptions(const DeleteUsersRequest &req
 }
 
 /**
- * @summary 批量删除账号
+ * @summary Deletes multiple accounts in a batch.
  *
  * @param request DeleteUsersRequest
  * @return DeleteUsersResponse
@@ -4336,7 +4360,7 @@ DeleteUsersResponse Client::deleteUsers(const DeleteUsersRequest &request) {
 }
 
 /**
- * @summary 删除指定WebAuthn认证器名称
+ * @summary Deletes the specified WebAuthn authenticator.
  *
  * @param request DeleteWebAuthnAuthenticatorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4375,7 +4399,7 @@ DeleteWebAuthnAuthenticatorResponse Client::deleteWebAuthnAuthenticatorWithOptio
 }
 
 /**
- * @summary 删除指定WebAuthn认证器名称
+ * @summary Deletes the specified WebAuthn authenticator.
  *
  * @param request DeleteWebAuthnAuthenticatorRequest
  * @return DeleteWebAuthnAuthenticatorResponse
@@ -4532,7 +4556,7 @@ DisableApplicationClientSecretResponse Client::disableApplicationClientSecret(co
 }
 
 /**
- * @summary 禁用应用联邦凭证
+ * @summary Disables a federated credential for an application.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4571,7 +4595,7 @@ DisableApplicationFederatedCredentialResponse Client::disableApplicationFederate
 }
 
 /**
- * @summary 禁用应用联邦凭证
+ * @summary Disables a federated credential for an application.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @return DisableApplicationFederatedCredentialResponse
@@ -4582,7 +4606,7 @@ DisableApplicationFederatedCredentialResponse Client::disableApplicationFederate
 }
 
 /**
- * @summary 禁用M2M Client 能力
+ * @summary Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
  *
  * @param request DisableApplicationM2MClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4617,7 +4641,7 @@ DisableApplicationM2MClientResponse Client::disableApplicationM2MClientWithOptio
 }
 
 /**
- * @summary 禁用M2M Client 能力
+ * @summary Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
  *
  * @param request DisableApplicationM2MClientRequest
  * @return DisableApplicationM2MClientResponse
@@ -4674,7 +4698,7 @@ DisableApplicationProvisioningResponse Client::disableApplicationProvisioning(co
 }
 
 /**
- * @summary 禁用ResourceServer能力
+ * @summary Disables the resource server functionality for a specified application.
  *
  * @param request DisableApplicationResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4709,7 +4733,7 @@ DisableApplicationResourceServerResponse Client::disableApplicationResourceServe
 }
 
 /**
- * @summary 禁用ResourceServer能力
+ * @summary Disables the resource server functionality for a specified application.
  *
  * @param request DisableApplicationResourceServerRequest
  * @return DisableApplicationResourceServerResponse
@@ -4766,7 +4790,9 @@ DisableApplicationSsoResponse Client::disableApplicationSso(const DisableApplica
 }
 
 /**
- * @summary 禁用应用Token
+ * @summary Disables an application token.
+ *
+ * @description When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
  *
  * @param request DisableApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4805,7 +4831,9 @@ DisableApplicationTokenResponse Client::disableApplicationTokenWithOptions(const
 }
 
 /**
- * @summary 禁用应用Token
+ * @summary Disables an application token.
+ *
+ * @description When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
  *
  * @param request DisableApplicationTokenRequest
  * @return DisableApplicationTokenResponse
@@ -4816,7 +4844,7 @@ DisableApplicationTokenResponse Client::disableApplicationToken(const DisableApp
 }
 
 /**
- * @summary 禁用授权规则
+ * @summary Disables an authorization rule.
  *
  * @param request DisableAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4857,7 +4885,7 @@ DisableAuthorizationRuleResponse Client::disableAuthorizationRuleWithOptions(con
 }
 
 /**
- * @summary 禁用授权规则
+ * @summary Disables an authorization rule.
  *
  * @param request DisableAuthorizationRuleRequest
  * @return DisableAuthorizationRuleResponse
@@ -4868,7 +4896,7 @@ DisableAuthorizationRuleResponse Client::disableAuthorizationRule(const DisableA
 }
 
 /**
- * @summary 禁用品牌
+ * @summary Disables a brand.
  *
  * @param request DisableBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4903,7 +4931,7 @@ DisableBrandResponse Client::disableBrandWithOptions(const DisableBrandRequest &
 }
 
 /**
- * @summary 禁用品牌
+ * @summary Disables a brand.
  *
  * @param request DisableBrandRequest
  * @return DisableBrandResponse
@@ -4914,7 +4942,7 @@ DisableBrandResponse Client::disableBrand(const DisableBrandRequest &request) {
 }
 
 /**
- * @summary 禁用指定的应用ClientPublicKey
+ * @summary Disables the ClientPublicKey for a specified application.
  *
  * @param request DisableClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4957,7 +4985,7 @@ DisableClientPublicKeyResponse Client::disableClientPublicKeyWithOptions(const D
 }
 
 /**
- * @summary 禁用指定的应用ClientPublicKey
+ * @summary Disables the ClientPublicKey for a specified application.
  *
  * @param request DisableClientPublicKeyRequest
  * @return DisableClientPublicKeyResponse
@@ -4968,7 +4996,7 @@ DisableClientPublicKeyResponse Client::disableClientPublicKey(const DisableClien
 }
 
 /**
- * @summary 禁用云角色
+ * @summary Disables a cloud role for a specified Alibaba Cloud account.
  *
  * @param request DisableCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5011,7 +5039,7 @@ DisableCloudAccountRoleResponse Client::disableCloudAccountRoleWithOptions(const
 }
 
 /**
- * @summary 禁用云角色
+ * @summary Disables a cloud role for a specified Alibaba Cloud account.
  *
  * @param request DisableCloudAccountRoleRequest
  * @return DisableCloudAccountRoleResponse
@@ -5022,9 +5050,9 @@ DisableCloudAccountRoleResponse Client::disableCloudAccountRole(const DisableClo
 }
 
 /**
- * @summary Disable Conditional Access Policy
+ * @summary Disables a conditional access policy.
  *
- * @description When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+ * @description When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
  *
  * @param request DisableConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5059,9 +5087,9 @@ DisableConditionalAccessPolicyResponse Client::disableConditionalAccessPolicyWit
 }
 
 /**
- * @summary Disable Conditional Access Policy
+ * @summary Disables a conditional access policy.
  *
- * @description When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+ * @description When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
  *
  * @param request DisableConditionalAccessPolicyRequest
  * @return DisableConditionalAccessPolicyResponse
@@ -5072,7 +5100,7 @@ DisableConditionalAccessPolicyResponse Client::disableConditionalAccessPolicy(co
 }
 
 /**
- * @summary 禁用凭据
+ * @summary Disables a credential resource.
  *
  * @param request DisableCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5111,7 +5139,7 @@ DisableCredentialResponse Client::disableCredentialWithOptions(const DisableCred
 }
 
 /**
- * @summary 禁用凭据
+ * @summary Disables a credential resource.
  *
  * @param request DisableCredentialRequest
  * @return DisableCredentialResponse
@@ -5122,7 +5150,7 @@ DisableCredentialResponse Client::disableCredential(const DisableCredentialReque
 }
 
 /**
- * @summary 禁用凭据提供商
+ * @summary Disables a credential provider.
  *
  * @param request DisableCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5157,7 +5185,7 @@ DisableCredentialProviderResponse Client::disableCredentialProviderWithOptions(c
 }
 
 /**
- * @summary 禁用凭据提供商
+ * @summary Disables a credential provider.
  *
  * @param request DisableCredentialProviderRequest
  * @return DisableCredentialProviderResponse
@@ -5168,7 +5196,7 @@ DisableCredentialProviderResponse Client::disableCredentialProvider(const Disabl
 }
 
 /**
- * @summary 禁用字段
+ * @summary Disables a custom field.
  *
  * @param request DisableCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5203,7 +5231,7 @@ DisableCustomFieldResponse Client::disableCustomFieldWithOptions(const DisableCu
 }
 
 /**
- * @summary 禁用字段
+ * @summary Disables a custom field.
  *
  * @param request DisableCustomFieldRequest
  * @return DisableCustomFieldResponse
@@ -5214,7 +5242,7 @@ DisableCustomFieldResponse Client::disableCustomField(const DisableCustomFieldRe
 }
 
 /**
- * @summary 禁用自定义条款
+ * @summary Disables a custom privacy policy.
  *
  * @param request DisableCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5249,7 +5277,7 @@ DisableCustomPrivacyPolicyResponse Client::disableCustomPrivacyPolicyWithOptions
 }
 
 /**
- * @summary 禁用自定义条款
+ * @summary Disables a custom privacy policy.
  *
  * @param request DisableCustomPrivacyPolicyRequest
  * @return DisableCustomPrivacyPolicyResponse
@@ -5310,7 +5338,7 @@ DisableDomainProxyTokenResponse Client::disableDomainProxyToken(const DisableDom
 }
 
 /**
- * @summary 禁用联邦凭证提供方
+ * @summary Disables a federated credential provider.
  *
  * @param request DisableFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5345,7 +5373,7 @@ DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialPro
 }
 
 /**
- * @summary 禁用联邦凭证提供方
+ * @summary Disables a federated credential provider.
  *
  * @param request DisableFederatedCredentialProviderRequest
  * @return DisableFederatedCredentialProviderResponse
@@ -5356,7 +5384,7 @@ DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialPro
 }
 
 /**
- * @summary 禁用高级配置
+ * @summary Disables the advanced configuration.
  *
  * @param request DisableIdentityProviderAdvancedAbilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5391,7 +5419,7 @@ DisableIdentityProviderAdvancedAbilityResponse Client::disableIdentityProviderAd
 }
 
 /**
- * @summary 禁用高级配置
+ * @summary Disables the advanced configuration.
  *
  * @param request DisableIdentityProviderAdvancedAbilityRequest
  * @return DisableIdentityProviderAdvancedAbilityResponse
@@ -5402,7 +5430,9 @@ DisableIdentityProviderAdvancedAbilityResponse Client::disableIdentityProviderAd
 }
 
 /**
- * @summary 禁用认证
+ * @summary Disables authentication.
+ *
+ * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
  *
  * @param request DisableIdentityProviderAuthnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5437,7 +5467,9 @@ DisableIdentityProviderAuthnResponse Client::disableIdentityProviderAuthnWithOpt
 }
 
 /**
- * @summary 禁用认证
+ * @summary Disables authentication.
+ *
+ * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
  *
  * @param request DisableIdentityProviderAuthnRequest
  * @return DisableIdentityProviderAuthnResponse
@@ -5536,7 +5568,7 @@ DisableInitDomainAutoRedirectResponse Client::disableInitDomainAutoRedirect(cons
 }
 
 /**
- * @summary 禁用内部认证源
+ * @summary Disables an internal authentication source.
  *
  * @param request DisableInternalAuthenticationSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5571,7 +5603,7 @@ DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticatio
 }
 
 /**
- * @summary 禁用内部认证源
+ * @summary Disables an internal authentication source.
  *
  * @param request DisableInternalAuthenticationSourceRequest
  * @return DisableInternalAuthenticationSourceResponse
@@ -5582,7 +5614,7 @@ DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticatio
 }
 
 /**
- * @summary 禁用资源服务器自定义主体
+ * @summary Disables the custom subject feature for a specified resource server.
  *
  * @param request DisableResourceServerCustomSubjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5617,7 +5649,7 @@ DisableResourceServerCustomSubjectResponse Client::disableResourceServerCustomSu
 }
 
 /**
- * @summary 禁用资源服务器自定义主体
+ * @summary Disables the custom subject feature for a specified resource server.
  *
  * @param request DisableResourceServerCustomSubjectRequest
  * @return DisableResourceServerCustomSubjectResponse
@@ -5720,7 +5752,7 @@ EnableApplicationResponse Client::enableApplication(const EnableApplicationReque
 }
 
 /**
- * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
  *
  * @param request EnableApplicationApiInvokeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5755,7 +5787,7 @@ EnableApplicationApiInvokeResponse Client::enableApplicationApiInvokeWithOptions
 }
 
 /**
- * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
  *
  * @param request EnableApplicationApiInvokeRequest
  * @return EnableApplicationApiInvokeResponse
@@ -5816,7 +5848,7 @@ EnableApplicationClientSecretResponse Client::enableApplicationClientSecret(cons
 }
 
 /**
- * @summary 启用应用联邦凭证
+ * @summary Enables an application federated credential.
  *
  * @param request EnableApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5855,7 +5887,7 @@ EnableApplicationFederatedCredentialResponse Client::enableApplicationFederatedC
 }
 
 /**
- * @summary 启用应用联邦凭证
+ * @summary Enables an application federated credential.
  *
  * @param request EnableApplicationFederatedCredentialRequest
  * @return EnableApplicationFederatedCredentialResponse
@@ -5866,7 +5898,7 @@ EnableApplicationFederatedCredentialResponse Client::enableApplicationFederatedC
 }
 
 /**
- * @summary 启用M2M Client 能力
+ * @summary Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
  *
  * @param request EnableApplicationM2MClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5901,7 +5933,7 @@ EnableApplicationM2MClientResponse Client::enableApplicationM2MClientWithOptions
 }
 
 /**
- * @summary 启用M2M Client 能力
+ * @summary Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
  *
  * @param request EnableApplicationM2MClientRequest
  * @return EnableApplicationM2MClientResponse
@@ -5958,7 +5990,7 @@ EnableApplicationProvisioningResponse Client::enableApplicationProvisioning(cons
 }
 
 /**
- * @summary 启用ResourceServer能力
+ * @summary Enables the ResourceServer feature for a specified application.
  *
  * @param request EnableApplicationResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5993,7 +6025,7 @@ EnableApplicationResourceServerResponse Client::enableApplicationResourceServerW
 }
 
 /**
- * @summary 启用ResourceServer能力
+ * @summary Enables the ResourceServer feature for a specified application.
  *
  * @param request EnableApplicationResourceServerRequest
  * @return EnableApplicationResourceServerResponse
@@ -6004,7 +6036,7 @@ EnableApplicationResourceServerResponse Client::enableApplicationResourceServer(
 }
 
 /**
- * @summary Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary Enables single sign-on (SSO) for an EIAM application.
  *
  * @param request EnableApplicationSsoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6039,7 +6071,7 @@ EnableApplicationSsoResponse Client::enableApplicationSsoWithOptions(const Enabl
 }
 
 /**
- * @summary Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary Enables single sign-on (SSO) for an EIAM application.
  *
  * @param request EnableApplicationSsoRequest
  * @return EnableApplicationSsoResponse
@@ -6050,7 +6082,7 @@ EnableApplicationSsoResponse Client::enableApplicationSso(const EnableApplicatio
 }
 
 /**
- * @summary 启用应用Token
+ * @summary Enables an application token.
  *
  * @param request EnableApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6089,7 +6121,7 @@ EnableApplicationTokenResponse Client::enableApplicationTokenWithOptions(const E
 }
 
 /**
- * @summary 启用应用Token
+ * @summary Enables an application token.
  *
  * @param request EnableApplicationTokenRequest
  * @return EnableApplicationTokenResponse
@@ -6100,7 +6132,7 @@ EnableApplicationTokenResponse Client::enableApplicationToken(const EnableApplic
 }
 
 /**
- * @summary 启用授权规则
+ * @summary Enables an authorization rule.
  *
  * @param request EnableAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6141,7 +6173,7 @@ EnableAuthorizationRuleResponse Client::enableAuthorizationRuleWithOptions(const
 }
 
 /**
- * @summary 启用授权规则
+ * @summary Enables an authorization rule.
  *
  * @param request EnableAuthorizationRuleRequest
  * @return EnableAuthorizationRuleResponse
@@ -6152,7 +6184,7 @@ EnableAuthorizationRuleResponse Client::enableAuthorizationRule(const EnableAuth
 }
 
 /**
- * @summary 启用品牌
+ * @summary Enables a brand.
  *
  * @param request EnableBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6187,7 +6219,7 @@ EnableBrandResponse Client::enableBrandWithOptions(const EnableBrandRequest &req
 }
 
 /**
- * @summary 启用品牌
+ * @summary Enables a brand.
  *
  * @param request EnableBrandRequest
  * @return EnableBrandResponse
@@ -6198,7 +6230,7 @@ EnableBrandResponse Client::enableBrand(const EnableBrandRequest &request) {
 }
 
 /**
- * @summary 启用指定的应用ClientPublicKey
+ * @summary Enables the specified ClientPublicKey for an application.
  *
  * @param request EnableClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6241,7 +6273,7 @@ EnableClientPublicKeyResponse Client::enableClientPublicKeyWithOptions(const Ena
 }
 
 /**
- * @summary 启用指定的应用ClientPublicKey
+ * @summary Enables the specified ClientPublicKey for an application.
  *
  * @param request EnableClientPublicKeyRequest
  * @return EnableClientPublicKeyResponse
@@ -6252,7 +6284,7 @@ EnableClientPublicKeyResponse Client::enableClientPublicKey(const EnableClientPu
 }
 
 /**
- * @summary 启用云角色
+ * @summary Enables a cloud role for a specified Alibaba Cloud account.
  *
  * @param request EnableCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6295,7 +6327,7 @@ EnableCloudAccountRoleResponse Client::enableCloudAccountRoleWithOptions(const E
 }
 
 /**
- * @summary 启用云角色
+ * @summary Enables a cloud role for a specified Alibaba Cloud account.
  *
  * @param request EnableCloudAccountRoleRequest
  * @return EnableCloudAccountRoleResponse
@@ -6306,9 +6338,9 @@ EnableCloudAccountRoleResponse Client::enableCloudAccountRole(const EnableCloudA
 }
 
 /**
- * @summary Enable Conditional Access Policy
+ * @summary Enables a conditional access policy.
  *
- * @description When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+ * @description When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
  *
  * @param request EnableConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6343,9 +6375,9 @@ EnableConditionalAccessPolicyResponse Client::enableConditionalAccessPolicyWithO
 }
 
 /**
- * @summary Enable Conditional Access Policy
+ * @summary Enables a conditional access policy.
  *
- * @description When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+ * @description When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
  *
  * @param request EnableConditionalAccessPolicyRequest
  * @return EnableConditionalAccessPolicyResponse
@@ -6356,7 +6388,7 @@ EnableConditionalAccessPolicyResponse Client::enableConditionalAccessPolicy(cons
 }
 
 /**
- * @summary 启用凭据
+ * @summary Enables a credential resource.
  *
  * @param request EnableCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6395,7 +6427,7 @@ EnableCredentialResponse Client::enableCredentialWithOptions(const EnableCredent
 }
 
 /**
- * @summary 启用凭据
+ * @summary Enables a credential resource.
  *
  * @param request EnableCredentialRequest
  * @return EnableCredentialResponse
@@ -6406,7 +6438,7 @@ EnableCredentialResponse Client::enableCredential(const EnableCredentialRequest 
 }
 
 /**
- * @summary 启用凭据提供商
+ * @summary Enables a credential provider.
  *
  * @param request EnableCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6441,7 +6473,7 @@ EnableCredentialProviderResponse Client::enableCredentialProviderWithOptions(con
 }
 
 /**
- * @summary 启用凭据提供商
+ * @summary Enables a credential provider.
  *
  * @param request EnableCredentialProviderRequest
  * @return EnableCredentialProviderResponse
@@ -6452,7 +6484,9 @@ EnableCredentialProviderResponse Client::enableCredentialProvider(const EnableCr
 }
 
 /**
- * @summary 启用字段
+ * @summary Enables a custom field.
+ *
+ * @description **Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
  *
  * @param request EnableCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6487,7 +6521,9 @@ EnableCustomFieldResponse Client::enableCustomFieldWithOptions(const EnableCusto
 }
 
 /**
- * @summary 启用字段
+ * @summary Enables a custom field.
+ *
+ * @description **Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
  *
  * @param request EnableCustomFieldRequest
  * @return EnableCustomFieldResponse
@@ -6498,7 +6534,7 @@ EnableCustomFieldResponse Client::enableCustomField(const EnableCustomFieldReque
 }
 
 /**
- * @summary 启用自定义条款
+ * @summary Enabling custom terms
  *
  * @param request EnableCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6533,7 +6569,7 @@ EnableCustomPrivacyPolicyResponse Client::enableCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary 启用自定义条款
+ * @summary Enabling custom terms
  *
  * @param request EnableCustomPrivacyPolicyRequest
  * @return EnableCustomPrivacyPolicyResponse
@@ -6594,7 +6630,7 @@ EnableDomainProxyTokenResponse Client::enableDomainProxyToken(const EnableDomain
 }
 
 /**
- * @summary 启用联邦凭证提供方
+ * @summary Enables a federated credential provider.
  *
  * @param request EnableFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6629,7 +6665,7 @@ EnableFederatedCredentialProviderResponse Client::enableFederatedCredentialProvi
 }
 
 /**
- * @summary 启用联邦凭证提供方
+ * @summary Enables a federated credential provider.
  *
  * @param request EnableFederatedCredentialProviderRequest
  * @return EnableFederatedCredentialProviderResponse
@@ -6640,7 +6676,7 @@ EnableFederatedCredentialProviderResponse Client::enableFederatedCredentialProvi
 }
 
 /**
- * @summary 启用高级配置
+ * @summary Enables advanced configuration.
  *
  * @param request EnableIdentityProviderAdvancedAbilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6675,7 +6711,7 @@ EnableIdentityProviderAdvancedAbilityResponse Client::enableIdentityProviderAdva
 }
 
 /**
- * @summary 启用高级配置
+ * @summary Enables advanced configuration.
  *
  * @param request EnableIdentityProviderAdvancedAbilityRequest
  * @return EnableIdentityProviderAdvancedAbilityResponse
@@ -6686,7 +6722,9 @@ EnableIdentityProviderAdvancedAbilityResponse Client::enableIdentityProviderAdva
 }
 
 /**
- * @summary 启用认证
+ * @summary Enables authentication.
+ *
+ * @description When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
  *
  * @param request EnableIdentityProviderAuthnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6721,7 +6759,9 @@ EnableIdentityProviderAuthnResponse Client::enableIdentityProviderAuthnWithOptio
 }
 
 /**
- * @summary 启用认证
+ * @summary Enables authentication.
+ *
+ * @description When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
  *
  * @param request EnableIdentityProviderAuthnRequest
  * @return EnableIdentityProviderAuthnResponse
@@ -6778,7 +6818,7 @@ EnableIdentityProviderUdPullResponse Client::enableIdentityProviderUdPull(const 
 }
 
 /**
- * @summary Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
+ * @summary Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
  *
  * @param request EnableInitDomainAutoRedirectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6809,7 +6849,7 @@ EnableInitDomainAutoRedirectResponse Client::enableInitDomainAutoRedirectWithOpt
 }
 
 /**
- * @summary Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
+ * @summary Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
  *
  * @param request EnableInitDomainAutoRedirectRequest
  * @return EnableInitDomainAutoRedirectResponse
@@ -6820,7 +6860,7 @@ EnableInitDomainAutoRedirectResponse Client::enableInitDomainAutoRedirect(const 
 }
 
 /**
- * @summary 启用内部认证源
+ * @summary Enables an internal authentication source.
  *
  * @param request EnableInternalAuthenticationSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6855,7 +6895,7 @@ EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationS
 }
 
 /**
- * @summary 启用内部认证源
+ * @summary Enables an internal authentication source.
  *
  * @param request EnableInternalAuthenticationSourceRequest
  * @return EnableInternalAuthenticationSourceResponse
@@ -6866,7 +6906,7 @@ EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationS
 }
 
 /**
- * @summary 启用资源服务器自定义主体
+ * @summary Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
  *
  * @param request EnableResourceServerCustomSubjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6901,7 +6941,7 @@ EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubj
 }
 
 /**
- * @summary 启用资源服务器自定义主体
+ * @summary Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
  *
  * @param request EnableResourceServerCustomSubjectRequest
  * @return EnableResourceServerCustomSubjectResponse
@@ -6958,7 +6998,7 @@ EnableUserResponse Client::enableUser(const EnableUserRequest &request) {
 }
 
 /**
- * @summary 解析IdP Metadata信息。
+ * @summary Resolves the metadata for an identity provider.
  *
  * @param request ExecIdentityProviderMetadataUrlResolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7005,7 +7045,7 @@ ExecIdentityProviderMetadataUrlResolutionResponse Client::execIdentityProviderMe
 }
 
 /**
- * @summary 解析IdP Metadata信息。
+ * @summary Resolves the metadata for an identity provider.
  *
  * @param request ExecIdentityProviderMetadataUrlResolutionRequest
  * @return ExecIdentityProviderMetadataUrlResolutionResponse
@@ -7016,7 +7056,7 @@ ExecIdentityProviderMetadataUrlResolutionResponse Client::execIdentityProviderMe
 }
 
 /**
- * @summary 生成文件导入结果下载地址
+ * @summary Generates a download URL for the result of a file import.
  *
  * @param request GenerateDownloadUrlForSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7051,7 +7091,7 @@ GenerateDownloadUrlForSynchronizationJobResponse Client::generateDownloadUrlForS
 }
 
 /**
- * @summary 生成文件导入结果下载地址
+ * @summary Generates a download URL for the result of a file import.
  *
  * @param request GenerateDownloadUrlForSynchronizationJobRequest
  * @return GenerateDownloadUrlForSynchronizationJobResponse
@@ -7062,7 +7102,7 @@ GenerateDownloadUrlForSynchronizationJobResponse Client::generateDownloadUrlForS
 }
 
 /**
- * @summary 生成文件导入模板
+ * @summary Generates a file import template.
  *
  * @param request GenerateFileImportTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7097,7 +7137,7 @@ GenerateFileImportTemplateResponse Client::generateFileImportTemplateWithOptions
 }
 
 /**
- * @summary 生成文件导入模板
+ * @summary Generates a file import template.
  *
  * @param request GenerateFileImportTemplateRequest
  * @return GenerateFileImportTemplateResponse
@@ -7108,7 +7148,7 @@ GenerateFileImportTemplateResponse Client::generateFileImportTemplate(const Gene
 }
 
 /**
- * @summary 生成 Oauth Token
+ * @summary Obtain an access token to call a resource server using a specified application as the client.
  *
  * @param request GenerateOauthTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7151,7 +7191,7 @@ GenerateOauthTokenResponse Client::generateOauthTokenWithOptions(const GenerateO
 }
 
 /**
- * @summary 生成 Oauth Token
+ * @summary Obtain an access token to call a resource server using a specified application as the client.
  *
  * @param request GenerateOauthTokenRequest
  * @return GenerateOauthTokenResponse
@@ -7162,7 +7202,7 @@ GenerateOauthTokenResponse Client::generateOauthToken(const GenerateOauthTokenRe
 }
 
 /**
- * @summary 获取上传认证
+ * @summary Generates an upload credential.
  *
  * @param request GenerateUploadAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7201,7 +7241,7 @@ GenerateUploadAuthResponse Client::generateUploadAuthWithOptions(const GenerateU
 }
 
 /**
- * @summary 获取上传认证
+ * @summary Generates an upload credential.
  *
  * @param request GenerateUploadAuthRequest
  * @return GenerateUploadAuthResponse
@@ -7212,7 +7252,7 @@ GenerateUploadAuthResponse Client::generateUploadAuth(const GenerateUploadAuthRe
 }
 
 /**
- * @summary 生成WebAuthn认证器注册URL
+ * @summary Generates a WebAuthn authenticator registration URL.
  *
  * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7251,7 +7291,7 @@ GenerateWebAuthnAuthenticatorRegistrationUrlResponse Client::generateWebAuthnAut
 }
 
 /**
- * @summary 生成WebAuthn认证器注册URL
+ * @summary Generates a WebAuthn authenticator registration URL.
  *
  * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
  * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
@@ -7262,7 +7302,7 @@ GenerateWebAuthnAuthenticatorRegistrationUrlResponse Client::generateWebAuthnAut
 }
 
 /**
- * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+ * @summary Retrieves the details of a specified EIAM application.
  *
  * @param request GetApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7297,7 +7337,7 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 }
 
 /**
- * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+ * @summary Retrieves the details of a specified EIAM application.
  *
  * @param request GetApplicationRequest
  * @return GetApplicationResponse
@@ -7308,7 +7348,7 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary 获取应用高阶配置
+ * @summary Retrieves the advanced configuration of an application.
  *
  * @param request GetApplicationAdvancedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7343,7 +7383,7 @@ GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfigWithOpt
 }
 
 /**
- * @summary 获取应用高阶配置
+ * @summary Retrieves the advanced configuration of an application.
  *
  * @param request GetApplicationAdvancedConfigRequest
  * @return GetApplicationAdvancedConfigResponse
@@ -7354,7 +7394,7 @@ GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfig(const 
 }
 
 /**
- * @summary 获取应用联邦凭证
+ * @summary Retrieves the federated credential for an application.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7393,7 +7433,7 @@ GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredent
 }
 
 /**
- * @summary 获取应用联邦凭证
+ * @summary Retrieves the federated credential for an application.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @return GetApplicationFederatedCredentialResponse
@@ -7450,7 +7490,7 @@ GetApplicationGrantScopeResponse Client::getApplicationGrantScope(const GetAppli
 }
 
 /**
- * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
  *
  * @param request GetApplicationProvisioningConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7485,7 +7525,7 @@ GetApplicationProvisioningConfigResponse Client::getApplicationProvisioningConfi
 }
 
 /**
- * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
  *
  * @param request GetApplicationProvisioningConfigRequest
  * @return GetApplicationProvisioningConfigResponse
@@ -7542,7 +7582,7 @@ GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScope(
 }
 
 /**
- * @summary 查询指定应用同步配置
+ * @summary Queries the synchronization configuration of a specified application.
  *
  * @param request GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7577,7 +7617,7 @@ GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::getAppli
 }
 
 /**
- * @summary 查询指定应用同步配置
+ * @summary Queries the synchronization configuration of a specified application.
  *
  * @param request GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @return GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -7588,7 +7628,7 @@ GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::getAppli
 }
 
 /**
- * @summary 获取角色信息
+ * @summary Retrieves the details of an application role.
  *
  * @param request GetApplicationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7627,7 +7667,7 @@ GetApplicationRoleResponse Client::getApplicationRoleWithOptions(const GetApplic
 }
 
 /**
- * @summary 获取角色信息
+ * @summary Retrieves the details of an application role.
  *
  * @param request GetApplicationRoleRequest
  * @return GetApplicationRoleResponse
@@ -7638,7 +7678,7 @@ GetApplicationRoleResponse Client::getApplicationRole(const GetApplicationRoleRe
 }
 
 /**
- * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
  *
  * @param request GetApplicationSsoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7673,7 +7713,7 @@ GetApplicationSsoConfigResponse Client::getApplicationSsoConfigWithOptions(const
 }
 
 /**
- * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
  *
  * @param request GetApplicationSsoConfigRequest
  * @return GetApplicationSsoConfigResponse
@@ -7684,7 +7724,7 @@ GetApplicationSsoConfigResponse Client::getApplicationSsoConfig(const GetApplica
 }
 
 /**
- * @summary 获取应用模板信息
+ * @summary Retrieves the details of an application template.
  *
  * @param request GetApplicationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7715,7 +7755,7 @@ GetApplicationTemplateResponse Client::getApplicationTemplateWithOptions(const G
 }
 
 /**
- * @summary 获取应用模板信息
+ * @summary Retrieves the details of an application template.
  *
  * @param request GetApplicationTemplateRequest
  * @return GetApplicationTemplateResponse
@@ -7726,7 +7766,7 @@ GetApplicationTemplateResponse Client::getApplicationTemplate(const GetApplicati
 }
 
 /**
- * @summary 获取授权资源信息
+ * @summary Queries the information about an authorized resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7765,7 +7805,7 @@ GetAuthorizationResourceResponse Client::getAuthorizationResourceWithOptions(con
 }
 
 /**
- * @summary 获取授权资源信息
+ * @summary Queries the information about an authorized resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @return GetAuthorizationResourceResponse
@@ -7776,7 +7816,7 @@ GetAuthorizationResourceResponse Client::getAuthorizationResource(const GetAutho
 }
 
 /**
- * @summary 获取授权规则信息
+ * @summary Query information about an authorization rule.
  *
  * @param request GetAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7811,7 +7851,7 @@ GetAuthorizationRuleResponse Client::getAuthorizationRuleWithOptions(const GetAu
 }
 
 /**
- * @summary 获取授权规则信息
+ * @summary Query information about an authorization rule.
  *
  * @param request GetAuthorizationRuleRequest
  * @return GetAuthorizationRuleResponse
@@ -7822,7 +7862,7 @@ GetAuthorizationRuleResponse Client::getAuthorizationRule(const GetAuthorization
 }
 
 /**
- * @summary 获取品牌详情
+ * @summary Retrieves the details of a brand.
  *
  * @param request GetBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7857,7 +7897,7 @@ GetBrandResponse Client::getBrandWithOptions(const GetBrandRequest &request, con
 }
 
 /**
- * @summary 获取品牌详情
+ * @summary Retrieves the details of a brand.
  *
  * @param request GetBrandRequest
  * @return GetBrandResponse
@@ -7868,7 +7908,7 @@ GetBrandResponse Client::getBrand(const GetBrandRequest &request) {
 }
 
 /**
- * @summary 查询指定应用ClientPublicKey
+ * @summary Retrieves the ClientPublicKey for a specified application.
  *
  * @param request GetClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7907,7 +7947,7 @@ GetClientPublicKeyResponse Client::getClientPublicKeyWithOptions(const GetClient
 }
 
 /**
- * @summary 查询指定应用ClientPublicKey
+ * @summary Retrieves the ClientPublicKey for a specified application.
  *
  * @param request GetClientPublicKeyRequest
  * @return GetClientPublicKeyResponse
@@ -7918,7 +7958,7 @@ GetClientPublicKeyResponse Client::getClientPublicKey(const GetClientPublicKeyRe
 }
 
 /**
- * @summary 获取云账号
+ * @summary Retrieves information about resources in an Alibaba Cloud account.
  *
  * @param request GetCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7953,7 +7993,7 @@ GetCloudAccountResponse Client::getCloudAccountWithOptions(const GetCloudAccount
 }
 
 /**
- * @summary 获取云账号
+ * @summary Retrieves information about resources in an Alibaba Cloud account.
  *
  * @param request GetCloudAccountRequest
  * @return GetCloudAccountResponse
@@ -7964,7 +8004,7 @@ GetCloudAccountResponse Client::getCloudAccount(const GetCloudAccountRequest &re
 }
 
 /**
- * @summary 获取云角色
+ * @summary Retrieves information about a cloud role.
  *
  * @param request GetCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8003,7 +8043,7 @@ GetCloudAccountRoleResponse Client::getCloudAccountRoleWithOptions(const GetClou
 }
 
 /**
- * @summary 获取云角色
+ * @summary Retrieves information about a cloud role.
  *
  * @param request GetCloudAccountRoleRequest
  * @return GetCloudAccountRoleResponse
@@ -8014,9 +8054,9 @@ GetCloudAccountRoleResponse Client::getCloudAccountRole(const GetCloudAccountRol
 }
 
 /**
- * @summary Get Conditional Access Policy
+ * @summary Retrieves a conditional access policy.
  *
- * @description Query Conditional Access Policy
+ * @description This operation retrieves a conditional access policy.
  *
  * @param request GetConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8051,9 +8091,9 @@ GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicyWithOptions
 }
 
 /**
- * @summary Get Conditional Access Policy
+ * @summary Retrieves a conditional access policy.
  *
- * @description Query Conditional Access Policy
+ * @description This operation retrieves a conditional access policy.
  *
  * @param request GetConditionalAccessPolicyRequest
  * @return GetConditionalAccessPolicyResponse
@@ -8064,7 +8104,7 @@ GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicy(const GetC
 }
 
 /**
- * @summary 获取凭据
+ * @summary Retrieves the details of a specific credential.
  *
  * @param request GetCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8099,7 +8139,7 @@ GetCredentialResponse Client::getCredentialWithOptions(const GetCredentialReques
 }
 
 /**
- * @summary 获取凭据
+ * @summary Retrieves the details of a specific credential.
  *
  * @param request GetCredentialRequest
  * @return GetCredentialResponse
@@ -8110,7 +8150,7 @@ GetCredentialResponse Client::getCredential(const GetCredentialRequest &request)
 }
 
 /**
- * @summary 查询凭据提供商详情
+ * @summary Retrieves the details of a credential provider.
  *
  * @param request GetCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8145,7 +8185,7 @@ GetCredentialProviderResponse Client::getCredentialProviderWithOptions(const Get
 }
 
 /**
- * @summary 查询凭据提供商详情
+ * @summary Retrieves the details of a credential provider.
  *
  * @param request GetCredentialProviderRequest
  * @return GetCredentialProviderResponse
@@ -8156,7 +8196,9 @@ GetCredentialProviderResponse Client::getCredentialProvider(const GetCredentialP
 }
 
 /**
- * @summary 获取扩展字段信息
+ * @summary Retrieves custom field information.
+ *
+ * @description **Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
  *
  * @param request GetCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8191,7 +8233,9 @@ GetCustomFieldResponse Client::getCustomFieldWithOptions(const GetCustomFieldReq
 }
 
 /**
- * @summary 获取扩展字段信息
+ * @summary Retrieves custom field information.
+ *
+ * @description **Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
  *
  * @param request GetCustomFieldRequest
  * @return GetCustomFieldResponse
@@ -8202,7 +8246,7 @@ GetCustomFieldResponse Client::getCustomField(const GetCustomFieldRequest &reque
 }
 
 /**
- * @summary 获取自定义条款
+ * @summary Obtaining custom terms
  *
  * @param request GetCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8237,7 +8281,7 @@ GetCustomPrivacyPolicyResponse Client::getCustomPrivacyPolicyWithOptions(const G
 }
 
 /**
- * @summary 获取自定义条款
+ * @summary Obtaining custom terms
  *
  * @param request GetCustomPrivacyPolicyRequest
  * @return GetCustomPrivacyPolicyResponse
@@ -8248,7 +8292,7 @@ GetCustomPrivacyPolicyResponse Client::getCustomPrivacyPolicy(const GetCustomPri
 }
 
 /**
- * @summary Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
+ * @summary Retrieves information about a domain name for an EIAM instance.
  *
  * @param request GetDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8283,7 +8327,7 @@ GetDomainResponse Client::getDomainWithOptions(const GetDomainRequest &request, 
 }
 
 /**
- * @summary Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
+ * @summary Retrieves information about a domain name for an EIAM instance.
  *
  * @param request GetDomainRequest
  * @return GetDomainResponse
@@ -8294,7 +8338,7 @@ GetDomainResponse Client::getDomain(const GetDomainRequest &request) {
 }
 
 /**
- * @summary Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
+ * @summary Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
  *
  * @param request GetDomainDnsChallengeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8329,7 +8373,7 @@ GetDomainDnsChallengeResponse Client::getDomainDnsChallengeWithOptions(const Get
 }
 
 /**
- * @summary Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
+ * @summary Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
  *
  * @param request GetDomainDnsChallengeRequest
  * @return GetDomainDnsChallengeResponse
@@ -8340,7 +8384,7 @@ GetDomainDnsChallengeResponse Client::getDomainDnsChallenge(const GetDomainDnsCh
 }
 
 /**
- * @summary 获取联邦凭证提供方
+ * @summary Retrieve a federated credential provider.
  *
  * @param request GetFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8375,7 +8419,7 @@ GetFederatedCredentialProviderResponse Client::getFederatedCredentialProviderWit
 }
 
 /**
- * @summary 获取联邦凭证提供方
+ * @summary Retrieve a federated credential provider.
  *
  * @param request GetFederatedCredentialProviderRequest
  * @return GetFederatedCredentialProviderResponse
@@ -8386,7 +8430,7 @@ GetFederatedCredentialProviderResponse Client::getFederatedCredentialProvider(co
 }
 
 /**
- * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Queries the forgot-password configuration for a specified EIAM instance.
  *
  * @param request GetForgetPasswordConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8417,7 +8461,7 @@ GetForgetPasswordConfigurationResponse Client::getForgetPasswordConfigurationWit
 }
 
 /**
- * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Queries the forgot-password configuration for a specified EIAM instance.
  *
  * @param request GetForgetPasswordConfigurationRequest
  * @return GetForgetPasswordConfigurationResponse
@@ -8428,7 +8472,7 @@ GetForgetPasswordConfigurationResponse Client::getForgetPasswordConfiguration(co
 }
 
 /**
- * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request GetGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8463,7 +8507,7 @@ GetGroupResponse Client::getGroupWithOptions(const GetGroupRequest &request, con
 }
 
 /**
- * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
  *
  * @param request GetGroupRequest
  * @return GetGroupResponse
@@ -8474,7 +8518,7 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 }
 
 /**
- * @summary Obtains an identity provider (IdP).
+ * @summary Get an identity provider.
  *
  * @param request GetIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8509,7 +8553,7 @@ GetIdentityProviderResponse Client::getIdentityProviderWithOptions(const GetIden
 }
 
 /**
- * @summary Obtains an identity provider (IdP).
+ * @summary Get an identity provider.
  *
  * @param request GetIdentityProviderRequest
  * @return GetIdentityProviderResponse
@@ -8520,7 +8564,7 @@ GetIdentityProviderResponse Client::getIdentityProvider(const GetIdentityProvide
 }
 
 /**
- * @summary 获取高级配置信息
+ * @summary Retrieves advanced configuration information.
  *
  * @param request GetIdentityProviderAdvancedConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8555,7 +8599,7 @@ GetIdentityProviderAdvancedConfigurationResponse Client::getIdentityProviderAdva
 }
 
 /**
- * @summary 获取高级配置信息
+ * @summary Retrieves advanced configuration information.
  *
  * @param request GetIdentityProviderAdvancedConfigurationRequest
  * @return GetIdentityProviderAdvancedConfigurationResponse
@@ -8566,7 +8610,7 @@ GetIdentityProviderAdvancedConfigurationResponse Client::getIdentityProviderAdva
 }
 
 /**
- * @summary 获取IdP检查任务
+ * @summary Retrieves an IdP check task.
  *
  * @param request GetIdentityProviderStatusCheckJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8605,7 +8649,7 @@ GetIdentityProviderStatusCheckJobResponse Client::getIdentityProviderStatusCheck
 }
 
 /**
- * @summary 获取IdP检查任务
+ * @summary Retrieves an IdP check task.
  *
  * @param request GetIdentityProviderStatusCheckJobRequest
  * @return GetIdentityProviderStatusCheckJobResponse
@@ -8662,7 +8706,7 @@ GetIdentityProviderUdPullConfigurationResponse Client::getIdentityProviderUdPull
 }
 
 /**
- * @summary 获取IdP同步出配置
+ * @summary Retrieve the IdP outbound synchronization configuration.
  *
  * @param request GetIdentityProviderUdPushConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8697,7 +8741,7 @@ GetIdentityProviderUdPushConfigurationResponse Client::getIdentityProviderUdPush
 }
 
 /**
- * @summary 获取IdP同步出配置
+ * @summary Retrieve the IdP outbound synchronization configuration.
  *
  * @param request GetIdentityProviderUdPushConfigurationRequest
  * @return GetIdentityProviderUdPushConfigurationResponse
@@ -8708,7 +8752,7 @@ GetIdentityProviderUdPushConfigurationResponse Client::getIdentityProviderUdPush
 }
 
 /**
- * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Queries the detailed information of an EIAM instance.
  *
  * @param request GetInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8739,7 +8783,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
- * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Queries the detailed information of an EIAM instance.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -8750,7 +8794,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary 查询实例控制项
+ * @summary Queries the control configuration for an instance.
  *
  * @param request GetInstanceControlConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8785,7 +8829,7 @@ GetInstanceControlConfigurationResponse Client::getInstanceControlConfigurationW
 }
 
 /**
- * @summary 查询实例控制项
+ * @summary Queries the control configuration for an instance.
  *
  * @param request GetInstanceControlConfigurationRequest
  * @return GetInstanceControlConfigurationResponse
@@ -8796,7 +8840,9 @@ GetInstanceControlConfigurationResponse Client::getInstanceControlConfiguration(
 }
 
 /**
- * @summary 获取实例语言、时区信息
+ * @summary Retrieves the language and time zone information for an instance.
+ *
+ * @description When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
  *
  * @param request GetInstanceGlobalizationConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8827,7 +8873,9 @@ GetInstanceGlobalizationConfigResponse Client::getInstanceGlobalizationConfigWit
 }
 
 /**
- * @summary 获取实例语言、时区信息
+ * @summary Retrieves the language and time zone information for an instance.
+ *
+ * @description When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
  *
  * @param request GetInstanceGlobalizationConfigRequest
  * @return GetInstanceGlobalizationConfigResponse
@@ -8838,9 +8886,9 @@ GetInstanceGlobalizationConfigResponse Client::getInstanceGlobalizationConfig(co
 }
 
 /**
- * @summary Query the currently effective License information of the instance
+ * @summary Queries the active license information for an instance.
  *
- * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+ * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
  *
  * @param request GetInstanceLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8871,9 +8919,9 @@ GetInstanceLicenseResponse Client::getInstanceLicenseWithOptions(const GetInstan
 }
 
 /**
- * @summary Query the currently effective License information of the instance
+ * @summary Queries the active license information for an instance.
  *
- * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+ * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
  *
  * @param request GetInstanceLicenseRequest
  * @return GetInstanceLicenseResponse
@@ -8884,7 +8932,7 @@ GetInstanceLicenseResponse Client::getInstanceLicense(const GetInstanceLicenseRe
 }
 
 /**
- * @summary 获取一级模块下，所有模块信息
+ * @summary Retrieves information about all modules within a primary module.
  *
  * @param request GetInstanceModuleInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8919,7 +8967,7 @@ GetInstanceModuleInfoResponse Client::getInstanceModuleInfoWithOptions(const Get
 }
 
 /**
- * @summary 获取一级模块下，所有模块信息
+ * @summary Retrieves information about all modules within a primary module.
  *
  * @param request GetInstanceModuleInfoRequest
  * @return GetInstanceModuleInfoResponse
@@ -8930,7 +8978,7 @@ GetInstanceModuleInfoResponse Client::getInstanceModuleInfo(const GetInstanceMod
 }
 
 /**
- * @summary 获取实例单一类型的Quota
+ * @summary Retrieves the quota of a specific type for an instance.
  *
  * @param request GetInstanceQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8965,7 +9013,7 @@ GetInstanceQuotaResponse Client::getInstanceQuotaWithOptions(const GetInstanceQu
 }
 
 /**
- * @summary 获取实例单一类型的Quota
+ * @summary Retrieves the quota of a specific type for an instance.
  *
  * @param request GetInstanceQuotaRequest
  * @return GetInstanceQuotaResponse
@@ -8976,7 +9024,7 @@ GetInstanceQuotaResponse Client::getInstanceQuota(const GetInstanceQuotaRequest 
 }
 
 /**
- * @summary 获取实例的试用状态
+ * @summary Retrieves the trial status of an instance.
  *
  * @param request GetInstanceTrialStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9007,7 +9055,7 @@ GetInstanceTrialStatusResponse Client::getInstanceTrialStatusWithOptions(const G
 }
 
 /**
- * @summary 获取实例的试用状态
+ * @summary Retrieves the trial status of an instance.
  *
  * @param request GetInstanceTrialStatusRequest
  * @return GetInstanceTrialStatusResponse
@@ -9018,7 +9066,7 @@ GetInstanceTrialStatusResponse Client::getInstanceTrialStatus(const GetInstanceT
 }
 
 /**
- * @summary 获取品牌登录后跳转应用
+ * @summary Configure the post-logon redirect application for a brand
  *
  * @param request GetLoginRedirectApplicationForBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9053,7 +9101,7 @@ GetLoginRedirectApplicationForBrandResponse Client::getLoginRedirectApplicationF
 }
 
 /**
- * @summary 获取品牌登录后跳转应用
+ * @summary Configure the post-logon redirect application for a brand
  *
  * @param request GetLoginRedirectApplicationForBrandRequest
  * @return GetLoginRedirectApplicationForBrandResponse
@@ -9110,7 +9158,7 @@ GetNetworkAccessEndpointResponse Client::getNetworkAccessEndpoint(const GetNetwo
 }
 
 /**
- * @summary 获取网络区域对象
+ * @summary Retrieves a network zone object.
  *
  * @param request GetNetworkZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9145,7 +9193,7 @@ GetNetworkZoneResponse Client::getNetworkZoneWithOptions(const GetNetworkZoneReq
 }
 
 /**
- * @summary 获取网络区域对象
+ * @summary Retrieves a network zone object.
  *
  * @param request GetNetworkZoneRequest
  * @return GetNetworkZoneResponse
@@ -9202,7 +9250,7 @@ GetOrganizationalUnitResponse Client::getOrganizationalUnit(const GetOrganizatio
 }
 
 /**
- * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Retrieves the password complexity policy for a specified EIAM instance.
  *
  * @param request GetPasswordComplexityConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9233,7 +9281,7 @@ GetPasswordComplexityConfigurationResponse Client::getPasswordComplexityConfigur
 }
 
 /**
- * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Retrieves the password complexity policy for a specified EIAM instance.
  *
  * @param request GetPasswordComplexityConfigurationRequest
  * @return GetPasswordComplexityConfigurationResponse
@@ -9370,7 +9418,7 @@ GetPasswordInitializationConfigurationResponse Client::getPasswordInitialization
 }
 
 /**
- * @summary 查询指定ResourceServer下的Scope
+ * @summary Retrieves the permission scopes for a specified resource server.
  *
  * @param request GetResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9409,7 +9457,7 @@ GetResourceServerScopeResponse Client::getResourceServerScopeWithOptions(const G
 }
 
 /**
- * @summary 查询指定ResourceServer下的Scope
+ * @summary Retrieves the permission scopes for a specified resource server.
  *
  * @param request GetResourceServerScopeRequest
  * @return GetResourceServerScopeResponse
@@ -9462,7 +9510,7 @@ GetRootOrganizationalUnitResponse Client::getRootOrganizationalUnit(const GetRoo
 }
 
 /**
- * @summary 获取服务Quota
+ * @summary Queries a service quota
  *
  * @param request GetServiceQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9493,7 +9541,7 @@ GetServiceQuotaResponse Client::getServiceQuotaWithOptions(const GetServiceQuota
 }
 
 /**
- * @summary 获取服务Quota
+ * @summary Queries a service quota
  *
  * @param request GetServiceQuotaRequest
  * @return GetServiceQuotaResponse
@@ -9550,7 +9598,7 @@ GetSynchronizationJobResponse Client::getSynchronizationJob(const GetSynchroniza
 }
 
 /**
- * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9585,7 +9633,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -9596,7 +9644,7 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
- * @summary 查看调用事件列表
+ * @summary View the list of invocation events.
  *
  * @param request ListActionTrackEventTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9639,7 +9687,7 @@ ListActionTrackEventTypesResponse Client::listActionTrackEventTypesWithOptions(c
 }
 
 /**
- * @summary 查看调用事件列表
+ * @summary View the list of invocation events.
  *
  * @param request ListActionTrackEventTypesRequest
  * @return ListActionTrackEventTypesResponse
@@ -9650,7 +9698,7 @@ ListActionTrackEventTypesResponse Client::listActionTrackEventTypes(const ListAc
 }
 
 /**
- * @summary 分页查询应用下的应用账户列表
+ * @summary Returns a paginated list of application accounts.
  *
  * @param request ListApplicationAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9693,7 +9741,7 @@ ListApplicationAccountsResponse Client::listApplicationAccountsWithOptions(const
 }
 
 /**
- * @summary 分页查询应用下的应用账户列表
+ * @summary Returns a paginated list of application accounts.
  *
  * @param request ListApplicationAccountsRequest
  * @return ListApplicationAccountsResponse
@@ -9704,7 +9752,9 @@ ListApplicationAccountsResponse Client::listApplicationAccounts(const ListApplic
 }
 
 /**
- * @summary 查询当前应用下指定用户的所有账号
+ * @summary Queries all accounts that belong to a specified user in an application.
+ *
+ * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request ListApplicationAccountsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9743,7 +9793,9 @@ ListApplicationAccountsForUserResponse Client::listApplicationAccountsForUserWit
 }
 
 /**
- * @summary 查询当前应用下指定用户的所有账号
+ * @summary Queries all accounts that belong to a specified user in an application.
+ *
+ * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request ListApplicationAccountsForUserRequest
  * @return ListApplicationAccountsForUserResponse
@@ -9754,7 +9806,7 @@ ListApplicationAccountsForUserResponse Client::listApplicationAccountsForUser(co
 }
 
 /**
- * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+ * @summary Queries all client secrets for an EIAM application. The key data in the response is masked. To obtain an unmasked key, call the ObtainApplicationClientSecret operation.
  *
  * @param request ListApplicationClientSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9789,7 +9841,7 @@ ListApplicationClientSecretsResponse Client::listApplicationClientSecretsWithOpt
 }
 
 /**
- * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+ * @summary Queries all client secrets for an EIAM application. The key data in the response is masked. To obtain an unmasked key, call the ObtainApplicationClientSecret operation.
  *
  * @param request ListApplicationClientSecretsRequest
  * @return ListApplicationClientSecretsResponse
@@ -9800,7 +9852,7 @@ ListApplicationClientSecretsResponse Client::listApplicationClientSecrets(const 
 }
 
 /**
- * @summary 查询应用联邦凭证列表
+ * @summary Lists the federated credentials for an application.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9851,7 +9903,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary 查询应用联邦凭证列表
+ * @summary Lists the federated credentials for an application.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @return ListApplicationFederatedCredentialsResponse
@@ -9862,7 +9914,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary 根据联邦凭证提供方查询应用联邦凭证列表
+ * @summary Lists the application federated credentials for a specified federated credential provider.
  *
  * @param request ListApplicationFederatedCredentialsForProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9909,7 +9961,7 @@ ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFe
 }
 
 /**
- * @summary 根据联邦凭证提供方查询应用联邦凭证列表
+ * @summary Lists the application federated credentials for a specified federated credential provider.
  *
  * @param request ListApplicationFederatedCredentialsForProviderRequest
  * @return ListApplicationFederatedCredentialsForProviderResponse
@@ -9920,7 +9972,7 @@ ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFe
 }
 
 /**
- * @summary 游标分页查询应用角色
+ * @summary Retrieves a list of application roles using a cursor.
  *
  * @param request ListApplicationRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9967,7 +10019,7 @@ ListApplicationRolesResponse Client::listApplicationRolesWithOptions(const ListA
 }
 
 /**
- * @summary 游标分页查询应用角色
+ * @summary Retrieves a list of application roles using a cursor.
  *
  * @param request ListApplicationRolesRequest
  * @return ListApplicationRolesResponse
@@ -9978,7 +10030,7 @@ ListApplicationRolesResponse Client::listApplicationRoles(const ListApplicationR
 }
 
 /**
- * @summary Queries the synchronization protocol types that are supported by an application.
+ * @summary Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10013,7 +10065,7 @@ ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSu
 }
 
 /**
- * @summary Queries the synchronization protocol types that are supported by an application.
+ * @summary Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @return ListApplicationSupportedProvisionProtocolTypesResponse
@@ -10024,7 +10076,7 @@ ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSu
 }
 
 /**
- * @summary 创建应用Token
+ * @summary Retrieves a list of application tokens.
  *
  * @param request ListApplicationTokensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10063,7 +10115,7 @@ ListApplicationTokensResponse Client::listApplicationTokensWithOptions(const Lis
 }
 
 /**
- * @summary 创建应用Token
+ * @summary Retrieves a list of application tokens.
  *
  * @param request ListApplicationTokensRequest
  * @return ListApplicationTokensResponse
@@ -10074,7 +10126,7 @@ ListApplicationTokensResponse Client::listApplicationTokens(const ListApplicatio
 }
 
 /**
- * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+ * @summary Retrieves a paginated list of EIAM applications.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10153,7 +10205,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+ * @summary Retrieves a paginated list of EIAM applications.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
@@ -10164,7 +10216,7 @@ ListApplicationsResponse Client::listApplications(const ListApplicationsRequest 
 }
 
 /**
- * @summary 查询授权规则关联的应用列表
+ * @summary Queries the applications that are associated with an authorization rule.
  *
  * @param request ListApplicationsForAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10211,7 +10263,7 @@ ListApplicationsForAuthorizationRuleResponse Client::listApplicationsForAuthoriz
 }
 
 /**
- * @summary 查询授权规则关联的应用列表
+ * @summary Queries the applications that are associated with an authorization rule.
  *
  * @param request ListApplicationsForAuthorizationRuleRequest
  * @return ListApplicationsForAuthorizationRuleResponse
@@ -10222,7 +10274,7 @@ ListApplicationsForAuthorizationRuleResponse Client::listApplicationsForAuthoriz
 }
 
 /**
- * @summary 查询一个EIAM组可访问的应用列表
+ * @summary Retrieves a list of applications that an EIAM group can access.
  *
  * @param request ListApplicationsForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10269,7 +10321,7 @@ ListApplicationsForGroupResponse Client::listApplicationsForGroupWithOptions(con
 }
 
 /**
- * @summary 查询一个EIAM组可访问的应用列表
+ * @summary Retrieves a list of applications that an EIAM group can access.
  *
  * @param request ListApplicationsForGroupRequest
  * @return ListApplicationsForGroupResponse
@@ -10280,7 +10332,7 @@ ListApplicationsForGroupResponse Client::listApplicationsForGroup(const ListAppl
 }
 
 /**
- * @summary 获取网络访问端点下的App信息。
+ * @summary Lists the applications for a network access endpoint.
  *
  * @param request ListApplicationsForNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10323,7 +10375,7 @@ ListApplicationsForNetworkAccessEndpointResponse Client::listApplicationsForNetw
 }
 
 /**
- * @summary 获取网络访问端点下的App信息。
+ * @summary Lists the applications for a network access endpoint.
  *
  * @param request ListApplicationsForNetworkAccessEndpointRequest
  * @return ListApplicationsForNetworkAccessEndpointResponse
@@ -10334,7 +10386,7 @@ ListApplicationsForNetworkAccessEndpointResponse Client::listApplicationsForNetw
 }
 
 /**
- * @summary 获取NetworkZone关联的应用列表
+ * @summary Retrieves a list of applications associated with a network domain.
  *
  * @param request ListApplicationsForNetworkZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10381,7 +10433,7 @@ ListApplicationsForNetworkZoneResponse Client::listApplicationsForNetworkZoneWit
 }
 
 /**
- * @summary 获取NetworkZone关联的应用列表
+ * @summary Retrieves a list of applications associated with a network domain.
  *
  * @param request ListApplicationsForNetworkZoneRequest
  * @return ListApplicationsForNetworkZoneResponse
@@ -10392,9 +10444,9 @@ ListApplicationsForNetworkZoneResponse Client::listApplicationsForNetworkZone(co
 }
 
 /**
- * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+ * @summary This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
  *
- * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+ * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request ListApplicationsForOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10441,9 +10493,9 @@ ListApplicationsForOrganizationalUnitResponse Client::listApplicationsForOrganiz
 }
 
 /**
- * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+ * @summary This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
  *
- * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+ * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request ListApplicationsForOrganizationalUnitRequest
  * @return ListApplicationsForOrganizationalUnitResponse
@@ -10454,7 +10506,7 @@ ListApplicationsForOrganizationalUnitResponse Client::listApplicationsForOrganiz
 }
 
 /**
- * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+ * @summary Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
  *
  * @param request ListApplicationsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10505,7 +10557,7 @@ ListApplicationsForUserResponse Client::listApplicationsForUserWithOptions(const
 }
 
 /**
- * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+ * @summary Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
  *
  * @param request ListApplicationsForUserRequest
  * @return ListApplicationsForUserResponse
@@ -10516,7 +10568,7 @@ ListApplicationsForUserResponse Client::listApplicationsForUser(const ListApplic
 }
 
 /**
- * @summary 查询授权资源信息列表
+ * @summary Queries a list of authorized resources.
  *
  * @param request ListAuthorizationResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10563,7 +10615,7 @@ ListAuthorizationResourcesResponse Client::listAuthorizationResourcesWithOptions
 }
 
 /**
- * @summary 查询授权资源信息列表
+ * @summary Queries a list of authorized resources.
  *
  * @param request ListAuthorizationResourcesRequest
  * @return ListAuthorizationResourcesResponse
@@ -10574,7 +10626,7 @@ ListAuthorizationResourcesResponse Client::listAuthorizationResources(const List
 }
 
 /**
- * @summary 查询授权规则信息列表
+ * @summary Lists authorization rules.
  *
  * @param request ListAuthorizationRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10617,7 +10669,7 @@ ListAuthorizationRulesResponse Client::listAuthorizationRulesWithOptions(const L
 }
 
 /**
- * @summary 查询授权规则信息列表
+ * @summary Lists authorization rules.
  *
  * @param request ListAuthorizationRulesRequest
  * @return ListAuthorizationRulesResponse
@@ -10628,7 +10680,7 @@ ListAuthorizationRulesResponse Client::listAuthorizationRules(const ListAuthoriz
 }
 
 /**
- * @summary 查询应用关联的授权规则信息列表
+ * @summary Lists the authorization rules associated with an application.
  *
  * @param request ListAuthorizationRulesForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10671,7 +10723,7 @@ ListAuthorizationRulesForApplicationResponse Client::listAuthorizationRulesForAp
 }
 
 /**
- * @summary 查询应用关联的授权规则信息列表
+ * @summary Lists the authorization rules associated with an application.
  *
  * @param request ListAuthorizationRulesForApplicationRequest
  * @return ListAuthorizationRulesForApplicationResponse
@@ -10682,7 +10734,7 @@ ListAuthorizationRulesForApplicationResponse Client::listAuthorizationRulesForAp
 }
 
 /**
- * @summary 查询组关联的授权规则信息列表
+ * @summary Lists the authorization rules associated with a group.
  *
  * @param request ListAuthorizationRulesForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10725,7 +10777,7 @@ ListAuthorizationRulesForGroupResponse Client::listAuthorizationRulesForGroupWit
 }
 
 /**
- * @summary 查询组关联的授权规则信息列表
+ * @summary Lists the authorization rules associated with a group.
  *
  * @param request ListAuthorizationRulesForGroupRequest
  * @return ListAuthorizationRulesForGroupResponse
@@ -10736,7 +10788,7 @@ ListAuthorizationRulesForGroupResponse Client::listAuthorizationRulesForGroup(co
 }
 
 /**
- * @summary 查询用户关联的授权规则信息列表
+ * @summary Queries the authorization rules associated with a user.
  *
  * @param request ListAuthorizationRulesForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10779,7 +10831,7 @@ ListAuthorizationRulesForUserResponse Client::listAuthorizationRulesForUserWithO
 }
 
 /**
- * @summary 查询用户关联的授权规则信息列表
+ * @summary Queries the authorization rules associated with a user.
  *
  * @param request ListAuthorizationRulesForUserRequest
  * @return ListAuthorizationRulesForUserResponse
@@ -10790,7 +10842,7 @@ ListAuthorizationRulesForUserResponse Client::listAuthorizationRulesForUser(cons
 }
 
 /**
- * @summary 获取品牌列表
+ * @summary Retrieves a list of brands.
  *
  * @param request ListBrandsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10833,7 +10885,7 @@ ListBrandsResponse Client::listBrandsWithOptions(const ListBrandsRequest &reques
 }
 
 /**
- * @summary 获取品牌列表
+ * @summary Retrieves a list of brands.
  *
  * @param request ListBrandsRequest
  * @return ListBrandsResponse
@@ -10844,7 +10896,7 @@ ListBrandsResponse Client::listBrands(const ListBrandsRequest &request) {
 }
 
 /**
- * @summary 查询指定应用所属的全部ClientPublicKey
+ * @summary Lists the client public keys for a specified application using a cursor.
  *
  * @param request ListClientPublicKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10887,7 +10939,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeysWithOptions(const ListC
 }
 
 /**
- * @summary 查询指定应用所属的全部ClientPublicKey
+ * @summary Lists the client public keys for a specified application using a cursor.
  *
  * @param request ListClientPublicKeysRequest
  * @return ListClientPublicKeysResponse
@@ -10898,7 +10950,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeys(const ListClientPublic
 }
 
 /**
- * @summary 查询云角色列表
+ * @summary Queries a paginated list of cloud roles.
  *
  * @param request ListCloudAccountRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10945,7 +10997,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRolesWithOptions(const Lis
 }
 
 /**
- * @summary 查询云角色列表
+ * @summary Queries a paginated list of cloud roles.
  *
  * @param request ListCloudAccountRolesRequest
  * @return ListCloudAccountRolesResponse
@@ -10956,7 +11008,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRoles(const ListCloudAccou
 }
 
 /**
- * @summary 查询云账号列表
+ * @summary Returns a paginated list of information about one or more Alibaba Cloud accounts.
  *
  * @param request ListCloudAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10999,7 +11051,7 @@ ListCloudAccountsResponse Client::listCloudAccountsWithOptions(const ListCloudAc
 }
 
 /**
- * @summary 查询云账号列表
+ * @summary Returns a paginated list of information about one or more Alibaba Cloud accounts.
  *
  * @param request ListCloudAccountsRequest
  * @return ListCloudAccountsResponse
@@ -11068,7 +11120,7 @@ ListConditionalAccessPoliciesResponse Client::listConditionalAccessPolicies(cons
 }
 
 /**
- * @summary 获取应用关联的条件访问策略列表
+ * @summary Lists the conditional access policies associated with an application.
  *
  * @param request ListConditionalAccessPoliciesForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11103,7 +11155,7 @@ ListConditionalAccessPoliciesForApplicationResponse Client::listConditionalAcces
 }
 
 /**
- * @summary 获取应用关联的条件访问策略列表
+ * @summary Lists the conditional access policies associated with an application.
  *
  * @param request ListConditionalAccessPoliciesForApplicationRequest
  * @return ListConditionalAccessPoliciesForApplicationResponse
@@ -11164,7 +11216,7 @@ ListConditionalAccessPoliciesForNetworkZoneResponse Client::listConditionalAcces
 }
 
 /**
- * @summary 获取用户关联的条件访问策略列表
+ * @summary Retrieves a list of conditional access policies that are associated with a user.
  *
  * @param request ListConditionalAccessPoliciesForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11199,7 +11251,7 @@ ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPolici
 }
 
 /**
- * @summary 获取用户关联的条件访问策略列表
+ * @summary Retrieves a list of conditional access policies that are associated with a user.
  *
  * @param request ListConditionalAccessPoliciesForUserRequest
  * @return ListConditionalAccessPoliciesForUserResponse
@@ -11210,7 +11262,7 @@ ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPolici
 }
 
 /**
- * @summary 列举凭据提供商
+ * @summary Lists the credential providers.
  *
  * @param request ListCredentialProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11265,7 +11317,7 @@ ListCredentialProvidersResponse Client::listCredentialProvidersWithOptions(const
 }
 
 /**
- * @summary 列举凭据提供商
+ * @summary Lists the credential providers.
  *
  * @param request ListCredentialProvidersRequest
  * @return ListCredentialProvidersResponse
@@ -11276,7 +11328,7 @@ ListCredentialProvidersResponse Client::listCredentialProviders(const ListCreden
 }
 
 /**
- * @summary 查询凭据列表
+ * @summary Retrieves a paginated list of credentials.
  *
  * @param request ListCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11339,7 +11391,7 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
 }
 
 /**
- * @summary 查询凭据列表
+ * @summary Retrieves a paginated list of credentials.
  *
  * @param request ListCredentialsRequest
  * @return ListCredentialsResponse
@@ -11350,7 +11402,7 @@ ListCredentialsResponse Client::listCredentials(const ListCredentialsRequest &re
 }
 
 /**
- * @summary 自定义条款列表查询。
+ * @summary Retrieves a list of custom privacy policies.
  *
  * @param request ListCustomPrivacyPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11397,7 +11449,7 @@ ListCustomPrivacyPoliciesResponse Client::listCustomPrivacyPoliciesWithOptions(c
 }
 
 /**
- * @summary 自定义条款列表查询。
+ * @summary Retrieves a list of custom privacy policies.
  *
  * @param request ListCustomPrivacyPoliciesRequest
  * @return ListCustomPrivacyPoliciesResponse
@@ -11408,7 +11460,7 @@ ListCustomPrivacyPoliciesResponse Client::listCustomPrivacyPolicies(const ListCu
 }
 
 /**
- * @summary 获取品牌关联资源的资源
+ * @summary Retrieves the resources of brand-linked instances.
  *
  * @param request ListCustomPrivacyPoliciesForBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11455,7 +11507,7 @@ ListCustomPrivacyPoliciesForBrandResponse Client::listCustomPrivacyPoliciesForBr
 }
 
 /**
- * @summary 获取品牌关联资源的资源
+ * @summary Retrieves the resources of brand-linked instances.
  *
  * @param request ListCustomPrivacyPoliciesForBrandRequest
  * @return ListCustomPrivacyPoliciesForBrandResponse
@@ -11466,7 +11518,7 @@ ListCustomPrivacyPoliciesForBrandResponse Client::listCustomPrivacyPoliciesForBr
 }
 
 /**
- * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
+ * @summary Retrieves a list of proxy tokens for a domain name in an EIAM instance.
  *
  * @param request ListDomainProxyTokensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11501,7 +11553,7 @@ ListDomainProxyTokensResponse Client::listDomainProxyTokensWithOptions(const Lis
 }
 
 /**
- * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
+ * @summary Retrieves a list of proxy tokens for a domain name in an EIAM instance.
  *
  * @param request ListDomainProxyTokensRequest
  * @return ListDomainProxyTokensResponse
@@ -11512,7 +11564,7 @@ ListDomainProxyTokensResponse Client::listDomainProxyTokens(const ListDomainProx
 }
 
 /**
- * @summary Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
+ * @summary Queries the domain names of an EIAM instance, including the default domain name and custom domain names.
  *
  * @param request ListDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11547,7 +11599,7 @@ ListDomainsResponse Client::listDomainsWithOptions(const ListDomainsRequest &req
 }
 
 /**
- * @summary Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
+ * @summary Queries the domain names of an EIAM instance, including the default domain name and custom domain names.
  *
  * @param request ListDomainsRequest
  * @return ListDomainsResponse
@@ -11604,7 +11656,7 @@ ListEiamInstancesResponse Client::listEiamInstances(const ListEiamInstancesReque
 }
 
 /**
- * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
+ * @summary Lists the regions available for EIAM 1.0 and EIAM 2.0.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListEiamRegionsResponse
@@ -11626,7 +11678,7 @@ ListEiamRegionsResponse Client::listEiamRegionsWithOptions(const Darabonba::Runt
 }
 
 /**
- * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
+ * @summary Lists the regions available for EIAM 1.0 and EIAM 2.0.
  *
  * @return ListEiamRegionsResponse
  */
@@ -11636,7 +11688,7 @@ ListEiamRegionsResponse Client::listEiamRegions() {
 }
 
 /**
- * @summary 查看事件列表
+ * @summary View the event list.
  *
  * @param request ListEventTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11671,7 +11723,7 @@ ListEventTypesResponse Client::listEventTypesWithOptions(const ListEventTypesReq
 }
 
 /**
- * @summary 查看事件列表
+ * @summary View the event list.
  *
  * @param request ListEventTypesRequest
  * @return ListEventTypesResponse
@@ -11682,7 +11734,7 @@ ListEventTypesResponse Client::listEventTypes(const ListEventTypesRequest &reque
 }
 
 /**
- * @summary 查询联邦凭证提供方列表
+ * @summary Lists federated identity providers.
  *
  * @param request ListFederatedCredentialProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11733,7 +11785,7 @@ ListFederatedCredentialProvidersResponse Client::listFederatedCredentialProvider
 }
 
 /**
- * @summary 查询联邦凭证提供方列表
+ * @summary Lists federated identity providers.
  *
  * @param request ListFederatedCredentialProvidersRequest
  * @return ListFederatedCredentialProvidersResponse
@@ -11810,7 +11862,7 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
+ * @summary Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11861,7 +11913,7 @@ ListGroupsForApplicationResponse Client::listGroupsForApplicationWithOptions(con
 }
 
 /**
- * @summary Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
+ * @summary Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @return ListGroupsForApplicationResponse
@@ -11872,7 +11924,7 @@ ListGroupsForApplicationResponse Client::listGroupsForApplication(const ListGrou
 }
 
 /**
- * @summary 查询授权规则关联的组列表
+ * @summary Lists the groups associated with an authorization rule.
  *
  * @param request ListGroupsForAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11919,7 +11971,7 @@ ListGroupsForAuthorizationRuleResponse Client::listGroupsForAuthorizationRuleWit
 }
 
 /**
- * @summary 查询授权规则关联的组列表
+ * @summary Lists the groups associated with an authorization rule.
  *
  * @param request ListGroupsForAuthorizationRuleRequest
  * @return ListGroupsForAuthorizationRuleResponse
@@ -11930,7 +11982,7 @@ ListGroupsForAuthorizationRuleResponse Client::listGroupsForAuthorizationRule(co
 }
 
 /**
- * @summary 查询ResourceServer授权的组和Scope权限
+ * @summary Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
  *
  * @param request ListGroupsForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11981,7 +12033,7 @@ ListGroupsForResourceServerResponse Client::listGroupsForResourceServerWithOptio
 }
 
 /**
- * @summary 查询ResourceServer授权的组和Scope权限
+ * @summary Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
  *
  * @param request ListGroupsForResourceServerRequest
  * @return ListGroupsForResourceServerResponse
@@ -12046,7 +12098,7 @@ ListGroupsForUserResponse Client::listGroupsForUser(const ListGroupsForUserReque
 }
 
 /**
- * @summary Query the list of identity providers.
+ * @summary Retrieves a list of identity providers.
  *
  * @param request ListIdentityProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12089,7 +12141,7 @@ ListIdentityProvidersResponse Client::listIdentityProvidersWithOptions(const Lis
 }
 
 /**
- * @summary Query the list of identity providers.
+ * @summary Retrieves a list of identity providers.
  *
  * @param request ListIdentityProvidersRequest
  * @return ListIdentityProvidersResponse
@@ -12100,7 +12152,7 @@ ListIdentityProvidersResponse Client::listIdentityProviders(const ListIdentityPr
 }
 
 /**
- * @summary 获取网络端点下的IdP信息。
+ * @summary Retrieves information about Identity Providers (IdPs) for a network endpoint.
  *
  * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12143,7 +12195,7 @@ ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvid
 }
 
 /**
- * @summary 获取网络端点下的IdP信息。
+ * @summary Retrieves information about Identity Providers (IdPs) for a network endpoint.
  *
  * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
  * @return ListIdentityProvidersForNetworkAccessEndpointResponse
@@ -12154,7 +12206,7 @@ ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvid
 }
 
 /**
- * @summary Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+ * @summary Queries information about one or more EIAM instances.
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12163,6 +12215,10 @@ ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvid
 ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCrossRegionReplication()) {
+    query["CrossRegionReplication"] = request.getCrossRegionReplication();
+  }
+
   if (!!request.hasEdition()) {
     query["Edition"] = request.getEdition();
   }
@@ -12201,7 +12257,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+ * @summary Queries information about one or more EIAM instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -12212,7 +12268,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Get a list of regions that support network access endpoints.
+ * @summary Lists the available regions for creating network access endpoints in IDaaS EIAM.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListNetworkAccessEndpointAvailableRegionsResponse
@@ -12234,7 +12290,7 @@ ListNetworkAccessEndpointAvailableRegionsResponse Client::listNetworkAccessEndpo
 }
 
 /**
- * @summary Get a list of regions that support network access endpoints.
+ * @summary Lists the available regions for creating network access endpoints in IDaaS EIAM.
  *
  * @return ListNetworkAccessEndpointAvailableRegionsResponse
  */
@@ -12244,7 +12300,7 @@ ListNetworkAccessEndpointAvailableRegionsResponse Client::listNetworkAccessEndpo
 }
 
 /**
- * @summary Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Queries the zones that support creating network endpoints for IDaaS in a specified region.
  *
  * @param request ListNetworkAccessEndpointAvailableZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12275,7 +12331,7 @@ ListNetworkAccessEndpointAvailableZonesResponse Client::listNetworkAccessEndpoin
 }
 
 /**
- * @summary Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Queries the zones that support creating network endpoints for IDaaS in a specified region.
  *
  * @param request ListNetworkAccessEndpointAvailableZonesRequest
  * @return ListNetworkAccessEndpointAvailableZonesResponse
@@ -12286,7 +12342,7 @@ ListNetworkAccessEndpointAvailableZonesResponse Client::listNetworkAccessEndpoin
 }
 
 /**
- * @summary List query dedicated network endpoint
+ * @summary Lists the network endpoints for an IDaaS EIAM instance.
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12341,7 +12397,7 @@ ListNetworkAccessEndpointsResponse Client::listNetworkAccessEndpointsWithOptions
 }
 
 /**
- * @summary List query dedicated network endpoint
+ * @summary Lists the network endpoints for an IDaaS EIAM instance.
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @return ListNetworkAccessEndpointsResponse
@@ -12352,7 +12408,7 @@ ListNetworkAccessEndpointsResponse Client::listNetworkAccessEndpoints(const List
 }
 
 /**
- * @summary List the access paths under a certain network access endpoint.
+ * @summary Lists the access paths for a specified network endpoint.
  *
  * @param request ListNetworkAccessPathsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12387,7 +12443,7 @@ ListNetworkAccessPathsResponse Client::listNetworkAccessPathsWithOptions(const L
 }
 
 /**
- * @summary List the access paths under a certain network access endpoint.
+ * @summary Lists the access paths for a specified network endpoint.
  *
  * @param request ListNetworkAccessPathsRequest
  * @return ListNetworkAccessPathsResponse
@@ -12398,7 +12454,7 @@ ListNetworkAccessPathsResponse Client::listNetworkAccessPaths(const ListNetworkA
 }
 
 /**
- * @summary 网络区域对象列表
+ * @summary Lists network zone objects.
  *
  * @param request ListNetworkZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12445,7 +12501,7 @@ ListNetworkZonesResponse Client::listNetworkZonesWithOptions(const ListNetworkZo
 }
 
 /**
- * @summary 网络区域对象列表
+ * @summary Lists network zone objects.
  *
  * @param request ListNetworkZonesRequest
  * @return ListNetworkZonesResponse
@@ -12456,7 +12512,7 @@ ListNetworkZonesResponse Client::listNetworkZones(const ListNetworkZonesRequest 
 }
 
 /**
- * @summary Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
+ * @summary Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
  *
  * @param request ListOrganizationalUnitParentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12491,7 +12547,7 @@ ListOrganizationalUnitParentsResponse Client::listOrganizationalUnitParentsWithO
 }
 
 /**
- * @summary Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
+ * @summary Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
  *
  * @param request ListOrganizationalUnitParentsRequest
  * @return ListOrganizationalUnitParentsResponse
@@ -12502,7 +12558,7 @@ ListOrganizationalUnitParentsResponse Client::listOrganizationalUnitParents(cons
 }
 
 /**
- * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+ * @summary Performs a paged query for EIAM organizational units.
  *
  * @param request ListOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12557,7 +12613,7 @@ ListOrganizationalUnitsResponse Client::listOrganizationalUnitsWithOptions(const
 }
 
 /**
- * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+ * @summary Performs a paged query for EIAM organizational units.
  *
  * @param request ListOrganizationalUnitsRequest
  * @return ListOrganizationalUnitsResponse
@@ -12568,7 +12624,7 @@ ListOrganizationalUnitsResponse Client::listOrganizationalUnits(const ListOrgani
 }
 
 /**
- * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+ * @summary Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
  *
  * @param request ListOrganizationalUnitsForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12619,7 +12675,7 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
 }
 
 /**
- * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+ * @summary Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
  *
  * @param request ListOrganizationalUnitsForApplicationRequest
  * @return ListOrganizationalUnitsForApplicationResponse
@@ -12630,7 +12686,7 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
 }
 
 /**
- * @summary 查询被授权到组织的ResourceServers和Scopes权限
+ * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
  *
  * @param request ListOrganizationalUnitsForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12681,7 +12737,7 @@ ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnits
 }
 
 /**
- * @summary 查询被授权到组织的ResourceServers和Scopes权限
+ * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
  *
  * @param request ListOrganizationalUnitsForResourceServerRequest
  * @return ListOrganizationalUnitsForResourceServerResponse
@@ -12724,7 +12780,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary 获取指定ResourceServer下Scope列表。
+ * @summary Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
  *
  * @param request ListResourceServerScopesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12791,7 +12847,7 @@ ListResourceServerScopesResponse Client::listResourceServerScopesWithOptions(con
 }
 
 /**
- * @summary 获取指定ResourceServer下Scope列表。
+ * @summary Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
  *
  * @param request ListResourceServerScopesRequest
  * @return ListResourceServerScopesResponse
@@ -12802,7 +12858,7 @@ ListResourceServerScopesResponse Client::listResourceServerScopes(const ListReso
 }
 
 /**
- * @summary 查询用户的被授予ResourceServers和Scopes的权限
+ * @summary Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
  *
  * @param request ListResourceServersForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12849,7 +12905,7 @@ ListResourceServersForUserResponse Client::listResourceServersForUserWithOptions
 }
 
 /**
- * @summary 查询用户的被授予ResourceServers和Scopes的权限
+ * @summary Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
  *
  * @param request ListResourceServersForUserRequest
  * @return ListResourceServersForUserResponse
@@ -12860,7 +12916,12 @@ ListResourceServersForUserResponse Client::listResourceServersForUser(const List
 }
 
 /**
- * @summary Queries a list of synchronization jobs.
+ * @summary Lists the details of synchronization tasks.
+ *
+ * @description You can view the returned data in one of the following two ways:
+ * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
+ * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
+ * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
  *
  * @param request ListSynchronizationJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12935,7 +12996,12 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobsWithOptions(const
 }
 
 /**
- * @summary Queries a list of synchronization jobs.
+ * @summary Lists the details of synchronization tasks.
+ *
+ * @description You can view the returned data in one of the following two ways:
+ * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
+ * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
+ * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
  *
  * @param request ListSynchronizationJobsRequest
  * @return ListSynchronizationJobsResponse
@@ -12946,7 +13012,9 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobs(const ListSynchr
 }
 
 /**
- * @summary 查询三方登录账户绑定关系
+ * @summary Lists the mappings for third-party logon accounts.
+ *
+ * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request ListUserAuthnSourceMappingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13001,7 +13069,9 @@ ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappingsWithOptio
 }
 
 /**
- * @summary 查询三方登录账户绑定关系
+ * @summary Lists the mappings for third-party logon accounts.
+ *
+ * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request ListUserAuthnSourceMappingsRequest
  * @return ListUserAuthnSourceMappingsResponse
@@ -13012,7 +13082,9 @@ ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappings(const Li
 }
 
 /**
- * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+ * @summary Retrieves a paginated list of EIAM accounts.
+ *
+ * @description This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13103,7 +13175,9 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+ * @summary Retrieves a paginated list of EIAM accounts.
+ *
+ * @description This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -13114,7 +13188,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+ * @summary Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
  *
  * @param request ListUsersForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13165,7 +13239,7 @@ ListUsersForApplicationResponse Client::listUsersForApplicationWithOptions(const
 }
 
 /**
- * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+ * @summary Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
  *
  * @param request ListUsersForApplicationRequest
  * @return ListUsersForApplicationResponse
@@ -13176,7 +13250,7 @@ ListUsersForApplicationResponse Client::listUsersForApplication(const ListUsersF
 }
 
 /**
- * @summary 查询授权规则关联的账户列表
+ * @summary Lists the accounts associated with an authorization rule.
  *
  * @param request ListUsersForAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13223,7 +13297,7 @@ ListUsersForAuthorizationRuleResponse Client::listUsersForAuthorizationRuleWithO
 }
 
 /**
- * @summary 查询授权规则关联的账户列表
+ * @summary Lists the accounts associated with an authorization rule.
  *
  * @param request ListUsersForAuthorizationRuleRequest
  * @return ListUsersForAuthorizationRuleResponse
@@ -13234,7 +13308,7 @@ ListUsersForAuthorizationRuleResponse Client::listUsersForAuthorizationRule(cons
 }
 
 /**
- * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+ * @summary Lists the users in a specified EIAM account group.
  *
  * @param request ListUsersForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13281,7 +13355,7 @@ ListUsersForGroupResponse Client::listUsersForGroupWithOptions(const ListUsersFo
 }
 
 /**
- * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+ * @summary Lists the users in a specified EIAM account group.
  *
  * @param request ListUsersForGroupRequest
  * @return ListUsersForGroupResponse
@@ -13292,7 +13366,7 @@ ListUsersForGroupResponse Client::listUsersForGroup(const ListUsersForGroupReque
 }
 
 /**
- * @summary 查询ResourceServer授权的用户和Scope权限
+ * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
  *
  * @param request ListUsersForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13343,7 +13417,7 @@ ListUsersForResourceServerResponse Client::listUsersForResourceServerWithOptions
 }
 
 /**
- * @summary 查询ResourceServer授权的用户和Scope权限
+ * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
  *
  * @param request ListUsersForResourceServerRequest
  * @return ListUsersForResourceServerResponse
@@ -13354,7 +13428,7 @@ ListUsersForResourceServerResponse Client::listUsersForResourceServer(const List
 }
 
 /**
- * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+ * @summary Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
  *
  * @param request ObtainApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13393,7 +13467,7 @@ ObtainApplicationClientSecretResponse Client::obtainApplicationClientSecretWithO
 }
 
 /**
- * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+ * @summary Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
  *
  * @param request ObtainApplicationClientSecretRequest
  * @return ObtainApplicationClientSecretResponse
@@ -13404,7 +13478,9 @@ ObtainApplicationClientSecretResponse Client::obtainApplicationClientSecret(cons
 }
 
 /**
- * @summary 查询指定应用Token
+ * @summary Queries the token of a specified application.
+ *
+ * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13443,7 +13519,9 @@ ObtainApplicationTokenResponse Client::obtainApplicationTokenWithOptions(const O
 }
 
 /**
- * @summary 查询指定应用Token
+ * @summary Queries the token of a specified application.
+ *
+ * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @return ObtainApplicationTokenResponse
@@ -13454,7 +13532,7 @@ ObtainApplicationTokenResponse Client::obtainApplicationToken(const ObtainApplic
 }
 
 /**
- * @summary 获取凭据
+ * @summary Retrieves a credential containing sensitive information.
  *
  * @param request ObtainCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13489,7 +13567,7 @@ ObtainCredentialResponse Client::obtainCredentialWithOptions(const ObtainCredent
 }
 
 /**
- * @summary 获取凭据
+ * @summary Retrieves a credential containing sensitive information.
  *
  * @param request ObtainCredentialRequest
  * @return ObtainCredentialResponse
@@ -13500,7 +13578,7 @@ ObtainCredentialResponse Client::obtainCredential(const ObtainCredentialRequest 
 }
 
 /**
- * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
+ * @summary Obtains the proxy token for a domain name in an EIAM instance.
  *
  * @param request ObtainDomainProxyTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13539,7 +13617,7 @@ ObtainDomainProxyTokenResponse Client::obtainDomainProxyTokenWithOptions(const O
 }
 
 /**
- * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
+ * @summary Obtains the proxy token for a domain name in an EIAM instance.
  *
  * @param request ObtainDomainProxyTokenRequest
  * @return ObtainDomainProxyTokenResponse
@@ -13550,7 +13628,9 @@ ObtainDomainProxyTokenResponse Client::obtainDomainProxyToken(const ObtainDomain
 }
 
 /**
- * @summary 删除一个当前应用下的指定员工的应用账号
+ * @summary Deletes the application account of a specified user from an application.
+ *
+ * @description This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request RemoveApplicationAccountFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13593,7 +13673,9 @@ RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUse
 }
 
 /**
- * @summary 删除一个当前应用下的指定员工的应用账号
+ * @summary Deletes the application account of a specified user from an application.
+ *
+ * @description This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
  *
  * @param request RemoveApplicationAccountFromUserRequest
  * @return RemoveApplicationAccountFromUserResponse
@@ -13604,7 +13686,7 @@ RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUse
 }
 
 /**
- * @summary 将应用从授权规则中解除
+ * @summary Removes an application from an authorization rule.
  *
  * @param request RemoveApplicationFromAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13643,7 +13725,7 @@ RemoveApplicationFromAuthorizationRuleResponse Client::removeApplicationFromAuth
 }
 
 /**
- * @summary 将应用从授权规则中解除
+ * @summary Removes an application from an authorization rule.
  *
  * @param request RemoveApplicationFromAuthorizationRuleRequest
  * @return RemoveApplicationFromAuthorizationRuleResponse
@@ -13654,7 +13736,7 @@ RemoveApplicationFromAuthorizationRuleResponse Client::removeApplicationFromAuth
 }
 
 /**
- * @summary 移除品牌关联条款
+ * @summary Removing a brand association
  *
  * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13693,7 +13775,7 @@ RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPolicies
 }
 
 /**
- * @summary 移除品牌关联条款
+ * @summary Removing a brand association
  *
  * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
  * @return RemoveCustomPrivacyPoliciesFromBrandResponse
@@ -13704,7 +13786,7 @@ RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPolicies
 }
 
 /**
- * @summary 将组从授权规则中解除
+ * @summary Removes an application from an authorization rule.
  *
  * @param request RemoveGroupFromAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13743,7 +13825,7 @@ RemoveGroupFromAuthorizationRuleResponse Client::removeGroupFromAuthorizationRul
 }
 
 /**
- * @summary 将组从授权规则中解除
+ * @summary Removes an application from an authorization rule.
  *
  * @param request RemoveGroupFromAuthorizationRuleRequest
  * @return RemoveGroupFromAuthorizationRuleResponse
@@ -13754,7 +13836,7 @@ RemoveGroupFromAuthorizationRuleResponse Client::removeGroupFromAuthorizationRul
 }
 
 /**
- * @summary 将账户从授权规则中解除
+ * @summary Removes an account from an authorization rule.
  *
  * @param request RemoveUserFromAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13793,7 +13875,7 @@ RemoveUserFromAuthorizationRuleResponse Client::removeUserFromAuthorizationRuleW
 }
 
 /**
- * @summary 将账户从授权规则中解除
+ * @summary Removes an account from an authorization rule.
  *
  * @param request RemoveUserFromAuthorizationRuleRequest
  * @return RemoveUserFromAuthorizationRuleResponse
@@ -13904,7 +13986,7 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroup(const RemoveUsersFromG
 }
 
 /**
- * @summary 免费版续期
+ * @summary Renewing the Free Edition
  *
  * @param request RenewFreeLicenseEndTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13935,7 +14017,7 @@ RenewFreeLicenseEndTimeResponse Client::renewFreeLicenseEndTimeWithOptions(const
 }
 
 /**
- * @summary 免费版续期
+ * @summary Renewing the Free Edition
  *
  * @param request RenewFreeLicenseEndTimeRequest
  * @return RenewFreeLicenseEndTimeResponse
@@ -13946,7 +14028,7 @@ RenewFreeLicenseEndTimeResponse Client::renewFreeLicenseEndTime(const RenewFreeL
 }
 
 /**
- * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Revokes application access from multiple EIAM groups in a batch.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13989,7 +14071,7 @@ RevokeApplicationFromGroupsResponse Client::revokeApplicationFromGroupsWithOptio
 }
 
 /**
- * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Revokes application access from multiple EIAM groups in a batch.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @return RevokeApplicationFromGroupsResponse
@@ -14000,7 +14082,7 @@ RevokeApplicationFromGroupsResponse Client::revokeApplicationFromGroups(const Re
 }
 
 /**
- * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+ * @summary Revokes application access from multiple EIAM organizations in a batch operation.
  *
  * @param request RevokeApplicationFromOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14043,7 +14125,7 @@ RevokeApplicationFromOrganizationalUnitsResponse Client::revokeApplicationFromOr
 }
 
 /**
- * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+ * @summary Revokes application access from multiple EIAM organizations in a batch operation.
  *
  * @param request RevokeApplicationFromOrganizationalUnitsRequest
  * @return RevokeApplicationFromOrganizationalUnitsResponse
@@ -14054,7 +14136,7 @@ RevokeApplicationFromOrganizationalUnitsResponse Client::revokeApplicationFromOr
 }
 
 /**
- * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+ * @summary Revokes access to an application from multiple EIAM accounts.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14097,7 +14179,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsersWithOptions
 }
 
 /**
- * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+ * @summary Revokes access to an application from multiple EIAM accounts.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @return RevokeApplicationFromUsersResponse
@@ -14108,7 +14190,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsers(const Revo
 }
 
 /**
- * @summary 解除指定ResourceServer到Client的授权
+ * @summary Revokes the authorization for a resource server from a client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14147,7 +14229,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClientWit
 }
 
 /**
- * @summary 解除指定ResourceServer到Client的授权
+ * @summary Revokes the authorization for a resource server from a client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @return RevokeResourceServerFromClientResponse
@@ -14158,7 +14240,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClient(co
 }
 
 /**
- * @summary 解除指定ResourceServer下的Scope给Client
+ * @summary Revokes specified scope permissions of a resource server from a client application.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14201,7 +14283,7 @@ RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesF
 }
 
 /**
- * @summary 解除指定ResourceServer下的Scope给Client
+ * @summary Revokes specified scope permissions of a resource server from a client application.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @return RevokeResourceServerScopesFromClientResponse
@@ -14212,7 +14294,7 @@ RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesF
 }
 
 /**
- * @summary 取消被授予到组的ResourceServerScope权限
+ * @summary Revokes a resource server\\"s scope permissions from a group.
  *
  * @param request RevokeResourceServerScopesFromGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14255,7 +14337,7 @@ RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFr
 }
 
 /**
- * @summary 取消被授予到组的ResourceServerScope权限
+ * @summary Revokes a resource server\\"s scope permissions from a group.
  *
  * @param request RevokeResourceServerScopesFromGroupRequest
  * @return RevokeResourceServerScopesFromGroupResponse
@@ -14266,7 +14348,7 @@ RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFr
 }
 
 /**
- * @summary 取消被授予到组织的ResourceServerScope权限
+ * @summary Revokes scope permissions for a resource server from an organization.
  *
  * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14309,7 +14391,7 @@ RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceS
 }
 
 /**
- * @summary 取消被授予到组织的ResourceServerScope权限
+ * @summary Revokes scope permissions for a resource server from an organization.
  *
  * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
  * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
@@ -14320,7 +14402,7 @@ RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceS
 }
 
 /**
- * @summary 取消被授予用户的ResourceServerScope权限
+ * @summary Revokes scope permissions for a specified resource server from an account.
  *
  * @param request RevokeResourceServerScopesFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14363,7 +14445,7 @@ RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFro
 }
 
 /**
- * @summary 取消被授予用户的ResourceServerScope权限
+ * @summary Revokes scope permissions for a specified resource server from an account.
  *
  * @param request RevokeResourceServerScopesFromUserRequest
  * @return RevokeResourceServerScopesFromUserResponse
@@ -14374,7 +14456,7 @@ RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFro
 }
 
 /**
- * @summary Creates a synchronization job and immediately runs the job.
+ * @summary Creates and immediately runs a new synchronization task.
  *
  * @param request RunSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14429,7 +14511,7 @@ RunSynchronizationJobResponse Client::runSynchronizationJobWithOptions(const Run
 }
 
 /**
- * @summary Creates a synchronization job and immediately runs the job.
+ * @summary Creates and immediately runs a new synchronization task.
  *
  * @param request RunSynchronizationJobRequest
  * @return RunSynchronizationJobResponse
@@ -14490,7 +14572,7 @@ SetApplicationGrantScopeResponse Client::setApplicationGrantScope(const SetAppli
 }
 
 /**
- * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Sets the account synchronization configuration for an EIAM application.
  *
  * @param request SetApplicationProvisioningConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14545,7 +14627,7 @@ SetApplicationProvisioningConfigResponse Client::setApplicationProvisioningConfi
 }
 
 /**
- * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+ * @summary Sets the account synchronization configuration for an EIAM application.
  *
  * @param request SetApplicationProvisioningConfigRequest
  * @return SetApplicationProvisioningConfigResponse
@@ -14610,7 +14692,7 @@ SetApplicationProvisioningScopeResponse Client::setApplicationProvisioningScope(
 }
 
 /**
- * @summary 配置应用同步用户主组织
+ * @summary Sets the primary organizational unit for an application\\"s user provisioning.
  *
  * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14649,7 +14731,7 @@ SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setAppli
 }
 
 /**
- * @summary 配置应用同步用户主组织
+ * @summary Sets the primary organizational unit for an application\\"s user provisioning.
  *
  * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -14660,7 +14742,7 @@ SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setAppli
 }
 
 /**
- * @summary 设置ResourceServer的Identifier
+ * @summary Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
  *
  * @param request SetApplicationResourceServerIdentifierRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14703,7 +14785,7 @@ SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceSer
 }
 
 /**
- * @summary 设置ResourceServer的Identifier
+ * @summary Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
  *
  * @param request SetApplicationResourceServerIdentifierRequest
  * @return SetApplicationResourceServerIdentifierResponse
@@ -14714,9 +14796,9 @@ SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceSer
 }
 
 /**
- * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Sets the single sign-on (SSO) properties for an IDaaS application.
  *
- * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+ * @description In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
  *
  * @param request SetApplicationSsoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14771,9 +14853,9 @@ SetApplicationSsoConfigResponse Client::setApplicationSsoConfigWithOptions(const
 }
 
 /**
- * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+ * @summary Sets the single sign-on (SSO) properties for an IDaaS application.
  *
- * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+ * @description In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
  *
  * @param request SetApplicationSsoConfigRequest
  * @return SetApplicationSsoConfigResponse
@@ -14784,7 +14866,7 @@ SetApplicationSsoConfigResponse Client::setApplicationSsoConfig(const SetApplica
 }
 
 /**
- * @summary Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
+ * @summary Sets the default domain name for a specified EIAM instance.
  *
  * @param request SetDefaultDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14819,7 +14901,7 @@ SetDefaultDomainResponse Client::setDefaultDomainWithOptions(const SetDefaultDom
 }
 
 /**
- * @summary Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
+ * @summary Sets the default domain name for a specified EIAM instance.
  *
  * @param request SetDefaultDomainRequest
  * @return SetDefaultDomainResponse
@@ -14880,7 +14962,7 @@ SetForgetPasswordConfigurationResponse Client::setForgetPasswordConfiguration(co
 }
 
 /**
- * @summary 修改认证信息
+ * @summary Update authentication information
  *
  * @param request SetIdentityProviderAuthnConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14931,7 +15013,7 @@ SetIdentityProviderAuthnConfigurationResponse Client::setIdentityProviderAuthnCo
 }
 
 /**
- * @summary 修改认证信息
+ * @summary Update authentication information
  *
  * @param request SetIdentityProviderAuthnConfigurationRequest
  * @return SetIdentityProviderAuthnConfigurationResponse
@@ -14942,7 +15024,7 @@ SetIdentityProviderAuthnConfigurationResponse Client::setIdentityProviderAuthnCo
 }
 
 /**
- * @summary Update IdP synchronization configuration.
+ * @summary Sets the inbound synchronization configuration for an IdP.
  *
  * @param request SetIdentityProviderUdPullConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15005,7 +15087,7 @@ SetIdentityProviderUdPullConfigurationResponse Client::setIdentityProviderUdPull
 }
 
 /**
- * @summary Update IdP synchronization configuration.
+ * @summary Sets the inbound synchronization configuration for an IdP.
  *
  * @param request SetIdentityProviderUdPullConfigurationRequest
  * @return SetIdentityProviderUdPullConfigurationResponse
@@ -15016,7 +15098,7 @@ SetIdentityProviderUdPullConfigurationResponse Client::setIdentityProviderUdPull
 }
 
 /**
- * @summary 修改IdP同步出配置
+ * @summary Modifies the push configuration for an identity provider (IdP).
  *
  * @param request SetIdentityProviderUdPushConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15071,7 +15153,7 @@ SetIdentityProviderUdPushConfigurationResponse Client::setIdentityProviderUdPush
 }
 
 /**
- * @summary 修改IdP同步出配置
+ * @summary Modifies the push configuration for an identity provider (IdP).
  *
  * @param request SetIdentityProviderUdPushConfigurationRequest
  * @return SetIdentityProviderUdPushConfigurationResponse
@@ -15082,7 +15164,7 @@ SetIdentityProviderUdPushConfigurationResponse Client::setIdentityProviderUdPush
 }
 
 /**
- * @summary 设置实例控制项
+ * @summary Configures the control settings for an instance.
  *
  * @param request SetInstanceControlConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15117,7 +15199,7 @@ SetInstanceControlConfigurationResponse Client::setInstanceControlConfigurationW
 }
 
 /**
- * @summary 设置实例控制项
+ * @summary Configures the control settings for an instance.
  *
  * @param request SetInstanceControlConfigurationRequest
  * @return SetInstanceControlConfigurationResponse
@@ -15128,7 +15210,7 @@ SetInstanceControlConfigurationResponse Client::setInstanceControlConfiguration(
 }
 
 /**
- * @summary 设置实例语言、时区信息
+ * @summary Sets the language and time zone for an instance.
  *
  * @param request SetInstanceGlobalizationConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15167,7 +15249,7 @@ SetInstanceGlobalizationConfigResponse Client::setInstanceGlobalizationConfigWit
 }
 
 /**
- * @summary 设置实例语言、时区信息
+ * @summary Sets the language and time zone for an instance.
  *
  * @param request SetInstanceGlobalizationConfigRequest
  * @return SetInstanceGlobalizationConfigResponse
@@ -15178,7 +15260,7 @@ SetInstanceGlobalizationConfigResponse Client::setInstanceGlobalizationConfig(co
 }
 
 /**
- * @summary 为品牌设置登录后跳转应用
+ * @summary Sets the post-logon redirect application for a brand.
  *
  * @param request SetLoginRedirectApplicationForBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15217,7 +15299,7 @@ SetLoginRedirectApplicationForBrandResponse Client::setLoginRedirectApplicationF
 }
 
 /**
- * @summary 为品牌设置登录后跳转应用
+ * @summary Sets the post-logon redirect application for a brand.
  *
  * @param request SetLoginRedirectApplicationForBrandRequest
  * @return SetLoginRedirectApplicationForBrandResponse
@@ -15228,7 +15310,7 @@ SetLoginRedirectApplicationForBrandResponse Client::setLoginRedirectApplicationF
 }
 
 /**
- * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Sets the password complexity policy for a specified EIAM instance.
  *
  * @param request SetPasswordComplexityConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15271,7 +15353,7 @@ SetPasswordComplexityConfigurationResponse Client::setPasswordComplexityConfigur
 }
 
 /**
- * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Sets the password complexity policy for a specified EIAM instance.
  *
  * @param request SetPasswordComplexityConfigurationRequest
  * @return SetPasswordComplexityConfigurationResponse
@@ -15282,7 +15364,7 @@ SetPasswordComplexityConfigurationResponse Client::setPasswordComplexityConfigur
 }
 
 /**
- * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Sets the password expiration policy for a specified EIAM instance.
  *
  * @param request SetPasswordExpirationConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15345,7 +15427,7 @@ SetPasswordExpirationConfigurationResponse Client::setPasswordExpirationConfigur
 }
 
 /**
- * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+ * @summary Sets the password expiration policy for a specified EIAM instance.
  *
  * @param request SetPasswordExpirationConfigurationRequest
  * @return SetPasswordExpirationConfigurationResponse
@@ -15464,7 +15546,7 @@ SetPasswordInitializationConfigurationResponse Client::setPasswordInitialization
 }
 
 /**
- * @summary 设置指定的应用ClientPublicKey优先启用状态
+ * @summary Sets the specified client public key as the primary key for an application.
  *
  * @param request SetPrimaryClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15507,7 +15589,7 @@ SetPrimaryClientPublicKeyResponse Client::setPrimaryClientPublicKeyWithOptions(c
 }
 
 /**
- * @summary 设置指定的应用ClientPublicKey优先启用状态
+ * @summary Sets the specified client public key as the primary key for an application.
  *
  * @param request SetPrimaryClientPublicKeyRequest
  * @return SetPrimaryClientPublicKeyResponse
@@ -15568,7 +15650,7 @@ SetUserPrimaryOrganizationalUnitResponse Client::setUserPrimaryOrganizationalUni
 }
 
 /**
- * @summary 设置WebAuthn配置
+ * @summary Sets the WebAuthn configuration.
  *
  * @param request SetWebAuthnConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15615,7 +15697,7 @@ SetWebAuthnConfigurationResponse Client::setWebAuthnConfigurationWithOptions(con
 }
 
 /**
- * @summary 设置WebAuthn配置
+ * @summary Sets the WebAuthn configuration.
  *
  * @param request SetWebAuthnConfigurationRequest
  * @return SetWebAuthnConfigurationResponse
@@ -15626,7 +15708,7 @@ SetWebAuthnConfigurationResponse Client::setWebAuthnConfiguration(const SetWebAu
 }
 
 /**
- * @summary 解绑指定用户TOTP
+ * @summary Detaches the TOTP authenticator for a specified user.
  *
  * @param request UnbindTotpAuthenticatorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15661,7 +15743,7 @@ UnbindTotpAuthenticatorResponse Client::unbindTotpAuthenticatorWithOptions(const
 }
 
 /**
- * @summary 解绑指定用户TOTP
+ * @summary Detaches the TOTP authenticator for a specified user.
  *
  * @param request UnbindTotpAuthenticatorRequest
  * @return UnbindTotpAuthenticatorResponse
@@ -15672,7 +15754,7 @@ UnbindTotpAuthenticatorResponse Client::unbindTotpAuthenticator(const UnbindTotp
 }
 
 /**
- * @summary 解绑三方登录账户
+ * @summary Unbinds a third-party logon account from a user.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15715,7 +15797,7 @@ UnbindUserAuthnSourceMappingResponse Client::unbindUserAuthnSourceMappingWithOpt
 }
 
 /**
- * @summary 解绑三方登录账户
+ * @summary Unbinds a third-party logon account from a user.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @return UnbindUserAuthnSourceMappingResponse
@@ -15772,7 +15854,7 @@ UnlockUserResponse Client::unlockUser(const UnlockUserRequest &request) {
 }
 
 /**
- * @summary 修改应用高阶配置
+ * @summary Updates the advanced configuration of an application.
  *
  * @param request UpdateApplicationAdvancedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15811,7 +15893,7 @@ UpdateApplicationAdvancedConfigResponse Client::updateApplicationAdvancedConfigW
 }
 
 /**
- * @summary 修改应用高阶配置
+ * @summary Updates the advanced configuration of an application.
  *
  * @param request UpdateApplicationAdvancedConfigRequest
  * @return UpdateApplicationAdvancedConfigResponse
@@ -15872,7 +15954,7 @@ UpdateApplicationAuthorizationTypeResponse Client::updateApplicationAuthorizatio
 }
 
 /**
- * @summary 更新应用的指定ClientSecret的到期时间
+ * @summary Updates the expiration time of a specified client secret for an application.
  *
  * @param request UpdateApplicationClientSecretExpirationTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15915,7 +15997,7 @@ UpdateApplicationClientSecretExpirationTimeResponse Client::updateApplicationCli
 }
 
 /**
- * @summary 更新应用的指定ClientSecret的到期时间
+ * @summary Updates the expiration time of a specified client secret for an application.
  *
  * @param request UpdateApplicationClientSecretExpirationTimeRequest
  * @return UpdateApplicationClientSecretExpirationTimeResponse
@@ -15976,7 +16058,7 @@ UpdateApplicationDescriptionResponse Client::updateApplicationDescription(const 
 }
 
 /**
- * @summary 更新应用联邦凭证
+ * @summary Updates an application\\"s federated credential.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16023,7 +16105,7 @@ UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedC
 }
 
 /**
- * @summary 更新应用联邦凭证
+ * @summary Updates an application\\"s federated credential.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @return UpdateApplicationFederatedCredentialResponse
@@ -16034,7 +16116,7 @@ UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedC
 }
 
 /**
- * @summary 更新应用联邦凭证描述
+ * @summary Updates the description of a federated credential for an application.
  *
  * @param request UpdateApplicationFederatedCredentialDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16077,7 +16159,7 @@ UpdateApplicationFederatedCredentialDescriptionResponse Client::updateApplicatio
 }
 
 /**
- * @summary 更新应用联邦凭证描述
+ * @summary Updates the description of a federated credential for an application.
  *
  * @param request UpdateApplicationFederatedCredentialDescriptionRequest
  * @return UpdateApplicationFederatedCredentialDescriptionResponse
@@ -16088,7 +16170,7 @@ UpdateApplicationFederatedCredentialDescriptionResponse Client::updateApplicatio
 }
 
 /**
- * @summary 更新应用基本信息
+ * @summary Updates the basic information for an application.
  *
  * @param request UpdateApplicationInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16147,7 +16229,7 @@ UpdateApplicationInfoResponse Client::updateApplicationInfoWithOptions(const Upd
 }
 
 /**
- * @summary 更新应用基本信息
+ * @summary Updates the basic information for an application.
  *
  * @param request UpdateApplicationInfoRequest
  * @return UpdateApplicationInfoResponse
@@ -16158,7 +16240,7 @@ UpdateApplicationInfoResponse Client::updateApplicationInfo(const UpdateApplicat
 }
 
 /**
- * @summary 修改应用角色
+ * @summary Updates an application role.
  *
  * @param request UpdateApplicationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16205,7 +16287,7 @@ UpdateApplicationRoleResponse Client::updateApplicationRoleWithOptions(const Upd
 }
 
 /**
- * @summary 修改应用角色
+ * @summary Updates an application role.
  *
  * @param request UpdateApplicationRoleRequest
  * @return UpdateApplicationRoleResponse
@@ -16216,7 +16298,7 @@ UpdateApplicationRoleResponse Client::updateApplicationRole(const UpdateApplicat
 }
 
 /**
- * @summary 修改应用角色描述
+ * @summary Updates the description of an application role.
  *
  * @param request UpdateApplicationRoleDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16259,7 +16341,7 @@ UpdateApplicationRoleDescriptionResponse Client::updateApplicationRoleDescriptio
 }
 
 /**
- * @summary 修改应用角色描述
+ * @summary Updates the description of an application role.
  *
  * @param request UpdateApplicationRoleDescriptionRequest
  * @return UpdateApplicationRoleDescriptionResponse
@@ -16270,7 +16352,9 @@ UpdateApplicationRoleDescriptionResponse Client::updateApplicationRoleDescriptio
 }
 
 /**
- * @summary 更新模板应用的SSO参数
+ * @summary Updates the SSO parameters for an application template.
+ *
+ * @description Updates the single sign-on (SSO) parameters for an application template from the marketplace.
  *
  * @param request UpdateApplicationSsoFormParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16309,7 +16393,9 @@ UpdateApplicationSsoFormParamsResponse Client::updateApplicationSsoFormParamsWit
 }
 
 /**
- * @summary 更新模板应用的SSO参数
+ * @summary Updates the SSO parameters for an application template.
+ *
+ * @description Updates the single sign-on (SSO) parameters for an application template from the marketplace.
  *
  * @param request UpdateApplicationSsoFormParamsRequest
  * @return UpdateApplicationSsoFormParamsResponse
@@ -16320,7 +16406,7 @@ UpdateApplicationSsoFormParamsResponse Client::updateApplicationSsoFormParams(co
 }
 
 /**
- * @summary 更新ApplicationToken过期时间
+ * @summary Updates the expiration time of an application token.
  *
  * @param request UpdateApplicationTokenExpirationTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16363,7 +16449,7 @@ UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpir
 }
 
 /**
- * @summary 更新ApplicationToken过期时间
+ * @summary Updates the expiration time of an application token.
  *
  * @param request UpdateApplicationTokenExpirationTimeRequest
  * @return UpdateApplicationTokenExpirationTimeResponse
@@ -16374,7 +16460,7 @@ UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpir
 }
 
 /**
- * @summary 更新授权规则信息
+ * @summary Updates the basic properties of an authorization rule.
  *
  * @param request UpdateAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16423,7 +16509,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRuleWithOptions(const
 }
 
 /**
- * @summary 更新授权规则信息
+ * @summary Updates the basic properties of an authorization rule.
  *
  * @param request UpdateAuthorizationRuleRequest
  * @return UpdateAuthorizationRuleResponse
@@ -16434,7 +16520,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const UpdateAuth
 }
 
 /**
- * @summary 更新授权规则应用关联关系属性
+ * @summary Updates the properties of the relationship between an authorization rule and an application.
  *
  * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16487,7 +16573,7 @@ UpdateAuthorizationRuleApplicationAttachmentResponse Client::updateAuthorization
 }
 
 /**
- * @summary 更新授权规则应用关联关系属性
+ * @summary Updates the properties of the relationship between an authorization rule and an application.
  *
  * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
  * @return UpdateAuthorizationRuleApplicationAttachmentResponse
@@ -16498,7 +16584,7 @@ UpdateAuthorizationRuleApplicationAttachmentResponse Client::updateAuthorization
 }
 
 /**
- * @summary 更新授权规则描述信息
+ * @summary Updates the description of an authorization rule.
  *
  * @param request UpdateAuthorizationRuleDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16543,7 +16629,7 @@ UpdateAuthorizationRuleDescriptionResponse Client::updateAuthorizationRuleDescri
 }
 
 /**
- * @summary 更新授权规则描述信息
+ * @summary Updates the description of an authorization rule.
  *
  * @param request UpdateAuthorizationRuleDescriptionRequest
  * @return UpdateAuthorizationRuleDescriptionResponse
@@ -16554,7 +16640,7 @@ UpdateAuthorizationRuleDescriptionResponse Client::updateAuthorizationRuleDescri
 }
 
 /**
- * @summary 更新授权规则组关联关系属性
+ * @summary Updates the properties of the association between an authorization rule and a group.
  *
  * @param request UpdateAuthorizationRuleGroupAttachmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16607,7 +16693,7 @@ UpdateAuthorizationRuleGroupAttachmentResponse Client::updateAuthorizationRuleGr
 }
 
 /**
- * @summary 更新授权规则组关联关系属性
+ * @summary Updates the properties of the association between an authorization rule and a group.
  *
  * @param request UpdateAuthorizationRuleGroupAttachmentRequest
  * @return UpdateAuthorizationRuleGroupAttachmentResponse
@@ -16618,7 +16704,7 @@ UpdateAuthorizationRuleGroupAttachmentResponse Client::updateAuthorizationRuleGr
 }
 
 /**
- * @summary 更新授权规则账户关联关系属性
+ * @summary Updates the properties of an association between an authorization rule and a user.
  *
  * @param request UpdateAuthorizationRuleUserAttachmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16671,7 +16757,7 @@ UpdateAuthorizationRuleUserAttachmentResponse Client::updateAuthorizationRuleUse
 }
 
 /**
- * @summary 更新授权规则账户关联关系属性
+ * @summary Updates the properties of an association between an authorization rule and a user.
  *
  * @param request UpdateAuthorizationRuleUserAttachmentRequest
  * @return UpdateAuthorizationRuleUserAttachmentResponse
@@ -16682,7 +16768,7 @@ UpdateAuthorizationRuleUserAttachmentResponse Client::updateAuthorizationRuleUse
 }
 
 /**
- * @summary 修改品牌
+ * @summary Updates a brand.
  *
  * @param request UpdateBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16721,7 +16807,7 @@ UpdateBrandResponse Client::updateBrandWithOptions(const UpdateBrandRequest &req
 }
 
 /**
- * @summary 修改品牌
+ * @summary Updates a brand.
  *
  * @param request UpdateBrandRequest
  * @return UpdateBrandResponse
@@ -16732,7 +16818,7 @@ UpdateBrandResponse Client::updateBrand(const UpdateBrandRequest &request) {
 }
 
 /**
- * @summary 更新云账号
+ * @summary Updates the basic information of an Alibaba Cloud account.
  *
  * @param request UpdateCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16775,7 +16861,7 @@ UpdateCloudAccountResponse Client::updateCloudAccountWithOptions(const UpdateClo
 }
 
 /**
- * @summary 更新云账号
+ * @summary Updates the basic information of an Alibaba Cloud account.
  *
  * @param request UpdateCloudAccountRequest
  * @return UpdateCloudAccountResponse
@@ -16786,7 +16872,7 @@ UpdateCloudAccountResponse Client::updateCloudAccount(const UpdateCloudAccountRe
 }
 
 /**
- * @summary 更新云账号描述
+ * @summary Updates the description of an Alibaba Cloud account.
  *
  * @param request UpdateCloudAccountDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16829,7 +16915,7 @@ UpdateCloudAccountDescriptionResponse Client::updateCloudAccountDescriptionWithO
 }
 
 /**
- * @summary 更新云账号描述
+ * @summary Updates the description of an Alibaba Cloud account.
  *
  * @param request UpdateCloudAccountDescriptionRequest
  * @return UpdateCloudAccountDescriptionResponse
@@ -16840,7 +16926,7 @@ UpdateCloudAccountDescriptionResponse Client::updateCloudAccountDescription(cons
 }
 
 /**
- * @summary 更新云角色描述
+ * @summary Updates the description of a cloud role.
  *
  * @param request UpdateCloudAccountRoleDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16887,7 +16973,7 @@ UpdateCloudAccountRoleDescriptionResponse Client::updateCloudAccountRoleDescript
 }
 
 /**
- * @summary 更新云角色描述
+ * @summary Updates the description of a cloud role.
  *
  * @param request UpdateCloudAccountRoleDescriptionRequest
  * @return UpdateCloudAccountRoleDescriptionResponse
@@ -16898,9 +16984,9 @@ UpdateCloudAccountRoleDescriptionResponse Client::updateCloudAccountRoleDescript
 }
 
 /**
- * @summary Update Conditional Access Policy
+ * @summary Updates a conditional access policy.
  *
- * @description Update Conditional Access Policy
+ * @description Updates a conditional access policy.
  *
  * @param request UpdateConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16959,9 +17045,9 @@ UpdateConditionalAccessPolicyResponse Client::updateConditionalAccessPolicyWithO
 }
 
 /**
- * @summary Update Conditional Access Policy
+ * @summary Updates a conditional access policy.
  *
- * @description Update Conditional Access Policy
+ * @description Updates a conditional access policy.
  *
  * @param request UpdateConditionalAccessPolicyRequest
  * @return UpdateConditionalAccessPolicyResponse
@@ -16972,9 +17058,9 @@ UpdateConditionalAccessPolicyResponse Client::updateConditionalAccessPolicy(cons
 }
 
 /**
- * @summary Update Conditional Access Policy Description
+ * @summary Updates the description of a conditional access policy.
  *
- * @description Update Conditional Access Policy Description
+ * @description Updates the description of a conditional access policy.
  *
  * @param request UpdateConditionalAccessPolicyDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17017,9 +17103,9 @@ UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccess
 }
 
 /**
- * @summary Update Conditional Access Policy Description
+ * @summary Updates the description of a conditional access policy.
  *
- * @description Update Conditional Access Policy Description
+ * @description Updates the description of a conditional access policy.
  *
  * @param request UpdateConditionalAccessPolicyDescriptionRequest
  * @return UpdateConditionalAccessPolicyDescriptionResponse
@@ -17030,7 +17116,7 @@ UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccess
 }
 
 /**
- * @summary 更新凭据
+ * @summary Update basic information for a credential.
  *
  * @param request UpdateCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17077,7 +17163,7 @@ UpdateCredentialResponse Client::updateCredentialWithOptions(const UpdateCredent
 }
 
 /**
- * @summary 更新凭据
+ * @summary Update basic information for a credential.
  *
  * @param request UpdateCredentialRequest
  * @return UpdateCredentialResponse
@@ -17088,7 +17174,7 @@ UpdateCredentialResponse Client::updateCredential(const UpdateCredentialRequest 
 }
 
 /**
- * @summary 更新凭据描述
+ * @summary Update the description of a credential.
  *
  * @param request UpdateCredentialDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17131,7 +17217,7 @@ UpdateCredentialDescriptionResponse Client::updateCredentialDescriptionWithOptio
 }
 
 /**
- * @summary 更新凭据描述
+ * @summary Update the description of a credential.
  *
  * @param request UpdateCredentialDescriptionRequest
  * @return UpdateCredentialDescriptionResponse
@@ -17142,7 +17228,7 @@ UpdateCredentialDescriptionResponse Client::updateCredentialDescription(const Up
 }
 
 /**
- * @summary 更新凭据提供商
+ * @summary Updates a credential provider.
  *
  * @param request UpdateCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17189,7 +17275,7 @@ UpdateCredentialProviderResponse Client::updateCredentialProviderWithOptions(con
 }
 
 /**
- * @summary 更新凭据提供商
+ * @summary Updates a credential provider.
  *
  * @param request UpdateCredentialProviderRequest
  * @return UpdateCredentialProviderResponse
@@ -17200,7 +17286,7 @@ UpdateCredentialProviderResponse Client::updateCredentialProvider(const UpdateCr
 }
 
 /**
- * @summary 更新凭据提供商描述
+ * @summary Update the description of a credential provider.
  *
  * @param request UpdateCredentialProviderDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17239,7 +17325,7 @@ UpdateCredentialProviderDescriptionResponse Client::updateCredentialProviderDesc
 }
 
 /**
- * @summary 更新凭据提供商描述
+ * @summary Update the description of a credential provider.
  *
  * @param request UpdateCredentialProviderDescriptionRequest
  * @return UpdateCredentialProviderDescriptionResponse
@@ -17250,7 +17336,7 @@ UpdateCredentialProviderDescriptionResponse Client::updateCredentialProviderDesc
 }
 
 /**
- * @summary 更新自定义条款
+ * @summary Updates a custom privacy policy.
  *
  * @param request UpdateCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17301,7 +17387,7 @@ UpdateCustomPrivacyPolicyResponse Client::updateCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary 更新自定义条款
+ * @summary Updates a custom privacy policy.
  *
  * @param request UpdateCustomPrivacyPolicyRequest
  * @return UpdateCustomPrivacyPolicyResponse
@@ -17312,7 +17398,7 @@ UpdateCustomPrivacyPolicyResponse Client::updateCustomPrivacyPolicy(const Update
 }
 
 /**
- * @summary 修改域名关联的品牌。
+ * @summary Updates the brand associated with a domain name.
  *
  * @param request UpdateDomainBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17351,7 +17437,7 @@ UpdateDomainBrandResponse Client::updateDomainBrandWithOptions(const UpdateDomai
 }
 
 /**
- * @summary 修改域名关联的品牌。
+ * @summary Updates the brand associated with a domain name.
  *
  * @param request UpdateDomainBrandRequest
  * @return UpdateDomainBrandResponse
@@ -17362,7 +17448,7 @@ UpdateDomainBrandResponse Client::updateDomainBrand(const UpdateDomainBrandReque
 }
 
 /**
- * @summary 更新域名备案号。
+ * @summary Updates the ICP filing number for a domain name.
  *
  * @param request UpdateDomainIcpNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17401,7 +17487,7 @@ UpdateDomainIcpNumberResponse Client::updateDomainIcpNumberWithOptions(const Upd
 }
 
 /**
- * @summary 更新域名备案号。
+ * @summary Updates the ICP filing number for a domain name.
  *
  * @param request UpdateDomainIcpNumberRequest
  * @return UpdateDomainIcpNumberResponse
@@ -17412,7 +17498,7 @@ UpdateDomainIcpNumberResponse Client::updateDomainIcpNumber(const UpdateDomainIc
 }
 
 /**
- * @summary 更新联邦凭证提供方
+ * @summary Updates a federated credential provider.
  *
  * @param request UpdateFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17467,7 +17553,7 @@ UpdateFederatedCredentialProviderResponse Client::updateFederatedCredentialProvi
 }
 
 /**
- * @summary 更新联邦凭证提供方
+ * @summary Updates a federated credential provider.
  *
  * @param request UpdateFederatedCredentialProviderRequest
  * @return UpdateFederatedCredentialProviderResponse
@@ -17478,7 +17564,7 @@ UpdateFederatedCredentialProviderResponse Client::updateFederatedCredentialProvi
 }
 
 /**
- * @summary 更新联邦凭证提供方描述
+ * @summary Updates the description of a federated credential provider.
  *
  * @param request UpdateFederatedCredentialProviderDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17517,7 +17603,7 @@ UpdateFederatedCredentialProviderDescriptionResponse Client::updateFederatedCred
 }
 
 /**
- * @summary 更新联邦凭证提供方描述
+ * @summary Updates the description of a federated credential provider.
  *
  * @param request UpdateFederatedCredentialProviderDescriptionRequest
  * @return UpdateFederatedCredentialProviderDescriptionResponse
@@ -17632,7 +17718,7 @@ UpdateGroupDescriptionResponse Client::updateGroupDescription(const UpdateGroupD
 }
 
 /**
- * @summary 更新idp基础配置
+ * @summary Updates the basic configuration of an identity provider.
  *
  * @param request UpdateIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17707,7 +17793,7 @@ UpdateIdentityProviderResponse Client::updateIdentityProviderWithOptions(const U
 }
 
 /**
- * @summary 更新idp基础配置
+ * @summary Updates the basic configuration of an identity provider.
  *
  * @param request UpdateIdentityProviderRequest
  * @return UpdateIdentityProviderResponse
@@ -17764,7 +17850,7 @@ UpdateInstanceDescriptionResponse Client::updateInstanceDescription(const Update
 }
 
 /**
- * @summary 更新一个专属网络端点的名称。
+ * @summary Modifies the name of a private network access endpoint.
  *
  * @param request UpdateNetworkAccessEndpointNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17803,7 +17889,7 @@ UpdateNetworkAccessEndpointNameResponse Client::updateNetworkAccessEndpointNameW
 }
 
 /**
- * @summary 更新一个专属网络端点的名称。
+ * @summary Modifies the name of a private network access endpoint.
  *
  * @param request UpdateNetworkAccessEndpointNameRequest
  * @return UpdateNetworkAccessEndpointNameResponse
@@ -17814,7 +17900,7 @@ UpdateNetworkAccessEndpointNameResponse Client::updateNetworkAccessEndpointName(
 }
 
 /**
- * @summary 更新网络区域对象
+ * @summary Updates a network zone object.
  *
  * @param request UpdateNetworkZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17869,7 +17955,7 @@ UpdateNetworkZoneResponse Client::updateNetworkZoneWithOptions(const UpdateNetwo
 }
 
 /**
- * @summary 更新网络区域对象
+ * @summary Updates a network zone object.
  *
  * @param request UpdateNetworkZoneRequest
  * @return UpdateNetworkZoneResponse
@@ -17880,7 +17966,7 @@ UpdateNetworkZoneResponse Client::updateNetworkZone(const UpdateNetworkZoneReque
 }
 
 /**
- * @summary 更新网络区域对象描述
+ * @summary Updates the description of a network zone.
  *
  * @param request UpdateNetworkZoneDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17923,7 +18009,7 @@ UpdateNetworkZoneDescriptionResponse Client::updateNetworkZoneDescriptionWithOpt
 }
 
 /**
- * @summary 更新网络区域对象描述
+ * @summary Updates the description of a network zone.
  *
  * @param request UpdateNetworkZoneDescriptionRequest
  * @return UpdateNetworkZoneDescriptionResponse
@@ -18084,7 +18170,7 @@ UpdateOrganizationalUnitParentIdResponse Client::updateOrganizationalUnitParentI
 }
 
 /**
- * @summary 更新指定ResourceServer下的Scope
+ * @summary Updates a scope permission for a specified resource server.
  *
  * @param request UpdateResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18127,7 +18213,7 @@ UpdateResourceServerScopeResponse Client::updateResourceServerScopeWithOptions(c
 }
 
 /**
- * @summary 更新指定ResourceServer下的Scope
+ * @summary Updates a scope permission for a specified resource server.
  *
  * @param request UpdateResourceServerScopeRequest
  * @return UpdateResourceServerScopeResponse
@@ -18138,7 +18224,7 @@ UpdateResourceServerScopeResponse Client::updateResourceServerScope(const Update
 }
 
 /**
- * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+ * @summary Updates the basic information of an EIAM account.
  *
  * @param request UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18205,7 +18291,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 }
 
 /**
- * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+ * @summary Updates the basic information of an EIAM account.
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse
@@ -18216,7 +18302,7 @@ UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
 }
 
 /**
- * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+ * @summary Updates a user\\"s description.
  *
  * @param request UpdateUserDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18255,7 +18341,7 @@ UpdateUserDescriptionResponse Client::updateUserDescriptionWithOptions(const Upd
 }
 
 /**
- * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+ * @summary Updates a user\\"s description.
  *
  * @param request UpdateUserDescriptionRequest
  * @return UpdateUserDescriptionResponse

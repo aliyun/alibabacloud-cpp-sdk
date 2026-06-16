@@ -124,25 +124,29 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // Application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // Authorization type.
     shared_ptr<string> authorizationType_ {};
-    // IDaaS EIAM实例的ID。
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 分页查询时每页行数。默认值为20，最大值为100。
+    // Number of rows per page in paginated queries.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // Token for the next page query. Set this to the NextToken value returned by the previous API call. Leave empty for the first query.
     shared_ptr<string> nextToken_ {};
+    // Token for the previous page query. Set this to the PreviousToken value returned by the previous API call.
     shared_ptr<string> previousToken_ {};
+    // List of Scope permission IDs.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};
-    // 权限名称
+    // Scope permission name.
     shared_ptr<string> resourceServerScopeName_ {};
+    // Scope permission type.
     shared_ptr<string> resourceServerScopeType_ {};
-    // 权限值，大小写不敏感，格式(${ResourceType}:${ResourceOption}:${ResourceRestrict})
+    // Scope permission value.
     shared_ptr<string> resourceServerScopeValue_ {};
   };
 

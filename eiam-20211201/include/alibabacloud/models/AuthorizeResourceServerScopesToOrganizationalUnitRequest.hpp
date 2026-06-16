@@ -78,21 +78,23 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // The ID of the resource server application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // A client token to ensure the idempotence of the request. Generate a unique value from your client. This token can contain only ASCII characters and must be no more than 64 characters long. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 组织ID。
+    // The organization ID.
     // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitId_ {};
-    // ResourceServer权限ID。
+    // A list of scope permission IDs for the resource server.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};

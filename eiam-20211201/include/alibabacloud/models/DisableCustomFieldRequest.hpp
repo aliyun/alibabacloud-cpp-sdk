@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // fieldId
+    // The field ID.
     // 
     // This parameter is required.
     shared_ptr<string> fieldId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the application role.
     shared_ptr<string> applicationRoleId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

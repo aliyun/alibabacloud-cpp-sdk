@@ -78,19 +78,19 @@ namespace Models
 
 
   protected:
-    // 非必填，如果填写则可以基于应用ID进行过滤，列表中最多包含100个元素。
+    // The list of application IDs. A maximum of 100 application IDs are supported.
     shared_ptr<vector<string>> applicationIds_ {};
-    // 组的唯一标识。
+    // The group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 当前查询的列表页码，默认为1。
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // 当前查询的列表页码，默认为20。
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

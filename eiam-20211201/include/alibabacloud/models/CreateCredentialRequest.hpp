@@ -112,9 +112,9 @@ namespace Models
 
 
       protected:
-        // OAuth协议的client_id。
+        // The `client_id` of the OAuth protocol.
         shared_ptr<string> clientId_ {};
-        // OAuth协议的client_secret。
+        // The `client_secret` of the OAuth protocol.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -146,7 +146,7 @@ namespace Models
 
 
       protected:
-        // API Key 凭证类型的凭据内容。
+        // The API key.
         shared_ptr<string> apiKey_ {};
       };
 
@@ -171,9 +171,9 @@ namespace Models
 
 
     protected:
-      // Api Key的内容。
+      // The credential content of the API key type.
       shared_ptr<CredentialContent::ApiKeyContent> apiKeyContent_ {};
-      // OAuth客户端认证凭证类型的凭据内容。
+      // The credential content of the OAuth client type.
       shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
     };
 
@@ -275,38 +275,48 @@ namespace Models
 
 
   protected:
-    // 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+    // A client-generated token that ensures the idempotence of the request. This token must be a unique value that contains only ASCII characters and is no more than 64 characters long. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // 凭据的内容。
+    // The credential content.
     // 
     // This parameter is required.
     shared_ptr<CreateCredentialRequest::CredentialContent> credentialContent_ {};
     shared_ptr<string> credentialExternalId_ {};
-    // 凭据标识。
+    // The credential identifier.
     // 
     // This parameter is required.
     shared_ptr<string> credentialIdentifier_ {};
-    // 凭据名称。
+    // The credential name.
     // 
     // This parameter is required.
     shared_ptr<string> credentialName_ {};
-    // 凭据的使用场景标签。
+    // The use case label of the credential. Valid values:
+    // 
+    // - `llm`: large language model.
+    // 
+    // - `saas`: third-party SaaS.
     shared_ptr<string> credentialScenarioLabel_ {};
     shared_ptr<string> credentialSharingScope_ {};
-    // 凭据所属的主体ID。
+    // The ID of the credential\\"s subject.
     shared_ptr<string> credentialSubjectId_ {};
-    // 凭据所属的主体类型。
+    // The subject type of the credential. Valid value:
+    // 
+    // - `authentication_token_provider`: an authentication token provider.
     shared_ptr<string> credentialSubjectType_ {};
-    // 凭据类型。
+    // The credential type. Valid values:
+    // 
+    // - `api_key`: an API key.
+    // 
+    // - `oauth_client`: an OAuth client.
     // 
     // This parameter is required.
     shared_ptr<string> credentialType_ {};
-    // 描述
+    // The credential description.
     shared_ptr<string> description_ {};
     shared_ptr<string> exclusiveUserId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

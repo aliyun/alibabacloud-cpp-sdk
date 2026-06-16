@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // 应用token
+      // The application token.
       shared_ptr<string> applicationToken_ {};
-      // 应用token ID
+      // The application token ID.
       shared_ptr<string> applicationTokenId_ {};
-      // 应用token类型
+      // The application token type.
       shared_ptr<string> applicationTokenType_ {};
     };
 
@@ -105,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The application token.
     shared_ptr<CreateApplicationTokenResponseBody::ApplicationTokens> applicationTokens_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

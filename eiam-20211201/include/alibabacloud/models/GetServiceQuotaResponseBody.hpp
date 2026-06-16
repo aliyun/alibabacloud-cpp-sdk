@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // Quota 配额的唯一标识。
+      // The unique identifier of the quota.
       shared_ptr<string> quotaType_ {};
-      // Quota 配额的值。
+      // The value of the quota.
       shared_ptr<int64_t> quotaValue_ {};
-      // Quota 配额的当前用量。
+      // The current usage of the quota.
       shared_ptr<int64_t> usedQuotaValue_ {};
     };
 
@@ -105,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The service quota.
     shared_ptr<GetServiceQuotaResponseBody::ServiceQuota> serviceQuota_ {};
   };
 

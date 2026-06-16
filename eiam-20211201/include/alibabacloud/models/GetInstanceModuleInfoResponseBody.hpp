@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // 二级模块标识
+        // The identifier of the secondary module.
         shared_ptr<string> featureKey_ {};
-        // 二级模块状态
+        // The status of the secondary module.
         shared_ptr<string> featureStatus_ {};
       };
 
@@ -125,11 +125,11 @@ namespace Models
 
 
     protected:
-      // 二级模块信息
+      // The information about the secondary modules.
       shared_ptr<vector<Module::Features>> features_ {};
-      // 模块状态
+      // The identifier of the primary module.
       shared_ptr<string> moduleKey_ {};
-      // 一级模块状态
+      // The status of the primary module.
       shared_ptr<string> moduleStatus_ {};
     };
 
@@ -152,7 +152,9 @@ namespace Models
 
 
   protected:
+    // The instance information.
     shared_ptr<GetInstanceModuleInfoResponseBody::Module> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

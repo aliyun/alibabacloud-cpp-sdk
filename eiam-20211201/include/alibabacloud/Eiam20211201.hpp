@@ -21,7 +21,7 @@ namespace Eiam20211201
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 在当前应用下给指定员工添加一个应用账号。
+       * @summary Adds an application account to a specified user in the current application.
        *
        * @param request AddApplicationAccountToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Eiam20211201
       Models::AddApplicationAccountToUserResponse addApplicationAccountToUserWithOptions(const Models::AddApplicationAccountToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 在当前应用下给指定员工添加一个应用账号。
+       * @summary Adds an application account to a specified user in the current application.
        *
        * @param request AddApplicationAccountToUserRequest
        * @return AddApplicationAccountToUserResponse
@@ -38,7 +38,7 @@ namespace Eiam20211201
       Models::AddApplicationAccountToUserResponse addApplicationAccountToUser(const Models::AddApplicationAccountToUserRequest &request);
 
       /**
-       * @summary 将应用添加到授权规则
+       * @summary Adds an application to an authorization rule.
        *
        * @param request AddApplicationToAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Eiam20211201
       Models::AddApplicationToAuthorizationRuleResponse addApplicationToAuthorizationRuleWithOptions(const Models::AddApplicationToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将应用添加到授权规则
+       * @summary Adds an application to an authorization rule.
        *
        * @param request AddApplicationToAuthorizationRuleRequest
        * @return AddApplicationToAuthorizationRuleResponse
@@ -55,7 +55,7 @@ namespace Eiam20211201
       Models::AddApplicationToAuthorizationRuleResponse addApplicationToAuthorizationRule(const Models::AddApplicationToAuthorizationRuleRequest &request);
 
       /**
-       * @summary 添加条款到品牌
+       * @summary Assign terms to a brand
        *
        * @param request AddCustomPrivacyPoliciesToBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Eiam20211201
       Models::AddCustomPrivacyPoliciesToBrandResponse addCustomPrivacyPoliciesToBrandWithOptions(const Models::AddCustomPrivacyPoliciesToBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加条款到品牌
+       * @summary Assign terms to a brand
        *
        * @param request AddCustomPrivacyPoliciesToBrandRequest
        * @return AddCustomPrivacyPoliciesToBrandResponse
@@ -72,7 +72,7 @@ namespace Eiam20211201
       Models::AddCustomPrivacyPoliciesToBrandResponse addCustomPrivacyPoliciesToBrand(const Models::AddCustomPrivacyPoliciesToBrandRequest &request);
 
       /**
-       * @summary 将组添加到授权规则
+       * @summary Adds a group to an authorization rule.
        *
        * @param request AddGroupToAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Eiam20211201
       Models::AddGroupToAuthorizationRuleResponse addGroupToAuthorizationRuleWithOptions(const Models::AddGroupToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将组添加到授权规则
+       * @summary Adds a group to an authorization rule.
        *
        * @param request AddGroupToAuthorizationRuleRequest
        * @return AddGroupToAuthorizationRuleResponse
@@ -89,7 +89,7 @@ namespace Eiam20211201
       Models::AddGroupToAuthorizationRuleResponse addGroupToAuthorizationRule(const Models::AddGroupToAuthorizationRuleRequest &request);
 
       /**
-       * @summary 将账户添加到授权规则
+       * @summary Adds a user to an authorization rule.
        *
        * @param request AddUserToAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Eiam20211201
       Models::AddUserToAuthorizationRuleResponse addUserToAuthorizationRuleWithOptions(const Models::AddUserToAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将账户添加到授权规则
+       * @summary Adds a user to an authorization rule.
        *
        * @param request AddUserToAuthorizationRuleRequest
        * @return AddUserToAuthorizationRuleResponse
@@ -106,7 +106,7 @@ namespace Eiam20211201
       Models::AddUserToAuthorizationRuleResponse addUserToAuthorizationRule(const Models::AddUserToAuthorizationRuleRequest &request);
 
       /**
-       * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+       * @summary Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
        *
        * @param request AddUserToOrganizationalUnitsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Eiam20211201
       Models::AddUserToOrganizationalUnitsResponse addUserToOrganizationalUnitsWithOptions(const Models::AddUserToOrganizationalUnitsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+       * @summary Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
        *
        * @param request AddUserToOrganizationalUnitsRequest
        * @return AddUserToOrganizationalUnitsResponse
@@ -140,7 +140,7 @@ namespace Eiam20211201
       Models::AddUsersToGroupResponse addUsersToGroup(const Models::AddUsersToGroupRequest &request);
 
       /**
-       * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Grants multiple EIAM groups access to an application.
        *
        * @param request AuthorizeApplicationToGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace Eiam20211201
       Models::AuthorizeApplicationToGroupsResponse authorizeApplicationToGroupsWithOptions(const Models::AuthorizeApplicationToGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Grants multiple EIAM groups access to an application.
        *
        * @param request AuthorizeApplicationToGroupsRequest
        * @return AuthorizeApplicationToGroupsResponse
@@ -157,7 +157,7 @@ namespace Eiam20211201
       Models::AuthorizeApplicationToGroupsResponse authorizeApplicationToGroups(const Models::AuthorizeApplicationToGroupsRequest &request);
 
       /**
-       * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+       * @summary Grants access to an application for multiple EIAM organizations in a batch operation.
        *
        * @param request AuthorizeApplicationToOrganizationalUnitsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace Eiam20211201
       Models::AuthorizeApplicationToOrganizationalUnitsResponse authorizeApplicationToOrganizationalUnitsWithOptions(const Models::AuthorizeApplicationToOrganizationalUnitsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+       * @summary Grants access to an application for multiple EIAM organizations in a batch operation.
        *
        * @param request AuthorizeApplicationToOrganizationalUnitsRequest
        * @return AuthorizeApplicationToOrganizationalUnitsResponse
@@ -174,7 +174,7 @@ namespace Eiam20211201
       Models::AuthorizeApplicationToOrganizationalUnitsResponse authorizeApplicationToOrganizationalUnits(const Models::AuthorizeApplicationToOrganizationalUnitsRequest &request);
 
       /**
-       * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+       * @summary Grants permissions to multiple EIAM accounts to access an application.
        *
        * @param request AuthorizeApplicationToUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace Eiam20211201
       Models::AuthorizeApplicationToUsersResponse authorizeApplicationToUsersWithOptions(const Models::AuthorizeApplicationToUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+       * @summary Grants permissions to multiple EIAM accounts to access an application.
        *
        * @param request AuthorizeApplicationToUsersRequest
        * @return AuthorizeApplicationToUsersResponse
@@ -191,7 +191,7 @@ namespace Eiam20211201
       Models::AuthorizeApplicationToUsersResponse authorizeApplicationToUsers(const Models::AuthorizeApplicationToUsersRequest &request);
 
       /**
-       * @summary 授权指定ResourceServer下的Scope给Client
+       * @summary Grants a client application permissions for specific scopes on a specified resource server.
        *
        * @param request AuthorizeResourceServerScopesToClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +200,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToClientResponse authorizeResourceServerScopesToClientWithOptions(const Models::AuthorizeResourceServerScopesToClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 授权指定ResourceServer下的Scope给Client
+       * @summary Grants a client application permissions for specific scopes on a specified resource server.
        *
        * @param request AuthorizeResourceServerScopesToClientRequest
        * @return AuthorizeResourceServerScopesToClientResponse
@@ -208,7 +208,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToClientResponse authorizeResourceServerScopesToClient(const Models::AuthorizeResourceServerScopesToClientRequest &request);
 
       /**
-       * @summary 授予组ResourceServerScope权限
+       * @summary Grants a group permissions for specified scopes on a resource server.
        *
        * @param request AuthorizeResourceServerScopesToGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToGroupResponse authorizeResourceServerScopesToGroupWithOptions(const Models::AuthorizeResourceServerScopesToGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 授予组ResourceServerScope权限
+       * @summary Grants a group permissions for specified scopes on a resource server.
        *
        * @param request AuthorizeResourceServerScopesToGroupRequest
        * @return AuthorizeResourceServerScopesToGroupResponse
@@ -225,7 +225,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToGroupResponse authorizeResourceServerScopesToGroup(const Models::AuthorizeResourceServerScopesToGroupRequest &request);
 
       /**
-       * @summary 授予组织ResourceServerScope权限
+       * @summary Grants scope permissions for a specified resource server to an organization.
        *
        * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +234,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToOrganizationalUnitResponse authorizeResourceServerScopesToOrganizationalUnitWithOptions(const Models::AuthorizeResourceServerScopesToOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 授予组织ResourceServerScope权限
+       * @summary Grants scope permissions for a specified resource server to an organization.
        *
        * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
        * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -242,7 +242,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToOrganizationalUnitResponse authorizeResourceServerScopesToOrganizationalUnit(const Models::AuthorizeResourceServerScopesToOrganizationalUnitRequest &request);
 
       /**
-       * @summary 授予用户ResourceServerScope权限
+       * @summary Grants scope permissions for a specified resource server to a user account.
        *
        * @param request AuthorizeResourceServerScopesToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +251,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToUserResponse authorizeResourceServerScopesToUserWithOptions(const Models::AuthorizeResourceServerScopesToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 授予用户ResourceServerScope权限
+       * @summary Grants scope permissions for a specified resource server to a user account.
        *
        * @param request AuthorizeResourceServerScopesToUserRequest
        * @return AuthorizeResourceServerScopesToUserResponse
@@ -259,7 +259,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToUserResponse authorizeResourceServerScopesToUser(const Models::AuthorizeResourceServerScopesToUserRequest &request);
 
       /**
-       * @summary 授权指定ResourceServer给Client
+       * @summary Authorizes a resource server for a client application.
        *
        * @param request AuthorizeResourceServerToClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +268,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerToClientResponse authorizeResourceServerToClientWithOptions(const Models::AuthorizeResourceServerToClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 授权指定ResourceServer给Client
+       * @summary Authorizes a resource server for a client application.
        *
        * @param request AuthorizeResourceServerToClientRequest
        * @return AuthorizeResourceServerToClientResponse
@@ -276,7 +276,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerToClientResponse authorizeResourceServerToClient(const Models::AuthorizeResourceServerToClientRequest &request);
 
       /**
-       * @summary 绑定三方登录账户
+       * @summary Binds a user to a third-party logon account.
        *
        * @param request BindUserAuthnSourceMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ namespace Eiam20211201
       Models::BindUserAuthnSourceMappingResponse bindUserAuthnSourceMappingWithOptions(const Models::BindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定三方登录账户
+       * @summary Binds a user to a third-party logon account.
        *
        * @param request BindUserAuthnSourceMappingRequest
        * @return BindUserAuthnSourceMappingResponse
@@ -293,7 +293,7 @@ namespace Eiam20211201
       Models::BindUserAuthnSourceMappingResponse bindUserAuthnSourceMapping(const Models::BindUserAuthnSourceMappingRequest &request);
 
       /**
-       * @summary 检查应用同步主组织是否在应用同步范围
+       * @summary Checks whether the primary organizational unit for an application is within the synchronization scope.
        *
        * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace Eiam20211201
       Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse checkApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(const Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查应用同步主组织是否在应用同步范围
+       * @summary Checks whether the primary organizational unit for an application is within the synchronization scope.
        *
        * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
        * @return CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -310,7 +310,9 @@ namespace Eiam20211201
       Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse checkApplicationProvisioningUserPrimaryOrganizationalUnit(const Models::CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request);
 
       /**
-       * @summary 实例删除检查。
+       * @summary Checks if an instance can be deleted.
+       *
+       * @description Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
        *
        * @param request CheckInstanceForDeleteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +321,9 @@ namespace Eiam20211201
       Models::CheckInstanceForDeleteResponse checkInstanceForDeleteWithOptions(const Models::CheckInstanceForDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实例删除检查。
+       * @summary Checks if an instance can be deleted.
+       *
+       * @description Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
        *
        * @param request CheckInstanceForDeleteRequest
        * @return CheckInstanceForDeleteResponse
@@ -327,7 +331,9 @@ namespace Eiam20211201
       Models::CheckInstanceForDeleteResponse checkInstanceForDelete(const Models::CheckInstanceForDeleteRequest &request);
 
       /**
-       * @summary 判断实例是否具有某个模块的功能
+       * @summary Determines whether an instance has a specific module feature.
+       *
+       * @description Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
        *
        * @param request CheckInstanceModuleStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +342,9 @@ namespace Eiam20211201
       Models::CheckInstanceModuleStatusResponse checkInstanceModuleStatusWithOptions(const Models::CheckInstanceModuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 判断实例是否具有某个模块的功能
+       * @summary Determines whether an instance has a specific module feature.
+       *
+       * @description Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
        *
        * @param request CheckInstanceModuleStatusRequest
        * @return CheckInstanceModuleStatusResponse
@@ -344,9 +352,9 @@ namespace Eiam20211201
       Models::CheckInstanceModuleStatusResponse checkInstanceModuleStatus(const Models::CheckInstanceModuleStatusRequest &request);
 
       /**
-       * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Creates an application in the specified EIAM instance.
        *
-       * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+       * @description You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
        *
        * @param request CreateApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -355,9 +363,9 @@ namespace Eiam20211201
       Models::CreateApplicationResponse createApplicationWithOptions(const Models::CreateApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Creates an application in the specified EIAM instance.
        *
-       * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+       * @description You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
        *
        * @param request CreateApplicationRequest
        * @return CreateApplicationResponse
@@ -365,7 +373,7 @@ namespace Eiam20211201
       Models::CreateApplicationResponse createApplication(const Models::CreateApplicationRequest &request);
 
       /**
-       * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+       * @summary Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
        *
        * @param request CreateApplicationClientSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -374,7 +382,7 @@ namespace Eiam20211201
       Models::CreateApplicationClientSecretResponse createApplicationClientSecretWithOptions(const Models::CreateApplicationClientSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+       * @summary Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
        *
        * @param request CreateApplicationClientSecretRequest
        * @return CreateApplicationClientSecretResponse
@@ -382,7 +390,7 @@ namespace Eiam20211201
       Models::CreateApplicationClientSecretResponse createApplicationClientSecret(const Models::CreateApplicationClientSecretRequest &request);
 
       /**
-       * @summary 创建应用联邦凭证
+       * @summary Creates an application federated credential.
        *
        * @param request CreateApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +399,7 @@ namespace Eiam20211201
       Models::CreateApplicationFederatedCredentialResponse createApplicationFederatedCredentialWithOptions(const Models::CreateApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用联邦凭证
+       * @summary Creates an application federated credential.
        *
        * @param request CreateApplicationFederatedCredentialRequest
        * @return CreateApplicationFederatedCredentialResponse
@@ -399,7 +407,7 @@ namespace Eiam20211201
       Models::CreateApplicationFederatedCredentialResponse createApplicationFederatedCredential(const Models::CreateApplicationFederatedCredentialRequest &request);
 
       /**
-       * @summary 创建应用角色
+       * @summary Creates an application role.
        *
        * @param request CreateApplicationRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +416,7 @@ namespace Eiam20211201
       Models::CreateApplicationRoleResponse createApplicationRoleWithOptions(const Models::CreateApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用角色
+       * @summary Creates an application role.
        *
        * @param request CreateApplicationRoleRequest
        * @return CreateApplicationRoleResponse
@@ -416,7 +424,7 @@ namespace Eiam20211201
       Models::CreateApplicationRoleResponse createApplicationRole(const Models::CreateApplicationRoleRequest &request);
 
       /**
-       * @summary 创建应用Token
+       * @summary Creates an application token.
        *
        * @param request CreateApplicationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -425,7 +433,7 @@ namespace Eiam20211201
       Models::CreateApplicationTokenResponse createApplicationTokenWithOptions(const Models::CreateApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用Token
+       * @summary Creates an application token.
        *
        * @param request CreateApplicationTokenRequest
        * @return CreateApplicationTokenResponse
@@ -433,7 +441,7 @@ namespace Eiam20211201
       Models::CreateApplicationTokenResponse createApplicationToken(const Models::CreateApplicationTokenRequest &request);
 
       /**
-       * @summary 创建授权资源
+       * @summary Creates an authorization resource.
        *
        * @param request CreateAuthorizationResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,7 +450,7 @@ namespace Eiam20211201
       Models::CreateAuthorizationResourceResponse createAuthorizationResourceWithOptions(const Models::CreateAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建授权资源
+       * @summary Creates an authorization resource.
        *
        * @param request CreateAuthorizationResourceRequest
        * @return CreateAuthorizationResourceResponse
@@ -450,7 +458,7 @@ namespace Eiam20211201
       Models::CreateAuthorizationResourceResponse createAuthorizationResource(const Models::CreateAuthorizationResourceRequest &request);
 
       /**
-       * @summary 创建授权规则
+       * @summary Creates an authorization rule.
        *
        * @param request CreateAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -459,7 +467,7 @@ namespace Eiam20211201
       Models::CreateAuthorizationRuleResponse createAuthorizationRuleWithOptions(const Models::CreateAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建授权规则
+       * @summary Creates an authorization rule.
        *
        * @param request CreateAuthorizationRuleRequest
        * @return CreateAuthorizationRuleResponse
@@ -467,7 +475,7 @@ namespace Eiam20211201
       Models::CreateAuthorizationRuleResponse createAuthorizationRule(const Models::CreateAuthorizationRuleRequest &request);
 
       /**
-       * @summary 创建品牌
+       * @summary Creates a brand.
        *
        * @param request CreateBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -476,7 +484,7 @@ namespace Eiam20211201
       Models::CreateBrandResponse createBrandWithOptions(const Models::CreateBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建品牌
+       * @summary Creates a brand.
        *
        * @param request CreateBrandRequest
        * @return CreateBrandResponse
@@ -484,7 +492,7 @@ namespace Eiam20211201
       Models::CreateBrandResponse createBrand(const Models::CreateBrandRequest &request);
 
       /**
-       * @summary 创建应用ClientPublicKey
+       * @summary Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
        *
        * @param request CreateClientPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +501,7 @@ namespace Eiam20211201
       Models::CreateClientPublicKeyResponse createClientPublicKeyWithOptions(const Models::CreateClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用ClientPublicKey
+       * @summary Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
        *
        * @param request CreateClientPublicKeyRequest
        * @return CreateClientPublicKeyResponse
@@ -501,7 +509,9 @@ namespace Eiam20211201
       Models::CreateClientPublicKeyResponse createClientPublicKey(const Models::CreateClientPublicKeyRequest &request);
 
       /**
-       * @summary 创建云账号
+       * @summary Creates a cloud account in the specified IDaaS EIAM instance.
+       *
+       * @description **Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
        *
        * @param request CreateCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,7 +520,9 @@ namespace Eiam20211201
       Models::CreateCloudAccountResponse createCloudAccountWithOptions(const Models::CreateCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建云账号
+       * @summary Creates a cloud account in the specified IDaaS EIAM instance.
+       *
+       * @description **Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
        *
        * @param request CreateCloudAccountRequest
        * @return CreateCloudAccountResponse
@@ -518,7 +530,7 @@ namespace Eiam20211201
       Models::CreateCloudAccountResponse createCloudAccount(const Models::CreateCloudAccountRequest &request);
 
       /**
-       * @summary 创建云角色
+       * @summary Creates a cloud role for a specified Alibaba Cloud account.
        *
        * @param request CreateCloudAccountRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -527,7 +539,7 @@ namespace Eiam20211201
       Models::CreateCloudAccountRoleResponse createCloudAccountRoleWithOptions(const Models::CreateCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建云角色
+       * @summary Creates a cloud role for a specified Alibaba Cloud account.
        *
        * @param request CreateCloudAccountRoleRequest
        * @return CreateCloudAccountRoleResponse
@@ -556,7 +568,7 @@ namespace Eiam20211201
       Models::CreateConditionalAccessPolicyResponse createConditionalAccessPolicy(const Models::CreateConditionalAccessPolicyRequest &request);
 
       /**
-       * @summary 创建凭据
+       * @summary Creates a credential in a specified EIAM instance.
        *
        * @param request CreateCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -565,7 +577,7 @@ namespace Eiam20211201
       Models::CreateCredentialResponse createCredentialWithOptions(const Models::CreateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建凭据
+       * @summary Creates a credential in a specified EIAM instance.
        *
        * @param request CreateCredentialRequest
        * @return CreateCredentialResponse
@@ -573,7 +585,7 @@ namespace Eiam20211201
       Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
 
       /**
-       * @summary 创建凭据提供商
+       * @summary Creates a credential provider.
        *
        * @param request CreateCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -582,7 +594,7 @@ namespace Eiam20211201
       Models::CreateCredentialProviderResponse createCredentialProviderWithOptions(const Models::CreateCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建凭据提供商
+       * @summary Creates a credential provider.
        *
        * @param request CreateCredentialProviderRequest
        * @return CreateCredentialProviderResponse
@@ -590,7 +602,7 @@ namespace Eiam20211201
       Models::CreateCredentialProviderResponse createCredentialProvider(const Models::CreateCredentialProviderRequest &request);
 
       /**
-       * @summary 创建扩展字段
+       * @summary Creates an extension field.
        *
        * @param request CreateCustomFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -599,7 +611,7 @@ namespace Eiam20211201
       Models::CreateCustomFieldResponse createCustomFieldWithOptions(const Models::CreateCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建扩展字段
+       * @summary Creates an extension field.
        *
        * @param request CreateCustomFieldRequest
        * @return CreateCustomFieldResponse
@@ -607,7 +619,7 @@ namespace Eiam20211201
       Models::CreateCustomFieldResponse createCustomField(const Models::CreateCustomFieldRequest &request);
 
       /**
-       * @summary 创建自定义条款
+       * @summary You can create custom terms.
        *
        * @param request CreateCustomPrivacyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,7 +628,7 @@ namespace Eiam20211201
       Models::CreateCustomPrivacyPolicyResponse createCustomPrivacyPolicyWithOptions(const Models::CreateCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义条款
+       * @summary You can create custom terms.
        *
        * @param request CreateCustomPrivacyPolicyRequest
        * @return CreateCustomPrivacyPolicyResponse
@@ -624,7 +636,7 @@ namespace Eiam20211201
       Models::CreateCustomPrivacyPolicyResponse createCustomPrivacyPolicy(const Models::CreateCustomPrivacyPolicyRequest &request);
 
       /**
-       * @summary Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
+       * @summary Creates a custom domain name for an EIAM (Entity and Identity Access Management) instance.
        *
        * @param request CreateDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -633,7 +645,7 @@ namespace Eiam20211201
       Models::CreateDomainResponse createDomainWithOptions(const Models::CreateDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
+       * @summary Creates a custom domain name for an EIAM (Entity and Identity Access Management) instance.
        *
        * @param request CreateDomainRequest
        * @return CreateDomainResponse
@@ -658,7 +670,7 @@ namespace Eiam20211201
       Models::CreateDomainProxyTokenResponse createDomainProxyToken(const Models::CreateDomainProxyTokenRequest &request);
 
       /**
-       * @summary 创建联邦凭证提供方
+       * @summary Create an identity provider.
        *
        * @param request CreateFederatedCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +679,7 @@ namespace Eiam20211201
       Models::CreateFederatedCredentialProviderResponse createFederatedCredentialProviderWithOptions(const Models::CreateFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建联邦凭证提供方
+       * @summary Create an identity provider.
        *
        * @param request CreateFederatedCredentialProviderRequest
        * @return CreateFederatedCredentialProviderResponse
@@ -692,7 +704,7 @@ namespace Eiam20211201
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
 
       /**
-       * @summary Create Identity Provider
+       * @summary Creates an identity provider.
        *
        * @param request CreateIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -701,7 +713,7 @@ namespace Eiam20211201
       Models::CreateIdentityProviderResponse createIdentityProviderWithOptions(const Models::CreateIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Identity Provider
+       * @summary Creates an identity provider.
        *
        * @param request CreateIdentityProviderRequest
        * @return CreateIdentityProviderResponse
@@ -709,7 +721,7 @@ namespace Eiam20211201
       Models::CreateIdentityProviderResponse createIdentityProvider(const Models::CreateIdentityProviderRequest &request);
 
       /**
-       * @summary 创建IdP状态检查任务
+       * @summary Creates a status check job for an identity provider.
        *
        * @param request CreateIdentityProviderStatusCheckJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -718,7 +730,7 @@ namespace Eiam20211201
       Models::CreateIdentityProviderStatusCheckJobResponse createIdentityProviderStatusCheckJobWithOptions(const Models::CreateIdentityProviderStatusCheckJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建IdP状态检查任务
+       * @summary Creates a status check job for an identity provider.
        *
        * @param request CreateIdentityProviderStatusCheckJobRequest
        * @return CreateIdentityProviderStatusCheckJobResponse
@@ -743,7 +755,7 @@ namespace Eiam20211201
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 为实例创建试用版 License
+       * @summary Creates a trial license for an instance.
        *
        * @param request CreateInstanceTrialLicenseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -752,7 +764,7 @@ namespace Eiam20211201
       Models::CreateInstanceTrialLicenseResponse createInstanceTrialLicenseWithOptions(const Models::CreateInstanceTrialLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为实例创建试用版 License
+       * @summary Creates a trial license for an instance.
        *
        * @param request CreateInstanceTrialLicenseRequest
        * @return CreateInstanceTrialLicenseResponse
@@ -777,7 +789,7 @@ namespace Eiam20211201
       Models::CreateNetworkAccessEndpointResponse createNetworkAccessEndpoint(const Models::CreateNetworkAccessEndpointRequest &request);
 
       /**
-       * @summary 创建网络区域对象
+       * @summary Creates a network zone object.
        *
        * @param request CreateNetworkZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -786,7 +798,7 @@ namespace Eiam20211201
       Models::CreateNetworkZoneResponse createNetworkZoneWithOptions(const Models::CreateNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建网络区域对象
+       * @summary Creates a network zone object.
        *
        * @param request CreateNetworkZoneRequest
        * @return CreateNetworkZoneResponse
@@ -811,7 +823,7 @@ namespace Eiam20211201
       Models::CreateOrganizationalUnitResponse createOrganizationalUnit(const Models::CreateOrganizationalUnitRequest &request);
 
       /**
-       * @summary 创建指定ResourceServer下的Scope
+       * @summary Creates a scope permission for a specified resource server.
        *
        * @param request CreateResourceServerScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -820,7 +832,7 @@ namespace Eiam20211201
       Models::CreateResourceServerScopeResponse createResourceServerScopeWithOptions(const Models::CreateResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建指定ResourceServer下的Scope
+       * @summary Creates a scope permission for a specified resource server.
        *
        * @param request CreateResourceServerScopeRequest
        * @return CreateResourceServerScopeResponse
@@ -828,7 +840,7 @@ namespace Eiam20211201
       Models::CreateResourceServerScopeResponse createResourceServerScope(const Models::CreateResourceServerScopeRequest &request);
 
       /**
-       * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+       * @summary Create an EIAM account in a specific EIAM instance.
        *
        * @param request CreateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -837,7 +849,7 @@ namespace Eiam20211201
       Models::CreateUserResponse createUserWithOptions(const Models::CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+       * @summary Create an EIAM account in a specific EIAM instance.
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -883,7 +895,7 @@ namespace Eiam20211201
       Models::DeleteApplicationClientSecretResponse deleteApplicationClientSecret(const Models::DeleteApplicationClientSecretRequest &request);
 
       /**
-       * @summary 删除应用联邦凭证
+       * @summary Deletes a federated credential for an application.
        *
        * @param request DeleteApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -892,7 +904,7 @@ namespace Eiam20211201
       Models::DeleteApplicationFederatedCredentialResponse deleteApplicationFederatedCredentialWithOptions(const Models::DeleteApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除应用联邦凭证
+       * @summary Deletes a federated credential for an application.
        *
        * @param request DeleteApplicationFederatedCredentialRequest
        * @return DeleteApplicationFederatedCredentialResponse
@@ -900,7 +912,7 @@ namespace Eiam20211201
       Models::DeleteApplicationFederatedCredentialResponse deleteApplicationFederatedCredential(const Models::DeleteApplicationFederatedCredentialRequest &request);
 
       /**
-       * @summary 删除应用角色
+       * @summary Deletes an application role.
        *
        * @param request DeleteApplicationRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -909,7 +921,7 @@ namespace Eiam20211201
       Models::DeleteApplicationRoleResponse deleteApplicationRoleWithOptions(const Models::DeleteApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除应用角色
+       * @summary Deletes an application role.
        *
        * @param request DeleteApplicationRoleRequest
        * @return DeleteApplicationRoleResponse
@@ -917,7 +929,7 @@ namespace Eiam20211201
       Models::DeleteApplicationRoleResponse deleteApplicationRole(const Models::DeleteApplicationRoleRequest &request);
 
       /**
-       * @summary 删除ApplicationToken
+       * @summary Deletes an application token.
        *
        * @param request DeleteApplicationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -926,7 +938,7 @@ namespace Eiam20211201
       Models::DeleteApplicationTokenResponse deleteApplicationTokenWithOptions(const Models::DeleteApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除ApplicationToken
+       * @summary Deletes an application token.
        *
        * @param request DeleteApplicationTokenRequest
        * @return DeleteApplicationTokenResponse
@@ -934,7 +946,7 @@ namespace Eiam20211201
       Models::DeleteApplicationTokenResponse deleteApplicationToken(const Models::DeleteApplicationTokenRequest &request);
 
       /**
-       * @summary 删除授权资源
+       * @summary Deletes an authorization resource.
        *
        * @param request DeleteAuthorizationResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -943,7 +955,7 @@ namespace Eiam20211201
       Models::DeleteAuthorizationResourceResponse deleteAuthorizationResourceWithOptions(const Models::DeleteAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除授权资源
+       * @summary Deletes an authorization resource.
        *
        * @param request DeleteAuthorizationResourceRequest
        * @return DeleteAuthorizationResourceResponse
@@ -951,7 +963,7 @@ namespace Eiam20211201
       Models::DeleteAuthorizationResourceResponse deleteAuthorizationResource(const Models::DeleteAuthorizationResourceRequest &request);
 
       /**
-       * @summary 删除授权规则
+       * @summary Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
        *
        * @param request DeleteAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -960,7 +972,7 @@ namespace Eiam20211201
       Models::DeleteAuthorizationRuleResponse deleteAuthorizationRuleWithOptions(const Models::DeleteAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除授权规则
+       * @summary Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
        *
        * @param request DeleteAuthorizationRuleRequest
        * @return DeleteAuthorizationRuleResponse
@@ -968,7 +980,7 @@ namespace Eiam20211201
       Models::DeleteAuthorizationRuleResponse deleteAuthorizationRule(const Models::DeleteAuthorizationRuleRequest &request);
 
       /**
-       * @summary 删除品牌
+       * @summary Deletes a brand.
        *
        * @param request DeleteBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -977,7 +989,7 @@ namespace Eiam20211201
       Models::DeleteBrandResponse deleteBrandWithOptions(const Models::DeleteBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除品牌
+       * @summary Deletes a brand.
        *
        * @param request DeleteBrandRequest
        * @return DeleteBrandResponse
@@ -985,7 +997,7 @@ namespace Eiam20211201
       Models::DeleteBrandResponse deleteBrand(const Models::DeleteBrandRequest &request);
 
       /**
-       * @summary 删除指定的应用ClientPublicKey
+       * @summary Deletes the ClientPublicKey for a specified application.
        *
        * @param request DeleteClientPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -994,7 +1006,7 @@ namespace Eiam20211201
       Models::DeleteClientPublicKeyResponse deleteClientPublicKeyWithOptions(const Models::DeleteClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定的应用ClientPublicKey
+       * @summary Deletes the ClientPublicKey for a specified application.
        *
        * @param request DeleteClientPublicKeyRequest
        * @return DeleteClientPublicKeyResponse
@@ -1002,7 +1014,7 @@ namespace Eiam20211201
       Models::DeleteClientPublicKeyResponse deleteClientPublicKey(const Models::DeleteClientPublicKeyRequest &request);
 
       /**
-       * @summary 删除云账号
+       * @summary Deletes an Alibaba Cloud account resource.
        *
        * @param request DeleteCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1011,7 +1023,7 @@ namespace Eiam20211201
       Models::DeleteCloudAccountResponse deleteCloudAccountWithOptions(const Models::DeleteCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除云账号
+       * @summary Deletes an Alibaba Cloud account resource.
        *
        * @param request DeleteCloudAccountRequest
        * @return DeleteCloudAccountResponse
@@ -1019,7 +1031,9 @@ namespace Eiam20211201
       Models::DeleteCloudAccountResponse deleteCloudAccount(const Models::DeleteCloudAccountRequest &request);
 
       /**
-       * @summary 删除云角色
+       * @summary Deletes a cloud role from a specified Alibaba Cloud account.
+       *
+       * @description You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
        *
        * @param request DeleteCloudAccountRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1028,7 +1042,9 @@ namespace Eiam20211201
       Models::DeleteCloudAccountRoleResponse deleteCloudAccountRoleWithOptions(const Models::DeleteCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除云角色
+       * @summary Deletes a cloud role from a specified Alibaba Cloud account.
+       *
+       * @description You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
        *
        * @param request DeleteCloudAccountRoleRequest
        * @return DeleteCloudAccountRoleResponse
@@ -1036,9 +1052,9 @@ namespace Eiam20211201
       Models::DeleteCloudAccountRoleResponse deleteCloudAccountRole(const Models::DeleteCloudAccountRoleRequest &request);
 
       /**
-       * @summary Delete Conditional Access Policy
+       * @summary Deletes a conditional access policy.
        *
-       * @description When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+       * @description Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
        *
        * @param request DeleteConditionalAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1047,9 +1063,9 @@ namespace Eiam20211201
       Models::DeleteConditionalAccessPolicyResponse deleteConditionalAccessPolicyWithOptions(const Models::DeleteConditionalAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Conditional Access Policy
+       * @summary Deletes a conditional access policy.
        *
-       * @description When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+       * @description Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
        *
        * @param request DeleteConditionalAccessPolicyRequest
        * @return DeleteConditionalAccessPolicyResponse
@@ -1057,7 +1073,7 @@ namespace Eiam20211201
       Models::DeleteConditionalAccessPolicyResponse deleteConditionalAccessPolicy(const Models::DeleteConditionalAccessPolicyRequest &request);
 
       /**
-       * @summary 删除凭据
+       * @summary Deletes a credential resource.
        *
        * @param request DeleteCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1066,7 +1082,7 @@ namespace Eiam20211201
       Models::DeleteCredentialResponse deleteCredentialWithOptions(const Models::DeleteCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除凭据
+       * @summary Deletes a credential resource.
        *
        * @param request DeleteCredentialRequest
        * @return DeleteCredentialResponse
@@ -1074,7 +1090,7 @@ namespace Eiam20211201
       Models::DeleteCredentialResponse deleteCredential(const Models::DeleteCredentialRequest &request);
 
       /**
-       * @summary 启用凭据提供商
+       * @summary Deletes a credential provider.
        *
        * @param request DeleteCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1083,7 +1099,7 @@ namespace Eiam20211201
       Models::DeleteCredentialProviderResponse deleteCredentialProviderWithOptions(const Models::DeleteCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用凭据提供商
+       * @summary Deletes a credential provider.
        *
        * @param request DeleteCredentialProviderRequest
        * @return DeleteCredentialProviderResponse
@@ -1091,7 +1107,7 @@ namespace Eiam20211201
       Models::DeleteCredentialProviderResponse deleteCredentialProvider(const Models::DeleteCredentialProviderRequest &request);
 
       /**
-       * @summary 删除扩展字段
+       * @summary Deletes an extension field.
        *
        * @param request DeleteCustomFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1100,7 +1116,7 @@ namespace Eiam20211201
       Models::DeleteCustomFieldResponse deleteCustomFieldWithOptions(const Models::DeleteCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除扩展字段
+       * @summary Deletes an extension field.
        *
        * @param request DeleteCustomFieldRequest
        * @return DeleteCustomFieldResponse
@@ -1108,7 +1124,7 @@ namespace Eiam20211201
       Models::DeleteCustomFieldResponse deleteCustomField(const Models::DeleteCustomFieldRequest &request);
 
       /**
-       * @summary 删除自定义条款
+       * @summary Deleting custom clauses
        *
        * @param request DeleteCustomPrivacyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1117,7 +1133,7 @@ namespace Eiam20211201
       Models::DeleteCustomPrivacyPolicyResponse deleteCustomPrivacyPolicyWithOptions(const Models::DeleteCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义条款
+       * @summary Deleting custom clauses
        *
        * @param request DeleteCustomPrivacyPolicyRequest
        * @return DeleteCustomPrivacyPolicyResponse
@@ -1159,7 +1175,7 @@ namespace Eiam20211201
       Models::DeleteDomainProxyTokenResponse deleteDomainProxyToken(const Models::DeleteDomainProxyTokenRequest &request);
 
       /**
-       * @summary 删除联邦凭证提供方
+       * @summary Deletes a federated credential provider.
        *
        * @param request DeleteFederatedCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1168,7 +1184,7 @@ namespace Eiam20211201
       Models::DeleteFederatedCredentialProviderResponse deleteFederatedCredentialProviderWithOptions(const Models::DeleteFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除联邦凭证提供方
+       * @summary Deletes a federated credential provider.
        *
        * @param request DeleteFederatedCredentialProviderRequest
        * @return DeleteFederatedCredentialProviderResponse
@@ -1248,7 +1264,7 @@ namespace Eiam20211201
       Models::DeleteNetworkAccessEndpointResponse deleteNetworkAccessEndpoint(const Models::DeleteNetworkAccessEndpointRequest &request);
 
       /**
-       * @summary 删除网络区域对象
+       * @summary Deletes a network zone object.
        *
        * @param request DeleteNetworkZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1257,7 +1273,7 @@ namespace Eiam20211201
       Models::DeleteNetworkZoneResponse deleteNetworkZoneWithOptions(const Models::DeleteNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网络区域对象
+       * @summary Deletes a network zone object.
        *
        * @param request DeleteNetworkZoneRequest
        * @return DeleteNetworkZoneResponse
@@ -1299,7 +1315,7 @@ namespace Eiam20211201
       Models::DeleteOrganizationalUnitChildrenResponse deleteOrganizationalUnitChildren(const Models::DeleteOrganizationalUnitChildrenRequest &request);
 
       /**
-       * @summary 删除指定ResourceServer下的Scope
+       * @summary Deletes a scope permission from a specified resource server.
        *
        * @param request DeleteResourceServerScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1308,7 +1324,7 @@ namespace Eiam20211201
       Models::DeleteResourceServerScopeResponse deleteResourceServerScopeWithOptions(const Models::DeleteResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定ResourceServer下的Scope
+       * @summary Deletes a scope permission from a specified resource server.
        *
        * @param request DeleteResourceServerScopeRequest
        * @return DeleteResourceServerScopeResponse
@@ -1316,7 +1332,7 @@ namespace Eiam20211201
       Models::DeleteResourceServerScopeResponse deleteResourceServerScope(const Models::DeleteResourceServerScopeRequest &request);
 
       /**
-       * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+       * @summary Deletes a specified EIAM user and purges all related information.
        *
        * @param request DeleteUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1325,7 +1341,7 @@ namespace Eiam20211201
       Models::DeleteUserResponse deleteUserWithOptions(const Models::DeleteUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+       * @summary Deletes a specified EIAM user and purges all related information.
        *
        * @param request DeleteUserRequest
        * @return DeleteUserResponse
@@ -1333,7 +1349,7 @@ namespace Eiam20211201
       Models::DeleteUserResponse deleteUser(const Models::DeleteUserRequest &request);
 
       /**
-       * @summary 批量删除账号
+       * @summary Deletes multiple accounts in a batch.
        *
        * @param request DeleteUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1342,7 +1358,7 @@ namespace Eiam20211201
       Models::DeleteUsersResponse deleteUsersWithOptions(const Models::DeleteUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除账号
+       * @summary Deletes multiple accounts in a batch.
        *
        * @param request DeleteUsersRequest
        * @return DeleteUsersResponse
@@ -1350,7 +1366,7 @@ namespace Eiam20211201
       Models::DeleteUsersResponse deleteUsers(const Models::DeleteUsersRequest &request);
 
       /**
-       * @summary 删除指定WebAuthn认证器名称
+       * @summary Deletes the specified WebAuthn authenticator.
        *
        * @param request DeleteWebAuthnAuthenticatorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1359,7 +1375,7 @@ namespace Eiam20211201
       Models::DeleteWebAuthnAuthenticatorResponse deleteWebAuthnAuthenticatorWithOptions(const Models::DeleteWebAuthnAuthenticatorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定WebAuthn认证器名称
+       * @summary Deletes the specified WebAuthn authenticator.
        *
        * @param request DeleteWebAuthnAuthenticatorRequest
        * @return DeleteWebAuthnAuthenticatorResponse
@@ -1422,7 +1438,7 @@ namespace Eiam20211201
       Models::DisableApplicationClientSecretResponse disableApplicationClientSecret(const Models::DisableApplicationClientSecretRequest &request);
 
       /**
-       * @summary 禁用应用联邦凭证
+       * @summary Disables a federated credential for an application.
        *
        * @param request DisableApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1447,7 @@ namespace Eiam20211201
       Models::DisableApplicationFederatedCredentialResponse disableApplicationFederatedCredentialWithOptions(const Models::DisableApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用应用联邦凭证
+       * @summary Disables a federated credential for an application.
        *
        * @param request DisableApplicationFederatedCredentialRequest
        * @return DisableApplicationFederatedCredentialResponse
@@ -1439,7 +1455,7 @@ namespace Eiam20211201
       Models::DisableApplicationFederatedCredentialResponse disableApplicationFederatedCredential(const Models::DisableApplicationFederatedCredentialRequest &request);
 
       /**
-       * @summary 禁用M2M Client 能力
+       * @summary Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
        *
        * @param request DisableApplicationM2MClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1448,7 +1464,7 @@ namespace Eiam20211201
       Models::DisableApplicationM2MClientResponse disableApplicationM2MClientWithOptions(const Models::DisableApplicationM2MClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用M2M Client 能力
+       * @summary Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
        *
        * @param request DisableApplicationM2MClientRequest
        * @return DisableApplicationM2MClientResponse
@@ -1473,7 +1489,7 @@ namespace Eiam20211201
       Models::DisableApplicationProvisioningResponse disableApplicationProvisioning(const Models::DisableApplicationProvisioningRequest &request);
 
       /**
-       * @summary 禁用ResourceServer能力
+       * @summary Disables the resource server functionality for a specified application.
        *
        * @param request DisableApplicationResourceServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1482,7 +1498,7 @@ namespace Eiam20211201
       Models::DisableApplicationResourceServerResponse disableApplicationResourceServerWithOptions(const Models::DisableApplicationResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用ResourceServer能力
+       * @summary Disables the resource server functionality for a specified application.
        *
        * @param request DisableApplicationResourceServerRequest
        * @return DisableApplicationResourceServerResponse
@@ -1507,7 +1523,9 @@ namespace Eiam20211201
       Models::DisableApplicationSsoResponse disableApplicationSso(const Models::DisableApplicationSsoRequest &request);
 
       /**
-       * @summary 禁用应用Token
+       * @summary Disables an application token.
+       *
+       * @description When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
        *
        * @param request DisableApplicationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1516,7 +1534,9 @@ namespace Eiam20211201
       Models::DisableApplicationTokenResponse disableApplicationTokenWithOptions(const Models::DisableApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用应用Token
+       * @summary Disables an application token.
+       *
+       * @description When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
        *
        * @param request DisableApplicationTokenRequest
        * @return DisableApplicationTokenResponse
@@ -1524,7 +1544,7 @@ namespace Eiam20211201
       Models::DisableApplicationTokenResponse disableApplicationToken(const Models::DisableApplicationTokenRequest &request);
 
       /**
-       * @summary 禁用授权规则
+       * @summary Disables an authorization rule.
        *
        * @param request DisableAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1533,7 +1553,7 @@ namespace Eiam20211201
       Models::DisableAuthorizationRuleResponse disableAuthorizationRuleWithOptions(const Models::DisableAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用授权规则
+       * @summary Disables an authorization rule.
        *
        * @param request DisableAuthorizationRuleRequest
        * @return DisableAuthorizationRuleResponse
@@ -1541,7 +1561,7 @@ namespace Eiam20211201
       Models::DisableAuthorizationRuleResponse disableAuthorizationRule(const Models::DisableAuthorizationRuleRequest &request);
 
       /**
-       * @summary 禁用品牌
+       * @summary Disables a brand.
        *
        * @param request DisableBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1550,7 +1570,7 @@ namespace Eiam20211201
       Models::DisableBrandResponse disableBrandWithOptions(const Models::DisableBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用品牌
+       * @summary Disables a brand.
        *
        * @param request DisableBrandRequest
        * @return DisableBrandResponse
@@ -1558,7 +1578,7 @@ namespace Eiam20211201
       Models::DisableBrandResponse disableBrand(const Models::DisableBrandRequest &request);
 
       /**
-       * @summary 禁用指定的应用ClientPublicKey
+       * @summary Disables the ClientPublicKey for a specified application.
        *
        * @param request DisableClientPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1567,7 +1587,7 @@ namespace Eiam20211201
       Models::DisableClientPublicKeyResponse disableClientPublicKeyWithOptions(const Models::DisableClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用指定的应用ClientPublicKey
+       * @summary Disables the ClientPublicKey for a specified application.
        *
        * @param request DisableClientPublicKeyRequest
        * @return DisableClientPublicKeyResponse
@@ -1575,7 +1595,7 @@ namespace Eiam20211201
       Models::DisableClientPublicKeyResponse disableClientPublicKey(const Models::DisableClientPublicKeyRequest &request);
 
       /**
-       * @summary 禁用云角色
+       * @summary Disables a cloud role for a specified Alibaba Cloud account.
        *
        * @param request DisableCloudAccountRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1584,7 +1604,7 @@ namespace Eiam20211201
       Models::DisableCloudAccountRoleResponse disableCloudAccountRoleWithOptions(const Models::DisableCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用云角色
+       * @summary Disables a cloud role for a specified Alibaba Cloud account.
        *
        * @param request DisableCloudAccountRoleRequest
        * @return DisableCloudAccountRoleResponse
@@ -1592,9 +1612,9 @@ namespace Eiam20211201
       Models::DisableCloudAccountRoleResponse disableCloudAccountRole(const Models::DisableCloudAccountRoleRequest &request);
 
       /**
-       * @summary Disable Conditional Access Policy
+       * @summary Disables a conditional access policy.
        *
-       * @description When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+       * @description When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
        *
        * @param request DisableConditionalAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1603,9 +1623,9 @@ namespace Eiam20211201
       Models::DisableConditionalAccessPolicyResponse disableConditionalAccessPolicyWithOptions(const Models::DisableConditionalAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disable Conditional Access Policy
+       * @summary Disables a conditional access policy.
        *
-       * @description When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+       * @description When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
        *
        * @param request DisableConditionalAccessPolicyRequest
        * @return DisableConditionalAccessPolicyResponse
@@ -1613,7 +1633,7 @@ namespace Eiam20211201
       Models::DisableConditionalAccessPolicyResponse disableConditionalAccessPolicy(const Models::DisableConditionalAccessPolicyRequest &request);
 
       /**
-       * @summary 禁用凭据
+       * @summary Disables a credential resource.
        *
        * @param request DisableCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1622,7 +1642,7 @@ namespace Eiam20211201
       Models::DisableCredentialResponse disableCredentialWithOptions(const Models::DisableCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用凭据
+       * @summary Disables a credential resource.
        *
        * @param request DisableCredentialRequest
        * @return DisableCredentialResponse
@@ -1630,7 +1650,7 @@ namespace Eiam20211201
       Models::DisableCredentialResponse disableCredential(const Models::DisableCredentialRequest &request);
 
       /**
-       * @summary 禁用凭据提供商
+       * @summary Disables a credential provider.
        *
        * @param request DisableCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1639,7 +1659,7 @@ namespace Eiam20211201
       Models::DisableCredentialProviderResponse disableCredentialProviderWithOptions(const Models::DisableCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用凭据提供商
+       * @summary Disables a credential provider.
        *
        * @param request DisableCredentialProviderRequest
        * @return DisableCredentialProviderResponse
@@ -1647,7 +1667,7 @@ namespace Eiam20211201
       Models::DisableCredentialProviderResponse disableCredentialProvider(const Models::DisableCredentialProviderRequest &request);
 
       /**
-       * @summary 禁用字段
+       * @summary Disables a custom field.
        *
        * @param request DisableCustomFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1656,7 +1676,7 @@ namespace Eiam20211201
       Models::DisableCustomFieldResponse disableCustomFieldWithOptions(const Models::DisableCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用字段
+       * @summary Disables a custom field.
        *
        * @param request DisableCustomFieldRequest
        * @return DisableCustomFieldResponse
@@ -1664,7 +1684,7 @@ namespace Eiam20211201
       Models::DisableCustomFieldResponse disableCustomField(const Models::DisableCustomFieldRequest &request);
 
       /**
-       * @summary 禁用自定义条款
+       * @summary Disables a custom privacy policy.
        *
        * @param request DisableCustomPrivacyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1673,7 +1693,7 @@ namespace Eiam20211201
       Models::DisableCustomPrivacyPolicyResponse disableCustomPrivacyPolicyWithOptions(const Models::DisableCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用自定义条款
+       * @summary Disables a custom privacy policy.
        *
        * @param request DisableCustomPrivacyPolicyRequest
        * @return DisableCustomPrivacyPolicyResponse
@@ -1698,7 +1718,7 @@ namespace Eiam20211201
       Models::DisableDomainProxyTokenResponse disableDomainProxyToken(const Models::DisableDomainProxyTokenRequest &request);
 
       /**
-       * @summary 禁用联邦凭证提供方
+       * @summary Disables a federated credential provider.
        *
        * @param request DisableFederatedCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1707,7 +1727,7 @@ namespace Eiam20211201
       Models::DisableFederatedCredentialProviderResponse disableFederatedCredentialProviderWithOptions(const Models::DisableFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用联邦凭证提供方
+       * @summary Disables a federated credential provider.
        *
        * @param request DisableFederatedCredentialProviderRequest
        * @return DisableFederatedCredentialProviderResponse
@@ -1715,7 +1735,7 @@ namespace Eiam20211201
       Models::DisableFederatedCredentialProviderResponse disableFederatedCredentialProvider(const Models::DisableFederatedCredentialProviderRequest &request);
 
       /**
-       * @summary 禁用高级配置
+       * @summary Disables the advanced configuration.
        *
        * @param request DisableIdentityProviderAdvancedAbilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1724,7 +1744,7 @@ namespace Eiam20211201
       Models::DisableIdentityProviderAdvancedAbilityResponse disableIdentityProviderAdvancedAbilityWithOptions(const Models::DisableIdentityProviderAdvancedAbilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用高级配置
+       * @summary Disables the advanced configuration.
        *
        * @param request DisableIdentityProviderAdvancedAbilityRequest
        * @return DisableIdentityProviderAdvancedAbilityResponse
@@ -1732,7 +1752,9 @@ namespace Eiam20211201
       Models::DisableIdentityProviderAdvancedAbilityResponse disableIdentityProviderAdvancedAbility(const Models::DisableIdentityProviderAdvancedAbilityRequest &request);
 
       /**
-       * @summary 禁用认证
+       * @summary Disables authentication.
+       *
+       * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
        *
        * @param request DisableIdentityProviderAuthnRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1741,7 +1763,9 @@ namespace Eiam20211201
       Models::DisableIdentityProviderAuthnResponse disableIdentityProviderAuthnWithOptions(const Models::DisableIdentityProviderAuthnRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用认证
+       * @summary Disables authentication.
+       *
+       * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
        *
        * @param request DisableIdentityProviderAuthnRequest
        * @return DisableIdentityProviderAuthnResponse
@@ -1783,7 +1807,7 @@ namespace Eiam20211201
       Models::DisableInitDomainAutoRedirectResponse disableInitDomainAutoRedirect(const Models::DisableInitDomainAutoRedirectRequest &request);
 
       /**
-       * @summary 禁用内部认证源
+       * @summary Disables an internal authentication source.
        *
        * @param request DisableInternalAuthenticationSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1792,7 +1816,7 @@ namespace Eiam20211201
       Models::DisableInternalAuthenticationSourceResponse disableInternalAuthenticationSourceWithOptions(const Models::DisableInternalAuthenticationSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用内部认证源
+       * @summary Disables an internal authentication source.
        *
        * @param request DisableInternalAuthenticationSourceRequest
        * @return DisableInternalAuthenticationSourceResponse
@@ -1800,7 +1824,7 @@ namespace Eiam20211201
       Models::DisableInternalAuthenticationSourceResponse disableInternalAuthenticationSource(const Models::DisableInternalAuthenticationSourceRequest &request);
 
       /**
-       * @summary 禁用资源服务器自定义主体
+       * @summary Disables the custom subject feature for a specified resource server.
        *
        * @param request DisableResourceServerCustomSubjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1809,7 +1833,7 @@ namespace Eiam20211201
       Models::DisableResourceServerCustomSubjectResponse disableResourceServerCustomSubjectWithOptions(const Models::DisableResourceServerCustomSubjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用资源服务器自定义主体
+       * @summary Disables the custom subject feature for a specified resource server.
        *
        * @param request DisableResourceServerCustomSubjectRequest
        * @return DisableResourceServerCustomSubjectResponse
@@ -1851,7 +1875,7 @@ namespace Eiam20211201
       Models::EnableApplicationResponse enableApplication(const Models::EnableApplicationRequest &request);
 
       /**
-       * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+       * @summary You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
        *
        * @param request EnableApplicationApiInvokeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1860,7 +1884,7 @@ namespace Eiam20211201
       Models::EnableApplicationApiInvokeResponse enableApplicationApiInvokeWithOptions(const Models::EnableApplicationApiInvokeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+       * @summary You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
        *
        * @param request EnableApplicationApiInvokeRequest
        * @return EnableApplicationApiInvokeResponse
@@ -1885,7 +1909,7 @@ namespace Eiam20211201
       Models::EnableApplicationClientSecretResponse enableApplicationClientSecret(const Models::EnableApplicationClientSecretRequest &request);
 
       /**
-       * @summary 启用应用联邦凭证
+       * @summary Enables an application federated credential.
        *
        * @param request EnableApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1894,7 +1918,7 @@ namespace Eiam20211201
       Models::EnableApplicationFederatedCredentialResponse enableApplicationFederatedCredentialWithOptions(const Models::EnableApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用应用联邦凭证
+       * @summary Enables an application federated credential.
        *
        * @param request EnableApplicationFederatedCredentialRequest
        * @return EnableApplicationFederatedCredentialResponse
@@ -1902,7 +1926,7 @@ namespace Eiam20211201
       Models::EnableApplicationFederatedCredentialResponse enableApplicationFederatedCredential(const Models::EnableApplicationFederatedCredentialRequest &request);
 
       /**
-       * @summary 启用M2M Client 能力
+       * @summary Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
        *
        * @param request EnableApplicationM2MClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1911,7 +1935,7 @@ namespace Eiam20211201
       Models::EnableApplicationM2MClientResponse enableApplicationM2MClientWithOptions(const Models::EnableApplicationM2MClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用M2M Client 能力
+       * @summary Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
        *
        * @param request EnableApplicationM2MClientRequest
        * @return EnableApplicationM2MClientResponse
@@ -1936,7 +1960,7 @@ namespace Eiam20211201
       Models::EnableApplicationProvisioningResponse enableApplicationProvisioning(const Models::EnableApplicationProvisioningRequest &request);
 
       /**
-       * @summary 启用ResourceServer能力
+       * @summary Enables the ResourceServer feature for a specified application.
        *
        * @param request EnableApplicationResourceServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1945,7 +1969,7 @@ namespace Eiam20211201
       Models::EnableApplicationResourceServerResponse enableApplicationResourceServerWithOptions(const Models::EnableApplicationResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用ResourceServer能力
+       * @summary Enables the ResourceServer feature for a specified application.
        *
        * @param request EnableApplicationResourceServerRequest
        * @return EnableApplicationResourceServerResponse
@@ -1953,7 +1977,7 @@ namespace Eiam20211201
       Models::EnableApplicationResourceServerResponse enableApplicationResourceServer(const Models::EnableApplicationResourceServerRequest &request);
 
       /**
-       * @summary Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
+       * @summary Enables single sign-on (SSO) for an EIAM application.
        *
        * @param request EnableApplicationSsoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1962,7 +1986,7 @@ namespace Eiam20211201
       Models::EnableApplicationSsoResponse enableApplicationSsoWithOptions(const Models::EnableApplicationSsoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
+       * @summary Enables single sign-on (SSO) for an EIAM application.
        *
        * @param request EnableApplicationSsoRequest
        * @return EnableApplicationSsoResponse
@@ -1970,7 +1994,7 @@ namespace Eiam20211201
       Models::EnableApplicationSsoResponse enableApplicationSso(const Models::EnableApplicationSsoRequest &request);
 
       /**
-       * @summary 启用应用Token
+       * @summary Enables an application token.
        *
        * @param request EnableApplicationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1979,7 +2003,7 @@ namespace Eiam20211201
       Models::EnableApplicationTokenResponse enableApplicationTokenWithOptions(const Models::EnableApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用应用Token
+       * @summary Enables an application token.
        *
        * @param request EnableApplicationTokenRequest
        * @return EnableApplicationTokenResponse
@@ -1987,7 +2011,7 @@ namespace Eiam20211201
       Models::EnableApplicationTokenResponse enableApplicationToken(const Models::EnableApplicationTokenRequest &request);
 
       /**
-       * @summary 启用授权规则
+       * @summary Enables an authorization rule.
        *
        * @param request EnableAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1996,7 +2020,7 @@ namespace Eiam20211201
       Models::EnableAuthorizationRuleResponse enableAuthorizationRuleWithOptions(const Models::EnableAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用授权规则
+       * @summary Enables an authorization rule.
        *
        * @param request EnableAuthorizationRuleRequest
        * @return EnableAuthorizationRuleResponse
@@ -2004,7 +2028,7 @@ namespace Eiam20211201
       Models::EnableAuthorizationRuleResponse enableAuthorizationRule(const Models::EnableAuthorizationRuleRequest &request);
 
       /**
-       * @summary 启用品牌
+       * @summary Enables a brand.
        *
        * @param request EnableBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2013,7 +2037,7 @@ namespace Eiam20211201
       Models::EnableBrandResponse enableBrandWithOptions(const Models::EnableBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用品牌
+       * @summary Enables a brand.
        *
        * @param request EnableBrandRequest
        * @return EnableBrandResponse
@@ -2021,7 +2045,7 @@ namespace Eiam20211201
       Models::EnableBrandResponse enableBrand(const Models::EnableBrandRequest &request);
 
       /**
-       * @summary 启用指定的应用ClientPublicKey
+       * @summary Enables the specified ClientPublicKey for an application.
        *
        * @param request EnableClientPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2030,7 +2054,7 @@ namespace Eiam20211201
       Models::EnableClientPublicKeyResponse enableClientPublicKeyWithOptions(const Models::EnableClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用指定的应用ClientPublicKey
+       * @summary Enables the specified ClientPublicKey for an application.
        *
        * @param request EnableClientPublicKeyRequest
        * @return EnableClientPublicKeyResponse
@@ -2038,7 +2062,7 @@ namespace Eiam20211201
       Models::EnableClientPublicKeyResponse enableClientPublicKey(const Models::EnableClientPublicKeyRequest &request);
 
       /**
-       * @summary 启用云角色
+       * @summary Enables a cloud role for a specified Alibaba Cloud account.
        *
        * @param request EnableCloudAccountRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2047,7 +2071,7 @@ namespace Eiam20211201
       Models::EnableCloudAccountRoleResponse enableCloudAccountRoleWithOptions(const Models::EnableCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用云角色
+       * @summary Enables a cloud role for a specified Alibaba Cloud account.
        *
        * @param request EnableCloudAccountRoleRequest
        * @return EnableCloudAccountRoleResponse
@@ -2055,9 +2079,9 @@ namespace Eiam20211201
       Models::EnableCloudAccountRoleResponse enableCloudAccountRole(const Models::EnableCloudAccountRoleRequest &request);
 
       /**
-       * @summary Enable Conditional Access Policy
+       * @summary Enables a conditional access policy.
        *
-       * @description When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+       * @description When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
        *
        * @param request EnableConditionalAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2066,9 +2090,9 @@ namespace Eiam20211201
       Models::EnableConditionalAccessPolicyResponse enableConditionalAccessPolicyWithOptions(const Models::EnableConditionalAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enable Conditional Access Policy
+       * @summary Enables a conditional access policy.
        *
-       * @description When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+       * @description When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
        *
        * @param request EnableConditionalAccessPolicyRequest
        * @return EnableConditionalAccessPolicyResponse
@@ -2076,7 +2100,7 @@ namespace Eiam20211201
       Models::EnableConditionalAccessPolicyResponse enableConditionalAccessPolicy(const Models::EnableConditionalAccessPolicyRequest &request);
 
       /**
-       * @summary 启用凭据
+       * @summary Enables a credential resource.
        *
        * @param request EnableCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2085,7 +2109,7 @@ namespace Eiam20211201
       Models::EnableCredentialResponse enableCredentialWithOptions(const Models::EnableCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用凭据
+       * @summary Enables a credential resource.
        *
        * @param request EnableCredentialRequest
        * @return EnableCredentialResponse
@@ -2093,7 +2117,7 @@ namespace Eiam20211201
       Models::EnableCredentialResponse enableCredential(const Models::EnableCredentialRequest &request);
 
       /**
-       * @summary 启用凭据提供商
+       * @summary Enables a credential provider.
        *
        * @param request EnableCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2102,7 +2126,7 @@ namespace Eiam20211201
       Models::EnableCredentialProviderResponse enableCredentialProviderWithOptions(const Models::EnableCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用凭据提供商
+       * @summary Enables a credential provider.
        *
        * @param request EnableCredentialProviderRequest
        * @return EnableCredentialProviderResponse
@@ -2110,7 +2134,9 @@ namespace Eiam20211201
       Models::EnableCredentialProviderResponse enableCredentialProvider(const Models::EnableCredentialProviderRequest &request);
 
       /**
-       * @summary 启用字段
+       * @summary Enables a custom field.
+       *
+       * @description **Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
        *
        * @param request EnableCustomFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2119,7 +2145,9 @@ namespace Eiam20211201
       Models::EnableCustomFieldResponse enableCustomFieldWithOptions(const Models::EnableCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用字段
+       * @summary Enables a custom field.
+       *
+       * @description **Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
        *
        * @param request EnableCustomFieldRequest
        * @return EnableCustomFieldResponse
@@ -2127,7 +2155,7 @@ namespace Eiam20211201
       Models::EnableCustomFieldResponse enableCustomField(const Models::EnableCustomFieldRequest &request);
 
       /**
-       * @summary 启用自定义条款
+       * @summary Enabling custom terms
        *
        * @param request EnableCustomPrivacyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2136,7 +2164,7 @@ namespace Eiam20211201
       Models::EnableCustomPrivacyPolicyResponse enableCustomPrivacyPolicyWithOptions(const Models::EnableCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用自定义条款
+       * @summary Enabling custom terms
        *
        * @param request EnableCustomPrivacyPolicyRequest
        * @return EnableCustomPrivacyPolicyResponse
@@ -2161,7 +2189,7 @@ namespace Eiam20211201
       Models::EnableDomainProxyTokenResponse enableDomainProxyToken(const Models::EnableDomainProxyTokenRequest &request);
 
       /**
-       * @summary 启用联邦凭证提供方
+       * @summary Enables a federated credential provider.
        *
        * @param request EnableFederatedCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2170,7 +2198,7 @@ namespace Eiam20211201
       Models::EnableFederatedCredentialProviderResponse enableFederatedCredentialProviderWithOptions(const Models::EnableFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用联邦凭证提供方
+       * @summary Enables a federated credential provider.
        *
        * @param request EnableFederatedCredentialProviderRequest
        * @return EnableFederatedCredentialProviderResponse
@@ -2178,7 +2206,7 @@ namespace Eiam20211201
       Models::EnableFederatedCredentialProviderResponse enableFederatedCredentialProvider(const Models::EnableFederatedCredentialProviderRequest &request);
 
       /**
-       * @summary 启用高级配置
+       * @summary Enables advanced configuration.
        *
        * @param request EnableIdentityProviderAdvancedAbilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2187,7 +2215,7 @@ namespace Eiam20211201
       Models::EnableIdentityProviderAdvancedAbilityResponse enableIdentityProviderAdvancedAbilityWithOptions(const Models::EnableIdentityProviderAdvancedAbilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用高级配置
+       * @summary Enables advanced configuration.
        *
        * @param request EnableIdentityProviderAdvancedAbilityRequest
        * @return EnableIdentityProviderAdvancedAbilityResponse
@@ -2195,7 +2223,9 @@ namespace Eiam20211201
       Models::EnableIdentityProviderAdvancedAbilityResponse enableIdentityProviderAdvancedAbility(const Models::EnableIdentityProviderAdvancedAbilityRequest &request);
 
       /**
-       * @summary 启用认证
+       * @summary Enables authentication.
+       *
+       * @description When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
        *
        * @param request EnableIdentityProviderAuthnRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2204,7 +2234,9 @@ namespace Eiam20211201
       Models::EnableIdentityProviderAuthnResponse enableIdentityProviderAuthnWithOptions(const Models::EnableIdentityProviderAuthnRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用认证
+       * @summary Enables authentication.
+       *
+       * @description When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
        *
        * @param request EnableIdentityProviderAuthnRequest
        * @return EnableIdentityProviderAuthnResponse
@@ -2229,7 +2261,7 @@ namespace Eiam20211201
       Models::EnableIdentityProviderUdPullResponse enableIdentityProviderUdPull(const Models::EnableIdentityProviderUdPullRequest &request);
 
       /**
-       * @summary Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
+       * @summary Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
        *
        * @param request EnableInitDomainAutoRedirectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2238,7 +2270,7 @@ namespace Eiam20211201
       Models::EnableInitDomainAutoRedirectResponse enableInitDomainAutoRedirectWithOptions(const Models::EnableInitDomainAutoRedirectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
+       * @summary Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
        *
        * @param request EnableInitDomainAutoRedirectRequest
        * @return EnableInitDomainAutoRedirectResponse
@@ -2246,7 +2278,7 @@ namespace Eiam20211201
       Models::EnableInitDomainAutoRedirectResponse enableInitDomainAutoRedirect(const Models::EnableInitDomainAutoRedirectRequest &request);
 
       /**
-       * @summary 启用内部认证源
+       * @summary Enables an internal authentication source.
        *
        * @param request EnableInternalAuthenticationSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2255,7 +2287,7 @@ namespace Eiam20211201
       Models::EnableInternalAuthenticationSourceResponse enableInternalAuthenticationSourceWithOptions(const Models::EnableInternalAuthenticationSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用内部认证源
+       * @summary Enables an internal authentication source.
        *
        * @param request EnableInternalAuthenticationSourceRequest
        * @return EnableInternalAuthenticationSourceResponse
@@ -2263,7 +2295,7 @@ namespace Eiam20211201
       Models::EnableInternalAuthenticationSourceResponse enableInternalAuthenticationSource(const Models::EnableInternalAuthenticationSourceRequest &request);
 
       /**
-       * @summary 启用资源服务器自定义主体
+       * @summary Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
        *
        * @param request EnableResourceServerCustomSubjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2272,7 +2304,7 @@ namespace Eiam20211201
       Models::EnableResourceServerCustomSubjectResponse enableResourceServerCustomSubjectWithOptions(const Models::EnableResourceServerCustomSubjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用资源服务器自定义主体
+       * @summary Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
        *
        * @param request EnableResourceServerCustomSubjectRequest
        * @return EnableResourceServerCustomSubjectResponse
@@ -2297,7 +2329,7 @@ namespace Eiam20211201
       Models::EnableUserResponse enableUser(const Models::EnableUserRequest &request);
 
       /**
-       * @summary 解析IdP Metadata信息。
+       * @summary Resolves the metadata for an identity provider.
        *
        * @param request ExecIdentityProviderMetadataUrlResolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2306,7 +2338,7 @@ namespace Eiam20211201
       Models::ExecIdentityProviderMetadataUrlResolutionResponse execIdentityProviderMetadataUrlResolutionWithOptions(const Models::ExecIdentityProviderMetadataUrlResolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解析IdP Metadata信息。
+       * @summary Resolves the metadata for an identity provider.
        *
        * @param request ExecIdentityProviderMetadataUrlResolutionRequest
        * @return ExecIdentityProviderMetadataUrlResolutionResponse
@@ -2314,7 +2346,7 @@ namespace Eiam20211201
       Models::ExecIdentityProviderMetadataUrlResolutionResponse execIdentityProviderMetadataUrlResolution(const Models::ExecIdentityProviderMetadataUrlResolutionRequest &request);
 
       /**
-       * @summary 生成文件导入结果下载地址
+       * @summary Generates a download URL for the result of a file import.
        *
        * @param request GenerateDownloadUrlForSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2323,7 +2355,7 @@ namespace Eiam20211201
       Models::GenerateDownloadUrlForSynchronizationJobResponse generateDownloadUrlForSynchronizationJobWithOptions(const Models::GenerateDownloadUrlForSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成文件导入结果下载地址
+       * @summary Generates a download URL for the result of a file import.
        *
        * @param request GenerateDownloadUrlForSynchronizationJobRequest
        * @return GenerateDownloadUrlForSynchronizationJobResponse
@@ -2331,7 +2363,7 @@ namespace Eiam20211201
       Models::GenerateDownloadUrlForSynchronizationJobResponse generateDownloadUrlForSynchronizationJob(const Models::GenerateDownloadUrlForSynchronizationJobRequest &request);
 
       /**
-       * @summary 生成文件导入模板
+       * @summary Generates a file import template.
        *
        * @param request GenerateFileImportTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2340,7 +2372,7 @@ namespace Eiam20211201
       Models::GenerateFileImportTemplateResponse generateFileImportTemplateWithOptions(const Models::GenerateFileImportTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成文件导入模板
+       * @summary Generates a file import template.
        *
        * @param request GenerateFileImportTemplateRequest
        * @return GenerateFileImportTemplateResponse
@@ -2348,7 +2380,7 @@ namespace Eiam20211201
       Models::GenerateFileImportTemplateResponse generateFileImportTemplate(const Models::GenerateFileImportTemplateRequest &request);
 
       /**
-       * @summary 生成 Oauth Token
+       * @summary Obtain an access token to call a resource server using a specified application as the client.
        *
        * @param request GenerateOauthTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2357,7 +2389,7 @@ namespace Eiam20211201
       Models::GenerateOauthTokenResponse generateOauthTokenWithOptions(const Models::GenerateOauthTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成 Oauth Token
+       * @summary Obtain an access token to call a resource server using a specified application as the client.
        *
        * @param request GenerateOauthTokenRequest
        * @return GenerateOauthTokenResponse
@@ -2365,7 +2397,7 @@ namespace Eiam20211201
       Models::GenerateOauthTokenResponse generateOauthToken(const Models::GenerateOauthTokenRequest &request);
 
       /**
-       * @summary 获取上传认证
+       * @summary Generates an upload credential.
        *
        * @param request GenerateUploadAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2374,7 +2406,7 @@ namespace Eiam20211201
       Models::GenerateUploadAuthResponse generateUploadAuthWithOptions(const Models::GenerateUploadAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取上传认证
+       * @summary Generates an upload credential.
        *
        * @param request GenerateUploadAuthRequest
        * @return GenerateUploadAuthResponse
@@ -2382,7 +2414,7 @@ namespace Eiam20211201
       Models::GenerateUploadAuthResponse generateUploadAuth(const Models::GenerateUploadAuthRequest &request);
 
       /**
-       * @summary 生成WebAuthn认证器注册URL
+       * @summary Generates a WebAuthn authenticator registration URL.
        *
        * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2391,7 +2423,7 @@ namespace Eiam20211201
       Models::GenerateWebAuthnAuthenticatorRegistrationUrlResponse generateWebAuthnAuthenticatorRegistrationUrlWithOptions(const Models::GenerateWebAuthnAuthenticatorRegistrationUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成WebAuthn认证器注册URL
+       * @summary Generates a WebAuthn authenticator registration URL.
        *
        * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
        * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
@@ -2399,7 +2431,7 @@ namespace Eiam20211201
       Models::GenerateWebAuthnAuthenticatorRegistrationUrlResponse generateWebAuthnAuthenticatorRegistrationUrl(const Models::GenerateWebAuthnAuthenticatorRegistrationUrlRequest &request);
 
       /**
-       * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+       * @summary Retrieves the details of a specified EIAM application.
        *
        * @param request GetApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2408,7 +2440,7 @@ namespace Eiam20211201
       Models::GetApplicationResponse getApplicationWithOptions(const Models::GetApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+       * @summary Retrieves the details of a specified EIAM application.
        *
        * @param request GetApplicationRequest
        * @return GetApplicationResponse
@@ -2416,7 +2448,7 @@ namespace Eiam20211201
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
-       * @summary 获取应用高阶配置
+       * @summary Retrieves the advanced configuration of an application.
        *
        * @param request GetApplicationAdvancedConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2425,7 +2457,7 @@ namespace Eiam20211201
       Models::GetApplicationAdvancedConfigResponse getApplicationAdvancedConfigWithOptions(const Models::GetApplicationAdvancedConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用高阶配置
+       * @summary Retrieves the advanced configuration of an application.
        *
        * @param request GetApplicationAdvancedConfigRequest
        * @return GetApplicationAdvancedConfigResponse
@@ -2433,7 +2465,7 @@ namespace Eiam20211201
       Models::GetApplicationAdvancedConfigResponse getApplicationAdvancedConfig(const Models::GetApplicationAdvancedConfigRequest &request);
 
       /**
-       * @summary 获取应用联邦凭证
+       * @summary Retrieves the federated credential for an application.
        *
        * @param request GetApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2442,7 +2474,7 @@ namespace Eiam20211201
       Models::GetApplicationFederatedCredentialResponse getApplicationFederatedCredentialWithOptions(const Models::GetApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用联邦凭证
+       * @summary Retrieves the federated credential for an application.
        *
        * @param request GetApplicationFederatedCredentialRequest
        * @return GetApplicationFederatedCredentialResponse
@@ -2467,7 +2499,7 @@ namespace Eiam20211201
       Models::GetApplicationGrantScopeResponse getApplicationGrantScope(const Models::GetApplicationGrantScopeRequest &request);
 
       /**
-       * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
        *
        * @param request GetApplicationProvisioningConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2476,7 +2508,7 @@ namespace Eiam20211201
       Models::GetApplicationProvisioningConfigResponse getApplicationProvisioningConfigWithOptions(const Models::GetApplicationProvisioningConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
        *
        * @param request GetApplicationProvisioningConfigRequest
        * @return GetApplicationProvisioningConfigResponse
@@ -2501,7 +2533,7 @@ namespace Eiam20211201
       Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(const Models::GetApplicationProvisioningScopeRequest &request);
 
       /**
-       * @summary 查询指定应用同步配置
+       * @summary Queries the synchronization configuration of a specified application.
        *
        * @param request GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2510,7 +2542,7 @@ namespace Eiam20211201
       Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse getApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(const Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定应用同步配置
+       * @summary Queries the synchronization configuration of a specified application.
        *
        * @param request GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
        * @return GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -2518,7 +2550,7 @@ namespace Eiam20211201
       Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse getApplicationProvisioningUserPrimaryOrganizationalUnit(const Models::GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request);
 
       /**
-       * @summary 获取角色信息
+       * @summary Retrieves the details of an application role.
        *
        * @param request GetApplicationRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2527,7 +2559,7 @@ namespace Eiam20211201
       Models::GetApplicationRoleResponse getApplicationRoleWithOptions(const Models::GetApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取角色信息
+       * @summary Retrieves the details of an application role.
        *
        * @param request GetApplicationRoleRequest
        * @return GetApplicationRoleResponse
@@ -2535,7 +2567,7 @@ namespace Eiam20211201
       Models::GetApplicationRoleResponse getApplicationRole(const Models::GetApplicationRoleRequest &request);
 
       /**
-       * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+       * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
        *
        * @param request GetApplicationSsoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2544,7 +2576,7 @@ namespace Eiam20211201
       Models::GetApplicationSsoConfigResponse getApplicationSsoConfigWithOptions(const Models::GetApplicationSsoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+       * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
        *
        * @param request GetApplicationSsoConfigRequest
        * @return GetApplicationSsoConfigResponse
@@ -2552,7 +2584,7 @@ namespace Eiam20211201
       Models::GetApplicationSsoConfigResponse getApplicationSsoConfig(const Models::GetApplicationSsoConfigRequest &request);
 
       /**
-       * @summary 获取应用模板信息
+       * @summary Retrieves the details of an application template.
        *
        * @param request GetApplicationTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2561,7 +2593,7 @@ namespace Eiam20211201
       Models::GetApplicationTemplateResponse getApplicationTemplateWithOptions(const Models::GetApplicationTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用模板信息
+       * @summary Retrieves the details of an application template.
        *
        * @param request GetApplicationTemplateRequest
        * @return GetApplicationTemplateResponse
@@ -2569,7 +2601,7 @@ namespace Eiam20211201
       Models::GetApplicationTemplateResponse getApplicationTemplate(const Models::GetApplicationTemplateRequest &request);
 
       /**
-       * @summary 获取授权资源信息
+       * @summary Queries the information about an authorized resource.
        *
        * @param request GetAuthorizationResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2578,7 +2610,7 @@ namespace Eiam20211201
       Models::GetAuthorizationResourceResponse getAuthorizationResourceWithOptions(const Models::GetAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取授权资源信息
+       * @summary Queries the information about an authorized resource.
        *
        * @param request GetAuthorizationResourceRequest
        * @return GetAuthorizationResourceResponse
@@ -2586,7 +2618,7 @@ namespace Eiam20211201
       Models::GetAuthorizationResourceResponse getAuthorizationResource(const Models::GetAuthorizationResourceRequest &request);
 
       /**
-       * @summary 获取授权规则信息
+       * @summary Query information about an authorization rule.
        *
        * @param request GetAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2595,7 +2627,7 @@ namespace Eiam20211201
       Models::GetAuthorizationRuleResponse getAuthorizationRuleWithOptions(const Models::GetAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取授权规则信息
+       * @summary Query information about an authorization rule.
        *
        * @param request GetAuthorizationRuleRequest
        * @return GetAuthorizationRuleResponse
@@ -2603,7 +2635,7 @@ namespace Eiam20211201
       Models::GetAuthorizationRuleResponse getAuthorizationRule(const Models::GetAuthorizationRuleRequest &request);
 
       /**
-       * @summary 获取品牌详情
+       * @summary Retrieves the details of a brand.
        *
        * @param request GetBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2612,7 +2644,7 @@ namespace Eiam20211201
       Models::GetBrandResponse getBrandWithOptions(const Models::GetBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取品牌详情
+       * @summary Retrieves the details of a brand.
        *
        * @param request GetBrandRequest
        * @return GetBrandResponse
@@ -2620,7 +2652,7 @@ namespace Eiam20211201
       Models::GetBrandResponse getBrand(const Models::GetBrandRequest &request);
 
       /**
-       * @summary 查询指定应用ClientPublicKey
+       * @summary Retrieves the ClientPublicKey for a specified application.
        *
        * @param request GetClientPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2629,7 +2661,7 @@ namespace Eiam20211201
       Models::GetClientPublicKeyResponse getClientPublicKeyWithOptions(const Models::GetClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定应用ClientPublicKey
+       * @summary Retrieves the ClientPublicKey for a specified application.
        *
        * @param request GetClientPublicKeyRequest
        * @return GetClientPublicKeyResponse
@@ -2637,7 +2669,7 @@ namespace Eiam20211201
       Models::GetClientPublicKeyResponse getClientPublicKey(const Models::GetClientPublicKeyRequest &request);
 
       /**
-       * @summary 获取云账号
+       * @summary Retrieves information about resources in an Alibaba Cloud account.
        *
        * @param request GetCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2646,7 +2678,7 @@ namespace Eiam20211201
       Models::GetCloudAccountResponse getCloudAccountWithOptions(const Models::GetCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取云账号
+       * @summary Retrieves information about resources in an Alibaba Cloud account.
        *
        * @param request GetCloudAccountRequest
        * @return GetCloudAccountResponse
@@ -2654,7 +2686,7 @@ namespace Eiam20211201
       Models::GetCloudAccountResponse getCloudAccount(const Models::GetCloudAccountRequest &request);
 
       /**
-       * @summary 获取云角色
+       * @summary Retrieves information about a cloud role.
        *
        * @param request GetCloudAccountRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2663,7 +2695,7 @@ namespace Eiam20211201
       Models::GetCloudAccountRoleResponse getCloudAccountRoleWithOptions(const Models::GetCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取云角色
+       * @summary Retrieves information about a cloud role.
        *
        * @param request GetCloudAccountRoleRequest
        * @return GetCloudAccountRoleResponse
@@ -2671,9 +2703,9 @@ namespace Eiam20211201
       Models::GetCloudAccountRoleResponse getCloudAccountRole(const Models::GetCloudAccountRoleRequest &request);
 
       /**
-       * @summary Get Conditional Access Policy
+       * @summary Retrieves a conditional access policy.
        *
-       * @description Query Conditional Access Policy
+       * @description This operation retrieves a conditional access policy.
        *
        * @param request GetConditionalAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2682,9 +2714,9 @@ namespace Eiam20211201
       Models::GetConditionalAccessPolicyResponse getConditionalAccessPolicyWithOptions(const Models::GetConditionalAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Conditional Access Policy
+       * @summary Retrieves a conditional access policy.
        *
-       * @description Query Conditional Access Policy
+       * @description This operation retrieves a conditional access policy.
        *
        * @param request GetConditionalAccessPolicyRequest
        * @return GetConditionalAccessPolicyResponse
@@ -2692,7 +2724,7 @@ namespace Eiam20211201
       Models::GetConditionalAccessPolicyResponse getConditionalAccessPolicy(const Models::GetConditionalAccessPolicyRequest &request);
 
       /**
-       * @summary 获取凭据
+       * @summary Retrieves the details of a specific credential.
        *
        * @param request GetCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2701,7 +2733,7 @@ namespace Eiam20211201
       Models::GetCredentialResponse getCredentialWithOptions(const Models::GetCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取凭据
+       * @summary Retrieves the details of a specific credential.
        *
        * @param request GetCredentialRequest
        * @return GetCredentialResponse
@@ -2709,7 +2741,7 @@ namespace Eiam20211201
       Models::GetCredentialResponse getCredential(const Models::GetCredentialRequest &request);
 
       /**
-       * @summary 查询凭据提供商详情
+       * @summary Retrieves the details of a credential provider.
        *
        * @param request GetCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2718,7 +2750,7 @@ namespace Eiam20211201
       Models::GetCredentialProviderResponse getCredentialProviderWithOptions(const Models::GetCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询凭据提供商详情
+       * @summary Retrieves the details of a credential provider.
        *
        * @param request GetCredentialProviderRequest
        * @return GetCredentialProviderResponse
@@ -2726,7 +2758,9 @@ namespace Eiam20211201
       Models::GetCredentialProviderResponse getCredentialProvider(const Models::GetCredentialProviderRequest &request);
 
       /**
-       * @summary 获取扩展字段信息
+       * @summary Retrieves custom field information.
+       *
+       * @description **Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
        *
        * @param request GetCustomFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2735,7 +2769,9 @@ namespace Eiam20211201
       Models::GetCustomFieldResponse getCustomFieldWithOptions(const Models::GetCustomFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取扩展字段信息
+       * @summary Retrieves custom field information.
+       *
+       * @description **Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
        *
        * @param request GetCustomFieldRequest
        * @return GetCustomFieldResponse
@@ -2743,7 +2779,7 @@ namespace Eiam20211201
       Models::GetCustomFieldResponse getCustomField(const Models::GetCustomFieldRequest &request);
 
       /**
-       * @summary 获取自定义条款
+       * @summary Obtaining custom terms
        *
        * @param request GetCustomPrivacyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2752,7 +2788,7 @@ namespace Eiam20211201
       Models::GetCustomPrivacyPolicyResponse getCustomPrivacyPolicyWithOptions(const Models::GetCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义条款
+       * @summary Obtaining custom terms
        *
        * @param request GetCustomPrivacyPolicyRequest
        * @return GetCustomPrivacyPolicyResponse
@@ -2760,7 +2796,7 @@ namespace Eiam20211201
       Models::GetCustomPrivacyPolicyResponse getCustomPrivacyPolicy(const Models::GetCustomPrivacyPolicyRequest &request);
 
       /**
-       * @summary Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
+       * @summary Retrieves information about a domain name for an EIAM instance.
        *
        * @param request GetDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2769,7 +2805,7 @@ namespace Eiam20211201
       Models::GetDomainResponse getDomainWithOptions(const Models::GetDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
+       * @summary Retrieves information about a domain name for an EIAM instance.
        *
        * @param request GetDomainRequest
        * @return GetDomainResponse
@@ -2777,7 +2813,7 @@ namespace Eiam20211201
       Models::GetDomainResponse getDomain(const Models::GetDomainRequest &request);
 
       /**
-       * @summary Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
+       * @summary Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
        *
        * @param request GetDomainDnsChallengeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2786,7 +2822,7 @@ namespace Eiam20211201
       Models::GetDomainDnsChallengeResponse getDomainDnsChallengeWithOptions(const Models::GetDomainDnsChallengeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
+       * @summary Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
        *
        * @param request GetDomainDnsChallengeRequest
        * @return GetDomainDnsChallengeResponse
@@ -2794,7 +2830,7 @@ namespace Eiam20211201
       Models::GetDomainDnsChallengeResponse getDomainDnsChallenge(const Models::GetDomainDnsChallengeRequest &request);
 
       /**
-       * @summary 获取联邦凭证提供方
+       * @summary Retrieve a federated credential provider.
        *
        * @param request GetFederatedCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2803,7 +2839,7 @@ namespace Eiam20211201
       Models::GetFederatedCredentialProviderResponse getFederatedCredentialProviderWithOptions(const Models::GetFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取联邦凭证提供方
+       * @summary Retrieve a federated credential provider.
        *
        * @param request GetFederatedCredentialProviderRequest
        * @return GetFederatedCredentialProviderResponse
@@ -2811,7 +2847,7 @@ namespace Eiam20211201
       Models::GetFederatedCredentialProviderResponse getFederatedCredentialProvider(const Models::GetFederatedCredentialProviderRequest &request);
 
       /**
-       * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Queries the forgot-password configuration for a specified EIAM instance.
        *
        * @param request GetForgetPasswordConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2820,7 +2856,7 @@ namespace Eiam20211201
       Models::GetForgetPasswordConfigurationResponse getForgetPasswordConfigurationWithOptions(const Models::GetForgetPasswordConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Queries the forgot-password configuration for a specified EIAM instance.
        *
        * @param request GetForgetPasswordConfigurationRequest
        * @return GetForgetPasswordConfigurationResponse
@@ -2828,7 +2864,7 @@ namespace Eiam20211201
       Models::GetForgetPasswordConfigurationResponse getForgetPasswordConfiguration(const Models::GetForgetPasswordConfigurationRequest &request);
 
       /**
-       * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
        *
        * @param request GetGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2837,7 +2873,7 @@ namespace Eiam20211201
       Models::GetGroupResponse getGroupWithOptions(const Models::GetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
        *
        * @param request GetGroupRequest
        * @return GetGroupResponse
@@ -2845,7 +2881,7 @@ namespace Eiam20211201
       Models::GetGroupResponse getGroup(const Models::GetGroupRequest &request);
 
       /**
-       * @summary Obtains an identity provider (IdP).
+       * @summary Get an identity provider.
        *
        * @param request GetIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2854,7 +2890,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderResponse getIdentityProviderWithOptions(const Models::GetIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains an identity provider (IdP).
+       * @summary Get an identity provider.
        *
        * @param request GetIdentityProviderRequest
        * @return GetIdentityProviderResponse
@@ -2862,7 +2898,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderResponse getIdentityProvider(const Models::GetIdentityProviderRequest &request);
 
       /**
-       * @summary 获取高级配置信息
+       * @summary Retrieves advanced configuration information.
        *
        * @param request GetIdentityProviderAdvancedConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2871,7 +2907,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderAdvancedConfigurationResponse getIdentityProviderAdvancedConfigurationWithOptions(const Models::GetIdentityProviderAdvancedConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取高级配置信息
+       * @summary Retrieves advanced configuration information.
        *
        * @param request GetIdentityProviderAdvancedConfigurationRequest
        * @return GetIdentityProviderAdvancedConfigurationResponse
@@ -2879,7 +2915,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderAdvancedConfigurationResponse getIdentityProviderAdvancedConfiguration(const Models::GetIdentityProviderAdvancedConfigurationRequest &request);
 
       /**
-       * @summary 获取IdP检查任务
+       * @summary Retrieves an IdP check task.
        *
        * @param request GetIdentityProviderStatusCheckJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2888,7 +2924,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderStatusCheckJobResponse getIdentityProviderStatusCheckJobWithOptions(const Models::GetIdentityProviderStatusCheckJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取IdP检查任务
+       * @summary Retrieves an IdP check task.
        *
        * @param request GetIdentityProviderStatusCheckJobRequest
        * @return GetIdentityProviderStatusCheckJobResponse
@@ -2913,7 +2949,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderUdPullConfigurationResponse getIdentityProviderUdPullConfiguration(const Models::GetIdentityProviderUdPullConfigurationRequest &request);
 
       /**
-       * @summary 获取IdP同步出配置
+       * @summary Retrieve the IdP outbound synchronization configuration.
        *
        * @param request GetIdentityProviderUdPushConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2922,7 +2958,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderUdPushConfigurationResponse getIdentityProviderUdPushConfigurationWithOptions(const Models::GetIdentityProviderUdPushConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取IdP同步出配置
+       * @summary Retrieve the IdP outbound synchronization configuration.
        *
        * @param request GetIdentityProviderUdPushConfigurationRequest
        * @return GetIdentityProviderUdPushConfigurationResponse
@@ -2930,7 +2966,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderUdPushConfigurationResponse getIdentityProviderUdPushConfiguration(const Models::GetIdentityProviderUdPushConfigurationRequest &request);
 
       /**
-       * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Queries the detailed information of an EIAM instance.
        *
        * @param request GetInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2939,7 +2975,7 @@ namespace Eiam20211201
       Models::GetInstanceResponse getInstanceWithOptions(const Models::GetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Queries the detailed information of an EIAM instance.
        *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
@@ -2947,7 +2983,7 @@ namespace Eiam20211201
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
 
       /**
-       * @summary 查询实例控制项
+       * @summary Queries the control configuration for an instance.
        *
        * @param request GetInstanceControlConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2956,7 +2992,7 @@ namespace Eiam20211201
       Models::GetInstanceControlConfigurationResponse getInstanceControlConfigurationWithOptions(const Models::GetInstanceControlConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例控制项
+       * @summary Queries the control configuration for an instance.
        *
        * @param request GetInstanceControlConfigurationRequest
        * @return GetInstanceControlConfigurationResponse
@@ -2964,7 +3000,9 @@ namespace Eiam20211201
       Models::GetInstanceControlConfigurationResponse getInstanceControlConfiguration(const Models::GetInstanceControlConfigurationRequest &request);
 
       /**
-       * @summary 获取实例语言、时区信息
+       * @summary Retrieves the language and time zone information for an instance.
+       *
+       * @description When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
        *
        * @param request GetInstanceGlobalizationConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2973,7 +3011,9 @@ namespace Eiam20211201
       Models::GetInstanceGlobalizationConfigResponse getInstanceGlobalizationConfigWithOptions(const Models::GetInstanceGlobalizationConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例语言、时区信息
+       * @summary Retrieves the language and time zone information for an instance.
+       *
+       * @description When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
        *
        * @param request GetInstanceGlobalizationConfigRequest
        * @return GetInstanceGlobalizationConfigResponse
@@ -2981,9 +3021,9 @@ namespace Eiam20211201
       Models::GetInstanceGlobalizationConfigResponse getInstanceGlobalizationConfig(const Models::GetInstanceGlobalizationConfigRequest &request);
 
       /**
-       * @summary Query the currently effective License information of the instance
+       * @summary Queries the active license information for an instance.
        *
-       * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+       * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
        *
        * @param request GetInstanceLicenseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2992,9 +3032,9 @@ namespace Eiam20211201
       Models::GetInstanceLicenseResponse getInstanceLicenseWithOptions(const Models::GetInstanceLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the currently effective License information of the instance
+       * @summary Queries the active license information for an instance.
        *
-       * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+       * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
        *
        * @param request GetInstanceLicenseRequest
        * @return GetInstanceLicenseResponse
@@ -3002,7 +3042,7 @@ namespace Eiam20211201
       Models::GetInstanceLicenseResponse getInstanceLicense(const Models::GetInstanceLicenseRequest &request);
 
       /**
-       * @summary 获取一级模块下，所有模块信息
+       * @summary Retrieves information about all modules within a primary module.
        *
        * @param request GetInstanceModuleInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3011,7 +3051,7 @@ namespace Eiam20211201
       Models::GetInstanceModuleInfoResponse getInstanceModuleInfoWithOptions(const Models::GetInstanceModuleInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一级模块下，所有模块信息
+       * @summary Retrieves information about all modules within a primary module.
        *
        * @param request GetInstanceModuleInfoRequest
        * @return GetInstanceModuleInfoResponse
@@ -3019,7 +3059,7 @@ namespace Eiam20211201
       Models::GetInstanceModuleInfoResponse getInstanceModuleInfo(const Models::GetInstanceModuleInfoRequest &request);
 
       /**
-       * @summary 获取实例单一类型的Quota
+       * @summary Retrieves the quota of a specific type for an instance.
        *
        * @param request GetInstanceQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3028,7 +3068,7 @@ namespace Eiam20211201
       Models::GetInstanceQuotaResponse getInstanceQuotaWithOptions(const Models::GetInstanceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例单一类型的Quota
+       * @summary Retrieves the quota of a specific type for an instance.
        *
        * @param request GetInstanceQuotaRequest
        * @return GetInstanceQuotaResponse
@@ -3036,7 +3076,7 @@ namespace Eiam20211201
       Models::GetInstanceQuotaResponse getInstanceQuota(const Models::GetInstanceQuotaRequest &request);
 
       /**
-       * @summary 获取实例的试用状态
+       * @summary Retrieves the trial status of an instance.
        *
        * @param request GetInstanceTrialStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3045,7 +3085,7 @@ namespace Eiam20211201
       Models::GetInstanceTrialStatusResponse getInstanceTrialStatusWithOptions(const Models::GetInstanceTrialStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例的试用状态
+       * @summary Retrieves the trial status of an instance.
        *
        * @param request GetInstanceTrialStatusRequest
        * @return GetInstanceTrialStatusResponse
@@ -3053,7 +3093,7 @@ namespace Eiam20211201
       Models::GetInstanceTrialStatusResponse getInstanceTrialStatus(const Models::GetInstanceTrialStatusRequest &request);
 
       /**
-       * @summary 获取品牌登录后跳转应用
+       * @summary Configure the post-logon redirect application for a brand
        *
        * @param request GetLoginRedirectApplicationForBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3062,7 +3102,7 @@ namespace Eiam20211201
       Models::GetLoginRedirectApplicationForBrandResponse getLoginRedirectApplicationForBrandWithOptions(const Models::GetLoginRedirectApplicationForBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取品牌登录后跳转应用
+       * @summary Configure the post-logon redirect application for a brand
        *
        * @param request GetLoginRedirectApplicationForBrandRequest
        * @return GetLoginRedirectApplicationForBrandResponse
@@ -3087,7 +3127,7 @@ namespace Eiam20211201
       Models::GetNetworkAccessEndpointResponse getNetworkAccessEndpoint(const Models::GetNetworkAccessEndpointRequest &request);
 
       /**
-       * @summary 获取网络区域对象
+       * @summary Retrieves a network zone object.
        *
        * @param request GetNetworkZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3096,7 +3136,7 @@ namespace Eiam20211201
       Models::GetNetworkZoneResponse getNetworkZoneWithOptions(const Models::GetNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取网络区域对象
+       * @summary Retrieves a network zone object.
        *
        * @param request GetNetworkZoneRequest
        * @return GetNetworkZoneResponse
@@ -3121,7 +3161,7 @@ namespace Eiam20211201
       Models::GetOrganizationalUnitResponse getOrganizationalUnit(const Models::GetOrganizationalUnitRequest &request);
 
       /**
-       * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Retrieves the password complexity policy for a specified EIAM instance.
        *
        * @param request GetPasswordComplexityConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3130,7 +3170,7 @@ namespace Eiam20211201
       Models::GetPasswordComplexityConfigurationResponse getPasswordComplexityConfigurationWithOptions(const Models::GetPasswordComplexityConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Retrieves the password complexity policy for a specified EIAM instance.
        *
        * @param request GetPasswordComplexityConfigurationRequest
        * @return GetPasswordComplexityConfigurationResponse
@@ -3189,7 +3229,7 @@ namespace Eiam20211201
       Models::GetPasswordInitializationConfigurationResponse getPasswordInitializationConfiguration(const Models::GetPasswordInitializationConfigurationRequest &request);
 
       /**
-       * @summary 查询指定ResourceServer下的Scope
+       * @summary Retrieves the permission scopes for a specified resource server.
        *
        * @param request GetResourceServerScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3198,7 +3238,7 @@ namespace Eiam20211201
       Models::GetResourceServerScopeResponse getResourceServerScopeWithOptions(const Models::GetResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定ResourceServer下的Scope
+       * @summary Retrieves the permission scopes for a specified resource server.
        *
        * @param request GetResourceServerScopeRequest
        * @return GetResourceServerScopeResponse
@@ -3223,7 +3263,7 @@ namespace Eiam20211201
       Models::GetRootOrganizationalUnitResponse getRootOrganizationalUnit(const Models::GetRootOrganizationalUnitRequest &request);
 
       /**
-       * @summary 获取服务Quota
+       * @summary Queries a service quota
        *
        * @param request GetServiceQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3232,7 +3272,7 @@ namespace Eiam20211201
       Models::GetServiceQuotaResponse getServiceQuotaWithOptions(const Models::GetServiceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取服务Quota
+       * @summary Queries a service quota
        *
        * @param request GetServiceQuotaRequest
        * @return GetServiceQuotaResponse
@@ -3257,7 +3297,7 @@ namespace Eiam20211201
       Models::GetSynchronizationJobResponse getSynchronizationJob(const Models::GetSynchronizationJobRequest &request);
 
       /**
-       * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+       * @summary Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
        *
        * @param request GetUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3266,7 +3306,7 @@ namespace Eiam20211201
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+       * @summary Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -3274,7 +3314,7 @@ namespace Eiam20211201
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
-       * @summary 查看调用事件列表
+       * @summary View the list of invocation events.
        *
        * @param request ListActionTrackEventTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3283,7 +3323,7 @@ namespace Eiam20211201
       Models::ListActionTrackEventTypesResponse listActionTrackEventTypesWithOptions(const Models::ListActionTrackEventTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看调用事件列表
+       * @summary View the list of invocation events.
        *
        * @param request ListActionTrackEventTypesRequest
        * @return ListActionTrackEventTypesResponse
@@ -3291,7 +3331,7 @@ namespace Eiam20211201
       Models::ListActionTrackEventTypesResponse listActionTrackEventTypes(const Models::ListActionTrackEventTypesRequest &request);
 
       /**
-       * @summary 分页查询应用下的应用账户列表
+       * @summary Returns a paginated list of application accounts.
        *
        * @param request ListApplicationAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3300,7 +3340,7 @@ namespace Eiam20211201
       Models::ListApplicationAccountsResponse listApplicationAccountsWithOptions(const Models::ListApplicationAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询应用下的应用账户列表
+       * @summary Returns a paginated list of application accounts.
        *
        * @param request ListApplicationAccountsRequest
        * @return ListApplicationAccountsResponse
@@ -3308,7 +3348,9 @@ namespace Eiam20211201
       Models::ListApplicationAccountsResponse listApplicationAccounts(const Models::ListApplicationAccountsRequest &request);
 
       /**
-       * @summary 查询当前应用下指定用户的所有账号
+       * @summary Queries all accounts that belong to a specified user in an application.
+       *
+       * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request ListApplicationAccountsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3317,7 +3359,9 @@ namespace Eiam20211201
       Models::ListApplicationAccountsForUserResponse listApplicationAccountsForUserWithOptions(const Models::ListApplicationAccountsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询当前应用下指定用户的所有账号
+       * @summary Queries all accounts that belong to a specified user in an application.
+       *
+       * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request ListApplicationAccountsForUserRequest
        * @return ListApplicationAccountsForUserResponse
@@ -3325,7 +3369,7 @@ namespace Eiam20211201
       Models::ListApplicationAccountsForUserResponse listApplicationAccountsForUser(const Models::ListApplicationAccountsForUserRequest &request);
 
       /**
-       * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+       * @summary Queries all client secrets for an EIAM application. The key data in the response is masked. To obtain an unmasked key, call the ObtainApplicationClientSecret operation.
        *
        * @param request ListApplicationClientSecretsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3334,7 +3378,7 @@ namespace Eiam20211201
       Models::ListApplicationClientSecretsResponse listApplicationClientSecretsWithOptions(const Models::ListApplicationClientSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+       * @summary Queries all client secrets for an EIAM application. The key data in the response is masked. To obtain an unmasked key, call the ObtainApplicationClientSecret operation.
        *
        * @param request ListApplicationClientSecretsRequest
        * @return ListApplicationClientSecretsResponse
@@ -3342,7 +3386,7 @@ namespace Eiam20211201
       Models::ListApplicationClientSecretsResponse listApplicationClientSecrets(const Models::ListApplicationClientSecretsRequest &request);
 
       /**
-       * @summary 查询应用联邦凭证列表
+       * @summary Lists the federated credentials for an application.
        *
        * @param request ListApplicationFederatedCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3351,7 +3395,7 @@ namespace Eiam20211201
       Models::ListApplicationFederatedCredentialsResponse listApplicationFederatedCredentialsWithOptions(const Models::ListApplicationFederatedCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用联邦凭证列表
+       * @summary Lists the federated credentials for an application.
        *
        * @param request ListApplicationFederatedCredentialsRequest
        * @return ListApplicationFederatedCredentialsResponse
@@ -3359,7 +3403,7 @@ namespace Eiam20211201
       Models::ListApplicationFederatedCredentialsResponse listApplicationFederatedCredentials(const Models::ListApplicationFederatedCredentialsRequest &request);
 
       /**
-       * @summary 根据联邦凭证提供方查询应用联邦凭证列表
+       * @summary Lists the application federated credentials for a specified federated credential provider.
        *
        * @param request ListApplicationFederatedCredentialsForProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3368,7 +3412,7 @@ namespace Eiam20211201
       Models::ListApplicationFederatedCredentialsForProviderResponse listApplicationFederatedCredentialsForProviderWithOptions(const Models::ListApplicationFederatedCredentialsForProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据联邦凭证提供方查询应用联邦凭证列表
+       * @summary Lists the application federated credentials for a specified federated credential provider.
        *
        * @param request ListApplicationFederatedCredentialsForProviderRequest
        * @return ListApplicationFederatedCredentialsForProviderResponse
@@ -3376,7 +3420,7 @@ namespace Eiam20211201
       Models::ListApplicationFederatedCredentialsForProviderResponse listApplicationFederatedCredentialsForProvider(const Models::ListApplicationFederatedCredentialsForProviderRequest &request);
 
       /**
-       * @summary 游标分页查询应用角色
+       * @summary Retrieves a list of application roles using a cursor.
        *
        * @param request ListApplicationRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3385,7 +3429,7 @@ namespace Eiam20211201
       Models::ListApplicationRolesResponse listApplicationRolesWithOptions(const Models::ListApplicationRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 游标分页查询应用角色
+       * @summary Retrieves a list of application roles using a cursor.
        *
        * @param request ListApplicationRolesRequest
        * @return ListApplicationRolesResponse
@@ -3393,7 +3437,7 @@ namespace Eiam20211201
       Models::ListApplicationRolesResponse listApplicationRoles(const Models::ListApplicationRolesRequest &request);
 
       /**
-       * @summary Queries the synchronization protocol types that are supported by an application.
+       * @summary Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
        *
        * @param request ListApplicationSupportedProvisionProtocolTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3402,7 +3446,7 @@ namespace Eiam20211201
       Models::ListApplicationSupportedProvisionProtocolTypesResponse listApplicationSupportedProvisionProtocolTypesWithOptions(const Models::ListApplicationSupportedProvisionProtocolTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the synchronization protocol types that are supported by an application.
+       * @summary Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
        *
        * @param request ListApplicationSupportedProvisionProtocolTypesRequest
        * @return ListApplicationSupportedProvisionProtocolTypesResponse
@@ -3410,7 +3454,7 @@ namespace Eiam20211201
       Models::ListApplicationSupportedProvisionProtocolTypesResponse listApplicationSupportedProvisionProtocolTypes(const Models::ListApplicationSupportedProvisionProtocolTypesRequest &request);
 
       /**
-       * @summary 创建应用Token
+       * @summary Retrieves a list of application tokens.
        *
        * @param request ListApplicationTokensRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3419,7 +3463,7 @@ namespace Eiam20211201
       Models::ListApplicationTokensResponse listApplicationTokensWithOptions(const Models::ListApplicationTokensRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用Token
+       * @summary Retrieves a list of application tokens.
        *
        * @param request ListApplicationTokensRequest
        * @return ListApplicationTokensResponse
@@ -3427,7 +3471,7 @@ namespace Eiam20211201
       Models::ListApplicationTokensResponse listApplicationTokens(const Models::ListApplicationTokensRequest &request);
 
       /**
-       * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+       * @summary Retrieves a paginated list of EIAM applications.
        *
        * @param request ListApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3436,7 +3480,7 @@ namespace Eiam20211201
       Models::ListApplicationsResponse listApplicationsWithOptions(const Models::ListApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+       * @summary Retrieves a paginated list of EIAM applications.
        *
        * @param request ListApplicationsRequest
        * @return ListApplicationsResponse
@@ -3444,7 +3488,7 @@ namespace Eiam20211201
       Models::ListApplicationsResponse listApplications(const Models::ListApplicationsRequest &request);
 
       /**
-       * @summary 查询授权规则关联的应用列表
+       * @summary Queries the applications that are associated with an authorization rule.
        *
        * @param request ListApplicationsForAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3453,7 +3497,7 @@ namespace Eiam20211201
       Models::ListApplicationsForAuthorizationRuleResponse listApplicationsForAuthorizationRuleWithOptions(const Models::ListApplicationsForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询授权规则关联的应用列表
+       * @summary Queries the applications that are associated with an authorization rule.
        *
        * @param request ListApplicationsForAuthorizationRuleRequest
        * @return ListApplicationsForAuthorizationRuleResponse
@@ -3461,7 +3505,7 @@ namespace Eiam20211201
       Models::ListApplicationsForAuthorizationRuleResponse listApplicationsForAuthorizationRule(const Models::ListApplicationsForAuthorizationRuleRequest &request);
 
       /**
-       * @summary 查询一个EIAM组可访问的应用列表
+       * @summary Retrieves a list of applications that an EIAM group can access.
        *
        * @param request ListApplicationsForGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3470,7 +3514,7 @@ namespace Eiam20211201
       Models::ListApplicationsForGroupResponse listApplicationsForGroupWithOptions(const Models::ListApplicationsForGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一个EIAM组可访问的应用列表
+       * @summary Retrieves a list of applications that an EIAM group can access.
        *
        * @param request ListApplicationsForGroupRequest
        * @return ListApplicationsForGroupResponse
@@ -3478,7 +3522,7 @@ namespace Eiam20211201
       Models::ListApplicationsForGroupResponse listApplicationsForGroup(const Models::ListApplicationsForGroupRequest &request);
 
       /**
-       * @summary 获取网络访问端点下的App信息。
+       * @summary Lists the applications for a network access endpoint.
        *
        * @param request ListApplicationsForNetworkAccessEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3487,7 +3531,7 @@ namespace Eiam20211201
       Models::ListApplicationsForNetworkAccessEndpointResponse listApplicationsForNetworkAccessEndpointWithOptions(const Models::ListApplicationsForNetworkAccessEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取网络访问端点下的App信息。
+       * @summary Lists the applications for a network access endpoint.
        *
        * @param request ListApplicationsForNetworkAccessEndpointRequest
        * @return ListApplicationsForNetworkAccessEndpointResponse
@@ -3495,7 +3539,7 @@ namespace Eiam20211201
       Models::ListApplicationsForNetworkAccessEndpointResponse listApplicationsForNetworkAccessEndpoint(const Models::ListApplicationsForNetworkAccessEndpointRequest &request);
 
       /**
-       * @summary 获取NetworkZone关联的应用列表
+       * @summary Retrieves a list of applications associated with a network domain.
        *
        * @param request ListApplicationsForNetworkZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3504,7 +3548,7 @@ namespace Eiam20211201
       Models::ListApplicationsForNetworkZoneResponse listApplicationsForNetworkZoneWithOptions(const Models::ListApplicationsForNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取NetworkZone关联的应用列表
+       * @summary Retrieves a list of applications associated with a network domain.
        *
        * @param request ListApplicationsForNetworkZoneRequest
        * @return ListApplicationsForNetworkZoneResponse
@@ -3512,9 +3556,9 @@ namespace Eiam20211201
       Models::ListApplicationsForNetworkZoneResponse listApplicationsForNetworkZone(const Models::ListApplicationsForNetworkZoneRequest &request);
 
       /**
-       * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+       * @summary This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
        *
-       * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+       * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request ListApplicationsForOrganizationalUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3523,9 +3567,9 @@ namespace Eiam20211201
       Models::ListApplicationsForOrganizationalUnitResponse listApplicationsForOrganizationalUnitWithOptions(const Models::ListApplicationsForOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+       * @summary This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
        *
-       * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+       * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request ListApplicationsForOrganizationalUnitRequest
        * @return ListApplicationsForOrganizationalUnitResponse
@@ -3533,7 +3577,7 @@ namespace Eiam20211201
       Models::ListApplicationsForOrganizationalUnitResponse listApplicationsForOrganizationalUnit(const Models::ListApplicationsForOrganizationalUnitRequest &request);
 
       /**
-       * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+       * @summary Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
        *
        * @param request ListApplicationsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3542,7 +3586,7 @@ namespace Eiam20211201
       Models::ListApplicationsForUserResponse listApplicationsForUserWithOptions(const Models::ListApplicationsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+       * @summary Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
        *
        * @param request ListApplicationsForUserRequest
        * @return ListApplicationsForUserResponse
@@ -3550,7 +3594,7 @@ namespace Eiam20211201
       Models::ListApplicationsForUserResponse listApplicationsForUser(const Models::ListApplicationsForUserRequest &request);
 
       /**
-       * @summary 查询授权资源信息列表
+       * @summary Queries a list of authorized resources.
        *
        * @param request ListAuthorizationResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3559,7 +3603,7 @@ namespace Eiam20211201
       Models::ListAuthorizationResourcesResponse listAuthorizationResourcesWithOptions(const Models::ListAuthorizationResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询授权资源信息列表
+       * @summary Queries a list of authorized resources.
        *
        * @param request ListAuthorizationResourcesRequest
        * @return ListAuthorizationResourcesResponse
@@ -3567,7 +3611,7 @@ namespace Eiam20211201
       Models::ListAuthorizationResourcesResponse listAuthorizationResources(const Models::ListAuthorizationResourcesRequest &request);
 
       /**
-       * @summary 查询授权规则信息列表
+       * @summary Lists authorization rules.
        *
        * @param request ListAuthorizationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3576,7 +3620,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesResponse listAuthorizationRulesWithOptions(const Models::ListAuthorizationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询授权规则信息列表
+       * @summary Lists authorization rules.
        *
        * @param request ListAuthorizationRulesRequest
        * @return ListAuthorizationRulesResponse
@@ -3584,7 +3628,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesResponse listAuthorizationRules(const Models::ListAuthorizationRulesRequest &request);
 
       /**
-       * @summary 查询应用关联的授权规则信息列表
+       * @summary Lists the authorization rules associated with an application.
        *
        * @param request ListAuthorizationRulesForApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3593,7 +3637,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesForApplicationResponse listAuthorizationRulesForApplicationWithOptions(const Models::ListAuthorizationRulesForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用关联的授权规则信息列表
+       * @summary Lists the authorization rules associated with an application.
        *
        * @param request ListAuthorizationRulesForApplicationRequest
        * @return ListAuthorizationRulesForApplicationResponse
@@ -3601,7 +3645,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesForApplicationResponse listAuthorizationRulesForApplication(const Models::ListAuthorizationRulesForApplicationRequest &request);
 
       /**
-       * @summary 查询组关联的授权规则信息列表
+       * @summary Lists the authorization rules associated with a group.
        *
        * @param request ListAuthorizationRulesForGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3610,7 +3654,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesForGroupResponse listAuthorizationRulesForGroupWithOptions(const Models::ListAuthorizationRulesForGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询组关联的授权规则信息列表
+       * @summary Lists the authorization rules associated with a group.
        *
        * @param request ListAuthorizationRulesForGroupRequest
        * @return ListAuthorizationRulesForGroupResponse
@@ -3618,7 +3662,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesForGroupResponse listAuthorizationRulesForGroup(const Models::ListAuthorizationRulesForGroupRequest &request);
 
       /**
-       * @summary 查询用户关联的授权规则信息列表
+       * @summary Queries the authorization rules associated with a user.
        *
        * @param request ListAuthorizationRulesForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3627,7 +3671,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesForUserResponse listAuthorizationRulesForUserWithOptions(const Models::ListAuthorizationRulesForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户关联的授权规则信息列表
+       * @summary Queries the authorization rules associated with a user.
        *
        * @param request ListAuthorizationRulesForUserRequest
        * @return ListAuthorizationRulesForUserResponse
@@ -3635,7 +3679,7 @@ namespace Eiam20211201
       Models::ListAuthorizationRulesForUserResponse listAuthorizationRulesForUser(const Models::ListAuthorizationRulesForUserRequest &request);
 
       /**
-       * @summary 获取品牌列表
+       * @summary Retrieves a list of brands.
        *
        * @param request ListBrandsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3644,7 +3688,7 @@ namespace Eiam20211201
       Models::ListBrandsResponse listBrandsWithOptions(const Models::ListBrandsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取品牌列表
+       * @summary Retrieves a list of brands.
        *
        * @param request ListBrandsRequest
        * @return ListBrandsResponse
@@ -3652,7 +3696,7 @@ namespace Eiam20211201
       Models::ListBrandsResponse listBrands(const Models::ListBrandsRequest &request);
 
       /**
-       * @summary 查询指定应用所属的全部ClientPublicKey
+       * @summary Lists the client public keys for a specified application using a cursor.
        *
        * @param request ListClientPublicKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3661,7 +3705,7 @@ namespace Eiam20211201
       Models::ListClientPublicKeysResponse listClientPublicKeysWithOptions(const Models::ListClientPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定应用所属的全部ClientPublicKey
+       * @summary Lists the client public keys for a specified application using a cursor.
        *
        * @param request ListClientPublicKeysRequest
        * @return ListClientPublicKeysResponse
@@ -3669,7 +3713,7 @@ namespace Eiam20211201
       Models::ListClientPublicKeysResponse listClientPublicKeys(const Models::ListClientPublicKeysRequest &request);
 
       /**
-       * @summary 查询云角色列表
+       * @summary Queries a paginated list of cloud roles.
        *
        * @param request ListCloudAccountRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3678,7 +3722,7 @@ namespace Eiam20211201
       Models::ListCloudAccountRolesResponse listCloudAccountRolesWithOptions(const Models::ListCloudAccountRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云角色列表
+       * @summary Queries a paginated list of cloud roles.
        *
        * @param request ListCloudAccountRolesRequest
        * @return ListCloudAccountRolesResponse
@@ -3686,7 +3730,7 @@ namespace Eiam20211201
       Models::ListCloudAccountRolesResponse listCloudAccountRoles(const Models::ListCloudAccountRolesRequest &request);
 
       /**
-       * @summary 查询云账号列表
+       * @summary Returns a paginated list of information about one or more Alibaba Cloud accounts.
        *
        * @param request ListCloudAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3695,7 +3739,7 @@ namespace Eiam20211201
       Models::ListCloudAccountsResponse listCloudAccountsWithOptions(const Models::ListCloudAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云账号列表
+       * @summary Returns a paginated list of information about one or more Alibaba Cloud accounts.
        *
        * @param request ListCloudAccountsRequest
        * @return ListCloudAccountsResponse
@@ -3724,7 +3768,7 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesResponse listConditionalAccessPolicies(const Models::ListConditionalAccessPoliciesRequest &request);
 
       /**
-       * @summary 获取应用关联的条件访问策略列表
+       * @summary Lists the conditional access policies associated with an application.
        *
        * @param request ListConditionalAccessPoliciesForApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3733,7 +3777,7 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesForApplicationResponse listConditionalAccessPoliciesForApplicationWithOptions(const Models::ListConditionalAccessPoliciesForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用关联的条件访问策略列表
+       * @summary Lists the conditional access policies associated with an application.
        *
        * @param request ListConditionalAccessPoliciesForApplicationRequest
        * @return ListConditionalAccessPoliciesForApplicationResponse
@@ -3762,7 +3806,7 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesForNetworkZoneResponse listConditionalAccessPoliciesForNetworkZone(const Models::ListConditionalAccessPoliciesForNetworkZoneRequest &request);
 
       /**
-       * @summary 获取用户关联的条件访问策略列表
+       * @summary Retrieves a list of conditional access policies that are associated with a user.
        *
        * @param request ListConditionalAccessPoliciesForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3771,7 +3815,7 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesForUserResponse listConditionalAccessPoliciesForUserWithOptions(const Models::ListConditionalAccessPoliciesForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户关联的条件访问策略列表
+       * @summary Retrieves a list of conditional access policies that are associated with a user.
        *
        * @param request ListConditionalAccessPoliciesForUserRequest
        * @return ListConditionalAccessPoliciesForUserResponse
@@ -3779,7 +3823,7 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesForUserResponse listConditionalAccessPoliciesForUser(const Models::ListConditionalAccessPoliciesForUserRequest &request);
 
       /**
-       * @summary 列举凭据提供商
+       * @summary Lists the credential providers.
        *
        * @param request ListCredentialProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3788,7 +3832,7 @@ namespace Eiam20211201
       Models::ListCredentialProvidersResponse listCredentialProvidersWithOptions(const Models::ListCredentialProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举凭据提供商
+       * @summary Lists the credential providers.
        *
        * @param request ListCredentialProvidersRequest
        * @return ListCredentialProvidersResponse
@@ -3796,7 +3840,7 @@ namespace Eiam20211201
       Models::ListCredentialProvidersResponse listCredentialProviders(const Models::ListCredentialProvidersRequest &request);
 
       /**
-       * @summary 查询凭据列表
+       * @summary Retrieves a paginated list of credentials.
        *
        * @param request ListCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3805,7 +3849,7 @@ namespace Eiam20211201
       Models::ListCredentialsResponse listCredentialsWithOptions(const Models::ListCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询凭据列表
+       * @summary Retrieves a paginated list of credentials.
        *
        * @param request ListCredentialsRequest
        * @return ListCredentialsResponse
@@ -3813,7 +3857,7 @@ namespace Eiam20211201
       Models::ListCredentialsResponse listCredentials(const Models::ListCredentialsRequest &request);
 
       /**
-       * @summary 自定义条款列表查询。
+       * @summary Retrieves a list of custom privacy policies.
        *
        * @param request ListCustomPrivacyPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3822,7 +3866,7 @@ namespace Eiam20211201
       Models::ListCustomPrivacyPoliciesResponse listCustomPrivacyPoliciesWithOptions(const Models::ListCustomPrivacyPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义条款列表查询。
+       * @summary Retrieves a list of custom privacy policies.
        *
        * @param request ListCustomPrivacyPoliciesRequest
        * @return ListCustomPrivacyPoliciesResponse
@@ -3830,7 +3874,7 @@ namespace Eiam20211201
       Models::ListCustomPrivacyPoliciesResponse listCustomPrivacyPolicies(const Models::ListCustomPrivacyPoliciesRequest &request);
 
       /**
-       * @summary 获取品牌关联资源的资源
+       * @summary Retrieves the resources of brand-linked instances.
        *
        * @param request ListCustomPrivacyPoliciesForBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3839,7 +3883,7 @@ namespace Eiam20211201
       Models::ListCustomPrivacyPoliciesForBrandResponse listCustomPrivacyPoliciesForBrandWithOptions(const Models::ListCustomPrivacyPoliciesForBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取品牌关联资源的资源
+       * @summary Retrieves the resources of brand-linked instances.
        *
        * @param request ListCustomPrivacyPoliciesForBrandRequest
        * @return ListCustomPrivacyPoliciesForBrandResponse
@@ -3847,7 +3891,7 @@ namespace Eiam20211201
       Models::ListCustomPrivacyPoliciesForBrandResponse listCustomPrivacyPoliciesForBrand(const Models::ListCustomPrivacyPoliciesForBrandRequest &request);
 
       /**
-       * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
+       * @summary Retrieves a list of proxy tokens for a domain name in an EIAM instance.
        *
        * @param request ListDomainProxyTokensRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3856,7 +3900,7 @@ namespace Eiam20211201
       Models::ListDomainProxyTokensResponse listDomainProxyTokensWithOptions(const Models::ListDomainProxyTokensRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
+       * @summary Retrieves a list of proxy tokens for a domain name in an EIAM instance.
        *
        * @param request ListDomainProxyTokensRequest
        * @return ListDomainProxyTokensResponse
@@ -3864,7 +3908,7 @@ namespace Eiam20211201
       Models::ListDomainProxyTokensResponse listDomainProxyTokens(const Models::ListDomainProxyTokensRequest &request);
 
       /**
-       * @summary Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
+       * @summary Queries the domain names of an EIAM instance, including the default domain name and custom domain names.
        *
        * @param request ListDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3873,7 +3917,7 @@ namespace Eiam20211201
       Models::ListDomainsResponse listDomainsWithOptions(const Models::ListDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
+       * @summary Queries the domain names of an EIAM instance, including the default domain name and custom domain names.
        *
        * @param request ListDomainsRequest
        * @return ListDomainsResponse
@@ -3898,7 +3942,7 @@ namespace Eiam20211201
       Models::ListEiamInstancesResponse listEiamInstances(const Models::ListEiamInstancesRequest &request);
 
       /**
-       * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
+       * @summary Lists the regions available for EIAM 1.0 and EIAM 2.0.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListEiamRegionsResponse
@@ -3906,14 +3950,14 @@ namespace Eiam20211201
       Models::ListEiamRegionsResponse listEiamRegionsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
+       * @summary Lists the regions available for EIAM 1.0 and EIAM 2.0.
        *
        * @return ListEiamRegionsResponse
        */
       Models::ListEiamRegionsResponse listEiamRegions();
 
       /**
-       * @summary 查看事件列表
+       * @summary View the event list.
        *
        * @param request ListEventTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3922,7 +3966,7 @@ namespace Eiam20211201
       Models::ListEventTypesResponse listEventTypesWithOptions(const Models::ListEventTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看事件列表
+       * @summary View the event list.
        *
        * @param request ListEventTypesRequest
        * @return ListEventTypesResponse
@@ -3930,7 +3974,7 @@ namespace Eiam20211201
       Models::ListEventTypesResponse listEventTypes(const Models::ListEventTypesRequest &request);
 
       /**
-       * @summary 查询联邦凭证提供方列表
+       * @summary Lists federated identity providers.
        *
        * @param request ListFederatedCredentialProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3939,7 +3983,7 @@ namespace Eiam20211201
       Models::ListFederatedCredentialProvidersResponse listFederatedCredentialProvidersWithOptions(const Models::ListFederatedCredentialProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询联邦凭证提供方列表
+       * @summary Lists federated identity providers.
        *
        * @param request ListFederatedCredentialProvidersRequest
        * @return ListFederatedCredentialProvidersResponse
@@ -3964,7 +4008,7 @@ namespace Eiam20211201
       Models::ListGroupsResponse listGroups(const Models::ListGroupsRequest &request);
 
       /**
-       * @summary Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
+       * @summary Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
        *
        * @param request ListGroupsForApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3973,7 +4017,7 @@ namespace Eiam20211201
       Models::ListGroupsForApplicationResponse listGroupsForApplicationWithOptions(const Models::ListGroupsForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
+       * @summary Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
        *
        * @param request ListGroupsForApplicationRequest
        * @return ListGroupsForApplicationResponse
@@ -3981,7 +4025,7 @@ namespace Eiam20211201
       Models::ListGroupsForApplicationResponse listGroupsForApplication(const Models::ListGroupsForApplicationRequest &request);
 
       /**
-       * @summary 查询授权规则关联的组列表
+       * @summary Lists the groups associated with an authorization rule.
        *
        * @param request ListGroupsForAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3990,7 +4034,7 @@ namespace Eiam20211201
       Models::ListGroupsForAuthorizationRuleResponse listGroupsForAuthorizationRuleWithOptions(const Models::ListGroupsForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询授权规则关联的组列表
+       * @summary Lists the groups associated with an authorization rule.
        *
        * @param request ListGroupsForAuthorizationRuleRequest
        * @return ListGroupsForAuthorizationRuleResponse
@@ -3998,7 +4042,7 @@ namespace Eiam20211201
       Models::ListGroupsForAuthorizationRuleResponse listGroupsForAuthorizationRule(const Models::ListGroupsForAuthorizationRuleRequest &request);
 
       /**
-       * @summary 查询ResourceServer授权的组和Scope权限
+       * @summary Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
        *
        * @param request ListGroupsForResourceServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4007,7 +4051,7 @@ namespace Eiam20211201
       Models::ListGroupsForResourceServerResponse listGroupsForResourceServerWithOptions(const Models::ListGroupsForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询ResourceServer授权的组和Scope权限
+       * @summary Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
        *
        * @param request ListGroupsForResourceServerRequest
        * @return ListGroupsForResourceServerResponse
@@ -4032,7 +4076,7 @@ namespace Eiam20211201
       Models::ListGroupsForUserResponse listGroupsForUser(const Models::ListGroupsForUserRequest &request);
 
       /**
-       * @summary Query the list of identity providers.
+       * @summary Retrieves a list of identity providers.
        *
        * @param request ListIdentityProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4041,7 +4085,7 @@ namespace Eiam20211201
       Models::ListIdentityProvidersResponse listIdentityProvidersWithOptions(const Models::ListIdentityProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of identity providers.
+       * @summary Retrieves a list of identity providers.
        *
        * @param request ListIdentityProvidersRequest
        * @return ListIdentityProvidersResponse
@@ -4049,7 +4093,7 @@ namespace Eiam20211201
       Models::ListIdentityProvidersResponse listIdentityProviders(const Models::ListIdentityProvidersRequest &request);
 
       /**
-       * @summary 获取网络端点下的IdP信息。
+       * @summary Retrieves information about Identity Providers (IdPs) for a network endpoint.
        *
        * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4058,7 +4102,7 @@ namespace Eiam20211201
       Models::ListIdentityProvidersForNetworkAccessEndpointResponse listIdentityProvidersForNetworkAccessEndpointWithOptions(const Models::ListIdentityProvidersForNetworkAccessEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取网络端点下的IdP信息。
+       * @summary Retrieves information about Identity Providers (IdPs) for a network endpoint.
        *
        * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
        * @return ListIdentityProvidersForNetworkAccessEndpointResponse
@@ -4066,7 +4110,7 @@ namespace Eiam20211201
       Models::ListIdentityProvidersForNetworkAccessEndpointResponse listIdentityProvidersForNetworkAccessEndpoint(const Models::ListIdentityProvidersForNetworkAccessEndpointRequest &request);
 
       /**
-       * @summary Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+       * @summary Queries information about one or more EIAM instances.
        *
        * @param request ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4075,7 +4119,7 @@ namespace Eiam20211201
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+       * @summary Queries information about one or more EIAM instances.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -4083,7 +4127,7 @@ namespace Eiam20211201
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Get a list of regions that support network access endpoints.
+       * @summary Lists the available regions for creating network access endpoints in IDaaS EIAM.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListNetworkAccessEndpointAvailableRegionsResponse
@@ -4091,14 +4135,14 @@ namespace Eiam20211201
       Models::ListNetworkAccessEndpointAvailableRegionsResponse listNetworkAccessEndpointAvailableRegionsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get a list of regions that support network access endpoints.
+       * @summary Lists the available regions for creating network access endpoints in IDaaS EIAM.
        *
        * @return ListNetworkAccessEndpointAvailableRegionsResponse
        */
       Models::ListNetworkAccessEndpointAvailableRegionsResponse listNetworkAccessEndpointAvailableRegions();
 
       /**
-       * @summary Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Queries the zones that support creating network endpoints for IDaaS in a specified region.
        *
        * @param request ListNetworkAccessEndpointAvailableZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4107,7 +4151,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessEndpointAvailableZonesResponse listNetworkAccessEndpointAvailableZonesWithOptions(const Models::ListNetworkAccessEndpointAvailableZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Queries the zones that support creating network endpoints for IDaaS in a specified region.
        *
        * @param request ListNetworkAccessEndpointAvailableZonesRequest
        * @return ListNetworkAccessEndpointAvailableZonesResponse
@@ -4115,7 +4159,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessEndpointAvailableZonesResponse listNetworkAccessEndpointAvailableZones(const Models::ListNetworkAccessEndpointAvailableZonesRequest &request);
 
       /**
-       * @summary List query dedicated network endpoint
+       * @summary Lists the network endpoints for an IDaaS EIAM instance.
        *
        * @param request ListNetworkAccessEndpointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4124,7 +4168,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessEndpointsResponse listNetworkAccessEndpointsWithOptions(const Models::ListNetworkAccessEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List query dedicated network endpoint
+       * @summary Lists the network endpoints for an IDaaS EIAM instance.
        *
        * @param request ListNetworkAccessEndpointsRequest
        * @return ListNetworkAccessEndpointsResponse
@@ -4132,7 +4176,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessEndpointsResponse listNetworkAccessEndpoints(const Models::ListNetworkAccessEndpointsRequest &request);
 
       /**
-       * @summary List the access paths under a certain network access endpoint.
+       * @summary Lists the access paths for a specified network endpoint.
        *
        * @param request ListNetworkAccessPathsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4141,7 +4185,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessPathsResponse listNetworkAccessPathsWithOptions(const Models::ListNetworkAccessPathsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List the access paths under a certain network access endpoint.
+       * @summary Lists the access paths for a specified network endpoint.
        *
        * @param request ListNetworkAccessPathsRequest
        * @return ListNetworkAccessPathsResponse
@@ -4149,7 +4193,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessPathsResponse listNetworkAccessPaths(const Models::ListNetworkAccessPathsRequest &request);
 
       /**
-       * @summary 网络区域对象列表
+       * @summary Lists network zone objects.
        *
        * @param request ListNetworkZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4158,7 +4202,7 @@ namespace Eiam20211201
       Models::ListNetworkZonesResponse listNetworkZonesWithOptions(const Models::ListNetworkZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网络区域对象列表
+       * @summary Lists network zone objects.
        *
        * @param request ListNetworkZonesRequest
        * @return ListNetworkZonesResponse
@@ -4166,7 +4210,7 @@ namespace Eiam20211201
       Models::ListNetworkZonesResponse listNetworkZones(const Models::ListNetworkZonesRequest &request);
 
       /**
-       * @summary Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
+       * @summary Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
        *
        * @param request ListOrganizationalUnitParentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4175,7 +4219,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitParentsResponse listOrganizationalUnitParentsWithOptions(const Models::ListOrganizationalUnitParentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
+       * @summary Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
        *
        * @param request ListOrganizationalUnitParentsRequest
        * @return ListOrganizationalUnitParentsResponse
@@ -4183,7 +4227,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitParentsResponse listOrganizationalUnitParents(const Models::ListOrganizationalUnitParentsRequest &request);
 
       /**
-       * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+       * @summary Performs a paged query for EIAM organizational units.
        *
        * @param request ListOrganizationalUnitsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4192,7 +4236,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitsResponse listOrganizationalUnitsWithOptions(const Models::ListOrganizationalUnitsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+       * @summary Performs a paged query for EIAM organizational units.
        *
        * @param request ListOrganizationalUnitsRequest
        * @return ListOrganizationalUnitsResponse
@@ -4200,7 +4244,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitsResponse listOrganizationalUnits(const Models::ListOrganizationalUnitsRequest &request);
 
       /**
-       * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+       * @summary Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
        *
        * @param request ListOrganizationalUnitsForApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4209,7 +4253,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitsForApplicationResponse listOrganizationalUnitsForApplicationWithOptions(const Models::ListOrganizationalUnitsForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+       * @summary Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
        *
        * @param request ListOrganizationalUnitsForApplicationRequest
        * @return ListOrganizationalUnitsForApplicationResponse
@@ -4217,7 +4261,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitsForApplicationResponse listOrganizationalUnitsForApplication(const Models::ListOrganizationalUnitsForApplicationRequest &request);
 
       /**
-       * @summary 查询被授权到组织的ResourceServers和Scopes权限
+       * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
        *
        * @param request ListOrganizationalUnitsForResourceServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4226,7 +4270,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitsForResourceServerResponse listOrganizationalUnitsForResourceServerWithOptions(const Models::ListOrganizationalUnitsForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询被授权到组织的ResourceServers和Scopes权限
+       * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
        *
        * @param request ListOrganizationalUnitsForResourceServerRequest
        * @return ListOrganizationalUnitsForResourceServerResponse
@@ -4249,7 +4293,7 @@ namespace Eiam20211201
       Models::ListRegionsResponse listRegions();
 
       /**
-       * @summary 获取指定ResourceServer下Scope列表。
+       * @summary Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
        *
        * @param request ListResourceServerScopesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4258,7 +4302,7 @@ namespace Eiam20211201
       Models::ListResourceServerScopesResponse listResourceServerScopesWithOptions(const Models::ListResourceServerScopesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定ResourceServer下Scope列表。
+       * @summary Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
        *
        * @param request ListResourceServerScopesRequest
        * @return ListResourceServerScopesResponse
@@ -4266,7 +4310,7 @@ namespace Eiam20211201
       Models::ListResourceServerScopesResponse listResourceServerScopes(const Models::ListResourceServerScopesRequest &request);
 
       /**
-       * @summary 查询用户的被授予ResourceServers和Scopes的权限
+       * @summary Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
        *
        * @param request ListResourceServersForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4275,7 +4319,7 @@ namespace Eiam20211201
       Models::ListResourceServersForUserResponse listResourceServersForUserWithOptions(const Models::ListResourceServersForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户的被授予ResourceServers和Scopes的权限
+       * @summary Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
        *
        * @param request ListResourceServersForUserRequest
        * @return ListResourceServersForUserResponse
@@ -4283,7 +4327,12 @@ namespace Eiam20211201
       Models::ListResourceServersForUserResponse listResourceServersForUser(const Models::ListResourceServersForUserRequest &request);
 
       /**
-       * @summary Queries a list of synchronization jobs.
+       * @summary Lists the details of synchronization tasks.
+       *
+       * @description You can view the returned data in one of the following two ways:
+       * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
+       * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
+       * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
        *
        * @param request ListSynchronizationJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4292,7 +4341,12 @@ namespace Eiam20211201
       Models::ListSynchronizationJobsResponse listSynchronizationJobsWithOptions(const Models::ListSynchronizationJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of synchronization jobs.
+       * @summary Lists the details of synchronization tasks.
+       *
+       * @description You can view the returned data in one of the following two ways:
+       * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
+       * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
+       * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
        *
        * @param request ListSynchronizationJobsRequest
        * @return ListSynchronizationJobsResponse
@@ -4300,7 +4354,9 @@ namespace Eiam20211201
       Models::ListSynchronizationJobsResponse listSynchronizationJobs(const Models::ListSynchronizationJobsRequest &request);
 
       /**
-       * @summary 查询三方登录账户绑定关系
+       * @summary Lists the mappings for third-party logon accounts.
+       *
+       * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request ListUserAuthnSourceMappingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4309,7 +4365,9 @@ namespace Eiam20211201
       Models::ListUserAuthnSourceMappingsResponse listUserAuthnSourceMappingsWithOptions(const Models::ListUserAuthnSourceMappingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询三方登录账户绑定关系
+       * @summary Lists the mappings for third-party logon accounts.
+       *
+       * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request ListUserAuthnSourceMappingsRequest
        * @return ListUserAuthnSourceMappingsResponse
@@ -4317,7 +4375,9 @@ namespace Eiam20211201
       Models::ListUserAuthnSourceMappingsResponse listUserAuthnSourceMappings(const Models::ListUserAuthnSourceMappingsRequest &request);
 
       /**
-       * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+       * @summary Retrieves a paginated list of EIAM accounts.
+       *
+       * @description This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4326,7 +4386,9 @@ namespace Eiam20211201
       Models::ListUsersResponse listUsersWithOptions(const Models::ListUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+       * @summary Retrieves a paginated list of EIAM accounts.
+       *
+       * @description This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListUsersRequest
        * @return ListUsersResponse
@@ -4334,7 +4396,7 @@ namespace Eiam20211201
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
-       * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+       * @summary Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
        *
        * @param request ListUsersForApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4343,7 +4405,7 @@ namespace Eiam20211201
       Models::ListUsersForApplicationResponse listUsersForApplicationWithOptions(const Models::ListUsersForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+       * @summary Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
        *
        * @param request ListUsersForApplicationRequest
        * @return ListUsersForApplicationResponse
@@ -4351,7 +4413,7 @@ namespace Eiam20211201
       Models::ListUsersForApplicationResponse listUsersForApplication(const Models::ListUsersForApplicationRequest &request);
 
       /**
-       * @summary 查询授权规则关联的账户列表
+       * @summary Lists the accounts associated with an authorization rule.
        *
        * @param request ListUsersForAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4360,7 +4422,7 @@ namespace Eiam20211201
       Models::ListUsersForAuthorizationRuleResponse listUsersForAuthorizationRuleWithOptions(const Models::ListUsersForAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询授权规则关联的账户列表
+       * @summary Lists the accounts associated with an authorization rule.
        *
        * @param request ListUsersForAuthorizationRuleRequest
        * @return ListUsersForAuthorizationRuleResponse
@@ -4368,7 +4430,7 @@ namespace Eiam20211201
       Models::ListUsersForAuthorizationRuleResponse listUsersForAuthorizationRule(const Models::ListUsersForAuthorizationRuleRequest &request);
 
       /**
-       * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+       * @summary Lists the users in a specified EIAM account group.
        *
        * @param request ListUsersForGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4377,7 +4439,7 @@ namespace Eiam20211201
       Models::ListUsersForGroupResponse listUsersForGroupWithOptions(const Models::ListUsersForGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+       * @summary Lists the users in a specified EIAM account group.
        *
        * @param request ListUsersForGroupRequest
        * @return ListUsersForGroupResponse
@@ -4385,7 +4447,7 @@ namespace Eiam20211201
       Models::ListUsersForGroupResponse listUsersForGroup(const Models::ListUsersForGroupRequest &request);
 
       /**
-       * @summary 查询ResourceServer授权的用户和Scope权限
+       * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
        *
        * @param request ListUsersForResourceServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4394,7 +4456,7 @@ namespace Eiam20211201
       Models::ListUsersForResourceServerResponse listUsersForResourceServerWithOptions(const Models::ListUsersForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询ResourceServer授权的用户和Scope权限
+       * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
        *
        * @param request ListUsersForResourceServerRequest
        * @return ListUsersForResourceServerResponse
@@ -4402,7 +4464,7 @@ namespace Eiam20211201
       Models::ListUsersForResourceServerResponse listUsersForResourceServer(const Models::ListUsersForResourceServerRequest &request);
 
       /**
-       * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+       * @summary Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
        *
        * @param request ObtainApplicationClientSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4411,7 +4473,7 @@ namespace Eiam20211201
       Models::ObtainApplicationClientSecretResponse obtainApplicationClientSecretWithOptions(const Models::ObtainApplicationClientSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+       * @summary Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
        *
        * @param request ObtainApplicationClientSecretRequest
        * @return ObtainApplicationClientSecretResponse
@@ -4419,7 +4481,9 @@ namespace Eiam20211201
       Models::ObtainApplicationClientSecretResponse obtainApplicationClientSecret(const Models::ObtainApplicationClientSecretRequest &request);
 
       /**
-       * @summary 查询指定应用Token
+       * @summary Queries the token of a specified application.
+       *
+       * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
        *
        * @param request ObtainApplicationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4428,7 +4492,9 @@ namespace Eiam20211201
       Models::ObtainApplicationTokenResponse obtainApplicationTokenWithOptions(const Models::ObtainApplicationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定应用Token
+       * @summary Queries the token of a specified application.
+       *
+       * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
        *
        * @param request ObtainApplicationTokenRequest
        * @return ObtainApplicationTokenResponse
@@ -4436,7 +4502,7 @@ namespace Eiam20211201
       Models::ObtainApplicationTokenResponse obtainApplicationToken(const Models::ObtainApplicationTokenRequest &request);
 
       /**
-       * @summary 获取凭据
+       * @summary Retrieves a credential containing sensitive information.
        *
        * @param request ObtainCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4445,7 +4511,7 @@ namespace Eiam20211201
       Models::ObtainCredentialResponse obtainCredentialWithOptions(const Models::ObtainCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取凭据
+       * @summary Retrieves a credential containing sensitive information.
        *
        * @param request ObtainCredentialRequest
        * @return ObtainCredentialResponse
@@ -4453,7 +4519,7 @@ namespace Eiam20211201
       Models::ObtainCredentialResponse obtainCredential(const Models::ObtainCredentialRequest &request);
 
       /**
-       * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
+       * @summary Obtains the proxy token for a domain name in an EIAM instance.
        *
        * @param request ObtainDomainProxyTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4462,7 +4528,7 @@ namespace Eiam20211201
       Models::ObtainDomainProxyTokenResponse obtainDomainProxyTokenWithOptions(const Models::ObtainDomainProxyTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
+       * @summary Obtains the proxy token for a domain name in an EIAM instance.
        *
        * @param request ObtainDomainProxyTokenRequest
        * @return ObtainDomainProxyTokenResponse
@@ -4470,7 +4536,9 @@ namespace Eiam20211201
       Models::ObtainDomainProxyTokenResponse obtainDomainProxyToken(const Models::ObtainDomainProxyTokenRequest &request);
 
       /**
-       * @summary 删除一个当前应用下的指定员工的应用账号
+       * @summary Deletes the application account of a specified user from an application.
+       *
+       * @description This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request RemoveApplicationAccountFromUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4479,7 +4547,9 @@ namespace Eiam20211201
       Models::RemoveApplicationAccountFromUserResponse removeApplicationAccountFromUserWithOptions(const Models::RemoveApplicationAccountFromUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除一个当前应用下的指定员工的应用账号
+       * @summary Deletes the application account of a specified user from an application.
+       *
+       * @description This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
        *
        * @param request RemoveApplicationAccountFromUserRequest
        * @return RemoveApplicationAccountFromUserResponse
@@ -4487,7 +4557,7 @@ namespace Eiam20211201
       Models::RemoveApplicationAccountFromUserResponse removeApplicationAccountFromUser(const Models::RemoveApplicationAccountFromUserRequest &request);
 
       /**
-       * @summary 将应用从授权规则中解除
+       * @summary Removes an application from an authorization rule.
        *
        * @param request RemoveApplicationFromAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4496,7 +4566,7 @@ namespace Eiam20211201
       Models::RemoveApplicationFromAuthorizationRuleResponse removeApplicationFromAuthorizationRuleWithOptions(const Models::RemoveApplicationFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将应用从授权规则中解除
+       * @summary Removes an application from an authorization rule.
        *
        * @param request RemoveApplicationFromAuthorizationRuleRequest
        * @return RemoveApplicationFromAuthorizationRuleResponse
@@ -4504,7 +4574,7 @@ namespace Eiam20211201
       Models::RemoveApplicationFromAuthorizationRuleResponse removeApplicationFromAuthorizationRule(const Models::RemoveApplicationFromAuthorizationRuleRequest &request);
 
       /**
-       * @summary 移除品牌关联条款
+       * @summary Removing a brand association
        *
        * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4513,7 +4583,7 @@ namespace Eiam20211201
       Models::RemoveCustomPrivacyPoliciesFromBrandResponse removeCustomPrivacyPoliciesFromBrandWithOptions(const Models::RemoveCustomPrivacyPoliciesFromBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除品牌关联条款
+       * @summary Removing a brand association
        *
        * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
        * @return RemoveCustomPrivacyPoliciesFromBrandResponse
@@ -4521,7 +4591,7 @@ namespace Eiam20211201
       Models::RemoveCustomPrivacyPoliciesFromBrandResponse removeCustomPrivacyPoliciesFromBrand(const Models::RemoveCustomPrivacyPoliciesFromBrandRequest &request);
 
       /**
-       * @summary 将组从授权规则中解除
+       * @summary Removes an application from an authorization rule.
        *
        * @param request RemoveGroupFromAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4530,7 +4600,7 @@ namespace Eiam20211201
       Models::RemoveGroupFromAuthorizationRuleResponse removeGroupFromAuthorizationRuleWithOptions(const Models::RemoveGroupFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将组从授权规则中解除
+       * @summary Removes an application from an authorization rule.
        *
        * @param request RemoveGroupFromAuthorizationRuleRequest
        * @return RemoveGroupFromAuthorizationRuleResponse
@@ -4538,7 +4608,7 @@ namespace Eiam20211201
       Models::RemoveGroupFromAuthorizationRuleResponse removeGroupFromAuthorizationRule(const Models::RemoveGroupFromAuthorizationRuleRequest &request);
 
       /**
-       * @summary 将账户从授权规则中解除
+       * @summary Removes an account from an authorization rule.
        *
        * @param request RemoveUserFromAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4547,7 +4617,7 @@ namespace Eiam20211201
       Models::RemoveUserFromAuthorizationRuleResponse removeUserFromAuthorizationRuleWithOptions(const Models::RemoveUserFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将账户从授权规则中解除
+       * @summary Removes an account from an authorization rule.
        *
        * @param request RemoveUserFromAuthorizationRuleRequest
        * @return RemoveUserFromAuthorizationRuleResponse
@@ -4589,7 +4659,7 @@ namespace Eiam20211201
       Models::RemoveUsersFromGroupResponse removeUsersFromGroup(const Models::RemoveUsersFromGroupRequest &request);
 
       /**
-       * @summary 免费版续期
+       * @summary Renewing the Free Edition
        *
        * @param request RenewFreeLicenseEndTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4598,7 +4668,7 @@ namespace Eiam20211201
       Models::RenewFreeLicenseEndTimeResponse renewFreeLicenseEndTimeWithOptions(const Models::RenewFreeLicenseEndTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 免费版续期
+       * @summary Renewing the Free Edition
        *
        * @param request RenewFreeLicenseEndTimeRequest
        * @return RenewFreeLicenseEndTimeResponse
@@ -4606,7 +4676,7 @@ namespace Eiam20211201
       Models::RenewFreeLicenseEndTimeResponse renewFreeLicenseEndTime(const Models::RenewFreeLicenseEndTimeRequest &request);
 
       /**
-       * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Revokes application access from multiple EIAM groups in a batch.
        *
        * @param request RevokeApplicationFromGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4615,7 +4685,7 @@ namespace Eiam20211201
       Models::RevokeApplicationFromGroupsResponse revokeApplicationFromGroupsWithOptions(const Models::RevokeApplicationFromGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Revokes application access from multiple EIAM groups in a batch.
        *
        * @param request RevokeApplicationFromGroupsRequest
        * @return RevokeApplicationFromGroupsResponse
@@ -4623,7 +4693,7 @@ namespace Eiam20211201
       Models::RevokeApplicationFromGroupsResponse revokeApplicationFromGroups(const Models::RevokeApplicationFromGroupsRequest &request);
 
       /**
-       * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+       * @summary Revokes application access from multiple EIAM organizations in a batch operation.
        *
        * @param request RevokeApplicationFromOrganizationalUnitsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4632,7 +4702,7 @@ namespace Eiam20211201
       Models::RevokeApplicationFromOrganizationalUnitsResponse revokeApplicationFromOrganizationalUnitsWithOptions(const Models::RevokeApplicationFromOrganizationalUnitsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+       * @summary Revokes application access from multiple EIAM organizations in a batch operation.
        *
        * @param request RevokeApplicationFromOrganizationalUnitsRequest
        * @return RevokeApplicationFromOrganizationalUnitsResponse
@@ -4640,7 +4710,7 @@ namespace Eiam20211201
       Models::RevokeApplicationFromOrganizationalUnitsResponse revokeApplicationFromOrganizationalUnits(const Models::RevokeApplicationFromOrganizationalUnitsRequest &request);
 
       /**
-       * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+       * @summary Revokes access to an application from multiple EIAM accounts.
        *
        * @param request RevokeApplicationFromUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4649,7 +4719,7 @@ namespace Eiam20211201
       Models::RevokeApplicationFromUsersResponse revokeApplicationFromUsersWithOptions(const Models::RevokeApplicationFromUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+       * @summary Revokes access to an application from multiple EIAM accounts.
        *
        * @param request RevokeApplicationFromUsersRequest
        * @return RevokeApplicationFromUsersResponse
@@ -4657,7 +4727,7 @@ namespace Eiam20211201
       Models::RevokeApplicationFromUsersResponse revokeApplicationFromUsers(const Models::RevokeApplicationFromUsersRequest &request);
 
       /**
-       * @summary 解除指定ResourceServer到Client的授权
+       * @summary Revokes the authorization for a resource server from a client application.
        *
        * @param request RevokeResourceServerFromClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4666,7 +4736,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerFromClientResponse revokeResourceServerFromClientWithOptions(const Models::RevokeResourceServerFromClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解除指定ResourceServer到Client的授权
+       * @summary Revokes the authorization for a resource server from a client application.
        *
        * @param request RevokeResourceServerFromClientRequest
        * @return RevokeResourceServerFromClientResponse
@@ -4674,7 +4744,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerFromClientResponse revokeResourceServerFromClient(const Models::RevokeResourceServerFromClientRequest &request);
 
       /**
-       * @summary 解除指定ResourceServer下的Scope给Client
+       * @summary Revokes specified scope permissions of a resource server from a client application.
        *
        * @param request RevokeResourceServerScopesFromClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4683,7 +4753,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromClientResponse revokeResourceServerScopesFromClientWithOptions(const Models::RevokeResourceServerScopesFromClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解除指定ResourceServer下的Scope给Client
+       * @summary Revokes specified scope permissions of a resource server from a client application.
        *
        * @param request RevokeResourceServerScopesFromClientRequest
        * @return RevokeResourceServerScopesFromClientResponse
@@ -4691,7 +4761,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromClientResponse revokeResourceServerScopesFromClient(const Models::RevokeResourceServerScopesFromClientRequest &request);
 
       /**
-       * @summary 取消被授予到组的ResourceServerScope权限
+       * @summary Revokes a resource server\\"s scope permissions from a group.
        *
        * @param request RevokeResourceServerScopesFromGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4700,7 +4770,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromGroupResponse revokeResourceServerScopesFromGroupWithOptions(const Models::RevokeResourceServerScopesFromGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消被授予到组的ResourceServerScope权限
+       * @summary Revokes a resource server\\"s scope permissions from a group.
        *
        * @param request RevokeResourceServerScopesFromGroupRequest
        * @return RevokeResourceServerScopesFromGroupResponse
@@ -4708,7 +4778,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromGroupResponse revokeResourceServerScopesFromGroup(const Models::RevokeResourceServerScopesFromGroupRequest &request);
 
       /**
-       * @summary 取消被授予到组织的ResourceServerScope权限
+       * @summary Revokes scope permissions for a resource server from an organization.
        *
        * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4717,7 +4787,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromOrganizationalUnitResponse revokeResourceServerScopesFromOrganizationalUnitWithOptions(const Models::RevokeResourceServerScopesFromOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消被授予到组织的ResourceServerScope权限
+       * @summary Revokes scope permissions for a resource server from an organization.
        *
        * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
        * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
@@ -4725,7 +4795,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromOrganizationalUnitResponse revokeResourceServerScopesFromOrganizationalUnit(const Models::RevokeResourceServerScopesFromOrganizationalUnitRequest &request);
 
       /**
-       * @summary 取消被授予用户的ResourceServerScope权限
+       * @summary Revokes scope permissions for a specified resource server from an account.
        *
        * @param request RevokeResourceServerScopesFromUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4734,7 +4804,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromUserResponse revokeResourceServerScopesFromUserWithOptions(const Models::RevokeResourceServerScopesFromUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消被授予用户的ResourceServerScope权限
+       * @summary Revokes scope permissions for a specified resource server from an account.
        *
        * @param request RevokeResourceServerScopesFromUserRequest
        * @return RevokeResourceServerScopesFromUserResponse
@@ -4742,7 +4812,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromUserResponse revokeResourceServerScopesFromUser(const Models::RevokeResourceServerScopesFromUserRequest &request);
 
       /**
-       * @summary Creates a synchronization job and immediately runs the job.
+       * @summary Creates and immediately runs a new synchronization task.
        *
        * @param request RunSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4751,7 +4821,7 @@ namespace Eiam20211201
       Models::RunSynchronizationJobResponse runSynchronizationJobWithOptions(const Models::RunSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a synchronization job and immediately runs the job.
+       * @summary Creates and immediately runs a new synchronization task.
        *
        * @param request RunSynchronizationJobRequest
        * @return RunSynchronizationJobResponse
@@ -4776,7 +4846,7 @@ namespace Eiam20211201
       Models::SetApplicationGrantScopeResponse setApplicationGrantScope(const Models::SetApplicationGrantScopeRequest &request);
 
       /**
-       * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Sets the account synchronization configuration for an EIAM application.
        *
        * @param request SetApplicationProvisioningConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4785,7 +4855,7 @@ namespace Eiam20211201
       Models::SetApplicationProvisioningConfigResponse setApplicationProvisioningConfigWithOptions(const Models::SetApplicationProvisioningConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+       * @summary Sets the account synchronization configuration for an EIAM application.
        *
        * @param request SetApplicationProvisioningConfigRequest
        * @return SetApplicationProvisioningConfigResponse
@@ -4810,7 +4880,7 @@ namespace Eiam20211201
       Models::SetApplicationProvisioningScopeResponse setApplicationProvisioningScope(const Models::SetApplicationProvisioningScopeRequest &request);
 
       /**
-       * @summary 配置应用同步用户主组织
+       * @summary Sets the primary organizational unit for an application\\"s user provisioning.
        *
        * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4819,7 +4889,7 @@ namespace Eiam20211201
       Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(const Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置应用同步用户主组织
+       * @summary Sets the primary organizational unit for an application\\"s user provisioning.
        *
        * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
        * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -4827,7 +4897,7 @@ namespace Eiam20211201
       Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse setApplicationProvisioningUserPrimaryOrganizationalUnit(const Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request);
 
       /**
-       * @summary 设置ResourceServer的Identifier
+       * @summary Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
        *
        * @param request SetApplicationResourceServerIdentifierRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4836,7 +4906,7 @@ namespace Eiam20211201
       Models::SetApplicationResourceServerIdentifierResponse setApplicationResourceServerIdentifierWithOptions(const Models::SetApplicationResourceServerIdentifierRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置ResourceServer的Identifier
+       * @summary Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
        *
        * @param request SetApplicationResourceServerIdentifierRequest
        * @return SetApplicationResourceServerIdentifierResponse
@@ -4844,9 +4914,9 @@ namespace Eiam20211201
       Models::SetApplicationResourceServerIdentifierResponse setApplicationResourceServerIdentifier(const Models::SetApplicationResourceServerIdentifierRequest &request);
 
       /**
-       * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+       * @summary Sets the single sign-on (SSO) properties for an IDaaS application.
        *
-       * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+       * @description In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
        *
        * @param request SetApplicationSsoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4855,9 +4925,9 @@ namespace Eiam20211201
       Models::SetApplicationSsoConfigResponse setApplicationSsoConfigWithOptions(const Models::SetApplicationSsoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+       * @summary Sets the single sign-on (SSO) properties for an IDaaS application.
        *
-       * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+       * @description In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
        *
        * @param request SetApplicationSsoConfigRequest
        * @return SetApplicationSsoConfigResponse
@@ -4865,7 +4935,7 @@ namespace Eiam20211201
       Models::SetApplicationSsoConfigResponse setApplicationSsoConfig(const Models::SetApplicationSsoConfigRequest &request);
 
       /**
-       * @summary Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
+       * @summary Sets the default domain name for a specified EIAM instance.
        *
        * @param request SetDefaultDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4874,7 +4944,7 @@ namespace Eiam20211201
       Models::SetDefaultDomainResponse setDefaultDomainWithOptions(const Models::SetDefaultDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
+       * @summary Sets the default domain name for a specified EIAM instance.
        *
        * @param request SetDefaultDomainRequest
        * @return SetDefaultDomainResponse
@@ -4899,7 +4969,7 @@ namespace Eiam20211201
       Models::SetForgetPasswordConfigurationResponse setForgetPasswordConfiguration(const Models::SetForgetPasswordConfigurationRequest &request);
 
       /**
-       * @summary 修改认证信息
+       * @summary Update authentication information
        *
        * @param request SetIdentityProviderAuthnConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4908,7 +4978,7 @@ namespace Eiam20211201
       Models::SetIdentityProviderAuthnConfigurationResponse setIdentityProviderAuthnConfigurationWithOptions(const Models::SetIdentityProviderAuthnConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改认证信息
+       * @summary Update authentication information
        *
        * @param request SetIdentityProviderAuthnConfigurationRequest
        * @return SetIdentityProviderAuthnConfigurationResponse
@@ -4916,7 +4986,7 @@ namespace Eiam20211201
       Models::SetIdentityProviderAuthnConfigurationResponse setIdentityProviderAuthnConfiguration(const Models::SetIdentityProviderAuthnConfigurationRequest &request);
 
       /**
-       * @summary Update IdP synchronization configuration.
+       * @summary Sets the inbound synchronization configuration for an IdP.
        *
        * @param request SetIdentityProviderUdPullConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4925,7 +4995,7 @@ namespace Eiam20211201
       Models::SetIdentityProviderUdPullConfigurationResponse setIdentityProviderUdPullConfigurationWithOptions(const Models::SetIdentityProviderUdPullConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update IdP synchronization configuration.
+       * @summary Sets the inbound synchronization configuration for an IdP.
        *
        * @param request SetIdentityProviderUdPullConfigurationRequest
        * @return SetIdentityProviderUdPullConfigurationResponse
@@ -4933,7 +5003,7 @@ namespace Eiam20211201
       Models::SetIdentityProviderUdPullConfigurationResponse setIdentityProviderUdPullConfiguration(const Models::SetIdentityProviderUdPullConfigurationRequest &request);
 
       /**
-       * @summary 修改IdP同步出配置
+       * @summary Modifies the push configuration for an identity provider (IdP).
        *
        * @param request SetIdentityProviderUdPushConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4942,7 +5012,7 @@ namespace Eiam20211201
       Models::SetIdentityProviderUdPushConfigurationResponse setIdentityProviderUdPushConfigurationWithOptions(const Models::SetIdentityProviderUdPushConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改IdP同步出配置
+       * @summary Modifies the push configuration for an identity provider (IdP).
        *
        * @param request SetIdentityProviderUdPushConfigurationRequest
        * @return SetIdentityProviderUdPushConfigurationResponse
@@ -4950,7 +5020,7 @@ namespace Eiam20211201
       Models::SetIdentityProviderUdPushConfigurationResponse setIdentityProviderUdPushConfiguration(const Models::SetIdentityProviderUdPushConfigurationRequest &request);
 
       /**
-       * @summary 设置实例控制项
+       * @summary Configures the control settings for an instance.
        *
        * @param request SetInstanceControlConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4959,7 +5029,7 @@ namespace Eiam20211201
       Models::SetInstanceControlConfigurationResponse setInstanceControlConfigurationWithOptions(const Models::SetInstanceControlConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置实例控制项
+       * @summary Configures the control settings for an instance.
        *
        * @param request SetInstanceControlConfigurationRequest
        * @return SetInstanceControlConfigurationResponse
@@ -4967,7 +5037,7 @@ namespace Eiam20211201
       Models::SetInstanceControlConfigurationResponse setInstanceControlConfiguration(const Models::SetInstanceControlConfigurationRequest &request);
 
       /**
-       * @summary 设置实例语言、时区信息
+       * @summary Sets the language and time zone for an instance.
        *
        * @param request SetInstanceGlobalizationConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4976,7 +5046,7 @@ namespace Eiam20211201
       Models::SetInstanceGlobalizationConfigResponse setInstanceGlobalizationConfigWithOptions(const Models::SetInstanceGlobalizationConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置实例语言、时区信息
+       * @summary Sets the language and time zone for an instance.
        *
        * @param request SetInstanceGlobalizationConfigRequest
        * @return SetInstanceGlobalizationConfigResponse
@@ -4984,7 +5054,7 @@ namespace Eiam20211201
       Models::SetInstanceGlobalizationConfigResponse setInstanceGlobalizationConfig(const Models::SetInstanceGlobalizationConfigRequest &request);
 
       /**
-       * @summary 为品牌设置登录后跳转应用
+       * @summary Sets the post-logon redirect application for a brand.
        *
        * @param request SetLoginRedirectApplicationForBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4993,7 +5063,7 @@ namespace Eiam20211201
       Models::SetLoginRedirectApplicationForBrandResponse setLoginRedirectApplicationForBrandWithOptions(const Models::SetLoginRedirectApplicationForBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为品牌设置登录后跳转应用
+       * @summary Sets the post-logon redirect application for a brand.
        *
        * @param request SetLoginRedirectApplicationForBrandRequest
        * @return SetLoginRedirectApplicationForBrandResponse
@@ -5001,7 +5071,7 @@ namespace Eiam20211201
       Models::SetLoginRedirectApplicationForBrandResponse setLoginRedirectApplicationForBrand(const Models::SetLoginRedirectApplicationForBrandRequest &request);
 
       /**
-       * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Sets the password complexity policy for a specified EIAM instance.
        *
        * @param request SetPasswordComplexityConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5010,7 +5080,7 @@ namespace Eiam20211201
       Models::SetPasswordComplexityConfigurationResponse setPasswordComplexityConfigurationWithOptions(const Models::SetPasswordComplexityConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Sets the password complexity policy for a specified EIAM instance.
        *
        * @param request SetPasswordComplexityConfigurationRequest
        * @return SetPasswordComplexityConfigurationResponse
@@ -5018,7 +5088,7 @@ namespace Eiam20211201
       Models::SetPasswordComplexityConfigurationResponse setPasswordComplexityConfiguration(const Models::SetPasswordComplexityConfigurationRequest &request);
 
       /**
-       * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Sets the password expiration policy for a specified EIAM instance.
        *
        * @param request SetPasswordExpirationConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5027,7 +5097,7 @@ namespace Eiam20211201
       Models::SetPasswordExpirationConfigurationResponse setPasswordExpirationConfigurationWithOptions(const Models::SetPasswordExpirationConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+       * @summary Sets the password expiration policy for a specified EIAM instance.
        *
        * @param request SetPasswordExpirationConfigurationRequest
        * @return SetPasswordExpirationConfigurationResponse
@@ -5069,7 +5139,7 @@ namespace Eiam20211201
       Models::SetPasswordInitializationConfigurationResponse setPasswordInitializationConfiguration(const Models::SetPasswordInitializationConfigurationRequest &request);
 
       /**
-       * @summary 设置指定的应用ClientPublicKey优先启用状态
+       * @summary Sets the specified client public key as the primary key for an application.
        *
        * @param request SetPrimaryClientPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5078,7 +5148,7 @@ namespace Eiam20211201
       Models::SetPrimaryClientPublicKeyResponse setPrimaryClientPublicKeyWithOptions(const Models::SetPrimaryClientPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置指定的应用ClientPublicKey优先启用状态
+       * @summary Sets the specified client public key as the primary key for an application.
        *
        * @param request SetPrimaryClientPublicKeyRequest
        * @return SetPrimaryClientPublicKeyResponse
@@ -5103,7 +5173,7 @@ namespace Eiam20211201
       Models::SetUserPrimaryOrganizationalUnitResponse setUserPrimaryOrganizationalUnit(const Models::SetUserPrimaryOrganizationalUnitRequest &request);
 
       /**
-       * @summary 设置WebAuthn配置
+       * @summary Sets the WebAuthn configuration.
        *
        * @param request SetWebAuthnConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5112,7 +5182,7 @@ namespace Eiam20211201
       Models::SetWebAuthnConfigurationResponse setWebAuthnConfigurationWithOptions(const Models::SetWebAuthnConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置WebAuthn配置
+       * @summary Sets the WebAuthn configuration.
        *
        * @param request SetWebAuthnConfigurationRequest
        * @return SetWebAuthnConfigurationResponse
@@ -5120,7 +5190,7 @@ namespace Eiam20211201
       Models::SetWebAuthnConfigurationResponse setWebAuthnConfiguration(const Models::SetWebAuthnConfigurationRequest &request);
 
       /**
-       * @summary 解绑指定用户TOTP
+       * @summary Detaches the TOTP authenticator for a specified user.
        *
        * @param request UnbindTotpAuthenticatorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5129,7 +5199,7 @@ namespace Eiam20211201
       Models::UnbindTotpAuthenticatorResponse unbindTotpAuthenticatorWithOptions(const Models::UnbindTotpAuthenticatorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑指定用户TOTP
+       * @summary Detaches the TOTP authenticator for a specified user.
        *
        * @param request UnbindTotpAuthenticatorRequest
        * @return UnbindTotpAuthenticatorResponse
@@ -5137,7 +5207,7 @@ namespace Eiam20211201
       Models::UnbindTotpAuthenticatorResponse unbindTotpAuthenticator(const Models::UnbindTotpAuthenticatorRequest &request);
 
       /**
-       * @summary 解绑三方登录账户
+       * @summary Unbinds a third-party logon account from a user.
        *
        * @param request UnbindUserAuthnSourceMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5146,7 +5216,7 @@ namespace Eiam20211201
       Models::UnbindUserAuthnSourceMappingResponse unbindUserAuthnSourceMappingWithOptions(const Models::UnbindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑三方登录账户
+       * @summary Unbinds a third-party logon account from a user.
        *
        * @param request UnbindUserAuthnSourceMappingRequest
        * @return UnbindUserAuthnSourceMappingResponse
@@ -5171,7 +5241,7 @@ namespace Eiam20211201
       Models::UnlockUserResponse unlockUser(const Models::UnlockUserRequest &request);
 
       /**
-       * @summary 修改应用高阶配置
+       * @summary Updates the advanced configuration of an application.
        *
        * @param request UpdateApplicationAdvancedConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5180,7 +5250,7 @@ namespace Eiam20211201
       Models::UpdateApplicationAdvancedConfigResponse updateApplicationAdvancedConfigWithOptions(const Models::UpdateApplicationAdvancedConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用高阶配置
+       * @summary Updates the advanced configuration of an application.
        *
        * @param request UpdateApplicationAdvancedConfigRequest
        * @return UpdateApplicationAdvancedConfigResponse
@@ -5205,7 +5275,7 @@ namespace Eiam20211201
       Models::UpdateApplicationAuthorizationTypeResponse updateApplicationAuthorizationType(const Models::UpdateApplicationAuthorizationTypeRequest &request);
 
       /**
-       * @summary 更新应用的指定ClientSecret的到期时间
+       * @summary Updates the expiration time of a specified client secret for an application.
        *
        * @param request UpdateApplicationClientSecretExpirationTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5214,7 +5284,7 @@ namespace Eiam20211201
       Models::UpdateApplicationClientSecretExpirationTimeResponse updateApplicationClientSecretExpirationTimeWithOptions(const Models::UpdateApplicationClientSecretExpirationTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新应用的指定ClientSecret的到期时间
+       * @summary Updates the expiration time of a specified client secret for an application.
        *
        * @param request UpdateApplicationClientSecretExpirationTimeRequest
        * @return UpdateApplicationClientSecretExpirationTimeResponse
@@ -5239,7 +5309,7 @@ namespace Eiam20211201
       Models::UpdateApplicationDescriptionResponse updateApplicationDescription(const Models::UpdateApplicationDescriptionRequest &request);
 
       /**
-       * @summary 更新应用联邦凭证
+       * @summary Updates an application\\"s federated credential.
        *
        * @param request UpdateApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5248,7 +5318,7 @@ namespace Eiam20211201
       Models::UpdateApplicationFederatedCredentialResponse updateApplicationFederatedCredentialWithOptions(const Models::UpdateApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新应用联邦凭证
+       * @summary Updates an application\\"s federated credential.
        *
        * @param request UpdateApplicationFederatedCredentialRequest
        * @return UpdateApplicationFederatedCredentialResponse
@@ -5256,7 +5326,7 @@ namespace Eiam20211201
       Models::UpdateApplicationFederatedCredentialResponse updateApplicationFederatedCredential(const Models::UpdateApplicationFederatedCredentialRequest &request);
 
       /**
-       * @summary 更新应用联邦凭证描述
+       * @summary Updates the description of a federated credential for an application.
        *
        * @param request UpdateApplicationFederatedCredentialDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5265,7 +5335,7 @@ namespace Eiam20211201
       Models::UpdateApplicationFederatedCredentialDescriptionResponse updateApplicationFederatedCredentialDescriptionWithOptions(const Models::UpdateApplicationFederatedCredentialDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新应用联邦凭证描述
+       * @summary Updates the description of a federated credential for an application.
        *
        * @param request UpdateApplicationFederatedCredentialDescriptionRequest
        * @return UpdateApplicationFederatedCredentialDescriptionResponse
@@ -5273,7 +5343,7 @@ namespace Eiam20211201
       Models::UpdateApplicationFederatedCredentialDescriptionResponse updateApplicationFederatedCredentialDescription(const Models::UpdateApplicationFederatedCredentialDescriptionRequest &request);
 
       /**
-       * @summary 更新应用基本信息
+       * @summary Updates the basic information for an application.
        *
        * @param request UpdateApplicationInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5282,7 +5352,7 @@ namespace Eiam20211201
       Models::UpdateApplicationInfoResponse updateApplicationInfoWithOptions(const Models::UpdateApplicationInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新应用基本信息
+       * @summary Updates the basic information for an application.
        *
        * @param request UpdateApplicationInfoRequest
        * @return UpdateApplicationInfoResponse
@@ -5290,7 +5360,7 @@ namespace Eiam20211201
       Models::UpdateApplicationInfoResponse updateApplicationInfo(const Models::UpdateApplicationInfoRequest &request);
 
       /**
-       * @summary 修改应用角色
+       * @summary Updates an application role.
        *
        * @param request UpdateApplicationRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5299,7 +5369,7 @@ namespace Eiam20211201
       Models::UpdateApplicationRoleResponse updateApplicationRoleWithOptions(const Models::UpdateApplicationRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用角色
+       * @summary Updates an application role.
        *
        * @param request UpdateApplicationRoleRequest
        * @return UpdateApplicationRoleResponse
@@ -5307,7 +5377,7 @@ namespace Eiam20211201
       Models::UpdateApplicationRoleResponse updateApplicationRole(const Models::UpdateApplicationRoleRequest &request);
 
       /**
-       * @summary 修改应用角色描述
+       * @summary Updates the description of an application role.
        *
        * @param request UpdateApplicationRoleDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5316,7 +5386,7 @@ namespace Eiam20211201
       Models::UpdateApplicationRoleDescriptionResponse updateApplicationRoleDescriptionWithOptions(const Models::UpdateApplicationRoleDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用角色描述
+       * @summary Updates the description of an application role.
        *
        * @param request UpdateApplicationRoleDescriptionRequest
        * @return UpdateApplicationRoleDescriptionResponse
@@ -5324,7 +5394,9 @@ namespace Eiam20211201
       Models::UpdateApplicationRoleDescriptionResponse updateApplicationRoleDescription(const Models::UpdateApplicationRoleDescriptionRequest &request);
 
       /**
-       * @summary 更新模板应用的SSO参数
+       * @summary Updates the SSO parameters for an application template.
+       *
+       * @description Updates the single sign-on (SSO) parameters for an application template from the marketplace.
        *
        * @param request UpdateApplicationSsoFormParamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5333,7 +5405,9 @@ namespace Eiam20211201
       Models::UpdateApplicationSsoFormParamsResponse updateApplicationSsoFormParamsWithOptions(const Models::UpdateApplicationSsoFormParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模板应用的SSO参数
+       * @summary Updates the SSO parameters for an application template.
+       *
+       * @description Updates the single sign-on (SSO) parameters for an application template from the marketplace.
        *
        * @param request UpdateApplicationSsoFormParamsRequest
        * @return UpdateApplicationSsoFormParamsResponse
@@ -5341,7 +5415,7 @@ namespace Eiam20211201
       Models::UpdateApplicationSsoFormParamsResponse updateApplicationSsoFormParams(const Models::UpdateApplicationSsoFormParamsRequest &request);
 
       /**
-       * @summary 更新ApplicationToken过期时间
+       * @summary Updates the expiration time of an application token.
        *
        * @param request UpdateApplicationTokenExpirationTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5350,7 +5424,7 @@ namespace Eiam20211201
       Models::UpdateApplicationTokenExpirationTimeResponse updateApplicationTokenExpirationTimeWithOptions(const Models::UpdateApplicationTokenExpirationTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新ApplicationToken过期时间
+       * @summary Updates the expiration time of an application token.
        *
        * @param request UpdateApplicationTokenExpirationTimeRequest
        * @return UpdateApplicationTokenExpirationTimeResponse
@@ -5358,7 +5432,7 @@ namespace Eiam20211201
       Models::UpdateApplicationTokenExpirationTimeResponse updateApplicationTokenExpirationTime(const Models::UpdateApplicationTokenExpirationTimeRequest &request);
 
       /**
-       * @summary 更新授权规则信息
+       * @summary Updates the basic properties of an authorization rule.
        *
        * @param request UpdateAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5367,7 +5441,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleResponse updateAuthorizationRuleWithOptions(const Models::UpdateAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新授权规则信息
+       * @summary Updates the basic properties of an authorization rule.
        *
        * @param request UpdateAuthorizationRuleRequest
        * @return UpdateAuthorizationRuleResponse
@@ -5375,7 +5449,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleResponse updateAuthorizationRule(const Models::UpdateAuthorizationRuleRequest &request);
 
       /**
-       * @summary 更新授权规则应用关联关系属性
+       * @summary Updates the properties of the relationship between an authorization rule and an application.
        *
        * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5384,7 +5458,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleApplicationAttachmentResponse updateAuthorizationRuleApplicationAttachmentWithOptions(const Models::UpdateAuthorizationRuleApplicationAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新授权规则应用关联关系属性
+       * @summary Updates the properties of the relationship between an authorization rule and an application.
        *
        * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
        * @return UpdateAuthorizationRuleApplicationAttachmentResponse
@@ -5392,7 +5466,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleApplicationAttachmentResponse updateAuthorizationRuleApplicationAttachment(const Models::UpdateAuthorizationRuleApplicationAttachmentRequest &request);
 
       /**
-       * @summary 更新授权规则描述信息
+       * @summary Updates the description of an authorization rule.
        *
        * @param request UpdateAuthorizationRuleDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5401,7 +5475,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleDescriptionResponse updateAuthorizationRuleDescriptionWithOptions(const Models::UpdateAuthorizationRuleDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新授权规则描述信息
+       * @summary Updates the description of an authorization rule.
        *
        * @param request UpdateAuthorizationRuleDescriptionRequest
        * @return UpdateAuthorizationRuleDescriptionResponse
@@ -5409,7 +5483,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleDescriptionResponse updateAuthorizationRuleDescription(const Models::UpdateAuthorizationRuleDescriptionRequest &request);
 
       /**
-       * @summary 更新授权规则组关联关系属性
+       * @summary Updates the properties of the association between an authorization rule and a group.
        *
        * @param request UpdateAuthorizationRuleGroupAttachmentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5418,7 +5492,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleGroupAttachmentResponse updateAuthorizationRuleGroupAttachmentWithOptions(const Models::UpdateAuthorizationRuleGroupAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新授权规则组关联关系属性
+       * @summary Updates the properties of the association between an authorization rule and a group.
        *
        * @param request UpdateAuthorizationRuleGroupAttachmentRequest
        * @return UpdateAuthorizationRuleGroupAttachmentResponse
@@ -5426,7 +5500,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleGroupAttachmentResponse updateAuthorizationRuleGroupAttachment(const Models::UpdateAuthorizationRuleGroupAttachmentRequest &request);
 
       /**
-       * @summary 更新授权规则账户关联关系属性
+       * @summary Updates the properties of an association between an authorization rule and a user.
        *
        * @param request UpdateAuthorizationRuleUserAttachmentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5435,7 +5509,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleUserAttachmentResponse updateAuthorizationRuleUserAttachmentWithOptions(const Models::UpdateAuthorizationRuleUserAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新授权规则账户关联关系属性
+       * @summary Updates the properties of an association between an authorization rule and a user.
        *
        * @param request UpdateAuthorizationRuleUserAttachmentRequest
        * @return UpdateAuthorizationRuleUserAttachmentResponse
@@ -5443,7 +5517,7 @@ namespace Eiam20211201
       Models::UpdateAuthorizationRuleUserAttachmentResponse updateAuthorizationRuleUserAttachment(const Models::UpdateAuthorizationRuleUserAttachmentRequest &request);
 
       /**
-       * @summary 修改品牌
+       * @summary Updates a brand.
        *
        * @param request UpdateBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5452,7 +5526,7 @@ namespace Eiam20211201
       Models::UpdateBrandResponse updateBrandWithOptions(const Models::UpdateBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改品牌
+       * @summary Updates a brand.
        *
        * @param request UpdateBrandRequest
        * @return UpdateBrandResponse
@@ -5460,7 +5534,7 @@ namespace Eiam20211201
       Models::UpdateBrandResponse updateBrand(const Models::UpdateBrandRequest &request);
 
       /**
-       * @summary 更新云账号
+       * @summary Updates the basic information of an Alibaba Cloud account.
        *
        * @param request UpdateCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5469,7 +5543,7 @@ namespace Eiam20211201
       Models::UpdateCloudAccountResponse updateCloudAccountWithOptions(const Models::UpdateCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新云账号
+       * @summary Updates the basic information of an Alibaba Cloud account.
        *
        * @param request UpdateCloudAccountRequest
        * @return UpdateCloudAccountResponse
@@ -5477,7 +5551,7 @@ namespace Eiam20211201
       Models::UpdateCloudAccountResponse updateCloudAccount(const Models::UpdateCloudAccountRequest &request);
 
       /**
-       * @summary 更新云账号描述
+       * @summary Updates the description of an Alibaba Cloud account.
        *
        * @param request UpdateCloudAccountDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5486,7 +5560,7 @@ namespace Eiam20211201
       Models::UpdateCloudAccountDescriptionResponse updateCloudAccountDescriptionWithOptions(const Models::UpdateCloudAccountDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新云账号描述
+       * @summary Updates the description of an Alibaba Cloud account.
        *
        * @param request UpdateCloudAccountDescriptionRequest
        * @return UpdateCloudAccountDescriptionResponse
@@ -5494,7 +5568,7 @@ namespace Eiam20211201
       Models::UpdateCloudAccountDescriptionResponse updateCloudAccountDescription(const Models::UpdateCloudAccountDescriptionRequest &request);
 
       /**
-       * @summary 更新云角色描述
+       * @summary Updates the description of a cloud role.
        *
        * @param request UpdateCloudAccountRoleDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5503,7 +5577,7 @@ namespace Eiam20211201
       Models::UpdateCloudAccountRoleDescriptionResponse updateCloudAccountRoleDescriptionWithOptions(const Models::UpdateCloudAccountRoleDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新云角色描述
+       * @summary Updates the description of a cloud role.
        *
        * @param request UpdateCloudAccountRoleDescriptionRequest
        * @return UpdateCloudAccountRoleDescriptionResponse
@@ -5511,9 +5585,9 @@ namespace Eiam20211201
       Models::UpdateCloudAccountRoleDescriptionResponse updateCloudAccountRoleDescription(const Models::UpdateCloudAccountRoleDescriptionRequest &request);
 
       /**
-       * @summary Update Conditional Access Policy
+       * @summary Updates a conditional access policy.
        *
-       * @description Update Conditional Access Policy
+       * @description Updates a conditional access policy.
        *
        * @param request UpdateConditionalAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5522,9 +5596,9 @@ namespace Eiam20211201
       Models::UpdateConditionalAccessPolicyResponse updateConditionalAccessPolicyWithOptions(const Models::UpdateConditionalAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Conditional Access Policy
+       * @summary Updates a conditional access policy.
        *
-       * @description Update Conditional Access Policy
+       * @description Updates a conditional access policy.
        *
        * @param request UpdateConditionalAccessPolicyRequest
        * @return UpdateConditionalAccessPolicyResponse
@@ -5532,9 +5606,9 @@ namespace Eiam20211201
       Models::UpdateConditionalAccessPolicyResponse updateConditionalAccessPolicy(const Models::UpdateConditionalAccessPolicyRequest &request);
 
       /**
-       * @summary Update Conditional Access Policy Description
+       * @summary Updates the description of a conditional access policy.
        *
-       * @description Update Conditional Access Policy Description
+       * @description Updates the description of a conditional access policy.
        *
        * @param request UpdateConditionalAccessPolicyDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5543,9 +5617,9 @@ namespace Eiam20211201
       Models::UpdateConditionalAccessPolicyDescriptionResponse updateConditionalAccessPolicyDescriptionWithOptions(const Models::UpdateConditionalAccessPolicyDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Conditional Access Policy Description
+       * @summary Updates the description of a conditional access policy.
        *
-       * @description Update Conditional Access Policy Description
+       * @description Updates the description of a conditional access policy.
        *
        * @param request UpdateConditionalAccessPolicyDescriptionRequest
        * @return UpdateConditionalAccessPolicyDescriptionResponse
@@ -5553,7 +5627,7 @@ namespace Eiam20211201
       Models::UpdateConditionalAccessPolicyDescriptionResponse updateConditionalAccessPolicyDescription(const Models::UpdateConditionalAccessPolicyDescriptionRequest &request);
 
       /**
-       * @summary 更新凭据
+       * @summary Update basic information for a credential.
        *
        * @param request UpdateCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5562,7 +5636,7 @@ namespace Eiam20211201
       Models::UpdateCredentialResponse updateCredentialWithOptions(const Models::UpdateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新凭据
+       * @summary Update basic information for a credential.
        *
        * @param request UpdateCredentialRequest
        * @return UpdateCredentialResponse
@@ -5570,7 +5644,7 @@ namespace Eiam20211201
       Models::UpdateCredentialResponse updateCredential(const Models::UpdateCredentialRequest &request);
 
       /**
-       * @summary 更新凭据描述
+       * @summary Update the description of a credential.
        *
        * @param request UpdateCredentialDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5579,7 +5653,7 @@ namespace Eiam20211201
       Models::UpdateCredentialDescriptionResponse updateCredentialDescriptionWithOptions(const Models::UpdateCredentialDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新凭据描述
+       * @summary Update the description of a credential.
        *
        * @param request UpdateCredentialDescriptionRequest
        * @return UpdateCredentialDescriptionResponse
@@ -5587,7 +5661,7 @@ namespace Eiam20211201
       Models::UpdateCredentialDescriptionResponse updateCredentialDescription(const Models::UpdateCredentialDescriptionRequest &request);
 
       /**
-       * @summary 更新凭据提供商
+       * @summary Updates a credential provider.
        *
        * @param request UpdateCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5596,7 +5670,7 @@ namespace Eiam20211201
       Models::UpdateCredentialProviderResponse updateCredentialProviderWithOptions(const Models::UpdateCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新凭据提供商
+       * @summary Updates a credential provider.
        *
        * @param request UpdateCredentialProviderRequest
        * @return UpdateCredentialProviderResponse
@@ -5604,7 +5678,7 @@ namespace Eiam20211201
       Models::UpdateCredentialProviderResponse updateCredentialProvider(const Models::UpdateCredentialProviderRequest &request);
 
       /**
-       * @summary 更新凭据提供商描述
+       * @summary Update the description of a credential provider.
        *
        * @param request UpdateCredentialProviderDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5613,7 +5687,7 @@ namespace Eiam20211201
       Models::UpdateCredentialProviderDescriptionResponse updateCredentialProviderDescriptionWithOptions(const Models::UpdateCredentialProviderDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新凭据提供商描述
+       * @summary Update the description of a credential provider.
        *
        * @param request UpdateCredentialProviderDescriptionRequest
        * @return UpdateCredentialProviderDescriptionResponse
@@ -5621,7 +5695,7 @@ namespace Eiam20211201
       Models::UpdateCredentialProviderDescriptionResponse updateCredentialProviderDescription(const Models::UpdateCredentialProviderDescriptionRequest &request);
 
       /**
-       * @summary 更新自定义条款
+       * @summary Updates a custom privacy policy.
        *
        * @param request UpdateCustomPrivacyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5630,7 +5704,7 @@ namespace Eiam20211201
       Models::UpdateCustomPrivacyPolicyResponse updateCustomPrivacyPolicyWithOptions(const Models::UpdateCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义条款
+       * @summary Updates a custom privacy policy.
        *
        * @param request UpdateCustomPrivacyPolicyRequest
        * @return UpdateCustomPrivacyPolicyResponse
@@ -5638,7 +5712,7 @@ namespace Eiam20211201
       Models::UpdateCustomPrivacyPolicyResponse updateCustomPrivacyPolicy(const Models::UpdateCustomPrivacyPolicyRequest &request);
 
       /**
-       * @summary 修改域名关联的品牌。
+       * @summary Updates the brand associated with a domain name.
        *
        * @param request UpdateDomainBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5647,7 +5721,7 @@ namespace Eiam20211201
       Models::UpdateDomainBrandResponse updateDomainBrandWithOptions(const Models::UpdateDomainBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改域名关联的品牌。
+       * @summary Updates the brand associated with a domain name.
        *
        * @param request UpdateDomainBrandRequest
        * @return UpdateDomainBrandResponse
@@ -5655,7 +5729,7 @@ namespace Eiam20211201
       Models::UpdateDomainBrandResponse updateDomainBrand(const Models::UpdateDomainBrandRequest &request);
 
       /**
-       * @summary 更新域名备案号。
+       * @summary Updates the ICP filing number for a domain name.
        *
        * @param request UpdateDomainIcpNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5664,7 +5738,7 @@ namespace Eiam20211201
       Models::UpdateDomainIcpNumberResponse updateDomainIcpNumberWithOptions(const Models::UpdateDomainIcpNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新域名备案号。
+       * @summary Updates the ICP filing number for a domain name.
        *
        * @param request UpdateDomainIcpNumberRequest
        * @return UpdateDomainIcpNumberResponse
@@ -5672,7 +5746,7 @@ namespace Eiam20211201
       Models::UpdateDomainIcpNumberResponse updateDomainIcpNumber(const Models::UpdateDomainIcpNumberRequest &request);
 
       /**
-       * @summary 更新联邦凭证提供方
+       * @summary Updates a federated credential provider.
        *
        * @param request UpdateFederatedCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5681,7 +5755,7 @@ namespace Eiam20211201
       Models::UpdateFederatedCredentialProviderResponse updateFederatedCredentialProviderWithOptions(const Models::UpdateFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新联邦凭证提供方
+       * @summary Updates a federated credential provider.
        *
        * @param request UpdateFederatedCredentialProviderRequest
        * @return UpdateFederatedCredentialProviderResponse
@@ -5689,7 +5763,7 @@ namespace Eiam20211201
       Models::UpdateFederatedCredentialProviderResponse updateFederatedCredentialProvider(const Models::UpdateFederatedCredentialProviderRequest &request);
 
       /**
-       * @summary 更新联邦凭证提供方描述
+       * @summary Updates the description of a federated credential provider.
        *
        * @param request UpdateFederatedCredentialProviderDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5698,7 +5772,7 @@ namespace Eiam20211201
       Models::UpdateFederatedCredentialProviderDescriptionResponse updateFederatedCredentialProviderDescriptionWithOptions(const Models::UpdateFederatedCredentialProviderDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新联邦凭证提供方描述
+       * @summary Updates the description of a federated credential provider.
        *
        * @param request UpdateFederatedCredentialProviderDescriptionRequest
        * @return UpdateFederatedCredentialProviderDescriptionResponse
@@ -5740,7 +5814,7 @@ namespace Eiam20211201
       Models::UpdateGroupDescriptionResponse updateGroupDescription(const Models::UpdateGroupDescriptionRequest &request);
 
       /**
-       * @summary 更新idp基础配置
+       * @summary Updates the basic configuration of an identity provider.
        *
        * @param request UpdateIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5749,7 +5823,7 @@ namespace Eiam20211201
       Models::UpdateIdentityProviderResponse updateIdentityProviderWithOptions(const Models::UpdateIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新idp基础配置
+       * @summary Updates the basic configuration of an identity provider.
        *
        * @param request UpdateIdentityProviderRequest
        * @return UpdateIdentityProviderResponse
@@ -5774,7 +5848,7 @@ namespace Eiam20211201
       Models::UpdateInstanceDescriptionResponse updateInstanceDescription(const Models::UpdateInstanceDescriptionRequest &request);
 
       /**
-       * @summary 更新一个专属网络端点的名称。
+       * @summary Modifies the name of a private network access endpoint.
        *
        * @param request UpdateNetworkAccessEndpointNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5783,7 +5857,7 @@ namespace Eiam20211201
       Models::UpdateNetworkAccessEndpointNameResponse updateNetworkAccessEndpointNameWithOptions(const Models::UpdateNetworkAccessEndpointNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新一个专属网络端点的名称。
+       * @summary Modifies the name of a private network access endpoint.
        *
        * @param request UpdateNetworkAccessEndpointNameRequest
        * @return UpdateNetworkAccessEndpointNameResponse
@@ -5791,7 +5865,7 @@ namespace Eiam20211201
       Models::UpdateNetworkAccessEndpointNameResponse updateNetworkAccessEndpointName(const Models::UpdateNetworkAccessEndpointNameRequest &request);
 
       /**
-       * @summary 更新网络区域对象
+       * @summary Updates a network zone object.
        *
        * @param request UpdateNetworkZoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5800,7 +5874,7 @@ namespace Eiam20211201
       Models::UpdateNetworkZoneResponse updateNetworkZoneWithOptions(const Models::UpdateNetworkZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网络区域对象
+       * @summary Updates a network zone object.
        *
        * @param request UpdateNetworkZoneRequest
        * @return UpdateNetworkZoneResponse
@@ -5808,7 +5882,7 @@ namespace Eiam20211201
       Models::UpdateNetworkZoneResponse updateNetworkZone(const Models::UpdateNetworkZoneRequest &request);
 
       /**
-       * @summary 更新网络区域对象描述
+       * @summary Updates the description of a network zone.
        *
        * @param request UpdateNetworkZoneDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5817,7 +5891,7 @@ namespace Eiam20211201
       Models::UpdateNetworkZoneDescriptionResponse updateNetworkZoneDescriptionWithOptions(const Models::UpdateNetworkZoneDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网络区域对象描述
+       * @summary Updates the description of a network zone.
        *
        * @param request UpdateNetworkZoneDescriptionRequest
        * @return UpdateNetworkZoneDescriptionResponse
@@ -5876,7 +5950,7 @@ namespace Eiam20211201
       Models::UpdateOrganizationalUnitParentIdResponse updateOrganizationalUnitParentId(const Models::UpdateOrganizationalUnitParentIdRequest &request);
 
       /**
-       * @summary 更新指定ResourceServer下的Scope
+       * @summary Updates a scope permission for a specified resource server.
        *
        * @param request UpdateResourceServerScopeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5885,7 +5959,7 @@ namespace Eiam20211201
       Models::UpdateResourceServerScopeResponse updateResourceServerScopeWithOptions(const Models::UpdateResourceServerScopeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新指定ResourceServer下的Scope
+       * @summary Updates a scope permission for a specified resource server.
        *
        * @param request UpdateResourceServerScopeRequest
        * @return UpdateResourceServerScopeResponse
@@ -5893,7 +5967,7 @@ namespace Eiam20211201
       Models::UpdateResourceServerScopeResponse updateResourceServerScope(const Models::UpdateResourceServerScopeRequest &request);
 
       /**
-       * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+       * @summary Updates the basic information of an EIAM account.
        *
        * @param request UpdateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5902,7 +5976,7 @@ namespace Eiam20211201
       Models::UpdateUserResponse updateUserWithOptions(const Models::UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+       * @summary Updates the basic information of an EIAM account.
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse
@@ -5910,7 +5984,7 @@ namespace Eiam20211201
       Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
 
       /**
-       * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+       * @summary Updates a user\\"s description.
        *
        * @param request UpdateUserDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5919,7 +5993,7 @@ namespace Eiam20211201
       Models::UpdateUserDescriptionResponse updateUserDescriptionWithOptions(const Models::UpdateUserDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+       * @summary Updates a user\\"s description.
        *
        * @param request UpdateUserDescriptionRequest
        * @return UpdateUserDescriptionResponse

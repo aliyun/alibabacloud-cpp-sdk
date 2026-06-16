@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // 条款ID
+      // The privacy policy ID.
       shared_ptr<string> customPrivacyPolicyId_ {};
     };
 
@@ -119,14 +119,17 @@ namespace Models
 
 
   protected:
+    // The list of custom privacy policies associated with the brand.
     shared_ptr<vector<ListCustomPrivacyPoliciesForBrandResponseBody::BrandCustomPrivacyPolicies>> brandCustomPrivacyPolicies_ {};
-    // 分页查询时每页行数。
+    // The number of entries returned on each page.
     shared_ptr<int64_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+    // The token to retrieve the previous page of results.
     shared_ptr<string> previousToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

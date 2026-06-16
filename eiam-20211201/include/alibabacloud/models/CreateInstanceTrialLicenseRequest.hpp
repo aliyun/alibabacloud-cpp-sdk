@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM的实例id
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

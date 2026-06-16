@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 域名ID。
+    // The domain name ID.
     // 
     // This parameter is required.
     shared_ptr<string> domainId_ {};
-    // 域名关联的备案号，长度最大限制64。
+    // The ICP filing number associated with the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> icpNumber_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

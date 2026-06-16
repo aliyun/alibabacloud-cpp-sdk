@@ -83,6 +83,7 @@ namespace Models
 
 
       protected:
+        // The CAPTCHA type.
         shared_ptr<string> humanVerificationType_ {};
       };
 
@@ -112,10 +113,11 @@ namespace Models
 
 
     protected:
-      // 实例控制项名称，如human_verification。
+      // The name of the control item.
       shared_ptr<string> elementName_ {};
+      // The CAPTCHA configuration.
       shared_ptr<ControlElements::HumanVerificationConfig> humanVerificationConfig_ {};
-      // 实例控制项状态。
+      // The status of the control item.
       shared_ptr<string> status_ {};
     };
 
@@ -138,9 +140,9 @@ namespace Models
 
 
   protected:
-    // 实例控制项。
+    // The control items for the instance.
     shared_ptr<vector<SetInstanceControlConfigurationRequest::ControlElements>> controlElements_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

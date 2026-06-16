@@ -143,7 +143,9 @@ namespace Models
 
 
       protected:
+        // The custom field name.
         shared_ptr<string> fieldName_ {};
+        // The custom field value.
         shared_ptr<string> fieldValue_ {};
       };
 
@@ -189,7 +191,9 @@ namespace Models
 
 
       protected:
+        // The group IDs of the application owners.
         shared_ptr<vector<string>> groupIds_ {};
+        // The user IDs of the application owners.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -405,73 +409,94 @@ namespace Models
 
 
     protected:
-      // The status of the Developer API feature. Valid values:
+      // The status of the Developer API feature for the application. Valid values:
       // 
-      // *   Enabled: The Developer API feature is enabled.
-      // *   Disabled: The Developer API feature is disabled.
+      // - enabled
+      // 
+      // - disabled
       shared_ptr<string> apiInvokeStatus_ {};
+      // The application creation type.
       shared_ptr<string> applicationCreationType_ {};
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
+      // The identity type of the application. Valid values:
+      // 
+      // - application: application.
+      // 
+      // - agent: agent.
       shared_ptr<string> applicationIdentityType_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> applicationName_ {};
+      // The application owners.
       shared_ptr<Application::ApplicationOwner> applicationOwner_ {};
-      // The origin of the application. Valid values:
+      // The source from which the application was created. Valid values:
       // 
-      // *   urn:alibaba:idaas:app:source:template: The application is created based on a template.
-      // *   urn:alibaba:idaas: The application is created based on the standard protocol.
+      // - urn:alibaba:idaas:app:source:template: The application was created from a template.
+      // 
+      // - urn:alibaba:idaas:app:source:standard: The application was created based on a standard protocol.
       shared_ptr<string> applicationSourceType_ {};
-      // The ID of the template based on which the application is created. This parameter is returned only if the application is created based on a template.
+      // The ID of the application template that is associated with the application. This parameter is returned only if the application was created from a template.
       shared_ptr<string> applicationTemplateId_ {};
-      // Application visibility
+      // The visibility of the application.
       shared_ptr<vector<string>> applicationVisibility_ {};
-      // The authorization type of the EIAM application. Valid values:
+      // The authorization type for application access. Valid values:
       // 
-      // *   authorize_required: Only the user with explicit authorization can access the application.
-      // *   default_all: By default, all users can access the application.
+      // - authorize_required: Explicit authorization is required for access.
+      // 
+      // - default_all: All members have access by default.
       shared_ptr<string> authorizationType_ {};
       // The client ID of the application.
       shared_ptr<string> clientId_ {};
-      // The time when the application was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the application was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // The custom fields of the application.
       shared_ptr<vector<Application::CustomFields>> customFields_ {};
+      // Indicates whether to customize the Subject field in the token. If this feature is enabled, the issued access token changes from \\<clientId> to \\<clientId>:\\<client.activeSubjectUrn>. The client.activeSubjectUrn is set in the attribute mapping of the application\\"s federated identity provider.
       shared_ptr<string> customSubjectStatus_ {};
       // The description of the application.
       shared_ptr<string> description_ {};
-      // The features that are supported by the application. The value is a JSON array. Valid values:
+      // The features that the application supports. This parameter is returned as a JSON array string. Valid values:
       // 
-      // *   sso: The application supports SSO.
-      // *   provision: The application supports account synchronization.
-      // *   api_invoke: The application supports custom APIs.
+      // - sso: single sign-on (SSO).
+      // 
+      // - provision: account synchronization.
+      // 
+      // - api_invoke: API calling.
       shared_ptr<string> features_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The URL of the application icon.
       shared_ptr<string> logoUrl_ {};
-      // M2M client status.
+      // The status of the M2M client.
       shared_ptr<string> m2MClientStatus_ {};
-      // The service code of the cloud service that manages the application template.
+      // The service code of the cloud product that hosts the application template.
       shared_ptr<string> managedServiceCode_ {};
-      // Unique identifier of the resource server
+      // The unique identifier of the resource server. This corresponds to the audience of the resource server.
       shared_ptr<string> resourceServerIdentifier_ {};
+      // The source type of the resource server.
       shared_ptr<string> resourceServerSourceType_ {};
-      // Resource server status.
+      // The status of the resource server.
       shared_ptr<string> resourceServerStatus_ {};
-      // Indicates whether the application template is managed by a cloud service.
+      // Indicates whether the application template is hosted by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
       shared_ptr<vector<string>> smartConfigCapabilities_ {};
-      // The type of the single sign-on (SSO) protocol. Valid values:
+      // The single sign-on (SSO) protocol. Valid values:
       // 
-      // *   saml2: the Security Assertion Markup Language (SAML) 2.0 protocol.
-      // *   oidc: the OpenID Connect (OIDC) protocol.
+      // - saml2: SAML 2.0.
+      // 
+      // - oidc: OpenID Connect.
+      // 
+      // - oauth2/m2m: OAuth 2.0.
+      // 
+      // - oidc+oauth2/m2m: OpenID Connect and OAuth 2.0.
       shared_ptr<string> ssoType_ {};
-      // The status of the application. Valid values:
+      // The application status. Valid values:
       // 
-      // *   Enabled: The application is enabled.
-      // *   Disabled: The application is disabled.
+      // - enabled
+      // 
+      // - disabled
       shared_ptr<string> status_ {};
-      // The time when the application was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the application was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -494,9 +519,9 @@ namespace Models
 
 
   protected:
-    // The details of the application.
+    // The information about the application.
     shared_ptr<GetApplicationResponseBody::Application> application_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

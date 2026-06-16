@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 授权规则标识。
+    // The ID of the authorization rule.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
-    // 组ID。
+    // The group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

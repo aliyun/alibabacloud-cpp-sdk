@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // The ICP number associated with the domain name. Both the entity ICP number and website ICP number are supported.
+        // The ICP filing number associated with the domain name. Both entity and website ICP filing numbers are supported.
         shared_ptr<string> icpNumber_ {};
       };
 
@@ -177,30 +177,33 @@ namespace Models
 
 
     protected:
+      // The brand ID.
       shared_ptr<string> brandId_ {};
-      // The time when the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the domain name was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether the domain name is the default domain.
+      // Indicates whether the domain name is the default one.
       shared_ptr<bool> defaultDomain_ {};
-      // The domain.
+      // The domain name.
       shared_ptr<string> domain_ {};
-      // The domain ID.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
       // The type of the domain name. Valid values:
       // 
-      // *   system_init: an initial domain name.
-      // *   user_custom: a custom domain name.
+      // - system_init: The default domain name that is generated during initialization.
+      // 
+      // - user_custom: A custom domain name.
       shared_ptr<string> domainType_ {};
-      // The information about the Internet content provider (ICP) filing of the domain name.
+      // The ICP filing information about the domain name.
       shared_ptr<Domains::Filing> filing_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Indicates whether the domain name is locked. Valid values:
+      // The lock status of the domain name. Valid values:
       // 
-      // *   unlock
-      // *   lockByLicense
+      // - unlock: Normal.
+      // 
+      // - lockByLicense: The domain name is unavailable due to license limitations.
       shared_ptr<string> lockMode_ {};
-      // The time when the domain name was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the domain name was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -223,7 +226,7 @@ namespace Models
 
 
   protected:
-    // The information about the domain names.
+    // The list of domain names.
     shared_ptr<vector<ListDomainsResponseBody::Domains>> domains_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

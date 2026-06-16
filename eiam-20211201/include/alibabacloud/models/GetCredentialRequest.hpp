@@ -48,9 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the credential.
+    // 
     // This parameter is required.
     shared_ptr<string> credentialId_ {};
-    // IDaaS EIAM实例的ID。
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

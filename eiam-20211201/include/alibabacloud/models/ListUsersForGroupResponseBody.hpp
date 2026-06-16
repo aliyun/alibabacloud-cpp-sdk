@@ -81,9 +81,21 @@ namespace Models
 
 
     protected:
-      // Account membership source id
+      // The source ID of the group member relationship.
+      // 
+      // If the group is created in EIAM, the value of this parameter is the instance ID. For other types of groups, the value is the enterprise ID from the source. For example, if the group is imported from DingTalk, the value is the corpId of the DingTalk enterprise.
       shared_ptr<string> groupMemberRelationSourceId_ {};
-      // Account membership source type
+      // The source type of the group member relationship. Valid values:
+      // 
+      // build_in: The group is created in EIAM.
+      // 
+      // ding_talk: The group is imported from DingTalk.
+      // 
+      // ad: The group is imported from Active Directory (AD).
+      // 
+      // ldap: The group is imported from LDAP.
+      // 
+      // we_com: The group is imported from WeCom.
       shared_ptr<string> groupMemberRelationSourceType_ {};
       // The account ID.
       shared_ptr<string> userId_ {};
@@ -117,9 +129,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned. The maximum number of entries that can be returned per page is specified by PageSize.
+    // The total number of entries that match the query.
     shared_ptr<int64_t> totalCount_ {};
-    // The information about accounts.
+    // The list of account objects.
     shared_ptr<vector<ListUsersForGroupResponseBody::Users>> users_ {};
   };
 

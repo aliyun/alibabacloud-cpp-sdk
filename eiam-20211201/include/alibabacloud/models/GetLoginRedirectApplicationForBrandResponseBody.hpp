@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // 应用ID
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 品牌ID
+      // The brand ID.
       shared_ptr<string> brandId_ {};
-      // 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -105,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The information about the post-logon redirect application for the brand.
     shared_ptr<GetLoginRedirectApplicationForBrandResponseBody::BrandLoginRedirectApplication> brandLoginRedirectApplication_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

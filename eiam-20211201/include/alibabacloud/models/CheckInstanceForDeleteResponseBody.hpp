@@ -100,11 +100,11 @@ namespace Models
 
 
       protected:
-        // 有帮助的控制台地址，可以管理对应的资源，从而解除实例删除限制。可能返回为空，不一定所有的资源ID都有管理地址返回。
+        // The URL of a helpful console page.
         shared_ptr<string> helpfulConsoleUrl_ {};
-        // 导致实例删除受限的资源ID。
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // 针对实例删除受限的原因文字描述。
+        // The reason for the restriction.
         shared_ptr<string> restrictReason_ {};
       };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // true表示实例可以被删除；false表示实例不可被删除，具体查看RestrictScenarios属性。
+      // Indicates whether the instance can be deleted.
       shared_ptr<bool> deletable_ {};
-      // true表示实例可以被删除；false表示实例不可被删除，具体查看RestrictScenarios属性。
+      // The restriction information that prevents deletion.
       shared_ptr<vector<CheckInstanceResult::RestrictScenarios>> restrictScenarios_ {};
     };
 
@@ -152,7 +152,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<CheckInstanceForDeleteResponseBody::CheckInstanceResult> checkInstanceResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

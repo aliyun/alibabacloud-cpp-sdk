@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The name of the custom privacy policy item.
         shared_ptr<string> customPrivacyPolicyItemName_ {};
+        // The endpoint of the custom privacy policy item. The value must start with https\\://.
         shared_ptr<string> customPrivacyPolicyItemUrl_ {};
       };
 
@@ -131,8 +133,11 @@ namespace Models
 
 
     protected:
+      // The items of the custom privacy policy.
       shared_ptr<vector<CustomPrivacyPolicyContents::CustomPrivacyPolicyItems>> customPrivacyPolicyItems_ {};
+      // The prompt for the custom privacy policy content.
       shared_ptr<string> customPrivacyPolicyTip_ {};
+      // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
       shared_ptr<string> languageCode_ {};
     };
 
@@ -183,15 +188,21 @@ namespace Models
 
 
   protected:
+    // The details of the custom privacy policy content.
     shared_ptr<vector<UpdateCustomPrivacyPolicyRequest::CustomPrivacyPolicyContents>> customPrivacyPolicyContents_ {};
+    // The ID of the custom privacy policy.
+    // 
     // This parameter is required.
     shared_ptr<string> customPrivacyPolicyId_ {};
+    // The name of the custom privacy policy.
     shared_ptr<string> customPrivacyPolicyName_ {};
+    // The default language of the policy. The value is the LanguageCode returned by the ListLanguages operation.
     shared_ptr<string> defaultLanguageCode_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The consent type for the custom privacy policy.
     shared_ptr<string> userConsentType_ {};
   };
 

@@ -147,7 +147,7 @@ namespace Models
       shared_ptr<string> groupSourceId_ {};
       // The source type of the group. Only build_in may be returned, which indicates that the group was created in IDaaS.
       // 
-      // *build_in:Create By Self.
+      // \\*build_in:Create By Self.
       shared_ptr<string> groupSourceType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};

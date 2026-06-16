@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The name of the DNS challenge record.
+      // The name of the DNS Challenge.
       shared_ptr<string> dnsChallengeName_ {};
-      // The value of the DNS challenge record.
+      // The value of the DNS Challenge.
       shared_ptr<string> dnsChallengeValue_ {};
-      // The type of the DNS challenge record.
+      // The type of the DNS record.
       shared_ptr<string> dnsType_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The DNS challenge records.
+    // The DNS Challenge record.
     shared_ptr<GetDomainDnsChallengeResponseBody::DomainDnsChallenge> domainDnsChallenge_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

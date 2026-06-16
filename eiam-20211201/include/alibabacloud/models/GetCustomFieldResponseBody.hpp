@@ -149,11 +149,11 @@ namespace Models
 
 
         protected:
-          // 配置项展示名
+          // The display name of the configuration item.
           shared_ptr<string> displayName_ {};
-          // 配置项状态, 枚举值，enabled、disabled
+          // The status of the configuration item.
           shared_ptr<string> status_ {};
-          // 配置项值
+          // The value of the configuration item.
           shared_ptr<string> value_ {};
         };
 
@@ -168,7 +168,7 @@ namespace Models
 
 
       protected:
-        // 字段配置项列表，displayName、value、status
+        // A list of field configuration items.
         shared_ptr<vector<FieldDataConfig::Items>> items_ {};
       };
 
@@ -299,39 +299,39 @@ namespace Models
 
 
     protected:
-      // 扩展字段创建时间，Unix时间戳格式，单位为毫秒
+      // The creation time of the custom field, in UNIX timestamp format in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // 字段默认值
+      // The default value of the field.
       shared_ptr<string> defaultValue_ {};
-      // 扩展字段描述
+      // The description of the custom field.
       shared_ptr<string> description_ {};
-      // 是否加密，默认false
+      // Indicates whether the field is encrypted.
       shared_ptr<bool> encrypted_ {};
-      // 字段所属实体类型
+      // The entity type to which the field belongs.
       shared_ptr<string> entityType_ {};
-      // 字段值配置项
+      // Field value configuration items.
       shared_ptr<CustomField::FieldDataConfig> fieldDataConfig_ {};
-      // 数据类型，枚举值：string、number、boolean
+      // The data type.
       shared_ptr<string> fieldDataType_ {};
-      // 字段展示名
+      // The display name of the field.
       shared_ptr<string> fieldDisplayName_ {};
-      // 字段展示类型，枚举值，select、checkbox、input、number
+      // The display type of the field.
       shared_ptr<string> fieldDisplayType_ {};
-      // 字段ID
+      // The field ID.
       shared_ptr<string> fieldId_ {};
-      // 字段标识
+      // The field identifier.
       shared_ptr<string> fieldName_ {};
-      // 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 是否必填，默认false
+      // Indicates whether the field is required.
       shared_ptr<bool> required_ {};
-      // 扩展字段状态, 枚举类型：enabled，disabled
+      // The status of the custom field.
       shared_ptr<string> status_ {};
-      // 是否唯一，默认false
+      // Indicates whether the field is unique.
       shared_ptr<bool> unique_ {};
-      // 扩展字段最近一次更新时间, Unix时间戳格式，单位为毫秒
+      // The last update time of the custom field, in UNIX timestamp format in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // 用户端(portal侧)权限，hide、read_only、read_write，默认read_only
+      // User-side (portal) permissions.
       shared_ptr<string> userPermission_ {};
     };
 
@@ -354,7 +354,9 @@ namespace Models
 
 
   protected:
+    // Custom field information.
     shared_ptr<GetCustomFieldResponseBody::CustomField> customField_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // 是否支持自动更新密码
+      // Specifies whether to automatically update passwords.
       shared_ptr<string> autoUpdatePasswordStatus_ {};
-      // 用户登录标识
+      // User Login Identifier
       shared_ptr<string> userLoginIdentifier_ {};
-      // 用户ObjectClass
+      // User ObjectClass
       shared_ptr<string> userObjectClass_ {};
     };
 
@@ -174,19 +174,19 @@ namespace Models
 
 
       protected:
-        // 表达式的类型
+        // Type of expression.
         // 
         // This parameter is required.
         shared_ptr<string> expressionMappingType_ {};
-        // 映射属性取值表达式
+        // Expression for mapping attribute value.
         // 
         // This parameter is required.
         shared_ptr<string> sourceValueExpression_ {};
-        // 映射目标属性名称
+        // Target attribute name for mapping.
         // 
         // This parameter is required.
         shared_ptr<string> targetField_ {};
-        // 映射目标属性名称
+        // Target attribute name for mapping.
         shared_ptr<string> targetFieldDescription_ {};
       };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
     protected:
-      // 自动匹配账户的规则
+      // Rules for automatic account matching.
       shared_ptr<vector<BindingConfig::AutoMatchUserProfileExpressions>> autoMatchUserProfileExpressions_ {};
-      // 自动匹配账户是否开启
+      // Automatic account matching status.
       shared_ptr<string> autoMatchUserStatus_ {};
-      // 用户手动绑定账户功能是否开启
+      // Specifies whether the manual account binding feature is enabled.
       shared_ptr<string> mappingBindingStatus_ {};
     };
 
@@ -252,6 +252,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable automatic account updates.
       shared_ptr<string> autoUpdateUserStatus_ {};
     };
 
@@ -295,8 +296,9 @@ namespace Models
 
 
     protected:
-      // 自动创建账户是否开启
+      // Automatic account creation status.
       shared_ptr<string> autoCreateUserStatus_ {};
+      // Organization ID
       shared_ptr<vector<string>> targetOrganizationalUnitIds_ {};
     };
 
@@ -353,20 +355,21 @@ namespace Models
 
 
   protected:
-    // 自动创建账户账户规则配置。
+    // Automatic Account Creation Rule Configuration.
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::AutoCreateUserConfig> autoCreateUserConfig_ {};
+    // Automatic Account Update Configuration
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::AutoUpdateUserConfig> autoUpdateUserConfig_ {};
-    // 账户绑定规则配置
+    // Account Binding Rule Configuration
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::BindingConfig> bindingConfig_ {};
-    // IDaaS的身份提供方主键id
+    // Identity Provider ID
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // IDaaS EIAM实例的ID。
+    // Instance ID
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // AD/LDAP配置
+    // AD/LDAP Authentication Configuration
     shared_ptr<SetIdentityProviderAuthnConfigurationRequest::LdapAuthnConfig> ldapAuthnConfig_ {};
   };
 

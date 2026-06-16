@@ -214,34 +214,41 @@ namespace Models
 
 
   protected:
+    // The identity type of the application. The default value is application. Valid values:
+    // 
+    // - application: A standard application.
+    // 
+    // - agent: An automated agent.
     shared_ptr<string> applicationIdentityType_ {};
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> applicationName_ {};
     shared_ptr<CreateApplicationRequest::ApplicationOwner> applicationOwner_ {};
-    // The type of the application source. Valid values:
+    // Specifies how the application is created. Valid values:
     // 
-    // *   urn:alibaba:idaas:app:source:template: application template
-    // *   urn:alibaba:idaas:app:source:standard: standard protocol
+    // - urn:alibaba:idaas:app:source:template: Creates the application from an application template.
+    // 
+    // - urn:alibaba:idaas:app:source:standard: Creates the application from a standard protocol.
     // 
     // This parameter is required.
     shared_ptr<string> applicationSourceType_ {};
-    // The ID of the application template. This parameter is required if you set the ApplicationSourceType parameter to urn:alibaba:idaas:app:source:template.
+    // The ID of the application template. This parameter is required if ApplicationSourceType is urn:alibaba:idaas:app:source:template.
     shared_ptr<string> applicationTemplateId_ {};
     shared_ptr<vector<CreateApplicationRequest::CustomFields>> customFields_ {};
-    // The description of the application.
+    // The application description.
     shared_ptr<string> description_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The URL of the application logo.
     shared_ptr<string> logoUrl_ {};
-    // The SSO protocol. Valid values:
+    // The single sign-on (SSO) protocol. Valid values:
     // 
-    // *   saml2: the SAML 2.0 protocol.
-    // *   oidc: the OpenID Connect protocol.
+    // - saml2: SAML 2.0
+    // 
+    // - oidc: OpenID Connect
     // 
     // This parameter is required.
     shared_ptr<string> ssoType_ {};

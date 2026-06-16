@@ -101,7 +101,7 @@ namespace Models
 
 
       protected:
-        // 是否永久免费
+        // Indicates whether the application template is permanently free.
         shared_ptr<bool> alwaysFree_ {};
       };
 
@@ -198,29 +198,29 @@ namespace Models
 
 
     protected:
-      // 应用模板Id
+      // The ID of the application template.
       shared_ptr<string> applicationTemplateId_ {};
-      // 应用模板名称
+      // The name of the application template.
       shared_ptr<string> applicationTemplateName_ {};
-      // 应用模板创建时间
+      // The time when the application template was created.
       shared_ptr<int64_t> createTime_ {};
-      // 应用模板描述信息
+      // The description of the application template.
       shared_ptr<string> description_ {};
-      // 应用模板对应帮助文档地址
+      // The URL of the help document for the application template.
       shared_ptr<string> helpDocumentUrl_ {};
-      // 应用模板Logo地址
+      // The URL of the logo for the application template.
       shared_ptr<string> logoUrl_ {};
-      // 托管应用模板的云产品ServiceCode。当且仅当ServiceManaged为true是返回。
+      // The service code of the Alibaba Cloud service that manages the application template.
       shared_ptr<string> managedServiceCode_ {};
-      // 应用模板售卖信息
+      // The sales information about the application template.
       shared_ptr<ApplicationTemplate::SaleInfo> saleInfo_ {};
-      // 托管应用模板的云产品控制台地址。当且仅当ServiceManaged为true是返回。
+      // The URL of the console for the Alibaba Cloud service that manages the application template.
       shared_ptr<string> serviceConsoleUrl_ {};
-      // 应用模板是否被云产品托管。
+      // Indicates whether the application template is managed by an Alibaba Cloud service.
       shared_ptr<bool> serviceManaged_ {};
-      // 支持SSO协议
+      // The supported Single Sign-On (SSO) protocols.
       shared_ptr<vector<string>> ssoTypes_ {};
-      // 应用模板更新时间
+      // The time when the application template was last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -243,7 +243,9 @@ namespace Models
 
 
   protected:
+    // The details of the application template.
     shared_ptr<GetApplicationTemplateResponseBody::ApplicationTemplate> applicationTemplate_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

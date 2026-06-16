@@ -105,15 +105,15 @@ namespace Models
 
 
     protected:
-      // 品牌ID
+      // The brand ID.
       shared_ptr<string> brandId_ {};
-      // 品牌名称
+      // The brand name.
       shared_ptr<string> brandName_ {};
-      // 品牌类型
+      // The brand type.
       shared_ptr<string> brandType_ {};
-      // 实例ID。
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 品牌状态
+      // The brand status.
       shared_ptr<string> status_ {};
     };
 
@@ -164,14 +164,17 @@ namespace Models
 
 
   protected:
+    // A list of brands.
     shared_ptr<vector<ListBrandsResponseBody::Brands>> brands_ {};
-    // 分页查询时每页行数。
+    // The number of entries per page.
     shared_ptr<int64_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+    // The token that is used to retrieve the previous page of results.
     shared_ptr<string> previousToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

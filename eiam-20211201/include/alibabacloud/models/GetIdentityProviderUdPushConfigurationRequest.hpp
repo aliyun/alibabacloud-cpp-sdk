@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // IDaaS的身份提供方主键id
+    // Identity provider ID
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // IDaaS EIAM的实例id
+    // Instance ID
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

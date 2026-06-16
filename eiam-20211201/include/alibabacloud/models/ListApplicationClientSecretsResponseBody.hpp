@@ -127,23 +127,25 @@ namespace Models
 
 
     protected:
-      // The ID of the application that you want to query.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
       // The client ID of the application.
       shared_ptr<string> clientId_ {};
-      // The client key secret of the application. The value is not masked.
+      // The client secret of the application. The returned ClientSecret is masked.
       shared_ptr<string> clientSecret_ {};
+      // The expiration time of the client secret. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expirationTime_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the client key was last used. The value is a UNIX timestamp. Unit: milliseconds.
+      // The last time the client secret was used. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // The client key ID of the application.
+      // The client secret ID of the application.
       shared_ptr<string> secretId_ {};
-      // The status of the client key. Valid values:
+      // The status of the client secret. Valid values:
       // 
-      // *   Enabled: The client key is enabled.
-      // *   Disabled: The client key is disabled.
+      // - enabled: The client secret is enabled.
+      // 
+      // - disabled: The client secret is disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -173,11 +175,11 @@ namespace Models
 
 
   protected:
-    // The information about the client keys.
+    // The information about the client secrets.
     shared_ptr<vector<ListApplicationClientSecretsResponseBody::ApplicationClientSecrets>> applicationClientSecrets_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

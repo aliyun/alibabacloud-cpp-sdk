@@ -95,11 +95,11 @@ namespace Models
 
 
     protected:
-      // The group IDs.
+      // The list of group IDs.
       shared_ptr<vector<string>> groupIds_ {};
-      // The IDs of organizational units.
+      // The list of organizational unit IDs.
       shared_ptr<vector<string>> organizationalUnitIds_ {};
-      // UserIds
+      // The list of user IDs.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -160,28 +160,29 @@ namespace Models
 
 
   protected:
-    // Synchronization task description
+    // The description of the synchronization task.
     shared_ptr<string> description_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Whether initialize password
+    // Specifies whether to initialize the password.
     shared_ptr<bool> passwordInitialization_ {};
-    // Synchronization scope
+    // The configuration of the synchronization scope.
     shared_ptr<RunSynchronizationJobRequest::SynchronizationScopeConfig> synchronizationScopeConfig_ {};
-    // The ID of the synchronization destination.
+    // The ID of the synchronization target.
     // 
     // This parameter is required.
     shared_ptr<string> targetId_ {};
-    // The type of the synchronization destination. Valid values:
+    // The type of the synchronization target. Valid values:
     // 
-    // *   identity_provider
-    // *   application
+    // - identity_provider: The identity provider.
+    // 
+    // - application: The application.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};
-    // User identity types
+    // The list of unique user identifiers.
     shared_ptr<vector<string>> userIdentityTypes_ {};
   };
 

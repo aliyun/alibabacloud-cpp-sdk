@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 应用ID
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 品牌化Id
+    // The brand ID.
     // 
     // This parameter is required.
     shared_ptr<string> brandId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

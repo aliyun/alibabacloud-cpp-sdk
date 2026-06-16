@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 认证器ID
+    // The authenticator ID.
     // 
     // This parameter is required.
     shared_ptr<string> authenticatorId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // UserID
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

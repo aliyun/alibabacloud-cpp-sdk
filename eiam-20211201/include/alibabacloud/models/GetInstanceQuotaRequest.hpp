@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 配额类型，QuotaEnum
+    // The quota type.
     // 
     // This parameter is required.
     shared_ptr<string> quotaKey_ {};

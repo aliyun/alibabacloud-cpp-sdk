@@ -92,9 +92,9 @@ namespace Models
 
 
       protected:
-        // IDaaS EIAM 钉钉一方应用的AppKey
+        // AppKey of the DingTalk first-party application
         shared_ptr<string> appKey_ {};
-        // IDaaS EIAM 钉钉一方应用的AppSecret
+        // App secret of the DingTalk first-party application
         shared_ptr<string> appSecret_ {};
       };
 
@@ -124,11 +124,11 @@ namespace Models
 
 
     protected:
-      // 钉钉高阶配置
+      // DingTalk advanced configuration
       shared_ptr<AdvancedConfiguration::DingtalkAdvancedConfig> dingtalkAdvancedConfig_ {};
-      // IDaaS EIAM 身份提供方ID
+      // Identity provider ID
       shared_ptr<string> identityProviderId_ {};
-      // IDaaS EIAM 实例Id
+      // Instance ID
       shared_ptr<string> instanceId_ {};
     };
 
@@ -151,7 +151,9 @@ namespace Models
 
 
   protected:
+    // Advanced configuration information
     shared_ptr<GetIdentityProviderAdvancedConfigurationResponseBody::AdvancedConfiguration> advancedConfiguration_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

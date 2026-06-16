@@ -147,11 +147,17 @@ namespace Models
 
 
         protected:
-          // OAuth协议中的client_id，客户端ID。
+          // The client_id in the OAuth protocol, also known as the client ID.
           shared_ptr<string> clientId_ {};
-          // OAuth协议中的scope，权限范围。
+          // The scope in the OAuth protocol, which defines permission scope.
+          // 
+          // > The Scope configuration for the OAuth credential provider acts as a fallback. If you do not specify the scope parameter when calling the DeveloperAPI to get an OAuth Access Token, the credential provider\\"s Scope configuration is used for issuance.
+          // 
+          // >Notice: 
+          // 
+          // Multiple Scope values are separated by spaces.
           shared_ptr<string> scope_ {};
-          // OAuth协议的Token端点。
+          // The Token endpoint of the OAuth protocol.
           shared_ptr<string> tokenEndpoint_ {};
         };
 
@@ -231,17 +237,17 @@ namespace Models
 
 
         protected:
-          // 签发出的JWT中的issuer字段的允许列表。
+          // List of allowed JWT issuers.
           shared_ptr<vector<string>> allowedTokenIssuers_ {};
-          // 是否开启JWT派生短令牌能力。
+          // Enable JWT derived short token capability.
           shared_ptr<bool> derivedShortTokenEnabled_ {};
-          // JWT的有效时长，单位秒。
+          // Validity period of the JWT, in seconds.
           shared_ptr<int32_t> expiration_ {};
-          // 是否开启JWT过期清理。
+          // Enable JWT expiration cleanup.
           shared_ptr<bool> expirationCleanupEnabled_ {};
-          // JWT issuer。
+          // JWT issuer.
           shared_ptr<string> issuer_ {};
-          // JWKs端点地址。
+          // JWKs endpoint address.
           shared_ptr<string> jwksEndpoint_ {};
         };
 
@@ -275,11 +281,13 @@ namespace Models
 
 
       protected:
-        // JWT身份提供商配置。
+        // Configuration for JWT credential providers.
         shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
-        // OAuth 2LO机用类型的提供商的配置。
+        // Configuration for OAuth credential providers.
         shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
-        // 认证令牌提供商的敏感配置对应的凭据ID列表。
+        // List of credential IDs for the sensitive configuration of the credential provider.
+        // 
+        // > The system securely stores sensitive credential provider configuration as credentials.
         shared_ptr<vector<string>> providerCredentialIds_ {};
       };
 
@@ -366,27 +374,39 @@ namespace Models
 
 
     protected:
-      // 认证令牌提供商的创建时间，Unix时间戳。
+      // Creation time of the credential provider, in Unix timestamp format (milliseconds).
       shared_ptr<int64_t> createTime_ {};
-      // 认证令牌提供商的配置。
+      // Credential provider configuration.
       shared_ptr<CredentialProviders::CredentialProviderConfig> credentialProviderConfig_ {};
-      // 认证令牌提供商的创建类型。
+      // Credential provider creation type. Valid values:
+      // 
+      // - system_init: System created.
+      // 
+      // - user_custom: User created.
       shared_ptr<string> credentialProviderCreationType_ {};
-      // 认证令牌提供商ID。
+      // Credential provider ID.
       shared_ptr<string> credentialProviderId_ {};
-      // 认证令牌提供商的业务标识。
+      // Credential provider identifier.
       shared_ptr<string> credentialProviderIdentifier_ {};
-      // 认证令牌提供商名称。
+      // Credential provider name.
       shared_ptr<string> credentialProviderName_ {};
-      // 认证令牌提供商的类型。
+      // Credential provider type. Valid values:
+      // 
+      // - oauth: OAuth credential provider
+      // 
+      // - jwt: JWT credential provider
       shared_ptr<string> credentialProviderType_ {};
-      // 描述。
+      // Description.
       shared_ptr<string> description_ {};
-      // EIAM实例ID。
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
-      // 认证令牌提供商的状态。
+      // Credential provider status. Valid values:
+      // 
+      // - enabled: Enabled.
+      // 
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // 认证令牌提供商的更新时间，Unix时间戳。
+      // Update time of the credential provider, in Unix timestamp format (milliseconds).
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -430,12 +450,15 @@ namespace Models
 
 
   protected:
+    // List of credential providers.
     shared_ptr<vector<ListCredentialProvidersResponseBody::CredentialProviders>> credentialProviders_ {};
-    // 分页查询时每页行数。
+    // Page size for paged queries.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The query token returned by this call.
     shared_ptr<string> nextToken_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

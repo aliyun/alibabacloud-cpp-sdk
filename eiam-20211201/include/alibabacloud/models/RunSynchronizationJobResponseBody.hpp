@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the synchronization job.
+    // The ID of the synchronization task.
     shared_ptr<string> synchronizationJobId_ {};
   };
 

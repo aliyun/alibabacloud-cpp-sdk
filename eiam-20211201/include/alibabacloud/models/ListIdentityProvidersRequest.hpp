@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
+    // The data synchronization direction of the identity provider.
     shared_ptr<string> direction_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};

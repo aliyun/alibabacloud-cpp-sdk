@@ -157,14 +157,15 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   EIAM 2.0
-      // *   EIAM 1.0
+      // - EIAM 2.0
+      // 
+      // - EIAM 1.0
       shared_ptr<string> instanceVersion_ {};
       // The private domain of the instance OpenAPI.
       shared_ptr<string> openAPIPrivateDomain_ {};
       // The public domain of the instance OpenAPI.
       shared_ptr<string> openAPIPublicDomain_ {};
-      // The single sign-on (SSO) domain  of the instance.
+      // The single sign-on (SSO) domain of the instance.
       shared_ptr<string> SSODomain_ {};
       // The time when the instance was created.
       shared_ptr<int64_t> startTime_ {};

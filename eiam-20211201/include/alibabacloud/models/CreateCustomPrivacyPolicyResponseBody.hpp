@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the custom privacy policy.
     shared_ptr<string> customPrivacyPolicyId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

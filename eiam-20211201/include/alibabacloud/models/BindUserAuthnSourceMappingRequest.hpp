@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // 来源Idp Id
+    // The source IdP ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 外部关联ID
+    // The external mapping ID.
     // 
     // This parameter is required.
     shared_ptr<string> userExternalId_ {};
-    // 用户ID
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

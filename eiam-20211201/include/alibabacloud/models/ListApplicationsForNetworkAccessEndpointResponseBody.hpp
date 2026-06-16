@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // 应用ID。
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 应用名称。
+      // The application name.
       shared_ptr<string> applicationName_ {};
-      // IDaaS EIAM 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -124,10 +124,13 @@ namespace Models
 
 
   protected:
+    // The collection of applications for the network access endpoint.
     shared_ptr<vector<ListApplicationsForNetworkAccessEndpointResponseBody::ApplicationsForNetworkAccessEndpoint>> applicationsForNetworkAccessEndpoint_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

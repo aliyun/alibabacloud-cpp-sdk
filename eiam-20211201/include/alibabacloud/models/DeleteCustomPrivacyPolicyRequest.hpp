@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 自定义条款ID
+    // The custom privacy policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> customPrivacyPolicyId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

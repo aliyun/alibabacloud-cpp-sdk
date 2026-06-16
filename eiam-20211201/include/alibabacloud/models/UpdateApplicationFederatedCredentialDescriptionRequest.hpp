@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // 应用联邦凭证Id
+    // The ID of the application\\"s federated credential.
     // 
     // This parameter is required.
     shared_ptr<string> applicationFederatedCredentialId_ {};
-    // IDaaS的应用资源ID。
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 联邦凭证描述
+    // The description of the federated credential.
     shared_ptr<string> description_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The filter key.
       shared_ptr<string> name_ {};
+      // The list of filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -131,19 +133,21 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // The resource server application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The list of filter conditions.
     shared_ptr<vector<ListOrganizationalUnitsForResourceServerRequest::Filter>> filter_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The pagination token. To retrieve the next page of results, set this parameter to the NextToken value from the previous response.
     shared_ptr<string> nextToken_ {};
-    // 权限唯一标识。
+    // The ID of the resource server scope.
     shared_ptr<string> resourceServerScopeId_ {};
   };
 

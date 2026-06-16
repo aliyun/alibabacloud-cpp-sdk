@@ -155,12 +155,13 @@ namespace Models
 
 
         protected:
-          // The access token. If the GrantType parameter is set to bearer_token, you can set this parameter.
+          // The access token. You can update this field when the grant type is bearer_token.
           shared_ptr<string> accessToken_ {};
-          // The authentication mode of the SCIM protocol. Valid values:
+          // The authentication method for the SCIM protocol. Valid values:
           // 
-          // *   client_secret_basic: The client secret is passed in the request header.
-          // *   client_secret_post: The client secret is passed in the request body.
+          // - client_secret_basic: The key is passed in the request header.
+          // 
+          // - client_secret_post: The key is passed in the request body.
           shared_ptr<string> authnMethod_ {};
           // The client ID of the application.
           shared_ptr<string> clientId_ {};
@@ -196,19 +197,21 @@ namespace Models
 
 
       protected:
-        // The authentication mode of the SCIM protocol. Valid value:
+        // The authorization mode for the SCIM protocol interface. Valid values:
         // 
-        // *   oauth2: OAuth2.0 mode.
+        // - oauth2: OAuth2 mode.
         shared_ptr<string> authnMode_ {};
-        // The configuration parameters related to authorization.
+        // The authorization configuration parameters. The usage is as follows:
         // 
-        // *   If the GrantType parameter is set to client_credentials, you can set the configuration parameters ClientId, ClientSecret, and AuthnMethod.
-        // *   If the GrantType parameter is set to bearer_token, you can set the configuration parameter AccessToken.
+        // - If GrantType is set to client_credentials, you can update ClientId, ClientSecret, and AuthnMethod.
+        // 
+        // - If GrantType is set to bearer_token, you can update AccessToken.
         shared_ptr<AuthnConfiguration::AuthnParam> authnParam_ {};
-        // The grant type of the SCIM protocol. Valid values:
+        // The authorization grant type for the SCIM protocol. Valid values:
         // 
-        // *   client_credentials: client mode.
-        // *   bearer_token: key mode.
+        // - client_credentials: Client credentials mode.
+        // 
+        // - bearer_token: Bearer token mode.
         shared_ptr<string> grantType_ {};
       };
 
@@ -249,19 +252,21 @@ namespace Models
 
 
     protected:
-      // The configuration parameters related to SCIM-based synchronization.
+      // The configuration parameters for SCIM protocol synchronization.
       shared_ptr<ScimProvisioningConfig::AuthnConfiguration> authnConfiguration_ {};
-      // The full synchronization scope of the SCIM protocol. Valid value:
+      // The scope of a full push for the SCIM protocol. Valid values:
       // 
-      // *   urn:alibaba:idaas:app:scim:User:PUSH: full account data synchronization.
+      // - urn:alibaba:idaas:app:scim:User:PUSH: Full synchronization of users.
       shared_ptr<vector<string>> fullPushScopes_ {};
-      // The resource operations of the SCIM protocol. Valid values:
+      // The operations on the target resource for the SCIM protocol. Valid values:
       // 
-      // *   urn:alibaba:idaas:app:scim:User:CREATE: account creation.
-      // *   urn:alibaba:idaas:app:scim:User:UPDATE: account update.
-      // *   urn:alibaba:idaas:app:scim:User:DELETE: account deletion.
+      // - urn:alibaba:idaas:app:scim:User:CREATE: Create an account.
+      // 
+      // - urn:alibaba:idaas:app:scim:User:UPDATE: Update an account.
+      // 
+      // - urn:alibaba:idaas:app:scim:User:DELETE: Delete an account.
       shared_ptr<vector<string>> provisioningActions_ {};
-      // The base URL that the application uses to receive the SCIM protocol for IDaaS synchronization.
+      // The base URL where the application accepts IDaaS SCIM protocol synchronization.
       shared_ptr<string> scimBaseUrl_ {};
     };
 
@@ -323,16 +328,17 @@ namespace Models
 
 
     protected:
-      // The URL that the application uses to receive IDaaS event callbacks.
+      // The destination address where the application accepts IDaaS event callbacks.
       shared_ptr<string> callbackUrl_ {};
-      // The symmetric key for IDaaS event callbacks. The key is an AES-256 encryption key in the HEX format.
+      // The symmetric key for encrypting and decrypting IDaaS event callbacks. The key uses the AES-256 algorithm and is in hexadecimal format.
       shared_ptr<string> encryptKey_ {};
-      // Specifies whether to encrypt IDaaS event callback messages. Valid values:
+      // Indicates whether to encrypt IDaaS event callback messages. Valid values:
       // 
-      // *   true: encrypt the messages.
-      // *   false: transmit the messages in plaintext.
+      // - true: Encrypt the messages.
+      // 
+      // - false: Do not encrypt the messages. The messages are transmitted in plaintext.
       shared_ptr<bool> encryptRequired_ {};
-      // The list of types of IDaaS event callback messages that are supported by the listener.
+      // The list of message types for the IDaaS event callback listener.
       shared_ptr<vector<string>> listenEventScopes_ {};
     };
 
@@ -393,30 +399,33 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The configuration of event callback synchronization. This parameter is required when the ProvisionProtocolType parameter is set to idaas_callback.
+    // The application event callback synchronization configuration. This parameter is required when ProvisionProtocolType is set to idaas_callback.
     shared_ptr<SetApplicationProvisioningConfigRequest::CallbackProvisioningConfig> callbackProvisioningConfig_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The network endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // Specifies whether to synchronize the password in IDaaS user event callbacks. Valid values:
+    // Indicates whether to synchronize passwords for IDaaS user event callbacks. Valid values:
     // 
-    // *   true: synchronize the password.
-    // *   false: do not synchronize the password.
+    // - true: Synchronize passwords.
+    // 
+    // - false: Do not synchronize passwords.
     shared_ptr<bool> provisionPassword_ {};
-    // The synchronization protocol type of the application. Valid values:
+    // The account synchronization protocol. Valid values:
     // 
-    // *   idaas_callback: custom event callback protocol of IDaaS.
-    // *   scim2: System for Cross-domain Identity Management (SCIM) protocol.
+    // - idaas_callback: IDaaS custom event callback for account synchronization.
+    // 
+    // - scim2: System for Cross-domain Identity Management (SCIM) protocol for synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> provisionProtocolType_ {};
-    // The configuration of SCIM-based IDaaS synchronization. This parameter is required when the ProvisionProtocolType parameter is set to scim2.
+    // The IDaaS SCIM protocol synchronization configuration parameters. This parameter is required when ProvisionProtocolType is set to scim2.
     shared_ptr<SetApplicationProvisioningConfigRequest::ScimProvisioningConfig> scimProvisioningConfig_ {};
   };
 

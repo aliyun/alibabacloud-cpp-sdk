@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The description of the account. The value can be up to 256 characters in length.
+    // The description. The maximum length is 256 characters.
     shared_ptr<string> description_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the account.
+    // The ID of the user.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

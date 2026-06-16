@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The user\\"s primary organizational unit for application synchronization.
     shared_ptr<string> userPrimaryOrganizationalUnitId_ {};
   };
 

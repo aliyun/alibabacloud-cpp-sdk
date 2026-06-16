@@ -158,27 +158,39 @@ namespace Models
 
 
     protected:
-      // 专属网络端点创建时间，Unix时间戳格式，单位为毫秒。
+      // The time when the network endpoint was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // 实例ID。
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 专属网络端点ID。
+      // The network endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // 专属网络端点名称。
+      // The name of the network endpoint.
       shared_ptr<string> networkAccessEndpointName_ {};
-      // 专属网络端点连接的类型。
+      // The type of the network endpoint. Valid values:
+      // 
+      // - shared: a shared network endpoint.
+      // 
+      // - private: a private network endpoint.
       shared_ptr<string> networkAccessEndpointType_ {};
-      // 专属网络端点使用的安全组ID。
+      // The ID of the security group used by the private network endpoint.
       shared_ptr<string> securityGroupId_ {};
-      // 专属网络端点状态。
+      // The status of the network endpoint. Valid values:
+      // 
+      // - pending: The endpoint is pending initialization.
+      // 
+      // - creating: The endpoint is being created.
+      // 
+      // - running: The endpoint is running.
+      // 
+      // - deleting: The endpoint is being deleted.
       shared_ptr<string> status_ {};
-      // 专属网络端点最近更新时间，Unix时间戳格式，单位为毫秒。
+      // The time when the network endpoint was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // 专属网络端点连接的指定vSwitch列表。
+      // A list of vSwitches to which the private network endpoint is connected.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // 专属网络端点连接的VpcID。
+      // The ID of the VPC to which the private network endpoint is connected.
       shared_ptr<string> vpcId_ {};
-      // 专属网络端点连接的Vpc所属地域。
+      // The region ID of the VPC to which the private network endpoint is connected.
       shared_ptr<string> vpcRegionId_ {};
     };
 
@@ -215,10 +227,13 @@ namespace Models
 
 
   protected:
+    // A collection of network endpoints.
     shared_ptr<vector<ListNetworkAccessEndpointsResponseBody::NetworkAccessEndpoints>> networkAccessEndpoints_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token returned for the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

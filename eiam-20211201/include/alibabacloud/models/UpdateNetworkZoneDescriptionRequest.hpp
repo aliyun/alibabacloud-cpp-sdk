@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
+    // A client token. It is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // 网络区域描述
+    // The description of the network zone.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // IDaaS的网络区域主键id
+    // The network zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneId_ {};

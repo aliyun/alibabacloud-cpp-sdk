@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // AAGUID
+      // AAGUID.
       shared_ptr<string> aaguid_ {};
-      // AAGUID名称
+      // AAGUID name.
       shared_ptr<string> name_ {};
     };
 
@@ -122,17 +122,17 @@ namespace Models
 
 
   protected:
-    // AAGUID及其名称列表
+    // List of AAGUIDs and their names.
     shared_ptr<vector<SetWebAuthnConfigurationRequest::Aaguids>> aaguids_ {};
-    // 是否开启AAGUID校验
+    // Enable AAGUID verification.
     shared_ptr<bool> enableAaguidVerification_ {};
-    // 是否开启WebAuthn认证器MDS校验
+    // Enable WebAuthn authenticator MDS verification.
     shared_ptr<bool> enableMetadataServiceVerification_ {};
-    // 是否允许用户自注册WebAuthn认证器
+    // Allow user self-registration of WebAuthn authenticators.
     // 
     // This parameter is required.
     shared_ptr<bool> enableUserSelfRegistration_ {};
-    // IDaaS EIAM实例的ID。
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

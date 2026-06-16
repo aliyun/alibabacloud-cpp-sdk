@@ -103,9 +103,9 @@ namespace Models
 
 
       protected:
-        // 同步来源节点
+        // Source nodes for synchronization
         shared_ptr<vector<string>> sourceScopes_ {};
-        // 同步目标节点
+        // Target node for synchronization
         shared_ptr<string> targetScope_ {};
       };
 
@@ -158,8 +158,11 @@ namespace Models
 
 
       protected:
+        // Cron expression
         shared_ptr<string> periodicSyncCron_ {};
+        // Collection of time points
         shared_ptr<vector<string>> periodicSyncTimes_ {};
+        // Type
         shared_ptr<string> periodicSyncType_ {};
       };
 
@@ -228,10 +231,15 @@ namespace Models
 
 
       protected:
+        // Organization ObjectClass
         shared_ptr<string> organizationUnitObjectClass_ {};
+        // Organization RDN
         shared_ptr<string> organizationalUnitRdn_ {};
+        // Password synchronization status
         shared_ptr<string> passwordSyncStatus_ {};
+        // User ObjectClass
         shared_ptr<string> userObjectClass_ {};
+        // User RDN
         shared_ptr<string> userRdn_ {};
       };
 
@@ -294,16 +302,19 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 身份提供方ID
+      // Identity provider ID
       shared_ptr<string> identityProviderId_ {};
-      // 增量回调状态，是否处理来自IdP的增量回调数据
+      // Incremental callback status. Indicates whether incremental callback data from the IdP is processed.
       shared_ptr<string> incrementalCallbackStatus_ {};
-      // IDaaS EIAM 实例Id
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // LDAP synchronization-side configuration
       shared_ptr<UdPushConfiguration::LdapUdPushConfig> ldapUdPushConfig_ {};
+      // Periodic verification configuration
       shared_ptr<UdPushConfiguration::PeriodicSyncConfig> periodicSyncConfig_ {};
+      // Periodic verification status
       shared_ptr<string> periodicSyncStatus_ {};
-      // 同步出配置信息
+      // Outbound synchronization configuration details
       shared_ptr<vector<UdPushConfiguration::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
     };
 
@@ -326,7 +337,9 @@ namespace Models
 
 
   protected:
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Outbound synchronization configuration
     shared_ptr<GetIdentityProviderUdPushConfigurationResponseBody::UdPushConfiguration> udPushConfiguration_ {};
   };
 

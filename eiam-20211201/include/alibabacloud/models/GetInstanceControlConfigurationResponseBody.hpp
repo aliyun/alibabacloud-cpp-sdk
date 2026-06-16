@@ -102,6 +102,7 @@ namespace Models
 
 
         protected:
+          // The human verification type.
           shared_ptr<string> humanVerificationType_ {};
         };
 
@@ -131,10 +132,11 @@ namespace Models
 
 
       protected:
-        // 实例控制项名称，如human_verification。
+        // The element name.
         shared_ptr<string> elementName_ {};
+        // The human verification configuration.
         shared_ptr<ControlElements::HumanVerificationConfig> humanVerificationConfig_ {};
-        // 实例控制项状态，enabled或者disabled。
+        // The status of the control element.
         shared_ptr<string> status_ {};
       };
 
@@ -149,7 +151,7 @@ namespace Models
 
 
     protected:
-      // 实例控制配置项
+      // The list of control elements.
       shared_ptr<vector<InstanceControlConfiguration::ControlElements>> controlElements_ {};
     };
 
@@ -172,7 +174,9 @@ namespace Models
 
 
   protected:
+    // The instance control configuration.
     shared_ptr<GetInstanceControlConfigurationResponseBody::InstanceControlConfiguration> instanceControlConfiguration_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

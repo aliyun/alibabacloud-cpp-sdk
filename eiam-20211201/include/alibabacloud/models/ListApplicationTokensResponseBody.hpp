@@ -152,26 +152,27 @@ namespace Models
 
 
     protected:
-      // aliUid。
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
-      // 应用ID
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 应用token
+      // The application token.
       shared_ptr<string> applicationToken_ {};
-      // 应用token ID
+      // The ID of the application token.
       shared_ptr<string> applicationTokenId_ {};
-      // 应用token类型
+      // The type of the application token.
       shared_ptr<string> applicationTokenType_ {};
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // 应用token描述
+      // The description of the application token.
       shared_ptr<string> description_ {};
-      // 到期时间
+      // The expiration time.
       shared_ptr<int64_t> expirationTime_ {};
-      // IDaaS EIAM 实例Id
+      // The ID of the IDaaS EIAM instance.
       shared_ptr<string> instanceId_ {};
-      // 最后使用时间
+      // The last used time.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // 应用状态
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -194,7 +195,9 @@ namespace Models
 
 
   protected:
+    // The application tokens.
     shared_ptr<vector<ListApplicationTokensResponseBody::ApplicationTokens>> applicationTokens_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -156,12 +156,19 @@ namespace Models
 
 
       protected:
+        // The status of the license for the Conditional Access feature.
         shared_ptr<string> conditionalAccessPolicyLicenseStatus_ {};
+        // The status of the license for machine-to-machine (M2M) applications.
         shared_ptr<string> m2mApplicationLicenseStatus_ {};
+        // The quota for machine-to-machine (M2M) applications.
         shared_ptr<int64_t> m2mApplicationQuota_ {};
+        // The machine identity status.
         shared_ptr<string> mimApplicationLicenseStatus_ {};
+        // The quota for network access endpoints.
         shared_ptr<int64_t> networkAccessEndpointQuota_ {};
+        // The number of active subscription accounts.
         shared_ptr<int64_t> prepaidActiveUserNumber_ {};
+        // The user quota included with the license.
         shared_ptr<int64_t> userQuota_ {};
       };
 
@@ -256,28 +263,29 @@ namespace Models
 
 
     protected:
-      // Edition of the License
+      // The license edition.
       shared_ptr<string> edition_ {};
-      // End date of the validity period of the License, timestamp
+      // The UNIX timestamp indicating the end of the license validity period.
       shared_ptr<int64_t> endTime_ {};
+      // The details of the instance license.
       shared_ptr<License::InstanceLicenseDetail> instanceLicenseDetail_ {};
-      // Payment type of the License
+      // The billing method for the license.
       shared_ptr<string> licenseChargeType_ {};
-      // Detailed configuration JSON string of the License
+      // The detailed configurations of the license, formatted as a JSON string.
       shared_ptr<string> licenseConfigJson_ {};
-      // Creation time of the License, timestamp
+      // The UNIX timestamp indicating when the license was created.
       shared_ptr<int64_t> licenseCreateTime_ {};
-      // Unique identifier of the License
+      // The unique identifier for the license.
       shared_ptr<string> licenseId_ {};
-      // Status of the License
+      // The license status.
       shared_ptr<string> licenseStatus_ {};
-      // Purchase channel of the License
+      // The channel used to purchase the license.
       shared_ptr<string> purchaseChannel_ {};
-      // Unique external product identifier corresponding to the License
+      // The unique identifier of the external service associated with the license.
       shared_ptr<string> purchaseInstanceId_ {};
-      // Start date of the validity period of the License, timestamp
+      // The UNIX timestamp indicating the start of the license validity period.
       shared_ptr<int64_t> startTime_ {};
-      // User quota of the License
+      // The user quota included with the license.
       shared_ptr<int64_t> userQuota_ {};
     };
 
@@ -300,9 +308,9 @@ namespace Models
 
 
   protected:
-    // Returned result.
+    // The license details.
     shared_ptr<GetInstanceLicenseResponseBody::License> license_ {};
-    // Request ID
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

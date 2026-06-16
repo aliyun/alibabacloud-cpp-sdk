@@ -189,13 +189,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -255,13 +255,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -321,13 +321,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -387,9 +387,13 @@ namespace Models
 
 
           protected:
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -449,13 +453,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -515,13 +519,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -581,13 +585,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -658,18 +662,19 @@ namespace Models
 
 
         protected:
-          // 绑定结果统计
+          // The statistics of binding results.
           shared_ptr<UserStatistics::Binded> binded_ {};
-          // 创建结果统计
+          // The statistics of creation results.
           shared_ptr<UserStatistics::Created> created_ {};
-          // 删除结果统计
+          // The statistics of deletion results.
           shared_ptr<UserStatistics::Deleted> deleted_ {};
+          // The statistics of export results.
           shared_ptr<UserStatistics::Exported> exported_ {};
-          // 推送结果统计
+          // The statistics of push results.
           shared_ptr<UserStatistics::Pushed> pushed_ {};
-          // 相同结果统计
+          // The statistics of identical entries.
           shared_ptr<UserStatistics::Same> same_ {};
-          // 更新结果统计
+          // The statistics of update results.
           shared_ptr<UserStatistics::Updated> updated_ {};
         };
 
@@ -758,13 +763,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -824,13 +829,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -890,13 +895,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -956,13 +961,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1022,13 +1027,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1088,13 +1093,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1155,17 +1160,17 @@ namespace Models
 
 
         protected:
-          // 绑定结果统计
+          // The statistics of binding results.
           shared_ptr<OrganizationalUnitStatistics::Binded> binded_ {};
-          // 创建结果统计
+          // The statistics of creation results.
           shared_ptr<OrganizationalUnitStatistics::Created> created_ {};
-          // 删除结果统计
+          // The statistics of deletion results.
           shared_ptr<OrganizationalUnitStatistics::Deleted> deleted_ {};
-          // 推送结果统计
+          // The statistics of push results.
           shared_ptr<OrganizationalUnitStatistics::Pushed> pushed_ {};
-          // 相同结果统计
+          // The statistics of identical entries.
           shared_ptr<OrganizationalUnitStatistics::Same> same_ {};
-          // 更新结果统计
+          // The statistics of update results.
           shared_ptr<OrganizationalUnitStatistics::Updated> updated_ {};
         };
 
@@ -1254,13 +1259,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1320,13 +1325,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1386,13 +1391,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1452,13 +1457,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1518,13 +1523,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1584,13 +1589,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1651,17 +1656,17 @@ namespace Models
 
 
         protected:
-          // 绑定结果统计
+          // The statistics of binding results.
           shared_ptr<GroupStatistics::Binded> binded_ {};
-          // 创建结果统计
+          // The statistics of creation results.
           shared_ptr<GroupStatistics::Created> created_ {};
-          // 删除结果统计
+          // The statistics of deletion results.
           shared_ptr<GroupStatistics::Deleted> deleted_ {};
-          // 推送结果统计
+          // The statistics of push results.
           shared_ptr<GroupStatistics::Pushed> pushed_ {};
-          // 相同结果统计
+          // The statistics of identical entries.
           shared_ptr<GroupStatistics::Same> same_ {};
-          // 更新结果统计
+          // The statistics of update results.
           shared_ptr<GroupStatistics::Updated> updated_ {};
         };
 
@@ -1750,13 +1755,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1816,13 +1821,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1882,13 +1887,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1948,13 +1953,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -2014,13 +2019,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -2080,13 +2085,13 @@ namespace Models
 
 
           protected:
-            // 失败数目
+            // The number of failed operations.
             shared_ptr<int64_t> failed_ {};
-            // 跳过数目
+            // The number of skipped operations.
             shared_ptr<int64_t> skipped_ {};
-            // 成功数目
+            // The number of successful operations.
             shared_ptr<int64_t> success_ {};
-            // 总共数目
+            // The total number.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -2147,17 +2152,17 @@ namespace Models
 
 
         protected:
-          // 绑定结果统计
+          // The statistics of binding results.
           shared_ptr<GroupMemberStatistics::Binded> binded_ {};
-          // 创建结果统计
+          // The statistics of creation results.
           shared_ptr<GroupMemberStatistics::Created> created_ {};
-          // 删除结果统计
+          // The statistics of deletion results.
           shared_ptr<GroupMemberStatistics::Deleted> deleted_ {};
-          // 推送结果统计
+          // The statistics of push results.
           shared_ptr<GroupMemberStatistics::Pushed> pushed_ {};
-          // 相同结果统计
+          // The statistics of identical entries.
           shared_ptr<GroupMemberStatistics::Same> same_ {};
-          // 更新结果统计
+          // The statistics of update results.
           shared_ptr<GroupMemberStatistics::Updated> updated_ {};
         };
 
@@ -2214,17 +2219,17 @@ namespace Models
 
 
       protected:
-        // 同步结果错误码
+        // The error code for the synchronization result.
         shared_ptr<string> errorCode_ {};
-        // 同步结果错误信息描述
+        // The error message for the synchronization result.
         shared_ptr<string> errorMessage_ {};
-        // 组成员同步结果统计
+        // The statistics of group member synchronization results.
         shared_ptr<Result::GroupMemberStatistics> groupMemberStatistics_ {};
-        // 组同步结果统计
+        // The statistics of group synchronization results.
         shared_ptr<Result::GroupStatistics> groupStatistics_ {};
-        // 组织同步结果统计
+        // The statistics of organization synchronization results.
         shared_ptr<Result::OrganizationalUnitStatistics> organizationalUnitStatistics_ {};
-        // 用户同步结果统计
+        // The statistics of user synchronization results.
         shared_ptr<Result::UserStatistics> userStatistics_ {};
       };
 
@@ -2304,24 +2309,47 @@ namespace Models
 
 
     protected:
+      // The description of the sync task.
       shared_ptr<string> description_ {};
-      // 同步任务方向
+      // The direction of the sync task. Valid values:
+      // 
+      // - ingress: Inbound.
+      // 
+      // - egress: Outbound.
       shared_ptr<string> direction_ {};
-      // 同步结束时间
+      // The synchronization end time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // 同步任务结果
+      // The result of the sync task.
       shared_ptr<SynchronizationJobs::Result> result_ {};
-      // 同步开始时间
+      // The synchronization start time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // 同步任务状态
+      // The status of the sync task. Valid values:
+      // 
+      // - pending: The task is pending.
+      // 
+      // - running: The task is running.
+      // 
+      // - failed: The task failed.
+      // 
+      // - partial_success: The task is partially successful.
+      // 
+      // - success: The task is successful.
       shared_ptr<string> status_ {};
-      // 同步任务ID
+      // The sync task ID.
       shared_ptr<string> synchronizationJobId_ {};
-      // 同步目标ID
+      // The synchronization target ID.
       shared_ptr<string> targetId_ {};
-      // 同步目标类型
+      // The type of the synchronization target. Valid values:
+      // 
+      // - identity_provider: Identity provider.
+      // 
+      // - application: Application.
       shared_ptr<string> targetType_ {};
-      // 同步触发类型
+      // The trigger type of the synchronization. Valid values:
+      // 
+      // - auto: Automatic.
+      // 
+      // - manual: Manual.
       shared_ptr<string> triggerType_ {};
     };
 
@@ -2358,10 +2386,13 @@ namespace Models
 
 
   protected:
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of sync task information.
     shared_ptr<vector<ListSynchronizationJobsResponseBody::SynchronizationJobs>> synchronizationJobs_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

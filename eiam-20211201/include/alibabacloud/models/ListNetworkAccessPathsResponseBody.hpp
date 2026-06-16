@@ -134,23 +134,31 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the dedicated network endpoint access path was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Network access endpoint ID.
+      // The ID of the dedicated network endpoint.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // Network access path ID
+      // The ID of the dedicated network endpoint access path.
       shared_ptr<string> networkAccessPathId_ {};
-      // Network interface ID
+      // The ID of the ENI that is used by the dedicated network endpoint access path.
       shared_ptr<string> networkInterfaceId_ {};
-      // The private IP address.
+      // The private IP address of the ENI that is used by the dedicated network endpoint access path.
       shared_ptr<string> privateIpAddress_ {};
-      // Network access path status
+      // The status of the dedicated network endpoint access path. Valid values:
+      // 
+      // - pending: The path is being initialized.
+      // 
+      // - creating: The path is being created.
+      // 
+      // - running: The path is running.
+      // 
+      // - deleting: The path is being deleted.
       shared_ptr<string> status_ {};
-      // The update time.
+      // The time when the dedicated network endpoint access path was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The ID of a vSwitch.
+      // The ID of the vSwitch to which the ENI of the dedicated network endpoint access path belongs.
       shared_ptr<string> vSwitchId_ {};
     };
 
@@ -173,7 +181,7 @@ namespace Models
 
 
   protected:
-    // Network access paths
+    // The list of network endpoint access paths.
     shared_ptr<vector<ListNetworkAccessPathsResponseBody::NetworkAccessPaths>> networkAccessPaths_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

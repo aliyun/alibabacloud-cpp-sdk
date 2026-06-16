@@ -130,23 +130,27 @@ namespace Models
 
 
   protected:
-    // 认证的AccessId
+    // The AccessKey ID of the credential.
     shared_ptr<string> accessId_ {};
-    // 预下载地址
+    // The pre-signed URL for download.
     shared_ptr<string> downLoadUrl_ {};
+    // The file encryption configuration key that is encrypted by the instance.
     shared_ptr<string> encryptedKey_ {};
-    // 过期时间
+    // The expiration time.
     shared_ptr<int64_t> expire_ {};
-    // bucket地址host
+    // The host of the bucket address.
     shared_ptr<string> host_ {};
-    // 认证对应的key
+    // The key corresponding to the credential.
     shared_ptr<string> key_ {};
+    // The plaintext key of the encryption configuration.
     shared_ptr<string> plaintextKey_ {};
-    // 认证的policy
+    // The policy for the credential.
     shared_ptr<string> policy_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Security Token Service (STS) access credential.
     shared_ptr<string> securityToken_ {};
-    // 认证的签名
+    // The signature for the credential.
     shared_ptr<string> signature_ {};
   };
 

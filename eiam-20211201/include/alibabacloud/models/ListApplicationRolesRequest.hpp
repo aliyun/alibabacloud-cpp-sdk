@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The name of the filter condition.
       shared_ptr<string> name_ {};
+      // The values of the filter condition.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -122,17 +124,19 @@ namespace Models
 
 
   protected:
-    // 应用ID
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The filter conditions.
     shared_ptr<vector<ListApplicationRolesRequest::Filter>> filter_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token used to start the next query. Set this parameter to the value of NextToken that is returned in the last API call. Leave this parameter empty for the first query.
     shared_ptr<string> nextToken_ {};
   };
 

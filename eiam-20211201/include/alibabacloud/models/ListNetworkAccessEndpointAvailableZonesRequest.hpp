@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 专属网络端点支持的地域
+    // The ID of the region that supports exclusive network endpoints.
     // 
     // This parameter is required.
     shared_ptr<string> naeRegionId_ {};

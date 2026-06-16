@@ -115,18 +115,19 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 应用Id
+      // The application ID.
       shared_ptr<string> applicationId_ {};
+      // The authorization type.
       shared_ptr<string> authorizationType_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // IDaaS EIAM ResourceServer下权限Id
+      // The ID of the scope permission.
       shared_ptr<string> resourceServerScopeId_ {};
-      // IDaaS EIAM ResourceServer下权限名称
+      // The name of the scope permission.
       shared_ptr<string> resourceServerScopeName_ {};
-      // IDaaS EIAM ResourceServer下权限类型
+      // The type of the scope permission.
       shared_ptr<string> resourceServerScopeType_ {};
-      // IDaaS EIAM ResourceServer下权限值
+      // The value of the scope permission.
       shared_ptr<string> resourceServerScopeValue_ {};
     };
 
@@ -149,7 +150,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The information about the scope permission of the resource server.
     shared_ptr<GetResourceServerScopeResponseBody::ResourceServerScope> resourceServerScope_ {};
   };
 

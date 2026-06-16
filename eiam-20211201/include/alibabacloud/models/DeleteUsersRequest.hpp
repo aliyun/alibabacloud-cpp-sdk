@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 账号ID列表
+    // A list of account IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> userIds_ {};

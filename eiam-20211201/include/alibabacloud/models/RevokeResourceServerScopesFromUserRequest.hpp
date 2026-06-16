@@ -69,19 +69,19 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // The ID of the ResourceServer application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // ResourceServer权限ID。
+    // A list of scope permission IDs under the ResourceServer.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};
-    // 用户ID。
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

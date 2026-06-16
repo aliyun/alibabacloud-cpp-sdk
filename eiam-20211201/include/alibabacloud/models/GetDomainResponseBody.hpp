@@ -96,8 +96,7 @@ namespace Models
 
 
       protected:
-        // <notice>The ICP filing number is only applicable for services in the China region.  For non-China regions, no validation or display of this record number will be performed.</notice>
-        // The ICP filing number associated with the domain name, with a maximum length of 64 characters.
+        // The ICP filing number that is associated with the domain name. The ICP filing number can be for an entity or a website.
         shared_ptr<string> icpNumber_ {};
       };
 
@@ -177,30 +176,33 @@ namespace Models
 
 
     protected:
+      // The ID of the brand.
       shared_ptr<string> brandId_ {};
-      // The start time when the change order was created.
+      // The time when the domain name was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Whether it is the default domain.
+      // Specifies whether the domain name is the default domain name.
       shared_ptr<bool> defaultDomain_ {};
-      // The domain.
+      // The domain name.
       shared_ptr<string> domain_ {};
-      // Domain ID.
+      // The ID of the domain name.
       shared_ptr<string> domainId_ {};
       // The type of the domain name. Valid values:
       // 
-      // *   **system_init**: Initialize domain
-      // *   **user_custom**: user custom domain
-      shared_ptr<string> domainType_ {};
-      // Domain registration information.
-      shared_ptr<Domain::Filing> filing_ {};
-      // The instance ID.
-      shared_ptr<string> instanceId_ {};
-      // The lock status of the instance. Valid values:
+      // - system_init: The initial domain name.
       // 
-      // *   **Unlock**: The instance is normal.
-      // *   **lockByLicense**: Not available due to license restrictions.
+      // - user_custom: A custom domain name.
+      shared_ptr<string> domainType_ {};
+      // The ICP filing information about the domain name.
+      shared_ptr<Domain::Filing> filing_ {};
+      // The ID of the instance.
+      shared_ptr<string> instanceId_ {};
+      // The lock status of the domain name. Valid values:
+      // 
+      // - unlock: Normal.
+      // 
+      // - lockByLicense: The domain name is unavailable due to license restrictions.
       shared_ptr<string> lockMode_ {};
-      // The time when the service was updated.
+      // The time when the domain name was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -223,7 +225,7 @@ namespace Models
 
 
   protected:
-    // The domain name.
+    // The domain name object.
     shared_ptr<GetDomainResponseBody::Domain> domain_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

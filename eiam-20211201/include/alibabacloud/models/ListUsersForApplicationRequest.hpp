@@ -87,21 +87,21 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // 应用角色ID。
     shared_ptr<string> applicationRoleId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The IDs of the accounts. You can query a maximum of 100 accounts at a time.
+    // The list of account IDs. A maximum of 100 account IDs are supported in a single request.
     shared_ptr<vector<string>> userIds_ {};
   };
 

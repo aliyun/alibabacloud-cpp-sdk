@@ -179,11 +179,9 @@ namespace Models
     protected:
       // The time when the baseline was created.
       shared_ptr<int64_t> createTime_ {};
-      // Public egress ip address range of the dedicated network endpoint
-      // This field is returned only when NetworkEndpointType is set to private.
+      // Public egress ip address range of the dedicated network endpoint This field is returned only when NetworkEndpointType is set to private.
       shared_ptr<vector<string>> egressPrivateIpAddresses_ {};
-      // Public egress ip address range of the shared network endpoint
-      // This field is returned only when networkEndpointType is set to shared.
+      // Public egress ip address range of the shared network endpoint This field is returned only when networkEndpointType is set to shared.
       shared_ptr<vector<string>> egressPublicIpAddresses_ {};
       // Instance ID.
       shared_ptr<string> instanceId_ {};
@@ -191,8 +189,7 @@ namespace Models
       shared_ptr<string> networkAccessEndpointId_ {};
       // Private network endpoint name.
       shared_ptr<string> networkAccessEndpointName_ {};
-      // Type of the Network Endpoint
-      // Possible values:
+      // Type of the Network Endpoint Possible values:
       // 
       // shared: Shared network endpoint
       // 
@@ -200,8 +197,7 @@ namespace Models
       shared_ptr<string> networkAccessEndpointType_ {};
       // The ID of the destination security group.
       shared_ptr<string> securityGroupId_ {};
-      // Status of the Network Endpoint
-      // Possible values:
+      // Status of the Network Endpoint Possible values:
       // 
       // pending: Pending initialization
       // 

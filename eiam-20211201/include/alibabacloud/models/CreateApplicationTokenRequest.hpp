@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用token类型
+    // The application token type.
     // 
     // This parameter is required.
     shared_ptr<string> applicationTokenType_ {};
-    // 不填，默认1年后到期
+    // The expiration time.
     shared_ptr<int64_t> expirationTime_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -105,17 +105,19 @@ namespace Models
 
 
     protected:
-      // 资源实体标识
+      // The ID of the resource entity that is associated with the authorized resource.
       shared_ptr<string> authorizationResourceEntityId_ {};
-      // 资源实体类型，枚举类型：asset（资产）、credential（凭据）、cloud_identity_role（云账号角色）
+      // The type of the resource entity that is associated with the authorized resource. Valid value:
+      // 
+      // - cloud_account_role: a cloud role
       shared_ptr<string> authorizationResourceEntityType_ {};
-      // 授权资源标识
+      // The authorization resource ID.
       shared_ptr<string> authorizationResourceId_ {};
-      // 授权规则标识
+      // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // 云账号ID。
+      // The ID of the Alibaba Cloud account to which the resource entity that is associated with the authorized resource belongs.
       shared_ptr<string> cloudAccountId_ {};
-      // 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -138,7 +140,9 @@ namespace Models
 
 
   protected:
+    // The authorized resource.
     shared_ptr<GetAuthorizationResourceResponseBody::AuthorizationResource> authorizationResource_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

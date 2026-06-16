@@ -69,12 +69,20 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The audience identifier of the resource server.
+    // 
     // This parameter is required.
     shared_ptr<string> audience_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The scope of permissions.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> scopeValues_ {};
   };

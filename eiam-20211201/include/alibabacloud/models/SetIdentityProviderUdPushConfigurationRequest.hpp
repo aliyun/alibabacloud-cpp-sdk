@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // 同步来源节点
+      // The source nodes for synchronization.
       shared_ptr<vector<string>> sourceScopes_ {};
-      // 同步目标节点
+      // The target node for synchronization.
       shared_ptr<string> targetScope_ {};
     };
 
@@ -137,8 +137,11 @@ namespace Models
 
 
     protected:
+      // The cron expression.
       shared_ptr<string> periodicSyncCron_ {};
+      // A collection of time points.
       shared_ptr<vector<int32_t>> periodicSyncTimes_ {};
+      // The type of periodic synchronization.
       shared_ptr<string> periodicSyncType_ {};
     };
 
@@ -207,10 +210,15 @@ namespace Models
 
 
     protected:
+      // The object class for organizations.
       shared_ptr<string> organizationUnitObjectClass_ {};
+      // The RDN for organizations.
       shared_ptr<string> organizationalUnitRdn_ {};
+      // Specifies whether to synchronize passwords.
       shared_ptr<string> passwordSyncStatus_ {};
+      // The object class for users.
       shared_ptr<string> userObjectClass_ {};
+      // The Relative Distinguished Name (RDN) for users.
       shared_ptr<string> userRdn_ {};
     };
 
@@ -273,22 +281,25 @@ namespace Models
 
 
   protected:
-    // IDaaS的身份提供方主键id
+    // The ID of the identity provider.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // 增量回调状态，是否处理来自IdP的增量回调数据
+    // Specifies whether to process incremental callback data from the IdP.
     // 
     // This parameter is required.
     shared_ptr<string> incrementalCallbackStatus_ {};
-    // IDaaS EIAM的实例id
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The configurations for LDAP push synchronization.
     shared_ptr<SetIdentityProviderUdPushConfigurationRequest::LdapUdPushConfig> ldapUdPushConfig_ {};
+    // The configuration for periodic synchronization.
     shared_ptr<SetIdentityProviderUdPushConfigurationRequest::PeriodicSyncConfig> periodicSyncConfig_ {};
+    // The status of periodic synchronization.
     shared_ptr<string> periodicSyncStatus_ {};
-    // 同步出配置信息
+    // The push synchronization configurations.
     shared_ptr<vector<SetIdentityProviderUdPushConfigurationRequest::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
   };
 

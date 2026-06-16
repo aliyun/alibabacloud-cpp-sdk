@@ -120,22 +120,29 @@ namespace Models
       // Decision action for the conditional access policy, with the following options:
       // 
       // - allow: Allow.
+      // 
       // - deny: Deny.
       shared_ptr<string> effect_ {};
       // Re-authentication interval (in seconds) for the conditional access policy
       // 
       // - Maximum MFA re-authentication interval: 86400
+      // 
       // - Minimum MFA re-authentication interval: 300
       shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};
       // Allowed MFA types for the conditional access policy, with the following options:
+      // 
       // - ia_otp_sms: SMS verification code
+      // 
       // - ia_otp_email: Email verification code
+      // 
       // - ia_totp: OTP dynamic password
+      // 
       // - ia_webauthn: WebAuthn
       shared_ptr<vector<string>> mfaAuthenticationMethods_ {};
       // MFA type for the conditional access policy, with the following options:
       // 
       // - directly_access: Direct access
+      // 
       // - mfa_required: MFA required
       shared_ptr<string> mfaType_ {};
     };
@@ -509,9 +516,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Priority of the conditional access policy, lower values indicate higher priority
-    // Minimum value: 1
-    // Maximum value: 100
+    // Priority of the conditional access policy, lower values indicate higher priority Minimum value: 1 Maximum value: 100
     shared_ptr<int32_t> priority_ {};
   };
 

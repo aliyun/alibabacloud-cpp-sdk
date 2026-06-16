@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 应用Id
+      // The ID of the application.
       shared_ptr<string> applicationId_ {};
-      // IDaaS EIAM 应用名称
+      // The name of the application.
       shared_ptr<string> applicationName_ {};
-      // IDaaS EIAM 实例Id
+      // The ID of the IDaaS EIAM instance.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -142,14 +142,17 @@ namespace Models
 
 
   protected:
+    // The list of applications.
     shared_ptr<vector<ListApplicationsForNetworkZoneResponseBody::Applications>> applications_ {};
-    // 分页查询时每页行数。
+    // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token returned for the next query.
     shared_ptr<string> nextToken_ {};
-    // 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+    // The token returned for the previous query.
     shared_ptr<string> previousToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

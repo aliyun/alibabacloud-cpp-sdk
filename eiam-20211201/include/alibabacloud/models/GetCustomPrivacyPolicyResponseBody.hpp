@@ -124,7 +124,9 @@ namespace Models
 
 
         protected:
+          // The name of the custom privacy policy item.
           shared_ptr<string> customPrivacyPolicyItemName_ {};
+          // The URL of the custom privacy policy item. The URL must start with https\\://.
           shared_ptr<string> customPrivacyPolicyItemUrl_ {};
         };
 
@@ -154,8 +156,11 @@ namespace Models
 
 
       protected:
+        // The items of the custom privacy policy.
         shared_ptr<vector<CustomPrivacyPolicyContents::CustomPrivacyPolicyItems>> customPrivacyPolicyItems_ {};
+        // The prompt for the custom privacy policy content.
         shared_ptr<string> customPrivacyPolicyTip_ {};
+        // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
         shared_ptr<string> languageCode_ {};
       };
 
@@ -214,12 +219,23 @@ namespace Models
 
 
     protected:
+      // The details of the custom privacy policy content.
       shared_ptr<vector<CustomPrivacyPolicy::CustomPrivacyPolicyContents>> customPrivacyPolicyContents_ {};
+      // The ID of the custom privacy policy.
       shared_ptr<string> customPrivacyPolicyId_ {};
+      // The name of the custom privacy policy.
       shared_ptr<string> customPrivacyPolicyName_ {};
+      // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
       shared_ptr<string> defaultLanguageCode_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The valid values for the account status are:
+      // 
+      // - enabled: Enabled.
+      // 
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
+      // Agreement Type.
       shared_ptr<string> userConsentType_ {};
     };
 
@@ -242,7 +258,9 @@ namespace Models
 
 
   protected:
+    // The custom privacy policy.
     shared_ptr<GetCustomPrivacyPolicyResponseBody::CustomPrivacyPolicy> customPrivacyPolicy_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

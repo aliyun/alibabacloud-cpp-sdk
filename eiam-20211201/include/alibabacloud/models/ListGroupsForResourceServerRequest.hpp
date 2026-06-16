@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The name of the filter condition. The only valid value is GroupIds.
       shared_ptr<string> name_ {};
+      // The values for the filter condition.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -131,17 +133,21 @@ namespace Models
 
 
   protected:
+    // The ID of the resource server application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The filter conditions.
     shared_ptr<vector<ListGroupsForResourceServerRequest::Filter>> filter_ {};
-    // IDaaS EIAM实例的ID。
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token for the next page of results. You do not need to provide this parameter for the first request. For subsequent requests, set this to the `NextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
-    // 权限唯一标识。
+    // The ID of the scope.
     shared_ptr<string> resourceServerScopeId_ {};
   };
 

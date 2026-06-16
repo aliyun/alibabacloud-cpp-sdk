@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // 源值表达式
+      // The source value expression.
       shared_ptr<string> sourceValueExpression_ {};
-      // 目标字段
+      // The target field.
       shared_ptr<string> targetField_ {};
     };
 
@@ -122,21 +122,21 @@ namespace Models
 
 
   protected:
-    // 应用联邦凭证Id
+    // The ID of the application\\"s federated credential.
     // 
     // This parameter is required.
     shared_ptr<string> applicationFederatedCredentialId_ {};
-    // IDaaS的应用资源ID。
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 属性映射
+    // The attribute mappings.
     shared_ptr<vector<UpdateApplicationFederatedCredentialRequest::AttributeMappings>> attributeMappings_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 校验条件
+    // The verification condition.
     shared_ptr<string> verificationCondition_ {};
   };
 

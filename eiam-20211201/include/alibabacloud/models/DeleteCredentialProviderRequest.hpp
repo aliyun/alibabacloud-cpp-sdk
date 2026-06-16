@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 认证令牌提供商ID。
+    // The ID of the credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderId_ {};
-    // IDaaS EIAM实例的ID。
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

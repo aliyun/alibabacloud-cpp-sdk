@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Domain ID.
+    // The ID of the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainId_ {};
-    // The instance ID.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

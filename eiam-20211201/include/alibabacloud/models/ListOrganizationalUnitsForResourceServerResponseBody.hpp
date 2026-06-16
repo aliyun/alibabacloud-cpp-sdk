@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // ResourceServerScope唯一标识
+        // The scope ID.
         shared_ptr<string> resourceServerScopeId_ {};
-        // ResourceServerScope名称
+        // The scope name.
         shared_ptr<string> resourceServerScopeName_ {};
       };
 
@@ -131,11 +131,11 @@ namespace Models
 
 
     protected:
-      // 实例唯一标识
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 组织的唯一标识
+      // The organizational unit ID.
       shared_ptr<string> organizationalUnitId_ {};
-      // 资源服务Scope权限集合
+      // A list of scopes.
       shared_ptr<vector<OrganizationalUnits::ResourceServerScopes>> resourceServerScopes_ {};
     };
 
@@ -179,11 +179,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // A token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // A list of organizational units.
     shared_ptr<vector<ListOrganizationalUnitsForResourceServerResponseBody::OrganizationalUnits>> organizationalUnits_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of results.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The brand ID.
     shared_ptr<string> brandId_ {};
     // The instance ID.
     // 

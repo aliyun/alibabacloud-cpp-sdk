@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 语言类型
+    // The language.
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};
-    // 时区
+    // The time zone.
     // 
     // This parameter is required.
     shared_ptr<string> timeZone_ {};

@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // 语言
+      // The language.
       shared_ptr<string> language_ {};
-      // 时区
+      // The time zone.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -94,7 +94,9 @@ namespace Models
 
 
   protected:
+    // The language and time zone configuration for the instance.
     shared_ptr<GetInstanceGlobalizationConfigResponseBody::GlobalizationConfig> globalizationConfig_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

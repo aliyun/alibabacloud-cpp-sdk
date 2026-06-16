@@ -159,9 +159,9 @@ namespace Models
 
 
           protected:
-            // 证书过期时间
+            // The time when the certificate expires.
             shared_ptr<int64_t> notAfter_ {};
-            // 证书生效时间
+            // The time when the certificate becomes valid.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -191,11 +191,11 @@ namespace Models
 
 
         protected:
-          // 证书元数据
+          // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // Root证书内容
+          // The content of the root certificate.
           shared_ptr<string> content_ {};
-          // Root证书指纹
+          // The fingerprint of the root certificate.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -225,11 +225,11 @@ namespace Models
 
 
       protected:
-        // Root证书
+        // A list of root certificates.
         shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-        // Root证书获取方式
+        // The method for obtaining the root certificate.
         shared_ptr<string> trustAnchorSource_ {};
-        // Root证书的默认条件
+        // The trust condition for the root certificate.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -323,9 +323,9 @@ namespace Models
 
 
           protected:
-            // 证书过期时间
+            // The time when the certificate expires.
             shared_ptr<int64_t> notAfter_ {};
-            // 证书生效时间
+            // The time when the certificate becomes valid.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -355,11 +355,11 @@ namespace Models
 
 
         protected:
-          // 证书元数据
+          // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // Root证书内容
+          // The content of the certificate.
           shared_ptr<string> content_ {};
-          // Root证书指纹
+          // The fingerprint of the certificate.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -410,17 +410,17 @@ namespace Models
 
 
       protected:
-        // pkcs7证书列表
+        // A list of PKCS#7 certificates.
         shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-        // CMS验证模式
+        // The Cryptographic Message Syntax (CMS) verification mode.
         shared_ptr<string> cmsVerificationMode_ {};
-        // 签名有效时间
+        // The validity period of the signature, in seconds.
         shared_ptr<int64_t> signatureEffectiveTime_ {};
-        // 签名时间
+        // An expression that specifies the signing time.
         shared_ptr<string> signingTimeValueExpression_ {};
-        // 证书信任锚点来源
+        // The source of the certificate trust anchor.
         shared_ptr<string> trustAnchorSource_ {};
-        // 信任条件
+        // The trust condition for the PKCS#7 provider.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -519,20 +519,21 @@ namespace Models
 
 
       protected:
-        // oidc凭证的受众列表
+        // A list of audiences for the OIDC credential.
         shared_ptr<vector<string>> audiences_ {};
-        // 动态获取的jwks
+        // The dynamically obtained JWKS.
         shared_ptr<string> dynamicJwks_ {};
-        // Issuer
+        // The issuer of the OIDC credential.
         shared_ptr<string> issuer_ {};
+        // The time of the last JWKS retrieval.
         shared_ptr<int64_t> jwksLastObtainedTime_ {};
-        // Jwks来源
+        // The source of the JSON Web Key Set (JWKS).
         shared_ptr<string> jwksSource_ {};
-        // JWKS 端点
+        // The JWKS endpoint.
         shared_ptr<string> jwksUri_ {};
-        // 静态获取的jwks
+        // The static JWKS content.
         shared_ptr<string> staticJwks_ {};
-        // 默认条件
+        // The trust condition for the OIDC provider.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -672,29 +673,29 @@ namespace Models
 
     protected:
       shared_ptr<FederatedCredentialProvider::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
-      // 创建时间
+      // The time when the provider was created.
       shared_ptr<int64_t> createTime_ {};
-      // 描述
+      // The description.
       shared_ptr<string> description_ {};
-      // Federated Credential Provider ID
+      // The ID of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderId_ {};
-      // 联邦凭证提供方名称
+      // The name of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderName_ {};
-      // 联邦凭证提供方类型
+      // The type of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderType_ {};
-      // EIAM 实例ID
+      // The ID of the EIAM instance.
       shared_ptr<string> instanceId_ {};
-      // 网络访问端点ID
+      // The ID of the network access endpoint.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // OIDC配置
+      // The OpenID Connect (OIDC) configuration.
       shared_ptr<FederatedCredentialProvider::OidcProviderConfig> oidcProviderConfig_ {};
-      // PKCS7配置
+      // The PKCS#7 configuration.
       shared_ptr<FederatedCredentialProvider::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
-      // 私有CA配置
+      // The private certificate authority (CA) configuration.
       shared_ptr<FederatedCredentialProvider::PrivateCaProviderConfig> privateCaProviderConfig_ {};
-      // 状态
+      // The status of the federated credential provider.
       shared_ptr<string> status_ {};
-      // 更新时间
+      // The time when the provider was last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -717,7 +718,9 @@ namespace Models
 
 
   protected:
+    // The federated credential provider.
     shared_ptr<GetFederatedCredentialProviderResponseBody::FederatedCredentialProvider> federatedCredentialProvider_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

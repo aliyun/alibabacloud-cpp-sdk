@@ -112,17 +112,19 @@ namespace Models
 
 
     protected:
-      // 资源实体标识
+      // The ID of the associated resource entity.
       shared_ptr<string> authorizationResourceEntityId_ {};
-      // 资源实体类型，枚举类型：asset（资产）、credential（凭据）、cloud_identity_role（云账号角色）
+      // The type of the associated resource entity. Valid values:
+      // 
+      // - cloud_account_role: A cloud role.
       shared_ptr<string> authorizationResourceEntityType_ {};
-      // 授权资源标识
+      // The authorized resource ID.
       shared_ptr<string> authorizationResourceId_ {};
-      // 授权规则标识
+      // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // 云账号ID。
+      // The ID of the Alibaba Cloud account that owns the associated resource entity.
       shared_ptr<string> cloudAccountId_ {};
-      // 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -166,12 +168,15 @@ namespace Models
 
 
   protected:
+    // A list of authorized resources.
     shared_ptr<vector<ListAuthorizationResourcesResponseBody::AuthorizationResources>> authorizationResources_ {};
-    // 分页查询时每页行数。
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token to retrieve the next page of results. This parameter is returned when the results are paged.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

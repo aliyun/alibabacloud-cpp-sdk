@@ -118,18 +118,23 @@ namespace Models
 
 
     protected:
-      // Specifies whether to forcibly change the password status. Default value: disabled. Valid values:
-      // *   enabled:forcibly changes the password status.
-      // * disabled: does not forcibly change the password status.
+      // The status of forced password update. This setting is disabled by default. Valid values:
+      // 
+      // - `enabled`: Enables forced password updates.
+      // 
+      // - `disabled`: Disables forced password updates.
       shared_ptr<string> passwordForcedUpdateStatus_ {};
-      // The priority of the password initialization policy. By default, this parameter does not take effect. Valid values:
-      // *   global:The password initialization policy globally takes effect.
-      // *   custom: The password initialization policy takes effect based on custom settings.
+      // The priority of the password initialization policy. This setting is disabled by default. Valid values:
+      // 
+      // - `global`: The service uses the instance-level password initialization policy and ignores the policy specified in this request. For more information, see the password initialization policy settings.
+      // 
+      // - `custom`: The service uses the password initialization policy defined in this request. This includes the forced password update setting, the password initialization method, and the notification channels.
       shared_ptr<string> passwordInitializationPolicyPriority_ {};
-      // The password initialization method. Set the value to random,
-      // *   whichindicates that the password is randomly generated.
+      // The password initialization type. Valid values:
+      // 
+      // - `random`: The system generates a random password.
       shared_ptr<string> passwordInitializationType_ {};
-      // The value of the extended field. The value follows the limits on the properties of the extended field.
+      // The list of password notification channels.
       shared_ptr<vector<string>> userNotificationChannels_ {};
     };
 
@@ -171,9 +176,9 @@ namespace Models
 
 
     protected:
-      // The name of the extended field. You must create the extended field in advance. To create an extended field, log on to the IDaaS console. In the left-side navigation pane, choose Accounts > Extended Fields, and then click Create Field on the Extended Fields page.
+      // The identifier of the custom field. You must create this field in the console before you can use it in a request. For more information, see the Custom Fields module in the console.
       shared_ptr<string> fieldName_ {};
-      // The value of the extended field. The value follows the limits on the properties of the extended field.
+      // The value of the custom field. This value must comply with the constraints defined for the corresponding custom field.
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -300,43 +305,41 @@ namespace Models
 
 
   protected:
-    // The password initialization method. Set the value to random,
-    // 
-    // *   which indicates that the password is randomly generated.
+    // A client-provided token to ensure the idempotence of the request. This value must be unique for each request. The token can contain only ASCII characters and must be no more than 64 characters long. For more information, see [How to ensure idempotence](~~~/doc-en/6a938a5b-2402-4c9d-b235-3733a1f813c9.dita).
     shared_ptr<string> clientToken_ {};
-    // The custom extended fields.
+    // The list of custom fields.
     shared_ptr<vector<CreateUserRequest::CustomFields>> customFields_ {};
-    // The description of the organization. The value can be up to 256 characters in length.
+    // The description. The maximum length is 256 characters.
     shared_ptr<string> description_ {};
-    // The display name of the account. The display name can be up to 64 characters in length.
+    // The display name. The maximum length is 128 characters.
     shared_ptr<string> displayName_ {};
-    // The name of the account. The name can be up to 64 characters in length and can contain letters, digits, underscores (_), periods (.), at signs (@), and hyphens (-).
+    // The email address. The local part of the address can contain uppercase letters, lowercase letters, digits, periods (.), underscores (_), or hyphens (-). The maximum length is 128 characters.
     shared_ptr<string> email_ {};
-    // The description of the account. The description can be up to 256 characters in length.
+    // Indicates whether the email address is verified. A verified address is considered trusted. This parameter is required if you specify the `Email` parameter. For typical use, set this to `true`.
     shared_ptr<bool> emailVerified_ {};
-    // The instance ID.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the mobile phone number is a trusted mobile phone number. This parameter is required if the PhoneNumber parameter is specified. If you have no special business requirements, set this parameter to true.
+    // A list of subordinate organizational unit IDs. A user can belong to multiple organizational units.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
-    // The password of the account. For more information,view the password policyof the instanceinthe IDaaS console.
+    // The password. The format must comply with the password policy.
     shared_ptr<string> password_ {};
-    // The configurations for password initialization.
+    // The settings for the password initialization policy.
     shared_ptr<CreateUserRequest::PasswordInitializationConfig> passwordInitializationConfig_ {};
-    // The ID of the account.
+    // The phone number. It must be 6 to 15 digits long.
     shared_ptr<string> phoneNumber_ {};
-    // The email address of the user who owns the account. The email address prefix can contain letters, digits, underscores (_), periods (.), and hyphens (-).
+    // Indicates whether the phone number is verified. A verified number is considered trusted. This parameter is required if you specify the `PhoneNumber` parameter. For typical use, set this to `true`.
     shared_ptr<bool> phoneNumberVerified_ {};
-    // The IDs of organizational units to which the account belongs. An account can belong to multiple organizational units.
+    // The country code. It must contain 1 to 6 digits and must not include the plus sign (+).
     shared_ptr<string> phoneRegion_ {};
-    // 主组织ID。
+    // The ID of the primary organizational unit.
     // 
     // This parameter is required.
     shared_ptr<string> primaryOrganizationalUnitId_ {};
-    // The display name of the account. The display name can be up to 64 characters in length.
+    // The external ID for associating the user with an external system. The maximum length is 128 characters. If this parameter is not specified, its value defaults to the system-generated user ID.
     shared_ptr<string> userExternalId_ {};
-    // The name of the extended field. You must create the extended field in advance. To create an extended field, log on to the IDaaS console. In the left-side navigation pane, choose Accounts > Extended Fields, and then click Create Field on the Extended Fields page.
+    // The username. It can contain letters, digits, and the following special characters: underscores (_), periods (.), at signs (@), and hyphens (-). The maximum length is 256 characters.
     // 
     // This parameter is required.
     shared_ptr<string> username_ {};

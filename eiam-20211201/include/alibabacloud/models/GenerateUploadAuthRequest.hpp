@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM的实例id
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 文件用途
+    // The purpose of the file.
     shared_ptr<string> purpose_ {};
-    // 文件类型，目前只支持image,最大1M
+    // The file type.
     shared_ptr<string> type_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 应用模板id
+    // The ID of the application template.
     // 
     // This parameter is required.
     shared_ptr<string> applicationTemplateId_ {};

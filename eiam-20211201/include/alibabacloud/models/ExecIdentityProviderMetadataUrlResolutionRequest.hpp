@@ -75,13 +75,15 @@ namespace Models
 
 
   protected:
+    // The ID of the identity provider in IDaaS.
     shared_ptr<string> identityProviderId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The network access endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // OIDC Issuer地址。
+    // The OIDC issuer URL.
     shared_ptr<string> oidcIssuer_ {};
     shared_ptr<string> samlMetadataUrl_ {};
   };

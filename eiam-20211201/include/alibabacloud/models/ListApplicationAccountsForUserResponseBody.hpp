@@ -108,17 +108,17 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 应用账号Id
+      // The application account ID.
       shared_ptr<string> applicationAccountId_ {};
-      // IDaaS EIAM 应用Id
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // IDaaS EIAM 应用账号名称
+      // The name of the application account.
       shared_ptr<string> applicationUsername_ {};
-      // 创建时间
+      // The time when the account was created.
       shared_ptr<int64_t> createTime_ {};
-      // IDaaS EIAM 实例Id
+      // The ID of the IDaaS EIAM instance.
       shared_ptr<string> instanceId_ {};
-      // IDaaS EIAM 用户Id
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -148,8 +148,11 @@ namespace Models
 
 
   protected:
+    // The information about the member accounts.
     shared_ptr<vector<ListApplicationAccountsForUserResponseBody::ApplicationAccounts>> applicationAccounts_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

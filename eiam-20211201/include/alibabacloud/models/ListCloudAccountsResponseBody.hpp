@@ -138,7 +138,9 @@ namespace Models
 
 
         protected:
+          // The error code.
           shared_ptr<string> errorCode_ {};
+          // The error message.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -168,8 +170,15 @@ namespace Models
 
 
       protected:
+        // The reason for the error. This field is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountHealthCheckResult::ErrorReason> errorReason_ {};
+        // The time of the last health check. This is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
+        // The result of the health check. Valid values:
+        // 
+        // - success: The check was successful.
+        // 
+        // - failed: The check failed.
         shared_ptr<string> result_ {};
       };
 
@@ -256,24 +265,35 @@ namespace Models
 
 
     protected:
-      // 云账号外部唯一ID
+      // The external unique ID of the Alibaba Cloud account.
       shared_ptr<string> cloudAccountExternalId_ {};
-      // 云账号可用性
+      // The health check status of the Alibaba Cloud account. Valid values:
+      // 
+      // - healthy: The account is healthy.
+      // 
+      // - unhealthy: The account is unhealthy.
+      // 
+      // - unknown: The status is unknown.
       shared_ptr<string> cloudAccountHealth_ {};
+      // The result of the health check for the Alibaba Cloud account.
       shared_ptr<CloudAccounts::CloudAccountHealthCheckResult> cloudAccountHealthCheckResult_ {};
-      // 云账号ID
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> cloudAccountId_ {};
-      // 云账号名称
+      // The name of the Alibaba Cloud account.
       shared_ptr<string> cloudAccountName_ {};
-      // 云账号提供商名称
+      // The name of the identity provider.
       shared_ptr<string> cloudAccountProviderName_ {};
-      // 云账号类别
+      // The type of the Alibaba Cloud account. Valid values:
+      // 
+      // - alibaba_cloud: Alibaba Cloud
       shared_ptr<string> cloudAccountVendorType_ {};
+      // The time when the account was created. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // 云账号描述
+      // The description of the Alibaba Cloud account.
       shared_ptr<string> description_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The time when the account was last updated. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -317,12 +337,15 @@ namespace Models
 
 
   protected:
+    // The list of Alibaba Cloud accounts.
     shared_ptr<vector<ListCloudAccountsResponseBody::CloudAccounts>> cloudAccounts_ {};
-    // 分页查询时每页行数。
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token returned from this call.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The name of the filter condition.
       shared_ptr<string> name_ {};
+      // The list of filter condition values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -122,15 +124,17 @@ namespace Models
 
 
   protected:
+    // The list of filter conditions.
     shared_ptr<vector<ListResourceServersForUserRequest::Filter>> filter_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token for the next page of results. Set this to the NextToken value from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // 用户ID。
+    // The account ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

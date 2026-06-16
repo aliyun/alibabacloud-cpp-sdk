@@ -14,6 +14,7 @@ namespace Models
   class ListInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CrossRegionReplication, crossRegionReplication_);
       DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CrossRegionReplication, crossRegionReplication_);
       DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -38,8 +40,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->edition_ == nullptr
-        && this->instanceIds_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+    virtual bool empty() const override { return this->crossRegionReplication_ == nullptr
+        && this->edition_ == nullptr && this->instanceIds_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+    // crossRegionReplication Field Functions 
+    bool hasCrossRegionReplication() const { return this->crossRegionReplication_ != nullptr;};
+    void deleteCrossRegionReplication() { this->crossRegionReplication_ = nullptr;};
+    inline string getCrossRegionReplication() const { DARABONBA_PTR_GET_DEFAULT(crossRegionReplication_, "") };
+    inline ListInstancesRequest& setCrossRegionReplication(string crossRegionReplication) { DARABONBA_PTR_SET_VALUE(crossRegionReplication_, crossRegionReplication) };
+
+
     // edition Field Functions 
     bool hasEdition() const { return this->edition_ != nullptr;};
     void deleteEdition() { this->edition_ = nullptr;};
@@ -78,17 +87,23 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> crossRegionReplication_ {};
+    // The edition of the license. Valid values:
+    // - free: Free edition.
+    // - trial: Trial edition.
+    // - scalability: Scalability edition.
+    // - standard: Standard edition.
+    // - enterprise: Enterprise edition.
     shared_ptr<string> edition_ {};
-    // The list of instance IDs.
+    // Instance ID list.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The number of the page to return.
+    // Page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The status of the instance. Valid values:
-    // 
-    // *   creating
-    // *   running
+    // Instance status. Valid values:
+    // - creating: Being created.
+    // - running: Running.
     shared_ptr<string> status_ {};
   };
 

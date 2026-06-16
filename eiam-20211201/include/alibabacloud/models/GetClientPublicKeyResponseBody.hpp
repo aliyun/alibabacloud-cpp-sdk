@@ -133,22 +133,23 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 应用公私钥对算法类型 rsa2048、ecc256
+      // The algorithm type.
       shared_ptr<string> algorithmType_ {};
-      // IDaaS EIAM 应用Id
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // IDaaS EIAM 应用公私钥对Id
+      // The ID of the application\\"s ClientPublicKey.
       shared_ptr<string> clientPublicKeyId_ {};
-      // IDaaS EIAM 应用公私钥对创建时间
+      // The time when the public key was created.
       shared_ptr<int64_t> createTime_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The time when the key was last used.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // IDaaS EIAM 应用当前是否为首要使用的公私钥对
+      // Indicates whether this is the primary key.
       shared_ptr<bool> primary_ {};
-      // IDaaS EIAM 应用公钥
+      // The public key.
       shared_ptr<string> publicKey_ {};
-      // IDaaS EIAM 应用公私钥对状态
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -171,7 +172,9 @@ namespace Models
 
 
   protected:
+    // Information about the application\\"s ClientPublicKey.
     shared_ptr<GetClientPublicKeyResponseBody::ClientPublicKey> clientPublicKey_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

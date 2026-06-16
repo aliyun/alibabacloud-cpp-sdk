@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the cloud account.
     shared_ptr<string> cloudAccountId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The authorization rule ID.
     shared_ptr<string> authorizationRuleId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

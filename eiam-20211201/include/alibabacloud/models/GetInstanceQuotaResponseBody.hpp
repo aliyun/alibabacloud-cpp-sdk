@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // Quota 配额的Key，同请求参数
+      // The key of the quota.
       shared_ptr<string> quotaKey_ {};
-      // Quota 配额的值。
+      // The value of the quota.
       shared_ptr<int32_t> quotaValue_ {};
     };
 
@@ -94,7 +94,9 @@ namespace Models
 
 
   protected:
+    // The quota information.
     shared_ptr<GetInstanceQuotaResponseBody::Quota> quota_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

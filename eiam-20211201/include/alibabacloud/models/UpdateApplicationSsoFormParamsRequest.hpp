@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // 应用模板创建参数具体名称
+      // The name of a parameter for creating the application template.
       shared_ptr<string> templateParamName_ {};
-      // 应用模板创建参数真实的取值
+      // The value of the parameter for creating the application template.
       shared_ptr<string> templateParamValue_ {};
     };
 
@@ -104,15 +104,15 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用主键id
+    // The ID of the application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用模板创建参数，应用创建来源为模板时才可以指定
+    // The parameters for creating the application template.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateApplicationSsoFormParamsRequest::ApplicationTemplateParams>> applicationTemplateParams_ {};
-    // IDaaS EIAM的实例id
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

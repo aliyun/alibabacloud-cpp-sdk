@@ -142,14 +142,15 @@ namespace Models
 
 
       protected:
+        // Indicates whether session reuse is enabled.
         shared_ptr<string> activeSessionReuseStatus_ {};
-        // IDaaS EIAM 条件访问策略决策Action
+        // The effect of the policy.
         shared_ptr<string> effect_ {};
-        // IDaaS EIAM 条件访问策略重复认证时间间隔(秒)
+        // The re-authentication interval of the conditional access policy, in seconds.
         shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};
-        // IDaaS EIAM 条件访问策略允许使用的mfa类型
+        // The collection of MFA methods allowed by the conditional access policy.
         shared_ptr<vector<string>> mfaAuthenticationMethods_ {};
-        // IDaaS EIAM 条件访问策略Mfa类型
+        // The multi-factor authentication (MFA) type of the conditional access policy.
         shared_ptr<string> mfaType_ {};
       };
 
@@ -262,17 +263,17 @@ namespace Models
 
 
         protected:
-          // 排除的用户组
+          // The excluded user groups.
           shared_ptr<vector<string>> excludeGroups_ {};
-          // 排除的组织
+          // The excluded organizations.
           shared_ptr<vector<string>> excludeOrganizationalUnits_ {};
-          // 排除的用户
+          // The excluded users.
           shared_ptr<vector<string>> excludeUsers_ {};
-          // 选择的用户组
+          // The selected user groups.
           shared_ptr<vector<string>> includeGroups_ {};
-          // 选择的组织
+          // The selected organizations.
           shared_ptr<vector<string>> includeOrganizationalUnits_ {};
-          // 选择的用户
+          // The selected users.
           shared_ptr<vector<string>> includeUsers_ {};
         };
 
@@ -318,9 +319,9 @@ namespace Models
 
 
         protected:
-          // 排除的网络区域
+          // The excluded network zones.
           shared_ptr<vector<string>> excludeNetworkZones_ {};
-          // 选择的网络区域
+          // The selected network zones.
           shared_ptr<vector<string>> includeNetworkZones_ {};
         };
 
@@ -366,9 +367,9 @@ namespace Models
 
 
         protected:
-          // 排除的应用
+          // The excluded applications.
           shared_ptr<vector<string>> excludeApplications_ {};
-          // 选择的应用
+          // The selected applications.
           shared_ptr<vector<string>> includeApplications_ {};
         };
 
@@ -402,11 +403,11 @@ namespace Models
 
 
       protected:
-        // 条件访问策略目标应用
+        // The target applications of the conditional access policy.
         shared_ptr<ConditionsConfig::Applications> applications_ {};
-        // 条件访问策略网络区域
+        // The network zones of the conditional access policy.
         shared_ptr<ConditionsConfig::NetworkZones> networkZones_ {};
-        // 条件访问策略目标用户
+        // The target users of the conditional access policy.
         shared_ptr<ConditionsConfig::Users> users_ {};
       };
 
@@ -510,31 +511,31 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 条件访问策略Id
+      // The conditional access policy ID.
       shared_ptr<string> conditionalAccessPolicyId_ {};
-      // IDaaS EIAM 条件访问策略名称
+      // The name of the conditional access policy.
       shared_ptr<string> conditionalAccessPolicyName_ {};
-      // IDaaS EIAM 条件访问策略类型
+      // The type of the conditional access policy.
       shared_ptr<string> conditionalAccessPolicyType_ {};
-      // IDaaS EIAM 条件访问策略内容
+      // The content of the conditional access policy.
       shared_ptr<ConditionalAccessPolicies::ConditionsConfig> conditionsConfig_ {};
-      // 创建时间
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // IDaaS EIAM 条件访问策略执行Action
+      // The execution configuration of the conditional access policy.
       shared_ptr<ConditionalAccessPolicies::DecisionConfig> decisionConfig_ {};
-      // IDaaS EIAM 条件访问策略执行类型
+      // The execution type of the conditional access policy.
       shared_ptr<string> decisionType_ {};
-      // IDaaS EIAM 条件访问策略描述
+      // The description of the conditional access policy.
       shared_ptr<string> description_ {};
-      // IDaaS EIAM 条件访问策略执行点
+      // The policy enforcement point.
       shared_ptr<string> evaluateAt_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 更新时间
+      // The update time.
       shared_ptr<int64_t> lastUpdatedTime_ {};
-      // 优先级
+      // The priority.
       shared_ptr<int32_t> priority_ {};
-      // IDaaS EIAM 条件访问策略启用禁用状态
+      // The status of the conditional access policy.
       shared_ptr<string> status_ {};
     };
 
@@ -557,7 +558,9 @@ namespace Models
 
 
   protected:
+    // A collection of conditional access policies.
     shared_ptr<vector<ListConditionalAccessPoliciesForApplicationResponseBody::ConditionalAccessPolicies>> conditionalAccessPolicies_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

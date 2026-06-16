@@ -87,10 +87,13 @@ namespace Models
 
 
     protected:
-      // Access Token。
+      // The access token.
       shared_ptr<string> accessToken_ {};
+      // The expiration time, in Unix timestamp format (seconds since epoch).
       shared_ptr<int64_t> expiresAt_ {};
+      // The validity period, in seconds.
       shared_ptr<int64_t> expiresIn_ {};
+      // The token type. Only Bearer is supported.
       shared_ptr<string> tokenType_ {};
     };
 
@@ -113,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The token response.
     shared_ptr<GenerateOauthTokenResponseBody::TokenResponse> tokenResponse_ {};
   };
 

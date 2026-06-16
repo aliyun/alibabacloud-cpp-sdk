@@ -112,13 +112,17 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 应用角色的唯一标识
+      // The application role ID.
       shared_ptr<string> applicationRoleId_ {};
-      // 应用角色名称
+      // The name of the application role.
       shared_ptr<string> applicationRoleName_ {};
+      // The value of the application role.
       shared_ptr<string> applicationRoleValue_ {};
+      // The description of the application role.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -162,11 +166,15 @@ namespace Models
 
 
   protected:
+    // The list of application roles.
     shared_ptr<vector<ListApplicationRolesResponseBody::ApplicationRoles>> applicationRoles_ {};
+    // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

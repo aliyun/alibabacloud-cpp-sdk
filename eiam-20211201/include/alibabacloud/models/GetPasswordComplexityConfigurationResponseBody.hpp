@@ -85,16 +85,23 @@ namespace Models
 
 
       protected:
-        // The type of the password check. Valid values:
+        // The password check type. Valid values:
         // 
-        // *   inclusion_upper_case: The password must contain uppercase letters.
-        // *   inclusion_lower_case: The password must contain lowercase letters.
-        // *   inclusion_special_case: The password must contain one or more of the following special characters: @ % + \\ / \\" ! # $ ^ ? : , ( ) { } [ ] ~ - _ .
-        // *   inclusion_number: The password must contain digits.
-        // *   exclusion_username: The password cannot contain a username.
-        // *   exclusion_email: The password cannot contain an email prefix.
-        // *   exclusion_phone_number: The password cannot contain a mobile number.
-        // *   exclusion_display_name: The password cannot contain a display name.
+        // - inclusion_upper_case: The password must contain uppercase letters.
+        // 
+        // - inclusion_lower_case: The password must contain lowercase letters.
+        // 
+        // - inclusion_special_case: The password must contain at least one of the following special characters: \\` @ % + \\ / \\" ! # $ ^ ? : , ( ) { } [ ] \\~ - _ . \\`.
+        // 
+        // - inclusion_number: The password must contain digits.
+        // 
+        // - exclusion_username: The password cannot contain the username.
+        // 
+        // - exclusion_email: The password cannot contain the email address.
+        // 
+        // - exclusion_phone_number: The password cannot contain the mobile number.
+        // 
+        // - exclusion_display_name: The password cannot contain the display name.
         shared_ptr<string> passwordCheckType_ {};
       };
 
@@ -131,11 +138,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether logon with a weak password is disabled.
       shared_ptr<bool> disabledWeakPasswordLogin_ {};
+      // The time when the weak password logon restriction takes effect.
       shared_ptr<int64_t> disabledWeakPasswordLoginStartedAt_ {};
-      // The password complexity rules.
+      // The list of password complexity rules.
       shared_ptr<vector<PasswordComplexityConfiguration::PasswordComplexityRules>> passwordComplexityRules_ {};
-      // The minimum number of characters in a password.
+      // The minimum password length.
       shared_ptr<int32_t> passwordMinLength_ {};
     };
 
@@ -158,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The password complexity configurations.
+    // The password complexity policy configuration.
     shared_ptr<GetPasswordComplexityConfigurationResponseBody::PasswordComplexityConfiguration> passwordComplexityConfiguration_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

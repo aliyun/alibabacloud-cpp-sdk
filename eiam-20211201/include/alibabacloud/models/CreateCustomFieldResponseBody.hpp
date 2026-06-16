@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The field ID.
     shared_ptr<string> fieldId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

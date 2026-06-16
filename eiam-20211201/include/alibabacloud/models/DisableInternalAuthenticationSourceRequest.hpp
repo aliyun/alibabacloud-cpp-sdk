@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 内部认证源ID，比如 ia_password, ia_otp_sms 等
+    // The ID of the internal authentication source.
     shared_ptr<string> authenticationSourceId_ {};
-    // IDaaS EIAM的实例id
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

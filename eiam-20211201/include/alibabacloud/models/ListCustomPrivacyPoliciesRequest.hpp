@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // 自定义条款名称，左模糊匹配
+    // The name of the custom privacy policy. This parameter supports prefix matching.
     shared_ptr<string> customPrivacyPolicyNameStartsWith_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 分页查询时每页行数。默认值为20，最大值为100。
+    // The number of entries to return on each page.
     shared_ptr<int64_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 查询上一页凭证（Token），取值为上一次API调用返回的previousToken参数值。
+    // The token that is used to retrieve the previous page of results.
     shared_ptr<string> previousToken_ {};
   };
 

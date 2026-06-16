@@ -140,22 +140,23 @@ namespace Models
 
 
     protected:
-      // IDaaS EIAM 应用ClientPublicKey的算法类型 rsa2048、ecc256
+      // The algorithm type.
       shared_ptr<string> algorithmType_ {};
-      // IDaaS EIAM 应用Id
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // IDaaS EIAM 应用ClientPublicKey的Id
+      // The ID of the client public key.
       shared_ptr<string> clientPublicKeyId_ {};
-      // IDaaS EIAM 应用ClientPublicKey的创建时间
+      // The time when the key was created.
       shared_ptr<int64_t> createTime_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The time when the key was last used.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // IDaaS EIAM 应用当前是否为首要使用的应用ClientPublicKey的
+      // Indicates whether the key is used with priority.
       shared_ptr<bool> primary_ {};
-      // IDaaS EIAM 应用ClientPublicKey的公钥
+      // The public key.
       shared_ptr<string> publicKey_ {};
-      // IDaaS EIAM 应用ClientPublicKey的状态
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -199,11 +200,15 @@ namespace Models
 
 
   protected:
+    // The list of client public keys for the application.
     shared_ptr<vector<ListClientPublicKeysResponseBody::ClientPublicKeys>> clientPublicKeys_ {};
+    // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

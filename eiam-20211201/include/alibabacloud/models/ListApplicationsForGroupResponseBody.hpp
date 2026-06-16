@@ -87,7 +87,7 @@ namespace Models
 
 
       protected:
-        // 应用角色标识。
+        // The application role ID.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -124,13 +124,17 @@ namespace Models
 
 
     protected:
-      // 应用的唯一标识。
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 应用角色列表。
+      // The list of application roles.
       shared_ptr<vector<Applications::ApplicationRoles>> applicationRoles_ {};
-      // 直接分配给当前用户的权限，视为直接授权。
+      // Indicates whether a direct authorization exists. Valid values:
+      // 
+      // - true: A direct authorization record exists between the application and the group.
+      // 
+      // - false: No direct authorization record exists between the application and the group.
       shared_ptr<bool> hasDirectAuthorization_ {};
-      // 通过用户隶属的组织、组获取的权限，视为继承权限。
+      // Indicates whether an inherited authorization exists.
       shared_ptr<bool> hasInheritAuthorization_ {};
     };
 
@@ -160,8 +164,11 @@ namespace Models
 
 
   protected:
+    // The list of applications that are granted access.
     shared_ptr<vector<ListApplicationsForGroupResponseBody::Applications>> applications_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

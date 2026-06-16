@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // 应用角色标识。
+        // The application role ID.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
     protected:
-      // 应用角色列表。
+      // The list of application roles.
       shared_ptr<vector<Users::ApplicationRoles>> applicationRoles_ {};
-      // The ID of the account.
+      // The account ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The IDs of the accounts.
+    // The list of accounts.
     shared_ptr<vector<ListUsersForApplicationResponseBody::Users>> users_ {};
   };
 

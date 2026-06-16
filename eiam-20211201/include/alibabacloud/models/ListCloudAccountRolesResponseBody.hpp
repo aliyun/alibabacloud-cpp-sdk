@@ -142,7 +142,9 @@ namespace Models
 
 
         protected:
+          // The error code.
           shared_ptr<string> errorCode_ {};
+          // The error message.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -172,8 +174,15 @@ namespace Models
 
 
       protected:
+        // The reason for the error. This parameter is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountRoleHealthCheckResult::ErrorReason> errorReason_ {};
+        // The time of the last health check. This is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
+        // The result of the health check. Valid values:
+        // 
+        // - success: The health check was successful.
+        // 
+        // - failed: The health check failed.
         shared_ptr<string> result_ {};
       };
 
@@ -275,28 +284,47 @@ namespace Models
 
 
     protected:
-      // 云账号ID
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> cloudAccountId_ {};
-      // 云账号角色外部唯一ID
+      // The external ID for the cloud role.
       shared_ptr<string> cloudAccountRoleExternalId_ {};
-      // 云账号角色可用性
+      // The health status of the cloud role. Valid values:
+      // 
+      // - healthy: The role is healthy.
+      // 
+      // - unhealthy: The role is unhealthy.
+      // 
+      // - unknown: The health status is unknown.
       shared_ptr<string> cloudAccountRoleHealth_ {};
+      // The result of the health check for the cloud role.
       shared_ptr<CloudAccountRoles::CloudAccountRoleHealthCheckResult> cloudAccountRoleHealthCheckResult_ {};
-      // 云账号角色ID
+      // The ID of the cloud role.
       shared_ptr<string> cloudAccountRoleId_ {};
-      // 云账号名称
+      // The name of the cloud role.
       shared_ptr<string> cloudAccountRoleName_ {};
-      // 云账号角色用途
+      // The type of the cloud role. The format of the role type varies based on the type of the cloud account. The following value is supported:
+      // 
+      // - role: This value applies to Alibaba Cloud accounts.
       shared_ptr<string> cloudAccountRoleType_ {};
-      // 云账号角色类别
+      // The usage type of the cloud role. Valid values:
+      // 
+      // - system: The role is used by the system.
+      // 
+      // - user: The role is used by a user.
       shared_ptr<string> cloudAccountRoleUsageType_ {};
+      // The time when the role was created. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // 云账号描述
+      // The description of the cloud role.
       shared_ptr<string> description_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 云账号角色状态
+      // The status of the cloud role. Valid values:
+      // 
+      // - enabled: The role is enabled.
+      // 
+      // - disabled: The role is disabled.
       shared_ptr<string> status_ {};
+      // The time when the role was last updated. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -340,12 +368,15 @@ namespace Models
 
 
   protected:
+    // The list of cloud roles.
     shared_ptr<vector<ListCloudAccountRolesResponseBody::CloudAccountRoles>> cloudAccountRoles_ {};
-    // 分页查询时每页行数。
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The query token returned in this call.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

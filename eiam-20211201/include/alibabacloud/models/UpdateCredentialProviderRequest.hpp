@@ -106,11 +106,33 @@ namespace Models
 
 
       protected:
-        // OAuth协议中的client_secret，客户端密钥。
+        // The client secret defined in the OAuth protocol.
+        // 
+        // > The value must be no longer than 1024 characters.
         shared_ptr<string> clientSecret_ {};
-        // OAuth协议中的scope，权限范围。
+        // The scope defined in the OAuth protocol.
+        // 
+        // > If you do not specify the scope parameter when calling the DeveloperAPI to get an OAuth access token, the scope configured for the credential provider is used as the default.
+        // 
+        // >Notice: 
+        // 
+        // Separate multiple scope values with spaces. To clear the scope configuration, pass an empty string.
+        // 
+        // 
+        // 
+        // Rules for a single scope value:
+        // 
+        // 1. Allowed characters: lowercase letters, digits, and special characters `|/:_-.`
+        // 
+        // 2. Must contain at least one lowercase letter or digit.
+        // 
+        // 3. Must start with a special character `.`, a lowercase letter, or a digit.
+        // 
+        // 4. Must be no longer than 1024 characters.
         shared_ptr<string> scope_ {};
-        // OAuth协议的Token端点。
+        // The token endpoint defined in the OAuth protocol.
+        // 
+        // > The value must start with `http://` or `https://`. It must be no longer than 1024 characters.
         shared_ptr<string> tokenEndpoint_ {};
       };
 
@@ -172,13 +194,19 @@ namespace Models
 
 
       protected:
-        // 签发出的JWT中的issuer字段的允许列表。
+        // A list of allowed JWT issuers.
+        // 
+        // > The list must contain no more than 200 items.
+        // 
+        // >Notice: 
+        // 
+        // To clear the issuer list, pass an empty array or an empty string.
         shared_ptr<vector<string>> allowedTokenIssuers_ {};
-        // 是否开启JWT派生短令牌能力。
+        // Whether to enable derived short tokens for JWTs.
         shared_ptr<bool> derivedShortTokenEnabled_ {};
-        // JWT的有效时长，单位秒。
+        // The validity period of the JWT, in seconds.
         shared_ptr<int32_t> expiration_ {};
-        // 是否开启JWT过期清理。
+        // Whether to enable JWT expiration cleanup.
         shared_ptr<bool> expirationCleanupEnabled_ {};
       };
 
@@ -203,9 +231,9 @@ namespace Models
 
 
     protected:
-      // JWT身份提供商配置。
+      // The configuration for a JWT credential provider.
       shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
-      // OAuth 2LO机用类型的提供商的配置。
+      // The configuration for an OAuth credential provider.
       shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
     };
 
@@ -249,19 +277,23 @@ namespace Models
 
 
   protected:
-    // 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+    // An idempotency token that ensures request idempotence.
+    // 
+    // Generate a unique value on your client for each request. ClientToken supports only ASCII characters and must be no longer than 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // 认证令牌提供商的配置。
+    // The configuration of the credential provider.
     shared_ptr<UpdateCredentialProviderRequest::CredentialProviderConfig> credentialProviderConfig_ {};
-    // 认证令牌提供商ID。
+    // The ID of the credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderId_ {};
-    // 认证令牌提供商名称。
+    // The name of the credential provider.
+    // 
+    // > The name must be no longer than 64 characters.
     shared_ptr<string> credentialProviderName_ {};
-    // IDaaS EIAM实例的ID。
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

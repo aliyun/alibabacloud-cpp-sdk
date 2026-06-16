@@ -78,19 +78,19 @@ namespace Models
 
 
   protected:
-    // The IDs of the applications that the EIAM organization can access. You can query a maximum of 100 application IDs at a time.
+    // A list of application IDs. You can specify up to 100 application IDs in a single operation.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the EIAM organization.
+    // The organization ID.
     // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

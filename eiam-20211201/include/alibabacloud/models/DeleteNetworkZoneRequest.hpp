@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // IDaaS的网络区域主键id
+    // The network zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneId_ {};

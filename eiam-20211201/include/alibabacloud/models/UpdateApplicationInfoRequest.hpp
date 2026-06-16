@@ -208,21 +208,23 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用主键id
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用的表示名称
+    // The application name.
     shared_ptr<string> applicationName_ {};
     shared_ptr<UpdateApplicationInfoRequest::ApplicationOwner> applicationOwner_ {};
+    // The collection of application visibility settings.
     shared_ptr<vector<string>> applicationVisibility_ {};
+    // The idempotent token.
     shared_ptr<string> clientToken_ {};
     shared_ptr<vector<UpdateApplicationInfoRequest::CustomFields>> customFields_ {};
-    // IDaaS EIAM的实例id
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 应用Logo地址
+    // The URL of the application logo.
     shared_ptr<string> logoUrl_ {};
   };
 

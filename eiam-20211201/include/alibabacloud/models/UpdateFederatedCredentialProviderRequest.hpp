@@ -93,7 +93,7 @@ namespace Models
 
 
       protected:
-        // Root证书内容
+        // The content of the root certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -123,13 +123,13 @@ namespace Models
 
 
     protected:
-      // Root证书列表
+      // The list of root certificates.
       shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-      // Root证书获取方式
+      // The method to obtain the root certificate.
       // 
       // This parameter is required.
       shared_ptr<string> trustAnchorSource_ {};
-      // Root证书的信任条件
+      // The trust condition for the root certificate.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -190,7 +190,7 @@ namespace Models
 
 
       protected:
-        // Root证书内容
+        // The content of the root certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -241,18 +241,19 @@ namespace Models
 
 
     protected:
-      // pkcs7证书列表
+      // The list of PKCS7 certificates.
       shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-      // CMS验证模式
+      // The Cryptographic Message Syntax (CMS) verification mode.
       shared_ptr<string> cmsVerificationMode_ {};
-      // 签名有效期, 单位秒，1200
+      // The validity period of the signature.
       shared_ptr<int64_t> signatureEffectiveTime_ {};
+      // The expression to obtain the signing time.
       shared_ptr<string> signingTimeValueExpression_ {};
-      // 证书信任锚点来源
+      // The source of the certificate trust anchor.
       // 
       // This parameter is required.
       shared_ptr<string> trustAnchorSource_ {};
-      // 信任条件
+      // The trust condition.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -323,16 +324,17 @@ namespace Models
 
 
     protected:
+      // The list of audiences.
       shared_ptr<vector<string>> audiences_ {};
-      // Jwks来源
+      // The source of the JSON Web Key Set (JWKS).
       // 
       // This parameter is required.
       shared_ptr<string> jwksSource_ {};
-      // JWKS 端点
+      // JWKS endpoint
       shared_ptr<string> jwksUri_ {};
-      // 静态获取的jwks
+      // The statically obtained JWKS.
       shared_ptr<string> staticJwks_ {};
-      // 信任条件
+      // The trust condition.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -395,25 +397,25 @@ namespace Models
 
 
   protected:
-    // 联邦凭证提供方ID
+    // The ID of the federated credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderId_ {};
-    // 联邦凭证提供方名称
+    // The name of the federated credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderName_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 网络端点ID
+    // The ID of the network access endpoint.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // OIDC配置
+    // The OpenID Connect (OIDC) configuration.
     shared_ptr<UpdateFederatedCredentialProviderRequest::OidcProviderConfig> oidcProviderConfig_ {};
-    // PKCS7配置
+    // The PKCS7 configuration.
     shared_ptr<UpdateFederatedCredentialProviderRequest::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
-    // 私有CA配置
+    // The configuration of the private certificate authority (CA).
     shared_ptr<UpdateFederatedCredentialProviderRequest::PrivateCaProviderConfig> privateCaProviderConfig_ {};
   };
 

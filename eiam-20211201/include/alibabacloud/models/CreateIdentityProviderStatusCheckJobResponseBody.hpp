@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the job.
     shared_ptr<string> identityProviderStatusCheckJobId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

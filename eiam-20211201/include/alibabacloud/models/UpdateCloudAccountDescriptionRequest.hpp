@@ -66,14 +66,17 @@ namespace Models
 
 
   protected:
+    // A client token to ensure the idempotence of the request. Generate a unique value for this parameter from your client for each request. The ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // 云账号ID。
+    // The ID of the Alibaba Cloud account.
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
+    // The description of the Alibaba Cloud account.
     shared_ptr<string> description_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

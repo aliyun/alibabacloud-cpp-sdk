@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 条件访问策略关联的应用ID
+    // The ID of the application that is associated with the conditional access policy.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

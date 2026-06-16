@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // 模块状态
+      // The status of the module.
       shared_ptr<string> moduleStatus_ {};
     };
 
@@ -82,7 +82,9 @@ namespace Models
 
 
   protected:
+    // Status update information.
     shared_ptr<CheckInstanceModuleStatusResponseBody::Module> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

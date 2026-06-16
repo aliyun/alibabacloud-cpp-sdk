@@ -76,9 +76,13 @@ namespace Models
 
 
     protected:
-      // 过滤条件名称。
+      // The name of the field to filter. Valid values:
+      // 
+      // - AuthorizationRuleId: the ID of the authorization rule.
+      // 
+      // - AuthorizationRuleNameStartWith: the leftmost characters of the authorization rule name.
       shared_ptr<string> name_ {};
-      // 过滤条件值。
+      // The list of values for the field to filter.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -115,15 +119,21 @@ namespace Models
 
 
   protected:
-    // 过滤条件
+    // The filter conditions.
     shared_ptr<vector<ListAuthorizationRulesRequest::Filter>> filter_ {};
-    // IDaaS EIAM实例的ID。
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 分页查询时每页行数。默认值为20，最大值为100。
+    // The maximum number of entries to return on each page.
+    // 
+    // - If you do not specify this parameter, the default value is 20.
+    // 
+    // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token that identifies the start of the next page of results.
+    // 
+    // - If you do not specify this parameter, the system returns the first page of results.
     shared_ptr<string> nextToken_ {};
   };
 

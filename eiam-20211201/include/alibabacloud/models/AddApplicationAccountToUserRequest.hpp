@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用主键id
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用账号名称
+    // The name of the application account.
     // 
     // This parameter is required.
     shared_ptr<string> applicationUsername_ {};
-    // IDaaS EIAM的实例id
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 用户Id
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

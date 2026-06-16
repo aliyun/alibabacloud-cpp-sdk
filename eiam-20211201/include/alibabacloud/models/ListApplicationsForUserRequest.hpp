@@ -87,22 +87,23 @@ namespace Models
 
 
   protected:
-    // The IDs of the applications that the EIAM account can access. You can query a maximum of 100 application IDs at a time.
+    // The list of application IDs. You can specify up to 100 application IDs in a single request.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
     // The query mode. Default value: **OnlyDirect**. Valid values:
     // 
-    // *   OnlyDirect: Only the direct permissions are queried. Direct permissions are the permissions that are directly granted to the account.
-    // *   IncludeInherit: Both the permissions that are directly granted to the account and the inherited permissions are queried. Inherited permissions are the permissions that an account inherits from the parent organization or the group to which the account belongs.
+    // - OnlyDirect: Queries only the direct permissions of the account. Direct permissions are granted for applications that are directly assigned to the account.
+    // 
+    // - IncludeInherit: Queries both the direct and inherited permissions of the account. Inherited permissions are granted from the parent organizations or groups to which the account belongs.
     shared_ptr<string> queryMode_ {};
-    // The ID of the EIAM account.
+    // The account ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the Alibaba Cloud account.
+    // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
-    // 云账号角色ID。
+    // The ID of the cloud role.
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountRoleId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

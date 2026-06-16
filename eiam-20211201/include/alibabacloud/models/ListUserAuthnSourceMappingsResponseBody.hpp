@@ -133,20 +133,21 @@ namespace Models
 
 
     protected:
-      // 来源Idp类型
+      // The authentication source type.
       shared_ptr<string> authnSourceType_ {};
-      // 创建时间
+      // The time when the binding was created.
       shared_ptr<int64_t> createTime_ {};
+      // Information about the associated third-party account.
       shared_ptr<string> externalData_ {};
-      // 来源Idp Id
+      // The source IdP ID.
       shared_ptr<string> identityProviderId_ {};
-      // 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 最近一次更新时间
+      // The time when the binding was last updated.
       shared_ptr<int64_t> updateTime_ {};
-      // 外部ID
+      // The external ID.
       shared_ptr<string> userExternalId_ {};
-      // 用户ID
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -197,14 +198,17 @@ namespace Models
 
 
   protected:
-    // 分页查询时每页行数。
+    // The maximum number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+    // The token to retrieve the previous page of results.
     shared_ptr<string> previousToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
+    // A list of bindings for third-party account logons.
     shared_ptr<vector<ListUserAuthnSourceMappingsResponseBody::UserAuthnSourceMappings>> userAuthnSourceMappings_ {};
   };
 

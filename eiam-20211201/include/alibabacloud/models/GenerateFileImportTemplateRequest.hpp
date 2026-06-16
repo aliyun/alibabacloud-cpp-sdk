@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 同步目标类型
+    // The synchronization target type.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

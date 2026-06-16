@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
-    // 授权规则标识。
+    // The authorization rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
+    // A unique, client-generated token to ensure the idempotence of the request. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

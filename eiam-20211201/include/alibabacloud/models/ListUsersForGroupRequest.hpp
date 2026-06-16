@@ -86,11 +86,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 100.
+    // The number of entries per page. The default value is 20. The maximum value is 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The account IDs. A maximum of 100 accounts can be queried.
+    // A list of account IDs. The list can contain a maximum of 100 IDs.
     shared_ptr<vector<string>> userIds_ {};
   };
 

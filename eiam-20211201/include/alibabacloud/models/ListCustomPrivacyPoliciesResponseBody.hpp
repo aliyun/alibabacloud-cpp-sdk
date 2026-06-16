@@ -114,17 +114,17 @@ namespace Models
 
 
     protected:
-      // 自定义条款Id
+      // The ID of the custom privacy policy.
       shared_ptr<string> customPrivacyPolicyId_ {};
-      // 自定义条款名称
+      // The name of the custom privacy policy.
       shared_ptr<string> customPrivacyPolicyName_ {};
-      // 若显示语言未配置时，门户侧展示默认语言展示条款。
+      // The default language of the policy. The value is the LanguageCode returned by the ListLanguages operation.
       shared_ptr<string> defaultLanguageCode_ {};
-      // 实例id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 自定义条款状态
+      // The status of the custom privacy policy.
       shared_ptr<string> status_ {};
-      // 自定义条款同意类型，是默认同意，还是用户勾选同意
+      // The user consent type for the policy.
       shared_ptr<string> userConsentType_ {};
     };
 
@@ -175,14 +175,17 @@ namespace Models
 
 
   protected:
+    // A list of custom privacy policies.
     shared_ptr<vector<ListCustomPrivacyPoliciesResponseBody::CustomPrivacyPolicies>> customPrivacyPolicies_ {};
-    // 分页查询时每页行数。
+    // The number of entries to return on each page.
     shared_ptr<int64_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+    // The token that is used to retrieve the previous page of results.
     shared_ptr<string> previousToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

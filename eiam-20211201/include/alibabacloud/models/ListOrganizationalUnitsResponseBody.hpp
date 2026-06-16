@@ -154,30 +154,31 @@ namespace Models
 
 
     protected:
-      // The time when the organizational unit was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the organizational unit was created. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the organizational unit.
       shared_ptr<string> description_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Indicates whether the node is a leaf node.
+      // Indicates whether the organizational unit is a leaf node. A value of true indicates that the organizational unit has no child nodes. A value of false indicates that the organizational unit has child nodes.
       shared_ptr<bool> leaf_ {};
-      // The external ID of the organizational unit. The external ID can be used by external data to map the data of the organizational unit in IDaaS EIAM. By default, the external ID is the organizational unit ID.
+      // The external ID of the organizational unit. This ID is used to map the data of the organizational unit to the data of an external system. By default, the value of this parameter is the organizational unit ID.
       // 
-      // For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
+      // Note: The external ID must be unique within the same source type and source ID.
       shared_ptr<string> organizationalUnitExternalId_ {};
-      // The ID of the organizational unit.
+      // The organizational unit ID.
       shared_ptr<string> organizationalUnitId_ {};
-      // 组织名称。
+      // The name of the organizational unit.
       shared_ptr<string> organizationalUnitName_ {};
       // The source ID of the organizational unit.
       shared_ptr<string> organizationalUnitSourceId_ {};
       // The source type of the organizational unit. Valid values:
       // 
-      // *   build_in: The organizational unit was created in IDaaS.
-      // *   ding_talk: The organizational unit was imported from DingTalk.
-      // *   ad: The organizational unit was imported from Microsoft Active Directory (AD).
-      // *   ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
+      // - build_in: The organizational unit is created in IDaaS.
+      // - ding_talk: The organizational unit is imported from DingTalk.
+      // - ad: The organizational unit is imported from Active Directory (AD).
+      // - ldap: The organizational unit is imported from a Lightweight Directory Access Protocol (LDAP) directory.
+      // - we_com: The organizational unit is imported from WeCom.
       shared_ptr<string> organizationalUnitSourceType_ {};
       // The ID of the parent organizational unit.
       shared_ptr<string> parentId_ {};
@@ -211,11 +212,11 @@ namespace Models
 
 
   protected:
-    // The list of data objects of organizational units.
+    // The list of organizational units.
     shared_ptr<vector<ListOrganizationalUnitsResponseBody::OrganizationalUnits>> organizationalUnits_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries in the list.
+    // The total number of entries that are returned. This value is the total number of matched entries. The maximum number of entries that can be returned in a single request is specified by PageSize.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -38,19 +38,27 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Instances& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(CrossRegionReplication, crossRegionReplication_);
+        DARABONBA_PTR_TO_JSON(CrossRegionReplicationRole, crossRegionReplicationRole_);
         DARABONBA_PTR_TO_JSON(DefaultEndpoint, defaultEndpoint_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(InstanceFailoverStatus, instanceFailoverStatus_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(ManagedServiceCode, managedServiceCode_);
+        DARABONBA_PTR_TO_JSON(ReplicationConfiguration, replicationConfiguration_);
         DARABONBA_PTR_TO_JSON(ServiceManaged, serviceManaged_);
         DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, Instances& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(CrossRegionReplication, crossRegionReplication_);
+        DARABONBA_PTR_FROM_JSON(CrossRegionReplicationRole, crossRegionReplicationRole_);
         DARABONBA_PTR_FROM_JSON(DefaultEndpoint, defaultEndpoint_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(InstanceFailoverStatus, instanceFailoverStatus_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(ManagedServiceCode, managedServiceCode_);
+        DARABONBA_PTR_FROM_JSON(ReplicationConfiguration, replicationConfiguration_);
         DARABONBA_PTR_FROM_JSON(ServiceManaged, serviceManaged_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
       };
@@ -65,6 +73,78 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ReplicationConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ReplicationConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(BackupInstanceId, backupInstanceId_);
+          DARABONBA_PTR_TO_JSON(BackupInstanceRegionId, backupInstanceRegionId_);
+          DARABONBA_PTR_TO_JSON(PrimaryInstanceId, primaryInstanceId_);
+          DARABONBA_PTR_TO_JSON(PrimaryInstanceRegionId, primaryInstanceRegionId_);
+          DARABONBA_PTR_TO_JSON(ReplicationCreateTime, replicationCreateTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, ReplicationConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(BackupInstanceId, backupInstanceId_);
+          DARABONBA_PTR_FROM_JSON(BackupInstanceRegionId, backupInstanceRegionId_);
+          DARABONBA_PTR_FROM_JSON(PrimaryInstanceId, primaryInstanceId_);
+          DARABONBA_PTR_FROM_JSON(PrimaryInstanceRegionId, primaryInstanceRegionId_);
+          DARABONBA_PTR_FROM_JSON(ReplicationCreateTime, replicationCreateTime_);
+        };
+        ReplicationConfiguration() = default ;
+        ReplicationConfiguration(const ReplicationConfiguration &) = default ;
+        ReplicationConfiguration(ReplicationConfiguration &&) = default ;
+        ReplicationConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ReplicationConfiguration() = default ;
+        ReplicationConfiguration& operator=(const ReplicationConfiguration &) = default ;
+        ReplicationConfiguration& operator=(ReplicationConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->backupInstanceId_ == nullptr
+        && this->backupInstanceRegionId_ == nullptr && this->primaryInstanceId_ == nullptr && this->primaryInstanceRegionId_ == nullptr && this->replicationCreateTime_ == nullptr; };
+        // backupInstanceId Field Functions 
+        bool hasBackupInstanceId() const { return this->backupInstanceId_ != nullptr;};
+        void deleteBackupInstanceId() { this->backupInstanceId_ = nullptr;};
+        inline string getBackupInstanceId() const { DARABONBA_PTR_GET_DEFAULT(backupInstanceId_, "") };
+        inline ReplicationConfiguration& setBackupInstanceId(string backupInstanceId) { DARABONBA_PTR_SET_VALUE(backupInstanceId_, backupInstanceId) };
+
+
+        // backupInstanceRegionId Field Functions 
+        bool hasBackupInstanceRegionId() const { return this->backupInstanceRegionId_ != nullptr;};
+        void deleteBackupInstanceRegionId() { this->backupInstanceRegionId_ = nullptr;};
+        inline string getBackupInstanceRegionId() const { DARABONBA_PTR_GET_DEFAULT(backupInstanceRegionId_, "") };
+        inline ReplicationConfiguration& setBackupInstanceRegionId(string backupInstanceRegionId) { DARABONBA_PTR_SET_VALUE(backupInstanceRegionId_, backupInstanceRegionId) };
+
+
+        // primaryInstanceId Field Functions 
+        bool hasPrimaryInstanceId() const { return this->primaryInstanceId_ != nullptr;};
+        void deletePrimaryInstanceId() { this->primaryInstanceId_ = nullptr;};
+        inline string getPrimaryInstanceId() const { DARABONBA_PTR_GET_DEFAULT(primaryInstanceId_, "") };
+        inline ReplicationConfiguration& setPrimaryInstanceId(string primaryInstanceId) { DARABONBA_PTR_SET_VALUE(primaryInstanceId_, primaryInstanceId) };
+
+
+        // primaryInstanceRegionId Field Functions 
+        bool hasPrimaryInstanceRegionId() const { return this->primaryInstanceRegionId_ != nullptr;};
+        void deletePrimaryInstanceRegionId() { this->primaryInstanceRegionId_ = nullptr;};
+        inline string getPrimaryInstanceRegionId() const { DARABONBA_PTR_GET_DEFAULT(primaryInstanceRegionId_, "") };
+        inline ReplicationConfiguration& setPrimaryInstanceRegionId(string primaryInstanceRegionId) { DARABONBA_PTR_SET_VALUE(primaryInstanceRegionId_, primaryInstanceRegionId) };
+
+
+        // replicationCreateTime Field Functions 
+        bool hasReplicationCreateTime() const { return this->replicationCreateTime_ != nullptr;};
+        void deleteReplicationCreateTime() { this->replicationCreateTime_ = nullptr;};
+        inline int64_t getReplicationCreateTime() const { DARABONBA_PTR_GET_DEFAULT(replicationCreateTime_, 0L) };
+        inline ReplicationConfiguration& setReplicationCreateTime(int64_t replicationCreateTime) { DARABONBA_PTR_SET_VALUE(replicationCreateTime_, replicationCreateTime) };
+
+
+      protected:
+        shared_ptr<string> backupInstanceId_ {};
+        shared_ptr<string> backupInstanceRegionId_ {};
+        shared_ptr<string> primaryInstanceId_ {};
+        shared_ptr<string> primaryInstanceRegionId_ {};
+        shared_ptr<int64_t> replicationCreateTime_ {};
+      };
+
       class DefaultEndpoint : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DefaultEndpoint& obj) { 
@@ -103,23 +183,36 @@ namespace Models
 
 
       protected:
-        // The endpoint of the instance.
+        // The endpoint address of the instance.
         shared_ptr<string> endpoint_ {};
-        // The status of the endpoint. Valid values:
-        // 
-        // *   resolved
-        // *   unresolved
+        // The status of the instance endpoint. Valid values:
+        // - resolved: Resolved.
+        // - unresolved: Unresolved.
         shared_ptr<string> status_ {};
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->defaultEndpoint_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->managedServiceCode_ == nullptr && this->serviceManaged_ == nullptr
-        && this->status_ == nullptr; };
+        && this->crossRegionReplication_ == nullptr && this->crossRegionReplicationRole_ == nullptr && this->defaultEndpoint_ == nullptr && this->description_ == nullptr && this->instanceFailoverStatus_ == nullptr
+        && this->instanceId_ == nullptr && this->managedServiceCode_ == nullptr && this->replicationConfiguration_ == nullptr && this->serviceManaged_ == nullptr && this->status_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
       inline Instances& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // crossRegionReplication Field Functions 
+      bool hasCrossRegionReplication() const { return this->crossRegionReplication_ != nullptr;};
+      void deleteCrossRegionReplication() { this->crossRegionReplication_ = nullptr;};
+      inline string getCrossRegionReplication() const { DARABONBA_PTR_GET_DEFAULT(crossRegionReplication_, "") };
+      inline Instances& setCrossRegionReplication(string crossRegionReplication) { DARABONBA_PTR_SET_VALUE(crossRegionReplication_, crossRegionReplication) };
+
+
+      // crossRegionReplicationRole Field Functions 
+      bool hasCrossRegionReplicationRole() const { return this->crossRegionReplicationRole_ != nullptr;};
+      void deleteCrossRegionReplicationRole() { this->crossRegionReplicationRole_ = nullptr;};
+      inline string getCrossRegionReplicationRole() const { DARABONBA_PTR_GET_DEFAULT(crossRegionReplicationRole_, "") };
+      inline Instances& setCrossRegionReplicationRole(string crossRegionReplicationRole) { DARABONBA_PTR_SET_VALUE(crossRegionReplicationRole_, crossRegionReplicationRole) };
 
 
       // defaultEndpoint Field Functions 
@@ -138,6 +231,13 @@ namespace Models
       inline Instances& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // instanceFailoverStatus Field Functions 
+      bool hasInstanceFailoverStatus() const { return this->instanceFailoverStatus_ != nullptr;};
+      void deleteInstanceFailoverStatus() { this->instanceFailoverStatus_ = nullptr;};
+      inline string getInstanceFailoverStatus() const { DARABONBA_PTR_GET_DEFAULT(instanceFailoverStatus_, "") };
+      inline Instances& setInstanceFailoverStatus(string instanceFailoverStatus) { DARABONBA_PTR_SET_VALUE(instanceFailoverStatus_, instanceFailoverStatus) };
+
+
       // instanceId Field Functions 
       bool hasInstanceId() const { return this->instanceId_ != nullptr;};
       void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -150,6 +250,15 @@ namespace Models
       void deleteManagedServiceCode() { this->managedServiceCode_ = nullptr;};
       inline string getManagedServiceCode() const { DARABONBA_PTR_GET_DEFAULT(managedServiceCode_, "") };
       inline Instances& setManagedServiceCode(string managedServiceCode) { DARABONBA_PTR_SET_VALUE(managedServiceCode_, managedServiceCode) };
+
+
+      // replicationConfiguration Field Functions 
+      bool hasReplicationConfiguration() const { return this->replicationConfiguration_ != nullptr;};
+      void deleteReplicationConfiguration() { this->replicationConfiguration_ = nullptr;};
+      inline const Instances::ReplicationConfiguration & getReplicationConfiguration() const { DARABONBA_PTR_GET_CONST(replicationConfiguration_, Instances::ReplicationConfiguration) };
+      inline Instances::ReplicationConfiguration getReplicationConfiguration() { DARABONBA_PTR_GET(replicationConfiguration_, Instances::ReplicationConfiguration) };
+      inline Instances& setReplicationConfiguration(const Instances::ReplicationConfiguration & replicationConfiguration) { DARABONBA_PTR_SET_VALUE(replicationConfiguration_, replicationConfiguration) };
+      inline Instances& setReplicationConfiguration(Instances::ReplicationConfiguration && replicationConfiguration) { DARABONBA_PTR_SET_RVALUE(replicationConfiguration_, replicationConfiguration) };
 
 
       // serviceManaged Field Functions 
@@ -167,20 +276,25 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The creation time of the instance, in Unix timestamp format, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      shared_ptr<string> crossRegionReplication_ {};
+      shared_ptr<string> crossRegionReplicationRole_ {};
       // The default endpoint of the instance.
       shared_ptr<Instances::DefaultEndpoint> defaultEndpoint_ {};
       // The description of the instance.
       shared_ptr<string> description_ {};
-      // The instance ID.
+      shared_ptr<string> instanceFailoverStatus_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // The service code of the cloud service that manages the instance.
       shared_ptr<string> managedServiceCode_ {};
+      shared_ptr<Instances::ReplicationConfiguration> replicationConfiguration_ {};
+      // Indicates whether the instance is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
-      // The status of the instance. Valid values:
-      // 
-      // *   creating
-      // *   running
+      // Instance status. Valid values:
+      // - creating: Being created.
+      // - running: Running.
       shared_ptr<string> status_ {};
     };
 
@@ -210,11 +324,11 @@ namespace Models
 
 
   protected:
-    // The information of instances.
+    // The list of instance information.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // Total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

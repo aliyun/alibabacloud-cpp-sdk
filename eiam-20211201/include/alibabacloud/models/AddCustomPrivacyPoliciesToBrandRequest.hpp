@@ -60,15 +60,15 @@ namespace Models
 
 
   protected:
-    // 品牌化Id
+    // The ID of the brand.
     // 
     // This parameter is required.
     shared_ptr<string> brandId_ {};
-    // 条款ID列表
+    // A list of custom privacy policy IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> customPrivacyPolicyIds_ {};
-    // IDaaS EIAM实例的ID。
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -69,17 +69,17 @@ namespace Models
 
 
   protected:
-    // The ID of the application on which you want to grant permissions.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // 应用角色ID。
     shared_ptr<string> applicationRoleId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IDs of the organizations to which you want to grant permissions. You can grant permissions to a maximum of 100 organizations at a time.
+    // The list of organization IDs. You can specify a maximum of 100 organization IDs per operation.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> organizationalUnitIds_ {};

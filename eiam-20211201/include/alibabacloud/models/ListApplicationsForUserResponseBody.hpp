@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // 应用角色标识。
+        // The ID of the application role.
         shared_ptr<string> applicationRoleId_ {};
-        // 直接分配给当前用户的权限，视为直接授权。
+        // Indicates whether the role is directly assigned to the user.
         shared_ptr<bool> hasDirectAuthorization_ {};
-        // 通过用户隶属的组织、组获取的权限，视为继承权限。
+        // Indicates whether the role is inherited from an organization or a group to which the user belongs.
         shared_ptr<bool> hasInheritAuthorization_ {};
       };
 
@@ -147,19 +147,21 @@ namespace Models
 
 
     protected:
-      // The ID of the application that the EIAM account can access.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 应用角色列表。
+      // The list of application roles.
       shared_ptr<vector<Applications::ApplicationRoles>> applicationRoles_ {};
-      // Indicates whether the EIAM account has direct permissions on the application. Valid values:
+      // Indicates whether a direct authorization exists. Valid values:
       // 
-      // *   true: The EIAM account has direct permissions on the application.
-      // *   false: The EIAM account does not have direct permissions on the application.
+      // - true: A direct authorization record exists between the application and the account.
+      // 
+      // - false: No direct authorization record exists between the application and the account.
       shared_ptr<bool> hasDirectAuthorization_ {};
-      // Indicates whether the EIAM account has inherited permissions on the application. Valid values:
+      // Indicates whether an inherited authorization exists. Valid values:
       // 
-      // *   true: A parent organization or an organization to which the EIAM account belongs has direct permissions on the application.
-      // *   false: A parent organization or an organization to which the EIAM account belongs does not have direct permissions on the application.
+      // - true: A direct authorization record exists between the application and a parent organization or a group to which the account belongs.
+      // 
+      // - false: No direct authorization record exists between the application and any of the parent organizations or groups to which the account belongs.
       shared_ptr<bool> hasInheritAuthorization_ {};
     };
 
@@ -189,11 +191,11 @@ namespace Models
 
 
   protected:
-    // The applications that the EIAM account can access.
+    // The list of applications that the account is authorized to access.
     shared_ptr<vector<ListApplicationsForUserResponseBody::Applications>> applications_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the returned entries.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

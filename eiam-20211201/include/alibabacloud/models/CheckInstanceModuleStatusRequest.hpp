@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // 二级模块标识
+    // The identifier for the secondary module.
     shared_ptr<string> featureKey_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 一级模块标识，必填
+    // The identifier for the primary module.
     // 
     // This parameter is required.
     shared_ptr<string> moduleKey_ {};
+    // The identifier for the tertiary module.
     shared_ptr<string> subFeatureKey_ {};
   };
 

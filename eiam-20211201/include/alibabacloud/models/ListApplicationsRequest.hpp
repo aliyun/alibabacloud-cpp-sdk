@@ -92,7 +92,11 @@ namespace Models
 
 
     protected:
+      // The custom field identifier. Valid values:
+      // 
+      // - `agent_type`: The agent type.
       shared_ptr<string> fieldName_ {};
+      // The custom field value.
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -196,43 +200,41 @@ namespace Models
 
 
   protected:
+    // The application creation type. If unspecified, only user-created (`user_custom`) applications are returned. To query applications of all types, set this parameter to `all`.
     shared_ptr<string> applicationCreationType_ {};
+    // The application identity type. If unspecified, only applications of the `application` type are returned. To query all identity types, set this parameter to `all`.
     shared_ptr<string> applicationIdentityType_ {};
-    // The IDs of the applications.
+    // A list of application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The name of the application. Only fuzzy match from the leftmost character is supported.
+    // The application name. Only prefix matching is supported.
     shared_ptr<string> applicationName_ {};
-    // The authorization of the application. Valid values:
+    // The authorization type for application access. Valid values:
     // 
-    // *   authorize_required: Only the user with explicit authorization can access the application.
-    // *   default_all: By default, all users can access the application.
+    // - `authorize_required`: Access requires explicit authorization.
+    // 
+    // - `default_all`: All members have access by default.
     shared_ptr<string> authorizationType_ {};
+    // A list of custom fields.
     shared_ptr<vector<ListApplicationsRequest::CustomFields>> customFields_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Used to determine whether M2M client identity is enabled.
-    // - enabled
-    // - disabled
+    // The status of the M2M client identity.
     shared_ptr<string> m2MClientStatus_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // Used to determine whether the ResourceServer capability is enabled.
-    // - enabled
-    // - disabled
+    // The status of the resource server capability.
     shared_ptr<string> resourceServerStatus_ {};
-    // SSO type.
-    // - oidc
-    // - saml2
-    // - oauth2/m2m
+    // A filter for the Single Sign-On (SSO) type. You can specify multiple types, separated by a comma. Example: `oauth2/m2m,oidc+oauth2/m2m`.
     shared_ptr<string> ssoType_ {};
-    // The status of the application. Valid values:
+    // The application status. Valid values:
     // 
-    // *   Enabled: The application is enabled.
-    // *   Disabled: The application is disabled.
+    // - `enabled`: Enabled.
+    // 
+    // - `disabled`: Disabled.
     shared_ptr<string> status_ {};
   };
 

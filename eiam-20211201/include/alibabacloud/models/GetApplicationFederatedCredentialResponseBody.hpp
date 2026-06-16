@@ -113,9 +113,9 @@ namespace Models
 
 
       protected:
-        // 源值表达式
+        // The source value expression.
         shared_ptr<string> sourceValueExpression_ {};
-        // 目标字段
+        // The target field.
         shared_ptr<string> targetField_ {};
       };
 
@@ -217,31 +217,31 @@ namespace Models
 
 
     protected:
-      // 应用联邦凭证ID
+      // The ID of the application\\"s federated credential.
       shared_ptr<string> applicationFederatedCredentialId_ {};
-      // 应用联邦凭证名称
+      // The name of the application\\"s federated credential.
       shared_ptr<string> applicationFederatedCredentialName_ {};
-      // 应用联邦凭证类型
+      // The type of the application\\"s federated credential.
       shared_ptr<string> applicationFederatedCredentialType_ {};
-      // 应用ID
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 属性映射
+      // The attribute mappings.
       shared_ptr<vector<ApplicationFederatedCredential::AttributeMappings>> attributeMappings_ {};
-      // 创建时间
+      // The time when the credential was created.
       shared_ptr<int64_t> createTime_ {};
-      // 应用联邦凭证描述
+      // The description of the application\\"s federated credential.
       shared_ptr<string> description_ {};
-      // 应用联邦凭证提供者ID
+      // The ID of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderId_ {};
-      // EAIM 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 最近使用时间
+      // The time when the credential was last used.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // 应用联邦凭证状态
+      // The status of the application\\"s federated credential.
       shared_ptr<string> status_ {};
-      // 更新时间
+      // The time when the credential was last updated.
       shared_ptr<int64_t> updateTime_ {};
-      // 验证条件
+      // The verification condition.
       shared_ptr<string> verificationCondition_ {};
     };
 
@@ -264,7 +264,9 @@ namespace Models
 
 
   protected:
+    // The application federated credential object.
     shared_ptr<GetApplicationFederatedCredentialResponseBody::ApplicationFederatedCredential> applicationFederatedCredential_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

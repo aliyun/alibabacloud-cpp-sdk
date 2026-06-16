@@ -119,17 +119,41 @@ namespace Models
 
 
       protected:
-        // OAuth协议中的client_id，客户端ID。
+        // The client ID. This parameter corresponds to the client_id parameter in the OAuth protocol.
+        // 
+        // > The client ID cannot exceed 128 characters in length.
         // 
         // This parameter is required.
         shared_ptr<string> clientId_ {};
-        // OAuth协议中的client_secret，客户端密钥。
+        // The client key. This parameter corresponds to the client_secret parameter in the OAuth protocol.
+        // 
+        // > The client key cannot exceed 1024 characters in length.
         // 
         // This parameter is required.
         shared_ptr<string> clientSecret_ {};
-        // OAuth协议中的scope，权限范围。
+        // The scope of permissions. This parameter corresponds to the scope parameter in the OAuth protocol.
+        // 
+        // > The scope that you configure for the OAuth credential provider is used as a fallback value. If you do not specify the scope parameter when you call a DeveloperAPI operation to obtain an OAuth access token, the scope that you configure for the credential provider is used.
+        // 
+        // >Notice: 
+        // 
+        // Separate multiple scopes with spaces.
+        // 
+        // 
+        // 
+        // The following limits apply to a single scope:
+        // 
+        // 1. The scope can contain lowercase letters, digits, and the following special characters: `|/:_-.`
+        // 
+        // 2. The scope must contain lowercase letters or digits.
+        // 
+        // 3. The scope must start with a special character `.`, a lowercase letter, or a digit.
+        // 
+        // 4. The scope cannot exceed 1024 characters in length.
         shared_ptr<string> scope_ {};
-        // OAuth协议的Token端点。
+        // The token endpoint. This parameter corresponds to the token endpoint in the OAuth protocol.
+        // 
+        // > The value must start with `http://` or `https://` and cannot exceed 1024 characters in length.
         // 
         // This parameter is required.
         shared_ptr<string> tokenEndpoint_ {};
@@ -193,13 +217,15 @@ namespace Models
 
 
       protected:
-        // 签发出的JWT中的issuer字段的允许列表。
+        // The list of allowed issuers for JWTs.
+        // 
+        // > The list can contain a maximum of 200 issuers.
         shared_ptr<vector<string>> allowedTokenIssuers_ {};
-        // 是否开启JWT派生短令牌能力。
+        // Specifies whether to enable the short-lived token derivation feature for JWTs.
         shared_ptr<bool> derivedShortTokenEnabled_ {};
-        // JWT的有效时长，单位秒。
+        // The validity period of the JSON Web Token (JWT). Unit: seconds.
         shared_ptr<int32_t> expiration_ {};
-        // 是否开启JWT过期清理。
+        // Specifies whether to enable the cleanup of expired JWTs.
         shared_ptr<bool> expirationCleanupEnabled_ {};
       };
 
@@ -224,9 +250,9 @@ namespace Models
 
 
     protected:
-      // JWT身份提供商配置。
+      // The configuration of the JWT credential provider.
       shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
-      // OAuth 2LO机用类型的提供商的配置。
+      // The configuration of the OAuth credential provider.
       shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
     };
 
@@ -285,27 +311,39 @@ namespace Models
 
 
   protected:
-    // 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+    // The idempotence token. It is used to ensure the idempotence of the request.
+    // 
+    // Generate a parameter value from your client to make sure that the value is unique among different requests. The ClientToken parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // 认证令牌提供商的配置。
+    // The configuration of the credential provider.
     shared_ptr<CreateCredentialProviderRequest::CredentialProviderConfig> credentialProviderConfig_ {};
-    // 认证令牌提供商的业务标识。是一个具备可读性的唯一标识。
+    // The identifier of the credential provider.
+    // 
+    // > The identifier can contain uppercase letters, lowercase letters, digits, and the following special characters: `.-_`. The identifier cannot exceed 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderIdentifier_ {};
-    // 认证令牌提供商名称。
+    // The name of the credential provider.
+    // 
+    // > The name cannot exceed 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderName_ {};
-    // 认证令牌提供商的类型。
+    // The type of the credential provider. Valid values:
+    // 
+    // - oauth: OAuth credential provider
+    // 
+    // - jwt: JWT credential provider
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderType_ {};
-    // 描述。
+    // The description.
+    // 
+    // > The description cannot exceed 128 characters in length.
     shared_ptr<string> description_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

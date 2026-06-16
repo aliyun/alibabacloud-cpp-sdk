@@ -108,13 +108,13 @@ namespace Models
 
 
     protected:
-      // 企业微信自建应用的Id
+      // The agent ID of the custom application in WeCom.
       shared_ptr<string> agentId_ {};
-      // 授权回调域
+      // The authorized callback domain.
       shared_ptr<string> authorizeCallbackDomain_ {};
-      // 企业微信自建应用的corpSecret
+      // The CorpSecret of the custom application in WeCom.
       shared_ptr<string> corpSecret_ {};
-      // 可信域名
+      // The trusted domain.
       shared_ptr<string> trustableDomain_ {};
     };
 
@@ -179,6 +179,7 @@ namespace Models
 
 
       protected:
+        // The content of the signing certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -244,13 +245,21 @@ namespace Models
 
 
     protected:
+      // The SAML binding method for the SSO request. Valid values are `HTTP-POST` and `HTTP-REDIRECT`.
       shared_ptr<string> bindingMethod_ {};
+      // The signing certificates from the SAML identity provider.
       shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
+      // The entity ID of the SAML identity provider.
       shared_ptr<string> idPEntityId_ {};
+      // The single sign-on (SSO) URL of the SAML identity provider.
       shared_ptr<string> idPSsoUrl_ {};
+      // The maximum allowed clock skew, in seconds.
       shared_ptr<int64_t> maxClockSkew_ {};
+      // Specifies whether the SAML authentication request must be signed.
       shared_ptr<bool> requireRequestSigned_ {};
+      // Specifies whether the assertions in the SAML response must be signed.
       shared_ptr<bool> wantAssertionsSigned_ {};
+      // Specifies whether the SAML response must be signed.
       shared_ptr<bool> wantResponseSigned_ {};
     };
 
@@ -348,15 +357,15 @@ namespace Models
 
 
       protected:
-        // oAuth2 授权端点。
+        // The OIDC authorization endpoint.
         shared_ptr<string> authorizationEndpoint_ {};
-        // OIDC issuer信息。
+        // The OIDC issuer.
         shared_ptr<string> issuer_ {};
-        // OIDC jwks地址。
+        // The JSON Web Key Set (JWKS) URI.
         shared_ptr<string> jwksUri_ {};
-        // oAuth2 Token端点。
+        // The OIDC token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
-        // OIDC 用户信息端点。
+        // The OIDC userinfo endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -398,9 +407,13 @@ namespace Models
 
 
       protected:
-        // OIDC/oAuth2 认证方法。
+        // The OIDC client authentication method. Valid values:
+        // 
+        // - `client_secret_basic`
+        // 
+        // - `client_secret_post`
         shared_ptr<string> authnMethod_ {};
-        // OIDC/oAuth2 客户端密钥。
+        // The OIDC client secret.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -455,17 +468,21 @@ namespace Models
 
 
     protected:
-      // OIDC客户端认证配置。
+      // The OIDC client authentication configuration.
       shared_ptr<OidcConfig::AuthnParam> authnParam_ {};
-      // OIDC 端点配置。
+      // The OIDC endpoint configuration.
       shared_ptr<OidcConfig::EndpointConfig> endpointConfig_ {};
-      // OIDC标准参数，如profile、email等
+      // The OIDC authorization scopes.
       shared_ptr<vector<string>> grantScopes_ {};
-      // OIDC授权类型。
+      // The OIDC grant type.
       shared_ptr<string> grantType_ {};
-      // 支持的PKCE算法类型。
+      // The Proof Key for Code Exchange (PKCE) method. Valid values:
+      // 
+      // - `S256`: The SHA-256 algorithm.
+      // 
+      // - `plain`: The plaintext format.
       shared_ptr<string> pkceChallengeMethod_ {};
-      // AuthorizationCode授权模式下是否使用PKCE。
+      // Specifies whether PKCE is required for the authorization code grant type.
       shared_ptr<bool> pkceRequired_ {};
     };
 
@@ -564,21 +581,29 @@ namespace Models
 
 
     protected:
-      // 管理员密码
+      // The password for the administrator account.
       shared_ptr<string> administratorPassword_ {};
-      // 管理员账号
+      // The administrator account.
       shared_ptr<string> administratorUsername_ {};
-      // 是否验证指纹证书
+      // Specifies whether to enable certificate fingerprint verification. Valid values:
+      // 
+      // - `disabled`: Verification is disabled.
+      // 
+      // - `enabled`: Verification is enabled.
       shared_ptr<string> certificateFingerprintStatus_ {};
-      // 证书指纹列表
+      // The list of certificate fingerprints.
       shared_ptr<vector<string>> certificateFingerprints_ {};
-      // 通信协议
+      // The communication protocol.
       shared_ptr<string> ldapProtocol_ {};
-      // ad/ldap 服务器地址
+      // The server address.
       shared_ptr<string> ldapServerHost_ {};
-      // 端口号
+      // The port number.
       shared_ptr<int32_t> ldapServerPort_ {};
-      // startTls是否开启
+      // Specifies whether to enable StartTLS. Valid values:
+      // 
+      // - `disabled`: StartTLS is disabled.
+      // 
+      // - `enabled`: StartTLS is enabled.
       shared_ptr<string> startTlsStatus_ {};
     };
 
@@ -638,9 +663,13 @@ namespace Models
 
 
     protected:
+      // The application ID of the custom application in Lark.
       shared_ptr<string> appId_ {};
+      // The application secret of the custom application in Lark.
       shared_ptr<string> appSecret_ {};
+      // The EncryptKey of the custom application in Lark.
       shared_ptr<string> encryptKey_ {};
+      // The verification token of the custom application in Lark.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -709,12 +738,15 @@ namespace Models
 
 
     protected:
-      // 钉钉一方应用的AppKey
+      // The AppKey of the DingTalk application.
       shared_ptr<string> appKey_ {};
-      // 钉钉一方应用的AppSecret
+      // The AppSecret of the DingTalk application.
       shared_ptr<string> appSecret_ {};
+      // The version of the DingTalk QR code login.
       shared_ptr<string> dingtalkLoginVersion_ {};
+      // The EncryptKey of the DingTalk application.
       shared_ptr<string> encryptKey_ {};
+      // The verification token of the DingTalk application.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -819,30 +851,33 @@ namespace Models
 
 
   protected:
+    // A client-generated token to ensure request idempotence. This value must be unique across requests.
     shared_ptr<string> clientToken_ {};
-    // 钉钉出基本信息
+    // The configuration for the DingTalk identity provider.
     shared_ptr<UpdateIdentityProviderRequest::DingtalkAppConfig> dingtalkAppConfig_ {};
-    // IDaaS的身份提供方主键id
+    // The ID of the identity provider.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // 身份提供方名称
+    // The name of the identity provider.
     shared_ptr<string> identityProviderName_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 飞书配置
+    // The configuration for the Lark identity provider.
     shared_ptr<UpdateIdentityProviderRequest::LarkConfig> larkConfig_ {};
-    // AD/LDAP基本信息
+    // The configuration for the Active Directory (AD) or Lightweight Directory Access Protocol (LDAP) identity provider.
     shared_ptr<UpdateIdentityProviderRequest::LdapConfig> ldapConfig_ {};
+    // The URL of the application logo.
     shared_ptr<string> logoUrl_ {};
-    // 网络端点ID
+    // The ID of the network access endpoint.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // OIDC IdP配置。
+    // The OpenID Connect (OIDC) configuration.
     shared_ptr<UpdateIdentityProviderRequest::OidcConfig> oidcConfig_ {};
+    // The configuration for the SAML identity provider.
     shared_ptr<UpdateIdentityProviderRequest::SamlConfig> samlConfig_ {};
-    // 企业微信基本信息
+    // The configuration for the WeCom identity provider.
     shared_ptr<UpdateIdentityProviderRequest::WeComConfig> weComConfig_ {};
   };
 

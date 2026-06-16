@@ -125,24 +125,25 @@ namespace Models
 
 
     protected:
-      // The time when the proxy token of the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the proxy token for the domain name was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The domain ID.
       shared_ptr<string> domainId_ {};
-      // The proxy token of the domain.
+      // The proxy token for the domain name.
       shared_ptr<string> domainProxyToken_ {};
-      // The ID of the proxy token of the domain.
+      // The ID of the proxy token for the domain name.
       shared_ptr<string> domainProxyTokenId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the proxy token of the domain name was last used. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the proxy token for the domain name was last used. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // The state of the proxy token. Valid values:
+      // The status of the token. Valid values:
       // 
-      // *   enabled
-      // *   disabled
+      // - enabled: The token is enabled.
+      // 
+      // - disabled: The token is disabled.
       shared_ptr<string> status_ {};
-      // The time when the proxy token of the domain name was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the proxy token for the domain name was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -165,7 +166,7 @@ namespace Models
 
 
   protected:
-    // The proxy tokens of the domain name.
+    // The list of proxy tokens for the domain name.
     shared_ptr<vector<ListDomainProxyTokensResponseBody::DomainProxyTokens>> domainProxyTokens_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

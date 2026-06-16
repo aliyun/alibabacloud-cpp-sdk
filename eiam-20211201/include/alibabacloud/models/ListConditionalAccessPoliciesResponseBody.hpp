@@ -150,9 +150,7 @@ namespace Models
       protected:
         // Whether to enable session reuse for secondary authentication
         shared_ptr<string> activeSessionReuseStatus_ {};
-        // Decision action of the conditional access policy:
-        // deny  Deny
-        // allow Allow
+        // Decision action of the conditional access policy: deny Deny allow Allow
         shared_ptr<string> effect_ {};
         // Re-authentication interval for the conditional access policy (in seconds) 300-86400
         shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};

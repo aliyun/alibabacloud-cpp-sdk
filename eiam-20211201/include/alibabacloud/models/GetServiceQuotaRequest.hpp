@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Quota 配额的唯一标识。
+    // The unique identifier of the quota.
     // 
     // This parameter is required.
     shared_ptr<string> quotaType_ {};

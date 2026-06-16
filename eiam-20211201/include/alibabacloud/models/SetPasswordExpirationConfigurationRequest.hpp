@@ -117,37 +117,37 @@ namespace Models
 
 
   protected:
-    // Effective authentication sourceIds
+    // The list of IDs of authentication sources that take effect.
     shared_ptr<vector<string>> effectiveAuthenticationSourceIds_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The action to take upon password expiration. This parameter must be specified when PasswordExpirationStatus is set to enabled. Valid values:
+    // The action to be performed when a password expires. This parameter is required when PasswordExpirationStatus is set to enabled. Valid values:
     // 
-    // *   forbid_login: Users cannot log on to IDaaS.
-    // *   force_update_password: Users must change the password.
-    // *   remind_update_password: IDaaS reminds users to change the password upon each logon.
+    // - forbid_login: Prohibit logon.
+    // - force_update_password: Force the user to change the password.
+    // - remind_update_password: Remind the user to change the password.
     shared_ptr<string> passwordExpirationAction_ {};
-    // The methods for receiving password expiration notifications. This parameter must be specified when PasswordExpirationNotificationStatus is set to enabled.
+    // The list of notification channels for password expiration. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
     shared_ptr<vector<string>> passwordExpirationNotificationChannels_ {};
-    // The number of days before the expiration date during which password expiration notifications are sent. Unit: day. This parameter must be specified when PasswordExpirationNotificationStatus is set to enabled.
+    // The time when a password expiration notification is sent. Unit: days. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
     shared_ptr<int32_t> passwordExpirationNotificationDuration_ {};
-    // Specifies whether to enable the password expiration notification feature. Valid values:
+    // The status of the password expiration notification. Valid values:
     // 
-    // *   enabled
-    // *   disabled
+    // - enabled: The password expiration notification is enabled.
+    // - disabled: The password expiration notification is disabled.
     shared_ptr<string> passwordExpirationNotificationStatus_ {};
-    // Specifies whether to enable the password expiration feature. Valid values:
+    // The status of the password expiration configuration. Valid values:
     // 
-    // *   enabled
-    // *   disabled
+    // - enabled: The password expiration configuration is enabled.
+    // - disabled: The password expiration configuration is disabled.
     // 
     // This parameter is required.
     shared_ptr<string> passwordExpirationStatus_ {};
-    // The number of days before which users must change the password to prevent password expiration. Unit: day. You must set this parameter to a value greater than the value of PasswordExpirationNotificationDuration.
+    // The time when a user is forced to change the password. Unit: days. The value of this parameter must be greater than the value of PasswordExpirationNotificationDuration.
     shared_ptr<int32_t> passwordForcedUpdateDuration_ {};
-    // The validity period of a password. Unit: day. This parameter must be specified when PasswordExpirationStatus is set to enabled.
+    // The validity period of a password in days. This parameter is required when PasswordExpirationStatus is set to enabled.
     shared_ptr<int32_t> passwordValidMaxDay_ {};
   };
 

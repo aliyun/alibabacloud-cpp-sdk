@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // 是否授权
+      // Indicates if the authorization is granted.
       shared_ptr<bool> allowAuthorization_ {};
-      // IDaaS EIAM 实例Id
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -105,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The authorization information.
     shared_ptr<CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBody::CheckApplicationProvisioningUserPrimaryOuResult> checkApplicationProvisioningUserPrimaryOuResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

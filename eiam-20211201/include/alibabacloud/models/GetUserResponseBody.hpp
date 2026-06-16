@@ -474,9 +474,11 @@ namespace Models
       shared_ptr<vector<User::OrganizationalUnits>> organizationalUnits_ {};
       // The time when the password of the account expires. This value is a UNIX timestamp. Unit: milliseconds.
       // 
-      // *   If the value -1 is returned, the password does not expire.
-      // *   If no value is returned, the password does not expire.
-      // *   If a UNIX timestamp is returned, the password expires at the indicated point of time.
+      // - If the value -1 is returned, the password does not expire.
+      // 
+      // - If no value is returned, the password does not expire.
+      // 
+      // - If a UNIX timestamp is returned, the password expires at the indicated point of time.
       shared_ptr<int64_t> passwordExpireTime_ {};
       // Indicates whether a password is set.
       shared_ptr<bool> passwordSet_ {};
@@ -494,8 +496,9 @@ namespace Models
       shared_ptr<int64_t> registerTime_ {};
       // The status of the account. Valid values:
       // 
-      // *   enabled: The account is enabled.
-      // *   disabled: The account is disabled.
+      // - enabled: The account is enabled.
+      // 
+      // - disabled: The account is disabled.
       shared_ptr<string> status_ {};
       // The time when the account was last updated. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
@@ -511,10 +514,13 @@ namespace Models
       shared_ptr<string> userSourceId_ {};
       // The source type of the account. Valid values:
       // 
-      // *   build_in: The account was created in IDaaS.
-      // *   ding_talk: The account was imported from DingTalk.
-      // *   ad: The account was imported from Microsoft Active Directory (AD).
-      // *   ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
+      // - build_in: The account was created in IDaaS.
+      // 
+      // - ding_talk: The account was imported from DingTalk.
+      // 
+      // - ad: The account was imported from Microsoft Active Directory (AD).
+      // 
+      // - ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
       shared_ptr<string> userSourceType_ {};
       // The username of the account.
       shared_ptr<string> username_ {};

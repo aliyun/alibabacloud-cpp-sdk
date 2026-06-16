@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // 授权规则生效结束时间，采用unix纪元精确到毫秒。
+      // The end time of the validity period. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // 授权规则生效开始时间，采用unix纪元精确到毫秒。
+      // The start time of the validity period. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -130,23 +130,29 @@ namespace Models
 
 
   protected:
-    // 应用 ID。
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 授权规则标识。
+    // The authorization rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
+    // A client token used to ensure the idempotence of the request. Generate a value from your client to make sure that the value is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 有效周期，当validityPeriodType为custom有效。
+    // The time range of the validity period. This parameter is valid only when you set **ValidityType** to **time_bound**.
     shared_ptr<AddApplicationToAuthorizationRuleRequest::ValidityPeriod> validityPeriod_ {};
-    // 有效期类型，枚举值：permanent（永久），time_bound（自定义时间范围）。
+    // The validity period type. Valid values:
+    // 
+    // - permanent: The authorization is permanent.
+    // 
+    // - time_bound: The authorization is valid for a custom time range.
     // 
     // This parameter is required.
     shared_ptr<string> validityType_ {};

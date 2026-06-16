@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // 支持的用户自定义字段ID列表。
+      // A list of IDs of supported custom user fields.
       shared_ptr<vector<string>> supportedUserCustomFieldIds_ {};
-      // 用户扩展字段的命名空间。
+      // The namespace of the user extension fields.
       shared_ptr<string> userCustomFieldNamespace_ {};
     };
 
@@ -106,15 +106,15 @@ namespace Models
 
 
   protected:
-    // IDaaS的应用资源ID。
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Scim Server 高阶配置
+    // The advanced configuration of the SCIM server.
     shared_ptr<UpdateApplicationAdvancedConfigRequest::ScimServerAdvancedConfig> scimServerAdvancedConfig_ {};
   };
 

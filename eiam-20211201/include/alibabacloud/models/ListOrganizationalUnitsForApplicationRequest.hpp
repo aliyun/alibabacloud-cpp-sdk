@@ -87,21 +87,21 @@ namespace Models
 
 
   protected:
-    // The ID of the application that you want to query.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // 应用角色ID。
     shared_ptr<string> applicationRoleId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IDs of the organizations that are allowed to access the application. You can query a maximum of 100 organization IDs at a time.
+    // The list of organization IDs. A single request can contain up to 100 organization IDs.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

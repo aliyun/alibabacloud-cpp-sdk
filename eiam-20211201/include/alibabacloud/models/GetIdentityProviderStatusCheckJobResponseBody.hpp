@@ -137,11 +137,11 @@ namespace Models
 
 
         protected:
-          // 错误码
+          // The error code.
           shared_ptr<string> errorCode_ {};
-          // 错误级别
+          // The error level.
           shared_ptr<string> errorLevel_ {};
-          // 错误信息
+          // The error message.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -178,13 +178,13 @@ namespace Models
 
 
       protected:
-        // 错误原因
+        // The reason for the error.
         shared_ptr<JobCheckItems::ErrorReason> errorReason_ {};
-        // 主要检查项
+        // The major check item.
         shared_ptr<string> majorCheckItem_ {};
-        // 次要检查项
+        // The minor check item.
         shared_ptr<string> minorCheckItem_ {};
-        // 结果
+        // The result.
         shared_ptr<string> result_ {};
       };
 
@@ -250,21 +250,21 @@ namespace Models
 
 
     protected:
-      // 任务检查结果
+      // The result of the check task.
       shared_ptr<string> checkResult_ {};
-      // 结束时间
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
-      // IdP身份提供方
+      // The ID of the IdP.
       shared_ptr<string> identityProviderId_ {};
-      // IdP状态检查任务Id
+      // The ID of the IdP status check job.
       shared_ptr<string> identityProviderStatusCheckJobId_ {};
-      // IDaaS EIAM 实例Id
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 状态检查子项任务结果信息
+      // The results of the status check subtasks.
       shared_ptr<vector<IdentityProviderStatusCheckJob::JobCheckItems>> jobCheckItems_ {};
-      // 开始时间
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
-      // 任务检查状态
+      // The status of the check task.
       shared_ptr<string> status_ {};
     };
 
@@ -287,7 +287,9 @@ namespace Models
 
 
   protected:
+    // The information about the IdP status check job.
     shared_ptr<GetIdentityProviderStatusCheckJobResponseBody::IdentityProviderStatusCheckJob> identityProviderStatusCheckJob_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

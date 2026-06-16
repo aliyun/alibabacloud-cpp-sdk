@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // IDaaS的身份提供方主键id
+    // The identity provider (IdP) ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // 任务ID
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderStatusCheckJobId_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

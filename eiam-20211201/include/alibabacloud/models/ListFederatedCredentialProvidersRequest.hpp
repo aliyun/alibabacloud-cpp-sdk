@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // 联邦凭证提供方名称
+    // The name of the federated credential provider.
     shared_ptr<string> federatedCredentialProviderName_ {};
-    // 联邦凭证提供方类型
+    // The type of the federated credential provider.
     shared_ptr<string> federatedCredentialProviderType_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 分页查询时每页行数。默认值为20，最大值为100。
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 查询上一页凭证（Token），取值为上一次API调用返回的previousToken参数值。
+    // The token to retrieve the previous page of results.
     shared_ptr<string> previousToken_ {};
   };
 

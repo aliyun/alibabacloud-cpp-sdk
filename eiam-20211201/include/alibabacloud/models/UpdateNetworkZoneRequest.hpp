@@ -99,24 +99,25 @@ namespace Models
 
 
   protected:
+    // The idempotence token.
     shared_ptr<string> clientToken_ {};
-    // IDaaS EIAM实例的ID。
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 包含的CIDR
+    // The IPv4 CIDR blocks of the network zone.
     shared_ptr<vector<string>> ipv4Cidrs_ {};
-    // 网络区域ipv6Cidr
+    // The IPv6 CIDR blocks of the network zone.
     shared_ptr<vector<string>> ipv6Cidrs_ {};
-    // IDaaS的网络区域主键id
+    // The network zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneId_ {};
-    // 网络区域名称
+    // The name of the network zone.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneName_ {};
-    // 专有网络VpcId
+    // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
   };
 

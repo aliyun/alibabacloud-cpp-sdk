@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // 授权生效结束时间。
+        // The end time of the validity period. This is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // 授权生效开始时间。
+        // The start time of the validity period. This is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -140,13 +140,17 @@ namespace Models
 
 
     protected:
-      // 应用标识。
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // 实例ID。
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // 有效周期。
+      // The time range of the validity period. This parameter takes effect when **ValidityType** is set to **time_bound**.
       shared_ptr<Applications::ValidityPeriod> validityPeriod_ {};
-      // 有效期类型，枚举值：permanent（永久），time_bound（自定义时间范围）。
+      // The validity type of the relationship. Valid values:
+      // 
+      // - permanent: The relationship is permanent.
+      // 
+      // - time_bound: The relationship has a custom time range.
       shared_ptr<string> validityType_ {};
     };
 
@@ -190,12 +194,15 @@ namespace Models
 
 
   protected:
+    // The list of applications.
     shared_ptr<vector<ListApplicationsForAuthorizationRuleResponseBody::Applications>> applications_ {};
-    // 分页查询时每页行数。
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+    // The token returned from this call. Use this token for the next paged query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

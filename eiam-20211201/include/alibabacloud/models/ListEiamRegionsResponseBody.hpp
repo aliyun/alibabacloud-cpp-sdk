@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The region name.
+      // The name of the region.
       shared_ptr<string> localName_ {};
-      // The ID of the region in which the instance resides.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The region list.
+    // The list of regions.
     shared_ptr<vector<ListEiamRegionsResponseBody::Regions>> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
