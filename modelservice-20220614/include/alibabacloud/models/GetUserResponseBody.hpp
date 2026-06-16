@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApiKeys, apiKeys_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(DashscopeHost, dashscopeHost_);
       DARABONBA_PTR_TO_JSON(Host, host_);
       DARABONBA_PTR_TO_JSON(InnerToken, innerToken_);
       DARABONBA_PTR_TO_JSON(Message, message_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApiKeys, apiKeys_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(DashscopeHost, dashscopeHost_);
       DARABONBA_PTR_FROM_JSON(Host, host_);
       DARABONBA_PTR_FROM_JSON(InnerToken, innerToken_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
@@ -89,8 +91,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->anthropicHost_ == nullptr
-        && this->apiKeys_ == nullptr && this->appId_ == nullptr && this->code_ == nullptr && this->host_ == nullptr && this->innerToken_ == nullptr
-        && this->message_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr; };
+        && this->apiKeys_ == nullptr && this->appId_ == nullptr && this->code_ == nullptr && this->dashscopeHost_ == nullptr && this->host_ == nullptr
+        && this->innerToken_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr; };
     // anthropicHost Field Functions 
     bool hasAnthropicHost() const { return this->anthropicHost_ != nullptr;};
     void deleteAnthropicHost() { this->anthropicHost_ = nullptr;};
@@ -119,6 +121,13 @@ namespace Models
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetUserResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // dashscopeHost Field Functions 
+    bool hasDashscopeHost() const { return this->dashscopeHost_ != nullptr;};
+    void deleteDashscopeHost() { this->dashscopeHost_ = nullptr;};
+    inline string getDashscopeHost() const { DARABONBA_PTR_GET_DEFAULT(dashscopeHost_, "") };
+    inline GetUserResponseBody& setDashscopeHost(string dashscopeHost) { DARABONBA_PTR_SET_VALUE(dashscopeHost_, dashscopeHost) };
 
 
     // host Field Functions 
@@ -161,6 +170,7 @@ namespace Models
     shared_ptr<vector<GetUserResponseBody::ApiKeys>> apiKeys_ {};
     shared_ptr<string> appId_ {};
     shared_ptr<string> code_ {};
+    shared_ptr<string> dashscopeHost_ {};
     shared_ptr<string> host_ {};
     shared_ptr<string> innerToken_ {};
     shared_ptr<string> message_ {};
