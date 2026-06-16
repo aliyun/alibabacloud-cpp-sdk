@@ -29,6 +29,7 @@
 #include <alibabacloud/models/DLTableInput.hpp>
 #include <alibabacloud/models/DLTablebaseInfo.hpp>
 #include <alibabacloud/models/DataMountInfo.hpp>
+#include <alibabacloud/models/DmsGatewayOrder.hpp>
 #include <alibabacloud/models/DmsKnowledgeSearchOrderInfoDO.hpp>
 #include <alibabacloud/models/ForeignInstance.hpp>
 #include <alibabacloud/models/ForeignInstanceCredInfo.hpp>

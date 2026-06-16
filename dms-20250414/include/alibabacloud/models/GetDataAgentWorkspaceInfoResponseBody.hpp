@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_TO_JSON(RoleName, roleName_);
         DARABONBA_PTR_TO_JSON(TotalMember, totalMember_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(WorkspaceDesc, workspaceDesc_);
         DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
         DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
         DARABONBA_PTR_FROM_JSON(TotalMember, totalMember_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(WorkspaceDesc, workspaceDesc_);
         DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
         DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
@@ -76,7 +78,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->creator_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr && this->totalMember_ == nullptr
-        && this->workspaceDesc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->type_ == nullptr && this->workspaceDesc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -119,6 +121,13 @@ namespace Models
       inline Data& setTotalMember(string totalMember) { DARABONBA_PTR_SET_VALUE(totalMember_, totalMember) };
 
 
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Data& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       // workspaceDesc Field Functions 
       bool hasWorkspaceDesc() const { return this->workspaceDesc_ != nullptr;};
       void deleteWorkspaceDesc() { this->workspaceDesc_ = nullptr;};
@@ -148,21 +157,21 @@ namespace Models
 
 
     protected:
-      // The time when the workspace was created. This value is a UNIX timestamp in seconds.
+      // The creation time of the session. Unit: seconds. The value is a UNIX timestamp.
       shared_ptr<string> createTime_ {};
-      // The user ID (UID) of the workspace creator.
+      // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
-      // Indicates whether session sharing is enabled.
       shared_ptr<bool> isSessionShareEnabled_ {};
-      // The time when the workspace was last modified. This value is a UNIX timestamp in seconds.
+      // The most recent modification time of the workspace. Unit: seconds. The value is a UNIX timestamp.
       shared_ptr<string> modifyTime_ {};
-      // The user\\"s role in the workspace.
+      // The role name of the user in the workspace.
       shared_ptr<string> roleName_ {};
       // The number of members in the workspace.
       shared_ptr<string> totalMember_ {};
-      // The description of the workspace.
+      shared_ptr<string> type_ {};
+      // The description of the collaborative workspace.
       shared_ptr<string> workspaceDesc_ {};
-      // The workspace ID.
+      // The ID of the collaborative workspace.
       shared_ptr<string> workspaceId_ {};
       // The name of the workspace.
       shared_ptr<string> workspaceName_ {};
@@ -210,7 +219,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response struct.
     shared_ptr<GetDataAgentWorkspaceInfoResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -218,7 +227,7 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

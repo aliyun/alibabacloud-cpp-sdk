@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReplyTo, replyTo_);
       DARABONBA_PTR_TO_JSON(SessionConfig, sessionConfig_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(TaskConfig, taskConfig_);
     };
     friend void from_json(const Darabonba::Json& j, SendChatMessageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReplyTo, replyTo_);
       DARABONBA_PTR_FROM_JSON(SessionConfig, sessionConfig_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(TaskConfig, taskConfig_);
     };
     SendChatMessageRequest() = default ;
     SendChatMessageRequest(const SendChatMessageRequest &) = default ;
@@ -52,6 +54,91 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TaskConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TaskConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(ReportConfig, reportConfig_);
+      };
+      friend void from_json(const Darabonba::Json& j, TaskConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(ReportConfig, reportConfig_);
+      };
+      TaskConfig() = default ;
+      TaskConfig(const TaskConfig &) = default ;
+      TaskConfig(TaskConfig &&) = default ;
+      TaskConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TaskConfig() = default ;
+      TaskConfig& operator=(const TaskConfig &) = default ;
+      TaskConfig& operator=(TaskConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ReportConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ReportConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(ReportPrompt, reportPrompt_);
+          DARABONBA_PTR_TO_JSON(ReportTheme, reportTheme_);
+          DARABONBA_PTR_TO_JSON(ReportType, reportType_);
+        };
+        friend void from_json(const Darabonba::Json& j, ReportConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(ReportPrompt, reportPrompt_);
+          DARABONBA_PTR_FROM_JSON(ReportTheme, reportTheme_);
+          DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
+        };
+        ReportConfig() = default ;
+        ReportConfig(const ReportConfig &) = default ;
+        ReportConfig(ReportConfig &&) = default ;
+        ReportConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ReportConfig() = default ;
+        ReportConfig& operator=(const ReportConfig &) = default ;
+        ReportConfig& operator=(ReportConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->reportPrompt_ == nullptr
+        && this->reportTheme_ == nullptr && this->reportType_ == nullptr; };
+        // reportPrompt Field Functions 
+        bool hasReportPrompt() const { return this->reportPrompt_ != nullptr;};
+        void deleteReportPrompt() { this->reportPrompt_ = nullptr;};
+        inline string getReportPrompt() const { DARABONBA_PTR_GET_DEFAULT(reportPrompt_, "") };
+        inline ReportConfig& setReportPrompt(string reportPrompt) { DARABONBA_PTR_SET_VALUE(reportPrompt_, reportPrompt) };
+
+
+        // reportTheme Field Functions 
+        bool hasReportTheme() const { return this->reportTheme_ != nullptr;};
+        void deleteReportTheme() { this->reportTheme_ = nullptr;};
+        inline string getReportTheme() const { DARABONBA_PTR_GET_DEFAULT(reportTheme_, "") };
+        inline ReportConfig& setReportTheme(string reportTheme) { DARABONBA_PTR_SET_VALUE(reportTheme_, reportTheme) };
+
+
+        // reportType Field Functions 
+        bool hasReportType() const { return this->reportType_ != nullptr;};
+        void deleteReportType() { this->reportType_ = nullptr;};
+        inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+        inline ReportConfig& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
+
+
+      protected:
+        shared_ptr<string> reportPrompt_ {};
+        shared_ptr<string> reportTheme_ {};
+        shared_ptr<string> reportType_ {};
+      };
+
+      virtual bool empty() const override { return this->reportConfig_ == nullptr; };
+      // reportConfig Field Functions 
+      bool hasReportConfig() const { return this->reportConfig_ != nullptr;};
+      void deleteReportConfig() { this->reportConfig_ = nullptr;};
+      inline const TaskConfig::ReportConfig & getReportConfig() const { DARABONBA_PTR_GET_CONST(reportConfig_, TaskConfig::ReportConfig) };
+      inline TaskConfig::ReportConfig getReportConfig() { DARABONBA_PTR_GET(reportConfig_, TaskConfig::ReportConfig) };
+      inline TaskConfig& setReportConfig(const TaskConfig::ReportConfig & reportConfig) { DARABONBA_PTR_SET_VALUE(reportConfig_, reportConfig) };
+      inline TaskConfig& setReportConfig(TaskConfig::ReportConfig && reportConfig) { DARABONBA_PTR_SET_RVALUE(reportConfig_, reportConfig) };
+
+
+    protected:
+      shared_ptr<TaskConfig::ReportConfig> reportConfig_ {};
+    };
+
     class SessionConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const SessionConfig& obj) { 
@@ -60,6 +147,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Language, language_);
         DARABONBA_PTR_TO_JSON(Mode, mode_);
         DARABONBA_PTR_TO_JSON(ReportWaterMark, reportWaterMark_);
+        DARABONBA_PTR_TO_JSON(SkipAskHuman, skipAskHuman_);
+        DARABONBA_PTR_TO_JSON(SkipPlan, skipPlan_);
+        DARABONBA_PTR_TO_JSON(SkipSqlConfirm, skipSqlConfirm_);
+        DARABONBA_PTR_TO_JSON(SkipWebReportConfirm, skipWebReportConfirm_);
       };
       friend void from_json(const Darabonba::Json& j, SessionConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
@@ -67,6 +158,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Language, language_);
         DARABONBA_PTR_FROM_JSON(Mode, mode_);
         DARABONBA_PTR_FROM_JSON(ReportWaterMark, reportWaterMark_);
+        DARABONBA_PTR_FROM_JSON(SkipAskHuman, skipAskHuman_);
+        DARABONBA_PTR_FROM_JSON(SkipPlan, skipPlan_);
+        DARABONBA_PTR_FROM_JSON(SkipSqlConfirm, skipSqlConfirm_);
+        DARABONBA_PTR_FROM_JSON(SkipWebReportConfirm, skipWebReportConfirm_);
       };
       SessionConfig() = default ;
       SessionConfig(const SessionConfig &) = default ;
@@ -80,7 +175,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->customAgentStage_ == nullptr && this->language_ == nullptr && this->mode_ == nullptr && this->reportWaterMark_ == nullptr; };
+        && this->customAgentStage_ == nullptr && this->language_ == nullptr && this->mode_ == nullptr && this->reportWaterMark_ == nullptr && this->skipAskHuman_ == nullptr
+        && this->skipPlan_ == nullptr && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -116,16 +212,48 @@ namespace Models
       inline SessionConfig& setReportWaterMark(string reportWaterMark) { DARABONBA_PTR_SET_VALUE(reportWaterMark_, reportWaterMark) };
 
 
+      // skipAskHuman Field Functions 
+      bool hasSkipAskHuman() const { return this->skipAskHuman_ != nullptr;};
+      void deleteSkipAskHuman() { this->skipAskHuman_ = nullptr;};
+      inline bool getSkipAskHuman() const { DARABONBA_PTR_GET_DEFAULT(skipAskHuman_, false) };
+      inline SessionConfig& setSkipAskHuman(bool skipAskHuman) { DARABONBA_PTR_SET_VALUE(skipAskHuman_, skipAskHuman) };
+
+
+      // skipPlan Field Functions 
+      bool hasSkipPlan() const { return this->skipPlan_ != nullptr;};
+      void deleteSkipPlan() { this->skipPlan_ = nullptr;};
+      inline bool getSkipPlan() const { DARABONBA_PTR_GET_DEFAULT(skipPlan_, false) };
+      inline SessionConfig& setSkipPlan(bool skipPlan) { DARABONBA_PTR_SET_VALUE(skipPlan_, skipPlan) };
+
+
+      // skipSqlConfirm Field Functions 
+      bool hasSkipSqlConfirm() const { return this->skipSqlConfirm_ != nullptr;};
+      void deleteSkipSqlConfirm() { this->skipSqlConfirm_ = nullptr;};
+      inline bool getSkipSqlConfirm() const { DARABONBA_PTR_GET_DEFAULT(skipSqlConfirm_, false) };
+      inline SessionConfig& setSkipSqlConfirm(bool skipSqlConfirm) { DARABONBA_PTR_SET_VALUE(skipSqlConfirm_, skipSqlConfirm) };
+
+
+      // skipWebReportConfirm Field Functions 
+      bool hasSkipWebReportConfirm() const { return this->skipWebReportConfirm_ != nullptr;};
+      void deleteSkipWebReportConfirm() { this->skipWebReportConfirm_ = nullptr;};
+      inline bool getSkipWebReportConfirm() const { DARABONBA_PTR_GET_DEFAULT(skipWebReportConfirm_, false) };
+      inline SessionConfig& setSkipWebReportConfirm(bool skipWebReportConfirm) { DARABONBA_PTR_SET_VALUE(skipWebReportConfirm_, skipWebReportConfirm) };
+
+
     protected:
-      // This parameter is deprecated. Use the `CustomAgentId` request parameter from the `CreateAgentSession` operation instead.
+      // Deprecated. Use the input parameters of CreateAgentSession instead.
       shared_ptr<string> customAgentId_ {};
-      // This parameter is deprecated. Use the `CustomAgentStage` request parameter from the `CreateAgentSession` operation instead.
+      // Deprecated. Use the input parameters of CreateAgentSession instead.
       shared_ptr<string> customAgentStage_ {};
-      // The language of the session. Only Chinese and English are supported. The default value is Chinese. The value must be in uppercase.
+      // Only Chinese and English are supported. The default value is Chinese. Only uppercase values are supported.
       shared_ptr<string> language_ {};
       shared_ptr<string> mode_ {};
-      // A text watermark of up to 64 characters that will be added to generated PDF reports.
+      // The text of up to 64 characters that is used as a watermark in the generated PDF report.
       shared_ptr<string> reportWaterMark_ {};
+      shared_ptr<bool> skipAskHuman_ {};
+      shared_ptr<bool> skipPlan_ {};
+      shared_ptr<bool> skipSqlConfirm_ {};
+      shared_ptr<bool> skipWebReportConfirm_ {};
     };
 
     class DataSources : public Darabonba::Model {
@@ -250,27 +378,27 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated. Do not use it.
+      // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values are `remote_data_center` for file analysis and `database` for database analysis.
+      // The data source type. Valid values: [remote_data_center, database], indicating that the analysis is performed on a file or a database respectively.
       shared_ptr<string> dataSourceType_ {};
-      // This parameter is deprecated. Do not use it.
+      // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
-      // The ID of the database in DMS.
+      // The ID of the database in Data Management.
       shared_ptr<string> dmsDatabaseId_ {};
-      // The ID of the instance in DMS.
+      // The ID of the instance in Data Management.
       shared_ptr<string> dmsInstanceId_ {};
       // The database engine type.
       shared_ptr<string> engine_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
-      // This parameter is deprecated. Do not use it.
+      // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> location_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // A list of table names to analyze.
+      // The list of table names to analyze.
       shared_ptr<vector<string>> tables_ {};
     };
 
@@ -396,34 +524,34 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated. Do not use it.
+      // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values are `remote_data_center` for file analysis and `database` for database analysis.
+      // The data source type. Valid values: `[remote_data_center, database]`, indicating that the analysis is performed on a file or a database respectively.
       shared_ptr<string> dataSourceType_ {};
-      // This parameter is deprecated. Do not use it.
+      // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
-      // The ID of the database in DMS.
+      // The ID of the database in Data Management.
       shared_ptr<string> dmsDatabaseId_ {};
-      // The ID of the instance in DMS.
+      // The ID of the instance in Data Management.
       shared_ptr<string> dmsInstanceId_ {};
       // The database engine type.
       shared_ptr<string> engine_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
-      // This parameter is deprecated. Do not use it.
+      // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> location_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // A list of table names to analyze.
+      // The list of table names to analyze.
       shared_ptr<vector<string>> tables_ {};
     };
 
     virtual bool empty() const override { return this->agentId_ == nullptr
         && this->DMSUnit_ == nullptr && this->dataSource_ == nullptr && this->dataSources_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr
         && this->parentSessionId_ == nullptr && this->question_ == nullptr && this->quotedMessage_ == nullptr && this->replyTo_ == nullptr && this->sessionConfig_ == nullptr
-        && this->sessionId_ == nullptr; };
+        && this->sessionId_ == nullptr && this->taskConfig_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -514,37 +642,47 @@ namespace Models
     inline SendChatMessageRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+    // taskConfig Field Functions 
+    bool hasTaskConfig() const { return this->taskConfig_ != nullptr;};
+    void deleteTaskConfig() { this->taskConfig_ = nullptr;};
+    inline const SendChatMessageRequest::TaskConfig & getTaskConfig() const { DARABONBA_PTR_GET_CONST(taskConfig_, SendChatMessageRequest::TaskConfig) };
+    inline SendChatMessageRequest::TaskConfig getTaskConfig() { DARABONBA_PTR_GET(taskConfig_, SendChatMessageRequest::TaskConfig) };
+    inline SendChatMessageRequest& setTaskConfig(const SendChatMessageRequest::TaskConfig & taskConfig) { DARABONBA_PTR_SET_VALUE(taskConfig_, taskConfig) };
+    inline SendChatMessageRequest& setTaskConfig(SendChatMessageRequest::TaskConfig && taskConfig) { DARABONBA_PTR_SET_RVALUE(taskConfig_, taskConfig) };
+
+
   protected:
-    // The agent ID. This parameter is required. You can obtain this ID from the response of the `CreateAgentSession` operation. An agent has a lifecycle, so its ID may change with each request.
+    // The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The DMS unit where your DMS instance is located. This information is used to connect to your DMS instance for database analysis. You can find this value in the DMS console. For users on the Alibaba Cloud China site, you can enter `cn-hangzhou`.
+    // The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can go to the Data Management console to view your current Data Management unit. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to ap-southeast-1.
     shared_ptr<string> DMSUnit_ {};
-    // The data source information. Optional.
+    // The data source information. This parameter is optional.
     shared_ptr<SendChatMessageRequest::DataSource> dataSource_ {};
-    // A list of data sources. Optional.
+    // The detailed data source information. This parameter is optional.
     shared_ptr<vector<SendChatMessageRequest::DataSources>> dataSources_ {};
-    // The content of the message to send to the agent.
+    // The message content to send to the Agent in this request.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The message type. The default value is `primary`. Set this parameter to `additional` when responding to a human-in-the-loop question from the agent. Set it to `cancel` to cancel the current session.
+    // The message type. Default value: `[primary]`. When the message is a response to the Agent\\"s human-in-the-loop question, set this parameter to `[additional]`. When the message is intended to cancel the current session, set this parameter to `[cancel]`.
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // This parameter is required if the `MessageType` is `additional`. It contains the specific question asked by the agent during the human-in-the-loop process.
+    // The specific question that the Agent asks the user through human-in-the-loop. This parameter is required when the message type is `additional`.
     shared_ptr<string> question_ {};
-    // The quoted content. This parameter is typically used when interacting with the agent.
+    // The quoted content, typically used during interaction with the Agent.
     shared_ptr<string> quotedMessage_ {};
-    // This parameter specifies the agent message to which this message is a response, enabling message deduplication. Set this to the highest checkpoint sequence number you have received. For the first message, use 0.
+    // Indicates which Agent message this message responds to. Set this parameter to the largest Checkpoint sequence number currently received. Set it to 0 for the first message. This field is used for message deduplication in case of occasional network issues or duplicate message delivery.
     shared_ptr<string> replyTo_ {};
-    // Session-specific configurations. These apply only if provided in the first `SendMessage` request of the session.
+    // The special configuration for this session. For the same session, only the configuration included in the first SendMessage call takes effect.
     shared_ptr<SendChatMessageRequest::SessionConfig> sessionConfig_ {};
-    // The session ID. This parameter is required. You can obtain the session ID by calling the `CreateAgentSession` operation.
+    // The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    shared_ptr<SendChatMessageRequest::TaskConfig> taskConfig_ {};
   };
 
   } // namespace Models

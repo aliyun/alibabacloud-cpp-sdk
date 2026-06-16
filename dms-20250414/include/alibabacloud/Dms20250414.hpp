@@ -199,7 +199,7 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSession(const Models::CreateDataAgentSessionRequest &request);
 
       /**
-       * @summary Creates a DataAgent workspace.
+       * @summary Creates a DataAgent collaborative workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -208,7 +208,7 @@ namespace Dms20250414
       Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspaceWithOptions(const Models::CreateDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a DataAgent workspace.
+       * @summary Creates a DataAgent collaborative workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @return CreateDataAgentWorkspaceResponse
@@ -509,7 +509,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgent(const Models::DescribeCustomAgentRequest &request);
 
       /**
-       * @summary Gets the details of a DataAgent session.
+       * @summary Retrieves the description of a DataAgent session.
        *
        * @param request DescribeDataAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -518,7 +518,7 @@ namespace Dms20250414
       Models::DescribeDataAgentSessionResponse describeDataAgentSessionWithOptions(const Models::DescribeDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a DataAgent session.
+       * @summary Retrieves the description of a DataAgent session.
        *
        * @param request DescribeDataAgentSessionRequest
        * @return DescribeDataAgentSessionResponse
@@ -683,7 +683,7 @@ namespace Dms20250414
       Models::GetDataAgentSubAccountInfoResponse getDataAgentSubAccountInfo(const Models::GetDataAgentSubAccountInfoRequest &request);
 
       /**
-       * @summary Retrieves workspace details.
+       * @summary Retrieves the details of a collaborative workspace.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -692,7 +692,7 @@ namespace Dms20250414
       Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfoWithOptions(const Models::GetDataAgentWorkspaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves workspace details.
+       * @summary Retrieves the details of a collaborative workspace.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @return GetDataAgentWorkspaceInfoResponse
@@ -954,7 +954,7 @@ namespace Dms20250414
       Models::ListDataAgentSessionResponse listDataAgentSession(const Models::ListDataAgentSessionRequest &request);
 
       /**
-       * @summary Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
+       * @summary Retrieves the collaborative workspaces under the primary account with pagination.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -963,7 +963,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceResponse listDataAgentWorkspaceWithOptions(const Models::ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
+       * @summary Retrieves the collaborative workspaces under the primary account with pagination.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @return ListDataAgentWorkspaceResponse
@@ -1391,15 +1391,15 @@ namespace Dms20250414
       Models::SaveWorkspaceCodeResponse saveWorkspaceCode(const Models::SaveWorkspaceCodeRequest &request);
 
       /**
-       * @summary Sends a user message to a specified session or ends the session.
+       * @summary Sends a user message to a specified session or cancels a session.
        *
-       * @description ## Request
-       * - The `agent_id` and `session_id` fields are required.
-       * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
-       * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+       * @description ## Request description
+       * - `agent_id` and `session_id` are required fields.
+       * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
+       * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
-       * - Use the `quoted_message` field to reference a previous user message.
-       * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
+       * - `quoted_message` can be used to quote the content of a previous user message.
+       * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1408,15 +1408,15 @@ namespace Dms20250414
       Models::SendChatMessageResponse sendChatMessageWithOptions(const Models::SendChatMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a user message to a specified session or ends the session.
+       * @summary Sends a user message to a specified session or cancels a session.
        *
-       * @description ## Request
-       * - The `agent_id` and `session_id` fields are required.
-       * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
-       * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+       * @description ## Request description
+       * - `agent_id` and `session_id` are required fields.
+       * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
+       * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
-       * - Use the `quoted_message` field to reference a previous user message.
-       * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
+       * - `quoted_message` can be used to quote the content of a previous user message.
+       * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse

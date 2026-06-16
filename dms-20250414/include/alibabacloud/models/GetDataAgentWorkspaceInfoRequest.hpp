@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The DMS unit.
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The workspace ID.
+    // The ID of the collaborative workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

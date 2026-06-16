@@ -42,11 +42,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(Message, message_);
+        DARABONBA_PTR_TO_JSON(MessageId, messageId_);
         DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(Message, message_);
+        DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
         DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       };
       Data() = default ;
@@ -61,7 +63,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->message_ == nullptr && this->sessionId_ == nullptr; };
+        && this->message_ == nullptr && this->messageId_ == nullptr && this->sessionId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
       inline Data& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
+      // messageId Field Functions 
+      bool hasMessageId() const { return this->messageId_ != nullptr;};
+      void deleteMessageId() { this->messageId_ = nullptr;};
+      inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+      inline Data& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+
+
       // sessionId Field Functions 
       bool hasSessionId() const { return this->sessionId_ != nullptr;};
       void deleteSessionId() { this->sessionId_ = nullptr;};
@@ -84,11 +93,12 @@ namespace Models
 
 
     protected:
-      // The agent ID.
+      // AgentId
       shared_ptr<string> agentId_ {};
-      // Describes the result of the request.
+      // Message
       shared_ptr<string> message_ {};
-      // The session ID.
+      shared_ptr<string> messageId_ {};
+      // SessionId
       shared_ptr<string> sessionId_ {};
     };
 
@@ -134,13 +144,13 @@ namespace Models
   protected:
     // The response data.
     shared_ptr<SendChatMessageResponseBody::Data> data_ {};
-    // The error code. A value of `Success` indicates that the request was successful.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message. This field is empty if the request is successful.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Success
     shared_ptr<string> success_ {};
   };
 

@@ -43,10 +43,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(AgentStatus, agentStatus_);
+        DARABONBA_PTR_TO_JSON(Artifacts, artifacts_);
         DARABONBA_PTR_TO_JSON(ChatHistoryLocations, chatHistoryLocations_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
         DARABONBA_PTR_TO_JSON(FavoriteInWorkspace, favoriteInWorkspace_);
         DARABONBA_PTR_TO_JSON(File, file_);
+        DARABONBA_PTR_TO_JSON(RecallResults, recallResults_);
         DARABONBA_PTR_TO_JSON(Saved, saved_);
         DARABONBA_PTR_TO_JSON(SessionConfig, sessionConfig_);
         DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
@@ -57,10 +60,13 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(AgentStatus, agentStatus_);
+        DARABONBA_PTR_FROM_JSON(Artifacts, artifacts_);
         DARABONBA_PTR_FROM_JSON(ChatHistoryLocations, chatHistoryLocations_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
         DARABONBA_PTR_FROM_JSON(FavoriteInWorkspace, favoriteInWorkspace_);
         DARABONBA_PTR_FROM_JSON(File, file_);
+        DARABONBA_PTR_FROM_JSON(RecallResults, recallResults_);
         DARABONBA_PTR_FROM_JSON(Saved, saved_);
         DARABONBA_PTR_FROM_JSON(SessionConfig, sessionConfig_);
         DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
@@ -213,41 +219,127 @@ namespace Models
 
 
       protected:
-        // The ID of the custom agent.
+        // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The stage of the custom agent. Valid values:
-        // 
-        // - **debug**: The test stage.
-        // 
-        // - **prod**: The production stage.
+        // - **debug**: Debug stage.
+        // - **prod**: Production stage.
         shared_ptr<string> customAgentStage_ {};
-        // Indicates whether web search is enabled.
+        // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
         shared_ptr<string> encryptKey_ {};
         shared_ptr<string> encryptType_ {};
         shared_ptr<vector<string>> kbUuidList_ {};
         // The language. Valid values:
-        // 
-        // - **CHINESE**: Chinese
-        // 
-        // - **ENGLISH**: English
+        // - **CHINESE**: Chinese.
+        // - **ENGLISH**: English.
         shared_ptr<string> language_ {};
-        // A list of MCP server IDs.
+        // The list of MCP server IDs in the session configuration.
         shared_ptr<vector<string>> mcpServerIds_ {};
         // The mode. Valid values:
-        // 
-        // - **ASK_DATA**: quick inquiry mode
-        // 
-        // - **ANALYSIS**: analysis mode
-        // 
-        // - **INSIGHT**: insight mode
+        // - **ASK_DATA**: Ask data mode.
+        // - **ANALYSIS**: Analysis mode.
+        // - **INSIGHT**: Insight mode.
         shared_ptr<string> mode_ {};
         shared_ptr<int64_t> reportPageWidth_ {};
         shared_ptr<string> reportWaterMark_ {};
-        // The name of the user\\"s OSS bucket.
-        // 
-        // - The service can upload analysis files and reports to this bucket.
+        // The name of the user OSS bucket.
+        // - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
+      };
+
+      class RecallResults : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RecallResults& obj) { 
+          DARABONBA_PTR_TO_JSON(Content, content_);
+          DARABONBA_PTR_TO_JSON(Score, score_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, RecallResults& obj) { 
+          DARABONBA_PTR_FROM_JSON(Content, content_);
+          DARABONBA_PTR_FROM_JSON(Score, score_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        RecallResults() = default ;
+        RecallResults(const RecallResults &) = default ;
+        RecallResults(RecallResults &&) = default ;
+        RecallResults(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RecallResults() = default ;
+        RecallResults& operator=(const RecallResults &) = default ;
+        RecallResults& operator=(RecallResults &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->content_ == nullptr
+        && this->score_ == nullptr && this->type_ == nullptr; };
+        // content Field Functions 
+        bool hasContent() const { return this->content_ != nullptr;};
+        void deleteContent() { this->content_ = nullptr;};
+        inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+        inline RecallResults& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+        // score Field Functions 
+        bool hasScore() const { return this->score_ != nullptr;};
+        void deleteScore() { this->score_ = nullptr;};
+        inline double getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, 0.0) };
+        inline RecallResults& setScore(double score) { DARABONBA_PTR_SET_VALUE(score_, score) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline RecallResults& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        shared_ptr<string> content_ {};
+        shared_ptr<double> score_ {};
+        shared_ptr<string> type_ {};
+      };
+
+      class DataSources : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataSources& obj) { 
+          DARABONBA_PTR_TO_JSON(Category, category_);
+          DARABONBA_PTR_TO_JSON(Detail, detail_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataSources& obj) { 
+          DARABONBA_PTR_FROM_JSON(Category, category_);
+          DARABONBA_PTR_FROM_JSON(Detail, detail_);
+        };
+        DataSources() = default ;
+        DataSources(const DataSources &) = default ;
+        DataSources(DataSources &&) = default ;
+        DataSources(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataSources() = default ;
+        DataSources& operator=(const DataSources &) = default ;
+        DataSources& operator=(DataSources &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->category_ == nullptr
+        && this->detail_ == nullptr; };
+        // category Field Functions 
+        bool hasCategory() const { return this->category_ != nullptr;};
+        void deleteCategory() { this->category_ = nullptr;};
+        inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+        inline DataSources& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+        // detail Field Functions 
+        bool hasDetail() const { return this->detail_ != nullptr;};
+        void deleteDetail() { this->detail_ = nullptr;};
+        inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+        inline DataSources& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
+
+
+      protected:
+        shared_ptr<string> category_ {};
+        shared_ptr<string> detail_ {};
       };
 
       class ChatHistoryLocations : public Darabonba::Model {
@@ -288,16 +380,119 @@ namespace Models
 
 
       protected:
-        // The key of the session replay history item.
+        // The key of the chat replay history.
         shared_ptr<string> key_ {};
-        // The OSS download URL for the session replay history item.
+        // The OSS download URL of the chat replay history.
         shared_ptr<string> url_ {};
       };
 
+      class Artifacts : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Artifacts& obj) { 
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(FinishTime, finishTime_);
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(ReceiveTime, receiveTime_);
+          DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, Artifacts& obj) { 
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(FinishTime, finishTime_);
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(ReceiveTime, receiveTime_);
+          DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        Artifacts() = default ;
+        Artifacts(const Artifacts &) = default ;
+        Artifacts(Artifacts &&) = default ;
+        Artifacts(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Artifacts() = default ;
+        Artifacts& operator=(const Artifacts &) = default ;
+        Artifacts& operator=(Artifacts &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->description_ == nullptr
+        && this->finishTime_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->receiveTime_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->type_ == nullptr; };
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline Artifacts& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // finishTime Field Functions 
+        bool hasFinishTime() const { return this->finishTime_ != nullptr;};
+        void deleteFinishTime() { this->finishTime_ = nullptr;};
+        inline string getFinishTime() const { DARABONBA_PTR_GET_DEFAULT(finishTime_, "") };
+        inline Artifacts& setFinishTime(string finishTime) { DARABONBA_PTR_SET_VALUE(finishTime_, finishTime) };
+
+
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline Artifacts& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Artifacts& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // receiveTime Field Functions 
+        bool hasReceiveTime() const { return this->receiveTime_ != nullptr;};
+        void deleteReceiveTime() { this->receiveTime_ = nullptr;};
+        inline string getReceiveTime() const { DARABONBA_PTR_GET_DEFAULT(receiveTime_, "") };
+        inline Artifacts& setReceiveTime(string receiveTime) { DARABONBA_PTR_SET_VALUE(receiveTime_, receiveTime) };
+
+
+        // startTime Field Functions 
+        bool hasStartTime() const { return this->startTime_ != nullptr;};
+        void deleteStartTime() { this->startTime_ = nullptr;};
+        inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+        inline Artifacts& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline Artifacts& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Artifacts& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        shared_ptr<string> description_ {};
+        shared_ptr<string> finishTime_ {};
+        shared_ptr<string> id_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> receiveTime_ {};
+        shared_ptr<string> startTime_ {};
+        shared_ptr<string> status_ {};
+        shared_ptr<string> type_ {};
+      };
+
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentStatus_ == nullptr && this->chatHistoryLocations_ == nullptr && this->createTime_ == nullptr && this->favoriteInWorkspace_ == nullptr && this->file_ == nullptr
-        && this->saved_ == nullptr && this->sessionConfig_ == nullptr && this->sessionId_ == nullptr && this->sessionStatus_ == nullptr && this->title_ == nullptr
-        && this->userId_ == nullptr; };
+        && this->agentStatus_ == nullptr && this->artifacts_ == nullptr && this->chatHistoryLocations_ == nullptr && this->createTime_ == nullptr && this->dataSources_ == nullptr
+        && this->favoriteInWorkspace_ == nullptr && this->file_ == nullptr && this->recallResults_ == nullptr && this->saved_ == nullptr && this->sessionConfig_ == nullptr
+        && this->sessionId_ == nullptr && this->sessionStatus_ == nullptr && this->title_ == nullptr && this->userId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -310,6 +505,15 @@ namespace Models
       void deleteAgentStatus() { this->agentStatus_ = nullptr;};
       inline string getAgentStatus() const { DARABONBA_PTR_GET_DEFAULT(agentStatus_, "") };
       inline Data& setAgentStatus(string agentStatus) { DARABONBA_PTR_SET_VALUE(agentStatus_, agentStatus) };
+
+
+      // artifacts Field Functions 
+      bool hasArtifacts() const { return this->artifacts_ != nullptr;};
+      void deleteArtifacts() { this->artifacts_ = nullptr;};
+      inline const vector<Data::Artifacts> & getArtifacts() const { DARABONBA_PTR_GET_CONST(artifacts_, vector<Data::Artifacts>) };
+      inline vector<Data::Artifacts> getArtifacts() { DARABONBA_PTR_GET(artifacts_, vector<Data::Artifacts>) };
+      inline Data& setArtifacts(const vector<Data::Artifacts> & artifacts) { DARABONBA_PTR_SET_VALUE(artifacts_, artifacts) };
+      inline Data& setArtifacts(vector<Data::Artifacts> && artifacts) { DARABONBA_PTR_SET_RVALUE(artifacts_, artifacts) };
 
 
       // chatHistoryLocations Field Functions 
@@ -328,6 +532,15 @@ namespace Models
       inline Data& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+      // dataSources Field Functions 
+      bool hasDataSources() const { return this->dataSources_ != nullptr;};
+      void deleteDataSources() { this->dataSources_ = nullptr;};
+      inline const vector<Data::DataSources> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<Data::DataSources>) };
+      inline vector<Data::DataSources> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<Data::DataSources>) };
+      inline Data& setDataSources(const vector<Data::DataSources> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
+      inline Data& setDataSources(vector<Data::DataSources> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
+
+
       // favoriteInWorkspace Field Functions 
       bool hasFavoriteInWorkspace() const { return this->favoriteInWorkspace_ != nullptr;};
       void deleteFavoriteInWorkspace() { this->favoriteInWorkspace_ = nullptr;};
@@ -340,6 +553,15 @@ namespace Models
       void deleteFile() { this->file_ = nullptr;};
       inline string getFile() const { DARABONBA_PTR_GET_DEFAULT(file_, "") };
       inline Data& setFile(string file) { DARABONBA_PTR_SET_VALUE(file_, file) };
+
+
+      // recallResults Field Functions 
+      bool hasRecallResults() const { return this->recallResults_ != nullptr;};
+      void deleteRecallResults() { this->recallResults_ = nullptr;};
+      inline const vector<Data::RecallResults> & getRecallResults() const { DARABONBA_PTR_GET_CONST(recallResults_, vector<Data::RecallResults>) };
+      inline vector<Data::RecallResults> getRecallResults() { DARABONBA_PTR_GET(recallResults_, vector<Data::RecallResults>) };
+      inline Data& setRecallResults(const vector<Data::RecallResults> & recallResults) { DARABONBA_PTR_SET_VALUE(recallResults_, recallResults) };
+      inline Data& setRecallResults(vector<Data::RecallResults> && recallResults) { DARABONBA_PTR_SET_RVALUE(recallResults_, recallResults) };
 
 
       // saved Field Functions 
@@ -387,27 +609,30 @@ namespace Models
 
 
     protected:
-      // The ID of the agent.
+      // The current agent ID.
       shared_ptr<string> agentId_ {};
-      // The status of the agent.
+      // The current agent status.
       shared_ptr<string> agentStatus_ {};
-      // The session replay history.
+      shared_ptr<vector<Data::Artifacts>> artifacts_ {};
+      // The chat replay history.
       shared_ptr<vector<Data::ChatHistoryLocations>> chatHistoryLocations_ {};
-      // The timestamp indicating when the session was created.
+      // The session creation time.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether the current user has favorited the session in the workspace.
+      shared_ptr<vector<Data::DataSources>> dataSources_ {};
+      // Indicates whether the session is saved as a favorite in the workspace by the current logged-in user.
       shared_ptr<string> favoriteInWorkspace_ {};
-      // The ID of the file.
+      // The file ID.
       shared_ptr<string> file_ {};
-      // Indicates whether the current user has favorited the session.
+      shared_ptr<vector<Data::RecallResults>> recallResults_ {};
+      // Indicates whether the session is saved as a favorite by the current logged-in user.
       shared_ptr<bool> saved_ {};
-      // The configuration of the session.
+      // The session configuration item.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
-      // The ID of the agent session.
+      // The agent session ID.
       shared_ptr<string> sessionId_ {};
-      // The status of the session.
+      // The session status.
       shared_ptr<string> sessionStatus_ {};
-      // The title of the session.
+      // The title.
       shared_ptr<string> title_ {};
       // The ID of the session owner.
       shared_ptr<string> userId_ {};
@@ -453,19 +678,18 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The response struct.
     shared_ptr<DescribeDataAgentSessionResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the request fails.
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The return value. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -79,6 +79,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_TO_JSON(RoleName, roleName_);
           DARABONBA_PTR_TO_JSON(TotalMember, totalMember_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
           DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
           DARABONBA_PTR_TO_JSON(WorkspaceStatus, workspaceStatus_);
@@ -91,6 +92,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
           DARABONBA_PTR_FROM_JSON(TotalMember, totalMember_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
           DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
           DARABONBA_PTR_FROM_JSON(WorkspaceStatus, workspaceStatus_);
@@ -108,7 +110,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->createTime_ == nullptr
         && this->creator_ == nullptr && this->description_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr
-        && this->totalMember_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->totalMember_ == nullptr && this->type_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
         // createTime Field Functions 
         bool hasCreateTime() const { return this->createTime_ != nullptr;};
         void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -158,6 +160,13 @@ namespace Models
         inline Content& setTotalMember(int64_t totalMember) { DARABONBA_PTR_SET_VALUE(totalMember_, totalMember) };
 
 
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Content& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
         // workspaceId Field Functions 
         bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
         void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -180,20 +189,21 @@ namespace Models
 
 
       protected:
-        // The creation time of the workspace, provided as a UNIX timestamp in seconds.
+        // The creation time of the workspace. This value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> createTime_ {};
-        // The creator\\"s user ID (UID).
+        // The UID of the workspace creator.
         shared_ptr<string> creator_ {};
         // The description of the workspace.
         shared_ptr<string> description_ {};
         shared_ptr<bool> isSessionShareEnabled_ {};
-        // The last modification time of the workspace, provided as a UNIX timestamp in seconds.
+        // The most recent modification time of the workspace. This value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> modifyTime_ {};
-        // The name of the user\\"s role in the workspace.
+        // The role name of the user in the workspace.
         shared_ptr<string> roleName_ {};
         // The number of members in the workspace.
         shared_ptr<int64_t> totalMember_ {};
-        // The ID of the workspace.
+        shared_ptr<string> type_ {};
+        // The workspace ID.
         shared_ptr<string> workspaceId_ {};
         // The name of the workspace.
         shared_ptr<string> workspaceName_ {};
@@ -241,11 +251,11 @@ namespace Models
 
 
     protected:
-      // The details of the workspaces.
+      // The configuration content.
       shared_ptr<vector<Data::Content>> content_ {};
-      // The page number.
+      // The total number of pages.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of workspaces on each page.
+      // The number of workspaces per page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of workspaces.
       shared_ptr<int64_t> totalElements_ {};
@@ -308,15 +318,15 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response struct.
     shared_ptr<ListDataAgentWorkspaceResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
-    // This parameter is not used.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // This parameter is not used.
+    // The token information.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

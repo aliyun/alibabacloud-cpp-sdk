@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the DMS unit.
+    // The current Data Management unit.
     shared_ptr<string> DMSUnit_ {};
-    // The ID of the agent session.
+    // The agent session ID.
     shared_ptr<string> sessionId_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 
