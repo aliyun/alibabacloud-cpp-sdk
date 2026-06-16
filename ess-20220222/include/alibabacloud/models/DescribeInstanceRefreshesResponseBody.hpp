@@ -55,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SkipMatching, skipMatching_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Strategy, strategy_);
         DARABONBA_PTR_TO_JSON(TotalNeedUpdateCapacity, totalNeedUpdateCapacity_);
       };
       friend void from_json(const Darabonba::Json& j, InstanceRefreshTasks& obj) { 
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SkipMatching, skipMatching_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
         DARABONBA_PTR_FROM_JSON(TotalNeedUpdateCapacity, totalNeedUpdateCapacity_);
       };
       InstanceRefreshTasks() = default ;
@@ -142,6 +144,7 @@ namespace Models
 
 
         protected:
+          // The instance type that overrides the instance type specified in the launch template.
           shared_ptr<string> instanceType_ {};
         };
 
@@ -219,8 +222,11 @@ namespace Models
 
 
           protected:
+            // >This parameter is not available for use.
             shared_ptr<string> fieldRefFieldPath_ {};
+            // The name of the environment variable.
             shared_ptr<string> key_ {};
+            // The value of the environment variable.
             shared_ptr<string> value_ {};
           };
 
@@ -268,10 +274,15 @@ namespace Models
 
 
         protected:
+          // The arguments for the container startup commands.
           shared_ptr<vector<string>> args_ {};
+          // The container startup commands.
           shared_ptr<vector<string>> commands_ {};
+          // The environment variable information.
           shared_ptr<vector<Containers::EnvironmentVars>> environmentVars_ {};
+          // The container image.
           shared_ptr<string> image_ {};
+          // The custom container name.
           shared_ptr<string> name_ {};
         };
 
@@ -324,11 +335,19 @@ namespace Models
 
 
       protected:
+        // The list of containers included in the instance.
         shared_ptr<vector<DesiredConfiguration::Containers>> containers_ {};
-        // The ID of the image file that provides the image resource for Auto Scaling to create instances.
+        // The ID of the image file used for automatic creation of instances.
         shared_ptr<string> imageId_ {};
+        // The ID of the launch template from which the scaling group obtains launch configuration information.
         shared_ptr<string> launchTemplateId_ {};
+        // The instance type information that overrides the launch template.
         shared_ptr<vector<DesiredConfiguration::LaunchTemplateOverrides>> launchTemplateOverrides_ {};
+        // The version of the launch template. Valid values:
+        // 
+        // - A fixed template version number.
+        // - Default: always uses the default version of the template.
+        // - Latest: always uses the latest version of the template.
         shared_ptr<string> launchTemplateVersion_ {};
         // The ID of the scaling configuration.
         shared_ptr<string> scalingConfigurationId_ {};
@@ -362,13 +381,14 @@ namespace Models
 
 
       protected:
+        // The percentage of new instances relative to the total instances in the scaling group. The task automatically pauses when this percentage is reached.
         shared_ptr<int32_t> percentage_ {};
       };
 
       virtual bool empty() const override { return this->checkpointPauseTime_ == nullptr
         && this->checkpoints_ == nullptr && this->desiredConfiguration_ == nullptr && this->detail_ == nullptr && this->endTime_ == nullptr && this->finishedUpdateCapacity_ == nullptr
         && this->instanceRefreshTaskId_ == nullptr && this->maxHealthyPercentage_ == nullptr && this->minHealthyPercentage_ == nullptr && this->regionId_ == nullptr && this->scalingGroupId_ == nullptr
-        && this->skipMatching_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->totalNeedUpdateCapacity_ == nullptr; };
+        && this->skipMatching_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->strategy_ == nullptr && this->totalNeedUpdateCapacity_ == nullptr; };
       // checkpointPauseTime Field Functions 
       bool hasCheckpointPauseTime() const { return this->checkpointPauseTime_ != nullptr;};
       void deleteCheckpointPauseTime() { this->checkpointPauseTime_ = nullptr;};
@@ -471,6 +491,13 @@ namespace Models
       inline InstanceRefreshTasks& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // strategy Field Functions 
+      bool hasStrategy() const { return this->strategy_ != nullptr;};
+      void deleteStrategy() { this->strategy_ = nullptr;};
+      inline string getStrategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
+      inline InstanceRefreshTasks& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
+
+
       // totalNeedUpdateCapacity Field Functions 
       bool hasTotalNeedUpdateCapacity() const { return this->totalNeedUpdateCapacity_ != nullptr;};
       void deleteTotalNeedUpdateCapacity() { this->totalNeedUpdateCapacity_ = nullptr;};
@@ -479,51 +506,54 @@ namespace Models
 
 
     protected:
+      // The duration for which the task pauses when a checkpoint is reached. Unit: minutes.
       shared_ptr<int32_t> checkpointPauseTime_ {};
+      // The checkpoints for the refresh task. A checkpoint specifies that the task automatically pauses for CheckpointPauseTime minutes when the proportion of new instances reaches the specified value during the instance refresh.
       shared_ptr<vector<InstanceRefreshTasks::Checkpoints>> checkpoints_ {};
-      // The desired configurations of the instance refresh task.
+      // The desired configuration for the instance refresh.
       shared_ptr<InstanceRefreshTasks::DesiredConfiguration> desiredConfiguration_ {};
-      // The reason why the instance refresh task failed to be executed.
+      // The failure reason when the instance refresh task fails.
       shared_ptr<string> detail_ {};
       // The end time of the instance refresh task.
       shared_ptr<string> endTime_ {};
-      // The refreshed number of instances in the scaling group.
+      // The capacity that has been refreshed.
       shared_ptr<int32_t> finishedUpdateCapacity_ {};
       // The ID of the instance refresh task.
       shared_ptr<string> instanceRefreshTaskId_ {};
-      // The ratio by which the number of instances in the scaling group can exceed the upper limit for the number of instances in the scaling group during instance refresh.
+      // The maximum percentage by which the number of instances in the scaling group can exceed the scaling group capacity during the instance refresh.
       shared_ptr<int32_t> maxHealthyPercentage_ {};
-      // The ratio of the number of instances that provide services to the total number of instances in the scaling group during instance refresh.
+      // The minimum percentage of instances that must remain in service in the scaling group during the instance refresh.
       shared_ptr<int32_t> minHealthyPercentage_ {};
       // The region ID of the scaling group.
       shared_ptr<string> regionId_ {};
       // The ID of the scaling group.
       shared_ptr<string> scalingGroupId_ {};
-      // Indicates whether instances that match the desired scaling configuration are skipped.
+      // Indicates whether instances that already match the desired configuration are skipped.
       // 
-      // >  The system determines the match based on the ID of the desired scaling configuration rather than individual configuration items.
+      // > The system determines whether an instance matches based on the ID of the desired scaling configuration, not by comparing individual configuration items.
       // 
       // Valid values:
       // 
-      // *   true: Instances that match the desired scaling configuration are skipped. When you initiate an instance refresh task, the system checks the configurations of all instances. The refresh operation is skipped for instances created based on the desired scaling configuration.
-      // *   false: Instances that match the desired scaling configuration are not skipped. When an instance refresh task is initiated, all instances in the scaling group at the time of initiation are refreshed.
+      // - true: Skipped. When the instance refresh task starts, the system checks the configuration of each instance. Instances that were already created with the desired configuration are not refreshed.
+      // - false: Not skipped. After the instance refresh task starts, all instances in the scaling group are refreshed.
       shared_ptr<bool> skipMatching_ {};
       // The start time of the instance refresh task.
       shared_ptr<string> startTime_ {};
-      // The status of the instance refresh task. Valid values:
-      // 
-      // *   Pending: The instance refresh task is created and is waiting to be scheduled.
-      // *   InProgress: The instance refresh task is being executed.
-      // *   Paused: The instance refresh task is suspended.
-      // *   Failed: The instance refresh task failed to be executed.
-      // *   Successful: The instance refresh task is successful.
-      // *   Cancelling: The instance refresh task is being canceled.
-      // *   Cancelled: The instance refresh task is canceled.
-      // *   RollbackInProgress: The instance refresh task is being rolled back.
-      // *   RollbackSuccessful: The instance refresh task is rolled back.
-      // *   RollbackFailed: The instance refresh task fails to be rolled back.
+      // The current status of the instance refresh task. Valid values:
+      // - Pending: The instance refresh task is created and waiting to be scheduled.
+      // - InProgress: The instance refresh task is in progress.
+      // - Paused: The instance refresh task is paused.
+      // - CheckpointPause: The instance refresh task is paused because the task progress reached a checkpoint (`Checkpoint.Percentage`).
+      // - Failed: The instance refresh task failed.
+      // - Successful: The instance refresh task succeeded.
+      // - Cancelling: The instance refresh task is being canceled.
+      // - Cancelled: The instance refresh task is canceled.
+      // - RollbackInProgress: The instance refresh task is being rolled back.
+      // - RollbackSuccessful: The instance refresh task is rolled back.
+      // - RollbackFailed: The rollback of the instance refresh task failed.
       shared_ptr<string> status_ {};
-      // The total number of instances whose configurations are refreshed.
+      shared_ptr<string> strategy_ {};
+      // The total capacity that needs to be refreshed.
       shared_ptr<int32_t> totalNeedUpdateCapacity_ {};
     };
 
@@ -567,13 +597,13 @@ namespace Models
 
 
   protected:
-    // The instance refresh tasks.
+    // The list of instance refresh tasks.
     shared_ptr<vector<DescribeInstanceRefreshesResponseBody::InstanceRefreshTasks>> instanceRefreshTasks_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of instance refresh tasks.
     shared_ptr<int32_t> totalCount_ {};

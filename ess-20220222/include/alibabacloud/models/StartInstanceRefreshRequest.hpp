@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ScalingGroupId, scalingGroupId_);
       DARABONBA_PTR_TO_JSON(SkipMatching, skipMatching_);
+      DARABONBA_PTR_TO_JSON(Strategy, strategy_);
     };
     friend void from_json(const Darabonba::Json& j, StartInstanceRefreshRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckpointPauseTime, checkpointPauseTime_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ScalingGroupId, scalingGroupId_);
       DARABONBA_PTR_FROM_JSON(SkipMatching, skipMatching_);
+      DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
     };
     StartInstanceRefreshRequest() = default ;
     StartInstanceRefreshRequest(const StartInstanceRefreshRequest &) = default ;
@@ -107,9 +109,9 @@ namespace Models
 
 
       protected:
-        // The instance type specified by using this parameter overwrites the instance type of the launch template.
+        // The instance type that overrides the instance type specified in the launch template.
         // 
-        // >  This parameter takes effect only if you specify LaunchTemplateId.
+        // > This parameter takes effect only when the LaunchTemplateId parameter specifies a launch template.
         shared_ptr<string> instanceType_ {};
       };
 
@@ -187,11 +189,11 @@ namespace Models
 
 
         protected:
-          // >  This parameter is unavailable for use.
+          // > This parameter is not available for use.
           shared_ptr<string> fieldRefFieldPath_ {};
-          // The name of the environment variable. It can be 1 to 128 characters in length. Format requirement:[0-9a-zA-Z], and underscores, cannot start with a number.
+          // The name of the environment variable. The name must be 1 to 128 characters in length and can contain digits, letters, and underscores (_). It cannot start with a digit.
           shared_ptr<string> key_ {};
-          // The value of the environment variable. The value must be 0 to 256 bits in length.
+          // The value of the environment variable. The value can be 0 to 256 characters in length.
           shared_ptr<string> value_ {};
         };
 
@@ -239,15 +241,15 @@ namespace Models
 
 
       protected:
-        // The argument that corresponds to the startup command of the container. You can specify up to 10 arguments.
+        // The arguments of the container startup command. You can specify up to 10 arguments.
         shared_ptr<vector<string>> args_ {};
-        // The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
+        // The startup commands of the container. You can specify up to 20 commands. Each command can contain up to 256 characters.
         shared_ptr<vector<string>> commands_ {};
-        // The environment variables.
+        // The environment variable information.
         shared_ptr<vector<Containers::EnvironmentVars>> environmentVars_ {};
-        // The image in the container.
+        // The container image.
         shared_ptr<string> image_ {};
-        // The custom name of the container.
+        // The custom container name.
         shared_ptr<string> name_ {};
       };
 
@@ -300,33 +302,29 @@ namespace Models
 
 
     protected:
-      // The containers in the elastic container instance.
+      // The list of containers included in the instance.
       // 
-      // > 
-      // 
-      // *   This parameter supports only scaling groups of the ECI type.
-      // 
-      // *   Only the containers in the scaling configuration list that are the same as those in the `Container.Name` are refreshed.
+      // > - This parameter is supported only for Elastic Container Instance (ECI) scaling groups.
+      // > - Only the container configurations that match `Container.Name` in the current scaling configuration container list are refreshed.
       shared_ptr<vector<DesiredConfiguration::Containers>> containers_ {};
       // The image ID.
       // 
-      // > 
       // 
-      // *   After the instance refresh task is complete, the active scaling configuration uses the image specified by this parameter.
       // 
-      // *   If the instance configuration source of the scaling group is a launch template, you cannot specify this parameter.
+      // > - After the instance refresh task is completed, the image in the currently active configuration of the scaling group is updated to this image.
+      // > - This parameter is not supported when the instance configuration source of the scaling group is a launch template.
       shared_ptr<string> imageId_ {};
-      // The ID of the launch template that you want to enable in the scaling group.
+      // The ID of the launch template from which the scaling group obtains launch configuration information.
       shared_ptr<string> launchTemplateId_ {};
-      // The information about the instance types that are extended in the launch template.
+      // The instance type information that overrides the launch template.
       shared_ptr<vector<DesiredConfiguration::LaunchTemplateOverrides>> launchTemplateOverrides_ {};
-      // The version number of the launch template. Valid value:
+      // The version of the launch template. Valid values:
       // 
-      // *   A fixed template version number.
-      // *   Default: the default version of the template.
-      // *   Latest: the latest version of the template.
+      // - A fixed template version number.
+      // - Default: always uses the default version of the template.
+      // - Latest: always uses the latest version of the template.
       // 
-      // >  If you set the version to Default or Latest, the instance refresh task cannot be rolled back.
+      // > When the version is set to Default or Latest, the instance refresh task does not support rollback.
       shared_ptr<string> launchTemplateVersion_ {};
       // The ID of the scaling configuration.
       shared_ptr<string> scalingConfigurationId_ {};
@@ -360,15 +358,16 @@ namespace Models
 
 
     protected:
-      // The percentage of new instances in the scaling group to the total number of instances. When this percentage is reached, the task is automatically suspended. Valid values: 1 to 100 (%).
+      // The percentage of new instances relative to the total number of instances in the scaling group. The task is automatically paused when this percentage is reached. Valid values: 1 to 100 (%).
       // 
-      // >  Requires a small to large setting, and the last progress percentage needs to be 100.
+      // > The values must be specified in ascending order, and the last value must be 100.
       shared_ptr<int32_t> percentage_ {};
     };
 
     virtual bool empty() const override { return this->checkpointPauseTime_ == nullptr
         && this->checkpoints_ == nullptr && this->clientToken_ == nullptr && this->desiredConfiguration_ == nullptr && this->maxHealthyPercentage_ == nullptr && this->minHealthyPercentage_ == nullptr
-        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->scalingGroupId_ == nullptr && this->skipMatching_ == nullptr; };
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->scalingGroupId_ == nullptr && this->skipMatching_ == nullptr
+        && this->strategy_ == nullptr; };
     // checkpointPauseTime Field Functions 
     bool hasCheckpointPauseTime() const { return this->checkpointPauseTime_ != nullptr;};
     void deleteCheckpointPauseTime() { this->checkpointPauseTime_ = nullptr;};
@@ -450,30 +449,35 @@ namespace Models
     inline StartInstanceRefreshRequest& setSkipMatching(bool skipMatching) { DARABONBA_PTR_SET_VALUE(skipMatching_, skipMatching) };
 
 
+    // strategy Field Functions 
+    bool hasStrategy() const { return this->strategy_ != nullptr;};
+    void deleteStrategy() { this->strategy_ = nullptr;};
+    inline string getStrategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
+    inline StartInstanceRefreshRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
+
+
   protected:
-    // The duration of the pause when the refresh task checkpoint is entered.
-    // 
-    // *   Unit: minutes
-    // *   Valid values: 1 to 2880.
-    // *   Default: 60.
+    // The duration for which the task is paused when a checkpoint is reached.
+    // - Unit: minutes.
+    // - Valid values: 1 to 2880.
+    //  - Default value: 60.
     shared_ptr<int32_t> checkpointPauseTime_ {};
-    // Refresh Task Checkpoint: specifies that the task is automatically suspended for CheckpointPauseTime minutes when the proportion of new instances reaches the specified value during instance refresh.
+    // The checkpoints for the refresh task. When the percentage of new instances reaches a specified value during the instance refresh, the task is automatically paused for CheckpointPauseTime minutes.
     shared_ptr<vector<StartInstanceRefreshRequest::Checkpoints>> checkpoints_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
     shared_ptr<string> clientToken_ {};
-    // The desired configurations of the instance refresh task.
+    // The desired configuration for the instance refresh.
     // 
-    // > 
-    // 
-    // *   ScalingConfigurationId, ImageId, LaunchTemplateId, and Containers cannot be set at the same time. If you do not specify this parameter, the scaling group is refreshed based on the configurations that are in effect.
-    // 
-    // *   After the instance refresh task is complete, the scaling group uses the scaling configuration specified by this parameter.
+    // > - You cannot specify ScalingConfigurationId, ImageId, LaunchTemplateId, and Containers at the same time. If this parameter is left empty, the currently active configuration of the scaling group is used for the refresh.
+    // > - After the instance refresh task is completed, the active scaling configuration of the scaling group is updated to this configuration.
     shared_ptr<StartInstanceRefreshRequest::DesiredConfiguration> desiredConfiguration_ {};
-    // The ratio of instances that can exceed the upper limit of the scaling group capacity to all instances in the scaling group during instance refresh. Valid values: 100 to 200. Default value: 120.
+    // The maximum percentage by which the number of instances in the scaling group can exceed the scaling group capacity during the instance refresh. Valid values: 100 to 200.
+    // Default value: 120.
     // 
-    // >  If you set MinHealthyPercentage and MaxHealthyPercentage to 100, Auto Scaling refreshes the configurations of one instance each time the instance refresh task starts.
+    // > When MinHealthyPercentage = MaxHealthyPercentage = 100, one instance is refreshed at a time.
     shared_ptr<int32_t> maxHealthyPercentage_ {};
-    // The ratio of instances that are in the In Service state to all instances in the scaling group during instance refresh. Valid values: 0 to 100. Default value: 80.
+    // The minimum percentage of instances that must remain in service in the scaling group during the instance refresh. Valid values: 0 to 100.
+    // Default value: 80.
     shared_ptr<int32_t> minHealthyPercentage_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the scaling group.
@@ -485,17 +489,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scalingGroupId_ {};
-    // Specifies whether to skip instances that match the desired scaling configuration.
+    // Specifies whether to skip instances that already match the desired configuration.
     // 
-    // >  The system determines the match based on the ID of the desired scaling configuration rather than individual configuration items.
+    // > The system determines whether an instance matches based on the ID of the desired scaling configuration, not by comparing individual configuration items.
     // 
     // Valid values:
     // 
-    // *   true: skips instances that match the desired scaling configuration. When you initiate an instance refresh task, the system checks the configurations of all instances. The refresh operation is skipped for instances created based on the desired scaling configuration.
-    // *   false: does not skip instances that match the desired scaling configuration. When an instance refresh task is initiated, all instances in the scaling group at the time of initiation are refreshed.
+    // - true: Instances that were already created with the desired configuration are skipped.
+    // - false: All instances in the scaling group are refreshed when the instance refresh task starts.
     // 
     // Default value: true.
     shared_ptr<bool> skipMatching_ {};
+    shared_ptr<string> strategy_ {};
   };
 
   } // namespace Models

@@ -185,21 +185,53 @@ namespace Models
 
 
   protected:
+    // Specifies whether to include vSwitches from other availability zones as candidates.
+    // 
+    // > The instance types remain unchanged. Only new availability zones are added as candidates. If a scaling group fails to scale out in all selected availability zones due to issues such as insufficient inventory, Auto Scaling automatically adds a vSwitch in a new availability zone to the scaling group based on this setting.
+    // > For example, if a scaling group is configured for the cn-hangzhou-h and cn-hangzhou-g availability zones and a scale-out fails in both zones, Auto Scaling may create a vSwitch in the cn-hangzhou-k availability zone and add it to the scaling group based on real-time inventory.
     shared_ptr<bool> allowCrossAz_ {};
+    // Specifies whether to include instance types from other generations as candidates.
+    // 
+    // - For example, if the current instance type is ecs.c7.large, you can set this parameter to true to include instance types such as ecs.c6.large and ecs.c8.large in the list of candidates.
     shared_ptr<bool> allowDifferentGeneration_ {};
+    // The data disk categories, ordered by priority from high to low. If Auto Scaling cannot create a data disk by using a higher-priority category, it tries the next one in the list.
     shared_ptr<vector<string>> dataDiskCategories_ {};
+    // The name of the image family. When specified, the latest image in this family is used to create instances. This parameter cannot be used with ImageId.
+    // 
+    // > If you do not specify the scaling group ID, you must specify at least one of ImageId, ImageName, and ImageFamily.
     shared_ptr<string> imageFamily_ {};
+    // The ID of the image used to create instances.
+    // 
+    // > If the specified image contains both a system disk and data disks, any existing data disk information in the scaling configuration is cleared.
     shared_ptr<string> imageId_ {};
+    // The name of the image. The name must be unique within a region. You cannot use this parameter to specify an image from Alibaba Cloud Marketplace.
+    // 
+    // > This parameter is an alternative to the `ImageId` parameter. If you specify `ImageId`, `ImageName` is ignored.
     shared_ptr<string> imageName_ {};
+    // The specified ECS instance types.
     shared_ptr<vector<string>> instanceTypes_ {};
+    // The number of IPv6 addresses.
     shared_ptr<int32_t> ipv6AddressCount_ {};
+    // The maximum price for a candidate instance type.
     shared_ptr<float> maxPrice_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the scaling group is located.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The bidding strategy for pay-as-you-go instances. Valid values:
+    // 
+    // - NoSpot: a standard pay-as-you-go instance.
+    // 
+    // - SpotWithPriceLimit: a spot instance with a user-defined maximum price.
+    // 
+    // - SpotAsPriceGo: a spot instance where the system automatically bids at the market price.
+    // 
+    // Default value: NoSpot.
     shared_ptr<string> spotStrategy_ {};
+    // The system disk categories, ordered by priority from high to low. If Auto Scaling cannot create a system disk by using a higher-priority category, it tries the next one in the list.
     shared_ptr<vector<string>> systemDiskCategories_ {};
+    // The specified availability zones.
     shared_ptr<vector<string>> zoneIds_ {};
   };
 

@@ -106,6 +106,13 @@ namespace Models
 
 
   protected:
+    // The codec for the content of message notifications. Valid values:
+    // 
+    // - PlainText: No encoding; messages are transmitted in plaintext.
+    // - Base64: Messages are encoded in Base64.
+    // 
+    // Default value: Base64.
+    // > This parameter applies only to MNS notification objects.
     shared_ptr<string> messageEncoding_ {};
     // The Alibaba Cloud Resource Name (ARN) of the notification recipient. The following list describes the value formats of this parameter:
     // 

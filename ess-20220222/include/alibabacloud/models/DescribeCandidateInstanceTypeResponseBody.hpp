@@ -62,9 +62,11 @@ namespace Models
 
 
   protected:
+    // A list of candidate ECS instance types.
     shared_ptr<vector<string>> candidateInstanceTypes_ {};
+    // A list of candidate availability zones.
     shared_ptr<vector<string>> candidateZoneIds_ {};
-    // Id of the request
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

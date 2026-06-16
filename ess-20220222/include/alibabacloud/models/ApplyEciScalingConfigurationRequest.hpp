@@ -79,6 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // Optional. Set the value to YAML.
     shared_ptr<string> format_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

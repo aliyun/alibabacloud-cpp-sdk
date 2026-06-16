@@ -133,19 +133,21 @@ namespace Models
         // 
         // Valid values: 0 to 3.
         shared_ptr<int32_t> adequacyScore_ {};
-        // The inventory health score.
+        // The health score.
         // 
-        // *   A score between 5 and 6 indicates a sufficient inventory.
-        // *   A score between 1 and 4 indicates that there is no guarantee of a sufficient inventory. Select a reservation as necessary.
-        // *   A score between -3 and 0 indicates that the inventory is sufficient, and an alert is triggered. Select another instance type.
+        // - A score from 5 to 6 indicates high confidence in supply.
         // 
-        // Calculation formula: `HealthScore` = `AdequacyScore` + `SupplyScore` - `HotScore`.
+        // - A score from 1 to 4 indicates that supply is not guaranteed. Consider making on-demand reservations.
+        // 
+        // - A score from -3 to 0 indicates a supply health alert. Consider using a different instance type.
+        // 
+        // The health score is calculated using the formula: `HealthScore` = `AdequacyScore` + `SupplyScore` - `HotScore`.
         shared_ptr<int32_t> healthScore_ {};
-        // The popularity score.
+        // The hot score.
         // 
         // Valid values: 0 to 3.
         shared_ptr<int32_t> hotScore_ {};
-        // The replenishment capability score.
+        // The supply score.
         // 
         // Valid values: 0 to 3.
         shared_ptr<int32_t> supplyScore_ {};
@@ -222,23 +224,31 @@ namespace Models
 
 
     protected:
-      // The error code returned when the scaling strength is the weakest.
+      // The error code returned when the elastic strength is 0.
       shared_ptr<string> code_ {};
+      // The elastic strength of the resource pool, which is based on its inventory health and current stock. Valid values:
+      // 
+      // - Strong: high elastic strength.
+      // 
+      // - Medium: medium elastic strength.
+      // 
+      // - Weak: weak elastic strength.
       shared_ptr<string> elasticStrength_ {};
       // The instance type of the resource pool.
       shared_ptr<string> instanceType_ {};
       // The inventory health.
       shared_ptr<ResourcePools::InventoryHealth> inventoryHealth_ {};
-      // The error message returned when the scaling strength is the weakest.
+      // The error message returned when the elastic strength is 0.
       shared_ptr<string> msg_ {};
-      // Indicates whether the resource pool is available. Valid values:
+      // The availability of the resource pool. Valid values:
       // 
-      // *   Available
-      // *   Unavailable (If a constraint is not provided, the instance type is not deployed, or the instance type is out of stock, the resource pool becomes unavailable.)
+      // - Available: The resource pool is available.
+      // 
+      // - Unavailable: The resource pool is unavailable. This can occur if the instance type is not deployed in the zone, has insufficient inventory, or does not meet other constraints.
       shared_ptr<string> status_ {};
-      // The scaling strength of the resource pool.
+      // The elastic strength of the resource pool.
       shared_ptr<double> strength_ {};
-      // The IDs of the vSwitches in the zones of the resource pool.
+      // The VSwitches in the zone of the resource pool.
       shared_ptr<vector<string>> vSwitchIds_ {};
       // The zone ID of the resource pool.
       shared_ptr<string> zoneId_ {};
@@ -364,19 +374,21 @@ namespace Models
           // 
           // Valid values: 0 to 3.
           shared_ptr<int32_t> adequacyScore_ {};
-          // The score of the inventory health.
+          // The health score.
           // 
-          // *   A score between 5 and 6 indicates a sufficient inventory.
-          // *   A score between 1 and 4 indicates that there is no guarantee of a sufficient inventory. Select a reservation as necessary.
-          // *   A score between -3 and 0 indicates that the inventory is sufficient, and an alert is triggered. Select another instance type.
+          // - A score from 5 to 6 indicates high confidence in supply.
           // 
-          // Calculation formula: `HealthScore` = `AdequacyScore` + `SupplyScore` - `HotScore`.
+          // - A score from 1 to 4 indicates that supply is not guaranteed. Consider making on-demand reservations.
+          // 
+          // - A score from -3 to 0 indicates a supply health alert. Consider using a different instance type.
+          // 
+          // The health score is calculated using the formula: `HealthScore` = `AdequacyScore` + `SupplyScore` - `HotScore`.
           shared_ptr<int32_t> healthScore_ {};
-          // The popularity score.
+          // The hot score.
           // 
           // Valid values: 0 to 3.
           shared_ptr<int32_t> hotScore_ {};
-          // The score of the replenishment capability.
+          // The supply score.
           // 
           // Valid values: 0 to 3.
           shared_ptr<int32_t> supplyScore_ {};
@@ -453,27 +465,31 @@ namespace Models
 
 
       protected:
-        // The error code returned when the scaling strength is the weakest.
+        // The error code returned when the elastic strength is 0.
         shared_ptr<string> code_ {};
+        // The elastic strength of the resource pool, which is based on its inventory health and current stock. Valid values:
+        // 
+        // - Strong: high elastic strength.
+        // 
+        // - Medium: medium elastic strength.
+        // 
+        // - Weak: weak elastic strength.
         shared_ptr<string> elasticStrength_ {};
         // The instance type of the resource pool.
         shared_ptr<string> instanceType_ {};
         // The inventory health.
         shared_ptr<ResourcePools::InventoryHealth> inventoryHealth_ {};
-        // The error message returned when the scaling strength is the weakest.
+        // The error message returned when the elastic strength is 0.
         shared_ptr<string> msg_ {};
-        // Indicates whether the resource pool is available. Valid values:
+        // The availability of the resource pool. Valid values:
         // 
-        // *   Available
-        // *   Unavailable (If a constraint is not provided, the instance type is not deployed, or the instance type is out of stock, the resource pool becomes unavailable.)
+        // - Available: The resource pool is available.
+        // 
+        // - Unavailable: The resource pool is unavailable. This can occur if the instance type is not deployed in the zone, has insufficient inventory, or does not meet other constraints.
         shared_ptr<string> status_ {};
-        // The scaling strength of the resource pool.
-        // 
-        // **
-        // 
-        // **Warning** This parameter is deprecated.
+        // The elastic strength of the resource pool.>Warning:  This parameter is deprecated.
         shared_ptr<double> strength_ {};
-        // The IDs of the vSwitches in the zones of the resource pool.
+        // The VSwitches in the zone of the resource pool.
         shared_ptr<vector<string>> vSwitchIds_ {};
         // The zone ID of the resource pool.
         shared_ptr<string> zoneId_ {};
@@ -512,21 +528,19 @@ namespace Models
 
 
     protected:
-      // The scaling strength level of the scaling group. Valid values:
+      // The elastic strength of the current scaling group. Valid values:
       // 
-      // *   Strong
-      // *   Medium
-      // *   Weak
+      // - Strong: high elastic strength.
+      // 
+      // - Medium: medium elastic strength.
+      // 
+      // - Weak: weak elastic strength.
       shared_ptr<string> elasticStrength_ {};
-      // The resource pools.
+      // Details of the resource pools within the scaling group.
       shared_ptr<vector<ElasticStrengthModels::ResourcePools>> resourcePools_ {};
-      // The ID of the scaling group.
+      // The scaling group ID.
       shared_ptr<string> scalingGroupId_ {};
-      // The scaling strength score of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength score of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
-      // 
-      // **
-      // 
-      // **Warning** This parameter is deprecated.
+      // The total elastic strength of the scaling group. The strength is the sum of scores from all configured instance type and zone combinations. Each combination is scored from 0 (low strength) to 1 (high strength) based on resource availability.>Warning:  This parameter is deprecated.
       shared_ptr<double> totalStrength_ {};
     };
 
@@ -572,23 +586,21 @@ namespace Models
 
 
   protected:
-    // The scaling strength level of the scaling group. Valid values:
+    // The elastic strength of the current scaling group. Valid values:
     // 
-    // *   Strong
-    // *   Medium
-    // *   Weak
+    // - Strong: high elastic strength.
+    // 
+    // - Medium: medium elastic strength.
+    // 
+    // - Weak: weak elastic strength.
     shared_ptr<string> elasticStrength_ {};
-    // The scaling strength models.
+    // An array of elastic strength details, returned when the API call targets multiple scaling groups.
     shared_ptr<vector<DescribeElasticStrengthResponseBody::ElasticStrengthModels>> elasticStrengthModels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource pools.
+    // An array of resource pools. This parameter is returned when the API call targets a single scaling group.
     shared_ptr<vector<DescribeElasticStrengthResponseBody::ResourcePools>> resourcePools_ {};
-    // The scaling strength score of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength score of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
-    // 
-    // **
-    // 
-    // **Warning** This parameter is deprecated.
+    // The total elastic strength of the scaling group. The strength is the sum of scores from all configured instance type and zone combinations. Each combination is scored from 0 (low strength) to 1 (high strength) based on resource availability.>Warning:  This parameter is deprecated.
     shared_ptr<double> totalStrength_ {};
   };
 

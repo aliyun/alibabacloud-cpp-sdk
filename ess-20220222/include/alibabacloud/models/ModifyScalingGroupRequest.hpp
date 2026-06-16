@@ -596,6 +596,12 @@ namespace Models
     // 
     // >  If you re-enable the Expected Number of Instances feature, you must specify a value for `DesiredCapacity` again.
     shared_ptr<int32_t> desiredCapacity_ {};
+    // Specifies whether to disable the expected number of instances feature for the scaling group. Valid values:
+    // 
+    // - false: Enables the expected number of instances feature.
+    // - true: Disables the expected number of instances feature.
+    // 
+    // > You can set this parameter to true (to disable the expected number of instances feature) only when no scaling activity is currently running in the scaling group. When this feature is disabled, the current DesiredCapacity property of the scaling group is cleared, but the actual number of instances in the scaling group remains unchanged.
     shared_ptr<bool> disableDesiredCapacity_ {};
     // Specifies whether to enable deletion protection for the scaling group. Valid values:
     // 

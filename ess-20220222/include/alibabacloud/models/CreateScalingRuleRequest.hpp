@@ -296,6 +296,15 @@ namespace Models
 
 
     protected:
+      // The period for aggregating monitoring metric data in a target tracking rule, in seconds. Valid values:
+      // 
+      // - 15
+      // - 60
+      // - 120
+      // - 300
+      // - 900
+      // 
+      // > Default Value: 60.
       shared_ptr<int32_t> period_ {};
     };
 
@@ -569,6 +578,7 @@ namespace Models
     shared_ptr<int32_t> adjustmentValue_ {};
     // The metric dimensions. This parameter is applicable to target tracking scaling rules. If your predefined metric requires extra dimensions, you must specify this parameter. For example, if you use LoadBalancerRealServerAverageQps as your predefined metric, you must use this parameter to specify the rulePool dimension.
     shared_ptr<vector<CreateScalingRuleRequest::AlarmDimensions>> alarmDimensions_ {};
+    // Definition of alerting properties.
     shared_ptr<CreateScalingRuleRequest::AlarmOptions> alarmOptions_ {};
     // The cooldown time of the scaling rule. This parameter is available only if you set the ScalingRuleType parameter to SimpleScalingRule. Valid values: 0 to 86400. Unit: seconds.
     // 

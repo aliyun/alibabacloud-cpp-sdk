@@ -69,8 +69,6 @@ namespace Models
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The ID of the scaling configuration.
-    // 
     // This parameter is required.
     shared_ptr<string> scalingConfigurationId_ {};
   };

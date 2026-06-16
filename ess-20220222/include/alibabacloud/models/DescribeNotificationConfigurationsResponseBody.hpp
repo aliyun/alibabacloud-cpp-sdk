@@ -99,6 +99,7 @@ namespace Models
 
 
     protected:
+      // The codec of the notification message content.
       shared_ptr<string> messageEncoding_ {};
       // The Alibaba Cloud Resource Name (ARN) of the notification recipient. The value is in one of the following formats:
       // 
