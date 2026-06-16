@@ -94,27 +94,27 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Start time, accurate to milliseconds (ms).
+    // The start time, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> beginTime_ {};
-    // Bypass event code
+    // The bypass event codes.
     shared_ptr<string> byPassEventCodes_ {};
-    // End time, accurate to milliseconds (ms).
+    // The end time, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // Main event code
+    // The main event codes.
     shared_ptr<string> mainEventCodes_ {};
-    // Region code
+    // The region code.
     // 
     // This parameter is required.
     shared_ptr<string> regId_ {};
-    // Shunt event code
+    // The diversion event codes.
     shared_ptr<string> shuntEventCodes_ {};
   };
 

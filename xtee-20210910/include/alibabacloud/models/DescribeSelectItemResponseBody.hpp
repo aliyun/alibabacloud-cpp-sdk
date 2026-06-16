@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // Monitoring status list.
+      // The list of monitoring statuses.
       shared_ptr<vector<string>> monitorStatusList_ {};
-      // Task ID list.
+      // The list of task IDs.
       shared_ptr<vector<string>> taskIdList_ {};
     };
 
@@ -99,9 +99,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<DescribeSelectItemResponseBody::ResultObject> resultObject_ {};
   };
 

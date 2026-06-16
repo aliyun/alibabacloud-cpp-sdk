@@ -179,31 +179,31 @@ namespace Models
 
 
     protected:
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Template ID.
+      // The template ID.
       shared_ptr<int64_t> id_ {};
-      // Number of policies
+      // The number of policies.
       shared_ptr<int32_t> ruleCount_ {};
-      // Template code.
+      // The template code.
       shared_ptr<string> templateCode_ {};
-      // Template name.
+      // The template name.
       shared_ptr<string> templateName_ {};
-      // Event status
+      // The event status.
       shared_ptr<string> templateStatus_ {};
-      // Template type
+      // The template type.
       shared_ptr<string> templateType_ {};
-      // Number of customer authorizations
+      // The number of authorized customers.
       shared_ptr<int32_t> userCount_ {};
-      // Version number.
+      // The version number.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -254,17 +254,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Number of items per page, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeTemplatePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

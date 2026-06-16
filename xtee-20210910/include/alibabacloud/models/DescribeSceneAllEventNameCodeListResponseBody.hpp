@@ -123,13 +123,13 @@ namespace Models
 
 
       protected:
-        // Creation type
+        // The creation type.
         shared_ptr<string> createType_ {};
-        // Event code
+        // The event code.
         shared_ptr<string> eventCode_ {};
-        // Event name.
+        // The event name.
         shared_ptr<string> eventName_ {};
-        // Event type
+        // The event type.
         shared_ptr<string> eventType_ {};
       };
 
@@ -173,15 +173,15 @@ namespace Models
 
 
     protected:
-      // Child objects
+      // The child class objects.
       shared_ptr<vector<ResultObject::Children>> children_ {};
-      // Creation type
+      // The creation type.
       shared_ptr<string> createType_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Event type
+      // The event type.
       shared_ptr<string> eventType_ {};
     };
 
@@ -232,17 +232,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error details
+    // The error details.
     shared_ptr<string> message_ {};
-    // Request ID, which is unique for each request, facilitating subsequent troubleshooting
+    // The request ID. Each request has a unique ID for troubleshooting purposes.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<vector<DescribeSceneAllEventNameCodeListResponseBody::ResultObject>> resultObject_ {};
-    // Indicates whether the operation was successful, where true means success.
+    // Indicates whether the operation was successful. A value of true indicates success.
     shared_ptr<bool> success_ {};
   };
 

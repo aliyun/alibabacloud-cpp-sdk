@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Region Code
+    // The region ID.
     shared_ptr<string> regId_ {};
   };
 

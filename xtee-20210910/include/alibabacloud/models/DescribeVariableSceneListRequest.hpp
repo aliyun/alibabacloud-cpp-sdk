@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Business type.
+    // The business type.
     // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
-    // Configuration key.
+    // The configuration key.
     shared_ptr<string> configKey_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // Paging flag, default is true.
+    // Specifies whether to enable paging. Default value: true.
     // 
     // This parameter is required.
     shared_ptr<bool> paging_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
   };
 

@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // Current page.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Whether to paginate.
+    // Specifies whether to enable pagination.
     shared_ptr<bool> isPage_ {};
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // Task ID.
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // Task log ID
+    // The task log ID.
     shared_ptr<string> taskLogId_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
   };
 

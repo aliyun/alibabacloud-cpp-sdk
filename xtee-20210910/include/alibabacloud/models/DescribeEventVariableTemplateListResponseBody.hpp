@@ -139,19 +139,19 @@ namespace Models
 
 
       protected:
-        // Variable code
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Description information.
+        // The description.
         shared_ptr<string> description_ {};
-        // Variable input type
+        // The variable input type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Variable name
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
       };
 
@@ -181,11 +181,11 @@ namespace Models
 
 
     protected:
-      // Template code.
+      // The template code.
       shared_ptr<string> templateCode_ {};
-      // Template name.
+      // The template name.
       shared_ptr<string> templateName_ {};
-      // Variable list.
+      // The list of variables.
       shared_ptr<vector<ResultObject::Variables>> variables_ {};
     };
 
@@ -208,9 +208,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeEventVariableTemplateListResponseBody::ResultObject>> resultObject_ {};
   };
 

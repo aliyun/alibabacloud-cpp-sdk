@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The language of the error message returned by the API. Valid values: zh: Chinese; en: English. The default value is en.
     shared_ptr<string> lang_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The area encoding.
     shared_ptr<string> regId_ {};
+    // Sample name.
     shared_ptr<string> sampleName_ {};
+    // Task group name.
     shared_ptr<string> taskGroupName_ {};
+    // Access type.
     shared_ptr<string> type_ {};
   };
 

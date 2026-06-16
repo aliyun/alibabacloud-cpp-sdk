@@ -121,36 +121,35 @@ namespace Models
 
 
   protected:
-    // Set the language type for request and response messages, default value is **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language type for the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Creation type
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Import name list.
+    // The list of names to import.
     shared_ptr<string> data_ {};
-    // Description information.
+    // The description.
     shared_ptr<string> description_ {};
-    // Document import type:
+    // The document import type. Valid values:
     // 
-    // 
-    // INPUT: Text input
-    // CSV: CSV upload
-    // NONE: Do not upload for now
+    // INPUT: data entry.
+    // CSV: CSV upload.
+    // NONE: no upload.
     // 
     // This parameter is required.
     shared_ptr<string> importType_ {};
-    // name content memo
+    // The description.
     shared_ptr<string> memo_ {};
-    // nameListType
+    // The nameListType.
     shared_ptr<string> nameListType_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Title.
+    // The title.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};
-    // Variable ID
+    // The variable ID.
     shared_ptr<int64_t> variableId_ {};
   };
 

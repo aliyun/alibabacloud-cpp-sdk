@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // File name.
     shared_ptr<string> fileName_ {};
+    // File URL.
     shared_ptr<string> fileUrl_ {};
+    // Language of the error message returned by the API. Valid values: zh: Chinese. en: English. Default value: en.
     shared_ptr<string> lang_ {};
+    // Area encoding.
     shared_ptr<string> regId_ {};
+    // Scenario.
     shared_ptr<string> tab_ {};
+    // Access type.
     shared_ptr<string> type_ {};
   };
 

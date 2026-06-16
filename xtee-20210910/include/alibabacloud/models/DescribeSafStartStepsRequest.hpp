@@ -94,27 +94,25 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Whether the server is an Alibaba Cloud server
-    // 
-    // true or false
+    // Specifies whether the server is an Alibaba Cloud server. Valid values: true and false.
     shared_ptr<bool> aliyunServer_ {};
-    // Used to receive a collection of strings from the frontend that POP cannot accept
+    // The string of device type collection passed from the frontend that cannot be received by POP.
     //      
-    // Device type
+    // The device type.
     shared_ptr<string> deviceTypesStr_ {};
-    // Event code
+    // The event code.
     shared_ptr<string> eventCode_ {};
-    // Language, parameters can be passed
+    // The language. Valid values:
     // - zh-CN: Chinese (default)
-    // - en-US: English
+    // - en-US: English.
     shared_ptr<string> language_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Server region
+    // The region where the server resides.
     shared_ptr<string> serverRegion_ {};
   };
 

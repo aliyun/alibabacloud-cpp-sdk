@@ -136,8 +136,11 @@ namespace Models
 
 
       protected:
+        // Processing type.
         shared_ptr<string> operateType_ {};
+        // Reason for the service status.
         shared_ptr<string> reason_ {};
+        // Time. Unit: ms.
         shared_ptr<int64_t> time_ {};
       };
 
@@ -292,29 +295,29 @@ namespace Models
 
 
         protected:
-          // A0。
+          // A0.
           shared_ptr<string> a0_ {};
-          // A1。
+          // A1.
           shared_ptr<string> a1_ {};
-          // A10。
+          // A10.
           shared_ptr<string> a10_ {};
-          // A11。
+          // A11.
           shared_ptr<string> a11_ {};
-          // A2。
+          // A2.
           shared_ptr<string> a2_ {};
-          // A3。
+          // A3.
           shared_ptr<string> a3_ {};
-          // A4。
+          // A4.
           shared_ptr<string> a4_ {};
-          // A5。
+          // A5.
           shared_ptr<string> a5_ {};
-          // A6。
+          // A6.
           shared_ptr<string> a6_ {};
-          // A7。
+          // A7.
           shared_ptr<string> a7_ {};
-          // A8。
+          // A8.
           shared_ptr<string> a8_ {};
-          // A9。
+          // A9.
           shared_ptr<string> a9_ {};
         };
 
@@ -339,7 +342,9 @@ namespace Models
 
 
       protected:
+        // Column names.
         shared_ptr<vector<File::Col>> col_ {};
+        // Variable title.
         shared_ptr<vector<string>> title_ {};
       };
 
@@ -401,9 +406,13 @@ namespace Models
 
 
       protected:
+        // Backing field for service support.
         shared_ptr<string> item_ {};
+        // Product description information.
         shared_ptr<string> itemDesc_ {};
+        // Sample.
         shared_ptr<string> sampleItem_ {};
+        // List of fields corresponding to the sample.
         shared_ptr<vector<string>> sampleItems_ {};
       };
 
@@ -538,22 +547,39 @@ namespace Models
 
 
     protected:
+      // Outputs List Settings.
       shared_ptr<vector<ResultObject::Config>> config_ {};
+      // Additional extension information.
       shared_ptr<string> extraInfo_ {};
+      // File.
       shared_ptr<ResultObject::File> file_ {};
+      // File name.
       shared_ptr<string> fileName_ {};
+      // File type.
       shared_ptr<string> fileType_ {};
+      // File URL.
       shared_ptr<string> fileUrl_ {};
+      // Is charged.
       shared_ptr<bool> isCharge_ {};
+      // Log content.
       shared_ptr<vector<ResultObject::Log>> log_ {};
+      // Reason.
       shared_ptr<string> reason_ {};
+      // Result URL.
       shared_ptr<string> resultUrl_ {};
+      // Schedule type.
       shared_ptr<string> scheduleType_ {};
+      // Service code.
       shared_ptr<string> serviceCode_ {};
+      // Service name.
       shared_ptr<string> serviceName_ {};
+      // Status.
       shared_ptr<string> status_ {};
+      // Job ID.
       shared_ptr<string> taskId_ {};
+      // Task Name.
       shared_ptr<string> taskName_ {};
+      // User ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -597,10 +623,15 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // Return message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return Result.
     shared_ptr<GetSubTaskResultResponseBody::ResultObject> resultObject_ {};
   };
 

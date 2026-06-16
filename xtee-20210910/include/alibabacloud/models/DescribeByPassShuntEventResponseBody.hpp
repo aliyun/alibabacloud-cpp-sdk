@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
     };
 
@@ -118,17 +118,17 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error details
+    // The error details.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeByPassShuntEventResponseBody::ResultObject> resultObject_ {};
-    // Whether it was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

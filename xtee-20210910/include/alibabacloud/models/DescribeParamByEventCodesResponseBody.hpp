@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // Return code.
+      // The return code.
       shared_ptr<string> code_ {};
-      // Name
+      // The name.
       shared_ptr<string> name_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeParamByEventCodesResponseBody::ResultObject>> resultObject_ {};
   };
 

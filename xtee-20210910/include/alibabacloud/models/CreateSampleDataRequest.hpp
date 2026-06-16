@@ -112,25 +112,28 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Encryption type
+    // The encryption type. Valid values:
+    // - **ALL**: all encryption
+    // - **LABEL**: label encryption
+    // - **NONE**: no encryption.
     shared_ptr<string> encryptType_ {};
-    // Name
+    // The name.
     shared_ptr<string> name_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Specified risk value
+    // The specified risk value.
     shared_ptr<string> riskValue_ {};
-    // Scene
+    // The scenario.
     shared_ptr<string> scene_ {};
-    // Storage path
+    // The storage path.
     shared_ptr<string> storePath_ {};
-    // Storage type
+    // The storage type.
     shared_ptr<string> storeType_ {};
   };
 

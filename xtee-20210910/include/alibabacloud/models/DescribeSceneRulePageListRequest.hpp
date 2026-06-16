@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and received messages. Default value is **zh**. Values: 
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Creation type
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Event code
+    // The event code.
     shared_ptr<string> eventCode_ {};
-    // Number of items per page in the returned results. Default value: 20, minimum value: 1, maximum value: 50.
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<string> pageSize_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Strategy type
+    // The policy type.
     shared_ptr<string> ruleAuthType_ {};
-    // Strategy name
+    // The policy name.
     shared_ptr<string> ruleName_ {};
-    // Strategy status
+    // The policy status.
     shared_ptr<string> ruleStatus_ {};
   };
 

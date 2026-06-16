@@ -130,29 +130,29 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values: 
+    // The language type for sending and receiving messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // Community number.
+    // The community number.
     shared_ptr<string> communityNo_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Order direction.
+    // The sort order.
     shared_ptr<string> direction_ {};
-    // fieldKey.
+    // fieldKey
     shared_ptr<string> fieldKey_ {};
-    // fieldVal.
+    // fieldVal
     shared_ptr<string> fieldVal_ {};
-    // Whether to paginate.
+    // Specifies whether to enable pagination.
     shared_ptr<bool> isPage_ {};
-    // Sorting condition.
+    // The sort condition.
     shared_ptr<string> order_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // Region code.
+    // The region ID.
     shared_ptr<string> regId_ {};
-    // Task ID.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

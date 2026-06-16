@@ -94,24 +94,23 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Task name.
+    // The task name.
     shared_ptr<string> taskName_ {};
-    // The status of the import task. Valid values:
-    // 
-    // *   DOING
-    // *   FINISH
+    // The execution status of the import task. Valid values:
+    // - DOING: running
+    // - FINISH: completed.
     shared_ptr<string> taskStatus_ {};
-    // Type
+    // The type.
     shared_ptr<string> type_ {};
   };
 

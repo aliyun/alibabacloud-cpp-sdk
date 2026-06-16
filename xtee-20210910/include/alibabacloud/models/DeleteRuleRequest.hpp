@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Policy primary key ID
+    // The primary key ID of the policy.
     shared_ptr<int64_t> consoleRuleId_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Policy ID
+    // The policy ID.
     shared_ptr<string> ruleId_ {};
-    // Policy version primary key ID
+    // The primary key ID of the policy version number.
     shared_ptr<int64_t> ruleVersionId_ {};
   };
 

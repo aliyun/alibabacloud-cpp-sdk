@@ -114,17 +114,17 @@ namespace Models
 
 
     protected:
-      // Tag name
+      // The label name.
       shared_ptr<string> tableName_ {};
-      // Data for today
+      // The data for today.
       shared_ptr<int64_t> todayNum_ {};
-      // Data for the last seven days
+      // The data for the last seven days.
       shared_ptr<string> withinSevenDayNum_ {};
-      // Data for the last thirty days
+      // The data for the last 30 days.
       shared_ptr<string> withinThirtyDayNum_ {};
-      // Data for the last three days
+      // The data for the last three days.
       shared_ptr<string> withinThreeDayNum_ {};
-      // Data for yesterday
+      // The data for yesterday.
       shared_ptr<int64_t> yesterdayNum_ {};
     };
 
@@ -175,17 +175,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeTagsFluctuationResponseBody::ResultObject>> resultObject_ {};
-    // Indicates whether the call was successful
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

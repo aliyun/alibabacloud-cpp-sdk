@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Return value
+      // The returned value.
       shared_ptr<string> ratio_ {};
-      // Return text
+      // The description text.
       shared_ptr<string> value_ {};
     };
 
@@ -131,17 +131,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeRequestPeakReportResponseBody::ResultObject>> resultObject_ {};
-    // Whether the request was successful
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

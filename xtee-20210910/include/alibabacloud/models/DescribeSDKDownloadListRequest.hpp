@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Device type.
+    // The device type.
     shared_ptr<string> deviceType_ {};
-    // Download type
+    // The download type.
     shared_ptr<string> listType_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
   };
 

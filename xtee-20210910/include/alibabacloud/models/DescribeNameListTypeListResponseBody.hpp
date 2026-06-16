@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // Match Key.
+      // The matching key.
       shared_ptr<string> key_ {};
-      // Variable value
+      // The variable value.
       shared_ptr<string> value_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeNameListTypeListResponseBody::ResultObject>> resultObject_ {};
   };
 

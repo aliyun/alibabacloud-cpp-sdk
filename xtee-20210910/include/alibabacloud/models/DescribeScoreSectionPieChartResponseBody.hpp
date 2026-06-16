@@ -116,9 +116,9 @@ namespace Models
 
 
         protected:
-          // Category item name.
+          // The category item name.
           shared_ptr<string> name_ {};
-          // Result value.
+          // The result value.
           shared_ptr<string> value_ {};
         };
 
@@ -148,11 +148,11 @@ namespace Models
 
 
       protected:
-        // Chart data list
+        // The chart data list.
         shared_ptr<vector<Series::Data>> data_ {};
-        // Category name.
+        // The category name.
         shared_ptr<string> name_ {};
-        // Chart field, default false
+        // The chart field. Default value: false.
         shared_ptr<bool> roseType_ {};
       };
 
@@ -184,7 +184,7 @@ namespace Models
 
 
       protected:
-        // Chart field, default false
+        // The chart field. Default value: false.
         shared_ptr<bool> show_ {};
       };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
     protected:
-      // Chart field, default true
+      // The chart field. Default value: true.
       shared_ptr<bool> animation_ {};
-      // Belongs to grid.
+      // The grid.
       shared_ptr<ResultObject::Grid> grid_ {};
-      // Data list
+      // The data list.
       shared_ptr<vector<ResultObject::Series>> series_ {};
     };
 
@@ -243,9 +243,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<DescribeScoreSectionPieChartResponseBody::ResultObject> resultObject_ {};
   };
 

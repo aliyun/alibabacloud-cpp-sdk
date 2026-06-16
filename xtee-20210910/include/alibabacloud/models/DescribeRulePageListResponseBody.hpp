@@ -265,37 +265,37 @@ namespace Models
 
 
       protected:
-        // UID of the user who passed the audit
+        // The UID of the user who approved the request.
         shared_ptr<string> applyUserId_ {};
-        // Name of the user who passed the audit
+        // The name of the user who approved the request.
         shared_ptr<string> applyUserName_ {};
-        // Approval comments
+        // The approval comment.
         shared_ptr<string> auditMsg_ {};
-        // UID of the final auditor
+        // The UID of the final reviewer.
         shared_ptr<string> auditRealUserId_ {};
-        // Name of the final auditor
+        // The name of the final reviewer.
         shared_ptr<string> auditRealUserName_ {};
-        // Remarks by the approver.
+        // The remark from the reviewer.
         shared_ptr<string> auditRemark_ {};
-        // Application audit status
+        // The approval status.
         shared_ptr<string> auditStatus_ {};
-        // Approval time
+        // The approval time.
         shared_ptr<int64_t> auditTime_ {};
-        // UID of the auditor
+        // The UID of the reviewer.
         shared_ptr<string> auditUserId_ {};
-        // Name of the auditor
+        // The name of the reviewer.
         shared_ptr<string> auditUserName_ {};
-        // Creation time.
+        // The creation time.
         shared_ptr<int64_t> gmtCreate_ {};
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Information of other related parties (in JSON format)
+        // The information about other associated users in JSON format.
         shared_ptr<string> relationExt_ {};
-        // ID of the related transaction for the approval
+        // The transaction ID associated with the approval.
         shared_ptr<int64_t> relationId_ {};
-        // Name of the related transaction for the approval (can be null)
+        // The transaction name associated with the approval. This parameter can be empty.
         shared_ptr<string> relationName_ {};
-        // Type of the approval (e.g., `rule` represents the approval of a rule)
+        // The type of the approval. For example, rule indicates a policy approval.
         shared_ptr<string> relationType_ {};
       };
 
@@ -454,47 +454,47 @@ namespace Models
 
 
     protected:
-      // Service authorization type
+      // The service authorization type.
       shared_ptr<string> authType_ {};
-      // Audit object
+      // The approval object.
       shared_ptr<ResultObject::ConsoleAudit> consoleAudit_ {};
-      // Event code.
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Event type
+      // The event type.
       shared_ptr<string> eventType_ {};
-      // External name of the rule
+      // The customer-facing policy name.
       shared_ptr<string> externalRuleName_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Whether there is a new version
+      // Indicates whether a new version is available.
       shared_ptr<bool> hasNewVersion_ {};
-      // Primary key ID of the policy.
+      // The primary key ID of the policy.
       shared_ptr<int64_t> id_ {};
-      // Main rule ID
+      // The ID of the main policy.
       shared_ptr<string> mainRuleId_ {};
-      // Policy priority, the higher the number, the higher the priority.
+      // The policy priority. A larger value indicates a higher priority.
       shared_ptr<int64_t> priority_ {};
-      // Rule type
+      // The policy type.
       shared_ptr<string> ruleAuthType_ {};
-      // Policy ID.
+      // The policy ID.
       shared_ptr<string> ruleId_ {};
-      // Policy description.
+      // The policy description.
       shared_ptr<string> ruleMemo_ {};
-      // Policy name.
+      // The policy name.
       shared_ptr<string> ruleName_ {};
-      // Policy status.
+      // The policy status.
       shared_ptr<string> ruleStatus_ {};
-      // Rule type
+      // The policy type.
       shared_ptr<string> ruleType_ {};
-      // Primary key ID of the rule version.
+      // The primary key ID of the policy version.
       shared_ptr<int64_t> ruleVersionId_ {};
-      // Template ID.
+      // The template ID.
       shared_ptr<int64_t> templateId_ {};
-      // Version number.
+      // The version number.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -545,17 +545,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<vector<DescribeRulePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

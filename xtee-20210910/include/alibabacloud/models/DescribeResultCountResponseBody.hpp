@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Execution result
+      // The execution result.
       shared_ptr<string> result_ {};
-      // Quantity
+      // The total number of entries.
       shared_ptr<string> total_ {};
     };
 
@@ -131,15 +131,15 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeResultCountResponseBody::ResultObject>> resultObject_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

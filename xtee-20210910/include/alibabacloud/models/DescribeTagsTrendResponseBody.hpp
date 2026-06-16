@@ -91,7 +91,7 @@ namespace Models
 
 
       protected:
-        // X-axis data
+        // The x-axis data.
         shared_ptr<vector<string>> data_ {};
       };
 
@@ -156,7 +156,7 @@ namespace Models
         protected:
           // The number of items in this category.
           shared_ptr<int64_t> num_ {};
-          // Proportion
+          // The proportion.
           shared_ptr<string> scale_ {};
         };
 
@@ -179,9 +179,9 @@ namespace Models
 
 
       protected:
-        // Chart data list
+        // The chart data list.
         shared_ptr<vector<Series::Data>> data_ {};
-        // Category name.
+        // The category name.
         shared_ptr<string> name_ {};
       };
 
@@ -206,9 +206,9 @@ namespace Models
 
 
     protected:
-      // Data list
+      // The data list.
       shared_ptr<vector<ResultObject::Series>> series_ {};
-      // xaxis returned data
+      // The x-axis data.
       shared_ptr<ResultObject::Xaxis> xaxis_ {};
     };
 
@@ -259,17 +259,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeTagsTrendResponseBody::ResultObject> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

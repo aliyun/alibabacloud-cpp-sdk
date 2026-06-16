@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // Task code.
+      // The task code.
       shared_ptr<string> taskCode_ {};
-      // Task name
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // Task status.
+      // The task status.
       shared_ptr<string> taskStatus_ {};
-      // OSS download URL
+      // The OSS download URL.
       shared_ptr<string> url_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeEventTaskHistoryResponseBody::ResultObject>> resultObject_ {};
   };
 

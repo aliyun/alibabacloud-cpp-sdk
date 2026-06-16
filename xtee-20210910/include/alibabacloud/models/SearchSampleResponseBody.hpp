@@ -140,14 +140,23 @@ namespace Models
 
 
     protected:
+      // File Name.
       shared_ptr<string> fileName_ {};
+      // File Size.
       shared_ptr<int32_t> fileSize_ {};
+      // Remarks.
       shared_ptr<string> remark_ {};
+      // Number of Records.
       shared_ptr<int32_t> rowCount_ {};
+      // Sample ID.
       shared_ptr<int32_t> sampleId_ {};
+      // Sample Name.
       shared_ptr<string> sampleName_ {};
+      // Scenario.
       shared_ptr<string> tab_ {};
+      // File Upload Time.
       shared_ptr<string> uploadTime_ {};
+      // Uploader.
       shared_ptr<string> uploadUserName_ {};
     };
 
@@ -191,10 +200,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return Result.
     shared_ptr<vector<SearchSampleResponseBody::ResultObject>> resultObject_ {};
   };
 

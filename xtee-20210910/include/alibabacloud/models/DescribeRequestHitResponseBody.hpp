@@ -167,23 +167,23 @@ namespace Models
 
 
       protected:
-        // Duration
+        // The time consumed.
         shared_ptr<int32_t> cost_ {};
-        // Whether the rule was hit.
+        // Indicates whether the rule is hit.
         shared_ptr<bool> hitSuccessful_ {};
-        // Whether to show details
+        // Indicates whether to display details.
         shared_ptr<bool> isShowDetail_ {};
-        // Order.
+        // The order.
         shared_ptr<int32_t> order_ {};
-        // Policy ID
+        // The policy ID.
         shared_ptr<string> ruleId_ {};
-        // Policy name
+        // The policy name.
         shared_ptr<string> ruleName_ {};
-        // Rule snapshot ID
+        // The rule snapshot ID.
         shared_ptr<string> ruleSnapshotId_ {};
-        // Policy status
+        // The policy status.
         shared_ptr<string> ruleStatus_ {};
-        // Rule Type
+        // The policy type.
         shared_ptr<string> ruleType_ {};
       };
 
@@ -249,21 +249,21 @@ namespace Models
 
 
     protected:
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Input parameters.
+      // The input parameters.
       shared_ptr<string> inputs_ {};
-      // Output parameters
+      // The output parameters.
       shared_ptr<string> outputs_ {};
-      // Timestamp of the request.
+      // The timestamp of the request.
       shared_ptr<int64_t> requestTime_ {};
-      // Details of the executed rules.
+      // The details of the rules executed by the request.
       shared_ptr<vector<ResultObject::RuleHitRecords>> ruleHitRecords_ {};
-      // Request ID
+      // The request ID.
       shared_ptr<string> sRequestId_ {};
-      // Total amount of the request
+      // The total cost of the request.
       shared_ptr<int64_t> totalCost_ {};
     };
 
@@ -286,9 +286,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<DescribeRequestHitResponseBody::ResultObject> resultObject_ {};
   };
 

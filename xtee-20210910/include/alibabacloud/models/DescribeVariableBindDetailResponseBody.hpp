@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // Policy rule ID
+        // The policy ruleId.
         shared_ptr<string> key_ {};
-        // Policy name
+        // The policy name.
         shared_ptr<string> value_ {};
       };
 
@@ -158,11 +158,11 @@ namespace Models
 
 
       protected:
-        // Event field name
+        // The name of the event field.
         shared_ptr<string> eventFieldName_ {};
-        // Whether it is required, default is false
+        // Indicates whether this parameter is required. Default value: false.
         shared_ptr<bool> required_ {};
-        // Bound variable name
+        // The name of the bound variable.
         shared_ptr<string> variableName_ {};
       };
 
@@ -237,23 +237,23 @@ namespace Models
 
 
     protected:
-      // Whether modification is allowed, default is false
+      // Indicates whether modification is allowed. Default value: false.
       shared_ptr<bool> allowModify_ {};
-      // Variable definition ID
+      // The variable definition ID.
       shared_ptr<int64_t> defineId_ {};
-      // Variable definition title
+      // The variable definition title.
       shared_ptr<string> defineTitle_ {};
-      // Variable description information
+      // The variable description.
       shared_ptr<string> description_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Variable ID.
+      // The variable ID.
       shared_ptr<int64_t> id_ {};
-      // Bound parameters.
+      // The bound parameters.
       shared_ptr<vector<ResultObject::Params>> params_ {};
-      // List of associated policies
+      // The list of associated policies.
       shared_ptr<vector<ResultObject::RelationRules>> relationRules_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
     };
 
@@ -276,9 +276,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<DescribeVariableBindDetailResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The language of error messages returned by the API. Valid values: zh: Chinese; en: English. The default value is en.
     shared_ptr<string> lang_ {};
+    // The area encoding.
     shared_ptr<string> regId_ {};
+    // The sample ID.
     shared_ptr<int32_t> sampleId_ {};
   };
 

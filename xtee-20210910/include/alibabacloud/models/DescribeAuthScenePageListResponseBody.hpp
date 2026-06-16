@@ -105,15 +105,15 @@ namespace Models
 
 
     protected:
-      // Number of common rules
+      // The number of General Policy policies.
       shared_ptr<int64_t> commonRuleCount_ {};
-      // Number of custom rules
+      // The number of custom policies.
       shared_ptr<int64_t> customRuleCount_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Scene name.
+      // The scenario name.
       shared_ptr<string> sceneName_ {};
-      // Service name.
+      // The service name.
       shared_ptr<string> serverName_ {};
     };
 
@@ -164,17 +164,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeAuthScenePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int64_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

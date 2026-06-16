@@ -180,33 +180,33 @@ namespace Models
 
 
     protected:
-      // Condition value.
+      // The condition value.
       shared_ptr<string> condition_ {};
-      // Data version.
+      // The data version.
       shared_ptr<int64_t> dataVersion_ {};
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Event code.
+      // The event code.
       shared_ptr<string> eventCodes_ {};
-      // Value type
+      // The value type.
       shared_ptr<string> historyValueType_ {};
-      // Primary key ID of the cumulative variable
+      // The primary key ID of the cumulative variable.
       shared_ptr<int64_t> id_ {};
-      // Cumulative object
+      // The cumulative object.
       shared_ptr<string> object_ {};
-      // Variable return type
+      // The variable return type.
       shared_ptr<string> outputs_ {};
-      // Main object
+      // The primary object.
       shared_ptr<string> subject_ {};
-      // Time slice type
+      // The time slice type.
       shared_ptr<string> timeType_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // Time count
+      // The number of time windows.
       shared_ptr<string> twCount_ {};
-      // Variable type
+      // The variable type.
       shared_ptr<string> velocityFC_ {};
-      // Time slice unit
+      // The time slice unit.
       shared_ptr<string> velocityTW_ {};
     };
 
@@ -229,9 +229,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeCustVariableDetailResponseBody::ResultObject>> resultObject_ {};
   };
 

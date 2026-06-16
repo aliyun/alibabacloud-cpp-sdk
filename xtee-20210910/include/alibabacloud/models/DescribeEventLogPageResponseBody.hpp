@@ -160,27 +160,27 @@ namespace Models
 
 
     protected:
-      // Account ID.
+      // The account ID.
       shared_ptr<string> accountId_ {};
-      // Email.
+      // The email address.
       shared_ptr<string> email_ {};
-      // IP address.
+      // ip。
       shared_ptr<string> ip_ {};
-      // Mobile phone number.
+      // The phone number.
       shared_ptr<string> mobile_ {};
-      // Nickname.
+      // The nickname.
       shared_ptr<string> nickName_ {};
-      // Request ID.
+      // The request ID.
       shared_ptr<string> requestId_ {};
-      // Score.
+      // The score.
       shared_ptr<string> score_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> service_ {};
-      // Tags.
+      // The labels.
       shared_ptr<string> tags_ {};
-      // Transaction time.
+      // The transaction time.
       shared_ptr<string> timestamp_ {};
-      // Device ID.
+      // The device ID.
       shared_ptr<string> umid_ {};
     };
 
@@ -231,17 +231,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object.
+    // The returned objects.
     shared_ptr<vector<DescribeEventLogPageResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

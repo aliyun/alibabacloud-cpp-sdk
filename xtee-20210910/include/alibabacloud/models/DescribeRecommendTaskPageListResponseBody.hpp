@@ -162,27 +162,27 @@ namespace Models
 
 
     protected:
-      // Impact indicators
+      // The affected metrics.
       shared_ptr<vector<string>> expectVelocities_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Number of samples
+      // The number of samples.
       shared_ptr<int64_t> normalCount_ {};
-      // Number of normal samples
+      // The number of normal samples.
       shared_ptr<int64_t> normalSize_ {};
-      // Number of records displayed on the current page.
+      // The number of records displayed on the current page.
       shared_ptr<int64_t> riskCount_ {};
-      // Number of risk samples
+      // The number of risky samples.
       shared_ptr<int64_t> riskSize_ {};
-      // Sample name
+      // The sample name.
       shared_ptr<string> sampleName_ {};
-      // Sample scenario
+      // The sample scenario.
       shared_ptr<string> sampleScene_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<int64_t> taskId_ {};
-      // Task name.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // Task status.
+      // The task status.
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -233,17 +233,17 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, with a default value of 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeRecommendTaskPageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

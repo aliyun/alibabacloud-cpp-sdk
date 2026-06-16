@@ -143,25 +143,25 @@ namespace Models
 
 
     protected:
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Developer
+      // The developer.
       shared_ptr<string> developer_ {};
-      // Device type.
+      // The device type.
       shared_ptr<string> deviceType_ {};
-      // Download URL.
+      // The download URL.
       shared_ptr<string> downloadUrl_ {};
-      // File MD5.
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // Package name
+      // The package name.
       shared_ptr<string> packageName_ {};
-      // Risk recognition SDK privacy policy link
+      // The privacy policy link for the risk identification SDK.
       shared_ptr<string> privacyLink_ {};
-      // Release time
+      // The release time.
       shared_ptr<string> pushTime_ {};
-      // SDK version.
+      // The SDK version.
       shared_ptr<string> sdkVersion_ {};
-      // Size
+      // The size.
       shared_ptr<string> size_ {};
     };
 
@@ -184,9 +184,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeSDKDownloadListResponseBody::ResultObject>> resultObject_ {};
   };
 

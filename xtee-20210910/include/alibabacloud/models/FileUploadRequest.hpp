@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // File name.
+    // The file name.
     shared_ptr<string> fileName_ {};
-    // File URL
+    // The file URL.
     shared_ptr<string> fileUrl_ {};
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Scenario.
+    // The scenario.
     shared_ptr<string> tab_ {};
   };
 

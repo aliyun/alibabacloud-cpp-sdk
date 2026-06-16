@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // Service code
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // Service name.
+      // The service name.
       shared_ptr<string> serviceName_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeServiceListResponseBody::ResultObject>> resultObject_ {};
   };
 

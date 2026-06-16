@@ -127,11 +127,11 @@ namespace Models
 
 
         protected:
-          // Field name.
+          // The field name.
           shared_ptr<string> fieldName_ {};
-          // Field type.
+          // The field type.
           shared_ptr<string> fieldType_ {};
-          // Field value.
+          // The field value.
           shared_ptr<string> fieldValue_ {};
         };
 
@@ -175,15 +175,15 @@ namespace Models
 
 
       protected:
-        // Operator code
+        // The operator code.
         shared_ptr<string> code_ {};
-        // Whether it contains a right variable
+        // Indicates whether the operator has a right variable.
         shared_ptr<bool> hasRightVariable_ {};
-        // Description
+        // The description.
         shared_ptr<string> memo_ {};
-        // Operator name
+        // The operator name.
         shared_ptr<string> name_ {};
-        // Right variable object
+        // The right variable object.
         shared_ptr<vector<Operators::RightVariables>> rightVariables_ {};
       };
 
@@ -206,9 +206,9 @@ namespace Models
 
 
     protected:
-      // Return value type
+      // The return value type.
       shared_ptr<string> fieldType_ {};
-      // Operator list
+      // The operator list.
       shared_ptr<vector<ResultObject::Operators>> operators_ {};
     };
 
@@ -231,9 +231,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeOperatorListBySceneResponseBody::ResultObject>> resultObject_ {};
   };
 

@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Policy primary key ID
+      // The primary key ID of the policy.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeAllDataSourceResponseBody::ResultObject>> resultObject_ {};
   };
 

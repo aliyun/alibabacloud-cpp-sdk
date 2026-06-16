@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // Field key
+      // fieldKey
       shared_ptr<string> fieldKey_ {};
-      // Field value.
+      // The field value.
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeGroupConditionListResponseBody::ResultObject>> resultObject_ {};
   };
 

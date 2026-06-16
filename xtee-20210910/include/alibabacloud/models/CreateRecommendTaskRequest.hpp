@@ -84,25 +84,25 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and received messages, default value is **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Name
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Task ID.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sampleId_ {};
-    // Variables to be calculated, variables
+    // The variables to be calculated.
     // 
     // This parameter is required.
     shared_ptr<string> variablesStr_ {};
-    // Indicator effect
+    // The metric results.
     // 
     // This parameter is required.
     shared_ptr<string> velocitiesStr_ {};

@@ -179,33 +179,33 @@ namespace Models
 
 
     protected:
-      // Business version.
+      // The business version.
       shared_ptr<string> bizVersion_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Expression for analysis results.
+      // The expression of the analysis results.
       shared_ptr<string> logicExpression_ {};
-      // Memo.
+      // The remarks.
       shared_ptr<string> memo_ {};
-      // Rule actions.
+      // The rule actions.
       shared_ptr<string> ruleActions_ {};
-      // DSL rule expression. This field is required when ruleType is DSL.
+      // The DSL policy expression. This field is not empty when ruleType is DSL.
       shared_ptr<string> ruleBody_ {};
-      // Expression.
+      // The expressions.
       shared_ptr<string> ruleExpressions_ {};
-      // Policy ID
+      // The policy ID
       shared_ptr<string> ruleId_ {};
-      // Policy name
+      // The policy name.
       shared_ptr<string> ruleName_ {};
-      // Policy status
+      // The policy status.
       shared_ptr<string> ruleStatus_ {};
-      // Rule type.
+      // The policy type.
       shared_ptr<string> ruleType_ {};
     };
 
@@ -228,9 +228,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<DescribeRuleSnapshotResponseBody::ResultObject> resultObject_ {};
   };
 

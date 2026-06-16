@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Number of records per page, default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<bool> resultObject_ {};
-    // Total items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total pages
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

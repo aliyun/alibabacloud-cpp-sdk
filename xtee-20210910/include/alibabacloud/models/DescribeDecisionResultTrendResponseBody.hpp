@@ -91,7 +91,7 @@ namespace Models
 
 
       protected:
-        // X-axis data structure.
+        // The xaxis data structure.
         shared_ptr<vector<string>> data_ {};
       };
 
@@ -154,9 +154,9 @@ namespace Models
 
 
         protected:
-          // Number
+          // The quantity.
           shared_ptr<int64_t> num_ {};
-          // ratio
+          // The ratio.
           shared_ptr<string> scale_ {};
         };
 
@@ -179,9 +179,9 @@ namespace Models
 
 
       protected:
-        // Returned data object
+        // The returned data object.
         shared_ptr<vector<Series::Data>> data_ {};
-        // Name.
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -206,9 +206,9 @@ namespace Models
 
 
     protected:
-      // Chart data
+      // The chart data.
       shared_ptr<vector<ResultObject::Series>> series_ {};
-      // X-axis data
+      // The x-axis data.
       shared_ptr<ResultObject::Xaxis> xaxis_ {};
     };
 
@@ -259,17 +259,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error details
+    // The error details.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeDecisionResultTrendResponseBody::ResultObject> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

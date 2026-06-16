@@ -133,21 +133,21 @@ namespace Models
 
 
     protected:
-      // Community number.
+      // The community number.
       shared_ptr<string> communityNo_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // Group risk concentration.
+      // The risk concentration.
       shared_ptr<string> groupRisk_ {};
-      // Group scale.
+      // The community scale.
       shared_ptr<string> groupScale_ {};
-      // Primary key ID.
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Scene name.
+      // The scenario name.
       shared_ptr<string> sceneName_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<int64_t> taskId_ {};
-      // User UID.
+      // The user UID.
       shared_ptr<string> userId_ {};
     };
 
@@ -198,17 +198,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, with a default value of 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<vector<DescribeGroupPageResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

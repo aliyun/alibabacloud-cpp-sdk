@@ -151,25 +151,25 @@ namespace Models
 
 
     protected:
-      // Console rule ID.
+      // The console rule ID.
       shared_ptr<int64_t> consoleRuleId_ {};
-      // Creation type
+      // The creation type.
       shared_ptr<string> createType_ {};
-      // Modification time
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Policy primary key ID
+      // The primary key ID of the policy.
       shared_ptr<int64_t> id_ {};
-      // Memo
+      // The remarks.
       shared_ptr<string> memo_ {};
-      // Policy ID
+      // The policy ID.
       shared_ptr<string> ruleId_ {};
-      // Policy name
+      // The policy name.
       shared_ptr<string> ruleName_ {};
-      // Policy version primary key ID
+      // The primary key ID of the policy version.
       shared_ptr<int64_t> ruleVersionId_ {};
-      // Status.
+      // The status.
       shared_ptr<string> status_ {};
-      // Version number
+      // The version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -220,17 +220,17 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeAuthRulePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total items
+    // The total number of entries.
     shared_ptr<int64_t> totalItem_ {};
-    // Total pages
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

@@ -91,7 +91,7 @@ namespace Models
 
 
       protected:
-        // xaxis data items
+        // The x-axis data items.
         shared_ptr<vector<string>> data_ {};
       };
 
@@ -156,9 +156,9 @@ namespace Models
 
 
         protected:
-          // Number.
+          // The quantity.
           shared_ptr<int64_t> num_ {};
-          // Scale
+          // The ratio.
           shared_ptr<string> scale_ {};
         };
 
@@ -188,11 +188,11 @@ namespace Models
 
 
       protected:
-        // Chart data list
+        // The chart data list.
         shared_ptr<vector<Series::Data>> data_ {};
-        // Series name.
+        // The series name.
         shared_ptr<string> name_ {};
-        // Chart field, same as name
+        // The chart field, which is the same as the name.
         shared_ptr<string> stack_ {};
       };
 
@@ -217,9 +217,9 @@ namespace Models
 
 
     protected:
-      // Data list
+      // The data list.
       shared_ptr<vector<ResultObject::Series>> series_ {};
-      // xaxis interface configuration.
+      // The x-axis configuration.
       shared_ptr<ResultObject::Xaxis> xaxis_ {};
     };
 
@@ -270,17 +270,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<DescribeTagsBarChartResponseBody::ResultObject> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

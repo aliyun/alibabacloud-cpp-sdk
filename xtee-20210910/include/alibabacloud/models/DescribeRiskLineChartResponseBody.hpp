@@ -91,7 +91,7 @@ namespace Models
 
 
       protected:
-        // Returns x-axis data points
+        // The data of the X-axis.
         shared_ptr<vector<string>> data_ {};
       };
 
@@ -135,9 +135,9 @@ namespace Models
 
 
       protected:
-        // Line chart data
+        // The data of the line chart.
         shared_ptr<vector<string>> data_ {};
-        // Title of the line segment in the line chart
+        // The title of the line segment in the line chart.
         shared_ptr<string> name_ {};
       };
 
@@ -162,9 +162,9 @@ namespace Models
 
 
     protected:
-      // Data list
+      // The data list.
       shared_ptr<vector<ResultObject::Series>> series_ {};
-      // Details of xaxis node.
+      // The details of the xaxis node.
       shared_ptr<ResultObject::Xaxis> xaxis_ {};
     };
 
@@ -215,17 +215,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeRiskLineChartResponseBody::ResultObject> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

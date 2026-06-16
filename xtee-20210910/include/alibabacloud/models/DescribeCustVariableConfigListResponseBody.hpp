@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // Configuration key
+      // The key of the configuration item.
       shared_ptr<string> configKey_ {};
-      // Configuration value
+      // The value of the configuration item.
       shared_ptr<string> configValue_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeCustVariableConfigListResponseBody::ResultObject>> resultObject_ {};
   };
 

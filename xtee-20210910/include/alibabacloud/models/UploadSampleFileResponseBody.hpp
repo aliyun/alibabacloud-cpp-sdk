@@ -117,7 +117,9 @@ namespace Models
 
 
       protected:
+        // Table header.
         shared_ptr<vector<string>> headers_ {};
+        // Row data.
         shared_ptr<vector<vector<string>>> rows_ {};
       };
 
@@ -195,11 +197,17 @@ namespace Models
 
 
       protected:
+        // De-duplication Count.
         shared_ptr<int32_t> distinctNumber_ {};
+        // De-duplication rate.
         shared_ptr<string> distinctRate_ {};
+        // Field Name.
         shared_ptr<string> fieldName_ {};
+        // Number of missing values.
         shared_ptr<int32_t> missNumber_ {};
+        // Missing rate.
         shared_ptr<string> missRate_ {};
+        // Row number of the record.
         shared_ptr<int32_t> rowNumber_ {};
       };
 
@@ -285,15 +293,25 @@ namespace Models
 
 
     protected:
+      // Number of jobs.
       shared_ptr<int32_t> beyondBacktrackingPeriodNum_ {};
+      // Columns.
       shared_ptr<vector<ResultObject::ColumnStats>> columnStats_ {};
+      // Time type.
       shared_ptr<string> dateType_ {};
+      // File name.
       shared_ptr<string> fileName_ {};
+      // File Size.
       shared_ptr<int32_t> fileSize_ {};
+      // File URL.
       shared_ptr<string> fileUrl_ {};
+      // Non-existent scenarios.
       shared_ptr<vector<string>> notExistScenes_ {};
+      // Number.
       shared_ptr<vector<string>> phoneInvalidList_ {};
+      // Table data.
       shared_ptr<ResultObject::PreviewData> previewData_ {};
+      // Number of rows.
       shared_ptr<int32_t> rowCount_ {};
     };
 
@@ -337,10 +355,15 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // Return message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return Result.
     shared_ptr<UploadSampleFileResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -172,7 +172,7 @@ namespace Models
 
 
         protected:
-          // The IV value. This field is not returned for this type of variable.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -406,27 +406,27 @@ namespace Models
 
 
       protected:
-        // The code of the variable.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display, in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // The definition ID of the variable. This field is not returned for this type of variable.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // The description of the variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // The display type and grouping label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
         // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
         // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // The detailed information of the field in the field pool. This field is not returned for this type of variable.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // The field rank.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // The source of the field. This field is not returned for this type of variable.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // The type of the field.
+        // The field type.
         shared_ptr<string> fieldType_ {};
         // The primary key ID.
         shared_ptr<int64_t> id_ {};
@@ -434,9 +434,9 @@ namespace Models
         shared_ptr<string> inputFieldType_ {};
         // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Multiple input parameters separated by commas. This field is not returned for this type of variable.
+        // The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // The name of the variable.
+        // The variable name.
         shared_ptr<string> name_ {};
         // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
@@ -446,15 +446,15 @@ namespace Models
         shared_ptr<string> parentName_ {};
         // The source type.
         shared_ptr<string> sourceType_ {};
-        // The title of the variable.
+        // The title.
         shared_ptr<string> title_ {};
-        // The type of the variable.
+        // The variable type.
         shared_ptr<string> type_ {};
         // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<VelocityVariables::VariableVelocity> variableVelocity_ {};
-        // The X label. This field is not returned for this type of variable.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // The Y label. This field is not returned for this type of variable.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -553,7 +553,7 @@ namespace Models
 
 
         protected:
-          // iv value. This type of variable does not return this field.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -595,9 +595,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -787,55 +787,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display, in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // ID of the bound variable definition.
+        // The bound variable definition ID.
         shared_ptr<string> defineId_ {};
-        // Description of the variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Calculate the expression display value. This type of variable does not return this field.
+        // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Details of the field pool. This type of variable does not return this field.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // Field sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Source of the field. This type of variable does not return this field.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Variable ID.
+        // The variable ID.
         shared_ptr<int64_t> id_ {};
-        // Input type of the parameter. This field is not returned for this type of variable.
+        // The input type of the parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameter. This field is not returned for this type of variable.
+        // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Variable value input.
+        // The variable value input.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Outlier value. This field is not returned for this type of variable.
+        // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
-        // Output value threshold.
+        // The output value threshold.
         shared_ptr<SysVariables::OutputThreshold> outputThreshold_ {};
-        // Parent name.
+        // The parent name.
         shared_ptr<string> parentName_ {};
-        // Source type.
+        // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable metric information. This field is not returned for this type of variable.
+        // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<SysVariables::VariableVelocity> variableVelocity_ {};
-        // x label. This type of variable does not return this field.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // y label. This type of variable does not return this field.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -934,7 +934,7 @@ namespace Models
 
 
         protected:
-          // iv value. This type of variable does not return this field.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -976,9 +976,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -1168,55 +1168,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display, in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // Variable definition ID. Only returned for custom system variables.
+        // The variable definition ID. This field is returned only for custom system variables.
         shared_ptr<string> defineId_ {};
-        // Description of the variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Expression name.
+        // The expression name.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Details of the field pool. This type of variable does not return this field.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // Field sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Source of the field. This type of variable does not return this field.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Variable ID.
+        // The variable ID.
         shared_ptr<int64_t> id_ {};
         // The input type of the parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameter. This field is not returned for this type of variable.
+        // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Input parameters. Only returned when custom system variables are defined.
+        // The input parameters. This field is returned only for custom system variables.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Anomaly value. Returned when the variable is a custom variable (type= EXPRESSION).
+        // The outlier value. This field is returned when the variable is a custom variable (type=EXPRESSION).
         shared_ptr<string> outlier_ {};
-        // Output value threshold.
+        // The output value threshold.
         shared_ptr<SelfVariables::OutputThreshold> outputThreshold_ {};
-        // Parent node. This field is not returned currently.
+        // The parent node. This field is not currently returned.
         shared_ptr<string> parentName_ {};
-        // Source type.
+        // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable metric information. This field is not returned for this type of variable.
+        // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<SelfVariables::VariableVelocity> variableVelocity_ {};
-        // x label. This type of variable does not return this field.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // y label. This type of variable does not return this field.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -1315,7 +1315,7 @@ namespace Models
 
 
         protected:
-          // The IV value. This field is not returned for this type of variable.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -1549,27 +1549,27 @@ namespace Models
 
 
       protected:
-        // The code of the query variable.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display, in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // The definition ID of the query variable. This field is not returned for this type of variable.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // The description of the query variable.
+        // The description.
         shared_ptr<string> description_ {};
-        // The display type and grouping label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
         // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
         // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // The detailed information of the field in the field pool. This field is not returned for this type of variable.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // The field rank.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // The source of the field. This field is not returned for this type of variable.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // The type of the field.
+        // The field type.
         shared_ptr<string> fieldType_ {};
         // The primary key ID of the query variable.
         shared_ptr<int64_t> id_ {};
@@ -1577,9 +1577,9 @@ namespace Models
         shared_ptr<string> inputFieldType_ {};
         // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Multiple input parameters separated by commas. This field is not returned for this type of variable.
+        // The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // The name of the query variable.
+        // The variable name.
         shared_ptr<string> name_ {};
         // The outlier value.
         shared_ptr<string> outlier_ {};
@@ -1589,15 +1589,15 @@ namespace Models
         shared_ptr<string> parentName_ {};
         // The source type.
         shared_ptr<string> sourceType_ {};
-        // The title of the query variable. The title of the query variable.
+        // The title.
         shared_ptr<string> title_ {};
-        // The type of the query variable.
+        // The variable type.
         shared_ptr<string> type_ {};
         // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<QueryVariables::VariableVelocity> variableVelocity_ {};
-        // The X label. This field is not returned for this type of variable.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // The Y label. This field is not returned for this type of variable.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -1696,7 +1696,7 @@ namespace Models
 
 
         protected:
-          // iv value.
+          // The information value (IV).
           shared_ptr<string> iv_ {};
         };
 
@@ -1738,9 +1738,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -1930,55 +1930,55 @@ namespace Models
 
 
       protected:
-        // variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display, in JSON format.
+        // The data distribution display in JSON format.
         shared_ptr<string> dataDisplay_ {};
-        // Associated variable definition ID.
+        // The associated variable definition ID.
         shared_ptr<string> defineId_ {};
-        // Variable description.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Calculate expression display value.
+        // The display value of the calculation expression.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite Identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Field pool field details.
+        // The field pool field details.
         shared_ptr<string> fieldDetail_ {};
-        // Field Sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Variable source.
+        // The variable source.
         shared_ptr<string> fieldSource_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Variable ID.
+        // The variable ID.
         shared_ptr<int64_t> id_ {};
-        // Input field type, indicating the type of input parameters, mainly used for function categorization.
+        // The input field type, which indicates the input parameter type and is mainly used for function classification.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameters.
+        // The required parameter.
         shared_ptr<string> inputRequired_ {};
-        // Input of the variable. Event field is not present.
+        // The input of the variable. This field is not returned for event fields.
         shared_ptr<string> inputs_ {};
-        // variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // outlier.
+        // The outlier value.
         shared_ptr<string> outlier_ {};
-        // Output score threshold.
+        // The output score threshold.
         shared_ptr<NativeVariables::OutputThreshold> outputThreshold_ {};
-        // Parent name.
+        // The parent name.
         shared_ptr<string> parentName_ {};
-        // Variable source type.
+        // The variable source type.
         shared_ptr<string> sourceType_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable indicator information.
+        // The variable metric information.
         shared_ptr<NativeVariables::VariableVelocity> variableVelocity_ {};
-        // x label.
+        // The X-axis label.
         shared_ptr<string> xLabel_ {};
-        // y label.
+        // The Y-axis label.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -2077,7 +2077,7 @@ namespace Models
 
 
         protected:
-          // iv value. This type of variable does not return this field.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -2119,9 +2119,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -2311,55 +2311,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // Variable definition ID. This type of variable does not return this field.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // Description information.
+        // The description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Calculate the expression display value. This field is not returned for this type of variable.
+        // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Details of the field pool. This type of variable does not return this field.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // Field sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Source of the field. This type of variable does not return this field.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // Variable return type.
+        // The variable return value type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
         // The input type of the parameter.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameter. This field is not returned for this type of variable.
+        // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Input field. This type of variable does not return this field.
+        // The input fields. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Exception value. This type of variable does not return this field.
+        // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
-        // Output value threshold.
+        // The output value threshold.
         shared_ptr<NativeVariableFunctions::OutputThreshold> outputThreshold_ {};
-        // Parent node. This field is not returned for this type of variable.
+        // The parent node. This field is not returned for this type of variable.
         shared_ptr<string> parentName_ {};
-        // Source type.
+        // The source type.
         shared_ptr<string> sourceType_ {};
-        // Variable title.
+        // The variable title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable metric information. This type of variable does not return this field.
+        // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<NativeVariableFunctions::VariableVelocity> variableVelocity_ {};
-        // x label. This type of variable does not return this field.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // y label. This type of variable does not return this field.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -2458,7 +2458,7 @@ namespace Models
 
 
         protected:
-          // iv value. This type of variable does not return this field.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -2500,9 +2500,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -2692,55 +2692,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display in JSON format. This field is not currently returned.
+        // The data distribution display in JSON format. This field is not currently returned.
         shared_ptr<string> dataDisplay_ {};
-        // Variable definition ID. This type of variable does not return this field.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // Description information.
+        // The description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Calculate the expression display value. This type of variable does not return this field.
+        // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Details of the field pool. This type of variable does not return this field.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // Field sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Source of the field. This type of variable does not return this field.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // Field type. This field is not returned for this type of variable.
+        // The field type. This field is not returned for this type of variable.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Input type of the parameter. This field is not returned for this type of variable.
+        // The input type of the parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameter. This field is not returned for this type of variable.
+        // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Input parameters. This field is not returned for this type of variable.
+        // The input parameters. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Outlier value. This field is not returned for this type of variable.
+        // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
-        // Output value threshold.
+        // The output value threshold.
         shared_ptr<NameList::OutputThreshold> outputThreshold_ {};
-        // Parent node. This field is not returned currently.
+        // The parent node. This field is not currently returned.
         shared_ptr<string> parentName_ {};
-        // Source type.
+        // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable metric information. This field is not returned for this type of variable.
+        // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<NameList::VariableVelocity> variableVelocity_ {};
-        // x label. This type of variable does not return this field.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // y label. This type of variable does not return this field.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -2839,7 +2839,7 @@ namespace Models
 
 
         protected:
-          // The IV value. This field is not returned for this type of variable.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -3073,27 +3073,27 @@ namespace Models
 
 
       protected:
-        // The code of the model variable.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display, in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // The definition ID of the model variable. This field is not returned for this type of variable.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // The description of the model variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // The display type and grouping label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
         // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
         // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // The detailed information of the field in the field pool. This field is not returned for this type of variable.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // The field rank.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // The source of the field. This field is not returned for this type of variable.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // The type of the field.
+        // The field type.
         shared_ptr<string> fieldType_ {};
         // The primary key ID of the model variable.
         shared_ptr<int64_t> id_ {};
@@ -3101,9 +3101,9 @@ namespace Models
         shared_ptr<string> inputFieldType_ {};
         // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Multiple input parameters separated by commas. This field is not returned for this type of variable.
+        // The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // The name of the model variable.
+        // The variable name.
         shared_ptr<string> name_ {};
         // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
@@ -3113,15 +3113,15 @@ namespace Models
         shared_ptr<string> parentName_ {};
         // The source type.
         shared_ptr<string> sourceType_ {};
-        // The title of the model variable.
+        // The title.
         shared_ptr<string> title_ {};
-        // The type of the model variable.
+        // The variable type.
         shared_ptr<string> type_ {};
         // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<ModelVariables::VariableVelocity> variableVelocity_ {};
-        // The X label. This field is not returned for this type of variable.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // The Y label. This field is not returned for this type of variable.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -3220,7 +3220,7 @@ namespace Models
 
 
         protected:
-          // id value. This type of variable does not return this field.
+          // The ID value. This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -3262,9 +3262,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -3454,55 +3454,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // Variable definition ID.
+        // The variable definition ID.
         shared_ptr<string> defineId_ {};
-        // Variable description.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Calculate the display value of the expression. This type of variable does not return this field.
+        // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Details of the field pool. This type of variable does not return this field.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // Field sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Variable source.
+        // The variable source.
         shared_ptr<string> fieldSource_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Input field type, indicating the type of input parameters, mainly used for function classification. This type of variable does not return this field.
+        // The input field type, which indicates the input parameter type and is mainly used for function classification. This field is not returned for this type of variable.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameter. This field is not returned for this type of variable.
+        // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Input of the variable.
+        // The input of the variable.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Outlier value. This field is not returned for this type of variable.
+        // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
-        // Output value threshold.
+        // The output value threshold.
         shared_ptr<MiddleVariables::OutputThreshold> outputThreshold_ {};
-        // Parent node. This field is not returned for this type of variable.
+        // The parent node. This field is not returned for this type of variable.
         shared_ptr<string> parentName_ {};
-        // Source type.
+        // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable metric information. This type of variable does not return this field.
+        // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<MiddleVariables::VariableVelocity> variableVelocity_ {};
-        // x label. This type of variable does not return this field.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // y label. This type of variable does not return this field.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -3601,7 +3601,7 @@ namespace Models
 
 
         protected:
-          // iv value. This type of variable does not return this field.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -3643,9 +3643,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -3835,55 +3835,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // Variable definition ID.
+        // The variable definition ID.
         shared_ptr<string> defineId_ {};
-        // Description of the variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Expression display value. This type of variable does not return this field.
+        // The expression display value. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Details of the field pool. This type of variable does not return this field.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // Field sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Source of the field. This type of variable does not return this field.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Input type of the parameter. This field is not returned for this type of variable.
+        // The input type of the parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameter. This field is not returned for this type of variable.
+        // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Input parameters should be separated by commas. Some variables may not have this field.
+        // The input parameters, separated by commas if multiple. Some variables do not have this field.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Anomaly value. This field is not returned for this type of variable.
+        // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
-        // Output value threshold.
+        // The output value threshold.
         shared_ptr<FavoriteVariables::OutputThreshold> outputThreshold_ {};
-        // Parent node. This field is not returned for this type of variable.
+        // The parent node. This field is not returned for this type of variable.
         shared_ptr<string> parentName_ {};
-        // Source type.
+        // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable metric information. This field is not returned for this type of variable.
+        // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<FavoriteVariables::VariableVelocity> variableVelocity_ {};
-        // x label. This type of variable does not return this field.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // y label. This type of variable does not return this field.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -3982,7 +3982,7 @@ namespace Models
 
 
         protected:
-          // The IV value. This field is not returned for this type of variable.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -4216,37 +4216,37 @@ namespace Models
 
 
       protected:
-        // The code of the variable.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display, in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // The definition ID of the variable. This field is not returned for this type of variable.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // The description of the variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // The display type and grouping label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
         // The display value of the calculation expression.
         shared_ptr<string> expressionTitle_ {};
         // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // The detailed information of the field in the field pool. This field is not returned for this type of variable.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // The field rank.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // The source of the field. This field is not returned for this type of variable.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // The input type of the variable.
+        // The variable input type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
         // The input type of the parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputFieldType_ {};
         // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Multiple input parameters separated by commas. This field is not returned for this type of variable.
+        // The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // The name of the variable.
+        // The variable name.
         shared_ptr<string> name_ {};
         // The outlier value.
         shared_ptr<string> outlier_ {};
@@ -4256,15 +4256,15 @@ namespace Models
         shared_ptr<string> parentName_ {};
         // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // The type of the variable.
+        // The variable type.
         shared_ptr<string> type_ {};
         // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<ExpressionVariables::VariableVelocity> variableVelocity_ {};
-        // The X label. This field is not returned for this type of variable.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // The Y label. This field is not returned for this type of variable.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -4363,7 +4363,7 @@ namespace Models
 
 
         protected:
-          // The IV value. This field is not returned for this type of variable.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -4405,7 +4405,7 @@ namespace Models
 
 
         protected:
-          // The minimum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
           // The minimum value.
           shared_ptr<double> minValue_ {};
@@ -4597,55 +4597,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // Variable definition ID. This type of variable does not return this field.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // Description information.
+        // The description.
         shared_ptr<string> description_ {};
-        // The display type and grouping label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
         // The display value of the calculation expression. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
         // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // The detailed information of the field in the field pool. This field is not returned for this type of variable.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // The field rank.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // The source of the field. This field is not returned for this type of variable.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
         // The input type of the parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputFieldType_ {};
         // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Input for the variable. This field is not returned for this type of variable.
+        // The input of the variable. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
         // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
         // The output value threshold.
         shared_ptr<DeviceVariables::OutputThreshold> outputThreshold_ {};
-        // Parent node. This field is not returned for this type of variable.
+        // The parent node. This field is not returned for this type of variable.
         shared_ptr<string> parentName_ {};
         // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
         // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<DeviceVariables::VariableVelocity> variableVelocity_ {};
-        // The X label. This field is not returned for this type of variable.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // The Y label. This field is not returned for this type of variable.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -4744,7 +4744,7 @@ namespace Models
 
 
         protected:
-          // iv value. This type of variable does not return this field.
+          // The information value (IV). This field is not returned for this type of variable.
           shared_ptr<string> iv_ {};
         };
 
@@ -4786,9 +4786,9 @@ namespace Models
 
 
         protected:
-          // Maximum value.
+          // The maximum value.
           shared_ptr<double> maxValue_ {};
-          // Minimum value.
+          // The minimum value.
           shared_ptr<double> minValue_ {};
         };
 
@@ -4978,55 +4978,55 @@ namespace Models
 
 
       protected:
-        // Variable code.
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Data distribution display in JSON format. This field is not returned for this type of variable.
+        // The data distribution display in JSON format. This field is not returned for this type of variable.
         shared_ptr<string> dataDisplay_ {};
-        // Variable definition ID. This type of variable does not return this field.
+        // The variable definition ID. This field is not returned for this type of variable.
         shared_ptr<string> defineId_ {};
-        // Description information.
+        // The description.
         shared_ptr<string> description_ {};
-        // Display type and group label.
+        // The display type and group label.
         shared_ptr<string> displayType_ {};
-        // Expression display. This type of variable does not return this field.
+        // The expression display. This field is not returned for this type of variable.
         shared_ptr<string> expressionTitle_ {};
-        // Favorite identifier.
+        // The favorite flag.
         shared_ptr<bool> favoriteFlag_ {};
-        // Details of the field pool. This type of variable does not return this field.
+        // The field pool field details. This field is not returned for this type of variable.
         shared_ptr<string> fieldDetail_ {};
-        // Field sorting.
+        // The field sort order.
         shared_ptr<int32_t> fieldRank_ {};
-        // Source of the field. This type of variable does not return this field.
+        // The field source. This field is not returned for this type of variable.
         shared_ptr<string> fieldSource_ {};
-        // Field type. This field is not returned for this type of variable.
+        // The field type. This field is not returned for this type of variable.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Input type of the parameter.
+        // The input type of the parameter.
         shared_ptr<string> inputFieldType_ {};
-        // Required parameter. This type of variable does not return this field.
+        // The required parameter. This field is not returned for this type of variable.
         shared_ptr<string> inputRequired_ {};
-        // Input parameters. This field is not returned for this type of variable.
+        // The input parameters. This field is not returned for this type of variable.
         shared_ptr<string> inputs_ {};
-        // Variable name.
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Anomaly value. This field is not returned for this type of variable.
+        // The outlier value. This field is not returned for this type of variable.
         shared_ptr<string> outlier_ {};
-        // Output value threshold.
+        // The output value threshold.
         shared_ptr<Actions::OutputThreshold> outputThreshold_ {};
-        // Parent node. This field is not returned for this type of variable.
+        // The parent node. This field is not returned for this type of variable.
         shared_ptr<string> parentName_ {};
-        // Source type.
+        // The source type.
         shared_ptr<string> sourceType_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
-        // Variable metric information. This field is not returned for this type of variable.
+        // The variable metric information. This field is not returned for this type of variable.
         shared_ptr<Actions::VariableVelocity> variableVelocity_ {};
-        // x label. This type of variable does not return this field.
+        // The X-axis label. This field is not returned for this type of variable.
         shared_ptr<string> xLabel_ {};
-        // y label. This type of variable does not return this field.
+        // The Y-axis label. This field is not returned for this type of variable.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -5161,33 +5161,33 @@ namespace Models
 
 
     protected:
-      // Action variable.
+      // The action variables.
       shared_ptr<vector<ResultObject::Actions>> actions_ {};
-      // Device variable.
+      // The device variables.
       shared_ptr<vector<ResultObject::DeviceVariables>> deviceVariables_ {};
-      // Custom variable.
+      // The custom variables.
       shared_ptr<vector<ResultObject::ExpressionVariables>> expressionVariables_ {};
-      // Favorite variables.
+      // The favorite variables.
       shared_ptr<vector<ResultObject::FavoriteVariables>> favoriteVariables_ {};
-      // Intermediate variable return object.
+      // The intermediate variable response object.
       shared_ptr<vector<ResultObject::MiddleVariables>> middleVariables_ {};
-      // An array of model variables.
+      // The model variables.
       shared_ptr<vector<ResultObject::ModelVariables>> modelVariables_ {};
-      // List of name variables.
+      // The list variables.
       shared_ptr<vector<ResultObject::NameList>> nameList_ {};
-      // List of available functions for the original variable.
+      // The list of available functions for native variables.
       shared_ptr<vector<ResultObject::NativeVariableFunctions>> nativeVariableFunctions_ {};
-      // List of event fields.
+      // The list of event fields.
       shared_ptr<vector<ResultObject::NativeVariables>> nativeVariables_ {};
-      // An array of custom query variables.
+      // The custom query variables.
       shared_ptr<vector<ResultObject::QueryVariables>> queryVariables_ {};
-      // Custom variables (custom variables, cumulative variables, custom system variables).
+      // The custom variables (custom variables, cumulative variables, and custom system variables).
       shared_ptr<vector<ResultObject::SelfVariables>> selfVariables_ {};
-      // System variables.
+      // The system variables.
       shared_ptr<vector<ResultObject::SysVariables>> sysVariables_ {};
-      // Other related variables.
+      // The other variables.
       Darabonba::Json thirdVariables_ {};
-      // An array of accumulated variables.
+      // The custom cumulative variables.
       shared_ptr<vector<ResultObject::VelocityVariables>> velocityVariables_ {};
     };
 
@@ -5210,9 +5210,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object.
+    // The response object.
     shared_ptr<DescribeEventVariableListResponseBody::ResultObject> resultObject_ {};
   };
 

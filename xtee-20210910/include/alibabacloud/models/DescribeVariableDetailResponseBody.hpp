@@ -398,79 +398,87 @@ namespace Models
 
 
       protected:
-        // Whether variable binding is allowed
+        // Specifies whether variable binding is allowed. Valid values:
+        // - **DISABLE**: unavailable
+        // - **ALL**: all
+        // - **ENABLE**: available
+        // - **PART_ENABLE**: partially available.
         shared_ptr<string> allowBind_ {};
-        // Charging mode
+        // The billing mode. Valid values:
+        // - **PAY_PER_VIEW**: paid
+        // - **FREE**: free.
         shared_ptr<string> chargingMode_ {};
-        // Charging mode description
+        // The billing mode description.
         shared_ptr<string> chargingModeDesc_ {};
-        // Creator.
+        // The creator.
         shared_ptr<string> creator_ {};
-        // Data distribution display, in JSON format
+        // The data distribution display in JSON format.
         shared_ptr<string> dataDisplay_ {};
-        // Data valid range, left-closed and right-closed
+        // The valid data range, inclusive on both ends.
         shared_ptr<string> dataThreshold_ {};
-        // Deduction factor
+        // The deduction coefficient.
         shared_ptr<int32_t> deductionFactor_ {};
-        // Description.
+        // The description.
         shared_ptr<string> description_ {};
-        // Front-end binding allowed
+        // Specifies whether front-end binding is allowed. Valid values:
+        // - **DISABLE**: not allowed
+        // - **ENABLE**: allowed.
         shared_ptr<string> frontAllowBind_ {};
-        // Creation time.
+        // The creation time.
         shared_ptr<int64_t> gmtCreate_ {};
-        // Modification time.
+        // The modification time.
         shared_ptr<int64_t> gmtModified_ {};
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Required parameters
+        // The required parameters.
         //      
-        //      When inputRequired=__all__, it means all parameters are required
-        //      When inputRequired=__one__, it means only one input is needed
-        //      Required fields are separated by commas, e.g., mobile,ip,email
+        // When inputRequired is set to __all__, all parameters are required.
+        // When inputRequired is set to __one__, only one input parameter is required.
+        // Required fields are separated by commas, such as mobile,ip,email.
         shared_ptr<string> inputRequired_ {};
-        // Input parameters.
+        // The input parameters.
         shared_ptr<string> inputs_ {};
-        // Input parameter description.
+        // The input parameter description.
         shared_ptr<string> inputsDesc_ {};
-        // Invoke key
+        // The invocation key.
         shared_ptr<string> invokeKey_ {};
-        // Invoke RT, unit: milliseconds
+        // The invocation response time, in milliseconds.
         shared_ptr<int32_t> invokeRt_ {};
-        // Invocation success rate
+        // The invocation success rate.
         shared_ptr<string> invokeSuccessRate_ {};
-        // Number of invocations
+        // The number of invocations.
         shared_ptr<int64_t> invokeTimes_ {};
-        // Last modifier.
+        // The last modifier.
         shared_ptr<string> lastModifiedOperator_ {};
-        // Variable name
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Output
+        // The outputs.
         shared_ptr<string> outputs_ {};
-        // Output description
+        // The output description.
         shared_ptr<string> outputsDesc_ {};
-        // Code of applicable scenarios
+        // The applicable scenario code.
         shared_ptr<vector<string>> scene_ {};
-        // Applicable scenario description
+        // The applicable scenario description.
         shared_ptr<vector<string>> sceneDesc_ {};
-        // Display order
+        // The display order.
         shared_ptr<string> showOrder_ {};
-        // Source
+        // The source.
         shared_ptr<string> source_ {};
-        // Source description
+        // The source description.
         shared_ptr<string> sourceDesc_ {};
-        // Status.
+        // The status.
         shared_ptr<string> status_ {};
-        // List of supported regions.
+        // The list of supported regions.
         shared_ptr<vector<string>> supportRegions_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Type
+        // The type.
         shared_ptr<string> type_ {};
-        // Category description
+        // The category description.
         shared_ptr<string> typeDesc_ {};
-        // X-axis label for data distribution display
+        // The X-axis label for the data distribution chart.
         shared_ptr<string> xLabel_ {};
-        // Data distribution display y-axis label
+        // The Y-axis label for the data distribution chart.
         shared_ptr<string> yLabel_ {};
       };
 
@@ -485,7 +493,7 @@ namespace Models
 
 
     protected:
-      // Basic attributes.
+      // The basic properties.
       shared_ptr<ResultObject::BaseInfo> baseInfo_ {};
     };
 
@@ -508,9 +516,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<DescribeVariableDetailResponseBody::ResultObject> resultObject_ {};
   };
 

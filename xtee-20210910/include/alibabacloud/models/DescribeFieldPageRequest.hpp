@@ -130,29 +130,29 @@ namespace Models
 
 
   protected:
-    // Set the language type for request and response messages, default value is **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Field classification
+    // The field classification.
     shared_ptr<string> classify_ {};
-    // Query input parameter name or title
+    // The query parameter: name or title.
     shared_ptr<string> condition_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Field name
+    // The field name.
     shared_ptr<string> name_ {};
-    // Number of items per page, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Field source
+    // The field source.
     shared_ptr<string> source_ {};
-    // Status.
+    // The status.
     shared_ptr<string> status_ {};
-    // Title.
+    // The title.
     shared_ptr<string> title_ {};
-    // Field type
+    // The field type.
     shared_ptr<string> type_ {};
   };
 

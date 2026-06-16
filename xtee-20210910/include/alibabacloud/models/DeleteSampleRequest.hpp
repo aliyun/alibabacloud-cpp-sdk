@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Language of the error message returned by the API. Valid values: zh: Chinese; en: English. Default value: en.
     shared_ptr<string> lang_ {};
+    // area encoding.
     shared_ptr<string> regId_ {};
+    // ID of the sample to delete.
     shared_ptr<int32_t> sampleId_ {};
   };
 

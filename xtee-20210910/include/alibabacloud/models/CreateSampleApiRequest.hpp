@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // Same as input parameter
+    // Same as the request parameter.
     shared_ptr<string> dataType_ {};
-    // Specific data value
+    // The specific data value.
     shared_ptr<string> dataValue_ {};
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // regionId
+    // The region ID.
     shared_ptr<string> regId_ {};
-    // Sample batch type
+    // The sample batch type.
     shared_ptr<string> sampleBatchType_ {};
-    // Service list.
+    // The list of services.
     shared_ptr<string> serviceList_ {};
   };
 

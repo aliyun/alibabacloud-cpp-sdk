@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // Whether it exceeds the maximum quantity
+      // Indicates whether the maximum number is exceeded.
       shared_ptr<bool> limit_ {};
-      // Maximum number of created items
+      // The maximum number of entries that can be created.
       shared_ptr<int32_t> maxTotalItem_ {};
-      // Total number of items
+      // The total number of entries.
       shared_ptr<int32_t> totalItem_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<DescribeInputFeildCountByEventCodeResponseBody::ResultObject> resultObject_ {};
   };
 

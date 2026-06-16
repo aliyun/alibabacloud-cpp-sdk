@@ -142,23 +142,23 @@ namespace Models
 
 
     protected:
-      // Creator of the data source.
+      // The creator of the data source.
       shared_ptr<string> creator_ {};
-      // Data source description.
+      // The description of the data source.
       shared_ptr<string> description_ {};
-      // Time when the data source was created.
+      // The time when the data source was created.
       shared_ptr<string> gmtCreate_ {};
-      // Time when the data source was last modified.
+      // The time when the data source was last modified.
       shared_ptr<string> gmtModified_ {};
-      // Data source ID.
+      // The data source ID.
       shared_ptr<int64_t> id_ {};
-      // Last modifier.
+      // The user who last modified the data source.
       shared_ptr<string> modifier_ {};
-      // Data source name.
+      // The data source name.
       shared_ptr<string> name_ {};
-      // Total pages.
+      // The total number of pages.
       shared_ptr<int64_t> total_ {};
-      // Data source type.
+      // The data source type.
       shared_ptr<string> type_ {};
     };
 
@@ -209,17 +209,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeDataSourcePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

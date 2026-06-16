@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // accessId, a parameter used in OSS SDK uploads, corresponding to OSSAccessKeyId
+    // The access ID. This parameter corresponds to OSSAccessKeyId when you use the OSS SDK for upload.
     shared_ptr<string> accessId_ {};
-    // OSS host ID.
+    // The host ID of OSS.
     shared_ptr<string> host_ {};
-    // Key required for file upload.
+    // The key required for file upload.
     shared_ptr<string> key_ {};
-    // OSS security policy
+    // The OSS security policy.
     shared_ptr<string> policy_ {};
-    // Signature data.
+    // The signature data.
     shared_ptr<string> signature_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

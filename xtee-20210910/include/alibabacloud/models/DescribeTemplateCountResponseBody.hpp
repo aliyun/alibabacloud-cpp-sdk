@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // Template quantity limit.
+      // The template quantity limit.
       shared_ptr<bool> limit_ {};
-      // Maximum count
+      // The maximum number of items.
       shared_ptr<int32_t> maxTotalItem_ {};
-      // Total count.
+      // The total number of items.
       shared_ptr<int32_t> totalItem_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeTemplateCountResponseBody::ResultObject> resultObject_ {};
   };
 

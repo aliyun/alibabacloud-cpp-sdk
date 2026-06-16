@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Update start time.
+    // The start time of the update period.
     shared_ptr<int64_t> updateBeginTime_ {};
-    // Update end time.
+    // The end time of the update period.
     shared_ptr<int64_t> updateEndTime_ {};
-    // Variable name/description
+    // The variable name or description.
     shared_ptr<string> value_ {};
-    // Variable ID
+    // The variable ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> variableId_ {};

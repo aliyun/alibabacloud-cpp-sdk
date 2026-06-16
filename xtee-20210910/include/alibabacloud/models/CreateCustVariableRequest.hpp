@@ -167,47 +167,47 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Condition value.
+    // The condition value.
     shared_ptr<string> condition_ {};
-    // Creation type
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Description information.
+    // The description.
     shared_ptr<string> description_ {};
-    // Event code
+    // The event code.
     // 
     // This parameter is required.
     shared_ptr<string> eventCodes_ {};
-    // Value type
+    // The value type.
     shared_ptr<string> historyValueType_ {};
-    // Accumulative object
+    // The cumulative object.
     shared_ptr<string> object_ {};
-    // Variable return type
+    // The return type of the variable.
     shared_ptr<string> outputs_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Primary object
+    // The subject object.
     // 
     // This parameter is required.
     shared_ptr<string> subject_ {};
-    // Time slice type
+    // The time slice type.
     // 
     // This parameter is required.
     shared_ptr<string> timeType_ {};
-    // Title.
+    // The title.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};
-    // Number of time units
+    // The number of time units.
     shared_ptr<int32_t> twCount_ {};
-    // Variable type
+    // The variable type.
     // 
     // This parameter is required.
     shared_ptr<string> velocityFC_ {};
-    // Time slice unit
+    // The time slice unit.
     // 
     // This parameter is required.
     shared_ptr<string> velocityTW_ {};

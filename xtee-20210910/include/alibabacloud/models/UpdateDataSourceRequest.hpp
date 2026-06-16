@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values: 
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Description information.
+    // The description.
     shared_ptr<string> description_ {};
-    // Primary key ID
+    // The primary key ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Data source name.
+    // The data source name.
     shared_ptr<string> name_ {};
-    // OSS file key.
+    // The OSS file key.
     shared_ptr<string> ossKey_ {};
-    // Region code
+    // The region code.
     // 
     // This parameter is required.
     shared_ptr<string> regId_ {};
-    // Data source type
+    // The data source type.
     shared_ptr<string> type_ {};
   };
 

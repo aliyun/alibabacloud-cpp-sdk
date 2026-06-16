@@ -91,7 +91,7 @@ namespace Models
 
 
       protected:
-        // yaxis data items
+        // The y-axis data items.
         shared_ptr<vector<string>> data_ {};
       };
 
@@ -172,13 +172,13 @@ namespace Models
 
 
         protected:
-          // Event name.
+          // The event name.
           shared_ptr<string> eventName_ {};
-          // Number.
+          // The quantity.
           shared_ptr<int64_t> num_ {};
-          // Policy name
+          // The policy name.
           shared_ptr<string> ruleName_ {};
-          // Status.
+          // The status.
           shared_ptr<string> status_ {};
         };
 
@@ -201,9 +201,9 @@ namespace Models
 
 
       protected:
-        // Response data.
+        // The response data.
         shared_ptr<vector<Series::Data>> data_ {};
-        // Bar chart type
+        // The bar chart type.
         shared_ptr<string> type_ {};
       };
 
@@ -228,9 +228,9 @@ namespace Models
 
 
     protected:
-      // Data list
+      // The data list.
       shared_ptr<vector<ResultObject::Series>> series_ {};
-      // yaxis related results.
+      // The y-axis results.
       shared_ptr<ResultObject::Yaxis> yaxis_ {};
     };
 
@@ -281,17 +281,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<DescribeRuleBarChartResponseBody::ResultObject> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

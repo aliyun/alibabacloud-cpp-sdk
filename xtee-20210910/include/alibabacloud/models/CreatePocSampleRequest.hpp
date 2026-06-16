@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // File Name.
     shared_ptr<string> fileName_ {};
+    // File URL.
     shared_ptr<string> fileUrl_ {};
+    // The language of the error message returned by the API. Valid values: zh: Chinese. en: English. The default value is en.
     shared_ptr<string> lang_ {};
+    // The area encoding.
     shared_ptr<string> regId_ {};
+    // The remark for the topic. It can only contain letters, digits, underscores (_), and hyphens (-). The length must be 3 to 64 characters.
     shared_ptr<string> remark_ {};
+    // Sample Name.
     shared_ptr<string> sampleName_ {};
+    // Scenario.
     shared_ptr<string> tab_ {};
+    // Access type.
     shared_ptr<string> type_ {};
   };
 

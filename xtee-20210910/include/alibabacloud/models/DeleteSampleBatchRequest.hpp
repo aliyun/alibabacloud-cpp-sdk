@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language type for the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // IDs for batch deletion operations.
+    // The IDs of the samples to delete in batches.
     shared_ptr<string> ids_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
-    // List of versions.
+    // The list of versions.
     // 
     // This parameter is required.
     shared_ptr<string> versions_ {};

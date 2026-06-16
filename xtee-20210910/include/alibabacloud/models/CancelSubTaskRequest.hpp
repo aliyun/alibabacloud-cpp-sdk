@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // Set the language type for requests and received messages. The default value is **zh**. Valid values:  
+    // - **zh**: Chinese  
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // Area encoding.
     shared_ptr<string> regId_ {};
+    // Subtask ID.
     shared_ptr<int32_t> subTaskId_ {};
+    // Scenario.
     shared_ptr<string> tab_ {};
   };
 

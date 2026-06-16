@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // Primary key ID
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Sample tags.
+      // The sample tags.
       shared_ptr<string> sampleTags_ {};
-      // Sample type
+      // The data sample type.
       shared_ptr<string> sampleType_ {};
-      // Sample value.
+      // The sample value.
       shared_ptr<string> sampleValue_ {};
-      // Update time.
+      // The update time.
       shared_ptr<string> updateTime_ {};
-      // Version number.
+      // The version number.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeSampleInfoResponseBody::ResultObject> resultObject_ {};
   };
 

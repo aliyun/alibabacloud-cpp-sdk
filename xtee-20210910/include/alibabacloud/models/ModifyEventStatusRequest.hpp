@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values: 
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Creation type
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Event code
+    // The event code.
     shared_ptr<string> eventCode_ {};
-    // Initial event status, to avoid duplicate submissions or historical replays
+    // The original event status. This parameter is used to prevent duplicate submissions or historical replays.
     shared_ptr<string> fromEventSatus_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Updated event status
+    // The event status to update to.
     shared_ptr<string> toEventSatus_ {};
   };
 

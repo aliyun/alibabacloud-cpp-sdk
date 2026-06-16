@@ -140,43 +140,48 @@ namespace Models
 
 
   protected:
-    // Sets the language type for the request and response messages, with a default value of **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Custom columns
+    // The custom columns.
     shared_ptr<string> columns_ {};
-    // Query expression
+    // The query expression.
     shared_ptr<string> conditions_ {};
-    // Start time, accurate to milliseconds (ms).
+    // The start time, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> eventBeginTime_ {};
-    // Event code.
+    // The event code.
     // 
     // This parameter is required.
     shared_ptr<string> eventCodes_ {};
-    // End time, accurate to milliseconds (ms).
+    // The end time, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> eventEndTime_ {};
-    // Field name
+    // The field name.
     shared_ptr<string> fieldName_ {};
-    // Field value
+    // The field value.
     shared_ptr<string> fieldValue_ {};
-    // File format, Excel, CSV
+    // The file format. Valid values: Excel and CSV.
     // 
     // This parameter is required.
     shared_ptr<string> fileFormat_ {};
-    // Region code
+    // The region code.
     // 
     // This parameter is required.
     shared_ptr<string> regId_ {};
-    // Export scope: ALL: All, SELECT: Selected rows
+    // The export scope. Valid values:
+    // - ALL: all data
+    // - SELECT: selected rows.
     // 
     // This parameter is required.
     shared_ptr<string> scope_ {};
-    // Type, BASIC: Basic query, ADVANCE: Advanced query, BATCH: Batch query
+    // The query type. Valid values:
+    // - BASIC: basic query
+    // - ADVANCE: advanced query
+    // - BATCH: batch query.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

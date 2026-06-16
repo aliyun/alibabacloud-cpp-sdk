@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // Download URL.
+      // The download URL.
       shared_ptr<string> downloadFileUrl_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<DescribeDataSourceDataDownloadUrlResponseBody::ResultObject> resultObject_ {};
   };
 

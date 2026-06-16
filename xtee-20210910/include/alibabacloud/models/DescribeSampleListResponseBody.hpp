@@ -114,17 +114,17 @@ namespace Models
 
 
     protected:
-      // Database ID.
+      // The database ID.
       shared_ptr<int64_t> id_ {};
-      // Sample tags.
+      // The sample tags.
       shared_ptr<string> sampleTags_ {};
-      // Sample type
+      // The sample type.
       shared_ptr<int32_t> sampleType_ {};
-      // Sample value.
+      // The sample value.
       shared_ptr<string> sampleValue_ {};
-      // Update time.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
-      // Version number.
+      // The version number.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -175,17 +175,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, with a default value of 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object
+    // The returned objects.
     shared_ptr<vector<DescribeSampleListResponseBody::ResultObject>> resultObject_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

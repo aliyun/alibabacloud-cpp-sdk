@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The domain name keyword provided.
     shared_ptr<string> keyword_ {};
+    // The language of error messages returned by the API. Valid values: zh: Chinese. en: English. Default value: en.
     shared_ptr<string> lang_ {};
+    // The area encoding.
     shared_ptr<string> regId_ {};
+    // The scenario.
     shared_ptr<string> tab_ {};
+    // The access type.
     shared_ptr<string> type_ {};
+    // The upload end time.
     shared_ptr<string> uploadTimeEnd_ {};
+    // The upload start time.
     shared_ptr<string> uploadTimeStart_ {};
   };
 

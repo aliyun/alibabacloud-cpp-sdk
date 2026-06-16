@@ -151,25 +151,25 @@ namespace Models
 
 
     protected:
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // ID of the list variable content data
+      // The ID of the list variable content data.
       shared_ptr<int64_t> id_ {};
-      // NameList Content memo
+      // The remarks.
       shared_ptr<string> memo_ {};
-      // Variable name
+      // The variable name.
       shared_ptr<string> name_ {};
-      // Variable type
+      // The variable type.
       shared_ptr<string> nameListType_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // User UID
+      // The user UID.
       shared_ptr<string> userId_ {};
-      // Variable value
+      // The variable value.
       shared_ptr<string> value_ {};
-      // Variable ID.
+      // The variable ID.
       shared_ptr<int64_t> variableId_ {};
     };
 
@@ -220,17 +220,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeNameListPageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<string> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<string> totalPage_ {};
   };
 

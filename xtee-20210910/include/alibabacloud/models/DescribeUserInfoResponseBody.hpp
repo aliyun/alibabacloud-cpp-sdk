@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // Client IP.
+      // The client IP address.
       shared_ptr<string> clientIp_ {};
-      // Sub-account ID
+      // The RAM user ID.
       shared_ptr<string> subId_ {};
-      // User UID
+      // The user UID.
       shared_ptr<int64_t> userId_ {};
-      // User name
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -143,13 +143,13 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeUserInfoResponseBody::ResultObject> resultObject_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

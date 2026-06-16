@@ -121,27 +121,27 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and received messages, default value is **zh**. Values: 
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Request source IP. No need to fill in, the system will automatically obtain it.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
     shared_ptr<string> sourceIp_ {};
-    // Device variable list
+    // The list of device variables.
     shared_ptr<string> deviceVariableIds_ {};
-    // Event code
+    // The event code.
     shared_ptr<string> eventCode_ {};
-    // Custom variable list
+    // The list of custom variables.
     shared_ptr<string> expressionVariableIds_ {};
-    // Variable ID.
+    // The variable ID.
     shared_ptr<int64_t> id_ {};
-    // Event field list
+    // The list of event fields.
     shared_ptr<string> nativeVariableIds_ {};
-    // Custom query variable
+    // The custom query variables.
     shared_ptr<string> queryVariableIds_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Custom cumulative variable
+    // The custom cumulative variables.
     shared_ptr<string> velocityVariableIds_ {};
   };
 

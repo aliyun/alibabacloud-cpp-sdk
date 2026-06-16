@@ -121,29 +121,29 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and responses, default value is **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Creation type.
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Event code.
+    // The event code.
     shared_ptr<string> eventCode_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Policy type.
+    // The policy type.
     shared_ptr<string> ruleAuthType_ {};
-    // Policy name.
+    // The policy name.
     shared_ptr<string> ruleName_ {};
-    // Policy status.
+    // The policy status.
     shared_ptr<string> ruleStatus_ {};
-    // Sorting method, default value is desc.
+    // The sort order. Default value: desc.
     // - desc: descending order
-    // - asc: ascending order
+    // - asc: ascending order.
     shared_ptr<string> sort_ {};
   };
 

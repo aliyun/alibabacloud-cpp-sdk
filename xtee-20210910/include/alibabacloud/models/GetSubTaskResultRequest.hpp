@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Language of the error message returned by the API. Valid values: zh: Chinese. en: English. Default value: en.
     shared_ptr<string> lang_ {};
+    // Area encoding.
     shared_ptr<string> regId_ {};
+    // Subtask ID.
     shared_ptr<int32_t> subTaskId_ {};
   };
 

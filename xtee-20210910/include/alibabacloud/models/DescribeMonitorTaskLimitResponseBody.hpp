@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // Whether the maximum limit has been reached
+      // Indicates whether the maximum number is reached.
       shared_ptr<bool> limit_ {};
-      // Maximum number of items
+      // The maximum number of items.
       shared_ptr<int32_t> maxTotalItem_ {};
-      // Total number of items
+      // The total number of items.
       shared_ptr<int32_t> totalItem_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<DescribeMonitorTaskLimitResponseBody::ResultObject> resultObject_ {};
   };
 

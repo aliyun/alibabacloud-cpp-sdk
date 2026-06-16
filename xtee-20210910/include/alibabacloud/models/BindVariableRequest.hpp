@@ -186,43 +186,43 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values: 
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // API region ID
+    // The API region ID.
     shared_ptr<string> apiRegionId_ {};
-    // API type
+    // The API type.
     shared_ptr<string> apiType_ {};
-    // Creation type
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Associated variable definition primary key ID
+    // The primary key ID of the associated variable definition.
     shared_ptr<string> defineId_ {};
-    // Variable definition IDs, can be multiple. If binding multiple IDs, separate them with commas
+    // The variable definition IDs. You can specify multiple IDs separated by commas.
     shared_ptr<string> defineIds_ {};
-    // Description information.
+    // The description.
     shared_ptr<string> description_ {};
-    // Event code
+    // The event code.
     // 
     // This parameter is required.
     shared_ptr<string> eventCode_ {};
-    // Exception value
+    // The exception value.
     shared_ptr<string> exceptionValue_ {};
-    // Variable primary key ID
+    // The primary key ID of the variable.
     shared_ptr<int64_t> id_ {};
-    // Output field path
+    // The output field path.
     shared_ptr<string> outputField_ {};
-    // Output type
+    // The output type.
     shared_ptr<string> outputType_ {};
-    // Binding input parameter information
+    // The input parameter information for the binding.
     shared_ptr<string> params_ {};
-    // Event parameter mapping 2.0, either params or paramsList must not be empty. List, JSON structure
+    // The event parameter mapping 2.0. Either params or paramsList must be non-empty. This is a List JSON structure.
     shared_ptr<string> paramsList_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Variable source
+    // The variable source.
     shared_ptr<string> sourceType_ {};
-    // Title
+    // The title.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};

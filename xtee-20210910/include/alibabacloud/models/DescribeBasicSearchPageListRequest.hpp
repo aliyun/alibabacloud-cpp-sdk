@@ -112,35 +112,35 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Current page number.
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // Query start time, accurate to milliseconds (ms).
+    // The start time of the query, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> eventBeginTime_ {};
-    // Event code.
+    // The event code.
     // 
     // This parameter is required.
     shared_ptr<string> eventCodes_ {};
-    // End time, accurate to milliseconds (ms).
+    // The end time of the query, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> eventEndTime_ {};
-    // Field name
+    // The field name.
     shared_ptr<string> fieldName_ {};
-    // Field value
+    // The field value.
     shared_ptr<string> fieldValue_ {};
-    // Page size, with a default value of 10
+    // The number of entries per page. Default value: 10.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // Region code
+    // The region code.
     // 
     // This parameter is required.
     shared_ptr<string> regId_ {};

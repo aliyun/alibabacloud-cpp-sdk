@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result.
+    // The response result.
     shared_ptr<vector<string>> bizData_ {};
   };
 

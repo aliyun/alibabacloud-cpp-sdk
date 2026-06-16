@@ -88,17 +88,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // This field is currently unused and has no query significance.
+    // This field is currently not in use and has no query significance.
     shared_ptr<string> degree_ {};
-    // End date, format yyyy-MM-dd, e.g., 2025-03-13.
+    // End date in the format yyyy-MM-dd, for example, 2025-03-15.
     shared_ptr<string> endDate_ {};
-    // Set the language type for requests and received messages, default value is **zh**. Values:
+    // Specifies the language type for request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // Request source IP address.
+    // Source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // Start date, format yyyy-MM-dd, e.g., 2025-03-10.
+    // Start date in the format yyyy-MM-dd, for example, 2025-03-10.
     shared_ptr<string> startDate_ {};
   };
 

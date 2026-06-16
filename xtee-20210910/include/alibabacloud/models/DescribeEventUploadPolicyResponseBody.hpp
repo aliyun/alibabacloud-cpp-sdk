@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // ID for accessing OSS
+    // The AccessKey ID used to access OSS.
     shared_ptr<string> accessId_ {};
-    // OSS host.
+    // The OSS host.
     shared_ptr<string> host_ {};
-    // The Key required for file upload.
+    // The key required for file upload.
     shared_ptr<string> key_ {};
-    // OSS security policy
+    // The OSS security policy.
     shared_ptr<string> policy_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Signature data.
+    // The signature data.
     shared_ptr<string> signature_ {};
-    // Temporary identity credential.
+    // The temporary security token.
     shared_ptr<string> stsToken_ {};
   };
 

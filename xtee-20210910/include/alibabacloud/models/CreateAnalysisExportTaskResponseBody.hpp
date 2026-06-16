@@ -151,27 +151,27 @@ namespace Models
 
 
     protected:
-      // Export list.
+      // The export list.
       shared_ptr<string> columns_ {};
-      // Export task conditions.
+      // The conditions of the export task.
       shared_ptr<string> conditions_ {};
-      // Event start time.
+      // The event start time.
       shared_ptr<int64_t> eventBeginTime_ {};
-      // Event code.
+      // The event code.
       shared_ptr<string> eventCodes_ {};
-      // End time.
+      // The end time.
       shared_ptr<int64_t> eventEndTime_ {};
-      // File format.
+      // The file format.
       shared_ptr<string> fileFormat_ {};
-      // OSS-generated key.
+      // The randomly generated OSS key.
       shared_ptr<string> ossKey_ {};
-      // Export task scope.
+      // The scope of the export task.
       shared_ptr<string> scope_ {};
-      // Task status.
+      // The task status.
       shared_ptr<string> status_ {};
-      // Export task type.
+      // The export task type.
       shared_ptr<string> type_ {};
-      // User UID
+      // The user UID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -194,9 +194,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<CreateAnalysisExportTaskResponseBody::ResultObject> resultObject_ {};
   };
 

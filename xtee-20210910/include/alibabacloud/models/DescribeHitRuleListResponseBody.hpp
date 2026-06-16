@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // Number of hits.
+      // The number of hits.
       shared_ptr<int32_t> hitCount_ {};
-      // Strategy name
+      // The policy name.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Response object
+    // The response object.
     shared_ptr<vector<DescribeHitRuleListResponseBody::ResultObject>> resultObject_ {};
   };
 

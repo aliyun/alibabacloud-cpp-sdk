@@ -151,25 +151,25 @@ namespace Models
 
 
     protected:
-      // Business type.
+      // The business type.
       shared_ptr<string> bizType_ {};
-      // Configuration key.
+      // The configuration item key.
       shared_ptr<string> configKey_ {};
-      // Configuration value.
+      // The configuration item value.
       shared_ptr<string> configValue_ {};
-      // Creator.
+      // The creator.
       shared_ptr<string> creator_ {};
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<int64_t> id_ {};
-      // Last modified by.
+      // The last modifier.
       shared_ptr<string> lastModifiedOperator_ {};
-      // Status.
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -220,17 +220,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<vector<DescribeSampleSceneListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of items.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

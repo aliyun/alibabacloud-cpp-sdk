@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // List of device types.
+      // The device type list.
       shared_ptr<vector<string>> deviceTypes_ {};
-      // Event codes.
+      // The event codes.
       shared_ptr<vector<string>> eventCodes_ {};
-      // Configuration language details.
+      // The configuration language details.
       shared_ptr<vector<string>> languages_ {};
-      // Server region
+      // The server regions.
       shared_ptr<vector<string>> serverRegions_ {};
     };
 
@@ -125,9 +125,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeSafStartConfigResponseBody::ResultObject> resultObject_ {};
   };
 

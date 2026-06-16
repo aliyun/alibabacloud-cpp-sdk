@@ -106,17 +106,17 @@ namespace Models
 
 
     protected:
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Whether it is a default column.
+      // Indicates whether the column is a default column.
       shared_ptr<bool> isDefault_ {};
-      // Variable name.
+      // The variable name.
       shared_ptr<string> variableName_ {};
-      // Variable title.
+      // The variable name.
       shared_ptr<string> variableTitle_ {};
-      // Variable type.
+      // The variable type.
       shared_ptr<string> variableType_ {};
     };
 
@@ -139,9 +139,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeAnalysisColumnListResponseBody::ResultObject>> resultObject_ {};
   };
 

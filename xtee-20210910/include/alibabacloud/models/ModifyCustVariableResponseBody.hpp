@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // Failure type
+      // The failure type.
       shared_ptr<string> failType_ {};
-      // Detailed information.
+      // The detailed information.
       shared_ptr<string> message_ {};
-      // Whether the operation was successful
+      // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<ModifyCustVariableResponseBody::ResultObject>> resultObject_ {};
   };
 

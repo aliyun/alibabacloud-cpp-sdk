@@ -114,17 +114,17 @@ namespace Models
 
 
     protected:
-      // Execution status.
+      // The execution status.
       shared_ptr<string> status_ {};
-      // Today\\"s count
+      // The count for today.
       shared_ptr<int64_t> todayNum_ {};
-      // Count within the last seven days
+      // The count for the last seven days.
       shared_ptr<string> withinSevenDayNum_ {};
-      // Count within the last thirty days
+      // The count for the last thirty days.
       shared_ptr<string> withinThirtyDayNum_ {};
-      // Count within the last three days
+      // The count for the last three days.
       shared_ptr<string> withinThreeDayNum_ {};
-      // Yesterday\\"s count
+      // The count for yesterday.
       shared_ptr<int64_t> yesterdayNum_ {};
     };
 
@@ -175,17 +175,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error details
+    // The error details.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeDecisionResultFluctuationResponseBody::ResultObject>> resultObject_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Primary key ID
+    // The primary key ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Region code
+    // The region encoding.
     shared_ptr<string> regId_ {};
   };
 

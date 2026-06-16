@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // Number of colored groups
+      // The number of tainted groups.
       shared_ptr<int32_t> communityCount_ {};
-      // Number of failed samples
+      // The number of failed data samples.
       shared_ptr<int32_t> failCount_ {};
-      // Recall probability
+      // The recall probability.
       shared_ptr<string> recallProbability_ {};
-      // Risk density
+      // The risk density.
       shared_ptr<string> riskDensity_ {};
-      // Number of samples
+      // The number of data samples.
       shared_ptr<int32_t> sampleCount_ {};
-      // Number of successful samples
+      // The number of successful data samples.
       shared_ptr<int32_t> successCount_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<CreateSampleResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Creation type
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Event code
+    // The event code.
     shared_ptr<string> eventCode_ {};
-    // Event name.
+    // The event name.
     shared_ptr<string> eventName_ {};
-    // Event status.
+    // The event status.
     shared_ptr<string> eventStatus_ {};
-    // Page size, with a default value of 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
   };
 

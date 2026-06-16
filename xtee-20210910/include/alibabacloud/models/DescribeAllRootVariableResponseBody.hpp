@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // Maximum value
+        // The maximum value.
         shared_ptr<double> maxValue_ {};
-        // Minimum value.
+        // The minimum value.
         shared_ptr<double> minValue_ {};
       };
 
@@ -226,33 +226,33 @@ namespace Models
 
 
     protected:
-      // Variable code
+      // The variable code.
       shared_ptr<string> code_ {};
-      // Variable description.
+      // The variable description.
       shared_ptr<string> description_ {};
-      // Display type and group label
+      // The display type and group label.
       shared_ptr<string> displayType_ {};
-      // Favorite flag
+      // The favorite flag.
       shared_ptr<bool> favoriteFlag_ {};
-      // Field ranking
+      // The field sorting order.
       shared_ptr<int64_t> fieldRank_ {};
-      // Field type.
+      // The field type.
       shared_ptr<string> fieldType_ {};
-      // Variable ID.
+      // The variable ID.
       shared_ptr<int64_t> id_ {};
-      // Input field type.
+      // The input type of the parameter.
       shared_ptr<string> inputFieldType_ {};
-      // Variable input.
+      // The inputs of the variable.
       shared_ptr<string> inputs_ {};
-      // Variable name.
+      // The variable name.
       shared_ptr<string> name_ {};
-      // Maximum cross-sectional area of the checkbox.
+      // The maximum cross-sectional area of the check box.
       shared_ptr<ResultObject::OutputThreshold> outputThreshold_ {};
-      // Data source
+      // The data source.
       shared_ptr<string> sourceType_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // Variable type.
+      // The variable type.
       shared_ptr<string> type_ {};
     };
 
@@ -275,9 +275,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeAllRootVariableResponseBody::ResultObject>> resultObject_ {};
   };
 

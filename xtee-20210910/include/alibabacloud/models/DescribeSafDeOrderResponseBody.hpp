@@ -102,16 +102,16 @@ namespace Models
 
 
       protected:
-        // Expiration date (timestamp).
+        // The expiration date (timestamp).
         shared_ptr<int64_t> expirationDate_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> region_ {};
-        // Specification model:
+        // The specification type:
         // 
-        // 1: Basic Edition 
-        // 2: Advanced Edition 
-        // 3: Premium Edition 
-        // 4: Flagship Edition
+        //  1: Basic Edition
+        //  2: Advanced Edition
+        //  3: Premium Edition
+        //  4: Ultimate Edition.
         shared_ptr<int32_t> specification_ {};
       };
 
@@ -141,15 +141,15 @@ namespace Models
 
 
     protected:
-      // Expiration time
+      // The expiration time.
       shared_ptr<int64_t> expirationDate_ {};
-      // Based on the product type subscribed by the customer, the console permissions are divided into three categories:
+      // The console permissions are classified into three categories based on the commodity type activated by the customer:
       // 
-      //      1. New Customer: Has not purchased/subscribed to any service.
-      //      2. Old Customer (Subscription): Customers who have purchased the SAF product.
-      //      3. Pay-As-You-Go: Customers who have purchased the SAF_BAG product or activated SAF_POS.
+      //      1. New customer: has not purchased or activated any service.
+      //      2. Existing customer (subscription): has purchased the saf commodity.
+      //      3. Pay-as-you-go: has purchased the saf_bag commodity or activated saf_pos.
       shared_ptr<int32_t> openUserType_ {};
-      // Activated region permission addresses.
+      // The activated region permission addresses.
       shared_ptr<vector<ResultObject::Regions>> regions_ {};
     };
 
@@ -172,9 +172,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<DescribeSafDeOrderResponseBody::ResultObject> resultObject_ {};
   };
 

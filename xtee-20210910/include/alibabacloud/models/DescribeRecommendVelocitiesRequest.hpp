@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and responses, with a default value of **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Metric code
+    // The metric code.
     shared_ptr<string> code_ {};
-    // Region ID
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Metric type
+    // The metric type.
     shared_ptr<string> type_ {};
   };
 

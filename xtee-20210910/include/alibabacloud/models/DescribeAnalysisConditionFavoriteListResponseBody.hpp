@@ -134,23 +134,23 @@ namespace Models
 
 
     protected:
-      // Condition value.
+      // The condition value.
       shared_ptr<string> condition_ {};
-      // Event start timestamp.
+      // The event start timestamp.
       shared_ptr<int64_t> eventBeginTime_ {};
-      // Event codes.
+      // The event code.
       shared_ptr<string> eventCodes_ {};
-      // Event end time.
+      // The event end timestamp.
       shared_ptr<int64_t> eventEndTime_ {};
-      // Field name.
+      // The field name.
       shared_ptr<string> fieldName_ {};
-      // Field value.
+      // The field value.
       shared_ptr<string> fieldValue_ {};
-      // Primary key ID
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Condition name
+      // The condition name.
       shared_ptr<string> name_ {};
-      // Type, BASIC: Basic query, ADVANCE: Advanced query, BATCH: Batch query
+      // The type. Valid values: BASIC: basic query. ADVANCE: advanced query. BATCH: batch query.
       shared_ptr<string> type_ {};
     };
 
@@ -173,9 +173,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<vector<DescribeAnalysisConditionFavoriteListResponseBody::ResultObject>> resultObject_ {};
   };
 

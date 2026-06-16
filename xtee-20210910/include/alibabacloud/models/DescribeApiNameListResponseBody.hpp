@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // API ID.
+      // The API ID.
       shared_ptr<string> apiId_ {};
-      // API name.
+      // The API name.
       shared_ptr<string> apiName_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeApiNameListResponseBody::ResultObject>> resultObject_ {};
   };
 

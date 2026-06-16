@@ -256,49 +256,49 @@ namespace Models
 
 
     protected:
-      // Audit ID
+      // The approval ID.
       shared_ptr<int64_t> auditId_ {};
-      // Authorization type
+      // The authorization type.
       shared_ptr<string> authType_ {};
-      // Authorized user UID
+      // The UID of the authorized user.
       shared_ptr<string> authUsers_ {};
-      // Primary key ID of the strategy
+      // The primary key ID of the policy.
       shared_ptr<int64_t> consoleRuleId_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Execution logic
+      // The execution logic.
       shared_ptr<string> logicExpression_ {};
-      // Description
+      // The description.
       shared_ptr<string> memo_ {};
-      // Rule priority, the higher the number, the higher the priority.
+      // The policy priority. A larger value indicates a higher priority.
       shared_ptr<int64_t> priority_ {};
-      // Returned rule action structure.
+      // The returned rule action struct.
       shared_ptr<map<string, string>> ruleActionMap_ {};
-      // Output actions
+      // The output actions.
       shared_ptr<string> ruleActions_ {};
-      // Rule authorization type
+      // The policy type.
       shared_ptr<string> ruleAuthType_ {};
-      // Rule expressions.
+      // The rule expressions.
       shared_ptr<string> ruleExpressions_ {};
-      // Strategy ID
+      // The policy ID.
       shared_ptr<string> ruleId_ {};
-      // Strategy name
+      // The policy name.
       shared_ptr<string> ruleName_ {};
-      // Strategy status
+      // The policy status.
       shared_ptr<string> ruleStatus_ {};
-      // Rule type
+      // The policy type.
       shared_ptr<string> ruleType_ {};
-      // Primary key ID of the strategy version
+      // The primary key ID of the policy version.
       shared_ptr<int64_t> ruleVersionId_ {};
-      // Template type
+      // The template type.
       shared_ptr<string> templateType_ {};
-      // Version number
+      // The version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -321,9 +321,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<QueryAuthRuleDetailByRuleIdResponseBody::ResultObject> resultObject_ {};
   };
 

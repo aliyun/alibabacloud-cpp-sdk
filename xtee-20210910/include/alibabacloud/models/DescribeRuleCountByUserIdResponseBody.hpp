@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // Whether the limit condition is reached. Values: -**true**: Yes-**false**: No
+      // Indicates whether the limit condition is reached. Valid values: - **true**: The limit condition is reached. - **false**: The limit condition is not reached.
       shared_ptr<bool> limit_ {};
-      // Maximum number of items
+      // The maximum number of entries.
       shared_ptr<int32_t> maxTotalItem_ {};
-      // Total number of items
+      // The total number of entries.
       shared_ptr<int32_t> totalItem_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<DescribeRuleCountByUserIdResponseBody::ResultObject> resultObject_ {};
   };
 

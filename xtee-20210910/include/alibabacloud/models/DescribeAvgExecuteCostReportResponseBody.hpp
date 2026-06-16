@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Comparison with yesterday\\"s average execution time
+      // The day-over-day ratio compared to yesterday\\"s average execution duration.
       shared_ptr<string> ratio_ {};
-      // Today\\"s average execution time
+      // The average execution duration for today.
       shared_ptr<string> value_ {};
     };
 
@@ -131,17 +131,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeAvgExecuteCostReportResponseBody::ResultObject>> resultObject_ {};
-    // Whether the call was successful
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

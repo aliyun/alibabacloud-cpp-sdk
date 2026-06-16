@@ -64,7 +64,7 @@ namespace Models
   protected:
     // Service category names.
     shared_ptr<vector<string>> categories_ {};
-    // Returned data.
+    // Response data.
     shared_ptr<vector<string>> data_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};

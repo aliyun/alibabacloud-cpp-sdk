@@ -142,31 +142,30 @@ namespace Models
 
 
     protected:
-      // Completion time, in milliseconds.
+      // The completion time. Unit: milliseconds.
       shared_ptr<int64_t> completionTime_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<int64_t> id_ {};
-      // Total number of mark information.
+      // The total number of mark entries.
       shared_ptr<int32_t> mark_ {};
-      // Remark.
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // Scene name
+      // The scenario name.
       shared_ptr<string> sceneName_ {};
-      // Data status.
-      // 
-      // -1: Failed
-      // 0: Deleted
-      // 1: Pending
-      // 2: Success
+      // The data status. Valid values:
+      // - -1: Failed.
+      // - 0: Deleted.
+      // - 1: Pending.
+      // - 2: Succeeded.
       shared_ptr<string> status_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<int64_t> taskLogId_ {};
-      // Task type
-      // 1: Data upload
-      // 2: Supplemental upload
-      // 3: Labeling
+      // The task type. Valid values:
+      // - 1: data upload
+      // - 2: supplementary upload
+      // - 3: labeling.
       shared_ptr<string> taskType_ {};
     };
 
@@ -217,17 +216,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, with a default value of 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeTaskListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

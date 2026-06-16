@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // Current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // Language of error messages returned by the API. Valid values: zh: Chinese. en: English. Default value: en.
     shared_ptr<string> lang_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Area code.
     shared_ptr<string> regId_ {};
+    // Sample name.
     shared_ptr<string> sampleName_ {};
+    // Scenario.
     shared_ptr<string> tab_ {};
+    // Access type.
     shared_ptr<string> type_ {};
+    // Upload end time.
     shared_ptr<string> uploadTimeEnd_ {};
+    // Upload start time.
     shared_ptr<string> uploadTimeStart_ {};
   };
 

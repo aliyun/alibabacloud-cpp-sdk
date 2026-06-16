@@ -122,17 +122,17 @@ namespace Models
 
 
     protected:
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Number of passed checks.
+      // The number of entries that passed the check.
       shared_ptr<int64_t> passNum_ {};
-      // Number of pending items.
+      // The number of pending entries.
       shared_ptr<int64_t> pendingNum_ {};
-      // Number of rejected approvals.
+      // The number of entries rejected during approval.
       shared_ptr<int64_t> rejectNum_ {};
-      // Total number of items.
+      // The total number of entries.
       shared_ptr<int64_t> totalNum_ {};
     };
 
@@ -212,25 +212,25 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error details
+    // The error details.
     shared_ptr<string> message_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeEventResultListResponseBody::ResultObject>> resultObject_ {};
-    // Whether the query was successful.
+    // Indicates whether the query was successful.
     shared_ptr<bool> success_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int64_t> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

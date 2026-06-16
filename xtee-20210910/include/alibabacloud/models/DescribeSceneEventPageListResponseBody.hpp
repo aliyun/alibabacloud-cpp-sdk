@@ -151,25 +151,25 @@ namespace Models
 
 
     protected:
-      // Number of common rules
+      // The number of General Policy rules.
       shared_ptr<string> commonRuleCount_ {};
-      // Number of custom rules
+      // The number of custom policies.
       shared_ptr<string> customRuleCount_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Modification time
+      // The time when the event was last modified.
       shared_ptr<string> gmtModified_ {};
-      // Modifier
+      // The user who last modified the event.
       shared_ptr<string> modifier_ {};
-      // Number of custom rules
+      // The number of user-defined policies.
       shared_ptr<string> normalRuleCount_ {};
-      // Service code
+      // The service code.
       shared_ptr<string> service_ {};
-      // Usage status
+      // The usage status.
       shared_ptr<string> useStatus_ {};
-      // Number of white-box rules
+      // The number of whitebox implementation policies.
       shared_ptr<string> whiteBoxRuleCount_ {};
     };
 
@@ -220,17 +220,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Number of items per page. Default value: 20, minimum value: 1, maximum value: 50.
+    // The number of entries per page in the response. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID, each request has a unique value, which facilitates subsequent troubleshooting
+    // The request ID. Each request has a unique ID for troubleshooting purposes.
     shared_ptr<string> requestId_ {};
-    // Return array
+    // The returned array.
     shared_ptr<vector<DescribeSceneEventPageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -86,11 +86,11 @@ namespace Models
 
 
     protected:
-      // Whether it exceeds the maximum number
+      // Indicates whether the maximum number is exceeded.
       shared_ptr<bool> limit_ {};
-      // Maximum creation count
+      // The maximum number of items that can be created.
       shared_ptr<int32_t> maxTotalItem_ {};
-      // Total count
+      // The total number of items.
       shared_ptr<int32_t> totalItem_ {};
     };
 
@@ -141,17 +141,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error details
+    // The error details.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeEventCountResponseBody::ResultObject> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

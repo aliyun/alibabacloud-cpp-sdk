@@ -80,7 +80,7 @@ namespace Models
     protected:
       // Download URL.
       shared_ptr<string> downloadFileUrl_ {};
-      // Download execution time
+      // Download execution time.
       shared_ptr<int64_t> executeTime_ {};
       // Task status.
       shared_ptr<string> status_ {};
@@ -107,7 +107,7 @@ namespace Models
   protected:
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // Response object.
     shared_ptr<DescribeAnalysisExportTaskDownloadUrlResponseBody::ResultObject> resultObject_ {};
   };
 

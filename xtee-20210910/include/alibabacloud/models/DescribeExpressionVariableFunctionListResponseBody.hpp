@@ -125,21 +125,21 @@ namespace Models
 
 
     protected:
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Function name
+      // The function name.
       shared_ptr<string> key_ {};
-      // Maximum number of parameters
+      // The maximum number of input parameters.
       shared_ptr<int64_t> maxParamSize_ {};
-      // Minimum number of parameters
+      // The minimum number of input parameters.
       shared_ptr<int64_t> minParamSize_ {};
-      // Parameter types
+      // The input parameter types.
       shared_ptr<string> paramTypes_ {};
-      // Whether it is directly invoked
+      // Indicates whether the function is directly invoked.
       shared_ptr<bool> redirect_ {};
-      // Method return types
+      // The return type of the method.
       shared_ptr<string> returnTypes_ {};
-      // Function value
+      // The function value.
       shared_ptr<string> value_ {};
     };
 
@@ -162,9 +162,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeExpressionVariableFunctionListResponseBody::ResultObject>> resultObject_ {};
   };
 

@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and responses, with a default value of **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language type for the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Order.
+    // The sort order.
     shared_ptr<string> direction_ {};
-    // Sorting condition.
+    // The sort condition.
     shared_ptr<string> order_ {};
-    // Page size, with a default value of 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Task ID.
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // Time type.
+    // The time type.
     shared_ptr<string> timeType_ {};
   };
 

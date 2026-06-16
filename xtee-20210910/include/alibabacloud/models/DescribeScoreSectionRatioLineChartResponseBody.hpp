@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // Chart data list
+        // The chart data list.
         shared_ptr<vector<string>> data_ {};
       };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
       protected:
-        // Chart data list
+        // The chart data list.
         shared_ptr<vector<string>> data_ {};
-        // Statistical dimension.
+        // The statistical dimension.
         shared_ptr<string> name_ {};
       };
 
@@ -154,7 +154,7 @@ namespace Models
 
 
     protected:
-      // Data list
+      // The data list.
       shared_ptr<vector<ResultObject::Series>> series_ {};
       // Details of the xaxis node.
       shared_ptr<ResultObject::Xaxis> xaxis_ {};
@@ -179,9 +179,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<DescribeScoreSectionRatioLineChartResponseBody::ResultObject> resultObject_ {};
   };
 

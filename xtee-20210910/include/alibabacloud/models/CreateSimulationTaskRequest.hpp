@@ -130,39 +130,39 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
+    // The language type for the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Data source configuration
+    // The datasource config.
     shared_ptr<string> dataSourceConfig_ {};
-    // Data source type
+    // The data source type.
     shared_ptr<string> dataSourceType_ {};
-    // End time, accurate to milliseconds (ms).
+    // The end time, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // Event code
+    // The event code.
     // 
     // This parameter is required.
     shared_ptr<string> eventCode_ {};
-    // Filters
+    // The filter.
     shared_ptr<string> filtersStr_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Rules list
+    // The list of policies.
     // 
     // This parameter is required.
     shared_ptr<string> rulesStr_ {};
-    // Whether to run the task directly
+    // Specifies whether to run the task immediately.
     // 
     // This parameter is required.
     shared_ptr<bool> runTask_ {};
-    // Start time, accurate to milliseconds (ms).
+    // The start time, in milliseconds (ms).
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // Task name
+    // The task name.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

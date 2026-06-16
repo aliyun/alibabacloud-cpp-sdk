@@ -152,27 +152,27 @@ namespace Models
 
 
     protected:
-      // Variable code
+      // The variable code.
       shared_ptr<string> code_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Display type and grouping label
+      // The display type and group label.
       shared_ptr<string> displayType_ {};
-      // Variable return value type
+      // The return value type of the variable.
       shared_ptr<int64_t> fieldRank_ {};
-      // Field table sorting
+      // The field table sorting.
       shared_ptr<string> fieldType_ {};
-      // Primary key ID
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Variable name
+      // The variable name.
       shared_ptr<string> name_ {};
-      // Parent node
+      // The parent node.
       shared_ptr<string> parentName_ {};
-      // Data source
+      // The data source.
       shared_ptr<string> sourceType_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // Variable type
+      // The variable type.
       shared_ptr<string> type_ {};
     };
 
@@ -195,9 +195,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeAdvanceSearchLeftVariableListResponseBody::ResultObject>> resultObject_ {};
   };
 

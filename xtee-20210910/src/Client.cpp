@@ -286,7 +286,7 @@ BatchDeleteSampleDataResponse Client::batchDeleteSampleData(const BatchDeleteSam
 }
 
 /**
- * @summary Variable binding operation
+ * @summary Performs a variable binding operation.
  *
  * @param request BindVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -381,7 +381,7 @@ BindVariableResponse Client::bindVariableWithOptions(const BindVariableRequest &
 }
 
 /**
- * @summary Variable binding operation
+ * @summary Performs a variable binding operation.
  *
  * @param request BindVariableRequest
  * @return BindVariableResponse
@@ -392,7 +392,7 @@ BindVariableResponse Client::bindVariable(const BindVariableRequest &request) {
 }
 
 /**
- * @summary 创建任务组
+ * @summary Create a task group
  *
  * @param request CancelSubTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -435,7 +435,7 @@ CancelSubTaskResponse Client::cancelSubTaskWithOptions(const CancelSubTaskReques
 }
 
 /**
- * @summary 创建任务组
+ * @summary Create a task group
  *
  * @param request CancelSubTaskRequest
  * @return CancelSubTaskResponse
@@ -508,7 +508,7 @@ CheckCopyRuleVariableResponse Client::checkCopyRuleVariable(const CheckCopyRuleV
 }
 
 /**
- * @summary Check if the cumulative number of variables exceeds the limit
+ * @summary Checks whether the number of cumulative variables exceeds the limit.
  *
  * @param request CheckCustVariableLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -547,7 +547,7 @@ CheckCustVariableLimitResponse Client::checkCustVariableLimitWithOptions(const C
 }
 
 /**
- * @summary Check if the cumulative number of variables exceeds the limit
+ * @summary Checks whether the number of cumulative variables exceeds the limit.
  *
  * @param request CheckCustVariableLimitRequest
  * @return CheckCustVariableLimitResponse
@@ -558,7 +558,7 @@ CheckCustVariableLimitResponse Client::checkCustVariableLimit(const CheckCustVar
 }
 
 /**
- * @summary Check if Creating Variables Exceeds the Limit
+ * @summary Checks whether creating a variable exceeds the upper limit.
  *
  * @param request CheckExpressionVariableLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +593,7 @@ CheckExpressionVariableLimitResponse Client::checkExpressionVariableLimitWithOpt
 }
 
 /**
- * @summary Check if Creating Variables Exceeds the Limit
+ * @summary Checks whether creating a variable exceeds the upper limit.
  *
  * @param request CheckExpressionVariableLimitRequest
  * @return CheckExpressionVariableLimitResponse
@@ -604,7 +604,7 @@ CheckExpressionVariableLimitResponse Client::checkExpressionVariableLimit(const 
 }
 
 /**
- * @summary Check if the number of fields exceeds the limit
+ * @summary Checks whether the number of fields exceeds the specified limit.
  *
  * @param request CheckFieldLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -643,7 +643,7 @@ CheckFieldLimitResponse Client::checkFieldLimitWithOptions(const CheckFieldLimit
 }
 
 /**
- * @summary Check if the number of fields exceeds the limit
+ * @summary Checks whether the number of fields exceeds the specified limit.
  *
  * @param request CheckFieldLimitRequest
  * @return CheckFieldLimitResponse
@@ -654,7 +654,7 @@ CheckFieldLimitResponse Client::checkFieldLimit(const CheckFieldLimitRequest &re
 }
 
 /**
- * @summary 样本名称唯一性校验
+ * @summary Validate sample name uniqueness
  *
  * @param request CheckSampleNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +693,7 @@ CheckSampleNameResponse Client::checkSampleNameWithOptions(const CheckSampleName
 }
 
 /**
- * @summary 样本名称唯一性校验
+ * @summary Validate sample name uniqueness
  *
  * @param request CheckSampleNameRequest
  * @return CheckSampleNameResponse
@@ -704,7 +704,7 @@ CheckSampleNameResponse Client::checkSampleName(const CheckSampleNameRequest &re
 }
 
 /**
- * @summary 任务组名称唯一性校验
+ * @summary Validate the uniqueness of the task group name
  *
  * @param request CheckTaskGroupNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -743,7 +743,7 @@ CheckTaskGroupNameResponse Client::checkTaskGroupNameWithOptions(const CheckTask
 }
 
 /**
- * @summary 任务组名称唯一性校验
+ * @summary Validate the uniqueness of the task group name
  *
  * @param request CheckTaskGroupNameRequest
  * @return CheckTaskGroupNameResponse
@@ -754,7 +754,7 @@ CheckTaskGroupNameResponse Client::checkTaskGroupName(const CheckTaskGroupNameRe
 }
 
 /**
- * @summary Validate Variable Reference
+ * @summary Checks variable references.
  *
  * @param request CheckUsageVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -793,7 +793,7 @@ CheckUsageVariableResponse Client::checkUsageVariableWithOptions(const CheckUsag
 }
 
 /**
- * @summary Validate Variable Reference
+ * @summary Checks variable references.
  *
  * @param request CheckUsageVariableRequest
  * @return CheckUsageVariableResponse
@@ -920,7 +920,7 @@ CompareRuleResponse Client::compareRule(const CompareRuleRequest &request) {
 }
 
 /**
- * @summary Add Query Conditions
+ * @summary Creates a query condition.
  *
  * @param request CreateAnalysisConditionFavoriteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -987,7 +987,7 @@ CreateAnalysisConditionFavoriteResponse Client::createAnalysisConditionFavoriteW
 }
 
 /**
- * @summary Add Query Conditions
+ * @summary Creates a query condition.
  *
  * @param request CreateAnalysisConditionFavoriteRequest
  * @return CreateAnalysisConditionFavoriteResponse
@@ -998,7 +998,7 @@ CreateAnalysisConditionFavoriteResponse Client::createAnalysisConditionFavorite(
 }
 
 /**
- * @summary Create Export Task
+ * @summary Creates an export task.
  *
  * @param request CreateAnalysisExportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1073,7 +1073,7 @@ CreateAnalysisExportTaskResponse Client::createAnalysisExportTaskWithOptions(con
 }
 
 /**
- * @summary Create Export Task
+ * @summary Creates an export task.
  *
  * @param request CreateAnalysisExportTaskRequest
  * @return CreateAnalysisExportTaskResponse
@@ -1084,7 +1084,7 @@ CreateAnalysisExportTaskResponse Client::createAnalysisExportTask(const CreateAn
 }
 
 /**
- * @summary Create AppKey
+ * @summary Create an AppKey.
  *
  * @param request CreateAppKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1119,7 +1119,7 @@ CreateAppKeyResponse Client::createAppKeyWithOptions(const CreateAppKeyRequest &
 }
 
 /**
- * @summary Create AppKey
+ * @summary Create an AppKey.
  *
  * @param request CreateAppKeyRequest
  * @return CreateAppKeyResponse
@@ -1130,7 +1130,7 @@ CreateAppKeyResponse Client::createAppKey(const CreateAppKeyRequest &request) {
 }
 
 /**
- * @summary Create Accumulative Variable
+ * @summary Creates a cumulative variable.
  *
  * @param request CreateCustVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1217,7 @@ CreateCustVariableResponse Client::createCustVariableWithOptions(const CreateCus
 }
 
 /**
- * @summary Create Accumulative Variable
+ * @summary Creates a cumulative variable.
  *
  * @param request CreateCustVariableRequest
  * @return CreateCustVariableResponse
@@ -1228,7 +1228,7 @@ CreateCustVariableResponse Client::createCustVariable(const CreateCustVariableRe
 }
 
 /**
- * @summary Add Data Source
+ * @summary Creates a data source.
  *
  * @param request CreateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1279,7 +1279,7 @@ CreateDataSourceResponse Client::createDataSourceWithOptions(const CreateDataSou
 }
 
 /**
- * @summary Add Data Source
+ * @summary Creates a data source.
  *
  * @param request CreateDataSourceRequest
  * @return CreateDataSourceResponse
@@ -1290,7 +1290,7 @@ CreateDataSourceResponse Client::createDataSource(const CreateDataSourceRequest 
 }
 
 /**
- * @summary Create Event
+ * @summary Creates an event.
  *
  * @param request CreateEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1353,7 +1353,7 @@ CreateEventResponse Client::createEventWithOptions(const CreateEventRequest &req
 }
 
 /**
- * @summary Create Event
+ * @summary Creates an event.
  *
  * @param request CreateEventRequest
  * @return CreateEventResponse
@@ -1364,7 +1364,7 @@ CreateEventResponse Client::createEvent(const CreateEventRequest &request) {
 }
 
 /**
- * @summary Create Custom Variable
+ * @summary Creates a custom variable.
  *
  * @param request CreateExpressionVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1431,7 @@ CreateExpressionVariableResponse Client::createExpressionVariableWithOptions(con
 }
 
 /**
- * @summary Create Custom Variable
+ * @summary Creates a custom variable.
  *
  * @param request CreateExpressionVariableRequest
  * @return CreateExpressionVariableResponse
@@ -1442,7 +1442,7 @@ CreateExpressionVariableResponse Client::createExpressionVariable(const CreateEx
 }
 
 /**
- * @summary Add New Field
+ * @summary Creates a field.
  *
  * @param request CreateFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1505,7 +1505,7 @@ CreateFieldResponse Client::createFieldWithOptions(const CreateFieldRequest &req
 }
 
 /**
- * @summary Add New Field
+ * @summary Creates a field.
  *
  * @param request CreateFieldRequest
  * @return CreateFieldResponse
@@ -1516,7 +1516,7 @@ CreateFieldResponse Client::createField(const CreateFieldRequest &request) {
 }
 
 /**
- * @summary 创建样本记录对客
+ * @summary Create a sample record for the customer.
  *
  * @param request CreateForeignPocSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1567,7 +1567,7 @@ CreateForeignPocSampleResponse Client::createForeignPocSampleWithOptions(const C
 }
 
 /**
- * @summary 创建样本记录对客
+ * @summary Create a sample record for the customer.
  *
  * @param request CreateForeignPocSampleRequest
  * @return CreateForeignPocSampleResponse
@@ -1738,7 +1738,7 @@ CreateModelResponse Client::createModel(const CreateModelRequest &request) {
 }
 
 /**
- * @summary Create POC
+ * @summary Creates a POC.
  *
  * @param request CreatePocEvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1809,7 +1809,7 @@ CreatePocEvResponse Client::createPocEvWithOptions(const CreatePocEvRequest &req
 }
 
 /**
- * @summary Create POC
+ * @summary Creates a POC.
  *
  * @param request CreatePocEvRequest
  * @return CreatePocEvResponse
@@ -1820,7 +1820,7 @@ CreatePocEvResponse Client::createPocEv(const CreatePocEvRequest &request) {
 }
 
 /**
- * @summary 创建样本记录
+ * @summary Create a sample record
  *
  * @param request CreatePocSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1879,7 +1879,7 @@ CreatePocSampleResponse Client::createPocSampleWithOptions(const CreatePocSample
 }
 
 /**
- * @summary 创建样本记录
+ * @summary Create a sample record
  *
  * @param request CreatePocSampleRequest
  * @return CreatePocSampleResponse
@@ -1890,7 +1890,7 @@ CreatePocSampleResponse Client::createPocSample(const CreatePocSampleRequest &re
 }
 
 /**
- * @summary Add New Custom Query Variable
+ * @summary Creates a custom query variable.
  *
  * @param request CreateQueryVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1961,7 +1961,7 @@ CreateQueryVariableResponse Client::createQueryVariableWithOptions(const CreateQ
 }
 
 /**
- * @summary Add New Custom Query Variable
+ * @summary Creates a custom query variable.
  *
  * @param request CreateQueryVariableRequest
  * @return CreateQueryVariableResponse
@@ -1972,7 +1972,7 @@ CreateQueryVariableResponse Client::createQueryVariable(const CreateQueryVariabl
 }
 
 /**
- * @summary Create Recommended Event Strategy
+ * @summary Creates a recommended event policy.
  *
  * @param request CreateRecommendEventRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2023,7 +2023,7 @@ CreateRecommendEventRuleResponse Client::createRecommendEventRuleWithOptions(con
 }
 
 /**
- * @summary Create Recommended Event Strategy
+ * @summary Creates a recommended event policy.
  *
  * @param request CreateRecommendEventRuleRequest
  * @return CreateRecommendEventRuleResponse
@@ -2034,7 +2034,7 @@ CreateRecommendEventRuleResponse Client::createRecommendEventRule(const CreateRe
 }
 
 /**
- * @summary Create Recommendation Task
+ * @summary Creates a recommendation task.
  *
  * @param request CreateRecommendTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2085,7 +2085,7 @@ CreateRecommendTaskResponse Client::createRecommendTaskWithOptions(const CreateR
 }
 
 /**
- * @summary Create Recommendation Task
+ * @summary Creates a recommendation task.
  *
  * @param request CreateRecommendTaskRequest
  * @return CreateRecommendTaskResponse
@@ -2096,7 +2096,7 @@ CreateRecommendTaskResponse Client::createRecommendTask(const CreateRecommendTas
 }
 
 /**
- * @summary Create Policy & Version
+ * @summary Creates a policy and version.
  *
  * @param request CreateRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2179,7 +2179,7 @@ CreateRuleResponse Client::createRuleWithOptions(const CreateRuleRequest &reques
 }
 
 /**
- * @summary Create Policy & Version
+ * @summary Creates a policy and version.
  *
  * @param request CreateRuleRequest
  * @return CreateRuleResponse
@@ -2190,7 +2190,7 @@ CreateRuleResponse Client::createRule(const CreateRuleRequest &request) {
 }
 
 /**
- * @summary Add Sample
+ * @summary Adds a data sample.
  *
  * @param request CreateSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2253,7 +2253,7 @@ CreateSampleResponse Client::createSampleWithOptions(const CreateSampleRequest &
 }
 
 /**
- * @summary Add Sample
+ * @summary Adds a data sample.
  *
  * @param request CreateSampleRequest
  * @return CreateSampleResponse
@@ -2264,7 +2264,7 @@ CreateSampleResponse Client::createSample(const CreateSampleRequest &request) {
 }
 
 /**
- * @summary User-level Single API to Create Sample Batches
+ * @summary Creates a sample batch for a single API at the user level.
  *
  * @param request CreateSampleApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2315,7 +2315,7 @@ CreateSampleApiResponse Client::createSampleApiWithOptions(const CreateSampleApi
 }
 
 /**
- * @summary User-level Single API to Create Sample Batches
+ * @summary Creates a sample batch for a single API at the user level.
  *
  * @param request CreateSampleApiRequest
  * @return CreateSampleApiResponse
@@ -2400,7 +2400,7 @@ CreateSampleBatchResponse Client::createSampleBatch(const CreateSampleBatchReque
 }
 
 /**
- * @summary Create Sample Data
+ * @summary Creates sample data.
  *
  * @param request CreateSampleDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2463,7 +2463,7 @@ CreateSampleDataResponse Client::createSampleDataWithOptions(const CreateSampleD
 }
 
 /**
- * @summary Create Sample Data
+ * @summary Creates sample data.
  *
  * @param request CreateSampleDataRequest
  * @return CreateSampleDataResponse
@@ -2474,7 +2474,7 @@ CreateSampleDataResponse Client::createSampleData(const CreateSampleDataRequest 
 }
 
 /**
- * @summary Create Task
+ * @summary Creates a task.
  *
  * @param request CreateSimulationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2545,7 +2545,7 @@ CreateSimulationTaskResponse Client::createSimulationTaskWithOptions(const Creat
 }
 
 /**
- * @summary Create Task
+ * @summary Creates a task.
  *
  * @param request CreateSimulationTaskRequest
  * @return CreateSimulationTaskResponse
@@ -2556,7 +2556,7 @@ CreateSimulationTaskResponse Client::createSimulationTask(const CreateSimulation
 }
 
 /**
- * @summary 取消子任务
+ * @summary Cancels a subtask.
  *
  * @param request CreateTaskGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2583,6 +2583,10 @@ CreateTaskGroupResponse Client::createTaskGroupWithOptions(const CreateTaskGroup
 
   if (!!request.hasServiceCodes()) {
     query["ServiceCodes"] = request.getServiceCodes();
+  }
+
+  if (!!request.hasServiceList()) {
+    query["ServiceList"] = request.getServiceList();
   }
 
   if (!!request.hasServiceNames()) {
@@ -2619,7 +2623,7 @@ CreateTaskGroupResponse Client::createTaskGroupWithOptions(const CreateTaskGroup
 }
 
 /**
- * @summary 取消子任务
+ * @summary Cancels a subtask.
  *
  * @param request CreateTaskGroupRequest
  * @return CreateTaskGroupResponse
@@ -2712,7 +2716,7 @@ DeepCopyRuleResponse Client::deepCopyRule(const DeepCopyRuleRequest &request) {
 }
 
 /**
- * @summary Delete Query Condition
+ * @summary Deletes a query condition.
  *
  * @param request DeleteAnalysisConditionFavoriteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2751,7 +2755,7 @@ DeleteAnalysisConditionFavoriteResponse Client::deleteAnalysisConditionFavoriteW
 }
 
 /**
- * @summary Delete Query Condition
+ * @summary Deletes a query condition.
  *
  * @param request DeleteAnalysisConditionFavoriteRequest
  * @return DeleteAnalysisConditionFavoriteResponse
@@ -2762,7 +2766,7 @@ DeleteAnalysisConditionFavoriteResponse Client::deleteAnalysisConditionFavorite(
 }
 
 /**
- * @summary Delete Bypass Event
+ * @summary Deletes a bypass event.
  *
  * @param request DeleteByPassShuntEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2801,7 +2805,7 @@ DeleteByPassShuntEventResponse Client::deleteByPassShuntEventWithOptions(const D
 }
 
 /**
- * @summary Delete Bypass Event
+ * @summary Deletes a bypass event.
  *
  * @param request DeleteByPassShuntEventRequest
  * @return DeleteByPassShuntEventResponse
@@ -2812,7 +2816,7 @@ DeleteByPassShuntEventResponse Client::deleteByPassShuntEvent(const DeleteByPass
 }
 
 /**
- * @summary Delete Accumulated Variable
+ * @summary Deletes a cumulative variable.
  *
  * @param request DeleteCustVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2859,7 +2863,7 @@ DeleteCustVariableResponse Client::deleteCustVariableWithOptions(const DeleteCus
 }
 
 /**
- * @summary Delete Accumulated Variable
+ * @summary Deletes a cumulative variable.
  *
  * @param request DeleteCustVariableRequest
  * @return DeleteCustVariableResponse
@@ -2870,7 +2874,7 @@ DeleteCustVariableResponse Client::deleteCustVariable(const DeleteCustVariableRe
 }
 
 /**
- * @summary Delete Data Source
+ * @summary Deletes a data source.
  *
  * @param request DeleteDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2909,7 +2913,7 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
 }
 
 /**
- * @summary Delete Data Source
+ * @summary Deletes a data source.
  *
  * @param request DeleteDataSourceRequest
  * @return DeleteDataSourceResponse
@@ -2974,7 +2978,7 @@ DeleteEventFieldResponse Client::deleteEventField(const DeleteEventFieldRequest 
 }
 
 /**
- * @summary Delete Custom Variable
+ * @summary Deletes a custom variable.
  *
  * @param request DeleteExpressionVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3017,7 +3021,7 @@ DeleteExpressionVariableResponse Client::deleteExpressionVariableWithOptions(con
 }
 
 /**
- * @summary Delete Custom Variable
+ * @summary Deletes a custom variable.
  *
  * @param request DeleteExpressionVariableRequest
  * @return DeleteExpressionVariableResponse
@@ -3028,7 +3032,7 @@ DeleteExpressionVariableResponse Client::deleteExpressionVariable(const DeleteEx
 }
 
 /**
- * @summary Delete Field
+ * @summary Deletes a field.
  *
  * @param request DeleteFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3071,7 +3075,7 @@ DeleteFieldResponse Client::deleteFieldWithOptions(const DeleteFieldRequest &req
 }
 
 /**
- * @summary Delete Field
+ * @summary Deletes a field.
  *
  * @param request DeleteFieldRequest
  * @return DeleteFieldResponse
@@ -3082,7 +3086,7 @@ DeleteFieldResponse Client::deleteField(const DeleteFieldRequest &request) {
 }
 
 /**
- * @summary Delete Name List
+ * @summary Deletes a list.
  *
  * @param request DeleteNameListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3121,7 +3125,7 @@ DeleteNameListResponse Client::deleteNameListWithOptions(const DeleteNameListReq
 }
 
 /**
- * @summary Delete Name List
+ * @summary Deletes a list.
  *
  * @param request DeleteNameListRequest
  * @return DeleteNameListResponse
@@ -3132,7 +3136,7 @@ DeleteNameListResponse Client::deleteNameList(const DeleteNameListRequest &reque
 }
 
 /**
- * @summary Delete (pseudo) name list variable data
+ * @summary Deletes list variable data.
  *
  * @param request DeleteNameListDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3171,7 +3175,7 @@ DeleteNameListDataResponse Client::deleteNameListDataWithOptions(const DeleteNam
 }
 
 /**
- * @summary Delete (pseudo) name list variable data
+ * @summary Deletes list variable data.
  *
  * @param request DeleteNameListDataRequest
  * @return DeleteNameListDataResponse
@@ -3182,7 +3186,7 @@ DeleteNameListDataResponse Client::deleteNameListData(const DeleteNameListDataRe
 }
 
 /**
- * @summary Delete Query Variable
+ * @summary Deletes a custom query variable.
  *
  * @param request DeleteQueryVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3221,7 +3225,7 @@ DeleteQueryVariableResponse Client::deleteQueryVariableWithOptions(const DeleteQ
 }
 
 /**
- * @summary Delete Query Variable
+ * @summary Deletes a custom query variable.
  *
  * @param request DeleteQueryVariableRequest
  * @return DeleteQueryVariableResponse
@@ -3232,7 +3236,7 @@ DeleteQueryVariableResponse Client::deleteQueryVariable(const DeleteQueryVariabl
 }
 
 /**
- * @summary Delete Policy Version
+ * @summary Deletes a policy version.
  *
  * @param request DeleteRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3279,7 +3283,7 @@ DeleteRuleResponse Client::deleteRuleWithOptions(const DeleteRuleRequest &reques
 }
 
 /**
- * @summary Delete Policy Version
+ * @summary Deletes a policy version.
  *
  * @param request DeleteRuleRequest
  * @return DeleteRuleResponse
@@ -3290,7 +3294,7 @@ DeleteRuleResponse Client::deleteRule(const DeleteRuleRequest &request) {
 }
 
 /**
- * @summary 删除样本
+ * @summary Delete sample
  *
  * @param request DeleteSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3329,7 +3333,7 @@ DeleteSampleResponse Client::deleteSampleWithOptions(const DeleteSampleRequest &
 }
 
 /**
- * @summary 删除样本
+ * @summary Delete sample
  *
  * @param request DeleteSampleRequest
  * @return DeleteSampleResponse
@@ -3340,7 +3344,7 @@ DeleteSampleResponse Client::deleteSample(const DeleteSampleRequest &request) {
 }
 
 /**
- * @summary Batch Delete Samples
+ * @summary Deletes samples in batches.
  *
  * @param request DeleteSampleBatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3383,7 +3387,7 @@ DeleteSampleBatchResponse Client::deleteSampleBatchWithOptions(const DeleteSampl
 }
 
 /**
- * @summary Batch Delete Samples
+ * @summary Deletes samples in batches.
  *
  * @param request DeleteSampleBatchRequest
  * @return DeleteSampleBatchResponse
@@ -3444,7 +3448,7 @@ DeleteSampleBatchMetaResponse Client::deleteSampleBatchMeta(const DeleteSampleBa
 }
 
 /**
- * @summary Delete Sample Data
+ * @summary Deletes sample data.
  *
  * @param request DeleteSampleDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3483,7 +3487,7 @@ DeleteSampleDataResponse Client::deleteSampleDataWithOptions(const DeleteSampleD
 }
 
 /**
- * @summary Delete Sample Data
+ * @summary Deletes sample data.
  *
  * @param request DeleteSampleDataRequest
  * @return DeleteSampleDataResponse
@@ -3544,7 +3548,7 @@ DeleteSelfBindVariableResponse Client::deleteSelfBindVariable(const DeleteSelfBi
 }
 
 /**
- * @summary Advanced Query to Get Left Variables Interface
+ * @summary Retrieves left-hand variables for advanced queries.
  *
  * @param request DescribeAdvanceSearchLeftVariableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3587,7 +3591,7 @@ DescribeAdvanceSearchLeftVariableListResponse Client::describeAdvanceSearchLeftV
 }
 
 /**
- * @summary Advanced Query to Get Left Variables Interface
+ * @summary Retrieves left-hand variables for advanced queries.
  *
  * @param request DescribeAdvanceSearchLeftVariableListRequest
  * @return DescribeAdvanceSearchLeftVariableListResponse
@@ -3598,7 +3602,7 @@ DescribeAdvanceSearchLeftVariableListResponse Client::describeAdvanceSearchLeftV
 }
 
 /**
- * @summary Advanced Query
+ * @summary Performs an advanced query for event analysis.
  *
  * @param request DescribeAdvanceSearchPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3665,7 +3669,7 @@ DescribeAdvanceSearchPageListResponse Client::describeAdvanceSearchPageListWithO
 }
 
 /**
- * @summary Advanced Query
+ * @summary Performs an advanced query for event analysis.
  *
  * @param request DescribeAdvanceSearchPageListRequest
  * @return DescribeAdvanceSearchPageListResponse
@@ -3676,7 +3680,7 @@ DescribeAdvanceSearchPageListResponse Client::describeAdvanceSearchPageList(cons
 }
 
 /**
- * @summary Data Source List
+ * @summary Lists data sources.
  *
  * @param request DescribeAllDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3711,7 +3715,7 @@ DescribeAllDataSourceResponse Client::describeAllDataSourceWithOptions(const Des
 }
 
 /**
- * @summary Data Source List
+ * @summary Lists data sources.
  *
  * @param request DescribeAllDataSourceRequest
  * @return DescribeAllDataSourceResponse
@@ -3722,7 +3726,7 @@ DescribeAllDataSourceResponse Client::describeAllDataSource(const DescribeAllDat
 }
 
 /**
- * @summary Event List Query
+ * @summary Queries the event list.
  *
  * @param request DescribeAllEventNameAndCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3761,7 +3765,7 @@ DescribeAllEventNameAndCodeResponse Client::describeAllEventNameAndCodeWithOptio
 }
 
 /**
- * @summary Event List Query
+ * @summary Queries the event list.
  *
  * @param request DescribeAllEventNameAndCodeRequest
  * @return DescribeAllEventNameAndCodeResponse
@@ -3772,7 +3776,7 @@ DescribeAllEventNameAndCodeResponse Client::describeAllEventNameAndCode(const De
 }
 
 /**
- * @summary Display all root variables when testing custom expressions
+ * @summary Displays all root variables during custom expression testing.
  *
  * @param request DescribeAllRootVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3839,7 +3843,7 @@ DescribeAllRootVariableResponse Client::describeAllRootVariableWithOptions(const
 }
 
 /**
- * @summary Display all root variables when testing custom expressions
+ * @summary Displays all root variables during custom expression testing.
  *
  * @param request DescribeAllRootVariableRequest
  * @return DescribeAllRootVariableResponse
@@ -3850,7 +3854,7 @@ DescribeAllRootVariableResponse Client::describeAllRootVariable(const DescribeAl
 }
 
 /**
- * @summary Display All Fields
+ * @summary Displays all fields.
  *
  * @param request DescribeAnalysisColumnFieldListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3885,7 +3889,7 @@ DescribeAnalysisColumnFieldListResponse Client::describeAnalysisColumnFieldListW
 }
 
 /**
- * @summary Display All Fields
+ * @summary Displays all fields.
  *
  * @param request DescribeAnalysisColumnFieldListRequest
  * @return DescribeAnalysisColumnFieldListResponse
@@ -3896,7 +3900,7 @@ DescribeAnalysisColumnFieldListResponse Client::describeAnalysisColumnFieldList(
 }
 
 /**
- * @summary Query Custom Columns
+ * @summary Queries custom columns.
  *
  * @param request DescribeAnalysisColumnListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3931,7 +3935,7 @@ DescribeAnalysisColumnListResponse Client::describeAnalysisColumnListWithOptions
 }
 
 /**
- * @summary Query Custom Columns
+ * @summary Queries custom columns.
  *
  * @param request DescribeAnalysisColumnListRequest
  * @return DescribeAnalysisColumnListResponse
@@ -3942,7 +3946,7 @@ DescribeAnalysisColumnListResponse Client::describeAnalysisColumnList(const Desc
 }
 
 /**
- * @summary Query Condition List
+ * @summary Queries the condition favorite list.
  *
  * @param request DescribeAnalysisConditionFavoriteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3977,7 +3981,7 @@ DescribeAnalysisConditionFavoriteListResponse Client::describeAnalysisConditionF
 }
 
 /**
- * @summary Query Condition List
+ * @summary Queries the condition favorite list.
  *
  * @param request DescribeAnalysisConditionFavoriteListRequest
  * @return DescribeAnalysisConditionFavoriteListResponse
@@ -3988,7 +3992,7 @@ DescribeAnalysisConditionFavoriteListResponse Client::describeAnalysisConditionF
 }
 
 /**
- * @summary Download Query Results
+ * @summary Download query results.
  *
  * @param request DescribeAnalysisExportTaskDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4023,7 +4027,7 @@ DescribeAnalysisExportTaskDownloadUrlResponse Client::describeAnalysisExportTask
 }
 
 /**
- * @summary Download Query Results
+ * @summary Download query results.
  *
  * @param request DescribeAnalysisExportTaskDownloadUrlRequest
  * @return DescribeAnalysisExportTaskDownloadUrlResponse
@@ -4034,7 +4038,7 @@ DescribeAnalysisExportTaskDownloadUrlResponse Client::describeAnalysisExportTask
 }
 
 /**
- * @summary Get API Details
+ * @summary Retrieves the details of an API.
  *
  * @param request DescribeApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4081,7 +4085,7 @@ DescribeApiResponse Client::describeApiWithOptions(const DescribeApiRequest &req
 }
 
 /**
- * @summary Get API Details
+ * @summary Retrieves the details of an API.
  *
  * @param request DescribeApiRequest
  * @return DescribeApiResponse
@@ -4092,7 +4096,7 @@ DescribeApiResponse Client::describeApi(const DescribeApiRequest &request) {
 }
 
 /**
- * @summary Get API groups including those purchased by the user and custom ones
+ * @summary Retrieves API groups, including purchased and custom groups.
  *
  * @param request DescribeApiGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4131,7 +4135,7 @@ DescribeApiGroupsResponse Client::describeApiGroupsWithOptions(const DescribeApi
 }
 
 /**
- * @summary Get API groups including those purchased by the user and custom ones
+ * @summary Retrieves API groups, including purchased and custom groups.
  *
  * @param request DescribeApiGroupsRequest
  * @return DescribeApiGroupsResponse
@@ -4142,7 +4146,7 @@ DescribeApiGroupsResponse Client::describeApiGroups(const DescribeApiGroupsReque
 }
 
 /**
- * @summary Query the limit information for creating API tasks
+ * @summary Queries the limit information for creating API tasks.
  *
  * @param request DescribeApiLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4177,7 +4181,7 @@ DescribeApiLimitResponse Client::describeApiLimitWithOptions(const DescribeApiLi
 }
 
 /**
- * @summary Query the limit information for creating API tasks
+ * @summary Queries the limit information for creating API tasks.
  *
  * @param request DescribeApiLimitRequest
  * @return DescribeApiLimitResponse
@@ -4188,7 +4192,7 @@ DescribeApiLimitResponse Client::describeApiLimit(const DescribeApiLimitRequest 
 }
 
 /**
- * @summary Get API Service Name
+ * @summary Retrieves API service names.
  *
  * @param request DescribeApiNameListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4223,7 +4227,7 @@ DescribeApiNameListResponse Client::describeApiNameListWithOptions(const Describ
 }
 
 /**
- * @summary Get API Service Name
+ * @summary Retrieves API service names.
  *
  * @param request DescribeApiNameListRequest
  * @return DescribeApiNameListResponse
@@ -4234,7 +4238,7 @@ DescribeApiNameListResponse Client::describeApiNameList(const DescribeApiNameLis
 }
 
 /**
- * @summary Query Variable Details
+ * @summary Query variable details.
  *
  * @param request DescribeApiVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4273,7 +4277,7 @@ DescribeApiVariableResponse Client::describeApiVariableWithOptions(const Describ
 }
 
 /**
- * @summary Query Variable Details
+ * @summary Query variable details.
  *
  * @param request DescribeApiVariableRequest
  * @return DescribeApiVariableResponse
@@ -4284,7 +4288,7 @@ DescribeApiVariableResponse Client::describeApiVariable(const DescribeApiVariabl
 }
 
 /**
- * @summary Get API list including purchased and customized APIs
+ * @summary Retrieves the API list, including purchased and custom APIs.
  *
  * @param request DescribeApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4331,7 +4335,7 @@ DescribeApisResponse Client::describeApisWithOptions(const DescribeApisRequest &
 }
 
 /**
- * @summary Get API list including purchased and customized APIs
+ * @summary Retrieves the API list, including purchased and custom APIs.
  *
  * @param request DescribeApisRequest
  * @return DescribeApisResponse
@@ -4342,7 +4346,7 @@ DescribeApisResponse Client::describeApis(const DescribeApisRequest &request) {
 }
 
 /**
- * @summary Query appKey List
+ * @summary Queries the list of appKeys.
  *
  * @param request DescribeAppKeyPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4385,7 +4389,7 @@ DescribeAppKeyPageResponse Client::describeAppKeyPageWithOptions(const DescribeA
 }
 
 /**
- * @summary Query appKey List
+ * @summary Queries the list of appKeys.
  *
  * @param request DescribeAppKeyPageRequest
  * @return DescribeAppKeyPageResponse
@@ -4396,7 +4400,7 @@ DescribeAppKeyPageResponse Client::describeAppKeyPage(const DescribeAppKeyPageRe
 }
 
 /**
- * @summary Approval Switch
+ * @summary Configures the approval switch.
  *
  * @param request DescribeAuditConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4435,7 +4439,7 @@ DescribeAuditConfigResponse Client::describeAuditConfigWithOptions(const Describ
 }
 
 /**
- * @summary Approval Switch
+ * @summary Configures the approval switch.
  *
  * @param request DescribeAuditConfigRequest
  * @return DescribeAuditConfigResponse
@@ -4446,7 +4450,7 @@ DescribeAuditConfigResponse Client::describeAuditConfig(const DescribeAuditConfi
 }
 
 /**
- * @summary Approval Details
+ * @summary Retrieves approval details.
  *
  * @param request DescribeAuditDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4485,7 +4489,7 @@ DescribeAuditDetailsResponse Client::describeAuditDetailsWithOptions(const Descr
 }
 
 /**
- * @summary Approval Details
+ * @summary Retrieves approval details.
  *
  * @param request DescribeAuditDetailsRequest
  * @return DescribeAuditDetailsResponse
@@ -4496,7 +4500,7 @@ DescribeAuditDetailsResponse Client::describeAuditDetails(const DescribeAuditDet
 }
 
 /**
- * @summary Display and Query of Audit List
+ * @summary Displays and queries the audit list.
  *
  * @param request DescribeAuditPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4551,7 +4555,7 @@ DescribeAuditPageListResponse Client::describeAuditPageListWithOptions(const Des
 }
 
 /**
- * @summary Display and Query of Audit List
+ * @summary Displays and queries the audit list.
  *
  * @param request DescribeAuditPageListRequest
  * @return DescribeAuditPageListResponse
@@ -4562,7 +4566,7 @@ DescribeAuditPageListResponse Client::describeAuditPageList(const DescribeAuditP
 }
 
 /**
- * @summary Query the list of event names for the current user
+ * @summary Queries the list of event names for the current user.
  *
  * @param request DescribeAuthEventNameListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4597,7 +4601,7 @@ DescribeAuthEventNameListResponse Client::describeAuthEventNameListWithOptions(c
 }
 
 /**
- * @summary Query the list of event names for the current user
+ * @summary Queries the list of event names for the current user.
  *
  * @param request DescribeAuthEventNameListRequest
  * @return DescribeAuthEventNameListResponse
@@ -4608,7 +4612,7 @@ DescribeAuthEventNameListResponse Client::describeAuthEventNameList(const Descri
 }
 
 /**
- * @summary Policy List
+ * @summary Queries a list of policies.
  *
  * @param request DescribeAuthRulePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4655,7 +4659,7 @@ DescribeAuthRulePageListResponse Client::describeAuthRulePageListWithOptions(con
 }
 
 /**
- * @summary Policy List
+ * @summary Queries a list of policies.
  *
  * @param request DescribeAuthRulePageListRequest
  * @return DescribeAuthRulePageListResponse
@@ -4666,7 +4670,7 @@ DescribeAuthRulePageListResponse Client::describeAuthRulePageList(const Describe
 }
 
 /**
- * @summary List of Scenarios
+ * @summary Queries the list of scenarios.
  *
  * @param request DescribeAuthSceneListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4701,7 +4705,7 @@ DescribeAuthSceneListResponse Client::describeAuthSceneListWithOptions(const Des
 }
 
 /**
- * @summary List of Scenarios
+ * @summary Queries the list of scenarios.
  *
  * @param request DescribeAuthSceneListRequest
  * @return DescribeAuthSceneListResponse
@@ -4712,7 +4716,7 @@ DescribeAuthSceneListResponse Client::describeAuthSceneList(const DescribeAuthSc
 }
 
 /**
- * @summary Scene List
+ * @summary Queries the list of scenarios.
  *
  * @param request DescribeAuthScenePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4751,7 +4755,7 @@ DescribeAuthScenePageListResponse Client::describeAuthScenePageListWithOptions(c
 }
 
 /**
- * @summary Scene List
+ * @summary Queries the list of scenarios.
  *
  * @param request DescribeAuthScenePageListRequest
  * @return DescribeAuthScenePageListResponse
@@ -4762,7 +4766,7 @@ DescribeAuthScenePageListResponse Client::describeAuthScenePageList(const Descri
 }
 
 /**
- * @summary Check Authorization
+ * @summary Checks whether authorization is granted.
  *
  * @param request DescribeAuthStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4797,7 +4801,7 @@ DescribeAuthStatusResponse Client::describeAuthStatusWithOptions(const DescribeA
 }
 
 /**
- * @summary Check Authorization
+ * @summary Checks whether authorization is granted.
  *
  * @param request DescribeAuthStatusRequest
  * @return DescribeAuthStatusResponse
@@ -4808,7 +4812,7 @@ DescribeAuthStatusResponse Client::describeAuthStatus(const DescribeAuthStatusRe
 }
 
 /**
- * @summary Average Execution Time
+ * @summary Average execution duration.
  *
  * @param request DescribeAvgExecuteCostReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4843,7 +4847,7 @@ DescribeAvgExecuteCostReportResponse Client::describeAvgExecuteCostReportWithOpt
 }
 
 /**
- * @summary Average Execution Time
+ * @summary Average execution duration.
  *
  * @param request DescribeAvgExecuteCostReportRequest
  * @return DescribeAvgExecuteCostReportResponse
@@ -4854,7 +4858,7 @@ DescribeAvgExecuteCostReportResponse Client::describeAvgExecuteCostReport(const 
 }
 
 /**
- * @summary Basic Query
+ * @summary Performs a basic query.
  *
  * @param request DescribeBasicSearchPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4917,7 +4921,7 @@ DescribeBasicSearchPageListResponse Client::describeBasicSearchPageListWithOptio
 }
 
 /**
- * @summary Basic Query
+ * @summary Performs a basic query.
  *
  * @param request DescribeBasicSearchPageListRequest
  * @return DescribeBasicSearchPageListResponse
@@ -4928,7 +4932,7 @@ DescribeBasicSearchPageListResponse Client::describeBasicSearchPageList(const De
 }
 
 /**
- * @summary Basic Statistics
+ * @summary Queries basic statistics.
  *
  * @param request DescribeBasicStartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4975,7 +4979,7 @@ DescribeBasicStartResponse Client::describeBasicStartWithOptions(const DescribeB
 }
 
 /**
- * @summary Basic Statistics
+ * @summary Queries basic statistics.
  *
  * @param request DescribeBasicStartRequest
  * @return DescribeBasicStartResponse
@@ -4986,7 +4990,7 @@ DescribeBasicStartResponse Client::describeBasicStart(const DescribeBasicStartRe
 }
 
 /**
- * @summary View Bypass Event
+ * @summary Queries a bypass event.
  *
  * @param request DescribeByPassShuntEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5025,7 +5029,7 @@ DescribeByPassShuntEventResponse Client::describeByPassShuntEventWithOptions(con
 }
 
 /**
- * @summary View Bypass Event
+ * @summary Queries a bypass event.
  *
  * @param request DescribeByPassShuntEventRequest
  * @return DescribeByPassShuntEventResponse
@@ -5036,7 +5040,7 @@ DescribeByPassShuntEventResponse Client::describeByPassShuntEvent(const Describe
 }
 
 /**
- * @summary Query the type configuration of custom accumulated variables
+ * @summary Queries the type configurations of custom cumulative variables.
  *
  * @param request DescribeCustVariableConfigListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5079,7 +5083,7 @@ DescribeCustVariableConfigListResponse Client::describeCustVariableConfigListWit
 }
 
 /**
- * @summary Query the type configuration of custom accumulated variables
+ * @summary Queries the type configurations of custom cumulative variables.
  *
  * @param request DescribeCustVariableConfigListRequest
  * @return DescribeCustVariableConfigListResponse
@@ -5090,7 +5094,7 @@ DescribeCustVariableConfigListResponse Client::describeCustVariableConfigList(co
 }
 
 /**
- * @summary Cumulative Variable Details
+ * @summary Queries the details of a cumulative variable.
  *
  * @param request DescribeCustVariableDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5129,7 +5133,7 @@ DescribeCustVariableDetailResponse Client::describeCustVariableDetailWithOptions
 }
 
 /**
- * @summary Cumulative Variable Details
+ * @summary Queries the details of a cumulative variable.
  *
  * @param request DescribeCustVariableDetailRequest
  * @return DescribeCustVariableDetailResponse
@@ -5140,9 +5144,9 @@ DescribeCustVariableDetailResponse Client::describeCustVariableDetail(const Desc
 }
 
 /**
- * @summary Query Custom Accumulated Variable List
+ * @summary Queries the list of custom cumulative variables.
  *
- * @description List Query of Accumulated Variables
+ * @description Queries the list of cumulative variables.
  *
  * @param request DescribeCustVariablePageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5201,9 +5205,9 @@ DescribeCustVariablePageResponse Client::describeCustVariablePageWithOptions(con
 }
 
 /**
- * @summary Query Custom Accumulated Variable List
+ * @summary Queries the list of custom cumulative variables.
  *
- * @description List Query of Accumulated Variables
+ * @description Queries the list of cumulative variables.
  *
  * @param request DescribeCustVariablePageRequest
  * @return DescribeCustVariablePageResponse
@@ -5214,7 +5218,7 @@ DescribeCustVariablePageResponse Client::describeCustVariablePage(const Describe
 }
 
 /**
- * @summary Get Data Source Data Download Link
+ * @summary Retrieves the download URL for data source data.
  *
  * @param request DescribeDataSourceDataDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5253,7 +5257,7 @@ DescribeDataSourceDataDownloadUrlResponse Client::describeDataSourceDataDownload
 }
 
 /**
- * @summary Get Data Source Data Download Link
+ * @summary Retrieves the download URL for data source data.
  *
  * @param request DescribeDataSourceDataDownloadUrlRequest
  * @return DescribeDataSourceDataDownloadUrlResponse
@@ -5264,7 +5268,7 @@ DescribeDataSourceDataDownloadUrlResponse Client::describeDataSourceDataDownload
 }
 
 /**
- * @summary Retrieve all fields of a data source
+ * @summary Retrieves all fields of a data source.
  *
  * @param request DescribeDataSourceFieldsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5303,7 +5307,7 @@ DescribeDataSourceFieldsResponse Client::describeDataSourceFieldsWithOptions(con
 }
 
 /**
- * @summary Retrieve all fields of a data source
+ * @summary Retrieves all fields of a data source.
  *
  * @param request DescribeDataSourceFieldsRequest
  * @return DescribeDataSourceFieldsResponse
@@ -5314,7 +5318,7 @@ DescribeDataSourceFieldsResponse Client::describeDataSourceFields(const Describe
 }
 
 /**
- * @summary Data Source List Interface
+ * @summary Queries a list of data sources.
  *
  * @param request DescribeDataSourcePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5369,7 +5373,7 @@ DescribeDataSourcePageListResponse Client::describeDataSourcePageListWithOptions
 }
 
 /**
- * @summary Data Source List Interface
+ * @summary Queries a list of data sources.
  *
  * @param request DescribeDataSourcePageListRequest
  * @return DescribeDataSourcePageListResponse
@@ -5380,7 +5384,7 @@ DescribeDataSourcePageListResponse Client::describeDataSourcePageList(const Desc
 }
 
 /**
- * @summary Decision Result Fluctuation Detection
+ * @summary Detects fluctuations in decision results.
  *
  * @param request DescribeDecisionResultFluctuationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5419,7 +5423,7 @@ DescribeDecisionResultFluctuationResponse Client::describeDecisionResultFluctuat
 }
 
 /**
- * @summary Decision Result Fluctuation Detection
+ * @summary Detects fluctuations in decision results.
  *
  * @param request DescribeDecisionResultFluctuationRequest
  * @return DescribeDecisionResultFluctuationResponse
@@ -5430,7 +5434,7 @@ DescribeDecisionResultFluctuationResponse Client::describeDecisionResultFluctuat
 }
 
 /**
- * @summary Decision Result Fluctuation Trend
+ * @summary Queries the fluctuation trend of decision results.
  *
  * @param request DescribeDecisionResultTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5477,7 +5481,7 @@ DescribeDecisionResultTrendResponse Client::describeDecisionResultTrendWithOptio
 }
 
 /**
- * @summary Decision Result Fluctuation Trend
+ * @summary Queries the fluctuation trend of decision results.
  *
  * @param request DescribeDecisionResultTrendRequest
  * @return DescribeDecisionResultTrendResponse
@@ -5488,7 +5492,7 @@ DescribeDecisionResultTrendResponse Client::describeDecisionResultTrend(const De
 }
 
 /**
- * @summary Detailed Statistics
+ * @summary Retrieves detailed statistics.
  *
  * @param request DescribeDetailStartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5535,7 +5539,7 @@ DescribeDetailStartResponse Client::describeDetailStartWithOptions(const Describ
 }
 
 /**
- * @summary Detailed Statistics
+ * @summary Retrieves detailed statistics.
  *
  * @param request DescribeDetailStartRequest
  * @return DescribeDetailStartResponse
@@ -5546,7 +5550,7 @@ DescribeDetailStartResponse Client::describeDetailStart(const DescribeDetailStar
 }
 
 /**
- * @summary Download
+ * @summary Downloads a file.
  *
  * @param request DescribeDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5593,7 +5597,7 @@ DescribeDownloadUrlResponse Client::describeDownloadUrlWithOptions(const Describ
 }
 
 /**
- * @summary Download
+ * @summary Downloads a file.
  *
  * @param request DescribeDownloadUrlRequest
  * @return DescribeDownloadUrlResponse
@@ -5604,7 +5608,7 @@ DescribeDownloadUrlResponse Client::describeDownloadUrl(const DescribeDownloadUr
 }
 
 /**
- * @summary Query Event Details
+ * @summary Queries event details.
  *
  * @param request DescribeEventBaseInfoByEventCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5647,7 +5651,7 @@ DescribeEventBaseInfoByEventCodeResponse Client::describeEventBaseInfoByEventCod
 }
 
 /**
- * @summary Query Event Details
+ * @summary Queries event details.
  *
  * @param request DescribeEventBaseInfoByEventCodeRequest
  * @return DescribeEventBaseInfoByEventCodeResponse
@@ -5658,7 +5662,7 @@ DescribeEventBaseInfoByEventCodeResponse Client::describeEventBaseInfoByEventCod
 }
 
 /**
- * @summary Query Total Event Count
+ * @summary Queries the total number of events.
  *
  * @param request DescribeEventCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5697,7 +5701,7 @@ DescribeEventCountResponse Client::describeEventCountWithOptions(const DescribeE
 }
 
 /**
- * @summary Query Total Event Count
+ * @summary Queries the total number of events.
  *
  * @param request DescribeEventCountRequest
  * @return DescribeEventCountResponse
@@ -5708,7 +5712,7 @@ DescribeEventCountResponse Client::describeEventCount(const DescribeEventCountRe
 }
 
 /**
- * @summary Query event details based on the request ID
+ * @summary Queries event details by request ID.
  *
  * @param request DescribeEventDetailByRequestIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5755,7 +5759,7 @@ DescribeEventDetailByRequestIdResponse Client::describeEventDetailByRequestIdWit
 }
 
 /**
- * @summary Query event details based on the request ID
+ * @summary Queries event details by request ID.
  *
  * @param request DescribeEventDetailByRequestIdRequest
  * @return DescribeEventDetailByRequestIdResponse
@@ -5766,7 +5770,7 @@ DescribeEventDetailByRequestIdResponse Client::describeEventDetailByRequestId(co
 }
 
 /**
- * @summary Query Event History Details
+ * @summary Queries the details of an event history.
  *
  * @param request DescribeEventLogDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5805,7 +5809,7 @@ DescribeEventLogDetailResponse Client::describeEventLogDetailWithOptions(const D
 }
 
 /**
- * @summary Query Event History Details
+ * @summary Queries the details of an event history.
  *
  * @param request DescribeEventLogDetailRequest
  * @return DescribeEventLogDetailResponse
@@ -5816,7 +5820,7 @@ DescribeEventLogDetailResponse Client::describeEventLogDetail(const DescribeEven
 }
 
 /**
- * @summary Query Event History List
+ * @summary Queries the event history list.
  *
  * @param request DescribeEventLogPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5963,7 +5967,7 @@ DescribeEventLogPageResponse Client::describeEventLogPageWithOptions(const Descr
 }
 
 /**
- * @summary Query Event History List
+ * @summary Queries the event history list.
  *
  * @param request DescribeEventLogPageRequest
  * @return DescribeEventLogPageResponse
@@ -5974,7 +5978,7 @@ DescribeEventLogPageResponse Client::describeEventLogPage(const DescribeEventLog
 }
 
 /**
- * @summary Paged Query for Events
+ * @summary Queries events by paging.
  *
  * @param request DescribeEventPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6033,7 +6037,7 @@ DescribeEventPageListResponse Client::describeEventPageListWithOptions(const Des
 }
 
 /**
- * @summary Paged Query for Events
+ * @summary Queries events by paging.
  *
  * @param request DescribeEventPageListRequest
  * @return DescribeEventPageListResponse
@@ -6102,7 +6106,7 @@ DescribeEventResultBarChartResponse Client::describeEventResultBarChart(const De
 }
 
 /**
- * @summary Event Overview List
+ * @summary Queries the event overview list.
  *
  * @param request DescribeEventResultListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6153,7 +6157,7 @@ DescribeEventResultListResponse Client::describeEventResultListWithOptions(const
 }
 
 /**
- * @summary Event Overview List
+ * @summary Queries the event overview list.
  *
  * @param request DescribeEventResultListRequest
  * @return DescribeEventResultListResponse
@@ -6164,7 +6168,7 @@ DescribeEventResultListResponse Client::describeEventResultList(const DescribeEv
 }
 
 /**
- * @summary Query Policy Download List
+ * @summary Queries the policy download list.
  *
  * @param request DescribeEventTaskHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6199,7 +6203,7 @@ DescribeEventTaskHistoryResponse Client::describeEventTaskHistoryWithOptions(con
 }
 
 /**
- * @summary Query Policy Download List
+ * @summary Queries the policy download list.
  *
  * @param request DescribeEventTaskHistoryRequest
  * @return DescribeEventTaskHistoryResponse
@@ -6210,7 +6214,7 @@ DescribeEventTaskHistoryResponse Client::describeEventTaskHistory(const Describe
 }
 
 /**
- * @summary Event Invocation Count
+ * @summary Call event count
  *
  * @param request DescribeEventTotalCountReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6245,7 +6249,7 @@ DescribeEventTotalCountReportResponse Client::describeEventTotalCountReportWithO
 }
 
 /**
- * @summary Event Invocation Count
+ * @summary Call event count
  *
  * @param request DescribeEventTotalCountReportRequest
  * @return DescribeEventTotalCountReportResponse
@@ -6256,7 +6260,7 @@ DescribeEventTotalCountReportResponse Client::describeEventTotalCountReport(cons
 }
 
 /**
- * @summary Batch Import Policy
+ * @summary Imports policies in batches.
  *
  * @param request DescribeEventUploadPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6291,7 +6295,7 @@ DescribeEventUploadPolicyResponse Client::describeEventUploadPolicyWithOptions(c
 }
 
 /**
- * @summary Batch Import Policy
+ * @summary Imports policies in batches.
  *
  * @param request DescribeEventUploadPolicyRequest
  * @return DescribeEventUploadPolicyResponse
@@ -6302,9 +6306,9 @@ DescribeEventUploadPolicyResponse Client::describeEventUploadPolicy(const Descri
 }
 
 /**
- * @summary Query event variables
+ * @summary Queries event variables.
  *
- * @description Cumulative Variable List Query
+ * @description Queries the list of cumulative variables.
  *
  * @param request DescribeEventVariableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6359,9 +6363,9 @@ DescribeEventVariableListResponse Client::describeEventVariableListWithOptions(c
 }
 
 /**
- * @summary Query event variables
+ * @summary Queries event variables.
  *
- * @description Cumulative Variable List Query
+ * @description Queries the list of cumulative variables.
  *
  * @param request DescribeEventVariableListRequest
  * @return DescribeEventVariableListResponse
@@ -6372,7 +6376,7 @@ DescribeEventVariableListResponse Client::describeEventVariableList(const Descri
 }
 
 /**
- * @summary Query Event Template
+ * @summary Queries an event pattern template.
  *
  * @param request DescribeEventVariableTemplateBindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6419,7 +6423,7 @@ DescribeEventVariableTemplateBindResponse Client::describeEventVariableTemplateB
 }
 
 /**
- * @summary Query Event Template
+ * @summary Queries an event pattern template.
  *
  * @param request DescribeEventVariableTemplateBindRequest
  * @return DescribeEventVariableTemplateBindResponse
@@ -6430,7 +6434,7 @@ DescribeEventVariableTemplateBindResponse Client::describeEventVariableTemplateB
 }
 
 /**
- * @summary Query Event Template
+ * @summary Queries an event pattern template.
  *
  * @param request DescribeEventVariableTemplateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6477,7 +6481,7 @@ DescribeEventVariableTemplateListResponse Client::describeEventVariableTemplateL
 }
 
 /**
- * @summary Query Event Template
+ * @summary Queries an event pattern template.
  *
  * @param request DescribeEventVariableTemplateListRequest
  * @return DescribeEventVariableTemplateListResponse
@@ -6488,7 +6492,7 @@ DescribeEventVariableTemplateListResponse Client::describeEventVariableTemplateL
 }
 
 /**
- * @summary Query Event Variables
+ * @summary Queries event variables.
  *
  * @param request DescribeEventsVariableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6539,7 +6543,7 @@ DescribeEventsVariableListResponse Client::describeEventsVariableListWithOptions
 }
 
 /**
- * @summary Query Event Variables
+ * @summary Queries event variables.
  *
  * @param request DescribeEventsVariableListRequest
  * @return DescribeEventsVariableListResponse
@@ -6550,7 +6554,7 @@ DescribeEventsVariableListResponse Client::describeEventsVariableList(const Desc
 }
 
 /**
- * @summary Self-service call list.
+ * @summary Self-service invocation list.
  *
  * @param request DescribeExcuteNumRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6601,7 +6605,7 @@ DescribeExcuteNumResponse Client::describeExcuteNumWithOptions(const DescribeExc
 }
 
 /**
- * @summary Self-service call list.
+ * @summary Self-service invocation list.
  *
  * @param request DescribeExcuteNumRequest
  * @return DescribeExcuteNumResponse
@@ -6612,7 +6616,7 @@ DescribeExcuteNumResponse Client::describeExcuteNum(const DescribeExcuteNumReque
 }
 
 /**
- * @summary Validate if the field name is duplicated (based on user\\"s organization)
+ * @summary Checks whether a field name is duplicate based on the user unit.
  *
  * @param request DescribeExistNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6651,7 +6655,7 @@ DescribeExistNameResponse Client::describeExistNameWithOptions(const DescribeExi
 }
 
 /**
- * @summary Validate if the field name is duplicated (based on user\\"s organization)
+ * @summary Checks whether a field name is duplicate based on the user unit.
  *
  * @param request DescribeExistNameRequest
  * @return DescribeExistNameResponse
@@ -6662,7 +6666,7 @@ DescribeExistNameResponse Client::describeExistName(const DescribeExistNameReque
 }
 
 /**
- * @summary Check if Scene Exists
+ * @summary Checks whether a scenario exists.
  *
  * @param request DescribeExistSceneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6701,7 +6705,7 @@ DescribeExistSceneResponse Client::describeExistSceneWithOptions(const DescribeE
 }
 
 /**
- * @summary Check if Scene Exists
+ * @summary Checks whether a scenario exists.
  *
  * @param request DescribeExistSceneRequest
  * @return DescribeExistSceneResponse
@@ -6712,7 +6716,7 @@ DescribeExistSceneResponse Client::describeExistScene(const DescribeExistSceneRe
 }
 
 /**
- * @summary Custom Variable Details
+ * @summary Queries the details of a custom variable.
  *
  * @param request DescribeExpressionVariableDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6751,7 +6755,7 @@ DescribeExpressionVariableDetailResponse Client::describeExpressionVariableDetai
 }
 
 /**
- * @summary Custom Variable Details
+ * @summary Queries the details of a custom variable.
  *
  * @param request DescribeExpressionVariableDetailRequest
  * @return DescribeExpressionVariableDetailResponse
@@ -6762,7 +6766,7 @@ DescribeExpressionVariableDetailResponse Client::describeExpressionVariableDetai
 }
 
 /**
- * @summary Function List
+ * @summary Queries the function list.
  *
  * @param request DescribeExpressionVariableFunctionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6797,7 +6801,7 @@ DescribeExpressionVariableFunctionListResponse Client::describeExpressionVariabl
 }
 
 /**
- * @summary Function List
+ * @summary Queries the function list.
  *
  * @param request DescribeExpressionVariableFunctionListRequest
  * @return DescribeExpressionVariableFunctionListResponse
@@ -6808,7 +6812,7 @@ DescribeExpressionVariableFunctionListResponse Client::describeExpressionVariabl
 }
 
 /**
- * @summary Paged Query for Custom Variables.
+ * @summary Performs a paging query of custom variables.
  *
  * @param request DescribeExpressionVariablePageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6867,7 +6871,7 @@ DescribeExpressionVariablePageResponse Client::describeExpressionVariablePageWit
 }
 
 /**
- * @summary Paged Query for Custom Variables.
+ * @summary Performs a paging query of custom variables.
  *
  * @param request DescribeExpressionVariablePageRequest
  * @return DescribeExpressionVariablePageResponse
@@ -6940,7 +6944,7 @@ DescribeExpressionVariableVersionDetailResponse Client::describeExpressionVariab
 }
 
 /**
- * @summary Get Field Details
+ * @summary Retrieves field details.
  *
  * @param request DescribeFieldByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6979,7 +6983,7 @@ DescribeFieldByIdResponse Client::describeFieldByIdWithOptions(const DescribeFie
 }
 
 /**
- * @summary Get Field Details
+ * @summary Retrieves field details.
  *
  * @param request DescribeFieldByIdRequest
  * @return DescribeFieldByIdResponse
@@ -6990,7 +6994,7 @@ DescribeFieldByIdResponse Client::describeFieldById(const DescribeFieldByIdReque
 }
 
 /**
- * @summary Query Field List
+ * @summary Queries the list of fields.
  *
  * @param request DescribeFieldListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7033,7 +7037,7 @@ DescribeFieldListResponse Client::describeFieldListWithOptions(const DescribeFie
 }
 
 /**
- * @summary Query Field List
+ * @summary Queries the list of fields.
  *
  * @param request DescribeFieldListRequest
  * @return DescribeFieldListResponse
@@ -7044,7 +7048,7 @@ DescribeFieldListResponse Client::describeFieldList(const DescribeFieldListReque
 }
 
 /**
- * @summary Query paged list of fields
+ * @summary Queries a paginated list of fields.
  *
  * @param request DescribeFieldPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7115,7 +7119,7 @@ DescribeFieldPageResponse Client::describeFieldPageWithOptions(const DescribeFie
 }
 
 /**
- * @summary Query paged list of fields
+ * @summary Queries a paginated list of fields.
  *
  * @param request DescribeFieldPageRequest
  * @return DescribeFieldPageResponse
@@ -7126,7 +7130,7 @@ DescribeFieldPageResponse Client::describeFieldPage(const DescribeFieldPageReque
 }
 
 /**
- * @summary Community Account List
+ * @summary Queries the list of community accounts.
  *
  * @param request DescribeGroupAccountPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7197,7 +7201,7 @@ DescribeGroupAccountPageResponse Client::describeGroupAccountPageWithOptions(con
 }
 
 /**
- * @summary Community Account List
+ * @summary Queries the list of community accounts.
  *
  * @param request DescribeGroupAccountPageRequest
  * @return DescribeGroupAccountPageResponse
@@ -7208,7 +7212,7 @@ DescribeGroupAccountPageResponse Client::describeGroupAccountPage(const Describe
 }
 
 /**
- * @summary Community List Query Conditions
+ * @summary Queries the filter conditions for the community list.
  *
  * @param request DescribeGroupConditionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7243,7 +7247,7 @@ DescribeGroupConditionListResponse Client::describeGroupConditionListWithOptions
 }
 
 /**
- * @summary Community List Query Conditions
+ * @summary Queries the filter conditions for the community list.
  *
  * @param request DescribeGroupConditionListRequest
  * @return DescribeGroupConditionListResponse
@@ -7254,7 +7258,7 @@ DescribeGroupConditionListResponse Client::describeGroupConditionList(const Desc
 }
 
 /**
- * @summary Community List
+ * @summary Queries the list of communities.
  *
  * @param request DescribeGroupPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7313,7 +7317,7 @@ DescribeGroupPageResponse Client::describeGroupPageWithOptions(const DescribeGro
 }
 
 /**
- * @summary Community List
+ * @summary Queries the list of communities.
  *
  * @param request DescribeGroupPageRequest
  * @return DescribeGroupPageResponse
@@ -7324,7 +7328,7 @@ DescribeGroupPageResponse Client::describeGroupPage(const DescribeGroupPageReque
 }
 
 /**
- * @summary Risk Communities Discovered Today
+ * @summary Queries the risk communities discovered on the current day.
  *
  * @param request DescribeGroupStatisticsByTodayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7359,7 +7363,7 @@ DescribeGroupStatisticsByTodayResponse Client::describeGroupStatisticsByTodayWit
 }
 
 /**
- * @summary Risk Communities Discovered Today
+ * @summary Queries the risk communities discovered on the current day.
  *
  * @param request DescribeGroupStatisticsByTodayRequest
  * @return DescribeGroupStatisticsByTodayResponse
@@ -7370,7 +7374,7 @@ DescribeGroupStatisticsByTodayResponse Client::describeGroupStatisticsByToday(co
 }
 
 /**
- * @summary Recent Trends in Risk Communities
+ * @summary Queries recent trends of risky communities.
  *
  * @param request DescribeGroupTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7409,7 +7413,7 @@ DescribeGroupTrendResponse Client::describeGroupTrendWithOptions(const DescribeG
 }
 
 /**
- * @summary Recent Trends in Risk Communities
+ * @summary Queries recent trends of risky communities.
  *
  * @param request DescribeGroupTrendRequest
  * @return DescribeGroupTrendResponse
@@ -7420,7 +7424,7 @@ DescribeGroupTrendResponse Client::describeGroupTrend(const DescribeGroupTrendRe
 }
 
 /**
- * @summary Check if the policy name under the event name exists
+ * @summary Queries whether a policy name exists under a specified event name.
  *
  * @param request DescribeHasRuleNameByEventCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7467,7 +7471,7 @@ DescribeHasRuleNameByEventCodeResponse Client::describeHasRuleNameByEventCodeWit
 }
 
 /**
- * @summary Check if the policy name under the event name exists
+ * @summary Queries whether a policy name exists under a specified event name.
  *
  * @param request DescribeHasRuleNameByEventCodeRequest
  * @return DescribeHasRuleNameByEventCodeResponse
@@ -7478,7 +7482,7 @@ DescribeHasRuleNameByEventCodeResponse Client::describeHasRuleNameByEventCode(co
 }
 
 /**
- * @summary Risk Map Overview Chart (Pie Chart)
+ * @summary Retrieves the risk map overview chart (pie chart).
  *
  * @param request DescribeHighRiskPieChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7525,7 +7529,7 @@ DescribeHighRiskPieChartResponse Client::describeHighRiskPieChartWithOptions(con
 }
 
 /**
- * @summary Risk Map Overview Chart (Pie Chart)
+ * @summary Retrieves the risk map overview chart (pie chart).
  *
  * @param request DescribeHighRiskPieChartRequest
  * @return DescribeHighRiskPieChartResponse
@@ -7536,7 +7540,7 @@ DescribeHighRiskPieChartResponse Client::describeHighRiskPieChart(const Describe
 }
 
 /**
- * @summary Policy Hit Fluctuation Detection
+ * @summary Detects fluctuations in policy hits.
  *
  * @param request DescribeHitRuleFluctuationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7579,7 +7583,7 @@ DescribeHitRuleFluctuationResponse Client::describeHitRuleFluctuationWithOptions
 }
 
 /**
- * @summary Policy Hit Fluctuation Detection
+ * @summary Detects fluctuations in policy hits.
  *
  * @param request DescribeHitRuleFluctuationRequest
  * @return DescribeHitRuleFluctuationResponse
@@ -7590,7 +7594,7 @@ DescribeHitRuleFluctuationResponse Client::describeHitRuleFluctuation(const Desc
 }
 
 /**
- * @summary Top 20 Hits for Main Events/Bypass/Diversion Strategies
+ * @summary Queries the top 20 policies by hits for main events, bypass, and automatic request distribution.
  *
  * @param request DescribeHitRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7641,7 +7645,7 @@ DescribeHitRuleListResponse Client::describeHitRuleListWithOptions(const Describ
 }
 
 /**
- * @summary Top 20 Hits for Main Events/Bypass/Diversion Strategies
+ * @summary Queries the top 20 policies by hits for main events, bypass, and automatic request distribution.
  *
  * @param request DescribeHitRuleListRequest
  * @return DescribeHitRuleListResponse
@@ -7652,7 +7656,7 @@ DescribeHitRuleListResponse Client::describeHitRuleList(const DescribeHitRuleLis
 }
 
 /**
- * @summary Hit Rule Trend
+ * @summary Queries the policy hit trends.
  *
  * @param request DescribeHitRuleTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7703,7 +7707,7 @@ DescribeHitRuleTrendResponse Client::describeHitRuleTrendWithOptions(const Descr
 }
 
 /**
- * @summary Hit Rule Trend
+ * @summary Queries the policy hit trends.
  *
  * @param request DescribeHitRuleTrendRequest
  * @return DescribeHitRuleTrendResponse
@@ -7768,7 +7772,7 @@ DescribeInitDigResponse Client::describeInitDig(const DescribeInitDigRequest &re
 }
 
 /**
- * @summary Query Total Number of Events
+ * @summary Queries the total number of events.
  *
  * @param request DescribeInputFeildCountByEventCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7811,7 +7815,7 @@ DescribeInputFeildCountByEventCodeResponse Client::describeInputFeildCountByEven
 }
 
 /**
- * @summary Query Total Number of Events
+ * @summary Queries the total number of events.
  *
  * @param request DescribeInputFeildCountByEventCodeRequest
  * @return DescribeInputFeildCountByEventCodeResponse
@@ -7872,7 +7876,7 @@ DescribeListModelResponse Client::describeListModel(const DescribeListModelReque
 }
 
 /**
- * @summary Task List
+ * @summary Queries the list of tasks.
  *
  * @param request DescribeListPocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7927,7 +7931,7 @@ DescribeListPocResponse Client::describeListPocWithOptions(const DescribeListPoc
 }
 
 /**
- * @summary Task List
+ * @summary Queries the list of tasks.
  *
  * @param request DescribeListPocRequest
  * @return DescribeListPocResponse
@@ -7938,7 +7942,7 @@ DescribeListPocResponse Client::describeListPoc(const DescribeListPocRequest &re
 }
 
 /**
- * @summary Get Monitoring Object List
+ * @summary Queries the list of monitoring objects.
  *
  * @param request DescribeLoanExecListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7993,7 +7997,7 @@ DescribeLoanExecListResponse Client::describeLoanExecListWithOptions(const Descr
 }
 
 /**
- * @summary Get Monitoring Object List
+ * @summary Queries the list of monitoring objects.
  *
  * @param request DescribeLoanExecListRequest
  * @return DescribeLoanExecListResponse
@@ -8004,7 +8008,7 @@ DescribeLoanExecListResponse Client::describeLoanExecList(const DescribeLoanExec
 }
 
 /**
- * @summary Get Loan Monitoring Task List
+ * @summary Retrieves the list of in-loan monitoring tasks.
  *
  * @param request DescribeLoanTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8055,7 +8059,7 @@ DescribeLoanTaskListResponse Client::describeLoanTaskListWithOptions(const Descr
 }
 
 /**
- * @summary Get Loan Monitoring Task List
+ * @summary Retrieves the list of in-loan monitoring tasks.
  *
  * @param request DescribeLoanTaskListRequest
  * @return DescribeLoanTaskListResponse
@@ -8066,7 +8070,7 @@ DescribeLoanTaskListResponse Client::describeLoanTaskList(const DescribeLoanTask
 }
 
 /**
- * @summary Mark List
+ * @summary Queries the tagging list.
  *
  * @param request DescribeMarkPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8125,7 +8129,7 @@ DescribeMarkPageResponse Client::describeMarkPageWithOptions(const DescribeMarkP
 }
 
 /**
- * @summary Mark List
+ * @summary Queries the tagging list.
  *
  * @param request DescribeMarkPageRequest
  * @return DescribeMarkPageResponse
@@ -8136,7 +8140,7 @@ DescribeMarkPageResponse Client::describeMarkPage(const DescribeMarkPageRequest 
 }
 
 /**
- * @summary Check Permission
+ * @summary Queries whether the current user has the specified permission.
  *
  * @param request DescribeMenuPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8175,7 +8179,7 @@ DescribeMenuPermissionResponse Client::describeMenuPermissionWithOptions(const D
 }
 
 /**
- * @summary Check Permission
+ * @summary Queries whether the current user has the specified permission.
  *
  * @param request DescribeMenuPermissionRequest
  * @return DescribeMenuPermissionResponse
@@ -8278,7 +8282,7 @@ DescribeModelOssPolicyResponse Client::describeModelOssPolicy(const DescribeMode
 }
 
 /**
- * @summary Query Task Limit
+ * @summary Queries the limits of tasks.
  *
  * @param request DescribeMonitorTaskLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8313,7 +8317,7 @@ DescribeMonitorTaskLimitResponse Client::describeMonitorTaskLimitWithOptions(con
 }
 
 /**
- * @summary Query Task Limit
+ * @summary Queries the limits of tasks.
  *
  * @param request DescribeMonitorTaskLimitRequest
  * @return DescribeMonitorTaskLimitResponse
@@ -8324,7 +8328,7 @@ DescribeMonitorTaskLimitResponse Client::describeMonitorTaskLimit(const Describe
 }
 
 /**
- * @summary Query Name List Pagination
+ * @summary Queries a name list by page.
  *
  * @param request DescribeNameListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8379,7 +8383,7 @@ DescribeNameListResponse Client::describeNameListWithOptions(const DescribeNameL
 }
 
 /**
- * @summary Query Name List Pagination
+ * @summary Queries a name list by page.
  *
  * @param request DescribeNameListRequest
  * @return DescribeNameListResponse
@@ -8390,7 +8394,7 @@ DescribeNameListResponse Client::describeNameList(const DescribeNameListRequest 
 }
 
 /**
- * @summary Download Name List
+ * @summary Downloads the content of a list.
  *
  * @param request DescribeNameListDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8429,7 +8433,7 @@ DescribeNameListDownloadUrlResponse Client::describeNameListDownloadUrlWithOptio
 }
 
 /**
- * @summary Download Name List
+ * @summary Downloads the content of a list.
  *
  * @param request DescribeNameListDownloadUrlRequest
  * @return DescribeNameListDownloadUrlResponse
@@ -8440,7 +8444,7 @@ DescribeNameListDownloadUrlResponse Client::describeNameListDownloadUrl(const De
 }
 
 /**
- * @summary Query Name List Limit
+ * @summary Queries the quota limit for lists.
  *
  * @param request DescribeNameListLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8479,7 +8483,7 @@ DescribeNameListLimitResponse Client::describeNameListLimitWithOptions(const Des
 }
 
 /**
- * @summary Query Name List Limit
+ * @summary Queries the quota limit for lists.
  *
  * @param request DescribeNameListLimitRequest
  * @return DescribeNameListLimitResponse
@@ -8490,7 +8494,7 @@ DescribeNameListLimitResponse Client::describeNameListLimit(const DescribeNameLi
 }
 
 /**
- * @summary Query the content of the list
+ * @summary Queries the content of a list.
  *
  * @param request DescribeNameListPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8549,7 +8553,7 @@ DescribeNameListPageListResponse Client::describeNameListPageListWithOptions(con
 }
 
 /**
- * @summary Query the content of the list
+ * @summary Queries the content of a list.
  *
  * @param request DescribeNameListPageListRequest
  * @return DescribeNameListPageListResponse
@@ -8560,7 +8564,7 @@ DescribeNameListPageListResponse Client::describeNameListPageList(const Describe
 }
 
 /**
- * @summary List of Name Types
+ * @summary Queries the list of name list types.
  *
  * @param request DescribeNameListTypeListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8595,7 +8599,7 @@ DescribeNameListTypeListResponse Client::describeNameListTypeListWithOptions(con
 }
 
 /**
- * @summary List of Name Types
+ * @summary Queries the list of name list types.
  *
  * @param request DescribeNameListTypeListRequest
  * @return DescribeNameListTypeListResponse
@@ -8606,7 +8610,7 @@ DescribeNameListTypeListResponse Client::describeNameListTypeList(const Describe
 }
 
 /**
- * @summary Name List
+ * @summary Queries a list of named lists.
  *
  * @param request DescribeNameListVariablePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8661,7 +8665,7 @@ DescribeNameListVariablePageListResponse Client::describeNameListVariablePageLis
 }
 
 /**
- * @summary Name List
+ * @summary Queries a list of named lists.
  *
  * @param request DescribeNameListVariablePageListRequest
  * @return DescribeNameListVariablePageListResponse
@@ -8730,7 +8734,7 @@ DescribeOperationLogMonitoringResponse Client::describeOperationLogMonitoring(co
 }
 
 /**
- * @summary Query event list by event name
+ * @summary Queries the list of events by event name.
  *
  * @param request DescribeOperationLogPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8789,7 +8793,7 @@ DescribeOperationLogPageListResponse Client::describeOperationLogPageListWithOpt
 }
 
 /**
- * @summary Query event list by event name
+ * @summary Queries the list of events by event name.
  *
  * @param request DescribeOperationLogPageListRequest
  * @return DescribeOperationLogPageListResponse
@@ -8800,7 +8804,7 @@ DescribeOperationLogPageListResponse Client::describeOperationLogPageList(const 
 }
 
 /**
- * @summary Query the operator mapping list based on customer ID
+ * @summary Queries the operator mapping list by customer ID.
  *
  * @param request DescribeOperatorListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8835,7 +8839,7 @@ DescribeOperatorListResponse Client::describeOperatorListWithOptions(const Descr
 }
 
 /**
- * @summary Query the operator mapping list based on customer ID
+ * @summary Queries the operator mapping list by customer ID.
  *
  * @param request DescribeOperatorListRequest
  * @return DescribeOperatorListResponse
@@ -8846,7 +8850,7 @@ DescribeOperatorListResponse Client::describeOperatorList(const DescribeOperator
 }
 
 /**
- * @summary Query Operator Mapping List
+ * @summary Queries the operator mapping list.
  *
  * @param request DescribeOperatorListBySceneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8885,7 +8889,7 @@ DescribeOperatorListBySceneResponse Client::describeOperatorListBySceneWithOptio
 }
 
 /**
- * @summary Query Operator Mapping List
+ * @summary Queries the operator mapping list.
  *
  * @param request DescribeOperatorListBySceneRequest
  * @return DescribeOperatorListBySceneResponse
@@ -8896,7 +8900,7 @@ DescribeOperatorListBySceneResponse Client::describeOperatorListByScene(const De
 }
 
 /**
- * @summary Query Operator Mapping List
+ * @summary Queries the list of operator mappings.
  *
  * @param request DescribeOperatorListByTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8931,7 +8935,7 @@ DescribeOperatorListByTypeResponse Client::describeOperatorListByTypeWithOptions
 }
 
 /**
- * @summary Query Operator Mapping List
+ * @summary Queries the list of operator mappings.
  *
  * @param request DescribeOperatorListByTypeRequest
  * @return DescribeOperatorListByTypeResponse
@@ -8942,7 +8946,7 @@ DescribeOperatorListByTypeResponse Client::describeOperatorListByType(const Desc
 }
 
 /**
- * @summary Check Oss Authorization
+ * @summary Checks whether OSS is authorized.
  *
  * @param request DescribeOssAuthStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8977,7 +8981,7 @@ DescribeOssAuthStatusResponse Client::describeOssAuthStatusWithOptions(const Des
 }
 
 /**
- * @summary Check Oss Authorization
+ * @summary Checks whether OSS is authorized.
  *
  * @param request DescribeOssAuthStatusRequest
  * @return DescribeOssAuthStatusResponse
@@ -8988,7 +8992,7 @@ DescribeOssAuthStatusResponse Client::describeOssAuthStatus(const DescribeOssAut
 }
 
 /**
- * @summary Get OSS Policy
+ * @summary Retrieves the OSS policy.
  *
  * @param request DescribeOssPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9027,7 +9031,7 @@ DescribeOssPolicyResponse Client::describeOssPolicyWithOptions(const DescribeOss
 }
 
 /**
- * @summary Get OSS Policy
+ * @summary Retrieves the OSS policy.
  *
  * @param request DescribeOssPolicyRequest
  * @return DescribeOssPolicyResponse
@@ -9038,7 +9042,7 @@ DescribeOssPolicyResponse Client::describeOssPolicy(const DescribeOssPolicyReque
 }
 
 /**
- * @summary Get File Upload Credentials
+ * @summary Retrieves the upload credential for a file.
  *
  * @param request DescribeOssTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9081,7 +9085,7 @@ DescribeOssTokenResponse Client::describeOssTokenWithOptions(const DescribeOssTo
 }
 
 /**
- * @summary Get File Upload Credentials
+ * @summary Retrieves the upload credential for a file.
  *
  * @param request DescribeOssTokenRequest
  * @return DescribeOssTokenResponse
@@ -9092,7 +9096,7 @@ DescribeOssTokenResponse Client::describeOssToken(const DescribeOssTokenRequest 
 }
 
 /**
- * @summary Query Event Property List
+ * @summary Queries the list of event properties.
  *
  * @param request DescribeParamByEventCodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9135,7 +9139,7 @@ DescribeParamByEventCodesResponse Client::describeParamByEventCodesWithOptions(c
 }
 
 /**
- * @summary Query Event Property List
+ * @summary Queries the list of event properties.
  *
  * @param request DescribeParamByEventCodesRequest
  * @return DescribeParamByEventCodesResponse
@@ -9146,7 +9150,7 @@ DescribeParamByEventCodesResponse Client::describeParamByEventCodes(const Descri
 }
 
 /**
- * @summary Get File Upload Credentials
+ * @summary Retrieves the file upload credential.
  *
  * @param request DescribePocOssTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9181,7 +9185,7 @@ DescribePocOssTokenResponse Client::describePocOssTokenWithOptions(const Describ
 }
 
 /**
- * @summary Get File Upload Credentials
+ * @summary Retrieves the file upload credential.
  *
  * @param request DescribePocOssTokenRequest
  * @return DescribePocOssTokenResponse
@@ -9192,7 +9196,7 @@ DescribePocOssTokenResponse Client::describePocOssToken(const DescribePocOssToke
 }
 
 /**
- * @summary Get POC Task List
+ * @summary Retrieves the list of POC tasks.
  *
  * @param request DescribePocTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9239,7 +9243,7 @@ DescribePocTaskListResponse Client::describePocTaskListWithOptions(const Describ
 }
 
 /**
- * @summary Get POC Task List
+ * @summary Retrieves the list of POC tasks.
  *
  * @param request DescribePocTaskListRequest
  * @return DescribePocTaskListResponse
@@ -9250,7 +9254,7 @@ DescribePocTaskListResponse Client::describePocTaskList(const DescribePocTaskLis
 }
 
 /**
- * @summary Determine if Stack Private Domain Mode is Enabled
+ * @summary Checks whether the Stack private domain mode is enabled.
  *
  * @param request DescribePrivateStackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9281,7 +9285,7 @@ DescribePrivateStackResponse Client::describePrivateStackWithOptions(const Descr
 }
 
 /**
- * @summary Determine if Stack Private Domain Mode is Enabled
+ * @summary Checks whether the Stack private domain mode is enabled.
  *
  * @param request DescribePrivateStackRequest
  * @return DescribePrivateStackResponse
@@ -9292,7 +9296,7 @@ DescribePrivateStackResponse Client::describePrivateStack(const DescribePrivateS
 }
 
 /**
- * @summary Query Variable Detail Query
+ * @summary Queries the details of a custom query variable.
  *
  * @param request DescribeQueryVariableDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9331,7 +9335,7 @@ DescribeQueryVariableDetailResponse Client::describeQueryVariableDetailWithOptio
 }
 
 /**
- * @summary Query Variable Detail Query
+ * @summary Queries the details of a custom query variable.
  *
  * @param request DescribeQueryVariableDetailRequest
  * @return DescribeQueryVariableDetailResponse
@@ -9342,7 +9346,7 @@ DescribeQueryVariableDetailResponse Client::describeQueryVariableDetail(const De
 }
 
 /**
- * @summary Query Variable List Query
+ * @summary Queries a list of custom query variables.
  *
  * @param request DescribeQueryVariablePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9397,7 +9401,7 @@ DescribeQueryVariablePageListResponse Client::describeQueryVariablePageListWithO
 }
 
 /**
- * @summary Query Variable List Query
+ * @summary Queries a list of custom query variables.
  *
  * @param request DescribeQueryVariablePageListRequest
  * @return DescribeQueryVariablePageListResponse
@@ -9408,7 +9412,7 @@ DescribeQueryVariablePageListResponse Client::describeQueryVariablePageList(cons
 }
 
 /**
- * @summary Query Variable List under Sample & Scenario
+ * @summary Queries the list of variables under a data sample and scenario.
  *
  * @param request DescribeRecommendSceneVariablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9447,7 +9451,7 @@ DescribeRecommendSceneVariablesResponse Client::describeRecommendSceneVariablesW
 }
 
 /**
- * @summary Query Variable List under Sample & Scenario
+ * @summary Queries the list of variables under a data sample and scenario.
  *
  * @param request DescribeRecommendSceneVariablesRequest
  * @return DescribeRecommendSceneVariablesResponse
@@ -9458,7 +9462,7 @@ DescribeRecommendSceneVariablesResponse Client::describeRecommendSceneVariables(
 }
 
 /**
- * @summary Variable Recommendation Details Query Interface
+ * @summary Queries the details of variable recommendations.
  *
  * @param request DescribeRecommendTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9497,7 +9501,7 @@ DescribeRecommendTaskDetailResponse Client::describeRecommendTaskDetailWithOptio
 }
 
 /**
- * @summary Variable Recommendation Details Query Interface
+ * @summary Queries the details of variable recommendations.
  *
  * @param request DescribeRecommendTaskDetailRequest
  * @return DescribeRecommendTaskDetailResponse
@@ -9508,7 +9512,7 @@ DescribeRecommendTaskDetailResponse Client::describeRecommendTaskDetail(const De
 }
 
 /**
- * @summary Variable Recommendation List Query Interface
+ * @summary Queries the variable recommendation list.
  *
  * @param request DescribeRecommendTaskPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9555,7 +9559,7 @@ DescribeRecommendTaskPageListResponse Client::describeRecommendTaskPageListWithO
 }
 
 /**
- * @summary Variable Recommendation List Query Interface
+ * @summary Queries the variable recommendation list.
  *
  * @param request DescribeRecommendTaskPageListRequest
  * @return DescribeRecommendTaskPageListResponse
@@ -9566,7 +9570,7 @@ DescribeRecommendTaskPageListResponse Client::describeRecommendTaskPageList(cons
 }
 
 /**
- * @summary Query Indicators Information under Variables
+ * @summary Queries the metric information of a variable.
  *
  * @param request DescribeRecommendVariablesVelocityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9609,7 +9613,7 @@ DescribeRecommendVariablesVelocityResponse Client::describeRecommendVariablesVel
 }
 
 /**
- * @summary Query Indicators Information under Variables
+ * @summary Queries the metric information of a variable.
  *
  * @param request DescribeRecommendVariablesVelocityRequest
  * @return DescribeRecommendVariablesVelocityResponse
@@ -9620,7 +9624,7 @@ DescribeRecommendVariablesVelocityResponse Client::describeRecommendVariablesVel
 }
 
 /**
- * @summary Query Supported Metrics List
+ * @summary Queries the list of supported metrics.
  *
  * @param request DescribeRecommendVelocitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9663,7 +9667,7 @@ DescribeRecommendVelocitiesResponse Client::describeRecommendVelocitiesWithOptio
 }
 
 /**
- * @summary Query Supported Metrics List
+ * @summary Queries the list of supported metrics.
  *
  * @param request DescribeRecommendVelocitiesRequest
  * @return DescribeRecommendVelocitiesResponse
@@ -9674,7 +9678,7 @@ DescribeRecommendVelocitiesResponse Client::describeRecommendVelocities(const De
 }
 
 /**
- * @summary Query the list of regions supported by ApiGateway
+ * @summary Queries the list of regions supported by API Gateway.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9709,7 +9713,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Query the list of regions supported by ApiGateway
+ * @summary Queries the list of regions supported by API Gateway.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -9720,7 +9724,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Query Request Hit Details
+ * @summary Queries the hit details of a request.
  *
  * @param request DescribeRequestHitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9759,7 +9763,7 @@ DescribeRequestHitResponse Client::describeRequestHitWithOptions(const DescribeR
 }
 
 /**
- * @summary Query Request Hit Details
+ * @summary Queries the hit details of a request.
  *
  * @param request DescribeRequestHitRequest
  * @return DescribeRequestHitResponse
@@ -9770,7 +9774,7 @@ DescribeRequestHitResponse Client::describeRequestHit(const DescribeRequestHitRe
 }
 
 /**
- * @summary Request Peak
+ * @summary Request Rate (QPS).
  *
  * @param request DescribeRequestPeakReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9805,7 +9809,7 @@ DescribeRequestPeakReportResponse Client::describeRequestPeakReportWithOptions(c
 }
 
 /**
- * @summary Request Peak
+ * @summary Request Rate (QPS).
  *
  * @param request DescribeRequestPeakReportRequest
  * @return DescribeRequestPeakReportResponse
@@ -9816,7 +9820,7 @@ DescribeRequestPeakReportResponse Client::describeRequestPeakReport(const Descri
 }
 
 /**
- * @summary Drill-down Analysis
+ * @summary Performs drill-down analysis.
  *
  * @param request DescribeResultCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9859,7 +9863,7 @@ DescribeResultCountResponse Client::describeResultCountWithOptions(const Describ
 }
 
 /**
- * @summary Drill-down Analysis
+ * @summary Performs drill-down analysis.
  *
  * @param request DescribeResultCountRequest
  * @return DescribeResultCountResponse
@@ -9870,7 +9874,7 @@ DescribeResultCountResponse Client::describeResultCount(const DescribeResultCoun
 }
 
 /**
- * @summary Risk map overview chart (line chart)
+ * @summary Risk Map Overview Chart (Line Chart)
  *
  * @param request DescribeRiskLineChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9917,7 +9921,7 @@ DescribeRiskLineChartResponse Client::describeRiskLineChartWithOptions(const Des
 }
 
 /**
- * @summary Risk map overview chart (line chart)
+ * @summary Risk Map Overview Chart (Line Chart)
  *
  * @param request DescribeRiskLineChartRequest
  * @return DescribeRiskLineChartResponse
@@ -9986,7 +9990,7 @@ DescribeRiskTagsLineChartResponse Client::describeRiskTagsLineChart(const Descri
 }
 
 /**
- * @summary Policy Overview List
+ * @summary Queries the policy overview list.
  *
  * @param request DescribeRuleBarChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10033,7 +10037,7 @@ DescribeRuleBarChartResponse Client::describeRuleBarChartWithOptions(const Descr
 }
 
 /**
- * @summary Policy Overview List
+ * @summary Queries the policy overview list.
  *
  * @param request DescribeRuleBarChartRequest
  * @return DescribeRuleBarChartResponse
@@ -10044,7 +10048,7 @@ DescribeRuleBarChartResponse Client::describeRuleBarChart(const DescribeRuleBarC
 }
 
 /**
- * @summary Query Policy Count by User ID
+ * @summary Queries the number of policies by user ID.
  *
  * @param request DescribeRuleCountByUserIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10083,7 +10087,7 @@ DescribeRuleCountByUserIdResponse Client::describeRuleCountByUserIdWithOptions(c
 }
 
 /**
- * @summary Query Policy Count by User ID
+ * @summary Queries the number of policies by user ID.
  *
  * @param request DescribeRuleCountByUserIdRequest
  * @return DescribeRuleCountByUserIdResponse
@@ -10094,7 +10098,7 @@ DescribeRuleCountByUserIdResponse Client::describeRuleCountByUserId(const Descri
 }
 
 /**
- * @summary Query policy/version details
+ * @summary Query policy/version details.
  *
  * @param request DescribeRuleDetailByRuleIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10141,7 +10145,7 @@ DescribeRuleDetailByRuleIdResponse Client::describeRuleDetailByRuleIdWithOptions
 }
 
 /**
- * @summary Query policy/version details
+ * @summary Query policy/version details.
  *
  * @param request DescribeRuleDetailByRuleIdRequest
  * @return DescribeRuleDetailByRuleIdResponse
@@ -10152,7 +10156,7 @@ DescribeRuleDetailByRuleIdResponse Client::describeRuleDetailByRuleId(const Desc
 }
 
 /**
- * @summary Query rule hit details
+ * @summary Queries the details of policy rule hits.
  *
  * @param request DescribeRuleHitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10203,7 +10207,7 @@ DescribeRuleHitResponse Client::describeRuleHitWithOptions(const DescribeRuleHit
 }
 
 /**
- * @summary Query rule hit details
+ * @summary Queries the details of policy rule hits.
  *
  * @param request DescribeRuleHitRequest
  * @return DescribeRuleHitResponse
@@ -10214,7 +10218,7 @@ DescribeRuleHitResponse Client::describeRuleHit(const DescribeRuleHitRequest &re
 }
 
 /**
- * @summary Query policy list
+ * @summary Queries a list of policies.
  *
  * @param request DescribeRuleListByEventCodesListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10253,7 +10257,7 @@ DescribeRuleListByEventCodesListResponse Client::describeRuleListByEventCodesLis
 }
 
 /**
- * @summary Query policy list
+ * @summary Queries a list of policies.
  *
  * @param request DescribeRuleListByEventCodesListRequest
  * @return DescribeRuleListByEventCodesListResponse
@@ -10264,7 +10268,7 @@ DescribeRuleListByEventCodesListResponse Client::describeRuleListByEventCodesLis
 }
 
 /**
- * @summary Query the list of policies
+ * @summary Queries a list of policies.
  *
  * @param request DescribeRulePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10331,7 +10335,7 @@ DescribeRulePageListResponse Client::describeRulePageListWithOptions(const Descr
 }
 
 /**
- * @summary Query the list of policies
+ * @summary Queries a list of policies.
  *
  * @param request DescribeRulePageListRequest
  * @return DescribeRulePageListResponse
@@ -10342,7 +10346,7 @@ DescribeRulePageListResponse Client::describeRulePageList(const DescribeRulePage
 }
 
 /**
- * @summary Query historical snapshots based on ruleId and version
+ * @summary Query historical snapshots based on ruleId and version.
  *
  * @param request DescribeRuleSnapshotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10385,7 +10389,7 @@ DescribeRuleSnapshotResponse Client::describeRuleSnapshotWithOptions(const Descr
 }
 
 /**
- * @summary Query historical snapshots based on ruleId and version
+ * @summary Query historical snapshots based on ruleId and version.
  *
  * @param request DescribeRuleSnapshotRequest
  * @return DescribeRuleSnapshotResponse
@@ -10396,7 +10400,7 @@ DescribeRuleSnapshotResponse Client::describeRuleSnapshot(const DescribeRuleSnap
 }
 
 /**
- * @summary Query Policy Version List
+ * @summary Queries the list of policy versions.
  *
  * @param request DescribeRuleVersionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10447,7 +10451,7 @@ DescribeRuleVersionListResponse Client::describeRuleVersionListWithOptions(const
 }
 
 /**
- * @summary Query Policy Version List
+ * @summary Queries the list of policy versions.
  *
  * @param request DescribeRuleVersionListRequest
  * @return DescribeRuleVersionListResponse
@@ -10458,7 +10462,7 @@ DescribeRuleVersionListResponse Client::describeRuleVersionList(const DescribeRu
 }
 
 /**
- * @summary SDK Download List
+ * @summary Queries the list of SDK downloads.
  *
  * @param request DescribeSDKDownloadListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10501,7 +10505,7 @@ DescribeSDKDownloadListResponse Client::describeSDKDownloadListWithOptions(const
 }
 
 /**
- * @summary SDK Download List
+ * @summary Queries the list of SDK downloads.
  *
  * @param request DescribeSDKDownloadListRequest
  * @return DescribeSDKDownloadListResponse
@@ -10512,7 +10516,7 @@ DescribeSDKDownloadListResponse Client::describeSDKDownloadList(const DescribeSD
 }
 
 /**
- * @summary Query SAF permissions.
+ * @summary Queries SAF permissions.
  *
  * @param request DescribeSafConsoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10551,7 +10555,7 @@ DescribeSafConsoleResponse Client::describeSafConsoleWithOptions(const DescribeS
 }
 
 /**
- * @summary Query SAF permissions.
+ * @summary Queries SAF permissions.
  *
  * @param request DescribeSafConsoleRequest
  * @return DescribeSafConsoleResponse
@@ -10562,7 +10566,7 @@ DescribeSafConsoleResponse Client::describeSafConsole(const DescribeSafConsoleRe
 }
 
 /**
- * @summary Query saf_de Order
+ * @summary Queries saf_de orders.
  *
  * @param request DescribeSafDeOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10613,7 +10617,7 @@ DescribeSafDeOrderResponse Client::describeSafDeOrderWithOptions(const DescribeS
 }
 
 /**
- * @summary Query saf_de Order
+ * @summary Queries saf_de orders.
  *
  * @param request DescribeSafDeOrderRequest
  * @return DescribeSafDeOrderResponse
@@ -10624,7 +10628,7 @@ DescribeSafDeOrderResponse Client::describeSafDeOrder(const DescribeSafDeOrderRe
 }
 
 /**
- * @summary Query Order Information
+ * @summary Queries order information.
  *
  * @param request DescribeSafOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10679,7 +10683,7 @@ DescribeSafOrderResponse Client::describeSafOrderWithOptions(const DescribeSafOr
 }
 
 /**
- * @summary Query Order Information
+ * @summary Queries order information.
  *
  * @param request DescribeSafOrderRequest
  * @return DescribeSafOrderResponse
@@ -10690,7 +10694,7 @@ DescribeSafOrderResponse Client::describeSafOrder(const DescribeSafOrderRequest 
 }
 
 /**
- * @summary Query Access Configuration
+ * @summary Queries the access configuration.
  *
  * @param request DescribeSafStartConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10725,7 +10729,7 @@ DescribeSafStartConfigResponse Client::describeSafStartConfigWithOptions(const D
 }
 
 /**
- * @summary Query Access Configuration
+ * @summary Queries the access configuration.
  *
  * @param request DescribeSafStartConfigRequest
  * @return DescribeSafStartConfigResponse
@@ -10736,7 +10740,7 @@ DescribeSafStartConfigResponse Client::describeSafStartConfig(const DescribeSafS
 }
 
 /**
- * @summary Query Access Configuration
+ * @summary Queries access configurations.
  *
  * @param request DescribeSafStartStepsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10791,7 +10795,7 @@ DescribeSafStartStepsResponse Client::describeSafStartStepsWithOptions(const Des
 }
 
 /**
- * @summary Query Access Configuration
+ * @summary Queries access configurations.
  *
  * @param request DescribeSafStartStepsRequest
  * @return DescribeSafStartStepsResponse
@@ -10802,7 +10806,7 @@ DescribeSafStartStepsResponse Client::describeSafStartSteps(const DescribeSafSta
 }
 
 /**
- * @summary Get Risk Tag List
+ * @summary Retrieves the list of risk labels.
  *
  * @param request DescribeSafTagListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10853,7 +10857,7 @@ DescribeSafTagListResponse Client::describeSafTagListWithOptions(const DescribeS
 }
 
 /**
- * @summary Get Risk Tag List
+ * @summary Retrieves the list of risk labels.
  *
  * @param request DescribeSafTagListRequest
  * @return DescribeSafTagListResponse
@@ -10984,7 +10988,7 @@ DescribeSampleDataByBatchUUidPageResponse Client::describeSampleDataByBatchUUidP
 }
 
 /**
- * @summary Paged Query of Sample List
+ * @summary Performs a paging query on the sample list.
  *
  * @param request DescribeSampleDataListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11047,7 +11051,7 @@ DescribeSampleDataListResponse Client::describeSampleDataListWithOptions(const D
 }
 
 /**
- * @summary Paged Query of Sample List
+ * @summary Performs a paging query on the sample list.
  *
  * @param request DescribeSampleDataListRequest
  * @return DescribeSampleDataListResponse
@@ -11124,7 +11128,7 @@ DescribeSampleDataPageResponse Client::describeSampleDataPage(const DescribeSamp
 }
 
 /**
- * @summary Query Sample Example Authorization
+ * @summary Queries the authorization of a data sample.
  *
  * @param request DescribeSampleDemoDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11163,7 +11167,7 @@ DescribeSampleDemoDownloadUrlResponse Client::describeSampleDemoDownloadUrlWithO
 }
 
 /**
- * @summary Query Sample Example Authorization
+ * @summary Queries the authorization of a data sample.
  *
  * @param request DescribeSampleDemoDownloadUrlRequest
  * @return DescribeSampleDemoDownloadUrlResponse
@@ -11174,7 +11178,7 @@ DescribeSampleDemoDownloadUrlResponse Client::describeSampleDemoDownloadUrl(cons
 }
 
 /**
- * @summary Query Sample Download Authorization Information
+ * @summary Queries the authorization information for downloading a data sample.
  *
  * @param request DescribeSampleDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11213,7 +11217,7 @@ DescribeSampleDownloadUrlResponse Client::describeSampleDownloadUrlWithOptions(c
 }
 
 /**
- * @summary Query Sample Download Authorization Information
+ * @summary Queries the authorization information for downloading a data sample.
  *
  * @param request DescribeSampleDownloadUrlRequest
  * @return DescribeSampleDownloadUrlResponse
@@ -11224,7 +11228,7 @@ DescribeSampleDownloadUrlResponse Client::describeSampleDownloadUrl(const Descri
 }
 
 /**
- * @summary Query Sample Details
+ * @summary Queries the details of a data sample.
  *
  * @param request DescribeSampleInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11267,7 +11271,7 @@ DescribeSampleInfoResponse Client::describeSampleInfoWithOptions(const DescribeS
 }
 
 /**
- * @summary Query Sample Details
+ * @summary Queries the details of a data sample.
  *
  * @param request DescribeSampleInfoRequest
  * @return DescribeSampleInfoResponse
@@ -11278,7 +11282,7 @@ DescribeSampleInfoResponse Client::describeSampleInfo(const DescribeSampleInfoRe
 }
 
 /**
- * @summary Query Sample List
+ * @summary Queries the sample list.
  *
  * @param request DescribeSampleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11329,7 +11333,7 @@ DescribeSampleListResponse Client::describeSampleListWithOptions(const DescribeS
 }
 
 /**
- * @summary Query Sample List
+ * @summary Queries the sample list.
  *
  * @param request DescribeSampleListRequest
  * @return DescribeSampleListResponse
@@ -11340,7 +11344,7 @@ DescribeSampleListResponse Client::describeSampleList(const DescribeSampleListRe
 }
 
 /**
- * @summary Query Scene List
+ * @summary Queries the list of scenarios.
  *
  * @param request DescribeSampleSceneListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11375,7 +11379,7 @@ DescribeSampleSceneListResponse Client::describeSampleSceneListWithOptions(const
 }
 
 /**
- * @summary Query Scene List
+ * @summary Queries the list of scenarios.
  *
  * @param request DescribeSampleSceneListRequest
  * @return DescribeSampleSceneListResponse
@@ -11386,7 +11390,7 @@ DescribeSampleSceneListResponse Client::describeSampleSceneList(const DescribeSa
 }
 
 /**
- * @summary Get Tag List
+ * @summary Retrieves the list of labels.
  *
  * @param request DescribeSampleTagListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11421,7 +11425,7 @@ DescribeSampleTagListResponse Client::describeSampleTagListWithOptions(const Des
 }
 
 /**
- * @summary Get Tag List
+ * @summary Retrieves the list of labels.
  *
  * @param request DescribeSampleTagListRequest
  * @return DescribeSampleTagListResponse
@@ -11432,7 +11436,7 @@ DescribeSampleTagListResponse Client::describeSampleTagList(const DescribeSample
 }
 
 /**
- * @summary Query Sample Upload Authorization Information
+ * @summary Queries the authorization information for sample uploads.
  *
  * @param request DescribeSampleUploadPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11467,7 +11471,7 @@ DescribeSampleUploadPolicyResponse Client::describeSampleUploadPolicyWithOptions
 }
 
 /**
- * @summary Query Sample Upload Authorization Information
+ * @summary Queries the authorization information for sample uploads.
  *
  * @param request DescribeSampleUploadPolicyRequest
  * @return DescribeSampleUploadPolicyResponse
@@ -11536,9 +11540,9 @@ DescribeSamplebatchPageResponse Client::describeSamplebatchPage(const DescribeSa
 }
 
 /**
- * @summary Dropdown list for scenario-based service events
+ * @summary Queries the dropdown list of scenario-based risk control events.
  *
- * @description Dropdown list for scenario-based risk control events
+ * @description Queries the dropdown list of scenario-based risk control events.
  *
  * @param request DescribeSceneAllEventNameCodeListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11577,9 +11581,9 @@ DescribeSceneAllEventNameCodeListResponse Client::describeSceneAllEventNameCodeL
 }
 
 /**
- * @summary Dropdown list for scenario-based service events
+ * @summary Queries the dropdown list of scenario-based risk control events.
  *
- * @description Dropdown list for scenario-based risk control events
+ * @description Queries the dropdown list of scenario-based risk control events.
  *
  * @param request DescribeSceneAllEventNameCodeListRequest
  * @return DescribeSceneAllEventNameCodeListResponse
@@ -11590,7 +11594,7 @@ DescribeSceneAllEventNameCodeListResponse Client::describeSceneAllEventNameCodeL
 }
 
 /**
- * @summary List of Scenario-based Risk Control Events
+ * @summary Queries the list of scenario-based risk control events.
  *
  * @param request DescribeSceneEventPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11637,7 +11641,7 @@ DescribeSceneEventPageListResponse Client::describeSceneEventPageListWithOptions
 }
 
 /**
- * @summary List of Scenario-based Risk Control Events
+ * @summary Queries the list of scenario-based risk control events.
  *
  * @param request DescribeSceneEventPageListRequest
  * @return DescribeSceneEventPageListResponse
@@ -11648,9 +11652,9 @@ DescribeSceneEventPageListResponse Client::describeSceneEventPageList(const Desc
 }
 
 /**
- * @summary White-boxed strategy list for risk control services
+ * @summary Queries the list of scenario-based risk control event policies.
  *
- * @description Query the list of scenarized risk control event strategies
+ * @description Queries the list of scenario-based risk control event policies.
  *
  * @param request DescribeSceneRulePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11713,9 +11717,9 @@ DescribeSceneRulePageListResponse Client::describeSceneRulePageListWithOptions(c
 }
 
 /**
- * @summary White-boxed strategy list for risk control services
+ * @summary Queries the list of scenario-based risk control event policies.
  *
- * @description Query the list of scenarized risk control event strategies
+ * @description Queries the list of scenario-based risk control event policies.
  *
  * @param request DescribeSceneRulePageListRequest
  * @return DescribeSceneRulePageListResponse
@@ -11772,7 +11776,7 @@ DescribeScoreListResponse Client::describeScoreList(const DescribeScoreListReque
 }
 
 /**
- * @summary Score Range Quantity Analysis
+ * @summary Analyzes the quantity distribution across score ranges.
  *
  * @param request DescribeScoreSectionNumLineChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11827,7 +11831,7 @@ DescribeScoreSectionNumLineChartResponse Client::describeScoreSectionNumLineChar
 }
 
 /**
- * @summary Score Range Quantity Analysis
+ * @summary Analyzes the quantity distribution across score ranges.
  *
  * @param request DescribeScoreSectionNumLineChartRequest
  * @return DescribeScoreSectionNumLineChartResponse
@@ -11838,7 +11842,7 @@ DescribeScoreSectionNumLineChartResponse Client::describeScoreSectionNumLineChar
 }
 
 /**
- * @summary Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events
+ * @summary Queries the score range distribution of main events, bypass events, and diversion events.
  *
  * @param request DescribeScoreSectionPieChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11889,7 +11893,7 @@ DescribeScoreSectionPieChartResponse Client::describeScoreSectionPieChartWithOpt
 }
 
 /**
- * @summary Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events
+ * @summary Queries the score range distribution of main events, bypass events, and diversion events.
  *
  * @param request DescribeScoreSectionPieChartRequest
  * @return DescribeScoreSectionPieChartResponse
@@ -11900,7 +11904,7 @@ DescribeScoreSectionPieChartResponse Client::describeScoreSectionPieChart(const 
 }
 
 /**
- * @summary Score Section Ratio Analysis
+ * @summary Score Range Proportion Analysis
  *
  * @param request DescribeScoreSectionRatioLineChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11955,7 +11959,7 @@ DescribeScoreSectionRatioLineChartResponse Client::describeScoreSectionRatioLine
 }
 
 /**
- * @summary Score Section Ratio Analysis
+ * @summary Score Range Proportion Analysis
  *
  * @param request DescribeScoreSectionRatioLineChartRequest
  * @return DescribeScoreSectionRatioLineChartResponse
@@ -11966,7 +11970,7 @@ DescribeScoreSectionRatioLineChartResponse Client::describeScoreSectionRatioLine
 }
 
 /**
- * @summary Query Task ID List
+ * @summary Queries the list of task IDs.
  *
  * @param request DescribeSelectItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12001,7 +12005,7 @@ DescribeSelectItemResponse Client::describeSelectItemWithOptions(const DescribeS
 }
 
 /**
- * @summary Query Task ID List
+ * @summary Queries the list of task IDs.
  *
  * @param request DescribeSelectItemRequest
  * @return DescribeSelectItemResponse
@@ -12012,7 +12016,7 @@ DescribeSelectItemResponse Client::describeSelectItem(const DescribeSelectItemRe
 }
 
 /**
- * @summary ServiceAppkey dropdown
+ * @summary Retrieves the dropdown values for ServiceAppkey.
  *
  * @param request DescribeServiceAppKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12043,7 +12047,7 @@ DescribeServiceAppKeyResponse Client::describeServiceAppKeyWithOptions(const Des
 }
 
 /**
- * @summary ServiceAppkey dropdown
+ * @summary Retrieves the dropdown values for ServiceAppkey.
  *
  * @param request DescribeServiceAppKeyRequest
  * @return DescribeServiceAppKeyResponse
@@ -12100,7 +12104,7 @@ DescribeServiceCodeNameResponse Client::describeServiceCodeName(const DescribeSe
 }
 
 /**
- * @summary Get Service List
+ * @summary Retrieves the list of services.
  *
  * @param request DescribeServiceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12135,7 +12139,7 @@ DescribeServiceListResponse Client::describeServiceListWithOptions(const Describ
 }
 
 /**
- * @summary Get Service List
+ * @summary Retrieves the list of services.
  *
  * @param request DescribeServiceListRequest
  * @return DescribeServiceListResponse
@@ -12146,7 +12150,7 @@ DescribeServiceListResponse Client::describeServiceList(const DescribeServiceLis
 }
 
 /**
- * @summary Estimate Call Information
+ * @summary Estimates call information.
  *
  * @param request DescribeSimulationPreditInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12189,7 +12193,7 @@ DescribeSimulationPreditInfoResponse Client::describeSimulationPreditInfoWithOpt
 }
 
 /**
- * @summary Estimate Call Information
+ * @summary Estimates call information.
  *
  * @param request DescribeSimulationPreditInfoRequest
  * @return DescribeSimulationPreditInfoResponse
@@ -12200,7 +12204,7 @@ DescribeSimulationPreditInfoResponse Client::describeSimulationPreditInfo(const 
 }
 
 /**
- * @summary Query Task Record Count
+ * @summary Queries the number of task records.
  *
  * @param request DescribeSimulationTaskCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12259,7 +12263,7 @@ DescribeSimulationTaskCountResponse Client::describeSimulationTaskCountWithOptio
 }
 
 /**
- * @summary Query Task Record Count
+ * @summary Queries the number of task records.
  *
  * @param request DescribeSimulationTaskCountRequest
  * @return DescribeSimulationTaskCountResponse
@@ -12270,7 +12274,7 @@ DescribeSimulationTaskCountResponse Client::describeSimulationTaskCount(const De
 }
 
 /**
- * @summary Task List
+ * @summary Queries the task list.
  *
  * @param request DescribeSimulationTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12325,7 +12329,7 @@ DescribeSimulationTaskListResponse Client::describeSimulationTaskListWithOptions
 }
 
 /**
- * @summary Task List
+ * @summary Queries the task list.
  *
  * @param request DescribeSimulationTaskListRequest
  * @return DescribeSimulationTaskListResponse
@@ -12336,7 +12340,7 @@ DescribeSimulationTaskListResponse Client::describeSimulationTaskList(const Desc
 }
 
 /**
- * @summary Get Project Configuration
+ * @summary Retrieves the project configuration.
  *
  * @param request DescribeSlsUrlConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12371,7 +12375,7 @@ DescribeSlsUrlConfigResponse Client::describeSlsUrlConfigWithOptions(const Descr
 }
 
 /**
- * @summary Get Project Configuration
+ * @summary Retrieves the project configuration.
  *
  * @param request DescribeSlsUrlConfigRequest
  * @return DescribeSlsUrlConfigResponse
@@ -12382,7 +12386,7 @@ DescribeSlsUrlConfigResponse Client::describeSlsUrlConfig(const DescribeSlsUrlCo
 }
 
 /**
- * @summary Query List of Policies Supporting Simulation
+ * @summary Queries the list of policies that support simulation.
  *
  * @param request DescribeSupportRuleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12421,7 +12425,7 @@ DescribeSupportRuleListResponse Client::describeSupportRuleListWithOptions(const
 }
 
 /**
- * @summary Query List of Policies Supporting Simulation
+ * @summary Queries the list of policies that support simulation.
  *
  * @param request DescribeSupportRuleListRequest
  * @return DescribeSupportRuleListResponse
@@ -12432,7 +12436,7 @@ DescribeSupportRuleListResponse Client::describeSupportRuleList(const DescribeSu
 }
 
 /**
- * @summary Tag List
+ * @summary Queries the label list.
  *
  * @param request DescribeTagListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12471,7 +12475,7 @@ DescribeTagListResponse Client::describeTagListWithOptions(const DescribeTagList
 }
 
 /**
- * @summary Tag List
+ * @summary Queries the label list.
  *
  * @param request DescribeTagListRequest
  * @return DescribeTagListResponse
@@ -12482,7 +12486,7 @@ DescribeTagListResponse Client::describeTagList(const DescribeTagListRequest &re
 }
 
 /**
- * @summary Tag Overview List
+ * @summary Queries the tag overview list.
  *
  * @param request DescribeTagsBarChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12533,7 +12537,7 @@ DescribeTagsBarChartResponse Client::describeTagsBarChartWithOptions(const Descr
 }
 
 /**
- * @summary Tag Overview List
+ * @summary Queries the tag overview list.
  *
  * @param request DescribeTagsBarChartRequest
  * @return DescribeTagsBarChartResponse
@@ -12544,7 +12548,7 @@ DescribeTagsBarChartResponse Client::describeTagsBarChart(const DescribeTagsBarC
 }
 
 /**
- * @summary Tag Fluctuation Detection
+ * @summary Detects label fluctuations.
  *
  * @param request DescribeTagsFluctuationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12583,7 +12587,7 @@ DescribeTagsFluctuationResponse Client::describeTagsFluctuationWithOptions(const
 }
 
 /**
- * @summary Tag Fluctuation Detection
+ * @summary Detects label fluctuations.
  *
  * @param request DescribeTagsFluctuationRequest
  * @return DescribeTagsFluctuationResponse
@@ -12594,7 +12598,7 @@ DescribeTagsFluctuationResponse Client::describeTagsFluctuation(const DescribeTa
 }
 
 /**
- * @summary Get Tag List
+ * @summary Retrieves the list of labels.
  *
  * @param request DescribeTagsListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12629,7 +12633,7 @@ DescribeTagsListResponse Client::describeTagsListWithOptions(const DescribeTagsL
 }
 
 /**
- * @summary Get Tag List
+ * @summary Retrieves the list of labels.
  *
  * @param request DescribeTagsListRequest
  * @return DescribeTagsListResponse
@@ -12640,7 +12644,7 @@ DescribeTagsListResponse Client::describeTagsList(const DescribeTagsListRequest 
 }
 
 /**
- * @summary Tag Hit Count Analysis
+ * @summary Analyzes the number of label hits.
  *
  * @param request DescribeTagsNumLineChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12695,7 +12699,7 @@ DescribeTagsNumLineChartResponse Client::describeTagsNumLineChartWithOptions(con
 }
 
 /**
- * @summary Tag Hit Count Analysis
+ * @summary Analyzes the number of label hits.
  *
  * @param request DescribeTagsNumLineChartRequest
  * @return DescribeTagsNumLineChartResponse
@@ -12706,7 +12710,7 @@ DescribeTagsNumLineChartResponse Client::describeTagsNumLineChart(const Describe
 }
 
 /**
- * @summary Tag Hit Ratio Analysis
+ * @summary Analyzes the tag hit ratio distribution.
  *
  * @param request DescribeTagsRatioLineChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12761,7 +12765,7 @@ DescribeTagsRatioLineChartResponse Client::describeTagsRatioLineChartWithOptions
 }
 
 /**
- * @summary Tag Hit Ratio Analysis
+ * @summary Analyzes the tag hit ratio distribution.
  *
  * @param request DescribeTagsRatioLineChartRequest
  * @return DescribeTagsRatioLineChartResponse
@@ -12772,7 +12776,7 @@ DescribeTagsRatioLineChartResponse Client::describeTagsRatioLineChart(const Desc
 }
 
 /**
- * @summary Tag Hit Trend
+ * @summary Queries the trend of tag hits.
  *
  * @param request DescribeTagsTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12823,7 +12827,7 @@ DescribeTagsTrendResponse Client::describeTagsTrendWithOptions(const DescribeTag
 }
 
 /**
- * @summary Tag Hit Trend
+ * @summary Queries the trend of tag hits.
  *
  * @param request DescribeTagsTrendRequest
  * @return DescribeTagsTrendResponse
@@ -12834,7 +12838,7 @@ DescribeTagsTrendResponse Client::describeTagsTrend(const DescribeTagsTrendReque
 }
 
 /**
- * @summary Task List
+ * @summary Queries the task list.
  *
  * @param request DescribeTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12881,7 +12885,7 @@ DescribeTaskListResponse Client::describeTaskListWithOptions(const DescribeTaskL
 }
 
 /**
- * @summary Task List
+ * @summary Queries the task list.
  *
  * @param request DescribeTaskListRequest
  * @return DescribeTaskListResponse
@@ -12892,7 +12896,7 @@ DescribeTaskListResponse Client::describeTaskList(const DescribeTaskListRequest 
 }
 
 /**
- * @summary Task Log List
+ * @summary Queries the task logs.
  *
  * @param request DescribeTaskLogListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12947,7 +12951,7 @@ DescribeTaskLogListResponse Client::describeTaskLogListWithOptions(const Describ
 }
 
 /**
- * @summary Task Log List
+ * @summary Queries the task logs.
  *
  * @param request DescribeTaskLogListRequest
  * @return DescribeTaskLogListResponse
@@ -12958,7 +12962,7 @@ DescribeTaskLogListResponse Client::describeTaskLogList(const DescribeTaskLogLis
 }
 
 /**
- * @summary Query Total Event Count
+ * @summary Queries the total number of events.
  *
  * @param request DescribeTemplateCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12993,7 +12997,7 @@ DescribeTemplateCountResponse Client::describeTemplateCountWithOptions(const Des
 }
 
 /**
- * @summary Query Total Event Count
+ * @summary Queries the total number of events.
  *
  * @param request DescribeTemplateCountRequest
  * @return DescribeTemplateCountResponse
@@ -13004,7 +13008,7 @@ DescribeTemplateCountResponse Client::describeTemplateCount(const DescribeTempla
 }
 
 /**
- * @summary Template Download
+ * @summary Downloads a template.
  *
  * @param request DescribeTemplateDownloadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13039,7 +13043,7 @@ DescribeTemplateDownloadResponse Client::describeTemplateDownloadWithOptions(con
 }
 
 /**
- * @summary Template Download
+ * @summary Downloads a template.
  *
  * @param request DescribeTemplateDownloadRequest
  * @return DescribeTemplateDownloadResponse
@@ -13050,7 +13054,7 @@ DescribeTemplateDownloadResponse Client::describeTemplateDownload(const Describe
 }
 
 /**
- * @summary Query Event List by Event Name
+ * @summary Queries a list of events by event name.
  *
  * @param request DescribeTemplatePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13113,7 +13117,7 @@ DescribeTemplatePageListResponse Client::describeTemplatePageListWithOptions(con
 }
 
 /**
- * @summary Query Event List by Event Name
+ * @summary Queries a list of events by event name.
  *
  * @param request DescribeTemplatePageListRequest
  * @return DescribeTemplatePageListResponse
@@ -13124,7 +13128,7 @@ DescribeTemplatePageListResponse Client::describeTemplatePageList(const Describe
 }
 
 /**
- * @summary Get List of Services Used by User
+ * @summary Queries the list of services used by the user.
  *
  * @param request DescribeUsedServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13159,7 +13163,7 @@ DescribeUsedServiceResponse Client::describeUsedServiceWithOptions(const Describ
 }
 
 /**
- * @summary Get List of Services Used by User
+ * @summary Queries the list of services used by the user.
  *
  * @param request DescribeUsedServiceRequest
  * @return DescribeUsedServiceResponse
@@ -13170,7 +13174,7 @@ DescribeUsedServiceResponse Client::describeUsedService(const DescribeUsedServic
 }
 
 /**
- * @summary Get Current Logged-in User Information
+ * @summary Retrieves the information about the current logged-on user.
  *
  * @param request DescribeUserInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13205,7 +13209,7 @@ DescribeUserInfoResponse Client::describeUserInfoWithOptions(const DescribeUserI
 }
 
 /**
- * @summary Get Current Logged-in User Information
+ * @summary Retrieves the information about the current logged-on user.
  *
  * @param request DescribeUserInfoRequest
  * @return DescribeUserInfoResponse
@@ -13216,7 +13220,7 @@ DescribeUserInfoResponse Client::describeUserInfo(const DescribeUserInfoRequest 
 }
 
 /**
- * @summary Query Variable Binding Information
+ * @summary Queries variable binding information.
  *
  * @param request DescribeVariableBindDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13259,7 +13263,7 @@ DescribeVariableBindDetailResponse Client::describeVariableBindDetailWithOptions
 }
 
 /**
- * @summary Query Variable Binding Information
+ * @summary Queries variable binding information.
  *
  * @param request DescribeVariableBindDetailRequest
  * @return DescribeVariableBindDetailResponse
@@ -13270,7 +13274,7 @@ DescribeVariableBindDetailResponse Client::describeVariableBindDetail(const Desc
 }
 
 /**
- * @summary Query variable details
+ * @summary Queries the details of a variable.
  *
  * @param request DescribeVariableDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13309,7 +13313,7 @@ DescribeVariableDetailResponse Client::describeVariableDetailWithOptions(const D
 }
 
 /**
- * @summary Query variable details
+ * @summary Queries the details of a variable.
  *
  * @param request DescribeVariableDetailRequest
  * @return DescribeVariableDetailResponse
@@ -13320,7 +13324,7 @@ DescribeVariableDetailResponse Client::describeVariableDetail(const DescribeVari
 }
 
 /**
- * @summary Query Variable Fee Information
+ * @summary Queries the billing information of variables.
  *
  * @param request DescribeVariableFeeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13359,7 +13363,7 @@ DescribeVariableFeeResponse Client::describeVariableFeeWithOptions(const Describ
 }
 
 /**
- * @summary Query Variable Fee Information
+ * @summary Queries the billing information of variables.
  *
  * @param request DescribeVariableFeeRequest
  * @return DescribeVariableFeeResponse
@@ -13370,7 +13374,7 @@ DescribeVariableFeeResponse Client::describeVariableFee(const DescribeVariableFe
 }
 
 /**
- * @summary Query Variable Details
+ * @summary Queries the details of variables.
  *
  * @param request DescribeVariableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13437,7 +13441,7 @@ DescribeVariableListResponse Client::describeVariableListWithOptions(const Descr
 }
 
 /**
- * @summary Query Variable Details
+ * @summary Queries the details of variables.
  *
  * @param request DescribeVariableListRequest
  * @return DescribeVariableListResponse
@@ -13448,7 +13452,7 @@ DescribeVariableListResponse Client::describeVariableList(const DescribeVariable
 }
 
 /**
- * @summary Query Variable Definitions
+ * @summary Queries variable definitions.
  *
  * @param request DescribeVariableMarketListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13515,7 +13519,7 @@ DescribeVariableMarketListResponse Client::describeVariableMarketListWithOptions
 }
 
 /**
- * @summary Query Variable Definitions
+ * @summary Queries variable definitions.
  *
  * @param request DescribeVariableMarketListRequest
  * @return DescribeVariableMarketListResponse
@@ -13526,7 +13530,7 @@ DescribeVariableMarketListResponse Client::describeVariableMarketList(const Desc
 }
 
 /**
- * @summary Query Configuration Information
+ * @summary Queries configuration information.
  *
  * @param request DescribeVariableSceneListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13581,7 +13585,7 @@ DescribeVariableSceneListResponse Client::describeVariableSceneListWithOptions(c
 }
 
 /**
- * @summary Query Configuration Information
+ * @summary Queries configuration information.
  *
  * @param request DescribeVariableSceneListRequest
  * @return DescribeVariableSceneListResponse
@@ -13732,7 +13736,7 @@ DescribeVersionPageListResponse Client::describeVersionPageList(const DescribeVe
 }
 
 /**
- * @summary 下载样本文件
+ * @summary Download sample file
  *
  * @param request DownloadSampleFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13775,7 +13779,7 @@ DownloadSampleFileResponse Client::downloadSampleFileWithOptions(const DownloadS
 }
 
 /**
- * @summary 下载样本文件
+ * @summary Download sample file
  *
  * @param request DownloadSampleFileRequest
  * @return DownloadSampleFileResponse
@@ -13836,7 +13840,7 @@ DownloadSmapleBatchResponse Client::downloadSmapleBatch(const DownloadSmapleBatc
 }
 
 /**
- * @summary 下载子任务结果
+ * @summary Download subtask result
  *
  * @param request DownloadSubTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13875,7 +13879,7 @@ DownloadSubTaskResultResponse Client::downloadSubTaskResultWithOptions(const Dow
 }
 
 /**
- * @summary 下载子任务结果
+ * @summary Download subtask result
  *
  * @param request DownloadSubTaskResultRequest
  * @return DownloadSubTaskResultResponse
@@ -13886,7 +13890,7 @@ DownloadSubTaskResultResponse Client::downloadSubTaskResult(const DownloadSubTas
 }
 
 /**
- * @summary Custom Variable Test
+ * @summary Tests a custom variable.
  *
  * @param request ExpressionTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13941,7 +13945,7 @@ ExpressionTestResponse Client::expressionTestWithOptions(const ExpressionTestReq
 }
 
 /**
- * @summary Custom Variable Test
+ * @summary Tests a custom variable.
  *
  * @param request ExpressionTestRequest
  * @return ExpressionTestResponse
@@ -13952,7 +13956,7 @@ ExpressionTestResponse Client::expressionTest(const ExpressionTestRequest &reque
 }
 
 /**
- * @summary File Upload
+ * @summary Uploads a file.
  *
  * @param request FileUploadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13995,7 +13999,7 @@ FileUploadResponse Client::fileUploadWithOptions(const FileUploadRequest &reques
 }
 
 /**
- * @summary File Upload
+ * @summary Uploads a file.
  *
  * @param request FileUploadRequest
  * @return FileUploadResponse
@@ -14006,7 +14010,7 @@ FileUploadResponse Client::fileUpload(const FileUploadRequest &request) {
 }
 
 /**
- * @summary 创建样本记录
+ * @summary Create a sample record
  *
  * @param request GetSampleDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14045,7 +14049,7 @@ GetSampleDetailResponse Client::getSampleDetailWithOptions(const GetSampleDetail
 }
 
 /**
- * @summary 创建样本记录
+ * @summary Create a sample record
  *
  * @param request GetSampleDetailRequest
  * @return GetSampleDetailResponse
@@ -14056,7 +14060,7 @@ GetSampleDetailResponse Client::getSampleDetail(const GetSampleDetailRequest &re
 }
 
 /**
- * @summary 查看子任务结果
+ * @summary View subtask results
  *
  * @param request GetSubTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14095,7 +14099,7 @@ GetSubTaskResultResponse Client::getSubTaskResultWithOptions(const GetSubTaskRes
 }
 
 /**
- * @summary 查看子任务结果
+ * @summary View subtask results
  *
  * @param request GetSubTaskResultRequest
  * @return GetSubTaskResultResponse
@@ -14156,7 +14160,7 @@ ImportFieldResponse Client::importField(const ImportFieldRequest &request) {
 }
 
 /**
- * @summary Create or Import Name List
+ * @summary Creates or imports a list.
  *
  * @param request ImportNameListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14223,7 +14227,7 @@ ImportNameListResponse Client::importNameListWithOptions(const ImportNameListReq
 }
 
 /**
- * @summary Create or Import Name List
+ * @summary Creates or imports a list.
  *
  * @param request ImportNameListRequest
  * @return ImportNameListResponse
@@ -14234,7 +14238,7 @@ ImportNameListResponse Client::importNameList(const ImportNameListRequest &reque
 }
 
 /**
- * @summary Import Template Event
+ * @summary Imports template events.
  *
  * @param request ImportTemplateEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14273,7 +14277,7 @@ ImportTemplateEventResponse Client::importTemplateEventWithOptions(const ImportT
 }
 
 /**
- * @summary Import Template Event
+ * @summary Imports template events.
  *
  * @param request ImportTemplateEventRequest
  * @return ImportTemplateEventResponse
@@ -14284,7 +14288,7 @@ ImportTemplateEventResponse Client::importTemplateEvent(const ImportTemplateEven
 }
 
 /**
- * @summary 样本列表查询
+ * @summary Sample List Query
  *
  * @param request ListSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14347,7 +14351,7 @@ ListSampleResponse Client::listSampleWithOptions(const ListSampleRequest &reques
 }
 
 /**
- * @summary 样本列表查询
+ * @summary Sample List Query
  *
  * @param request ListSampleRequest
  * @return ListSampleResponse
@@ -14358,7 +14362,7 @@ ListSampleResponse Client::listSample(const ListSampleRequest &request) {
 }
 
 /**
- * @summary 任务组列表查询
+ * @summary Query task group list
  *
  * @param request ListTaskGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14413,7 +14417,7 @@ ListTaskGroupResponse Client::listTaskGroupWithOptions(const ListTaskGroupReques
 }
 
 /**
- * @summary 任务组列表查询
+ * @summary Query task group list
  *
  * @param request ListTaskGroupRequest
  * @return ListTaskGroupResponse
@@ -14518,7 +14522,7 @@ ListVariableDefineResponse Client::listVariableDefine(const ListVariableDefineRe
 }
 
 /**
- * @summary 合并下载
+ * @summary Merge Download
  *
  * @param request MergeDownloadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14557,7 +14561,7 @@ MergeDownloadResponse Client::mergeDownloadWithOptions(const MergeDownloadReques
 }
 
 /**
- * @summary 合并下载
+ * @summary Merge Download
  *
  * @param request MergeDownloadRequest
  * @return MergeDownloadResponse
@@ -14806,7 +14810,7 @@ ModelSampleDownloadResponse Client::modelSampleDownload(const ModelSampleDownloa
 }
 
 /**
- * @summary Update Memo
+ * @summary Update memo.
  *
  * @param request ModifyAppKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14849,7 +14853,7 @@ ModifyAppKeyResponse Client::modifyAppKeyWithOptions(const ModifyAppKeyRequest &
 }
 
 /**
- * @summary Update Memo
+ * @summary Update memo.
  *
  * @param request ModifyAppKeyRequest
  * @return ModifyAppKeyResponse
@@ -14860,7 +14864,7 @@ ModifyAppKeyResponse Client::modifyAppKey(const ModifyAppKeyRequest &request) {
 }
 
 /**
- * @summary Edit Accumulated Variable
+ * @summary Edits a cumulative variable.
  *
  * @param request ModifyCustVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14923,7 +14927,7 @@ ModifyCustVariableResponse Client::modifyCustVariableWithOptions(const ModifyCus
 }
 
 /**
- * @summary Edit Accumulated Variable
+ * @summary Edits a cumulative variable.
  *
  * @param request ModifyCustVariableRequest
  * @return ModifyCustVariableResponse
@@ -14934,7 +14938,7 @@ ModifyCustVariableResponse Client::modifyCustVariable(const ModifyCustVariableRe
 }
 
 /**
- * @summary Edit Event
+ * @summary Edits an event.
  *
  * @param request ModifyEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14997,7 +15001,7 @@ ModifyEventResponse Client::modifyEventWithOptions(const ModifyEventRequest &req
 }
 
 /**
- * @summary Edit Event
+ * @summary Edits an event.
  *
  * @param request ModifyEventRequest
  * @return ModifyEventResponse
@@ -15008,7 +15012,7 @@ ModifyEventResponse Client::modifyEvent(const ModifyEventRequest &request) {
 }
 
 /**
- * @summary Modify Event Status
+ * @summary Modifies the status of an event.
  *
  * @param request ModifyEventStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15059,7 +15063,7 @@ ModifyEventStatusResponse Client::modifyEventStatusWithOptions(const ModifyEvent
 }
 
 /**
- * @summary Modify Event Status
+ * @summary Modifies the status of an event.
  *
  * @param request ModifyEventStatusRequest
  * @return ModifyEventStatusResponse
@@ -15070,7 +15074,7 @@ ModifyEventStatusResponse Client::modifyEventStatus(const ModifyEventStatusReque
 }
 
 /**
- * @summary Edit Custom Variable
+ * @summary Edits a custom variable.
  *
  * @param request ModifyExpressionVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15149,7 +15153,7 @@ ModifyExpressionVariableResponse Client::modifyExpressionVariableWithOptions(con
 }
 
 /**
- * @summary Edit Custom Variable
+ * @summary Edits a custom variable.
  *
  * @param request ModifyExpressionVariableRequest
  * @return ModifyExpressionVariableResponse
@@ -15160,7 +15164,7 @@ ModifyExpressionVariableResponse Client::modifyExpressionVariable(const ModifyEx
 }
 
 /**
- * @summary Modify Field
+ * @summary Modifies a field.
  *
  * @param request ModifyFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15219,7 +15223,7 @@ ModifyFieldResponse Client::modifyFieldWithOptions(const ModifyFieldRequest &req
 }
 
 /**
- * @summary Modify Field
+ * @summary Modifies a field.
  *
  * @param request ModifyFieldRequest
  * @return ModifyFieldResponse
@@ -15230,7 +15234,7 @@ ModifyFieldResponse Client::modifyField(const ModifyFieldRequest &request) {
 }
 
 /**
- * @summary Modify Policy Priority
+ * @summary Modifies the priority of a policy.
  *
  * @param request ModifyRulePriorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15277,7 +15281,7 @@ ModifyRulePriorityResponse Client::modifyRulePriorityWithOptions(const ModifyRul
 }
 
 /**
- * @summary Modify Policy Priority
+ * @summary Modifies the priority of a policy.
  *
  * @param request ModifyRulePriorityRequest
  * @return ModifyRulePriorityResponse
@@ -15288,7 +15292,7 @@ ModifyRulePriorityResponse Client::modifyRulePriority(const ModifyRulePriorityRe
 }
 
 /**
- * @summary Change the status of a policy version application
+ * @summary Changes the approval status of a policy version.
  *
  * @param request ModifyRuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15363,7 +15367,7 @@ ModifyRuleStatusResponse Client::modifyRuleStatusWithOptions(const ModifyRuleSta
 }
 
 /**
- * @summary Change the status of a policy version application
+ * @summary Changes the approval status of a policy version.
  *
  * @param request ModifyRuleStatusRequest
  * @return ModifyRuleStatusResponse
@@ -15374,7 +15378,7 @@ ModifyRuleStatusResponse Client::modifyRuleStatus(const ModifyRuleStatusRequest 
 }
 
 /**
- * @summary Activate Service
+ * @summary Activates a service.
  *
  * @param request OpenConsoleSlsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15413,7 +15417,7 @@ OpenConsoleSlsResponse Client::openConsoleSlsWithOptions(const OpenConsoleSlsReq
 }
 
 /**
- * @summary Activate Service
+ * @summary Activates a service.
  *
  * @param request OpenConsoleSlsRequest
  * @return OpenConsoleSlsResponse
@@ -15424,7 +15428,7 @@ OpenConsoleSlsResponse Client::openConsoleSls(const OpenConsoleSlsRequest &reque
 }
 
 /**
- * @summary Operate Favorites
+ * @summary Manages favorites.
  *
  * @param request OperateFavoriteVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15467,7 +15471,7 @@ OperateFavoriteVariableResponse Client::operateFavoriteVariableWithOptions(const
 }
 
 /**
- * @summary Operate Favorites
+ * @summary Manages favorites.
  *
  * @param request OperateFavoriteVariableRequest
  * @return OperateFavoriteVariableResponse
@@ -15478,7 +15482,7 @@ OperateFavoriteVariableResponse Client::operateFavoriteVariable(const OperateFav
 }
 
 /**
- * @summary Enterprise Verification
+ * @summary Performs a precondition check.
  *
  * @param request PermissionCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15513,7 +15517,7 @@ PermissionCheckResponse Client::permissionCheckWithOptions(const PermissionCheck
 }
 
 /**
- * @summary Enterprise Verification
+ * @summary Performs a precondition check.
  *
  * @param request PermissionCheckRequest
  * @return PermissionCheckResponse
@@ -15736,7 +15740,7 @@ PocSendDataResponse Client::pocSendData(const PocSendDataRequest &request) {
 }
 
 /**
- * @summary Query White-box Strategy Details
+ * @summary Queries the details of a whitebox implementation policy.
  *
  * @param request QueryAuthRuleDetailByRuleIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15783,7 +15787,7 @@ QueryAuthRuleDetailByRuleIdResponse Client::queryAuthRuleDetailByRuleIdWithOptio
 }
 
 /**
- * @summary Query White-box Strategy Details
+ * @summary Queries the details of a whitebox implementation policy.
  *
  * @param request QueryAuthRuleDetailByRuleIdRequest
  * @return QueryAuthRuleDetailByRuleIdResponse
@@ -15794,7 +15798,7 @@ QueryAuthRuleDetailByRuleIdResponse Client::queryAuthRuleDetailByRuleId(const Qu
 }
 
 /**
- * @summary Recall.
+ * @summary Withdraws a review.
  *
  * @param request RecallRuleAuditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15829,7 +15833,7 @@ RecallRuleAuditResponse Client::recallRuleAuditWithOptions(const RecallRuleAudit
 }
 
 /**
- * @summary Recall.
+ * @summary Withdraws a review.
  *
  * @param request RecallRuleAuditRequest
  * @return RecallRuleAuditResponse
@@ -15840,7 +15844,7 @@ RecallRuleAuditResponse Client::recallRuleAudit(const RecallRuleAuditRequest &re
 }
 
 /**
- * @summary Delete Event
+ * @summary Deletes an event.
  *
  * @param request RemoveEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15891,7 +15895,7 @@ RemoveEventResponse Client::removeEventWithOptions(const RemoveEventRequest &req
 }
 
 /**
- * @summary Delete Event
+ * @summary Deletes an event.
  *
  * @param request RemoveEventRequest
  * @return RemoveEventResponse
@@ -15902,7 +15906,7 @@ RemoveEventResponse Client::removeEvent(const RemoveEventRequest &request) {
 }
 
 /**
- * @summary Template Download
+ * @summary Download template.
  *
  * @param request SampleFileDownloadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15941,7 +15945,7 @@ SampleFileDownloadResponse Client::sampleFileDownloadWithOptions(const SampleFil
 }
 
 /**
- * @summary Template Download
+ * @summary Download template.
  *
  * @param request SampleFileDownloadRequest
  * @return SampleFileDownloadResponse
@@ -15952,7 +15956,7 @@ SampleFileDownloadResponse Client::sampleFileDownload(const SampleFileDownloadRe
 }
 
 /**
- * @summary Save Custom Columns
+ * @summary Saves custom columns.
  *
  * @param request SaveAnalysisColumnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15991,7 +15995,7 @@ SaveAnalysisColumnResponse Client::saveAnalysisColumnWithOptions(const SaveAnaly
 }
 
 /**
- * @summary Save Custom Columns
+ * @summary Saves custom columns.
  *
  * @param request SaveAnalysisColumnRequest
  * @return SaveAnalysisColumnResponse
@@ -16002,7 +16006,7 @@ SaveAnalysisColumnResponse Client::saveAnalysisColumn(const SaveAnalysisColumnRe
 }
 
 /**
- * @summary Bypass/Shunt Configuration
+ * @summary The bypass/diversion configuration.
  *
  * @param request SaveByPassOrShuntEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16049,7 +16053,7 @@ SaveByPassOrShuntEventResponse Client::saveByPassOrShuntEventWithOptions(const S
 }
 
 /**
- * @summary Bypass/Shunt Configuration
+ * @summary The bypass/diversion configuration.
  *
  * @param request SaveByPassOrShuntEventRequest
  * @return SaveByPassOrShuntEventResponse
@@ -16060,7 +16064,7 @@ SaveByPassOrShuntEventResponse Client::saveByPassOrShuntEvent(const SaveByPassOr
 }
 
 /**
- * @summary 样本列表查询
+ * @summary Sample Search
  *
  * @param request SearchSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16115,7 +16119,7 @@ SearchSampleResponse Client::searchSampleWithOptions(const SearchSampleRequest &
 }
 
 /**
- * @summary 样本列表查询
+ * @summary Sample Search
  *
  * @param request SearchSampleRequest
  * @return SearchSampleResponse
@@ -16126,7 +16130,7 @@ SearchSampleResponse Client::searchSample(const SearchSampleRequest &request) {
 }
 
 /**
- * @summary Start/Stop Bypass Event
+ * @summary Starts or stops a bypass event.
  *
  * @param request StartOrStopByPassShuntEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16169,7 +16173,7 @@ StartOrStopByPassShuntEventResponse Client::startOrStopByPassShuntEventWithOptio
 }
 
 /**
- * @summary Start/Stop Bypass Event
+ * @summary Starts or stops a bypass event.
  *
  * @param request StartOrStopByPassShuntEventRequest
  * @return StartOrStopByPassShuntEventResponse
@@ -16180,7 +16184,7 @@ StartOrStopByPassShuntEventResponse Client::startOrStopByPassShuntEvent(const St
 }
 
 /**
- * @summary Start Task Execution
+ * @summary Starts executing a task.
  *
  * @param request StartSimulationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16219,7 +16223,7 @@ StartSimulationTaskResponse Client::startSimulationTaskWithOptions(const StartSi
 }
 
 /**
- * @summary Start Task Execution
+ * @summary Starts executing a task.
  *
  * @param request StartSimulationTaskRequest
  * @return StartSimulationTaskResponse
@@ -16230,7 +16234,7 @@ StartSimulationTaskResponse Client::startSimulationTask(const StartSimulationTas
 }
 
 /**
- * @summary Stop Task
+ * @summary Stops a task.
  *
  * @param request StopSimulationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16269,7 +16273,7 @@ StopSimulationTaskResponse Client::stopSimulationTaskWithOptions(const StopSimul
 }
 
 /**
- * @summary Stop Task
+ * @summary Stops a task.
  *
  * @param request StopSimulationTaskRequest
  * @return StopSimulationTaskResponse
@@ -16280,7 +16284,7 @@ StopSimulationTaskResponse Client::stopSimulationTask(const StopSimulationTaskRe
 }
 
 /**
- * @summary Custom Variable Switch
+ * @summary Enables or disables a custom variable.
  *
  * @param request SwitchExpressionVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16327,7 +16331,7 @@ SwitchExpressionVariableResponse Client::switchExpressionVariableWithOptions(con
 }
 
 /**
- * @summary Custom Variable Switch
+ * @summary Enables or disables a custom variable.
  *
  * @param request SwitchExpressionVariableRequest
  * @return SwitchExpressionVariableResponse
@@ -16338,7 +16342,7 @@ SwitchExpressionVariableResponse Client::switchExpressionVariable(const SwitchEx
 }
 
 /**
- * @summary Field Switch
+ * @summary Toggles a field on or off.
  *
  * @param request SwitchFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16389,7 +16393,7 @@ SwitchFieldResponse Client::switchFieldWithOptions(const SwitchFieldRequest &req
 }
 
 /**
- * @summary Field Switch
+ * @summary Toggles a field on or off.
  *
  * @param request SwitchFieldRequest
  * @return SwitchFieldResponse
@@ -16400,7 +16404,7 @@ SwitchFieldResponse Client::switchField(const SwitchFieldRequest &request) {
 }
 
 /**
- * @summary Query Variable Enable/Disable
+ * @summary Queries the enabling or disabling status of a variable.
  *
  * @param request SwitchQueryVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16443,7 +16447,7 @@ SwitchQueryVariableResponse Client::switchQueryVariableWithOptions(const SwitchQ
 }
 
 /**
- * @summary Query Variable Enable/Disable
+ * @summary Queries the enabling or disabling status of a variable.
  *
  * @param request SwitchQueryVariableRequest
  * @return SwitchQueryVariableResponse
@@ -16454,7 +16458,7 @@ SwitchQueryVariableResponse Client::switchQueryVariable(const SwitchQueryVariabl
 }
 
 /**
- * @summary One-click switch online
+ * @summary Switches an event to online with one click.
  *
  * @param request SwitchToOnlineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16493,7 +16497,7 @@ SwitchToOnlineResponse Client::switchToOnlineWithOptions(const SwitchToOnlineReq
 }
 
 /**
- * @summary One-click switch online
+ * @summary Switches an event to online with one click.
  *
  * @param request SwitchToOnlineRequest
  * @return SwitchToOnlineResponse
@@ -16504,7 +16508,7 @@ SwitchToOnlineResponse Client::switchToOnline(const SwitchToOnlineRequest &reque
 }
 
 /**
- * @summary Cumulative Variable Switch
+ * @summary Enables or disables a cumulative variable.
  *
  * @param request SwitchVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16555,7 +16559,7 @@ SwitchVariableResponse Client::switchVariableWithOptions(const SwitchVariableReq
 }
 
 /**
- * @summary Cumulative Variable Switch
+ * @summary Enables or disables a cumulative variable.
  *
  * @param request SwitchVariableRequest
  * @return SwitchVariableResponse
@@ -16566,7 +16570,7 @@ SwitchVariableResponse Client::switchVariable(const SwitchVariableRequest &reque
 }
 
 /**
- * @summary Determine if the task name is duplicated
+ * @summary Checks whether a task name is duplicate.
  *
  * @param request TaskNameByUserIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16605,7 +16609,7 @@ TaskNameByUserIdResponse Client::taskNameByUserIdWithOptions(const TaskNameByUse
 }
 
 /**
- * @summary Determine if the task name is duplicated
+ * @summary Checks whether a task name is duplicate.
  *
  * @param request TaskNameByUserIdRequest
  * @return TaskNameByUserIdResponse
@@ -16616,7 +16620,7 @@ TaskNameByUserIdResponse Client::taskNameByUserId(const TaskNameByUserIdRequest 
 }
 
 /**
- * @summary Modify Query Conditions
+ * @summary Modifies a query condition.
  *
  * @param request UpdateAnalysisConditionFavoriteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16687,7 +16691,7 @@ UpdateAnalysisConditionFavoriteResponse Client::updateAnalysisConditionFavoriteW
 }
 
 /**
- * @summary Modify Query Conditions
+ * @summary Modifies a query condition.
  *
  * @param request UpdateAnalysisConditionFavoriteRequest
  * @return UpdateAnalysisConditionFavoriteResponse
@@ -16698,7 +16702,7 @@ UpdateAnalysisConditionFavoriteResponse Client::updateAnalysisConditionFavorite(
 }
 
 /**
- * @summary Approval
+ * @summary Processes an approval request.
  *
  * @param request UpdateAuditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16749,7 +16753,7 @@ UpdateAuditResponse Client::updateAuditWithOptions(const UpdateAuditRequest &req
 }
 
 /**
- * @summary Approval
+ * @summary Processes an approval request.
  *
  * @param request UpdateAuditRequest
  * @return UpdateAuditResponse
@@ -16760,7 +16764,7 @@ UpdateAuditResponse Client::updateAudit(const UpdateAuditRequest &request) {
 }
 
 /**
- * @summary Modify Authorization Policy
+ * @summary Modifies an authorization policy.
  *
  * @param request UpdateAuthRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16819,7 +16823,7 @@ UpdateAuthRuleResponse Client::updateAuthRuleWithOptions(const UpdateAuthRuleReq
 }
 
 /**
- * @summary Modify Authorization Policy
+ * @summary Modifies an authorization policy.
  *
  * @param request UpdateAuthRuleRequest
  * @return UpdateAuthRuleResponse
@@ -16830,7 +16834,7 @@ UpdateAuthRuleResponse Client::updateAuthRule(const UpdateAuthRuleRequest &reque
 }
 
 /**
- * @summary Edit Bypass Event
+ * @summary Edits a bypass event.
  *
  * @param request UpdateByPassShuntEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16873,7 +16877,7 @@ UpdateByPassShuntEventResponse Client::updateByPassShuntEventWithOptions(const U
 }
 
 /**
- * @summary Edit Bypass Event
+ * @summary Edits a bypass event.
  *
  * @param request UpdateByPassShuntEventRequest
  * @return UpdateByPassShuntEventResponse
@@ -16884,7 +16888,7 @@ UpdateByPassShuntEventResponse Client::updateByPassShuntEvent(const UpdateByPass
 }
 
 /**
- * @summary Modify Data Source
+ * @summary Modifies a data source.
  *
  * @param request UpdateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16939,7 +16943,7 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
 }
 
 /**
- * @summary Modify Data Source
+ * @summary Modifies a data source.
  *
  * @param request UpdateDataSourceRequest
  * @return UpdateDataSourceResponse
@@ -16950,7 +16954,7 @@ UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest 
 }
 
 /**
- * @summary Modify Custom Query Variable
+ * @summary Modifies a custom query variable.
  *
  * @param request UpdateQueryVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17025,7 +17029,7 @@ UpdateQueryVariableResponse Client::updateQueryVariableWithOptions(const UpdateQ
 }
 
 /**
- * @summary Modify Custom Query Variable
+ * @summary Modifies a custom query variable.
  *
  * @param request UpdateQueryVariableRequest
  * @return UpdateQueryVariableResponse
@@ -17036,7 +17040,7 @@ UpdateQueryVariableResponse Client::updateQueryVariable(const UpdateQueryVariabl
 }
 
 /**
- * @summary Update Policy
+ * @summary Updates a policy.
  *
  * @param request UpdateRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17119,7 +17123,7 @@ UpdateRuleResponse Client::updateRuleWithOptions(const UpdateRuleRequest &reques
 }
 
 /**
- * @summary Update Policy
+ * @summary Updates a policy.
  *
  * @param request UpdateRuleRequest
  * @return UpdateRuleResponse
@@ -17130,7 +17134,7 @@ UpdateRuleResponse Client::updateRule(const UpdateRuleRequest &request) {
 }
 
 /**
- * @summary Update Basic Policy Information
+ * @summary Updates the basic information of a policy.
  *
  * @param request UpdateRuleBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17185,7 +17189,7 @@ UpdateRuleBaseResponse Client::updateRuleBaseWithOptions(const UpdateRuleBaseReq
 }
 
 /**
- * @summary Update Basic Policy Information
+ * @summary Updates the basic information of a policy.
  *
  * @param request UpdateRuleBaseRequest
  * @return UpdateRuleBaseResponse
@@ -17196,7 +17200,7 @@ UpdateRuleBaseResponse Client::updateRuleBase(const UpdateRuleBaseRequest &reque
 }
 
 /**
- * @summary Batch Update Samples
+ * @summary Modifies samples in batches.
  *
  * @param request UpdateSampleBatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17243,7 +17247,7 @@ UpdateSampleBatchResponse Client::updateSampleBatchWithOptions(const UpdateSampl
 }
 
 /**
- * @summary Batch Update Samples
+ * @summary Modifies samples in batches.
  *
  * @param request UpdateSampleBatchRequest
  * @return UpdateSampleBatchResponse
@@ -17320,7 +17324,7 @@ UploadFileCheckResponse Client::uploadFileCheck(const UploadFileCheckRequest &re
 }
 
 /**
- * @summary 上传并校验样本文件
+ * @summary Upload and validate the sample file for the customer.
  *
  * @param request UploadForeignSampleFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17363,7 +17367,7 @@ UploadForeignSampleFileResponse Client::uploadForeignSampleFileWithOptions(const
 }
 
 /**
- * @summary 上传并校验样本文件
+ * @summary Upload and validate the sample file for the customer.
  *
  * @param request UploadForeignSampleFileRequest
  * @return UploadForeignSampleFileResponse
@@ -17460,7 +17464,7 @@ UploadForeignSampleFileResponse Client::uploadForeignSampleFileAdvance(const Upl
 }
 
 /**
- * @summary 上传并校验样本文件
+ * @summary Upload and validate the sample file
  *
  * @param request UploadSampleFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17511,7 +17515,7 @@ UploadSampleFileResponse Client::uploadSampleFileWithOptions(const UploadSampleF
 }
 
 /**
- * @summary 上传并校验样本文件
+ * @summary Upload and validate the sample file
  *
  * @param request UploadSampleFileRequest
  * @return UploadSampleFileResponse

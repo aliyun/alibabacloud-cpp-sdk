@@ -148,14 +148,23 @@ namespace Models
 
 
     protected:
+      // File Name.
       shared_ptr<string> fileName_ {};
+      // File Size. Unit: bytes.
       shared_ptr<int32_t> fileSize_ {};
+      // Remarks.
       shared_ptr<string> remark_ {};
+      // Table Row Count.
       shared_ptr<int32_t> rowCount_ {};
+      // Sample ID.
       shared_ptr<int32_t> sampleId_ {};
+      // Sample Name.
       shared_ptr<string> sampleName_ {};
+      // Scenario.
       shared_ptr<string> tab_ {};
+      // File Upload Time.
       shared_ptr<string> uploadTime_ {};
+      // Uploader.
       shared_ptr<string> uploadUserName_ {};
     };
 
@@ -228,14 +237,23 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Return Result.
     shared_ptr<vector<ListSampleResponseBody::ResultObject>> resultObject_ {};
+    // Total Number of Returned Items.
     shared_ptr<int32_t> totalItem_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

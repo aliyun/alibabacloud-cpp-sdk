@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // Whether the maximum number has been exceeded
+      // Indicates whether the maximum number is exceeded.
       shared_ptr<bool> limit_ {};
-      // Maximum number of items that can be created
+      // The maximum number of items that can be created.
       shared_ptr<int64_t> maxTotalItem_ {};
-      // Total number of items
+      // The total number of items.
       shared_ptr<int64_t> totalItem_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeApiLimitResponseBody::ResultObject> resultObject_ {};
   };
 

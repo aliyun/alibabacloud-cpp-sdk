@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the condition is met: -**true**: meets the condition-**false**: does not meet the condition
+    // The returned object.
     shared_ptr<bool> resultObject_ {};
   };
 

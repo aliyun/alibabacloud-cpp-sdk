@@ -188,33 +188,33 @@ namespace Models
 
 
     protected:
-      // Used capacity
+      // The used capacity.
       shared_ptr<int64_t> capacity_ {};
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Name list ID
+      // The named list ID.
       shared_ptr<int64_t> id_ {};
-      // Remaining capacity
+      // The remaining capacity.
       shared_ptr<int64_t> leftCapacity_ {};
-      // Parameter name.
+      // The parameter name.
       shared_ptr<string> name_ {};
-      // Name list type
+      // The named list type.
       shared_ptr<string> nameListType_ {};
-      // Associated event eventCode
+      // The associated event code.
       shared_ptr<string> refObjId_ {};
-      // Association type
+      // The association type.
       shared_ptr<int64_t> refObjType_ {};
-      // Data source
+      // The data source.
       shared_ptr<string> sourceType_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // Variable type
+      // The variable type.
       shared_ptr<string> type_ {};
-      // User UID
+      // The user UID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -265,17 +265,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeNameListVariablePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

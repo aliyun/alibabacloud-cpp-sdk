@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // English name
+      // The English name.
       shared_ptr<string> enName_ {};
-      // Service name
+      // The service name.
       shared_ptr<string> name_ {};
-      // Service code
+      // The service code.
       shared_ptr<string> serviceCode_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Record details
+    // The record details.
     shared_ptr<vector<DescribeUsedServiceResponseBody::Records>> records_ {};
   };
 

@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Current page.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<bool> resultObject_ {};
-    // Total number of items returned.
+    // The total number of entries returned.
     shared_ptr<string> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<string> totalPage_ {};
   };
 

@@ -121,27 +121,27 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and responses, default value is **zh**. Values: 
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Creation type.
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // Associated event ID.
+    // The ID of the associated event.
     shared_ptr<string> refObjId_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Source type.
+    // The source type.
     shared_ptr<string> sourceType_ {};
-    // Type.
+    // The type.
     shared_ptr<string> type_ {};
-    // JSON array string of types.
+    // The type JSON array string.
     shared_ptr<string> typesStr_ {};
-    // Value for fuzzy search.
+    // The value for fuzzy match.
     shared_ptr<string> value_ {};
   };
 

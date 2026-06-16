@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Approval comments
+    // The approval comment.
     shared_ptr<string> auditMsg_ {};
-    // Associated type
+    // The association type.
     shared_ptr<string> auditRelationType_ {};
-    // Status
+    // The approval status.
     shared_ptr<string> auditStatus_ {};
-    // The ID of the approval to be updated.
+    // The ID of the approval to update.
     shared_ptr<int64_t> id_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
   };
 

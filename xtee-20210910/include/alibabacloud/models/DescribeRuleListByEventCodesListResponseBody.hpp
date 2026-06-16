@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // Policy ID
+      // The policy ID.
       shared_ptr<string> ruleId_ {};
-      // Policy name
+      // The policy name.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeRuleListByEventCodesListResponseBody::ResultObject>> resultObject_ {};
   };
 

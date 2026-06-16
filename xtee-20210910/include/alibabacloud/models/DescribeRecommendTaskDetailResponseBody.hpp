@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Title
+        // The title.
         shared_ptr<string> title_ {};
       };
 
@@ -203,11 +203,11 @@ namespace Models
 
 
         protected:
-          // Left variable
+          // The left variable.
           shared_ptr<string> left_ {};
-          // Operator
+          // The operator.
           shared_ptr<string> operator_ {};
-          // Right variable
+          // The right variable.
           shared_ptr<string> right_ {};
         };
 
@@ -280,23 +280,23 @@ namespace Models
 
 
       protected:
-        // Calculation path
+        // The computation path.
         shared_ptr<string> computeExpression_ {};
-        // Number of hit samples
+        // The number of samples that are hit.
         shared_ptr<int64_t> hitSample_ {};
-        // Primary key ID of the rule
+        // The primary key ID of the policy.
         shared_ptr<int64_t> id_ {};
-        // Number of unhit samples
+        // The number of samples that are not hit.
         shared_ptr<int64_t> notHitSample_ {};
-        // List of candidate rules
+        // The list of candidate policies.
         shared_ptr<vector<RecommendRuleDTOs::RecommendRules>> recommendRules_ {};
-        // Strategy ID
+        // The policy ID.
         shared_ptr<string> ruleId_ {};
-        // Rule name
+        // The policy name.
         shared_ptr<string> ruleName_ {};
-        // Status
+        // The status.
         shared_ptr<string> status_ {};
-        // List of indicators in JSON string format
+        // The list of metrics in JSON string format.
         shared_ptr<string> velocities_ {};
       };
 
@@ -409,33 +409,33 @@ namespace Models
 
 
     protected:
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Comparison indicators
+      // The comparison metrics.
       shared_ptr<vector<string>> expectVelocities_ {};
-      // Creation time
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Number of normal samples
+      // The number of normal samples.
       shared_ptr<int64_t> normalSize_ {};
-      // Recommended strategy list
+      // The list of recommended policies.
       shared_ptr<vector<ResultObject::RecommendRuleDTOs>> recommendRuleDTOs_ {};
-      // Selected variable list
+      // The list of selected variables.
       shared_ptr<vector<ResultObject::RecommendVariableDTOs>> recommendVariableDTOs_ {};
-      // Number of risk samples
+      // The number of risk samples.
       shared_ptr<int64_t> riskSize_ {};
-      // Sample name
+      // The sample name.
       shared_ptr<string> sampleName_ {};
-      // Sample scenario
+      // The sample scenario.
       shared_ptr<string> sampleScene_ {};
-      // Sample scenario name
+      // The sample scenario name.
       shared_ptr<string> sampleSceneName_ {};
-      // Task ID
+      // The task ID.
       shared_ptr<int64_t> taskId_ {};
-      // Task name
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // Task status.
+      // The task status.
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -458,9 +458,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result
+    // The returned result.
     shared_ptr<DescribeRecommendTaskDetailResponseBody::ResultObject> resultObject_ {};
   };
 

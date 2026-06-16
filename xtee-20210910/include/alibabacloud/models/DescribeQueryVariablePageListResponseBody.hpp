@@ -170,29 +170,29 @@ namespace Models
 
 
     protected:
-      // Data source code.
+      // The data source code.
       shared_ptr<int64_t> dataSourceCode_ {};
-      // Data source name.
+      // The data source name.
       shared_ptr<string> dataSourceName_ {};
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Return value type
+      // The return value type.
       shared_ptr<string> fieldType_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Query variable primary key ID
+      // The primary key ID of the custom query variable.
       shared_ptr<int64_t> id_ {};
-      // Query variable name
+      // The name of the custom query variable.
       shared_ptr<string> name_ {};
-      // Status.
+      // The status.
       shared_ptr<string> status_ {};
-      // Total count
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
-      // Version number.
+      // The version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -243,17 +243,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Pagination parameter, current page.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeQueryVariablePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total items
+    // The total number of entries.
     shared_ptr<int64_t> totalItem_ {};
-    // Total pages
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

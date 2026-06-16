@@ -140,31 +140,31 @@ namespace Models
 
 
   protected:
-    // Set the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // UID of the applicant.
+    // The UID of the user who initiated the approval.
     shared_ptr<string> applyUserId_ {};
-    // Name of the applicant.
+    // The name of the user who initiated the approval.
     shared_ptr<string> applyUserName_ {};
-    // Approval remarks.
+    // The remarks for the approval request.
     shared_ptr<string> auditRemark_ {};
-    // UID of the auditor.
+    // The UID of the approver.
     shared_ptr<string> auditUserId_ {};
-    // Name of the auditor.
+    // The name of the approver.
     shared_ptr<string> auditUserName_ {};
-    // Primary key ID of the policy.
+    // The primary key ID of the policy.
     shared_ptr<int64_t> consoleRuleId_ {};
-    // Event type.
+    // The event type.
     shared_ptr<string> eventType_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Audit status.
+    // The approval status.
     shared_ptr<string> ruleAuditType_ {};
-    // Policy ID.
+    // The policy ID.
     shared_ptr<string> ruleId_ {};
-    // Primary key ID of the policy version.
+    // The primary key ID of the policy version.
     shared_ptr<int64_t> ruleVersionId_ {};
   };
 

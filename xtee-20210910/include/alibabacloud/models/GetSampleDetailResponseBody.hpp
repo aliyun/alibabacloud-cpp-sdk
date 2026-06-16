@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // Header information returned.
         shared_ptr<vector<string>> headers_ {};
+        // Row data.
         shared_ptr<vector<vector<string>>> rows_ {};
       };
 
@@ -201,11 +203,17 @@ namespace Models
 
 
       protected:
+        // De-duplication count.
         shared_ptr<int32_t> distinctNumber_ {};
+        // De-duplication rate.
         shared_ptr<string> distinctRate_ {};
+        // Field Name.
         shared_ptr<string> fieldName_ {};
+        // Number of missing values.
         shared_ptr<int32_t> missNumber_ {};
+        // Missing rate.
         shared_ptr<string> missRate_ {};
+        // Row number of the record.
         shared_ptr<int32_t> rowNumber_ {};
       };
 
@@ -309,18 +317,32 @@ namespace Models
 
 
     protected:
+      // Columns.
       shared_ptr<vector<ResultObject::ColumnStats>> columnStats_ {};
+      // The time filter Type. You can filter by the last 7 Days, last 30 Days, last 6 months, or Custom.
       shared_ptr<string> dateType_ {};
+      // The download URL of the file.
       shared_ptr<string> downloadUrl_ {};
+      // File name.  
+      // > The file name must end with .txt or .sql. For example, test.txt or test.sql.
       shared_ptr<string> fileName_ {};
+      // File Size (bytes).
       shared_ptr<int32_t> fileSize_ {};
+      // Table data.
       shared_ptr<ResultObject::PreviewData> previewData_ {};
+      // Remarks.
       shared_ptr<string> remark_ {};
+      // The number of result records returned.
       shared_ptr<int32_t> rowCount_ {};
+      // The sample ID.
       shared_ptr<int32_t> sampleId_ {};
+      // Sample name.
       shared_ptr<string> sampleName_ {};
+      // Scenario.
       shared_ptr<string> tab_ {};
+      // File upload time.
       shared_ptr<string> uploadTime_ {};
+      // Uploader.
       shared_ptr<string> uploadUserName_ {};
     };
 
@@ -364,10 +386,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Request result.
     shared_ptr<GetSampleDetailResponseBody::ResultObject> resultObject_ {};
   };
 

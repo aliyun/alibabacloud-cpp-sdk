@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Information returned by the API request.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The response result.
     shared_ptr<string> resultObject_ {};
   };
 

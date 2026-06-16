@@ -162,21 +162,21 @@ namespace Models
 
 
       protected:
-        // Policy Execution Logic
+        // The policy execution logic.
         shared_ptr<string> logicExpression_ {};
-        // Memo
+        // The remarks.
         shared_ptr<string> memo_ {};
-        // Rule Actions
+        // The rule actions.
         shared_ptr<string> ruleActions_ {};
-        // Policy Type
+        // The policy type.
         shared_ptr<string> ruleAuthType_ {};
-        // Event Expressions.
+        // The event expressions.
         shared_ptr<string> ruleExpressions_ {};
-        // Policy ID
+        // The policy ID.
         shared_ptr<string> ruleId_ {};
-        // Policy Name
+        // The policy name.
         shared_ptr<string> ruleName_ {};
-        // Policy Status
+        // The policy status.
         shared_ptr<string> ruleStatus_ {};
       };
 
@@ -254,17 +254,17 @@ namespace Models
 
 
       protected:
-        // Field description.
+        // The field description.
         shared_ptr<string> description_ {};
-        // Field code
+        // The field code.
         shared_ptr<string> fieldCode_ {};
-        // Field ranking
+        // The field sort order.
         shared_ptr<string> fieldRank_ {};
-        // Field source.
+        // The source of the field.
         shared_ptr<string> fieldSource_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Field name.
+        // The field name.
         shared_ptr<string> title_ {};
       };
 
@@ -346,25 +346,25 @@ namespace Models
 
 
     protected:
-      // Business version number
+      // The business version number.
       shared_ptr<int32_t> bizVersion_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Event status.
+      // The event status.
       shared_ptr<string> eventStauts_ {};
-      // Field list.
+      // The field list.
       shared_ptr<vector<ResultObject::InputFields>> inputFields_ {};
-      // Memo.
+      // The remarks.
       shared_ptr<string> memo_ {};
-      // Policy Information
+      // The policy information.
       shared_ptr<vector<ResultObject::RuleDetails>> ruleDetails_ {};
-      // Operation template code
+      // The operation template code.
       shared_ptr<string> templateCode_ {};
-      // Template name
+      // The template name.
       shared_ptr<string> templateName_ {};
-      // Template type.
+      // The templatetype.
       shared_ptr<string> templateType_ {};
     };
 
@@ -387,9 +387,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<DescribeEventBaseInfoByEventCodeResponseBody::ResultObject> resultObject_ {};
   };
 

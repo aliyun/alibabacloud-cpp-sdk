@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // Data structure.
+        // The data structure.
         shared_ptr<vector<string>> data_ {};
       };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
       protected:
-        // List of current category results.
+        // The result list for the current category.
         shared_ptr<vector<string>> data_ {};
-        // Category name.
+        // The category name.
         shared_ptr<string> name_ {};
       };
 
@@ -154,9 +154,9 @@ namespace Models
 
 
     protected:
-      // Data list
+      // The data list.
       shared_ptr<vector<ResultObject::Series>> series_ {};
-      // Details of xaxis node.
+      // The xaxis node details.
       shared_ptr<ResultObject::Xaxis> xaxis_ {};
     };
 
@@ -179,9 +179,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<DescribeScoreSectionNumLineChartResponseBody::ResultObject> resultObject_ {};
   };
 

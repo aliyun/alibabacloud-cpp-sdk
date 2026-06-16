@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // Comparison with yesterday\\"s event invocation count
+      // Day-over-day comparison of call event count.
       shared_ptr<string> ratio_ {};
-      // Today\\"s event invocation count
+      // Total number of call events today.
       shared_ptr<string> value_ {};
     };
 
@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // Status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
     // Error message.
     shared_ptr<string> message_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // Response object.
     shared_ptr<DescribeEventTotalCountReportResponseBody::ResultObject> resultObject_ {};
-    // Indicates whether this operation was successful, `true` means success.
+    // Indicates whether the operation was successful. A value of true indicates success.
     shared_ptr<bool> success_ {};
   };
 

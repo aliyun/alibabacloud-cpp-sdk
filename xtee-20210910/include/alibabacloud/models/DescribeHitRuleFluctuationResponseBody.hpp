@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // Policy ID
+      // The policy ID.
       shared_ptr<string> ruleId_ {};
-      // Policy name
+      // The policy name.
       shared_ptr<string> ruleName_ {};
-      // Today\\"s count
+      // The number of hits today.
       shared_ptr<int64_t> todayNum_ {};
-      // Count within seven days
+      // The number of hits in the last seven days.
       shared_ptr<string> withinSevenDayNum_ {};
-      // Count within thirty days
+      // The number of hits in the last thirty days.
       shared_ptr<string> withinThirtyDayNum_ {};
-      // Count within three days
+      // The number of hits in the last three days.
       shared_ptr<string> withinThreeDayNum_ {};
-      // Yesterday\\"s count
+      // The number of hits yesterday.
       shared_ptr<int64_t> yesterdayNum_ {};
     };
 
@@ -187,17 +187,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<vector<DescribeHitRuleFluctuationResponseBody::ResultObject>> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

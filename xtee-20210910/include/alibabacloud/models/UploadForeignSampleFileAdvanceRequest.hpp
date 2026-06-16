@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // OSS path of the file.
     shared_ptr<Darabonba::IStream> fileObject_ {};
+    // Set the language type for requests and received messages. The default value is **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // area encoding.
     shared_ptr<string> regId_ {};
+    // scenario.
     shared_ptr<string> tab_ {};
   };
 

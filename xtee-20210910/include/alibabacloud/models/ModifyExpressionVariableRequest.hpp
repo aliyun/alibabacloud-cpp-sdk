@@ -149,49 +149,49 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Data version.
+    // The data version.
     // 
     // This parameter is required.
     shared_ptr<int64_t> dataVersion_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Event code
+    // The event code.
     // 
     // This parameter is required.
     shared_ptr<string> eventCode_ {};
-    // Expression
+    // The expression.
     // 
     // This parameter is required.
     shared_ptr<string> expression_ {};
-    // Expression display
+    // The display name of the expression.
     // 
     // This parameter is required.
     shared_ptr<string> expressionTitle_ {};
-    // Calculation expression variable
+    // The calculation expression variable.
     shared_ptr<string> expressionVariable_ {};
-    // Variable ID
+    // The variable ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Variable name
+    // The variable name.
     shared_ptr<string> name_ {};
-    // Outlier
+    // The outlier value.
     // 
     // This parameter is required.
     shared_ptr<string> outlier_ {};
-    // Output
+    // The output.
     // 
     // This parameter is required.
     shared_ptr<string> outputs_ {};
-    // Region code
+    // The region code.
     // 
     // This parameter is required.
     shared_ptr<string> regId_ {};
-    // Title.
+    // The title.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};

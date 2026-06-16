@@ -130,30 +130,30 @@ namespace Models
 
 
   protected:
-    // Date format type
+    // The date format type.
     shared_ptr<string> dateFormat_ {};
-    // File name.
-    // > The file name must end with txt or sql. For example, test.txt, test.sql.
+    // The file name.
+    // > The file name must end with txt or sql. Example: test.txt or test.sql.
     shared_ptr<string> fileName_ {};
-    // File type
+    // The file type.
     shared_ptr<string> fileType_ {};
-    // File URL.
+    // The file URL.
     shared_ptr<string> fileUrl_ {};
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Service code.
+    // The service code.
     shared_ptr<string> serviceCode_ {};
-    // Service name.
+    // The service name.
     shared_ptr<string> serviceName_ {};
-    // Scenario.
+    // The scenario.
     shared_ptr<string> tab_ {};
-    // Task name.
+    // The task name.
     shared_ptr<string> taskName_ {};
-    // Access type.
+    // The access type.
     shared_ptr<string> type_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Application appkey.
+    // The AppKey of the application.
     shared_ptr<string> appKey_ {};
-    // End time, accurate to milliseconds (ms).
+    // The end time, in milliseconds (ms).
     shared_ptr<string> endDs_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Service to call
+    // The service to call.
     shared_ptr<string> service_ {};
-    // Start time, accurate to milliseconds (ms).
+    // The start time, in milliseconds (ms).
     shared_ptr<string> startDs_ {};
   };
 

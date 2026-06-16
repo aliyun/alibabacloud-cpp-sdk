@@ -153,25 +153,25 @@ namespace Models
 
 
     protected:
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Primary key of custom variable.
+      // The primary key of the custom variable.
       shared_ptr<int64_t> id_ {};
-      // Query variable name.
+      // The variable name.
       shared_ptr<string> name_ {};
-      // Variable return type.
+      // The variable return type.
       shared_ptr<string> outputs_ {};
-      // Associated Strategies.
+      // The rule ID of the associated policy.
       shared_ptr<vector<string>> ruleList_ {};
-      // Status.
+      // The status.
       shared_ptr<string> status_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // Version information.
+      // The version information.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -222,17 +222,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, with a default value of 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<vector<DescribeExpressionVariablePageResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

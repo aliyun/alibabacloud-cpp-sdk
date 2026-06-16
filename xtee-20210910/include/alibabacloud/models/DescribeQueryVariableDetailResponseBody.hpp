@@ -151,27 +151,27 @@ namespace Models
 
 
     protected:
-      // Data source code.
+      // The data source code.
       shared_ptr<int64_t> dataSourceCode_ {};
-      // Data source name
+      // The data source name.
       shared_ptr<string> dataSourceName_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Expression.
+      // The expression.
       shared_ptr<string> expression_ {};
-      // Expression title.
+      // The expression name.
       shared_ptr<string> expressionTitle_ {};
-      // Expression variable.
+      // The expression variable.
       shared_ptr<string> expressionVariable_ {};
-      // Variable ID
+      // The variable ID.
       shared_ptr<int64_t> id_ {};
-      // Outlier
+      // The outlier value.
       shared_ptr<string> outlier_ {};
-      // Output results.
+      // The output result.
       shared_ptr<string> outputs_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
     };
 
@@ -194,9 +194,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<DescribeQueryVariableDetailResponseBody::ResultObject> resultObject_ {};
   };
 

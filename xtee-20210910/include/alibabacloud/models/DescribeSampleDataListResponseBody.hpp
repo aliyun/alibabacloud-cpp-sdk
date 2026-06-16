@@ -262,49 +262,49 @@ namespace Models
 
 
     protected:
-      // Classification type, binary or multi-class.
+      // The classification type, such as binary classification or multi-class classification.
       shared_ptr<string> classificationType_ {};
-      // Criterion value for sample data calculation
+      // The benchmark value used for sample data calculation.
       shared_ptr<string> dataDistributed_ {};
-      // First row of sample data. Used to define the values of each column.
+      // The first row of the sample data. This row defines the value of each column.
       shared_ptr<string> dataTitle_ {};
-      // Deletion tag.
+      // The deletion tag.
       shared_ptr<string> deleteTag_ {};
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Primary key ID
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Name
+      // The name.
       shared_ptr<string> name_ {};
-      // Number of normal samples
+      // The number of normal samples.
       shared_ptr<int64_t> normalSize_ {};
-      // Recall configuration
+      // The backtracking configuration.
       shared_ptr<string> recallConfig_ {};
-      // Number of risk samples
+      // The number of risky samples.
       shared_ptr<int64_t> riskSize_ {};
-      // Specified risk value
+      // The specified risk value.
       shared_ptr<string> riskValue_ {};
-      // Sample label details
+      // The sample label details.
       shared_ptr<string> sampleLabelDetail_ {};
-      // Sample size
+      // The number of samples.
       shared_ptr<int64_t> sampleSize_ {};
-      // Scene code
+      // The scenario code.
       shared_ptr<string> scene_ {};
-      // Status.
+      // The status.
       shared_ptr<string> status_ {};
-      // Storage path
+      // The storage path.
       shared_ptr<string> storePath_ {};
-      // Storage type
+      // The storage type.
       shared_ptr<string> storeType_ {};
-      // Whether recall is supported
+      // Indicates whether backtracking is supported.
       shared_ptr<string> supportRecall_ {};
-      // User UID
+      // The user UID.
       shared_ptr<int64_t> userId_ {};
-      // Version
+      // The version.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -355,17 +355,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeSampleDataListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

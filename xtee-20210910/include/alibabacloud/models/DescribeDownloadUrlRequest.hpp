@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // File type
+    // The file type.
     shared_ptr<string> fileType_ {};
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Task ID.
+    // The task ID.
     shared_ptr<int64_t> taskId_ {};
-    // Download type
+    // The download type.
     shared_ptr<string> type_ {};
   };
 

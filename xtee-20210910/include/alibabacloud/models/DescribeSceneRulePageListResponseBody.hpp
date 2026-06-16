@@ -263,37 +263,37 @@ namespace Models
 
 
       protected:
-        // Initiator account ID
+        // The account ID of the applicant.
         shared_ptr<string> applyUserId_ {};
-        // Initiator account name
+        // The account name of the applicant.
         shared_ptr<string> applyUserName_ {};
-        // Approval comments
+        // The approval comment.
         shared_ptr<string> auditMsg_ {};
-        // Final approver ID
+        // The ID of the final approver.
         shared_ptr<string> auditRealUserId_ {};
-        // Approver account name
+        // The account name of the approver.
         shared_ptr<string> auditRealUserName_ {};
-        // Approval application remarks
+        // The remark for the approval request.
         shared_ptr<string> auditRemark_ {};
-        // Status
+        // The approval status.
         shared_ptr<string> auditStatus_ {};
-        // Approval time
+        // The approval time.
         shared_ptr<int64_t> auditTime_ {};
-        // Designated auditor account IDs (comma-separated for multiple)
+        // The account IDs of the designated reviewers. Multiple IDs are separated by commas (,).
         shared_ptr<string> auditUserId_ {};
-        // Designated auditor account names (comma-separated for multiple)
+        // The account names of the designated reviewers. Multiple names are separated by commas (,).
         shared_ptr<string> auditUserName_ {};
-        // Creation time in UTC
+        // The creation time in UTC.
         shared_ptr<int64_t> gmtCreate_ {};
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Information about other related parties (in JSON format)
+        // The information about other associated persons in JSON format.
         shared_ptr<string> relationExt_ {};
-        // 审批关联的事务ID
+        // The transaction ID associated with the approval.
         shared_ptr<int64_t> relationId_ {};
-        // The name of the associated transaction (can be null)
+        // The transaction name associated with the approval. This parameter can be empty.
         shared_ptr<string> relationName_ {};
-        // 审批的类型（如rule代表策略的审批）
+        // The approval type. For example, rule indicates a policy approval.
         shared_ptr<string> relationType_ {};
       };
 
@@ -445,45 +445,48 @@ namespace Models
 
 
     protected:
-      // Service authorization type
+      // The service authorization type.
       shared_ptr<string> authType_ {};
-      // Audit object
+      // The audit object.
       shared_ptr<ResultObject::ConsoleAudit> consoleAudit_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Event type
+      // The event type. Valid values:
+      // - BYPASS: bypass event.
+      // - SHUNT: shunt event.
+      // - MAIN: main event.
       shared_ptr<string> eventType_ {};
-      // External rule name
+      // The customer-facing policy name.
       shared_ptr<string> externalRuleName_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Primary key ID of the rule
+      // The primary key ID of the policy.
       shared_ptr<int64_t> id_ {};
-      // Main rule ID
+      // The main policy ID.
       shared_ptr<string> mainRuleId_ {};
-      // Strategy priority, where a higher number indicates a higher priority.
+      // The policy priority. A larger value indicates a higher priority.
       shared_ptr<int64_t> priority_ {};
-      // Rule Auth type
+      // The policy type.
       shared_ptr<string> ruleAuthType_ {};
-      // Strategy ID
+      // The policy ID.
       shared_ptr<string> ruleId_ {};
-      // Strategy description
+      // The policy description.
       shared_ptr<string> ruleMemo_ {};
-      // Strategy name
+      // The policy name.
       shared_ptr<string> ruleName_ {};
-      // Strategy status
+      // The policy status.
       shared_ptr<string> ruleStatus_ {};
-      // Rule type
+      // The rule type.
       shared_ptr<string> ruleType_ {};
-      // Primary key ID of the rule version
+      // The primary key ID of the policy version.
       shared_ptr<int64_t> ruleVersionId_ {};
-      // Template ID
+      // The template ID.
       shared_ptr<int64_t> templateId_ {};
-      // Version number
+      // The version number.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -534,17 +537,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Number of items per page in the returned results. Default value: 20, minimum value: 1, maximum value: 50.
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID, which is unique for each request, facilitating subsequent troubleshooting
+    // The request ID. Each request has a unique ID for troubleshooting purposes.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<vector<DescribeSceneRulePageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

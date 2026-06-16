@@ -84,11 +84,19 @@ namespace Models
 
 
   protected:
+    // OSS path of the file.
     shared_ptr<string> file_ {};
+    // Set the language type for requests and received messages. Default value is **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // Area encoding.
     shared_ptr<string> regId_ {};
+    // Remarks.
     shared_ptr<string> remark_ {};
+    // Sample Name.
     shared_ptr<string> sampleName_ {};
+    // Scenario.
     shared_ptr<string> tab_ {};
   };
 

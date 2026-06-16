@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Scene name.
+    // The scenario name.
     shared_ptr<string> sceneName_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
   };
 

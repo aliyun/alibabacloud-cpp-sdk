@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // OSS client uploaded file name
+    // The name of the file uploaded by the OSS client.
     shared_ptr<string> clientFileName_ {};
-    // OSS client address
+    // The OSS client address.
     shared_ptr<string> clientPath_ {};
-    // File type
+    // The file type.
     shared_ptr<string> fileType_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Sample tag
+    // The label of the data sample.
     shared_ptr<string> sampleTag_ {};
-    // Sample type
+    // The type of the data sample.
     shared_ptr<string> sampleType_ {};
-    // Sample values
+    // The values of the data sample.
     shared_ptr<string> sampleValues_ {};
-    // Upload type
+    // The upload type.
     shared_ptr<string> uploadType_ {};
   };
 

@@ -245,47 +245,47 @@ namespace Models
 
 
     protected:
-      // Service authorization type.
+      // The service authorization type.
       shared_ptr<string> authType_ {};
-      // Version.
+      // The version.
       shared_ptr<string> bizVersion_ {};
-      // Primary key ID of the policy.
+      // The primary key ID of the policy.
       shared_ptr<int64_t> consoleRuleId_ {};
-      // Creation type.
+      // The creation type.
       shared_ptr<string> createType_ {};
-      // Event code.
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Log expression.
+      // The logical expression.
       shared_ptr<string> logicExpression_ {};
-      // Main event code.
+      // The main event code.
       shared_ptr<string> mainEventCode_ {};
-      // Memo.
+      // The remarks.
       shared_ptr<string> memo_ {};
-      // Rule action structure.
+      // The rule action structure.
       Darabonba::Json ruleActionMap_ {};
-      // Rule actions.
+      // The rule actions.
       shared_ptr<string> ruleActions_ {};
-      // Rule authorization type.
+      // The policy type.
       shared_ptr<string> ruleAuthType_ {};
-      // DSL policy expression.
+      // The DSL policy expression.
       shared_ptr<string> ruleBody_ {};
-      // Rule expressions.
+      // The rule expressions.
       shared_ptr<string> ruleExpressions_ {};
-      // Policy ID.
+      // The policy ID.
       shared_ptr<string> ruleId_ {};
-      // Policy name.
+      // The policy name.
       shared_ptr<string> ruleName_ {};
-      // Policy status.
+      // The policy status.
       shared_ptr<string> ruleStatus_ {};
-      // Rule type.
+      // The policy type.
       shared_ptr<string> ruleType_ {};
-      // Primary key ID of the policy version.
+      // The primary key ID of the policy version.
       shared_ptr<int64_t> ruleVersionId_ {};
     };
 
@@ -308,9 +308,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object.
+    // The response object.
     shared_ptr<DescribeRuleDetailByRuleIdResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Set the language type for request and response messages, default value is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // End time.
+    // The end time.
     shared_ptr<int64_t> endDate_ {};
-    // Operation Summary.
+    // The change content to query.
     shared_ptr<string> operationSummary_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Start time.
+    // The start time.
     shared_ptr<int64_t> startDate_ {};
-    // User Name Search.
+    // The operator name to query.
     shared_ptr<string> userNameSearch_ {};
   };
 

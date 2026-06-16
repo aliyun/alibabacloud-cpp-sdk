@@ -108,13 +108,13 @@ namespace Models
 
 
       protected:
-        // Field name
+        // The field name.
         shared_ptr<string> fieldName_ {};
-        // Field title.
+        // The field name.
         shared_ptr<string> fieldTitle_ {};
-        // Whether it is a default display field (displayed in the response, not used as a parameter)
-        // - true: Yes
-        // - false: No
+        // Indicates whether the field is displayed by default. This field is included in the response only and is not used as a request parameter. Valid values:
+        // - true: The field is displayed by default.
+        // - false: The field is not displayed by default.
         shared_ptr<bool> isDefault_ {};
       };
 
@@ -167,17 +167,17 @@ namespace Models
 
 
     protected:
-      // Current page number in pagination queries.
+      // The current page number in the paged query.
       shared_ptr<int64_t> currentPage_ {};
-      // Returned data object
+      // The returned data object.
       shared_ptr<vector<Darabonba::Json>> data_ {};
-      // Table header
+      // The table header.
       shared_ptr<vector<ResultObject::Header>> header_ {};
-      // Page size, with a default value of 10
+      // The number of entries per page. Default value: 10.
       shared_ptr<int64_t> pageSize_ {};
-      // Total number of items
+      // The total number of entries.
       shared_ptr<int64_t> totalItem_ {};
-      // Total number of pages
+      // The total number of pages.
       shared_ptr<int64_t> totalPage_ {};
     };
 
@@ -200,9 +200,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The returned object.
     shared_ptr<DescribeBasicSearchPageListResponseBody::ResultObject> resultObject_ {};
   };
 

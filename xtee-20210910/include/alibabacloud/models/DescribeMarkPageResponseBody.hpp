@@ -96,13 +96,15 @@ namespace Models
 
 
     protected:
-      // Field name.
+      // The field name.
       shared_ptr<string> fieldName_ {};
-      // Field value.
+      // The field value.
       shared_ptr<string> fieldValue_ {};
-      // Primary key ID.
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Mark (0 No / 1 Yes).
+      // Indicates whether the entry is tagged. Valid values:
+      // - **0**: not tagged.
+      // - **1**: tagged.
       shared_ptr<string> markType_ {};
     };
 
@@ -153,17 +155,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<vector<DescribeMarkPageResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

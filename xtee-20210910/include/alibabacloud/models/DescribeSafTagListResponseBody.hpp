@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // Tag description.
+      // The label description.
       shared_ptr<string> tagDesc_ {};
-      // Tag meaning.
+      // The label meaning.
       shared_ptr<string> tagMean_ {};
-      // Tag name.
+      // The label name.
       shared_ptr<string> tagName_ {};
-      // Tag identifier.
+      // The label identifier.
       shared_ptr<string> tagState_ {};
-      // Tag type.
+      // The label type.
       shared_ptr<string> tagType_ {};
-      // Unique identifier of the tag key.
+      // The unique identifier of the label key.
       shared_ptr<string> tagUid_ {};
-      // Update time.
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -187,17 +187,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<vector<DescribeSafTagListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

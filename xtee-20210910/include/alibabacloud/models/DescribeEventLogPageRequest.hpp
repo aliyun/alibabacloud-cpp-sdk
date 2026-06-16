@@ -305,67 +305,67 @@ namespace Models
 
 
   protected:
-    // Set the language type for request and response messages, default value is **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Account ID (request_param.accountId), up to 50 characters, supports “*” and “?” wildcards.
+    // The account ID (request_param.accountId). The value can be up to 50 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> accountIdPRP_ {};
-    // Start timestamp of the log. Unit: milliseconds.
+    // The start timestamp of the log. Unit: milliseconds.
     shared_ptr<int64_t> beginTime_ {};
-    // Full-text match 1, cannot exceed 30 characters.
+    // The first full-text match condition. The value can be up to 30 characters in length.
     shared_ptr<string> condition1AL_ {};
-    // Full-text match 2, cannot exceed 30 characters.
+    // The second full-text match condition. The value can be up to 30 characters in length.
     shared_ptr<string> condition2AL_ {};
-    // Full-text match 3, cannot exceed 30 characters.
+    // The third full-text match condition. The value can be up to 30 characters in length.
     shared_ptr<string> condition3AL_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Device type (request_param.deviceType), examples: 1. PC, 2. MOBILE.
+    // The device type (request_param.deviceType). Example values: 1: PC. 2: MOBILE.
     shared_ptr<string> deviceTypeLRP_ {};
-    // Email (request_param.email), up to 100 characters, supports “*” and “?” wildcards.
+    // The email address (request_param.email). The value can be up to 100 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> emailPRP_ {};
-    // End time, accurate to milliseconds (ms).
+    // The end time. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // Login failure reason (-request_param.failReason).
+    // The logon failure reason (-request_param.failReason).
     shared_ptr<string> failReasonLRP_ {};
-    // IP (request_param.ip), up to 20 characters, supports “*” and “?” wildcards.
+    // The IP address (request_param.ip). The value can be up to 20 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> ipPRP_ {};
-    // Login success indicator (request_param.loginResult).
+    // The logon success flag (request_param.loginResult).
     shared_ptr<string> loginResultARP_ {};
-    // Login verification method (-request_param.loginType).
+    // The logon authentication method (-request_param.loginType).
     shared_ptr<string> loginTypeLRP_ {};
-    // Device MAC address (-request_param.mac), up to 30 characters, supports “*” and “?” wildcards.
+    // The device MAC address (-request_param.mac). The value can be up to 30 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> macPRP_ {};
-    // Phone number (supports MD5 request_param.mobile/request_param.mobileMd5), up to 30 characters, supports “*” and “?” wildcards, searchable by mobile and mobileMd5 fields.
+    // The phone number (supports MD5: request_param.mobile/request_param.mobileMd5). The value can be up to 30 characters in length and supports the "\\*" and "?" wildcards. The search is performed based on the mobile and mobileMd5 fields.
     shared_ptr<string> mobilePRP_ {};
-    // Account nickname (request_param.nickName), up to 50 characters, supports “*” and “?” wildcards.
+    // The account nickname (request_param.nickName). The value can be up to 50 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> nickNamePRP_ {};
-    // Operation source (request_param.operateSource), examples: 1. PC, 2. H5, 3. App.
+    // The operation source (request_param.operateSource). Example values: 1: PC. 2: H5. 3: App.
     shared_ptr<string> operateSourceLRP_ {};
-    // Number of items per page, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Referer (-request_param.refer), up to 50 characters, supports “*” and “?” wildcards.
+    // The referer (-request_param.refer). The value can be up to 50 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> referPRP_ {};
-    // Region code.
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Account registration IP (request_param.registerIp), up to 20 characters, supports “*” and “?” wildcards.
+    // The account registration IP address (request_param.registerIp). The value can be up to 20 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> registerIpPRP_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> reqIdPBS_ {};
-    // End value of the score range (score), only non-negative integers are allowed, and the right interval must be greater than the left interval, with both intervals being closed.
+    // The end value of the score range (score). Only non-negative integers are allowed. The end value must be greater than the start value. Both boundaries are inclusive.
     shared_ptr<int32_t> scoreEBS_ {};
-    // Starting value of the score range (score), only non-negative integers are allowed, the right interval must be greater than the left interval, both intervals are inclusive.
+    // The start value of the score range (score). Only non-negative integers are allowed. The end value must be greater than the start value. Both boundaries are inclusive.
     shared_ptr<int32_t> scoreSBS_ {};
-    // Event name (instance_id).
+    // The event name (instance_id).
     shared_ptr<string> serviceABS_ {};
-    // Risk tags (tags), data source DescribeTagsList.
+    // The risk label (tags). The data is obtained from DescribeTagsList.
     shared_ptr<string> tagsLBS_ {};
-    // Device ID (device_info.umid).
+    // The device ID (device_info.umid).
     shared_ptr<string> umidPDI_ {};
-    // User agent (-request_param.userAgent), up to 50 characters, supports “*” and “?” wildcards.
+    // The user agent (-request_param.userAgent). The value can be up to 50 characters in length and supports the "\\*" and "?" wildcards.
     shared_ptr<string> userAgentPRP_ {};
-    // Username type, login scenario (-request_param.userNameType).
+    // The account name type for the logon scenario (-request_param.userNameType).
     shared_ptr<string> userNameTypeLRP_ {};
   };
 

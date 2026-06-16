@@ -218,39 +218,39 @@ namespace Models
 
 
     protected:
-      // Capacity.
+      // The capacity.
       shared_ptr<int64_t> capacity_ {};
-      // Variable definition ID.
+      // The variable definition ID.
       shared_ptr<string> defineId_ {};
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Extended information.
+      // The extended information.
       Darabonba::Json extendInfo_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Variable ID.
+      // The variable ID.
       shared_ptr<int64_t> id_ {};
-      // Remaining capacity.
+      // The remaining capacity.
       shared_ptr<int64_t> leftCapacity_ {};
-      // Variable name
+      // The variable name.
       shared_ptr<string> name_ {};
-      // Variable output type
+      // The output type of the variable.
       shared_ptr<string> outputsType_ {};
-      // Associated event ID.
+      // The associated event of the variable.
       shared_ptr<string> refObjId_ {};
-      // Associated event name.
+      // The name of the associated event of the variable.
       shared_ptr<string> refObjName_ {};
-      // Associated object type of the variable
+      // The association type of the variable.
       shared_ptr<string> refObjType_ {};
-      // Source type.
+      // The source type.
       shared_ptr<string> sourceType_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // Variable type.
+      // The variable type.
       shared_ptr<string> type_ {};
-      // User ID to which the data belongs.
+      // The UID of the user who owns the data.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -301,17 +301,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object.
+    // The returned object.
     shared_ptr<vector<DescribeVariableListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -176,21 +176,21 @@ namespace Models
 
 
       protected:
-        // Event code.
+        // The event code.
         shared_ptr<string> eventCode_ {};
-        // Event name.
+        // The event name.
         shared_ptr<string> eventName_ {};
-        // Event status.
+        // The event status.
         shared_ptr<string> eventStatus_ {};
-        // Event type.
+        // The event type.
         shared_ptr<string> eventType_ {};
-        // Creation time.
+        // The creation time.
         shared_ptr<int64_t> gmtCreate_ {};
-        // Modification time
+        // The modification time.
         shared_ptr<int64_t> gmtModified_ {};
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Total number of rules.
+        // The total number of rules.
         shared_ptr<int64_t> ruleCount_ {};
       };
 
@@ -292,31 +292,31 @@ namespace Models
 
 
     protected:
-      // Object
+      // The object.
       shared_ptr<vector<ResultObject::Children>> children_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Event status.
+      // The event status.
       shared_ptr<string> eventStatus_ {};
-      // Event type.
+      // The event type.
       shared_ptr<string> eventType_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Database ID.
+      // The database ID.
       shared_ptr<int64_t> id_ {};
-      // Total number of rules.
+      // The total number of rules.
       shared_ptr<int32_t> ruleCount_ {};
-      // Template code
+      // The template code.
       shared_ptr<string> templateCode_ {};
-      // Template name.
+      // The template name.
       shared_ptr<string> templateName_ {};
-      // Template type
+      // The template type.
       shared_ptr<string> templateType_ {};
-      // Number of customer authorizations
+      // The number of authorized users.
       shared_ptr<int32_t> userCount_ {};
     };
 
@@ -367,17 +367,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, with a default value of 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeEventPageListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

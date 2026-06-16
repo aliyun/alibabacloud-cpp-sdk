@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // Step content
+      // The step content.
       shared_ptr<string> content_ {};
-      // Step title
+      // The step title.
       shared_ptr<string> id_ {};
-      // Type
+      // The type.
       shared_ptr<string> type_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<vector<DescribeSafStartStepsResponseBody::ResultObject>> resultObject_ {};
   };
 

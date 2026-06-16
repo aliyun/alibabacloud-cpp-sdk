@@ -123,13 +123,13 @@ namespace Models
 
 
       protected:
-        // Creation type
+        // The creation type.
         shared_ptr<string> createType_ {};
-        // Event code
+        // The event code.
         shared_ptr<string> eventCode_ {};
-        // Event name.
+        // The event name.
         shared_ptr<string> eventName_ {};
-        // Event type
+        // The event type.
         shared_ptr<string> eventType_ {};
       };
 
@@ -173,15 +173,15 @@ namespace Models
 
 
     protected:
-      // List of child fields.
+      // The list of child fields.
       shared_ptr<vector<ResultObject::Children>> children_ {};
-      // Creation type
+      // The creation type.
       shared_ptr<string> createType_ {};
-      // Event code
+      // The event code.
       shared_ptr<string> eventCode_ {};
-      // Event name.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // Event type
+      // The event type.
       shared_ptr<string> eventType_ {};
     };
 
@@ -232,17 +232,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeAllEventNameAndCodeResponseBody::ResultObject>> resultObject_ {};
-    // Whether the operation was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

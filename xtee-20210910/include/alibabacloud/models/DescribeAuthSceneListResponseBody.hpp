@@ -60,7 +60,7 @@ namespace Models
 
 
     protected:
-      // Service code
+      // The service code.
       shared_ptr<string> serviceCode_ {};
     };
 
@@ -83,9 +83,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeAuthSceneListResponseBody::ResultObject>> resultObject_ {};
   };
 

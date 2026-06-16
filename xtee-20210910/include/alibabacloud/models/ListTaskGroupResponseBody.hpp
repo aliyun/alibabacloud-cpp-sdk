@@ -257,22 +257,43 @@ namespace Models
 
 
       protected:
+        // Job end time.
         shared_ptr<int64_t> finishTime_ {};
+        // Group name.
         shared_ptr<string> groupName_ {};
+        // Indicates whether to hide.
         shared_ptr<bool> hideViewResultButton_ {};
+        // Indicates whether the subtask is charged.
         shared_ptr<bool> isCharge_ {};
+        // Model scenario.
         shared_ptr<string> modelScene_ {};
+        // Sample ID.
         shared_ptr<int32_t> sampleId_ {};
+        // Sample name.
         shared_ptr<string> sampleName_ {};
+        // Service code.
         shared_ptr<string> serviceCode_ {};
+        // Service name.
         shared_ptr<string> serviceName_ {};
+        // Subtask ID.
         shared_ptr<int32_t> subTaskId_ {};
+        // Indicates whether the job can be canceled. Valid values:  
+        // - true: The job can be canceled.  
+        // - false: The job cannot be canceled.
         shared_ptr<bool> supportCancel_ {};
+        // Supports download.
         shared_ptr<bool> supportDownload_ {};
+        // Indicates whether merge download is supported.
         shared_ptr<bool> supportMergeSelect_ {};
+        // Indicates whether viewing is supported.
         shared_ptr<bool> supportView_ {};
+        // Scenario.
         shared_ptr<string> tab_ {};
+        // Task group ID.
         shared_ptr<int32_t> taskGroupId_ {};
+        // The execution status of the import job:  
+        // - DOING: running  
+        // - FINISH: execution completed.
         shared_ptr<string> taskStatus_ {};
       };
 
@@ -347,14 +368,23 @@ namespace Models
 
 
     protected:
+      // Creation Time.
       shared_ptr<int64_t> createTime_ {};
+      // Creator.
       shared_ptr<int64_t> creatorUserId_ {};
+      // Audience group status.
       shared_ptr<string> groupStatus_ {};
+      // Task group name.
       shared_ptr<vector<string>> sampleNames_ {};
+      // Number of subtasks parsed and split from the task.
       shared_ptr<int32_t> subTaskCount_ {};
+      // Subtask.
       shared_ptr<vector<ResultObject::SubTaskList>> subTaskList_ {};
+      // Scenario.
       shared_ptr<string> tab_ {};
+      // Task group ID.
       shared_ptr<int32_t> taskGroupId_ {};
+      // Task group name.
       shared_ptr<string> taskGroupName_ {};
     };
 
@@ -427,14 +457,23 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // Return message.
     shared_ptr<string> message_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Request result.
     shared_ptr<vector<ListTaskGroupResponseBody::ResultObject>> resultObject_ {};
+    // Total number of returned items.
     shared_ptr<int32_t> totalItem_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

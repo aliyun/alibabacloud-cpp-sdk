@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default value is **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Creation type
+    // The creation type.
     shared_ptr<string> createType_ {};
-    // Event name.
+    // The event name.
     shared_ptr<string> eventName_ {};
-    // Input parameters, JSON string.
+    // The input parameters in a JSON string.
     shared_ptr<string> inputFieldsStr_ {};
-    // Memo information
+    // The remarks.
     shared_ptr<string> memo_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Input field template type
+    // The templatetype of the input field.
     shared_ptr<string> templateCode_ {};
-    // Published template name.
+    // The name of the published template.
     shared_ptr<string> templateName_ {};
-    // Template type.
+    // The templatetype.
     shared_ptr<string> templateType_ {};
   };
 

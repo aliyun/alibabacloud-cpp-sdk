@@ -142,23 +142,23 @@ namespace Models
 
 
     protected:
-      // Field classification
+      // The field classification.
       shared_ptr<string> classify_ {};
-      // Description information.
+      // The description.
       shared_ptr<string> description_ {};
-      // Enum data
+      // The enumeration data.
       shared_ptr<string> enumData_ {};
-      // Field ID.
+      // The field ID.
       shared_ptr<int64_t> id_ {};
-      // Field name
+      // The field name.
       shared_ptr<string> name_ {};
-      // Field source
+      // The field source.
       shared_ptr<string> source_ {};
-      // Status.
+      // The status.
       shared_ptr<string> status_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
-      // Field type
+      // The field type.
       shared_ptr<string> type_ {};
     };
 
@@ -209,17 +209,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, default value is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Returned object
+    // The returned object.
     shared_ptr<vector<DescribeFieldListResponseBody::ResultObject>> resultObject_ {};
-    // Total number of items
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

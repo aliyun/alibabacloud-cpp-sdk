@@ -121,29 +121,27 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, with a default value of **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Charging mode
+    // The billing mode.
     shared_ptr<string> chargingMode_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size, with a default value of 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Paging indicator, default is true.
+    // Specifies whether to enable paging. Default value: true.
     shared_ptr<string> paging_ {};
-    // Query content, supports fuzzy search.
-    // 
-    //  Title/Description
+    // The query content. Fuzzy match is supported for the title or description.
     shared_ptr<string> queryContent_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> regId_ {};
-    // Scenario
+    // The scenario.
     shared_ptr<string> scenesStr_ {};
-    // Source
+    // The source.
     shared_ptr<string> source_ {};
-    // Title.
+    // The title.
     shared_ptr<string> title_ {};
   };
 

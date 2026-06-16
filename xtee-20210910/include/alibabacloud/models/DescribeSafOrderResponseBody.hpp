@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // Expiration date (timestamp).
+      // The expiration date (UNIX timestamp).
       shared_ptr<int64_t> expirationDate_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object.
+    // The response object.
     shared_ptr<DescribeSafOrderResponseBody::ResultObject> resultObject_ {};
   };
 

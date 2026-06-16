@@ -149,9 +149,9 @@ namespace Models
 
 
           protected:
-            // Field name
+            // The field name.
             shared_ptr<string> name_ {};
-            // Data value
+            // The data value.
             shared_ptr<string> value_ {};
           };
 
@@ -181,11 +181,11 @@ namespace Models
 
 
         protected:
-          // High-risk position data.
+          // The high-risk location data.
           shared_ptr<vector<Series::Data>> data_ {};
-          // Display title
+          // The display title.
           shared_ptr<string> name_ {};
-          // Chart identifier, default false
+          // The chart identifier. Default value: false.
           shared_ptr<string> roseType_ {};
         };
 
@@ -217,7 +217,7 @@ namespace Models
 
 
         protected:
-          // Chart flag, default is false
+          // The chart identifier. Default value: false.
           shared_ptr<bool> show_ {};
         };
 
@@ -249,11 +249,11 @@ namespace Models
 
 
       protected:
-        // Indicator, default true
+        // The identifier. Default value: true.
         shared_ptr<bool> animation_ {};
-        // Belongs to grid.
+        // The grid to which the chart belongs.
         shared_ptr<HighRiskMobileProvince::Grid> grid_ {};
-        // Chart data
+        // The chart data.
         shared_ptr<vector<HighRiskMobileProvince::Series>> series_ {};
       };
 
@@ -341,9 +341,9 @@ namespace Models
 
 
           protected:
-            // Field name
+            // The field name.
             shared_ptr<string> name_ {};
-            // Data value
+            // The data value.
             shared_ptr<string> value_ {};
           };
 
@@ -373,11 +373,11 @@ namespace Models
 
 
         protected:
-          // Returned data object
+          // The response data object.
           shared_ptr<vector<Series::Data>> data_ {};
-          // Field name
+          // The field name.
           shared_ptr<string> name_ {};
-          // Chart flag, default is false
+          // The chart identifier. Default value: false.
           shared_ptr<string> roseType_ {};
         };
 
@@ -409,7 +409,7 @@ namespace Models
 
 
         protected:
-          // Chart flag, default is false
+          // The chart identifier. Default value: false.
           shared_ptr<bool> show_ {};
         };
 
@@ -441,11 +441,11 @@ namespace Models
 
 
       protected:
-        // Chart flag, default is true
+        // The chart identifier. Default value: true.
         shared_ptr<bool> animation_ {};
-        // Belongs to grid.
+        // The grid to which the chart belongs.
         shared_ptr<HighRiskMobileCity::Grid> grid_ {};
-        // Chart data
+        // The chart data.
         shared_ptr<vector<HighRiskMobileCity::Series>> series_ {};
       };
 
@@ -533,9 +533,9 @@ namespace Models
 
 
           protected:
-            // Variable name
+            // The variable name.
             shared_ptr<string> name_ {};
-            // Data value
+            // The data value.
             shared_ptr<string> value_ {};
           };
 
@@ -565,11 +565,11 @@ namespace Models
 
 
         protected:
-          // Returned data object
+          // The response data object.
           shared_ptr<vector<Series::Data>> data_ {};
-          // Field name
+          // The field name.
           shared_ptr<string> name_ {};
-          // Chart identifier, default is false
+          // The chart identifier. Default value: false.
           shared_ptr<string> roseType_ {};
         };
 
@@ -601,7 +601,7 @@ namespace Models
 
 
         protected:
-          // Chart identifier, default is false
+          // The chart identifier. Default value: false.
           shared_ptr<bool> show_ {};
         };
 
@@ -633,11 +633,11 @@ namespace Models
 
 
       protected:
-        // Chart identifier, default is true
+        // The chart identifier. Default value: true.
         shared_ptr<bool> animation_ {};
-        // Belonging grid.
+        // The grid to which the chart belongs.
         shared_ptr<HighRiskIPProvince::Grid> grid_ {};
-        // Chart data
+        // The chart data.
         shared_ptr<vector<HighRiskIPProvince::Series>> series_ {};
       };
 
@@ -725,9 +725,9 @@ namespace Models
 
 
           protected:
-            // Field name
+            // The field name.
             shared_ptr<string> name_ {};
-            // Data value
+            // The data value.
             shared_ptr<string> value_ {};
           };
 
@@ -757,11 +757,11 @@ namespace Models
 
 
         protected:
-          // Returned data object
+          // The response data object.
           shared_ptr<vector<Series::Data>> data_ {};
-          // Field name
+          // The field name.
           shared_ptr<string> name_ {};
-          // Chart identifier, default is false
+          // The chart identifier. Default value: false.
           shared_ptr<string> roseType_ {};
         };
 
@@ -793,7 +793,7 @@ namespace Models
 
 
         protected:
-          // Chart flag, default false
+          // The chart identifier. Default value: false.
           shared_ptr<bool> show_ {};
         };
 
@@ -825,11 +825,11 @@ namespace Models
 
 
       protected:
-        // Chart flag, default true
+        // The chart identifier. Default value: true.
         shared_ptr<bool> animation_ {};
-        // Belonging grid.
+        // The grid to which the chart belongs.
         shared_ptr<HighRiskIPCity::Grid> grid_ {};
-        // Chart data
+        // The chart data.
         shared_ptr<vector<HighRiskIPCity::Series>> series_ {};
       };
 
@@ -872,13 +872,13 @@ namespace Models
 
 
     protected:
-      // High-risk IP city
+      // The city to which the high-risk IP address belongs.
       shared_ptr<ResultObject::HighRiskIPCity> highRiskIPCity_ {};
-      // High-risk IP归属province
+      // The province to which the high-risk IP address belongs.
       shared_ptr<ResultObject::HighRiskIPProvince> highRiskIPProvince_ {};
-      // High-risk mobile phone归属city
+      // The city to which the high-risk phone number belongs.
       shared_ptr<ResultObject::HighRiskMobileCity> highRiskMobileCity_ {};
-      // High-risk mobile phone\\"s province of origin
+      // The province to which the high-risk phone number belongs.
       shared_ptr<ResultObject::HighRiskMobileProvince> highRiskMobileProvince_ {};
     };
 
@@ -929,17 +929,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Error details
+    // The error details.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned object
+    // The response object.
     shared_ptr<DescribeHighRiskPieChartResponseBody::ResultObject> resultObject_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

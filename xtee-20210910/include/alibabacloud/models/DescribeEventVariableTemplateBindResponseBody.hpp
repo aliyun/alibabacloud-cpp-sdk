@@ -141,19 +141,19 @@ namespace Models
 
 
       protected:
-        // Variable code
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Variable description.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Variable name
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
       };
 
@@ -241,19 +241,19 @@ namespace Models
 
 
       protected:
-        // Variable code
+        // The variable code.
         shared_ptr<string> code_ {};
-        // Description of the variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // Field type.
+        // The field type.
         shared_ptr<string> fieldType_ {};
-        // Primary key ID
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Variable name
+        // The variable name.
         shared_ptr<string> name_ {};
-        // Title.
+        // The title.
         shared_ptr<string> title_ {};
-        // Variable type.
+        // The variable type.
         shared_ptr<string> type_ {};
       };
 
@@ -292,13 +292,13 @@ namespace Models
 
 
     protected:
-      // List of chargeable variables
+      // The list of paid variables.
       shared_ptr<vector<ResultObject::ChargeVariables>> chargeVariables_ {};
-      // List of free variables
+      // The list of free variables.
       shared_ptr<vector<ResultObject::FreeVariables>> freeVariables_ {};
-      // Template code
+      // The template code.
       shared_ptr<string> templateCode_ {};
-      // Total count
+      // The total number of entries.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -321,9 +321,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return object
+    // The response object.
     shared_ptr<DescribeEventVariableTemplateBindResponseBody::ResultObject> resultObject_ {};
   };
 
