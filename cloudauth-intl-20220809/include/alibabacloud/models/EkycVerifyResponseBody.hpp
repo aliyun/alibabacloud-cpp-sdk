@@ -100,21 +100,17 @@ namespace Models
 
 
     protected:
-      // Information about the face liveness verification result. For the JSON format, see the example on the right. For more information, see [ExtFaceInfo](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#JJ40j).
+      // The face verification result information.
       shared_ptr<string> extFaceInfo_ {};
-      // Information about the certificate detection result.
-      // 
-      // For the JSON format, see the example on the right. For more information, see [ExtIdInfo](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#iWOBY).
+      // The document recognition result. This parameter is returned only when the API response is successful.
       shared_ptr<string> extIdInfo_ {};
-      // The final authentication result. Valid values:
-      // 
-      // - **Y**: The authentication is passed.
-      // 
-      // - **N**: The authentication fails.
+      // Indicates whether the verification is passed. Valid values:
+      // - T: Passed.
+      // - F: Not passed.
       shared_ptr<string> passed_ {};
-      // A description of the authentication result. For more information, see [Error codes for ResultObject.SubCode](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#HCGLb).
+      // The sub-result code.
       shared_ptr<string> subCode_ {};
-      // The transaction ID.
+      // The unique identifier of the verification request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -151,13 +147,13 @@ namespace Models
 
 
   protected:
-    // The [response code](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#GiGmf).
+    // The response code.
     shared_ptr<string> code_ {};
-    // A detailed description of the response code.
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Result object
+    // The returned result.
     shared_ptr<EkycVerifyResponseBody::Result> result_ {};
   };
 

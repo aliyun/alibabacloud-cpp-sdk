@@ -82,14 +82,14 @@ namespace Models
 
 
     protected:
-      // Identified key information, in JSON format.
+      // The key information identified, in JSON format.
       shared_ptr<string> extIdInfo_ {};
-      // Task status:
-      // - PROCESSING: In progress (please continue polling)
-      // - SUCCESS: Execution succeeded
-      // - FAILED: Execution failed
+      // The task status. Valid values:
+      // - PROCESSING: Processing. Continue polling.
+      // - SUCCESS: Succeeded.
+      // - FAILED: Failed.
       shared_ptr<string> status_ {};
-      // Authentication result description. For more information, see ResultObject.SubCode error codes.
+      // The description of the authentication result. For more information, refer to the ResultObject.SubCode error code description.
       shared_ptr<string> subCode_ {};
     };
 
@@ -126,13 +126,13 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<CredentialGetResultIntlResponseBody::Result> result_ {};
   };
 

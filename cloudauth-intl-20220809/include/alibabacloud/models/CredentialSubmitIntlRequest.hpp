@@ -103,36 +103,36 @@ namespace Models
 
 
   protected:
-    // Base64 encoding of the image. If you choose to upload the photo this way, please check the photo size and avoid uploading overly large photos.
+    // The Base64-encoded image. If you use this method to submit a photo, check the photo size and do not submit an excessively large photo.
     shared_ptr<string> credentialOcrPictureBase64_ {};
-    // Image URL, accessible via HTTP or HTTPS on the public network.
+    // The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> credentialOcrPictureUrl_ {};
-    // Credential type:
-    // - 02: Vehicle registration certificate
+    // The credential type. Valid values:
+    // - 02: vehicle registration certificate.
     // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
-    // Whether to enable tampering detection
-    // - true: Enable
-    // - false: Disable
+    // Specifies whether to enable tampering detection. Valid values:
+    // - true: Enable.
+    // - false: Disable.
     // 
     // This parameter is required.
     shared_ptr<string> fraudCheck_ {};
-    // A unique business identifier defined on the merchant side, used for troubleshooting issues later. Supports a combination of letters and digits, with a maximum length of 32 characters. Ensure uniqueness.
+    // The merchant-side custom business unique identifier, used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
     // 
     // This parameter is required.
     shared_ptr<string> merchantBizId_ {};
-    // Extraction type:
+    // The extraction type. Valid values:
     // 
-    // - 0201: Thai vehicle registration certificate
+    // - 0201: Thailand vehicle registration certificate.
     // 
     // This parameter is required.
     shared_ptr<string> ocrArea_ {};
-    // The product solution to be integrated. Value: CREDENTIAL_RECOGNITION.
+    // The product solution to use. Set this parameter to CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // Your custom authentication scenario ID, used for querying related records by entering this scenario ID in the console later. Supports a combination of 10 characters, digits, or underscores.
+    // The custom authentication scenario ID. You can use this scenario ID to query related records in the console. The value can be a combination of letters, digits, or underscores with a maximum length of 10 characters.
     // 
     // This parameter is required.
     shared_ptr<string> sceneCode_ {};

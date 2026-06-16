@@ -125,10 +125,15 @@ namespace Models
 
 
       protected:
+        // The overall quality score.
         shared_ptr<double> faceQualityScore_ {};
+        // The illumination score.
         shared_ptr<double> illuminationScore_ {};
+        // The key area occlusion score.
         shared_ptr<double> kaOcclusionScore_ {};
+        // The occlusion score.
         shared_ptr<double> occlusionScore_ {};
+        // The sharpness score.
         shared_ptr<double> sharpnessScore_ {};
       };
 
@@ -165,16 +170,16 @@ namespace Models
 
 
     protected:
+      // The additional result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The face comparison score. The value ranges from 0 to 100.
+      // The comparison score between the submitted face image and the reference face image during verification. Value range: **0** to **100**.
       shared_ptr<double> faceComparisonScore_ {};
-      // The final authentication result. Valid values:
+      // Indicates whether the verification passed.
       // 
-      // - **Y**: The authentication is passed.
-      // 
-      // - **N**: The authentication failed.
+      // - Y: Passed.
+      // - N: Not passed.
       shared_ptr<string> passed_ {};
-      // The transaction ID.
+      // The unique ID of the verification request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -211,13 +216,16 @@ namespace Models
 
 
   protected:
-    // The [response code](https://www.alibabacloud.com/help/en/ekyc/latest/facecompare?spm=a3c0i.23458820.2359477120.28.21167d3fzUmXQC#c43fd16d07mae).
+    // The response code.
+    // 
+    // 200: The request was successful.
+    // Other values: An error occurred. For more information, see error codes.
     shared_ptr<string> code_ {};
-    // The detailed description of the response code.
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Result object
+    // The returned result.
     shared_ptr<FaceCompareResponseBody::Result> result_ {};
   };
 

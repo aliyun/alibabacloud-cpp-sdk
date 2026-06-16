@@ -137,30 +137,30 @@ namespace Models
 
 
     protected:
-      // Authentication result.
+      // The verification result.
       shared_ptr<string> ekycResult_ {};
-      // Extended basic information.
+      // The extended basic information.
       shared_ptr<string> extBasicInfo_ {};
-      // Face information.
+      // The face information.
       shared_ptr<string> extFaceInfo_ {};
-      // ID information.
+      // The ID information.
       shared_ptr<string> extIdInfo_ {};
-      // Extended information, in JSON string format.
+      // The extended information, in JSON string format.
       shared_ptr<string> extInfo_ {};
-      // Risk information.
+      // The risk information.
       shared_ptr<string> extRiskInfo_ {};
-      // Detailed verification results from the data source (example using Indonesian data sources):
-      // - **govId, fullName, dob**: A comparison score of 1.0 indicates complete consistency with the official data source; less than 1.0 indicates inconsistency. 
-      // - **selfiePhoto**: A comparison score greater than 0.8 indicates consistency with the official data source; less than or equal to 0.8 indicates inconsistency. 
-      // - **liveness**: A score higher than 0.95 indicates a risk of liveness detection. 
-      // - **imgManipulationScore**: A score higher than 0.95 indicates a risk of image manipulation.
+      // The data source verification details are described as follows (using the Indonesian data source as an example):
+      // - **govId, fullName, dob**: A comparison score equal to 1.0 indicates a complete match with the official data source. A score lower than 1.0 indicates a mismatch. 
+      // - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source. A score equal to or lower than 0.8 indicates a mismatch. 
+      // - **liveness**: A score higher than 0.95 indicates a liveness detection risk. 
+      // - **imgManipulationScore**: A score higher than 0.95 indicates an image tampering risk.
       shared_ptr<string> extSourceInfo_ {};
-      // Whether the authentication is passed.
+      // Indicates whether the verification is passed. Valid values:
       // 
-      // - Y: Passed
-      // - N: Not passed
+      // - Y: Passed.
+      // - N: Not passed.
       shared_ptr<string> passed_ {};
-      // Sub-result code.
+      // The sub-result code.
       shared_ptr<string> subCode_ {};
     };
 
@@ -197,13 +197,13 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<CheckResultResponseBody::Result> result_ {};
   };
 

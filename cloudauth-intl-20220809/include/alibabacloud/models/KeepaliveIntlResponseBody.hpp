@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The result of the call.
+      // The returned result.
       shared_ptr<string> result_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The [return code.](https://www.alibabacloud.com/help/en/ekyc/latest/client-connection-hold?spm=a3c0i.23458820.2359477120.1.48207d3ftEYld2#74d291dfaaxci)
+    // The return code.
     shared_ptr<string> code_ {};
-    // A detailed description of the Code.
+    // The return message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result
+    // The returned result.
     shared_ptr<KeepaliveIntlResponseBody::Result> result_ {};
   };
 

@@ -2,12 +2,12 @@
 #include <alibabacloud/CloudauthIntl20220809.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/policy/Retry.hpp>
 #include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
 #include <darabonba/http/Form.hpp>
-#include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
 #include <alibabacloud/credentials/Client.hpp>
@@ -28,7 +28,13 @@ namespace CloudauthIntl20220809
 {
 
 AlibabaCloud::CloudauthIntl20220809::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-hongkong" , "cloudauth-intl.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-5" , "cloudauth-intl.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "cloudauth-intl.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "cloudauth-intl.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloudauth-intl", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -128,7 +134,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 人脸图片入库
+ * @summary Adds a face image to a specified face library.
  *
  * @param request AddFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +189,7 @@ AddFaceRecordResponse Client::addFaceRecordWithOptions(const AddFaceRecordReques
 }
 
 /**
- * @summary 人脸图片入库
+ * @summary Adds a face image to a specified face library.
  *
  * @param request AddFaceRecordRequest
  * @return AddFaceRecordResponse
@@ -280,9 +286,9 @@ AddFaceRecordResponse Client::addFaceRecordAdvance(const AddFaceRecordAdvanceReq
 }
 
 /**
- * @summary Address Similarity Comparison
+ * @summary Compares the similarity of two addresses.
  *
- * @description API for comparing two addresses, standardizing and checking address consistency.
+ * @description Compares two addresses for consistency by using address standardization.
  *
  * @param request AddressCompareIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -325,9 +331,9 @@ AddressCompareIntlResponse Client::addressCompareIntlWithOptions(const AddressCo
 }
 
 /**
- * @summary Address Similarity Comparison
+ * @summary Compares the similarity of two addresses.
  *
- * @description API for comparing two addresses, standardizing and checking address consistency.
+ * @description Compares two addresses for consistency by using address standardization.
  *
  * @param request AddressCompareIntlRequest
  * @return AddressCompareIntlResponse
@@ -340,9 +346,9 @@ AddressCompareIntlResponse Client::addressCompareIntl(const AddressCompareIntlRe
 /**
  * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
  *
- * @summary Address Verification
+ * @summary Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
  *
- * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+ * @description Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
  *
  * @param request AddressVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -415,9 +421,9 @@ AddressVerifyIntlResponse Client::addressVerifyIntlWithOptions(const AddressVeri
 /**
  * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
  *
- * @summary Address Verification
+ * @summary Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
  *
- * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+ * @description Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
  *
  * @param request AddressVerifyIntlRequest
  * @return AddressVerifyIntlResponse
@@ -428,7 +434,7 @@ AddressVerifyIntlResponse Client::addressVerifyIntl(const AddressVerifyIntlReque
 }
 
 /**
- * @summary This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+ * @summary Verifies an address.
  *
  * @param request AddressVerifyV2IntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -479,7 +485,7 @@ AddressVerifyV2IntlResponse Client::addressVerifyV2IntlWithOptions(const Address
 }
 
 /**
- * @summary This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+ * @summary Verifies an address.
  *
  * @param request AddressVerifyV2IntlRequest
  * @return AddressVerifyV2IntlResponse
@@ -490,9 +496,9 @@ AddressVerifyV2IntlResponse Client::addressVerifyV2Intl(const AddressVerifyV2Int
 }
 
 /**
- * @summary Bank Card Verification
+ * @summary Provides bank card element verification (two-element, three-element, and four-element) API operations.
  *
- * @description Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+ * @description Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
  *
  * @param request BankMetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -555,9 +561,9 @@ BankMetaVerifyIntlResponse Client::bankMetaVerifyIntlWithOptions(const BankMetaV
 }
 
 /**
- * @summary Bank Card Verification
+ * @summary Provides bank card element verification (two-element, three-element, and four-element) API operations.
  *
- * @description Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+ * @description Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
  *
  * @param request BankMetaVerifyIntlRequest
  * @return BankMetaVerifyIntlResponse
@@ -570,7 +576,7 @@ BankMetaVerifyIntlResponse Client::bankMetaVerifyIntl(const BankMetaVerifyIntlRe
 /**
  * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
  *
- * @summary Pure server-side interface for document OCR recognition
+ * @summary Provides server-side ID card and certificate OCR capabilities.
  *
  * @param request CardOcrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +643,7 @@ CardOcrResponse Client::cardOcrWithOptions(const CardOcrRequest &request, const 
 /**
  * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
  *
- * @summary Pure server-side interface for document OCR recognition
+ * @summary Provides server-side ID card and certificate OCR capabilities.
  *
  * @param request CardOcrRequest
  * @return CardOcrResponse
@@ -648,7 +654,7 @@ CardOcrResponse Client::cardOcr(const CardOcrRequest &request) {
 }
 
 /**
- * @summary Result Query
+ * @summary Queries the verification result.
  *
  * @param request CheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +701,7 @@ CheckResultResponse Client::checkResultWithOptions(const CheckResultRequest &req
 }
 
 /**
- * @summary Result Query
+ * @summary Queries the verification result.
  *
  * @param request CheckResultRequest
  * @return CheckResultResponse
@@ -706,7 +712,7 @@ CheckResultResponse Client::checkResult(const CheckResultRequest &request) {
 }
 
 /**
- * @summary Authentication Log Query Interface
+ * @summary Authentication log query.
  *
  * @param request CheckVerifyLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -741,7 +747,7 @@ CheckVerifyLogResponse Client::checkVerifyLogWithOptions(const CheckVerifyLogReq
 }
 
 /**
- * @summary Authentication Log Query Interface
+ * @summary Authentication log query.
  *
  * @param request CheckVerifyLogRequest
  * @return CheckVerifyLogResponse
@@ -752,9 +758,9 @@ CheckVerifyLogResponse Client::checkVerifyLog(const CheckVerifyLogRequest &reque
 }
 
 /**
- * @summary Credential Recognition Query
+ * @summary Queries the credential recognition result.
  *
- * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+ * @description After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
  *
  * @param request CredentialGetResultIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -785,9 +791,9 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntlWithOptions(const
 }
 
 /**
- * @summary Credential Recognition Query
+ * @summary Queries the credential recognition result.
  *
- * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+ * @description After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
  *
  * @param request CredentialGetResultIntlRequest
  * @return CredentialGetResultIntlResponse
@@ -798,9 +804,9 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntl(const Credential
 }
 
 /**
- * @summary Credential Recognition
+ * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
  *
- * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+ * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
  *
  * @param request CredentialRecognitionIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -853,9 +859,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
 }
 
 /**
- * @summary Credential Recognition
+ * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
  *
- * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+ * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
  *
  * @param request CredentialRecognitionIntlRequest
  * @return CredentialRecognitionIntlResponse
@@ -866,9 +872,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntl(const Creden
 }
 
 /**
- * @summary Credential Recognition Submission
+ * @summary Submits credential recognition information.
  *
- * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+ * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
  *
  * @param request CredentialSubmitIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -929,9 +935,9 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
 }
 
 /**
- * @summary Credential Recognition Submission
+ * @summary Submits credential recognition information.
  *
- * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+ * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
  *
  * @param request CredentialSubmitIntlRequest
  * @return CredentialSubmitIntlResponse
@@ -942,9 +948,9 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntl(const CredentialSubmit
 }
 
 /**
- * @summary Credential Verification
+ * @summary Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
  *
- * @description Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+ * @description Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
  *
  * @param request CredentialVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -993,9 +999,9 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlWithOptions(const Crede
 }
 
 /**
- * @summary Credential Verification
+ * @summary Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
  *
- * @description Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+ * @description Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
  *
  * @param request CredentialVerifyIntlRequest
  * @return CredentialVerifyIntlResponse
@@ -1092,9 +1098,9 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlAdvance(const Credentia
 }
 
 /**
- * @summary Face Credential Verification
+ * @summary Detects deepfake risks in facial images.
  *
- * @description Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+ * @description Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
  *
  * @param request DeepfakeDetectIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1147,9 +1153,9 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntlWithOptions(const DeepfakeD
 }
 
 /**
- * @summary Face Credential Verification
+ * @summary Detects deepfake risks in facial images.
  *
- * @description Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+ * @description Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
  *
  * @param request DeepfakeDetectIntlRequest
  * @return DeepfakeDetectIntlResponse
@@ -1160,9 +1166,9 @@ DeepfakeDetectIntlResponse Client::deepfakeDetectIntl(const DeepfakeDetectIntlRe
 }
 
 /**
- * @summary deepfake file stream API
+ * @summary ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
  *
- * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+ * @description Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
  *
  * @param request DeepfakeDetectIntlStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1217,9 +1223,9 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamWithOptions(con
 }
 
 /**
- * @summary deepfake file stream API
+ * @summary ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
  *
- * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+ * @description Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
  *
  * @param request DeepfakeDetectIntlStreamRequest
  * @return DeepfakeDetectIntlStreamResponse
@@ -1316,7 +1322,7 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamAdvance(const D
 }
 
 /**
- * @summary Delete Face Group
+ * @summary Deletes a face library.
  *
  * @param request DeleteFaceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1347,7 +1353,7 @@ DeleteFaceGroupResponse Client::deleteFaceGroupWithOptions(const DeleteFaceGroup
 }
 
 /**
- * @summary Delete Face Group
+ * @summary Deletes a face library.
  *
  * @param request DeleteFaceGroupRequest
  * @return DeleteFaceGroupResponse
@@ -1358,7 +1364,7 @@ DeleteFaceGroupResponse Client::deleteFaceGroup(const DeleteFaceGroupRequest &re
 }
 
 /**
- * @summary Delete Face
+ * @summary Deletes a face record.
  *
  * @param request DeleteFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1389,7 +1395,7 @@ DeleteFaceRecordResponse Client::deleteFaceRecordWithOptions(const DeleteFaceRec
 }
 
 /**
- * @summary Delete Face
+ * @summary Deletes a face record.
  *
  * @param request DeleteFaceRecordRequest
  * @return DeleteFaceRecordResponse
@@ -1400,7 +1406,7 @@ DeleteFaceRecordResponse Client::deleteFaceRecord(const DeleteFaceRecordRequest 
 }
 
 /**
- * @summary Delete user authentication record results
+ * @summary Deletes data related to a user authentication record.
  *
  * @param request DeleteVerifyResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1439,7 +1445,7 @@ DeleteVerifyResultResponse Client::deleteVerifyResultWithOptions(const DeleteVer
 }
 
 /**
- * @summary Delete user authentication record results
+ * @summary Deletes data related to a user authentication record.
  *
  * @param request DeleteVerifyResultRequest
  * @return DeleteVerifyResultResponse
@@ -1450,7 +1456,7 @@ DeleteVerifyResultResponse Client::deleteVerifyResult(const DeleteVerifyResultRe
 }
 
 /**
- * @summary Card and document OCR pure server-side
+ * @summary Provides server-side card and certificate OCR capabilities.
  *
  * @param request DocOcrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1523,7 +1529,7 @@ DocOcrResponse Client::docOcrWithOptions(const DocOcrRequest &request, const Dar
 }
 
 /**
- * @summary Card and document OCR pure server-side
+ * @summary Provides server-side card and certificate OCR capabilities.
  *
  * @param request DocOcrRequest
  * @return DocOcrResponse
@@ -1534,7 +1540,7 @@ DocOcrResponse Client::docOcr(const DocOcrRequest &request) {
 }
 
 /**
- * @summary Global Document OCR Recognition Interface
+ * @summary Recognizes global identity documents through OCR.
  *
  * @param request DocOcrMaxRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1623,7 +1629,7 @@ DocOcrMaxResponse Client::docOcrMaxWithOptions(const DocOcrMaxRequest &request, 
 }
 
 /**
- * @summary Global Document OCR Recognition Interface
+ * @summary Recognizes global identity documents through OCR.
  *
  * @param request DocOcrMaxRequest
  * @return DocOcrMaxResponse
@@ -1634,7 +1640,189 @@ DocOcrMaxResponse Client::docOcrMax(const DocOcrMaxRequest &request) {
 }
 
 /**
- * @summary 卡证ocr纯服务端V2
+ * @summary 全球证件ocr识别接口
+ *
+ * @param request DocOcrMaxV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DocOcrMaxV2Response
+ */
+DocOcrMaxV2Response Client::docOcrMaxV2WithOptions(const DocOcrMaxV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.getOcrValueStandard();
+  }
+
+  json body = {};
+  if (!!request.hasAuthorize()) {
+    body["Authorize"] = request.getAuthorize();
+  }
+
+  if (!!request.hasDocPage()) {
+    body["DocPage"] = request.getDocPage();
+  }
+
+  if (!!request.hasDocType()) {
+    body["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasIdOcrPictureBase64()) {
+    body["IdOcrPictureBase64"] = request.getIdOcrPictureBase64();
+  }
+
+  if (!!request.hasIdOcrPictureFile()) {
+    body["IdOcrPictureFile"] = request.getIdOcrPictureFile();
+  }
+
+  if (!!request.hasIdOcrPictureUrl()) {
+    body["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
+  }
+
+  if (!!request.hasIdSpoof()) {
+    body["IdSpoof"] = request.getIdSpoof();
+  }
+
+  if (!!request.hasIdThreshold()) {
+    body["IdThreshold"] = request.getIdThreshold();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    body["MerchantBizId"] = request.getMerchantBizId();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    body["MerchantUserId"] = request.getMerchantUserId();
+  }
+
+  if (!!request.hasOcrModel()) {
+    body["OcrModel"] = request.getOcrModel();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasSceneCode()) {
+    body["SceneCode"] = request.getSceneCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DocOcrMaxV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DocOcrMaxV2Response>();
+}
+
+/**
+ * @summary 全球证件ocr识别接口
+ *
+ * @param request DocOcrMaxV2Request
+ * @return DocOcrMaxV2Response
+ */
+DocOcrMaxV2Response Client::docOcrMaxV2(const DocOcrMaxV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return docOcrMaxV2WithOptions(request, runtime);
+}
+
+DocOcrMaxV2Response Client::docOcrMaxV2Advance(const DocOcrMaxV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  DocOcrMaxV2Request docOcrMaxV2Req = DocOcrMaxV2Request();
+  Utils::Utils::convert(request, docOcrMaxV2Req);
+  if (!!request.hasIdOcrPictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getIdOcrPictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    docOcrMaxV2Req.setIdOcrPictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  DocOcrMaxV2Response docOcrMaxV2Resp = docOcrMaxV2WithOptions(docOcrMaxV2Req, runtime);
+  return docOcrMaxV2Resp;
+}
+
+/**
+ * @summary Provides server-side card and certificate OCR capabilities.
  *
  * @param request DocOcrV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1711,7 +1899,7 @@ DocOcrV2Response Client::docOcrV2WithOptions(const DocOcrV2Request &request, con
 }
 
 /**
- * @summary 卡证ocr纯服务端V2
+ * @summary Provides server-side card and certificate OCR capabilities.
  *
  * @param request DocOcrV2Request
  * @return DocOcrV2Response
@@ -1808,7 +1996,7 @@ DocOcrV2Response Client::docOcrV2Advance(const DocOcrV2AdvanceRequest &request, 
 }
 
 /**
- * @summary Console Export Records
+ * @summary Downloads verification task records.
  *
  * @param request DownloadVerifyRecordIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1855,7 +2043,7 @@ DownloadVerifyRecordIntlResponse Client::downloadVerifyRecordIntlWithOptions(con
 }
 
 /**
- * @summary Console Export Records
+ * @summary Downloads verification task records.
  *
  * @param request DownloadVerifyRecordIntlRequest
  * @return DownloadVerifyRecordIntlResponse
@@ -1866,7 +2054,7 @@ DownloadVerifyRecordIntlResponse Client::downloadVerifyRecordIntl(const Download
 }
 
 /**
- * @summary This topic describes how to integrate with ID Verification using only the server-side API.
+ * @summary Provides a server-side-only API for the eKYC solution.
  *
  * @param request EkycVerifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1947,7 +2135,7 @@ EkycVerifyResponse Client::ekycVerifyWithOptions(const EkycVerifyRequest &reques
 }
 
 /**
- * @summary This topic describes how to integrate with ID Verification using only the server-side API.
+ * @summary Provides a server-side-only API for the eKYC solution.
  *
  * @param request EkycVerifyRequest
  * @return EkycVerifyResponse
@@ -1958,7 +2146,7 @@ EkycVerifyResponse Client::ekycVerify(const EkycVerifyRequest &request) {
 }
 
 /**
- * @summary ekyc纯服务端接口V2
+ * @summary Server-side-only eKYC API
  *
  * @param request EkycVerifyV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2047,7 +2235,7 @@ EkycVerifyV2Response Client::ekycVerifyV2WithOptions(const EkycVerifyV2Request &
 }
 
 /**
- * @summary ekyc纯服务端接口V2
+ * @summary Server-side-only eKYC API
  *
  * @param request EkycVerifyV2Request
  * @return EkycVerifyV2Response
@@ -2167,7 +2355,7 @@ EkycVerifyV2Response Client::ekycVerifyV2Advance(const EkycVerifyV2AdvanceReques
 }
 
 /**
- * @summary This topic describes how to integrate FaceCompare using only the server-side API.
+ * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
  *
  * @param request FaceCompareRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2224,7 +2412,7 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
 }
 
 /**
- * @summary This topic describes how to integrate FaceCompare using only the server-side API.
+ * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
  *
  * @param request FaceCompareRequest
  * @return FaceCompareResponse
@@ -2235,7 +2423,7 @@ FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
 }
 
 /**
- * @summary 人脸比对V2
+ * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
  *
  * @param request FaceCompareV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2300,7 +2488,7 @@ FaceCompareV2Response Client::faceCompareV2WithOptions(const FaceCompareV2Reques
 }
 
 /**
- * @summary 人脸比对V2
+ * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
  *
  * @param request FaceCompareV2Request
  * @return FaceCompareV2Response
@@ -2420,7 +2608,7 @@ FaceCompareV2Response Client::faceCompareV2Advance(const FaceCompareV2AdvanceReq
 }
 
 /**
- * @summary Face Cross Comparison
+ * @summary Performs cross-comparison of faces.
  *
  * @param request FaceCrossCompareIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2493,7 +2681,7 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntlWithOptions(const FaceC
 }
 
 /**
- * @summary Face Cross Comparison
+ * @summary Performs cross-comparison of faces.
  *
  * @param request FaceCrossCompareIntlRequest
  * @return FaceCrossCompareIntlResponse
@@ -2504,7 +2692,7 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntl(const FaceCrossCompare
 }
 
 /**
- * @summary Face Duplication Detection API
+ * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2601,7 +2789,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
 }
 
 /**
- * @summary Face Duplication Detection API
+ * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @return FaceDuplicationCheckIntlResponse
@@ -2612,7 +2800,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntl(const FaceDupl
 }
 
 /**
- * @summary This topic describes how to set up the server for FACE_GUARD.
+ * @summary Server-side API for the international Face Guard service.
  *
  * @param request FaceGuardRiskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2659,7 +2847,7 @@ FaceGuardRiskResponse Client::faceGuardRiskWithOptions(const FaceGuardRiskReques
 }
 
 /**
- * @summary This topic describes how to set up the server for FACE_GUARD.
+ * @summary Server-side API for the international Face Guard service.
  *
  * @param request FaceGuardRiskRequest
  * @return FaceGuardRiskResponse
@@ -2670,7 +2858,7 @@ FaceGuardRiskResponse Client::faceGuardRisk(const FaceGuardRiskRequest &request)
 }
 
 /**
- * @summary Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
+ * @summary Calls the server-side API for passive liveness detection.
  *
  * @param request FaceLivenessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2735,7 +2923,7 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
 }
 
 /**
- * @summary Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
+ * @summary Calls the server-side API for passive liveness detection.
  *
  * @param request FaceLivenessRequest
  * @return FaceLivenessResponse
@@ -2747,6 +2935,8 @@ FaceLivenessResponse Client::faceLiveness(const FaceLivenessRequest &request) {
 
 /**
  * @summary 人脸活体验证
+ *
+ * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
  *
  * @param request FaceLivenessV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2804,6 +2994,8 @@ FaceLivenessV2Response Client::faceLivenessV2WithOptions(const FaceLivenessV2Req
 
 /**
  * @summary 人脸活体验证
+ *
+ * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
  *
  * @param request FaceLivenessV2Request
  * @return FaceLivenessV2Response
@@ -2902,6 +3094,8 @@ FaceLivenessV2Response Client::faceLivenessV2Advance(const FaceLivenessV2Advance
 /**
  * @summary 人脸活体验证
  *
+ * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+ *
  * @param request FaceVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return FaceVerifyIntlResponse
@@ -2990,6 +3184,8 @@ FaceVerifyIntlResponse Client::faceVerifyIntlWithOptions(const FaceVerifyIntlReq
 
 /**
  * @summary 人脸活体验证
+ *
+ * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
  *
  * @param request FaceVerifyIntlRequest
  * @return FaceVerifyIntlResponse
@@ -3111,7 +3307,7 @@ FaceVerifyIntlResponse Client::faceVerifyIntlAdvance(const FaceVerifyIntlAdvance
 /**
  * @deprecated OpenAPI FraudResultCallBack is deprecated
  *
- * @summary Anti-Fraud Callback Interface
+ * @summary Calls the eKYC global anti-spoofing callback operation.
  *
  * @param request FraudResultCallBackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3156,7 +3352,7 @@ FraudResultCallBackResponse Client::fraudResultCallBackWithOptions(const FraudRe
 /**
  * @deprecated OpenAPI FraudResultCallBack is deprecated
  *
- * @summary Anti-Fraud Callback Interface
+ * @summary Calls the eKYC global anti-spoofing callback operation.
  *
  * @param request FraudResultCallBackRequest
  * @return FraudResultCallBackResponse
@@ -3167,7 +3363,7 @@ FraudResultCallBackResponse Client::fraudResultCallBack(const FraudResultCallBac
 }
 
 /**
- * @summary This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+ * @summary Verifies the validity period of an identity document as a two-factor authentication element.
  *
  * @param request Id2MetaPeriodVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3230,7 +3426,7 @@ Id2MetaPeriodVerifyIntlResponse Client::id2MetaPeriodVerifyIntlWithOptions(const
 }
 
 /**
- * @summary This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+ * @summary Verifies the validity period of an identity document as a two-factor authentication element.
  *
  * @param request Id2MetaPeriodVerifyIntlRequest
  * @return Id2MetaPeriodVerifyIntlResponse
@@ -3241,7 +3437,7 @@ Id2MetaPeriodVerifyIntlResponse Client::id2MetaPeriodVerifyIntl(const Id2MetaPer
 }
 
 /**
- * @summary Verifies that a name and an ID card number are consistent.
+ * @summary Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
  *
  * @param request Id2MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3284,7 +3480,7 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntlWithOptions(const Id2MetaVeri
 }
 
 /**
- * @summary Verifies that a name and an ID card number are consistent.
+ * @summary Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
  *
  * @param request Id2MetaVerifyIntlRequest
  * @return Id2MetaVerifyIntlResponse
@@ -3295,7 +3491,7 @@ Id2MetaVerifyIntlResponse Client::id2MetaVerifyIntl(const Id2MetaVerifyIntlReque
 }
 
 /**
- * @summary Authentication Initialization
+ * @summary Initializes an authentication session.
  *
  * @param tmpReq InitializeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3554,7 +3750,7 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
 }
 
 /**
- * @summary Authentication Initialization
+ * @summary Initializes an authentication session.
  *
  * @param request InitializeRequest
  * @return InitializeResponse
@@ -3565,7 +3761,396 @@ InitializeResponse Client::initialize(const InitializeRequest &request) {
 }
 
 /**
- * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+ * @summary 认证初始化
+ *
+ * @param tmpReq InitializeV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitializeV2Response
+ */
+InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  InitializeV2ShrinkRequest request = InitializeV2ShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDocPageConfig()) {
+    request.setDocPageConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocPageConfig(), "DocPageConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppQualityCheck()) {
+    query["AppQualityCheck"] = request.getAppQualityCheck();
+  }
+
+  if (!!request.hasAuthorize()) {
+    query["Authorize"] = request.getAuthorize();
+  }
+
+  if (!!request.hasAutoRegistration()) {
+    query["AutoRegistration"] = request.getAutoRegistration();
+  }
+
+  if (!!request.hasCallbackToken()) {
+    query["CallbackToken"] = request.getCallbackToken();
+  }
+
+  if (!!request.hasCallbackUrl()) {
+    query["CallbackUrl"] = request.getCallbackUrl();
+  }
+
+  if (!!request.hasChameleonFrameEnable()) {
+    query["ChameleonFrameEnable"] = request.getChameleonFrameEnable();
+  }
+
+  if (!!request.hasCrop()) {
+    query["Crop"] = request.getCrop();
+  }
+
+  if (!!request.hasDateOfBirth()) {
+    query["DateOfBirth"] = request.getDateOfBirth();
+  }
+
+  if (!!request.hasDateOfExpiry()) {
+    query["DateOfExpiry"] = request.getDateOfExpiry();
+  }
+
+  if (!!request.hasDocName()) {
+    query["DocName"] = request.getDocName();
+  }
+
+  if (!!request.hasDocNo()) {
+    query["DocNo"] = request.getDocNo();
+  }
+
+  if (!!request.hasDocPageConfigShrink()) {
+    query["DocPageConfig"] = request.getDocPageConfigShrink();
+  }
+
+  if (!!request.hasDocScanMode()) {
+    query["DocScanMode"] = request.getDocScanMode();
+  }
+
+  if (!!request.hasDocType()) {
+    query["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasDocVideo()) {
+    query["DocVideo"] = request.getDocVideo();
+  }
+
+  if (!!request.hasDocumentNumber()) {
+    query["DocumentNumber"] = request.getDocumentNumber();
+  }
+
+  if (!!request.hasEditOcrResult()) {
+    query["EditOcrResult"] = request.getEditOcrResult();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasExperienceCode()) {
+    query["ExperienceCode"] = request.getExperienceCode();
+  }
+
+  if (!!request.hasFaceGroupCodes()) {
+    query["FaceGroupCodes"] = request.getFaceGroupCodes();
+  }
+
+  if (!!request.hasFacePictureFile()) {
+    query["FacePictureFile"] = request.getFacePictureFile();
+  }
+
+  if (!!request.hasFacePictureUrl()) {
+    query["FacePictureUrl"] = request.getFacePictureUrl();
+  }
+
+  if (!!request.hasFaceRegisterGroupCode()) {
+    query["FaceRegisterGroupCode"] = request.getFaceRegisterGroupCode();
+  }
+
+  if (!!request.hasFaceVerifyThreshold()) {
+    query["FaceVerifyThreshold"] = request.getFaceVerifyThreshold();
+  }
+
+  if (!!request.hasIdFaceQuality()) {
+    query["IdFaceQuality"] = request.getIdFaceQuality();
+  }
+
+  if (!!request.hasIdSpoof()) {
+    query["IdSpoof"] = request.getIdSpoof();
+  }
+
+  if (!!request.hasIdThreshold()) {
+    query["IdThreshold"] = request.getIdThreshold();
+  }
+
+  if (!!request.hasLanguageConfig()) {
+    query["LanguageConfig"] = request.getLanguageConfig();
+  }
+
+  if (!!request.hasMRTDInput()) {
+    query["MRTDInput"] = request.getMRTDInput();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.getMerchantBizId();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    query["MerchantUserId"] = request.getMerchantUserId();
+  }
+
+  if (!!request.hasMetaInfo()) {
+    query["MetaInfo"] = request.getMetaInfo();
+  }
+
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.getMobile();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasOcr()) {
+    query["Ocr"] = request.getOcr();
+  }
+
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.getOcrValueStandard();
+  }
+
+  if (!!request.hasPages()) {
+    query["Pages"] = request.getPages();
+  }
+
+  if (!!request.hasProcedurePriority()) {
+    query["ProcedurePriority"] = request.getProcedurePriority();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasProductFlow()) {
+    query["ProductFlow"] = request.getProductFlow();
+  }
+
+  if (!!request.hasReturnFaces()) {
+    query["ReturnFaces"] = request.getReturnFaces();
+  }
+
+  if (!!request.hasReturnUrl()) {
+    query["ReturnUrl"] = request.getReturnUrl();
+  }
+
+  if (!!request.hasSaveFacePicture()) {
+    query["SaveFacePicture"] = request.getSaveFacePicture();
+  }
+
+  if (!!request.hasSceneCode()) {
+    query["SceneCode"] = request.getSceneCode();
+  }
+
+  if (!!request.hasSecurityLevel()) {
+    query["SecurityLevel"] = request.getSecurityLevel();
+  }
+
+  if (!!request.hasShowAlbumIcon()) {
+    query["ShowAlbumIcon"] = request.getShowAlbumIcon();
+  }
+
+  if (!!request.hasShowGuidePage()) {
+    query["ShowGuidePage"] = request.getShowGuidePage();
+  }
+
+  if (!!request.hasShowOcrResult()) {
+    query["ShowOcrResult"] = request.getShowOcrResult();
+  }
+
+  if (!!request.hasStyleConfig()) {
+    query["StyleConfig"] = request.getStyleConfig();
+  }
+
+  if (!!request.hasTargetFacePictureFile()) {
+    query["TargetFacePictureFile"] = request.getTargetFacePictureFile();
+  }
+
+  if (!!request.hasTargetFacePictureUrl()) {
+    query["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
+  }
+
+  if (!!request.hasTemplateConfig()) {
+    query["TemplateConfig"] = request.getTemplateConfig();
+  }
+
+  if (!!request.hasTemplateRanCount()) {
+    query["TemplateRanCount"] = request.getTemplateRanCount();
+  }
+
+  if (!!request.hasTemplateType()) {
+    query["TemplateType"] = request.getTemplateType();
+  }
+
+  if (!!request.hasUseNFC()) {
+    query["UseNFC"] = request.getUseNFC();
+  }
+
+  if (!!request.hasVerifyModel()) {
+    query["VerifyModel"] = request.getVerifyModel();
+  }
+
+  json body = {};
+  if (!!request.hasFacePictureBase64()) {
+    body["FacePictureBase64"] = request.getFacePictureBase64();
+  }
+
+  if (!!request.hasTargetFacePicture()) {
+    body["TargetFacePicture"] = request.getTargetFacePicture();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InitializeV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitializeV2Response>();
+}
+
+/**
+ * @summary 认证初始化
+ *
+ * @param request InitializeV2Request
+ * @return InitializeV2Response
+ */
+InitializeV2Response Client::initializeV2(const InitializeV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initializeV2WithOptions(request, runtime);
+}
+
+InitializeV2Response Client::initializeV2Advance(const InitializeV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  InitializeV2Request initializeV2Req = InitializeV2Request();
+  Utils::Utils::convert(request, initializeV2Req);
+  if (!!request.hasFacePictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getFacePictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    initializeV2Req.setFacePictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  if (!!request.hasTargetFacePictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getTargetFacePictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    initializeV2Req.setTargetFacePictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  InitializeV2Response initializeV2Resp = initializeV2WithOptions(initializeV2Req, runtime);
+  return initializeV2Resp;
+}
+
+/**
+ * @summary Configures client connection keep-alive settings.
+ *
+ * @description Configures client connection keep-alive settings.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return KeepaliveIntlResponse
@@ -3587,7 +4172,9 @@ KeepaliveIntlResponse Client::keepaliveIntlWithOptions(const Darabonba::RuntimeO
 }
 
 /**
- * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+ * @summary Configures client connection keep-alive settings.
+ *
+ * @description Configures client connection keep-alive settings.
  *
  * @return KeepaliveIntlResponse
  */
@@ -3597,7 +4184,9 @@ KeepaliveIntlResponse Client::keepaliveIntl() {
 }
 
 /**
- * @summary Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+ * @summary Verifies the identity of a phone number owner by using two-factor authentication.
+ *
+ * @description Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
  *
  * @param request Mobile2MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3640,7 +4229,9 @@ Mobile2MetaVerifyIntlResponse Client::mobile2MetaVerifyIntlWithOptions(const Mob
 }
 
 /**
- * @summary Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+ * @summary Verifies the identity of a phone number owner by using two-factor authentication.
+ *
+ * @description Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
  *
  * @param request Mobile2MetaVerifyIntlRequest
  * @return Mobile2MetaVerifyIntlResponse
@@ -3651,7 +4242,7 @@ Mobile2MetaVerifyIntlResponse Client::mobile2MetaVerifyIntl(const Mobile2MetaVer
 }
 
 /**
- * @summary International Version of Mobile Three Elements API
+ * @summary Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
  *
  * @param request Mobile3MetaVerifyIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3698,7 +4289,7 @@ Mobile3MetaVerifyIntlResponse Client::mobile3MetaVerifyIntlWithOptions(const Mob
 }
 
 /**
- * @summary International Version of Mobile Three Elements API
+ * @summary Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
  *
  * @param request Mobile3MetaVerifyIntlRequest
  * @return Mobile3MetaVerifyIntlResponse
@@ -3709,7 +4300,7 @@ Mobile3MetaVerifyIntlResponse Client::mobile3MetaVerifyIntl(const Mobile3MetaVer
 }
 
 /**
- * @summary Modify Face Group
+ * @summary Modifies a face library.
  *
  * @param request ModifyFaceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3748,7 +4339,7 @@ ModifyFaceGroupResponse Client::modifyFaceGroupWithOptions(const ModifyFaceGroup
 }
 
 /**
- * @summary Modify Face Group
+ * @summary Modifies a face library.
  *
  * @param request ModifyFaceGroupRequest
  * @return ModifyFaceGroupResponse
@@ -3759,7 +4350,7 @@ ModifyFaceGroupResponse Client::modifyFaceGroup(const ModifyFaceGroupRequest &re
 }
 
 /**
- * @summary Add New Face
+ * @summary Edits a face record.
  *
  * @param request ModifyFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3794,7 +4385,7 @@ ModifyFaceRecordResponse Client::modifyFaceRecordWithOptions(const ModifyFaceRec
 }
 
 /**
- * @summary Add New Face
+ * @summary Edits a face record.
  *
  * @param request ModifyFaceRecordRequest
  * @return ModifyFaceRecordResponse
@@ -3805,7 +4396,7 @@ ModifyFaceRecordResponse Client::modifyFaceRecord(const ModifyFaceRecordRequest 
 }
 
 /**
- * @summary Query Face Group
+ * @summary Queries face libraries.
  *
  * @param request QueryFaceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3856,7 +4447,7 @@ QueryFaceGroupResponse Client::queryFaceGroupWithOptions(const QueryFaceGroupReq
 }
 
 /**
- * @summary Query Face Group
+ * @summary Queries face libraries.
  *
  * @param request QueryFaceGroupRequest
  * @return QueryFaceGroupResponse
@@ -3867,7 +4458,7 @@ QueryFaceGroupResponse Client::queryFaceGroup(const QueryFaceGroupRequest &reque
 }
 
 /**
- * @summary Query Face Records
+ * @summary Queries face records.
  *
  * @param request QueryFaceRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3926,7 +4517,7 @@ QueryFaceRecordResponse Client::queryFaceRecordWithOptions(const QueryFaceRecord
 }
 
 /**
- * @summary Query Face Records
+ * @summary Queries face records.
  *
  * @param request QueryFaceRecordRequest
  * @return QueryFaceRecordResponse
@@ -3937,7 +4528,7 @@ QueryFaceRecordResponse Client::queryFaceRecord(const QueryFaceRecordRequest &re
 }
 
 /**
- * @summary Get Temporary Token
+ * @summary Retrieves a temporary token.
  *
  * @param request TempAccessTokenIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3968,7 +4559,7 @@ TempAccessTokenIntlResponse Client::tempAccessTokenIntlWithOptions(const TempAcc
 }
 
 /**
- * @summary Get Temporary Token
+ * @summary Retrieves a temporary token.
  *
  * @param request TempAccessTokenIntlRequest
  * @return TempAccessTokenIntlResponse
@@ -3979,7 +4570,7 @@ TempAccessTokenIntlResponse Client::tempAccessTokenIntl(const TempAccessTokenInt
 }
 
 /**
- * @summary Get Temporary File URL
+ * @summary Retrieves a temporary URL for a file.
  *
  * @param request TempOssUrlIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4010,7 +4601,7 @@ TempOssUrlIntlResponse Client::tempOssUrlIntlWithOptions(const TempOssUrlIntlReq
 }
 
 /**
- * @summary Get Temporary File URL
+ * @summary Retrieves a temporary URL for a file.
  *
  * @param request TempOssUrlIntlRequest
  * @return TempOssUrlIntlResponse

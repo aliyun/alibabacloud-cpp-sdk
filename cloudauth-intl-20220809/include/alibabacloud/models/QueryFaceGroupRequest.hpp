@@ -84,12 +84,20 @@ namespace Models
 
 
   protected:
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The code of the face library.
     shared_ptr<string> groupCode_ {};
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The name of the face library.
     shared_ptr<string> name_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

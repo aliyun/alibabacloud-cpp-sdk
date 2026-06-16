@@ -125,10 +125,15 @@ namespace Models
 
 
       protected:
+        // The overall quality score.
         shared_ptr<double> faceQualityScore_ {};
+        // The illumination score.
         shared_ptr<double> illuminationScore_ {};
+        // The key area occlusion score.
         shared_ptr<double> kaOcclusionScore_ {};
+        // The occlusion score.
         shared_ptr<double> occlusionScore_ {};
+        // The sharpness score.
         shared_ptr<double> sharpnessScore_ {};
       };
 
@@ -165,9 +170,16 @@ namespace Models
 
 
     protected:
+      // The additional result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
+      // The comparison score between the submitted face image and the reference face image during verification. Value range: 0 to 100.
       shared_ptr<double> faceComparisonScore_ {};
+      // Indicates whether the verification passed. Valid values:
+      // 
+      // - Y: passed.
+      // - N: not passed.
       shared_ptr<string> passed_ {};
+      // The unique ID of the verification request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -204,10 +216,15 @@ namespace Models
 
 
   protected:
+    // The return code.
+    // 
+    // 200: succeeded. Other values: error codes. For more information, see error codes.
     shared_ptr<string> code_ {};
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<FaceCompareV2ResponseBody::Result> result_ {};
   };
 

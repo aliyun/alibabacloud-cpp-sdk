@@ -141,10 +141,15 @@ namespace Models
 
 
       protected:
+        // The overall quality score.
         shared_ptr<double> faceQualityScore_ {};
+        // The illumination score.
         shared_ptr<double> illuminationScore_ {};
+        // The key area occlusion score.
         shared_ptr<double> kaOcclusionScore_ {};
+        // The occlusion score.
         shared_ptr<double> occlusionScore_ {};
+        // The sharpness score.
         shared_ptr<double> sharpnessScore_ {};
       };
 
@@ -239,37 +244,35 @@ namespace Models
 
 
     protected:
-      // Returns the face library face ID and UserID when a duplicate face is detected.
+      // The face ID and UserID retrieved from the face database when a duplicate face is detected.
       shared_ptr<string> duplicateFace_ {};
+      // The additional result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The estimated age of the face, which may not be returned if the prediction fails.
+      // The estimated age of the face. This value may not be returned if the prediction fails.
       shared_ptr<string> faceAge_ {};
-      // Indicates whether the captured face involves a liveness attack, Y for an attack, N for no attack.
-      // Returned when silent liveness detection is enabled.
+      // Indicates whether the captured face involves a liveness attack. A value of Y indicates an attack, and a value of N indicates no attack. This field is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttack_ {};
-      // The probability of a liveness attack detected by silent liveness detection. The value range is 0 to 100.
-      // Returned when silent liveness detection is enabled.
+      // The probability of a passive liveness detection attack. Value range: 0 to 100. This field is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttackScore_ {};
-      // When the verification mode is 1 or 2, returns the 1:1 verification comparison score
-      // Comparison score range 0～100.
+      // The 1:1 face comparison score returned when the verification mode is 1 or 2. Value range: 0 to 100.
       shared_ptr<string> faceComparisonScore_ {};
-      // The predicted gender of the face in the image, which may not be returned if the prediction fails.
-      // - M: Male
-      // - F: Female
+      // The predicted gender of the face. This value may not be returned if the prediction fails. Valid values:
+      // - M: Male.
+      // - F: Female.
       shared_ptr<string> faceGender_ {};
-      // Final authentication result, values:
-      // - Y: Passed
-      // - N: Not passed
+      // The final verification result. Valid values:
+      // - Y: Passed.
+      // - N: Not passed.
       shared_ptr<string> facePassed_ {};
-      // Returns the corresponding FACEID only when the customer sets auto-registration and the face registration is successful.
+      // The FACEID returned only when automatic registration is enabled and the face is registered successfully.
       shared_ptr<string> faceRegistrationId_ {};
-      // Face registration result 
-      // - 0- Failed 
-      // - 1- Succeeded
+      // The face registration result. Valid values: 
+      // - 0: Failed. 
+      // - 1: Succeeded.
       shared_ptr<int32_t> faceRegistrationResult_ {};
-      // Description of the authentication result. For more information, see ResultObject.SubCode error code description.
+      // The description of the verification result. For more information, refer to the ResultObject.SubCode error code description.
       shared_ptr<string> subCode_ {};
-      // Unique identifier of the authentication request.
+      // The unique identifier of the verification request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -306,13 +309,13 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<FaceDuplicationCheckIntlResponseBody::Result> result_ {};
   };
 

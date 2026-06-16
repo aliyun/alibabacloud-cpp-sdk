@@ -140,17 +140,49 @@ namespace Models
 
 
   protected:
+    // Specifies the side of the certificate. If this parameter is not specified, the portrait side is used by default.
+    // 
+    // - OCR_ID_FACE (default): the portrait side
+    // 
+    // - OCR_ID_NATIONAL_EMBLEM: the national emblem side.
     shared_ptr<string> cardSide_ {};
+    // The certificate type.
     shared_ptr<string> docType_ {};
+    // Specifies whether to perform face quality detection on the certificate.
+    // 
+    // - T: Detection is required.
+    // - F: Detection is not required. (Default: F).
     shared_ptr<string> idFaceQuality_ {};
+    // The Base64-encoded card or certificate image.
+    // 
+    // If you use IdOcrPictureBase64 to pass in the certificate image, check the image size and do not pass in an excessively large image.
     shared_ptr<string> idOcrPictureBase64_ {};
+    // The file stream of the front side of the certificate image.
     shared_ptr<string> idOcrPictureFile_ {};
+    // The URL of the front side of the certificate image.
     shared_ptr<string> idOcrPictureUrl_ {};
+    // The custom OCR quality detection threshold mode. Valid values:
+    // 
+    // - 0: system default
+    // - 1: strict mode
+    // - 2: loose mode
+    // - 3 (default): quality detection is disabled.
     shared_ptr<string> idThreshold_ {};
+    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
+    // The custom user ID defined in your business. Ensure that the value is unique.
     shared_ptr<string> merchantUserId_ {};
+    // Specifies whether to perform certificate OCR.
+    // 
+    // - T: OCR is required.
+    // - F: OCR is not required.
     shared_ptr<string> ocr_ {};
+    // The product code.
     shared_ptr<string> productCode_ {};
+    // Specifies whether to enable anti-spoofing detection.
+    // 
+    // - T: Anti-spoofing is enabled.
+    // - F: Anti-spoofing is disabled.
     shared_ptr<string> spoof_ {};
   };
 

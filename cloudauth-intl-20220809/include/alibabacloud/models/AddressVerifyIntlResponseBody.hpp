@@ -100,20 +100,20 @@ namespace Models
 
 
     protected:
-      // Address verification details.
+      // The address verification details.
       shared_ptr<string> addressInfo_ {};
-      // Operator name:
+      // The telecommunications service provider name. Valid values:
       // - CMCC: China Mobile
       // - CTCC: China Telecom
-      // - CUCC: China Unicom
+      // - CUCC: China Unicom.
       shared_ptr<string> ispName_ {};
-      // Verification result, values:
-      // - Y: Yes, the verified address distance is less than or equal to 10KM.
-      // - N: No, the verified address distance is greater than 10KM.
+      // The verification result. Valid values:
+      // - Y: The verified address is within 10 km of the residential address.
+      // - N: The verified address is more than 10 km from the residential address.
       shared_ptr<string> passed_ {};
-      // Authentication result description.
+      // The description of the verification result.
       shared_ptr<string> subCode_ {};
-      // Unique identifier for the authentication request.
+      // The unique identifier of the verification request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -150,13 +150,13 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result information.
+    // The result information.
     shared_ptr<AddressVerifyIntlResponseBody::ResultObject> resultObject_ {};
   };
 

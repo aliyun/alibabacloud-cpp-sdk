@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_INITIALIZERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_INITIALIZERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_INITIALIZEV2RESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_INITIALIZEV2RESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace CloudauthIntl20220809
 {
 namespace Models
 {
-  class InitializeResponseBody : public Darabonba::Model {
+  class InitializeV2ResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const InitializeResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const InitializeV2ResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
     };
-    friend void from_json(const Darabonba::Json& j, InitializeResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, InitializeV2ResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
     };
-    InitializeResponseBody() = default ;
-    InitializeResponseBody(const InitializeResponseBody &) = default ;
-    InitializeResponseBody(InitializeResponseBody &&) = default ;
-    InitializeResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~InitializeResponseBody() = default ;
-    InitializeResponseBody& operator=(const InitializeResponseBody &) = default ;
-    InitializeResponseBody& operator=(InitializeResponseBody &&) = default ;
+    InitializeV2ResponseBody() = default ;
+    InitializeV2ResponseBody(const InitializeV2ResponseBody &) = default ;
+    InitializeV2ResponseBody(InitializeV2ResponseBody &&) = default ;
+    InitializeV2ResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~InitializeV2ResponseBody() = default ;
+    InitializeV2ResponseBody& operator=(const InitializeV2ResponseBody &) = default ;
+    InitializeV2ResponseBody& operator=(InitializeV2ResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -91,15 +91,9 @@ namespace Models
 
 
     protected:
-      // The client configuration.
       shared_ptr<string> clientCfg_ {};
-      // The authentication standard encryption protocol.
-      // 
-      // > This field is required when you use iframe embedding for H5 web page integration.
       shared_ptr<string> protocol_ {};
-      // The authentication ID.
       shared_ptr<string> transactionId_ {};
-      // The web authentication URL.
       shared_ptr<string> transactionUrl_ {};
     };
 
@@ -109,41 +103,37 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline InitializeResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline InitializeV2ResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline InitializeResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline InitializeV2ResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline InitializeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline InitializeV2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const InitializeResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, InitializeResponseBody::Result) };
-    inline InitializeResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, InitializeResponseBody::Result) };
-    inline InitializeResponseBody& setResult(const InitializeResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline InitializeResponseBody& setResult(InitializeResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const InitializeV2ResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, InitializeV2ResponseBody::Result) };
+    inline InitializeV2ResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, InitializeV2ResponseBody::Result) };
+    inline InitializeV2ResponseBody& setResult(const InitializeV2ResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline InitializeV2ResponseBody& setResult(InitializeV2ResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
-    // The response code.
     shared_ptr<string> code_ {};
-    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The response result.
-    shared_ptr<InitializeResponseBody::Result> result_ {};
+    shared_ptr<InitializeV2ResponseBody::Result> result_ {};
   };
 
   } // namespace Models

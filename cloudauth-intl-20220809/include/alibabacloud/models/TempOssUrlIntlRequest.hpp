@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Object name.
+    // The object name.
     // 
     // This parameter is required.
     shared_ptr<string> objectName_ {};

@@ -104,9 +104,13 @@ namespace Models
 
 
     protected:
+      // The code of the face library.
       shared_ptr<string> code_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
+      // The name of the face library.
       shared_ptr<string> name_ {};
     };
 
@@ -186,16 +190,25 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
+    // The list of returned entries.
     shared_ptr<vector<QueryFaceGroupResponseBody::Items>> items_ {};
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

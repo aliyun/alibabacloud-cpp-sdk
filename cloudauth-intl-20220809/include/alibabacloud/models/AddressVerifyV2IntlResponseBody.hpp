@@ -83,29 +83,17 @@ namespace Models
 
     protected:
       // The verification result. Valid values:
-      // 
-      // - **1**: Passed (billed)
-      // - **2**: Failed (The device is in a prohibited region) (billed)
-      // - **3**: Unknown (billed)
+      // - 1: Passed.
+      // - 2: Failed (the device is in a prohibited region). 
+      // - 3: Unable to determine.
       shared_ptr<string> bizCode_ {};
-      // Verification details, including：
+      // The verification details, which include:
       // 
-      // - **DistanceRange**：Position rang：[DistanceRange description](https://www.alibabacloud.com/help/zh/ekyc/latest/add-verify-pro-api?spm=a2c63.p38356.0.i27#ee274c08976er)。
-      // > If the input phone number or address is empty, or if no carrier information is found, this field will not be returned.
-      // 
-      // - **IspName**: The carrier name:
-      //    - **CMCC**: China Mobile
-      //    - **CTCC**: China Telecom
-      //    - **CUCC**: China Unicom
-      // > This parameter is not returned if the mobile phone number or address is empty in the request, or if carrier information is not found.
-      // 
-      // - **PhoneStatus**: The status of the mobile phone:
-      //   - **0**: Abnormal
-      //   - **1**: Normal
-      // 
-      // > This parameter is not returned if the mobile phone number is empty in the request.
+      // - distanceRange: the location range.   
+      // - ispName: the ISP name.     
+      // - phoneStatus: the phone status. A value of 0 indicates abnormal. A value of 1 indicates Normal. Otherwise, the status is unknown.
       shared_ptr<string> detail_ {};
-      // The transaction ID
+      // The authentication ID.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -142,13 +130,13 @@ namespace Models
 
 
   protected:
-    // [Return Code](https://www.alibabacloud.com/help/zh/ekyc/latest/add-verify-pro-api?spm=a2c63.p38356.0.i4#ae60001a3804w)
+    // The response code.
     shared_ptr<string> code_ {};
-    // Detailed description of the return code
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Result object
+    // The verification result.
     shared_ptr<AddressVerifyV2IntlResponseBody::Result> result_ {};
   };
 

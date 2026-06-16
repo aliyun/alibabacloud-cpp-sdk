@@ -103,27 +103,27 @@ namespace Models
 
 
   protected:
-    // Current Page.
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // Face Group Code.
+    // The face library code.
     // 
     // This parameter is required.
     shared_ptr<string> faceGroupCode_ {};
-    // Face ID.
+    // The face ID.
     shared_ptr<string> faceId_ {};
-    // Number of rows per page for paginated queries.
+    // The maximum number of entries per page for a paginated query.
     shared_ptr<int32_t> maxResults_ {};
-    // Merchant User ID.
+    // The merchant user ID.
     shared_ptr<string> merchantUserId_ {};
-    // Used to request the next page of search results.
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Number of items per page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Registration Type.
+    // The registration type.
     shared_ptr<string> registrationType_ {};
   };
 

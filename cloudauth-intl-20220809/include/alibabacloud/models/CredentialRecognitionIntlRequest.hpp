@@ -84,27 +84,27 @@ namespace Models
 
 
   protected:
-    // Base64 encoded image. If you choose to upload the photo via IdOcrPictureBase64 (photo Base64 encoding), please check the photo size and do not upload overly large photos.
+    // The Base64-encoded image. If you choose to pass in the image by using IdOcrPictureBase64 (Base64-encoded photo), check the photo size and do not pass in an excessively large photo.
     shared_ptr<string> credentialOcrPictureBase64_ {};
-    // Image URL, accessible over the public network via HTTP or HTTPS links.
+    // The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> credentialOcrPictureUrl_ {};
-    // Voucher type.
-    // - Transaction Voucher: 01 (including: water, electricity, gas, credit card, and other types of e-bill images)
+    // The credential type. Valid values:
+    // - 01: transaction credential (including electronic bill images for water, electricity, gas, credit cards, and other types).
     // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
-    // Whether to enable tampering detection
-    // - true: Enable
-    // - false: Disable
+    // Specifies whether to enable tampering detection. Valid values:
+    // - true: Enabled.
+    // - false: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> fraudCheck_ {};
-    // Extraction type:
-    // - 0101: E-bill Address & Name Module (extracts address and name modules through intelligent analysis)
+    // The extraction type. Valid values:
+    // - 0101: electronic bill address and name module (extracts the address and name module through intelligent analysis).
     // 
     // This parameter is required.
     shared_ptr<string> ocrArea_ {};
-    // The product solution to be integrated. Value: CREDENTIAL_RECOGNITION.
+    // The product solution to use. Set this to CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

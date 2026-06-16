@@ -63,13 +63,10 @@ namespace Models
 
 
     protected:
-      // The verification result:
-      // 
-      // - 1: The information is consistent. This result is billable.
-      // 
-      // - 2: The information is inconsistent. This result is billable.
-      // 
-      // - 3: No record is found. This result is not billable.
+      // The verification result code. Valid values:
+      // - 1: Consistent.
+      // - 2: Inconsistent.
+      // - 3: No record found.
       shared_ptr<string> bizCode_ {};
     };
 
@@ -106,13 +103,13 @@ namespace Models
 
 
   protected:
-    // [Status codes](https://www.alibabacloud.com/help/en/ekyc/latest/ok4bwxwmu1n94o76?spm=a2c63.p38356.0.i54#942707fca218x).
+    // The return code.
     shared_ptr<string> code_ {};
-    // The detailed description of the response code.
+    // The return message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result
+    // The verification result.
     shared_ptr<Id2MetaVerifyIntlResponseBody::Result> result_ {};
   };
 

@@ -288,7 +288,6 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<FaceVerifyIntlResponseBody::Result> result_ {};
   };

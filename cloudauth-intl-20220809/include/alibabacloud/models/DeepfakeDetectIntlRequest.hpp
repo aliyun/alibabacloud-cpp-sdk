@@ -84,23 +84,23 @@ namespace Models
 
 
   protected:
-    // Input the Base64 encoded format of the face image.
-    // > Choose one of FaceUrl or FaceBase64 to input.
+    // The Base64-encoded content of the facial image.
+    // > Specify either FaceUrl or FaceBase64.
     shared_ptr<string> faceBase64_ {};
-    // Input **IMAGE**, indicating a face image.
+    // Set the value to **IMAGE** to specify a facial image.
     shared_ptr<string> faceInputType_ {};
-    // Input the URL address of the face image.
-    // > Choose one of FaceUrl or FaceBase64 to input.
+    // The URL of the facial image.
+    // > Specify either FaceUrl or FaceBase64.
     shared_ptr<string> faceUrl_ {};
-    // A unique identifier for the merchant\\"s request, consisting of a 32-character alphanumeric combination. The first few characters are composed of a custom abbreviation defined by the merchant, the middle part can include a period of time, and the latter part can use a random or incremental sequence.
+    // The unique identifier of the merchant request. The value is a 32-character combination of letters and digits. The first few characters are a custom merchant abbreviation, the middle part can contain a timestamp, and the last part can be a random or incremental sequence.
     // 
     // This parameter is required.
     shared_ptr<string> merchantBizId_ {};
-    // The product solution to be integrated. Value: **FACE_DEEPFAKE**.
+    // The product solution to use. Set the value to **FACE_DEEPFAKE**.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // Your custom authentication scenario ID, used for querying related records by entering this scenario ID in the console later. Supports a combination of 10 characters, including letters, numbers, or underscores.
+    // The custom scene ID for authentication. You can use this scene ID to query related records in the console. The value can be up to 10 characters long and can contain letters, digits, and underscores.
     shared_ptr<string> sceneCode_ {};
   };
 

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Return code
+    // The return code.
     shared_ptr<string> code_ {};
-    // Return result.
+    // The response result.
     shared_ptr<int32_t> data_ {};
-    // Return message
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

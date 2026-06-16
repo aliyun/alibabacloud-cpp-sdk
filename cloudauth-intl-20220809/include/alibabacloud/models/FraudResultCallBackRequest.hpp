@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Unique identifier for real-person authentication, corresponding to Ant\\"s verifyId.
+    // The unique identifier for identity verification, which corresponds to the verifyId of Ant.
     shared_ptr<string> certifyId_ {};
-    // Extended parameters, in JSON string format.
+    // The extended parameters, in JSON string format.
     shared_ptr<string> extParams_ {};
-    // Whether the anti-fraud check passed
-    // - PASS (Passed)
-    // - REJECT (Rejected)
+    // Indicates whether the anti-spoofing check is passed. Valid values:
+    // - PASS: Passed.
+    // - REJECT: Not passed.
     shared_ptr<string> resultCode_ {};
-    // Environment routing parameter
-    // - staging (Staging environment)
-    // - production (Production environment)
+    // The environment routing parameter. Valid values:
+    // - staging: staging environment
+    // - production: production environment.
     shared_ptr<string> verifyDeployEnv_ {};
   };
 

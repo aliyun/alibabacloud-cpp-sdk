@@ -91,15 +91,19 @@ namespace Models
 
 
     protected:
-      // The device risk probability predicted by the Device Guard algorithm. A higher score indicates a higher device risk.
+      // The device risk probability predicted by the Face Guard algorithm. A higher score indicates a higher device risk.
       // 
-      // Valid values: 0 to 100.
+      // Value range: 0 to 100.
       shared_ptr<double> guardRiskScore_ {};
-      // Extended information. This is empty by default.
+      // The extended information in JSON format. The response is customized based on tenant requirements.
       shared_ptr<string> riskExtends_ {};
-      // The device risk tags. Multiple risk tags are separated by commas (**,**). For more information about the risk tags and their meanings, expand the **Risk tags (RiskTags)** section below.
+      // The device risk tags.
+      // 
+      // - Multiple device risk tags are separated by commas (,), such as "ROOT,VPN,HOOK".
+      // 
+      // - For more information about device risk tags and their meanings, refer to the Face Guard tag description in the official documentation.
       shared_ptr<string> riskTags_ {};
-      // The transaction ID.
+      // The unique identifier of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -136,13 +140,13 @@ namespace Models
 
 
   protected:
-    // The return code. A value of Success indicates that the API operation responded successfully. For more information about how to determine the authentication result, expand the **Return codes** section below.
+    // The return code.
     shared_ptr<string> code_ {};
-    // A detailed description of the return code.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Result object
+    // The returned result.
     shared_ptr<FaceGuardRiskResponseBody::Result> result_ {};
   };
 

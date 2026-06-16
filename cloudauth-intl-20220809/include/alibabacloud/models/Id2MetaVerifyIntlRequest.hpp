@@ -66,19 +66,16 @@ namespace Models
 
 
   protected:
-    // The ID card number.
-    // 
-    // > Only ID cards of residents in the Chinese mainland are supported.
+    // The ID card number (in plaintext).
     shared_ptr<string> identifyNum_ {};
-    // The parameter type.
+    // The parameter type. Valid values:
     // 
-    // **normal**: The original value in plaintext.
-    // 
-    // > Due to limitations of the authoritative data source, two-factor ID verification does not support MD5 encryption.
+    // - normal: original value (plaintext).
+    // - Note: Due to authoritative data source restrictions, two-factor identity verification does not support MD5 encryption.
     shared_ptr<string> paramType_ {};
-    // The product plan. This is a static field. Set the value to **ID_2META**.
+    // The product solution code. Set this parameter to ID_2META.
     shared_ptr<string> productCode_ {};
-    // The name.
+    // The name (in plaintext).
     shared_ptr<string> userName_ {};
   };
 

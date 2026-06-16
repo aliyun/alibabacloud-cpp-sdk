@@ -100,10 +100,15 @@ namespace Models
 
 
     protected:
+      // Face detection result information
       shared_ptr<string> extFaceInfo_ {};
+      // Certificate Classification Result. Returned only when the API response Succeeded.
       shared_ptr<string> extIdInfo_ {};
+      // Indicates whether the verification passed. The value is Y if passed, or N if Failed.
       shared_ptr<string> passed_ {};
+      // Sub-result code
       shared_ptr<string> subCode_ {};
+      // The unique id of the request
       shared_ptr<string> transactionId_ {};
     };
 
@@ -140,10 +145,13 @@ namespace Models
 
 
   protected:
+    // Return code
     shared_ptr<string> code_ {};
+    // Return message
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Return Result
     shared_ptr<EkycVerifyV2ResponseBody::Result> result_ {};
   };
 

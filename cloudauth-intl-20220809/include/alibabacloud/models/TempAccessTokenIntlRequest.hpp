@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Type.
+    // The type.
     shared_ptr<string> type_ {};
   };
 

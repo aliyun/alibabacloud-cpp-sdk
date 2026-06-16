@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // Task ID, returned in asynchronous mode, used later with QueryDownloadTaskIntl to download the exported file.
+      // The task ID. This parameter is returned in asynchronous mode. Use QueryDownloadTaskIntl to download the exported file.
       shared_ptr<string> downloadTaskId_ {};
-      // Exported file download link.
+      // The download URL of the exported file.
       shared_ptr<string> url_ {};
     };
 
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<DownloadVerifyRecordIntlResponseBody::Data> data_ {};
-    // Return message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Primary key ID
+    // The primary key ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

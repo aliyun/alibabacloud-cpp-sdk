@@ -112,36 +112,34 @@ namespace Models
 
 
   protected:
-    // Specifies whether to crop the facial image. The default value is F.
+    // Specifies whether to allow cropping. Default value: F. Valid values:
     // 
-    // - **T**: allows cropping.
-    // 
-    // - **F**: Forbidden
+    // - T: enabled.
+    // - F: disabled. (Default).
     shared_ptr<string> crop_ {};
-    // The Base64-encoded image. If you use this parameter to pass the facial image, check the image size. Do not pass an oversized image.
+    // The Base64-encoded face photo.
+    // 
+    // Note:
+    // - If you use FacePictureBase64 to pass in the face photo, check the photo size and do not pass in an excessively large photo.
     shared_ptr<string> facePictureBase64_ {};
-    // The URL of the portrait image. The URL must be an HTTP or HTTPS link accessible over the Internet.
+    // The URL of the face photo.
     shared_ptr<string> facePictureUrl_ {};
-    // Specifies whether to return the facial image quality score. The default value is F.
-    // 
-    // - **T**: returns the score.
-    // 
-    // - **F**: does not return the score.
+    // Specifies whether to return the face quality score. Default value: F. Valid values:
+    // - T: enabled.
+    // - F: disabled. (Default).
     shared_ptr<string> faceQuality_ {};
+    // The face quality check.
     shared_ptr<string> faceQualityCheck_ {};
-    // A custom unique business identifier. You can use this identifier to track and troubleshoot issues. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure the identifier is unique.
-    // 
-    // > Alibaba Cloud servers do not check the uniqueness of this value. For better tracking, ensure this value is unique.
+    // The merchant-defined unique business ID for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // A  custom user ID or another identifier for a specific user, such as a mobile number or email address. For security, desensitize this value in advance, for example, by hashing it.
+    // The merchant user ID or another identifier that can be used to identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of the userId field before passing it in, for example, by hashing the value.
     shared_ptr<string> merchantUserId_ {};
-    // Specifies whether to enable occlusion detection. The default value is F.
+    // Specifies whether to perform occlusion detection. Default value: F. Valid values:
     // 
-    // - **T**: enables the feature.
-    // 
-    // - **F**: disables the feature.
+    // - T: enabled.
+    // - F: disabled. (Default).
     shared_ptr<string> occlusion_ {};
-    // The product solution to use. Set the value to **FACE_LIVENESS_MIN** to use the passive liveness detection API.
+    // The product code.
     shared_ptr<string> productCode_ {};
   };
 

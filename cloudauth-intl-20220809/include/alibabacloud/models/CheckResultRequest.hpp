@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // Return additional information.
+    // The additional information to return.
     shared_ptr<string> extraImageControlList_ {};
-    // Whether to return images.
-    // - Y: Return
-    // - N: Do not return
+    // Specifies whether to return images. Valid values:
+    // - Y: Return images.
+    // - N: Do not return images.
     shared_ptr<string> isReturnImage_ {};
-    // A unique business identifier defined by the merchant, used for subsequent troubleshooting. It supports a combination of letters and numbers, with a maximum length of 32 characters. Please ensure its uniqueness.
+    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // Whether to return anti-fraud detection results.
+    // Specifies whether to return the anti-spoofing detection result.
     shared_ptr<string> returnFiveCategorySpoofResult_ {};
-    // Authentication ID.
+    // The verification ID.
     shared_ptr<string> transactionId_ {};
   };
 

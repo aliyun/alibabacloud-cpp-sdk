@@ -82,13 +82,13 @@ namespace Models
 
 
     protected:
-      // Identified key information in JSON format.
+      // The key information extracted from the credential, in JSON format.
       shared_ptr<string> extIdInfo_ {};
-      // Authentication result description
+      // The description of the authentication result.
       shared_ptr<string> subCode_ {};
-      // Extraction result. Values:
-      // - S: Success.
-      // - F: Failure.
+      // The extraction result. Valid values:
+      // - S: Succeeded.
+      // - F: Failed.
       shared_ptr<string> success_ {};
     };
 
@@ -125,13 +125,13 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Response message for the returned information.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result.
+    // The returned result.
     shared_ptr<CredentialRecognitionIntlResponseBody::Result> result_ {};
   };
 

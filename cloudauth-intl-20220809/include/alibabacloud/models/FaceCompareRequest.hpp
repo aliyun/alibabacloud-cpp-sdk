@@ -94,28 +94,27 @@ namespace Models
 
 
   protected:
-    // 是否开启传入人脸图片质量检测
+    // Specifies whether to enable face image quality check.<danger>Deprecated.</danger>.
     shared_ptr<string> facePictureQualityCheck_ {};
+    // The face quality check.
     shared_ptr<string> faceQualityCheck_ {};
-    // A custom unique business ID used for troubleshooting. It can be a combination of up to 32 letters and digits. Make sure that the ID is unique.
+    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The Base64 encoding of the portrait photo.
+    // The Base64-encoded source face image.
     // 
-    // > If you use this method to pass the image, check the image size. Do not pass an oversized image.
+    // > **Note**
+    // > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // > - Specify either SourceFacePicture or SourceFacePictureUrl.
     shared_ptr<string> sourceFacePicture_ {};
-    // The URL of the portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
-    // 
-    // > You must specify either SourceFacePicture or SourceFacePictureUrl.
+    // The HTTPS or HTTP URL of the source face image.
     shared_ptr<string> sourceFacePictureUrl_ {};
-    // The Base64 encoding of the base photo.
+    // The Base64-encoded reference face image.
     // 
-    // > If you use this method to pass the image, check the image size. Do not pass an oversized image.
+    // > **Note**
+    // > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // > - Specify either TargetFacePicture or TargetFacePictureUrl.
     shared_ptr<string> targetFacePicture_ {};
-    // The URL of the base portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
-    // 
-    // 
-    // 
-    // > You must specify either TargetFacePicture or TargetFacePictureUrl.
+    // The HTTPS or HTTP URL of the reference face image.
     shared_ptr<string> targetFacePictureUrl_ {};
   };
 

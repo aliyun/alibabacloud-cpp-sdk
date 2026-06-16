@@ -151,9 +151,9 @@ namespace Models
 
 
     protected:
-      // Extended information
+      // The extended information.
       shared_ptr<string> extInfo_ {};
-      // Records the last page where the authentication was interrupted.
+      // The last page where the authentication was interrupted. Valid values:
       // 
       // - Page not started
       // - OCR guide page
@@ -165,13 +165,11 @@ namespace Models
       // - Liveness detection guide page
       // - Liveness detection camera authorization page
       // - Liveness detection page
-      // - Liveness detection fallback page
+      // - Liveness detection downgrade page
       // - Liveness detection retry
-      // - Liveness detection loading
+      // - Liveness detection loading.
       shared_ptr<string> interruptPage_ {};
-      // The page where the authentication process stops. Possible English values:
-      // 
-      // The following are the values in an unordered list:
+      // The last page where the authentication was interrupted, in English. Valid values:
       // 
       // - LOADING
       // 
@@ -185,45 +183,45 @@ namespace Models
       // 
       // - NFC_INPUT
       // 
-      // - NFC_READ
+      // - NFC_READ.
       shared_ptr<string> interruptPageEn_ {};
-      // SDK operation log details
+      // The SDK runtime log details.
       shared_ptr<vector<string>> logInfo_ {};
-      // SDK Operation Log Details (English Version)
+      // The SDK runtime trace log details in English. The format of this field is the same as **LogInfo**.
       shared_ptr<vector<string>> logInfoEn_ {};
-      // SDK operation log statistics details
+      // The SDK runtime log statistics details.
       shared_ptr<string> logStatisticsInfo_ {};
-      // Whether the authentication passed.
+      // Indicates whether the authentication is passed. Valid values:
       // 
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> passed_ {};
-      // Sub-result code
+      // The sub-result code.
       shared_ptr<string> subCode_ {};
-      // Authentication interruption error codes
+      // The error code for authentication interruption. Valid values:
       // 
-      // - 1000: The user completed the face scanning process, and the suggested authentication result is pass
-      // - 1001: The user completed the face scanning process, and the suggested authentication result is fail
-      // - 1002: System error
-      // - 1003: SDK initialization failed, please check if the client time is correct
-      // - 1004: Camera permission error
-      // - 1005: Network error
-      // - 1006: User exited
-      // - 1007: Invalid TransactionId
-      // - 1009: Client timestamp error
-      // - 1011: Incorrect document type submitted
-      // - 1012: Missing or format validation failure of key information on the recognized document
-      // - 1013: Poor image quality
-      // - 1014: Exceeded the upper limit of errors
-      // - 1015: Android system version too low
-      // - 1016: Camera permission not obtained
-      // - 9999: Suspected authentication process interruption
+      // - 1000: The user completed the face verification process, and the authentication result is passed.
+      // - 1001: The user completed the face verification process, and the authentication result is not passed.
+      // - 1002: System error.
+      // - 1003: SDK initialization failed. Check whether the client time is correct.
+      // - 1004: Camera permission error.
+      // - 1005: Network error.
+      // - 1006: The user exited.
+      // - 1007: Invalid TransactionId.
+      // - 1009: Client timestamp error.
+      // - 1011: Incorrect document type submitted.
+      // - 1012: Key information of the recognized document is missing or format validation failed.
+      // - 1013: Poor image quality.
+      // - 1014: The number of errors exceeded the upper limit.
+      // - 1015: The Android system version is too low.
+      // - 1016: Camera permission not obtained.
+      // - 9999: The authentication process is suspected to be interrupted.
       shared_ptr<string> verifyErrorCode_ {};
-      // Authentication status, values:
+      // The authentication status. Valid values:
       // 
-      // - 0: finished (authentication completed)
-      // - 1: unfinished (authentication interrupted)
-      // - 2: notstart (authentication not started)
+      // - 0: finished. The authentication is complete.
+      // - 1: unfinished. The authentication is interrupted.
+      // - 2: notstart. The authentication has not started.
       shared_ptr<string> verifyStatus_ {};
     };
 
@@ -260,13 +258,13 @@ namespace Models
 
 
   protected:
-    // Backend error code.
+    // The backend error code.
     shared_ptr<string> code_ {};
-    // Return message
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<CheckVerifyLogResponseBody::Result> result_ {};
   };
 

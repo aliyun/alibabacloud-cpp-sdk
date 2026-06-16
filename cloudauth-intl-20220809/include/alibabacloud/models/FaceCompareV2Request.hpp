@@ -112,14 +112,34 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable quality check for the input face images.
+    // >Danger: Deprecated.
     shared_ptr<string> facePictureQualityCheck_ {};
+    // Specifies whether to enable face quality check.
     shared_ptr<string> faceQualityCheck_ {};
+    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
+    // The Base64-encoded source face image.
+    // 
+    // > **Note**
+    // 
+    // - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
     shared_ptr<string> sourceFacePicture_ {};
+    // The file stream of the source face image.
     shared_ptr<string> sourceFacePictureFile_ {};
+    // The HTTPS or HTTP URL of the source face image.
     shared_ptr<string> sourceFacePictureUrl_ {};
+    // The Base64-encoded reference face image.
+    // 
+    // > **Note**
+    // 
+    // - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // - Specify one of the following parameters: TargetFacePicture, TargetFacePictureUrl, or TargetFacePictureFile.
     shared_ptr<string> targetFacePicture_ {};
+    // The file stream of the reference face image.
     shared_ptr<string> targetFacePictureFile_ {};
+    // The HTTPS or HTTP URL of the reference face image.
     shared_ptr<string> targetFacePictureUrl_ {};
   };
 

@@ -75,11 +75,11 @@ namespace Models
     protected:
       // The final authentication result. Valid values:
       // 
-      // - **Y**, via
+      // *  Y: Passed.
       // 
-      // - **N**: The authentication is not passed.
+      // * N: Not passed.
       shared_ptr<string> passed_ {};
-      // A description of the authentication result. For more information, see [ResultObject.SubCode error codes](https://www.alibabacloud.com/help/en/ekyc/latest/dateverify?spm=a2c63.p38356.0.i32#d1f36d445az8i).
+      // The description of the authentication result. For more information, see the ResultObject.SubCode error code description.
       shared_ptr<string> subCode_ {};
     };
 
@@ -116,13 +116,13 @@ namespace Models
 
 
   protected:
-    // [Return to Code](https://www.alibabacloud.com/help/en/ekyc/latest/dateverify?spm=a2c63.p38356.0.i32#22facb6ab6ui1).
+    // The response code. For more information about response codes, see the description of response codes and messages.
     shared_ptr<string> code_ {};
-    // A detailed description of the response code.
+    // The response message of the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result
+    // The returned result.
     shared_ptr<Id2MetaPeriodVerifyIntlResponseBody::Result> result_ {};
   };
 

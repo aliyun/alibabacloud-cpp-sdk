@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The primary key ID.
     shared_ptr<string> id_ {};
+    // The name of the face library.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

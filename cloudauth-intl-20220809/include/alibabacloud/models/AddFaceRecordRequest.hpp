@@ -94,13 +94,26 @@ namespace Models
 
 
   protected:
+    // The face library code.
+    // 
     // This parameter is required.
     shared_ptr<string> faceGroupCode_ {};
+    // The Base64-encoded face image to register.
     shared_ptr<string> facePicture_ {};
+    // The file stream of the face image to register.
     shared_ptr<string> facePictureFile_ {};
+    // The URL of the face image to register.
     shared_ptr<string> facePictureUrl_ {};
+    // Specifies whether to check the quality of the face image. Valid values:
+    // - Y: enabled.
+    // - N: disabled (default).
     shared_ptr<string> faceQualityCheck_ {};
+    // The custom unique user ID. The value cannot exceed 32 characters.
+    // - If this parameter is specified, the system registers the user with the specified MerchantUserId.
+    // - If this parameter is not specified, the image name is used by default.
     shared_ptr<string> merchantUserId_ {};
+    // The product code.
+    // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
   };

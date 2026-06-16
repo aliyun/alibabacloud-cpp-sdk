@@ -84,27 +84,26 @@ namespace Models
 
 
   protected:
-    // DeviceToken obtained via the client SDK
+    // The device token, which is used for risk identification.
     // 
     // This parameter is required.
     shared_ptr<string> deviceToken_ {};
-    // Supported: Chinese mobile phone numbers
+    // The China mobile phone number.
     shared_ptr<string> mobile_ {};
-    // Fixed value: ADD_VERIFY_PRO
+    // The product code. Set this parameter to ADD_VERIFY_PRO.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // List of prohibited countries or regions
+    // The list of prohibited countries.
     // 
     // This parameter is required.
     shared_ptr<string> regCountry_ {};
-    // Detailed address text content
+    // The detailed address text.
     shared_ptr<string> text_ {};
-    // Address verification method:
+    // The address verification method. Valid values:
     // 
-    // - **HOME**: Home address verification
-    // 
-    // - **WORK**: Work address verification
+    // - HOME: home address verification.
+    // - WORK: work address verification.
     shared_ptr<string> verifyType_ {};
   };
 

@@ -130,39 +130,39 @@ namespace Models
 
 
   protected:
-    // Verification address type:
-    // - “0”: Text address
-    // - “1”: Latitude and longitude
+    // The type of the address to verify. Valid values:
+    // - "0": text address
+    // - "1": coordinates (longitude and latitude).
     // 
     // This parameter is required.
     shared_ptr<string> addressType_ {};
-    // Default city
+    // The default city.
     shared_ptr<string> defaultCity_ {};
-    // Country name, currently only supports: China
+    // The country name. Currently, only China is supported.
     // 
     // This parameter is required.
     shared_ptr<string> defaultCountry_ {};
-    // Default district
+    // The default district.
     shared_ptr<string> defaultDistrict_ {};
-    // Default province
+    // The default province.
     shared_ptr<string> defaultProvince_ {};
-    // Latitude.
+    // The latitude.
     shared_ptr<string> latitude_ {};
-    // Longitude.
+    // The longitude.
     shared_ptr<string> longitude_ {};
-    // Supports Chinese mobile phone numbers.
+    // Chinese mainland phone numbers are supported.
     // 
     // This parameter is required.
     shared_ptr<string> mobile_ {};
-    // Fixed value: ADD_VERIFY_PRO
+    // Fixed value: ADD_VERIFY_PRO.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // Detailed address text content
+    // The detailed address in text format.
     shared_ptr<string> text_ {};
-    // Address verification method:
-    // - HOME: Home address verification
-    // - WORK: Work address verification
+    // The address verification method. Valid values:
+    // - HOME: home address verification
+    // - WORK: work address verification.
     // 
     // This parameter is required.
     shared_ptr<string> verifyType_ {};

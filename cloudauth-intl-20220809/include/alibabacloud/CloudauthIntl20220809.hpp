@@ -23,7 +23,7 @@ namespace CloudauthIntl20220809
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 人脸图片入库
+       * @summary Adds a face image to a specified face library.
        *
        * @param request AddFaceRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,7 +32,7 @@ namespace CloudauthIntl20220809
       Models::AddFaceRecordResponse addFaceRecordWithOptions(const Models::AddFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 人脸图片入库
+       * @summary Adds a face image to a specified face library.
        *
        * @param request AddFaceRecordRequest
        * @return AddFaceRecordResponse
@@ -42,9 +42,9 @@ namespace CloudauthIntl20220809
       Models::AddFaceRecordResponse addFaceRecordAdvance(const Models::AddFaceRecordAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Address Similarity Comparison
+       * @summary Compares the similarity of two addresses.
        *
-       * @description API for comparing two addresses, standardizing and checking address consistency.
+       * @description Compares two addresses for consistency by using address standardization.
        *
        * @param request AddressCompareIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -53,9 +53,9 @@ namespace CloudauthIntl20220809
       Models::AddressCompareIntlResponse addressCompareIntlWithOptions(const Models::AddressCompareIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Address Similarity Comparison
+       * @summary Compares the similarity of two addresses.
        *
-       * @description API for comparing two addresses, standardizing and checking address consistency.
+       * @description Compares two addresses for consistency by using address standardization.
        *
        * @param request AddressCompareIntlRequest
        * @return AddressCompareIntlResponse
@@ -65,9 +65,9 @@ namespace CloudauthIntl20220809
       /**
        * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
        *
-       * @summary Address Verification
+       * @summary Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
        *
-       * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+       * @description Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
        *
        * @param request AddressVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -78,9 +78,9 @@ namespace CloudauthIntl20220809
       /**
        * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
        *
-       * @summary Address Verification
+       * @summary Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
        *
-       * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+       * @description Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
        *
        * @param request AddressVerifyIntlRequest
        * @return AddressVerifyIntlResponse
@@ -88,7 +88,7 @@ namespace CloudauthIntl20220809
       Models::AddressVerifyIntlResponse addressVerifyIntl(const Models::AddressVerifyIntlRequest &request);
 
       /**
-       * @summary This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+       * @summary Verifies an address.
        *
        * @param request AddressVerifyV2IntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -97,7 +97,7 @@ namespace CloudauthIntl20220809
       Models::AddressVerifyV2IntlResponse addressVerifyV2IntlWithOptions(const Models::AddressVerifyV2IntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+       * @summary Verifies an address.
        *
        * @param request AddressVerifyV2IntlRequest
        * @return AddressVerifyV2IntlResponse
@@ -105,9 +105,9 @@ namespace CloudauthIntl20220809
       Models::AddressVerifyV2IntlResponse addressVerifyV2Intl(const Models::AddressVerifyV2IntlRequest &request);
 
       /**
-       * @summary Bank Card Verification
+       * @summary Provides bank card element verification (two-element, three-element, and four-element) API operations.
        *
-       * @description Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+       * @description Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
        *
        * @param request BankMetaVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -116,9 +116,9 @@ namespace CloudauthIntl20220809
       Models::BankMetaVerifyIntlResponse bankMetaVerifyIntlWithOptions(const Models::BankMetaVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Bank Card Verification
+       * @summary Provides bank card element verification (two-element, three-element, and four-element) API operations.
        *
-       * @description Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+       * @description Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
        *
        * @param request BankMetaVerifyIntlRequest
        * @return BankMetaVerifyIntlResponse
@@ -128,7 +128,7 @@ namespace CloudauthIntl20220809
       /**
        * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
        *
-       * @summary Pure server-side interface for document OCR recognition
+       * @summary Provides server-side ID card and certificate OCR capabilities.
        *
        * @param request CardOcrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -139,7 +139,7 @@ namespace CloudauthIntl20220809
       /**
        * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
        *
-       * @summary Pure server-side interface for document OCR recognition
+       * @summary Provides server-side ID card and certificate OCR capabilities.
        *
        * @param request CardOcrRequest
        * @return CardOcrResponse
@@ -147,7 +147,7 @@ namespace CloudauthIntl20220809
       Models::CardOcrResponse cardOcr(const Models::CardOcrRequest &request);
 
       /**
-       * @summary Result Query
+       * @summary Queries the verification result.
        *
        * @param request CheckResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -156,7 +156,7 @@ namespace CloudauthIntl20220809
       Models::CheckResultResponse checkResultWithOptions(const Models::CheckResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Result Query
+       * @summary Queries the verification result.
        *
        * @param request CheckResultRequest
        * @return CheckResultResponse
@@ -164,7 +164,7 @@ namespace CloudauthIntl20220809
       Models::CheckResultResponse checkResult(const Models::CheckResultRequest &request);
 
       /**
-       * @summary Authentication Log Query Interface
+       * @summary Authentication log query.
        *
        * @param request CheckVerifyLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -173,7 +173,7 @@ namespace CloudauthIntl20220809
       Models::CheckVerifyLogResponse checkVerifyLogWithOptions(const Models::CheckVerifyLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authentication Log Query Interface
+       * @summary Authentication log query.
        *
        * @param request CheckVerifyLogRequest
        * @return CheckVerifyLogResponse
@@ -181,9 +181,9 @@ namespace CloudauthIntl20220809
       Models::CheckVerifyLogResponse checkVerifyLog(const Models::CheckVerifyLogRequest &request);
 
       /**
-       * @summary Credential Recognition Query
+       * @summary Queries the credential recognition result.
        *
-       * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+       * @description After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
        *
        * @param request CredentialGetResultIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -192,9 +192,9 @@ namespace CloudauthIntl20220809
       Models::CredentialGetResultIntlResponse credentialGetResultIntlWithOptions(const Models::CredentialGetResultIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Credential Recognition Query
+       * @summary Queries the credential recognition result.
        *
-       * @description After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+       * @description After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
        *
        * @param request CredentialGetResultIntlRequest
        * @return CredentialGetResultIntlResponse
@@ -202,9 +202,9 @@ namespace CloudauthIntl20220809
       Models::CredentialGetResultIntlResponse credentialGetResultIntl(const Models::CredentialGetResultIntlRequest &request);
 
       /**
-       * @summary Credential Recognition
+       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
        *
-       * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
        *
        * @param request CredentialRecognitionIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -213,9 +213,9 @@ namespace CloudauthIntl20220809
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntlWithOptions(const Models::CredentialRecognitionIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Credential Recognition
+       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
        *
-       * @description Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
        *
        * @param request CredentialRecognitionIntlRequest
        * @return CredentialRecognitionIntlResponse
@@ -223,9 +223,9 @@ namespace CloudauthIntl20220809
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntl(const Models::CredentialRecognitionIntlRequest &request);
 
       /**
-       * @summary Credential Recognition Submission
+       * @summary Submits credential recognition information.
        *
-       * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+       * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
        *
        * @param request CredentialSubmitIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,9 +234,9 @@ namespace CloudauthIntl20220809
       Models::CredentialSubmitIntlResponse credentialSubmitIntlWithOptions(const Models::CredentialSubmitIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Credential Recognition Submission
+       * @summary Submits credential recognition information.
        *
-       * @description Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+       * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
        *
        * @param request CredentialSubmitIntlRequest
        * @return CredentialSubmitIntlResponse
@@ -244,9 +244,9 @@ namespace CloudauthIntl20220809
       Models::CredentialSubmitIntlResponse credentialSubmitIntl(const Models::CredentialSubmitIntlRequest &request);
 
       /**
-       * @summary Credential Verification
+       * @summary Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
        *
-       * @description Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+       * @description Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
        *
        * @param request CredentialVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -255,9 +255,9 @@ namespace CloudauthIntl20220809
       Models::CredentialVerifyIntlResponse credentialVerifyIntlWithOptions(const Models::CredentialVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Credential Verification
+       * @summary Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
        *
-       * @description Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+       * @description Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
        *
        * @param request CredentialVerifyIntlRequest
        * @return CredentialVerifyIntlResponse
@@ -267,9 +267,9 @@ namespace CloudauthIntl20220809
       Models::CredentialVerifyIntlResponse credentialVerifyIntlAdvance(const Models::CredentialVerifyIntlAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Face Credential Verification
+       * @summary Detects deepfake risks in facial images.
        *
-       * @description Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+       * @description Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
        *
        * @param request DeepfakeDetectIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -278,9 +278,9 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlResponse deepfakeDetectIntlWithOptions(const Models::DeepfakeDetectIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Face Credential Verification
+       * @summary Detects deepfake risks in facial images.
        *
-       * @description Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+       * @description Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
        *
        * @param request DeepfakeDetectIntlRequest
        * @return DeepfakeDetectIntlResponse
@@ -288,9 +288,9 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlResponse deepfakeDetectIntl(const Models::DeepfakeDetectIntlRequest &request);
 
       /**
-       * @summary deepfake file stream API
+       * @summary ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
        *
-       * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+       * @description Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
        *
        * @param request DeepfakeDetectIntlStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -299,9 +299,9 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlStreamResponse deepfakeDetectIntlStreamWithOptions(const Models::DeepfakeDetectIntlStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary deepfake file stream API
+       * @summary ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
        *
-       * @description Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+       * @description Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
        *
        * @param request DeepfakeDetectIntlStreamRequest
        * @return DeepfakeDetectIntlStreamResponse
@@ -311,7 +311,7 @@ namespace CloudauthIntl20220809
       Models::DeepfakeDetectIntlStreamResponse deepfakeDetectIntlStreamAdvance(const Models::DeepfakeDetectIntlStreamAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Face Group
+       * @summary Deletes a face library.
        *
        * @param request DeleteFaceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -320,7 +320,7 @@ namespace CloudauthIntl20220809
       Models::DeleteFaceGroupResponse deleteFaceGroupWithOptions(const Models::DeleteFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Face Group
+       * @summary Deletes a face library.
        *
        * @param request DeleteFaceGroupRequest
        * @return DeleteFaceGroupResponse
@@ -328,7 +328,7 @@ namespace CloudauthIntl20220809
       Models::DeleteFaceGroupResponse deleteFaceGroup(const Models::DeleteFaceGroupRequest &request);
 
       /**
-       * @summary Delete Face
+       * @summary Deletes a face record.
        *
        * @param request DeleteFaceRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -337,7 +337,7 @@ namespace CloudauthIntl20220809
       Models::DeleteFaceRecordResponse deleteFaceRecordWithOptions(const Models::DeleteFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Face
+       * @summary Deletes a face record.
        *
        * @param request DeleteFaceRecordRequest
        * @return DeleteFaceRecordResponse
@@ -345,7 +345,7 @@ namespace CloudauthIntl20220809
       Models::DeleteFaceRecordResponse deleteFaceRecord(const Models::DeleteFaceRecordRequest &request);
 
       /**
-       * @summary Delete user authentication record results
+       * @summary Deletes data related to a user authentication record.
        *
        * @param request DeleteVerifyResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -354,7 +354,7 @@ namespace CloudauthIntl20220809
       Models::DeleteVerifyResultResponse deleteVerifyResultWithOptions(const Models::DeleteVerifyResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete user authentication record results
+       * @summary Deletes data related to a user authentication record.
        *
        * @param request DeleteVerifyResultRequest
        * @return DeleteVerifyResultResponse
@@ -362,7 +362,7 @@ namespace CloudauthIntl20220809
       Models::DeleteVerifyResultResponse deleteVerifyResult(const Models::DeleteVerifyResultRequest &request);
 
       /**
-       * @summary Card and document OCR pure server-side
+       * @summary Provides server-side card and certificate OCR capabilities.
        *
        * @param request DocOcrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -371,7 +371,7 @@ namespace CloudauthIntl20220809
       Models::DocOcrResponse docOcrWithOptions(const Models::DocOcrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Card and document OCR pure server-side
+       * @summary Provides server-side card and certificate OCR capabilities.
        *
        * @param request DocOcrRequest
        * @return DocOcrResponse
@@ -379,7 +379,7 @@ namespace CloudauthIntl20220809
       Models::DocOcrResponse docOcr(const Models::DocOcrRequest &request);
 
       /**
-       * @summary Global Document OCR Recognition Interface
+       * @summary Recognizes global identity documents through OCR.
        *
        * @param request DocOcrMaxRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -388,7 +388,7 @@ namespace CloudauthIntl20220809
       Models::DocOcrMaxResponse docOcrMaxWithOptions(const Models::DocOcrMaxRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Global Document OCR Recognition Interface
+       * @summary Recognizes global identity documents through OCR.
        *
        * @param request DocOcrMaxRequest
        * @return DocOcrMaxResponse
@@ -396,7 +396,26 @@ namespace CloudauthIntl20220809
       Models::DocOcrMaxResponse docOcrMax(const Models::DocOcrMaxRequest &request);
 
       /**
-       * @summary 卡证ocr纯服务端V2
+       * @summary 全球证件ocr识别接口
+       *
+       * @param request DocOcrMaxV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DocOcrMaxV2Response
+       */
+      Models::DocOcrMaxV2Response docOcrMaxV2WithOptions(const Models::DocOcrMaxV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 全球证件ocr识别接口
+       *
+       * @param request DocOcrMaxV2Request
+       * @return DocOcrMaxV2Response
+       */
+      Models::DocOcrMaxV2Response docOcrMaxV2(const Models::DocOcrMaxV2Request &request);
+
+      Models::DocOcrMaxV2Response docOcrMaxV2Advance(const Models::DocOcrMaxV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Provides server-side card and certificate OCR capabilities.
        *
        * @param request DocOcrV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -405,7 +424,7 @@ namespace CloudauthIntl20220809
       Models::DocOcrV2Response docOcrV2WithOptions(const Models::DocOcrV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 卡证ocr纯服务端V2
+       * @summary Provides server-side card and certificate OCR capabilities.
        *
        * @param request DocOcrV2Request
        * @return DocOcrV2Response
@@ -415,7 +434,7 @@ namespace CloudauthIntl20220809
       Models::DocOcrV2Response docOcrV2Advance(const Models::DocOcrV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Console Export Records
+       * @summary Downloads verification task records.
        *
        * @param request DownloadVerifyRecordIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -424,7 +443,7 @@ namespace CloudauthIntl20220809
       Models::DownloadVerifyRecordIntlResponse downloadVerifyRecordIntlWithOptions(const Models::DownloadVerifyRecordIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Console Export Records
+       * @summary Downloads verification task records.
        *
        * @param request DownloadVerifyRecordIntlRequest
        * @return DownloadVerifyRecordIntlResponse
@@ -432,7 +451,7 @@ namespace CloudauthIntl20220809
       Models::DownloadVerifyRecordIntlResponse downloadVerifyRecordIntl(const Models::DownloadVerifyRecordIntlRequest &request);
 
       /**
-       * @summary This topic describes how to integrate with ID Verification using only the server-side API.
+       * @summary Provides a server-side-only API for the eKYC solution.
        *
        * @param request EkycVerifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -441,7 +460,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyResponse ekycVerifyWithOptions(const Models::EkycVerifyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes how to integrate with ID Verification using only the server-side API.
+       * @summary Provides a server-side-only API for the eKYC solution.
        *
        * @param request EkycVerifyRequest
        * @return EkycVerifyResponse
@@ -449,7 +468,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyResponse ekycVerify(const Models::EkycVerifyRequest &request);
 
       /**
-       * @summary ekyc纯服务端接口V2
+       * @summary Server-side-only eKYC API
        *
        * @param request EkycVerifyV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -458,7 +477,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyV2Response ekycVerifyV2WithOptions(const Models::EkycVerifyV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ekyc纯服务端接口V2
+       * @summary Server-side-only eKYC API
        *
        * @param request EkycVerifyV2Request
        * @return EkycVerifyV2Response
@@ -468,7 +487,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyV2Response ekycVerifyV2Advance(const Models::EkycVerifyV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes how to integrate FaceCompare using only the server-side API.
+       * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
        *
        * @param request FaceCompareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -477,7 +496,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareResponse faceCompareWithOptions(const Models::FaceCompareRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes how to integrate FaceCompare using only the server-side API.
+       * @summary Compares two face images by using face recognition technology and returns the comparison result and similarity score.
        *
        * @param request FaceCompareRequest
        * @return FaceCompareResponse
@@ -485,7 +504,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareResponse faceCompare(const Models::FaceCompareRequest &request);
 
       /**
-       * @summary 人脸比对V2
+       * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
        *
        * @param request FaceCompareV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -494,7 +513,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareV2Response faceCompareV2WithOptions(const Models::FaceCompareV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 人脸比对V2
+       * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
        *
        * @param request FaceCompareV2Request
        * @return FaceCompareV2Response
@@ -504,7 +523,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareV2Response faceCompareV2Advance(const Models::FaceCompareV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Face Cross Comparison
+       * @summary Performs cross-comparison of faces.
        *
        * @param request FaceCrossCompareIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -513,7 +532,7 @@ namespace CloudauthIntl20220809
       Models::FaceCrossCompareIntlResponse faceCrossCompareIntlWithOptions(const Models::FaceCrossCompareIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Face Cross Comparison
+       * @summary Performs cross-comparison of faces.
        *
        * @param request FaceCrossCompareIntlRequest
        * @return FaceCrossCompareIntlResponse
@@ -521,7 +540,7 @@ namespace CloudauthIntl20220809
       Models::FaceCrossCompareIntlResponse faceCrossCompareIntl(const Models::FaceCrossCompareIntlRequest &request);
 
       /**
-       * @summary Face Duplication Detection API
+       * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
        *
        * @param request FaceDuplicationCheckIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +549,7 @@ namespace CloudauthIntl20220809
       Models::FaceDuplicationCheckIntlResponse faceDuplicationCheckIntlWithOptions(const Models::FaceDuplicationCheckIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Face Duplication Detection API
+       * @summary FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
        *
        * @param request FaceDuplicationCheckIntlRequest
        * @return FaceDuplicationCheckIntlResponse
@@ -538,7 +557,7 @@ namespace CloudauthIntl20220809
       Models::FaceDuplicationCheckIntlResponse faceDuplicationCheckIntl(const Models::FaceDuplicationCheckIntlRequest &request);
 
       /**
-       * @summary This topic describes how to set up the server for FACE_GUARD.
+       * @summary Server-side API for the international Face Guard service.
        *
        * @param request FaceGuardRiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -547,7 +566,7 @@ namespace CloudauthIntl20220809
       Models::FaceGuardRiskResponse faceGuardRiskWithOptions(const Models::FaceGuardRiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes how to set up the server for FACE_GUARD.
+       * @summary Server-side API for the international Face Guard service.
        *
        * @param request FaceGuardRiskRequest
        * @return FaceGuardRiskResponse
@@ -555,7 +574,7 @@ namespace CloudauthIntl20220809
       Models::FaceGuardRiskResponse faceGuardRisk(const Models::FaceGuardRiskRequest &request);
 
       /**
-       * @summary Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
+       * @summary Calls the server-side API for passive liveness detection.
        *
        * @param request FaceLivenessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -564,7 +583,7 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLivenessWithOptions(const Models::FaceLivenessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
+       * @summary Calls the server-side API for passive liveness detection.
        *
        * @param request FaceLivenessRequest
        * @return FaceLivenessResponse
@@ -574,6 +593,8 @@ namespace CloudauthIntl20220809
       /**
        * @summary 人脸活体验证
        *
+       * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
+       *
        * @param request FaceLivenessV2Request
        * @param runtime runtime options for this request RuntimeOptions
        * @return FaceLivenessV2Response
@@ -582,6 +603,8 @@ namespace CloudauthIntl20220809
 
       /**
        * @summary 人脸活体验证
+       *
+       * @description 调用FaceLivenessV2接口对人脸图片进行活体检测。
        *
        * @param request FaceLivenessV2Request
        * @return FaceLivenessV2Response
@@ -593,6 +616,8 @@ namespace CloudauthIntl20220809
       /**
        * @summary 人脸活体验证
        *
+       * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+       *
        * @param request FaceVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return FaceVerifyIntlResponse
@@ -601,6 +626,8 @@ namespace CloudauthIntl20220809
 
       /**
        * @summary 人脸活体验证
+       *
+       * @description 调用FaceVerifyIntl接口对人脸图片进行活体检测。
        *
        * @param request FaceVerifyIntlRequest
        * @return FaceVerifyIntlResponse
@@ -612,7 +639,7 @@ namespace CloudauthIntl20220809
       /**
        * @deprecated OpenAPI FraudResultCallBack is deprecated
        *
-       * @summary Anti-Fraud Callback Interface
+       * @summary Calls the eKYC global anti-spoofing callback operation.
        *
        * @param request FraudResultCallBackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -623,7 +650,7 @@ namespace CloudauthIntl20220809
       /**
        * @deprecated OpenAPI FraudResultCallBack is deprecated
        *
-       * @summary Anti-Fraud Callback Interface
+       * @summary Calls the eKYC global anti-spoofing callback operation.
        *
        * @param request FraudResultCallBackRequest
        * @return FraudResultCallBackResponse
@@ -631,7 +658,7 @@ namespace CloudauthIntl20220809
       Models::FraudResultCallBackResponse fraudResultCallBack(const Models::FraudResultCallBackRequest &request);
 
       /**
-       * @summary This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+       * @summary Verifies the validity period of an identity document as a two-factor authentication element.
        *
        * @param request Id2MetaPeriodVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -640,7 +667,7 @@ namespace CloudauthIntl20220809
       Models::Id2MetaPeriodVerifyIntlResponse id2MetaPeriodVerifyIntlWithOptions(const Models::Id2MetaPeriodVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+       * @summary Verifies the validity period of an identity document as a two-factor authentication element.
        *
        * @param request Id2MetaPeriodVerifyIntlRequest
        * @return Id2MetaPeriodVerifyIntlResponse
@@ -648,7 +675,7 @@ namespace CloudauthIntl20220809
       Models::Id2MetaPeriodVerifyIntlResponse id2MetaPeriodVerifyIntl(const Models::Id2MetaPeriodVerifyIntlRequest &request);
 
       /**
-       * @summary Verifies that a name and an ID card number are consistent.
+       * @summary Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
        *
        * @param request Id2MetaVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -657,7 +684,7 @@ namespace CloudauthIntl20220809
       Models::Id2MetaVerifyIntlResponse id2MetaVerifyIntlWithOptions(const Models::Id2MetaVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies that a name and an ID card number are consistent.
+       * @summary Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
        *
        * @param request Id2MetaVerifyIntlRequest
        * @return Id2MetaVerifyIntlResponse
@@ -665,7 +692,7 @@ namespace CloudauthIntl20220809
       Models::Id2MetaVerifyIntlResponse id2MetaVerifyIntl(const Models::Id2MetaVerifyIntlRequest &request);
 
       /**
-       * @summary Authentication Initialization
+       * @summary Initializes an authentication session.
        *
        * @param tmpReq InitializeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -674,7 +701,7 @@ namespace CloudauthIntl20220809
       Models::InitializeResponse initializeWithOptions(const Models::InitializeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authentication Initialization
+       * @summary Initializes an authentication session.
        *
        * @param request InitializeRequest
        * @return InitializeResponse
@@ -682,7 +709,28 @@ namespace CloudauthIntl20220809
       Models::InitializeResponse initialize(const Models::InitializeRequest &request);
 
       /**
-       * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+       * @summary 认证初始化
+       *
+       * @param tmpReq InitializeV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitializeV2Response
+       */
+      Models::InitializeV2Response initializeV2WithOptions(const Models::InitializeV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 认证初始化
+       *
+       * @param request InitializeV2Request
+       * @return InitializeV2Response
+       */
+      Models::InitializeV2Response initializeV2(const Models::InitializeV2Request &request);
+
+      Models::InitializeV2Response initializeV2Advance(const Models::InitializeV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Configures client connection keep-alive settings.
+       *
+       * @description Configures client connection keep-alive settings.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return KeepaliveIntlResponse
@@ -690,14 +738,18 @@ namespace CloudauthIntl20220809
       Models::KeepaliveIntlResponse keepaliveIntlWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+       * @summary Configures client connection keep-alive settings.
+       *
+       * @description Configures client connection keep-alive settings.
        *
        * @return KeepaliveIntlResponse
        */
       Models::KeepaliveIntlResponse keepaliveIntl();
 
       /**
-       * @summary Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+       * @summary Verifies the identity of a phone number owner by using two-factor authentication.
+       *
+       * @description Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
        *
        * @param request Mobile2MetaVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -706,7 +758,9 @@ namespace CloudauthIntl20220809
       Models::Mobile2MetaVerifyIntlResponse mobile2MetaVerifyIntlWithOptions(const Models::Mobile2MetaVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+       * @summary Verifies the identity of a phone number owner by using two-factor authentication.
+       *
+       * @description Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
        *
        * @param request Mobile2MetaVerifyIntlRequest
        * @return Mobile2MetaVerifyIntlResponse
@@ -714,7 +768,7 @@ namespace CloudauthIntl20220809
       Models::Mobile2MetaVerifyIntlResponse mobile2MetaVerifyIntl(const Models::Mobile2MetaVerifyIntlRequest &request);
 
       /**
-       * @summary International Version of Mobile Three Elements API
+       * @summary Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
        *
        * @param request Mobile3MetaVerifyIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +777,7 @@ namespace CloudauthIntl20220809
       Models::Mobile3MetaVerifyIntlResponse mobile3MetaVerifyIntlWithOptions(const Models::Mobile3MetaVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary International Version of Mobile Three Elements API
+       * @summary Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
        *
        * @param request Mobile3MetaVerifyIntlRequest
        * @return Mobile3MetaVerifyIntlResponse
@@ -731,7 +785,7 @@ namespace CloudauthIntl20220809
       Models::Mobile3MetaVerifyIntlResponse mobile3MetaVerifyIntl(const Models::Mobile3MetaVerifyIntlRequest &request);
 
       /**
-       * @summary Modify Face Group
+       * @summary Modifies a face library.
        *
        * @param request ModifyFaceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -740,7 +794,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceGroupResponse modifyFaceGroupWithOptions(const Models::ModifyFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify Face Group
+       * @summary Modifies a face library.
        *
        * @param request ModifyFaceGroupRequest
        * @return ModifyFaceGroupResponse
@@ -748,7 +802,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceGroupResponse modifyFaceGroup(const Models::ModifyFaceGroupRequest &request);
 
       /**
-       * @summary Add New Face
+       * @summary Edits a face record.
        *
        * @param request ModifyFaceRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -757,7 +811,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceRecordResponse modifyFaceRecordWithOptions(const Models::ModifyFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add New Face
+       * @summary Edits a face record.
        *
        * @param request ModifyFaceRecordRequest
        * @return ModifyFaceRecordResponse
@@ -765,7 +819,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceRecordResponse modifyFaceRecord(const Models::ModifyFaceRecordRequest &request);
 
       /**
-       * @summary Query Face Group
+       * @summary Queries face libraries.
        *
        * @param request QueryFaceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -774,7 +828,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceGroupResponse queryFaceGroupWithOptions(const Models::QueryFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Face Group
+       * @summary Queries face libraries.
        *
        * @param request QueryFaceGroupRequest
        * @return QueryFaceGroupResponse
@@ -782,7 +836,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceGroupResponse queryFaceGroup(const Models::QueryFaceGroupRequest &request);
 
       /**
-       * @summary Query Face Records
+       * @summary Queries face records.
        *
        * @param request QueryFaceRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -791,7 +845,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceRecordResponse queryFaceRecordWithOptions(const Models::QueryFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Face Records
+       * @summary Queries face records.
        *
        * @param request QueryFaceRecordRequest
        * @return QueryFaceRecordResponse
@@ -799,7 +853,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceRecordResponse queryFaceRecord(const Models::QueryFaceRecordRequest &request);
 
       /**
-       * @summary Get Temporary Token
+       * @summary Retrieves a temporary token.
        *
        * @param request TempAccessTokenIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -808,7 +862,7 @@ namespace CloudauthIntl20220809
       Models::TempAccessTokenIntlResponse tempAccessTokenIntlWithOptions(const Models::TempAccessTokenIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Temporary Token
+       * @summary Retrieves a temporary token.
        *
        * @param request TempAccessTokenIntlRequest
        * @return TempAccessTokenIntlResponse
@@ -816,7 +870,7 @@ namespace CloudauthIntl20220809
       Models::TempAccessTokenIntlResponse tempAccessTokenIntl(const Models::TempAccessTokenIntlRequest &request);
 
       /**
-       * @summary Get Temporary File URL
+       * @summary Retrieves a temporary URL for a file.
        *
        * @param request TempOssUrlIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -825,7 +879,7 @@ namespace CloudauthIntl20220809
       Models::TempOssUrlIntlResponse tempOssUrlIntlWithOptions(const Models::TempOssUrlIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Temporary File URL
+       * @summary Retrieves a temporary URL for a file.
        *
        * @param request TempOssUrlIntlRequest
        * @return TempOssUrlIntlResponse

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Unique identifier for the authentication request
+    // The unique identifier of the authentication request.
     // 
     // This parameter is required.
     shared_ptr<string> transactionId_ {};

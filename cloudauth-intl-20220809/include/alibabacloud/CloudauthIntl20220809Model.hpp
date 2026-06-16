@@ -62,6 +62,10 @@
 #include <alibabacloud/models/DocOcrMaxRequest.hpp>
 #include <alibabacloud/models/DocOcrMaxResponseBody.hpp>
 #include <alibabacloud/models/DocOcrMaxResponse.hpp>
+#include <alibabacloud/models/DocOcrMaxV2Request.hpp>
+#include <alibabacloud/models/DocOcrMaxV2AdvanceRequest.hpp>
+#include <alibabacloud/models/DocOcrMaxV2ResponseBody.hpp>
+#include <alibabacloud/models/DocOcrMaxV2Response.hpp>
 #include <alibabacloud/models/DocOcrV2Request.hpp>
 #include <alibabacloud/models/DocOcrV2AdvanceRequest.hpp>
 #include <alibabacloud/models/DocOcrV2ResponseBody.hpp>
@@ -116,6 +120,11 @@
 #include <alibabacloud/models/InitializeShrinkRequest.hpp>
 #include <alibabacloud/models/InitializeResponseBody.hpp>
 #include <alibabacloud/models/InitializeResponse.hpp>
+#include <alibabacloud/models/InitializeV2Request.hpp>
+#include <alibabacloud/models/InitializeV2AdvanceRequest.hpp>
+#include <alibabacloud/models/InitializeV2ShrinkRequest.hpp>
+#include <alibabacloud/models/InitializeV2ResponseBody.hpp>
+#include <alibabacloud/models/InitializeV2Response.hpp>
 #include <alibabacloud/models/KeepaliveIntlResponseBody.hpp>
 #include <alibabacloud/models/KeepaliveIntlResponse.hpp>
 #include <alibabacloud/models/Mobile2MetaVerifyIntlRequest.hpp>

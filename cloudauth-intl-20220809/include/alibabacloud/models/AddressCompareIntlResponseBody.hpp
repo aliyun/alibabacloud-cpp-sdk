@@ -63,16 +63,16 @@ namespace Models
 
 
     protected:
-      // The values of sameLevel include:
-      // - all: Exactly the same
-      // - prov: Provincial level
-      // - city: City level
-      // - district: District level
-      // - town: Town level
-      // - road: Road level
-      // - roadno: Road number
-      // - poi: Point of interest (e.g., residential area)
-      // - roomno: Room number
+      // The sameLevel parameter has the following valid values:
+      // - all: completely identical
+      // - prov: province level 
+      // - city: city level
+      // - district: district level
+      // - town: street level
+      // - road: road level
+      // - roadno: road number level
+      // - poi: community/neighborhood level
+      // - roomno: room number level.
       shared_ptr<string> data_ {};
     };
 
@@ -109,13 +109,13 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<AddressCompareIntlResponseBody::Result> result_ {};
   };
 

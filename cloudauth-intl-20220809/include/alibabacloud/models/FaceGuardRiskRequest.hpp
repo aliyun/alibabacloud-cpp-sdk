@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The unique ID of the current business authentication. It is used with FACE_GUARD for verification during queries.
+    // The customer business ID.
     shared_ptr<string> bizId_ {};
-    // The deviceToken obtained from the client SDK.
+    // The device token obtained from the Face Guard SDK.
     shared_ptr<string> deviceToken_ {};
-    // A custom unique business identifier. It is used to locate and troubleshoot issues. The identifier can be a combination of letters and digits up to 32 characters long. Ensure that it is unique.
+    // The merchant-defined unique business identifier, used for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Make sure the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The product code. Set this to the static field **FACE_GUARD**.
+    // The product code. Set the value to FACE_GUARD.
     shared_ptr<string> productCode_ {};
     shared_ptr<string> type_ {};
   };

@@ -122,17 +122,17 @@ namespace Models
 
 
     protected:
-      // Face ID.
+      // The face ID.
       shared_ptr<string> faceId_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Primary key ID.
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Face image URL.
+      // The URL of the face image.
       shared_ptr<string> imgOssUrl_ {};
-      // Merchant User ID.
+      // The merchant user ID.
       shared_ptr<string> merchantUserId_ {};
-      // Registration type.
+      // The registration type.
       shared_ptr<string> registrationType_ {};
     };
 
@@ -212,25 +212,25 @@ namespace Models
 
 
   protected:
-    // Return code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Current query page number.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // List of returned information.
+    // The list of returned records.
     shared_ptr<vector<QueryFaceRecordResponseBody::Items>> items_ {};
-    // Maximum number of data entries per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Token for the next query start.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Whether to depend on the query interface when deleting data
+    // Specifies whether the deletion depends on the query operation.
     shared_ptr<string> deleteAfterQuery_ {};
-    // Type of data to be deleted
+    // The type of data to delete.
     shared_ptr<string> deleteType_ {};
-    // Unique identifier of the authentication request
+    // The unique identifier of the authentication request.
     shared_ptr<string> transactionId_ {};
   };
 

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DOCOCRV2RESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DOCOCRV2RESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DOCOCRMAXV2RESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DOCOCRMAXV2RESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace CloudauthIntl20220809
 {
 namespace Models
 {
-  class DocOcrV2ResponseBody : public Darabonba::Model {
+  class DocOcrMaxV2ResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DocOcrV2ResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DocOcrMaxV2ResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
     };
-    friend void from_json(const Darabonba::Json& j, DocOcrV2ResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DocOcrMaxV2ResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
     };
-    DocOcrV2ResponseBody() = default ;
-    DocOcrV2ResponseBody(const DocOcrV2ResponseBody &) = default ;
-    DocOcrV2ResponseBody(DocOcrV2ResponseBody &&) = default ;
-    DocOcrV2ResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DocOcrV2ResponseBody() = default ;
-    DocOcrV2ResponseBody& operator=(const DocOcrV2ResponseBody &) = default ;
-    DocOcrV2ResponseBody& operator=(DocOcrV2ResponseBody &&) = default ;
+    DocOcrMaxV2ResponseBody() = default ;
+    DocOcrMaxV2ResponseBody(const DocOcrMaxV2ResponseBody &) = default ;
+    DocOcrMaxV2ResponseBody(DocOcrMaxV2ResponseBody &&) = default ;
+    DocOcrMaxV2ResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DocOcrMaxV2ResponseBody() = default ;
+    DocOcrMaxV2ResponseBody& operator=(const DocOcrMaxV2ResponseBody &) = default ;
+    DocOcrMaxV2ResponseBody& operator=(DocOcrMaxV2ResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -91,16 +91,9 @@ namespace Models
 
 
     protected:
-      // The card and certificate recognition result. This parameter is returned only when the API response is successful.
       shared_ptr<string> extIdInfo_ {};
-      // Indicates whether the authentication is passed. Valid values:
-      // 
-      // - Y: Passed.
-      // - N: Not passed.
       shared_ptr<string> passed_ {};
-      // The sub-result code.
       shared_ptr<string> subCode_ {};
-      // The unique ID of the authentication request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -110,41 +103,37 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline DocOcrV2ResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline DocOcrMaxV2ResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline DocOcrV2ResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline DocOcrMaxV2ResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DocOcrV2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DocOcrMaxV2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const DocOcrV2ResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, DocOcrV2ResponseBody::Result) };
-    inline DocOcrV2ResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, DocOcrV2ResponseBody::Result) };
-    inline DocOcrV2ResponseBody& setResult(const DocOcrV2ResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline DocOcrV2ResponseBody& setResult(DocOcrV2ResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const DocOcrMaxV2ResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, DocOcrMaxV2ResponseBody::Result) };
+    inline DocOcrMaxV2ResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, DocOcrMaxV2ResponseBody::Result) };
+    inline DocOcrMaxV2ResponseBody& setResult(const DocOcrMaxV2ResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline DocOcrMaxV2ResponseBody& setResult(DocOcrMaxV2ResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
-    // The return code.
     shared_ptr<string> code_ {};
-    // The return message.
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
-    shared_ptr<DocOcrV2ResponseBody::Result> result_ {};
+    shared_ptr<DocOcrMaxV2ResponseBody::Result> result_ {};
   };
 
   } // namespace Models
