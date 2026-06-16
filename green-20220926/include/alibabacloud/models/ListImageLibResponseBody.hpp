@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(LibList, libList_);
+      DARABONBA_PTR_TO_JSON(MaxLibCount, maxLibCount_);
       DARABONBA_PTR_TO_JSON(Msg, msg_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(LibList, libList_);
+      DARABONBA_PTR_FROM_JSON(MaxLibCount, maxLibCount_);
       DARABONBA_PTR_FROM_JSON(Msg, msg_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
@@ -141,7 +143,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->httpStatusCode_ == nullptr && this->libList_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->libList_ == nullptr && this->maxLibCount_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -163,6 +166,13 @@ namespace Models
     inline vector<ListImageLibResponseBody::LibList> getLibList() { DARABONBA_PTR_GET(libList_, vector<ListImageLibResponseBody::LibList>) };
     inline ListImageLibResponseBody& setLibList(const vector<ListImageLibResponseBody::LibList> & libList) { DARABONBA_PTR_SET_VALUE(libList_, libList) };
     inline ListImageLibResponseBody& setLibList(vector<ListImageLibResponseBody::LibList> && libList) { DARABONBA_PTR_SET_RVALUE(libList_, libList) };
+
+
+    // maxLibCount Field Functions 
+    bool hasMaxLibCount() const { return this->maxLibCount_ != nullptr;};
+    void deleteMaxLibCount() { this->maxLibCount_ = nullptr;};
+    inline int32_t getMaxLibCount() const { DARABONBA_PTR_GET_DEFAULT(maxLibCount_, 0) };
+    inline ListImageLibResponseBody& setMaxLibCount(int32_t maxLibCount) { DARABONBA_PTR_SET_VALUE(maxLibCount_, maxLibCount) };
 
 
     // msg Field Functions 
@@ -193,6 +203,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // List of image library information.
     shared_ptr<vector<ListImageLibResponseBody::LibList>> libList_ {};
+    shared_ptr<int32_t> maxLibCount_ {};
     // Further description of the error code.
     shared_ptr<string> msg_ {};
     // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.

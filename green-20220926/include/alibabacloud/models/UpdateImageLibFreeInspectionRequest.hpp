@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateImageLibFreeInspectionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Config, config_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateImageLibFreeInspectionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
     };
     UpdateImageLibFreeInspectionRequest() = default ;
     UpdateImageLibFreeInspectionRequest(const UpdateImageLibFreeInspectionRequest &) = default ;
@@ -33,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr && this->serviceCode_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -50,11 +52,19 @@ namespace Models
     inline UpdateImageLibFreeInspectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // serviceCode Field Functions 
+    bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
+    void deleteServiceCode() { this->serviceCode_ = nullptr;};
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline UpdateImageLibFreeInspectionRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
+
+
   protected:
     // Configuration.
     shared_ptr<map<string, int32_t>> config_ {};
     // Region ID.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> serviceCode_ {};
   };
 
   } // namespace Models

@@ -71,6 +71,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(KeywordLibId, keywordLibId_);
           DARABONBA_PTR_TO_JSON(KeywordMd5Id, keywordMd5Id_);
+          DARABONBA_PTR_TO_JSON(Properties, properties_);
           DARABONBA_PTR_TO_JSON(Word, word_);
         };
         friend void from_json(const Darabonba::Json& j, Items& obj) { 
@@ -79,6 +80,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(KeywordLibId, keywordLibId_);
           DARABONBA_PTR_FROM_JSON(KeywordMd5Id, keywordMd5Id_);
+          DARABONBA_PTR_FROM_JSON(Properties, properties_);
           DARABONBA_PTR_FROM_JSON(Word, word_);
         };
         Items() = default ;
@@ -92,8 +94,40 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Properties : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Properties& obj) { 
+            DARABONBA_PTR_TO_JSON(Attribute, attribute_);
+          };
+          friend void from_json(const Darabonba::Json& j, Properties& obj) { 
+            DARABONBA_PTR_FROM_JSON(Attribute, attribute_);
+          };
+          Properties() = default ;
+          Properties(const Properties &) = default ;
+          Properties(Properties &&) = default ;
+          Properties(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Properties() = default ;
+          Properties& operator=(const Properties &) = default ;
+          Properties& operator=(Properties &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->attribute_ == nullptr; };
+          // attribute Field Functions 
+          bool hasAttribute() const { return this->attribute_ != nullptr;};
+          void deleteAttribute() { this->attribute_ = nullptr;};
+          inline string getAttribute() const { DARABONBA_PTR_GET_DEFAULT(attribute_, "") };
+          inline Properties& setAttribute(string attribute) { DARABONBA_PTR_SET_VALUE(attribute_, attribute) };
+
+
+        protected:
+          shared_ptr<string> attribute_ {};
+        };
+
         virtual bool empty() const override { return this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->keywordLibId_ == nullptr && this->keywordMd5Id_ == nullptr && this->word_ == nullptr; };
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->keywordLibId_ == nullptr && this->keywordMd5Id_ == nullptr && this->properties_ == nullptr
+        && this->word_ == nullptr; };
         // gmtCreate Field Functions 
         bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
         void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
@@ -129,6 +163,15 @@ namespace Models
         inline Items& setKeywordMd5Id(int64_t keywordMd5Id) { DARABONBA_PTR_SET_VALUE(keywordMd5Id_, keywordMd5Id) };
 
 
+        // properties Field Functions 
+        bool hasProperties() const { return this->properties_ != nullptr;};
+        void deleteProperties() { this->properties_ = nullptr;};
+        inline const Items::Properties & getProperties() const { DARABONBA_PTR_GET_CONST(properties_, Items::Properties) };
+        inline Items::Properties getProperties() { DARABONBA_PTR_GET(properties_, Items::Properties) };
+        inline Items& setProperties(const Items::Properties & properties) { DARABONBA_PTR_SET_VALUE(properties_, properties) };
+        inline Items& setProperties(Items::Properties && properties) { DARABONBA_PTR_SET_RVALUE(properties_, properties) };
+
+
         // word Field Functions 
         bool hasWord() const { return this->word_ != nullptr;};
         void deleteWord() { this->word_ = nullptr;};
@@ -147,6 +190,7 @@ namespace Models
         shared_ptr<string> keywordLibId_ {};
         // Keyword data ID.
         shared_ptr<int64_t> keywordMd5Id_ {};
+        shared_ptr<Items::Properties> properties_ {};
         // Keyword.
         shared_ptr<string> word_ {};
       };

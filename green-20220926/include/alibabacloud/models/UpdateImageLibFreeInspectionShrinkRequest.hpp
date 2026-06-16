@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateImageLibFreeInspectionShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Config, configShrink_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateImageLibFreeInspectionShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Config, configShrink_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
     };
     UpdateImageLibFreeInspectionShrinkRequest() = default ;
     UpdateImageLibFreeInspectionShrinkRequest(const UpdateImageLibFreeInspectionShrinkRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configShrink_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr && this->serviceCode_ == nullptr; };
     // configShrink Field Functions 
     bool hasConfigShrink() const { return this->configShrink_ != nullptr;};
     void deleteConfigShrink() { this->configShrink_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline UpdateImageLibFreeInspectionShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // serviceCode Field Functions 
+    bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
+    void deleteServiceCode() { this->serviceCode_ = nullptr;};
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline UpdateImageLibFreeInspectionShrinkRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
+
+
   protected:
     // Configuration.
     shared_ptr<string> configShrink_ {};
     // Region ID.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> serviceCode_ {};
   };
 
   } // namespace Models

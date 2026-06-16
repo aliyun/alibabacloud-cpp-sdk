@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListKeywordLibsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(TenantCode, tenantCode_);
     };
     friend void from_json(const Darabonba::Json& j, ListKeywordLibsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(TenantCode, tenantCode_);
     };
     ListKeywordLibsRequest() = default ;
     ListKeywordLibsRequest(const ListKeywordLibsRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->tenantCode_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -37,9 +40,17 @@ namespace Models
     inline ListKeywordLibsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // tenantCode Field Functions 
+    bool hasTenantCode() const { return this->tenantCode_ != nullptr;};
+    void deleteTenantCode() { this->tenantCode_ = nullptr;};
+    inline string getTenantCode() const { DARABONBA_PTR_GET_DEFAULT(tenantCode_, "") };
+    inline ListKeywordLibsRequest& setTenantCode(string tenantCode) { DARABONBA_PTR_SET_VALUE(tenantCode_, tenantCode) };
+
+
   protected:
     // Region ID.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> tenantCode_ {};
   };
 
   } // namespace Models

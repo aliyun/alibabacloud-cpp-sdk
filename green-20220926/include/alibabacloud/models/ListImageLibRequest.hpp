@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListImageLibRequest& obj) { 
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
     };
     friend void from_json(const Darabonba::Json& j, ListImageLibRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
     };
     ListImageLibRequest() = default ;
     ListImageLibRequest(const ListImageLibRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->serviceCode_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -37,9 +40,17 @@ namespace Models
     inline ListImageLibRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // serviceCode Field Functions 
+    bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
+    void deleteServiceCode() { this->serviceCode_ = nullptr;};
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline ListImageLibRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
+
+
   protected:
     // Region ID.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> serviceCode_ {};
   };
 
   } // namespace Models

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Sort, sort_);
+      DARABONBA_PTR_TO_JSON(TenantCode, tenantCode_);
       DARABONBA_PTR_TO_JSON(Word, word_);
     };
     friend void from_json(const Darabonba::Json& j, ListKeywordsRequest& obj) { 
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Sort, sort_);
+      DARABONBA_PTR_FROM_JSON(TenantCode, tenantCode_);
       DARABONBA_PTR_FROM_JSON(Word, word_);
     };
     ListKeywordsRequest() = default ;
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->libId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->sort_ == nullptr && this->word_ == nullptr; };
+        && this->libId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->sort_ == nullptr && this->tenantCode_ == nullptr
+        && this->word_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -79,6 +82,13 @@ namespace Models
     inline ListKeywordsRequest& setSort(map<string, string> && sort) { DARABONBA_PTR_SET_RVALUE(sort_, sort) };
 
 
+    // tenantCode Field Functions 
+    bool hasTenantCode() const { return this->tenantCode_ != nullptr;};
+    void deleteTenantCode() { this->tenantCode_ = nullptr;};
+    inline string getTenantCode() const { DARABONBA_PTR_GET_DEFAULT(tenantCode_, "") };
+    inline ListKeywordsRequest& setTenantCode(string tenantCode) { DARABONBA_PTR_SET_VALUE(tenantCode_, tenantCode) };
+
+
     // word Field Functions 
     bool hasWord() const { return this->word_ != nullptr;};
     void deleteWord() { this->word_ = nullptr;};
@@ -97,6 +107,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // Sort field.
     shared_ptr<map<string, string>> sort_ {};
+    shared_ptr<string> tenantCode_ {};
     // Keyword.
     shared_ptr<string> word_ {};
   };

@@ -224,8 +224,16 @@ AddImages2LibResponse Client::addImages2Lib(const AddImages2LibRequest &request)
 AddKeywordLibResponse Client::addKeywordLibWithOptions(const AddKeywordLibRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasProperties()) {
+    query["Properties"] = request.getProperties();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
   }
 
   json body = {};
@@ -284,6 +292,10 @@ AddKeywordsResponse Client::addKeywordsWithOptions(const AddKeywordsRequest &req
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
+  }
+
   json body = {};
   if (!!request.hasKeywords()) {
     body["Keywords"] = request.getKeywords();
@@ -336,8 +348,16 @@ AddKeywordsResponse Client::addKeywords(const AddKeywordsRequest &request) {
 AddKeywordsToLibResponse Client::addKeywordsToLibWithOptions(const AddKeywordsToLibRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasProperties()) {
+    query["Properties"] = request.getProperties();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
   }
 
   json body = {};
@@ -1240,6 +1260,10 @@ DeleteKeywordResponse Client::deleteKeywordWithOptions(const DeleteKeywordReques
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
+  }
+
   json body = {};
   if (!!request.hasKeywordIdList()) {
     body["KeywordIdList"] = request.getKeywordIdList();
@@ -1294,6 +1318,10 @@ DeleteKeywordLibResponse Client::deleteKeywordLibWithOptions(const DeleteKeyword
   json query = {};
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
   }
 
   json body = {};
@@ -1632,6 +1660,10 @@ ExportKeywordResponse Client::exportKeywordWithOptions(const ExportKeywordReques
   json query = {};
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
   }
 
   json body = {};
@@ -2566,6 +2598,10 @@ GetKeywordLibResponse Client::getKeywordLibWithOptions(const GetKeywordLibReques
   json query = {};
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
   }
 
   json body = {};
@@ -3688,9 +3724,15 @@ ListImageLibResponse Client::listImageLibWithOptions(const ListImageLibRequest &
     query["RegionId"] = request.getRegionId();
   }
 
+  json body = {};
+  if (!!request.hasServiceCode()) {
+    body["ServiceCode"] = request.getServiceCode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "ListImageLib"},
     {"version" , "2022-09-26"},
@@ -3808,6 +3850,10 @@ ListKeywordLibsResponse Client::listKeywordLibsWithOptions(const ListKeywordLibs
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3854,6 +3900,10 @@ ListKeywordsResponse Client::listKeywordsWithOptions(const ListKeywordsRequest &
   json query = {};
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
   }
 
   json body = {};
@@ -4910,6 +4960,10 @@ UpdateImageLibFreeInspectionResponse Client::updateImageLibFreeInspectionWithOpt
     body["Config"] = request.getConfigShrink();
   }
 
+  if (!!request.hasServiceCode()) {
+    body["ServiceCode"] = request.getServiceCode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -4951,6 +5005,10 @@ UpdateKeywordLibResponse Client::updateKeywordLibWithOptions(const UpdateKeyword
   json query = {};
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantCode()) {
+    query["TenantCode"] = request.getTenantCode();
   }
 
   json body = {};
