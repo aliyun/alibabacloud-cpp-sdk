@@ -1,0 +1,38 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DELETECONTEXTSTOREAPIKEYREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DELETECONTEXTSTOREAPIKEYREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AgentLoop20260520
+{
+namespace Models
+{
+  class DeleteContextStoreAPIKeyRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DeleteContextStoreAPIKeyRequest& obj) { 
+      (void)j; (void)obj; 
+    };
+    friend void from_json(const Darabonba::Json& j, DeleteContextStoreAPIKeyRequest& obj) { 
+      (void)j; (void)obj; 
+    };
+    DeleteContextStoreAPIKeyRequest() = default ;
+    DeleteContextStoreAPIKeyRequest(const DeleteContextStoreAPIKeyRequest &) = default ;
+    DeleteContextStoreAPIKeyRequest(DeleteContextStoreAPIKeyRequest &&) = default ;
+    DeleteContextStoreAPIKeyRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteContextStoreAPIKeyRequest() = default ;
+    DeleteContextStoreAPIKeyRequest& operator=(const DeleteContextStoreAPIKeyRequest &) = default ;
+    DeleteContextStoreAPIKeyRequest& operator=(DeleteContextStoreAPIKeyRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return true; };
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AgentLoop20260520
+#endif
