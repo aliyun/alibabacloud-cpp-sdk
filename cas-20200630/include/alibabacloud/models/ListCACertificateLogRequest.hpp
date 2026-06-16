@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the CA certificate to query.
+    // 
+    // > Call [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) to query the unique identifiers of all CA certificates.
+    // 
     // This parameter is required.
     shared_ptr<string> identifier_ {};
   };

@@ -122,12 +122,19 @@ namespace Models
 
 
     protected:
+      // The certificate identifier. Use this identifier to query certificate details.
       shared_ptr<string> certIdentifier_ {};
+      // The common name of the certificate. This value matches the CommonName field in the certificate Subject.
       shared_ptr<string> commonName_ {};
+      // The identifier of the issuer certificate. Use this identifier to query the issuer certificate.
       shared_ptr<string> issuerIdentifier_ {};
+      // The ID of the private CA instance.
       shared_ptr<string> privateCaInstanceId_ {};
+      // The region ID of the private CA instance.
       shared_ptr<string> privateCaRegionId_ {};
+      // The certificate status.
       shared_ptr<string> status_ {};
+      // The Alibaba Cloud account ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -171,10 +178,15 @@ namespace Models
 
 
   protected:
+    // The list of CA certificates.
     shared_ptr<vector<ListPcaCaCertificateResponseBody::List>> list_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. Leave this parameter empty to start the query from the first page. If this parameter is not returned, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries in the result set.
     shared_ptr<int64_t> totalCount_ {};
   };
 

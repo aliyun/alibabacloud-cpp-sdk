@@ -136,41 +136,43 @@ namespace Models
     protected:
       // The expiration date of the private CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
       // 
-      // >  This parameter is returned only when the value of the **Status** parameter is **USED** or **REVOKE**. The value USED indicates that the private CA instance is enabled, and the value REVOKE indicates that the instance is revoked.
+      // > This parameter is returned only if **Status** is **USED** (the private CA instance is enabled) or **REVOKE** (the private CA instance is revoked).
       shared_ptr<int64_t> afterTime_ {};
       // The issuance date of the private CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
       // 
-      // >  This parameter is returned only when the value of the **Status** parameter is **USED** or **REVOKE**. The value USED indicates that the private CA instance is enabled, and the value REVOKE indicates that the instance is revoked.
+      // > This parameter is returned only if **Status** is **USED** (the private CA instance is enabled) or **REVOKE** (the private CA instance is revoked).
       shared_ptr<int64_t> beforeTime_ {};
-      // The number of certificates that are issued by using the private CA instance.
+      // The number of certificates that the private CA instance has issued.
       shared_ptr<int32_t> certIssuedCount_ {};
-      // The number of certificates that can be issued by using the private CA instance.
+      // The number of certificates that the private CA instance can issue.
       // 
-      // For a private root CA instance whose **Type** is **ROOT**, this parameter indicates the number of intermediate CA certificates that can be issued.
-      // 
-      // For a private intermediate CA instance whose **Type** is **SUB_ROOT**, this parameter indicates the total number of client certificates and server certificates that can be issued
+      // If the private CA is a root CA (**Type** is **ROOT**), this parameter indicates the number of intermediate CA certificates that can be issued. If the private CA is an intermediate CA (**Type** is **SUB_ROOT**), this parameter indicates the total number of client certificates and server-side certificates that can be issued.
       shared_ptr<int32_t> certTotalCount_ {};
       // The unique identifier of the private CA certificate.
       // 
-      // >  This parameter is returned only when the value of the **Status** parameter is **USED** or **REVOKE**. The value USED indicates that the private CA instance is enabled, and the value REVOKE indicates that the instance is revoked.
+      // > This parameter is returned only if **Status** is **USED** (the private CA instance is enabled) or **REVOKE** (the private CA instance is revoked).
       shared_ptr<string> identifier_ {};
       // The ID of the private CA instance.
       shared_ptr<string> instanceId_ {};
       // The status of the private CA instance. Valid values:
       // 
-      // *   **BUY**: The private CA instance is purchased but is not enabled.
-      // *   **USED**: The private CA instance is enabled.
-      // *   **REFUND**: The private CA instance is refunded.
-      // *   **REVOKE**: The private CA instance is revoked.
+      // - **BUY**: The instance is purchased but not enabled.
+      // 
+      // - **USED**: The instance is enabled.
+      // 
+      // - **REFUND**: A refund has been issued for the instance.
+      // 
+      // - **REVOKE**: The instance is revoked.
       shared_ptr<string> status_ {};
       // The type of the private CA instance. Valid values:
       // 
-      // *   **ROOT**: root CA instance
-      // *   **SUB_ROOT**: intermediate CA instance
+      // - **ROOT**: Root CA instance.
+      // 
+      // - **SUB_ROOT**: Intermediate CA instance.
       shared_ptr<string> type_ {};
       // The expiration date of the private CA instance. This value is a UNIX timestamp. Unit: milliseconds.
       // 
-      // >  This parameter corresponds to the duration that you select when you purchase the private CA instance. The duration indicates the subscription period of the Private Certificate Authority (PCA) service.
+      // > This parameter corresponds to the subscription duration that you selected for the Private Certificate Authority (PCA) service when you purchased the instance.
       shared_ptr<int64_t> useExpireTime_ {};
     };
 
@@ -193,7 +195,7 @@ namespace Models
 
 
   protected:
-    // The status information of the private CA instance.
+    // The status details of the private CA instance.
     shared_ptr<vector<GetCAInstanceStatusResponseBody::InstanceStatusList>> instanceStatusList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

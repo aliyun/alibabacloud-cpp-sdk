@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
+    // The total number of your CA certificates, including root and subordinate CA certificates.
     shared_ptr<int32_t> totalCount_ {};
   };
 

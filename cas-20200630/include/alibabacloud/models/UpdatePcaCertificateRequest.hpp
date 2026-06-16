@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -120,10 +122,17 @@ namespace Models
 
 
   protected:
+    // The alias of the certificate.
     shared_ptr<string> aliasName_ {};
+    // A client token used to ensure the idempotence of the request. The client generates this value to make sure that it is unique among different requests. The token can be a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The unique identifier of the CA certificate.
+    // 
+    // > Call [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) to query the unique identifiers of all CA certificates.
     shared_ptr<string> identifier_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // A list of tags.
     shared_ptr<vector<UpdatePcaCertificateRequest::Tags>> tags_ {};
   };
 

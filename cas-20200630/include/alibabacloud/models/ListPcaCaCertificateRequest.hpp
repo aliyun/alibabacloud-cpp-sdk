@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return on each page. The default value is 20.
+    // 
+    // Valid values: 1 to 2000.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. Leave this parameter empty to start the query from the first page. If this parameter is not returned, all results have been returned.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The root CA certificate in the PEM format.
+    // The created root certificate in PEM format.
     shared_ptr<string> certificate_ {};
-    // The certificate chain of the root CA certificate.
+    // The CA certificate chain of the created root certificate.
     shared_ptr<string> certificateChain_ {};
-    // The unique identifier of the root CA certificate.
+    // The unique identifier of the created root CA certificate.
     shared_ptr<string> identifier_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

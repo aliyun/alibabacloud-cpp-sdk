@@ -65,6 +65,9 @@
 #include <alibabacloud/models/GetCAInstanceStatusRequest.hpp>
 #include <alibabacloud/models/GetCAInstanceStatusResponseBody.hpp>
 #include <alibabacloud/models/GetCAInstanceStatusResponse.hpp>
+#include <alibabacloud/models/GetCaInstanceCrlAddressRequest.hpp>
+#include <alibabacloud/models/GetCaInstanceCrlAddressResponseBody.hpp>
+#include <alibabacloud/models/GetCaInstanceCrlAddressResponse.hpp>
 #include <alibabacloud/models/ListAllEndEntityInstanceRequest.hpp>
 #include <alibabacloud/models/ListAllEndEntityInstanceResponseBody.hpp>
 #include <alibabacloud/models/ListAllEndEntityInstanceResponse.hpp>

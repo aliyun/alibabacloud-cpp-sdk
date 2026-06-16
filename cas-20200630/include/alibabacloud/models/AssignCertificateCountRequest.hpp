@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The total number of certificate records.
     shared_ptr<int32_t> certTotalCount_ {};
+    // The ID of the data source.
     shared_ptr<int64_t> id_ {};
   };
 

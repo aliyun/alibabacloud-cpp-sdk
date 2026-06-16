@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of assigned certificates.
     shared_ptr<int32_t> certCount_ {};
+    // The number of free certificates for the current year.
     shared_ptr<int32_t> currentYearFreeCertCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -176,8 +176,11 @@ namespace Models
 
 
     protected:
+      // The maximum number of entries returned for this call.
       shared_ptr<int32_t> maxResults_ {};
+      // The token that is used to start the next query. If this parameter is empty, no more results exist.
       shared_ptr<string> nextToken_ {};
+      // The tag resources.
       shared_ptr<Data::TagResources> tagResources_ {};
     };
 
@@ -200,7 +203,9 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListTagResourcesResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

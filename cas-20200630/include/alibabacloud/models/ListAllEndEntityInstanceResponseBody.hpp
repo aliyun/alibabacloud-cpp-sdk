@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The page number of the instance list.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of instances.
     shared_ptr<vector<Darabonba::Json>> list_ {};
+    // The maximum number of entries returned in this call.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that you can use to retrieve the next page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The total number of pages.
     shared_ptr<int32_t> pageCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The maximum number of entries displayed on each page of a paged query.
     shared_ptr<int32_t> showSize_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

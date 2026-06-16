@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The content of the certificate.
     shared_ptr<string> certificate_ {};
+    // The CA certificate chain.
     shared_ptr<string> certificateChain_ {};
+    // The unique identifier for the certificate.
     shared_ptr<string> identifier_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

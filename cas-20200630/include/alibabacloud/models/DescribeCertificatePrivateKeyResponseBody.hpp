@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The content of the encrypted private key.
+    // The encrypted content of the private key.
     shared_ptr<string> encryptedData_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

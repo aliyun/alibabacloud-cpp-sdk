@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of revoked certificates to return on each page. Default value: **20**.
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> showSize_ {};
   };
 

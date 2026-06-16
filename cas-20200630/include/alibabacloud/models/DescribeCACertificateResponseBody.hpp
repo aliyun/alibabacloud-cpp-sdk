@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_TO_JSON(CaCertChain, caCertChain_);
         DARABONBA_PTR_TO_JSON(CertIssuedCount, certIssuedCount_);
+        DARABONBA_PTR_TO_JSON(CertMaxTime, certMaxTime_);
         DARABONBA_PTR_TO_JSON(CertRemainingCount, certRemainingCount_);
         DARABONBA_PTR_TO_JSON(CertTotalCount, certTotalCount_);
         DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
@@ -79,6 +80,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_FROM_JSON(CaCertChain, caCertChain_);
         DARABONBA_PTR_FROM_JSON(CertIssuedCount, certIssuedCount_);
+        DARABONBA_PTR_FROM_JSON(CertMaxTime, certMaxTime_);
         DARABONBA_PTR_FROM_JSON(CertRemainingCount, certRemainingCount_);
         DARABONBA_PTR_FROM_JSON(CertTotalCount, certTotalCount_);
         DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
@@ -159,18 +161,20 @@ namespace Models
 
 
       protected:
+        // The key of the tag.
         shared_ptr<string> tagKey_ {};
+        // The value of the tag.
         shared_ptr<string> tagValue_ {};
       };
 
       virtual bool empty() const override { return this->afterDate_ == nullptr
-        && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->caCertChain_ == nullptr && this->certIssuedCount_ == nullptr && this->certRemainingCount_ == nullptr
-        && this->certTotalCount_ == nullptr && this->certificateType_ == nullptr && this->clusterId_ == nullptr && this->commonName_ == nullptr && this->countryCode_ == nullptr
-        && this->crlDay_ == nullptr && this->crlStatus_ == nullptr && this->crlUrl_ == nullptr && this->fullAlgorithm_ == nullptr && this->identifier_ == nullptr
-        && this->issuerType_ == nullptr && this->keyIndex_ == nullptr && this->keySize_ == nullptr && this->locality_ == nullptr && this->md5_ == nullptr
-        && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr && this->sans_ == nullptr
-        && this->serialNumber_ == nullptr && this->sha2_ == nullptr && this->signAlgorithm_ == nullptr && this->state_ == nullptr && this->status_ == nullptr
-        && this->subjectDN_ == nullptr && this->tags_ == nullptr && this->x509Certificate_ == nullptr && this->years_ == nullptr; };
+        && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->caCertChain_ == nullptr && this->certIssuedCount_ == nullptr && this->certMaxTime_ == nullptr
+        && this->certRemainingCount_ == nullptr && this->certTotalCount_ == nullptr && this->certificateType_ == nullptr && this->clusterId_ == nullptr && this->commonName_ == nullptr
+        && this->countryCode_ == nullptr && this->crlDay_ == nullptr && this->crlStatus_ == nullptr && this->crlUrl_ == nullptr && this->fullAlgorithm_ == nullptr
+        && this->identifier_ == nullptr && this->issuerType_ == nullptr && this->keyIndex_ == nullptr && this->keySize_ == nullptr && this->locality_ == nullptr
+        && this->md5_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->sans_ == nullptr && this->serialNumber_ == nullptr && this->sha2_ == nullptr && this->signAlgorithm_ == nullptr && this->state_ == nullptr
+        && this->status_ == nullptr && this->subjectDN_ == nullptr && this->tags_ == nullptr && this->x509Certificate_ == nullptr && this->years_ == nullptr; };
       // afterDate Field Functions 
       bool hasAfterDate() const { return this->afterDate_ != nullptr;};
       void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -204,6 +208,13 @@ namespace Models
       void deleteCertIssuedCount() { this->certIssuedCount_ = nullptr;};
       inline int64_t getCertIssuedCount() const { DARABONBA_PTR_GET_DEFAULT(certIssuedCount_, 0L) };
       inline Certificate& setCertIssuedCount(int64_t certIssuedCount) { DARABONBA_PTR_SET_VALUE(certIssuedCount_, certIssuedCount) };
+
+
+      // certMaxTime Field Functions 
+      bool hasCertMaxTime() const { return this->certMaxTime_ != nullptr;};
+      void deleteCertMaxTime() { this->certMaxTime_ = nullptr;};
+      inline int32_t getCertMaxTime() const { DARABONBA_PTR_GET_DEFAULT(certMaxTime_, 0) };
+      inline Certificate& setCertMaxTime(int32_t certMaxTime) { DARABONBA_PTR_SET_VALUE(certMaxTime_, certMaxTime) };
 
 
       // certRemainingCount Field Functions 
@@ -419,61 +430,76 @@ namespace Models
 
 
     protected:
-      // The expiration date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+      // The date when the CA certificate expires. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> afterDate_ {};
-      // The encryption algorithm of the CA certificate. Valid values:
+      // The type of the encryption algorithm of the CA certificate. Valid values:
       // 
-      // *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-      // *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-      // *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+      // - **RSA**: The RSA algorithm.
+      // 
+      // - **ECC**: The ECC algorithm.
+      // 
+      // - **SM2**: The SM2 algorithm.
       shared_ptr<string> algorithm_ {};
-      // The issuance date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+      // The date when the CA certificate was issued. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
-      // CA certificate chain.
+      // The complete certificate chain.
       shared_ptr<string> caCertChain_ {};
-      // The number of certificates issued by private CA instances.
+      // The number of certificates that the private CA instance has issued.
       shared_ptr<int64_t> certIssuedCount_ {};
-      // The remaining number of assignable certificate quotas.
+      shared_ptr<int32_t> certMaxTime_ {};
+      // The number of remaining certificates that can be issued.
       shared_ptr<int64_t> certRemainingCount_ {};
-      // The total number of purchased certificate quotas.
+      // The total certificate quota you purchased.
       shared_ptr<int64_t> certTotalCount_ {};
       // The type of the CA certificate. Valid values:
       // 
-      // *   **ROOT**: root CA certificate
-      // *   **SUB_ROOT**: intermediate CA certificate
+      // - **ROOT**: A root CA certificate.
+      // 
+      // - **SUB_ROOT**: A subordinate CA certificate.
       shared_ptr<string> certificateType_ {};
+      // The ID of the hardware security module (HSM) cluster. This parameter is available when the CA is enabled using an HSM.
       shared_ptr<string> clusterId_ {};
       // The common name or abbreviation of the organization that is associated with the CA certificate.
       shared_ptr<string> commonName_ {};
-      // The code of the country in which the organization is located.
+      // The country code of the organization that is associated with the CA certificate.
       // 
-      // For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+      // For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
-      // CRL validity period: 1-365 days.
+      // The validity period of the CRL. Valid values: 1 to 365. Unit: days.
       shared_ptr<int32_t> crlDay_ {};
-      // The status of the certificate revocation list (CRL) feature.
+      // The status of the Certificate Revocation List (CRL).
       shared_ptr<string> crlStatus_ {};
-      // The address of the CRL.
+      // The CRL URL.
       shared_ptr<string> crlUrl_ {};
+      // The algorithm and its key length.
       shared_ptr<string> fullAlgorithm_ {};
       // The unique identifier of the CA certificate.
       shared_ptr<string> identifier_ {};
+      // The issuer of the CA. Valid values:
+      // 
+      // - local: A private certificate.
+      // 
+      // - iTrusChina: A compliance CA.
+      // 
+      // - external: An imported certificate.
       shared_ptr<string> issuerType_ {};
+      // The index of the key in the HSM. This parameter is available when the CA is enabled using an HSM.
       shared_ptr<int32_t> keyIndex_ {};
       // The key length of the CA certificate.
       shared_ptr<int32_t> keySize_ {};
-      // The name of the city in which the organization is located.
+      // The name of the city where the organization associated with the CA certificate is located.
       shared_ptr<string> locality_ {};
       // The MD5 fingerprint of the CA certificate.
       shared_ptr<string> md5_ {};
       // The name of the organization that is associated with the CA certificate.
       shared_ptr<string> organization_ {};
-      // The name of the department or branch in the organization that is associated with the CA certificate.
+      // The name of the department in the organization that is associated with the CA certificate.
       shared_ptr<string> organizationUnit_ {};
-      // The unique identifier of the root CA certificate from which the CA certificate is issued.
+      // The unique identifier of the root CA certificate that issued the CA certificate.
       // 
-      // >  This parameter is returned only if the value of the **CertificateType** parameter is **SUB_ROOT**. The value SUB_ROOT indicates an intermediate CA certificate.
+      // > This parameter is returned only when **CertificateType** is **SUB_ROOT**, which indicates a subordinate CA certificate.
       shared_ptr<string> parentIdentifier_ {};
+      // The ID of the resource group to which the certificate belongs.
       shared_ptr<string> resourceGroupId_ {};
       // This parameter is deprecated.
       shared_ptr<string> sans_ {};
@@ -483,25 +509,46 @@ namespace Models
       shared_ptr<string> sha2_ {};
       // The signature algorithm of the CA certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // The name of the province, municipality, or autonomous region in which the organization is located.
+      // <props="china">The name of the province, municipality, or autonomous region where the organization associated with the CA certificate is located.
+      // <props="intl">The name of the province or state where the organization associated with the CA certificate is located.
       shared_ptr<string> state_ {};
       // The status of the CA certificate. Valid values:
       // 
-      // *   **ISSUE**: The CA certificate is issued.
-      // *   **REVOKE**: The CA certificate is revoked.
-      shared_ptr<string> status_ {};
-      // The user attribute of the CA certificate, which contains the following information:
+      // - **ISSUE**: The certificate is issued.
       // 
-      // *   **C**: the country code in which the organization is located
-      // *   **O**: the name of the organization
-      // *   **OU**: the name of the department or branch in the organization
-      // *   **L**: the name of the city in which the organization is located
-      // *   **ST**: the name of the province, municipality, or autonomous region in which the organization is located
-      // *   **CN**: the common name or abbreviation of the organization
+      // - **REVOKE**: The certificate is revoked.
+      shared_ptr<string> status_ {};
+      // The subject of the CA certificate. It contains the following information:
+      // 
+      // - **C**: The country code of the organization.
+      // 
+      // - **O**: The name of the organization.
+      // 
+      // - **OU**: The department of the organization.
+      // 
+      // - **L**: The city where the organization is located.
+      // 
+      // <props="china">
+      // 
+      // - **ST**: The province, municipality, or autonomous region where the organization is located.
+      // 
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // - **ST**: The province or state where the organization is located.
+      // 
+      // 
+      // 
+      // 
+      // - **CN**: The common name or abbreviation of the organization.
       shared_ptr<string> subjectDN_ {};
+      // The list of tags.
       shared_ptr<vector<Certificate::Tags>> tags_ {};
       // The content of the CA certificate.
       shared_ptr<string> x509Certificate_ {};
+      // The validity period of the CA certificate. Unit: years.
       shared_ptr<int32_t> years_ {};
     };
 
@@ -531,7 +578,7 @@ namespace Models
 
 
   protected:
-    // The details about the CA certificate.
+    // The details of the CA certificate.
     shared_ptr<DescribeCACertificateResponseBody::Certificate> certificate_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

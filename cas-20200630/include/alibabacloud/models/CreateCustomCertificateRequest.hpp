@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -180,23 +182,35 @@ namespace Models
 
 
         protected:
-          // Custom attribute type as:
+          // The key of the custom property. It must comply with industry standards. Examples:
           // 
-          // - 2.5.4.6 : country
-          // - 2.5.4.10 : organization
-          // - 2.5.4.11 : organizational unit
-          // - 2.5.4.12 : title
-          // - 2.5.4.3 : common name
-          // - 2.5.4.9 : street
-          // - 2.5.4.5 : serial number
-          // - 2.5.4.7 : locality
-          // - 2.5.4.8 : state
-          // - 1.3.6.1.4.1.37244.1.1 : Matter Operational Certificate - Node ID
-          // - 1.3.6.1.4.1.37244.1.5 : Matter Operational Certificate - Fabric ID
-          // - 1.3.6.1.4.1.37244.2.1 : Matter Device Attestation Certificate Vender ID (VID)
-          // - 1.3.6.1.4.1.37244.2.2 : Matter Device Attestation Certificate Product ID (PID).
+          // - 2.5.4.6: Country code
+          // 
+          // - 2.5.4.10: Organization
+          // 
+          // - 2.5.4.11: Organizational unit name
+          // 
+          // - 2.5.4.12: Title
+          // 
+          // - 2.5.4.3: Common name
+          // 
+          // - 2.5.4.9: Street
+          // 
+          // - 2.5.4.5: Serial number
+          // 
+          // - 2.5.4.7: Locality
+          // 
+          // - 2.5.4.8: State or province
+          // 
+          // - 1.3.6.1.4.1.37244.1.1: Matter certificate - Node ID
+          // 
+          // - 1.3.6.1.4.1.37244.1.5: Matter certificate - Fabric ID
+          // 
+          // - 1.3.6.1.4.1.37244.2.1: Matter certificate Vendor ID (VID)
+          // 
+          // - 1.3.6.1.4.1.37244.2.2: Matter certificate Product ID (PID)
           shared_ptr<string> objectIdentifier_ {};
-          // Custom attribute value.
+          // The value of the custom property.
           shared_ptr<string> value_ {};
         };
 
@@ -257,17 +271,17 @@ namespace Models
       protected:
         // The common name of the certificate user.
         shared_ptr<string> commonName_ {};
-        // The code of the country. The value is an alpha-2 country code that complies with the ISO 3166-1 standard. For more information about country codes, visit <https://www.iso.org/obp/ui/#search/code/>.
+        // The country code. Use the two-letter country code from ISO 3166-1. For more information, see [ISO](https://www.iso.org/obp/ui/#search/code/).
         shared_ptr<string> country_ {};
-        // Customize the Subject attributes of the certificate.
+        // The custom subject properties of the certificate.
         shared_ptr<vector<Subject::CustomAttributes>> customAttributes_ {};
-        // The name of the city in which the organization is located. The value can contain letters.
+        // The name of the city where the organization is located. Chinese characters and letters are supported.
         shared_ptr<string> locality_ {};
         // The name of the organization.
         shared_ptr<string> organization_ {};
-        // The name of the department or branch in the organization.
+        // The name of the department or branch within the organization.
         shared_ptr<string> organizationUnit_ {};
-        // The name of the province or state in which the organization associated with the certificate is located.
+        // The province or state where the organization is located.
         shared_ptr<string> state_ {};
       };
 
@@ -334,16 +348,19 @@ namespace Models
 
 
         protected:
-          // The type of the alias. Valid values:
+          // The following values are allowed:
           // 
-          // *   rfc822Name: email address
-          // *   dNSName: domain name
-          // *   uniformResourceIdentifier: URI
-          // *   iPAddress: IP address
+          // - rfc822Name - Email address
+          // 
+          // - dNSName - Domain name
+          // 
+          // - uniformResourceIdentifier - Uniform Resource Identifier (URI)
+          // 
+          // - iPAddress - IP address
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
-          // The alias that meets the requirement of a specified type.
+          // A value that matches the specified Type.
           shared_ptr<string> value_ {};
         };
 
@@ -440,21 +457,21 @@ namespace Models
 
 
         protected:
-          // The original name of the parameter is NonRepudiation.
+          // Content commitment. Formerly known as NonRepudiation. Allows the certificate key to be used for content commitment.
           shared_ptr<bool> contentCommitment_ {};
-          // Specifies whether the key can be used for data encryption.
+          // Data encipherment.
           shared_ptr<bool> dataEncipherment_ {};
-          // Specifies whether the key can be used only for data decryption.
+          // When KeyAgreement is true, this marks that the certificate key can only be used for decryption.
           shared_ptr<bool> decipherOnly_ {};
-          // Specifies whether the key can be used for digital signing. If you set this parameter to true, the private key of the certificate can be used to generate digital signatures, and the public key of the certificate can be used to verify digital signatures.
+          // Digital signature. Allows the private key of the certificate to be used for digital signatures and the public key to be used to verify digital signatures.
           shared_ptr<bool> digitalSignature_ {};
-          // Specifies whether the key can be used only for data encryption.
+          // When KeyAgreement is true, this marks that the certificate key can only be used for encryption.
           shared_ptr<bool> encipherOnly_ {};
-          // Specifies whether the key can be used for key agreement.
+          // Key agreement.
           shared_ptr<bool> keyAgreement_ {};
-          // Specifies whether the key can be used for data encipherment.
+          // Key encipherment. Allows the certificate key to be used to encrypt other keys.
           shared_ptr<bool> keyEncipherment_ {};
-          // Specifies whether the key can be used for non-repudiation. This parameter is renamed ContentCommitment in the X.509 standard.
+          // Non-repudiation. This has been renamed to ContentCommitment in the X.509 standard.
           shared_ptr<bool> nonRepudiation_ {};
         };
 
@@ -497,13 +514,13 @@ namespace Models
 
 
       protected:
-        // If it is a necessary parameter, the critical list contains the parameter name.
+        // If an extension is critical, its name is included in the criticals list.
         shared_ptr<vector<string>> criticals_ {};
-        // The extended key usage.
+        // The extended key usages.
         shared_ptr<vector<string>> extendedKeyUsages_ {};
         // The key usage.
         shared_ptr<Extensions::KeyUsage> keyUsage_ {};
-        // The aliases of the entities.
+        // The subject alternative names (SANs) of the certificate.
         shared_ptr<vector<Extensions::SubjectAlternativeNames>> subjectAlternativeNames_ {};
       };
 
@@ -535,11 +552,11 @@ namespace Models
 
 
     protected:
-      // The extensions of the certificate.
+      // The certificate extensions.
       shared_ptr<ApiPassthrough::Extensions> extensions_ {};
-      // The serial number MUST be a positive integer assigned by the CA to each certificate.
+      // The custom serial number of the certificate. Must be a long integer.
       shared_ptr<string> serialNumber_ {};
-      // The name of the entity that uses the certificate.
+      // The certificate subject.
       shared_ptr<ApiPassthrough::Subject> subject_ {};
     };
 
@@ -614,44 +631,53 @@ namespace Models
 
 
   protected:
-    // The passthrough parameters.
+    // Pass-through parameters.
     shared_ptr<CreateCustomCertificateRequest::ApiPassthrough> apiPassthrough_ {};
-    // The content of the CSR. You can generate a CSR by using the OpenSSL tool or the Keytool tool. For more information, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html)
+    // The content of the CSR. You can generate a CSR using tools such as OpenSSL or Keytool. For more information, see [Create a CSR file](https://help.aliyun.com/document_detail/42218.html).
     // 
     // This parameter is required.
     shared_ptr<string> csr_ {};
-    // include the CRL address.
+    // Specifies whether to include a CRL address.
     // 
-    // - 0- No
-    // - 1- Yes
+    // - 0 - No
+    // 
+    // - 1 - Yes
     shared_ptr<int64_t> enableCrl_ {};
-    // Specifies whether to immediately issue the certificate. Valid values:
+    // Obtain the certificate immediately.
     // 
-    // *   0: asynchronously issues the certificate.
-    // *   1: immediately issues the certificate.
-    // *   2: immediately issues the certificate and returns the certificate chain.
+    // - 0 - Issue the certificate asynchronously.
+    // 
+    // - 1 - Issue the certificate immediately.
+    // 
+    // - 2 - Issue the certificate immediately and return the CA certificate chain.
     shared_ptr<int32_t> immediately_ {};
-    // The identifier of the certificate.
+    // The identifier of the CA certificate.
     // 
     // This parameter is required.
     shared_ptr<string> parentIdentifier_ {};
+    // The ID of the resource group. You can obtain this ID by calling the [ListResources](https://help.aliyun.com/document_detail/2716559.html) operation.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of tags.
     shared_ptr<vector<CreateCustomCertificateRequest::Tags>> tags_ {};
-    // The validity period of the certificate. The value cannot exceed the validity period of the certificate instance. Relative time and absolute time are supported.
+    // The validity period of the certificate. This period cannot exceed the validity period of the instance. You can use relative time or absolute time.
     // 
-    // Units of relative time: year, month, and day.
+    // Relative time: Supports years, months, and days.
     // 
-    // *   Use y to specify years.
-    // *   Use m to specify months.
-    // *   Use d to specify days.
+    // - Year - y
     // 
-    // Absolute time: Use Greenwich Mean Time (GMT). Format: `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`
+    // - Month - m
     // 
-    // *   Format of the end time: $NotAfter
-    // *   Format of the start time and end time: $NotBefore/$NotAfter
+    // - Day - d
+    // 
+    // Absolute time: Uses GMT. Format: `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`
+    // 
+    // - Specify the end time - $NotAfter
+    // 
+    // - Specify the start and end times - $NotBefore/$NotAfter
     // 
     // This parameter is required.
     shared_ptr<string> validity_ {};
+    // A custom identifier.
     shared_ptr<string> customIdentifier_ {};
   };
 

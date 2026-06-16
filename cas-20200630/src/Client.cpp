@@ -89,7 +89,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 分配证书使用数量
+ * @summary Assigns the certificate quota to a subordinate certificate authority (CA) instance.
+ *
+ * @description ## QPS limit
+ * This API operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, the system throttles your API calls, which can affect your business. Plan your calls accordingly.
  *
  * @param request AssignCertificateCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -124,7 +127,10 @@ AssignCertificateCountResponse Client::assignCertificateCountWithOptions(const A
 }
 
 /**
- * @summary 分配证书使用数量
+ * @summary Assigns the certificate quota to a subordinate certificate authority (CA) instance.
+ *
+ * @description ## QPS limit
+ * This API operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, the system throttles your API calls, which can affect your business. Plan your calls accordingly.
  *
  * @param request AssignCertificateCountRequest
  * @return AssignCertificateCountResponse
@@ -135,11 +141,11 @@ AssignCertificateCountResponse Client::assignCertificateCount(const AssignCertif
 }
 
 /**
- * @summary Issues a client certificate by using a system-generated certificate signing request (CSR) file.
+ * @summary Issues a client certificate by using a system-generated certificate signing request (CSR). You must create a root CA certificate and a subordinate CA certificate before calling this operation.
  *
- * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
- * ## QPS limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html). Only subordinate CA certificates can issue client certificates.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second per user. Calls that exceed this limit are throttled, which can impact your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request CreateClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -256,11 +262,11 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
 }
 
 /**
- * @summary Issues a client certificate by using a system-generated certificate signing request (CSR) file.
+ * @summary Issues a client certificate by using a system-generated certificate signing request (CSR). You must create a root CA certificate and a subordinate CA certificate before calling this operation.
  *
- * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
- * ## QPS limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html). Only subordinate CA certificates can issue client certificates.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second per user. Calls that exceed this limit are throttled, which can impact your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request CreateClientCertificateRequest
  * @return CreateClientCertificateResponse
@@ -271,11 +277,11 @@ CreateClientCertificateResponse Client::createClientCertificate(const CreateClie
 }
 
 /**
- * @summary Issues a client certificate by using a custom certificate signing request (CSR) file.
+ * @summary Issues a client certificate by using a custom certificate signing request (CSR).
  *
- * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue client certificates.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html). Only subordinate CA certificates can issue client certificates.
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you plan your calls to avoid being throttled.
  *
  * @param request CreateClientCertificateWithCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -386,11 +392,11 @@ CreateClientCertificateWithCsrResponse Client::createClientCertificateWithCsrWit
 }
 
 /**
- * @summary Issues a client certificate by using a custom certificate signing request (CSR) file.
+ * @summary Issues a client certificate by using a custom certificate signing request (CSR).
  *
- * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue client certificates.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html). Only subordinate CA certificates can issue client certificates.
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you plan your calls to avoid being throttled.
  *
  * @param request CreateClientCertificateWithCsrRequest
  * @return CreateClientCertificateWithCsrResponse
@@ -401,23 +407,23 @@ CreateClientCertificateWithCsrResponse Client::createClientCertificateWithCsr(co
 }
 
 /**
- * @summary Issues a certificate based on the specified key usage, extended key usage, and name and alias of the entity that uses the certificate.
+ * @summary Issues a custom digital certificate with specified subject, subject alternative names (SANs), key usage, and extended key usage attributes.
  *
- * @description By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
- * You must specify the key usage and extended key usage based on the certificate type. The following list describes common certificate types:
- * *   Server certificate
- * Key usage: digitalSignature or keyEncipherment
+ * @description By default, the certificate subject is retrieved from the Certificate Signing Request (CSR). If you specify a certificate subject, the subject from the CSR is ignored and the specified subject is used to issue the certificate.
+ * You must specify the key usage or extended key usage based on your scenario. The following examples show common scenarios:
+ * - Server-side authentication certificate
+ * Key usage: digitalSignature, keyEncipherment
  * Extended key usage: serverAuth
- * *   Client certificate
- * Key usage: digitalSignature or keyEncipherment
+ * - Client authentication certificate
+ * Key usage: digitalSignature, keyEncipherment
  * Extended key usage: clientAuth
- * *   Mutual Transport Layer Security (TLS) authentication certificate
- * Key usage: digitalSignature or keyEncipherment
- * Extended key usage: serverAuth or clientAuth
- * *   Email certificate
- * Key usage: digitalSignature or contentCommitment
+ * - mTLS mutual authentication certificate
+ * Key usage: digitalSignature, keyEncipherment
+ * Extended key usage: serverAuth, clientAuth
+ * - Email signing certificate
+ * Key usage: digitalSignature, contentCommitment
  * Extended key usage: emailProtection
- * Note: Compliant certificate authorities (CAs) are managed by third-party authorities. This operation is not supported for compliant CAs.
+ * Note: Compliance CAs are managed by third-party authorities and do not support this operation.
  *
  * @param request CreateCustomCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -480,23 +486,23 @@ CreateCustomCertificateResponse Client::createCustomCertificateWithOptions(const
 }
 
 /**
- * @summary Issues a certificate based on the specified key usage, extended key usage, and name and alias of the entity that uses the certificate.
+ * @summary Issues a custom digital certificate with specified subject, subject alternative names (SANs), key usage, and extended key usage attributes.
  *
- * @description By default, the name of the entity is obtained from the certificate signing request (CSR) of the certificate that you want to issue. If you specify a different name for the entity, the name of the entity in the CSR becomes invalid. The specified name is used to issue the certificate.
- * You must specify the key usage and extended key usage based on the certificate type. The following list describes common certificate types:
- * *   Server certificate
- * Key usage: digitalSignature or keyEncipherment
+ * @description By default, the certificate subject is retrieved from the Certificate Signing Request (CSR). If you specify a certificate subject, the subject from the CSR is ignored and the specified subject is used to issue the certificate.
+ * You must specify the key usage or extended key usage based on your scenario. The following examples show common scenarios:
+ * - Server-side authentication certificate
+ * Key usage: digitalSignature, keyEncipherment
  * Extended key usage: serverAuth
- * *   Client certificate
- * Key usage: digitalSignature or keyEncipherment
+ * - Client authentication certificate
+ * Key usage: digitalSignature, keyEncipherment
  * Extended key usage: clientAuth
- * *   Mutual Transport Layer Security (TLS) authentication certificate
- * Key usage: digitalSignature or keyEncipherment
- * Extended key usage: serverAuth or clientAuth
- * *   Email certificate
- * Key usage: digitalSignature or contentCommitment
+ * - mTLS mutual authentication certificate
+ * Key usage: digitalSignature, keyEncipherment
+ * Extended key usage: serverAuth, clientAuth
+ * - Email signing certificate
+ * Key usage: digitalSignature, contentCommitment
  * Extended key usage: emailProtection
- * Note: Compliant certificate authorities (CAs) are managed by third-party authorities. This operation is not supported for compliant CAs.
+ * Note: Compliance CAs are managed by third-party authorities and do not support this operation.
  *
  * @param request CreateCustomCertificateRequest
  * @return CreateCustomCertificateResponse
@@ -507,7 +513,15 @@ CreateCustomCertificateResponse Client::createCustomCertificate(const CreateCust
 }
 
 /**
- * @summary 创建外部子CA证书
+ * @summary Create and issue an external subordinate CA certificate using a CSR and API parameters.
+ *
+ * @description ## Request
+ * - Creates an external subordinate CA certificate from a certificate signing request (CSR) and optional API pass-through parameters.
+ * - The required `InstanceId` parameter specifies the instance ID of the external subordinate CA.
+ * - The `Csr` parameter must contain a valid certificate signing request.
+ * - The `Validity` parameter specifies the certificate\\"s validity period and accepts values in either relative or absolute time formats.
+ * - The `ApiPassthrough` parameter lets you override information in the CSR, such as subject information, or add certificate extensions.
+ * - Note: For end-entity CA certificates, set the `pathLenConstraint` parameter to 0.
  *
  * @param tmpReq CreateExternalCACertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -568,7 +582,15 @@ CreateExternalCACertificateResponse Client::createExternalCACertificateWithOptio
 }
 
 /**
- * @summary 创建外部子CA证书
+ * @summary Create and issue an external subordinate CA certificate using a CSR and API parameters.
+ *
+ * @description ## Request
+ * - Creates an external subordinate CA certificate from a certificate signing request (CSR) and optional API pass-through parameters.
+ * - The required `InstanceId` parameter specifies the instance ID of the external subordinate CA.
+ * - The `Csr` parameter must contain a valid certificate signing request.
+ * - The `Validity` parameter specifies the certificate\\"s validity period and accepts values in either relative or absolute time formats.
+ * - The `ApiPassthrough` parameter lets you override information in the CSR, such as subject information, or add certificate extensions.
+ * - Note: For end-entity CA certificates, set the `pathLenConstraint` parameter to 0.
  *
  * @param request CreateExternalCACertificateRequest
  * @return CreateExternalCACertificateResponse
@@ -579,12 +601,12 @@ CreateExternalCACertificateResponse Client::createExternalCACertificate(const Cr
 }
 
 /**
- * @summary Revokes a client certificate or a server certificate.
+ * @summary Revokes a client certificate or a server certificate issued by a private certificate authority (CA).
  *
- * @description After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
- * After a client certificate or a server certificate is revoked, you can call the [DeleteClientCertificate](https://help.aliyun.com/document_detail/330880.html) operation to permanently delete the certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description After a client or server certificate is revoked, the client or server where the certificate is installed cannot establish HTTPS connections with other devices.
+ * After a client or server certificate is revoked, you can call [DeleteClientCertificate](https://help.aliyun.com/document_detail/465981.html) to permanently delete the certificate.
+ * ## QPS limit
+ * The limit on queries per second (QPS) for this operation is 10 per user. If you exceed this limit, API calls are throttled, which can affect your business. Plan your API calls accordingly.
  *
  * @param request CreateRevokeClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -615,12 +637,12 @@ CreateRevokeClientCertificateResponse Client::createRevokeClientCertificateWithO
 }
 
 /**
- * @summary Revokes a client certificate or a server certificate.
+ * @summary Revokes a client certificate or a server certificate issued by a private certificate authority (CA).
  *
- * @description After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
- * After a client certificate or a server certificate is revoked, you can call the [DeleteClientCertificate](https://help.aliyun.com/document_detail/330880.html) operation to permanently delete the certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description After a client or server certificate is revoked, the client or server where the certificate is installed cannot establish HTTPS connections with other devices.
+ * After a client or server certificate is revoked, you can call [DeleteClientCertificate](https://help.aliyun.com/document_detail/465981.html) to permanently delete the certificate.
+ * ## QPS limit
+ * The limit on queries per second (QPS) for this operation is 10 per user. If you exceed this limit, API calls are throttled, which can affect your business. Plan your API calls accordingly.
  *
  * @param request CreateRevokeClientCertificateRequest
  * @return CreateRevokeClientCertificateResponse
@@ -633,10 +655,10 @@ CreateRevokeClientCertificateResponse Client::createRevokeClientCertificate(cons
 /**
  * @summary Creates a root certificate authority (CA) certificate.
  *
- * @description You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
- * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation creates a self-signed root CA certificate. A root CA certificate is the starting point of a private trust chain within an enterprise. After you create a root CA certificate, you can use it to issue intermediate CA certificates. You can then use the intermediate CA certificates to issue client and server-side certificates.
+ * Before calling this operation, purchase a private root CA in the [SSL Certificate Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). Otherwise, the call fails. For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second per user. If you exceed the limit, API calls are throttled, which may affect your business. Call the API at a reasonable rate.
  *
  * @param request CreateRootCACertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -709,10 +731,10 @@ CreateRootCACertificateResponse Client::createRootCACertificateWithOptions(const
 /**
  * @summary Creates a root certificate authority (CA) certificate.
  *
- * @description You can call the CreateRootCACertificate operation to create a self-signed root CA certificate. A root CA certificate is the trust anchor in a chain of trust for private certificates that are used within an enterprise. You must create a root CA certificate before you can use the root CA certificate to issue intermediate CA certificates. Then, you can use the intermediate CA certificates to issue client certificates and server certificates.
- * Before you call this operation, make sure that you have purchased a private root CA instance by using the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation creates a self-signed root CA certificate. A root CA certificate is the starting point of a private trust chain within an enterprise. After you create a root CA certificate, you can use it to issue intermediate CA certificates. You can then use the intermediate CA certificates to issue client and server-side certificates.
+ * Before calling this operation, purchase a private root CA in the [SSL Certificate Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). Otherwise, the call fails. For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second per user. If you exceed the limit, API calls are throttled, which may affect your business. Call the API at a reasonable rate.
  *
  * @param request CreateRootCACertificateRequest
  * @return CreateRootCACertificateResponse
@@ -723,11 +745,11 @@ CreateRootCACertificateResponse Client::createRootCACertificate(const CreateRoot
 }
 
 /**
- * @summary Issues a server certificate by using a system-generated certificate signing request (CSR) file.
+ * @summary Issues a server certificate by using a system-generated certificate signing request (CSR).
  *
- * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must call [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) to create a root certificate authority (CA) certificate and [CreateSubCACertificate](https://help.aliyun.com/document_detail/465975.html) to create a subordinate CA certificate. Only a subordinate CA certificate can issue a server certificate.
+ * ## QPS limits
+ * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, the system throttles your API calls, which can affect your business. Plan your calls accordingly.
  *
  * @param request CreateServerCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -830,11 +852,11 @@ CreateServerCertificateResponse Client::createServerCertificateWithOptions(const
 }
 
 /**
- * @summary Issues a server certificate by using a system-generated certificate signing request (CSR) file.
+ * @summary Issues a server certificate by using a system-generated certificate signing request (CSR).
  *
- * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must call [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) to create a root certificate authority (CA) certificate and [CreateSubCACertificate](https://help.aliyun.com/document_detail/465975.html) to create a subordinate CA certificate. Only a subordinate CA certificate can issue a server certificate.
+ * ## QPS limits
+ * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, the system throttles your API calls, which can affect your business. Plan your calls accordingly.
  *
  * @param request CreateServerCertificateRequest
  * @return CreateServerCertificateResponse
@@ -845,10 +867,11 @@ CreateServerCertificateResponse Client::createServerCertificate(const CreateServ
 }
 
 /**
- * @summary Issues a server certificate by using a custom certificate signing request (CSR) file.
+ * @summary Issues a server certificate by using a custom certificate signing request (CSR).
  *
- * @description ## Usage notes
- * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
+ * @description Before you call this operation, you must call [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) to create a root CA certificate and [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html) to create a subordinate CA certificate. Server-side certificates can be issued only by subordinate CA certificates.
+ * ## Limits
+ * This operation has a queries per second (QPS) limit of 10 requests per user. If you exceed this limit, rate limiting is triggered, which may affect your business. Call this operation only as needed.
  *
  * @param request CreateServerCertificateWithCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -955,10 +978,11 @@ CreateServerCertificateWithCsrResponse Client::createServerCertificateWithCsrWit
 }
 
 /**
- * @summary Issues a server certificate by using a custom certificate signing request (CSR) file.
+ * @summary Issues a server certificate by using a custom certificate signing request (CSR).
  *
- * @description ## Usage notes
- * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
+ * @description Before you call this operation, you must call [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) to create a root CA certificate and [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html) to create a subordinate CA certificate. Server-side certificates can be issued only by subordinate CA certificates.
+ * ## Limits
+ * This operation has a queries per second (QPS) limit of 10 requests per user. If you exceed this limit, rate limiting is triggered, which may affect your business. Call this operation only as needed.
  *
  * @param request CreateServerCertificateWithCsrRequest
  * @return CreateServerCertificateWithCsrResponse
@@ -969,12 +993,12 @@ CreateServerCertificateWithCsrResponse Client::createServerCertificateWithCsr(co
 }
 
 /**
- * @summary Creates an intermediate certificate authority (CA) certificate.
+ * @summary Creates a subordinate certificate authority (CA) certificate under an existing root CA.
  *
- * @description You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
- * Before you call this operation, make sure that you have issued a root CA certificate by calling the [CreateRootCACertificate] operation.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation issues an intermediate CA certificate from an existing root CA certificate. You can use the intermediate CA certificate to issue client and server certificates.
+ * Before calling this operation, you must call the [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) operation to create a root CA certificate.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per user. Calls that exceed this limit are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request CreateSubCACertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1071,12 +1095,12 @@ CreateSubCACertificateResponse Client::createSubCACertificateWithOptions(const C
 }
 
 /**
- * @summary Creates an intermediate certificate authority (CA) certificate.
+ * @summary Creates a subordinate certificate authority (CA) certificate under an existing root CA.
  *
- * @description You can call this operation to issue an intermediate certificate authority (CA) certificate by using an existing root CA certificate. Intermediate CA certificates can be used to issue client certificates and server certificates.
- * Before you call this operation, make sure that you have issued a root CA certificate by calling the [CreateRootCACertificate] operation.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation issues an intermediate CA certificate from an existing root CA certificate. You can use the intermediate CA certificate to issue client and server certificates.
+ * Before calling this operation, you must call the [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) operation to create a root CA certificate.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per user. Calls that exceed this limit are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request CreateSubCACertificateRequest
  * @return CreateSubCACertificateResponse
@@ -1087,11 +1111,11 @@ CreateSubCACertificateResponse Client::createSubCACertificate(const CreateSubCAC
 }
 
 /**
- * @summary Deletes a client certificate or a server certificate that is revoked.
+ * @summary Deletes a revoked client certificate or server certificate. Only revoked certificates can be deleted.
  *
- * @description Before you call this operation, you must call the [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/330876.html) operation to revoke a client certificate or a server certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must call [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/465972.html) to revoke the client or server-side certificate.
+ * ## QPS limit
+ * This operation supports up to 10 queries per second (QPS) for each user. If you exceed the limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request DeleteClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1122,11 +1146,11 @@ DeleteClientCertificateResponse Client::deleteClientCertificateWithOptions(const
 }
 
 /**
- * @summary Deletes a client certificate or a server certificate that is revoked.
+ * @summary Deletes a revoked client certificate or server certificate. Only revoked certificates can be deleted.
  *
- * @description Before you call this operation, you must call the [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/330876.html) operation to revoke a client certificate or a server certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Before you call this operation, you must call [CreateRevokeClientCertificate](https://help.aliyun.com/document_detail/465972.html) to revoke the client or server-side certificate.
+ * ## QPS limit
+ * This operation supports up to 10 queries per second (QPS) for each user. If you exceed the limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request DeleteClientCertificateRequest
  * @return DeleteClientCertificateResponse
@@ -1137,12 +1161,12 @@ DeleteClientCertificateResponse Client::deleteClientCertificate(const DeleteClie
 }
 
 /**
- * @summary Queries the details about a certificate authority (CA) certificate.
+ * @summary Retrieves information about a certificate authority (CA) certificate.
  *
- * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
- * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description You can call this operation to query the details of a root or subordinate CA certificate by its unique identifier. The details include the serial number, subject information, and certificate content.
+ * Before you call this operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html).
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, API calls are throttled, which can affect your business. Plan your calls accordingly.
  *
  * @param request DescribeCACertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1173,12 +1197,12 @@ DescribeCACertificateResponse Client::describeCACertificateWithOptions(const Des
 }
 
 /**
- * @summary Queries the details about a certificate authority (CA) certificate.
+ * @summary Retrieves information about a certificate authority (CA) certificate.
  *
- * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
- * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description You can call this operation to query the details of a root or subordinate CA certificate by its unique identifier. The details include the serial number, subject information, and certificate content.
+ * Before you call this operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html).
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, API calls are throttled, which can affect your business. Plan your calls accordingly.
  *
  * @param request DescribeCACertificateRequest
  * @return DescribeCACertificateResponse
@@ -1189,11 +1213,11 @@ DescribeCACertificateResponse Client::describeCACertificate(const DescribeCACert
 }
 
 /**
- * @summary Queries the number of certificate authority (CA) certificates that you create.
+ * @summary Queries the number of certificate authority (CA) certificates that you created.
  *
- * @description You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the number of CA certificates that you have created, including root CA certificates and subordinate CA certificates.
+ * ## QPS limit
+ * Each user is limited to 10 queries per second (QPS) for this API operation. If you exceed the limit, your API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCACertificateCountResponse
@@ -1215,11 +1239,11 @@ DescribeCACertificateCountResponse Client::describeCACertificateCountWithOptions
 }
 
 /**
- * @summary Queries the number of certificate authority (CA) certificates that you create.
+ * @summary Queries the number of certificate authority (CA) certificates that you created.
  *
- * @description You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the number of CA certificates that you have created, including root CA certificates and subordinate CA certificates.
+ * ## QPS limit
+ * Each user is limited to 10 queries per second (QPS) for this API operation. If you exceed the limit, your API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @return DescribeCACertificateCountResponse
  */
@@ -1229,11 +1253,11 @@ DescribeCACertificateCountResponse Client::describeCACertificateCount() {
 }
 
 /**
- * @summary Queries the details about all root certificate authority (CA) certificates and intermediate CA certificates.
+ * @summary Queries all root and subordinate certificate authority (CA) certificates.
  *
- * @description You can call the DescribeCACertificateList operation to perform a paged query of the details about all CA certificates that you create. The details include the unique identifier, serial number, user information, and content of each root CA certificate or intermediate CA certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description You can call this operation to query the details of all your root and intermediate CA certificates by page. The details include the unique identifier, serial number, subject information, and content of each certificate.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you call this operation a reasonable number of times.
  *
  * @param request DescribeCACertificateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1292,11 +1316,11 @@ DescribeCACertificateListResponse Client::describeCACertificateListWithOptions(c
 }
 
 /**
- * @summary Queries the details about all root certificate authority (CA) certificates and intermediate CA certificates.
+ * @summary Queries all root and subordinate certificate authority (CA) certificates.
  *
- * @description You can call the DescribeCACertificateList operation to perform a paged query of the details about all CA certificates that you create. The details include the unique identifier, serial number, user information, and content of each root CA certificate or intermediate CA certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description You can call this operation to query the details of all your root and intermediate CA certificates by page. The details include the unique identifier, serial number, subject information, and content of each certificate.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you call this operation a reasonable number of times.
  *
  * @param request DescribeCACertificateListRequest
  * @return DescribeCACertificateListResponse
@@ -1307,19 +1331,18 @@ DescribeCACertificateListResponse Client::describeCACertificateList(const Descri
 }
 
 /**
- * @summary Queries the encrypted private key of a client certificate or a server certificate.
+ * @summary Queries the encrypted private key of a client certificate or server certificate.
  *
- * @description ## Usage notes
- * You can call the DescribeCertificatePrivateKey operation to obtain the encrypted private key of a client certificate or a server certificate. The certificate is issued based on a system-generated certificate signing request (CSR). Before you call this operation, make sure that you have issued a client certificate or a server certificate by calling the following operation:
- * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
- * *   [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
- * To ensure the security of private key transmission, the DescribeCertificatePrivateKey operation encrypts the private key by using the private key password that you specify and returns the encrypted private key. The private key password is a string that is used to encrypt the private key. After you obtain the encrypted private key of the certificate, you can use the following methods to decrypt the private key:
- * *   If the encryption algorithm of the certificate is RSA, you must run the `openssl rsa -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
- * *   If the encryption algorithm of the certificate is ECC, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
- * *   If the encryption algorithm of the certificate is SM2, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
- * >  You can call the [DescribeClientCertificate] operation to query the encryption algorithm type of a client certificate or a server certificate.
- * ## Limits
- * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API applies only to certificates that are issued from a system-generated Certificate Signing Request (CSR). You can use this API to retrieve the encrypted private key of a client certificate or a server-side certificate. Before you call this API, you must have issued a client or server-side certificate by calling one of the following APIs:
+ * - [CreateClientCertificate](https://help.aliyun.com/document_detail/465967.html)
+ * - [CreateServerCertificate](https://help.aliyun.com/document_detail/465975.html)
+ * To keep the private key secure during transmission, this API uses a password that you set to encrypt the private key. The API then returns the encrypted private key. After you retrieve the encrypted private key, you can decrypt it using one of the following methods:
+ * - If the certificate uses the RSA encryption algorithm, run the `openssl rsa -in <encrypted_private_key_file> -passin pass:<private_key_password> -out <decrypted_private_key_file>` command to decrypt the private key. You must run this command on a computer that has [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) installed.
+ * - If the certificate uses the ECC encryption algorithm, run the `openssl ec -in <encrypted_private_key_file> -passin pass:<private_key_password> -out <decrypted_private_key_file>` command to decrypt the private key. You must run this command on a computer that has [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) installed.
+ * - If the certificate uses the SM2 encryption algorithm, run the `openssl ec -in <encrypted_private_key_file> -passin pass:<private_key_password> -out <decrypted_private_key_file>` command to decrypt the private key. You must run this command on a computer that has [BabaSSL](https://github.com/BabaSSL/BabaSSL) installed.
+ * > You can call [DescribeClientCertificate](https://help.aliyun.com/document_detail/465985.html) to query the encryption algorithm of the client or server-side certificate.
+ * ## QPS limit
+ * This API has a queries per second (QPS) limit of 10 for each user. If you exceed this limit, your API calls are throttled. Throttling can affect your business. Plan your calls accordingly.
  *
  * @param request DescribeCertificatePrivateKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1358,19 +1381,18 @@ DescribeCertificatePrivateKeyResponse Client::describeCertificatePrivateKeyWithO
 }
 
 /**
- * @summary Queries the encrypted private key of a client certificate or a server certificate.
+ * @summary Queries the encrypted private key of a client certificate or server certificate.
  *
- * @description ## Usage notes
- * You can call the DescribeCertificatePrivateKey operation to obtain the encrypted private key of a client certificate or a server certificate. The certificate is issued based on a system-generated certificate signing request (CSR). Before you call this operation, make sure that you have issued a client certificate or a server certificate by calling the following operation:
- * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
- * *   [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
- * To ensure the security of private key transmission, the DescribeCertificatePrivateKey operation encrypts the private key by using the private key password that you specify and returns the encrypted private key. The private key password is a string that is used to encrypt the private key. After you obtain the encrypted private key of the certificate, you can use the following methods to decrypt the private key:
- * *   If the encryption algorithm of the certificate is RSA, you must run the `openssl rsa -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
- * *   If the encryption algorithm of the certificate is ECC, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
- * *   If the encryption algorithm of the certificate is SM2, you must run the `openssl ec -in <Encrypted private key file> -passin pass:<Private key password> -out <Decrypted private key file>` command in the computer on which [BabaSSL](https://github.com/BabaSSL/BabaSSL) is installed.
- * >  You can call the [DescribeClientCertificate] operation to query the encryption algorithm type of a client certificate or a server certificate.
- * ## Limits
- * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API applies only to certificates that are issued from a system-generated Certificate Signing Request (CSR). You can use this API to retrieve the encrypted private key of a client certificate or a server-side certificate. Before you call this API, you must have issued a client or server-side certificate by calling one of the following APIs:
+ * - [CreateClientCertificate](https://help.aliyun.com/document_detail/465967.html)
+ * - [CreateServerCertificate](https://help.aliyun.com/document_detail/465975.html)
+ * To keep the private key secure during transmission, this API uses a password that you set to encrypt the private key. The API then returns the encrypted private key. After you retrieve the encrypted private key, you can decrypt it using one of the following methods:
+ * - If the certificate uses the RSA encryption algorithm, run the `openssl rsa -in <encrypted_private_key_file> -passin pass:<private_key_password> -out <decrypted_private_key_file>` command to decrypt the private key. You must run this command on a computer that has [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) installed.
+ * - If the certificate uses the ECC encryption algorithm, run the `openssl ec -in <encrypted_private_key_file> -passin pass:<private_key_password> -out <decrypted_private_key_file>` command to decrypt the private key. You must run this command on a computer that has [OpenSSL](https://www.openssl.org/source/) or [BabaSSL](https://github.com/BabaSSL/BabaSSL) installed.
+ * - If the certificate uses the SM2 encryption algorithm, run the `openssl ec -in <encrypted_private_key_file> -passin pass:<private_key_password> -out <decrypted_private_key_file>` command to decrypt the private key. You must run this command on a computer that has [BabaSSL](https://github.com/BabaSSL/BabaSSL) installed.
+ * > You can call [DescribeClientCertificate](https://help.aliyun.com/document_detail/465985.html) to query the encryption algorithm of the client or server-side certificate.
+ * ## QPS limit
+ * This API has a queries per second (QPS) limit of 10 for each user. If you exceed this limit, your API calls are throttled. Throttling can affect your business. Plan your calls accordingly.
  *
  * @param request DescribeCertificatePrivateKeyRequest
  * @return DescribeCertificatePrivateKeyResponse
@@ -1381,18 +1403,18 @@ DescribeCertificatePrivateKeyResponse Client::describeCertificatePrivateKey(cons
 }
 
 /**
- * @summary Queries the details about a client certificate or a server certificate by using the unique identifier of the certificate.
+ * @summary Retrieves a client certificate or server certificate by its unique identifier.
  *
- * @description You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
- * Before you call this operation, make sure that you have created a client certificate or a server certificate.
- * For more information about how to call an operation to create a client certificate, see the following topics:
- * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
- * *   [CreateClientCertificateWithCsr](https://help.aliyun.com/document_detail/330875.html)
- * For more information about how to call an operation to create a server certificate, see the following topics:
- * *   [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
- * *   [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/330878.html)
+ * @description You can call this operation to query the details of a client certificate or a server-side certificate by its unique identifier. The details include the serial number, subject, content, and status of the certificate.
+ * Before you call this operation, you must create a client certificate or a server-side certificate.
+ * To create a client certificate by calling an API, see the following topics:
+ * - [CreateClientCertificate](https://help.aliyun.com/document_detail/465967.html)
+ * - [CreateClientCertificateWithCsr](https://help.aliyun.com/document_detail/465970.html)
+ * To create a server-side certificate by calling an API, see the following topics:
+ * - [CreateServerCertificate](https://help.aliyun.com/document_detail/465975.html)
+ * - [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/465979.html)
  * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * The queries per second (QPS) limit for this API call is 10 per user. If you exceed this limit, throttling is triggered, which may affect your business. Plan your calls accordingly.
  *
  * @param request DescribeClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1423,18 +1445,18 @@ DescribeClientCertificateResponse Client::describeClientCertificateWithOptions(c
 }
 
 /**
- * @summary Queries the details about a client certificate or a server certificate by using the unique identifier of the certificate.
+ * @summary Retrieves a client certificate or server certificate by its unique identifier.
  *
- * @description You can call the DescribeClientCertificate operation to query the details about a client certificate or a server certificate by using the unique identifier of the certificate. The details include the serial number, user information, content, and status of each certificate.
- * Before you call this operation, make sure that you have created a client certificate or a server certificate.
- * For more information about how to call an operation to create a client certificate, see the following topics:
- * *   [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
- * *   [CreateClientCertificateWithCsr](https://help.aliyun.com/document_detail/330875.html)
- * For more information about how to call an operation to create a server certificate, see the following topics:
- * *   [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
- * *   [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/330878.html)
+ * @description You can call this operation to query the details of a client certificate or a server-side certificate by its unique identifier. The details include the serial number, subject, content, and status of the certificate.
+ * Before you call this operation, you must create a client certificate or a server-side certificate.
+ * To create a client certificate by calling an API, see the following topics:
+ * - [CreateClientCertificate](https://help.aliyun.com/document_detail/465967.html)
+ * - [CreateClientCertificateWithCsr](https://help.aliyun.com/document_detail/465970.html)
+ * To create a server-side certificate by calling an API, see the following topics:
+ * - [CreateServerCertificate](https://help.aliyun.com/document_detail/465975.html)
+ * - [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/465979.html)
  * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * The queries per second (QPS) limit for this API call is 10 per user. If you exceed this limit, throttling is triggered, which may affect your business. Plan your calls accordingly.
  *
  * @param request DescribeClientCertificateRequest
  * @return DescribeClientCertificateResponse
@@ -1447,7 +1469,19 @@ DescribeClientCertificateResponse Client::describeClientCertificate(const Descri
 /**
  * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
  *
- * @summary Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
+ * @summary Retrieves the details of multiple client or server certificates by serial number.
+ *
+ * @description # Usage
+ * Retrieves the details of multiple client or server certificates by serial number. The response includes each certificate\\"s serial number, subject information, content, and status.
+ * Before calling this operation, ensure you have created a client certificate or a server certificate.
+ * To create a client certificate, see:
+ * - [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
+ * - [CreateClientCertificateWithCsr](https://help.aliyun.com/document_detail/330875.html)
+ * To create a server certificate, see:
+ * - [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
+ * - [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/330878.html)
+ * # QPS limit
+ * The QPS limit for this operation is 10 calls per second per account. Exceeding this limit triggers throttling, which can impact your business. Plan your calls accordingly.
  *
  * @param request DescribeClientCertificateForSerialNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1480,7 +1514,19 @@ DescribeClientCertificateForSerialNumberResponse Client::describeClientCertifica
 /**
  * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
  *
- * @summary Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
+ * @summary Retrieves the details of multiple client or server certificates by serial number.
+ *
+ * @description # Usage
+ * Retrieves the details of multiple client or server certificates by serial number. The response includes each certificate\\"s serial number, subject information, content, and status.
+ * Before calling this operation, ensure you have created a client certificate or a server certificate.
+ * To create a client certificate, see:
+ * - [CreateClientCertificate](https://help.aliyun.com/document_detail/330873.html)
+ * - [CreateClientCertificateWithCsr](https://help.aliyun.com/document_detail/330875.html)
+ * To create a server certificate, see:
+ * - [CreateServerCertificate](https://help.aliyun.com/document_detail/330877.html)
+ * - [CreateServerCertificateWithCsr](https://help.aliyun.com/document_detail/330878.html)
+ * # QPS limit
+ * The QPS limit for this operation is 10 calls per second per account. Exceeding this limit triggers throttling, which can impact your business. Plan your calls accordingly.
  *
  * @param request DescribeClientCertificateForSerialNumberRequest
  * @return DescribeClientCertificateForSerialNumberResponse
@@ -1491,11 +1537,11 @@ DescribeClientCertificateForSerialNumberResponse Client::describeClientCertifica
 }
 
 /**
- * @summary Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
+ * @summary Queries the status of a client certificate or server certificate by its unique identifier.
  *
- * @description You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the status of multiple client or server-side certificates in a batch using their unique identifiers. For example, you can check whether a certificate is revoked.
+ * ## QPS limits
+ * This operation is limited to 10 queries per second (QPS) for each user. API calls that exceed this limit are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request DescribeClientCertificateStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1526,11 +1572,11 @@ DescribeClientCertificateStatusResponse Client::describeClientCertificateStatusW
 }
 
 /**
- * @summary Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
+ * @summary Queries the status of a client certificate or server certificate by its unique identifier.
  *
- * @description You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the status of multiple client or server-side certificates in a batch using their unique identifiers. For example, you can check whether a certificate is revoked.
+ * ## QPS limits
+ * This operation is limited to 10 queries per second (QPS) for each user. API calls that exceed this limit are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request DescribeClientCertificateStatusRequest
  * @return DescribeClientCertificateStatusResponse
@@ -1541,7 +1587,11 @@ DescribeClientCertificateStatusResponse Client::describeClientCertificateStatus(
 }
 
 /**
- * @summary Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
+ * @summary Queries the status of client and server-side certificates using their serial numbers.
+ *
+ * @description This operation queries the status of one or more client or server certificates by their serial numbers. For example, you can check whether a certificate is revoked.
+ * ## QPS limit
+ * You can make up to 10 API calls per second per account. Exceeding this limit triggers throttling, which can impact your business. Plan your calls accordingly.
  *
  * @param request DescribeClientCertificateStatusForSerialNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1572,7 +1622,11 @@ DescribeClientCertificateStatusForSerialNumberResponse Client::describeClientCer
 }
 
 /**
- * @summary Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
+ * @summary Queries the status of client and server-side certificates using their serial numbers.
+ *
+ * @description This operation queries the status of one or more client or server certificates by their serial numbers. For example, you can check whether a certificate is revoked.
+ * ## QPS limit
+ * You can make up to 10 API calls per second per account. Exceeding this limit triggers throttling, which can impact your business. Plan your calls accordingly.
  *
  * @param request DescribeClientCertificateStatusForSerialNumberRequest
  * @return DescribeClientCertificateStatusForSerialNumberResponse
@@ -1583,7 +1637,11 @@ DescribeClientCertificateStatusForSerialNumberResponse Client::describeClientCer
 }
 
 /**
- * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+ * @summary Returns all your certification authority (CA) certificates. These include certificates generated by Private CA and imported external certificates.
+ *
+ * @description This operation performs a paged query to retrieve the details of all your CA certificates, including root and subordinate CA certificates. These details include the unique identifier, serial number, subject information, and certificate content.
+ * ## QPS limit
+ * The queries per second (QPS) limit for a single user is 10. The system throttles API calls that exceed this limit, which may affect your business. To prevent throttling, call this operation within the stated limit.
  *
  * @param request DescribePcaAndExternalCACertificateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1626,7 +1684,11 @@ DescribePcaAndExternalCACertificateListResponse Client::describePcaAndExternalCA
 }
 
 /**
- * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+ * @summary Returns all your certification authority (CA) certificates. These include certificates generated by Private CA and imported external certificates.
+ *
+ * @description This operation performs a paged query to retrieve the details of all your CA certificates, including root and subordinate CA certificates. These details include the unique identifier, serial number, subject information, and certificate content.
+ * ## QPS limit
+ * The queries per second (QPS) limit for a single user is 10. The system throttles API calls that exceed this limit, which may affect your business. To prevent throttling, call this operation within the stated limit.
  *
  * @param request DescribePcaAndExternalCACertificateListRequest
  * @return DescribePcaAndExternalCACertificateListResponse
@@ -1637,11 +1699,12 @@ DescribePcaAndExternalCACertificateListResponse Client::describePcaAndExternalCA
 }
 
 /**
- * @summary Queries the status information about a private root certificate authority (CA) instance or a private intermediate CA instance that you purchase by using the Certificate Management Service console.
+ * @summary Queries the status of a private certificate authority (CA) instance, including the remaining certificate quota.
  *
- * @description ## Usage notes
- * You can call the GetCAInstanceStatus operation to query the status information of a private CA instance by using the ID of the instance. The instance is purchased by using the SSL Certificates Service console. The status information includes the status of the private CA instance, the number of certificates that can be issued by using the private CA instance, and the number of issued certificates.
- * Before you call this operation, make sure that you have purchased a private CA by using the [SSL Certificates Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * @description Use this operation to query the status of a private CA instance by its ID. The status information includes the instance\\"s status, the total number of certificates it can issue, and the number of certificates already issued.
+ * Before you call this operation, purchase a private CA in the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limits
+ * This operation has a queries per second (QPS) limit of 10 for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this operation at a reasonable rate.
  *
  * @param request GetCAInstanceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1676,11 +1739,12 @@ GetCAInstanceStatusResponse Client::getCAInstanceStatusWithOptions(const GetCAIn
 }
 
 /**
- * @summary Queries the status information about a private root certificate authority (CA) instance or a private intermediate CA instance that you purchase by using the Certificate Management Service console.
+ * @summary Queries the status of a private certificate authority (CA) instance, including the remaining certificate quota.
  *
- * @description ## Usage notes
- * You can call the GetCAInstanceStatus operation to query the status information of a private CA instance by using the ID of the instance. The instance is purchased by using the SSL Certificates Service console. The status information includes the status of the private CA instance, the number of certificates that can be issued by using the private CA instance, and the number of issued certificates.
- * Before you call this operation, make sure that you have purchased a private CA by using the [SSL Certificates Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * @description Use this operation to query the status of a private CA instance by its ID. The status information includes the instance\\"s status, the total number of certificates it can issue, and the number of certificates already issued.
+ * Before you call this operation, purchase a private CA in the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limits
+ * This operation has a queries per second (QPS) limit of 10 for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this operation at a reasonable rate.
  *
  * @param request GetCAInstanceStatusRequest
  * @return GetCAInstanceStatusResponse
@@ -1691,7 +1755,68 @@ GetCAInstanceStatusResponse Client::getCAInstanceStatus(const GetCAInstanceStatu
 }
 
 /**
- * @summary 查询终端实例
+ * @summary Obtain the CRL URL of a CA
+ *
+ * @description This API is used to query the status information of a private CA instance that you purchased through the SSL Certificates Service console by using the ID of the private CA instance. For example, the status of the CA instance, the number of certificates contained, the number of issued certificates, and so on.
+ * Before calling this API, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS Limit
+ * The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call the API appropriately.
+ *
+ * @param request GetCaInstanceCrlAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCaInstanceCrlAddressResponse
+ */
+GetCaInstanceCrlAddressResponse Client::getCaInstanceCrlAddressWithOptions(const GetCaInstanceCrlAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaIdentifier()) {
+    query["CaIdentifier"] = request.getCaIdentifier();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCaInstanceCrlAddress"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCaInstanceCrlAddressResponse>();
+}
+
+/**
+ * @summary Obtain the CRL URL of a CA
+ *
+ * @description This API is used to query the status information of a private CA instance that you purchased through the SSL Certificates Service console by using the ID of the private CA instance. For example, the status of the CA instance, the number of certificates contained, the number of issued certificates, and so on.
+ * Before calling this API, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS Limit
+ * The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call the API appropriately.
+ *
+ * @param request GetCaInstanceCrlAddressRequest
+ * @return GetCaInstanceCrlAddressResponse
+ */
+GetCaInstanceCrlAddressResponse Client::getCaInstanceCrlAddress(const GetCaInstanceCrlAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCaInstanceCrlAddressWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the end-entity instances under a private certificate authority (CA).
+ *
+ * @description This operation queries the status of a private Certificate Authority (CA) instance by its ID. It returns details for a private CA instance that you purchased in the Certificate Management Service (CAS) console. These details include the instance status, the number of certificates it contains, and the number of issued certificates.
+ * Before calling this operation, purchase a private CA from the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limits
+ * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
  *
  * @param request ListAllEndEntityInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1742,7 +1867,12 @@ ListAllEndEntityInstanceResponse Client::listAllEndEntityInstanceWithOptions(con
 }
 
 /**
- * @summary 查询终端实例
+ * @summary Queries the end-entity instances under a private certificate authority (CA).
+ *
+ * @description This operation queries the status of a private Certificate Authority (CA) instance by its ID. It returns details for a private CA instance that you purchased in the Certificate Management Service (CAS) console. These details include the instance status, the number of certificates it contains, and the number of issued certificates.
+ * Before calling this operation, purchase a private CA from the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limits
+ * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
  *
  * @param request ListAllEndEntityInstanceRequest
  * @return ListAllEndEntityInstanceResponse
@@ -1753,7 +1883,10 @@ ListAllEndEntityInstanceResponse Client::listAllEndEntityInstance(const ListAllE
 }
 
 /**
- * @summary Queries the operation logs of a certificate authority (CA) certificate.
+ * @summary Queries the operation logs of a certificate authority (CA) certificate, such as issuance and revocation events.
+ *
+ * @description You can use this API to query the operation logs for a Certificate Authority (CA) certificate. These logs record operations, such as certificate creation and status changes, for both root and subordinate CA certificates.
+ * This API is limited to 10 queries per second (QPS) per user. API calls that exceed this limit are throttled. This can impact your business. Ensure that you call the API within this limit.
  *
  * @param request ListCACertificateLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1784,7 +1917,10 @@ ListCACertificateLogResponse Client::listCACertificateLogWithOptions(const ListC
 }
 
 /**
- * @summary Queries the operation logs of a certificate authority (CA) certificate.
+ * @summary Queries the operation logs of a certificate authority (CA) certificate, such as issuance and revocation events.
+ *
+ * @description You can use this API to query the operation logs for a Certificate Authority (CA) certificate. These logs record operations, such as certificate creation and status changes, for both root and subordinate CA certificates.
+ * This API is limited to 10 queries per second (QPS) per user. API calls that exceed this limit are throttled. This can impact your business. Ensure that you call the API within this limit.
  *
  * @param request ListCACertificateLogRequest
  * @return ListCACertificateLogResponse
@@ -1795,7 +1931,9 @@ ListCACertificateLogResponse Client::listCACertificateLog(const ListCACertificat
 }
 
 /**
- * @summary Queries a list of certificates.
+ * @summary Retrieves a list of certificates.
+ *
+ * @description The QPS limit for this API is 10 per user. If you exceed this limit, your API calls will be throttled. To avoid impacting your business, please plan your calls accordingly.
  *
  * @param request ListCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1862,7 +2000,9 @@ ListCertResponse Client::listCertWithOptions(const ListCertRequest &request, con
 }
 
 /**
- * @summary Queries a list of certificates.
+ * @summary Retrieves a list of certificates.
+ *
+ * @description The QPS limit for this API is 10 per user. If you exceed this limit, your API calls will be throttled. To avoid impacting your business, please plan your calls accordingly.
  *
  * @param request ListCertRequest
  * @return ListCertResponse
@@ -1873,11 +2013,11 @@ ListCertResponse Client::listCert(const ListCertRequest &request) {
 }
 
 /**
- * @summary Queries the details about all client certificates and server certificates.
+ * @summary Lists all client certificates and server certificates issued by a private certificate authority (CA).
  *
- * @description You can call the ListClientCertificate operation to perform a paged query of the details about all client certificates and server certificates that you create. The details include the unique identifier, serial number, user information, content, and status of each certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API performs a paged query to retrieve the details of all client and server-side certificates that you have created. These details include the unique identifier, serial number, subject information, content, and status of each certificate.
+ * ## QPS limit
+ * The QPS limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled, which may affect your business. Call this API at a reasonable rate.
  *
  * @param request ListClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1920,11 +2060,11 @@ ListClientCertificateResponse Client::listClientCertificateWithOptions(const Lis
 }
 
 /**
- * @summary Queries the details about all client certificates and server certificates.
+ * @summary Lists all client certificates and server certificates issued by a private certificate authority (CA).
  *
- * @description You can call the ListClientCertificate operation to perform a paged query of the details about all client certificates and server certificates that you create. The details include the unique identifier, serial number, user information, content, and status of each certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API performs a paged query to retrieve the details of all client and server-side certificates that you have created. These details include the unique identifier, serial number, subject information, content, and status of each certificate.
+ * ## QPS limit
+ * The QPS limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled, which may affect your business. Call this API at a reasonable rate.
  *
  * @param request ListClientCertificateRequest
  * @return ListClientCertificateResponse
@@ -1935,7 +2075,10 @@ ListClientCertificateResponse Client::listClientCertificate(const ListClientCert
 }
 
 /**
- * @summary Queries private certificate authority (CA) certificates.
+ * @summary Lists private certificate authority (CA) certificates.
+ *
+ * @description This operation lists CA certificates, including root and subordinate CA certificates.
+ * This operation has a limit of 10 queries per second (QPS) for each user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
  *
  * @param request ListPcaCaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1970,7 +2113,10 @@ ListPcaCaCertificateResponse Client::listPcaCaCertificateWithOptions(const ListP
 }
 
 /**
- * @summary Queries private certificate authority (CA) certificates.
+ * @summary Lists private certificate authority (CA) certificates.
+ *
+ * @description This operation lists CA certificates, including root and subordinate CA certificates.
+ * This operation has a limit of 10 queries per second (QPS) for each user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
  *
  * @param request ListPcaCaCertificateRequest
  * @return ListPcaCaCertificateResponse
@@ -1981,11 +2127,11 @@ ListPcaCaCertificateResponse Client::listPcaCaCertificate(const ListPcaCaCertifi
 }
 
 /**
- * @summary Queries the details about all client certificates and server certificates that are revoked.
+ * @summary Queries all revoked client certificates and server certificates.
  *
- * @description You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Performs a paged query to retrieve the details of all revoked client and server-side certificates, such as the unique identifier, serial number, and revocation date.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this API at a reasonable rate.
  *
  * @param request ListRevokeCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2020,11 +2166,11 @@ ListRevokeCertificateResponse Client::listRevokeCertificateWithOptions(const Lis
 }
 
 /**
- * @summary Queries the details about all client certificates and server certificates that are revoked.
+ * @summary Queries all revoked client certificates and server certificates.
  *
- * @description You can call the ListRevokeCertificate operation to perform a paged query of the details about all revoked client certificates and server certificates. The details include the unique identifier, serial number, and revocation date of each certificate.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Performs a paged query to retrieve the details of all revoked client and server-side certificates, such as the unique identifier, serial number, and revocation date.
+ * ## QPS limit
+ * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this API at a reasonable rate.
  *
  * @param request ListRevokeCertificateRequest
  * @return ListRevokeCertificateResponse
@@ -2035,7 +2181,12 @@ ListRevokeCertificateResponse Client::listRevokeCertificate(const ListRevokeCert
 }
 
 /**
- * @summary 获取资源对应的标签
+ * @summary Queries the tags that are attached to Certificate Management Service resources.
+ *
+ * @description Before you call this operation, you must purchase a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * You can call this operation up to 10 times per second per Alibaba Cloud account. If the number of calls per second exceeds this limit, throttling is triggered. This may affect your business. We recommend that you plan your calls accordingly.
+ * ## QPS limit
+ * You can call this operation up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds this limit, throttling is triggered, which may affect your business. We recommend that you plan your calls accordingly.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2086,7 +2237,12 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary 获取资源对应的标签
+ * @summary Queries the tags that are attached to Certificate Management Service resources.
+ *
+ * @description Before you call this operation, you must purchase a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * You can call this operation up to 10 times per second per Alibaba Cloud account. If the number of calls per second exceeds this limit, throttling is triggered. This may affect your business. We recommend that you plan your calls accordingly.
+ * ## QPS limit
+ * You can call this operation up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds this limit, throttling is triggered, which may affect your business. We recommend that you plan your calls accordingly.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2097,7 +2253,12 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 变更资源的资源组
+ * @summary Moves a Certificate Management Service resource to a different resource group.
+ *
+ * @description This operation queries the status information of a private CA instance that you purchased in the Certificate Management Service (CAS) console. You can query by the private CA instance ID to retrieve information such as the status of the CA instance, the number of certificates it contains, and the number of issued certificates.
+ * Before you call this operation, you must purchase a private CA in the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this operation within the specified limit.
  *
  * @param request MoveResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2140,7 +2301,12 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourc
 }
 
 /**
- * @summary 变更资源的资源组
+ * @summary Moves a Certificate Management Service resource to a different resource group.
+ *
+ * @description This operation queries the status information of a private CA instance that you purchased in the Certificate Management Service (CAS) console. You can query by the private CA instance ID to retrieve information such as the status of the CA instance, the number of certificates it contains, and the number of issued certificates.
+ * Before you call this operation, you must purchase a private CA in the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this operation within the specified limit.
  *
  * @param request MoveResourceGroupRequest
  * @return MoveResourceGroupResponse
@@ -2151,7 +2317,12 @@ MoveResourceGroupResponse Client::moveResourceGroup(const MoveResourceGroupReque
 }
 
 /**
- * @summary 新增资源标签
+ * @summary Attaches tags to one or more Certificate Management Service resources.
+ *
+ * @description This operation adds tags to one or more resources. You can add tags to private CA instances that you purchased in the Certificate Management Service (CAS) console.
+ * Before calling this operation, purchase a private CA in the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2194,7 +2365,12 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary 新增资源标签
+ * @summary Attaches tags to one or more Certificate Management Service resources.
+ *
+ * @description This operation adds tags to one or more resources. You can add tags to private CA instances that you purchased in the Certificate Management Service (CAS) console.
+ * Before calling this operation, purchase a private CA in the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -2205,7 +2381,12 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 移除标签
+ * @summary Removes tags from one or more Certificate Management Service resources.
+ *
+ * @description This operation queries status information for a private Certificate Authority (CA) instance that you purchased in the Certificate Management Service (CAS) console. You can use the private CA instance ID to retrieve information such as the instance status, the number of certificates it contains, and the number of certificates issued.
+ * Before you call this operation, you must purchase a private CA from the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second per user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2252,7 +2433,12 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary 移除标签
+ * @summary Removes tags from one or more Certificate Management Service resources.
+ *
+ * @description This operation queries status information for a private Certificate Authority (CA) instance that you purchased in the Certificate Management Service (CAS) console. You can use the private CA instance ID to retrieve information such as the instance status, the number of certificates it contains, and the number of certificates issued.
+ * Before you call this operation, you must purchase a private CA from the [CAS console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The queries per second (QPS) limit for this operation is 10 calls per second per user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -2263,12 +2449,12 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
+ * @summary Changes the status of a root or subordinate certificate authority (CA) certificate, such as revoking or disabling an active CA.
  *
- * @description After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
- * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description When you create a CA certificate, its status is ISSUE by default. You can call this API operation to change the status of a CA certificate from ISSUE to REVOKE. A CA certificate in the ISSUE state can be used to issue certificates. A CA certificate in the REVOKE state cannot be used to issue certificates, and all certificates issued by this CA certificate become invalid.
+ * Before you call this API operation, create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and an intermediate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html).
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request UpdateCACertificateStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2307,12 +2493,12 @@ UpdateCACertificateStatusResponse Client::updateCACertificateStatusWithOptions(c
 }
 
 /**
- * @summary Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
+ * @summary Changes the status of a root or subordinate certificate authority (CA) certificate, such as revoking or disabling an active CA.
  *
- * @description After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.
- * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description When you create a CA certificate, its status is ISSUE by default. You can call this API operation to change the status of a CA certificate from ISSUE to REVOKE. A CA certificate in the ISSUE state can be used to issue certificates. A CA certificate in the REVOKE state cannot be used to issue certificates, and all certificates issued by this CA certificate become invalid.
+ * Before you call this API operation, create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and an intermediate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html).
+ * ## QPS limit
+ * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request UpdateCACertificateStatusRequest
  * @return UpdateCACertificateStatusResponse
@@ -2323,7 +2509,12 @@ UpdateCACertificateStatusResponse Client::updateCACertificateStatus(const Update
 }
 
 /**
- * @summary 更新证书属性
+ * @summary Updates the properties of a private CA certificate, such as the export status.
+ *
+ * @description When a Certificate Authority (CA) certificate is created, its status is Normal by default. You can call this API operation to change the status of a CA certificate to Revoked. A CA certificate in the Normal status can be used to issue certificates. A revoked CA certificate cannot be used to issue certificates, and all certificates previously issued by it become invalid.
+ * Before you call this API operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html).
+ * ## QPS limits
+ * This API operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
  *
  * @param request UpdatePcaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2372,7 +2563,12 @@ UpdatePcaCertificateResponse Client::updatePcaCertificateWithOptions(const Updat
 }
 
 /**
- * @summary 更新证书属性
+ * @summary Updates the properties of a private CA certificate, such as the export status.
+ *
+ * @description When a Certificate Authority (CA) certificate is created, its status is Normal by default. You can call this API operation to change the status of a CA certificate to Revoked. A CA certificate in the Normal status can be used to issue certificates. A revoked CA certificate cannot be used to issue certificates, and all certificates previously issued by it become invalid.
+ * Before you call this API operation, you must create a root CA certificate by calling [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) and a subordinate CA certificate by calling [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html).
+ * ## QPS limits
+ * This API operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
  *
  * @param request UpdatePcaCertificateRequest
  * @return UpdatePcaCertificateResponse
@@ -2383,7 +2579,11 @@ UpdatePcaCertificateResponse Client::updatePcaCertificate(const UpdatePcaCertifi
 }
 
 /**
- * @summary Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
+ * @summary Uploads a private CA certificate to Certificate Management Service for centralized management.
+ *
+ * @description This API operation uploads a PCA certificate to a certificate repository.
+ * ## QPS limit
+ * This operation has a queries per second (QPS) limit of 10 calls per second for each user. If you exceed the limit, your API calls are throttled. Throttling may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request UploadPcaCertToCasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2414,7 +2614,11 @@ UploadPcaCertToCasResponse Client::uploadPcaCertToCasWithOptions(const UploadPca
 }
 
 /**
- * @summary Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
+ * @summary Uploads a private CA certificate to Certificate Management Service for centralized management.
+ *
+ * @description This API operation uploads a PCA certificate to a certificate repository.
+ * ## QPS limit
+ * This operation has a queries per second (QPS) limit of 10 calls per second for each user. If you exceed the limit, your API calls are throttled. Throttling may affect your business. We recommend that you call this operation at a reasonable rate.
  *
  * @param request UploadPcaCertToCasRequest
  * @return UploadPcaCertToCasResponse

@@ -262,53 +262,59 @@ namespace Models
 
 
     protected:
-      // The expiration date of the certificate. The date is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-12-31T00:00Z` indicates December 31, 2021.
+      // The expiration date of the certificate. The format is `yyyy-MM-ddT00:00Z`. For example, `2021-12-31T00:00Z` indicates December 31, 2021.
       shared_ptr<string> afterDate_ {};
       // The type of the encryption algorithm of the certificate. Valid values:
       // 
-      // *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-      // *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-      // *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+      // - **RSA**: the RSA algorithm.
+      // 
+      // - **ECC**: the ECC algorithm.
+      // 
+      // - **SM2**: the SM2 algorithm.
       shared_ptr<string> algorithm_ {};
-      // The issuance date of the certificate. The date is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-01-01T00:00Z` indicates January 1, 2021.
+      // The date when the certificate was issued. The format is `yyyy-MM-ddT00:00Z`. For example, `2021-01-01T00:00Z` indicates January 1, 2021.
       shared_ptr<string> beforeDate_ {};
       // The type of the certificate.
       shared_ptr<string> certificateType_ {};
       // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The code of the country in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The country code of the organization that is associated with the subordinate CA certificate that issued the certificate.
       // 
-      // For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+      // For more information about country codes, see the "Country codes" section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
+      // The custom identifier. This is a unique key.
       shared_ptr<string> customIdentifier_ {};
       // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
       // The key length of the certificate.
       shared_ptr<int32_t> keySize_ {};
-      // The name of the city in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The name of the city where the organization of the subordinate CA certificate that issued the certificate is located.
       shared_ptr<string> locality_ {};
       // The MD5 fingerprint of the certificate.
       shared_ptr<string> md5_ {};
-      // The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The name of the organization that is associated with the subordinate CA certificate that issued the certificate.
       shared_ptr<string> organization_ {};
-      // The name of the department in the organization. The organization is associated with the intermediate certificate authority (CA) certificate from which the certificate is issued.
+      // The name of the department of the organization that is associated with the subordinate CA certificate that issued the certificate.
       shared_ptr<string> organizationUnit_ {};
-      // The identifier of the root certificate.
+      // The identifier of the parent certificate.
       shared_ptr<string> parentIdentifier_ {};
-      // The date on which the certificate was revoked. The value is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-09-01T00:00Z` indicates September 1, 2021.
+      // The date when the certificate was revoked. The format is `yyyy-MM-ddT00:00Z`. For example, `2021-09-01T00:00Z` indicates September 1, 2021.
       shared_ptr<string> revokeDate_ {};
-      // The subject alternative name (SAN) extension of the certificate.
+      // The Subject Alternative Name (SAN) extension of the certificate.
       // 
-      // The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
+      // This parameter is a string that is converted from a JSON array. Each element in the JSON array is a struct that corresponds to a SAN extension. Each SAN extension struct contains the following parameters:
       // 
-      // *   **Type**: the type of the extension. Data type: integer. Valid values:
+      // - **Type**: The type of the extension. This parameter is of the integer type. Valid values:
       // 
-      //     *   **1**: an email address
-      //     *   **2**: a domain name
-      //     *   **6**: a Uniform Resource Identifier (URI)
-      //     *   **7**: an IP address
+      //   - **1**: an email address.
       // 
-      // *   **Value**: the value of the extension. Data type: string.
+      //   - **2**: a domain name.
+      // 
+      //   - **6**: a Uniform Resource Identifier (URI).
+      // 
+      //   - **7**: an IP address.
+      // 
+      // - **Value**: The content of the extension. This parameter is of the string type.
       shared_ptr<string> sans_ {};
       // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
@@ -316,18 +322,35 @@ namespace Models
       shared_ptr<string> sha2_ {};
       // The signature algorithm of the certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // The name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The name of the province or state of the organization that is associated with the subordinate CA certificate that issued the certificate.
       shared_ptr<string> state_ {};
-      // The status.
+      // The status of the certificate.
       shared_ptr<string> status_ {};
-      // The distinguished name (DN) extension of the certificate, which indicates the user of the certificate. The DN extension includes the following information:
+      // The Distinguished Name (DN) of the certificate. The DN indicates the user of the certificate and contains the following information:
       // 
-      // *   **C**: the country
-      // *   **O**: the organization
-      // *   **OU**: the department
-      // *   **L**: the city
-      // *   **ST**: the province, municipality, or autonomous region
-      // *   **CN**: the common name
+      // - **C**: The country.
+      // 
+      // - **O**: The organization.
+      // 
+      // - **OU**: The department.
+      // 
+      // - **CN**: The common name.
+      // 
+      // <props="china">
+      // 
+      // - **ST**: The province, municipality, or autonomous region.
+      // 
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // - **ST**: The province or state.
+      // 
+      // 
+      // 
+      // 
+      // - **CN**: The common name.
       shared_ptr<string> subjectDN_ {};
     };
 
@@ -378,7 +401,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details about the revoked client certificates or server certificates.
+    // The details of the revoked client or server-side certificates.
     shared_ptr<vector<ListRevokeCertificateResponseBody::CertificateList>> certificateList_ {};
     // The page number of the current page.
     shared_ptr<int32_t> currentPage_ {};
@@ -386,9 +409,9 @@ namespace Models
     shared_ptr<int32_t> pageCount_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of revoked certificates that are returned per page.
+    // The number of revoked certificates on each page.
     shared_ptr<int32_t> showSize_ {};
-    // The total number of revoked client certificates and server certificates that are returned.
+    // The total number of revoked client and server-side certificates.
     shared_ptr<int64_t> totalCount_ {};
   };
 

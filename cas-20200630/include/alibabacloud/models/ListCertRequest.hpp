@@ -121,15 +121,35 @@ namespace Models
 
 
   protected:
+    // Filters certificates modified after this date.
     shared_ptr<string> afterDate_ {};
+    // Filters certificates modified before this date.
     shared_ptr<string> beforeDate_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The UUID of the instance.
     shared_ptr<string> instanceUuid_ {};
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. This is the NextToken value from a previous response. If unspecified, the first page is returned.
     shared_ptr<string> nextToken_ {};
+    // The identifier of the intermediate CA that issued the certificate.
     shared_ptr<string> parentIdentifier_ {};
+    // The page size. Default value: 50.
     shared_ptr<int32_t> showSize_ {};
+    // The status of the certificate. Valid values:
+    // 
+    // - ISSUE: Active
+    // 
+    // - REVOKE: Revoked
     shared_ptr<string> status_ {};
+    // The certificate type. Valid values:
+    // 
+    // - SERVER: Server certificate
+    // 
+    // - CLIENT: Client certificate
+    // 
+    // - END_ENTITY: End-entity certificate
     shared_ptr<string> type_ {};
   };
 

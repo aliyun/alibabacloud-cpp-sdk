@@ -147,7 +147,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -373,59 +375,71 @@ namespace Models
     protected:
       // The expiration date of the certificate. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> afterDate_ {};
-      // The type of the encryption algorithm of the certificate. Valid values:
+      // The type of the encryption algorithm. Valid values:
       // 
-      // *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-      // *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-      // *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+      // - **RSA**: the RSA algorithm.
+      // 
+      // - **ECC**: the ECC algorithm.
+      // 
+      // - **SM2**: the SM2 algorithm.
       shared_ptr<string> algorithm_ {};
+      // The alias of the issued certificate.
       shared_ptr<string> aliasName_ {};
       // The issuance date of the certificate. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
+      // The complete certificate chain.
       shared_ptr<string> certChain_ {};
       // The type of the certificate. Valid values:
       // 
-      // *   **CLIENT**: client certificate
-      // *   **SERVER**: server certificate
+      // - **CLIENT**: a client certificate.
+      // 
+      // - **SERVER**: a server-side certificate.
       shared_ptr<string> certificateType_ {};
       // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The code of the country in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The country code of the subject organization.
       // 
-      // For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+      // For more information about country codes, see the **International codes** section in [Manage company profiles](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
+      // The custom identifier, which is a unique key.
       shared_ptr<string> customIdentifier_ {};
       // The validity period of the certificate. Unit: days.
       shared_ptr<int32_t> days_ {};
+      // The algorithm and its length.
       shared_ptr<string> fullAlgorithm_ {};
+      // The ID of the data source to which the certificate order belongs.
       shared_ptr<int64_t> id_ {};
       // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
       // The key length of the certificate.
       shared_ptr<int32_t> keySize_ {};
-      // The name of the city in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The city where the subject organization is located.
       shared_ptr<string> locality_ {};
       // The MD5 fingerprint of the certificate.
       shared_ptr<string> md5_ {};
-      // The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The organization associated with the certificate of the issuing subordinate CA.
       shared_ptr<string> organization_ {};
-      // The name of the department in the organization. The organization is associated with the intermediate certificate authority (CA) certificate from which the certificate is issued.
+      // The organizational unit of the certificate subject.
       shared_ptr<string> organizationUnit_ {};
-      // The unique identifier of the intermediate certificate from which the client certificate is issued.
+      // The unique identifier of the subordinate CA certificate that issued the certificate.
       shared_ptr<string> parentIdentifier_ {};
+      // The ID of the resource group to which the certificate belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The subject alternative name (SAN) extension of the certificate. The value indicates additional information, including the additional domain names or IP addresses that are associated with the certificate.
+      // The Subject Alternative Name (SAN) extension of the certificate. The SAN extension indicates other domain names or IP addresses that are associated with the certificate.
       // 
-      // The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
+      // This parameter is a string that is converted from a JSON array. Each element in the JSON array is a struct that corresponds to a SAN extension. Each SAN extension struct contains the following parameters:
       // 
-      // *   **Type**: the type of the extension. Data type: integer. Valid values:
+      // - **Type**: The type of the extension. This parameter is of the Integer type. Valid values:
       // 
-      //     *   **1**: an email address
-      //     *   **2**: a domain name
-      //     *   **6**: a Uniform Resource Identifier (URI)
-      //     *   **7**: an IP address
+      //   - **1**: an email address.
       // 
-      // *   **Value**: the value of the extension. Data type: string.
+      //   - **2**: a domain name.
+      // 
+      //   - **6**: a Uniform Resource Identifier (URI).
+      // 
+      //   - **7**: an IP address.
+      // 
+      // - **Value**: The content of the extension. This parameter is of the String type.
       shared_ptr<string> sans_ {};
       // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
@@ -433,23 +447,43 @@ namespace Models
       shared_ptr<string> sha2_ {};
       // The signature algorithm of the certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // The name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The state or province where the subject organization is located.
       shared_ptr<string> state_ {};
       // The status of the certificate. Valid values:
       // 
-      // *   **ISSUE**: issued
-      // *   **REVOKE**: revoked
-      shared_ptr<string> status_ {};
-      // The distinguished name (DN) extension of the certificate, which indicates the user of the certificate. The DN extension includes the following information:
+      // - **ISSUE**: The certificate is issued.
       // 
-      // *   **C**: the country
-      // *   **O**: the organization
-      // *   **OU**: the department
-      // *   **L**: the city
-      // *   **ST**: the province, municipality, or autonomous region
-      // *   **CN**: the common name
+      // - **REVOKE**: The certificate is revoked.
+      shared_ptr<string> status_ {};
+      // The subject Distinguished Name (DN) of the certificate. This value is composed of the following fields:
+      // 
+      // - **C**: Country.
+      // 
+      // - **O**: Organization.
+      // 
+      // - **OU**: Organizational unit.
+      // 
+      // - **CN**: Common name.
+      // 
+      // <props="china">
+      // 
+      // - **ST**: The province, municipality, or autonomous region.
+      // 
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // - **ST**: Province or state.
+      // 
+      // 
+      // 
+      // 
+      // - **CN**: Common name.
       shared_ptr<string> subjectDN_ {};
+      // The list of tags.
       shared_ptr<vector<Certificate::Tags>> tags_ {};
+      // Indicates whether the certificate is synchronized to Digital Certificate Management Service.
       shared_ptr<int32_t> uploadFlag_ {};
       // The content of the certificate.
       shared_ptr<string> x509Certificate_ {};
@@ -474,7 +508,7 @@ namespace Models
 
 
   protected:
-    // The details about the client certificate or the server certificate.
+    // The details of the client certificate or server-side certificate.
     shared_ptr<DescribeClientCertificateResponseBody::Certificate> certificate_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

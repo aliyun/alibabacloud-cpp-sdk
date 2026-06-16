@@ -304,55 +304,65 @@ namespace Models
       shared_ptr<int64_t> afterDate_ {};
       // The type of the encryption algorithm of the certificate. Valid values:
       // 
-      // *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-      // *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-      // *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+      // - **RSA**: RSA algorithm.
+      // 
+      // - **ECC**: ECC algorithm.
+      // 
+      // - **SM2**: SM2 algorithm.
       shared_ptr<string> algorithm_ {};
+      // The name of the issued certificate.
       shared_ptr<string> aliasName_ {};
       // The issuance date of the certificate. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
       // The type of the certificate. Valid values:
       // 
-      // *   **CLIENT**: client certificate
-      // *   **SERVER**: server certificate
+      // - **CLIENT**: a client certificate.
+      // 
+      // - **SERVER**: a server-side certificate.
       shared_ptr<string> certificateType_ {};
       // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The code of the country in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The country code of the country where the organization associated with the issuing subordinate CA certificate is located.
       // 
-      // For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+      // For more information about country codes, see the **Country codes** section of [Manage company information](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
+      // The custom identifier, which is a unique key.
       shared_ptr<string> customIdentifier_ {};
       // The validity period of the certificate. Unit: days.
       shared_ptr<int32_t> days_ {};
+      // The primary key ID of the certificate.
       shared_ptr<int64_t> id_ {};
       // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
       // The key length of the certificate.
       shared_ptr<int32_t> keySize_ {};
-      // The name of the city in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The city where the organization associated with the issuing subordinate CA certificate is located.
       shared_ptr<string> locality_ {};
       // The MD5 fingerprint of the certificate.
       shared_ptr<string> md5_ {};
-      // The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // The name of the organization that is associated with the issuing subordinate CA certificate.
       shared_ptr<string> organization_ {};
-      // The name of the department in the organization. The organization is associated with the intermediate certificate authority (CA) certificate from which the certificate is issued.
+      // The name of the department of the organization that is associated with the issuing subordinate certificate authority (CA) certificate.
       shared_ptr<string> organizationUnit_ {};
-      // The unique identifier of the intermediate certificate from which the client certificate is issued.
+      // The unique identifier of the subordinate CA certificate that issued this certificate.
       shared_ptr<string> parentIdentifier_ {};
+      // The ID of the resource group to which the certificate belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The subject alternative name (SAN) extension of the certificate. The value indicates additional information, including the additional domain names or IP addresses that are associated with the certificate.
+      // The Subject Alternative Name (SAN) extension of the certificate. This extension indicates other domain names, IP addresses, and so on that are associated with the certificate.
       // 
-      // The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
+      // This parameter is a string that is converted from a JSON array. Each element in the JSON array is a struct that corresponds to a SAN extension. Each SAN extension struct contains the following parameters:
       // 
-      // *   **Type**: the type of the extension. Data type: integer. Valid values:
+      // - **Type**: The type of the extension. This parameter is of the Integer type. Valid values:
       // 
-      //     *   **1**: an email address
-      //     *   **2**: a domain name
-      //     *   **6**: a Uniform Resource Identifier (URI)
-      //     *   **7**: an IP address
+      //   - **1**: an email address.
       // 
-      // *   **Value**: the value of the extension. Data type: string.
+      //   - **2**: a domain name.
+      // 
+      //   - **6**: a Uniform Resource Identifier (URI).
+      // 
+      //   - **7**: an IP address.
+      // 
+      // - **Value**: The content of the extension. This parameter is of the String type.
       shared_ptr<string> sans_ {};
       // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
@@ -360,21 +370,40 @@ namespace Models
       shared_ptr<string> sha2_ {};
       // The signature algorithm of the certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // The name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+      // <props="china">The name of the province, municipality, or autonomous region where the organization associated with the issuing subordinate CA certificate is located.
+      // <props="intl">The name of the province or state where the organization associated with the issuing subordinate CA certificate is located.
       shared_ptr<string> state_ {};
       // The status of the certificate. Valid values:
       // 
-      // *   **ISSUE**: issued
-      // *   **REVOKE**: revoked
-      shared_ptr<string> status_ {};
-      // The distinguished name (DN) extension of the certificate, which indicates the user of the certificate. The DN extension includes the following information:
+      // - **ISSUE**: The certificate is issued.
       // 
-      // *   **C**: the country
-      // *   **O**: the organization
-      // *   **OU**: the department
-      // *   **L**: the city
-      // *   **ST**: the province, municipality, or autonomous region
-      // *   **CN**: the common name
+      // - **REVOKE**: The certificate is revoked.
+      shared_ptr<string> status_ {};
+      // The Distinguished Name (DN) of the certificate. The DN indicates the user of the certificate and contains the following information:
+      // 
+      // - **C**: The country.
+      // 
+      // - **O**: The organization.
+      // 
+      // - **OU**: The department.
+      // 
+      // - **L**: The city.
+      // 
+      // <props="china">
+      // 
+      // - **ST**: The province, municipality, or autonomous region.
+      // 
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // - **ST**: The province or state.
+      // 
+      // 
+      // 
+      // 
+      // - **CN**: The common name.
       shared_ptr<string> subjectDN_ {};
       // The content of the certificate.
       shared_ptr<string> x509Certificate_ {};
@@ -435,18 +464,19 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details about all client certificates and server certificates.
+    // A list of details about the client or server-side certificates.
     shared_ptr<vector<ListClientCertificateResponseBody::CertificateList>> certificateList_ {};
-    // The page number of the current page.
+    // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
+    // Paging parameter: the maximum number of entries in the result set.
     shared_ptr<int32_t> maxResults_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> pageCount_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of certificates that are returned per page.
+    // The number of certificates returned per page.
     shared_ptr<int32_t> showSize_ {};
-    // The number of client certificates and server certificates that are returned.
+    // The total number of client and server-side certificates that are queried.
     shared_ptr<int64_t> totalCount_ {};
   };
 

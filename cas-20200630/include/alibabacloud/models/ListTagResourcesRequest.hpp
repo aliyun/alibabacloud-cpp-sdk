@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The key of the tag to query. You can specify multiple tag keys. n is a positive integer.
       shared_ptr<string> key_ {};
+      // The tag value. The value of n can be from 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -131,13 +133,21 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return for this call.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query. If this parameter is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource ID.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set the value to **instance**.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The information about the instances and tags that are queried.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

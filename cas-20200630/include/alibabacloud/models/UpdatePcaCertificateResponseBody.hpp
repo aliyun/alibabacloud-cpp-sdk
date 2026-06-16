@@ -115,13 +115,25 @@ namespace Models
 
 
     protected:
+      // The unauthorized operation that you attempted to perform.
       shared_ptr<string> authAction_ {};
+      // The identity that is used for authorization in the request. Valid values:
+      // 
+      // - RAM user: UID of the RAM user
+      // 
+      // - RAM role: RoleName:RoleSessionName
+      // 
+      // - Federated user: ProviderType/ProviderName
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // AuthPrincipalOwnerId
+      // The ID of the Alibaba Cloud account to which the authorized principal belongs.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The type of the identity.
       shared_ptr<string> authPrincipalType_ {};
+      // The complete diagnostic information that is encrypted.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The reason why the authorization failed. Valid values: ExplicitDeny: The authorization is explicitly denied. ImplicitDeny: The authorization is implicitly denied.
       shared_ptr<string> noPermissionType_ {};
+      // The type of the policy.
       shared_ptr<string> policyType_ {};
     };
 
@@ -144,8 +156,9 @@ namespace Models
 
 
   protected:
+    // The error details of the authorization.
     shared_ptr<UpdatePcaCertificateResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

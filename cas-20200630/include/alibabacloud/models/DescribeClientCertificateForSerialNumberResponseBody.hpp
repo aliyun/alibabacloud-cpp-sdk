@@ -254,27 +254,100 @@ namespace Models
 
 
     protected:
+      // The expiration time of the certificate.
       shared_ptr<string> afterDate_ {};
+      // The encryption algorithm of the certificate. Valid values:
+      // 
+      // - **RSA**: The RSA algorithm.
+      // 
+      // - **ECC**: The ECC algorithm.
+      // 
+      // - **SM2**: The SM2 algorithm.
       shared_ptr<string> algorithm_ {};
+      // The issuance time of the certificate.
       shared_ptr<string> beforeDate_ {};
+      // The type of the certificate.
       shared_ptr<string> certificateType_ {};
+      // The common name of the certificate.
       shared_ptr<string> commonName_ {};
+      // The two-letter country code of the issuer.
+      // 
+      // For more information about country codes, see the **Country codes** section in [Manage company profiles](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
+      // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
+      // The key length of the certificate.
       shared_ptr<int32_t> keySize_ {};
+      // The city of the issuer.
       shared_ptr<string> locality_ {};
+      // The MD5 fingerprint of the certificate.
       shared_ptr<string> md5_ {};
+      // The organization of the issuer.
       shared_ptr<string> organization_ {};
+      // The organizational unit of the issuer.
       shared_ptr<string> organizationUnit_ {};
+      // The identifier of the issuer. This parameter is returned only if the certificate is issued by Alibaba Cloud.
       shared_ptr<string> parentIdentifier_ {};
+      // The subject alternative name (SAN) extension, which specifies identifiers such as email addresses, domain names, URIs, and IP addresses.
+      // 
+      // A JSON string that represents an array of SAN objects. Each object contains the following parameters:
+      // 
+      // - **Type**: The type of the extension. This parameter is an integer. Valid values:
+      // 
+      //   - **1**: email address.
+      // 
+      //   - **2**: domain name.
+      // 
+      //   - **6**: uniform resource identifier (URI).
+      // 
+      //   - **7**: IP address.
+      // 
+      // - **Value**: The content of the extension. This parameter is a string.
       shared_ptr<string> sans_ {};
+      // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
+      // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> sha2_ {};
+      // The signature algorithm of the certificate.
       shared_ptr<string> signAlgorithm_ {};
+      // <props="china">The state or province of the issuer.
+      // <props="intl">The state or province of the issuer.
       shared_ptr<string> state_ {};
+      // The status of the certificate. Valid values:
+      // 
+      // - **ISSUE**: The certificate is issued.
+      // 
+      // - **REVOKE**: The certificate is revoked.
       shared_ptr<string> status_ {};
+      // The distinguished name (DN) of the certificate. The DN contains information about the certificate subject, including:
+      // 
+      // - **C**: Country.
+      // 
+      // - **O**: Organization.
+      // 
+      // - **OU**: Organizational unit.
+      // 
+      // - **L**: City.
+      // 
+      // <props="china">
+      // 
+      // - **ST**: State or province.
+      // 
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // - **ST**: State or province.
+      // 
+      // 
+      // 
+      // 
+      // - **CN**: Common name.
       shared_ptr<string> subjectDN_ {};
+      // The certificate content.
       shared_ptr<string> x509Certificate_ {};
+      // This parameter is deprecated.
       shared_ptr<int32_t> years_ {};
     };
 
@@ -297,7 +370,9 @@ namespace Models
 
 
   protected:
+    // Details of the client or server certificates.
     shared_ptr<vector<DescribeClientCertificateForSerialNumberResponseBody::CertificateList>> certificateList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

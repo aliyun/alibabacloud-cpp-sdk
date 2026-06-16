@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The certificate chain of the client certificate.
+    // The CA certificate chain.
     shared_ptr<string> certificateChain_ {};
     // The unique identifier of the client certificate.
     shared_ptr<string> identifier_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The serial number of the certificate.
+    // The certificate serial number.
     shared_ptr<string> serialNumber_ {};
     // The content of the client certificate.
     shared_ptr<string> x509Certificate_ {};

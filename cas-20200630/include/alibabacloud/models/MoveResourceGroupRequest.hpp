@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the destination resource group.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the resource to move.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The type of the resource. Set the value to **instance**.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

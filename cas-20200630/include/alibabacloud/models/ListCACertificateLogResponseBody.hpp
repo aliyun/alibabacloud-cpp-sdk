@@ -88,9 +88,17 @@ namespace Models
 
 
     protected:
+      // The description of the operation.
       shared_ptr<string> content_ {};
+      // The time of the operation. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // The unique identifier of the CA certificate.
       shared_ptr<string> identifier_ {};
+      // The type of the operation. Valid values:
+      // 
+      // - **ADD**: A CA certificate is created.
+      // 
+      // - **UPDATE**: The status of the CA certificate is updated.
       shared_ptr<string> opType_ {};
     };
 
@@ -113,7 +121,9 @@ namespace Models
 
 
   protected:
+    // A list of operation logs for the CA certificate.
     shared_ptr<vector<ListCACertificateLogResponseBody::LogList>> logList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

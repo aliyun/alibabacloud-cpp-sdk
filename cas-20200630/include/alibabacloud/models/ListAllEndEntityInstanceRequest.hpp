@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The maximum number of entries to return for this call.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. You can get this token from the \\`NextToken\\` response parameter of the previous query.
     shared_ptr<string> nextToken_ {};
+    // The ID of the parent instance.
     shared_ptr<int64_t> parentId_ {};
+    // Specifies whether to return information about the billing type in the response. Valid values: -**0**: The information is not returned. -**1**: The information is returned.
     shared_ptr<int32_t> recursiveChildren_ {};
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> showSize_ {};
   };
 
