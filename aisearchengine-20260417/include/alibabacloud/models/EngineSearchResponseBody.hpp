@@ -140,10 +140,19 @@ namespace Models
 
 
       protected:
+        // 算法内容
         Darabonba::Json algorithm_ {};
+        // 内容详情对象（详细结构见下文）
         Darabonba::Json content_ {};
+        // 权益绑定 ID
         shared_ptr<string> id_ {};
+        // 相关性得分
         shared_ptr<float> score_ {};
+        // 回传日志时使用。
+        // 
+        // 取值：
+        // 
+        // trace_id=ali。
         Darabonba::Json traceInfo_ {};
       };
 
@@ -220,14 +229,28 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The additional metadata. 
+      // 
+      // > Contains the exclude_ids field, which represents the list of IDs that were actually excluded. The format is `Array[String]`.
+      // > - Example: ["id_1", "id_2"].
       Darabonba::Json extra_ {};
+      // 搜索结果列表
       shared_ptr<vector<Data::Items>> items_ {};
+      // The search page number.
       shared_ptr<int32_t> page_ {};
+      // The response ID of this request.
       shared_ptr<string> requestId_ {};
+      // The number of results returned on the current page.
       shared_ptr<int32_t> size_ {};
+      // The execution status.
+      // 200: succeeded.
+      // 500: failed.
       shared_ptr<string> status_ {};
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
+      // The Tracing Analysis information.
       Darabonba::Json traceInfo_ {};
     };
 
@@ -257,8 +280,11 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
+    // The business data body.
     shared_ptr<EngineSearchResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
   };
 

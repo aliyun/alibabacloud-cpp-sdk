@@ -135,14 +135,23 @@ namespace Models
 
 
     protected:
+      // Structured response data
       shared_ptr<string> data_ {};
+      // Incremental text output
       shared_ptr<string> delta_ {};
+      // See error code list
       shared_ptr<string> errorCode_ {};
+      // See error code list
       shared_ptr<string> errorText_ {};
+      // Completion reason. When the value is stop, it indicates output is complete; on error, the output is the error reason.
       shared_ptr<string> finishReason_ {};
+      // Unique identifier. For multi-segment text, different segments use different ids, while the id remains consistent within a text segment
       shared_ptr<string> id_ {};
+      // Request ID
       shared_ptr<string> requestId_ {};
+      // Whether the error is retryable, defaults to true
       shared_ptr<bool> retryable_ {};
+      // Same as event
       shared_ptr<string> type_ {};
     };
 
@@ -172,8 +181,45 @@ namespace Models
 
 
   protected:
+    // Protocol data
     shared_ptr<QaChatResponseBody::Data> data_ {};
+    // Event type description:
+    // 
+    // 1. Lifecycle
+    //    - start / finish
+    //    - Marks the beginning and end of a message
+    // 
+    // 2. Text content
+    //    - text-start / text-delta / text-end
+    //    - Markdown text streaming output
+    // 
+    // 3. Inline media
+    //    - data-image-info / data-video-info
+    //    - Media cards in text-image/text-video mixed content
+    // 
+    // 4. Source references
+    //    - data-reference
+    //    - Unified source list (web / document / image / video)
+    // 
+    // 5. Inline references
+    //    - data-document-ref
+    //    - Perplexity-style inline document references
+    // 
+    // 6. Template video
+    //    - data-template-video
+    //    - Video cards output by AV template agent
+    // 
+    // 7. Template analysis
+    //    - data-video-info / data-template-info / data-template-video-content
+    //    - Analysis result data from AV template agent
+    //    - Table-type templates such as "Speech Transcription", "Video Outline", and "Video-to-Script" are delivered at once via data-template-video-content
+    // 
+    // 8. Streaming JSON
+    //    - json-start / json-delta / json-end
+    //    - Incremental delta-only JSON streaming protocol
+    //    - Used for structured JSON template analysis output such as "Action Expression"
     shared_ptr<string> event_ {};
+    // Request ID, same as requestId
     shared_ptr<string> id_ {};
   };
 

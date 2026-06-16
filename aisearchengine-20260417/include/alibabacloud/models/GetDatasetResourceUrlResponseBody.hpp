@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The temporary OSS access URL with a signature and expiration time (valid for 24 hours). The URL can be used directly for frontend display or download.
       shared_ptr<string> url_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The business status code. A value of `200` indicates a successful request. Other values indicate an exception. For more information, see error codes.
     shared_ptr<int32_t> code_ {};
+    // The business data body.
     shared_ptr<GetDatasetResourceUrlResponseBody::Data> data_ {};
+    // The status description. The value is "success" for successful requests and a specific error message for failed requests.
     shared_ptr<string> message_ {};
+    // The unique request ID, used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

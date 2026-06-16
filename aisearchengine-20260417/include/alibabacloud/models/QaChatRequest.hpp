@@ -124,10 +124,25 @@ namespace Models
 
 
       protected:
+        // Required when type = "data". The data object structure is as follows:
+        // 
+        // - type: String type, required, indicates the data subtype. Currently supported value is "template", indicating a video template.
+        // - videoId: String type, conditionally required. Only required when type = "template", indicating the video template ID; can be ignored or set to null for other types.
         Darabonba::Json data_ {};
+        // Required when `type="file"`.
+        // 
+        // * Media type, currently only supports image formats JPG/PNG/WEBP/JPEG, maximum 5
         shared_ptr<string> mediaType_ {};
+        // Required when `type="text"`.
+        // 
+        // * Text content, maximum 1024 characters
         shared_ptr<string> text_ {};
+        // Fixed content block type, only supports `"text"` / `"file"` / `"data"`
         shared_ptr<string> type_ {};
+        // Required when `type="file"`. Supports the following two types, with format support for JPG/PNG/WEBP/JPEG:
+        // 
+        // • Media resource CDN URL, currently supports images, maximum 5;
+        // • Image encoding, upload image files using base64 encoded strings (supports bitmap formats), maximum 5
         shared_ptr<string> url_ {};
       };
 
@@ -150,7 +165,9 @@ namespace Models
 
 
     protected:
+      // Individual content block, differentiated by `type`
       shared_ptr<vector<Message::Parts>> parts_ {};
+      // Message role, currently only supports the `"user"` role
       shared_ptr<string> role_ {};
     };
 
@@ -189,11 +206,17 @@ namespace Models
 
 
   protected:
+    // Application ID
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // User message object containing role and multimodal content.
+    // 
     // This parameter is required.
     shared_ptr<QaChatRequest::Message> message_ {};
+    // No input required
     Darabonba::Json options_ {};
+    // Q&A session ID, used to track multiple Q&A interactions from the same user.
     shared_ptr<string> sessionId_ {};
   };
 

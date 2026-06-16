@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The dataset ID. You can view this in the dataset list on the console.
     shared_ptr<string> datasetId_ {};
+    // The primary key value of the data record in the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> primaryKey_ {};
   };

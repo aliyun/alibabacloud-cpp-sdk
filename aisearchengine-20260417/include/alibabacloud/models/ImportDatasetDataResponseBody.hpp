@@ -68,9 +68,13 @@ namespace Models
 
 
   protected:
+    // The business status code. A value of 200 indicates a successful request. Other values indicate exceptions. For more information, see error codes.
     shared_ptr<int32_t> code_ {};
+    // The response data body, which uses an empty placeholder.
     Darabonba::Json data_ {};
+    // The status description.
     shared_ptr<string> message_ {};
+    // The unique request ID, used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 
