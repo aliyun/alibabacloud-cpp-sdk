@@ -94,7 +94,7 @@ namespace AntiddosPublic20170518
       Models::DescribeDdosCountResponse describeDdosCount(const Models::DescribeDdosCountRequest &request);
 
       /**
-       * @summary Queries the details of the security credit score of the current Alibaba Cloud account in a specific region.
+       * @summary Retrieves the details of the security credit score of the current Alibaba Cloud account in a specific region.
        *
        * @description You can call the DescribeDdosCredit operation to query the details of the security credit score of the current Alibaba Cloud account in a specific region. The details include the security credit score, security credit level, and the time period after which blackhole filtering is automatically deactivated.
        * ## Limits
@@ -107,7 +107,7 @@ namespace AntiddosPublic20170518
       Models::DescribeDdosCreditResponse describeDdosCreditWithOptions(const Models::DescribeDdosCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the security credit score of the current Alibaba Cloud account in a specific region.
+       * @summary Retrieves the details of the security credit score of the current Alibaba Cloud account in a specific region.
        *
        * @description You can call the DescribeDdosCredit operation to query the details of the security credit score of the current Alibaba Cloud account in a specific region. The details include the security credit score, security credit level, and the time period after which blackhole filtering is automatically deactivated.
        * ## Limits
@@ -119,11 +119,11 @@ namespace AntiddosPublic20170518
       Models::DescribeDdosCreditResponse describeDdosCredit(const Models::DescribeDdosCreditRequest &request);
 
       /**
-       * @summary Queries the details of the DDoS attack events that occur on an asset. The asset is assigned a public IP address.
+       * @summary Lists DDoS attack events for a specified asset with a public IP address.
        *
-       * @description You can call the DescribeDdosEventList operation to query the details of the DDoS attack events that occur on an asset by page. The details include the start time, end time, and status of each DDoS attack event.
-       * ## [](#qps-)Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation performs a paged query to retrieve the details of DDoS attack events for a specific asset with a public IP address. The details include the start time, end time, and status of each event.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 for each user. API calls are throttled if you exceed the limit. This can affect your business. We recommend that you call this operation a reasonable number of times.
        *
        * @param request DescribeDdosEventListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,11 +132,11 @@ namespace AntiddosPublic20170518
       Models::DescribeDdosEventListResponse describeDdosEventListWithOptions(const Models::DescribeDdosEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the DDoS attack events that occur on an asset. The asset is assigned a public IP address.
+       * @summary Lists DDoS attack events for a specified asset with a public IP address.
        *
-       * @description You can call the DescribeDdosEventList operation to query the details of the DDoS attack events that occur on an asset by page. The details include the start time, end time, and status of each DDoS attack event.
-       * ## [](#qps-)Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation performs a paged query to retrieve the details of DDoS attack events for a specific asset with a public IP address. The details include the start time, end time, and status of each event.
+       * ## QPS limits
+       * The queries per second (QPS) limit for this operation is 10 for each user. API calls are throttled if you exceed the limit. This can affect your business. We recommend that you call this operation a reasonable number of times.
        *
        * @param request DescribeDdosEventListRequest
        * @return DescribeDdosEventListResponse
@@ -144,7 +144,7 @@ namespace AntiddosPublic20170518
       Models::DescribeDdosEventListResponse describeDdosEventList(const Models::DescribeDdosEventListRequest &request);
 
       /**
-       * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+       * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
        *
        * @description You can call the DescribeDdosThreshold operation to query the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The details include the current traffic scrubbing threshold, maximum traffic scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
        * ### Limits
@@ -157,7 +157,7 @@ namespace AntiddosPublic20170518
       Models::DescribeDdosThresholdResponse describeDdosThresholdWithOptions(const Models::DescribeDdosThresholdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+       * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
        *
        * @description You can call the DescribeDdosThreshold operation to query the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The details include the current traffic scrubbing threshold, maximum traffic scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
        * ### Limits
@@ -169,7 +169,7 @@ namespace AntiddosPublic20170518
       Models::DescribeDdosThresholdResponse describeDdosThreshold(const Models::DescribeDdosThresholdRequest &request);
 
       /**
-       * @summary Queries the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
+       * @summary Retrieves the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
        *
        * @description You can call the DescribeInstance operation to query the details of the assets that are within the current Alibaba Cloud account by page. The details include the IDs and IP addresses of the assets, the basic protection thresholds and traffic scrubbing thresholds that are configured for the assets in Anti-DDoS Origin, and whether the assets are associated with Anti-DDoS Origin instances.
        * ### [](#qps-)Limits
@@ -182,7 +182,7 @@ namespace AntiddosPublic20170518
       Models::DescribeInstanceResponse describeInstanceWithOptions(const Models::DescribeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
+       * @summary Retrieves the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
        *
        * @description You can call the DescribeInstance operation to query the details of the assets that are within the current Alibaba Cloud account by page. The details include the IDs and IP addresses of the assets, the basic protection thresholds and traffic scrubbing thresholds that are configured for the assets in Anti-DDoS Origin, and whether the assets are associated with Anti-DDoS Origin instances.
        * ### [](#qps-)Limits
@@ -194,7 +194,7 @@ namespace AntiddosPublic20170518
       Models::DescribeInstanceResponse describeInstance(const Models::DescribeInstanceRequest &request);
 
       /**
-       * @summary Queries the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+       * @summary Retrieves the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
        *
        * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
        * ## Limits
@@ -207,7 +207,7 @@ namespace AntiddosPublic20170518
       Models::DescribeInstanceIpAddressResponse describeInstanceIpAddressWithOptions(const Models::DescribeInstanceIpAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+       * @summary Retrieves the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
        *
        * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
        * ## Limits
@@ -219,7 +219,7 @@ namespace AntiddosPublic20170518
       Models::DescribeInstanceIpAddressResponse describeInstanceIpAddress(const Models::DescribeInstanceIpAddressRequest &request);
 
       /**
-       * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+       * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
        *
        * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeIpDdosThreshold operation to query the details of the DDoS mitigation threshold or traffic scrubbing threshold for a specific asset. The details include the current traffic scrubbing threshold, maximum scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
        * ## Limits
@@ -232,7 +232,7 @@ namespace AntiddosPublic20170518
       Models::DescribeIpDdosThresholdResponse describeIpDdosThresholdWithOptions(const Models::DescribeIpDdosThresholdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+       * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
        *
        * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeIpDdosThreshold operation to query the details of the DDoS mitigation threshold or traffic scrubbing threshold for a specific asset. The details include the current traffic scrubbing threshold, maximum scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
        * ## Limits
@@ -275,7 +275,6 @@ namespace AntiddosPublic20170518
        * ## Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
-       * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
        */
@@ -293,10 +292,10 @@ namespace AntiddosPublic20170518
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary Changes the scrubbing thresholds for an asset that is assigned a public IP address.
+       * @summary Modifies the Anti-DDoS scrubbing threshold for a single asset with a public IP address.
        *
-       * @description ## [](#qps-)Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ## QPS limits
+       * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This can affect your business. We recommend that you call this API at a reasonable rate.
        *
        * @param request ModifyDefenseThresholdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -305,10 +304,10 @@ namespace AntiddosPublic20170518
       Models::ModifyDefenseThresholdResponse modifyDefenseThresholdWithOptions(const Models::ModifyDefenseThresholdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the scrubbing thresholds for an asset that is assigned a public IP address.
+       * @summary Modifies the Anti-DDoS scrubbing threshold for a single asset with a public IP address.
        *
-       * @description ## [](#qps-)Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description ## QPS limits
+       * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This can affect your business. We recommend that you call this API at a reasonable rate.
        *
        * @param request ModifyDefenseThresholdRequest
        * @return ModifyDefenseThresholdResponse

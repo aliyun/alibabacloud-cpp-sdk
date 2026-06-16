@@ -40,21 +40,5 @@
 #include <alibabacloud/models/ModifyIpDefenseThresholdRequest.hpp>
 #include <alibabacloud/models/ModifyIpDefenseThresholdResponseBody.hpp>
 #include <alibabacloud/models/ModifyIpDefenseThresholdResponse.hpp>
-#include <alibabacloud/models/DescribeBgpPackByIpResponseBodyDdosbgpInfo.hpp>
-#include <alibabacloud/models/DescribeCapResponseBodyCapUrl.hpp>
-#include <alibabacloud/models/DescribeDdosCountResponseBodyDdosCount.hpp>
-#include <alibabacloud/models/DescribeDdosCreditResponseBodyDdosCredit.hpp>
-#include <alibabacloud/models/DescribeDdosEventListResponseBodyDdosEventListDdosEvent.hpp>
-#include <alibabacloud/models/DescribeDdosEventListResponseBodyDdosEventList.hpp>
-#include <alibabacloud/models/DescribeDdosThresholdResponseBodyThresholdsThreshold.hpp>
-#include <alibabacloud/models/DescribeDdosThresholdResponseBodyThresholds.hpp>
-#include <alibabacloud/models/DescribeInstanceResponseBodyInstanceListInstance.hpp>
-#include <alibabacloud/models/DescribeInstanceResponseBodyInstanceList.hpp>
-#include <alibabacloud/models/DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig.hpp>
-#include <alibabacloud/models/DescribeInstanceIpAddressResponseBodyInstanceList.hpp>
-#include <alibabacloud/models/DescribeIpDdosThresholdResponseBodyThreshold.hpp>
-#include <alibabacloud/models/DescribeIpLocationServiceResponseBodyInstance.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegionsRegion.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 
 #endif

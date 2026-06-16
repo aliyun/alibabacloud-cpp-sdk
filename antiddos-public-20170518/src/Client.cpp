@@ -80,7 +80,17 @@ AlibabaCloud::AntiddosPublic20170518::Client::Client(Config &config): OpenApiCli
     {"cn-zhangjiakou-na62-a01" , "antiddos-openapi.cn-zhangjiakou.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "antiddos.aliyuncs.com"},
     {"eu-west-1-oxs" , "antiddos.aliyuncs.com"},
-    {"rus-west-1-pop" , "antiddos.aliyuncs.com"}
+    {"rus-west-1-pop" , "antiddos.aliyuncs.com"},
+    {"us-southeast-1" , "antiddos-openapi.us-southeast-1.aliyuncs.com"},
+    {"na-south-1" , "antiddos-openapi.na-south-1.aliyuncs.com"},
+    {"me-central-1" , "antiddos-openapi.me-central-1.aliyuncs.com"},
+    {"eu-west-2" , "antiddos-openapi.eu-west-2.aliyuncs.com"},
+    {"cn-zhongwei" , "antiddos-openapi.cn-zhongwei.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "antiddos-openapi.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-wuhan-lr" , "antiddos-openapi.cn-hangzhou-cloudstone.aliyuncs.com"},
+    {"cn-fuzhou" , "antiddos-openapi.cn-hangzhou-cloudstone.aliyuncs.com"},
+    {"ap-southeast-8" , "antiddos-openapi.ap-southeast-8.aliyuncs.com"},
+    {"ap-southeast-7" , "antiddos-openapi.ap-southeast-7.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("antiddos-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -114,11 +124,11 @@ DescribeBgpPackByIpResponse Client::describeBgpPackByIpWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasIp()) {
-    query["Ip"] = request.ip();
+    query["Ip"] = request.getIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -168,23 +178,23 @@ DescribeCapResponse Client::describeCapWithOptions(const DescribeCapRequest &req
   request.validate();
   json query = {};
   if (!!request.hasBegTime()) {
-    query["BegTime"] = request.begTime();
+    query["BegTime"] = request.getBegTime();
   }
 
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasInternetIp()) {
-    query["InternetIp"] = request.internetIp();
+    query["InternetIp"] = request.getInternetIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -233,11 +243,11 @@ DescribeDdosCountResponse Client::describeDdosCountWithOptions(const DescribeDdo
   request.validate();
   json query = {};
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -272,7 +282,7 @@ DescribeDdosCountResponse Client::describeDdosCount(const DescribeDdosCountReque
 }
 
 /**
- * @summary Queries the details of the security credit score of the current Alibaba Cloud account in a specific region.
+ * @summary Retrieves the details of the security credit score of the current Alibaba Cloud account in a specific region.
  *
  * @description You can call the DescribeDdosCredit operation to query the details of the security credit score of the current Alibaba Cloud account in a specific region. The details include the security credit score, security credit level, and the time period after which blackhole filtering is automatically deactivated.
  * ## Limits
@@ -286,7 +296,7 @@ DescribeDdosCreditResponse Client::describeDdosCreditWithOptions(const DescribeD
   request.validate();
   json query = {};
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -307,7 +317,7 @@ DescribeDdosCreditResponse Client::describeDdosCreditWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the details of the security credit score of the current Alibaba Cloud account in a specific region.
+ * @summary Retrieves the details of the security credit score of the current Alibaba Cloud account in a specific region.
  *
  * @description You can call the DescribeDdosCredit operation to query the details of the security credit score of the current Alibaba Cloud account in a specific region. The details include the security credit score, security credit level, and the time period after which blackhole filtering is automatically deactivated.
  * ## Limits
@@ -322,11 +332,11 @@ DescribeDdosCreditResponse Client::describeDdosCredit(const DescribeDdosCreditRe
 }
 
 /**
- * @summary Queries the details of the DDoS attack events that occur on an asset. The asset is assigned a public IP address.
+ * @summary Lists DDoS attack events for a specified asset with a public IP address.
  *
- * @description You can call the DescribeDdosEventList operation to query the details of the DDoS attack events that occur on an asset by page. The details include the start time, end time, and status of each DDoS attack event.
- * ## [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation performs a paged query to retrieve the details of DDoS attack events for a specific asset with a public IP address. The details include the start time, end time, and status of each event.
+ * ## QPS limits
+ * The queries per second (QPS) limit for this operation is 10 for each user. API calls are throttled if you exceed the limit. This can affect your business. We recommend that you call this operation a reasonable number of times.
  *
  * @param request DescribeDdosEventListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -336,31 +346,31 @@ DescribeDdosEventListResponse Client::describeDdosEventListWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasInternetIp()) {
-    query["InternetIp"] = request.internetIp();
+    query["InternetIp"] = request.getInternetIp();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryDays()) {
-    query["QueryDays"] = request.queryDays();
+    query["QueryDays"] = request.getQueryDays();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -381,11 +391,11 @@ DescribeDdosEventListResponse Client::describeDdosEventListWithOptions(const Des
 }
 
 /**
- * @summary Queries the details of the DDoS attack events that occur on an asset. The asset is assigned a public IP address.
+ * @summary Lists DDoS attack events for a specified asset with a public IP address.
  *
- * @description You can call the DescribeDdosEventList operation to query the details of the DDoS attack events that occur on an asset by page. The details include the start time, end time, and status of each DDoS attack event.
- * ## [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation performs a paged query to retrieve the details of DDoS attack events for a specific asset with a public IP address. The details include the start time, end time, and status of each event.
+ * ## QPS limits
+ * The queries per second (QPS) limit for this operation is 10 for each user. API calls are throttled if you exceed the limit. This can affect your business. We recommend that you call this operation a reasonable number of times.
  *
  * @param request DescribeDdosEventListRequest
  * @return DescribeDdosEventListResponse
@@ -396,7 +406,7 @@ DescribeDdosEventListResponse Client::describeDdosEventList(const DescribeDdosEv
 }
 
 /**
- * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
  *
  * @description You can call the DescribeDdosThreshold operation to query the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The details include the current traffic scrubbing threshold, maximum traffic scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
  * ### Limits
@@ -410,19 +420,19 @@ DescribeDdosThresholdResponse Client::describeDdosThresholdWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasDdosType()) {
-    query["DdosType"] = request.ddosType();
+    query["DdosType"] = request.getDdosType();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -443,7 +453,7 @@ DescribeDdosThresholdResponse Client::describeDdosThresholdWithOptions(const Des
 }
 
 /**
- * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
  *
  * @description You can call the DescribeDdosThreshold operation to query the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The details include the current traffic scrubbing threshold, maximum traffic scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
  * ### Limits
@@ -458,7 +468,7 @@ DescribeDdosThresholdResponse Client::describeDdosThreshold(const DescribeDdosTh
 }
 
 /**
- * @summary Queries the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
+ * @summary Retrieves the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
  *
  * @description You can call the DescribeInstance operation to query the details of the assets that are within the current Alibaba Cloud account by page. The details include the IDs and IP addresses of the assets, the basic protection thresholds and traffic scrubbing thresholds that are configured for the assets in Anti-DDoS Origin, and whether the assets are associated with Anti-DDoS Origin instances.
  * ### [](#qps-)Limits
@@ -472,35 +482,35 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasDdosStatus()) {
-    query["DdosStatus"] = request.ddosStatus();
+    query["DdosStatus"] = request.getDdosStatus();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceIp()) {
-    query["InstanceIp"] = request.instanceIp();
+    query["InstanceIp"] = request.getInstanceIp();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -521,7 +531,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary Queries the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
+ * @summary Retrieves the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
  *
  * @description You can call the DescribeInstance operation to query the details of the assets that are within the current Alibaba Cloud account by page. The details include the IDs and IP addresses of the assets, the basic protection thresholds and traffic scrubbing thresholds that are configured for the assets in Anti-DDoS Origin, and whether the assets are associated with Anti-DDoS Origin instances.
  * ### [](#qps-)Limits
@@ -536,7 +546,7 @@ DescribeInstanceResponse Client::describeInstance(const DescribeInstanceRequest 
 }
 
 /**
- * @summary Queries the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Retrieves the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
  *
  * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
  * ## Limits
@@ -550,35 +560,35 @@ DescribeInstanceIpAddressResponse Client::describeInstanceIpAddressWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasDdosStatus()) {
-    query["DdosStatus"] = request.ddosStatus();
+    query["DdosStatus"] = request.getDdosStatus();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceIp()) {
-    query["InstanceIp"] = request.instanceIp();
+    query["InstanceIp"] = request.getInstanceIp();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -599,7 +609,7 @@ DescribeInstanceIpAddressResponse Client::describeInstanceIpAddressWithOptions(c
 }
 
 /**
- * @summary Queries the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Retrieves the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
  *
  * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
  * ## Limits
@@ -614,7 +624,7 @@ DescribeInstanceIpAddressResponse Client::describeInstanceIpAddress(const Descri
 }
 
 /**
- * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
  *
  * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeIpDdosThreshold operation to query the details of the DDoS mitigation threshold or traffic scrubbing threshold for a specific asset. The details include the current traffic scrubbing threshold, maximum scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
  * ## Limits
@@ -628,23 +638,23 @@ DescribeIpDdosThresholdResponse Client::describeIpDdosThresholdWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasDdosType()) {
-    query["DdosType"] = request.ddosType();
+    query["DdosType"] = request.getDdosType();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasInternetIp()) {
-    query["InternetIp"] = request.internetIp();
+    query["InternetIp"] = request.getInternetIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -665,7 +675,7 @@ DescribeIpDdosThresholdResponse Client::describeIpDdosThresholdWithOptions(const
 }
 
 /**
- * @summary Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+ * @summary Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
  *
  * @description If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeIpDdosThreshold operation to query the details of the DDoS mitigation threshold or traffic scrubbing threshold for a specific asset. The details include the current traffic scrubbing threshold, maximum scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
  * ## Limits
@@ -694,7 +704,7 @@ DescribeIpLocationServiceResponse Client::describeIpLocationServiceWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasInternetIp()) {
-    query["InternetIp"] = request.internetIp();
+    query["InternetIp"] = request.getInternetIp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -736,7 +746,6 @@ DescribeIpLocationServiceResponse Client::describeIpLocationService(const Descri
  * ## Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
- * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
  */
@@ -771,10 +780,10 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Changes the scrubbing thresholds for an asset that is assigned a public IP address.
+ * @summary Modifies the Anti-DDoS scrubbing threshold for a single asset with a public IP address.
  *
- * @description ## [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description ## QPS limits
+ * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This can affect your business. We recommend that you call this API at a reasonable rate.
  *
  * @param request ModifyDefenseThresholdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -784,35 +793,35 @@ ModifyDefenseThresholdResponse Client::modifyDefenseThresholdWithOptions(const M
   request.validate();
   json query = {};
   if (!!request.hasBps()) {
-    query["Bps"] = request.bps();
+    query["Bps"] = request.getBps();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasInternetIp()) {
-    query["InternetIp"] = request.internetIp();
+    query["InternetIp"] = request.getInternetIp();
   }
 
   if (!!request.hasIsAuto()) {
-    query["IsAuto"] = request.isAuto();
+    query["IsAuto"] = request.getIsAuto();
   }
 
   if (!!request.hasPps()) {
-    query["Pps"] = request.pps();
+    query["Pps"] = request.getPps();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -833,10 +842,10 @@ ModifyDefenseThresholdResponse Client::modifyDefenseThresholdWithOptions(const M
 }
 
 /**
- * @summary Changes the scrubbing thresholds for an asset that is assigned a public IP address.
+ * @summary Modifies the Anti-DDoS scrubbing threshold for a single asset with a public IP address.
  *
- * @description ## [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description ## QPS limits
+ * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This can affect your business. We recommend that you call this API at a reasonable rate.
  *
  * @param request ModifyDefenseThresholdRequest
  * @return ModifyDefenseThresholdResponse
@@ -860,31 +869,31 @@ ModifyIpDefenseThresholdResponse Client::modifyIpDefenseThresholdWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBps()) {
-    query["Bps"] = request.bps();
+    query["Bps"] = request.getBps();
   }
 
   if (!!request.hasDdosRegionId()) {
-    query["DdosRegionId"] = request.ddosRegionId();
+    query["DdosRegionId"] = request.getDdosRegionId();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasInternetIp()) {
-    query["InternetIp"] = request.internetIp();
+    query["InternetIp"] = request.getInternetIp();
   }
 
   if (!!request.hasIsAuto()) {
-    query["IsAuto"] = request.isAuto();
+    query["IsAuto"] = request.getIsAuto();
   }
 
   if (!!request.hasPps()) {
-    query["Pps"] = request.pps();
+    query["Pps"] = request.getPps();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

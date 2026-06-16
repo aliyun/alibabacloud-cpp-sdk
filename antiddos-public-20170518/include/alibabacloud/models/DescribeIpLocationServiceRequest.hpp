@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->internetIp_ != nullptr; };
+    virtual bool empty() const override { return this->internetIp_ == nullptr; };
     // internetIp Field Functions 
     bool hasInternetIp() const { return this->internetIp_ != nullptr;};
     void deleteInternetIp() { this->internetIp_ = nullptr;};
-    inline string internetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
+    inline string getInternetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
     inline DescribeIpLocationServiceRequest& setInternetIp(string internetIp) { DARABONBA_PTR_SET_VALUE(internetIp_, internetIp) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IP address of the asset to query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> internetIp_ = nullptr;
+    shared_ptr<string> internetIp_ {};
   };
 
   } // namespace Models

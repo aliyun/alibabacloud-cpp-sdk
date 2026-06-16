@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ddosRegionId_ != nullptr
-        && this->instanceType_ != nullptr; };
+    virtual bool empty() const override { return this->ddosRegionId_ == nullptr
+        && this->instanceType_ == nullptr; };
     // ddosRegionId Field Functions 
     bool hasDdosRegionId() const { return this->ddosRegionId_ != nullptr;};
     void deleteDdosRegionId() { this->ddosRegionId_ = nullptr;};
-    inline string ddosRegionId() const { DARABONBA_PTR_GET_DEFAULT(ddosRegionId_, "") };
+    inline string getDdosRegionId() const { DARABONBA_PTR_GET_DEFAULT(ddosRegionId_, "") };
     inline DescribeDdosCountRequest& setDdosRegionId(string ddosRegionId) { DARABONBA_PTR_SET_VALUE(ddosRegionId_, ddosRegionId) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline DescribeDdosCountRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
@@ -53,19 +53,25 @@ namespace Models
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/353250.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ddosRegionId_ = nullptr;
+    shared_ptr<string> ddosRegionId_ {};
     // The type of the asset to query. Valid values:
     // 
-    // *   **ecs**: Elastic Compute Service (ECS) instances.
-    // *   **slb**: Server Load Balancer (SLB) instances.
-    // *   **eip**: elastic IP addresses (EIPs).
-    // *   **ipv6**: IPv6 gateways.
-    // *   **swas**: simple application servers.
-    // *   **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
-    // *   **ga_basic**: Global Accelerator (GA) instances.
+    // - **ecs**: Elastic Compute Service (ECS) instances.
+    // 
+    // - **slb**: Server Load Balancer (SLB) instances.
+    // 
+    // - **eip**: elastic IP addresses (EIPs).
+    // 
+    // - **ipv6**: IPv6 gateways.
+    // 
+    // - **swas**: simple application servers.
+    // 
+    // - **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
+    // 
+    // - **ga_basic**: Global Accelerator (GA) instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
   };
 
   } // namespace Models

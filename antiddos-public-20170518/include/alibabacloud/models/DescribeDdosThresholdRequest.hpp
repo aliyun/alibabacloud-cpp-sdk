@@ -36,27 +36,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ddosRegionId_ != nullptr
-        && this->ddosType_ != nullptr && this->instanceIds_ != nullptr && this->instanceType_ != nullptr; };
+    virtual bool empty() const override { return this->ddosRegionId_ == nullptr
+        && this->ddosType_ == nullptr && this->instanceIds_ == nullptr && this->instanceType_ == nullptr; };
     // ddosRegionId Field Functions 
     bool hasDdosRegionId() const { return this->ddosRegionId_ != nullptr;};
     void deleteDdosRegionId() { this->ddosRegionId_ = nullptr;};
-    inline string ddosRegionId() const { DARABONBA_PTR_GET_DEFAULT(ddosRegionId_, "") };
+    inline string getDdosRegionId() const { DARABONBA_PTR_GET_DEFAULT(ddosRegionId_, "") };
     inline DescribeDdosThresholdRequest& setDdosRegionId(string ddosRegionId) { DARABONBA_PTR_SET_VALUE(ddosRegionId_, ddosRegionId) };
 
 
     // ddosType Field Functions 
     bool hasDdosType() const { return this->ddosType_ != nullptr;};
     void deleteDdosType() { this->ddosType_ = nullptr;};
-    inline string ddosType() const { DARABONBA_PTR_GET_DEFAULT(ddosType_, "") };
+    inline string getDdosType() const { DARABONBA_PTR_GET_DEFAULT(ddosType_, "") };
     inline DescribeDdosThresholdRequest& setDdosType(string ddosType) { DARABONBA_PTR_SET_VALUE(ddosType_, ddosType) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline DescribeDdosThresholdRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline DescribeDdosThresholdRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -64,7 +64,7 @@ namespace Models
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline DescribeDdosThresholdRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
@@ -74,30 +74,37 @@ namespace Models
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/353250.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ddosRegionId_ = nullptr;
+    shared_ptr<string> ddosRegionId_ {};
     // The type of the threshold. Valid values:
     // 
-    // *   **defense**: traffic scrubbing threshold
-    // *   **blackhole**: DDoS mitigation threshold
+    // - **defense**: traffic scrubbing threshold
+    // 
+    // - **blackhole**: DDoS mitigation threshold
     // 
     // This parameter is required.
-    std::shared_ptr<string> ddosType_ = nullptr;
+    shared_ptr<string> ddosType_ {};
     // The ID of asset N to query.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The type of the asset that is assigned a public IP address. Valid values:
     // 
-    // *   **ecs**: ECS instances.
-    // *   **slb**: SLB instances.
-    // *   **eip**: EIPs.
-    // *   **ipv6**: IPv6 gateways.
-    // *   **swas**: simple application servers.
-    // *   **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
-    // *   **ga_basic**: Global Accelerator (GA) instances.
+    // - **ecs**: ECS instances.
+    // 
+    // - **slb**: SLB instances.
+    // 
+    // - **eip**: EIPs.
+    // 
+    // - **ipv6**: IPv6 gateways.
+    // 
+    // - **swas**: simple application servers.
+    // 
+    // - **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
+    // 
+    // - **ga_basic**: Global Accelerator (GA) instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
   };
 
   } // namespace Models

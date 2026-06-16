@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ddosRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->ddosRegionId_ == nullptr; };
     // ddosRegionId Field Functions 
     bool hasDdosRegionId() const { return this->ddosRegionId_ != nullptr;};
     void deleteDdosRegionId() { this->ddosRegionId_ = nullptr;};
-    inline string ddosRegionId() const { DARABONBA_PTR_GET_DEFAULT(ddosRegionId_, "") };
+    inline string getDdosRegionId() const { DARABONBA_PTR_GET_DEFAULT(ddosRegionId_, "") };
     inline DescribeDdosCreditRequest& setDdosRegionId(string ddosRegionId) { DARABONBA_PTR_SET_VALUE(ddosRegionId_, ddosRegionId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/353250.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ddosRegionId_ = nullptr;
+    shared_ptr<string> ddosRegionId_ {};
   };
 
   } // namespace Models
