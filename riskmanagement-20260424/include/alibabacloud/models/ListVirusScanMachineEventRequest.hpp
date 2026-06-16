@@ -1,0 +1,98 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTVIRUSSCANMACHINEEVENTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTVIRUSSCANMACHINEEVENTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace RiskManagement20260424
+{
+namespace Models
+{
+  class ListVirusScanMachineEventRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListVirusScanMachineEventRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(OperateTaskId, operateTaskId_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(Uuid, uuid_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListVirusScanMachineEventRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(OperateTaskId, operateTaskId_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
+    };
+    ListVirusScanMachineEventRequest() = default ;
+    ListVirusScanMachineEventRequest(const ListVirusScanMachineEventRequest &) = default ;
+    ListVirusScanMachineEventRequest(ListVirusScanMachineEventRequest &&) = default ;
+    ListVirusScanMachineEventRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListVirusScanMachineEventRequest() = default ;
+    ListVirusScanMachineEventRequest& operator=(const ListVirusScanMachineEventRequest &) = default ;
+    ListVirusScanMachineEventRequest& operator=(ListVirusScanMachineEventRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && this->lang_ == nullptr && this->operateTaskId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->uuid_ == nullptr; };
+    // currentPage Field Functions 
+    bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
+    void deleteCurrentPage() { this->currentPage_ = nullptr;};
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline ListVirusScanMachineEventRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline ListVirusScanMachineEventRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // operateTaskId Field Functions 
+    bool hasOperateTaskId() const { return this->operateTaskId_ != nullptr;};
+    void deleteOperateTaskId() { this->operateTaskId_ = nullptr;};
+    inline string getOperateTaskId() const { DARABONBA_PTR_GET_DEFAULT(operateTaskId_, "") };
+    inline ListVirusScanMachineEventRequest& setOperateTaskId(string operateTaskId) { DARABONBA_PTR_SET_VALUE(operateTaskId_, operateTaskId) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline ListVirusScanMachineEventRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline ListVirusScanMachineEventRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // uuid Field Functions 
+    bool hasUuid() const { return this->uuid_ != nullptr;};
+    void deleteUuid() { this->uuid_ = nullptr;};
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline ListVirusScanMachineEventRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
+
+
+  protected:
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> operateTaskId_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> uuid_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace RiskManagement20260424
+#endif
