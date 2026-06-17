@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A list of application names.
     shared_ptr<vector<string>> serviceNameList_ {};
   };
 

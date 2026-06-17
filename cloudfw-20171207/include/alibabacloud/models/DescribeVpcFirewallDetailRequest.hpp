@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // The natural language of the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the local VPC.
+    // The instance ID of the local VPC.
     shared_ptr<string> localVpcId_ {};
-    // The ID of the peer VPC.
+    // The instance ID of the peer VPC.
     shared_ptr<string> peerVpcId_ {};
     // The instance ID of the VPC firewall.
     // 
-    // >  You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance IDs of VPC firewalls.
+    // > Call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance ID of the VPC firewall.
     // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallId_ {};

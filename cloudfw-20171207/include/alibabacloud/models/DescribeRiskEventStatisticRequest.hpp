@@ -97,13 +97,50 @@ namespace Models
 
 
   protected:
+    // The attacked application.
     shared_ptr<vector<string>> attackApp_ {};
+    // The attack type of the intrusion prevention event. Valid values:
+    // 
+    // - **1**: anomalous connection
+    // 
+    // - **2**: command execution
+    // 
+    // - **3**: brute-force attack
+    // 
+    // - **4**: scanning
+    // 
+    // - **5**: other
+    // 
+    // - **6**: information leakage
+    // 
+    // - **7**: DoS attack
+    // 
+    // - **8**: overflow attack
+    // 
+    // - **9**: web attack
+    // 
+    // - **10**: trojan backdoor
+    // 
+    // - **11**: virus and worm
+    // 
+    // - **12**: mining
+    // 
+    // - **13**: reverse shell
+    // 
+    // > If you do not specify this parameter, all attack types are queried.
     shared_ptr<string> attackType_ {};
+    // The edition of Cloud Firewall.
     shared_ptr<string> buyVersion_ {};
+    // The end time. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The start time. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

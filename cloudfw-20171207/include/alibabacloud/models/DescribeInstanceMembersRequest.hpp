@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number. The default value is **1**.
     shared_ptr<string> currentPage_ {};
-    // The remarks of the member. The remarks must be 1 to 256 characters in length.
+    // The description of the Cloud Firewall member account. The description must be 1 to 256 characters in length.
     shared_ptr<string> memberDesc_ {};
-    // The name of the member.
+    // The name of the Cloud Firewall member account.
     shared_ptr<string> memberDisplayName_ {};
-    // The UID of the member.
+    // The UID of the Cloud Firewall member account.
     shared_ptr<string> memberUid_ {};
     // The number of entries per page.
     // 
-    // Default value: **20**.
+    // The default value is **20**.
     shared_ptr<string> pageSize_ {};
   };
 

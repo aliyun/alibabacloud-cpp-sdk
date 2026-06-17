@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The type of the Cloud Firewall instance.
     shared_ptr<string> firewallType_ {};
+    // The supported ip version.
     shared_ptr<int32_t> ipVersion_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The region ID.
     shared_ptr<string> regionNo_ {};
   };
 

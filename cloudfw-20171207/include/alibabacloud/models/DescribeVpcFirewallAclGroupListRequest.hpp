@@ -77,20 +77,21 @@ namespace Models
   protected:
     // The number of the page to return. Default value: 1.
     shared_ptr<string> currentPage_ {};
-    // Specifies whether VPC firewalls are configured. Valid values:
+    // The configuration status of the VPC boundary firewall. Valid values:
     // 
-    // *   **notconfigured**: VPC firewalls are not configured.
-    // *   **configured**: VPC firewalls are configured.
-    // *   If you do not specify this parameter, the access control policies of all VPC firewalls are queried.
+    // - **configured**: The VPC boundary firewall is configured.
+    // 
+    // - If you omit this parameter, the operation queries the access control policies for all VPC boundary firewalls.
     shared_ptr<string> firewallConfigureStatus_ {};
-    // The instance ID of the VPC firewall.
+    // The instance ID of the VPC boundary firewall.
     shared_ptr<string> firewallId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Maximum value: 50.
+    // The number of entries to return on each page. The maximum value is 50.
     shared_ptr<string> pageSize_ {};
   };
 

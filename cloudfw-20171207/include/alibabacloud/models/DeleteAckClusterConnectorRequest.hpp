@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the ACK cluster connector.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
   };

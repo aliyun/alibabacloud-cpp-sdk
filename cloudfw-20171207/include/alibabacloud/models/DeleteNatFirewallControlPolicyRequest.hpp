@@ -66,26 +66,27 @@ namespace Models
 
 
   protected:
-    // The UUID of the access control policy.
+    // The unique ID of the access control policy.
     // 
-    // To delete an access control policy, you must provide the ID of the policy. You can call the DescribeNatFirewallControlPolicy operation to query the UUIDs of access control policies.
+    // To delete an access control policy, provide its unique ID. You can call the DescribeNatFirewallControlPolicy operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
-    // The direction of the traffic to which the access control policy applies.
+    // The traffic direction that the access control policy manages.
     // 
-    // Valid values:
+    // Valid value:
     // 
-    // *   **out**: outbound traffic
+    // - **out**: outbound traffic.
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};

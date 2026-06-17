@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> currentPage_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -266,22 +269,39 @@ namespace Models
 
 
     protected:
+      // The number of details.
       shared_ptr<int32_t> detailNum_ {};
+      // The inbound traffic.
       shared_ptr<int64_t> inBytes_ {};
+      // The outbound traffic.
       shared_ptr<int64_t> outBytes_ {};
+      // The list of open ports.
       shared_ptr<vector<string>> portList_ {};
+      // The security threat.
       shared_ptr<string> probRisk_ {};
+      // The description of the security threat.
       shared_ptr<string> probRiskDesc_ {};
+      // The protocol type.
       shared_ptr<string> protocol_ {};
+      // The number of exposed public IP addresses.
       shared_ptr<int32_t> publicIpNum_ {};
+      // The risk level.
       shared_ptr<int32_t> riskLevel_ {};
+      // The description of the risk.
       shared_ptr<string> riskReason_ {};
+      // The application name.
       shared_ptr<int32_t> serviceName_ {};
+      // The recommended policy level.
       shared_ptr<int32_t> suggestLevel_ {};
+      // The total traffic.
       shared_ptr<int64_t> totalBytes_ {};
+      // The traffic percentage over the last 24 hours.
       shared_ptr<string> trafficPercent1Day_ {};
+      // The traffic percentage over the last 30 days.
       shared_ptr<string> trafficPercent30Day_ {};
+      // The traffic percentage over the last 7 days.
       shared_ptr<string> trafficPercent7Day_ {};
+      // The reason why the protocol is not identified if the detected protocol is \\`Unknown\\`.
       shared_ptr<vector<string>> unknownReason_ {};
     };
 
@@ -313,8 +333,11 @@ namespace Models
 
 
   protected:
+    // The list of data.
     shared_ptr<vector<DescribeInternetOpenServiceResponseBody::DataList>> dataList_ {};
+    // The paging information.
     shared_ptr<DescribeInternetOpenServiceResponseBody::PageInfo> pageInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

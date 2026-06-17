@@ -172,7 +172,7 @@ namespace Models
         shared_ptr<string> networkInstanceId_ {};
         // The name of the VPC.
         shared_ptr<string> networkInstanceName_ {};
-        // The ID of the region in which the source VPC resides.
+        // The region ID. This parameter indicates the region ID of the source VPC.
         shared_ptr<string> regionNo_ {};
       };
 
@@ -249,7 +249,7 @@ namespace Models
         shared_ptr<string> networkInstanceId_ {};
         // The name of the VPC.
         shared_ptr<string> networkInstanceName_ {};
-        // The ID of the region in which the destination VPC resides.
+        // The region ID. This parameter indicates the region ID of the destination VPC.
         shared_ptr<string> regionNo_ {};
       };
 
@@ -309,11 +309,11 @@ namespace Models
 
 
       protected:
-        // The ID of the region to which the private IP address belongs.
+        // The region ID. This parameter indicates the region ID of the private IP address.
         shared_ptr<string> regionNo_ {};
-        // The ID of the instance that uses the private IP address.
+        // The ID of the instance.
         shared_ptr<string> resourceInstanceId_ {};
-        // The name of the instance that uses the private IP address.
+        // The name of the instance.
         shared_ptr<string> resourceInstanceName_ {};
         // The private IP address.
         shared_ptr<string> resourcePrivateIP_ {};
@@ -375,13 +375,13 @@ namespace Models
 
 
       protected:
-        // The ID of the city to which the IP address belongs.
+        // The city ID.
         shared_ptr<string> cityId_ {};
-        // The name of the city to which the IP address belongs.
+        // The city name.
         shared_ptr<string> cityName_ {};
-        // The ID of the country to which the IP address belongs.
+        // The country ID.
         shared_ptr<string> countryId_ {};
-        // The name of the country to which the IP address belongs.
+        // The country name.
         shared_ptr<string> countryName_ {};
       };
 
@@ -574,88 +574,113 @@ namespace Models
     protected:
       // The name of the attacked application.
       shared_ptr<string> attackApp_ {};
-      // The attack type of the intrusion event. Valid values:
+      // The type of the attack. Valid values:
       // 
-      // *   **1**: suspicious connection
-      // *   **2**: command execution
-      // *   **3**: brute-force attack
-      // *   **4**: scanning
-      // *   **5**: others
-      // *   **6**: information leak
-      // *   **7**: DoS attack
-      // *   **8**: buffer overflow attack
-      // *   **9**: web attack
-      // *   **10**: trojan backdoor
-      // *   **11**: computer worm
-      // *   **12**: mining
-      // *   **13**: reverse shell
+      // - **1**: abnormal connection
+      // 
+      // - **2**: command execution
+      // 
+      // - **3**: brute-force attack
+      // 
+      // - **4**: scan
+      // 
+      // - **5**: other
+      // 
+      // - **6**: information leakage
+      // 
+      // - **7**: DoS attack
+      // 
+      // - **8**: overflow attack
+      // 
+      // - **9**: web attack
+      // 
+      // - **10**: backdoor trojan
+      // 
+      // - **11**: virus or worm
+      // 
+      // - **12**: mining behavior
+      // 
+      // - **13**: reverse shell
       shared_ptr<int32_t> attackType_ {};
-      // The description of the intrusion event.
+      // The description of the intrusion prevention event.
       shared_ptr<string> description_ {};
-      // The direction of the traffic for the intrusion event. Valid values:
+      // The traffic direction of the intrusion prevention event. Valid values:
       // 
-      // *   **in**: inbound
-      // *   **out**: outbound
+      // - **in**: inbound
+      // 
+      // - **out**: outbound
       shared_ptr<string> direction_ {};
-      // The destination IP address that is included in the intrusion event.
+      // The destination IP address. The intrusion prevention event contains this destination IP address.
       shared_ptr<string> dstIP_ {};
-      // The number of intrusion events.
+      // The number of intrusion prevention events.
       shared_ptr<int32_t> eventCount_ {};
-      // The ID of the intrusion event.
+      // The ID of the intrusion prevention event.
       shared_ptr<string> eventId_ {};
-      // The name of the intrusion event.
+      // The name of the intrusion prevention event.
       shared_ptr<string> eventName_ {};
-      // The time when the intrusion event was first detected. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the intrusion event first occurred. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> firstEventTime_ {};
-      // The geographical information about the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.\\
-      // ****************
+      // The geolocation information of the IP address. This struct contains the **CityId**, **CityName**, **CountryId**, and **CountryName** parameters.<br>
+      // **CityId** indicates the city ID of the IP address. **CityName** indicates the city name of the IP address. **CountryId** indicates the country ID of the IP address. **CountryName** indicates the country name of the IP address.<br>
       shared_ptr<DataList::IPLocationInfo> IPLocationInfo_ {};
-      // The time when the intrusion event was last detected. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the intrusion prevention event last occurred. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> lastEventTime_ {};
-      // The information about the private IP address in the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.\\
-      // ****************
+      // The information about the private IP address in the intrusion prevention event. The value is an array that consists of the **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP** parameters.<br>
+      // **RegionNo** indicates the region ID of the IP address. **ResourceInstanceId** indicates the ID of the instance to which the IP address belongs. **ResourceInstanceName** indicates the name of the instance to which the IP address belongs. **ResourcePrivateIP** indicates the IP address.<br>
       shared_ptr<vector<DataList::ResourcePrivateIPList>> resourcePrivateIPList_ {};
-      // The type of the public IP address in the intrusion event. Valid values:
+      // The type of the public IP address. Valid values:
       // 
-      // *   **EIP**: the elastic IP address (EIP)
-      // *   **EcsPublicIP**: the public IP address of an Elastic Compute Service (ECS) instance
-      // *   **EcsEIP**: the EIP of an ECS instance
-      // *   **NatPublicIP**: the public IP address of a NAT gateway
-      // *   **NatEIP**: the EIP of a NAT gateway
+      // - **EIP**: an elastic IP address (EIP)
+      // 
+      // - **EcsPublicIP**: an ECS public IP address
+      // 
+      // - **EcsEIP**: an ECS EIP
+      // 
+      // - **NatPublicIP**: a NAT public IP address
+      // 
+      // - **NatEIP**: a NAT EIP
+      // 
+      // - **SlbPublicIp**: an SLB public IP address
       shared_ptr<string> resourceType_ {};
-      // The ID of the rule that is used to detect the intrusion event.
+      // The ID of the rule that is used to defend against the intrusion prevention event.
       shared_ptr<string> ruleId_ {};
-      // The status of the firewall. Valid values:
+      // The handling status. Valid values:
       // 
-      // *   **1**: alerting
-      // *   **2**: blocking
+      // - **1**: Alert
+      // 
+      // - **2**: Block
       shared_ptr<int32_t> ruleResult_ {};
-      // The module of the rule that is used to detect the intrusion event. Valid values:
+      // The source of the rule that is used to detect the intrusion prevention event. Valid values:
       // 
-      // *   **1**: basic protection
-      // *   **2**: virtual patching
-      // *   **4**: threat intelligence
+      // - **1**: basic protection
+      // 
+      // - **2**: virtual patching
+      // 
+      // - **4**: threat intelligence
       shared_ptr<int32_t> ruleSource_ {};
-      // The source IP address that is included in the intrusion event.
+      // The source IP address. The intrusion prevention event contains this source IP address.
       shared_ptr<string> srcIP_ {};
-      // The tag added to the source IP address. The tag helps identify whether the source IP address is a back-to-origin IP address for a cloud service.
+      // The tag of the source IP address. This tag is used to identify whether the IP address is a back-to-origin IP address of an Alibaba Cloud service.
       shared_ptr<string> srcIPTag_ {};
+      // The list of IP address tags.
       shared_ptr<vector<string>> srcIPTags_ {};
-      // An array that consists of the source private IP addresses in the intrusion event.
+      // The list of source private IP addresses in the intrusion prevention event.
       shared_ptr<vector<string>> srcPrivateIPList_ {};
-      // The tag added to the threat intelligence that is provided for major events.
+      // The tag for major event support.
       shared_ptr<string> tag_ {};
-      // The information about the destination VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\\
-      // ********************
+      // The information about the destination VPC of the intrusion prevention event. This struct contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.<br>
+      // **EcsInstanceId** indicates the ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the ID of the VPC. **NetworkInstanceName** indicates the name of the VPC. **RegionNo** indicates the region ID of the VPC.<br>
       shared_ptr<DataList::VpcDstInfo> vpcDstInfo_ {};
-      // The information about the source VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\\
-      // ********************
+      // The information about the source VPC of the intrusion prevention event. This struct contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.<br>
+      // **EcsInstanceId** indicates the ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the ID of the VPC. **NetworkInstanceName** indicates the name of the VPC. **RegionNo** indicates the region ID of the VPC.<br>
       shared_ptr<DataList::VpcSrcInfo> vpcSrcInfo_ {};
-      // The risk level of the intrusion event. Valid values:
+      // The risk level of the intrusion prevention event. Valid values:
       // 
-      // *   **1**: low
-      // *   **2**: medium
-      // *   **3**: high
+      // - **1**: low
+      // 
+      // - **2**: medium
+      // 
+      // - **3**: high
       shared_ptr<int32_t> vulLevel_ {};
     };
 
@@ -685,7 +710,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details of the intrusion events.
+    // The list of returned data.
     shared_ptr<vector<DescribeRiskEventGroupResponseBody::DataList>> dataList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

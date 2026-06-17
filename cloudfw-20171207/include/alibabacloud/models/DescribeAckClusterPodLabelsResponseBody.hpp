@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // A list of ACK labels.
     shared_ptr<vector<DescribeAckClusterPodLabelsResponseBody::AckLabels>> ackLabels_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

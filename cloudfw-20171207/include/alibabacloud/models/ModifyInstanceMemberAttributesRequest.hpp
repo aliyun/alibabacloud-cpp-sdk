@@ -68,11 +68,11 @@ namespace Models
 
 
     protected:
-      // The remarks of the member in Cloud Firewall.
+      // The description of the member account.
       // 
       // This parameter is required.
       shared_ptr<string> memberDesc_ {};
-      // The UID of the member in Cloud Firewall.
+      // The UID of the member account.
       // 
       // This parameter is required.
       shared_ptr<int64_t> memberUid_ {};
@@ -89,7 +89,7 @@ namespace Models
 
 
   protected:
-    // The members that to be modified.
+    // The member accounts in Cloud Firewall.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyInstanceMemberAttributesRequest::Members>> members_ {};

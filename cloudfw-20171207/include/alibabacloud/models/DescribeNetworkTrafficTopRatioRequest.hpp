@@ -195,26 +195,48 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The IP address of the asset.
     shared_ptr<string> assetIP_ {};
+    // The region where the asset resides.
     shared_ptr<string> assetRegion_ {};
+    // The data type.
+    // 
     // This parameter is required.
     shared_ptr<string> dataType_ {};
+    // The traffic direction.
     shared_ptr<string> direction_ {};
+    // The destination IP address.
     shared_ptr<string> dstIP_ {};
+    // The destination port.
     shared_ptr<string> dstPort_ {};
+    // The end of the time range to query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The IP address property.
     shared_ptr<string> ipProperty_ {};
+    // The Internet Service Provider (ISP).
     shared_ptr<string> isp_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The area.
     shared_ptr<string> location_ {};
+    // The action triggered by the rule.
     shared_ptr<string> ruleResult_ {};
+    // The sorting method.
     shared_ptr<string> sort_ {};
+    // The source identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The source IP address.
     shared_ptr<string> srcIP_ {};
+    // The beginning of the time range to query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

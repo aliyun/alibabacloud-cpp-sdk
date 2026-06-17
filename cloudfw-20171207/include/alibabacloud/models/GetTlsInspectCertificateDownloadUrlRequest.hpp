@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The ID of the CA certificate.
+    // 
+    // > Call the ListTlsInspectCACertificates operation to query existing CA certificates.
+    // 
     // This parameter is required.
     shared_ptr<string> caCertId_ {};
   };

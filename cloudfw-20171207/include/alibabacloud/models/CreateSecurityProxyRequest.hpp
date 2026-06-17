@@ -110,7 +110,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> destinationCidr_ {};
-      // The next hop of the original NAT gateway.
+      // The next hop of the original NAT Gateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopId_ {};
@@ -118,7 +118,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> nextHopType_ {};
-      // The route table to which the default route of the NAT gateway belongs.
+      // The route table that contains the default route of the NAT Gateway.
       // 
       // This parameter is required.
       shared_ptr<string> routeTableId_ {};
@@ -207,51 +207,55 @@ namespace Models
 
 
   protected:
-    // The status of the NAT firewall. Valid values:
+    // The security protection switch. Valid values:
     // 
-    // *   **open**: enabled
-    // *   **close**: disabled
+    // - **open**: on
+    // 
+    // - **close**: off
     shared_ptr<string> firewallSwitch_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The routes to be switched to the NAT gateway.
+    // The list of routes of the NAT Gateway that you want to switch.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateSecurityProxyRequest::NatRouteEntryList>> natRouteEntryList_ {};
-    // The name of the NAT firewall. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). However, it cannot start with an underscore.
+    // The name of the NAT firewall. The name must be 4 to 50 characters in length. It can contain letters, digits, Chinese characters, and underscores (_). The name cannot start with an underscore (_).
     // 
     // This parameter is required.
     shared_ptr<string> proxyName_ {};
-    // The region ID of the virtual private cloud (VPC).
+    // The region ID of the VPC.
     // 
-    // >  For more information about Cloud Firewall supported regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // Specifies whether to enable the strict mode. Valid values:
+    // Specifies whether to enable strict mode.
     // 
-    // *   1: yes
-    // *   0: no
+    // - 1: enables strict mode
+    // 
+    // - 0: disables strict mode
     shared_ptr<int32_t> strictMode_ {};
-    // The ID of the VPC.
+    // The ID of the VPC instance.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The mode of the vSwitch that you want to use. Valid values:
+    // Specifies whether to use the automatic vSwitch selection feature. Valid values:
     // 
-    // *   **true**: automatic
-    // *   **false**: manual
+    // - **true**: automatic mode
+    // 
+    // - **false**: manual mode
     shared_ptr<string> vswitchAuto_ {};
-    // The CIDR block of the vSwitch.
+    // The CIDR block of the vSwitch. This parameter is required if you use the automatic vSwitch selection feature.
     shared_ptr<string> vswitchCidr_ {};
-    // The ID of the vSwitch. This parameter is required if you set the VswitchAuto parameter to true.
+    // The ID of the vSwitch. This parameter is required if you use the manual vSwitch selection feature.
     shared_ptr<string> vswitchId_ {};
   };
 

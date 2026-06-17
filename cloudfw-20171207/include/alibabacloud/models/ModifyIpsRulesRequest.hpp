@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The type of the Cloud Firewall.
     shared_ptr<string> firewallType_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The action of the rule.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleAction_ {};
+    // The type of the rule.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};
+    // The list of rules.
+    // 
     // This parameter is required.
     shared_ptr<string> rules_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

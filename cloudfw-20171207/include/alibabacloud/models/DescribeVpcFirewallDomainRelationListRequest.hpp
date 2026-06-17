@@ -143,18 +143,44 @@ namespace Models
 
 
   protected:
+    // The number of the page to return.
     shared_ptr<string> currentPage_ {};
+    // The list of domain names.
     shared_ptr<vector<string>> domainList_ {};
+    // The destination IP address to query.
     shared_ptr<string> dstIP_ {};
+    // The ID of the destination VPC.
     shared_ptr<string> dstVpcId_ {};
+    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The order in which to sort the queried entries. Valid values:
     shared_ptr<string> order_ {};
+    // The number of entries to return on each page.
     shared_ptr<string> pageSize_ {};
+    // The field by which to sort the queried entries. Valid values:
+    // 
+    // Default value: TotalBytes.
+    // 
+    // Valid values:
+    // 
+    // TotalBytes: Order by total traffic.
+    // 
+    // SessionCount: Order by session count.
     shared_ptr<string> sort_ {};
+    // The source IP address to query.
     shared_ptr<string> srcIP_ {};
+    // The ID of the source VPC.
     shared_ptr<string> srcVpcId_ {};
+    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

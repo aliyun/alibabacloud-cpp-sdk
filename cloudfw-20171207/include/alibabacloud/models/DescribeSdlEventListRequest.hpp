@@ -149,18 +149,31 @@ namespace Models
 
 
   protected:
+    // The page number of the returned page.
     shared_ptr<int32_t> currentPage_ {};
+    // The destination IP address.
     shared_ptr<string> dstIp_ {};
+    // The end of the time range to query. This value is a UNIX timestamp representing seconds.
     shared_ptr<int64_t> endTime_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The region.
     shared_ptr<string> location_ {};
+    // Specifies whether to return only events detected by AI.
     shared_ptr<int32_t> onlyAiEvt_ {};
+    // The sort order. Valid values: `asc` (ascending) and `desc` (descending).
     shared_ptr<string> order_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The sensitivity level of the data in the event.
     shared_ptr<string> sensitiveLevel_ {};
+    // The field to sort by.
     shared_ptr<string> sort_ {};
+    // The source IP address.
     shared_ptr<string> srcIp_ {};
+    // The start of the time range to query. This value is a UNIX timestamp representing seconds.
     shared_ptr<int64_t> startTime_ {};
+    // The unique ID of the event.
     shared_ptr<string> uuid_ {};
   };
 

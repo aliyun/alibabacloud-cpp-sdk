@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The region ID of the VPC.
+      // The ID of the region to which the VPC belongs.
       shared_ptr<string> regionNo_ {};
-      // The ID of the VPC.
+      // The instance ID of the VPC.
       shared_ptr<string> vpcId_ {};
-      // The name of the VPC.
+      // The instance name of the VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the VPCs.
+    // The list of VPCs.
     shared_ptr<vector<DescribeVpcListLiteResponseBody::VpcList>> vpcList_ {};
   };
 

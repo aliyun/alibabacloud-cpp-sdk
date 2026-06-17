@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of open high-risk vulnerabilities.
     shared_ptr<int32_t> highOpenEventCnt_ {};
+    // The number of open low-risk vulnerabilities.
     shared_ptr<int32_t> lowOpenEventCnt_ {};
+    // The number of open medium-risk vulnerabilities.
     shared_ptr<int32_t> middleOpenEventCnt_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of open vulnerabilities.
     shared_ptr<int32_t> totalOpenEventCnt_ {};
   };
 

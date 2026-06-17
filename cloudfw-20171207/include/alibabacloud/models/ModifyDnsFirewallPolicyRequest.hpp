@@ -130,17 +130,58 @@ namespace Models
 
 
   protected:
+    // The action that is performed on traffic that hits the access control policy. Valid values:
+    // 
+    // - **accept**: Allow
+    // 
+    // - **drop**: Deny
+    // 
+    // - **log**: Monitor
     shared_ptr<string> aclAction_ {};
+    // The unique ID of the access control policy.
+    // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
+    // The description of the access control policy.
     shared_ptr<string> description_ {};
+    // The destination address in the access control policy.
+    // 
+    // - If **DestinationType** is set to net, **Destination** specifies the destination CIDR block. For example: 1.2.3.4/24
+    // 
+    // - If **DestinationType** is set to group, **Destination** specifies the name of the destination address book. For example: db_group
+    // 
+    // - If **DestinationType** is set to domain, **Destination** specifies the destination domain name. For example: \\*.aliyuncs.com
+    // 
+    // - If **DestinationType** is set to location, **Destination** specifies the destination region. For more information about the location codes, see the following description. For example: ["BJ11", "ZB"]
     shared_ptr<string> destination_ {};
+    // The type of the destination address in the access control policy.
+    // 
+    // Valid values:
+    // 
+    // - **net**: destination CIDR block (CIDR address)
+    // 
+    // - **group**: destination address book
+    // 
+    // - **domain**: destination domain name
     shared_ptr<string> destinationType_ {};
+    // The language of the content within the request and response. Valid values:-**zh**: Chinese-**en**: English
     shared_ptr<string> lang_ {};
+    // The priority of the access control policy before the modification.
     shared_ptr<string> priority_ {};
+    // The status of the access control policy. By default, the policy is enabled after it is created. Valid values:
+    // 
+    // - **true**: enables the access control policy.
+    // 
+    // - **false**: disables the access control policy.
     shared_ptr<string> release_ {};
     shared_ptr<string> source_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The type of the source address in the access control policy. Valid values:
+    // 
+    // - **net**: source CIDR block (CIDR)
+    // 
+    // - **group**: source address book
     shared_ptr<string> sourceType_ {};
   };
 

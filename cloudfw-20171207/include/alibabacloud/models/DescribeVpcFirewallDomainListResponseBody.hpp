@@ -147,15 +147,25 @@ namespace Models
 
 
     protected:
+      // The list of application layer protocols.
       shared_ptr<vector<string>> applicationNameList_ {};
+      // The business to which the domain name belongs.
       shared_ptr<string> business_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The organization to which the domain name belongs.
       shared_ptr<string> groupName_ {};
+      // The volume of request traffic to the domain name. Unit: bytes.
       shared_ptr<int64_t> requestBytes_ {};
+      // The volume of response traffic. Unit: bytes.
       shared_ptr<int64_t> responseBytes_ {};
+      // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
+      // The number of source IP addresses that are used to access the domain name.
       shared_ptr<int64_t> srcIpCount_ {};
+      // The number of source VPCs that are used to access the domain name.
       shared_ptr<int64_t> srcVpcCount_ {};
+      // The total traffic volume. Unit: bytes.
       shared_ptr<int64_t> totalBytes_ {};
     };
 
@@ -185,8 +195,11 @@ namespace Models
 
 
   protected:
+    // The list of returned data.
     shared_ptr<vector<DescribeVpcFirewallDomainListResponseBody::DataList>> dataList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -163,9 +163,13 @@ namespace Models
 
 
           protected:
+            // The destination CIDR block.
             shared_ptr<string> destinationCidr_ {};
+            // The ID of the next hop.
             shared_ptr<string> nextHopId_ {};
+            // The network type of the next hop.
             shared_ptr<string> nextHopType_ {};
+            // The ID of the route table.
             shared_ptr<string> routeTableId_ {};
           };
 
@@ -209,10 +213,15 @@ namespace Models
 
 
         protected:
+          // The status of the NAT Gateway.
           shared_ptr<string> detail_ {};
+          // The ID of the NAT Gateway.
           shared_ptr<string> natGatewayId_ {};
+          // The name of the NAT Gateway.
           shared_ptr<string> natGatewayName_ {};
+          // The list of NAT route tables.
           shared_ptr<vector<NatGateways::NatRouteEntryList>> natRouteEntryList_ {};
+          // The status of the NAT Gateway.
           shared_ptr<string> status_ {};
         };
 
@@ -256,10 +265,15 @@ namespace Models
 
 
       protected:
+        // The IPv4 CIDR block of the VPC.
         shared_ptr<string> cidrBlock_ {};
+        // The UID of the member account.
         shared_ptr<string> memberUid_ {};
+        // The list of NAT gateways.
         shared_ptr<vector<VpcList::NatGateways>> natGateways_ {};
+        // The ID of the VPC.
         shared_ptr<string> vpcId_ {};
+        // The name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -282,7 +296,9 @@ namespace Models
 
 
     protected:
+      // The region ID.
       shared_ptr<string> regionNo_ {};
+      // The list of VPCs.
       shared_ptr<vector<ResourceList::VpcList>> vpcList_ {};
     };
 
@@ -305,7 +321,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of resources.
     shared_ptr<vector<DescribeSecurityProxyResourcesResponseBody::ResourceList>> resourceList_ {};
   };
 

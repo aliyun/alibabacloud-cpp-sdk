@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
+      // The peak inbound network throughput. Unit: bps.
       shared_ptr<int64_t> maxInBps_ {};
-      // The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
+      // The peak outbound network throughput. Unit: bps.
       shared_ptr<int64_t> maxOutBps_ {};
-      // The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
+      // The peak total network throughput for inbound and outbound traffic. Unit: bps.
       shared_ptr<int64_t> maxTotalBps_ {};
-      // The time range to query. The value is a UNIX timestamp. Unit: seconds.
+      // The time of the query. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> trafficTime_ {};
     };
 
@@ -144,15 +144,15 @@ namespace Models
 
 
   protected:
-    // The statistics on traffic.
+    // A list of traffic statistics.
     shared_ptr<vector<DescribeNatFirewallTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
+    // The peak inbound network throughput. Unit: bps.
     shared_ptr<int64_t> maxInBps_ {};
-    // The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
+    // The peak outbound network throughput. Unit: bps.
     shared_ptr<int64_t> maxOutBps_ {};
-    // The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
+    // The peak total network throughput for inbound and outbound traffic. Unit: bps.
     shared_ptr<int64_t> maxTotalBps_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -244,28 +244,73 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> accessInstanceId_ {};
+    // The name of the access instance.
     shared_ptr<string> accessInstanceName_ {};
+    // The UID of the Alibaba Cloud account.
     shared_ptr<int64_t> aliUid_ {};
+    // The endpoint ID.
     shared_ptr<string> endpointId_ {};
+    // The type of the Cloud Firewall. Valid values:
+    // 
+    // - **internet**
+    // 
+    // - **vpc**
+    // 
+    // - **nat**
     shared_ptr<vector<string>> firewallType_ {};
+    // The time when the endpoint was created. This is a UNIX timestamp in seconds.
     shared_ptr<int64_t> gmtCreate_ {};
+    // The IP protocol. Valid values:
+    // 
+    // - **TCP**
+    // 
+    // - **UDP**
     shared_ptr<string> ipProtocol_ {};
+    // The UID of the member account.
     shared_ptr<int64_t> memberUid_ {};
+    // The port number.
     shared_ptr<int32_t> port_ {};
+    // The primary DNS server.
     shared_ptr<string> primaryDns_ {};
+    // The ID of the primary vSwitch.
     shared_ptr<string> primaryVSwitchId_ {};
+    // The IP address of the primary vSwitch.
     shared_ptr<string> primaryVSwitchIp_ {};
+    // The zone of the primary vSwitch.
     shared_ptr<string> primaryZoneId_ {};
+    // The type of the private DNS. Valid values:
+    // 
+    // - **PrivateZone**
+    // 
+    // - **Custom** (Default)
     shared_ptr<string> privateDnsType_ {};
+    // The ID of the region where the instance is located.
     shared_ptr<string> regionNo_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The standby DNS server.
     shared_ptr<string> standbyDns_ {};
+    // The ID of the standby vSwitch.
     shared_ptr<string> standbyVSwitchId_ {};
+    // The IP address of the standby vSwitch.
     shared_ptr<string> standbyVSwitchIp_ {};
+    // The zone of the standby vSwitch.
     shared_ptr<string> standbyZoneId_ {};
+    // The instance status. Valid values:
+    // 
+    // - **creating**: Creating.
+    // 
+    // - **deleting**: Deleting.
+    // 
+    // - **normal**: Normal.
+    // 
+    // - **updating**: Updating.
     shared_ptr<string> status_ {};
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -204,24 +204,43 @@ namespace Models
 
 
   protected:
+    // The number of assets that are ignored.
     shared_ptr<int32_t> ignoreAssetCount_ {};
+    // The number of domain names that are ignored.
     shared_ptr<int32_t> ignoreDomainCount_ {};
+    // The number of destination IP addresses that are ignored.
     shared_ptr<int32_t> ignoreDstIPCount_ {};
+    // The number of risky assets with outbound connections over a private network.
     shared_ptr<int64_t> privateRiskAssetCount_ {};
+    // The number of assets with outbound connections over a private network.
     shared_ptr<int64_t> privateTotalAssetCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of risky assets.
     shared_ptr<int32_t> riskAssetCount_ {};
+    // The number of risky domain names for outbound connections.
     shared_ptr<int32_t> riskDomainCount_ {};
+    // The number of risky destination IP addresses for outbound connections.
     shared_ptr<int32_t> riskDstIPCount_ {};
+    // The number of assets that you follow.
     shared_ptr<int32_t> subscribeAssetCount_ {};
+    // The number of domain names that you follow.
     shared_ptr<int32_t> subscribeDomainCount_ {};
+    // The number of destination IP addresses that you follow.
     shared_ptr<int32_t> subscribeDstIPCount_ {};
+    // The total number of assets that have outbound connections.
     shared_ptr<int32_t> totalAssetCount_ {};
+    // The total number of outbound domain names.
     shared_ptr<int32_t> totalDomainCount_ {};
+    // The total number of destination IP addresses for outbound connections.
     shared_ptr<int32_t> totalDstIPCount_ {};
+    // The number of outbound connection protocols.
     shared_ptr<int32_t> totalProtocolCount_ {};
+    // The number of domain names that are not covered by a policy.
     shared_ptr<int32_t> uncoveredAclDomain_ {};
+    // The number of destination IP addresses that are not covered by a policy.
     shared_ptr<int32_t> uncoveredAclDstIP_ {};
+    // The percentage of traffic from unidentified protocols.
     shared_ptr<string> unknownProtocolRadio_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The UUID of the access control policy.
+    // The unique ID of the access control policy.
     // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};

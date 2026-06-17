@@ -101,24 +101,65 @@ namespace Models
 
 
   protected:
+    // The IP version.
     shared_ptr<string> ipVersion_ {};
     // The IP addresses.
     // 
-    // >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+    // > You must specify a value for at least one of the following parameters: `IpaddrList`, `RegionList`, and `ResourceTypeList`.
     shared_ptr<vector<string>> ipaddrList_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The unique identifier of the member.
     shared_ptr<string> memberUid_ {};
     // The regions.
     // 
-    // >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+    // > You must specify a value for at least one of the following parameters: `IpaddrList`, `RegionList`, and `ResourceTypeList`.
     shared_ptr<vector<string>> regionList_ {};
-    // The types of the assets.
+    // The asset types. Valid values:
     // 
-    // > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+    // - **BastionHostEgressIP**: The egress IP address of a bastion host.
+    // 
+    // - **BastionHostIngressIP**: The ingress IP address of a bastion host.
+    // 
+    // - **EcsEIP**: The Elastic IP Address (EIP) of an ECS instance.
+    // 
+    // - **EcsPublicIP**: The public IP address of an ECS instance.
+    // 
+    // - **EIP**: An Elastic IP Address (EIP).
+    // 
+    // - **EniEIP**: The EIP of an elastic network interface (ENI).
+    // 
+    // - **NatEIP**: The EIP of a NAT Gateway instance.
+    // 
+    // - **SlbEIP**: The EIP of a Server Load Balancer (SLB) or Classic Load Balancer (CLB) instance.
+    // 
+    // - **SlbPublicIP**: The public IP address of an SLB or CLB instance.
+    // 
+    // - **NatPublicIP**: The public IP address of a NAT Gateway instance.
+    // 
+    // - **HAVIP**: A High-availability Virtual IP (HAVIP).
+    // 
+    // - **NlbEIP**: The EIP of a Network Load Balancer (NLB) instance.
+    // 
+    // - **ApiGatewayEIP**: The public IP address of an API Gateway instance.
+    // 
+    // - **AlbEIP**: The EIP of an Application Load Balancer (ALB) instance.
+    // 
+    // - **AiGatewayEIP**: The public IP address of an AI Gateway instance.
+    // 
+    // - **GaEIP**: The EIP of a Global Accelerator (GA) instance.
+    // 
+    // - **SwasEIP**: The public IP address of a Simple Application Server instance.
+    // 
+    // - **EcdEIP**: The public IP address of an Elastic Desktop Service (ECD) instance.
+    // 
+    // - **BastionHostIP**: The IP address of a bastion host.
+    // 
+    // > You must specify a value for at least one of the following parameters: `IpaddrList`, `RegionList`, and `ResourceTypeList`.
     shared_ptr<vector<string>> resourceTypeList_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};

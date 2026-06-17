@@ -57,15 +57,17 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the Internet Firewall feature. Valid values:
+    // The status of the Internet Border firewall. Valid values:
     // 
-    // *   **open**: enabled
-    // *   **init**: being enabled
-    // *   **closed**: disabled
+    // - **open**: The firewall is enabled.
+    // 
+    // - **init**: The firewall is being enabled.
+    // 
+    // - **closed**: The firewall is disabled.
     shared_ptr<string> status_ {};
-    // The number of days during which no asset is added to the Internet Firewall feature for protection. This parameter is valid only when the value of Status is open.
+    // The number of days that the firewall was disabled. This parameter is returned only if the value of the Status parameter is open.
     shared_ptr<int64_t> unprotectedDate_ {};
   };
 

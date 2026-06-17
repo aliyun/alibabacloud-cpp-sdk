@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The end of the domain name creation time. The value is a UNIX timestamp.
     shared_ptr<int64_t> domainNameCreatedEndTime_ {};
+    // The start of the domain name creation time. The value is a UNIX timestamp.
     shared_ptr<int64_t> domainNameCreatedStartTime_ {};
   };
 

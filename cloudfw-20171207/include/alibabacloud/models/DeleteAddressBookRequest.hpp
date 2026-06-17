@@ -57,16 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the address book.
+    // The unique ID of the address book.
     // 
-    // To delete the address book, you must provide the ID of the address book. You can call the DescribeAddressBook operation to query the ID.
+    // > To obtain this ID, call the [DescribeAddressBook](~~DescribeAddressBook~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> groupUuid_ {};
-    // The natural language of the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // The language of the content within the request and response.
     shared_ptr<string> lang_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};

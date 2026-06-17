@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The unique identifier of the vulnerability event.
       shared_ptr<string> eventKey_ {};
+      // The name of the vulnerability event.
       shared_ptr<string> eventName_ {};
     };
 
@@ -104,8 +106,11 @@ namespace Models
 
 
   protected:
+    // A list of anomalous activity names.
     shared_ptr<vector<DescribeInvadeEventNameListResponseBody::EventNameList>> eventNameList_ {};
+    // A list of vulnerability names.
     shared_ptr<vector<string>> nameList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -87,14 +87,41 @@ namespace Models
 
 
   protected:
+    // The ACL type. Valid values:
+    // 
+    // - **Internet**
+    // 
+    // - **NAT**
+    // 
+    // - **VPC**
+    // 
+    // - **All**
+    // 
     // This parameter is required.
     shared_ptr<string> aclType_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The page size.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether the application is common. Valid values:
+    // 
+    // - **1**: common
+    // 
+    // - **0**: not common
+    // 
+    // - If you omit this parameter (the default), all applications are returned.
     shared_ptr<int32_t> popular_ {};
+    // The list of protocol types.
     shared_ptr<vector<string>> protocols_ {};
   };
 

@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The page number for a paged query.
     shared_ptr<string> currentPage_ {};
+    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> endTime_ {};
+    // The language of the content.
     shared_ptr<string> lang_ {};
+    // The number of entries per page for a paged query.
     shared_ptr<string> pageSize_ {};
+    // The port number.
     shared_ptr<string> port_ {};
+    // The risk level.
     shared_ptr<string> riskLevel_ {};
+    // The name of the application. This is an exact match. If you do not specify this parameter, all applications are queried.
     shared_ptr<string> serviceName_ {};
+    // The name of the application. This is a fuzzy match. If you do not specify this parameter, all applications are queried.
     shared_ptr<string> serviceNameFuzzy_ {};
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
+    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> startTime_ {};
+    // The recommended policy level.
     shared_ptr<string> suggestLevel_ {};
   };
 

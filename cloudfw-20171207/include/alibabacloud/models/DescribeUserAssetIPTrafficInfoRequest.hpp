@@ -61,12 +61,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> assetIP_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh**: Chinese (default).
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The time of the traffic query, specified as a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> trafficTime_ {};

@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

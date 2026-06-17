@@ -183,7 +183,7 @@ namespace Models
           protected:
             // The destination CIDR block of the VPC.
             shared_ptr<string> destinationCidr_ {};
-            // The instance ID of the next hop for the VPC.
+            // The ID of the next hop instance in the VPC.
             shared_ptr<string> nextHopInstanceId_ {};
           };
 
@@ -206,9 +206,9 @@ namespace Models
 
 
         protected:
-          // An array that consists of the route entries for the VPC.
+          // The routes of the VPC.
           shared_ptr<vector<VpcCidrTableList::RouteEntryList>> routeEntryList_ {};
-          // The route table ID of the VPC.
+          // The ID of the route table for the VPC.
           shared_ptr<string> routeTableId_ {};
         };
 
@@ -319,11 +319,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether the VPC is granted the required permissions. The value is fixed as **authorized**, which indicates that the VPC is granted the required permissions.
+        // The authorization status of the VPC. The value is fixed as **authorized**. This value indicates that the VPC is authorized.
         shared_ptr<string> authorizationStatus_ {};
-        // An array consisting of the CIDR blocks that are protected by the VPC firewall.
+        // The CIDR blocks that are protected by the VPC firewall.
         shared_ptr<vector<string>> defendCidrList_ {};
-        // The ID of the specified vSwitch when the routing mode is manual.
+        // The ID of the vSwitch that is specified for the manual routing mode.
         shared_ptr<string> manualVSwitchId_ {};
         // The ID of the network instance.
         shared_ptr<string> networkInstanceId_ {};
@@ -331,34 +331,39 @@ namespace Models
         shared_ptr<string> networkInstanceName_ {};
         // The type of the network instance. Valid values:
         // 
-        // *   **VPC**
-        // *   **VBR**
-        // *   **CCN**
+        // - **VPC**: Virtual Private Cloud.
+        // 
+        // - **VBR**: Virtual Border Router.
+        // 
+        // - **CCN**: Cloud Connect Network.
         shared_ptr<string> networkInstanceType_ {};
-        // The ID of the Alibaba Cloud account to which the VPC belongs.
+        // The UID of the Alibaba Cloud account to which the VPC belongs.
         shared_ptr<int64_t> ownerId_ {};
         // The region ID of the VPC.
         shared_ptr<string> regionNo_ {};
-        // The routing mode of the VPC firewall. Valid values:
+        // The routing mode. Valid values:
         // 
-        // *   **auto**: automatic mode
-        // *   **manual**: manual mode
+        // - **auto**: automatic.
+        // 
+        // - **manual**: manual.
         shared_ptr<string> routeMode_ {};
         // Indicates whether the manual routing mode is supported. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: yes.
+        // 
+        // - **0**: no.
         shared_ptr<string> supportManualMode_ {};
         // The edition of the CEN transit router. Valid values:
         // 
-        // *   **Basic**: Basic Edition transit router
-        // *   **Enterprise**: Enterprise Edition transit router
+        // - **Basic**: Basic Edition.
+        // 
+        // - **Enterprise**: Enterprise Edition.
         shared_ptr<string> transitRouterType_ {};
-        // An array that consists of the CIDR blocks of the VPC.
+        // The CIDR blocks of the VPC.
         shared_ptr<vector<LocalVpc::VpcCidrTableList>> vpcCidrTableList_ {};
-        // The ID of the VPC.
+        // The instance ID of the VPC.
         shared_ptr<string> vpcId_ {};
-        // The name of the VPC.
+        // The instance name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -420,24 +425,29 @@ namespace Models
       protected:
         // Indicates whether basic protection is enabled. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: enabled.
+        // 
+        // - **0**: disabled.
         shared_ptr<int32_t> basicRules_ {};
         // Indicates whether virtual patching is enabled. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
-        shared_ptr<int32_t> enableAllPatch_ {};
-        // The level of the rule group for the IPS. Valid values:
+        // - **1**: enabled.
         // 
-        // *   **1**: loose.
-        // *   **2**: medium.
-        // *   **3**: strict.
+        // - **0**: disabled.
+        shared_ptr<int32_t> enableAllPatch_ {};
+        // The type of the IPS rule group. Valid values:
+        // 
+        // - **1**: loose.
+        // 
+        // - **2**: medium.
+        // 
+        // - **3**: strict.
         shared_ptr<int32_t> ruleClass_ {};
         // The mode of the IPS. Valid values:
         // 
-        // *   **1**: block mode
-        // *   **0**: monitor mode
+        // - **1**: Block Mode.
+        // 
+        // - **0**: Monitor mode.
         shared_ptr<int32_t> runMode_ {};
       };
 
@@ -469,10 +479,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable the strict mode. Valid values:
+        // Indicates whether the strict mode is enabled. Valid values:
         // 
-        // *   1: yes
-        // *   0: no
+        // - 1: enabled
+        // 
+        // - 0: disabled
         shared_ptr<int32_t> strictMode_ {};
       };
 
@@ -578,7 +589,7 @@ namespace Models
 
 
     protected:
-      // ACL engine mode.
+      // The access control list (ACL) engine mode.
       shared_ptr<VpcFirewalls::AclConfig> aclConfig_ {};
       // The ID of the CEN instance.
       shared_ptr<string> cenId_ {};
@@ -588,34 +599,43 @@ namespace Models
       shared_ptr<string> connectType_ {};
       // The status of the VPC firewall. Valid values:
       // 
-      // *   **opened**: The VPC firewall is enabled.
-      // *   **closed**: The VPC firewall is disabled.
-      // *   **notconfigured**: The VPC firewall is not configured.
+      // - **opened**: enabled.
+      // 
+      // - **closed**: disabled.
+      // 
+      // - **notconfigured**: not configured.
       shared_ptr<string> firewallSwitchStatus_ {};
-      // The intrusion prevention system (IPS) configurations.
+      // The intrusion prevention system (IPS) configuration.
       shared_ptr<VpcFirewalls::IpsConfig> ipsConfig_ {};
-      // The details about the VPC.
+      // The details of the VPC.
       shared_ptr<VpcFirewalls::LocalVpc> localVpc_ {};
-      // The UID of the member that is manged by your Alibaba Cloud account. The member is also an Alibaba Cloud account.
+      // The UID of the member account.
       shared_ptr<string> memberUid_ {};
-      // Indicates whether the VPC firewall can be automatically enabled to protect VPC traffic based on route learning. Valid values:
+      // Indicates whether the firewall can be automatically created. Cloud Firewall automatically creates a firewall and protects VPC traffic based on route learning. Valid values:
       // 
-      // *   **passed**: The VPC firewall can be automatically enabled.
-      // *   **failed**: The VPC firewall cannot be automatically enabled.
-      // *   **unknown**: The VPC firewall is in an unknown state.
+      // - **passed**: The firewall can be automatically created.
+      // 
+      // - **failed**: The firewall cannot be automatically created.
+      // 
+      // - **unknown**: The status is unknown.
       shared_ptr<string> precheckStatus_ {};
-      // Indicates whether you can create a VPC firewall in a specified region. Valid values:
+      // The status of the region. Valid values:
       // 
-      // *   **enable**: yes
-      // *   **disable**: no
+      // - **enable**: VPC firewalls can be configured in the region.
+      // 
+      // - **disable**: VPC firewalls cannot be configured in the region.
       shared_ptr<string> regionStatus_ {};
-      // The result code of the operation that creates the VPC firewall. Valid values:
+      // The result code of the operation to create the VPC firewall. Valid values:
       // 
-      // *   **Unauthorized**: Cloud Firewall is not authorized to access the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-      // *   **RegionDisable**: VPC Firewall is not supported in the region of the VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-      // *   **OpsDisable**: You are not allowed to create the VPC firewall.
-      // *   **VbrNotSupport**: The VPC firewall cannot be created for a VBR that is attached to the CEN instance.
-      // *   Empty string: You can create a VPC firewall for the network instance.
+      // - **Unauthorized**: The VPC firewall cannot be created because a network instance is not authorized.
+      // 
+      // - **RegionDisable**: The VPC firewall cannot be created because the region of the network instance is not supported.
+      // 
+      // - **OpsDisable**: The VPC firewall cannot be created.
+      // 
+      // - **VbrNotSupport**: The VPC firewall cannot be created because the VBR in the CEN instance is not supported.
+      // 
+      // - An empty string indicates that the VPC firewall can be created for the network instance.
       shared_ptr<string> resultCode_ {};
       // The instance ID of the VPC firewall.
       shared_ptr<string> vpcFirewallId_ {};
@@ -653,7 +673,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of VPC firewalls.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the VPC firewalls.
+    // The details of the VPC firewalls.
     shared_ptr<vector<DescribeVpcFirewallCenListResponseBody::VpcFirewalls>> vpcFirewalls_ {};
   };
 

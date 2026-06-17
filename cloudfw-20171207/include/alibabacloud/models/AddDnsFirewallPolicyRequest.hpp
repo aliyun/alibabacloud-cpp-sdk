@@ -140,25 +140,90 @@ namespace Models
 
 
   protected:
+    // Specifies the action to take on traffic that matches the access control policy. Valid values:
+    // 
+    // - **accept**: Allows the traffic.
+    // 
+    // - **drop**: Denies the traffic.
+    // 
+    // - **log**: Monitors the traffic.
+    // 
     // This parameter is required.
     shared_ptr<string> aclAction_ {};
+    // The description of the access control policy.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The destination address in the access control policy.
+    // 
+    // - When **DestinationType** is `net`, this parameter specifies the destination CIDR block. Example: `1.2.3.4/24`.
+    // 
+    // - When **DestinationType** is `group`, this parameter specifies the name of the destination address book. Example: `db_group`.
+    // 
+    // - When **DestinationType** is `domain`, this parameter specifies the destination domain name. Example: `*.aliyuncs.com`.
+    // 
+    // - When **DestinationType** is `location`, this parameter specifies the destination region. For more information about location codes, see the documentation. Example: `["BJ11", "ZB"]`.
+    // 
     // This parameter is required.
     shared_ptr<string> destination_ {};
+    // The type of the destination address in the access control policy.
+    // 
+    // Valid values:
+    // 
+    // - **net**: destination CIDR block
+    // 
+    // - **group**: destination address book
+    // 
+    // - **domain**: destination domain name
+    // 
     // This parameter is required.
     shared_ptr<string> destinationType_ {};
+    // The traffic direction for the access control policy. Valid values:
+    // 
+    // - **in**: inbound traffic
+    // 
+    // - **out**: outbound traffic
     shared_ptr<string> direction_ {};
+    // The IP version supported by the policy.
+    // 
+    // Valid values:
+    // 
+    // - **4**: IPv4
+    // 
+    // - **6**: IPv6
+    // 
     // This parameter is required.
     shared_ptr<string> ipVersion_ {};
+    // The language of the request and response. Valid values:<br>-**zh**: Chinese<br>-**en**: English<br><br>
     shared_ptr<string> lang_ {};
+    // The priority of the access control policy. A smaller value indicates a higher priority.
+    // 
     // This parameter is required.
     shared_ptr<string> priority_ {};
+    // Specifies whether to enable the access control policy. Valid values:
+    // 
+    // - **true**: Enables the access control policy.
+    // 
+    // - **false**: Disables the access control policy.
+    // 
     // This parameter is required.
     shared_ptr<string> release_ {};
+    // The source address in the access control policy.
+    // 
+    // - When **SourceType** is `net`, this parameter specifies the source CIDR block. Example: `10.2.XX.XX/24`.
+    // 
+    // - When **SourceType** is `group`, this parameter specifies the name of the source address book. Example: `db_group`.
+    // 
     // This parameter is required.
     shared_ptr<string> source_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
+    // The type of the source address in the access control policy. Valid values:
+    // 
+    // - **net**: source CIDR block
+    // 
+    // - **group**: source address book
+    // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
   };

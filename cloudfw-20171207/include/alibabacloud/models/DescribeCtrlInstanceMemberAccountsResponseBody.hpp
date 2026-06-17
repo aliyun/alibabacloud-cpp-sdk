@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of Cloud Firewall member accounts.
     shared_ptr<int64_t> instanceMemberCount_ {};
+    // The maximum number of member accounts supported by Cloud Firewall.
     shared_ptr<int64_t> maxInstanceMemberNum_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

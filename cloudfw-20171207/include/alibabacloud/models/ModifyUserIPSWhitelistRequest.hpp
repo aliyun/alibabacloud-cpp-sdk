@@ -94,12 +94,23 @@ namespace Models
 
 
   protected:
+    // The traffic direction for the Internet Border.
     shared_ptr<int64_t> direction_ {};
+    // The IP version.
     shared_ptr<string> ipVersion_ {};
+    // The language.
     shared_ptr<string> lang_ {};
+    // The type of address in the Internet Border whitelist.
     shared_ptr<int64_t> listType_ {};
+    // The value of the Internet Border whitelist.
+    // 
+    // - If ListType is set to `Custom`: the name of the address book.
+    // 
+    // - If ListType is set to `Address book`: the IPv4 address.
     shared_ptr<string> listValue_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The type of source or destination for which the Internet Border whitelist takes effect.
     shared_ptr<int64_t> whiteType_ {};
   };
 

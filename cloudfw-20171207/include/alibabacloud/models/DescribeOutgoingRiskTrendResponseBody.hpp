@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The number of threat domain names.
       shared_ptr<int32_t> riskDomain_ {};
+      // The number of threat IP addresses.
       shared_ptr<int32_t> riskIp_ {};
+      // The timestamp.
       shared_ptr<int64_t> time_ {};
     };
 
@@ -130,10 +133,15 @@ namespace Models
 
 
   protected:
+    // The list of returned data.
     shared_ptr<vector<DescribeOutgoingRiskTrendResponseBody::DataList>> dataList_ {};
+    // The time interval.
     shared_ptr<int32_t> interval_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of threat domain names.
     shared_ptr<int32_t> totalRiskDomain_ {};
+    // The total number of threat IP addresses.
     shared_ptr<int32_t> totalRiskIp_ {};
   };
 

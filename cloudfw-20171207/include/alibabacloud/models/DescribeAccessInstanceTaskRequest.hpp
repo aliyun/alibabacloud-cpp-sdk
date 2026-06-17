@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The ID of the synchronization node.
     shared_ptr<string> accessInstanceId_ {};
+    // The type of the synchronization node.
     shared_ptr<string> accessInstanceType_ {};
+    // The language of the response messages.
     shared_ptr<string> lang_ {};
+    // The region ID.
     shared_ptr<string> regionNo_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

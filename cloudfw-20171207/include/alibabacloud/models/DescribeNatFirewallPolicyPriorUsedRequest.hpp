@@ -66,24 +66,25 @@ namespace Models
 
 
   protected:
-    // The direction of the traffic to which the access control policy applies.
+    // The traffic direction of the access control policy.
     // 
-    // Valid values:
+    // Valid value:
     // 
-    // *   **out**: outbound traffic
+    // - **out**: outbound traffic.
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
-    // The IP version supported by the access control policy. Valid values:
+    // The IP version. Valid value:
     // 
-    // *   **4**: IPv4 (default)
+    // - **4** (default): IPv4
     shared_ptr<string> ipVersion_ {};
-    // The language of the content within the request and the response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};

@@ -93,7 +93,9 @@ namespace Models
 
 
       protected:
+        // The total number of entries.
         shared_ptr<string> count_ {};
+        // The event type.
         shared_ptr<string> eventType_ {};
       };
 
@@ -135,7 +137,9 @@ namespace Models
 
 
       protected:
+        // The public IP address.
         shared_ptr<string> publicIp_ {};
+        // The amount of traffic in bytes.
         shared_ptr<int64_t> trafficBytes_ {};
       };
 
@@ -186,8 +190,11 @@ namespace Models
 
 
       protected:
+        // The asset type.
         shared_ptr<string> assetType_ {};
+        // The public IP address.
         shared_ptr<string> publicIp_ {};
+        // The amount of traffic in bytes.
         shared_ptr<int64_t> trafficBytes_ {};
       };
 
@@ -221,8 +228,11 @@ namespace Models
 
 
     protected:
+      // A ranked list of sensitive data assets.
       shared_ptr<vector<SdlStatisticResp::SdlAssetTopList>> sdlAssetTopList_ {};
+      // A ranked list of sensitive data destinations.
       shared_ptr<vector<SdlStatisticResp::SdlDstTopList>> sdlDstTopList_ {};
+      // A list of counts for each sensitive data event type.
       shared_ptr<vector<SdlStatisticResp::SdlEventTypeCountList>> sdlEventTypeCountList_ {};
     };
 
@@ -245,7 +255,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The details of the sensitive data.
     shared_ptr<DescribeSdlStatisticResponseBody::SdlStatisticResp> sdlStatisticResp_ {};
   };
 

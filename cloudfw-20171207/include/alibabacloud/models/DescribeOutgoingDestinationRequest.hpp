@@ -195,25 +195,45 @@ namespace Models
 
 
   protected:
+    // The policy coverage status.
     shared_ptr<string> aclCoverage_ {};
+    // The application name.
     shared_ptr<string> applicationName_ {};
+    // The category ID.
     shared_ptr<string> categoryId_ {};
+    // The number of the page to return.
     shared_ptr<string> currentPage_ {};
+    // The destination IP address.
     shared_ptr<string> dstIP_ {};
+    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // Specifies whether to count only the traffic to AI services. The default value is false.
     shared_ptr<string> isAITraffic_ {};
+    // The language of the response message.
     shared_ptr<string> lang_ {};
+    // The sorting order.
     shared_ptr<string> order_ {};
+    // The number of the page to return.
     shared_ptr<string> pageSize_ {};
+    // The port number.
     shared_ptr<string> port_ {};
+    // The private IP address.
     shared_ptr<string> privateIP_ {};
+    // The public IP address.
     shared_ptr<string> publicIP_ {};
+    // The security policy for the outbound connection.
     shared_ptr<string> securitySuggest_ {};
+    // The field to use for sorting.
     shared_ptr<string> sort_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The tag ID.
     shared_ptr<string> tagId_ {};
   };
 

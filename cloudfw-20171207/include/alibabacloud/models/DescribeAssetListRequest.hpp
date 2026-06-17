@@ -167,79 +167,115 @@ namespace Models
 
 
   protected:
-    // The page number. Valid values: 1 to 50.
+    // The page number to return.
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
-    // The IP version of the asset that is protected by Cloud Firewall. Valid values:
+    // The IP version of the asset. Valid values:
     // 
-    // *   **4**: IPv4 (default)
-    // *   **6**: IPv6
+    // - **4** (default): IPv4
+    // 
+    // - **6**: IPv6
     shared_ptr<string> ipVersion_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The UID of the member that is added to Cloud Firewall.
+    // The UID of the member account.
     shared_ptr<int64_t> memberUid_ {};
-    // The time when the asset was added. Valid values:
+    // Filters for assets discovered within a specific time window. Valid values:
     // 
-    // *   **discovered in 1 hour**: within one hour.
-    // *   **discovered in 1 day**: within one day.
-    // *   **discovered in 7 days**: within seven days.
+    // - **discovered in 1 hour**: The asset was added within the last hour.
+    // 
+    // - **discovered in 1 day**: The asset was added within the last day.
+    // 
+    // - **discovered in 7 days**: The asset was added within the last 7 days.
     shared_ptr<string> newResourceTag_ {};
-    // Whether to query external traffic information.
+    // Specifies whether to query information about outbound traffic.
     shared_ptr<string> outStatistic_ {};
-    // The number of entries per page. Valid values: 1 to 50.
+    // The number of assets to return per page.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The region ID of your Cloud Firewall.
+    // The region ID of your Cloud Firewall instance.
     // 
-    // > For more information about the regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // > For more information about the regions that Cloud Firewall supports, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     shared_ptr<string> regionNo_ {};
-    // The type of the asset. Valid values:
+    // The asset type. Valid values:
     // 
-    // *   **BastionHostEgressIP**: the egress IP address of a bastion host
-    // *   **BastionHostIngressIP**: the ingress IP address of a bastion host
-    // *   **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
-    // *   **EcsPublicIP**: the public IP address of an ECS instance
-    // *   **EIP**: the EIP
-    // *   **EniEIP**: the EIP of an elastic network interface (ENI)
-    // *   **NatEIP**: the EIP of a NAT gateway
-    // *   **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance or a Classic Load Balancer (CLB) instance
-    // *   **SlbPublicIP**: the public IP address of an SLB instance or a CLB instance
-    // *   **NatPublicIP**: the public IP address of a NAT gateway
-    // *   **HAVIP**: the high-availability virtual IP address (HAVIP)
+    // - **BastionHostEgressIP**: The egress IP address of a Bastionhost instance.
+    // 
+    // - **BastionHostIngressIP**: The ingress IP address of a Bastionhost instance.
+    // 
+    // - **EcsEIP**: The Elastic IP Address (EIP) of an ECS instance.
+    // 
+    // - **EcsPublicIP**: The public IP address of an ECS instance.
+    // 
+    // - **EIP**: An Elastic IP Address (EIP).
+    // 
+    // - **EniEIP**: The EIP of an elastic network interface (ENI).
+    // 
+    // - **NatEIP**: The EIP of a NAT Gateway instance.
+    // 
+    // - **SlbEIP**: The EIP of a Server Load Balancer (SLB) or Classic Load Balancer (CLB) instance.
+    // 
+    // - **SlbPublicIP**: The public IP address of a Server Load Balancer (SLB) or Classic Load Balancer (CLB) instance.
+    // 
+    // - **NatPublicIP**: The public IP address of a NAT Gateway instance.
+    // 
+    // - **HAVIP**: A High-availability Virtual IP (HAVIP).
+    // 
+    // - **NlbEIP**: The EIP of a Network Load Balancer (NLB) instance.
+    // 
+    // - **ApiGatewayEIP**: The public IP address of an API Gateway instance.
+    // 
+    // - **AlbEIP**: The EIP of an Application Load Balancer (ALB) instance.
+    // 
+    // - **AiGatewayEIP**: The public IP address of an AI Gateway instance.
+    // 
+    // - **GaEIP**: The EIP of a Global Accelerator (GA) instance.
+    // 
+    // - **SwasEIP**: The public IP address of a Simple Application Server instance.
+    // 
+    // - **EcdEIP**: The public IP address of a Wuying instance.
+    // 
+    // - **BastionHostIP**: The IP address of a Bastionhost instance.
     shared_ptr<string> resourceType_ {};
-    // The instance ID or IP address of the asset.
+    // The IP address or instance ID of the asset.
     shared_ptr<string> searchItem_ {};
-    // Data leakage detection activation status.
+    // The status of the data leak detection feature.
     shared_ptr<string> sensitiveStatus_ {};
     // The status of the security group policy. Valid values:
     // 
-    // *   **pass**: delivered
-    // *   **block**: undelivered
-    // *   **unsupport**: unsupported
+    // - **pass**: The security group policy is enforced.
     // 
-    // > If you do not specify this parameter, the assets on which security group policies in all states take effect are queried.
+    // - **block**: The security group policy is not enforced.
+    // 
+    // - **unsupport**: The asset does not support security group policies.
+    // 
+    // > If you do not specify this parameter, assets are queried regardless of the security group policy status.
     shared_ptr<string> sgStatus_ {};
-    // The status of the firewall. Valid values:
+    // The protection status of the asset. Valid values:
     // 
-    // *   **open**: The firewall is enabled.
-    // *   **opening**: The firewall is being enabled.
-    // *   **closed**: The firewall is disabled.
-    // *   **closing**: The firewall is being disabled.
+    // - **open**: Protection is enabled.
     // 
-    // > If you do not specify this parameter, the assets that are configured for firewalls in all states are queried.
+    // - **opening**: Protection is being enabled.
+    // 
+    // - **closed**: Protection is disabled.
+    // 
+    // - **closing**: Protection is being disabled.
+    // 
+    // > If you do not specify this parameter, assets are queried regardless of their protection status.
     shared_ptr<string> status_ {};
     // This parameter is deprecated.
     shared_ptr<string> type_ {};
-    // The edition of Cloud Firewall. Valid values:
+    // The type of the user. Valid values:
     // 
-    // *   **buy**: a paid edition (default)
-    // *   **free**: Free Edition
+    // - **buy** (default): A user with a paid subscription.
+    // 
+    // - **free**: A user on the free tier.
     shared_ptr<string> userType_ {};
   };
 

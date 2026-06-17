@@ -103,13 +103,22 @@ namespace Models
 
 
   protected:
+    // The time interval.
     shared_ptr<int64_t> interval_ {};
+    // The language of the content within the request and response.
     shared_ptr<string> lang_ {};
+    // The maximum number of top entries to return. The default value is 200. Valid values: 1 to 500.
     shared_ptr<int64_t> limit_ {};
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The sorting method.
     shared_ptr<string> sort_ {};
+    // The private IP address of the NAT Gateway.
     shared_ptr<string> srcPrivateIP_ {};
+    // The public IP address of the NAT Gateway.
     shared_ptr<string> srcPublicIP_ {};
+    // The point in time to query the traffic data. This is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> trafficTime_ {};
   };

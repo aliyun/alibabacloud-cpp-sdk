@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleResult, ruleResult_);
       DARABONBA_PTR_TO_JSON(RuleSource, ruleSource_);
+      DARABONBA_PTR_TO_JSON(RuleSourceFinal, ruleSourceFinal_);
       DARABONBA_PTR_TO_JSON(SourceCode, sourceCode_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(SrcIP, srcIP_);
@@ -84,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleResult, ruleResult_);
       DARABONBA_PTR_FROM_JSON(RuleSource, ruleSource_);
+      DARABONBA_PTR_FROM_JSON(RuleSourceFinal, ruleSourceFinal_);
       DARABONBA_PTR_FROM_JSON(SourceCode, sourceCode_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(SrcIP, srcIP_);
@@ -113,9 +115,9 @@ namespace Models
         && this->dstPort_ == nullptr && this->dstVpcId_ == nullptr && this->dstVpcRegionNo_ == nullptr && this->endTime_ == nullptr && this->firewallType_ == nullptr
         && this->flowType_ == nullptr && this->ipProtocol_ == nullptr && this->ipVersion_ == nullptr && this->isp_ == nullptr && this->lang_ == nullptr
         && this->location_ == nullptr && this->memberUid_ == nullptr && this->natFirewallId_ == nullptr && this->natGatewayId_ == nullptr && this->pageSize_ == nullptr
-        && this->ruleId_ == nullptr && this->ruleResult_ == nullptr && this->ruleSource_ == nullptr && this->sourceCode_ == nullptr && this->sourceIp_ == nullptr
-        && this->srcIP_ == nullptr && this->srcPort_ == nullptr && this->srcPrivateIP_ == nullptr && this->srcVpcId_ == nullptr && this->srcVpcRegionNo_ == nullptr
-        && this->startTime_ == nullptr && this->tlsScopeId_ == nullptr && this->vpcFirewallId_ == nullptr && this->vulLevel_ == nullptr; };
+        && this->ruleId_ == nullptr && this->ruleResult_ == nullptr && this->ruleSource_ == nullptr && this->ruleSourceFinal_ == nullptr && this->sourceCode_ == nullptr
+        && this->sourceIp_ == nullptr && this->srcIP_ == nullptr && this->srcPort_ == nullptr && this->srcPrivateIP_ == nullptr && this->srcVpcId_ == nullptr
+        && this->srcVpcRegionNo_ == nullptr && this->startTime_ == nullptr && this->tlsScopeId_ == nullptr && this->vpcFirewallId_ == nullptr && this->vulLevel_ == nullptr; };
     // aclPreRuleId Field Functions 
     bool hasAclPreRuleId() const { return this->aclPreRuleId_ != nullptr;};
     void deleteAclPreRuleId() { this->aclPreRuleId_ = nullptr;};
@@ -319,6 +321,13 @@ namespace Models
     inline DescribeTrafficLogRequest& setRuleSource(string ruleSource) { DARABONBA_PTR_SET_VALUE(ruleSource_, ruleSource) };
 
 
+    // ruleSourceFinal Field Functions 
+    bool hasRuleSourceFinal() const { return this->ruleSourceFinal_ != nullptr;};
+    void deleteRuleSourceFinal() { this->ruleSourceFinal_ = nullptr;};
+    inline string getRuleSourceFinal() const { DARABONBA_PTR_GET_DEFAULT(ruleSourceFinal_, "") };
+    inline DescribeTrafficLogRequest& setRuleSourceFinal(string ruleSourceFinal) { DARABONBA_PTR_SET_VALUE(ruleSourceFinal_, ruleSourceFinal) };
+
+
     // sourceCode Field Functions 
     bool hasSourceCode() const { return this->sourceCode_ != nullptr;};
     void deleteSourceCode() { this->sourceCode_ = nullptr;};
@@ -397,48 +406,97 @@ namespace Models
 
 
   protected:
+    // The ID of the pre-matched ACL rule.
     shared_ptr<string> aclPreRuleId_ {};
+    // The pre-matching status of the ACL.
     shared_ptr<string> aclPreState_ {};
+    // The status of deep packet inspection.
     shared_ptr<string> appDpiState_ {};
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The region ID.
     shared_ptr<string> assetRegion_ {};
+    // The attack type.
     shared_ptr<string> attackType_ {};
+    // The page number of the query.
     shared_ptr<string> currentPage_ {};
+    // The direction.
     shared_ptr<string> direction_ {};
+    // The domain name.
     shared_ptr<string> domainName_ {};
+    // The URL in the flow log.
     shared_ptr<string> domainUrl_ {};
+    // The destination IP address.
     shared_ptr<string> dstIP_ {};
+    // The destination port.
     shared_ptr<string> dstPort_ {};
+    // The destination VPC ID.
     shared_ptr<string> dstVpcId_ {};
+    // The region of the destination VPC asset.
     shared_ptr<string> dstVpcRegionNo_ {};
+    // The end time. This value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The firewall type.
     shared_ptr<string> firewallType_ {};
+    // The flow log type.
     shared_ptr<string> flowType_ {};
+    // The protocol type.
     shared_ptr<string> ipProtocol_ {};
+    // The IP version.
     shared_ptr<string> ipVersion_ {};
+    // The Internet Service Provider (ISP).
     shared_ptr<string> isp_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The region of the source or destination IP address.
     shared_ptr<string> location_ {};
+    // The UID of the member account.
     shared_ptr<int64_t> memberUid_ {};
+    // The ID of the NAT firewall.
     shared_ptr<string> natFirewallId_ {};
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The page number to query. The maximum value is 20.
     shared_ptr<string> pageSize_ {};
+    // The rule ID.
     shared_ptr<string> ruleId_ {};
+    // The action of the rule.
     shared_ptr<string> ruleResult_ {};
+    // The source of the rule.
     shared_ptr<string> ruleSource_ {};
+    // The module that takes effect in the end.
+    shared_ptr<string> ruleSourceFinal_ {};
+    // The traceability code.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
+    // The source IP address.
     shared_ptr<string> srcIP_ {};
+    // The source port.
     shared_ptr<string> srcPort_ {};
+    // The private source IP address.
     shared_ptr<string> srcPrivateIP_ {};
+    // The source VPC ID.
     shared_ptr<string> srcVpcId_ {};
+    // The region of the source VPC asset.
     shared_ptr<string> srcVpcRegionNo_ {};
+    // The start time. This value is a UNIX timestamp. Unit: seconds. You can query data within the last 7 days. The time range for a single query cannot exceed one day.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The ID of the TLS inspection scope.
     shared_ptr<string> tlsScopeId_ {};
+    // The instance ID of the VPC border firewall.
     shared_ptr<string> vpcFirewallId_ {};
+    // The vulnerability level.
     shared_ptr<string> vulLevel_ {};
   };
 

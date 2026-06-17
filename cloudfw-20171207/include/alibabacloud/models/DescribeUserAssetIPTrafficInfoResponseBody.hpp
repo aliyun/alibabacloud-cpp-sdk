@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query, as a UNIX timestamp in seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The network throughput, which indicates the inbound traffic rate. Unit: bit/s.
+    // The inbound network throughput, in bits per second (bps).
     shared_ptr<int64_t> inBps_ {};
-    // The inbound network throughput, which indicates the number of packets that are sent inbound per second. Unit: packets per second (pps).
+    // The inbound packet rate, in packets per second (pps).
     shared_ptr<int64_t> inPps_ {};
-    // The new connection creation rate.
+    // The number of new connections.
     shared_ptr<int64_t> newConn_ {};
-    // The network throughput, which indicates the outbound traffic rate. Unit: bit/s.
+    // The outbound network throughput, in bits per second (bps).
     shared_ptr<int64_t> outBps_ {};
-    // The outbound network throughput, which indicates the number of packets that are sent outbound per second. Unit: pps.
+    // The outbound packet rate, in packets per second (pps).
     shared_ptr<int64_t> outPps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of requests.
+    // The number of sessions.
     shared_ptr<int64_t> sessionCount_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query, as a UNIX timestamp in seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

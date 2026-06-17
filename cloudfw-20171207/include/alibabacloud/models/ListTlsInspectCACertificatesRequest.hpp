@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the CA certificate.
     shared_ptr<string> caCertId_ {};
+    // The page number for a paged query. The default value is 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The maximum number of entries to return on each page for a paged query. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The number of public IP addresses that can be protected.
+      // Maximum number of public IP addresses that can be protected.
       shared_ptr<int32_t> ipNumSpec_ {};
-      // The number of public IP addresses that are protected.
+      // Number of public IP addresses with protection enabled.
       shared_ptr<int32_t> ipNumUsed_ {};
-      // The number of public IP addresses that can enable data leakage detection.
+      // The number of IP specifications for sensitive data.
       shared_ptr<int64_t> sensitiveDataIpNumSpec_ {};
-      // The number of public IP addresses that enabled data leakage detection.
+      // Number of public IP addresses currently scanned for sensitive data.
       shared_ptr<int64_t> sensitiveDataIpNumUsed_ {};
     };
 
@@ -175,7 +175,9 @@ namespace Models
 
 
       protected:
+        // List of member accounts in the region.
         shared_ptr<vector<string>> memberList_ {};
+        // Region information
         shared_ptr<string> regionNo_ {};
       };
 
@@ -219,7 +221,9 @@ namespace Models
 
 
       protected:
+        // List of member accounts in the region.
         shared_ptr<vector<string>> memberList_ {};
+        // Region information
         shared_ptr<string> regionNo_ {};
       };
 
@@ -287,13 +291,21 @@ namespace Models
 
 
     protected:
+      // Internet-facing firewall instance usage by region.
       shared_ptr<vector<GeneralInstanceSpecStatistic::CfwGeneralInstanceRegionStatistic>> cfwGeneralInstanceRegionStatistic_ {};
+      // Total Internet-facing firewall instances by region.
       shared_ptr<vector<GeneralInstanceSpecStatistic::CfwTotalGeneralInstanceRegionStatistic>> cfwTotalGeneralInstanceRegionStatistic_ {};
+      // Total number of Internet-facing firewall instances.
       shared_ptr<int32_t> totalCfwGeneralInstanceCnt_ {};
+      // Number of Internet-facing firewall instances with protection enabled.
       shared_ptr<int32_t> totalCfwGeneralInstanceUsedCnt_ {};
+      // Total number of general instances used.
       shared_ptr<int32_t> totalGeneralInstanceUsedCnt_ {};
+      // Total number of NAT firewall instances.
       shared_ptr<int32_t> totalNatGeneralInstanceCnt_ {};
+      // Number of NAT firewall instances with protection enabled.
       shared_ptr<int32_t> totalNatGeneralInstanceUsedCnt_ {};
+      // Number of VPC firewall instances with protection enabled.
       shared_ptr<int32_t> totalVfwGeneralInstanceUsedCnt_ {};
     };
 
@@ -332,11 +344,13 @@ namespace Models
 
 
   protected:
+    // Whether automatic traffic diversion is enabled. Valid values:- **true**: enabled- **false**: disabled
     shared_ptr<bool> autoResourceEnable_ {};
+    // Specifications for general instances in version 2.0.
     shared_ptr<DescribeAssetStatisticResponseBody::GeneralInstanceSpecStatistic> generalInstanceSpecStatistic_ {};
-    // The request ID.
+    // ID of the request.
     shared_ptr<string> requestId_ {};
-    // The statistics on specifications.
+    // Resource specification usage statistics.
     shared_ptr<DescribeAssetStatisticResponseBody::ResourceSpecStatistic> resourceSpecStatistic_ {};
   };
 

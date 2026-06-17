@@ -108,11 +108,17 @@ namespace Models
 
 
     protected:
+      // The sensitive data.
       shared_ptr<string> sensitiveData_ {};
+      // The number of times the sensitive data appears.
       shared_ptr<int64_t> sensitiveDataCnt_ {};
+      // The sensitivity level of the data.
       shared_ptr<string> sensitiveLevel_ {};
+      // The type of sensitive data.
       shared_ptr<string> sensitiveType_ {};
+      // The source IP address.
       shared_ptr<string> srcIp_ {};
+      // The start time. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -142,8 +148,11 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A list of sensitive data from the data breach.
     shared_ptr<vector<DescribeSdlEventSdListResponseBody::SdlEventSensitiveDataList>> sdlEventSensitiveDataList_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

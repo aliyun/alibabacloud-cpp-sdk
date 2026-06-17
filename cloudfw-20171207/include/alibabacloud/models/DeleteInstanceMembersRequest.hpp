@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The UIDs of the members.
+    // The UIDs of the member accounts.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> memberUids_ {};

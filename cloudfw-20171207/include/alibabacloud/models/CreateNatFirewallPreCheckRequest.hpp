@@ -66,11 +66,24 @@ namespace Models
 
 
   protected:
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The ID of the NAT Gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
+    // The region ID of the NAT Gateway.
+    // 
+    // > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
+    // The ID of the VPC instance.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

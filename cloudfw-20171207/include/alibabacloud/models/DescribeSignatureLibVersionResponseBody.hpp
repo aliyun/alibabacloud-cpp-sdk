@@ -81,39 +81,11 @@ namespace Models
 
 
     protected:
-      // The type.
-      // 
-      // Valid values:
-      // 
-      // *   ips
-      // 
-      //     <!-- -->
-      // 
-      //     :
-      // 
-      //     <!-- -->
-      // 
-      //     Basic Rules and Virtual Patching
-      // 
-      //     <!-- -->
-      // 
-      //     .
-      // 
-      // *   intelligence
-      // 
-      //     <!-- -->
-      // 
-      //     :
-      // 
-      //     <!-- -->
-      // 
-      //     Threat Intelligence
-      // 
-      //     <!-- -->
+      // The type of the signature library.
       shared_ptr<string> type_ {};
-      // Update time.
+      // The time when the signature library was updated. This value is a Unix timestamp in seconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The version number.
+      // The version number of the signature library.
       shared_ptr<string> version_ {};
     };
 
@@ -143,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

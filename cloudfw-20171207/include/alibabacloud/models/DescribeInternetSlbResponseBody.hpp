@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The page number of the returned page.
       shared_ptr<int32_t> currentPage_ {};
+      // The number of entries returned on the current page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -208,16 +211,27 @@ namespace Models
 
 
     protected:
+      // The access control ID.
       shared_ptr<string> aclId_ {};
+      // The status of access control.
       shared_ptr<string> aclStatus_ {};
+      // The access control type.
       shared_ptr<string> aclType_ {};
+      // The health check status.
       shared_ptr<string> healthStatus_ {};
+      // The ID of the SLB instance.
       shared_ptr<string> instanceId_ {};
+      // The name of the SLB instance.
       shared_ptr<string> instanceName_ {};
+      // The protocol type.
       shared_ptr<string> ipProtocol_ {};
+      // The port number.
       shared_ptr<int32_t> port_ {};
+      // The public IP address.
       shared_ptr<string> publicIp_ {};
+      // The region.
       shared_ptr<string> regionNo_ {};
+      // The list of tags.
       shared_ptr<vector<string>> tags_ {};
     };
 
@@ -249,8 +263,11 @@ namespace Models
 
 
   protected:
+    // The list of data.
     shared_ptr<vector<DescribeInternetSlbResponseBody::DataList>> dataList_ {};
+    // The pagination information.
     shared_ptr<DescribeInternetSlbResponseBody::PageInfo> pageInfo_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

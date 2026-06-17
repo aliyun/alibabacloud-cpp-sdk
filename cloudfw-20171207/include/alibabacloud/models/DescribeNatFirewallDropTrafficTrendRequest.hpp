@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
+    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

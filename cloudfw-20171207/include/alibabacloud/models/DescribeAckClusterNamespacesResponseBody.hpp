@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of ACK cluster namespaces.
     shared_ptr<vector<string>> ackNamespaces_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

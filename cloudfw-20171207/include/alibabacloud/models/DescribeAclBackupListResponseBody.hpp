@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The number of access control policies in the backup.
       shared_ptr<int32_t> aclCount_ {};
+      // The time when the backup was created. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> backUpTime_ {};
+      // The description of the backup.
       shared_ptr<string> description_ {};
     };
 
@@ -112,8 +115,11 @@ namespace Models
 
 
   protected:
+    // The backup records.
     shared_ptr<vector<DescribeAclBackupListResponseBody::Backups>> backups_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

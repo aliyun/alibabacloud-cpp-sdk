@@ -136,14 +136,23 @@ namespace Models
 
 
     protected:
+      // The number of received bytes.
       shared_ptr<int64_t> inBytes_ {};
+      // The number of sent bytes.
       shared_ptr<int64_t> outBytes_ {};
+      // The IP address of the peer asset.
       shared_ptr<string> peerAssetIP_ {};
+      // The instance ID of the peer asset.
       shared_ptr<string> peerAssetInstanceId_ {};
+      // The instance name of the peer asset.
       shared_ptr<string> peerAssetInstanceName_ {};
+      // The ID of the peer VPC.
       shared_ptr<string> peerVpcId_ {};
+      // The ID of the region where the asset is located.
       shared_ptr<string> regionNo_ {};
+      // The total number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
+      // The name of the peer VPC.
       shared_ptr<string> peerVpcName_ {};
     };
 
@@ -173,8 +182,11 @@ namespace Models
 
 
   protected:
+    // The data entries.
     shared_ptr<vector<DescribeVpcFirewallAccessDetailResponseBody::DataList>> dataList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

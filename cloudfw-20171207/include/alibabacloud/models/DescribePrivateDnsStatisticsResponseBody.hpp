@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The number of configured domain names for private DNS in the region.
       shared_ptr<int64_t> domainNameCount_ {};
+      // The number of configured domain names that were created in the region within the specified time range.
       shared_ptr<int64_t> newDomainNameCount_ {};
+      // The number of private DNS instances in the region.
       shared_ptr<int64_t> privateDnsCount_ {};
+      // The region.
       shared_ptr<string> regionNo_ {};
     };
 
@@ -159,12 +163,19 @@ namespace Models
 
 
   protected:
+    // The number of private DNS instances in an abnormal state.
     shared_ptr<int64_t> abnormalPrivateDnsCount_ {};
+    // The number of created private DNS instances.
     shared_ptr<int64_t> createdPrivateDnsCount_ {};
+    // The total number of configured domain names.
     shared_ptr<int64_t> domainNameTotalCount_ {};
+    // The number of configured domain names that were created within the specified time range.
     shared_ptr<int64_t> newDomainNameTotalCount_ {};
+    // The number of private DNS instances in a normal state.
     shared_ptr<int64_t> normalPrivateDnsCount_ {};
+    // A list of DNS regions.
     shared_ptr<vector<DescribePrivateDnsStatisticsResponseBody::PrivateDnsRegionList>> privateDnsRegionList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

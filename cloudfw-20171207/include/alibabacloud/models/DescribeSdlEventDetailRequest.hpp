@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The number of the page to return.
     shared_ptr<int32_t> currentPage_ {};
+    // The destination IP address.
     shared_ptr<string> dstIp_ {};
+    // The end time. The value is a UNIX timestamp that is accurate to the second.
     shared_ptr<int64_t> endTime_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The number of the page to return.
     shared_ptr<int32_t> pageSize_ {};
+    // The source IP address.
     shared_ptr<string> srcIp_ {};
+    // The start time. The value is a UNIX timestamp that is accurate to the second.
     shared_ptr<int64_t> startTime_ {};
+    // The unique ID.
     shared_ptr<string> uuid_ {};
   };
 

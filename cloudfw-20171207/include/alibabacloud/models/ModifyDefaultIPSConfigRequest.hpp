@@ -94,38 +94,45 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable basic protection. Valid values:
+    // The switch for basic policies. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Enable.
+    // 
+    // - **0**: Disable.
     shared_ptr<int32_t> basicRules_ {};
-    // Specifies whether to enable threat intelligence. Valid values:
+    // The switch for threat intelligence. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Enable.
+    // 
+    // - **0**: Disable.
     shared_ptr<int32_t> ctiRules_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default)
-    // *   **en**
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum amount of traffic that can be processed by the sensitive data leak detection feature each day.
+    // The daily traffic limit for sensitive data detection.
     shared_ptr<int64_t> maxSdl_ {};
-    // Specifies whether to enable virtual patching. Valid values:
+    // The switch for virtual patching. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: Enable.
+    // 
+    // - **0**: Disable.
     shared_ptr<int32_t> patchRules_ {};
-    // The level of the rule group for the IPS. Valid values:
+    // The IPS rule group. Valid values:
     // 
-    // *   **1**: loose
-    // *   **2**: medium
-    // *   **3**: strict
+    // - **1**: Loose rule group.
+    // 
+    // - **2**: Medium rule group.
+    // 
+    // - **3**: Strict rule group.
     shared_ptr<int32_t> ruleClass_ {};
     // The mode of the IPS. Valid values:
     // 
-    // *   **1**: block mode
-    // *   **0**: monitor mode
+    // - **1**: Block Mode.
+    // 
+    // - **0**: Monitor Mode.
     // 
     // This parameter is required.
     shared_ptr<int32_t> runMode_ {};

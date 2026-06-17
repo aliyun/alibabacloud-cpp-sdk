@@ -116,22 +116,23 @@ namespace Models
 
 
     protected:
-      // The IP address family of the prefix list. Valid values:
+      // The address family of the prefix list. Valid values:
       // 
-      // *   IPv4
-      // *   IPv6
+      // - IPv4
+      // 
+      // - IPv6
       shared_ptr<string> addressFamily_ {};
       // The number of associated resources.
       shared_ptr<int32_t> associationCount_ {};
-      // The creation time.
+      // The time the prefix list was created. The timestamp is in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> creationTime_ {};
-      // The description.
+      // The description of the prefix list.
       shared_ptr<string> description_ {};
       // The maximum number of entries in the prefix list.
       shared_ptr<int32_t> maxEntries_ {};
-      // The ID of the prefix list.
+      // The prefix list ID.
       shared_ptr<string> prefixListId_ {};
-      // The name of the prefix list.
+      // The prefix list name.
       shared_ptr<string> prefixListName_ {};
     };
 
@@ -154,9 +155,9 @@ namespace Models
 
 
   protected:
-    // Details about the prefix lists.
+    // An array of prefix lists.
     shared_ptr<vector<DescribePrefixListsResponseBody::PrefixList>> prefixList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

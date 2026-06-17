@@ -221,23 +221,41 @@ namespace Models
 
 
     protected:
+      // The ID of the asset instance.
       shared_ptr<string> assetInstanceId_ {};
+      // The name of the asset instance.
       shared_ptr<string> assetInstanceName_ {};
+      // The region ID.
       shared_ptr<string> assetsRegion_ {};
+      // The follow status.
       shared_ptr<string> groupName_ {};
+      // The inbound traffic, which is the response traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
+      // The number of IPS hits.
       shared_ptr<int64_t> ipsHitCnt_ {};
+      // The ID of the NAT Gateway.
       shared_ptr<string> natGatewayId_ {};
+      // The name of the NAT Gateway.
       shared_ptr<string> natGatewayName_ {};
+      // The outbound traffic, which is the request traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
+      // The number of outbound domains.
       shared_ptr<int64_t> outgoingDomainCnt_ {};
+      // The number of outbound destination IP addresses.
       shared_ptr<int64_t> outgoingDstIPCnt_ {};
+      // The private IP address.
       shared_ptr<string> privateIP_ {};
+      // The list of private IP addresses.
       shared_ptr<vector<string>> privateIPList_ {};
+      // The public IP address.
       shared_ptr<string> publicIP_ {};
+      // The type of the public IP address of the asset.
       shared_ptr<string> resourceType_ {};
+      // The security risk.
       shared_ptr<string> securityRisk_ {};
+      // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
+      // The total traffic.
       shared_ptr<int64_t> totalBytes_ {};
     };
 
@@ -267,8 +285,11 @@ namespace Models
 
 
   protected:
+    // The list of assets.
     shared_ptr<vector<DescribeOutgoingAssetListResponseBody::AssetList>> assetList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

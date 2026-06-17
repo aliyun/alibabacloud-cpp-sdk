@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The number of the page to return.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of the page to return.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The instance ID of the VPC firewall.
     shared_ptr<string> vpcFirewallId_ {};
   };
 

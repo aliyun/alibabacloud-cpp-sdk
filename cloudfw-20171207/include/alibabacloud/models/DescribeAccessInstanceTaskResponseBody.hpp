@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The name of the step.
       shared_ptr<string> stepName_ {};
+      // The progress of the step.
       shared_ptr<string> stepProgress_ {};
+      // The status of the step.
       shared_ptr<string> stepStatus_ {};
     };
 
@@ -158,13 +161,21 @@ namespace Models
 
 
   protected:
+    // Indicates whether the task exists.
     shared_ptr<bool> isFound_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The time when the task was completed.
     shared_ptr<int64_t> taskFinishTimestamp_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The task name.
     shared_ptr<string> taskName_ {};
+    // The time when the task was created.
     shared_ptr<int64_t> taskStartTimestamp_ {};
+    // The task status.
     shared_ptr<string> taskStatus_ {};
+    // The steps of the task.
     shared_ptr<vector<DescribeAccessInstanceTaskResponseBody::TaskSteps>> taskSteps_ {};
   };
 

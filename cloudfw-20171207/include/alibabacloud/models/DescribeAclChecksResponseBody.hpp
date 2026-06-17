@@ -146,13 +146,21 @@ namespace Models
 
 
       protected:
+        // The number of pending ACL check tasks.
         shared_ptr<int64_t> aclPendingCount_ {};
+        // The total number of ACL checks.
         shared_ptr<int64_t> aclTotalCount_ {};
+        // The name of the ACL check.
         shared_ptr<string> checkName_ {};
+        // The status of the ACL check item.
         shared_ptr<string> checkStatus_ {};
+        // The type of ACL check.
         shared_ptr<string> checkType_ {};
+        // The UNIX timestamp of the last check, in seconds.
         shared_ptr<string> lastCheckTime_ {};
+        // The risk level.
         shared_ptr<string> level_ {};
+        // The ID of the ACL check task.
         shared_ptr<string> taskId_ {};
       };
 
@@ -175,7 +183,9 @@ namespace Models
 
 
     protected:
+      // The type of ACL check.
       shared_ptr<string> aclType_ {};
+      // The list of ACL check records.
       shared_ptr<vector<CheckRecords::Records>> records_ {};
     };
 
@@ -198,7 +208,9 @@ namespace Models
 
 
   protected:
+    // The list of ACL check records.
     shared_ptr<DescribeAclChecksResponseBody::CheckRecords> checkRecords_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,19 +57,21 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and the response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default)
-    // *   **en**
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The ID of the NAT firewall.
     // 
     // This parameter is required.
     shared_ptr<string> proxyId_ {};
-    // Specifies whether to enable the NAT firewall. Valid values:
+    // The security protection switch. Valid values:
     // 
-    // *   open: yes
-    // *   close: no
+    // - open: Enables security protection.
+    // 
+    // - close: Disables security protection.
     // 
     // This parameter is required.
     shared_ptr<string> switch_ {};

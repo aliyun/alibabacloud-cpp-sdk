@@ -99,10 +99,15 @@ namespace Models
 
 
     protected:
+      // The name of the event.
       shared_ptr<string> eventName_ {};
+      // The amount of sensitive data.
       shared_ptr<int64_t> sensitiveDataCnt_ {};
+      // The sensitivity level.
       shared_ptr<string> sensitiveLevel_ {};
+      // The type of sensitive data.
       shared_ptr<string> sensitiveType_ {};
+      // The time when the event occurred.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -132,8 +137,11 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of events.
     shared_ptr<vector<DescribeSdlEventDetailResponseBody::SdlEventDetailList>> sdlEventDetailList_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The instance ID of the VPC firewall.
+    // The ID of the VPC firewall instance.
     shared_ptr<string> firewallId_ {};
-    // The instance name of the VPC firewall.
+    // The name of the VPC firewall instance.
     shared_ptr<string> firewallName_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

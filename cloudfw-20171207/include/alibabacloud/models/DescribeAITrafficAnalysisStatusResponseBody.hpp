@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The enabling status. Valid values:
+    // 
+    // - **open**
+    // 
+    // - **close**
     shared_ptr<string> status_ {};
   };
 

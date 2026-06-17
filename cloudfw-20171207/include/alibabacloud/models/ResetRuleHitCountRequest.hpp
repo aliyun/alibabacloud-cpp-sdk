@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // The unique ID of the access control policy.
+    // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh**: Chinese (default)
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

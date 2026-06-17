@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the ACK cluster connector. You can call the [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~) operation to query the list of ACK cluster connectors.
+    // 
+    // - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries a list of ACK cluster connectors.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
+    // The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> connectorName_ {};
+    // The synchronization interval for the ACK cluster connector. Valid values: 2 to 60. Unit: seconds.
     shared_ptr<string> ttl_ {};
   };
 

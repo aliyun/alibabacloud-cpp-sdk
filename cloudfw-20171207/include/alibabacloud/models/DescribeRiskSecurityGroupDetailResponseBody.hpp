@@ -145,11 +145,17 @@ namespace Models
 
 
       protected:
+        // The description of the rule.
         shared_ptr<string> description_ {};
+        // The risk level of the rule.
         shared_ptr<string> riskLevel_ {};
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
+        // The status of the rule.
         shared_ptr<string> ruleStatus_ {};
+        // The UUID of the rule.
         shared_ptr<string> ruleUuid_ {};
+        // The optimization suggestion.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -209,9 +215,13 @@ namespace Models
 
 
       protected:
+        // The ID of the ECS instance.
         shared_ptr<string> ecsInstanceId_ {};
+        // The name of the ECS instance.
         shared_ptr<string> ecsInstanceName_ {};
+        // The private IP address of the ECS instance.
         shared_ptr<string> privateIp_ {};
+        // The public IP address of the ECS instance.
         shared_ptr<string> publicIp_ {};
       };
 
@@ -279,13 +289,21 @@ namespace Models
 
 
     protected:
+      // The number of associated ECS instances.
       shared_ptr<int32_t> ecsCount_ {};
+      // The ECS information.
       shared_ptr<vector<RiskSgDetail::EcsInfo>> ecsInfo_ {};
+      // The ID of the security group instance.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
+      // The risk level of the rule.
       shared_ptr<string> riskLevel_ {};
+      // The information about the risk security group rule.
       shared_ptr<vector<RiskSgDetail::RuleInfo>> ruleInfo_ {};
+      // The ID of the VPC instance.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -329,10 +347,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The details of the risk security group.
     shared_ptr<vector<DescribeRiskSecurityGroupDetailResponseBody::RiskSgDetail>> riskSgDetail_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

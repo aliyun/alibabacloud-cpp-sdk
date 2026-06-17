@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> resourceId_ {};
+      // The instance name.
       shared_ptr<string> resourceName_ {};
+      // The asset type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of Transit Router resources.
     shared_ptr<vector<DescribeTransitRouterResourcesListResponseBody::TransitRouterAttachedResources>> transitRouterAttachedResources_ {};
   };
 

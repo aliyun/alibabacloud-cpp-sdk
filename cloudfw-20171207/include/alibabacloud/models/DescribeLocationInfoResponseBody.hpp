@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The ID of the region.
       shared_ptr<string> locId_ {};
+      // The name of the region.
       shared_ptr<string> locName_ {};
     };
 
@@ -141,7 +143,9 @@ namespace Models
 
 
       protected:
+        // The ID of the region.
         shared_ptr<string> locId_ {};
+        // The name of the region.
         shared_ptr<string> locName_ {};
       };
 
@@ -164,7 +168,9 @@ namespace Models
 
 
     protected:
+      // The list of city codes.
       shared_ptr<vector<CnProvinceList::Cities>> cities_ {};
+      // The name of the province.
       shared_ptr<string> provinceName_ {};
     };
 
@@ -206,7 +212,9 @@ namespace Models
 
 
     protected:
+      // The ID of the region.
       shared_ptr<string> locId_ {};
+      // The name of the region.
       shared_ptr<string> locName_ {};
     };
 
@@ -261,11 +269,17 @@ namespace Models
 
 
   protected:
+    // The number of regions in China.
     shared_ptr<int32_t> cnCount_ {};
+    // The list of regions in China.
     shared_ptr<vector<DescribeLocationInfoResponseBody::CnList>> cnList_ {};
+    // The information about provinces and cities in China.
     shared_ptr<vector<DescribeLocationInfoResponseBody::CnProvinceList>> cnProvinceList_ {};
+    // The number of regions outside China.
     shared_ptr<int32_t> overseasCount_ {};
+    // The list of regions outside China.
     shared_ptr<vector<DescribeLocationInfoResponseBody::OverseasList>> overseasList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

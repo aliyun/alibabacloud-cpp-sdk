@@ -376,149 +376,181 @@ namespace Models
 
 
     protected:
-      // The action that Cloud Firewall performs on the traffic. Valid values:
+      // The action to perform on traffic that matches the access control policy. Valid values:
       // 
-      // *   **accept**: allows the traffic.
-      // *   **drop**: denies the traffic.
-      // *   **log**: monitors the traffic.
+      // - **accept**: allows the traffic.
+      // 
+      // - **drop**: denies the traffic.
+      // 
+      // - **log**: logs the traffic.
       shared_ptr<string> aclAction_ {};
-      // The UUID of the access control policy.
+      // The unique identifier of the access control policy.
       shared_ptr<string> aclUuid_ {};
-      // The application ID in the access control policy.
+      // The ID of the application.
       shared_ptr<string> applicationId_ {};
-      // The application types supported by the access control policy. We recommend that you specify ApplicationNameList. Valid values:
+      // The application type. We recommend that you use `ApplicationNameList` instead. Valid values:
       // 
-      // *   **HTTP**
-      // *   **HTTPS**
-      // *   **MySQL**
-      // *   **SMTP**
-      // *   **SMTPS**
-      // *   **RDP**
-      // *   **VNC**
-      // *   **SSH**
-      // *   **Redis**
-      // *   **MQTT**
-      // *   **MongoDB**
-      // *   **Memcache**
-      // *   **SSL**
-      // *   **ANY**: all application types
+      // - **HTTP**
+      // 
+      // - **HTTPS**
+      // 
+      // - **MySQL**
+      // 
+      // - **SMTP**
+      // 
+      // - **SMTPS**
+      // 
+      // - **RDP**
+      // 
+      // - **VNC**
+      // 
+      // - **SSH**
+      // 
+      // - **Redis**
+      // 
+      // - **MQTT**
+      // 
+      // - **MongoDB**
+      // 
+      // - **Memcache**
+      // 
+      // - **SSL**
+      // 
+      // - **ANY** (all application types)
       shared_ptr<string> applicationName_ {};
-      // The application types supported by the access control policy.
+      // The list of application names.
       shared_ptr<vector<string>> applicationNameList_ {};
-      // The time when the access control policy was created. The value is a UNIX timestamp. Unit: seconds.
+      // The UNIX timestamp, in seconds, of when the policy was created.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the access control policy.
+      // The policy description.
       shared_ptr<string> description_ {};
-      // The destination port in the access control policy.
+      // The destination port.
       shared_ptr<string> destPort_ {};
-      // The name of the destination port address book in the access control policy.
+      // The name of the destination port address book.
       shared_ptr<string> destPortGroup_ {};
-      // The ports in the destination port address book of the access control policy.
+      // The ports in the destination port address book.
       shared_ptr<vector<string>> destPortGroupPorts_ {};
-      // The type of the destination port in the access control policy. Valid values:
+      // The type of the destination port. Valid values:
       // 
-      // *   **port**: port
-      // *   **group**: port address book
+      // - **port**: a single port
+      // 
+      // - **group**: a port address book
       shared_ptr<string> destPortType_ {};
-      // The destination address in the access control policy. Valid values:
+      // The destination address for the access control policy. The value depends on `DestinationType`.
       // 
-      // *   If **DestinationType** is set to `net`, the value of this parameter is a CIDR block.
-      // *   If **DestinationType** is set to `domain`, the value of this parameter is a domain name.
-      // *   If **DestinationType** is set to `group`, the value of this parameter is an address book name.
+      // - If `DestinationType` is `net`, the value is a destination CIDR block.
+      // 
+      // - If `DestinationType` is `domain`, the value is a destination domain name.
+      // 
+      // - If `DestinationType` is `group`, the value is the name of a destination address book.
       shared_ptr<string> destination_ {};
-      // The CIDR blocks in the destination address book of the access control policy.
+      // The CIDR blocks in the destination address book.
       shared_ptr<vector<string>> destinationGroupCidrs_ {};
-      // The type of the destination address book in the access control policy. Valid values:
+      // The type of the destination address book. Valid values:
       // 
-      // *   **ip**: an address book that includes one or more CIDR blocks
-      // *   **domain**: an address book that includes one or more domain names
+      // - **ip**: an address book of IP addresses or CIDR blocks.
+      // 
+      // - **domain**: an address book of domain names.
       shared_ptr<string> destinationGroupType_ {};
-      // The type of the destination address in the access control policy. Valid values:
+      // The type of the destination address. Valid values:
       // 
-      // *   **net**: CIDR block
-      // *   **group**: address book
-      // *   **domain**: domain name
+      // - **net**: a destination CIDR block
+      // 
+      // - **group**: a destination address book
+      // 
+      // - **domain**: a destination domain name
       shared_ptr<string> destinationType_ {};
-      // The domain name resolution method of the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
+      // The domain name resolution mode. Valid values:
       // 
-      // * **FQDN**: fully qualified domain name (FQDN)-based resolution
-      // * **DNS**: DNS-based dynamic resolution
-      // * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+      // - **FQDN**: FQDN-based resolution
+      // 
+      // - **DNS**: DNS-based dynamic resolution
+      // 
+      // - **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution
       shared_ptr<string> domainResolveType_ {};
-      // The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of StartTime.
+      // The UNIX timestamp, in seconds, for the end of the policy\\"s effective period. The time must be on the hour or half-hour and at least 30 minutes after the start time.
       // 
-      // >  If RepeatType is set to Permanent, EndTime is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must be specified.
+      // > This parameter is not used if `RepeatType` is `Permanent`. It is required for `None`, `Daily`, `Weekly`, or `Monthly` recurrence.
       shared_ptr<int64_t> endTime_ {};
-      // The time when the access control policy was last hit. The value is a UNIX timestamp. Unit: seconds.
+      // The UNIX timestamp, in seconds, of the last policy hit.
       shared_ptr<int64_t> hitLastTime_ {};
-      // The number of hits for the access control policy.
+      // The number of policy hits.
       shared_ptr<int64_t> hitTimes_ {};
-      // The UID of the member that is managed by your Alibaba Cloud account.
+      // The UID of the member account.
       shared_ptr<string> memberUid_ {};
-      // The time when the access control policy was modified. The value is a UNIX timestamp. Unit: seconds.
+      // The UNIX timestamp, in seconds, of when the policy was last modified.
       shared_ptr<int64_t> modifyTime_ {};
-      // The priority of the access control policy.
-      // 
-      // The priority value starts from 1. A smaller priority value indicates a higher priority.
+      // The priority of the access control policy, starting from 1. A smaller value indicates a higher priority.
       shared_ptr<int32_t> order_ {};
-      // The protocol type in the access control policy. Valid values:
+      // The protocol type. Valid values:
       // 
-      // *   **TCP**
-      // *   **UDP**
-      // *   **ICMP**
-      // *   **ANY**: all protocol types
+      // - **TCP**
+      // 
+      // - **UDP**
+      // 
+      // - **ICMP**
+      // 
+      // - **ANY** (all protocol types)
       shared_ptr<string> proto_ {};
-      // Indicates whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
+      // The enabled status of the access control policy. A policy is enabled by default after it is created. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The policy is enabled.
+      // 
+      // - **false**: The policy is disabled.
       shared_ptr<string> release_ {};
-      // The days of a week or of a month on which the access control policy takes effect.
+      // The days of the week or month on which the policy recurs.
       // 
-      // *   If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is left empty. Example: [].
-      // *   If RepeatType is set to Weekly, RepeatDays must be specified. Example: [0, 6].
+      // - If `RepeatType` is set to `Permanent`, `None`, or `Daily`, this parameter is empty. Example: `[]`
       // 
-      // >  If RepeatType is set to Weekly, the fields in the value of RepeatDays cannot be repeated.
+      // - If `RepeatType` is set to `Weekly`, this parameter is required. Example: `[0, 6]`
       // 
-      // *   If RepeatType is set to `Monthly`, RepeatDays must be specified. Example: [1, 31].
+      // > If `RepeatType` is set to `Weekly`, do not specify duplicate values for this parameter.
       // 
-      // >  If RepeatType is set to Monthly, the fields in the value of RepeatDays cannot be repeated.
+      // - If `RepeatType` is set to `Monthly`, this parameter is required. Example: `[1, 31]`
+      // 
+      // > If `RepeatType` is set to `Monthly`, do not specify duplicate values for this parameter.
       shared_ptr<vector<int64_t>> repeatDays_ {};
-      // The point in time when the recurrence ends. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of RepeatStartTime.
+      // The recurrence end time. The time is in the `HH:mm` 24-hour format, such as `23:30`.
       // 
-      // >  If RepeatType is set to Permanent or None, RepeatEndTime is left empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must be specified.
+      // > This parameter is not used if `RepeatType` is `Permanent` or `None`. It is required for `Daily`, `Weekly`, or `Monthly` recurrence.
       shared_ptr<string> repeatEndTime_ {};
-      // The point in time when the recurrence starts. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the value of RepeatEndTime.
+      // The recurrence start time. The time is in the `HH:mm` 24-hour format, such as `08:00`.
       // 
-      // >  If RepeatType is set to Permanent or None, RepeatStartTime is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter must be specified.
+      // > This parameter is not used if `RepeatType` is `Permanent` or `None`. It is required for `Daily`, `Weekly`, or `Monthly` recurrence.
       shared_ptr<string> repeatStartTime_ {};
-      // The recurrence type for the access control policy to take effect. Valid values:
+      // The recurrence type for the policy\\"s effective period. Valid values:
       // 
-      // *   **Permanent** (default): The policy always takes effect.
-      // *   **None**: The policy takes effect for only once.
-      // *   **Daily**: The policy takes effect on a daily basis.
-      // *   **Weekly**: The policy takes effect on a weekly basis.
-      // *   **Monthly**: The policy takes effect on a monthly basis.
+      // - **Permanent** (default): The policy is always active.
+      // 
+      // - **None**: The policy applies only once.
+      // 
+      // - **Daily**: The policy recurs daily.
+      // 
+      // - **Weekly**: The policy recurs weekly.
+      // 
+      // - **Monthly**: The policy recurs monthly.
       shared_ptr<string> repeatType_ {};
-      // The source address in the access control policy. Valid values:
+      // The source address for the access control policy. The value depends on `SourceType`.
       // 
-      // *   If **SourceType** is set to `net`, the value of this parameter is a CIDR block.
-      // *   If **SourceType** is set to `group`, the value of this parameter is an address book name.
+      // - If `SourceType` is `net`, the value is a source CIDR block.
+      // 
+      // - If `SourceType` is `group`, the value is the name of a source address book.
       shared_ptr<string> source_ {};
-      // The CIDR blocks in the source address book of the access control policy.
+      // The CIDR blocks in the source address book.
       shared_ptr<vector<string>> sourceGroupCidrs_ {};
-      // The type of the source address book in the access control policy. The value is fixed as **ip**. The value indicates an address book that includes one or more CIDR blocks.
+      // The type of the source address book. The value is always **ip**, which indicates an address book that contains IP addresses or CIDR blocks.
       shared_ptr<string> sourceGroupType_ {};
-      // The type of the source address in the access control policy. Valid values:
+      // The type of the source address. Valid values:
       // 
-      // *   **net**: CIDR block
-      // *   **group**: address book
+      // - **net**: a source CIDR block
+      // 
+      // - **group**: a source address book
       shared_ptr<string> sourceType_ {};
-      // The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy. The quota that is consumed by an access control policy is calculated by using the following formula: Quota that is consumed by an access control policy = Number of source addresses × Number of destination addresses (number of CIDR blocks or domain names) × Number of applications × Number of port ranges.
+      // The number of rule capacity units that the access control policy consumes. This is calculated as: Number of source addresses × Number of destination addresses × Number of applications × Number of port ranges.
       shared_ptr<int64_t> spreadCnt_ {};
-      // The time when the access control policy starts to take effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the value of EndTime.
+      // The UNIX timestamp, in seconds, for the start of the policy\\"s effective period. The time must be on the hour or half-hour and at least 30 minutes before the end time.
       // 
-      // >  If RepeatType is set to Permanent, StartTime is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must be specified.
+      // > This parameter is not used if `RepeatType` is `Permanent`. It is required for `None`, `Daily`, `Weekly`, or `Monthly` recurrence.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -548,11 +580,11 @@ namespace Models
 
 
   protected:
-    // The details of the access control policies.
+    // The VPC firewall access control policies.
     shared_ptr<vector<DescribeVpcFirewallControlPolicyResponseBody::Policys>> policys_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of access control policies returned.
+    // The total number of VPC firewall access control policies.
     shared_ptr<string> totalCount_ {};
   };
 

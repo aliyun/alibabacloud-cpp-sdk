@@ -103,15 +103,29 @@ namespace Models
 
 
   protected:
+    // The ID of the ACK cluster.
     shared_ptr<string> clusterId_ {};
+    // The name of the ACK cluster connector.
     shared_ptr<string> connectorName_ {};
+    // The language type for displaying the error reason for the ACK cluster connector\\"s health status.
     shared_ptr<string> lang_ {};
+    // The Alibaba Cloud UID to which the ACK cluster resource belongs.
     shared_ptr<string> memberUid_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<string> pageNo_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The region ID of the ACK cluster connector. Source of values:
+    // 
+    // - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Query the list of synchronization node regions.
+    // 
+    // > For more information about the regions supported by Cloud Firewall for ACK cluster connectors, see [ACK Cluster Synchronization Nodes](https://help.aliyun.com/document_detail/2865120.html).
     shared_ptr<string> regionNo_ {};
+    // The VPC instance ID to which the ACK cluster belongs.
     shared_ptr<string> vpcId_ {};
   };
 

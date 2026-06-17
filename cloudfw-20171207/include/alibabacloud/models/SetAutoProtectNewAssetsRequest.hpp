@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic traffic redirection. Valid values:
+    // 
+    // **true****false**
+    // 
     // This parameter is required.
     shared_ptr<bool> autoProtect_ {};
+    // The language. Valid values are zh (Chinese) and **en** (English). The default value is **zh**.
     shared_ptr<string> lang_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

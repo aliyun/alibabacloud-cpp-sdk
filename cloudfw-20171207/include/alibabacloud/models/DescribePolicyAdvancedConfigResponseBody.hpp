@@ -48,10 +48,10 @@ namespace Models
 
 
   protected:
-    // Indicates whether the strict mode is enabled for the access control policy. Valid values:
+    // The status of strict mode. Valid values:
     // 
-    // *   **on**: The strict mode is enabled.
-    // *   **off**: The strict mode is disabled.
+    // - **on**: Strict mode is enabled.
+    // - **off**: Strict mode is disabled.
     shared_ptr<string> internetSwitch_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -38,6 +38,11 @@ namespace Models
 
 
   protected:
+    // The enabling status. Valid values:
+    // 
+    // - **open**: Enables the feature.
+    // 
+    // - **close**: Disables the feature.
     shared_ptr<string> status_ {};
   };
 

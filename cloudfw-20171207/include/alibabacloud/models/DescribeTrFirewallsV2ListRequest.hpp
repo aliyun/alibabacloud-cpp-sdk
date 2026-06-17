@@ -132,42 +132,50 @@ namespace Models
   protected:
     // The ID of the Cloud Enterprise Network (CEN) instance.
     shared_ptr<string> cenId_ {};
-    // The page number. Default value: **1**.
+    // The page number for a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The instance ID of the VPC firewall.
     shared_ptr<string> firewallId_ {};
-    // The name of the VPC firewall.
+    // The instance name of the VPC firewall.
     shared_ptr<string> firewallName_ {};
     // The status of the VPC firewall. Valid values:
     // 
-    // *   **opened**: The VPC firewall is enabled.
-    // *   **closed**: The VPC firewall is disabled.
-    // *   **notconfigured**: The VPC firewall is not created.
-    // *   **configured**: The VPC firewall is created but is not enabled.
-    // *   **creating**: The VPC firewall is being created.
-    // *   **opening**: The VPC firewall is being enabled.
-    // *   **deleting**: The VPC firewall is being deleted.
+    // - **opened**: Enabled
     // 
-    // >  If you do not specify this parameter, VPC firewalls in all states are queried.
+    // - **closed**: Disabled
+    // 
+    // - **notconfigured**: The VPC firewall is not configured.
+    // 
+    // - **configured**: The VPC firewall is configured.
+    // 
+    // - **creating**: The VPC firewall is being created.
+    // 
+    // - **opening**: The VPC firewall is being enabled.
+    // 
+    // - **deleting**: The VPC firewall is being deleted.
+    // 
+    // > If you do not specify this parameter, VPC firewalls in all states are queried.
     shared_ptr<string> firewallSwitchStatus_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response message. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     shared_ptr<string> ownerId_ {};
-    // The number of entries per page. Default value: 10.
+    // The maximum number of entries to return on each page in a paged query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the transit router.
+    // The region ID of the transit router instance.
     shared_ptr<string> regionNo_ {};
-    // The routing mode of the VPC firewall. Valid values:
+    // The routing mode. Valid values:
     // 
-    // *   **managed**: automatic mode
-    // *   **manual**: manual mode
+    // - **managed**: automatic mode.
     // 
-    // >  If you do not specify this parameter, VPC firewalls in all routing modes are queried.
+    // - **manual**: manual mode.
+    // 
+    // > If you do not specify this parameter, VPC firewalls in all routing modes are queried.
     shared_ptr<string> routeMode_ {};
-    // The ID of the transit router.
+    // The instance ID of the transit router.
     shared_ptr<string> transitRouterId_ {};
   };
 

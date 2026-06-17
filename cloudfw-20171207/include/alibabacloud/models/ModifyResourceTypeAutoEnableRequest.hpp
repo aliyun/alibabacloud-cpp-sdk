@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The language of the response message.
     shared_ptr<string> lang_ {};
+    // The ID of the region.
     shared_ptr<string> regionNo_ {};
+    // Specifies whether to enable automatic protection for the resource type.
     shared_ptr<string> resourceTypeAutoEnable_ {};
   };
 

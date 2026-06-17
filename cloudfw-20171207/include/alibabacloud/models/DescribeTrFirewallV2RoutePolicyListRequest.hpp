@@ -77,16 +77,17 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The instance ID of the VPC firewall.
+    // The ID of the VPC firewall instance.
     shared_ptr<string> firewallId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response message. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the routing policy.
+    // The ID of the firewall routing policy.
     shared_ptr<string> policyId_ {};
   };
 

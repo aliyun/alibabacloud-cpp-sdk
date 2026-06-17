@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The backup time, specified as a Unix timestamp (the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970).
+    // 
     // This parameter is required.
     shared_ptr<string> backUpTime_ {};
+    // The description of the backup data.
     shared_ptr<string> description_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Indicates whether the authorization is successful.
     shared_ptr<bool> isGranted_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The type of the account.
     shared_ptr<string> userType_ {};
   };
 

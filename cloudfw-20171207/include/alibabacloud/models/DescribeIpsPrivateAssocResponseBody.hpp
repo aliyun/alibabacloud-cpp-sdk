@@ -160,16 +160,27 @@ namespace Models
 
 
     protected:
+      // The status of private IP tracing.
       shared_ptr<string> assocInfoStatus_ {};
+      // The error message.
       shared_ptr<string> errorMsg_ {};
+      // The Alibaba Cloud account ID of the resource owner.
       shared_ptr<int64_t> memberUid_ {};
+      // A list of protected IP addresses.
       shared_ptr<vector<string>> protectedIpList_ {};
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
+      // The ID of the instance.
       shared_ptr<string> resourceId_ {};
+      // The name of the instance.
       shared_ptr<string> resourceName_ {};
+      // The status of the association.
       shared_ptr<string> status_ {};
+      // A list of unprotected IP addresses.
       shared_ptr<vector<string>> unprotectedIpList_ {};
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
+      // The name of the VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -206,9 +217,13 @@ namespace Models
 
 
   protected:
+    // A list of details about private IP tracing for the intrusion prevention system (IPS).
     shared_ptr<vector<DescribeIpsPrivateAssocResponseBody::IpsPrivateAssoc>> ipsPrivateAssoc_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
+    // The total number of assets that have private IP tracing for the IPS enabled.
     shared_ptr<int64_t> totalOpenCount_ {};
   };
 

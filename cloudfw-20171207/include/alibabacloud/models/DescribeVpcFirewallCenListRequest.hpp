@@ -151,25 +151,29 @@ namespace Models
   protected:
     // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
-    // The number of the page to return.
+    // The page number to return.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Default value: 1.
     shared_ptr<string> currentPage_ {};
     // The status of the VPC firewall. Valid values:
     // 
-    // *   **opened**: The VPC firewall is enabled.
-    // *   **closed**: The VPC firewall is disabled.
-    // *   **notconfigured**: The VPC firewall is not configured.
-    // *   **configured**: The VPC firewall is configured but is not enabled.
+    // - **opened**: The firewall is enabled.
     // 
-    // > If you do not specify this parameter, VPC firewalls in all states are queried.
+    // - **closed**: The firewall is disabled.
+    // 
+    // - **notconfigured**: The firewall is not configured.
+    // 
+    // - **configured**: The firewall is configured but is disabled.
+    // 
+    // > If you leave this parameter empty, VPC firewalls in all states are queried.
     shared_ptr<string> firewallSwitchStatus_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The UID of the member that is managed by your Alibaba Cloud account. The member is also an Alibaba Cloud account.
+    // The UID of a member account that is managed by your Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
     // The ID of the network instance.
     shared_ptr<string> networkInstanceId_ {};
@@ -180,19 +184,21 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The region ID of the VPC.
     // 
-    // > For more information about the regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // > For more information about the regions that Cloud Firewall supports, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     shared_ptr<string> regionNo_ {};
-    // The routing mode of the VPC firewall. Valid values:
+    // The routing mode. Valid values:
     // 
-    // *   **auto**: automatic mode
-    // *   **manual**: manual mode
+    // - **auto**: automatic mode.
     // 
-    // > If you do not specify this parameter, VPC firewalls in all routing modes are queried.
+    // - **manual**: manual mode.
+    // 
+    // > If you leave this parameter empty, VPC firewalls that use all routing modes are queried.
     shared_ptr<string> routeMode_ {};
     // The type of the transit router. Valid values:
     // 
-    // *   **Basic**: Basic Edition transit router
-    // *   **Enterprise**: Enterprise Edition transit router
+    // - **Basic**: Basic Edition transit router.
+    // 
+    // - **Enterprise**: Enterprise Edition transit router.
     shared_ptr<string> transitRouterType_ {};
     // The instance ID of the VPC firewall.
     shared_ptr<string> vpcFirewallId_ {};

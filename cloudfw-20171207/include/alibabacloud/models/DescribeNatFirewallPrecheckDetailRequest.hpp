@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The language of the request and response messages.
     shared_ptr<string> lang_ {};
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The region ID.
     shared_ptr<string> regionNo_ {};
   };
 

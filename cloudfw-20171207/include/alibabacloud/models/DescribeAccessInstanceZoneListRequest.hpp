@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The type of the access instance.
     shared_ptr<string> accessInstanceType_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The region of the access instance.
     shared_ptr<string> regionNo_ {};
   };
 

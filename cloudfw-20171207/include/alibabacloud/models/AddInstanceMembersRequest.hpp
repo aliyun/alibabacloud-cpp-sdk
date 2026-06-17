@@ -68,9 +68,9 @@ namespace Models
 
 
     protected:
-      // The remarks of the member. The value must be 1 to 256 characters in length.
+      // The remarks of the member. The remarks must be 1 to 256 characters in length. You can add up to 20 members at a time.
       shared_ptr<string> memberDesc_ {};
-      // The UID of the member. You can add up to 20 members to Cloud Firewall at a time.
+      // The UID of the member. You can add up to 20 members at a time.
       // 
       // This parameter is required.
       shared_ptr<int64_t> memberUid_ {};
@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The members.
+    // The members that you want to add to Cloud Firewall.
     // 
     // This parameter is required.
     shared_ptr<vector<AddInstanceMembersRequest::Members>> members_ {};

@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The UUIDs of access control policies.
+    // The list of UUIDs of the access control policies.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> aclUuidList_ {};

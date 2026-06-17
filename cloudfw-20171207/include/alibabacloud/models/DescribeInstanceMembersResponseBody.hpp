@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the returned page.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of the members.
+      // The total number of Cloud Firewall member accounts.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -163,20 +163,21 @@ namespace Models
 
 
     protected:
-      // The time when the member was added to Cloud Firewall. The value is a timestamp. Unit: seconds.
+      // The time when the member account was added to Cloud Firewall. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> createTime_ {};
-      // The remarks of the member.
+      // The description of the Cloud Firewall member account.
       shared_ptr<string> memberDesc_ {};
-      // The name of the member.
+      // The name of the Cloud Firewall member account.
       shared_ptr<string> memberDisplayName_ {};
-      // The status of the member. Valid values:
+      // The status of the Cloud Firewall member account. Valid values:
       // 
-      // *   **normal**
-      // *   **deleting**
+      // - **normal**: Normal
+      // 
+      // - **deleting**: Deleting
       shared_ptr<string> memberStatus_ {};
-      // The UID of the member.
+      // The UID of the Cloud Firewall member account.
       shared_ptr<int64_t> memberUid_ {};
-      // The time when the member was last modified. The value is a timestamp. Unit: seconds.
+      // The time when the member account was last modified. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> modifyTime_ {};
     };
 
@@ -208,11 +209,11 @@ namespace Models
 
 
   protected:
-    // The information about the member.
+    // The information about the Cloud Firewall member accounts.
     shared_ptr<vector<DescribeInstanceMembersResponseBody::Members>> members_ {};
     // The pagination information.
     shared_ptr<DescribeInstanceMembersResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

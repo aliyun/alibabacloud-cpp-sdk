@@ -48,15 +48,18 @@ namespace Models
 
 
   protected:
-    // The ID of the access control policy.
+    // The unique ID of the access control policy.
+    // 
+    // To reset the hit count of an access control policy, specify the unique ID of the policy. You can call the [DescribeVpcFirewallControlPolicy](https://help.aliyun.com/document_detail/159758.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
-    // The natural language of the request and response. 
+    // The language of the request and response.
     // 
     // Valid values:
     // 
-    // - **zh**: Chinese (default)
+    // - **zh** (default): Chinese
+    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
   };

@@ -138,7 +138,7 @@ namespace Models
         protected:
           // The destination CIDR block of the peer VPC.
           shared_ptr<string> destinationCidr_ {};
-          // The instance ID of the next hop for the peer VPC.
+          // The ID of the next hop instance in the peer VPC.
           shared_ptr<string> nextHopInstanceId_ {};
         };
 
@@ -161,7 +161,7 @@ namespace Models
 
 
       protected:
-        // The route entries of the peer VPC.
+        // A list of routes for the peer VPC.
         shared_ptr<vector<VpcCidrTableList::RouteEntryList>> routeEntryList_ {};
         // The ID of the route table for the peer VPC.
         shared_ptr<string> routeTableId_ {};
@@ -222,19 +222,19 @@ namespace Models
 
 
     protected:
-      // The ID of the ENI for the peer VPC.
+      // The instance ID of the ENI in the peer VPC.
       shared_ptr<string> eniId_ {};
-      // The private IP address of the ENI for the peer VPC.
+      // The private IP address of the ENI in the peer VPC.
       shared_ptr<string> eniPrivateIpAddress_ {};
       // The region ID of the peer VPC.
       shared_ptr<string> regionNo_ {};
-      // The router interface ID of the peer VPC.
+      // The ID of the router interface in the peer VPC.
       shared_ptr<string> routerInterfaceId_ {};
-      // The CIDR blocks of the peer VPC.
+      // A list of CIDR blocks for the peer VPC.
       shared_ptr<vector<PeerVpc::VpcCidrTableList>> vpcCidrTableList_ {};
-      // The ID of the peer VPC.
+      // The instance ID of the peer VPC.
       shared_ptr<string> vpcId_ {};
-      // The name of the peer VPC.
+      // The instance name of the peer VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -330,7 +330,7 @@ namespace Models
         protected:
           // The destination CIDR block of the local VPC.
           shared_ptr<string> destinationCidr_ {};
-          // The instance ID of the next hop for the local VPC.
+          // The ID of the next hop instance in the local VPC.
           shared_ptr<string> nextHopInstanceId_ {};
         };
 
@@ -353,7 +353,7 @@ namespace Models
 
 
       protected:
-        // The route entries of the local VPC.
+        // A list of routes for the local VPC.
         shared_ptr<vector<VpcCidrTableList::RouteEntryList>> routeEntryList_ {};
         // The ID of the route table for the local VPC.
         shared_ptr<string> routeTableId_ {};
@@ -414,19 +414,19 @@ namespace Models
 
 
     protected:
-      // The ID of the ENI for the local VPC.
+      // The instance ID of the ENI in the local VPC.
       shared_ptr<string> eniId_ {};
-      // The private IP address of the elastic network interface (ENI) for the local VPC.
+      // The private IP address of the elastic network interface (ENI) in the local VPC.
       shared_ptr<string> eniPrivateIpAddress_ {};
       // The region ID of the local VPC.
       shared_ptr<string> regionNo_ {};
-      // The router interface ID of the local VPC.
+      // The ID of the router interface in the local VPC.
       shared_ptr<string> routerInterfaceId_ {};
-      // The CIDR blocks of the local VPC.
+      // A list of CIDR blocks for the local VPC.
       shared_ptr<vector<LocalVpc::VpcCidrTableList>> vpcCidrTableList_ {};
-      // The ID of the local VPC.
+      // The instance ID of the local VPC.
       shared_ptr<string> vpcId_ {};
-      // The name of the local VPC.
+      // The instance name of the local VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -503,22 +503,25 @@ namespace Models
   protected:
     // The bandwidth of the Express Connect circuit. Unit: Mbit/s.
     shared_ptr<int32_t> bandwidth_ {};
-    // The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates Express Connect circuits.
+    // The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates Express Connect.
     shared_ptr<string> connectType_ {};
     // The status of the VPC firewall. Valid values:
     // 
-    // *   **opened**: The VPC firewall is enabled.
-    // *   **closed**: The VPC firewall is disabled.
-    // *   **notconfigured**: The VPC firewall is not configured.
-    // *   **configured**: The VPC firewall is configured.
+    // - **opened**: The firewall is enabled.
+    // 
+    // - **closed**: The firewall is disabled.
+    // 
+    // - **notconfigured**: The firewall is not configured.
+    // 
+    // - **configured**: The firewall is configured.
     shared_ptr<string> firewallSwitchStatus_ {};
-    // The details about the local VPC.
+    // The details of the local VPC.
     shared_ptr<DescribeVpcFirewallDetailResponseBody::LocalVpc> localVpc_ {};
-    // The UID of the member that is managed by your Alibaba Cloud account.
+    // The UID of the Cloud Firewall member account.
     shared_ptr<string> memberUid_ {};
-    // The details about the peer VPC.
+    // The details of the peer VPC.
     shared_ptr<DescribeVpcFirewallDetailResponseBody::PeerVpc> peerVpc_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The instance ID of the VPC firewall.
     shared_ptr<string> vpcFirewallId_ {};

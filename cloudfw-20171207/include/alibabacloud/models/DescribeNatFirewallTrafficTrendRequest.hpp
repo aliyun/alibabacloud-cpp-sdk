@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp that is accurate to seconds.
+    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The time interval between the data entries to return. Unit: seconds. Valid values:
+    // The time granularity for the query. Unit: seconds. Valid values:
     // 
-    // *   **60**: 1 minute
-    // *   **1800**: 30 minutes
+    // - **60**: 1 minute.
+    // 
+    // - **1800**: 30 minutes.
     shared_ptr<int64_t> interval_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
-    // The private IP address of the source.
+    // The private source IP address.
     shared_ptr<string> srcPrivateIP_ {};
-    // The public IP address of the source.
+    // The source IP address on the Internet.
     shared_ptr<string> srcPublicIP_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start of the time range to query. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

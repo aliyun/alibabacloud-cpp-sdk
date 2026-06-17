@@ -101,19 +101,21 @@ namespace Models
     protected:
       // The type of the list. Valid values:
       // 
-      // *   **1**: user-defined
-      // *   **2**: address book
+      // - **1**: custom
+      // 
+      // - **2**: address book
       shared_ptr<int64_t> listType_ {};
-      // The entries in the list.
+      // The value of the list.
       shared_ptr<string> listValue_ {};
       // The instance ID of the VPC firewall.
       shared_ptr<string> vpcFirewallId_ {};
-      // An array of entries in the list.
+      // The content of the list.
       shared_ptr<vector<string>> whiteListValue_ {};
       // The type of the whitelist. Valid values:
       // 
-      // *   **1**: destination
-      // *   **2**: source
+      // - **1**: destination
+      // 
+      // - **2**: source
       shared_ptr<int64_t> whiteType_ {};
     };
 
@@ -138,7 +140,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the IPS whitelist of the VPC firewall.
+    // The details of the IPS whitelist for the VPC firewall.
     shared_ptr<vector<DescribeVpcFirewallIPSWhitelistResponseBody::Whitelists>> whitelists_ {};
   };
 

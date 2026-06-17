@@ -57,16 +57,17 @@ namespace Models
 
 
   protected:
-    // The instance ID of Cloud Firewall.
+    // The ID of the Cloud Firewall instance.
     shared_ptr<string> instanceId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response message. Valid values:
     // 
-    // *   **zh** (default)
-    // *   **en**
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The operation type.
+    // The type of operation. Valid value:
     // 
-    // *   Set the value to open.
+    // - open: Enables the NAT border firewall.
     shared_ptr<string> operate_ {};
   };
 

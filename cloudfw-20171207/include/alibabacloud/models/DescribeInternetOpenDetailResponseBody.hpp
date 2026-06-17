@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The page number of the returned page.
       shared_ptr<int32_t> currentPage_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -300,26 +303,47 @@ namespace Models
 
 
     protected:
+      // The ID of the asset instance.
       shared_ptr<string> assetsInstanceId_ {};
+      // The instance name.
       shared_ptr<string> assetsName_ {};
+      // The asset type of the instance.
       shared_ptr<string> assetsType_ {};
+      // The ID of the details.
       shared_ptr<string> id_ {};
+      // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
+      // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
+      // The port that is exposed to the Internet.
       shared_ptr<int32_t> port_ {};
+      // The security threat.
       shared_ptr<string> probRisk_ {};
+      // The description of the security threat.
       shared_ptr<string> probRiskDesc_ {};
+      // The protocol type.
       shared_ptr<string> protocol_ {};
+      // The public IP address.
       shared_ptr<string> publicIp_ {};
+      // The region ID of the instance.
       shared_ptr<string> regionNo_ {};
+      // The risk level.
       shared_ptr<int32_t> riskLevel_ {};
+      // The cause of the risk.
       shared_ptr<string> riskReason_ {};
+      // The application name.
       shared_ptr<string> serviceName_ {};
+      // The recommended policy level.
       shared_ptr<int32_t> suggestLevel_ {};
+      // The total traffic.
       shared_ptr<int64_t> totalBytes_ {};
+      // The percentage of traffic in the last 24 hours.
       shared_ptr<string> trafficPercent1Day_ {};
+      // The percentage of traffic in the last 30 days.
       shared_ptr<string> trafficPercent30Day_ {};
+      // The percentage of traffic in the last 7 days.
       shared_ptr<string> trafficPercent7Day_ {};
+      // The reason why the protocol is not detected when the protocol is identified as Unknown.
       shared_ptr<vector<string>> unknownReason_ {};
     };
 
@@ -351,8 +375,11 @@ namespace Models
 
 
   protected:
+    // The list of returned data.
     shared_ptr<vector<DescribeInternetOpenDetailResponseBody::DataList>> dataList_ {};
+    // The pagination information.
     shared_ptr<DescribeInternetOpenDetailResponseBody::PageInfo> pageInfo_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

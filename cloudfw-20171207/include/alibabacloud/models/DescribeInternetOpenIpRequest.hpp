@@ -155,18 +155,19 @@ namespace Models
     shared_ptr<string> assetsInstanceName_ {};
     // The asset type of the instance.
     shared_ptr<string> assetsType_ {};
-    // The page number.
+    // The page number for a paged query.
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time when the public IP address was exposed. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> endTime_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response message.
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page for a paged query.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
@@ -178,14 +179,17 @@ namespace Models
     shared_ptr<string> regionNo_ {};
     // The risk level. If you leave this parameter empty, all risk levels are queried. Valid values:
     // 
-    // *   **3**: high risk
-    // *   **2**: medium risk
-    // *   **1**: low risk
-    // *   **0**: no risk
+    // - **3**: high
+    // 
+    // - **2**: medium
+    // 
+    // - **1**: low
+    // 
+    // - **0**: none
     shared_ptr<string> riskLevel_ {};
-    // The application.
+    // The name of the application to query.
     shared_ptr<string> serviceName_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time when the public IP address was exposed. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> startTime_ {};
   };
 

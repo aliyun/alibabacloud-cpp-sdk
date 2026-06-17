@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // The remarks.
       shared_ptr<string> comment_ {};
+      // The destination IP address.
       shared_ptr<string> destinationIP_ {};
+      // The ISP of the destination.
       shared_ptr<string> destinationISP_ {};
+      // The destination region.
       shared_ptr<string> destinationRegion_ {};
+      // The time of the operation. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> operationTime_ {};
     };
 
@@ -150,10 +155,15 @@ namespace Models
 
 
   protected:
+    // The list of destinations.
     shared_ptr<vector<DescribeConfiguredDestinationIPResponseBody::Destinations>> destinations_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

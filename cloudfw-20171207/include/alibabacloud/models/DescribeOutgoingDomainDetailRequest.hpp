@@ -179,23 +179,41 @@ namespace Models
 
 
   protected:
+    // The policy coverage status to filter by.
     shared_ptr<string> aclCoverage_ {};
+    // The page number to return.
     shared_ptr<string> currentPage_ {};
+    // The domain name to query.
     shared_ptr<string> domain_ {};
+    // A list of domain names to query.
     shared_ptr<vector<string>> domainList_ {};
+    // The end of the time range to query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The IP address type. Set to `NatPrivate` to query details for outbound connections that originate from a private IP address via a NAT Gateway.
     shared_ptr<string> IPType_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
+    // The number of entries to return per page.
     shared_ptr<string> pageSize_ {};
+    // The private IP address to query.
     shared_ptr<string> privateIP_ {};
+    // The public IP address to query.
     shared_ptr<string> publicIP_ {};
+    // The field to sort the results by.
     shared_ptr<string> sort_ {};
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
+    // The start of the time range to query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The tag ID to filter by.
     shared_ptr<string> tagId_ {};
   };
 

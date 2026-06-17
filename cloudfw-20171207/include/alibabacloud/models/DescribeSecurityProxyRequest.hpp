@@ -121,15 +121,43 @@ namespace Models
 
 
   protected:
+    // The language of the request and response. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The UID of the member account within the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The page number of the current page.
     shared_ptr<string> pageNo_ {};
+    // The maximum number of entries to return on each page. The maximum value is 50.
     shared_ptr<string> pageSize_ {};
+    // The ID of the NAT firewall.
     shared_ptr<string> proxyId_ {};
+    // The name of the NAT firewall. The name must be 4 to 50 characters in length. It can contain letters, digits, underscores (_), and Chinese characters. It cannot start with an underscore (_).
     shared_ptr<string> proxyName_ {};
+    // The region ID of the VPC.
     shared_ptr<string> regionNo_ {};
+    // The status of the Cloud Firewall. Valid values:
+    // 
+    // - **configuring**: The firewall is being created.
+    // 
+    // - **deleting**: The firewall is being deleted.
+    // 
+    // - **normal**: The firewall is running.
+    // 
+    // - **abnormal**: The firewall is not running as expected.
+    // 
+    // - **opening**: The firewall is being enabled.
+    // 
+    // - **closing**: The firewall is being disabled.
+    // 
+    // - **closed**: The firewall is disabled.
     shared_ptr<string> status_ {};
+    // The ID of the VPC instance.
     shared_ptr<string> vpcId_ {};
   };
 

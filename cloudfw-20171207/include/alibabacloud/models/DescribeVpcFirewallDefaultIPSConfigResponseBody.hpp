@@ -77,26 +77,31 @@ namespace Models
   protected:
     // Indicates whether basic policies are enabled. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: On.
+    // 
+    // - **0**: Off.
     shared_ptr<int32_t> basicRules_ {};
     // Indicates whether virtual patching is enabled. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: On.
+    // 
+    // - **0**: Off.
     shared_ptr<int32_t> enableAllPatch_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The level of the rule group for the IPS. Valid values:
+    // The IPS rule group. Valid values:
     // 
-    // *   **1**: loose.
-    // *   **2**: medium.
-    // *   **3**: strict.
+    // - **1**: Loose rule group.
+    // 
+    // - **2**: Medium rule group.
+    // 
+    // - **3**: Strict rule group.
     shared_ptr<int32_t> ruleClass_ {};
     // The mode of the intrusion prevention system (IPS). Valid values:
     // 
-    // *   **1**: block mode
-    // *   **0**: monitor mode
+    // - **1**: Block Mode.
+    // 
+    // - **0**: Monitor Mode.
     shared_ptr<int32_t> runMode_ {};
   };
 

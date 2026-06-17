@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The data name.
       shared_ptr<string> dataName_ {};
+      // The ratio.
       shared_ptr<string> dataValue_ {};
     };
 
@@ -111,9 +113,13 @@ namespace Models
 
 
   protected:
+    // The number of results returned.
     shared_ptr<int32_t> dataCount_ {};
+    // The list of data values.
     shared_ptr<vector<DescribeNetworkTrafficTopRatioResponseBody::DataList>> dataList_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

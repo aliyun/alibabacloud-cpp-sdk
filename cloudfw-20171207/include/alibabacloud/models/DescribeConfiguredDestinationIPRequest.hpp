@@ -121,18 +121,31 @@ namespace Models
 
 
   protected:
+    // The page number of the returned page.
     shared_ptr<string> currentPage_ {};
+    // The destination IP address.
     shared_ptr<string> destinationIP_ {};
+    // The destination ISP.
     shared_ptr<string> destinationISP_ {};
+    // The destination region.
     shared_ptr<string> destinationRegion_ {};
+    // The traffic direction.
+    // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
+    // The group name.
+    // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The number of entries to return on each page.
     shared_ptr<string> pageSize_ {};
+    // The trace code.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

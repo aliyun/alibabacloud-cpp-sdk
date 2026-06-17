@@ -108,11 +108,17 @@ namespace Models
 
 
     protected:
+      // The number of sessions blocked by the access control list (ACL).
       shared_ptr<int64_t> aclDrop_ {};
+      // The data timestamp. The value is a string in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> dataTime_ {};
+      // The number of blocked sessions.
       shared_ptr<int64_t> dropSession_ {};
+      // The number of sessions blocked by the intrusion prevention system (IPS).
       shared_ptr<int64_t> ipsDrop_ {};
+      // The data timestamp. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> time_ {};
+      // The total number of sessions.
       shared_ptr<int64_t> totalSession_ {};
     };
 
@@ -142,8 +148,11 @@ namespace Models
 
 
   protected:
+    // The list of returned data.
     shared_ptr<vector<DescribeVpcFirewallDropTrafficTrendResponseBody::DataList>> dataList_ {};
+    // The maximum number of blocked connections.
     shared_ptr<int64_t> dropSessionMax_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

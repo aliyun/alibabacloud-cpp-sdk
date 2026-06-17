@@ -154,7 +154,7 @@ namespace Models
         protected:
           // The destination CIDR block of the VPC.
           shared_ptr<string> destinationCidr_ {};
-          // The instance ID of the next hop for the VPC.
+          // The ID of the next hop instance in the VPC.
           shared_ptr<string> nextHopInstanceId_ {};
         };
 
@@ -177,9 +177,9 @@ namespace Models
 
 
       protected:
-        // The route entries for the VPC.
+        // The list of route entries for the VPC.
         shared_ptr<vector<VpcCidrTableList::RouteEntryList>> routeEntryList_ {};
-        // The route table ID of the VPC.
+        // The ID of the route table for the VPC.
         shared_ptr<string> routeTableId_ {};
       };
 
@@ -230,11 +230,11 @@ namespace Models
 
 
       protected:
-        // The ID of the ENI that belongs to the VPC.
+        // The instance ID of the ENI in the VPC.
         shared_ptr<string> eniId_ {};
-        // The private IP address of the ENI that belongs to the VPC.
+        // The private IP address of the ENI in the VPC.
         shared_ptr<string> eniPrivateIpAddress_ {};
-        // The ID of the vSwitch to which the ENI is connected.
+        // The ID of the vSwitch for the ENI in the VPC.
         shared_ptr<string> eniVSwitchId_ {};
       };
 
@@ -369,17 +369,17 @@ namespace Models
 
 
     protected:
-      // The ID of the connection between two network instances.
+      // The ID of the network instance connection.
       shared_ptr<string> attachmentId_ {};
-      // The name of the connection between two network instances.
+      // The name of the network instance connection.
       shared_ptr<string> attachmentName_ {};
-      // An array consisting of the CIDR blocks that are protected by the VPC firewall.
+      // The list of CIDR blocks that are protected by the VPC firewall.
       shared_ptr<vector<string>> defendCidrList_ {};
-      // The Elastic Network Interfaces (ENIs).
+      // The list of elastic network interfaces (ENIs).
       shared_ptr<vector<LocalVpc::EniList>> eniList_ {};
-      // The ID of the specified vSwitch when the routing mode is manual.
+      // The ID of the vSwitch that is specified for the manual routing mode.
       shared_ptr<string> manualVSwitchId_ {};
-      // The ID of the VPC for which the VPC firewall is created.
+      // The ID of the VPC instance for which the VPC firewall is created.
       shared_ptr<string> networkInstanceId_ {};
       // The name of the network instance.
       shared_ptr<string> networkInstanceName_ {};
@@ -387,30 +387,33 @@ namespace Models
       shared_ptr<string> networkInstanceType_ {};
       // The UID of the Alibaba Cloud account to which the VPC belongs.
       shared_ptr<string> ownerId_ {};
-      // The ID of the region in which the VPC resides.
+      // The region ID of the VPC.
       shared_ptr<string> regionNo_ {};
       // The routing mode. Valid values:
       // 
-      // *   auto: automatic mode
-      // *   manual: manual mode
+      // - auto: automatic mode.
+      // 
+      // - manual: manual mode.
       shared_ptr<string> routeMode_ {};
       // Indicates whether the manual routing mode is supported. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: yes.
+      // 
+      // - **0**: no.
       shared_ptr<string> supportManualMode_ {};
       // The instance ID of the CEN transit router.
       shared_ptr<string> transitRouterId_ {};
       // The edition of the CEN transit router. Valid values:
       // 
-      // *   **Basic**: Basic Edition
-      // *   **Enterprise**: Enterprise Edition
+      // - **Basic**: Basic Edition.
+      // 
+      // - **Enterprise**: Enterprise Edition.
       shared_ptr<string> transitRouterType_ {};
-      // An array that consists of the CIDR blocks of the VPC.
+      // The list of CIDR blocks for the VPC.
       shared_ptr<vector<LocalVpc::VpcCidrTableList>> vpcCidrTableList_ {};
-      // The ID of the VPC.
+      // The instance ID of the VPC.
       shared_ptr<string> vpcId_ {};
-      // The name of the VPC.
+      // The instance name of the VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -507,24 +510,25 @@ namespace Models
 
 
     protected:
-      // Indicates whether you can specify a CIDR block when you create a VPC firewall for a Basic Edition transit router of a CEN instance. Valid values:
+      // Indicates whether you can specify a CIDR block for the firewall VPC when you create a VPC firewall for a Basic Edition transit router. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: yes.
+      // 
+      // - **0**: no.
       shared_ptr<int32_t> allowConfiguration_ {};
-      // Firewall backup availability zone ID.
+      // The ID of the secondary zone for the firewall.
       shared_ptr<string> standbyZoneId_ {};
       // The CIDR block of the VPC.
       shared_ptr<string> vpcCidr_ {};
-      // The VPC ID.
+      // The VPC instance ID.
       shared_ptr<string> vpcId_ {};
-      // The CIDR block of the vSwitch.
+      // The CIDR block of the virtual switch.
       shared_ptr<string> vswitchCidr_ {};
-      // The vSwitch ID.
+      // The virtual switch ID.
       shared_ptr<string> vswitchId_ {};
-      // The availability zone ID of the virtual switch.
+      // The zone ID of the virtual switch.
       shared_ptr<string> vswitchZoneId_ {};
-      // The zone ID.
+      // The ID of the primary zone for the firewall.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -585,17 +589,19 @@ namespace Models
 
 
   protected:
-    // The connection type of the VPC firewall. The value is fixed as **cen**, which indicates CEN instances.
+    // The connection type of the VPC firewall. The value is fixed as **cen**, which indicates CEN.
     shared_ptr<string> connectType_ {};
     // The status of the VPC firewall. Valid values:
     // 
-    // *   **opened**: enabled
-    // *   **closed**: disabled
-    // *   **notconfigured**: not configured
+    // - **opened**: The firewall is enabled.
+    // 
+    // - **closed**: The firewall is disabled.
+    // 
+    // - **notconfigured**: The firewall is not configured.
     shared_ptr<string> firewallSwitchStatus_ {};
-    // The firewall VPC.
+    // The VPC that is used by the firewall.
     shared_ptr<DescribeVpcFirewallCenDetailResponseBody::FirewallVpc> firewallVpc_ {};
-    // The details about the VPC.
+    // The details of the VPC.
     shared_ptr<DescribeVpcFirewallCenDetailResponseBody::LocalVpc> localVpc_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

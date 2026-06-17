@@ -272,6 +272,9 @@
 #include <alibabacloud/models/DescribeFirewallVswitchResourcesRequest.hpp>
 #include <alibabacloud/models/DescribeFirewallVswitchResourcesResponseBody.hpp>
 #include <alibabacloud/models/DescribeFirewallVswitchResourcesResponse.hpp>
+#include <alibabacloud/models/DescribeIPSRulesRequest.hpp>
+#include <alibabacloud/models/DescribeIPSRulesResponseBody.hpp>
+#include <alibabacloud/models/DescribeIPSRulesResponse.hpp>
 #include <alibabacloud/models/DescribeInstanceMembersRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceMembersResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceMembersResponse.hpp>
@@ -722,6 +725,7 @@
 #include <alibabacloud/models/ModifyTrFirewallV2RoutePolicyScopeResponseBody.hpp>
 #include <alibabacloud/models/ModifyTrFirewallV2RoutePolicyScopeResponse.hpp>
 #include <alibabacloud/models/ModifyUserAlarmConfigRequest.hpp>
+#include <alibabacloud/models/ModifyUserAlarmConfigShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyUserAlarmConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyUserAlarmConfigResponse.hpp>
 #include <alibabacloud/models/ModifyUserIPSWhitelistRequest.hpp>

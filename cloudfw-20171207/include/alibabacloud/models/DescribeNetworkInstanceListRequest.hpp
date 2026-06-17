@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the CEN instance.
     shared_ptr<string> cenId_ {};
+    // The type of connection.
     shared_ptr<string> connectType_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
   };
 

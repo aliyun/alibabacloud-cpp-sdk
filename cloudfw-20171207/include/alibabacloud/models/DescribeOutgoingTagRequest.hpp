@@ -84,13 +84,29 @@ namespace Models
 
 
   protected:
+    // The type of the destination. Valid values:
+    // 
+    // - **Domain**: domain name.
+    // 
+    // - **DstIP**: IP address.
     shared_ptr<string> dstType_ {};
+    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The language of the content. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The ID of the tag.
     shared_ptr<string> tagId_ {};
   };
 

@@ -176,22 +176,40 @@ namespace Models
 
 
   protected:
+    // The region ID of the asset.
     shared_ptr<string> assetsRegion_ {};
+    // The page number.
     shared_ptr<string> currentPage_ {};
+    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The follow status.
     shared_ptr<string> groupName_ {};
+    // Queries outbound connections routed from a private network through a NAT gateway.
     shared_ptr<string> IPType_ {};
+    // The language of the content.
     shared_ptr<string> lang_ {};
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The name of the NAT Gateway.
     shared_ptr<string> natGatewayName_ {};
+    // The sorting order.
     shared_ptr<string> order_ {};
+    // The number of entries to return on each page.
     shared_ptr<string> pageSize_ {};
+    // The private IP address.
     shared_ptr<string> privateIP_ {};
+    // The public IP address.
     shared_ptr<string> publicIP_ {};
+    // The type of the public IP address of the asset.
     shared_ptr<string> resourceType_ {};
+    // The security risk.
     shared_ptr<string> securityRisk_ {};
+    // The sorting basis.
     shared_ptr<string> sort_ {};
+    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The end time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> endTime_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The start time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -195,25 +195,46 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The IP address of the asset.
     shared_ptr<string> assetIP_ {};
+    // The page number.
     shared_ptr<string> currentPage_ {};
+    // The traffic direction.
     shared_ptr<string> direction_ {};
+    // The ID of the ECS instance.
     shared_ptr<string> ecsInstanceId_ {};
+    // The name of the asset instance.
     shared_ptr<string> ecsInstanceName_ {};
+    // The end time. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The protocol type.
     shared_ptr<string> IPProtocol_ {};
+    // Specifies whether to count only the traffic to AI services.
     shared_ptr<string> isAITraffic_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<string> pageSize_ {};
+    // The ID of the peer VPC instance.
     shared_ptr<string> peerVpcId_ {};
+    // The port number.
     shared_ptr<string> port_ {};
+    // The threat level.
     shared_ptr<string> riskLevel_ {};
+    // The sorting method.
     shared_ptr<string> sort_ {};
+    // The start time. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The ID of the VPC instance.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

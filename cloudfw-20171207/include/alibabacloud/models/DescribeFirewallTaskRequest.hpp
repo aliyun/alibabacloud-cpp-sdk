@@ -66,9 +66,21 @@ namespace Models
 
 
   protected:
+    // The ID of the VPC instance.
     shared_ptr<string> childInstanceId_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The type of the task. Valid values:
+    // 
+    // - **NAT**: NAT border task
+    // 
+    // - **VPC**: VPC border task
     shared_ptr<string> taskType_ {};
   };
 

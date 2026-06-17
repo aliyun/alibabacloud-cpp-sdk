@@ -57,18 +57,21 @@ namespace Models
 
 
   protected:
-    // The instance type.
+    // The instance type. Valid value:
+    // 
+    // - **ecs**
     shared_ptr<string> instanceType_ {};
-    // The language of the content within the response.
+    // The language of the response.
     // 
     // Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
-    shared_ptr<string> lang_ {};
-    // The region ID of your Cloud Firewall.
+    // - **zh** (default): Chinese
     // 
-    // >  For more information about Cloud Firewall supported regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // - **en**: English
+    shared_ptr<string> lang_ {};
+    // The ID of the region where Cloud Firewall is deployed.
+    // 
+    // > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     shared_ptr<string> regionId_ {};
   };
 

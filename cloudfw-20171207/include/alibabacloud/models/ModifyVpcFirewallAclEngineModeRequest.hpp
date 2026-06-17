@@ -57,9 +57,18 @@ namespace Models
 
 
   protected:
+    // The UID of the Cloud Firewall member account.
     shared_ptr<string> memberUid_ {};
+    // Specifies whether to enable strict mode.
+    // 
+    // - 1: strict mode
+    // 
+    // - 0: loose mode
+    // 
     // This parameter is required.
     shared_ptr<string> strictMode_ {};
+    // The instance ID of the VPC border firewall.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallId_ {};
   };

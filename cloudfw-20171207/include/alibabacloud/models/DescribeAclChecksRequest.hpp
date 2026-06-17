@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The type of ACL check.
+    // 
     // This parameter is required.
     shared_ptr<string> aclType_ {};
+    // The language.
     shared_ptr<string> lang_ {};
   };
 

@@ -186,24 +186,74 @@ namespace Models
 
 
   protected:
+    // The IP address of the local asset.
     shared_ptr<string> assetIP_ {};
+    // The page number.
     shared_ptr<string> currentPage_ {};
+    // The traffic direction. Valid values:
+    // 
+    // - **in**: inbound
+    // 
+    // - **out**: outbound
+    // 
+    // > If you do not specify this parameter, traffic in all directions is queried.
     shared_ptr<string> direction_ {};
+    // The end of the time range to query. This value is a UNIX timestamp that is accurate to the second.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The protocol type. Valid values:
+    // 
+    // - **tcp**: TCP
+    // 
+    // - **udp**: UDP
     shared_ptr<string> IPProtocol_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The sort order. Valid values:
+    // 
+    // - **asc**: ascending
+    // 
+    // - **desc** (default): descending
     shared_ptr<string> order_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The IP address of the peer asset.
     shared_ptr<string> peerAssetIP_ {};
+    // The instance ID of the peer asset.
     shared_ptr<string> peerAssetInstanceId_ {};
+    // The instance name of the peer asset.
     shared_ptr<string> peerAssetInstanceName_ {};
+    // The ID of the peer VPC.
     shared_ptr<string> peerVpcId_ {};
+    // The port number.
     shared_ptr<string> port_ {};
+    // The risk level.
     shared_ptr<string> riskLevel_ {};
+    // The sorting criterion. Valid values are:
+    // 
+    // - **InBytes**
+    // 
+    // - **OutBytes**
+    // 
+    // - **TotalBytes**
+    // 
+    // - **InPackets**
+    // 
+    // - **OutPackets**
+    // 
+    // - **SessionCount**
     shared_ptr<string> sort_ {};
+    // The start of the time range to query. This value is a UNIX timestamp that is accurate to the second.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The ID of the VPC.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

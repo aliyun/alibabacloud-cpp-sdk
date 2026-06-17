@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The list of ip addresses.
       shared_ptr<vector<string>> ipAddrList_ {};
+      // The supported ip version.
       shared_ptr<int32_t> ipVersion_ {};
+      // The update time, provided as a unix timestamp in seconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -115,7 +119,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The domain resolution results.
     shared_ptr<vector<DescribeControlPolicyDomainResolveResponseBody::ResolveResult>> resolveResult_ {};
   };
 

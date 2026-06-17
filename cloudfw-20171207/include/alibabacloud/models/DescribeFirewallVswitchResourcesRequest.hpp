@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The type of the Cloud Firewall.
+    // 
     // This parameter is required.
     shared_ptr<string> firewallType_ {};
+    // The language of the response message.
     shared_ptr<string> lang_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
+    // The ID of the VPC instance.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

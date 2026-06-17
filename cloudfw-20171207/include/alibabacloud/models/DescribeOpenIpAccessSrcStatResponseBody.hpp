@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The number of abnormal source IP addresses.
       shared_ptr<int64_t> abnormalSrcIp_ {};
+      // The application type.
       shared_ptr<string> app_ {};
+      // The number of normal source IP addresses.
       shared_ptr<int64_t> normalSrcIp_ {};
+      // The port number.
       shared_ptr<string> port_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of statistics.
     shared_ptr<vector<DescribeOpenIpAccessSrcStatResponseBody::StatList>> statList_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -112,40 +112,41 @@ namespace Models
 
 
   protected:
-    // The direction of the internet traffic.
+    // The direction of the Internet traffic. Valid values:
     // 
-    // Valid values:
+    // - **in**: inbound
     // 
-    // *   **in**: inbound traffic
-    // *   **out**: outbound traffic
+    // - **out**: outbound
     shared_ptr<string> direction_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end of the time range to query. This value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The language of the content in the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source code.
+    // The source tracking code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The IP address of the access source.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
-    // The private IP address of the source.
+    // The source private IP address.
     shared_ptr<string> srcPrivateIP_ {};
-    // The public IP address of the source.
+    // The source public IP address.
     shared_ptr<string> srcPublicIP_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start of the time range to query. This value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The type of the traffic that is captured. Valid values:
+    // The type of traffic to query. Valid values:
     // 
-    // *   **max** (default): peak traffic
-    // *   **avg**: average traffic
+    // - **max** (default): peak traffic
+    // 
+    // - **avg**: average traffic
     shared_ptr<string> trafficType_ {};
   };
 

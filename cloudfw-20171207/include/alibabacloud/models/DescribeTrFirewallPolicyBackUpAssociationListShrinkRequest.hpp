@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The traffic redirection instances.
+    // The list of traffic redirection instances.
     shared_ptr<string> candidateListShrink_ {};
-    // The instance ID of the VPC firewall.
+    // The instance ID of the VPC firewall for a transit router.
     shared_ptr<string> firewallId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the routing policy.
+    // The ID of the firewall routing policy.
     shared_ptr<string> trFirewallRoutePolicyId_ {};
   };
 

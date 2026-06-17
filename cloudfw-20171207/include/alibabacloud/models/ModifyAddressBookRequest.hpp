@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The key of ECS tag N that you want to match.
+      // The tag key of the ECS instance.
       shared_ptr<string> tagKey_ {};
-      // The value of ECS tag N that you want to match.
+      // The tag value of the ECS instance.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -134,7 +134,9 @@ namespace Models
 
 
     protected:
+      // The key of the ACK cluster pod label.
       shared_ptr<string> key_ {};
+      // The value of the ACK cluster pod label.
       shared_ptr<string> value_ {};
     };
 
@@ -233,18 +235,23 @@ namespace Models
 
 
   protected:
+    // A list of ACK cluster pod labels.
+    // 
+    // > Up to 10 labels are allowed.
     shared_ptr<vector<ModifyAddressBookRequest::AckLabels>> ackLabels_ {};
+    // A list of ACK cluster pod namespaces.
+    // 
+    // > Up to 10 namespaces are allowed.
     shared_ptr<vector<string>> ackNamespaces_ {};
-    // The addresses in the address book. Separate multiple addresses with commas (,). If you set GroupType to **ip**, **port**, or **domain**, you must specify this parameter.
+    // A list of addresses in the address book. Separate multiple addresses with commas. Within each address element, separate the address and its description with a space. You must specify this parameter when GroupType is **ip**, **port**, or **domain**.
     // 
-    // *   If you set GroupType to **ip**, you must specify IP addresses for the address book. Example: 1.2.XX.XX/32,1.2.XX.XX/24.
-    // *   If you set GroupType to **port**, you must specify port numbers or port ranges for the address book. Example: 80/80,100/200.
-    // *   If you set GroupType to **domain**, you must specify domain names for the address book. Example: demo1.aliyun.com,demo2.aliyun.com.
+    // - When GroupType is **ip**, specify IP addresses. Example: 1.2.XX.XX/32 development CIDR block, 10.0.0.X/24,1.2.XX.XX/24 test CIDR block.
+    // 
+    // - When GroupType is **port**, specify ports or port ranges. Example: 80/80 HTTP port, 100/200,3306 database port.
+    // 
+    // - When GroupType is **domain**, specify domain names. Example: demo1.aliyun.com test domain, demo2.aliyun.com,www\\.aliyun.com Alibaba Cloud official website.
     shared_ptr<string> addressList_ {};
-    // Specifies whether to automatically add public IP addresses of Elastic Compute Service (ECS) instances to the address book if the instances match the specified tags. Valid values:
-    // 
-    // *   **1**: yes
-    // *   **0**: no
+    // Specifies whether to automatically add public IP addresses of new ECS instances that match the specified tags to the address book.
     shared_ptr<string> autoAddTagEcs_ {};
     // The description of the address book.
     // 
@@ -254,34 +261,24 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The ID of the address book.
+    // The unique ID of the address book.
     // 
-    // >  To modify the address book, you must provide the ID of the address book. You can call the [DescribeAddressBook](https://help.aliyun.com/document_detail/138869.html) operation to query the ID.
+    // > Obtain this value from [DescribeAddressBook](~~DescribeAddressBook~~).
     // 
     // This parameter is required.
     shared_ptr<string> groupUuid_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // The language type.
     shared_ptr<string> lang_ {};
-    // Modification mode with the following values:
+    // The modification mode.
     // 
-    // - **Cover**: Use the value of the AddressList parameter to overwrite the original address book.
-    // - **Append**: After the original address book, append addresses using the value of the AddressList parameter.
-    // - **Delete**: Delete addresses using the value of the AddressList parameter from the address book.
-    // 
-    // >When GroupType is **ip**, **ipv6**, **port**, or **domain**, if this parameter is not configured, the default is to use the **Cover** method to modify the address book.
-    // >Notice: When GroupType is **tag**, this parameter must be empty.</notice>
+    // > When GroupType is **ip**, **ipv6**, **port**, or **domain**, the default mode is **Cover** if this parameter is not specified.
+    // > >Notice: When GroupType is **tag**, this parameter must be empty.
     shared_ptr<string> modifyMode_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
-    // The ECS tags that you want to match.
+    // A list of ECS tags.
     shared_ptr<vector<ModifyAddressBookRequest::TagList>> tagList_ {};
-    // The logical relationship among ECS tags. Valid values:
-    // 
-    // *   **and**: Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book.
-    // *   **or**: The public IP addresses of ECS instances that match one of the specified tags can be added to the address book.
+    // The relationship between multiple ECS tags.
     shared_ptr<string> tagRelation_ {};
   };
 

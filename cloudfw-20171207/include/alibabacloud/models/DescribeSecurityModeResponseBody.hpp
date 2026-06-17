@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The application module.
     shared_ptr<string> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The security mode. Valid values:
+    // 
+    // **0**: disabled.
+    // 
+    // **1**: enabled.
     shared_ptr<int32_t> securityMode_ {};
   };
 

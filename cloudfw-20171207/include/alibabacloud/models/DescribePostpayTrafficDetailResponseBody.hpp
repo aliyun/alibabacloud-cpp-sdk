@@ -145,29 +145,31 @@ namespace Models
 
 
     protected:
-      // The inbound network throughput, which indicates the total number of bytes that are received Unit: bytes.
+      // The inbound network throughput, in bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // The instance ID of the asset.
+      // The ID of the asset instance.
       shared_ptr<string> instanceId_ {};
-      // The asset type. This value takes effect only for the Internet firewall.
+      // The asset type. This value is valid only for the Internet border.
       shared_ptr<string> instanceType_ {};
-      // The outbound network throughput, which indicates the total number of bytes that are sent. Unit: bytes.
+      // The outbound network throughput, in bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // Protection duration. Unit: hours.
+      // The protection duration, in hours.
       shared_ptr<int64_t> protectionDuration_ {};
-      // The region ID.
+      // The ID of the region.
       shared_ptr<string> regionNo_ {};
-      // The resource ID. The resource ID for the Internet firewall is the public IP address that is protected the Internet firewall, and the resource ID for a NAT firewall is the instance ID of the NAT firewall.
+      // The ID of the resource. For Internet border traffic, this is the public IP address of the asset. For NAT border traffic, this is the instance ID of the firewall.
       shared_ptr<string> resourceId_ {};
-      // The total inbound and outbound network throughput, which indicates the total number of bytes that are received and sent. Unit: bytes.
+      // The total network throughput for both inbound and outbound traffic, in bytes.
       shared_ptr<int64_t> totalBytes_ {};
-      // The date on which the statistics are collected.
+      // The date of the traffic statistics.
       shared_ptr<string> trafficDay_ {};
-      // The traffic type. Valid values:
+      // The type of the firewall border for which traffic is queried. Valid values:
       // 
-      // *   **EIP_TRAFFIC**: traffic for the Internet firewall
-      // *   **NatGateway_TRAFFIC**: traffic for NAT firewalls
-      // *   **VPC_TRAFFIC**: traffic for VPC firewalls
+      // - **EIP_TRAFFIC**: traffic on the Internet border.
+      // 
+      // - **NatGateway_TRAFFIC**: traffic on the NAT border.
+      // 
+      // - **VPC_TRAFFIC**: traffic on the VPC border.
       shared_ptr<string> trafficType_ {};
     };
 
@@ -199,9 +201,9 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of traffic statistics entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The statistics on traffic.
+    // The list of traffic statistics.
     shared_ptr<vector<DescribePostpayTrafficDetailResponseBody::TrafficList>> trafficList_ {};
   };
 

@@ -89,8 +89,11 @@ namespace Models
 
 
     protected:
+      // The number of protected vulnerabilities.
       shared_ptr<int32_t> protectedVulnCnt_ {};
+      // The timestamp of the vulnerability scan.
       shared_ptr<int64_t> time_ {};
+      // The number of unprotected vulnerabilities.
       shared_ptr<int32_t> unprotectedVulnCnt_ {};
     };
 
@@ -149,12 +152,19 @@ namespace Models
 
 
   protected:
+    // The number of protected vulnerabilities.
     shared_ptr<int32_t> curProtectedCnt_ {};
+    // The number of unprotected vulnerabilities.
     shared_ptr<int32_t> curUnprotectedCnt_ {};
+    // The list of returned data.
     shared_ptr<vector<DescribeUnprotectedVulnTrendResponseBody::DataList>> dataList_ {};
+    // The end time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> endTime_ {};
+    // The time interval.
     shared_ptr<int32_t> interval_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

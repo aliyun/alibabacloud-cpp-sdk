@@ -96,16 +96,19 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   **4**: IPv4
-      // *   **6**: IPv6
+      // - **4**: IPv4 address
+      // 
+      // - **6**: IPv6 address
       shared_ptr<int64_t> ipVersion_ {};
       // The reason for the risk.
       shared_ptr<string> reason_ {};
       // The risk level. Valid values:
       // 
-      // *   **low**
-      // *   **middle**
-      // *   **high**
+      // - **low**: low risk
+      // 
+      // - **middle**: medium risk
+      // 
+      // - **high**: high risk
       shared_ptr<string> riskLevel_ {};
     };
 

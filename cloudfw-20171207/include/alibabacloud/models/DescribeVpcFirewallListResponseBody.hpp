@@ -167,7 +167,7 @@ namespace Models
           protected:
             // The destination CIDR block of the peer VPC.
             shared_ptr<string> destinationCidr_ {};
-            // The instance ID of the next hop for the peer VPC.
+            // The ID of the next hop instance for the peer VPC.
             shared_ptr<string> nextHopInstanceId_ {};
           };
 
@@ -190,7 +190,7 @@ namespace Models
 
 
         protected:
-          // An array that consists of the route entries of the peer VPC.
+          // The route entries of the peer VPC.
           shared_ptr<vector<VpcCidrTableList::RouteEntryList>> routeEntryList_ {};
           // The ID of the route table for the peer VPC.
           shared_ptr<string> routeTableId_ {};
@@ -243,17 +243,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether Cloud Firewall is authorized to access the peer VPC. The value is fixed as **authorized**, which indicates that Cloud Firewall is authorized to access the peer VPC.
+        // The authorization status of the peer VPC. The value is fixed as **authorized**.
         shared_ptr<string> authorizationStatus_ {};
         // The UID of the Alibaba Cloud account to which the peer VPC belongs.
         shared_ptr<int64_t> ownerId_ {};
         // The region ID of the peer VPC.
         shared_ptr<string> regionNo_ {};
-        // An array that consists of the CIDR blocks of the peer VPC.
+        // The CIDR blocks of the peer VPC.
         shared_ptr<vector<PeerVpc::VpcCidrTableList>> vpcCidrTableList_ {};
-        // The ID of the peer VPC.
+        // The instance ID of the peer VPC.
         shared_ptr<string> vpcId_ {};
-        // The name of the peer VPC.
+        // The instance name of the peer VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -347,7 +347,7 @@ namespace Models
           protected:
             // The destination CIDR block of the local VPC.
             shared_ptr<string> destinationCidr_ {};
-            // The instance ID of the next hop for the local VPC.
+            // The ID of the next hop instance for the local VPC.
             shared_ptr<string> nextHopInstanceId_ {};
           };
 
@@ -370,7 +370,7 @@ namespace Models
 
 
         protected:
-          // An array that consists of the route entries of the local VPC.
+          // The route entries of the local VPC.
           shared_ptr<vector<VpcCidrTableList::RouteEntryList>> routeEntryList_ {};
           // The ID of the route table for the local VPC.
           shared_ptr<string> routeTableId_ {};
@@ -423,17 +423,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether Cloud Firewall is authorized to access the local VPC. The value is fixed as authorized, which indicates that Cloud Firewall is authorized to access the local VPC.
+        // The authorization status of the local VPC. The value is fixed as authorized.
         shared_ptr<string> authorizationStatus_ {};
         // The UID of the Alibaba Cloud account to which the local VPC belongs.
         shared_ptr<int64_t> ownerId_ {};
         // The region ID of the local VPC.
         shared_ptr<string> regionNo_ {};
-        // An array that consists of the CIDR blocks of the local VPC.
+        // The CIDR blocks of the local VPC.
         shared_ptr<vector<LocalVpc::VpcCidrTableList>> vpcCidrTableList_ {};
-        // The ID of the local VPC.
+        // The instance ID of the local VPC.
         shared_ptr<string> vpcId_ {};
-        // The name of the local VPC.
+        // The instance name of the local VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -493,26 +493,31 @@ namespace Models
 
 
       protected:
-        // Indicates whether basic protection is enabled. Valid values:
+        // The status of the basic policies. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: enabled.
+        // 
+        // - **0**: disabled.
         shared_ptr<int32_t> basicRules_ {};
-        // Indicates whether virtual patching is enabled. Valid values:
+        // The status of virtual patching. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: enabled.
+        // 
+        // - **0**: disabled.
         shared_ptr<int32_t> enableAllPatch_ {};
-        // The level of the rule group for the IPS. Valid values:
+        // The IPS rule group. Valid values:
         // 
-        // *   **1**: loose
-        // *   **2**: medium
-        // *   **3**: strict
+        // - **1**: Loose.
+        // 
+        // - **2**: Medium.
+        // 
+        // - **3**: Strict.
         shared_ptr<int32_t> ruleClass_ {};
-        // The mode of the IPS. Valid values:
+        // The IPS mode. Valid values:
         // 
-        // *   **1**: block mode
-        // *   **0**: monitor mode
+        // - **1**: Block Mode.
+        // 
+        // - **0**: Monitor mode.
         shared_ptr<int32_t> runMode_ {};
       };
 
@@ -544,10 +549,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable the strict mode. Valid values:
+        // Indicates whether to enable strict mode. Valid values:
         // 
-        // *   1: yes
-        // *   0: no
+        // - 1: enabled
+        // 
+        // - 0: disabled
         // 
         // This parameter is required.
         shared_ptr<int32_t> strictMode_ {};
@@ -657,41 +663,47 @@ namespace Models
 
 
     protected:
-      // ACL engine mode.
+      // The mode of the access control list (ACL) engine.
       shared_ptr<VpcFirewalls::AclConfig> aclConfig_ {};
-      // The bandwidth of the Express Connect circuit. Unit: Mbit/s.
+      // The bandwidth of the Express Connect circuit. Unit: Mbps.
       shared_ptr<int32_t> bandwidth_ {};
-      // The sub-type of the connection. Valid values:
+      // The subtype of the connection. Valid values:
       // 
-      // *   **vpc2vpc**: Express Connect connection
-      // *   **vpcpeer**: peer connection
+      // - **vpc2vpc**: Express Connect.
+      // 
+      // - **vpcpeer**: peering connection.
       shared_ptr<string> connectSubType_ {};
-      // The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates an Express Connect connection.
+      // The type of connection for the VPC firewall. The value is fixed as **expressconnect**, which indicates an Express Connect circuit.
       shared_ptr<string> connectType_ {};
       // The status of the VPC firewall. Valid values:
       // 
-      // *   **opened**: The VPC firewall is enabled.
-      // *   **closed**: The VPC firewall is disabled.
-      // *   **notconfigured**: The VPC firewall is not configured.
+      // - **opened**: The firewall is enabled.
+      // 
+      // - **closed**: The firewall is disabled.
+      // 
+      // - **notconfigured**: The firewall is not configured.
       shared_ptr<string> firewallSwitchStatus_ {};
-      // The intrusion prevention system (IPS) configurations.
+      // The configuration of the intrusion prevention system (IPS).
       shared_ptr<VpcFirewalls::IpsConfig> ipsConfig_ {};
-      // The details about the local VPC.
+      // The details of the local VPC.
       shared_ptr<VpcFirewalls::LocalVpc> localVpc_ {};
-      // The UID of the member that is managed by your Alibaba Cloud account.
+      // The UID of the member account.
       shared_ptr<string> memberUid_ {};
-      // The details about the peer VPC.
+      // The details of the peer VPC.
       shared_ptr<VpcFirewalls::PeerVpc> peerVpc_ {};
-      // Indicates whether you can create a VPC firewall in a specified region. Valid values:
+      // The status of the region. Valid values:
       // 
-      // *   **enable**: yes
-      // *   **disable**: no
+      // - **enable**: The region is available. You can create a VPC firewall in this region.
+      // 
+      // - **disable**: The region is unavailable. You cannot create a VPC firewall in this region.
       shared_ptr<string> regionStatus_ {};
-      // The result code of the operation that creates the VPC firewall. Valid values:
+      // The result code of the VPC firewall creation. Valid values:
       // 
-      // *   **Unauthorized**: Cloud Firewall is not authorized to access a VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-      // *   **RegionDisable**: VPC Firewall is not supported in the region of a VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-      // *   **Empty string**: You can create a VPC firewall for the network instance.
+      // - **Unauthorized**: An unauthorized VPC exists. You cannot create a VPC firewall.
+      // 
+      // - **RegionDisable**: The VPC is in a region where VPC firewalls are not supported. You cannot create a VPC firewall.
+      // 
+      // - **An empty string**: You can create a VPC firewall for the network instance.
       shared_ptr<string> resultCode_ {};
       // The instance ID of the VPC firewall.
       shared_ptr<string> vpcFirewallId_ {};
@@ -725,11 +737,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of VPC firewalls.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the VPC firewalls.
+    // The details of the VPC firewalls.
     shared_ptr<vector<DescribeVpcFirewallListResponseBody::VpcFirewalls>> vpcFirewalls_ {};
   };
 

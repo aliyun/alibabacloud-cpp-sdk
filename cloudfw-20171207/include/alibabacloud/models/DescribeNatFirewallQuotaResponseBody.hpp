@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of nodes that are in an abnormal state.
     shared_ptr<int64_t> exceptionCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of quotas.
     shared_ptr<int64_t> totalCount_ {};
+    // The number of unprotected assets.
     shared_ptr<int64_t> unprotectedCount_ {};
+    // The number of used quotas.
     shared_ptr<int64_t> usedCount_ {};
   };
 

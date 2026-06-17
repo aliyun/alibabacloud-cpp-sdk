@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Interval, interval_);
       DARABONBA_PTR_TO_JSON(OutProtectCnt, outProtectCnt_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalAlertCnt, totalAlertCnt_);
+      DARABONBA_PTR_TO_JSON(TotalPassCnt, totalPassCnt_);
       DARABONBA_PTR_TO_JSON(TotalProtectCnt, totalProtectCnt_);
       DARABONBA_PTR_TO_JSON(TrendList, trendList_);
     };
@@ -28,6 +30,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
       DARABONBA_PTR_FROM_JSON(OutProtectCnt, outProtectCnt_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalAlertCnt, totalAlertCnt_);
+      DARABONBA_PTR_FROM_JSON(TotalPassCnt, totalPassCnt_);
       DARABONBA_PTR_FROM_JSON(TotalProtectCnt, totalProtectCnt_);
       DARABONBA_PTR_FROM_JSON(TrendList, trendList_);
     };
@@ -45,10 +49,14 @@ namespace Models
     class TrendList : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const TrendList& obj) { 
+        DARABONBA_PTR_TO_JSON(AlertCnt, alertCnt_);
+        DARABONBA_PTR_TO_JSON(PassCnt, passCnt_);
         DARABONBA_PTR_TO_JSON(ProtectCnt, protectCnt_);
         DARABONBA_PTR_TO_JSON(Time, time_);
       };
       friend void from_json(const Darabonba::Json& j, TrendList& obj) { 
+        DARABONBA_PTR_FROM_JSON(AlertCnt, alertCnt_);
+        DARABONBA_PTR_FROM_JSON(PassCnt, passCnt_);
         DARABONBA_PTR_FROM_JSON(ProtectCnt, protectCnt_);
         DARABONBA_PTR_FROM_JSON(Time, time_);
       };
@@ -63,8 +71,22 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->protectCnt_ == nullptr
-        && this->time_ == nullptr; };
+      virtual bool empty() const override { return this->alertCnt_ == nullptr
+        && this->passCnt_ == nullptr && this->protectCnt_ == nullptr && this->time_ == nullptr; };
+      // alertCnt Field Functions 
+      bool hasAlertCnt() const { return this->alertCnt_ != nullptr;};
+      void deleteAlertCnt() { this->alertCnt_ = nullptr;};
+      inline int32_t getAlertCnt() const { DARABONBA_PTR_GET_DEFAULT(alertCnt_, 0) };
+      inline TrendList& setAlertCnt(int32_t alertCnt) { DARABONBA_PTR_SET_VALUE(alertCnt_, alertCnt) };
+
+
+      // passCnt Field Functions 
+      bool hasPassCnt() const { return this->passCnt_ != nullptr;};
+      void deletePassCnt() { this->passCnt_ = nullptr;};
+      inline int32_t getPassCnt() const { DARABONBA_PTR_GET_DEFAULT(passCnt_, 0) };
+      inline TrendList& setPassCnt(int32_t passCnt) { DARABONBA_PTR_SET_VALUE(passCnt_, passCnt) };
+
+
       // protectCnt Field Functions 
       bool hasProtectCnt() const { return this->protectCnt_ != nullptr;};
       void deleteProtectCnt() { this->protectCnt_ = nullptr;};
@@ -80,15 +102,19 @@ namespace Models
 
 
     protected:
-      // The number of requests that are blocked by ACL on the current day.
+      // The total number of sessions that trigger the alert action in access control policies at the specified point in time.
+      shared_ptr<int32_t> alertCnt_ {};
+      // The total number of sessions that are allowed by access control policies at the specified point in time.
+      shared_ptr<int32_t> passCnt_ {};
+      // The number of sessions blocked by access control policies for internet traffic on the current day.
       shared_ptr<int32_t> protectCnt_ {};
-      // The UNIX timestamp at midnight (00:00:00) of each day, which indicates the date of the current day. Unit: seconds.
+      // The timestamp that indicates the start of the query time range. Unit: seconds.
       shared_ptr<int64_t> time_ {};
     };
 
     virtual bool empty() const override { return this->inProtectCnt_ == nullptr
-        && this->interVPCProtectCnt_ == nullptr && this->interval_ == nullptr && this->outProtectCnt_ == nullptr && this->requestId_ == nullptr && this->totalProtectCnt_ == nullptr
-        && this->trendList_ == nullptr; };
+        && this->interVPCProtectCnt_ == nullptr && this->interval_ == nullptr && this->outProtectCnt_ == nullptr && this->requestId_ == nullptr && this->totalAlertCnt_ == nullptr
+        && this->totalPassCnt_ == nullptr && this->totalProtectCnt_ == nullptr && this->trendList_ == nullptr; };
     // inProtectCnt Field Functions 
     bool hasInProtectCnt() const { return this->inProtectCnt_ != nullptr;};
     void deleteInProtectCnt() { this->inProtectCnt_ = nullptr;};
@@ -124,6 +150,20 @@ namespace Models
     inline DescribeACLProtectTrendResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalAlertCnt Field Functions 
+    bool hasTotalAlertCnt() const { return this->totalAlertCnt_ != nullptr;};
+    void deleteTotalAlertCnt() { this->totalAlertCnt_ = nullptr;};
+    inline int64_t getTotalAlertCnt() const { DARABONBA_PTR_GET_DEFAULT(totalAlertCnt_, 0L) };
+    inline DescribeACLProtectTrendResponseBody& setTotalAlertCnt(int64_t totalAlertCnt) { DARABONBA_PTR_SET_VALUE(totalAlertCnt_, totalAlertCnt) };
+
+
+    // totalPassCnt Field Functions 
+    bool hasTotalPassCnt() const { return this->totalPassCnt_ != nullptr;};
+    void deleteTotalPassCnt() { this->totalPassCnt_ = nullptr;};
+    inline int64_t getTotalPassCnt() const { DARABONBA_PTR_GET_DEFAULT(totalPassCnt_, 0L) };
+    inline DescribeACLProtectTrendResponseBody& setTotalPassCnt(int64_t totalPassCnt) { DARABONBA_PTR_SET_VALUE(totalPassCnt_, totalPassCnt) };
+
+
     // totalProtectCnt Field Functions 
     bool hasTotalProtectCnt() const { return this->totalProtectCnt_ != nullptr;};
     void deleteTotalProtectCnt() { this->totalProtectCnt_ = nullptr;};
@@ -141,19 +181,23 @@ namespace Models
 
 
   protected:
-    // The number of internal requests that are blocked by the ACL feature.
+    // The number of inbound sessions blocked by access control policies for internet traffic.
     shared_ptr<int64_t> inProtectCnt_ {};
     // This parameter is deprecated.
     shared_ptr<int64_t> interVPCProtectCnt_ {};
-    // The interval for returning data. Unit: seconds.
+    // The interval between data points. Unit: seconds.
     shared_ptr<int32_t> interval_ {};
-    // The number of external requests that are blocked by the ACL feature.
+    // The number of outbound sessions blocked by access control policies for internet traffic.
     shared_ptr<int64_t> outProtectCnt_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of requests that are blocked by the ACL feature.
+    // The total number of sessions that trigger the alert action in access control policies in the query time range.
+    shared_ptr<int64_t> totalAlertCnt_ {};
+    // The total number of sessions that are allowed by access control policies in the query time range.
+    shared_ptr<int64_t> totalPassCnt_ {};
+    // The total number of sessions blocked by access control policies for internet traffic.
     shared_ptr<int64_t> totalProtectCnt_ {};
-    // The statistics on the requests that are blocked by the ACL feature.
+    // The trend of sessions blocked by access control policies for internet traffic.
     shared_ptr<vector<DescribeACLProtectTrendResponseBody::TrendList>> trendList_ {};
   };
 

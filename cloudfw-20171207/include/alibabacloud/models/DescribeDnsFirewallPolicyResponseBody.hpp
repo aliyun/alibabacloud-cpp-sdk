@@ -218,22 +218,95 @@ namespace Models
 
 
     protected:
+      // The action that is performed on traffic that matches the access control policy. Valid values:
+      // 
+      // - **accept**: allows the traffic.
+      // 
+      // - **drop**: denies the traffic.
+      // 
+      // - **log**: monitors the traffic.
       shared_ptr<string> aclAction_ {};
+      // The unique ID of the access control policy.
       shared_ptr<string> aclUuid_ {};
+      // The description of the access control policy.
       shared_ptr<string> description_ {};
+      // The destination address in the access control policy. Valid values:
+      // 
+      // - If **DestinationType** is `net`, the value of this parameter is a destination CIDR block.
+      // 
+      // - If **DestinationType** is `domain`, the value of this parameter is a destination domain.
+      // 
+      // - If **DestinationType** is `group`, the value of this parameter is the name of a destination address book.
       shared_ptr<string> destination_ {};
+      // The destination addresses in the address book.
       shared_ptr<vector<string>> destinationAddrs_ {};
+      // The type of the destination address book in the access control policy. Valid values:
+      // 
+      // - **ip**: an IP address book
+      // 
+      // - **domain**: a domain address book
       shared_ptr<string> destinationGroupType_ {};
+      // The type of the destination address in the access control policy. Valid values:
+      // 
+      // - **net**: destination CIDR block
+      // 
+      // - **group**: destination address book
+      // 
+      // - **domain**: destination domain
+      // 
+      // - **location**: destination location
       shared_ptr<string> destinationType_ {};
+      // The direction of the traffic to which the access control policy applies. Valid values:
+      // 
+      // - **in**: inbound traffic
+      // 
+      // - **out**: outbound traffic
       shared_ptr<string> direction_ {};
+      // The last time the policy was hit. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> hitLastTime_ {};
+      // The number of hits for the access control policy.
       shared_ptr<int64_t> hitTimes_ {};
+      // The IP version supported by the access control policy. Valid values:
+      // 
+      // - **4**: IPv4
+      // 
+      // - **6**: IPv6
       shared_ptr<int32_t> ipVersion_ {};
+      // The priority of the access control policy. A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
+      // Indicates whether the access control policy is enabled. After a policy is created, it is enabled by default. Valid values:
+      // 
+      // - **true**: enabled
+      // 
+      // - **false**: disabled
       shared_ptr<string> release_ {};
+      // The source address in the access control policy. Valid values:
+      // 
+      // - If **SourceType** is `net`, the value of this parameter is a source CIDR block. Example: 192.0.XX.XX/24.
+      // 
+      // - If **SourceType** is `group`, the value of this parameter is the name of a source address book. Example: db_group.
+      // 
+      // - If **SourceType** is `location`, the value of this parameter is a location. For more information about the valid values of this parameter, see [AddControlPolicy](https://help.aliyun.com/document_detail/138867.html). Example: ["BJ11", "ZB"].
       shared_ptr<string> source_ {};
+      // The source addresses.
       shared_ptr<vector<string>> sourceAddrs_ {};
+      // The type of the source address book in the access control policy. Valid values:
+      // 
+      // - **ip**: an IP address book
+      // 
+      // - **tag**: a tag address book
+      // 
+      // - **domain**: a domain address book
+      // 
+      // - **threat**: a threat intelligence address book
+      // 
+      // - **backsrc**: a back-to-origin address book
       shared_ptr<string> sourceGroupType_ {};
+      // The type of the source address in the access control policy. Valid values:
+      // 
+      // - **net**: a source CIDR block
+      // 
+      // - **group**: a source address book
       shared_ptr<string> sourceType_ {};
     };
 
@@ -277,10 +350,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<string> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The DNS firewall access control policies.
     shared_ptr<vector<DescribeDnsFirewallPolicyResponseBody::Policys>> policys_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

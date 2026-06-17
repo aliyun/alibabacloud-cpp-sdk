@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of days that protection has been disabled.
     shared_ptr<int64_t> disabledDays_ {};
+    // The type of asset for which protection is disabled.
     shared_ptr<string> disabledType_ {};
+    // Indicates whether the protection feature is enabled.
     shared_ptr<bool> isEnabledProtection_ {};
+    // Indicates whether the protection feature is activated but currently disabled.
     shared_ptr<bool> isOpenButDisabled_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The status of the synchronization node.
     shared_ptr<string> accessInstanceStatus_ {};
+    // The type of the synchronization node. Valid values:
+    // 
+    // - **PrivateDns**: private DNS.
+    // 
+    // - **AckClusterConnector**: ACK cluster connector.
     shared_ptr<string> accessInstanceType_ {};
   };
 

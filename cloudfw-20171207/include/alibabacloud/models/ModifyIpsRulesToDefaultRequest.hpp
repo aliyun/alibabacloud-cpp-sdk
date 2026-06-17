@@ -84,12 +84,31 @@ namespace Models
 
 
   protected:
+    // The application that is affected by the attack.
     shared_ptr<string> attackApp_ {};
+    // The type of the Cloud Firewall. Valid values:
+    // 
+    // - **VpcFirewall**: VPC firewall.
+    // 
+    // - **InternetFirewall** (default): Internet firewall.
     shared_ptr<string> firewallType_ {};
+    // The language of the content. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The type of the rule. Valid values:
+    // 
+    // - **basicRule**
+    // 
+    // - **customize**
+    // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};
+    // The list of rules.
     shared_ptr<string> rules_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

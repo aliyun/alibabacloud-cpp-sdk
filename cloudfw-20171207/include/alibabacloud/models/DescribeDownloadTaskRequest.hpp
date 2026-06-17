@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number for a paged query.
     shared_ptr<string> currentPage_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response message. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 50.
+    // The maximum number of entries to return on each page for a paged query. The default value is 10. The maximum value is 50.
     shared_ptr<string> pageSize_ {};
-    // The type of the task. For more information about task types, see the descriptions in the "DescribeDownloadTaskType" topic. If you do not specify this parameter, all files are queried by default.
+    // The type of the task. This is an enumeration. For a list of valid values, see the API for querying file download task types. If you do not set this parameter, tasks for all file types are queried.
     shared_ptr<string> taskType_ {};
   };
 

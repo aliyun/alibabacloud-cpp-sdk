@@ -173,27 +173,27 @@ namespace Models
 
 
     protected:
-      // The inbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+      // The inbound network throughput. Unit: bps.
       shared_ptr<int64_t> inBps_ {};
-      // The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+      // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // The inbound network throughput, which indicates the number of packets that are sent inbound per second. Unit: packets per second (pps).
+      // The inbound packet rate. Unit: pps.
       shared_ptr<int64_t> inPps_ {};
       // The number of new connections.
       shared_ptr<int64_t> newConn_ {};
-      // The outbound network throughput, which indicates the number of bits that are sent outbound per second. Unit: bit/s.
+      // The outbound network throughput. Unit: bps.
       shared_ptr<int64_t> outBps_ {};
-      // The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+      // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The outbound network throughput, which indicates the number of packets that are sent outbound per second. Unit: pps.
+      // The outbound packet rate. Unit: pps.
       shared_ptr<int64_t> outPps_ {};
       // The number of requests.
       shared_ptr<int64_t> sessionCount_ {};
-      // The time when traffic is generated. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the traffic was recorded. This value is a UNIX timestamp in seconds.
       // 
-      // If processing is not complete at this point in time, -1 is returned for all other fields.
+      // If data for this time point has not been processed, the values of other fields are -1.
       shared_ptr<int32_t> time_ {};
-      // The total outbound and inbound network throughput, which indicates the total number of bits that are sent inbound and outbound per second. Unit: bit/s.
+      // The total inbound and outbound network throughput. Unit: bps.
       shared_ptr<int64_t> totalBps_ {};
     };
 
@@ -324,37 +324,37 @@ namespace Models
 
 
   protected:
-    // The average inbound network throughput, which indicates the average number of bits that are sent inbound per second. Unit: bit/s.
+    // The average inbound network throughput. Unit: bps.
     shared_ptr<int64_t> avgInBps_ {};
-    // The average outbound network throughput, which indicates the average number of bits that are sent outbound per second. Unit: bit/s.
+    // The average outbound network throughput. Unit: bps.
     shared_ptr<int64_t> avgOutBps_ {};
     // The average number of requests.
     shared_ptr<int64_t> avgSession_ {};
-    // The total average inbound and outbound network throughput, which indicates the average number of bits that are sent inbound and outbound per second. Unit: bit/s.
+    // The average total network throughput for inbound and outbound traffic. Unit: bps.
     shared_ptr<int64_t> avgTotalBps_ {};
-    // The statistics on traffic.
+    // A list of traffic statistics.
     shared_ptr<vector<DescribeInternetTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The timestamp generated when the bandwidth reaches the peak value. The value is a UNIX timestamp. Unit: seconds.
+    // The UNIX timestamp when the peak bandwidth was reached. Unit: seconds.
     shared_ptr<int64_t> maxBandwidthTime_ {};
-    // The maximum volume of excess traffic allowed per day.
+    // The peak daily excess traffic.
     shared_ptr<int64_t> maxDayExceedBytes_ {};
-    // The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
+    // The peak inbound network throughput. Unit: bps.
     shared_ptr<int64_t> maxInBps_ {};
-    // The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
+    // The peak outbound network throughput. Unit: bps.
     shared_ptr<int64_t> maxOutBps_ {};
-    // The number of requests during the peak hour of the network throughout.
+    // The peak number of requests.
     shared_ptr<int64_t> maxSession_ {};
-    // The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
+    // The peak total network throughput for inbound and outbound traffic. Unit: bps.
     shared_ptr<int64_t> maxTotalBps_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total inbound and outbound network throughput, which indicates the total number of bytes that are sent inbound and outbound. Unit: bytes.
+    // The total inbound and outbound traffic. Unit: bytes.
     shared_ptr<int64_t> totalBytes_ {};
-    // The total volume of excess traffic.
+    // The total excess traffic.
     shared_ptr<int64_t> totalExceedBytes_ {};
-    // The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+    // The total inbound traffic. Unit: bytes.
     shared_ptr<int64_t> totalInBytes_ {};
-    // The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+    // The total outbound traffic. Unit: bytes.
     shared_ptr<int64_t> totalOutBytes_ {};
     // The total number of requests.
     shared_ptr<int64_t> totalSession_ {};

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The source tracking code.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

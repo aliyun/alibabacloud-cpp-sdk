@@ -79,15 +79,15 @@ namespace Models
 
 
     protected:
-      // The message displayed when the asset is not synchronized to Cloud Firewall. Valid values:
+      // A message that provides details about why an asset was not synchronized. Valid value:
       // 
-      // *   cloudfirewall do not sync this ip address: This IP address is not synchronized to Cloud Firewall.
+      // - `cloudfirewall do not sync this ip address`: Cloud Firewall does not synchronize the IP address of the asset.
       shared_ptr<string> msg_ {};
       // The IP address of the asset.
       shared_ptr<string> resource_ {};
-      // The status of the asset when it is not synchronized to Cloud Firewall. Valid values:
+      // The synchronization status of the asset. Valid value:
       // 
-      // *   ip_not_sync: The asset is not synchronized.
+      // - `ip_not_sync`: The asset is not synchronized.
       shared_ptr<string> status_ {};
     };
 
@@ -110,9 +110,9 @@ namespace Models
 
 
   protected:
-    // The status information of the asset when it is not synchronized to Cloud Firewall.
+    // Information about unsynchronized assets.
     shared_ptr<vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList>> abnormalResourceStatusList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

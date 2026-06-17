@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The language of the request and response messages.
     shared_ptr<string> lang_ {};
+    // The instance ID.
     shared_ptr<string> resourceId_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> accessInstanceId_ {};
+    // The ID of the region where the instance is located.
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
   };

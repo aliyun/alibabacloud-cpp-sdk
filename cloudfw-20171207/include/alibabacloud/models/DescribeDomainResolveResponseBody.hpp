@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The IP address to which the domain name is resolved. Multiple IP addresses are separated by commas (,).
+      // The resolution result of the domain name. Multiple IP addresses are separated by commas (,).
       shared_ptr<string> ipAddrs_ {};
-      // The time when the domain name was resolved. The value of this parameter is a timestamp. Unit: seconds.
+      // The timestamp of the resolution. Unit: seconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details about the DNS record of the domain name.
+    // The result of the domain name resolution.
     shared_ptr<DescribeDomainResolveResponseBody::ResolveResult> resolveResult_ {};
   };
 

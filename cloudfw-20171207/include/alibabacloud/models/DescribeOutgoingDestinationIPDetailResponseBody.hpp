@@ -162,10 +162,15 @@ namespace Models
 
 
       protected:
+        // The classification ID.
         shared_ptr<string> classId_ {};
+        // The risk level.
         shared_ptr<int32_t> riskLevel_ {};
+        // The description of the tag.
         shared_ptr<string> tagDescribe_ {};
+        // The ID of the tag.
         shared_ptr<string> tagId_ {};
+        // The name of the tag.
         shared_ptr<string> tagName_ {};
       };
 
@@ -324,26 +329,47 @@ namespace Models
 
 
     protected:
+      // The status of the access control policy.
       shared_ptr<string> aclCoverage_ {};
+      // The time of the first access. This is a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> firstTime_ {};
+      // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
+      // The ISP of the destination IP address.
       shared_ptr<string> ispName_ {};
+      // The time of the last access. This is a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> lastTime_ {};
+      // The name of the region where the destination IP address is located.
       shared_ptr<string> locationName_ {};
+      // The ID of the NAT Gateway.
       shared_ptr<string> natGatewayId_ {};
+      // The name of the NAT Gateway.
       shared_ptr<string> natGatewayName_ {};
+      // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
+      // The private IP address.
       shared_ptr<string> privateIP_ {};
+      // The public IP address.
       shared_ptr<string> publicIP_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
+      // The instance ID of the cloud product.
       shared_ptr<string> resourceInstanceId_ {};
+      // The name of the asset instance.
       shared_ptr<string> resourceInstanceName_ {};
+      // The type of the public IP address of the asset.
       shared_ptr<string> resourceType_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
+      // The list of tags.
       shared_ptr<vector<AssetList::TagList>> tagList_ {};
+      // The total traffic.
       shared_ptr<string> totalBytes_ {};
+      // The ID of the VPC instance.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -387,10 +413,15 @@ namespace Models
 
 
   protected:
+    // The list of assets.
     shared_ptr<vector<DescribeOutgoingDestinationIPDetailResponseBody::AssetList>> assetList_ {};
+    // The ISP of the destination IP address.
     shared_ptr<string> ispName_ {};
+    // The name of the region.
     shared_ptr<string> locationName_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

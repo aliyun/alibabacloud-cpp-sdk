@@ -170,21 +170,25 @@ namespace Models
 
 
       protected:
-        // The type of the tag. Valid values:
+        // The category of the intelligence tag. Valid values:
         // 
-        // *   **Suspicious**
-        // *   **Malicious**
-        // *   **Trusted**
+        // - **Suspicious**: suspicious
+        // 
+        // - **Malicious**: malicious
+        // 
+        // - **Trusted**: trusted
         shared_ptr<string> classId_ {};
         // The risk level. Valid values:
         // 
-        // *   **1**: low
-        // *   **2**: medium
-        // *   **3**: high
+        // - **1**: low
+        // 
+        // - **2**: medium
+        // 
+        // - **3**: high
         shared_ptr<int32_t> riskLevel_ {};
         // The description of the tag.
         shared_ptr<string> tagDescribe_ {};
-        // The ID of the tag.
+        // The ID of the intelligence tag.
         shared_ptr<string> tagId_ {};
         // The name of the tag.
         shared_ptr<string> tagName_ {};
@@ -391,88 +395,99 @@ namespace Models
 
 
     protected:
-      // Indicates whether an access control policy is configured. Valid values:
+      // Indicates whether an access control policy is configured for the domain. Valid values:
       // 
-      // *   **Uncovered**: no
-      // *   **FullCoverage**: yes
+      // - **Uncovered**: no
+      // 
+      // - **FullCoverage**: yes
       shared_ptr<string> aclCoverage_ {};
-      // The suggestion in an access control policy.
+      // The recommended action for the access control policy.
       shared_ptr<string> aclRecommendDetail_ {};
-      // The state of the access control policy. Valid values:
+      // The health status of the access control policy. Valid values:
       // 
-      // *   **normal**: healthy
-      // *   **abnormal**: unhealthy
+      // - **Normal**: healthy
+      // 
+      // - **Abnormal**: unhealthy
       shared_ptr<string> aclStatus_ {};
       // The name of the address book.
       shared_ptr<string> addressGroupName_ {};
       // The UUID of the address book.
       shared_ptr<string> addressGroupUUID_ {};
-      // The application names.
+      // An array of application names.
       shared_ptr<vector<string>> applicationNameList_ {};
-      // The outbound asset count.
+      // The total number of assets that initiate outbound connections to the domain.
       shared_ptr<int64_t> assetCount_ {};
-      // The website service.
+      // The business to which the website belongs.
       shared_ptr<string> business_ {};
-      // The type of the tag. Valid values:
+      // The category of the intelligence tag. Valid values:
       // 
-      // *   **Suspicious**
-      // *   **Malicious**
-      // *   **Trusted**
+      // - **Suspicious**: suspicious
+      // 
+      // - **Malicious**: malicious
+      // 
+      // - **Trusted**: trusted
       shared_ptr<string> categoryClassId_ {};
-      // The type ID of the service to which the domain name belongs. Valid values:
+      // The ID of the asset category. Valid values:
       // 
-      // *   **Aliyun**: Alibaba Cloud services
-      // *   **NotAliyun**: third-party services
+      // - **Aliyun**: Alibaba Cloud service
+      // 
+      // - **NotAliyun**: third-party service
       shared_ptr<string> categoryId_ {};
-      // The type of the service to which the domain name belongs. Valid values:
+      // The name of the asset category. Valid values:
       // 
-      // *   **Alibaba Cloud services**
-      // *   **Third-party services**
+      // - Alibaba Cloud product
+      // 
+      // - Non-Alibaba Cloud product
       shared_ptr<string> categoryName_ {};
-      // The domain name in outbound connections.
+      // The outbound domain name.
       shared_ptr<string> domain_ {};
-      // The name of the group to which the access control policy belongs.
+      // The name of the policy group.
       shared_ptr<string> groupName_ {};
-      // Indicates whether an `access control policy` is configured for the domain name. Valid values:
+      // Indicates whether an access control policy is configured for the domain name. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes
+      // 
+      // - **false**: no
       shared_ptr<string> hasAcl_ {};
-      // Indicates whether an access control policy is recommended. Valid values:
+      // Indicates whether a recommended access control policy exists. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes
+      // 
+      // - **false**: no
       shared_ptr<bool> hasAclRecommend_ {};
-      // The volume of inbound traffic.
+      // The volume of inbound traffic, in bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // Indicates whether the domain name is marked as normal. Valid values:
+      // Indicates whether the outbound domain name is marked as normal. Valid values:
       // 
-      // *   **true**: normal
-      // *   **false**: abnormal
+      // - **true**: normal
+      // 
+      // - **false**: not normal
       shared_ptr<bool> isMarkNormal_ {};
       // The name of the organization.
       shared_ptr<string> organization_ {};
-      // The volume of outbound traffic.
+      // The volume of outbound traffic, in bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The outbound private asset count.
+      // The total number of assets in a private network that initiate outbound connections to the domain.
       shared_ptr<int64_t> privateAssetCount_ {};
       // The ID of the access control policy.
       shared_ptr<string> ruleId_ {};
       // The name of the access control policy.
       shared_ptr<string> ruleName_ {};
-      // The reason why the domain name is secure.
+      // The reason for the security recommendation.
       shared_ptr<string> securityReason_ {};
-      // The suggestion to handle the traffic of the domain name in outbound connections. Valid values:
+      // The recommended security action for the outbound domain name. Valid values:
       // 
-      // *   **pass**: allow
-      // *   **alert**: monitor
-      // *   **drop**: deny
+      // - **pass**: allow
+      // 
+      // - **alert**: monitor
+      // 
+      // - **drop**: deny
       shared_ptr<string> securitySuggest_ {};
       // The number of requests.
       shared_ptr<int64_t> sessionCount_ {};
-      // An array that consists of tags.
+      // An array of tags.
       shared_ptr<vector<DomainList::TagList>> tagList_ {};
-      // The total volume of traffic. Unit: bytes.
+      // The total traffic volume, in bytes.
       shared_ptr<string> totalBytes_ {};
     };
 
@@ -502,11 +517,11 @@ namespace Models
 
 
   protected:
-    // The domain names in outbound connections.
+    // An array of outbound domains.
     shared_ptr<vector<DescribeOutgoingDomainResponseBody::DomainList>> domainList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the domain names in outbound connections.
+    // The total number of outbound domains found.
     shared_ptr<int32_t> totalCount_ {};
   };
 

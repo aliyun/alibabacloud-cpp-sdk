@@ -137,9 +137,13 @@ namespace Models
 
 
       protected:
+        // The risk assessment level.
         shared_ptr<int32_t> riskLevel_ {};
+        // The tag description.
         shared_ptr<string> tagDescribe_ {};
+        // The tag ID.
         shared_ptr<string> tagId_ {};
+        // The tag name.
         shared_ptr<string> tagName_ {};
       };
 
@@ -255,20 +259,35 @@ namespace Models
 
 
     protected:
+      // The recommended Access Control List (ACL) details.
       shared_ptr<string> aclRecommendDetail_ {};
+      // The policy status.
       shared_ptr<string> aclStatus_ {};
+      // The business to which the domain name belongs.
       shared_ptr<string> business_ {};
+      // The category ID.
       shared_ptr<string> categoryId_ {};
+      // The category name of the service.
       shared_ptr<string> categoryName_ {};
+      // The destination domain name.
       shared_ptr<string> dstDomain_ {};
+      // The destination IP address.
       shared_ptr<string> dstIP_ {};
+      // The destination type.
       shared_ptr<string> dstType_ {};
+      // The group name.
       shared_ptr<string> groupName_ {};
+      // Indicates whether a recommended ACL exists.
       shared_ptr<bool> hasAclRecommend_ {};
+      // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
+      // Indicates whether the destination is manually marked as normal.
       shared_ptr<bool> isMarkNormal_ {};
+      // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
+      // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
+      // The list of tags.
       shared_ptr<vector<DstList::TagList>> tagList_ {};
     };
 
@@ -298,8 +317,11 @@ namespace Models
 
 
   protected:
+    // The information about the destination addresses.
     shared_ptr<vector<DescribeOutgoingDestinationResponseBody::DstList>> dstList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

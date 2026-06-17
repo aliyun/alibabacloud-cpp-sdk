@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether the VPC is managed by Cloud Firewall.
       shared_ptr<bool> firewallVpc_ {};
+      // The ID of the VPC instance.
       shared_ptr<string> vpcId_ {};
+      // The name of the VPC instance.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -130,10 +133,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
+    // The list of VPCs.
     shared_ptr<vector<DescribeAccessInstanceVpcListResponseBody::VpcList>> vpcList_ {};
   };
 

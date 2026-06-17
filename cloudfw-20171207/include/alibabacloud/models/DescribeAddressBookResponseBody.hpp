@@ -125,9 +125,9 @@ namespace Models
 
 
       protected:
-        // The key of the ECS tag.
+        // The key of the tag.
         shared_ptr<string> tagKey_ {};
-        // The value of the ECS tag.
+        // The value of the tag.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -169,9 +169,9 @@ namespace Models
 
 
       protected:
-        // Address information in the address book.
+        // The IP address or CIDR block.
         shared_ptr<string> address_ {};
-        // Single address description.
+        // The note for the address.
         shared_ptr<string> note_ {};
       };
 
@@ -213,7 +213,9 @@ namespace Models
 
 
       protected:
+        // The key of the ACK pod label.
         shared_ptr<string> key_ {};
+        // The value of the ACK pod label.
         shared_ptr<string> value_ {};
       };
 
@@ -344,45 +346,37 @@ namespace Models
 
 
     protected:
+      // The ID of the ACK cluster connector.
       shared_ptr<string> ackClusterConnectorId_ {};
+      // The name of the ACK cluster connector.
       shared_ptr<string> ackClusterConnectorName_ {};
+      // A list of ACK pod labels.
       shared_ptr<vector<Acls::AckLabels>> ackLabels_ {};
+      // A list of ACK namespaces.
       shared_ptr<vector<string>> ackNamespaces_ {};
-      // The addresses in the address book.
+      // A list of CIDR blocks in the address book.
       shared_ptr<vector<string>> addressList_ {};
       // The number of addresses in the address book.
       shared_ptr<int32_t> addressListCount_ {};
-      // A list of addresses in the address book, each with a single address description.
+      // A list of addresses, each with a description.
       shared_ptr<vector<Acls::Addresses>> addresses_ {};
-      // Indicates whether the public IP addresses of ECS instances are automatically added to the address book if the instances match the specified tags. The setting takes effect on both newly purchased ECS instances whose tag settings are complete and ECS instances whose tag settings are modified. Valid values:
-      // 
-      // *   **1**: yes
-      // *   **0**: no
+      // Indicates whether to automatically add the public IPs of tagged ECS instances to the address book. This applies to newly purchased instances and existing instances whose tags are modified to match.
       shared_ptr<int32_t> autoAddTagEcs_ {};
       // The description of the address book.
       shared_ptr<string> description_ {};
       // The name of the address book.
       shared_ptr<string> groupName_ {};
       // The type of the address book. Valid values:
-      // 
-      // *   **ip**: IP address book
-      // *   **domain**: domain address book
-      // *   **port**: port address book
-      // *   **tag**: ECS tag-based address book
-      // *   **allCloud**: cloud service address book
-      // *   **threat**: threat intelligence address book
       shared_ptr<string> groupType_ {};
       // The UUID of the address book.
       shared_ptr<string> groupUuid_ {};
-      // The number of times that the address book is referenced.
+      // The number of times the address book is referenced.
       shared_ptr<int32_t> referenceCount_ {};
+      // The region where the ACK cluster connector is deployed. This parameter is returned only when the GroupType parameter is "ack".
       shared_ptr<string> regionNo_ {};
-      // The details about the ECS tags that can be automatically added to the address book.
+      // A list of ECS tags.
       shared_ptr<vector<Acls::TagList>> tagList_ {};
-      // The logical relationship among ECS tags. Valid values:
-      // 
-      // *   **and**: Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book.
-      // *   **or**: The public IP addresses of ECS instances that match any of the specified tags can be added to the address book.
+      // The logical relationship among multiple ECS tags. Valid values:
       shared_ptr<string> tagRelation_ {};
     };
 
@@ -426,15 +420,15 @@ namespace Models
 
 
   protected:
-    // The information about the address book.
+    // A list of address books.
     shared_ptr<vector<DescribeAddressBookResponseBody::Acls>> acls_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> pageNo_ {};
-    // The number of entries per page.
+    // The number of address books returned per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the returned address books.
+    // The total number of address books.
     shared_ptr<string> totalCount_ {};
   };
 

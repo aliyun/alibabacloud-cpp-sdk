@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the precheck.
     shared_ptr<string> preCheckId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

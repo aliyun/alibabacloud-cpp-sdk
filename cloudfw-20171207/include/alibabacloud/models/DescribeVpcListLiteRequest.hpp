@@ -75,20 +75,21 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The region ID of the VPC.
+    // The ID of the region where the VPC resides.
     // 
-    // >  For more information about Cloud Firewall supported regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // > For more information about the regions that Cloud Firewall supports, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     shared_ptr<string> regionNo_ {};
-    // The source IP address of the request.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
-    // The ID of the VPC.
+    // The instance ID of the VPC.
     shared_ptr<string> vpcId_ {};
-    // The name of the VPC.
+    // The instance name of the VPC.
     shared_ptr<string> vpcName_ {};
   };
 

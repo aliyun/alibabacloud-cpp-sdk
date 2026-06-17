@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the access control list.
     shared_ptr<string> aclUuid_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

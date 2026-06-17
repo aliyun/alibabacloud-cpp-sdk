@@ -206,21 +206,61 @@ namespace Models
 
 
     protected:
+      // The ID of the instance.
       shared_ptr<string> accessInstanceId_ {};
+      // The name of the private instance.
       shared_ptr<string> accessInstanceName_ {};
+      // The UID of the Alibaba Cloud account that owns the Cloud Firewall.
       shared_ptr<int64_t> aliUid_ {};
+      // The number of domain names.
       shared_ptr<int64_t> domainNameCount_ {};
+      // The type of Cloud Firewall. Valid values:
+      // 
+      // - **internet**
+      // 
+      // - **vpc**
+      // 
+      // - **nat**
       shared_ptr<vector<string>> firewallType_ {};
+      // The time when the instance was created. The value is a UNIX timestamp measured in seconds.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The IP protocol. Valid values:
+      // 
+      // - **TCP**
+      // 
+      // - **UDP**
       shared_ptr<int32_t> ipProtocol_ {};
+      // The UID of the Cloud Firewall member account.
       shared_ptr<int64_t> memberUid_ {};
+      // The port number.
       shared_ptr<int32_t> port_ {};
+      // The primary DNS server.
       shared_ptr<string> primaryDns_ {};
+      // The type of private DNS. Valid values:
+      // 
+      // - **PrivateZone**
+      // 
+      // - **Custom** (default)
       shared_ptr<string> privateDnsType_ {};
+      // The ID of the region where the instance resides.
       shared_ptr<string> regionNo_ {};
+      // The standby DNS server.
       shared_ptr<string> standbyDns_ {};
+      // The status of the instance. Valid values:
+      // 
+      // - **creating**: The instance is being created.
+      // 
+      // - **deleting**: The instance is being deleted.
+      // 
+      // - **normal**: The instance is running as expected.
+      // 
+      // - **updating**: The instance is being updated.
+      // 
+      // - **abnormal**: The instance is in an abnormal state.
       shared_ptr<int32_t> status_ {};
+      // The unique ID of the task.
       shared_ptr<string> taskId_ {};
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -264,10 +304,15 @@ namespace Models
 
 
   protected:
+    // A list of private instances.
     shared_ptr<vector<DescribePrivateDnsEndpointListResponseBody::AccessInstanceList>> accessInstanceList_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

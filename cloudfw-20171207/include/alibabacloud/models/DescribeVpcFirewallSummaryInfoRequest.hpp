@@ -48,7 +48,17 @@ namespace Models
 
 
   protected:
+    // The language of the content. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The type of the user. Valid values:
+    // 
+    // **buy**: Paid user
+    // 
+    // **free**: Free user
     shared_ptr<string> userType_ {};
   };
 

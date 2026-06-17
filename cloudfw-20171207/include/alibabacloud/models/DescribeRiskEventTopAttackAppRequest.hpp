@@ -97,13 +97,22 @@ namespace Models
 
 
   protected:
+    // The list of attacked applications.
     shared_ptr<vector<string>> attackApp_ {};
+    // The type of attack.
     shared_ptr<string> attackType_ {};
+    // The purchased edition.
     shared_ptr<string> buyVersion_ {};
+    // The end time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The start time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

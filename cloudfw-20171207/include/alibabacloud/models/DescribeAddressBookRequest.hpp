@@ -94,34 +94,25 @@ namespace Models
 
 
   protected:
-    // The port that is included in the address book. This parameter takes effect only when the **GroupType** parameter is set to **port**.
+    // Filters the query to return only address books that contain the specified port. This parameter is valid only when **GroupType** is set to **port**.
     shared_ptr<string> containPort_ {};
-    // The page number.
+    // The page number for a paginated query.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Default value: 1.
     shared_ptr<string> currentPage_ {};
-    // The type of the address book. Valid values:
+    // The type of the address book.
     // 
-    // *   **ip**: IP address book
-    // *   **domain**: domain address book
-    // *   **port**: port address book
-    // *   **tag**: Elastic Compute Service (ECS) tag-based address book
-    // *   **allCloud**: cloud service address book
-    // *   **threat**: threat intelligence address book
-    // *   **ipv6**: IPv6 address book
-    // >  If you do not specify a type, the domain address books and ECS tag-based address books are queried.
+    // > If this parameter is not specified, the query returns both IPv4 and ECS tag address books.
     shared_ptr<string> groupType_ {};
+    // The unique identifier of the address book.
     shared_ptr<string> groupUuid_ {};
-    // The language of the content within the request. Valid values:
-    // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // The language of the content in the response.
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The number of address books per page.
     // 
     // Default value: 10. Maximum value: 50.
     shared_ptr<string> pageSize_ {};
-    // The query condition that is used to search for the address book.
+    // The search keyword for address books.
     shared_ptr<string> query_ {};
   };
 

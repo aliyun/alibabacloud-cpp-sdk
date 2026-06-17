@@ -116,11 +116,17 @@ namespace Models
 
 
     protected:
+      // The status of the delivery configuration.
       shared_ptr<string> configStatus_ {};
+      // The name of the log delivery.
       shared_ptr<string> dispatchName_ {};
+      // The value of the log to be delivered.
       shared_ptr<string> dispatchValue_ {};
+      // The delivery status.
       shared_ptr<bool> enable_ {};
+      // The supported filter conditions.
       shared_ptr<vector<string>> filterKeys_ {};
+      // The name of the search type.
       shared_ptr<string> searchName_ {};
     };
 
@@ -225,11 +231,27 @@ namespace Models
 
 
       protected:
+        // The configuration status.
         shared_ptr<string> configStatus_ {};
+        // The name of the delivery type.
         shared_ptr<string> dispatchName_ {};
+        // The key for the log categorization. Valid values:
+        // 
+        // **internet_log**
+        // 
+        // **vpc_firewall_log**
+        // 
+        // **nat_firewall_log**
+        // 
+        // **ipv6_firewall_log**
+        // 
+        // **dns_firewall_log**
         shared_ptr<string> dispatchValue_ {};
+        // Indicates whether this delivery type is enabled.
         shared_ptr<bool> enable_ {};
+        // The detailed delivery configurations for the Internet and VPCs.
         shared_ptr<vector<string>> filterKeys_ {};
+        // The value is fixed to log_type. You can ignore this parameter.
         shared_ptr<string> searchName_ {};
       };
 
@@ -266,9 +288,13 @@ namespace Models
 
 
     protected:
+      // The details of the log delivery configuration.
       shared_ptr<vector<InfoList::ItemList>> itemList_ {};
+      // The name of the Logstore in Simple Log Service.
       shared_ptr<string> logstoreName_ {};
+      // The name of the project in Simple Log Service.
       shared_ptr<string> projectName_ {};
+      // \\`cn\\` indicates the Chinese mainland. \\`intl\\` indicates regions outside the Chinese mainland. \\`global\\` indicates global.
       shared_ptr<string> site_ {};
     };
 
@@ -321,11 +347,17 @@ namespace Models
 
 
   protected:
+    // A list of detailed information about the Logstores.
     shared_ptr<vector<DescribeBatchSlsDispatchStatusResponseBody::InfoList>> infoList_ {};
+    // A list of Simple Log Service projects.
     shared_ptr<vector<DescribeBatchSlsDispatchStatusResponseBody::ItemList>> itemList_ {};
+    // The log version. A value of 1 indicates that there is one Logstore. A value of 2 indicates that there are two Logstores.
     shared_ptr<string> logVersion_ {};
+    // The name of the Logstore in Simple Log Service.
     shared_ptr<string> logstoreName_ {};
+    // The name of the project in Simple Log Service.
     shared_ptr<string> projectName_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

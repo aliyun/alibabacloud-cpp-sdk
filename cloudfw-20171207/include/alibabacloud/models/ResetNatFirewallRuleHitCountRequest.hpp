@@ -57,16 +57,17 @@ namespace Models
 
 
   protected:
-    // The UUID of the access control policy.
+    // The unique ID of the access control policy.
     // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
   };
 

@@ -116,12 +116,19 @@ namespace Models
 
 
     protected:
+      // The number of attacks.
       shared_ptr<int32_t> attackCnt_ {};
+      // The number of dropped attempts.
       shared_ptr<int32_t> dropCnt_ {};
+      // The IP address.
       shared_ptr<string> ip_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
+      // The ID of the asset instance.
       shared_ptr<string> resourceInstanceId_ {};
+      // The name of the resource instance.
       shared_ptr<string> resourceInstanceName_ {};
+      // The type of the resource instance.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -144,7 +151,9 @@ namespace Models
 
 
   protected:
+    // The statistics of the assets.
     shared_ptr<vector<DescribeRiskEventTopAttackAssetResponseBody::Assets>> assets_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

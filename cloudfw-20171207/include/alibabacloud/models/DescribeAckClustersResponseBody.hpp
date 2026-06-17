@@ -149,15 +149,33 @@ namespace Models
 
 
     protected:
+      // The ID of the ACK cluster.
       shared_ptr<string> clusterId_ {};
+      // The name of the ACK cluster.
       shared_ptr<string> clusterName_ {};
+      // The specification of the ACK cluster.
       shared_ptr<string> clusterSpec_ {};
+      // The type of the ACK cluster. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
+      // 
+      // - [DescribeClustersV1](~~DescribeClustersV1~~): Returns a list of ACK clusters in your account that meet specific criteria, such as the cluster type and specifications.
       shared_ptr<string> clusterType_ {};
+      // The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
       shared_ptr<string> memberUid_ {};
+      // The network plugin of the ACK cluster. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
+      // 
+      // - [DescribeClustersV1](~~DescribeClustersV1~~): Lists the ACK clusters in your account that meet specified conditions, such as cluster type and specifications.
       shared_ptr<string> network_ {};
+      // The subtype of the cluster. This parameter is available only when `ClusterType` is set to `ManagedKubernetes`. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
+      // 
+      // - [DescribeClustersV1](~~DescribeClustersV1~~): Lists ACK clusters in your account that meet specified conditions, such as cluster type and specifications.
       shared_ptr<string> profile_ {};
+      // The region ID of the ACK cluster.
       shared_ptr<string> regionId_ {};
+      // The running status of the ACK cluster. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
+      // 
+      // - [DescribeClustersV1](~~DescribeClustersV1~~): Retrieves a list of ACK clusters in your account that meet specified conditions, such as cluster type and specifications.
       shared_ptr<string> state_ {};
+      // The ID of the VPC where the ACK cluster is deployed.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -201,10 +219,15 @@ namespace Models
 
 
   protected:
+    // A list of ACK clusters.
     shared_ptr<vector<DescribeAckClustersResponseBody::Clusters>> clusters_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

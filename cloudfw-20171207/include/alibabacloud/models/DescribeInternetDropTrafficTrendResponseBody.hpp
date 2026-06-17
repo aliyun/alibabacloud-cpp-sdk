@@ -158,16 +158,27 @@ namespace Models
 
 
     protected:
+      // The number of sessions dropped by access control list (ACL) rules.
       shared_ptr<int64_t> aclDrop_ {};
+      // The current time point. The time is in the `YYYY-MM-DD HH:mm:ss` format.
       shared_ptr<string> dataTime_ {};
+      // The ratio of dropped sessions to total sessions for this data point.
       shared_ptr<string> dropRatio_ {};
+      // The number of dropped sessions for the corresponding data point in the previous cycle.
       shared_ptr<int64_t> dropRing_ {};
+      // The drop ratio for the corresponding data point in the previous cycle.
       shared_ptr<string> dropRingRatio_ {};
+      // The number of dropped sessions.
       shared_ptr<int64_t> dropSession_ {};
+      // The number of sessions dropped by the intrusion prevention system (IPS).
       shared_ptr<int64_t> ipsDrop_ {};
+      // The corresponding time point in the previous cycle. The time is in the `YYYY-MM-DD HH:mm:ss` format.
       shared_ptr<string> ringDataTime_ {};
+      // The timestamp for the corresponding data point in the previous cycle. This value is a Unix timestamp that represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
       shared_ptr<int64_t> ringTime_ {};
+      // The timestamp.
       shared_ptr<int64_t> time_ {};
+      // The total number of sessions.
       shared_ptr<int64_t> totalSession_ {};
     };
 
@@ -211,10 +222,15 @@ namespace Models
 
 
   protected:
+    // The data list.
     shared_ptr<vector<DescribeInternetDropTrafficTrendResponseBody::DataList>> dataList_ {};
+    // The peak number of dropped sessions in the specified period.
     shared_ptr<int64_t> dropSessionMax_ {};
+    // The average drop ratio for the entire query period, expressed as a percentage.
     shared_ptr<string> ratioAverage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The average drop ratio from the previous cycle, expressed as a percentage.
     shared_ptr<string> ringRatioAverage_ {};
   };
 

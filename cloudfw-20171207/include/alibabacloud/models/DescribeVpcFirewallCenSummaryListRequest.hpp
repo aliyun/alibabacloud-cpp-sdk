@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The page number for a paged query. The default value is 1.
     shared_ptr<string> currentPage_ {};
+    // The language of the content. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The UID of the member account.
     shared_ptr<string> memberUid_ {};
+    // The number of entries to return on each page.
     shared_ptr<string> pageSize_ {};
+    // The type of the CEN transit router. Valid values:
+    // 
+    // **Basic**: Basic Edition
+    // 
+    // **Enterprise**: Enterprise Edition
     shared_ptr<string> transitRouterType_ {};
   };
 

@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The instance ID of your Cloud Firewall.
+      // The ID of the Cloud Firewall instance.
       shared_ptr<string> instanceId_ {};
-      // The public IP addresses of instances.
+      // The public IP address of the instance.
       shared_ptr<vector<string>> internetIp_ {};
       // The private IP address of the instance.
       shared_ptr<string> intranetIp_ {};
@@ -119,12 +119,13 @@ namespace Models
 
 
   protected:
-    // The information about the instances.
+    // The list of instances.
     shared_ptr<vector<DescribeInstanceRiskLevelsRequest::Instances>> instances_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

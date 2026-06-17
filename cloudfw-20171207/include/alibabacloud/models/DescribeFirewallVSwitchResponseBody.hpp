@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The instance ID of the firewall.
         shared_ptr<string> firewallId_ {};
+        // The name of the Cloud Firewall.
         shared_ptr<string> firewallName_ {};
       };
 
@@ -189,15 +191,25 @@ namespace Models
 
 
     protected:
+      // The number of available IP addresses.
       shared_ptr<string> availableIpCount_ {};
+      // The IPv4 CIDR block.
       shared_ptr<string> cidrBlock_ {};
+      // The number of intrusion prevention events.
       shared_ptr<string> firewallCount_ {};
+      // The list of firewalls.
       shared_ptr<vector<VswitchList::FirewallList>> firewallList_ {};
+      // The UID of the member account.
       shared_ptr<string> memberUid_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
+      // The ID of the VPC instance.
       shared_ptr<string> vpcId_ {};
+      // The ID of the vSwitch.
       shared_ptr<string> vswitchId_ {};
+      // The name of the vSwitch.
       shared_ptr<string> vswitchName_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -227,8 +239,11 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of vSwitches.
     shared_ptr<vector<DescribeFirewallVSwitchResponseBody::VswitchList>> vswitchList_ {};
   };
 

@@ -84,13 +84,22 @@ namespace Models
 
 
   protected:
+    // The edition of Cloud Firewall.
     shared_ptr<string> buyVersion_ {};
+    // The traffic direction.
+    // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
+    // The end of the time range for the query. The value must be a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
+    // The start of the time range for the query. The value must be a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

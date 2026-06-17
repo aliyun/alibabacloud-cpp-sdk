@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // The ID of the CEN instance.
       shared_ptr<string> cenId_ {};
+      // The name of the CEN instance.
       shared_ptr<string> cenName_ {};
+      // The list of region IDs for the VPC border firewall.
       shared_ptr<vector<string>> regionNoList_ {};
     };
 
@@ -114,8 +117,11 @@ namespace Models
 
 
   protected:
+    // The list of CEN instances.
     shared_ptr<vector<DescribeVpcFirewallCenSummaryListResponseBody::CenList>> cenList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

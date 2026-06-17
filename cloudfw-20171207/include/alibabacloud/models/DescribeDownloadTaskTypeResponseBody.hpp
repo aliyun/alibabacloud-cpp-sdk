@@ -106,9 +106,9 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The task types.
+    // The list of task types.
     shared_ptr<vector<DescribeDownloadTaskTypeResponseBody::TaskTypeArray>> taskTypeArray_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -84,14 +84,28 @@ namespace Models
 
 
   protected:
+    // The ID of the CEN instance.
+    // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
+    // The language of the content within the request and response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The UID of the member account of Cloud Firewall.
     shared_ptr<string> memberUid_ {};
+    // The ID of the vSwitch that is used to create the elastic network interface (ENI) of the Cloud Firewall.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The name of the VPC border firewall.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallName_ {};
+    // The ID of the VPC.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

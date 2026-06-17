@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh and en. Default value: zh.
     shared_ptr<string> lang_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

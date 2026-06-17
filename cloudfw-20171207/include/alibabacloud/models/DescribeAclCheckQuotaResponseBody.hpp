@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The available quota.
       shared_ptr<int64_t> availableQuota_ {};
+      // The consumed quota.
       shared_ptr<int64_t> consumedQuota_ {};
+      // The total quota.
       shared_ptr<int64_t> totalQuota_ {};
+      // The time when the quota was last updated. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The quota.
     shared_ptr<DescribeAclCheckQuotaResponseBody::Quota> quota_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

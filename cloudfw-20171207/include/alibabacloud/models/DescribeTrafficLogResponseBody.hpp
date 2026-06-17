@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -248,8 +251,11 @@ namespace Models
 
 
       protected:
+        // The region ID of the source VPC.
         shared_ptr<string> regionNo_ {};
+        // The instance ID of the source VPC.
         shared_ptr<string> vpcId_ {};
+        // The instance name of the source VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -258,10 +264,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Rules& obj) { 
           DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
           DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+          DARABONBA_PTR_TO_JSON(RuleSource, ruleSource_);
         };
         friend void from_json(const Darabonba::Json& j, Rules& obj) { 
           DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
           DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+          DARABONBA_PTR_FROM_JSON(RuleSource, ruleSource_);
         };
         Rules() = default ;
         Rules(const Rules &) = default ;
@@ -275,7 +283,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->ruleId_ == nullptr
-        && this->ruleName_ == nullptr; };
+        && this->ruleName_ == nullptr && this->ruleSource_ == nullptr; };
         // ruleId Field Functions 
         bool hasRuleId() const { return this->ruleId_ != nullptr;};
         void deleteRuleId() { this->ruleId_ = nullptr;};
@@ -290,9 +298,20 @@ namespace Models
         inline Rules& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
+        // ruleSource Field Functions 
+        bool hasRuleSource() const { return this->ruleSource_ != nullptr;};
+        void deleteRuleSource() { this->ruleSource_ = nullptr;};
+        inline string getRuleSource() const { DARABONBA_PTR_GET_DEFAULT(ruleSource_, "") };
+        inline Rules& setRuleSource(string ruleSource) { DARABONBA_PTR_SET_VALUE(ruleSource_, ruleSource) };
+
+
       protected:
+        // The rule ID.
         shared_ptr<string> ruleId_ {};
+        // The rule name.
         shared_ptr<string> ruleName_ {};
+        // The source of the rule.
+        shared_ptr<string> ruleSource_ {};
       };
 
       class DstVpc : public Darabonba::Model {
@@ -342,8 +361,11 @@ namespace Models
 
 
       protected:
+        // The region ID.
         shared_ptr<string> regionNo_ {};
+        // The VPC instance ID.
         shared_ptr<string> vpcId_ {};
+        // The instance name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -708,54 +730,145 @@ namespace Models
 
 
     protected:
+      // The ID of the pre-matched ACL policy. If you leave this parameter empty, all policies are matched.
       shared_ptr<string> aclPreRuleId_ {};
+      // The name of the pre-matched ACL policy.
       shared_ptr<string> aclPreRuleName_ {};
+      // The pre-matching status of the ACL. Valid values:
+      // 
+      // **app_unknown**: The application is not detected.
+      // 
+      // **domain_unknown**: The domain name is not detected.
+      // 
+      // **normal**: Normal.
       shared_ptr<string> aclPreState_ {};
+      // The API status. Valid values:
+      // 
+      // **none**: Initial state.
+      // 
+      // **policy_discard**: The connection failed to be established and was blocked by a user-defined ACL or threat intelligence.
+      // 
+      // **tcp_not_establish**: TCP connection failed.
+      // 
+      // **no_payload**: The connection is established, but deep packet inspection has analyzed zero payloads.
+      // 
+      // **analysing**: Detecting.
+      // 
+      // **unknown_loose**: Loose mode. Detection failed. The system continues to detect.
+      // 
+      // **unknown_strict**: Strict mode. Detection failed.
+      // 
+      // **success**: Detection successful.
       shared_ptr<string> appDpiState_ {};
+      // The application ID.
       shared_ptr<int32_t> appId_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
+      // The name of the attacked application.
       shared_ptr<string> attackApp_ {};
+      // The attack type of the intrusion prevention event.
       shared_ptr<int32_t> attackType_ {};
+      // The city ID.
       shared_ptr<string> cityId_ {};
+      // The reason for closing.
       shared_ptr<string> closeReason_ {};
+      // The ID of the Alibaba Cloud service instance.
       shared_ptr<string> cloudInstanceId_ {};
+      // The country ID.
       shared_ptr<string> countryId_ {};
+      // The traffic direction. Valid values:
+      // 
+      // - **in**: inbound traffic.
+      // 
+      // - **out**: outbound traffic.
       shared_ptr<string> direction_ {};
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // The URL in the flow log.
       shared_ptr<string> domainUrl_ {};
+      // The destination IP address found. This indicates that the intrusion prevention event includes this destination IP address.
       shared_ptr<string> dstIP_ {};
+      // The destination port.
       shared_ptr<int32_t> dstPort_ {};
+      // The list of destination VPC information.
       shared_ptr<DataList::DstVpc> dstVpc_ {};
+      // The end time of the data. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
+      // Other extension data.
       shared_ptr<string> ext_ {};
+      // The inbound traffic.
       shared_ptr<string> inBytes_ {};
+      // The number of inbound messages.
       shared_ptr<string> inPackets_ {};
+      // The protocol type.
       shared_ptr<string> ipProtocol_ {};
+      // The ISP.
       shared_ptr<string> isp_ {};
+      // The ISP ID.
       shared_ptr<string> ispId_ {};
+      // The region of the source or destination IP address.
       shared_ptr<string> location_ {};
+      // The UID of the Cloud Firewall member account.
       shared_ptr<string> memberUid_ {};
+      // The outbound traffic.
       shared_ptr<string> outBytes_ {};
+      // The number of outbound messages.
       shared_ptr<string> outPackets_ {};
+      // The number of bytes in the packet.
       shared_ptr<int64_t> packetBytes_ {};
+      // The number of traffic packets.
       shared_ptr<int64_t> packetCount_ {};
+      // The private IP address.
       shared_ptr<string> privateIp_ {};
+      // The private port.
       shared_ptr<int32_t> privatePort_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The ID of the matched rule.
       shared_ptr<string> ruleId_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The final result of the traffic. Valid values:
+      // 
+      // - **pass**: The traffic is allowed.
+      // 
+      // - **alert**: An alert is generated.
+      // 
+      // - **drop**: The traffic is dropped.
       shared_ptr<int32_t> ruleResult_ {};
+      // The source of the detection rule that is matched. Valid values:
+      // 
+      // - **0**: None.
+      // 
+      // - **1**: Basic protection.
+      // 
+      // - **2**: Virtual patching.
+      // 
+      // - **3**: Access control.
+      // 
+      // - **4**: Threat intelligence.
       shared_ptr<string> ruleSource_ {};
+      // The list of rules.
       shared_ptr<vector<DataList::Rules>> rules_ {};
+      // The source IP address.
       shared_ptr<string> srcIP_ {};
+      // The port of the data source.
       shared_ptr<int32_t> srcPort_ {};
+      // The private source IP address.
       shared_ptr<string> srcPrivateIP_ {};
+      // The source VPC information.
       shared_ptr<DataList::SrcVpc> srcVpc_ {};
+      // The start time of the data. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
+      // The ID of the rule that is matched by the TLS inspection.
       shared_ptr<string> tlsRuleId_ {};
+      // The name of the rule that is matched by the TLS inspection.
       shared_ptr<string> tlsRuleName_ {};
+      // The ID of the TLS inspection scope.
       shared_ptr<string> tlsScopeId_ {};
+      // The instance ID of the VPC border firewall.
       shared_ptr<string> vpcFirewallId_ {};
+      // The vulnerability level.
       shared_ptr<int32_t> vulLevel_ {};
     };
 
@@ -787,8 +900,11 @@ namespace Models
 
 
   protected:
+    // The data list.
     shared_ptr<vector<DescribeTrafficLogResponseBody::DataList>> dataList_ {};
+    // The paging information.
     shared_ptr<DescribeTrafficLogResponseBody::PageInfo> pageInfo_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

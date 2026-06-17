@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of attacked applications.
     shared_ptr<int32_t> attackAppCnt_ {};
+    // The attack count.
     shared_ptr<int32_t> attackCnt_ {};
+    // The number of attacked assets.
     shared_ptr<int32_t> attackIpCnt_ {};
+    // The drop count.
     shared_ptr<int32_t> dropCnt_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

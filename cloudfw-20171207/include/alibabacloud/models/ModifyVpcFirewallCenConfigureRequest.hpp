@@ -66,12 +66,12 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The UID of the member that is managed by your Alibaba Cloud account.
+    // The UID of the member account of the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
     // The instance ID of the VPC firewall.
     // 

@@ -69,20 +69,21 @@ namespace Models
 
 
   protected:
-    // The UUIDs of access control policies.
+    // A list of access control list (ACL) UUIDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> aclUuidList_ {};
-    // The direction of the traffic to which the access control policy applies. Valid values:
+    // The traffic direction for the access control policy. Valid value:
     // 
-    // *   **out**: outbound traffic
+    // - **out**: outbound traffic.
     shared_ptr<string> direction_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};

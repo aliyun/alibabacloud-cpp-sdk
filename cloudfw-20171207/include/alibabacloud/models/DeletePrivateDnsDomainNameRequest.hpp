@@ -60,10 +60,16 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> accessInstanceId_ {};
+    // The list of domain names.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainNameList_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
   };

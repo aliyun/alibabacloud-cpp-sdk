@@ -75,24 +75,27 @@ namespace Models
 
 
   protected:
-    // The instance ID of the virtual private cloud (VPC) firewall.
+    // The instance ID of the VPC boundary firewall.
     shared_ptr<string> firewallId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // Specifies whether to restore the traffic redirection configurations. Valid values:
+    // Specifies whether to restore the traffic redirection configuration. Valid values:
     // 
-    // *   true: roll back
-    // *   false: withdraw
+    // - true: Rolls back the route.
+    // 
+    // - false: Revokes the route.
     shared_ptr<string> shouldRecover_ {};
-    // The ID of the routing policy.
+    // The ID of the routing policy for the firewall.
     shared_ptr<string> trFirewallRoutePolicyId_ {};
-    // The status of the routing policy. Valid values:
+    // The status of the policy. Valid values:
     // 
-    // *   open: enabled
-    // *   close: disabled
+    // - open: Enables the policy.
+    // 
+    // - close: Disables the policy.
     shared_ptr<string> trFirewallRoutePolicySwitchStatus_ {};
   };
 

@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> accessInstanceId_ {};
+    // The domain name.
     shared_ptr<string> domainName_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of the page to return.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
   };

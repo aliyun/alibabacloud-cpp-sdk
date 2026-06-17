@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The number of the page to return.
     shared_ptr<string> currentPage_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The description of the member account.
     shared_ptr<string> memberDesc_ {};
+    // The display name of the member account.
     shared_ptr<string> memberDisplayName_ {};
+    // The UID of the member account.
     shared_ptr<string> memberUid_ {};
+    // The number of the page to return.
     shared_ptr<string> pageSize_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

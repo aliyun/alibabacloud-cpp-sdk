@@ -121,37 +121,47 @@ namespace Models
 
 
   protected:
-    // The language of the content within the response. Valid values:
-    // *   **zh** (default)
-    // *   **en**
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The UID of the member that is managed by your Alibaba Cloud account.
+    // The UID of the member account.
     shared_ptr<int64_t> memberUid_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
     // The page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of NAT firewalls to return on each page for a paged query.
     // 
-    // Default value: **10**.**** Maximum value: **50**.
+    // The default value is **10**. The maximum value is **50**.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the NAT firewall.
     shared_ptr<string> proxyId_ {};
-    // The name of the NAT firewall. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). The name cannot start with an underscore.
+    // The name of the NAT firewall. The name must be 4 to 50 characters in length. It can contain letters, digits, and underscores (_). It cannot start with an underscore (_).
     shared_ptr<string> proxyName_ {};
-    // The region ID of the virtual private cloud (VPC).
-    shared_ptr<string> regionNo_ {};
-    // The status of the NAT firewall. Valid values:
+    // The region ID of the VPC.
     // 
-    // *   configuring
-    // *   deleting
-    // *   normal
-    // *   abnormal
-    // *   opening
-    // *   closing
-    // *   closed
+    // > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    shared_ptr<string> regionNo_ {};
+    // The status of the Cloud Firewall. Valid values:
+    // 
+    // - configuring: The firewall is being created.
+    // 
+    // - deleting: The firewall is being deleted.
+    // 
+    // - normal: The firewall is working as expected.
+    // 
+    // - abnormal: The firewall is not working as expected.
+    // 
+    // - opening: The firewall is being enabled.
+    // 
+    // - closing: The firewall is being disabled.
+    // 
+    // - closed: The firewall is disabled.
     shared_ptr<string> status_ {};
-    // The ID of the VPC.
+    // The ID of the VPC instance.
     shared_ptr<string> vpcId_ {};
   };
 

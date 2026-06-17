@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The number of AI-related leak threats.
     shared_ptr<int64_t> aiSensitiveDataCount_ {};
+    // The total number of assets.
     shared_ptr<int64_t> assetCount_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The number of sensitive data leak events.
     shared_ptr<int64_t> sensitiveDataCount_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
+    // The total traffic. Unit: bytes.
     shared_ptr<int64_t> totalTraffic_ {};
   };
 

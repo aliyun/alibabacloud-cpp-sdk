@@ -66,9 +66,18 @@ namespace Models
 
 
   protected:
+    // The content of the task.
     shared_ptr<string> content_ {};
+    // The language of the response message. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The priority of the rule.
     shared_ptr<string> priority_ {};
+    // The name of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskAction_ {};
   };

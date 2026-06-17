@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The ID of the ISP.
       shared_ptr<int32_t> ispId_ {};
+      // The name of the ISP.
       shared_ptr<string> ispName_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // The list of ISPs.
     shared_ptr<vector<DescribeIspInfoResponseBody::DataList>> dataList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

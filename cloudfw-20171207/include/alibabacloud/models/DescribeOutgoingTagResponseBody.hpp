@@ -99,10 +99,29 @@ namespace Models
 
 
     protected:
+      // The classification. Valid values:
+      // 
+      // - **Suspicious**: suspicious.
+      // 
+      // - **Malicious**: malicious.
+      // 
+      // - **Trusted**: trusted.
       shared_ptr<string> classId_ {};
+      // The risk assessment level. Valid values:
+      // 
+      // - **0**: no threat.
+      // 
+      // - **1**: low threat.
+      // 
+      // - **2**: medium threat.
+      // 
+      // - **3**: high threat.
       shared_ptr<int32_t> riskLevel_ {};
+      // The description of the tag.
       shared_ptr<string> tagDescribe_ {};
+      // The ID of the tag.
       shared_ptr<string> tagId_ {};
+      // The name of the tag.
       shared_ptr<string> tagName_ {};
     };
 
@@ -132,8 +151,11 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of tags.
     shared_ptr<vector<DescribeOutgoingTagResponseBody::TagList>> tagList_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

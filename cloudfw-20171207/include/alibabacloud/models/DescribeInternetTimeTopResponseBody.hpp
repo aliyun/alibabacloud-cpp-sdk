@@ -221,23 +221,41 @@ namespace Models
 
 
     protected:
+      // The public IP address.
       shared_ptr<string> IP_ {};
+      // The inbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> inBps_ {};
+      // The inbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> inPps_ {};
+      // The ID of the NAT gateway.
       shared_ptr<string> natGatewayId_ {};
+      // The name of the NAT gateway.
       shared_ptr<string> natGatewayName_ {};
+      // The public IP address of the NAT gateway.
       shared_ptr<string> natIP_ {};
+      // The number of new connections.
       shared_ptr<int64_t> newConn_ {};
+      // The outbound traffic. Unit: bit/s.
       shared_ptr<int64_t> outBps_ {};
+      // The outbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> outPps_ {};
+      // The private IP address.
       shared_ptr<string> privateIP_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
+      // The ID of the asset instance.
       shared_ptr<string> resourceInstanceId_ {};
+      // The name of the asset.
       shared_ptr<string> resourceInstanceName_ {};
+      // The type of the public IP address.
       shared_ptr<string> resourceType_ {};
+      // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
+      // The total bandwidth. Unit: bit/s.
       shared_ptr<int64_t> totalBps_ {};
+      // The total number of packets.
       shared_ptr<int64_t> totalPps_ {};
+      // The ID of the virtual private cloud (VPC) instance.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -274,9 +292,13 @@ namespace Models
 
 
   protected:
+    // The number of entries returned.
     shared_ptr<int32_t> dataCount_ {};
+    // The list of data entries.
     shared_ptr<vector<DescribeInternetTimeTopResponseBody::DataList>> dataList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The timestamp of the traffic data. Unit: seconds.
     shared_ptr<int32_t> trafficTime_ {};
   };
 

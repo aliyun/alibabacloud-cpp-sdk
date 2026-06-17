@@ -130,18 +130,43 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<string> currentPage_ {};
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The end time. The value is a Unix timestamp that is accurate to the second.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The IP address of the asset.
     shared_ptr<string> IP_ {};
+    // Specifies whether to count only the traffic that is used to access AI services.
     shared_ptr<string> isAITraffic_ {};
+    // The language of the content within the request and response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The field to sort by.
+    // 
+    // Default value: TotalBytes.
+    // 
+    // Valid values:
+    // 
+    // TotalBytes: Sorts by total traffic.
+    // 
+    // SessionCount: Sorts by the number of sessions.
     shared_ptr<string> order_ {};
+    // The number of entries to return on each page.
     shared_ptr<string> pageSize_ {};
+    // The sort order. Valid values: \\`asc\\`, \\`desc\\`.
     shared_ptr<string> sort_ {};
+    // The start time. The value is a Unix timestamp that is accurate to the second.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The VPC where the asset resides.
     shared_ptr<string> vpcId_ {};
   };
 

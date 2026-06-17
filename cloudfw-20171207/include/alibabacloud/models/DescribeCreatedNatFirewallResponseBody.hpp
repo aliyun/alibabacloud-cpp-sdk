@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The ID of the NAT firewall.
       shared_ptr<string> natFirewallId_ {};
+      // The ID of the NAT Gateway.
       shared_ptr<string> natGatewayId_ {};
+      // The name of the NAT Gateway.
       shared_ptr<string> natGatewayName_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // A list of the created NAT firewalls.
     shared_ptr<vector<DescribeCreatedNatFirewallResponseBody::CreatedNatFirewalls>> createdNatFirewalls_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

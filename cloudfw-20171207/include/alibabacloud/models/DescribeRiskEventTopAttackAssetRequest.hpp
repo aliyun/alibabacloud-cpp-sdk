@@ -97,13 +97,22 @@ namespace Models
 
 
   protected:
+    // The list of attack applications.
     shared_ptr<vector<string>> attackApp_ {};
+    // The type of the attack application.
     shared_ptr<string> attackType_ {};
+    // The edition of Cloud Firewall.
     shared_ptr<string> buyVersion_ {};
+    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The language of the content that is returned.
     shared_ptr<string> lang_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

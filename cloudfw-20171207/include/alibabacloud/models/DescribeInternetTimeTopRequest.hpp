@@ -167,22 +167,39 @@ namespace Models
 
 
   protected:
+    // The direction of the traffic.
+    // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
+    // The end of the query time range, specified as a Unix timestamp in seconds.
     shared_ptr<string> endTime_ {};
+    // The network type of the IP address.
     shared_ptr<string> IPType_ {};
+    // The time interval in seconds.
     shared_ptr<int64_t> interval_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return. The value must be between 1 and 50. Default value: 50.
     shared_ptr<string> limit_ {};
+    // The NAT public IP address. If omitted, traffic data for all assets is returned.
     shared_ptr<string> natIP_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
+    // The metric by which to sort the results.
     shared_ptr<string> sort_ {};
+    // The identifier for the trace source.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
+    // The source IP address.
     shared_ptr<string> srcIP_ {};
+    // The start of the query time range, specified as a Unix timestamp in seconds.
     shared_ptr<string> startTime_ {};
+    // The traffic timestamp to query, specified as a Unix timestamp in seconds.
     shared_ptr<string> trafficTime_ {};
+    // The traffic type.
     shared_ptr<string> trafficType_ {};
   };
 

@@ -77,8 +77,19 @@ namespace Models
 
 
     protected:
+      // The action of the rule. Valid values:
+      // 
+      // - **alert**: observation
+      // 
+      // - **drop**: block
       shared_ptr<string> action_ {};
+      // The ID of the threat intelligence category.
       shared_ptr<string> categoryId_ {};
+      // The status of the switch. Valid values:
+      // 
+      // - **1**: enabled
+      // 
+      // - **0**: disabled
       shared_ptr<string> enableStatus_ {};
     };
 
@@ -93,6 +104,7 @@ namespace Models
 
 
   protected:
+    // The list of threat intelligence categories.
     shared_ptr<vector<ModifyThreatIntelligenceSwitchRequest::CategoryList>> categoryList_ {};
   };
 

@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The name of the application.
       shared_ptr<string> app_ {};
+      // The number of attacks.
       shared_ptr<int32_t> attackCnt_ {};
+      // The number of intercepted attacks.
       shared_ptr<int32_t> dropCnt_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The list of attacked applications.
     shared_ptr<vector<DescribeRiskEventTopAttackAppResponseBody::AttackApps>> attackApps_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

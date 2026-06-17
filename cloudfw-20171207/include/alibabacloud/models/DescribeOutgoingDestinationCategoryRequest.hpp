@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The category ID.
     shared_ptr<string> categoryId_ {};
+    // The destination type.
     shared_ptr<string> dstType_ {};
+    // The end time of the query. This is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The language of the response message.
     shared_ptr<string> lang_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The start time of the query. This is a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The fixed category ID.
     shared_ptr<string> typeId_ {};
   };
 

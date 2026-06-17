@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The name of the category.
     shared_ptr<string> categoryName_ {};
+    // The number of the page to return.
     shared_ptr<int32_t> currentPage_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
+    // The number of the page to return.
     shared_ptr<int32_t> pageSize_ {};
+    // The parent class.
     shared_ptr<string> parentCategory_ {};
+    // The type of the sensitive credential.
     shared_ptr<string> sensitiveCategory_ {};
+    // The sensitivity level.
     shared_ptr<string> sensitiveLevel_ {};
+    // The status of the sensitive data detection switch.
     shared_ptr<string> switchStatus_ {};
   };
 

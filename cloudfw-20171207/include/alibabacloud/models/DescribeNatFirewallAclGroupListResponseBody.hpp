@@ -97,10 +97,15 @@ namespace Models
 
 
     protected:
+      // The number of policies in the access control policy group of the NAT firewall.
       shared_ptr<int32_t> aclRuleCount_ {};
+      // Indicates whether the NAT firewall is the default one.
       shared_ptr<bool> isDefault_ {};
+      // The ID of the NAT Gateway.
       shared_ptr<string> natGatewayId_ {};
+      // The name of the NAT Gateway.
       shared_ptr<string> natGatewayName_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
     };
 
@@ -123,7 +128,9 @@ namespace Models
 
 
   protected:
+    // The list of NAT firewalls.
     shared_ptr<vector<DescribeNatFirewallAclGroupListResponseBody::NatFirewalls>> natFirewalls_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

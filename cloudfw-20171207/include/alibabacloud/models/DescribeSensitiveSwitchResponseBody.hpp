@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // The name of the sensitive credential category.
       shared_ptr<string> categoryName_ {};
+      // The description of the sensitive credential.
       shared_ptr<string> description_ {};
+      // The type of the sensitive credential.
       shared_ptr<string> sensitiveCategory_ {};
+      // The sensitivity level.
       shared_ptr<string> sensitiveLevel_ {};
+      // The status of the sensitive data detection switch.
       shared_ptr<int32_t> switchStatus_ {};
     };
 
@@ -141,9 +146,13 @@ namespace Models
 
 
   protected:
+    // The total number of enabled items.
     shared_ptr<int64_t> openCount_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
+    // The list of sensitive data detection switches.
     shared_ptr<vector<DescribeSensitiveSwitchResponseBody::UserSensitiveDataSwitchList>> userSensitiveDataSwitchList_ {};
   };
 

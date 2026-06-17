@@ -18,7 +18,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AlarmLang, alarmLang_);
       DARABONBA_PTR_TO_JSON(ContactConfig, contactConfig_);
       DARABONBA_PTR_TO_JSON(DefaultContact, defaultContact_);
-      DARABONBA_PTR_TO_JSON(NotifyConfig, notifyConfig_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeUserAlarmConfigResponseBody& obj) { 
@@ -26,7 +25,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AlarmLang, alarmLang_);
       DARABONBA_PTR_FROM_JSON(ContactConfig, contactConfig_);
       DARABONBA_PTR_FROM_JSON(DefaultContact, defaultContact_);
-      DARABONBA_PTR_FROM_JSON(NotifyConfig, notifyConfig_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     DescribeUserAlarmConfigResponseBody() = default ;
@@ -40,48 +38,6 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    class NotifyConfig : public Darabonba::Model {
-    public:
-      friend void to_json(Darabonba::Json& j, const NotifyConfig& obj) { 
-        DARABONBA_PTR_TO_JSON(NotifyType, notifyType_);
-        DARABONBA_PTR_TO_JSON(NotifyValue, notifyValue_);
-      };
-      friend void from_json(const Darabonba::Json& j, NotifyConfig& obj) { 
-        DARABONBA_PTR_FROM_JSON(NotifyType, notifyType_);
-        DARABONBA_PTR_FROM_JSON(NotifyValue, notifyValue_);
-      };
-      NotifyConfig() = default ;
-      NotifyConfig(const NotifyConfig &) = default ;
-      NotifyConfig(NotifyConfig &&) = default ;
-      NotifyConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
-      virtual ~NotifyConfig() = default ;
-      NotifyConfig& operator=(const NotifyConfig &) = default ;
-      NotifyConfig& operator=(NotifyConfig &&) = default ;
-      virtual void validate() const override {
-      };
-      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->notifyType_ == nullptr
-        && this->notifyValue_ == nullptr; };
-      // notifyType Field Functions 
-      bool hasNotifyType() const { return this->notifyType_ != nullptr;};
-      void deleteNotifyType() { this->notifyType_ = nullptr;};
-      inline string getNotifyType() const { DARABONBA_PTR_GET_DEFAULT(notifyType_, "") };
-      inline NotifyConfig& setNotifyType(string notifyType) { DARABONBA_PTR_SET_VALUE(notifyType_, notifyType) };
-
-
-      // notifyValue Field Functions 
-      bool hasNotifyValue() const { return this->notifyValue_ != nullptr;};
-      void deleteNotifyValue() { this->notifyValue_ = nullptr;};
-      inline string getNotifyValue() const { DARABONBA_PTR_GET_DEFAULT(notifyValue_, "") };
-      inline NotifyConfig& setNotifyValue(string notifyValue) { DARABONBA_PTR_SET_VALUE(notifyValue_, notifyValue) };
-
-
-    protected:
-      shared_ptr<string> notifyType_ {};
-      shared_ptr<string> notifyValue_ {};
-    };
-
     class DefaultContact : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const DefaultContact& obj) { 
@@ -138,9 +94,13 @@ namespace Models
 
 
     protected:
+      // The email address of the default contact.
       shared_ptr<string> email_ {};
+      // The mobile number of the default contact.
       shared_ptr<string> mobilePhone_ {};
+      // The name of the default contact.
       shared_ptr<string> name_ {};
+      // The status. Valid values: **normal** (Normal) and **disable** (Disabled).
       shared_ptr<string> status_ {};
     };
 
@@ -200,9 +160,13 @@ namespace Models
 
 
     protected:
+      // The email address.
       shared_ptr<string> email_ {};
+      // The mobile number.
       shared_ptr<string> mobilePhone_ {};
+      // The contact name.
       shared_ptr<string> name_ {};
+      // The status of the contact. Valid values: **0** (Disabled) and **1** (Enabled).
       shared_ptr<int32_t> status_ {};
     };
 
@@ -280,16 +244,22 @@ namespace Models
 
 
     protected:
+      // The alarm threshold.
       shared_ptr<int32_t> alarmHour_ {};
+      // The notification method.
       shared_ptr<int32_t> alarmNotify_ {};
+      // The alarm period.
       shared_ptr<int32_t> alarmPeriod_ {};
+      // The alarm type.
       shared_ptr<string> alarmType_ {};
+      // The value that triggers the alarm.
       shared_ptr<string> alarmValue_ {};
+      // The alarm retry count.
       shared_ptr<int32_t> alarmWeekDay_ {};
     };
 
     virtual bool empty() const override { return this->alarmConfig_ == nullptr
-        && this->alarmLang_ == nullptr && this->contactConfig_ == nullptr && this->defaultContact_ == nullptr && this->notifyConfig_ == nullptr && this->requestId_ == nullptr; };
+        && this->alarmLang_ == nullptr && this->contactConfig_ == nullptr && this->defaultContact_ == nullptr && this->requestId_ == nullptr; };
     // alarmConfig Field Functions 
     bool hasAlarmConfig() const { return this->alarmConfig_ != nullptr;};
     void deleteAlarmConfig() { this->alarmConfig_ = nullptr;};
@@ -324,15 +294,6 @@ namespace Models
     inline DescribeUserAlarmConfigResponseBody& setDefaultContact(DescribeUserAlarmConfigResponseBody::DefaultContact && defaultContact) { DARABONBA_PTR_SET_RVALUE(defaultContact_, defaultContact) };
 
 
-    // notifyConfig Field Functions 
-    bool hasNotifyConfig() const { return this->notifyConfig_ != nullptr;};
-    void deleteNotifyConfig() { this->notifyConfig_ = nullptr;};
-    inline const vector<DescribeUserAlarmConfigResponseBody::NotifyConfig> & getNotifyConfig() const { DARABONBA_PTR_GET_CONST(notifyConfig_, vector<DescribeUserAlarmConfigResponseBody::NotifyConfig>) };
-    inline vector<DescribeUserAlarmConfigResponseBody::NotifyConfig> getNotifyConfig() { DARABONBA_PTR_GET(notifyConfig_, vector<DescribeUserAlarmConfigResponseBody::NotifyConfig>) };
-    inline DescribeUserAlarmConfigResponseBody& setNotifyConfig(const vector<DescribeUserAlarmConfigResponseBody::NotifyConfig> & notifyConfig) { DARABONBA_PTR_SET_VALUE(notifyConfig_, notifyConfig) };
-    inline DescribeUserAlarmConfigResponseBody& setNotifyConfig(vector<DescribeUserAlarmConfigResponseBody::NotifyConfig> && notifyConfig) { DARABONBA_PTR_SET_RVALUE(notifyConfig_, notifyConfig) };
-
-
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -341,11 +302,15 @@ namespace Models
 
 
   protected:
+    // The alarm configuration.
     shared_ptr<vector<DescribeUserAlarmConfigResponseBody::AlarmConfig>> alarmConfig_ {};
+    // The language of the alarm notifications.
     shared_ptr<string> alarmLang_ {};
+    // The contact information.
     shared_ptr<vector<DescribeUserAlarmConfigResponseBody::ContactConfig>> contactConfig_ {};
+    // Information about the default alarm contact.
     shared_ptr<DescribeUserAlarmConfigResponseBody::DefaultContact> defaultContact_ {};
-    shared_ptr<vector<DescribeUserAlarmConfigResponseBody::NotifyConfig>> notifyConfig_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

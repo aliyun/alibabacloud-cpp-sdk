@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The language.
     shared_ptr<string> lang_ {};
+    // The page name.
+    // 
     // This parameter is required.
     shared_ptr<string> pageName_ {};
+    // The tracing code for the source.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The name of the protected object in the access control policy.
+    // 
     // This parameter is required.
     shared_ptr<string> tabName_ {};
   };

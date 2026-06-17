@@ -153,73 +153,89 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   **accept**: allows the traffic.
-    // *   **drop**: denies the traffic.
-    // *   **log**: monitors the traffic.
+    // - **accept**: Allow
+    // 
+    // - **drop**: Deny
+    // 
+    // - **log**: Monitor
     shared_ptr<string> aclAction_ {};
-    // The UUID of the access control policy.
+    // The unique ID of the access control policy.
     shared_ptr<string> aclUuid_ {};
-    // The page number.
+    // The page number of the current page for a paged query.
     shared_ptr<string> currentPage_ {};
-    // The description of the access control policy. Fuzzy match is supported.
+    // The description of the access control policy. Fuzzy queries are supported.
     // 
-    // > If you do not specify this parameter, the descriptions of all policies are queried.
+    // > If you do not set this parameter, the descriptions of all policies are queried.
     shared_ptr<string> description_ {};
-    // The destination address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the value of the DestinationType parameter.
+    // The destination address in the access control policy. Fuzzy queries are supported. The value of this parameter varies based on the value of the DestinationType parameter.
     // 
-    // *   If DestinationType is set to `net`, the value of Destination must be a CIDR block. Example: 10.0.3.0/24.
-    // *   If DestinationType is set to `domain`, the value of Destination must be a domain name. Example: aliyun.
-    // *   If DestinationType is set to `group`, the value of Destination must be the name of an address book. Example: db_group.
-    // *   If DestinationType is set to `location`, the value of Destination is a location. For more information about location codes, see [AddControlPolicy](https://help.aliyun.com/document_detail/474128.html). Example: ["BJ11", "ZB"].
+    // - If DestinationType is set to `net`, the value of this parameter is a CIDR block. Example: 10.0.3.0/24.
     // 
-    // > If you do not specify this parameter, all types of destination addresses are queried.
+    // - If DestinationType is set to `domain`, the value of this parameter is a domain name. Example: aliyun.
+    // 
+    // - If DestinationType is set to `group`, the value of this parameter is the name of an address book. Example: db_group.
+    // 
+    // - If DestinationType is set to `location`, the value of this parameter is a region name. For more information, see [AddControlPolicy](https://help.aliyun.com/document_detail/474128.html). Example: ["BJ11", "ZB"].
+    // 
+    // > If you do not set this parameter, all types of destination addresses are queried.
     shared_ptr<string> destination_ {};
-    // The direction of the traffic to which the access control policy applies. Valid values:
+    // The traffic direction of the access control policy. Valid values:
     // 
-    // *   **out**: outbound traffic
+    // - **out**: outbound traffic
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The number of entries per page. Default value: 10.
+    // The maximum number of entries to return on each page for a paged query. The default value is 10.
     shared_ptr<string> pageSize_ {};
-    // The type of the protocol in the access control policy. Valid values:
+    // The protocol type of the traffic in the access control policy. Valid values:
     // 
-    // *   **TCP**
-    // *   **UDP**
-    // *   **ICMP**
-    // *   **ANY**: all types of protocols
+    // - **TCP**
     // 
-    // > If you do not specify this parameter, access control policies of all protocol types are queried.
+    // - **UDP**
+    // 
+    // - **ICMP**
+    // 
+    // - **ANY** (all protocol types)
+    // 
+    // > If you do not set this parameter, all protocol types are queried.
     shared_ptr<string> proto_ {};
-    // Specifies whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
+    // The status of the access control policy. By default, an access control policy is enabled after it is created. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: enabled
+    // 
+    // - **false**: disabled
     shared_ptr<string> release_ {};
-    // The recurrence type for the access control policy to take effect. Valid values:
+    // The recurrence type for the policy validity period. Valid values:
     // 
-    // *   **Permanent** (default): The policy always takes effect.
-    // *   **None**: The policy takes effect only once.
-    // *   **Daily**: The policy takes effect on a daily basis.
-    // *   **Weekly**: The policy takes effect on a weekly basis.
-    // *   **Monthly**: The policy takes effect on a monthly basis.
+    // - **Permanent** (default): always
+    // 
+    // - **None**: one-time
+    // 
+    // - **Daily**: daily
+    // 
+    // - **Weekly**: weekly
+    // 
+    // - **Monthly**: monthly
     shared_ptr<string> repeatType_ {};
-    // The source address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the value of the SourceType parameter.
+    // The source address in the access control policy. Fuzzy queries are supported. The value of this parameter varies based on the value of the SourceType parameter.
     // 
-    // *   If SourceType is set to `net`, the value of Source must be a CIDR block. Example: 192.0.XX.XX/24.
-    // *   If SourceType is set to `group`, the value of Source must be the name of an address book. Example: db_group. If the db_group address book does not contain addresses, all source addresses are queried.
-    // *   If SourceType is set to `location`, the value of Source must be a location. Example: beijing.
+    // - If SourceType is set to `net`, the value of this parameter is a CIDR block. Example: 192.0.XX.XX/24.
     // 
-    // > If you do not specify this parameter, all types of source addresses are queried.
+    // - If SourceType is set to `group`, the value of this parameter is the name of an address book. Example: db_group. If you leave this parameter empty, all source addresses are queried.
+    // 
+    // - If SourceType is set to `location`, the value of this parameter is a source region. Example: Beijing or beijing. You can use either Chinese or English to specify the region.
+    // 
+    // > If you do not set this parameter, all types of source addresses are queried.
     shared_ptr<string> source_ {};
   };
 

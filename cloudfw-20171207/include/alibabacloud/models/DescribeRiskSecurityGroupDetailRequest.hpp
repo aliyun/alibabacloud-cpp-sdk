@@ -103,15 +103,29 @@ namespace Models
 
 
   protected:
+    // The ID of the security group instance.
     shared_ptr<string> instanceId_ {};
+    // The name of the instance.
     shared_ptr<string> instanceName_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<string> pageNo_ {};
+    // The number of the page to return.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The UUID of the rule.
     shared_ptr<string> ruleUuid_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

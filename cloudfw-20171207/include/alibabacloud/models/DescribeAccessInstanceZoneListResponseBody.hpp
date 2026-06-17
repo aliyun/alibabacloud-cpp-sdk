@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The name of the zone in the local language.
       shared_ptr<string> localName_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -104,8 +106,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of zones.
     shared_ptr<vector<string>> zoneList_ {};
+    // The list of zones.
     shared_ptr<vector<DescribeAccessInstanceZoneListResponseBody::Zones>> zones_ {};
   };
 

@@ -127,20 +127,23 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the task was created. This is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createTime_ {};
-      // The time when the task expires. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the task expires. This is a UNIX timestamp in seconds.
       shared_ptr<int64_t> expireTime_ {};
       // The size of the file.
       shared_ptr<string> fileSize_ {};
-      // The URL of the OSS file.
+      // The URL of the Object Storage Service (OSS) file.
       shared_ptr<string> fileURL_ {};
       // The status of the task. Valid values:
       // 
-      // *   **finish**
-      // *   **start**
-      // *   **error**
-      // *   **expire**: The task file is invalid and cannot be downloaded.
+      // - **finish**: The task is complete.
+      // 
+      // - **start**: The task has started.
+      // 
+      // - **error**: The task failed.
+      // 
+      // - **expire**: The task has expired. The task file is no longer valid and cannot be downloaded.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -178,7 +181,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The tasks.
+    // The list of tasks.
     shared_ptr<vector<DescribeDownloadTaskResponseBody::Tasks>> tasks_ {};
     // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};

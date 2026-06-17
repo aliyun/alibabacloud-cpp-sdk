@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The region ID of the instance.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The source IP address of the request.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
   };
 

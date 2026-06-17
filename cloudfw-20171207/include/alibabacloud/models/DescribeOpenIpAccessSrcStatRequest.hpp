@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<string> currentPage_ {};
+    // The destination IP address.
     shared_ptr<string> dstIp_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The number of the page to return.
     shared_ptr<string> pageSize_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

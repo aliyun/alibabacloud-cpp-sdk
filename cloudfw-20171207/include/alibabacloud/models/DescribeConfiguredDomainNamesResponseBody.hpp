@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The comment.
       shared_ptr<string> comment_ {};
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // Indicates whether the domain name is malicious. Valid values: `0` (not malicious) and `1` (malicious).
       shared_ptr<bool> isMalicious_ {};
+      // The time of the operation, specified as a Unix timestamp in seconds. Example: `1672502400`.
       shared_ptr<int32_t> operationTime_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The list of domain names.
     shared_ptr<vector<DescribeConfiguredDomainNamesResponseBody::DomainNames>> domainNames_ {};
+    // The application module.
     shared_ptr<string> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

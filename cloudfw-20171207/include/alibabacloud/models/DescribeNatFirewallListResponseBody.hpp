@@ -141,11 +141,11 @@ namespace Models
       protected:
         // The destination CIDR block of the default route.
         shared_ptr<string> destinationCidr_ {};
-        // The next hop of the original NAT gateway.
+        // The next hop of the original NAT Gateway.
         shared_ptr<string> nextHopId_ {};
-        // The network type of the next hop. The value is fixed as NatGateway.
+        // The network type of the next hop. The value is \\`NatGateway\\`.
         shared_ptr<string> nextHopType_ {};
-        // The route table to which the default route of the NAT gateway belongs.
+        // The route table that contains the default route of the NAT Gateway.
         shared_ptr<string> routeTableId_ {};
       };
 
@@ -270,44 +270,57 @@ namespace Models
     protected:
       // The UID of the Alibaba Cloud account.
       // 
-      // >  The value of this parameter indicates the management account to which the member is added.
+      // > This is the primary account of the Cloud Firewall member account.
       shared_ptr<int64_t> aliUid_ {};
       // The cause of the error.
       shared_ptr<string> errorDetail_ {};
-      // The UID of the member in Cloud Firewall.
+      // The UID of the Cloud Firewall member account.
       shared_ptr<int64_t> memberUid_ {};
-      // The ID of the NAT gateway.
+      // The ID of the NAT Gateway to query.
       shared_ptr<string> natGatewayId_ {};
-      // The name of the NAT gateway.
+      // The name of the NAT Gateway.
       shared_ptr<string> natGatewayName_ {};
-      // The default route entries of the NAT gateway.
+      // The list of default route entries for the NAT Gateway.
       shared_ptr<vector<NatFirewallList::NatRouteEntryList>> natRouteEntryList_ {};
       // The ID of the NAT firewall.
       shared_ptr<string> proxyId_ {};
       // The name of the NAT firewall.
       shared_ptr<string> proxyName_ {};
+      // The ID of the Elastic Network Interface (ENI) that the firewall uses.
       shared_ptr<string> proxyNetworkInterfaceId_ {};
+      // The ID of the route table that the firewall uses.
       shared_ptr<string> proxyRouteTableId_ {};
-      // The status of the NAT firewall. Valid values:
+      // The status of the Cloud Firewall. Valid values:
       // 
-      // *   configuring
-      // *   deleting
-      // *   normal
-      // *   abnormal
-      // *   opening
-      // *   closing
-      // *   closed
+      // - configuring: The firewall is being created.
+      // 
+      // - deleting: The firewall is being deleted.
+      // 
+      // - normal: The firewall is working as expected.
+      // 
+      // - abnormal: The firewall is not working as expected.
+      // 
+      // - opening: The firewall is being enabled.
+      // 
+      // - closing: The firewall is being disabled.
+      // 
+      // - closed: The firewall is disabled.
       shared_ptr<string> proxyStatus_ {};
+      // The ID of the vSwitch that the firewall uses.
       shared_ptr<string> proxyVSwitchId_ {};
-      // The region ID of your Cloud Firewall.
+      // The region ID where the Cloud Firewall is located.
       // 
-      // >  For more information about the supported regions of Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+      // > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
       shared_ptr<string> regionId_ {};
-      // Indicates whether the strict mode is enabled. Valid values: 1, which specifies yes, and 0, which specifies no.
+      // Indicates whether strict mode is enabled.
+      // 
+      // - 1: Strict mode is enabled.
+      // 
+      // - 0: Strict mode is disabled.
       shared_ptr<int32_t> strictMode_ {};
-      // The ID of the VPC.
+      // The ID of the VPC instance.
       shared_ptr<string> vpcId_ {};
-      // The name of the VPC.
+      // The name of the VPC instance.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -337,9 +350,9 @@ namespace Models
 
 
   protected:
-    // The NAT firewalls.
+    // The list of Cloud Firewalls.
     shared_ptr<vector<DescribeNatFirewallListResponseBody::NatFirewallList>> natFirewallList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of NAT firewalls.
     shared_ptr<int32_t> totalCount_ {};

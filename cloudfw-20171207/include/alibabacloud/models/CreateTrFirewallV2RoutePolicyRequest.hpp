@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The ID of the traffic redirection instance.
+      // The ID of the network instance.
       shared_ptr<string> candidateId_ {};
-      // The type of the traffic redirection instance.
+      // The type of the network instance.
       shared_ptr<string> candidateType_ {};
     };
 
@@ -124,9 +124,9 @@ namespace Models
 
 
     protected:
-      // The ID of the traffic redirection instance.
+      // The ID of the network instance.
       shared_ptr<string> candidateId_ {};
-      // The type of the traffic redirection instance.
+      // The type of the network instance.
       shared_ptr<string> candidateType_ {};
     };
 
@@ -187,26 +187,29 @@ namespace Models
 
 
   protected:
-    // The secondary traffic redirection instances.
+    // The list of destination network instances.
     shared_ptr<vector<CreateTrFirewallV2RoutePolicyRequest::DestCandidateList>> destCandidateList_ {};
-    // The instance ID of the VPC firewall.
+    // The ID of the VPC firewall instance.
     shared_ptr<string> firewallId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The description of the traffic redirection instance.
+    // The description of the routing policy.
     shared_ptr<string> policyDescription_ {};
-    // The name of the traffic redirection instance.
+    // The name of the routing policy.
     shared_ptr<string> policyName_ {};
-    // The type of the traffic redirection scenario of the VPC firewall. Valid values:
+    // The traffic redirection scenario of the Enterprise Edition transit router. Valid values:
     // 
-    // *   **fullmesh**: interconnected instances
-    // *   **one_to_one**: instance to instance
-    // *   **end_to_end**: instance to instances
+    // - **fullmesh**: full-mesh
+    // 
+    // - **one_to_one**: point-to-point
+    // 
+    // - **end_to_end**: point-to-multipoint
     shared_ptr<string> policyType_ {};
-    // The primary traffic redirection instances.
+    // The list of source network instances.
     shared_ptr<vector<CreateTrFirewallV2RoutePolicyRequest::SrcCandidateList>> srcCandidateList_ {};
   };
 

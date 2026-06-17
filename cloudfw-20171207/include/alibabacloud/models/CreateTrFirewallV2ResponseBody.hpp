@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The instance ID of the VPC firewall.
+    // The ID of the VPC firewall instance.
     shared_ptr<string> firewallId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

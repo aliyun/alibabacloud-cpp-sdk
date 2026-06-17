@@ -70,13 +70,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status of the task. Valid values:
     // 
-    // finish: The task finished. You can query the task to obtain the download link of the file.
+    // finish: The task is complete. You can query the task to get the file download link.
     // 
-    // start: The task start.
+    // start: The task has started.
     // 
-    // error: An error occurred.
+    // error: The task failed.
     // 
-    // expire: The task file is invalid and cannot be downloaded.
+    // expire: The task expired. The task file is invalid and cannot be downloaded.
     shared_ptr<string> status_ {};
     // The unique ID of the task.
     shared_ptr<int64_t> taskId_ {};

@@ -84,15 +84,29 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> accessInstanceId_ {};
+    // The name of the private instance.
+    // 
     // This parameter is required.
     shared_ptr<string> accessInstanceName_ {};
+    // The primary DNS server.
     shared_ptr<string> primaryDns_ {};
+    // The private DNS type. Valid values:
+    // 
+    // - **PrivateZone**
+    // 
+    // - **Custom**
+    // 
     // This parameter is required.
     shared_ptr<string> privateDnsType_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
+    // The secondary DNS server.
     shared_ptr<string> standbyDns_ {};
   };
 

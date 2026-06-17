@@ -112,14 +112,37 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> accessInstanceId_ {};
+    // The name of the private instance.
     shared_ptr<string> accessInstanceName_ {};
+    // The type of Cloud Firewall. Valid values:
+    // 
+    // - **internet**
+    // 
+    // - **vpc**
+    // 
+    // - **nat**
     shared_ptr<string> firewallType_ {};
+    // The UID of the member account.
     shared_ptr<int64_t> memberUid_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of the page to return.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region.
     shared_ptr<string> regionNo_ {};
+    // The status of the instance. Valid values:
+    // 
+    // - **creating**: The instance is being created.
+    // 
+    // - **deleting**: The instance is being deleted.
+    // 
+    // - **normal**: The instance is running as expected.
+    // 
+    // - **updating**: The instance is being updated.
     shared_ptr<string> status_ {};
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

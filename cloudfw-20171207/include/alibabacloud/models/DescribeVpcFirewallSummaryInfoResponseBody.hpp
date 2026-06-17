@@ -388,44 +388,83 @@ namespace Models
 
 
   protected:
+    // The remaining quota for VPC firewalls.
     shared_ptr<int32_t> availableVpcFirewallQuota_ {};
+    // The number of VPCs connected using Cloud Enterprise Network (CEN) and Express Connect.
     shared_ptr<int32_t> cenExpressConnectVpcCount_ {};
+    // The number of CEN VPCs.
     shared_ptr<int32_t> cenFirewallVpcCount_ {};
+    // The number of VPCs on the CEN transit router.
     shared_ptr<int32_t> cenTrVpcCount_ {};
+    // The number of configured CEN firewalls that are disabled.
     shared_ptr<int32_t> closedCenFirewallCount_ {};
+    // The number of configured Express Connect firewalls that are disabled.
     shared_ptr<int32_t> closedExpressConnectFirewallCount_ {};
+    // The number of configured VPC firewalls that are disabled.
     shared_ptr<int32_t> closedVpcFirewallCount_ {};
+    // The number of configured CEN firewall instances of the Basic Edition.
     shared_ptr<int32_t> configuredCenFirewallCount_ {};
+    // The number of regions where CEN firewalls are configured.
     shared_ptr<int32_t> configuredCenFirewallRegionCount_ {};
+    // The number of VPCs for which CEN firewalls are configured.
     shared_ptr<int32_t> configuredCenFirewallVpcCount_ {};
+    // The number of configured CEN transit router firewall instances.
     shared_ptr<int32_t> configuredCenTrFirewallCount_ {};
+    // The number of configured Express Connect circuits.
     shared_ptr<int32_t> configuredExpressConnectFirewallCount_ {};
+    // The number of VPCs for which Express Connect firewalls are configured.
     shared_ptr<int32_t> configuredExpressConnectVpcCount_ {};
+    // The number of configured VPC firewalls.
     shared_ptr<int32_t> configuredVpcFirewallCount_ {};
+    // The number of VPCs for which VPC firewalls are configured.
     shared_ptr<int32_t> configuredVpcFirewallVpcCount_ {};
+    // The number of Express Connect VPCs.
     shared_ptr<int32_t> expressConnectVpcCount_ {};
+    // The number of CEN firewalls that are not configured.
     shared_ptr<int32_t> notConfiguredCenFirewallCount_ {};
+    // The number of CEN transit router firewall instances that are not configured.
     shared_ptr<int32_t> notConfiguredCenTrFirewallCount_ {};
+    // The number of Express Connect firewalls that are not configured.
     shared_ptr<int32_t> notConfiguredExpressConnectFirewallCount_ {};
+    // The number of VPC firewalls that are not configured.
     shared_ptr<int32_t> notConfiguredVpcFirewallCount_ {};
+    // The number of VPCs that are connected using CEN and Express Connect and have the firewall enabled.
     shared_ptr<int32_t> openedCenExpressConnectVpcCount_ {};
+    // The number of enabled CEN firewalls.
     shared_ptr<int32_t> openedCenFirewallCount_ {};
+    // The number of VPCs protected by CEN firewalls.
     shared_ptr<int32_t> openedCenFirewallVpcCount_ {};
+    // The number of VPCs protected by the CEN transit router firewall.
     shared_ptr<int32_t> openedCenTrFirewallVpcCount_ {};
+    // The number of enabled CEN Express Connect Routers (ECRs).
     shared_ptr<int32_t> openedEcrCount_ {};
+    // The number of enabled Express Connect firewalls.
     shared_ptr<int32_t> openedExpressConnectFirewallCount_ {};
+    // The number of VPCs protected by Express Connect firewalls.
     shared_ptr<int32_t> openedExpressConnectVpcCount_ {};
+    // The number of inter-region connections protected by the CEN transit router firewall.
     shared_ptr<int32_t> openedPeerTrCount_ {};
+    // The number of Virtual Border Routers (VBRs) protected by the CEN transit router firewall.
     shared_ptr<int32_t> openedVbrCount_ {};
+    // The number of protected VPCs.
     shared_ptr<int32_t> openedVpcCount_ {};
+    // The number of enabled VPC firewalls.
     shared_ptr<int32_t> openedVpcFirewallCount_ {};
+    // The number of VPN gateways protected by the CEN transit router firewall.
     shared_ptr<int32_t> openedVpnCount_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The number of ECRs.
     shared_ptr<int32_t> totalEcrCount_ {};
+    // The number of inter-region connections on the CEN transit router.
     shared_ptr<int32_t> totalPeerTrCount_ {};
+    // The number of VBRs on the CEN transit router.
     shared_ptr<int32_t> totalVbrCount_ {};
+    // The number of interconnected VPCs.
     shared_ptr<int32_t> totalVpcCount_ {};
+    // The total quota for VPC firewalls.
     shared_ptr<int32_t> totalVpcFirewallQuota_ {};
+    // The number of VPN gateways on the CEN transit router.
     shared_ptr<int32_t> totalVpnCount_ {};
   };
 

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The log version.
     shared_ptr<int32_t> logVersion_ {};
+    // The region ID of Log Service (SLS).
     shared_ptr<string> slsRegionId_ {};
+    // The retention period, in days.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> storageTime_ {};
   };

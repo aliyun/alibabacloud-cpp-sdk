@@ -142,27 +142,27 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of assets protected all types of firewalls.
+    // The total number of assets that are protected by border firewalls.
     shared_ptr<int64_t> totalAssets_ {};
-    // The volume of burstable protected traffic for which fees are generated. Unit: bytes.
+    // For the subscription edition, this is the total billed elastic traffic after deductions are applied. Unit: bytes.
     shared_ptr<int64_t> totalBillTraffic_ {};
-    // The total number of assets protected by the Internet firewall.
+    // The total number of assets that are protected by Internet Border firewalls.
     shared_ptr<int64_t> totalInternetAssets_ {};
-    // The total traffic for the Internet firewall. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic on the Internet boundary. Unit: bytes.
+    // The total traffic of the Internet Border. For the subscription edition, this is the total elastic traffic of the Internet Border. Unit: bytes.
     shared_ptr<int64_t> totalInternetTraffic_ {};
-    // The total number of assets protected by NAT firewalls.
+    // The total number of assets that are protected by NAT border firewalls.
     shared_ptr<int64_t> totalNatAssets_ {};
-    // The total traffic for NAT firewalls. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic on the NAT boundary. Unit: bytes.
+    // The total traffic of the NAT border. For the subscription edition, this is the total elastic traffic of the NAT border. Unit: bytes.
     shared_ptr<int64_t> totalNatTraffic_ {};
-    // Data Leak Detection Total Fee Flow.
+    // The total billed traffic for data leakage detection.
     shared_ptr<int64_t> totalSdlBillTraffic_ {};
-    // Data Leak Detection Total free usage traffic.
+    // The total free traffic for data leakage detection.
     shared_ptr<int64_t> totalSdlFreeTraffic_ {};
-    // The total volume of traffic. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic. Unit: bytes.
+    // The total traffic. For the subscription edition, this is the total elastic traffic. Unit: bytes.
     shared_ptr<int64_t> totalTraffic_ {};
-    // The total number of assets protected by virtual private cloud (VPC) firewalls.
+    // The total number of assets that are protected by VPC border firewalls.
     shared_ptr<int64_t> totalVpcAssets_ {};
-    // The total traffic for VPC firewalls. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic on the VPC boundary. Unit: bytes.
+    // The total traffic of the VPC border. For the subscription edition, this is the total elastic traffic of the VPC border. Unit: bytes.
     shared_ptr<int64_t> totalVpcTraffic_ {};
   };
 

@@ -83,8 +83,39 @@ namespace Models
 
 
     protected:
+      // The number of attacks.
       shared_ptr<int64_t> attackCnt_ {};
+      // The attack type of the intrusion prevention event. Valid values:
+      // 
+      // - **1**: abnormal connection
+      // 
+      // - **2**: command execution
+      // 
+      // - **3**: brute-force attack
+      // 
+      // - **4**: scan
+      // 
+      // - **5**: other
+      // 
+      // - **6**: information leakage
+      // 
+      // - **7**: DoS attack
+      // 
+      // - **8**: overflow attack
+      // 
+      // - **9**: web attack
+      // 
+      // - **10**: trojan and backdoor
+      // 
+      // - **11**: virus and worm
+      // 
+      // - **12**: cryptomining
+      // 
+      // - **13**: reverse shell
+      // 
+      // > By default, this API queries for all attack types.
       shared_ptr<int64_t> attackType_ {};
+      // The number of protection triggers.
       shared_ptr<int64_t> protectCnt_ {};
     };
 
@@ -121,9 +152,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of the top attack types.
     shared_ptr<vector<DescribeRiskEventTopAttackTypeResponseBody::TopAttackTypeList>> topAttackTypeList_ {};
+    // The total number of attacks.
     shared_ptr<int64_t> totalAttackCnt_ {};
+    // The total number of protection triggers.
     shared_ptr<int64_t> totalProtectCnt_ {};
   };
 

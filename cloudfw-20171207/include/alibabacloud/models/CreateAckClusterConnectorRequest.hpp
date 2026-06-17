@@ -112,18 +112,42 @@ namespace Models
 
 
   protected:
+    // The ID of the ACK cluster.
+    // 
+    // - Call the [DescribeAckClusters](~~DescribeAckClusters~~) operation to query the list of ACK clusters.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
+    // 
     // This parameter is required.
     shared_ptr<string> connectorName_ {};
+    // The Alibaba Cloud UID of the account to which the ACK cluster belongs.
     shared_ptr<string> memberUid_ {};
+    // The ID of the primary vSwitch for the ACK cluster connector.
+    // 
+    // - Call the [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~) operation to query the list of vSwitches for synchronization nodes.
+    // 
     // This parameter is required.
     shared_ptr<string> primaryVswitchId_ {};
+    // The IP address of the primary vSwitch for the ACK cluster connector.
     shared_ptr<string> primaryVswitchIp_ {};
+    // The region ID of the ACK cluster connector.
+    // 
+    // - Call the [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~) operation to query the list of regions for synchronization nodes.
+    // 
+    // > For more information about the regions that Cloud Firewall supports for ACK cluster connectors, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
+    // The ID of the standby vSwitch for the ACK cluster connector.
+    // 
+    // - Call the [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~) operation to query the list of vSwitches for synchronization nodes.
     shared_ptr<string> standbyVswitchId_ {};
+    // The IP address of the standby vSwitch for the ACK cluster connector.
     shared_ptr<string> standbyVswitchIp_ {};
+    // The synchronization interval for the ACK cluster connector. Valid values: 2 to 60. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> ttl_ {};
   };

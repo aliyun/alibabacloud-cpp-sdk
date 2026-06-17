@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of zones.
     shared_ptr<vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>>> zoneList_ {};
   };
 

@@ -103,9 +103,9 @@ namespace Models
       shared_ptr<string> candidateName_ {};
       // The type of the traffic redirection instance.
       shared_ptr<string> candidateType_ {};
-      // The route table that is used after traffic redirection.
+      // The ID of the route table used after traffic redirection.
       shared_ptr<string> currentRouteTableId_ {};
-      // The ID of the route table.
+      // The ID of the original route table.
       shared_ptr<string> originalRouteTableId_ {};
     };
 
@@ -128,9 +128,9 @@ namespace Models
 
 
   protected:
-    // The route tables.
+    // The list of route tables to recover.
     shared_ptr<vector<DescribeTrFirewallPolicyBackUpAssociationListResponseBody::PolicyAssociationBackupConfigs>> policyAssociationBackupConfigs_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

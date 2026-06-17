@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The ID of the asset.
+    // 
     // This parameter is required.
     shared_ptr<string> assetsInstanceId_ {};
+    // The UUID of the threat detection event.
+    // 
     // This parameter is required.
     shared_ptr<string> eventUuid_ {};
+    // The language of the content within the response.
     shared_ptr<string> lang_ {};
+    // The public IP address.
     shared_ptr<string> publicIP_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

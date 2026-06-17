@@ -110,11 +110,33 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<int32_t> appId_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
+      // Indicates whether the application is common. Valid values:
+      // 
+      // - **1**: common
+      // 
+      // - **0**: not common
+      // 
+      // -
       shared_ptr<int32_t> popular_ {};
+      // The protocols supported by the application.
       shared_ptr<vector<string>> protocols_ {};
+      // The risk level. Valid values:
+      // 
+      // - **1**: Low
+      // 
+      // - **2**: Medium
+      // 
+      // - **3**: High
       shared_ptr<int32_t> riskLevel_ {};
+      // Indicates whether the application supports `FQDN`. Valid values:
+      // 
+      // - **0**: No
+      // 
+      // - **1**: Yes
       shared_ptr<int32_t> supportFqdn_ {};
     };
 
@@ -144,8 +166,11 @@ namespace Models
 
 
   protected:
+    // The list of ACL applications.
     shared_ptr<vector<DescribeAclAppsResponseBody::AclApps>> aclApps_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The ID of the network instance.
       shared_ptr<string> networkInstanceId_ {};
+      // The name of the network instance.
       shared_ptr<string> networkInstanceName_ {};
+      // The type of the network instance.
       shared_ptr<string> networkInstanceType_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // The details of the network instances.
     shared_ptr<vector<DescribeNetworkInstanceListResponseBody::NetworkInstanceList>> networkInstanceList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

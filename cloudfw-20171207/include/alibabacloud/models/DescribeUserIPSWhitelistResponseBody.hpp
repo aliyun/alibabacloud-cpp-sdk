@@ -101,10 +101,19 @@ namespace Models
 
 
     protected:
+      // The direction of IPv4 traffic on the Internet Border.
       shared_ptr<int64_t> direction_ {};
+      // The type of address in the IPv4 whitelist for the Internet.
       shared_ptr<int64_t> listType_ {};
+      // The value of the IPv4 whitelist on the Internet Border.
+      // 
+      // - If the whitelist type is `custom input`: the name of the address book.
+      // 
+      // - If the whitelist type is `address book reference`: an IPv4 address.
       shared_ptr<string> listValue_ {};
+      // The list of IPv4 whitelists for the Internet.
       shared_ptr<vector<string>> whiteListValue_ {};
+      // The type of source or destination for which the IPv4 whitelist on the Internet Border takes effect.
       shared_ptr<int64_t> whiteType_ {};
     };
 
@@ -175,10 +184,19 @@ namespace Models
 
 
     protected:
+      // The direction of IPv6 traffic on the Internet Border.
       shared_ptr<int64_t> direction_ {};
+      // The type of address in the IPv6 whitelist for the Internet.
       shared_ptr<int64_t> listType_ {};
+      // The value of the IPv6 whitelist on the Internet Border.
+      // 
+      // - If the whitelist type is `custom input`: the name of the address book.
+      // 
+      // - If the whitelist type is `address book reference`: an IPv6 address.
       shared_ptr<string> listValue_ {};
+      // The list of IPv6 whitelists for the Internet.
       shared_ptr<vector<string>> whiteListValue_ {};
+      // The type of source or destination for which the IPv6 whitelist on the Internet Border takes effect.
       shared_ptr<int64_t> whiteType_ {};
     };
 
@@ -210,8 +228,11 @@ namespace Models
 
 
   protected:
+    // The list of IPv6 whitelists for the IPS on the Internet Border.
     shared_ptr<vector<DescribeUserIPSWhitelistResponseBody::Ipv6Whitelists>> ipv6Whitelists_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of IPv4 whitelists for the IPS on the Internet Border.
     shared_ptr<vector<DescribeUserIPSWhitelistResponseBody::Whitelists>> whitelists_ {};
   };
 

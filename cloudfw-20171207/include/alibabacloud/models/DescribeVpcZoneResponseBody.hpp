@@ -81,9 +81,9 @@ namespace Models
     protected:
       // The name of the zone.
       shared_ptr<string> localName_ {};
-      // The zone ID.
+      // The ID of the zone.
       shared_ptr<string> zoneId_ {};
-      // The zone type. Default value: AvailabilityZone. This value indicates Alibaba Cloud zones.
+      // The type of the zone. The default value is \\`AvailabilityZone\\`, which indicates a standard cloud zone.
       shared_ptr<string> zoneType_ {};
     };
 
@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The zones.
+    // The list of zones.
     shared_ptr<vector<DescribeVpcZoneResponseBody::ZoneList>> zoneList_ {};
   };
 

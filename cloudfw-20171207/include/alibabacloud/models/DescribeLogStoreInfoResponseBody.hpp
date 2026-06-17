@@ -154,14 +154,23 @@ namespace Models
 
 
     protected:
+      // The name of the SLS Logstore.
       shared_ptr<string> logStoreName_ {};
+      // The maximum number of shards supported for scaling.
       shared_ptr<int32_t> maxSplitShard_ {};
+      // The name of the Simple Log Service project.
       shared_ptr<string> projectName_ {};
+      // The storage capacity threshold, in bytes.
       shared_ptr<int64_t> quota_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The number of shards in use.
       shared_ptr<int32_t> shard_ {};
+      // The location of the Logstore. Valid values: \\`cn\\` for the Chinese mainland and \\`intl\\` for regions outside the Chinese mainland.
       shared_ptr<string> site_ {};
+      // The storage duration of logs, in days.
       shared_ptr<int32_t> ttl_ {};
+      // The amount of stored logs, in bytes.
       shared_ptr<int64_t> used_ {};
     };
 
@@ -256,26 +265,31 @@ namespace Models
 
 
   protected:
+    // The information list.
     shared_ptr<vector<DescribeLogStoreInfoResponseBody::InfoList>> infoList_ {};
+    // The number of times the log storage mode can be changed.
     shared_ptr<int32_t> logModifyQuota_ {};
-    // The name of the SLS LogStore in the log service.
+    // The name of the SLS Logstore.
     shared_ptr<string> logStoreName_ {};
+    // The log version. 1: indicates one Logstore. 2: indicates two Logstores.
     shared_ptr<int32_t> logVersion_ {};
-    // The Project name of the log service.
+    // The name of the Simple Log Service project.
     shared_ptr<string> projectName_ {};
-    // Available log storage capacity. Unit: Byte.
+    // The available log storage capacity, in bytes.
     shared_ptr<int64_t> quota_ {};
-    // The region ID for log delivery.
+    // The ID of the region where logs are delivered.
     shared_ptr<string> regionId_ {};
-    // The ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The total purchased log storage capacity, in bytes.
     shared_ptr<int64_t> totalQuota_ {};
-    // Log storage duration. Unit: days.
+    // The storage duration of logs, in days.
     shared_ptr<int32_t> ttl_ {};
-    // Used storage capacity. Unit: Byte.
+    // The used storage capacity, in bytes.
     // 
-    // > The statistics of the log service have a delay of approximately two hours.
+    // > Statistics from Simple Log Service may be delayed by up to two hours.
     shared_ptr<int64_t> used_ {};
   };
 

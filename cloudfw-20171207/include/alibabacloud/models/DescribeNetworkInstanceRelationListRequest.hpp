@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The connection type.
     shared_ptr<string> connectType_ {};
+    // The configuration status of Cloud Firewall.
     shared_ptr<string> firewallConfigureStatus_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The ID of the local network instance.
     shared_ptr<string> networkInstanceId_ {};
+    // The ID of the peer network instance.
     shared_ptr<string> peerNetworkInstanceId_ {};
   };
 

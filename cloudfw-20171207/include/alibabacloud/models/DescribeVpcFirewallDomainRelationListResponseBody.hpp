@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The ID of the destination VPC.
       shared_ptr<string> vpcId_ {};
+      // The name of the destination VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -263,23 +265,41 @@ namespace Models
 
 
     protected:
+      // The business category of the website.
       shared_ptr<string> business_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The destination IP address.
       shared_ptr<string> dstIP_ {};
+      // The ID of the destination region.
       shared_ptr<string> dstRegionId_ {};
+      // The ID of the destination VPC.
       shared_ptr<string> dstVpcId_ {};
+      // The name of the destination VPC.
       shared_ptr<string> dstVpcName_ {};
+      // The Unix timestamp for the first access, in seconds.
       shared_ptr<int64_t> firstTime_ {};
+      // The name of the organization.
       shared_ptr<string> groupName_ {};
+      // The IPS hit count.
       shared_ptr<int64_t> ipsHitCnt_ {};
+      // The Unix timestamp for the last access, in seconds.
       shared_ptr<int64_t> lastTime_ {};
+      // The request traffic, in bytes.
       shared_ptr<int64_t> requestBytes_ {};
+      // The response traffic, in bytes.
       shared_ptr<int64_t> responseBytes_ {};
+      // The total number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
+      // The source IP address.
       shared_ptr<string> srcIP_ {};
+      // The ID of the source region.
       shared_ptr<string> srcRegionId_ {};
+      // The ID of the source VPC.
       shared_ptr<string> srcVpcId_ {};
+      // The name of the source VPC.
       shared_ptr<string> srcVpcName_ {};
+      // The total traffic, in bytes.
       shared_ptr<int64_t> totalBytes_ {};
     };
 
@@ -318,9 +338,13 @@ namespace Models
 
 
   protected:
+    // The list of data entries.
     shared_ptr<vector<DescribeVpcFirewallDomainRelationListResponseBody::DataList>> dataList_ {};
+    // A list of destination VPCs.
     shared_ptr<vector<DescribeVpcFirewallDomainRelationListResponseBody::DstVpcList>> dstVpcList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

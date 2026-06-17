@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The list of domain names.
     shared_ptr<vector<string>> domainNameList_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of private DNS domain names.
     shared_ptr<int64_t> totalCount_ {};
   };
 

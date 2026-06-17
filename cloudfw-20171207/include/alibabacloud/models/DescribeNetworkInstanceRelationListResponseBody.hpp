@@ -157,10 +157,19 @@ namespace Models
 
 
         protected:
+          // The ID of the network instance connection.
           shared_ptr<string> attachmentId_ {};
+          // The name of the network instance connection.
           shared_ptr<string> attachmentName_ {};
+          // The ID of the CEN instance.
           shared_ptr<string> cenId_ {};
+          // The name of the CEN instance.
           shared_ptr<string> cenName_ {};
+          // The version of the transit router. Valid values:
+          // 
+          // - **Basic**: Basic Edition transit router.
+          // 
+          // - **Enterprise**: Enterprise Edition transit router.
           shared_ptr<string> transitRouterType_ {};
         };
 
@@ -204,10 +213,15 @@ namespace Models
 
 
       protected:
+        // The associated CEN instance.
         shared_ptr<vector<PeerNetworkInstanceList::AssociatedCen>> associatedCen_ {};
+        // The ID of the network instance.
         shared_ptr<string> networkInstanceId_ {};
+        // The name of the network instance.
         shared_ptr<string> networkInstanceName_ {};
+        // The type of the network instance.
         shared_ptr<string> networkInstanceType_ {};
+        // The region.
         shared_ptr<string> regionNo_ {};
       };
 
@@ -276,10 +290,19 @@ namespace Models
 
 
       protected:
+        // The ID of the network instance connection.
         shared_ptr<string> attachmentId_ {};
+        // The name of the network instance connection.
         shared_ptr<string> attachmentName_ {};
+        // The ID of the CEN instance.
         shared_ptr<string> cenId_ {};
+        // The name of the CEN instance.
         shared_ptr<string> cenName_ {};
+        // The type of the transit router. Valid values:
+        // 
+        // - **Basic**: Basic Edition transit router.
+        // 
+        // - **Enterprise**: Enterprise Edition transit router.
         shared_ptr<string> transitRouterType_ {};
       };
 
@@ -340,12 +363,19 @@ namespace Models
 
 
     protected:
+      // The associated CEN instance.
       shared_ptr<vector<NetworkInstanceList::AssociatedCen>> associatedCen_ {};
+      // The connection type.
       shared_ptr<string> connectType_ {};
+      // The ID of the network instance.
       shared_ptr<string> networkInstanceId_ {};
+      // The name of the network instance.
       shared_ptr<string> networkInstanceName_ {};
+      // The type of the network instance.
       shared_ptr<string> networkInstanceType_ {};
+      // The list of peer network instances.
       shared_ptr<vector<NetworkInstanceList::PeerNetworkInstanceList>> peerNetworkInstanceList_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
     };
 
@@ -375,8 +405,11 @@ namespace Models
 
 
   protected:
+    // The information about the network instances.
     shared_ptr<vector<DescribeNetworkInstanceRelationListResponseBody::NetworkInstanceList>> networkInstanceList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

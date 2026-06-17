@@ -66,23 +66,25 @@ namespace Models
 
 
   protected:
-    // The domain name whose DNS record you want to query.
+    // The domain name to resolve.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     // The IP version of the asset that is protected by Cloud Firewall. Valid values:
     // 
-    // *   **4**: IPv4 (default)
-    // *   **6**: IPv6
+    // - **4** (default): IPv4
+    // 
+    // - **6**: IPv6
     shared_ptr<string> ipVersion_ {};
-    // The language of the content within the response.
+    // The language of the response message.
     // 
     // Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

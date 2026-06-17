@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

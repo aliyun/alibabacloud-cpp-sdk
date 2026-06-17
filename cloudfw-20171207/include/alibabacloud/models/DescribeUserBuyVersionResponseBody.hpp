@@ -259,82 +259,101 @@ namespace Models
 
 
   protected:
+    // The quota for ACK cluster connectors.
     shared_ptr<int64_t> ackClusterConnectorQuota_ {};
-    // The ID of the Alibaba Cloud account that is used to purchase Cloud Firewall.
+    // The ID of the Alibaba Cloud account.
     shared_ptr<int64_t> aliUid_ {};
+    // The default bandwidth of the edition.
     shared_ptr<int64_t> defaultBandwidth_ {};
-    // The time when Cloud Firewall expires.
+    // The expiration time of the Cloud Firewall instance.
     // 
-    // >  The value is a timestamp in milliseconds.
+    // > The value is a UNIX timestamp in milliseconds.
     // 
-    // >  If you use Cloud Firewall that uses the pay-as-you-go billing method, ignore this parameter.
+    // > This parameter does not apply to pay-as-you-go editions.
     shared_ptr<int64_t> expire_ {};
+    // The extended bandwidth.
     shared_ptr<int64_t> extensionBandwidth_ {};
+    // The number of general-purpose instances.
     shared_ptr<int64_t> generalInstance_ {};
-    // The instance ID of Cloud Firewall.
+    // The ID of the Cloud Firewall instance.
     // 
-    // >  If you use a trial of Cloud Firewall, ignore this parameter.
+    // > This parameter does not apply to trial editions.
     shared_ptr<string> instanceId_ {};
-    // The status of Cloud Firewall. Valid values:
+    // The operational status of the Cloud Firewall instance. Valid values:
     // 
-    // *   **normal**: Cloud Firewall is running as expected.
-    // *   **init**: Cloud Firewall is being initialized.
-    // *   **deleting**: Cloud Firewall is being deleted.
-    // *   **abnormal**: An exception occurs in Cloud Firewall.
-    // *   **free**: Cloud Firewall is invalid.
+    // - **normal**: The instance is running as expected.
+    // 
+    // - **init**: The instance is being initialized.
+    // 
+    // - **deleting**: The instance is being deleted.
+    // 
+    // - **abnormal**: The instance is in an abnormal state.
+    // 
+    // - **free**: No valid instance is available.
     shared_ptr<string> instanceStatus_ {};
-    // The peak Internet traffic that can be protected.
+    // The purchased traffic processing capability for the Internet firewall.
     shared_ptr<int64_t> internetBandwidth_ {};
     // The number of public IP addresses that can be protected.
     // 
-    // >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+    // > This parameter applies only to subscription instances.
     shared_ptr<int64_t> ipNumber_ {};
     // Indicates whether log delivery is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enabled
+    // 
+    // - **false**: Disabled
     shared_ptr<bool> logStatus_ {};
-    // The log storage capacity.
+    // The purchased log storage capacity.
     // 
-    // >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+    // > This parameter applies only to subscription instances.
     shared_ptr<int64_t> logStorage_ {};
+    // The major version.
     shared_ptr<int64_t> majorVersion_ {};
-    // The status of the burstable protected traffic feature. Valid values:
+    // Indicates whether elastic billing for excess traffic is enabled. Valid values:
     // 
-    // *   **1000000**: enabled.
-    // *   **0**: disabled.
+    // - **1000000**: Enabled
     // 
-    // >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+    // - **0**: Disabled
+    // 
+    // > This parameter applies only to subscription instances.
     shared_ptr<int64_t> maxOverflow_ {};
-    // The peak traffic of NAT private network that can be protected.
+    // The purchased traffic processing capability for the NAT firewall.
     shared_ptr<int64_t> natBandwidth_ {};
+    // The quota for private DNS connectors.
     shared_ptr<int64_t> privateDnsConnectorQuota_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether data leakage prevention is enabled.
     shared_ptr<int64_t> sdl_ {};
-    // The time when Cloud Firewall was activated.
+    // The time when the Cloud Firewall instance was enabled.
     // 
-    // >  The value is a timestamp in milliseconds.
+    // > The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The temporary bandwidth.
     shared_ptr<int64_t> temporaryBandwidth_ {};
+    // Indicates whether threat intelligence is enabled.
     shared_ptr<int64_t> threatIntelligence_ {};
-    // Indicates whether Cloud Firewall is valid. Valid values:
+    // The status of the Cloud Firewall instance. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The instance is valid.
+    // 
+    // - **false**: The instance is invalid.
     shared_ptr<bool> userStatus_ {};
-    // The edition of Cloud Firewall. Valid values:
+    // The edition of the Cloud Firewall instance. Valid values:
     // 
-    // *   **2**: Premium Edition.
-    // *   **3**: Enterprise Edition.
-    // *   **4**: Ultimate Edition.
-    // *   **10**: Cloud Firewall that uses the pay-as-you-go billing method.
+    // - **2**: Premium Edition
+    // 
+    // - **3**: Enterprise Edition
+    // 
+    // - **4**: Ultimate Edition
+    // 
+    // - **10**: Pay-as-you-go
     shared_ptr<int32_t> version_ {};
-    // The peak cross-VPC traffic that can be protected.
+    // The purchased traffic processing capability for the VPC firewall.
     shared_ptr<int64_t> vpcBandwidth_ {};
-    // The number of virtual private clouds (VPCs) that can be protected.
+    // The number of purchased VPC firewalls.
     // 
-    // >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+    // > This parameter applies only to subscription instances.
     shared_ptr<int64_t> vpcNumber_ {};
   };
 

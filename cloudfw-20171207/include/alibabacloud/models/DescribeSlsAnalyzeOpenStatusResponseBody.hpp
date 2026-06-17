@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The enabled status of SLS. Valid values:
+    // 
+    // **true**: enabled.
+    // 
+    // **false**: disabled.
     shared_ptr<string> openStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,6 +38,11 @@ namespace Models
 
 
   protected:
+    // The language of the request and response messages. Valid values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

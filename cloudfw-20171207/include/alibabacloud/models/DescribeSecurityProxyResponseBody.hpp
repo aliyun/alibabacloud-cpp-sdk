@@ -184,19 +184,47 @@ namespace Models
 
 
     protected:
+      // The IPv4 CIDR block of the VPC.
       shared_ptr<string> cidrBlock_ {};
+      // The details of the exception.
       shared_ptr<string> detail_ {};
+      // The UID of the Cloud Firewall member account.
       shared_ptr<string> memberUid_ {};
+      // The ID of the NAT Gateway.
       shared_ptr<string> natGatewayId_ {};
+      // The name of the NAT Gateway.
       shared_ptr<string> natGatewayName_ {};
+      // The ID of the NAT firewall.
       shared_ptr<string> proxyId_ {};
+      // The name of the NAT firewall.
       shared_ptr<string> proxyName_ {};
+      // The region ID of the VPC.
       shared_ptr<string> regionNo_ {};
+      // The list of SNAT IP addresses.
       shared_ptr<vector<string>> snatIpList_ {};
+      // The status of the Cloud Firewall. Valid values:
+      // 
+      // - **configuring**: The firewall is being created.
+      // 
+      // - **deleting**: The firewall is being deleted.
+      // 
+      // - **normal**: The firewall is running.
+      // 
+      // - **abnormal**: The firewall is not running as expected.
+      // 
+      // - **opening**: The firewall is being enabled.
+      // 
+      // - **closing**: The firewall is being disabled.
+      // 
+      // - **closed**: The firewall is disabled.
       shared_ptr<string> status_ {};
+      // Indicates whether the strict mode is enabled. 1: The strict mode is enabled. 0: The strict mode is disabled.
       shared_ptr<int32_t> strictMode_ {};
+      // The ID of the vSwitch to which the Cloud Firewall instance belongs.
       shared_ptr<string> vSwitchId_ {};
+      // The ID of the VPC instance.
       shared_ptr<string> vpcId_ {};
+      // The instance name of the VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -226,8 +254,11 @@ namespace Models
 
 
   protected:
+    // The list of NAT firewalls.
     shared_ptr<vector<DescribeSecurityProxyResponseBody::ProxyList>> proxyList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

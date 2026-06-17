@@ -59,13 +59,15 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The status of the NAT Firewall feature. Valid values:
+    // The status of the NAT border firewall. Valid values:
     // 
-    // *   **open**: enabled
-    // *   **init**: being enabled
-    // *   **closed**: disabled
+    // - **open**: The feature is enabled.
+    // 
+    // - **init**: The feature is being enabled.
+    // 
+    // - **closed**: The feature is disabled.
     shared_ptr<string> status_ {};
-    // The number of days during which no asset is added to the NAT Firewall feature for protection. This parameter is valid only when the value of Status is open.
+    // The number of days that protection was disabled. This parameter is returned only when the NAT border firewall is enabled.
     shared_ptr<int64_t> unprotectedDate_ {};
   };
 

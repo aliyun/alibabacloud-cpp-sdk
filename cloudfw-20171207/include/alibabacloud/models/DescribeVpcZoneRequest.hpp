@@ -68,15 +68,17 @@ namespace Models
   protected:
     // The environment. Valid values:
     // 
-    // *   **VPC**
-    // *   **TransitRouter**
-    shared_ptr<string> environment_ {};
-    // The language of the content within the request and response. Valid values:
+    // - **VPC**: VPC
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **TransitRouter**: Transit Router
+    shared_ptr<string> environment_ {};
+    // The language of the request and response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The UID of the member in Cloud Firewall.
+    // The UID of the Cloud Firewall member account.
     shared_ptr<string> memberUid_ {};
     // The region ID.
     // 

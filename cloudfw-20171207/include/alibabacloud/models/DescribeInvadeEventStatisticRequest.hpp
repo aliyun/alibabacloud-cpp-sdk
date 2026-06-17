@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The end time. This is a UNIX timestamp that is accurate to the second.
     shared_ptr<string> endTime_ {};
+    // The language of the response.
     shared_ptr<string> lang_ {};
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
+    // The start time. This is a UNIX timestamp that is accurate to the second.
     shared_ptr<string> startTime_ {};
   };
 

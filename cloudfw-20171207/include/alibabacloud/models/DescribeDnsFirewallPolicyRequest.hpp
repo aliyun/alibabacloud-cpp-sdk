@@ -130,18 +130,51 @@ namespace Models
 
 
   protected:
+    // The action that is performed on traffic that hits the DNS firewall policy. Valid values:
+    // 
+    // - **accept**: allows the traffic.
+    // 
+    // - **drop**: denies the traffic.
+    // 
+    // - **log**: monitors the traffic.
+    // 
+    // > If you do not specify this parameter, policies of all action types are queried.
     shared_ptr<string> aclAction_ {};
+    // The unique ID of the firewall rule.
     shared_ptr<string> aclUuid_ {};
+    // The page number to return. Default value: 1.
+    // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
+    // The description of the DNS firewall policy.
     shared_ptr<string> description_ {};
+    // The destination address in the DNS firewall policy. Fuzzy match is supported.
+    // 
+    // > The value of Destination can be a CIDR block, a domain name, or an address book.
     shared_ptr<string> destination_ {};
+    // The IP version that is supported. Valid values:
+    // 
+    // - **4**: IPv4
+    // 
+    // - **6**: IPv6
     shared_ptr<string> ipVersion_ {};
+    // The language of the response messages. Valid values: **zh** (Chinese) and **en** (English).
     shared_ptr<string> lang_ {};
+    // The number of entries to return on each page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The status of the access control policy. The policy is enabled by default after it is created. Valid values:
+    // 
+    // - **true**: enables the access control policy.
+    // 
+    // - **false**: disables the access control policy.
     shared_ptr<string> release_ {};
+    // The source address in the DNS firewall policy. Fuzzy match is supported.
+    // 
+    // > The value of Source can be a CIDR block or an address book.
     shared_ptr<string> source_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

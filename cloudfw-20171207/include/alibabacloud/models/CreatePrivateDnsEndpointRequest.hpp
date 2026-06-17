@@ -161,23 +161,56 @@ namespace Models
 
 
   protected:
+    // The name of the private instance.
+    // 
     // This parameter is required.
     shared_ptr<string> accessInstanceName_ {};
+    // The type of the Cloud Firewall. Valid values:
+    // 
+    // - **internet**
+    // 
+    // - **vpc**
+    // 
+    // - **nat**
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> firewallType_ {};
+    // The IP protocol. Valid values:
+    // 
+    // - **TCP**
+    // 
+    // - **UDP**
     shared_ptr<string> ipProtocol_ {};
+    // The UID of the member account.
     shared_ptr<int64_t> memberUid_ {};
+    // The port number.
     shared_ptr<int32_t> port_ {};
+    // The primary DNS server.
     shared_ptr<string> primaryDns_ {};
+    // The ID of the primary vSwitch.
     shared_ptr<string> primaryVSwitchId_ {};
+    // The IP address of the primary vSwitch.
     shared_ptr<string> primaryVSwitchIp_ {};
+    // The type of the private DNS. Valid values:
+    // 
+    // - **PrivateZone**
+    // 
+    // - **Custom** (default)
+    // 
     // This parameter is required.
     shared_ptr<string> privateDnsType_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
+    // The standby DNS server.
     shared_ptr<string> standbyDns_ {};
+    // The ID of the standby vSwitch.
     shared_ptr<string> standbyVSwitchId_ {};
+    // The IP address of the standby vSwitch.
     shared_ptr<string> standbyVSwitchIp_ {};
+    // The ID of the VPC instance.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

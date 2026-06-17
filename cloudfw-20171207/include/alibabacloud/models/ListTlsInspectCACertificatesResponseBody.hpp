@@ -136,14 +136,37 @@ namespace Models
 
 
     protected:
+      // The encryption algorithm of the CA certificate. Valid values:
+      // 
+      // - **RSA**: the RSA algorithm.
+      // 
+      // - **ECC**: the ECC algorithm.
+      // 
+      // - **SM2**: the SM2 algorithm.
       shared_ptr<string> algorithm_ {};
+      // The alias of the certificate.
       shared_ptr<string> aliasName_ {};
+      // The ID of the CA certificate.
       shared_ptr<string> caCertId_ {};
+      // The type of the CA certificate. Valid values:
+      // 
+      // - **ROOT**: a root CA certificate.
+      // 
+      // - **SUB_ROOT**: a subordinate CA certificate.
       shared_ptr<string> caCertType_ {};
+      // The expiration timestamp.
       shared_ptr<int64_t> expirationTime_ {};
+      // The key length of the CA certificate.
       shared_ptr<int32_t> keySize_ {};
+      // The ID of the parent CA certificate.
       shared_ptr<string> parentCaCertId_ {};
+      // The signature algorithm of the CA certificate.
       shared_ptr<string> signAlgorithm_ {};
+      // The status of the certificate. Valid values:
+      // 
+      // - **ISSUE**: enabled.
+      // 
+      // - **REVOKE**: revoked.
       shared_ptr<string> status_ {};
     };
 
@@ -173,8 +196,11 @@ namespace Models
 
 
   protected:
+    // The list of certificates.
     shared_ptr<vector<ListTlsInspectCACertificatesResponseBody::Certificates>> certificates_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

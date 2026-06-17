@@ -60,9 +60,13 @@ namespace Models
 
 
   protected:
+    // The type of the ACL check.
+    // 
     // This parameter is required.
     shared_ptr<string> aclType_ {};
+    // The list of ACL check names.
     shared_ptr<vector<string>> checkNames_ {};
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
   };
 

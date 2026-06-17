@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the CA certificate.
     shared_ptr<string> caCertId_ {};
+    // The download path of the certificate.
     shared_ptr<string> downloadUrl_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
