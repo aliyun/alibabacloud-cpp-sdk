@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The status of the operation. Valid values:
     // 
-    // *   **success**
-    // *   **fail**
+    // - **success**: The operation succeeded.
+    // 
+    // - **fail**: The operation failed.
     shared_ptr<string> status_ {};
   };
 

@@ -94,9 +94,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The value of tag N.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -205,47 +205,50 @@ namespace Models
 
 
   protected:
-    // The edition of the instance. Separate multiple values with commas (,).
+    // The instance edition. You can specify multiple editions. Separate multiple editions with a comma (,).
     shared_ptr<string> DBInstanceCategoriesShrink_ {};
-    // The description of the instance.
+    // The instance description.
     shared_ptr<string> DBInstanceDescription_ {};
-    // The instance ID. Separate multiple values with commas (,).
+    // The instance IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> DBInstanceIds_ {};
-    // The resource type of the instance. Separate multiple values with commas (,).
+    // The resource type of the instance. You can specify multiple resource types. Separate multiple resource types with a comma (,).
     shared_ptr<string> DBInstanceModesShrink_ {};
     // The state of the instance.
     shared_ptr<string> DBInstanceStatusesShrink_ {};
-    // This parameter is no longer used.
+    // This parameter is deprecated. Do not specify this parameter.
     shared_ptr<string> instanceDeployTypesShrink_ {};
-    // The network type of the instance. Valid values:
+    // The instance network type. Valid values:
     // 
-    // *   **VPC**: virtual private cloud (VPC).
-    // *   **Classic**: classic network.
+    // - **VPC**: VPC
     // 
-    // > If you do not specify this parameter, instances of all network types are returned.
+    // - **Classic**: classic network
+    // 
+    // > If you omit this parameter, the operation returns instances of all network types.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1. Default value: **1**.
+    // The page number. The value must be an integer that is greater than 0. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
+    // The region ID of the instance.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // The tags of the instance.
     shared_ptr<vector<DescribeDBInstancesShrinkRequest::Tag>> tag_ {};
-    // The VPC ID. You can use this parameter to filter instances that reside in the specified VPC.
+    // The VPC ID. You can specify this parameter to query instances in a VPC.
     shared_ptr<string> vpcId_ {};
   };
 

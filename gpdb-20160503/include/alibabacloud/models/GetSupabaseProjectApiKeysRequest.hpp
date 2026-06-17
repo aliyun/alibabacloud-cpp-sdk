@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The Supabase project ID.
+    // The Supabase instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
     // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to view the available region IDs.
     shared_ptr<string> regionId_ {};
   };
 

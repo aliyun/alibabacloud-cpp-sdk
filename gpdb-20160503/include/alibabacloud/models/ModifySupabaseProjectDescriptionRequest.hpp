@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The detailed description of the Supabase project.
     shared_ptr<string> projectDescription_ {};
+    // The Supabase instance ID.
     shared_ptr<string> projectId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

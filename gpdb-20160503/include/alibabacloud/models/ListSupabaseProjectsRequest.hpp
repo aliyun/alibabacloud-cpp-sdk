@@ -112,15 +112,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of instances to return per page. Default value: 10.
+    // The maximum number of entries to return. The default value is 10.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token returned from a previous call. Use it to retrieve the next page of results.
+    // The pagination token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the cluster.
+    // The ID of the region.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation get a list of available region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> searchField_ {};
     shared_ptr<string> searchValue_ {};

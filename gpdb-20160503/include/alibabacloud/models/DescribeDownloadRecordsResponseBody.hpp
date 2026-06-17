@@ -99,17 +99,19 @@ namespace Models
     protected:
       // The ID of the download record.
       shared_ptr<int64_t> downloadId_ {};
-      // The URL that can be used to download the file.
+      // The download URL.
       shared_ptr<string> downloadUrl_ {};
-      // The error message returned.
+      // The error message.
       shared_ptr<string> exceptionMsg_ {};
-      // The name of the file.
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // The state of the upload task. After you call the DownloadDiagnosisRecords operation, query diagnostic information is first uploaded to Object Storage Service (OSS). After the upload task is complete, the query diagnostic information can be downloaded. Valid values:
+      // The status of the task that uploads the query diagnostic information file to Object Storage Service (OSS). You can download the file after the upload is complete. Valid values:
       // 
-      // *   **running**: uploading
-      // *   **finished**: uploaded
-      // *   **failed**: failed
+      // - **running**: The file is being uploaded.
+      // 
+      // - **finished**: The file upload is complete.
+      // 
+      // - **failed**: The file upload failed.
       shared_ptr<string> status_ {};
     };
 
@@ -132,7 +134,7 @@ namespace Models
 
 
   protected:
-    // The URL that is used to download the file.
+    // An array of download records.
     shared_ptr<vector<DescribeDownloadRecordsResponseBody::Records>> records_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // Supabase instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
     // Region ID

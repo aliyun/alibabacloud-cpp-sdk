@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
+    // > To view details of all instances in a region, including their IDs, call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The ID of the service.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
+    // The type of service. Only drama is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

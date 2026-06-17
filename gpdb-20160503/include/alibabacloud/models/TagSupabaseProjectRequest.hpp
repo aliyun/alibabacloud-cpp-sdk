@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The tag key. The key cannot be empty and can be up to 64 characters long. It cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> key_ {};
+      // The tag value. The value can be empty or up to 128 characters long. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -113,9 +115,13 @@ namespace Models
 
 
   protected:
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
+    // The IDs of the instances. You can specify up to 50 instance IDs.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set this parameter to `instance`.
     shared_ptr<string> resourceType_ {};
+    // The tags to add. You can specify up to 20 tags.
     shared_ptr<vector<TagSupabaseProjectRequest::Tag>> tag_ {};
   };
 

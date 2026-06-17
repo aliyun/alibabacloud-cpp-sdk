@@ -268,63 +268,86 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> autoScale_ {};
-    // The creation time.
-    shared_ptr<string> createTime_ {};
-    shared_ptr<string> DBSecurityIpList_ {};
-    // The Supabase Dashboard password (Not Used)
-    shared_ptr<string> dashboardPassword_ {};
-    // The Supabase Dashboard user name (Not Used)
-    shared_ptr<string> dashboardUserName_ {};
-    // The Enterprise SSD (ESSD) performance level of the cluster. Valid values:
+    // Indicates whether the **auto pause and resume** feature is enabled.
+    // Valid values:
     // 
-    // *   PL0
-    // *   PL1
+    // - `true`: The feature is enabled. The project automatically pauses and resumes based on traffic.
+    // 
+    // - `false`: The feature is disabled.
+    shared_ptr<string> autoScale_ {};
+    // The creation time of the project.
+    shared_ptr<string> createTime_ {};
+    // The database IP address whitelist, specified as a comma-separated string.
+    shared_ptr<string> DBSecurityIpList_ {};
+    // The password for the Supabase Dashboard. This parameter is not used.
+    shared_ptr<string> dashboardPassword_ {};
+    // The username for the Supabase Dashboard. This parameter is not used.
+    shared_ptr<string> dashboardUserName_ {};
+    // The performance level (PL) of the cloud disk. Valid values:
+    // 
+    // - PL0
+    // 
+    // - PL1
     shared_ptr<string> diskPerformanceLevel_ {};
-    // The type of the database engine.
+    // The database engine.
     shared_ptr<string> engine_ {};
-    // The version of the database engine.
+    // The engine version.
     shared_ptr<string> engineVersion_ {};
+    // The elastic network interface (ENI) ID.
     shared_ptr<string> eni_ {};
+    // The current instance version.
     shared_ptr<string> instanceVersion_ {};
+    // The billing method. Valid values:
+    // 
+    // - `POSTPAY`: pay-as-you-go
+    // 
+    // - `PREPAY`: subscription
     shared_ptr<string> payType_ {};
-    // The private (VPC) connection URL for the Supabase Dashboard.
+    // The private connection URL for the Supabase Dashboard.
     shared_ptr<string> privateConnectUrl_ {};
+    // The description of the Supabase project.
     shared_ptr<string> projectDescription_ {};
-    // The Supabase instance ID.
+    // The Supabase project ID.
     shared_ptr<string> projectId_ {};
-    // The name of the Supabase project.
+    // The Supabase project name.
     shared_ptr<string> projectName_ {};
-    // The performance level of the Supabase instance.
+    // The Supabase instance specification.
     shared_ptr<string> projectSpec_ {};
     // The public connection URL for the Supabase Dashboard.
     shared_ptr<string> publicConnectUrl_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available regions.
     shared_ptr<string> regionId_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // A comma-separated list of IP addresses and CIDR blocks allowed to connect.
+    // The IP address whitelist, specified as a comma-separated string.
     shared_ptr<string> securityIpList_ {};
-    // The status of the Supabase instance.
+    // The Supabase instance status.
     shared_ptr<string> status_ {};
-    // The storage capacity of the instance. Unit: GB.
+    // The storage space, in GB.
     shared_ptr<int64_t> storageSize_ {};
+    // The storage type. Valid values:
+    // 
+    // - **cloud_essd_pl0**
+    // 
+    // - **cloud_essd_pl1**
+    // 
+    // - **cloud_essd_pl2**
+    // 
+    // - **cloud_essd_pl3**
     shared_ptr<string> storageType_ {};
-    // The vSwitch ID of the instance. This parameter must be specified when VPCId is specified.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
     // The VPC ID.
     // 
-    // > 
-    // 
-    // *   You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPC IDs.
-    // 
-    // *   This parameter is required.
+    // > - You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPCs.
+    // >
+    // > - This parameter is required.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available zones.
     shared_ptr<string> zoneId_ {};
   };
 

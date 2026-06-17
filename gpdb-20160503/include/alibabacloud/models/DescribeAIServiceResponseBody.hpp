@@ -130,16 +130,31 @@ namespace Models
 
 
   protected:
+    // The time when the service was created.
     shared_ptr<string> createTime_ {};
+    // The description of the service.
     shared_ptr<string> description_ {};
+    // The internal endpoint for API debugging.
     shared_ptr<string> privateApiDevUrl_ {};
+    // The internal endpoint of the Workbench.
     shared_ptr<string> privateWorkbenchUrl_ {};
+    // The public endpoint for API debugging.
     shared_ptr<string> publicApiDevUrl_ {};
+    // The public endpoint of the Workbench.
     shared_ptr<string> publicWorkbenchUrl_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A comma-separated list of IP addresses in the IP address whitelist group.
     shared_ptr<string> securityIpList_ {};
+    // The service account.
     shared_ptr<string> serviceAccount_ {};
+    // The ID of the service.
     shared_ptr<string> serviceId_ {};
+    // The status of the service. Valid values:
+    // 
+    // - deploying: The service is being deployed.
+    // 
+    // - active: The service is running.
     shared_ptr<string> status_ {};
   };
 

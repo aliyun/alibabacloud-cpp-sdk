@@ -76,7 +76,19 @@ namespace Models
 
 
     protected:
+      // The tag key. The key can be 1 to 64 characters in length.
+      // 
+      // The `Tag.N` parameter specifies a key-value pair to filter Supabase instances.
+      // 
+      // N is an integer from 1 to 20.
+      // 
+      // - If you specify only `Tag.N.Key`, the operation returns all instances that have the specified tag key.
+      // 
+      // - If you specify only `Tag.N.Value`, an `InvalidParameter.TagValue` error is returned.
+      // 
+      // - If you specify multiple tag key-value pairs, the operation returns only Supabase instances that match all the specified pairs.
       shared_ptr<string> key_ {};
+      // The tag value. The value can be 1 to 128 characters in length.
       shared_ptr<string> value_ {};
     };
 
@@ -122,11 +134,19 @@ namespace Models
 
 
   protected:
+    // The token for the next page of results. This token is returned in the `NextToken` parameter of a previous request.
     shared_ptr<string> nextToken_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The instance ID.
+    // 
+    // > You must specify at least one of the `ResourceId` and `Tag` parameters.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set the value to `instance`.
     shared_ptr<string> resourceType_ {};
+    // A list of tags.
+    // 
+    // > You must specify at least one of the `ResourceId` and `Tag` parameters.
     shared_ptr<vector<ListSupabaseProjectTagsRequest::Tag>> tag_ {};
   };
 

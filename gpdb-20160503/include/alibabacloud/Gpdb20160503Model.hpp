@@ -105,6 +105,9 @@
 #include <alibabacloud/models/CreateRemoteADBDataSourceRequest.hpp>
 #include <alibabacloud/models/CreateRemoteADBDataSourceResponseBody.hpp>
 #include <alibabacloud/models/CreateRemoteADBDataSourceResponse.hpp>
+#include <alibabacloud/models/CreateSaasServiceRequest.hpp>
+#include <alibabacloud/models/CreateSaasServiceResponseBody.hpp>
+#include <alibabacloud/models/CreateSaasServiceResponse.hpp>
 #include <alibabacloud/models/CreateSampleDataRequest.hpp>
 #include <alibabacloud/models/CreateSampleDataResponseBody.hpp>
 #include <alibabacloud/models/CreateSampleDataResponse.hpp>
@@ -130,6 +133,9 @@
 #include <alibabacloud/models/CreateVectorIndexRequest.hpp>
 #include <alibabacloud/models/CreateVectorIndexResponseBody.hpp>
 #include <alibabacloud/models/CreateVectorIndexResponse.hpp>
+#include <alibabacloud/models/CreateWorkspaceRequest.hpp>
+#include <alibabacloud/models/CreateWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/CreateWorkspaceResponse.hpp>
 #include <alibabacloud/models/DeleteAINodeRequest.hpp>
 #include <alibabacloud/models/DeleteAINodeResponseBody.hpp>
 #include <alibabacloud/models/DeleteAINodeResponse.hpp>
@@ -200,6 +206,9 @@
 #include <alibabacloud/models/DeleteRemoteADBDataSourceRequest.hpp>
 #include <alibabacloud/models/DeleteRemoteADBDataSourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteRemoteADBDataSourceResponse.hpp>
+#include <alibabacloud/models/DeleteSaasServiceRequest.hpp>
+#include <alibabacloud/models/DeleteSaasServiceResponseBody.hpp>
+#include <alibabacloud/models/DeleteSaasServiceResponse.hpp>
 #include <alibabacloud/models/DeleteSecretRequest.hpp>
 #include <alibabacloud/models/DeleteSecretResponseBody.hpp>
 #include <alibabacloud/models/DeleteSecretResponse.hpp>
@@ -218,6 +227,9 @@
 #include <alibabacloud/models/DeleteVectorIndexRequest.hpp>
 #include <alibabacloud/models/DeleteVectorIndexResponseBody.hpp>
 #include <alibabacloud/models/DeleteVectorIndexResponse.hpp>
+#include <alibabacloud/models/DeleteWorkspaceRequest.hpp>
+#include <alibabacloud/models/DeleteWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/DeleteWorkspaceResponse.hpp>
 #include <alibabacloud/models/DeployPrivateRAGServiceRequest.hpp>
 #include <alibabacloud/models/DeployPrivateRAGServiceResponseBody.hpp>
 #include <alibabacloud/models/DeployPrivateRAGServiceResponse.hpp>
@@ -467,9 +479,15 @@
 #include <alibabacloud/models/GetGraphRAGJobRequest.hpp>
 #include <alibabacloud/models/GetGraphRAGJobResponseBody.hpp>
 #include <alibabacloud/models/GetGraphRAGJobResponse.hpp>
+#include <alibabacloud/models/GetSaasServiceRequest.hpp>
+#include <alibabacloud/models/GetSaasServiceResponseBody.hpp>
+#include <alibabacloud/models/GetSaasServiceResponse.hpp>
 #include <alibabacloud/models/GetSecretValueRequest.hpp>
 #include <alibabacloud/models/GetSecretValueResponseBody.hpp>
 #include <alibabacloud/models/GetSecretValueResponse.hpp>
+#include <alibabacloud/models/GetServiceAccessInfoRequest.hpp>
+#include <alibabacloud/models/GetServiceAccessInfoResponseBody.hpp>
+#include <alibabacloud/models/GetServiceAccessInfoResponse.hpp>
 #include <alibabacloud/models/GetStatementResultRequest.hpp>
 #include <alibabacloud/models/GetStatementResultResponseBody.hpp>
 #include <alibabacloud/models/GetStatementResultResponse.hpp>
@@ -548,6 +566,9 @@
 #include <alibabacloud/models/ListRemoteADBDataSourcesRequest.hpp>
 #include <alibabacloud/models/ListRemoteADBDataSourcesResponseBody.hpp>
 #include <alibabacloud/models/ListRemoteADBDataSourcesResponse.hpp>
+#include <alibabacloud/models/ListSaasServiceRequest.hpp>
+#include <alibabacloud/models/ListSaasServiceResponseBody.hpp>
+#include <alibabacloud/models/ListSaasServiceResponse.hpp>
 #include <alibabacloud/models/ListSchemasRequest.hpp>
 #include <alibabacloud/models/ListSchemasResponseBody.hpp>
 #include <alibabacloud/models/ListSchemasResponse.hpp>
@@ -581,6 +602,9 @@
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ListWorkspacesRequest.hpp>
+#include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
+#include <alibabacloud/models/ListWorkspacesResponse.hpp>
 #include <alibabacloud/models/ModifyAIServiceSecurityIpsRequest.hpp>
 #include <alibabacloud/models/ModifyAIServiceSecurityIpsResponseBody.hpp>
 #include <alibabacloud/models/ModifyAIServiceSecurityIpsResponse.hpp>

@@ -151,6 +151,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The configuration parameters.
     shared_ptr<string> parametersShrink_ {};
+    // Parameters for the vector dataset.  
+    // > When WorkspaceId is not empty, you must also pass this parameter.
     shared_ptr<string> ragWorkspaceCollectionShrink_ {};
     // The region ID of the instance.
     // 
@@ -173,6 +175,7 @@ namespace Models
     shared_ptr<string> sqlsShrink_ {};
     // The name of the set of SQL statements that you want to execute. This parameter takes effect when the RunType parameter is set to asynchronous.
     shared_ptr<string> statementName_ {};
+    // The ID of a workspace composed of multiple database instances. This parameter and DBInstanceId cannot both be empty. If both are specified, this parameter takes precedence.
     shared_ptr<string> workspaceId_ {};
   };
 

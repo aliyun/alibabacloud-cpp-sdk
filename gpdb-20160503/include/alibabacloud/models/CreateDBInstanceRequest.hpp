@@ -158,17 +158,21 @@ namespace Models
 
 
     protected:
-      // Tag key. The restrictions are as follows:
+      // The tag key. The following limits apply:
       // 
-      // - It cannot be an empty string.
-      // - It supports up to 128 characters.
-      // - It cannot start with `aliyun` or `acs:`, and it cannot contain `http://` or `https://`.
+      // - The tag key cannot be empty.
+      // 
+      // - The tag key can be up to 128 characters in length.
+      // 
+      // - The tag key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // Tag value. The restrictions are as follows:
+      // The tag value. The following limits apply:
       // 
-      // - It can be an empty string.
-      // - It supports up to 128 characters.
-      // - It cannot start with `acs:`, and it cannot contain `http://` or `https://`.
+      // - The tag value can be empty.
+      // 
+      // - The tag value can be up to 128 characters in length.
+      // 
+      // - The tag value cannot start with `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -210,7 +214,9 @@ namespace Models
 
 
     protected:
+      // The number of AI nodes.
       shared_ptr<string> AINodeNum_ {};
+      // The specifications of the AI nodes.
       shared_ptr<string> AINodeSpec_ {};
     };
 
@@ -551,251 +557,298 @@ namespace Models
 
 
   protected:
+    // The AI node specifications.
     shared_ptr<vector<CreateDBInstanceRequest::AINodeSpecInfos>> AINodeSpecInfos_ {};
-    // Backup set ID.
+    // The ID of the backup set.
     // 
-    // > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) interface to view the backup set IDs of all backup sets under the target instance.
+    // > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the backup set IDs for the source instance.
     shared_ptr<string> backupId_ {};
+    // The cache size for a serverless instance, in GB.
     shared_ptr<string> cacheStorageSize_ {};
-    // Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
+    // A client token used to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
     shared_ptr<string> clientToken_ {};
-    // Whether to load sample datasets after the instance is created. The values are as follows:
+    // Specifies whether to load a sample dataset after the instance is created. Valid values:
     // 
-    // - **true**: Load sample datasets.
-    // - **false**: Do not load sample datasets.
+    // - **true**: A sample dataset is loaded.
     // 
-    // > If this parameter is not specified, it defaults to not loading sample datasets.
+    // - **false**: A sample dataset is not loaded.
+    // 
+    // > If this parameter is not specified, a sample dataset is not loaded.
     shared_ptr<bool> createSampleData_ {};
-    // Instance series. The value description is as follows:
+    // The instance edition. Valid values:
     // 
-    // - **HighAvailability**: High availability version.
-    // - **Basic**: Basic version.
+    // - **HighAvailability**: High-availability Edition
     // 
-    // > This parameter is required when creating an instance in the storage elastic mode.
+    // - **Basic**: Basic Edition
+    // 
+    // > This parameter is required for instances in elastic storage mode.
     shared_ptr<string> DBInstanceCategory_ {};
-    // Instance type. For more details, see the supplementary description of the DBInstanceClass parameter.
+    // The instance type. For more information, see the description of the `DBInstanceClass` parameter.
     // 
-    // > This parameter is required when creating a reserved storage mode instance.
+    // > This parameter is required for instances in reserved storage mode.
     shared_ptr<string> DBInstanceClass_ {};
-    // Instance description.
+    // The instance description.
     shared_ptr<string> DBInstanceDescription_ {};
-    // Number of compute groups. The values are: 2, 4, 8, 12, 16, 24, 32, 64, 96, 128.
+    // The number of compute groups. Valid values: 2, 4, 8, 12, 16, 24, 32, 64, 96, and 128.
     // 
-    // > This parameter is required when creating a reserved storage mode instance.
+    // > This parameter is required for instances in reserved storage mode.
     shared_ptr<string> DBInstanceGroupCount_ {};
-    // Instance resource type. The value description is as follows:
+    // The instance resource mode. Valid values:
     // 
-    // - **StorageElastic**: Storage elastic mode.
-    // - **Serverless**: Serverless mode.
-    // - **Classic**: Storage reserved mode.
+    // - **StorageElastic**: elastic storage mode
+    // 
+    // - **Serverless**: serverless mode
+    // 
+    // - **Classic**: reserved storage mode
     // 
     // > This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceMode_ {};
-    // Deployment mode. The values are as follows:
-    // - multiple: Multi-zone deployment.
-    // - single: Single-zone deployment.
+    // The deployment mode. Valid values:
     // 
-    // > 
-    // > - If this parameter is not specified, the default value is single-zone deployment.
-    // > - Currently, only single-zone deployment is supported.
+    // - multiple: multi-AZ deployment.
+    // 
+    // - single: single-AZ deployment.
+    // 
+    // > * If this parameter is not specified, the default value is single.
+    // >
+    // > * Defaults to `single` (single-AZ deployment), which is the only mode currently supported.
     shared_ptr<string> deployMode_ {};
     // Specifies whether to enable SSL encryption. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: SSL encryption is enabled.
+    // 
+    // - **false** (default): SSL encryption is disabled.
     shared_ptr<bool> enableSSL_ {};
-    // Key ID.
+    // The ID of the encryption key.
     // 
-    // > If the value of the **EncryptionType** parameter is **CloudDisk**, you need to specify the encryption key ID within the same region through this parameter; otherwise, it should be empty.
+    // > If `EncryptionType` is set to `CloudDisk`, you must specify the ID of an encryption key in the same region. Otherwise, leave this parameter empty.
     shared_ptr<string> encryptionKey_ {};
-    // Encryption type. The value description is as follows:
+    // The encryption type. Valid values:
     // 
-    // - **NULL**: No encryption (default).
-    // - **CloudDisk**: Enable cloud disk encryption and specify the key through the **EncryptionKey** parameter.
+    // - **NULL**: disables encryption. This is the default value.
     // 
-    // > Once cloud disk encryption is enabled, it cannot be disabled.
+    // - **CloudDisk**: Enables cloud disk encryption. If you select this option, you must also specify a value for `EncryptionKey`.
+    // 
+    // > After cloud disk encryption is enabled, it cannot be disabled.
     shared_ptr<string> encryptionType_ {};
-    // Database engine, with the value **gpdb**.
+    // The database engine. Set the value to **gpdb**.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
-    // Engine version. The values are as follows:
-    // - **6.0**: Version 6.0.
-    // - **7.0**: Version 7.0.
+    // The database engine version. Valid values:
+    // 
+    // - **6.0**
+    // 
+    // - **7.0**
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // The idle release wait time. When the duration without business traffic reaches the specified time, the instance will enter the idle state. The unit is seconds, with a minimum value of 60, and the default value is 600.
+    // The period of inactivity, in seconds, after which the instance is considered idle. Minimum value: 60. Default value: 600.
     // 
-    // > This parameter is required only for Serverless auto-scheduling mode instances.
+    // > This parameter is required only for serverless instances that use auto-scheduling.
     shared_ptr<int32_t> idleTime_ {};
-    // Instance network type, with the value **VPC**.
+    // The instance network type. Set the value to **VPC**.
     // 
-    // > - Only VPC networks are supported in public cloud.
-    // > - If not specified, it defaults to VPC type.
+    // > - Only VPCs are supported.
+    // >
+    // > - If this parameter is not specified, VPC is used by default.
     shared_ptr<string> instanceNetworkType_ {};
-    // Compute node specifications.
+    // The instance type for the compute nodes.
     // 
-    // For high-availability versions of the elastic storage mode, the values are as follows:
+    // Valid values for a High-availability Edition instance in elastic storage mode:
+    // 
     // - **2C16G**
+    // 
     // - **4C32G**
+    // 
     // - **16C128G**
     // 
-    // For basic versions of the elastic storage mode, the values are as follows:
+    // Valid values for a Basic Edition instance in elastic storage mode:
+    // 
     // - **2C8G**
+    // 
     // - **4C16G**
+    // 
     // - **8C32G**
+    // 
     // - **16C64G**
     // 
-    // For Serverless mode, the values are as follows:
+    // Valid values for a serverless instance:
+    // 
     // - **4C16G**
+    // 
     // - **8C32G**
     // 
-    // > This parameter is required when creating an elastic storage mode instance or a Serverless mode instance.
+    // > This parameter is required for instances in elastic storage mode or serverless mode.
     shared_ptr<string> instanceSpec_ {};
-    // This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
+    // Use this parameter to configure the coordinator node as a MasterAI node.
     // 
-    // >-  You cannot specify the MasterAISpec and MasterCU parameters at the same time.
-    // >- You can change coordinator nodes to AI coordinator nodes only in specific regions and zones.
-    // >- Only AnalyticDB for PostgreSQL V7.0 instances of Basic Edition support AI coordinator nodes.
-    // >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+    // > - This parameter and `MasterCU` are mutually exclusive.
+    // >
+    // > - This feature is available only in some regions and zones.
+    // >
+    // > - MasterAI nodes are supported only for AnalyticDB for PostgreSQL V7.0 Basic Edition instances.
+    // >
+    // > - For a list of all possible values, see the coordinator node specification change page in the console.
     shared_ptr<string> masterAISpec_ {};
-    // Master resources, with the following values: 
-    // - 2 CU 
-    // - 4 CU 
-    // - 8 CU 
-    // - 16 CU 
-    // - 32 CU 
-    // > Master resources above 8 CU will incur charges.
+    // The resources for the coordinator node. Valid values:
+    // 
+    // - 2 CU
+    // 
+    // - 4 CU
+    // 
+    // - 8 CU
+    // 
+    // - 16 CU
+    // 
+    // - 32 CU
+    // 
+    // > You are charged for coordinator node resources of 8 CUs or more.
     shared_ptr<int32_t> masterCU_ {};
-    // This parameter is deprecated and should not be passed.
+    // This parameter is deprecated.
     shared_ptr<string> masterNodeNum_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The billing method of the instance. Valid values:
+    // The billing method for the instance. Valid values:
     // 
-    // *   **Postpaid**: pay-as-you-go.
-    // *   **Prepaid**: subscription.
+    // - **Postpaid**: pay-as-you-go.
     // 
-    // > 
+    // - **Prepaid**: subscription.
     // 
-    // *   If you do not specify this parameter, Postpaid is used.
-    // 
-    // *   You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
+    // > * If this parameter is not specified, the default billing method is pay-as-you-go.
+    // >
+    // > * Discounts are available for subscriptions of one year or longer. Select a billing method based on your business needs.
     shared_ptr<string> payType_ {};
-    // Unit of the duration for which resources are purchased. The values are as follows:
-    // - **Month**: Month
-    // - **Year**: Year
+    // The unit of the subscription duration. Valid values:
     // 
-    // > This parameter is required when creating a subscription-billed instance.
+    // - **Month**
+    // 
+    // - **Year**
+    // 
+    // > This parameter is required for subscription instances.
     shared_ptr<string> period_ {};
-    // This parameter is deprecated and should not be passed.
+    // This parameter is deprecated.
     shared_ptr<string> privateIpAddress_ {};
-    // Product type. The values are as follows:
+    // The product type. Valid values:
+    // 
     // - **standard**: Standard Edition.
-    // - **cost-effective**: Cost-Effective Edition.
     // 
-    // > If this parameter is not specified, the default value is Standard Edition.
+    // - **cost-effective**: Cost-effective Edition.
+    // 
+    // > If this parameter is not specified, the default value is standard.
     shared_ptr<string> prodType_ {};
-    // Region ID.
+    // The ID of the region for the instance.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the IDs of available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the enterprise resource group where the instance is located.
+    // The ID of the resource group for the instance.
     shared_ptr<string> resourceGroupId_ {};
-    // The IP address whitelist of the instance.
+    // The IP address whitelist for the instance.
     // 
-    // A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create an instance.
+    // A value of 127.0.0.1 blocks all external access. After you create the instance, you can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist.
     shared_ptr<string> securityIPList_ {};
-    // The performance level of ESSDs. Valid values:
+    // The performance level of the ESSDs. Valid values:
     // 
-    // *   **pl0**
-    // *   **pl1**
-    // *   **pl2**
+    // - **pl0**: PL0
     // 
-    // > 
+    // - **pl1**: PL1
     // 
-    // *   This parameter takes effect only when SegStorageType is set to cloud_essd.
+    // - **pl2**: PL2
     // 
-    // *   If you do not specify this parameter, pl1 is used.
+    // > * This parameter applies only if the segment node storage type is ESSD.
+    // >
+    // > * If this parameter is not specified, pl1 is used by default.
     shared_ptr<string> segDiskPerformanceLevel_ {};
-    // The number of compute nodes. The value description is as follows:
+    // The number of compute nodes. Valid values:
     // 
-    // - For the high-availability version of the storage elastic mode, the value range is 4 to 512, and the value must be a multiple of 4.
-    // - For the basic version of the storage elastic mode, the value range is 2 to 512, and the value must be a multiple of 2.
-    // - For the Serverless mode, the value range is 2 to 512, and the value must be a multiple of 2.
+    // - For a High-availability Edition instance in elastic storage mode, the value must be a multiple of 4, from 4 to 512.
     // 
-    // > This parameter is required when creating instances in the storage elastic mode or Serverless mode.
+    // - For a Basic Edition instance in elastic storage mode, the value must be a multiple of 2, from 2 to 512.
+    // 
+    // - For a serverless instance, the value must be a multiple of 2, from 2 to 512.
+    // 
+    // > This parameter is required for instances in elastic storage mode or serverless mode.
     shared_ptr<string> segNodeNum_ {};
-    // Disk storage type, currently only ESSD cloud disks are supported, with the value **cloud_essd**.
+    // The storage type for the segment nodes. Only ESSDs are supported. Set the value to **cloud_essd**.
     // 
-    // > This parameter is required when creating an elastic storage mode instance.
+    // > This parameter is required for instances in elastic storage mode.
     shared_ptr<string> segStorageType_ {};
-    // The mode of the Serverless instance. The values are as follows:
+    // The mode of the serverless instance. Valid values:
     // 
-    // - **Manual**: Manual scheduling (default).
-    // - **Auto**: Auto scheduling.
+    // - **Manual**: manual scheduling. This is the default value.
     // 
-    // > This parameter is required only for Serverless mode instances.
+    // - **Auto**: auto-scheduling.
+    // 
+    // > * This parameter is required only for instances in serverless mode.
+    // >
+    // > * Auto-scheduling for AnalyticDB for PostgreSQL instances in serverless mode is in preview. To use this feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?product=rds) to be added to the whitelist.
     shared_ptr<string> serverlessMode_ {};
-    // The threshold for computing resources. The value range is 8 to 32, with a step of 8, and the unit is ACU. The default value is 32.
+    // The threshold for computing resources, in AnalyticDB Compute Units (ACUs). The value must be a multiple of 8, ranging from 8 to 32. The default value is 32.
     // 
-    // > This parameter is required only for Serverless auto-scheduling mode instances.
+    // > This parameter is required only for serverless instances that use auto-scheduling.
     shared_ptr<int32_t> serverlessResource_ {};
-    // ID of the source instance to be cloned.
+    // The ID of the source instance to be cloned.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) interface to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the destination region, including instance IDs.
     shared_ptr<string> srcDbInstanceName_ {};
-    // VSwitch ID of the standby zone.
+    // The ID of the vSwitch in the standby zone.
     // 
-    // > 
-    // > - This parameter is required for multi-zone deployment.
-    // > - The VSwitch ID of the standby zone must be in the same zone as the StandbyZoneId.
+    // > - This parameter is required only for a multi-AZ deployment.
+    // >
+    // > - The vSwitch must be in the standby zone specified in `StandbyZoneId`.
     shared_ptr<string> standbyVSwitchId_ {};
-    // ID of the standby zone.
+    // The ID of the standby zone.
     // 
-    // > 
-    // > - This parameter is required for multi-zone deployment.
-    // > - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available zone IDs.
-    // > - The ID of the standby zone must be different from the ID of the primary zone.
+    // > - This parameter is required only for a multi-AZ deployment.
+    // >
+    // > - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the IDs of available zones.
+    // >
+    // > - The standby zone must be different from the primary zone.
     shared_ptr<string> standbyZoneId_ {};
-    // The size of the storage space, in GB, with a value range of <props="china">50~8000<props="intl">50~6000.
+    // The storage capacity for the instance, in GB. Valid values: <props="china">50 to 8000<props="intl">50 to 6000.
     // 
-    // > This parameter is required when creating an instance in the storage elastic mode.
+    // > This parameter is required for instances in elastic storage mode.
     shared_ptr<int64_t> storageSize_ {};
-    // This parameter is deprecated and should not be passed.
+    // This parameter is deprecated.
     shared_ptr<string> storageType_ {};
-    // The Nth tag. The value of N ranges from 1 to 20.
+    // The tags to add to the instance. You can add up to 20 tags.
     shared_ptr<vector<CreateDBInstanceRequest::Tag>> tag_ {};
-    // Duration for which resources are purchased. The values are as follows:
-    // - When **Period** is **Month**, the value ranges from 1 to 9.
-    // - When **Period** is **Year**, the value ranges from 1 to 3.
+    // The subscription duration. Valid values:
     // 
-    // > This parameter is required when creating a subscription-billed instance.
+    // - If **Period** is **Month**, the value can be an integer from 1 to 9.
+    // 
+    // - If **Period** is **Year**, the value can be an integer from 1 to 3.
+    // 
+    // > This parameter is required for subscription instances.
     shared_ptr<string> usedTime_ {};
-    // VPC ID.
+    // The VPC ID.
     // 
-    // > - **VPCId** is required.
-    // > - The region of the **VPC** must be consistent with **RegionId**.
+    // > - This parameter is required.
+    // >
+    // > - The VPC must be in the region specified by `RegionId`.
     shared_ptr<string> VPCId_ {};
-    // vSwitch ID.
+    // The vSwitch ID.
     // 
-    // > - **vSwitchId** is required.
-    // > - The availability zone of the **vSwitch** must be consistent with **ZoneId**.
+    // > - This parameter is required.
+    // >
+    // > - The vSwitch must be in the zone specified by `ZoneId`.
     shared_ptr<string> vSwitchId_ {};
-    // Whether to enable vector engine optimization. The value description is as follows:
-    // - **enabled**: Enable vector engine optimization.
-    // - **disabled** (default): Do not enable vector engine optimization.
+    // Specifies whether to enable vector engine optimization. Valid values:
     // 
-    // > - For mainstream analysis scenarios, data warehouse scenarios, and real-time data warehouse scenarios, it is recommended to **not enable** vector engine optimization.
-    // > - For users using the vector analysis engine for AIGC, vector retrieval, and other scenarios, it is recommended to **enable** vector engine optimization.
+    // - **enabled**: enables vector engine optimization.
+    // 
+    // - **disabled** (default): disables vector engine optimization.
+    // 
+    // > * For mainstream analytics, data warehousing, and real-time data warehousing scenarios, we recommend that you **disable** vector engine optimization.
+    // >
+    // > * For AIGC and vector search scenarios, we recommend that you **enable** vector engine optimization.
     shared_ptr<string> vectorConfigurationStatus_ {};
-    // Zone ID.
+    // The ID of the zone for the instance.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available zone IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the IDs of available zones.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

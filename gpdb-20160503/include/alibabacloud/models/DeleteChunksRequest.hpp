@@ -87,15 +87,34 @@ namespace Models
 
 
   protected:
+    // A list of chunk IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> chunkIds_ {};
+    // The name of the document collection.
+    // 
+    // > You create this document collection by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. To view existing document collections, call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> collection_ {};
+    // The instance ID.
+    // 
+    // > Call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view details for all AnalyticDB for PostgreSQL instances in a specific region, including their instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The name of the namespace. The default value is public.
+    // 
+    // > Call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view a list of namespaces.
     shared_ptr<string> namespace_ {};
+    // The password for the namespace.
+    // 
+    // > This password is set when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> namespacePassword_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

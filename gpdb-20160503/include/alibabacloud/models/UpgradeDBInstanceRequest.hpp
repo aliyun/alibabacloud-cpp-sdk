@@ -176,65 +176,90 @@ namespace Models
 
 
   protected:
+    // Specifies the cache storage for Serverless Pro instances. Unit: GB.
+    // 
+    // > This parameter is required only for Serverless Pro instances.
     shared_ptr<string> cacheStorageSize_ {};
-    // This parameter is no longer used.
+    // This parameter is deprecated.
     shared_ptr<string> DBInstanceClass_ {};
-    // This parameter is no longer used.
+    // This parameter is deprecated.
     shared_ptr<string> DBInstanceGroupCount_ {};
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The specifications of each compute node. For information about the supported specifications, see [Instance specifications](https://help.aliyun.com/document_detail/35406.html).
+    // The specifications of segment nodes. For supported node specifications, see [Instance types](https://help.aliyun.com/document_detail/35406.html).
     // 
-    // > This parameter is available only for instances in elastic storage mode.
+    // > This parameter is available only for instances in storage-elastic mode.
     shared_ptr<string> instanceSpec_ {};
-    // This parameter is no longer used.
+    // The number of master nodes.
     shared_ptr<string> masterNodeNum_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // This parameter is no longer used.
+    // This parameter is deprecated.
     shared_ptr<string> payType_ {};
-    // The region ID of the instance.
+    // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the resource group to which the instance belongs. To obtain the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The performance level of Enterprise SSDs (ESSDs). Valid values:
+    // The performance level (PL) of the disk. Valid values:
     // 
-    // *   **pl0**
-    // *   **pl1**
-    // *   **pl2**
+    // - **pl0**: PL0.
+    // 
+    // - **pl1**: PL1.
+    // 
+    // - **pl2**: PL2.
     shared_ptr<string> segDiskPerformanceLevel_ {};
-    // The number of compute nodes. The number of compute nodes varies based on the instance resource type and edition.
+    // The number of segment nodes. The supported number of nodes varies based on the instance resource type and edition:
     // 
-    // *   Valid values for High-availability Edition instances in elastic storage mode: 4 to 512, in 4 increments.
-    // *   Valid values for High-performance Edition instances in elastic storage mode: 2 to 512, in 2 increments.
-    // *   Valid values for instances in manual Serverless mode: 2 to 512, in 2 increments.
+    // - Instances in storage-elastic mode (High-availability Edition): 4 to 512, in increments of 4.
+    // 
+    // - Instances in storage-elastic mode (High-performance Edition): 2 to 512, in increments of 2.
+    // 
+    // - Instances in Serverless manual-scheduling mode: 2 to 512, in increments of 2.
     shared_ptr<string> segNodeNum_ {};
-    // The disk storage type of the instance after the change. The disk storage type can be changed only to ESSD. Set the value to **cloud_essd**.
+    // The new disk storage type. You can only upgrade to an ESSD cloud disk. To do so, set this parameter to **cloud_essd**.
     shared_ptr<string> segStorageType_ {};
+    // - For an instance in Serverless automatic-scheduling mode, this parameter specifies the computing resource threshold. The value must be a multiple of 8 in the range of 8 to 32. Unit: ACU. Default value: 32.
+    // 
+    // - For a Serverless Pro instance, this parameter specifies the reserved computing resources. Valid values range from 16 to 1,024. Unit: ACU. Default value: 16. Increment rules:
+    // 
+    //   - 16 to 32: in increments of 4.
+    // 
+    //   - 32 to 64: in increments of 8.
+    // 
+    //   - 64 to 128: in increments of 16.
+    // 
+    //   - 128 to 256: in increments of 32.
+    // 
+    //   - Greater than 256: in increments of 64.
+    // 
+    // > This parameter is required only for instances in Serverless automatic-scheduling mode and Serverless Pro instances.
     shared_ptr<string> serverlessResource_ {};
-    // The storage capacity of each compute node. Unit: GB. Valid values: 50 to 6000, in 50 increments.
+    // The storage capacity of each segment node. Unit: GB. The value must be a multiple of 50 in the range of 50 to <props="china">8,000<props="intl">6,000.
     // 
-    // >  This parameter is available only for instances in elastic storage mode.
+    // > This parameter is available only for instances in storage-elastic mode.
     shared_ptr<string> storageSize_ {};
-    // The type of the instance configuration change. Valid values:
+    // The type of specification change. Valid values:
     // 
-    // *   **0** (default): changes the number of compute nodes.
-    // *   **1**: changes the specifications and storage capacity of each compute node.
-    // *   **2**: changes the number of coordinator nodes.
-    // *   **3**: changes the disk storage type and ESSD performance level of the instance.
+    // - **0** (default): Changes the number of segment nodes. The SegNodeNum parameter is required, and other parameters are ignored.
     // 
-    // > 
+    // - **1**: Changes the specifications and storage capacity of segment nodes. The InstanceSpec parameter is required. The StorageSize parameter is optional. If specified, its value must be greater than or equal to the current storage capacity of the instance.
     // 
-    // *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "Usage notes" section of the [Change compute node configurations](https://help.aliyun.com/document_detail/50956.html) topic.
+    // - **2**: Changes the number of master nodes. The MasterNodeNum parameter is required, and other parameters are ignored.
     // 
-    // *   After you specify a change type, only the corresponding parameters take effect. For example, if you set **UpgradeType** to 0, the parameter that is used to change the number of compute nodes takes effect, but the parameter that is used to change the number of coordinator nodes does not.
-    // *   The number of coordinator nodes can be changed only on the China site (aliyun.com).
-    // *   The disk storage type can be changed only from ultra disks to ESSDs.
+    // - **3**: Changes the disk storage type and performance level. The SegDiskPerformanceLevel and SegStorageType parameters are required, and other parameters are ignored.
+    // 
+    // > * Support for scaling computing resources varies by instance resource type. For more information, see [Usage notes](https://help.aliyun.com/document_detail/50956.html).
+    // 
+    // - If you select a change type, only the parameters associated with that type take effect; other parameters are ignored. For example, if you set **UpgradeType** to 0 and specify parameters to change both the number of segment nodes and the number of master nodes, only the parameters for changing the number of segment nodes take effect.
+    // 
+    // - You can change the number of master nodes only on the Alibaba Cloud China site.
+    // 
+    // - You can change the disk storage type only from ultra disk to ESSD cloud disk.
     shared_ptr<int64_t> upgradeType_ {};
   };
 

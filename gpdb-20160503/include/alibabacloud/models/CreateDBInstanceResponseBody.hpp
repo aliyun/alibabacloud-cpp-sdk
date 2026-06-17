@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated and will not return a value.
+    // This parameter is deprecated and is no longer returned.
     // 
-    // You can use the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) interface to view the connection address of the instance.
+    // You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the connection string of the instance.
     shared_ptr<string> connectionString_ {};
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // Order ID.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // This parameter is deprecated and will not return a value.
+    // This parameter is deprecated and is no longer returned.
     // 
-    // You can use the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) interface to view the port number of the instance.
+    // You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the port number of the instance.
     shared_ptr<string> port_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

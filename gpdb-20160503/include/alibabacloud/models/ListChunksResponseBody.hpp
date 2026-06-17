@@ -242,9 +242,13 @@ namespace Models
 
   protected:
     shared_ptr<ListChunksResponseBody::Chunks> chunks_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int64_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

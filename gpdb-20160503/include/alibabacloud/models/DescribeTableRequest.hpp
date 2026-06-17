@@ -130,6 +130,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> table_ {};
+    // The ID of the workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. If both parameters are specified, this parameter takes precedence.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -59,18 +59,19 @@ namespace Models
   protected:
     // The billing method. Valid values:
     // 
-    // *   **Postpaid**: pay-as-you-go.
-    // *   **Prepaid**: subscription.
+    // - **Postpaid**: pay-as-you-go.
+    // 
+    // - **Prepaid**: subscription.
     shared_ptr<string> chargeType_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to query available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The zone ID.
+    // The availability zone ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent zone list.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to query available zone IDs.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

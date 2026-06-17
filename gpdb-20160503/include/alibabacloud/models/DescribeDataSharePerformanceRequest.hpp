@@ -75,24 +75,25 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The end of the time range to query. The time must be later than the start time, in UTC, and in the *&#x79;**\\*\\*\\*\\***&#x64;*&#x54;*HH:mm*Z format.
     shared_ptr<string> endTime_ {};
-    // The name of the performance metric. Separate multiple values with commas (,). Valid values:
+    // The name of the performance metric. To specify multiple metrics, separate the metric names with a comma (,). Valid values:
     // 
-    // *   **adbpg_datashare_topic_count**: the number of shared topics.
-    // *   **adbpg_datashare_data_size_mb**: the amount of data shared.
+    // - **adbpg_datashare_topic_count**: the number of shared topics.
+    // 
+    // - **adbpg_datashare_data_size_mb**: the size of shared data in MB.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The region ID of the instance.
+    // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // This parameter is no longer used.
+    // This parameter is deprecated.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The start of the time range to query. The time must be in UTC and in the *yyyy-MM-dd*T*HH:mm*Z format.
     shared_ptr<string> startTime_ {};
   };
 

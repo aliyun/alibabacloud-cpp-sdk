@@ -61,6 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
     // The service ID.
     // 

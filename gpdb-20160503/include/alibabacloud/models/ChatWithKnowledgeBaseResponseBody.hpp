@@ -97,9 +97,9 @@ namespace Models
 
 
       protected:
-        // The number of tokens that are used during vectorization.
+        // The number of tokens used for vectorization.
         // 
-        // >  A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
+        // > A token is the smallest unit of text. A token can be a word, a phrase, a punctuation mark, or a character.
         shared_ptr<int64_t> embeddingTokens_ {};
       };
 
@@ -220,25 +220,25 @@ namespace Models
 
 
       protected:
-        // The content of the document.
+        // The document content.
         shared_ptr<string> content_ {};
         // The file name.
         shared_ptr<string> fileName_ {};
-        // The URL of the image result. By default, the URL is valid for 2 hours.
+        // The public URL of the file. By default, the URL is valid for 2 hours.
         // 
-        // You can use the UrlExpiration parameter to specify a validity period.
+        // You can specify a custom validity period by using the `UrlExpiration` request parameter.
         shared_ptr<string> fileURL_ {};
-        // The unique ID of the vector data.
+        // The unique ID of the vector.
         shared_ptr<string> id_ {};
-        // Document loader metadata.
+        // The metadata generated when the document was loaded.
         Darabonba::Json loaderMetadata_ {};
         // The metadata.
         Darabonba::Json metadata_ {};
-        // The rerank score.
+        // The reranking score.
         shared_ptr<double> rerankScore_ {};
-        // The source of the retrieved results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
+        // The retrieval source. Valid values: `1` for vector retrieval, `2` for full-text search, and `3` for two-channel recall.
         shared_ptr<int64_t> retrievalSource_ {};
-        // The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
+        // The similarity score. The score is based on the algorithm `(l2/ip/cosine)` specified when the index was created.
         shared_ptr<double> score_ {};
         // The vector data.
         shared_ptr<vector<double>> vector_ {};
@@ -305,22 +305,23 @@ namespace Models
 
 
     protected:
-      // The details of the entity.
+      // A list of identified entity types.
       shared_ptr<vector<string>> entities_ {};
-      // The retrieved items.
+      // The recalled items.
       shared_ptr<vector<MultiCollectionRecallResult::Matches>> matches_ {};
-      // The name of the file.
+      // The relationship edges.
       shared_ptr<vector<string>> relations_ {};
-      // Request ID.
+      // The request ID.
       shared_ptr<string> requestId_ {};
-      // The status of the operation. Valid values:
+      // The status of the recall operation. Valid values:
       // 
-      // *   **success**
-      // *   **fail**
+      // - `success`: The recall was successful.
+      // 
+      // - `fail`: The recall failed.
       shared_ptr<string> status_ {};
-      // The number of tokens that are consumed.
+      // The number of tokens consumed by the recall process.
       shared_ptr<int64_t> tokens_ {};
-      // The number of tokens that are consumed during document understanding or embedding.
+      // Usage statistics for the recall, such as the number of tokens for vectorization.
       shared_ptr<MultiCollectionRecallResult::Usage> usage_ {};
     };
 
@@ -404,7 +405,7 @@ namespace Models
 
 
         protected:
-          // The number of tokens from cache hits.
+          // The number of prompt tokens that resulted in a cache hit.
           shared_ptr<int64_t> cachedTokens_ {};
         };
 
@@ -441,13 +442,13 @@ namespace Models
 
 
       protected:
-        // The number of tokens consumed by the generated content.
+        // The number of tokens in the generated response.
         shared_ptr<int64_t> completionTokens_ {};
-        // The number of tokens consumed by the prompt.
+        // The number of tokens in the input prompt.
         shared_ptr<int64_t> promptTokens_ {};
-        // The details about the prompt token.
+        // Details of the prompt tokens.
         shared_ptr<Usage::PromptTokensDetails> promptTokensDetails_ {};
-        // The total number of tokens.
+        // The total number of tokens used in the request (prompt tokens + completion tokens).
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -560,9 +561,9 @@ namespace Models
 
 
             protected:
-              // Arguments of the called function.
+              // The arguments to pass to the function.
               shared_ptr<string> arguments_ {};
-              // The name of the called function.
+              // The name of the function to call.
               shared_ptr<string> name_ {};
             };
 
@@ -592,11 +593,11 @@ namespace Models
 
 
           protected:
-            // Function call information.
+            // The function that the model wants to call.
             shared_ptr<ToolCalls::Function> function_ {};
-            // ID
+            // The ID of the tool call.
             shared_ptr<string> id_ {};
-            // The position of this tool in the \\"input\\" request parameter.
+            // The index of the tool call.
             shared_ptr<int64_t> index_ {};
           };
 
@@ -633,17 +634,19 @@ namespace Models
 
 
         protected:
-          // The content of the document.
+          // The content of the message.
           shared_ptr<string> content_ {};
-          // 模型思维内容
+          // The model\\"s reasoning process.
           shared_ptr<string> reasoningContent_ {};
-          // Message role:
+          // The role of the message:
           // 
-          // *   system
-          // *   user
-          // *   assistant
+          // - `system`
+          // 
+          // - `user`
+          // 
+          // - `assistant`
           shared_ptr<string> role_ {};
-          // Tool call response.
+          // A list of tool calls generated by the model.
           shared_ptr<vector<Message::ToolCalls>> toolCalls_ {};
         };
 
@@ -673,11 +676,11 @@ namespace Models
 
 
       protected:
-        // Finish reason.
+        // The reason the model stopped generating tokens.
         shared_ptr<string> finishReason_ {};
-        // The sequence number of the reply.
+        // The index of this choice in the `Choices` array.
         shared_ptr<int64_t> index_ {};
-        // LLM response.
+        // The message generated by the large language model.
         shared_ptr<Choices::Message> message_ {};
       };
 
@@ -723,15 +726,15 @@ namespace Models
 
 
     protected:
-      // Text content generated in real time.
+      // A list of chat completion choices.
       shared_ptr<vector<ChatCompletion::Choices>> choices_ {};
-      // The creation time.
+      // The creation time of the response, as a Unix timestamp.
       shared_ptr<int64_t> created_ {};
-      // The ID of the response.
+      // The response ID.
       shared_ptr<string> id_ {};
-      // The name of the model.
+      // The model that generated the response.
       shared_ptr<string> model_ {};
-      // The number of tokens used in LLM output.
+      // Token usage statistics for the chat completion.
       shared_ptr<ChatCompletion::Usage> usage_ {};
     };
 
@@ -777,18 +780,19 @@ namespace Models
 
 
   protected:
-    // model response.
+    // The response from the large language model.
     shared_ptr<ChatWithKnowledgeBaseResponseBody::ChatCompletion> chatCompletion_ {};
-    // The returned information.
+    // A message that provides details about the status of the operation.
     shared_ptr<string> message_ {};
-    // Retrieve information from multiple knowledge bases.
+    // The recall results from multiple knowledge bases.
     shared_ptr<ChatWithKnowledgeBaseResponseBody::MultiCollectionRecallResult> multiCollectionRecallResult_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
+    // The final status of the request. Valid values:
     // 
-    // *   **success**
-    // *   **fail**
+    // - `success`: The request was successful.
+    // 
+    // - `fail`: The request failed.
     shared_ptr<string> status_ {};
   };
 

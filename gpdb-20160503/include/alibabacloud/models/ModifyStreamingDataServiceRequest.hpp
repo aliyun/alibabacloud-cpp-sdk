@@ -81,6 +81,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The region ID.  
+    // 
+    // > You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
     shared_ptr<string> regionId_ {};
     // The description of the service.
     shared_ptr<string> serviceDescription_ {};

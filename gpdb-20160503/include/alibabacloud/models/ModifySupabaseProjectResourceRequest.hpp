@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The modification type.
+    // 
     // This parameter is required.
     shared_ptr<string> modifyType_ {};
+    // The Supabase project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // The new project specifications.
     shared_ptr<string> projectSpec_ {};
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
+    // The storage size, in GB.
     shared_ptr<int64_t> storageSize_ {};
   };
 

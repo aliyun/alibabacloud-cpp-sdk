@@ -156,11 +156,11 @@ namespace Models
 
 
           protected:
-            // The maximum storage capacity of each compute node.
+            // The maximum Segment storage capacity.
             shared_ptr<string> maxCount_ {};
-            // The minimum storage capacity of each compute node.
+            // The minimum Segment storage capacity.
             shared_ptr<string> minCount_ {};
-            // The step size for adding storage capacity for compute nodes.
+            // The Segment storage expansion step size.
             shared_ptr<string> step_ {};
           };
 
@@ -211,13 +211,13 @@ namespace Models
 
 
           protected:
-            // The maximum number of compute nodes.
+            // The maximum number of Segment nodes.
             shared_ptr<string> maxCount_ {};
-            // The minimum number of compute nodes.
+            // The minimum number of Segment nodes.
             shared_ptr<string> minCount_ {};
-            // The step size for adding compute nodes.
+            // The step size for adding nodes.
             // 
-            // For example, if the value of this parameter is 4, compute nodes must be added by multiples of 4.
+            // For example, if this parameter is set to 4, the number of nodes added must be a multiple of 4 when adding Segment nodes.
             shared_ptr<string> step_ {};
           };
 
@@ -278,26 +278,29 @@ namespace Models
 
 
         protected:
-          // The instance edition. Valid values:
+          // The instance series. Valid values:
           // 
-          // *   **HighAvailability**: High-availability Edition
-          // *   **Basic**: Basic Edition
+          // - **HighAvailability**: High-availability edition.
+          // 
+          // - **Basic**: Basic edition
           shared_ptr<string> category_ {};
-          // The description of compute node specifications.
+          // The description of the segment node instance type.
           shared_ptr<string> description_ {};
-          // The specifications of each compute node.
+          // The display name of the segment node instance type.
           shared_ptr<string> displayClass_ {};
-          // The specifications of each compute node.
+          // The instance type of the segment node.
           shared_ptr<string> instanceClass_ {};
-          // Details about the compute nodes.
+          // Details of the segment nodes.
           shared_ptr<SupportedInstanceClasses::NodeCount> nodeCount_ {};
-          // Details about the storage capacity of compute nodes.
+          // The Segment storage capacity.
           shared_ptr<SupportedInstanceClasses::StorageSize> storageSize_ {};
           // The storage type. Valid values:
           // 
-          // *   **cloud_essd**: enhanced SSD (ESSD)
-          // *   **cloud_efficiency**: ultra disk
-          // *   **oss**: Object Storage Service (OSS)
+          // - **cloud_essd**: ESSD cloud disk.
+          // 
+          // - **cloud_efficiency**: Standard cloud disk.
+          // 
+          // - **oss**:OSS.
           shared_ptr<string> storageType_ {};
         };
 
@@ -329,12 +332,13 @@ namespace Models
       protected:
         // The instance resource type. Valid values:
         // 
-        // *   **ecs**: elastic storage mode
-        // *   **serverless**: Serverless mode
+        // - **ecs**: Elastic storage mode.
+        // 
+        // - **serverless**: Serverless mode.
         shared_ptr<string> mode_ {};
-        // The available engine version.
+        // The supported engine version.
         shared_ptr<string> supportedEngineVersion_ {};
-        // The available specifications.
+        // The supported instance types.
         shared_ptr<vector<SupportedEngines::SupportedInstanceClasses>> supportedInstanceClasses_ {};
       };
 
@@ -357,9 +361,9 @@ namespace Models
 
 
     protected:
-      // The available engine version and specifications.
+      // Details of the supported engines and instance types.
       shared_ptr<vector<Resources::SupportedEngines>> supportedEngines_ {};
-      // The ID of the zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -393,7 +397,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The zone ID.
+    // The available resources.
     shared_ptr<vector<DescribeAvailableResourcesResponseBody::Resources>> resources_ {};
   };
 

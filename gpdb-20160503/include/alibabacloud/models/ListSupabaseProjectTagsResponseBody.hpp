@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> resourceId_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The tag key.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -122,9 +126,11 @@ namespace Models
 
 
   protected:
+    // The pagination token for the next page of results. This parameter is not returned if no more results are available.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of tagged resources.
     shared_ptr<vector<ListSupabaseProjectTagsResponseBody::TagResources>> tagResources_ {};
   };
 

@@ -94,24 +94,24 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The instance ID.
     // 
-    // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specified region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Whether to return the retrieved result. Default value: false.
+    // Specifies whether to include the retrieved knowledge base results in the response. Default value: `false`.
     shared_ptr<bool> includeKnowledgeBaseResults_ {};
-    // The knowledge retrieval parameter object. If you do not specify this parameter, only chat mode is enabled.
+    // Parameters for knowledge retrieval. If omitted, the API performs a chat-only operation.
     shared_ptr<string> knowledgeParamsShrink_ {};
-    // The Large Language Model (LLM) invocation parameter object.
+    // An object that contains parameters for the Large Language Model (LLM) call.
     // 
     // This parameter is required.
     shared_ptr<string> modelParamsShrink_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The system prompt template, which should include {{ text_chunks }},{{ user_system_prompt }},{{ graph_entities },{{ graph_relations }}. If any of these placeholders are not specified, the corresponding section should have no effect.
+    // A template for the system prompt. It must include placeholders such as `{{text_chunks}}`, `{{user_system_prompt}}`, `{{graph_entities}}`, and `{{graph_relations}}`. If omitted, no custom prompt template is applied.
     shared_ptr<string> promptParams_ {};
-    // The region ID of the instance.
+    // The instance\\"s region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

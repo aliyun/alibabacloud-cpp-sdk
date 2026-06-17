@@ -66,12 +66,26 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
+    // > To view details of all instances in a destination region, including their IDs, call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // A comma-separated list of IP addresses or CIDR blocks in the IP address whitelist group. You can specify up to 1000 entries. To block all external IP addresses, set this parameter to 127.0.0.1. Valid formats include the following:
+    // 
+    // - 10.23.12.24 (an IPv4 address)
+    // 
+    // - 10.23.12.24/24 (a CIDR block. The number after the slash indicates the prefix length and must be between 1 and 32.)
+    // 
     // This parameter is required.
     shared_ptr<string> securityIPList_ {};
+    // The ID of the service.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
+    // The service type. Only drama is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

@@ -264,50 +264,62 @@ namespace Models
 
 
     protected:
-      shared_ptr<string> autoScale_ {};
-      // The creation time.
-      shared_ptr<string> createTime_ {};
-      // Supabase Dashboard password (not used).
-      shared_ptr<string> dashboardPassword_ {};
-      // Supabase Dashboard user name (not used).
-      shared_ptr<string> dashboardUserName_ {};
-      // The ESSD performance level.
-      shared_ptr<string> diskPerformanceLevel_ {};
-      // The database engine type.
-      shared_ptr<string> engine_ {};
-      // The database engine version.
-      shared_ptr<string> engineVersion_ {};
-      shared_ptr<string> expireTime_ {};
-      // The billing method of the instance. Valid values:
+      // Indicates if the **auto start and stop** feature is enabled.
+      // Valid values:
       // 
-      // *   **Postpaid**: pay-as-you-go
-      // *   **Prepaid**: subscription.
-      // *   **Free**: Free.
+      // - `true`: The feature is enabled. The Supabase instance automatically pauses and resumes based on traffic.
+      // 
+      // - `false`: The auto start and stop feature is disabled.
+      shared_ptr<string> autoScale_ {};
+      // The time when the resource was created.
+      shared_ptr<string> createTime_ {};
+      // The password for the Supabase dashboard. This parameter is reserved.
+      shared_ptr<string> dashboardPassword_ {};
+      // The username for the Supabase dashboard. This parameter is reserved.
+      shared_ptr<string> dashboardUserName_ {};
+      // The disk performance level.
+      shared_ptr<string> diskPerformanceLevel_ {};
+      // The database engine.
+      shared_ptr<string> engine_ {};
+      // The engine version.
+      shared_ptr<string> engineVersion_ {};
+      // The expiration time.
+      shared_ptr<string> expireTime_ {};
+      // The billing method. Valid values:
+      // 
+      // - **Postpaid**: pay-as-you-go.
+      // 
+      // - **Prepaid**: subscription.
+      // 
+      // - **Free**: The instance is free of charge.
       shared_ptr<string> payType_ {};
-      // The private (VPC) connection URL for the Supabase Dashboard.
+      // The private endpoint for the Supabase dashboard.
       shared_ptr<string> privateConnectUrl_ {};
+      // The detailed description of the Supabase project.
       shared_ptr<string> projectDescription_ {};
-      // The Supabase project ID.
+      // The ID of the Supabase instance.
       shared_ptr<string> projectId_ {};
       // The name of the Supabase project.
       shared_ptr<string> projectName_ {};
-      // The type of the Supabase instance.
+      // The Supabase instance specification.
       shared_ptr<string> projectSpec_ {};
-      // The public connection URL for the Supabase Dashboard.
+      // The public endpoint for the Supabase dashboard.
       shared_ptr<string> publicConnectUrl_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // A comma-separated list of IP addresses and CIDR blocks allowed to connect. Valid values:
+      // The IP whitelist. IP addresses are separated by commas. The following formats are supported:
       // 
-      // *   0.0.0.0/0
-      // *   10.23.12.24(IP)
-      // *   10.23.12.24/24. This is a CIDR block. The value`/24`indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value in the range of`[1,32]`.
+      // - 0.0.0.0/0
+      // 
+      // - 10.23.12.24 (IP)
+      // 
+      // - 10.23.12.24/24 (a Classless Inter-Domain Routing (CIDR) block; the prefix length, which is the number after the `/`, must be an integer from 1 to 32.)
       shared_ptr<string> securityIPList_ {};
-      // The status of the Supabase instance.
+      // The status of the instance.
       shared_ptr<string> status_ {};
-      // The storage capacity of the instance. Unit: GB.
+      // The storage size in GB.
       shared_ptr<int64_t> storageSize_ {};
-      // The vSwitch ID of the instance.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
@@ -370,19 +382,19 @@ namespace Models
 
 
   protected:
-    // A list of objects, where each object represents a Supabase instance.
+    // A list of instance details.
     shared_ptr<vector<ListSupabaseProjectsResponseBody::Items>> items_ {};
-    // The maximum amount of data to read this time. Default value: 10.
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token to use in the next request to get the next page. If this field is empty, there are no more results.
+    // A pagination token for retrieving the next page of results. If this parameter is not returned, it indicates that all results have been displayed.
     shared_ptr<string> nextToken_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of log entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

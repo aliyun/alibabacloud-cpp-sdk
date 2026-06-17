@@ -38,7 +38,22 @@ AlibabaCloud::Gpdb20160503::Client::Client(AlibabaCloud::OpenApi::Utils::Models:
     {"cn-shanghai-finance-1" , "gpdb.aliyuncs.com"},
     {"cn-shenzhen-finance-1" , "gpdb.aliyuncs.com"},
     {"cn-qingdao" , "gpdb.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "gpdb.aliyuncs.com"}
+    {"cn-north-2-gov-1" , "gpdb.aliyuncs.com"},
+    {"me-east-1" , "gpdb.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "gpdb.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "gpdb.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "gpdb.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "gpdb.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-huhehaote" , "gpdb.cn-huhehaote.aliyuncs.com"},
+    {"cn-chengdu" , "gpdb.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "gpdb.aliyuncs.com"},
+    {"ap-southeast-7" , "gpdb.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-5" , "gpdb.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "gpdb.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "gpdb.ap-southeast-2.aliyuncs.com"},
+    {"ap-south-1" , "gpdb.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2" , "gpdb.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "gpdb.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("gpdb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -475,13 +490,13 @@ CancelUpsertCollectionDataJobResponse Client::cancelUpsertCollectionDataJob(cons
 }
 
 /**
- * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
+ * @summary Combines a knowledge base with a large language model for intelligent Q&A.
  *
- * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
- * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
- * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
- * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
- * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
+ * @description This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
+ * - **DBInstanceId**: Required. Specifies the ID of the database instance.
+ * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
+ * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
+ * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -546,13 +561,13 @@ ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBaseWithOptions(const Cha
 }
 
 /**
- * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
+ * @summary Combines a knowledge base with a large language model for intelligent Q&A.
  *
- * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
- * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
- * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
- * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
- * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
+ * @description This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
+ * - **DBInstanceId**: Required. Specifies the ID of the database instance.
+ * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
+ * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
+ * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
  *
  * @param request ChatWithKnowledgeBaseRequest
  * @return ChatWithKnowledgeBaseResponse
@@ -563,13 +578,13 @@ ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBase(const ChatWithKnowle
 }
 
 /**
- * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
+ * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
  *
- * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
- * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
- * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
- * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
- * *   PromptTemplate: optional. It is used to customize a system prompt template.
+ * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
+ * - DBInstanceId: Required. The ID of the database instance.
+ * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
+ * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
+ * - PromptTemplate: Optional. A custom system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -648,13 +663,13 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
+ * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
  *
- * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
- * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
- * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
- * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
- * *   PromptTemplate: optional. It is used to customize a system prompt template.
+ * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
+ * - DBInstanceId: Required. The ID of the database instance.
+ * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
+ * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
+ * - PromptTemplate: Optional. A custom system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -719,13 +734,13 @@ ChatWithKnowledgeBaseStreamResponse Client::chatWithKnowledgeBaseStreamWithOptio
 }
 
 /**
- * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
+ * @summary This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
  *
- * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
- * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
- * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
- * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
- * *   PromptTemplate: optional. It is used to customize a system prompt template.
+ * @description Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
+ * - DBInstanceId: Required. The ID of the database instance.
+ * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
+ * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
+ * - PromptTemplate: Optional. A custom system prompt template.
  *
  * @param request ChatWithKnowledgeBaseStreamRequest
  * @return ChatWithKnowledgeBaseStreamResponse
@@ -990,7 +1005,7 @@ CloneDBInstanceResponse Client::cloneDBInstance(const CloneDBInstanceRequest &re
 }
 
 /**
- * @summary 创建 AI 服务
+ * @summary Creates an AI service.
  *
  * @param request CreateAIServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1041,7 +1056,7 @@ CreateAIServiceResponse Client::createAIServiceWithOptions(const CreateAIService
 }
 
 /**
- * @summary 创建 AI 服务
+ * @summary Creates an AI service.
  *
  * @param request CreateAIServiceRequest
  * @return CreateAIServiceResponse
@@ -1170,7 +1185,7 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
- * @summary Creates a vector collection.
+ * @summary Create a vector dataset.
  *
  * @param tmpReq CreateCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1295,7 +1310,7 @@ CreateCollectionResponse Client::createCollectionWithOptions(const CreateCollect
 }
 
 /**
- * @summary Creates a vector collection.
+ * @summary Create a vector dataset.
  *
  * @param request CreateCollectionRequest
  * @return CreateCollectionResponse
@@ -1306,9 +1321,9 @@ CreateCollectionResponse Client::createCollection(const CreateCollectionRequest 
 }
 
 /**
- * @summary Create Instance
+ * @summary Create an AnalyticDB for PostgreSQL instance.
  *
- * @description Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
+ * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) for AnalyticDB for PostgreSQL.
  *
  * @param request CreateDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1519,9 +1534,9 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 }
 
 /**
- * @summary Create Instance
+ * @summary Create an AnalyticDB for PostgreSQL instance.
  *
- * @description Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
+ * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) for AnalyticDB for PostgreSQL.
  *
  * @param request CreateDBInstanceRequest
  * @return CreateDBInstanceResponse
@@ -1794,7 +1809,7 @@ CreateDatabaseResponse Client::createDatabase(const CreateDatabaseRequest &reque
 }
 
 /**
- * @summary Creates a document collection.
+ * @summary Create a knowledge base
  *
  * @param tmpReq CreateDocumentCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1951,7 +1966,7 @@ CreateDocumentCollectionResponse Client::createDocumentCollectionWithOptions(con
 }
 
 /**
- * @summary Creates a document collection.
+ * @summary Create a knowledge base
  *
  * @param request CreateDocumentCollectionRequest
  * @return CreateDocumentCollectionResponse
@@ -2314,7 +2329,7 @@ CreateJDBCDataSourceResponse Client::createJDBCDataSource(const CreateJDBCDataSo
 /**
  * @summary Creates a model service.
  *
- * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+ * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param tmpReq CreateModelServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2399,7 +2414,7 @@ CreateModelServiceResponse Client::createModelServiceWithOptions(const CreateMod
 /**
  * @summary Creates a model service.
  *
- * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+ * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param request CreateModelServiceRequest
  * @return CreateModelServiceResponse
@@ -2555,6 +2570,80 @@ CreateRemoteADBDataSourceResponse Client::createRemoteADBDataSourceWithOptions(c
 CreateRemoteADBDataSourceResponse Client::createRemoteADBDataSource(const CreateRemoteADBDataSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createRemoteADBDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a SaaS service.
+ *
+ * @description Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+ *
+ * @param request CreateSaasServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSaasServiceResponse
+ */
+CreateSaasServiceResponse Client::createSaasServiceWithOptions(const CreateSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCu()) {
+    query["Cu"] = request.getCu();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPlan()) {
+    query["Plan"] = request.getPlan();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceType()) {
+    query["ServiceType"] = request.getServiceType();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSaasService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSaasServiceResponse>();
+}
+
+/**
+ * @summary Creates a SaaS service.
+ *
+ * @description Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+ *
+ * @param request CreateSaasServiceRequest
+ * @return CreateSaasServiceResponse
+ */
+CreateSaasServiceResponse Client::createSaasService(const CreateSaasServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSaasServiceWithOptions(request, runtime);
 }
 
 /**
@@ -3002,7 +3091,7 @@ CreateStreamingJobResponse Client::createStreamingJob(const CreateStreamingJobRe
 /**
  * @summary Creates a Supabase project.
  *
- * @description *   You can call this operation to create a Supabase project.
+ * @description - This operation is used to create a Supabase instance.
  *
  * @param request CreateSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3025,6 +3114,10 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 
   if (!!request.hasDiskPerformanceLevel()) {
     query["DiskPerformanceLevel"] = request.getDiskPerformanceLevel();
+  }
+
+  if (!!request.hasEngineVersion()) {
+    query["EngineVersion"] = request.getEngineVersion();
   }
 
   if (!!request.hasPayType()) {
@@ -3091,7 +3184,7 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 /**
  * @summary Creates a Supabase project.
  *
- * @description *   You can call this operation to create a Supabase project.
+ * @description - This operation is used to create a Supabase instance.
  *
  * @param request CreateSupabaseProjectRequest
  * @return CreateSupabaseProjectResponse
@@ -3102,7 +3195,7 @@ CreateSupabaseProjectResponse Client::createSupabaseProject(const CreateSupabase
 }
 
 /**
- * @summary Create Vector Index
+ * @summary Creates an index for a vector collection.
  *
  * @param request CreateVectorIndexRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3197,7 +3290,7 @@ CreateVectorIndexResponse Client::createVectorIndexWithOptions(const CreateVecto
 }
 
 /**
- * @summary Create Vector Index
+ * @summary Creates an index for a vector collection.
  *
  * @param request CreateVectorIndexRequest
  * @return CreateVectorIndexResponse
@@ -3205,6 +3298,56 @@ CreateVectorIndexResponse Client::createVectorIndexWithOptions(const CreateVecto
 CreateVectorIndexResponse Client::createVectorIndex(const CreateVectorIndexRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createVectorIndexWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a SaaS workspace.
+ *
+ * @description Creates a context service workspace.
+ *
+ * @param request CreateWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["WorkspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateWorkspace"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkspaceResponse>();
+}
+
+/**
+ * @summary Creates a SaaS workspace.
+ *
+ * @description Creates a context service workspace.
+ *
+ * @param request CreateWorkspaceRequest
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWorkspaceWithOptions(request, runtime);
 }
 
 /**
@@ -3268,7 +3411,7 @@ DeleteAINodeResponse Client::deleteAINode(const DeleteAINodeRequest &request) {
 }
 
 /**
- * @summary 删除 AI 服务
+ * @summary Deletes an AI service.
  *
  * @param request DeleteAIServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3307,7 +3450,7 @@ DeleteAIServiceResponse Client::deleteAIServiceWithOptions(const DeleteAIService
 }
 
 /**
- * @summary 删除 AI 服务
+ * @summary Deletes an AI service.
  *
  * @param request DeleteAIServiceRequest
  * @return DeleteAIServiceResponse
@@ -3410,7 +3553,7 @@ DeleteBackupResponse Client::deleteBackup(const DeleteBackupRequest &request) {
 }
 
 /**
- * @summary 删除文本块
+ * @summary Deletes chunks from a document collection.
  *
  * @param tmpReq DeleteChunksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3467,7 +3610,7 @@ DeleteChunksResponse Client::deleteChunksWithOptions(const DeleteChunksRequest &
 }
 
 /**
- * @summary 删除文本块
+ * @summary Deletes chunks from a document collection.
  *
  * @param request DeleteChunksRequest
  * @return DeleteChunksResponse
@@ -4114,7 +4257,7 @@ DeleteExternalDataServiceResponse Client::deleteExternalDataService(const Delete
 }
 
 /**
- * @summary Deletes a Hadoop external data source.
+ * @summary Delete a Hadoop external data source.
  *
  * @param request DeleteHadoopDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4153,7 +4296,7 @@ DeleteHadoopDataSourceResponse Client::deleteHadoopDataSourceWithOptions(const D
 }
 
 /**
- * @summary Deletes a Hadoop external data source.
+ * @summary Delete a Hadoop external data source.
  *
  * @param request DeleteHadoopDataSourceRequest
  * @return DeleteHadoopDataSourceResponse
@@ -4492,6 +4635,56 @@ DeleteRemoteADBDataSourceResponse Client::deleteRemoteADBDataSource(const Delete
 }
 
 /**
+ * @summary Deletes a SaaS service.
+ *
+ * @description Deletes a SaaS service.
+ *
+ * @param request DeleteSaasServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSaasServiceResponse
+ */
+DeleteSaasServiceResponse Client::deleteSaasServiceWithOptions(const DeleteSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSaasService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSaasServiceResponse>();
+}
+
+/**
+ * @summary Deletes a SaaS service.
+ *
+ * @description Deletes a SaaS service.
+ *
+ * @param request DeleteSaasServiceRequest
+ * @return DeleteSaasServiceResponse
+ */
+DeleteSaasServiceResponse Client::deleteSaasService(const DeleteSaasServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSaasServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the access credentials of an AnalyticDB for PostgreSQL instance.
  *
  * @param request DeleteSecretRequest
@@ -4554,7 +4747,7 @@ DeleteSecretResponse Client::deleteSecret(const DeleteSecretRequest &request) {
 }
 
 /**
- * @summary Deletes the configurations of an external data source.
+ * @summary Delete a real-time data service.
  *
  * @param request DeleteStreamingDataServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4593,7 +4786,7 @@ DeleteStreamingDataServiceResponse Client::deleteStreamingDataServiceWithOptions
 }
 
 /**
- * @summary Deletes the configurations of an external data source.
+ * @summary Delete a real-time data service.
  *
  * @param request DeleteStreamingDataServiceRequest
  * @return DeleteStreamingDataServiceResponse
@@ -4604,7 +4797,7 @@ DeleteStreamingDataServiceResponse Client::deleteStreamingDataService(const Dele
 }
 
 /**
- * @summary Deletes a real-time data source.
+ * @summary Delete a real-time data source.
  *
  * @param request DeleteStreamingDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4643,7 +4836,7 @@ DeleteStreamingDataSourceResponse Client::deleteStreamingDataSourceWithOptions(c
 }
 
 /**
- * @summary Deletes a real-time data source.
+ * @summary Delete a real-time data source.
  *
  * @param request DeleteStreamingDataSourceRequest
  * @return DeleteStreamingDataSourceResponse
@@ -4654,7 +4847,7 @@ DeleteStreamingDataSourceResponse Client::deleteStreamingDataSource(const Delete
 }
 
 /**
- * @summary Deletes a real-time data synchronization job.
+ * @summary Delete a real-time data synchronization task.
  *
  * @param request DeleteStreamingJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4693,7 +4886,7 @@ DeleteStreamingJobResponse Client::deleteStreamingJobWithOptions(const DeleteStr
 }
 
 /**
- * @summary Deletes a real-time data synchronization job.
+ * @summary Delete a real-time data synchronization task.
  *
  * @param request DeleteStreamingJobRequest
  * @return DeleteStreamingJobResponse
@@ -4824,10 +5017,60 @@ DeleteVectorIndexResponse Client::deleteVectorIndex(const DeleteVectorIndexReque
 }
 
 /**
+ * @summary 删除SaaS工作空间
+ *
+ * @description 此接口为删除上下文服务工作空间
+ *
+ * @param request DeleteWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const DeleteWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkspace"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkspaceResponse>();
+}
+
+/**
+ * @summary 删除SaaS工作空间
+ *
+ * @description 此接口为删除上下文服务工作空间
+ *
+ * @param request DeleteWorkspaceRequest
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspace(const DeleteWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWorkspaceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deploy a private RAG service.
  *
- * @description 1.  Before you deploy the private RAG service, create an initial account.
- * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
+ * @description 1. 部署私有RAG服务前，请先创建初始账号。
+ * 2. 私有RAG服务支持向量接口，调用时请配置CA证书。
  *
  * @param request DeployPrivateRAGServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4868,8 +5111,8 @@ DeployPrivateRAGServiceResponse Client::deployPrivateRAGServiceWithOptions(const
 /**
  * @summary Deploy a private RAG service.
  *
- * @description 1.  Before you deploy the private RAG service, create an initial account.
- * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
+ * @description 1. 部署私有RAG服务前，请先创建初始账号。
+ * 2. 私有RAG服务支持向量接口，调用时请配置CA证书。
  *
  * @param request DeployPrivateRAGServiceRequest
  * @return DeployPrivateRAGServiceResponse
@@ -4880,7 +5123,7 @@ DeployPrivateRAGServiceResponse Client::deployPrivateRAGService(const DeployPriv
 }
 
 /**
- * @summary 获取 AI 服务详情
+ * @summary Retrieves the details of an AI service.
  *
  * @param request DescribeAIServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4919,7 +5162,7 @@ DescribeAIServiceResponse Client::describeAIServiceWithOptions(const DescribeAIS
 }
 
 /**
- * @summary 获取 AI 服务详情
+ * @summary Retrieves the details of an AI service.
  *
  * @param request DescribeAIServiceRequest
  * @return DescribeAIServiceResponse
@@ -5062,9 +5305,9 @@ DescribeActiveSQLRecordsResponse Client::describeActiveSQLRecords(const Describe
 }
 
 /**
- * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+ * @summary Gets the purchasable resources for AnalyticDB for PostgreSQL.
  *
- * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+ * @description Before creating an AnalyticDB for PostgreSQL instance, you can use this operation to query the available instance offerings in a specified availability zone.
  *
  * @param request DescribeAvailableResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5103,9 +5346,9 @@ DescribeAvailableResourcesResponse Client::describeAvailableResourcesWithOptions
 }
 
 /**
- * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+ * @summary Gets the purchasable resources for AnalyticDB for PostgreSQL.
  *
- * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+ * @description Before creating an AnalyticDB for PostgreSQL instance, you can use this operation to query the available instance offerings in a specified availability zone.
  *
  * @param request DescribeAvailableResourcesRequest
  * @return DescribeAvailableResourcesResponse
@@ -5404,9 +5647,9 @@ DescribeDBClusterNodeResponse Client::describeDBClusterNode(const DescribeDBClus
 }
 
 /**
- * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+ * @summary View the Performance Monitoring of an AnalyticDB for PostgreSQL instance over a specified time period.
  *
- * @description You can query monitoring information only within the last 30 days.
+ * @description Monitoring information can only be queried for the last 30 days.
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5461,9 +5704,9 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformanceWithOpt
 }
 
 /**
- * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+ * @summary View the Performance Monitoring of an AnalyticDB for PostgreSQL instance over a specified time period.
  *
- * @description You can query monitoring information only within the last 30 days.
+ * @description Monitoring information can only be queried for the last 30 days.
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @return DescribeDBClusterPerformanceResponse
@@ -5474,13 +5717,13 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformance(const 
 }
 
 /**
- * @summary Query detailed information about the instance.
+ * @summary Query the details of an AnalyticDB for PostgreSQL instance.
  *
- * @description ## Usage Instructions
- * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
- * ## QPS Limitation
- * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
- * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+ * @description ## How-To  
+ * This API is typically used to view information such as the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.  
+ * ## Queries per second (QPS) limit  
+ * The default QPS limit for this API is 1000 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may affect your business operations. Please invoke the API appropriately.  
+ * <props="china">The QPS value provided in this document is for reference only. For accurate information, see [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5519,13 +5762,13 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttributeWithOptio
 }
 
 /**
- * @summary Query detailed information about the instance.
+ * @summary Query the details of an AnalyticDB for PostgreSQL instance.
  *
- * @description ## Usage Instructions
- * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
- * ## QPS Limitation
- * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
- * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+ * @description ## How-To  
+ * This API is typically used to view information such as the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.  
+ * ## Queries per second (QPS) limit  
+ * The default QPS limit for this API is 1000 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may affect your business operations. Please invoke the API appropriately.  
+ * <props="china">The QPS value provided in this document is for reference only. For accurate information, see [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @return DescribeDBInstanceAttributeResponse
@@ -6208,12 +6451,14 @@ DescribeDBInstanceSupportMaxPerformanceResponse Client::describeDBInstanceSuppor
 }
 
 /**
- * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+ * @summary Lists AnalyticDB for PostgreSQL instances.
  *
- * @description ##
- * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
- * ## Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description ## Usage
+ * This API retrieves details for AnalyticDB for PostgreSQL instances in a specified region, such as instance type, network type, and instance status.
+ * ## QPS limit
+ * The default QPS limit for this API is 1,000 requests per second per user. Calls exceeding this limit are throttled, which can impact your business. Plan your API calls accordingly.
+ * <props="china">
+ * The QPS limit specified in this document is for reference only. For the latest rate limits, see the [API rate quota list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
  *
  * @param tmpReq DescribeDBInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6314,12 +6559,14 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 }
 
 /**
- * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+ * @summary Lists AnalyticDB for PostgreSQL instances.
  *
- * @description ##
- * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
- * ## Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description ## Usage
+ * This API retrieves details for AnalyticDB for PostgreSQL instances in a specified region, such as instance type, network type, and instance status.
+ * ## QPS limit
+ * The default QPS limit for this API is 1,000 requests per second per user. Calls exceeding this limit are throttled, which can impact your business. Plan your API calls accordingly.
+ * <props="china">
+ * The QPS limit specified in this document is for reference only. For the latest rate limits, see the [API rate quota list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
  *
  * @param request DescribeDBInstancesRequest
  * @return DescribeDBInstancesResponse
@@ -6330,7 +6577,7 @@ DescribeDBInstancesResponse Client::describeDBInstances(const DescribeDBInstance
 }
 
 /**
- * @summary Queries the information about resource groups.
+ * @summary Retrieves the details of one or more resource groups.
  *
  * @param request DescribeDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6369,7 +6616,7 @@ DescribeDBResourceGroupResponse Client::describeDBResourceGroupWithOptions(const
 }
 
 /**
- * @summary Queries the information about resource groups.
+ * @summary Retrieves the details of one or more resource groups.
  *
  * @param request DescribeDBResourceGroupRequest
  * @return DescribeDBResourceGroupResponse
@@ -6674,11 +6921,9 @@ DescribeDataShareInstancesResponse Client::describeDataShareInstances(const Desc
 }
 
 /**
- * @summary Queries the information about data sharing performance metrics.
+ * @summary Queries the performance metrics of data sharing.
  *
- * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
- * ## Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Only serverless instances support the data sharing feature.
  *
  * @param request DescribeDataSharePerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6725,11 +6970,9 @@ DescribeDataSharePerformanceResponse Client::describeDataSharePerformanceWithOpt
 }
 
 /**
- * @summary Queries the information about data sharing performance metrics.
+ * @summary Queries the performance metrics of data sharing.
  *
- * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
- * ## Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Only serverless instances support the data sharing feature.
  *
  * @param request DescribeDataSharePerformanceRequest
  * @return DescribeDataSharePerformanceResponse
@@ -7114,10 +7357,10 @@ DescribeDocumentResponse Client::describeDocument(const DescribeDocumentRequest 
 }
 
 /**
- * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+ * @summary Queries the download records for query diagnostic information for AnalyticDB for PostgreSQL.
  *
- * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
- * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+ * @description To view download records, you must first call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information.
+ * This feature is available only for storage-elastic instances that run kernel minor version V6.3.10.1 or later. For more information about how to view and update the kernel minor version, see [View the kernel minor version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the kernel version](https://help.aliyun.com/document_detail/139271.html).
  *
  * @param request DescribeDownloadRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7152,10 +7395,10 @@ DescribeDownloadRecordsResponse Client::describeDownloadRecordsWithOptions(const
 }
 
 /**
- * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+ * @summary Queries the download records for query diagnostic information for AnalyticDB for PostgreSQL.
  *
- * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
- * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+ * @description To view download records, you must first call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information.
+ * This feature is available only for storage-elastic instances that run kernel minor version V6.3.10.1 or later. For more information about how to view and update the kernel minor version, see [View the kernel minor version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the kernel version](https://help.aliyun.com/document_detail/139271.html).
  *
  * @param request DescribeDownloadRecordsRequest
  * @return DescribeDownloadRecordsResponse
@@ -7308,7 +7551,7 @@ DescribeExternalDataServiceResponse Client::describeExternalDataService(const De
 }
 
 /**
- * @summary Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
+ * @summary Retrieves E-MapReduce (EMR) clusters in the same Virtual Private Cloud (VPC).
  *
  * @param request DescribeHadoopClustersInSameNetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7343,7 +7586,7 @@ DescribeHadoopClustersInSameNetResponse Client::describeHadoopClustersInSameNetW
 }
 
 /**
- * @summary Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
+ * @summary Retrieves E-MapReduce (EMR) clusters in the same Virtual Private Cloud (VPC).
  *
  * @param request DescribeHadoopClustersInSameNetRequest
  * @return DescribeHadoopClustersInSameNetResponse
@@ -8202,11 +8445,9 @@ DescribeRebalanceStatusResponse Client::describeRebalanceStatus(const DescribeRe
 }
 
 /**
- * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+ * @summary Queries the regions and zones where you can create AnalyticDB for PostgreSQL instances.
  *
- * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
- * ## Limit
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+ * @description Before you create an AnalyticDB for PostgreSQL instance, call this operation to query the available regions and zones.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8237,11 +8478,9 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+ * @summary Queries the regions and zones where you can create AnalyticDB for PostgreSQL instances.
  *
- * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
- * ## Limit
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+ * @description Before you create an AnalyticDB for PostgreSQL instance, call this operation to query the available regions and zones.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -8298,9 +8537,9 @@ DescribeRolesResponse Client::describeRoles(const DescribeRolesRequest &request)
 }
 
 /**
- * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+ * @summary Obtain the quantity of audit logs for an AnalyticDB for PostgreSQL instance.
  *
- * @description This operation is not available for instances in reserved storage mode.
+ * @description This API does not support instances of the storage-reserved type.
  *
  * @param request DescribeSQLLogCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8379,9 +8618,9 @@ DescribeSQLLogCountResponse Client::describeSQLLogCountWithOptions(const Describ
 }
 
 /**
- * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+ * @summary Obtain the quantity of audit logs for an AnalyticDB for PostgreSQL instance.
  *
- * @description This operation is not available for instances in reserved storage mode.
+ * @description This API does not support instances of the storage-reserved type.
  *
  * @param request DescribeSQLLogCountRequest
  * @return DescribeSQLLogCountResponse
@@ -8854,7 +9093,7 @@ DescribeSupportFeaturesResponse Client::describeSupportFeatures(const DescribeSu
 }
 
 /**
- * @summary Queries the information about a table.
+ * @summary View table details.
  *
  * @param request DescribeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8913,7 +9152,7 @@ DescribeTableResponse Client::describeTableWithOptions(const DescribeTableReques
 }
 
 /**
- * @summary Queries the information about a table.
+ * @summary View table details.
  *
  * @param request DescribeTableRequest
  * @return DescribeTableResponse
@@ -9694,7 +9933,7 @@ EnableDBResourceGroupResponse Client::enableDBResourceGroup(const EnableDBResour
 }
 
 /**
- * @summary Executes SQL statements.
+ * @summary Execute an SQL statement.
  *
  * @param tmpReq ExecuteStatementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9785,7 +10024,7 @@ ExecuteStatementResponse Client::executeStatementWithOptions(const ExecuteStatem
 }
 
 /**
- * @summary Executes SQL statements.
+ * @summary Execute an SQL statement.
  *
  * @param request ExecuteStatementRequest
  * @return ExecuteStatementResponse
@@ -9908,6 +10147,56 @@ GetGraphRAGJobResponse Client::getGraphRAGJob(const GetGraphRAGJobRequest &reque
 }
 
 /**
+ * @summary 获取SaaS服务信息
+ *
+ * @description 删除模型服务。
+ *
+ * @param request GetSaasServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSaasServiceResponse
+ */
+GetSaasServiceResponse Client::getSaasServiceWithOptions(const GetSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSaasService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSaasServiceResponse>();
+}
+
+/**
+ * @summary 获取SaaS服务信息
+ *
+ * @description 删除模型服务。
+ *
+ * @param request GetSaasServiceRequest
+ * @return GetSaasServiceResponse
+ */
+GetSaasServiceResponse Client::getSaasService(const GetSaasServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSaasServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about an access credential.
  *
  * @param request GetSecretValueRequest
@@ -9967,6 +10256,62 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const GetSecretValueReq
 GetSecretValueResponse Client::getSecretValue(const GetSecretValueRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSecretValueWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取SaaS服务访问信息
+ *
+ * @description ## 使用说明
+ * 本接口用于查看所有模型服务信息。
+ * ## QPS限制
+ * 本接口的单用户QPS限制默认为1000次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+ *
+ * @param request GetServiceAccessInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServiceAccessInfoResponse
+ */
+GetServiceAccessInfoResponse Client::getServiceAccessInfoWithOptions(const GetServiceAccessInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetServiceAccessInfo"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServiceAccessInfoResponse>();
+}
+
+/**
+ * @summary 获取SaaS服务访问信息
+ *
+ * @description ## 使用说明
+ * 本接口用于查看所有模型服务信息。
+ * ## QPS限制
+ * 本接口的单用户QPS限制默认为1000次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+ *
+ * @param request GetServiceAccessInfoRequest
+ * @return GetServiceAccessInfoResponse
+ */
+GetServiceAccessInfoResponse Client::getServiceAccessInfo(const GetServiceAccessInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getServiceAccessInfoWithOptions(request, runtime);
 }
 
 /**
@@ -10032,9 +10377,9 @@ GetStatementResultResponse Client::getStatementResult(const GetStatementResultRe
 }
 
 /**
- * @summary Retrieves the detailed configuration and status information for a specific Supabase instance.
+ * @summary Retrieves details of a Supabase instance.
  *
- * @description This interface is used to query the details of a Supabase instance.
+ * @description Gets the details of a Supabase instance.
  *
  * @param request GetSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10069,9 +10414,9 @@ GetSupabaseProjectResponse Client::getSupabaseProjectWithOptions(const GetSupaba
 }
 
 /**
- * @summary Retrieves the detailed configuration and status information for a specific Supabase instance.
+ * @summary Retrieves details of a Supabase instance.
  *
- * @description This interface is used to query the details of a Supabase instance.
+ * @description Gets the details of a Supabase instance.
  *
  * @param request GetSupabaseProjectRequest
  * @return GetSupabaseProjectResponse
@@ -10082,9 +10427,9 @@ GetSupabaseProjectResponse Client::getSupabaseProject(const GetSupabaseProjectRe
 }
 
 /**
- * @summary Queries the API keys and JWT secrets of a Supabase instance.
+ * @summary Queries the API keys and JWT secrets for a Supabase instance.
  *
- * @description You can call this operation to query a list of API keys for a Supabase project.
+ * @description This operation queries the API keys and JWT secrets for a Supabase instance.
  *
  * @param request GetSupabaseProjectApiKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10119,9 +10464,9 @@ GetSupabaseProjectApiKeysResponse Client::getSupabaseProjectApiKeysWithOptions(c
 }
 
 /**
- * @summary Queries the API keys and JWT secrets of a Supabase instance.
+ * @summary Queries the API keys and JWT secrets for a Supabase instance.
  *
- * @description You can call this operation to query a list of API keys for a Supabase project.
+ * @description This operation queries the API keys and JWT secrets for a Supabase instance.
  *
  * @param request GetSupabaseProjectApiKeysRequest
  * @return GetSupabaseProjectApiKeysResponse
@@ -10522,9 +10867,9 @@ InitVectorDatabaseResponse Client::initVectorDatabase(const InitVectorDatabaseRe
 }
 
 /**
- * @summary Queries a list of AI nodes.
+ * @summary Queries a list of AINode resource pools.
  *
- * @description *   This operation queries a list of AI nodes.
+ * @description - This operation lists the AINode resource pools for the specified instance.
  *
  * @param request ListAINodePoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10559,9 +10904,9 @@ ListAINodePoolsResponse Client::listAINodePoolsWithOptions(const ListAINodePools
 }
 
 /**
- * @summary Queries a list of AI nodes.
+ * @summary Queries a list of AINode resource pools.
  *
- * @description *   This operation queries a list of AI nodes.
+ * @description - This operation lists the AINode resource pools for the specified instance.
  *
  * @param request ListAINodePoolsRequest
  * @return ListAINodePoolsResponse
@@ -10572,7 +10917,7 @@ ListAINodePoolsResponse Client::listAINodePools(const ListAINodePoolsRequest &re
 }
 
 /**
- * @summary 获取 AI 服务列表
+ * @summary Lists AI services.
  *
  * @param request ListAIServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10615,7 +10960,7 @@ ListAIServicesResponse Client::listAIServicesWithOptions(const ListAIServicesReq
 }
 
 /**
- * @summary 获取 AI 服务列表
+ * @summary Lists AI services.
  *
  * @param request ListAIServicesRequest
  * @return ListAIServicesResponse
@@ -10672,7 +11017,7 @@ ListBackupJobsResponse Client::listBackupJobs(const ListBackupJobsRequest &reque
 }
 
 /**
- * @summary 获取文本块详情
+ * @summary Get document chunk details
  *
  * @param request ListChunksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10739,7 +11084,7 @@ ListChunksResponse Client::listChunksWithOptions(const ListChunksRequest &reques
 }
 
 /**
- * @summary 获取文本块详情
+ * @summary Get document chunk details
  *
  * @param request ListChunksRequest
  * @return ListChunksResponse
@@ -10924,7 +11269,7 @@ ListDatabasesResponse Client::listDatabases(const ListDatabasesRequest &request)
 }
 
 /**
- * @summary Queries a list of document collections.
+ * @summary Lists document collections.
  *
  * @param request ListDocumentCollectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10971,7 +11316,7 @@ ListDocumentCollectionsResponse Client::listDocumentCollectionsWithOptions(const
 }
 
 /**
- * @summary Queries a list of document collections.
+ * @summary Lists document collections.
  *
  * @param request ListDocumentCollectionsRequest
  * @return ListDocumentCollectionsResponse
@@ -11514,6 +11859,70 @@ ListRemoteADBDataSourcesResponse Client::listRemoteADBDataSources(const ListRemo
 }
 
 /**
+ * @summary Query SaaS Service List
+ *
+ * @description ## Usage Notes
+ * This API operation is used to view information about all SaaS services.
+ *
+ * @param request ListSaasServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSaasServiceResponse
+ */
+ListSaasServiceResponse Client::listSaasServiceWithOptions(const ListSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceType()) {
+    query["ServiceType"] = request.getServiceType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSaasService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSaasServiceResponse>();
+}
+
+/**
+ * @summary Query SaaS Service List
+ *
+ * @description ## Usage Notes
+ * This API operation is used to view information about all SaaS services.
+ *
+ * @param request ListSaasServiceRequest
+ * @return ListSaasServiceResponse
+ */
+ListSaasServiceResponse Client::listSaasService(const ListSaasServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSaasServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of schemas.
  *
  * @param request ListSchemasRequest
@@ -11584,7 +11993,7 @@ ListSchemasResponse Client::listSchemas(const ListSchemasRequest &request) {
 }
 
 /**
- * @summary Queries a list of access credentials.
+ * @summary View the access credential list.
  *
  * @param request ListSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11627,7 +12036,7 @@ ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &req
 }
 
 /**
- * @summary Queries a list of access credentials.
+ * @summary View the access credential list.
  *
  * @param request ListSecretsRequest
  * @return ListSecretsResponse
@@ -11886,7 +12295,9 @@ ListStreamingJobsResponse Client::listStreamingJobs(const ListStreamingJobsReque
 }
 
 /**
- * @summary Query the label List of Supabase instances
+ * @summary Lists the tags of Supabase instances.
+ *
+ * @description - This operation queries the tags of Supabase instances.
  *
  * @param request ListSupabaseProjectTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11933,7 +12344,9 @@ ListSupabaseProjectTagsResponse Client::listSupabaseProjectTagsWithOptions(const
 }
 
 /**
- * @summary Query the label List of Supabase instances
+ * @summary Lists the tags of Supabase instances.
+ *
+ * @description - This operation queries the tags of Supabase instances.
  *
  * @param request ListSupabaseProjectTagsRequest
  * @return ListSupabaseProjectTagsResponse
@@ -11944,9 +12357,9 @@ ListSupabaseProjectTagsResponse Client::listSupabaseProjectTags(const ListSupaba
 }
 
 /**
- * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+ * @summary Returns a list of Supabase instances.
  *
- * @description *   You can call this operation to query Supabase instances.
+ * @description - Lists Supabase instances.
  *
  * @param request ListSupabaseProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12009,9 +12422,9 @@ ListSupabaseProjectsResponse Client::listSupabaseProjectsWithOptions(const ListS
 }
 
 /**
- * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+ * @summary Returns a list of Supabase instances.
  *
- * @description *   You can call this operation to query Supabase instances.
+ * @description - Lists Supabase instances.
  *
  * @param request ListSupabaseProjectsRequest
  * @return ListSupabaseProjectsResponse
@@ -12142,7 +12555,7 @@ ListTablesResponse Client::listTables(const ListTablesRequest &request) {
 }
 
 /**
- * @summary Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
+ * @summary List all tag resources.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12205,7 +12618,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
+ * @summary List all tag resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -12216,7 +12629,71 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 修改 AI 服务白名单
+ * @summary Queries the list of SaaS workspaces.
+ *
+ * @description ## Operation description
+ * This operation is used to query information about all workspaces.
+ *
+ * @param request ListWorkspacesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaces"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspacesResponse>();
+}
+
+/**
+ * @summary Queries the list of SaaS workspaces.
+ *
+ * @description ## Operation description
+ * This operation is used to query information about all workspaces.
+ *
+ * @param request ListWorkspacesRequest
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkspacesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the IP address whitelist for an AI service.
  *
  * @param request ModifyAIServiceSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12259,7 +12736,7 @@ ModifyAIServiceSecurityIpsResponse Client::modifyAIServiceSecurityIpsWithOptions
 }
 
 /**
- * @summary 修改 AI 服务白名单
+ * @summary Modifies the IP address whitelist for an AI service.
  *
  * @param request ModifyAIServiceSecurityIpsRequest
  * @return ModifyAIServiceSecurityIpsResponse
@@ -12386,7 +12863,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
- * @summary Updates a collection.
+ * @summary Updates a vector collection.
  *
  * @param request ModifyCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12445,7 +12922,7 @@ ModifyCollectionResponse Client::modifyCollectionWithOptions(const ModifyCollect
 }
 
 /**
- * @summary Updates a collection.
+ * @summary Updates a vector collection.
  *
  * @param request ModifyCollectionRequest
  * @return ModifyCollectionResponse
@@ -13568,7 +14045,7 @@ ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsReque
 }
 
 /**
- * @summary Modifies the configurations of an external data source.
+ * @summary Modify a real-time data service.
  *
  * @param request ModifyStreamingDataServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13615,7 +14092,7 @@ ModifyStreamingDataServiceResponse Client::modifyStreamingDataServiceWithOptions
 }
 
 /**
- * @summary Modifies the configurations of an external data source.
+ * @summary Modify a real-time data service.
  *
  * @param request ModifyStreamingDataServiceRequest
  * @return ModifyStreamingDataServiceResponse
@@ -13820,7 +14297,9 @@ ModifyStreamingJobResponse Client::modifyStreamingJob(const ModifyStreamingJobRe
 }
 
 /**
- * @summary Modify the auto pause/resume policy of Supabase.
+ * @summary Modifies the auto-scaling policy of an ADBPG Supabase instance.
+ *
+ * @description - This operation applies only to ADBPG Supabase instances.
  *
  * @param request ModifySupabaseAutoScalePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13859,7 +14338,9 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicyWithO
 }
 
 /**
- * @summary Modify the auto pause/resume policy of Supabase.
+ * @summary Modifies the auto-scaling policy of an ADBPG Supabase instance.
+ *
+ * @description - This operation applies only to ADBPG Supabase instances.
  *
  * @param request ModifySupabaseAutoScalePolicyRequest
  * @return ModifySupabaseAutoScalePolicyResponse
@@ -13870,7 +14351,9 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicy(cons
 }
 
 /**
- * @summary Modify the Supabase project description
+ * @summary Change the Supabase project description
+ *
+ * @description **Before you use this operation, make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL (Supabase)**.
  *
  * @param request ModifySupabaseProjectDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13909,7 +14392,9 @@ ModifySupabaseProjectDescriptionResponse Client::modifySupabaseProjectDescriptio
 }
 
 /**
- * @summary Modify the Supabase project description
+ * @summary Change the Supabase project description
+ *
+ * @description **Before you use this operation, make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL (Supabase)**.
  *
  * @param request ModifySupabaseProjectDescriptionRequest
  * @return ModifySupabaseProjectDescriptionResponse
@@ -13920,7 +14405,9 @@ ModifySupabaseProjectDescriptionResponse Client::modifySupabaseProjectDescriptio
 }
 
 /**
- * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+ * @summary Scales the compute resource or expands the storage resource (cloud disk size) for a Supabase project.
+ *
+ * @description **Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) for AnalyticDB PostgreSQL Supabase.**
  *
  * @param request ModifySupabaseProjectResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13967,7 +14454,9 @@ ModifySupabaseProjectResourceResponse Client::modifySupabaseProjectResourceWithO
 }
 
 /**
- * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+ * @summary Scales the compute resource or expands the storage resource (cloud disk size) for a Supabase project.
+ *
+ * @description **Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) for AnalyticDB PostgreSQL Supabase.**
  *
  * @param request ModifySupabaseProjectResourceRequest
  * @return ModifySupabaseProjectResourceResponse
@@ -13978,9 +14467,9 @@ ModifySupabaseProjectResourceResponse Client::modifySupabaseProjectResource(cons
 }
 
 /**
- * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
+ * @summary Modifies the IP address whitelist for a Supabase project.
  *
- * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
+ * @description Before you use a Supabase instance, you must add the client\\"s IP address or IP address segment to the instance\\"s whitelist.
  *
  * @param request ModifySupabaseProjectSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14027,9 +14516,9 @@ ModifySupabaseProjectSecurityIpsResponse Client::modifySupabaseProjectSecurityIp
 }
 
 /**
- * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
+ * @summary Modifies the IP address whitelist for a Supabase project.
  *
- * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
+ * @description Before you use a Supabase instance, you must add the client\\"s IP address or IP address segment to the instance\\"s whitelist.
  *
  * @param request ModifySupabaseProjectSecurityIpsRequest
  * @return ModifySupabaseProjectSecurityIpsResponse
@@ -14194,7 +14683,9 @@ PauseInstanceResponse Client::pauseInstance(const PauseInstanceRequest &request)
 }
 
 /**
- * @summary 暂停Supabase实例
+ * @summary Pauses a Supabase instance.
+ *
+ * @description This operation pauses a Supabase instance.
  *
  * @param request PauseSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14229,7 +14720,9 @@ PauseSupabaseProjectResponse Client::pauseSupabaseProjectWithOptions(const Pause
 }
 
 /**
- * @summary 暂停Supabase实例
+ * @summary Pauses a Supabase instance.
+ *
+ * @description This operation pauses a Supabase instance.
  *
  * @param request PauseSupabaseProjectRequest
  * @return PauseSupabaseProjectResponse
@@ -14240,7 +14733,7 @@ PauseSupabaseProjectResponse Client::pauseSupabaseProject(const PauseSupabasePro
 }
 
 /**
- * @summary Query Vector Data
+ * @summary Retrieving vector data.
  *
  * @param tmpReq QueryCollectionDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14371,7 +14864,7 @@ QueryCollectionDataResponse Client::queryCollectionDataWithOptions(const QueryCo
 }
 
 /**
- * @summary Query Vector Data
+ * @summary Retrieving vector data.
  *
  * @param request QueryCollectionDataRequest
  * @return QueryCollectionDataResponse
@@ -14382,7 +14875,7 @@ QueryCollectionDataResponse Client::queryCollectionData(const QueryCollectionDat
 }
 
 /**
- * @summary Retrieves vector data and metadata from a document collection by using natural statements.
+ * @summary Query a document collection with natural language to retrieve vectors and metadata.
  *
  * @param tmpReq QueryContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14533,7 +15026,7 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
 }
 
 /**
- * @summary Retrieves vector data and metadata from a document collection by using natural statements.
+ * @summary Query a document collection with natural language to retrieve vectors and metadata.
  *
  * @param request QueryContentRequest
  * @return QueryContentResponse
@@ -14630,7 +15123,7 @@ QueryContentResponse Client::queryContentAdvance(const QueryContentAdvanceReques
 }
 
 /**
- * @summary Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
+ * @summary Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
  *
  * @param tmpReq QueryKnowledgeBasesContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14711,7 +15204,7 @@ QueryKnowledgeBasesContentResponse Client::queryKnowledgeBasesContentWithOptions
 }
 
 /**
- * @summary Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
+ * @summary Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
  *
  * @param request QueryKnowledgeBasesContentRequest
  * @return QueryKnowledgeBasesContentResponse
@@ -15212,7 +15705,9 @@ ResumeInstanceResponse Client::resumeInstance(const ResumeInstanceRequest &reque
 }
 
 /**
- * @summary 恢复Supabase实例
+ * @summary Resumes a Supabase instance.
+ *
+ * @description This operation retrieves details about a Supabase instance.
  *
  * @param request ResumeSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15247,7 +15742,9 @@ ResumeSupabaseProjectResponse Client::resumeSupabaseProjectWithOptions(const Res
 }
 
 /**
- * @summary 恢复Supabase实例
+ * @summary Resumes a Supabase instance.
+ *
+ * @description This operation retrieves details about a Supabase instance.
  *
  * @param request ResumeSupabaseProjectRequest
  * @return ResumeSupabaseProjectResponse
@@ -15320,11 +15817,9 @@ SetDBInstancePlanStatusResponse Client::setDBInstancePlanStatus(const SetDBInsta
 }
 
 /**
- * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+ * @summary Add or remove an AnalyticDB for PostgreSQL instance from data sharing.
  *
- * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
- * ## Limits
- * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+ * @description Only Serverless instances support the data sharing feature.
  *
  * @param tmpReq SetDataShareInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15373,11 +15868,9 @@ SetDataShareInstanceResponse Client::setDataShareInstanceWithOptions(const SetDa
 }
 
 /**
- * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+ * @summary Add or remove an AnalyticDB for PostgreSQL instance from data sharing.
  *
- * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
- * ## Limits
- * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+ * @description Only Serverless instances support the data sharing feature.
  *
  * @param request SetDataShareInstanceRequest
  * @return SetDataShareInstanceResponse
@@ -15442,7 +15935,7 @@ SwitchDBInstanceNetTypeResponse Client::switchDBInstanceNetType(const SwitchDBIn
 }
 
 /**
- * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+ * @summary Create and attach tags.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15501,7 +15994,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+ * @summary Create and attach tags.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -15512,7 +16005,9 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Supabase project labeling
+ * @summary Adds tags to Supabase project instances.
+ *
+ * @description Adds or overwrites tags on one or more Supabase instances. If a specified tag key already exists, its value is overwritten with the new value.
  *
  * @param request TagSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15555,7 +16050,9 @@ TagSupabaseProjectResponse Client::tagSupabaseProjectWithOptions(const TagSupaba
 }
 
 /**
- * @summary Supabase project labeling
+ * @summary Adds tags to Supabase project instances.
+ *
+ * @description Adds or overwrites tags on one or more Supabase instances. If a specified tag key already exists, its value is overwritten with the new value.
  *
  * @param request TagSupabaseProjectRequest
  * @return TagSupabaseProjectResponse
@@ -15824,7 +16321,9 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Detach labels from a Supabase instance
+ * @summary Removes tags from one or more Supabase instances.
+ *
+ * @description This operation removes one or more specified tags from Supabase instances.
  *
  * @param request UntagSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15871,7 +16370,9 @@ UntagSupabaseProjectResponse Client::untagSupabaseProjectWithOptions(const Untag
 }
 
 /**
- * @summary Detach labels from a Supabase instance
+ * @summary Removes tags from one or more Supabase instances.
+ *
+ * @description This operation removes one or more specified tags from Supabase instances.
  *
  * @param request UntagSupabaseProjectRequest
  * @return UntagSupabaseProjectResponse
@@ -16048,10 +16549,10 @@ UpdateDBInstancePlanResponse Client::updateDBInstancePlan(const UpdateDBInstance
 }
 
 /**
- * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+ * @summary Changes the specifications of an AnalyticDB for PostgreSQL instance.
  *
- * @description This operation is not available for instances in reserved storage mode.
- * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+ * @description This operation does not support modifying instances in storage-reserved mode.
+ * Before you call this operation, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param request UpgradeDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16142,10 +16643,10 @@ UpgradeDBInstanceResponse Client::upgradeDBInstanceWithOptions(const UpgradeDBIn
 }
 
 /**
- * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+ * @summary Changes the specifications of an AnalyticDB for PostgreSQL instance.
  *
- * @description This operation is not available for instances in reserved storage mode.
- * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+ * @description This operation does not support modifying instances in storage-reserved mode.
+ * Before you call this operation, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param request UpgradeDBInstanceRequest
  * @return UpgradeDBInstanceResponse
@@ -16594,6 +17095,13 @@ UpsertChunksResponse Client::upsertChunks(const UpsertChunksRequest &request) {
 /**
  * @summary Uploads vector data to a vector collection.
  *
+ * @description >Notice: 
+ * **SDK于2023-11-8日升级，从最大512KB数据请求量升级到10MB。**
+ * 请使用最新版SDK或不低于此版本：
+ * - Java：1.2.1 
+ * - Go：v3.3.1 
+ * - Python：3.3.1
+ *
  * @param tmpReq UpsertCollectionDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpsertCollectionDataResponse
@@ -16660,6 +17168,13 @@ UpsertCollectionDataResponse Client::upsertCollectionDataWithOptions(const Upser
 
 /**
  * @summary Uploads vector data to a vector collection.
+ *
+ * @description >Notice: 
+ * **SDK于2023-11-8日升级，从最大512KB数据请求量升级到10MB。**
+ * 请使用最新版SDK或不低于此版本：
+ * - Java：1.2.1 
+ * - Go：v3.3.1 
+ * - Python：3.3.1
  *
  * @param request UpsertCollectionDataRequest
  * @return UpsertCollectionDataResponse

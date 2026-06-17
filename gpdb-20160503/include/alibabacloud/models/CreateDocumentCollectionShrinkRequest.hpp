@@ -287,126 +287,192 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> algorithm_ {};
-    // The name of the document collection that you want to create.
-    // 
-    // > The name must comply with PostgreSQL object naming restrictions.
-    // 
-    // This parameter is required.
-    shared_ptr<string> collection_ {};
-    // The instance ID.
-    // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
-    // 
-    // This parameter is required.
-    shared_ptr<string> DBInstanceId_ {};
-    shared_ptr<int32_t> dimension_ {};
-    // The vectorization algorithm.
-    // 
-    // >  Supported algorithms:
-    // 
-    // *   text-embedding-v1: the algorithm that produces 1536-dimensional vectors.
-    // 
-    // *   text-embedding-v2: the algorithm that produces 1536-dimensional vectors.
-    // 
-    // *   text2vec: the algorithm that produces 1024-dimensional vectors.
-    // 
-    // *   m3e-base: the algorithm that produces 768-dimensional vectors.
-    // 
-    // *   m3e-small: the algorithm that produces 512-dimensional vectors.
-    // 
-    // *   clip-vit-b-32: the image vectorization algorithm that uses the Contrastive Language-Image Pre-Training (CLIP) ViT-B/32 model and produces 512-dimensional vectors.
-    // 
-    // *   clip-vit-b-16: the image vectorization algorithm that uses the CLIP ViT-B/16 model and produces 512-dimensional vectors.
-    // 
-    // *   clip-vit-l-14: the image vectorization algorithm that uses the CLIP ViT-L/14 model and produces 768-dimensional vectors.
-    // 
-    // *   clip-vit-l-14-336px: the image vectorization algorithm that uses the CLIP ViT-L/14@336px model and produces 768-dimensional vectors.
-    // 
-    // *   clip-rn50: the image vectorization algorithm that uses the CLIP RN50 model and produces 1024-dimensional vectors.
-    // 
-    // *   clip-rn101: the image vectorization algorithm that uses the CLIP RN101 model and produces 512-dimensional vectors.
-    // 
-    // *   clip-rn50x4: the image vectorization algorithm that uses the CLIP RN50x4 model and produces 640-dimensional vectors.
-    // 
-    // *   clip-rn50x16: the image vectorization algorithm that uses the CLIP RN50x16 model and produces 768-dimensional vectors.
-    // 
-    // *   clip-rn50x64: the image vectorization algorithm that uses the CLIP RN50x64 model and produces 1024-dimensional vectors.
-    shared_ptr<string> embeddingModel_ {};
-    shared_ptr<bool> enableGraph_ {};
-    shared_ptr<string> entityTypesShrink_ {};
-    // Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
-    // 
-    // > 
-    // 
-    // *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
-    // 
-    // *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
-    shared_ptr<int32_t> externalStorage_ {};
-    // The fields used for full-text search. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
-    shared_ptr<string> fullTextRetrievalFields_ {};
-    shared_ptr<string> hnswEfConstruction_ {};
-    // The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
-    // 
-    // >  We recommend that you configure this parameter based on the value of the Dimension parameter.
-    // 
-    // *   If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
-    // 
-    // *   If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
-    // 
-    // *   If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
-    // 
-    // *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
-    shared_ptr<int32_t> hnswM_ {};
-    shared_ptr<string> LLMModel_ {};
-    shared_ptr<string> language_ {};
-    // The name of the manager account that has the rds_superuser permission.
-    // 
-    // > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
-    // 
-    // This parameter is required.
-    shared_ptr<string> managerAccount_ {};
-    // The password of the management account.
-    // 
-    // This parameter is required.
-    shared_ptr<string> managerAccountPassword_ {};
-    // The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
-    // 
-    // > Supported data types:
-    // > - For information about data types, see: [Data Types](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
-    // > - The money type is not supported.
-    // 
-    // >Warning: The fields id, vector, doc_name, content, loader_metadata, source, and to_tsvector are reserved and should not be used.
-    shared_ptr<string> metadata_ {};
-    shared_ptr<string> metadataIndices_ {};
-    // The method that is used to create vector indexes.
+    // The vector index algorithm.
     // 
     // Valid values:
     // 
-    // *   **l2**: Euclidean distance.
-    // *   **ip**: inner product distance.
-    // *   **cosine** (default): cosine similarity.
-    shared_ptr<string> metrics_ {};
-    // The name of the namespace. Default value: public.
+    // - `hnswflat`: An HNSW index without quantization compression. This is the default value.
     // 
-    // >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+    // - `novam`: A graph index without quantization compression. This algorithm is suitable for high-performance scenarios such as real-time recommendation.
+    // 
+    // - `novad`: A partitioned index with rabitq quantization. This algorithm is suitable for large-scale, low-cost retrieval scenarios.
+    shared_ptr<string> algorithm_ {};
+    // The name of the document collection to create.
+    // 
+    // > The name must comply with PostgreSQL object naming conventions.
+    // 
+    // This parameter is required.
+    shared_ptr<string> collection_ {};
+    // The ID of the instance.
+    // 
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the target region, including instance IDs.
+    // 
+    // This parameter is required.
+    shared_ptr<string> DBInstanceId_ {};
+    // The vector dimension. If you omit this parameter, the system uses a default dimension for the selected `EmbeddingModel`.
+    shared_ptr<int32_t> dimension_ {};
+    // The embedding model. The default value is `text-embedding-v3`.
+    // 
+    // > Supported models:
+    // >
+    // > - `text-embedding-v3` (Recommended, Default): 1,024, 768, or 512 dimensions
+    // >
+    // > - `multimodal-embedding-v1` (Recommended): 1,024 dimensions, a multimodal embedding model
+    // >
+    // > - `text-embedding-v1`: 1,536 dimensions
+    // >
+    // > - `text-embedding-v2`: 1,536 dimensions
+    // >
+    // > - `text2vec` (Not recommended): 1,024 dimensions
+    // >
+    // > - `m3e-base` (Not recommended): 768 dimensions
+    // >
+    // > - `m3e-small` (Not recommended): 512 dimensions
+    // >
+    // > - `clip-vit-b-32` (Not recommended): CLIP ViT-B/32 model, 512 dimensions, an image embedding model
+    // >
+    // > - `clip-vit-b-16` (Not recommended): CLIP ViT-B/16 model, 512 dimensions, an image embedding model
+    // >
+    // > - `clip-vit-l-14` (Not recommended): CLIP ViT-L/14 model, 768 dimensions, an image embedding model
+    // >
+    // > - `clip-vit-l-14-336px` (Not recommended): CLIP ViT-L/14\\@336px model, 768 dimensions, an image embedding model
+    // >
+    // > - `clip-rn50` (Not recommended): CLIP RN50 model, 1,024 dimensions, an image embedding model
+    // >
+    // > - `clip-rn101` (Not recommended): CLIP RN101 model, 512 dimensions, an image embedding model
+    // >
+    // > - `clip-rn50x4` (Not recommended): CLIP RN50x4 model, 640 dimensions, an image embedding model
+    // >
+    // > - `clip-rn50x16` (Not recommended): CLIP RN50x16 model, 768 dimensions, an image embedding model
+    // >
+    // > - `clip-rn50x64` (Not recommended): CLIP RN50x64 model, 1,024 dimensions, an image embedding model
+    shared_ptr<string> embeddingModel_ {};
+    // Specifies whether to build a knowledge graph. The default value is `false`.
+    // 
+    // > To use this parameter, you must first upgrade your instance to a version that supports the graph engine. During the public preview period, submit a ticket to request an upgrade.
+    shared_ptr<bool> enableGraph_ {};
+    // A list of entity types.
+    // 
+    // > This parameter is required when `EnableGraph` is set to `true`.
+    shared_ptr<string> entityTypesShrink_ {};
+    // Specifies whether to use memory-mapped files (mmap) to build the HNSW index. The default value is 0. Setting this to `1` is recommended if you do not need to delete data and require high upload performance.
+    // 
+    // Valid values:
+    // 
+    // - `0`: Builds the index by using segmented page storage. This mode supports delete and update operations and can use the `shared_buffer` in PostgreSQL for caching. This is the default value.
+    // 
+    // - `1`: Builds the index by using mmap. This mode does not support delete or update operations.
+    // 
+    // >Notice: 
+    // 
+    // The `ExternalStorage` parameter is supported only by AnalyticDB for PostgreSQL V6.0 instances. It is not supported by V7.0 instances.
+    shared_ptr<int32_t> externalStorage_ {};
+    // The metadata fields to use for full-text search. These fields must be keys defined in `Metadata`. Separate multiple fields with a comma (,).
+    shared_ptr<string> fullTextRetrievalFields_ {};
+    // The size of the candidate set (`ef_construction`) for HNSW index construction. The value must be greater than or equal to `2 * HnswM`.
+    // 
+    // > Value range:
+    // >
+    // > - For AnalyticDB for PostgreSQL V6.0 instances: 40 to 4,000.
+    // >
+    // > - For AnalyticDB for PostgreSQL V7.0 instances: 4 to 1,000. The default value is 64.
+    shared_ptr<string> hnswEfConstruction_ {};
+    // The maximum number of neighbors (M) for the HNSW algorithm. You do not typically need to set this parameter, as the system automatically sets it based on the vector dimension.
+    // 
+    // > Value range:
+    // >
+    // > - For AnalyticDB for PostgreSQL V6.0 instances: 1 to 1,000.
+    // >
+    // > - For AnalyticDB for PostgreSQL V7.0 instances: 2 to 100. The default value is 16.
+    // 
+    // > We recommend that you set this parameter based on the vector dimension:
+    // >
+    // > - If the dimension is 384 or less: 16
+    // >
+    // > - If the dimension is greater than 384 and less than or equal to 768: 32
+    // >
+    // > - If the dimension is greater than 768 and less than or equal to 1,024: 64
+    // >
+    // > - If the dimension is greater than 1,024: 128
+    shared_ptr<int32_t> hnswM_ {};
+    // The name of the LLM model. Valid values:
+    // 
+    // - `knowledge-extract-standard`: The default value.
+    // 
+    // - `knowledge-extract-mini`
+    // 
+    // > This parameter takes effect only when `EnableGraph` is set to `true`.
+    shared_ptr<string> LLMModel_ {};
+    // The language used to build the knowledge graph. Valid values:
+    // 
+    // - `Simplified Chinese`: The default value.
+    // 
+    // - `English`
+    // 
+    // > This parameter takes effect only when `EnableGraph` is set to `true`.
+    shared_ptr<string> language_ {};
+    // The name of the manager account that has `rds_superuser` permissions.
+    // 
+    // > You can create an account in the console on the \\*\\*Account Management\\*\\* page or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
+    // 
+    // This parameter is required.
+    shared_ptr<string> managerAccount_ {};
+    // The password for the manager account.
+    // 
+    // This parameter is required.
+    shared_ptr<string> managerAccountPassword_ {};
+    // The metadata schema for the vector data, specified as a JSON map where keys are field names and values are data types.
+    // 
+    // > Supported data types
+    // >
+    // > - For a list of supported data types, see [Data types](https://help.aliyun.com/document_detail/424383.html).
+    // >
+    // > - The `money` data type is not supported.
+    // 
+    // >Warning: 
+    // 
+    // The following fields are reserved and cannot be used: `id`, `vector`, `doc_name`, `content`, `loader_metadata`, `source`, and `to_tsvector`.
+    shared_ptr<string> metadata_ {};
+    // The metadata fields on which to create scalar indexes. These fields must be keys defined in `Metadata`. Separate multiple fields with a comma (,).
+    shared_ptr<string> metadataIndices_ {};
+    // The distance metric for the vector index.
+    // 
+    // Valid values:
+    // 
+    // - **`l2`**: Euclidean distance.
+    // 
+    // - **`ip`**: dot product (inner product) distance.
+    // 
+    // - **`cosine`** (Default): cosine similarity.
+    shared_ptr<string> metrics_ {};
+    // The namespace. The default value is `public`.
+    // 
+    // > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to list namespaces.
     shared_ptr<string> namespace_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The analyzer that is used for full-text search. Default value: zh_cn.
+    // The tokenizer for full-text search. The default value is `zh_cn`.
     shared_ptr<string> parser_ {};
-    // Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
+    // Specifies whether to enable the PQ (product quantization) algorithm to accelerate indexing. This is recommended for datasets with over 500,000 entries. Valid values:
     // 
-    // *   0: no.
-    // *   1 (default): yes.
+    // - `0`: Disables the feature.
+    // 
+    // - `1`: Enables the feature. This is the default value.
     shared_ptr<int32_t> pqEnable_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // A list of relationship types.
+    // 
+    // > This parameter is required when `EnableGraph` is set to `true`.
     shared_ptr<string> relationshipTypesShrink_ {};
+    // The metadata fields used to build the sparse vector. These fields must be keys defined in `Metadata`. Separate multiple fields with a comma (,).
     shared_ptr<string> sparseRetrievalFields_ {};
+    // Configuration for the sparse vector index. Specifying this parameter creates the index.
     shared_ptr<string> sparseVectorIndexConfigShrink_ {};
+    // Specifies whether to support sparse vectors. The default value is `false`.
     shared_ptr<bool> supportSparse_ {};
+    // Configuration for the dense vector index.
     shared_ptr<string> vectorIndexConfigShrink_ {};
   };
 

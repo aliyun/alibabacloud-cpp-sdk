@@ -259,11 +259,12 @@ namespace Models
 
     protected:
       // The number of entries used for vectorization.
-      // > An entry refers to the number of processing items when performing vectorization on text or images. For example, processing one piece of text counts as 1 entry, while processing one image counts as 2 entries.
-      shared_ptr<string> embeddingEntries_ {};
-      // Number of tokens used for vectorization.
       // 
-      // > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
+      // > An entry is the number of operations during vectorization for text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
+      shared_ptr<string> embeddingEntries_ {};
+      // The number of tokens used for vectorization.
+      // 
+      // > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
       shared_ptr<string> embeddingTokens_ {};
     };
 
@@ -747,23 +748,24 @@ namespace Models
 
 
   protected:
-    // Number of tokens used for vectorization.
+    // The number of tokens used for vectorization.
     // 
-    // > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
+    // > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
     shared_ptr<string> embeddingTokens_ {};
     shared_ptr<QueryContentResponseBody::Entities> entities_ {};
     shared_ptr<QueryContentResponseBody::Matches> matches_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
     shared_ptr<QueryContentResponseBody::Relations> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The execution state of the operation. Valid values:
+    // The status. Valid values:
     // 
-    // *   **false**: The operation fails.
-    // *   **true**: The operation is successful.
+    // - **success**: The operation was successful.
+    // 
+    // - **fail**: The operation failed.
     shared_ptr<string> status_ {};
-    // Resource usage for this query.
+    // The resource usage for the query.
     shared_ptr<QueryContentResponseBody::Usage> usage_ {};
     shared_ptr<QueryContentResponseBody::WindowMatches> windowMatches_ {};
   };
