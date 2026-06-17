@@ -688,9 +688,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The value 200 indicates success.
     shared_ptr<string> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -701,12 +701,13 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSiteMonitorListResponseBody::SiteMonitors> siteMonitors_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<string> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

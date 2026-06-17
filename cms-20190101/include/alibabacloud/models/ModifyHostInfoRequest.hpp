@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The name of the host.
+    // The host name.
     shared_ptr<string> hostName_ {};
-    // The ID of the instance. Only hosts not on Alibaba Cloud are supported.
+    // The instance ID. Only non-Alibaba Cloud hosts are supported.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

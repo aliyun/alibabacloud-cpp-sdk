@@ -207,19 +207,20 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // 状态码。
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // >200表示成功。
     shared_ptr<string> code_ {};
     shared_ptr<PutResourceMetricRulesResponseBody::FailedListResult> failedListResult_ {};
-    // The error message returned.
+    // 错误信息。
     shared_ptr<string> message_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // 操作是否成功。取值：
     // 
-    // *   true
-    // *   false
+    // - true：成功。
+    // 
+    // - false：失败。
     shared_ptr<bool> success_ {};
   };
 

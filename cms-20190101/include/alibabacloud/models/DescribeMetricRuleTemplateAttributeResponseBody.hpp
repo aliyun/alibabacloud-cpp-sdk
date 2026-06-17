@@ -637,18 +637,19 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The value 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The details of the alert template.
     shared_ptr<DescribeMetricRuleTemplateAttributeResponseBody::Resource> resource_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

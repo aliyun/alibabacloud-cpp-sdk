@@ -108,21 +108,23 @@ namespace Models
       // 
       // Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
       // 
-      // *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
+      // - {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
       // 
-      // *   {userId}: the ID of the Alibaba Cloud account.
+      // - {userId}: the ID of the Alibaba Cloud account.
       // 
-      // *   {regionId}: the region ID of the SMQ queue or topic.
+      // - {regionId}: the region ID of the SMQ queue or topic.
       // 
-      // *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
+      // - {Resource type}: the type of the resource for which alerts are triggered. Valid values:
       // 
-      //     *   **queues**
-      //     *   **topics**
+      //   - **queues**
       // 
-      // *   {Resource name}: the resource name.
+      //   - **topics**
       // 
-      //     *   If the resource type is **queues**, the resource name is the queue name.
-      //     *   If the resource type is **topics**, the resource name is the topic name.
+      // - {Resource name}: the resource name.
+      // 
+      //   - If the resource type is **queues**, the resource name is the queue name.
+      // 
+      //   - If the resource type is **topics**, the resource name is the topic name.
       shared_ptr<string> arn_ {};
       // The ID of the resource for which alerts are triggered.
       shared_ptr<string> id_ {};
@@ -130,9 +132,11 @@ namespace Models
       shared_ptr<string> jsonParams_ {};
       // The alert level. Valid values:
       // 
-      // *   INFO
-      // *   WARN
-      // *   CRITICAL
+      // - INFO
+      // 
+      // - WARN
+      // 
+      // - CRITICAL
       shared_ptr<string> level_ {};
     };
 
@@ -203,31 +207,43 @@ namespace Models
     protected:
       // The method used to calculate the metric values that trigger alerts. Valid values of N: 1 to 21. The value of this parameter varies based on the metric. The following items show the correspondence between metrics and calculation methods:
       // 
-      // *   HttpStatus: Value
-      // *   HttpLatency: Average
-      // *   TelnetStatus: Value
-      // *   TelnetLatency: Average
-      // *   PingLostRate: Average
+      // - HttpStatus: Value
+      // 
+      // - HttpLatency: Average
+      // 
+      // - TelnetStatus: Value
+      // 
+      // - TelnetLatency: Average
+      // 
+      // - PingLostRate: Average
       // 
       // > The value Value indicates the original value and is used for metrics such as status codes. The value Average indicates the average value and is used for metrics such as the latency and packet loss rate.
       shared_ptr<string> aggregate_ {};
       // The metric for which the alert feature is enabled. Valid values of N: 1 to 21. Valid values:
       // 
-      // *   HttpStatus: HTTP status code
-      // *   HttpLatency: HTTP response time
-      // *   TelnetStatus: Telnet status code
-      // *   TelnetLatency: Telnet response time
-      // *   PingLostRate: Ping packet loss rate
+      // - HttpStatus: HTTP status code
+      // 
+      // - HttpLatency: HTTP response time
+      // 
+      // - TelnetStatus: Telnet status code
+      // 
+      // - TelnetLatency: Telnet response time
+      // 
+      // - PingLostRate: Ping packet loss rate
       // 
       // This parameter is required.
       shared_ptr<string> metricName_ {};
       // The comparison operator that is used in the alert rule. Valid values of N: 1 to 21. Valid values:
       // 
-      // *   `>`
-      // *   `>=`
-      // *   `<`
-      // *   `<=`
-      // *   `=`
+      // - `>`
+      // 
+      // - `>=`
+      // 
+      // - `<`
+      // 
+      // - `<=`
+      // 
+      // - `=`
       shared_ptr<string> operator_ {};
       // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered. Valid values of N: 1 to 21.
       shared_ptr<int32_t> times_ {};
@@ -339,21 +355,26 @@ namespace Models
     protected:
       // The header of the HTTP request. Format: `Parameter name:Parameter value`. Separate multiple parameters with carriage return characters. Example:
       // 
-      //     params1:value1
-      //     params2:value2
+      // ```
+      // params1:value1
+      // params2:value2
+      // ```
       shared_ptr<string> httpHeader_ {};
       // The HTTP request method. Valid values:
       // 
-      // *   GET
-      // *   POST
-      // *   HEAD
+      // - GET
+      // 
+      // - POST
+      // 
+      // - HEAD
       // 
       // > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
       shared_ptr<string> httpMethod_ {};
       // The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
       // 
-      // *   true: If the HTTP response body includes the alert rule, an alert is triggered.
-      // *   false: If the HTTP response does not include the alert rule, an alert is triggered.
+      // - true: If the HTTP response body includes the alert rule, an alert is triggered.
+      // 
+      // - false: If the HTTP response does not include the alert rule, an alert is triggered.
       // 
       // > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
       shared_ptr<bool> httpNegative_ {};
@@ -373,7 +394,7 @@ namespace Models
       shared_ptr<int32_t> interval_ {};
       // The domain name or IP address that you want to monitor.
       // 
-      // >  This parameter is required if the TaskType parameter is set to PING. For more information about how to set the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
+      // > This parameter is required if the TaskType parameter is set to PING. For more information about how to set the TaskType parameter, see [CreateHostAvailability](https://help.aliyun.com/document_detail/115317.html).
       shared_ptr<string> telnetOrPingHost_ {};
     };
 
@@ -577,8 +598,9 @@ namespace Models
     shared_ptr<string> taskName_ {};
     // The range of instances that are monitored by the availability monitoring task. Valid values:
     // 
-    // *   GROUP: All ECS instances in the application group are monitored.
-    // *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored. The TaskScope parameter must be used in combination with the InstanceList parameter. The InstanceList parameter specifies the ECS instances to be monitored.
+    // - GROUP: All ECS instances in the application group are monitored.
+    // 
+    // - GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored. The TaskScope parameter must be used in combination with the InstanceList parameter. The InstanceList parameter specifies the ECS instances to be monitored.
     shared_ptr<string> taskScope_ {};
   };
 

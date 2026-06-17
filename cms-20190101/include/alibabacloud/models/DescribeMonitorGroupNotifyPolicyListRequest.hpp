@@ -81,9 +81,9 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the policy.
+    // The type of the pause notification.
     // 
-    // Valid value: PauseNotify.
+    // Currently, only PauseNotify is supported.
     // 
     // This parameter is required.
     shared_ptr<string> policyType_ {};

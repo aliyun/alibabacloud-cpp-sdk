@@ -190,16 +190,13 @@ namespace Models
   protected:
     // The status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values: -true: The operation was successful. -false: The operation failed.
     shared_ptr<bool> success_ {};
     shared_ptr<DescribeUnhealthyHostAvailabilityResponseBody::UnhealthyList> unhealthyList_ {};
   };

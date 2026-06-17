@@ -75,28 +75,29 @@ namespace Models
 
 
   protected:
-    // The metric name. Valid values:
+    // The name of the metric. Valid values:
     // 
-    // *   Availability
-    // *   ErrorRate
-    // *   ResponseTime
+    // - Availability: the availability.
+    // - ErrorRate: the error rate.
+    // - ResponseTime: the response time.
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
     shared_ptr<string> regionId_ {};
     // The beginning of the time range to query.
     // 
-    // Unit: milliseconds. The default value is 1 hour ahead of the current time.
+    // Unit: milliseconds. Default value: 1 hour before the current time.
     shared_ptr<string> startTime_ {};
     // The ID of the site monitoring task.
     // 
-    // For more information about how to obtain the ID of a site monitoring task, see [DescribeSiteMonitorList](https://help.aliyun.com/document_detail/115052.html).
+    // For information about how to obtain the ID of a site monitoring task, see [DescribeSiteMonitorList](https://help.aliyun.com/document_detail/115052.html).
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
     // The statistical period.
     // 
-    // Unit: minutes. Default value: 1440 (one day). Maximum value: 43200 (30 days).
+    // 
+    // Unit: minutes. Default value: 1440 (1 day). Maximum value: 43200 (30 days).
     shared_ptr<string> timeRange_ {};
   };
 

@@ -84,24 +84,23 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // **
-    // 
-    // **Description** The status code 200 indicates that the request was successful.
+    // > A status code of 200 indicates that the operation was successful.
     shared_ptr<string> code_ {};
-    // The logs of the instant test tasks.
+    // The detection logs of the one-time detection task.
     shared_ptr<string> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token that is used to query the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<string> success_ {};
   };
 

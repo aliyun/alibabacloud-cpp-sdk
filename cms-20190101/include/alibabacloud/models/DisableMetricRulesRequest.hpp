@@ -52,7 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<string> regionId_ {};
-    // The ID of the alert rule. Valid values of N: 1 to 20.
+    // The IDs of the alert rules.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> ruleId_ {};

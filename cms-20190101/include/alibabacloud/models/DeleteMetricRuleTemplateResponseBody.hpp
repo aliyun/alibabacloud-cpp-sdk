@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the template.
+      // The template ID.
       shared_ptr<string> templateId_ {};
     };
 
@@ -109,9 +109,9 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The value 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -119,7 +119,10 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The template information.
     shared_ptr<DeleteMetricRuleTemplateResponseBody::Resource> resource_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: The operation was successful.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -201,12 +201,13 @@ namespace Models
     shared_ptr<string> category_ {};
     // The time range within which the blacklist policy is effective. Take note of the following information:
     // 
-    // *   If you do not configure this parameter, the blacklist policy is permanently effective.
+    // - If you do not configure this parameter, the blacklist policy is permanently effective.
     // 
-    // *   If you configure this parameter, the blacklist policy is effective only within the specified time range. Examples:
+    // - If you configure this parameter, the blacklist policy is effective only within the specified time range. Examples:
     // 
-    //     *   `03:00-04:59`: The blacklist policy is effective from 03:00 to 05:00 local time. 05:00 local time is excluded.
-    //     *   `03:00-04:59 UTC+0700`: The blacklist policy is effective from 03:00 to 05:00 (UTC+7). 05:00 (UTC+7) is excluded.
+    //   - `03:00-04:59`: The blacklist policy is effective from 03:00 to 05:00 local time. 05:00 local time is excluded.
+    // 
+    //   - `03:00-04:59 UTC+0700`: The blacklist policy is effective from 03:00 to 05:00 (UTC+7). 05:00 (UTC+7) is excluded.
     shared_ptr<string> effectiveTime_ {};
     // The timestamp when the blacklist policy expires.
     // 
@@ -228,8 +229,9 @@ namespace Models
     shared_ptr<vector<string>> instances_ {};
     // The metrics of the instance.
     // 
-    // *   If you do not configure this parameter, the blacklist policy applies to all metrics of the specified cloud service.
-    // *   If you configure this parameter, the blacklist policy applies only to the current metric.
+    // - If you do not configure this parameter, the blacklist policy applies to all metrics of the specified cloud service.
+    // 
+    // - If you configure this parameter, the blacklist policy applies only to the current metric.
     shared_ptr<vector<ModifyMetricRuleBlackListRequest::Metrics>> metrics_ {};
     // The name of the blacklist policy.
     // 
@@ -244,12 +246,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The effective scope of the blacklist policy. Valid values:
     // 
-    // *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
-    // *   GROUP (default): The blacklist policy takes effect only within the specified application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+    // - USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
+    // 
+    // - GROUP (default): The blacklist policy takes effect only within the specified application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
     shared_ptr<string> scopeType_ {};
     // The IDs of the application groups.
     // 
-    // >  This parameter is required only when `ScopeType` is set to `GROUP`.
+    // > This parameter is required only when `ScopeType` is set to `GROUP`.
     shared_ptr<string> scopeValue_ {};
   };
 

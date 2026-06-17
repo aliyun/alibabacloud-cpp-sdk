@@ -206,43 +206,56 @@ namespace Models
   protected:
     // The alert contact group.
     shared_ptr<string> contactGroup_ {};
-    // The end timestamp of the alert logs to be queried.
+    // The end of the time range to query the alert history.
     // 
     // Unit: milliseconds.
     // 
-    // You can query only the alert logs within the last year. If the query time is longer than one year, the return value of the `AlertLogList` parameter is empty.
+    // You can query only the alert history within the last year. If the query time range exceeds one year, the return value of the `AlertLogList` parameter is empty.
     // 
-    // >  The time period between the start time specified by `StartTime` and end time specified by `EndTime` must be less than or equal to 15 days. You must specify StartTime and EndTime at the same time, or leave StartTime and EndTime empty at the same time. If you do not specify this parameter, the alert logs within the last 15 minutes are queried by default.
+    // > The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days. Both parameters must be specified or unspecified at the same time. If they are not specified, the alert history within the last 15 minutes is queried by default.
     shared_ptr<int64_t> endTime_ {};
-    // The type of the alert event. Valid values:
+    // The alert type. Valid values:
     // 
-    // *   TRIGGERED: The alert is triggered.
-    // *   RESOLVED: The alert is resolved.
+    // - TRIGGERED: The alert is triggered.
+    // 
+    // - RESOLVED: The alert is cleared.
     shared_ptr<string> eventType_ {};
-    // The dimensions based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
-    // 
-    // *   `product`: aggregates data by cloud service.
-    // *   `level`: aggregates data by alert level.
-    // *   `groupId`: aggregates data by application group.
-    // *   `contactGroup`: aggregates data by alert contact group.
-    // *   `product,metricName`: aggregates data both by cloud service and by metric.
+    // The spatial dimension by which the data is aggregated, which is equivalent to Group By in SQL. Valid values:
+    // - `product`: aggregates data by cloud service.
+    // - `level`: aggregates data by alert level.
+    // - `groupId`: aggregates data by application group.
+    // - `contactGroup`: aggregates data by alert contact group.
+    // - `product,metricName`: aggregates data by cloud service and metric.
     shared_ptr<string> groupBy_ {};
     // The ID of the application group.
     shared_ptr<string> groupId_ {};
-    // The statistical period of alert logs. Unit: minutes.
+    // The interval at which logs are obtained. Unit: minutes.
     shared_ptr<string> lastMin_ {};
-    // The severity level and notification methods of the alert. Valid values:
+    // The alert level and notification methods. Valid values:
     // 
-    // *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-    // *   OK: No alert is generated.
+    // <props="china">- P2: phone calls, text messages, emails, and DingTalk chatbots.
+    // 
+    // <props="china">- P3: text messages, emails, and DingTalk chatbots.
+    // 
+    // <props="china">- P4: emails and DingTalk chatbots.
+    // 
+    // <props="china">- OK: no alerts.
+    // 
+    // <props="intl">- P4: emails and DingTalk chatbots.
+    // 
+    // <props="intl">- OK: no alerts.
+    // 
+    // <props="partner">- P4: emails and DingTalk chatbots.
+    // 
+    // <props="partner">- OK: no alerts.
     shared_ptr<string> level_ {};
-    // The metric name.
+    // The name of the metric.
     // 
-    // > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // >For more information about the metrics of cloud services, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> metricName_ {};
     // The namespace of the cloud service.
     // 
-    // >  For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For more information about the namespaces of cloud services, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> namespace_ {};
     // The page number.
     // 
@@ -252,38 +265,39 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The abbreviation of the service name.
+    // The abbreviation of the cloud service name.
     // 
-    // For information about how to obtain the abbreviation of a cloud service name, see [DescribeProductsOfActiveMetricRule](https://help.aliyun.com/document_detail/114930.html).
+    // For more information about how to obtain the abbreviation of a cloud service name, see [DescribeProductsOfActiveMetricRule](https://help.aliyun.com/document_detail/114930.html).
     shared_ptr<string> product_ {};
     shared_ptr<string> regionId_ {};
     // The ID of the alert rule.
     // 
-    // For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // For more information about how to query the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     shared_ptr<string> ruleId_ {};
     // The name of the alert rule.
     shared_ptr<string> ruleName_ {};
-    // The search keyword that is used to query alert logs.
+    // The keyword used to query the alert history.
     shared_ptr<string> searchKey_ {};
-    // The status of the alert. Valid values:
+    // The alert status. Valid values:
+    // - 0: An alert is triggered or cleared.
+    // - 1: The current time is not within the effective period of the alert.
+    // - 2: The current time is within the channel silence period.
+    // - 3: The host is being restarted.
+    // - 4: No alerts are sent.
     // 
-    // *   0: The alert is triggered or cleared.
-    // *   1: The alert is ineffective.
-    // *   2: The alert is muted.
-    // *   3: The host is restarting.
-    // *   4: No alert notification is sent.
-    // 
-    // If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
+    // <props="china">When the alert status is 0, an alert is triggered if Level is set to P2, P3, or P4; the alert is cleared if Level is set to OK.
+    // <props="intl">When the alert status is 0, an alert is triggered if Level is set to P4; the alert is cleared if Level is set to OK.
+    // <props="partner">When the alert status is 0, an alert is triggered if Level is set to P4; the alert is cleared if Level is set to OK.
     shared_ptr<string> sendStatus_ {};
-    // The type of the alert rule. Valid value: METRIC. This value indicates an alert rule for time series metrics.
+    // The type of the alert rule. Valid value: METRIC, which indicates a time series metric alert rule.
     shared_ptr<string> sourceType_ {};
-    // The start timestamp of the alert logs to be queried.
+    // The beginning of the time range to query the alert history.
     // 
     // Unit: milliseconds.
     // 
-    // You can query only the alert logs within the last year. If the query time is longer than one year, the return value of the `AlertLogList` parameter is empty.
+    // You can query only the alert history within the last year. If the query time range exceeds one year, the return value of the `AlertLogList` parameter is empty.
     // 
-    // >  The time period between the start time specified by `StartTime` and the end time specified by `EndTime` must be less than or equal to 15 days. You must specify StartTime and EndTime at the same time, or leave StartTime and EndTime empty at the same time. If you do not specify this parameter, the alert logs within the last 15 minutes are queried by default.
+    // > The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days. Both parameters must be specified or unspecified at the same time. If they are not specified, the alert history within the last 15 minutes is queried by default.
     shared_ptr<int64_t> startTime_ {};
   };
 

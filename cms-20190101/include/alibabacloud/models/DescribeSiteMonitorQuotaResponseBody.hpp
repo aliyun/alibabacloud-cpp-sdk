@@ -113,21 +113,23 @@ namespace Models
     protected:
       // Indicates whether second-level monitoring is enabled. Valid values:
       // 
-      // *   true: Second-level monitoring is enabled.
-      // *   false: Second-level monitoring is disabled.
+      // - true: enabled.
+      // 
+      // - false: disabled.
       shared_ptr<bool> secondMonitor_ {};
-      // The quota of detection points that are provided by Alibaba Cloud. Five detection points are provided for free.
+      // The quota of Alibaba detection points. The free quota is 5.
       shared_ptr<int32_t> siteMonitorIdcQuota_ {};
-      // The quota of detection points that are not provided by Alibaba Cloud. Default value: 0.
+      // The quota of non-Alibaba detection points. Default value: 0.
       shared_ptr<int32_t> siteMonitorOperatorQuotaQuota_ {};
-      // The used quota of site monitoring tasks.
+      // The number of used site monitoring detection task quotas.
       shared_ptr<int32_t> siteMonitorQuotaTaskUsed_ {};
-      // The quota of site monitoring tasks.
+      // The quota of site monitoring detection tasks.
       shared_ptr<int32_t> siteMonitorTaskQuota_ {};
       // The version of site monitoring. Valid values:
       // 
-      // *   V1
-      // *   V2
+      // - V1: the old version.
+      //  
+      // - V2: the new version.
       shared_ptr<string> siteMonitorVersion_ {};
     };
 
@@ -171,20 +173,21 @@ namespace Models
 
 
   protected:
-    // The responses code.
+    // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The value 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The quota.
+    // The quota information.
     shared_ptr<DescribeSiteMonitorQuotaResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<string> success_ {};
   };
 

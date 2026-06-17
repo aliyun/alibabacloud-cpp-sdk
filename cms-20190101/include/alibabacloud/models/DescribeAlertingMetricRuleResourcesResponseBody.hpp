@@ -601,8 +601,9 @@ namespace Models
     shared_ptr<DescribeAlertingMetricRuleResourcesResponseBody::Resources> resources_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> total_ {};

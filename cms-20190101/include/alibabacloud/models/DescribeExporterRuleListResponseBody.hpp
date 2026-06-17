@@ -278,23 +278,22 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // > The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+    // > A value of 200 indicates success. Any other value indicates failure.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeExporterRuleListResponseBody::Datapoints> datapoints_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   `true`
-    // *   `false`
+    // Indicates whether the call was successful. Valid values:  
+    // - `true`: Successful.
+    // - `false`: Failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned entries.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

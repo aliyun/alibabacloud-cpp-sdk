@@ -189,7 +189,7 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the call was successful.
+    // > The status code 200 indicates that the call was successful.
     shared_ptr<int32_t> code_ {};
     // The deleted application group.
     shared_ptr<DeleteMonitorGroupResponseBody::Group> group_ {};

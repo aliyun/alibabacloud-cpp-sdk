@@ -89,6 +89,7 @@ namespace Models
     // Specifies whether to enable the event-triggered alert rule. Valid values:
     // 
     // - true (default)
+    // 
     // - false
     shared_ptr<bool> isEnable_ {};
     // The prefix in the name of the event-triggered alert rule.

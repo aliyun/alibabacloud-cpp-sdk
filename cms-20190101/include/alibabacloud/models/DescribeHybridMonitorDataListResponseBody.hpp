@@ -229,7 +229,7 @@ namespace Models
   protected:
     // The response code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -237,8 +237,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
     // The returned monitoring data.
     shared_ptr<vector<DescribeHybridMonitorDataListResponseBody::TimeSeries>> timeSeries_ {};

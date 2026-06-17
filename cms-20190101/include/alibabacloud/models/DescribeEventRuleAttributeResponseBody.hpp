@@ -271,10 +271,10 @@ namespace Models
 
         protected:
           shared_ptr<KeywordFilterObj::Keywords> keywords_ {};
-          // The relationship between multiple keywords in a condition. Valid values:
+          // The condition for multiple keywords. Valid values:
           // 
-          // *   OR: The relationship between keywords is OR.
-          // *   NOT: The keyword is excluded. The value NOT indicates that all events that do not contain the keywords are matched.
+          // - OR: The relationship between multiple keywords is OR.
+          // - NOT: Does not contain the keyword. Matches all events that are not in the keyword list.
           shared_ptr<string> relation_ {};
         };
 
@@ -375,13 +375,13 @@ namespace Models
 
       protected:
         shared_ptr<EventPattern::EventTypeList> eventTypeList_ {};
-        // The keyword for filtering.
+        // The filter keyword.
         shared_ptr<EventPattern::KeywordFilterObj> keywordFilterObj_ {};
         shared_ptr<EventPattern::LevelList> levelList_ {};
         shared_ptr<EventPattern::NameList> nameList_ {};
         // The name of the cloud service.
         shared_ptr<string> product_ {};
-        // Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
+        // Filters logs by using SQL statements. An alert is triggered if the filter conditions are met.
         shared_ptr<string> SQLFilter_ {};
         shared_ptr<EventPattern::StatusList> statusList_ {};
       };
@@ -435,21 +435,23 @@ namespace Models
     protected:
       // The description of the event-triggered alert rule.
       shared_ptr<string> description_ {};
-      // The event pattern. This parameter describes the trigger conditions of an event.
+      // The event pattern. Describes the trigger conditions of the event.
       shared_ptr<Result::EventPattern> eventPattern_ {};
       // The event type. Valid values:
       // 
-      // *   SYSTEM: system event
-      // *   CUSTOM: custom event
+      // - SYSTEM: system event.
+      // 
+      // - CUSTOM: custom event.
       shared_ptr<string> eventType_ {};
-      // The ID of the application group.
+      // The application group ID.
       shared_ptr<string> groupId_ {};
       // The name of the event-triggered alert rule.
       shared_ptr<string> name_ {};
       // The status of the event-triggered alert rule. Valid values:
       // 
-      // *   ENABLED
-      // *   DISABLED
+      // - ENABLED: enabled.
+      // 
+      // - DISABLED: disabled.
       shared_ptr<string> state_ {};
     };
 
@@ -493,9 +495,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -503,10 +505,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The details of the event-triggered alert rule.
     shared_ptr<DescribeEventRuleAttributeResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

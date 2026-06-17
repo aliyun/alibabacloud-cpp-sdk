@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The metric name. Exact match is supported.
-    // 
-    // For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // The name of the metric.
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};

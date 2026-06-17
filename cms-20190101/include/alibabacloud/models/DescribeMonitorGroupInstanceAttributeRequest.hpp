@@ -130,8 +130,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // Specifies whether to return the total number of resources in the specified application group. Valid values:
     // 
-    // *   true (default)
-    // *   false
+    // - true (default)
+    // 
+    // - false
     shared_ptr<bool> total_ {};
   };
 

@@ -252,7 +252,7 @@ namespace Models
   protected:
     // The responses code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -261,8 +261,9 @@ namespace Models
     shared_ptr<DescribeMonitorGroupDynamicRulesResponseBody::Resource> resource_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

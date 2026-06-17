@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The keyword that is used to search for Logstore groups.
+    // The search keyword.
     shared_ptr<string> keyword_ {};
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page.
     // 

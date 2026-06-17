@@ -684,7 +684,7 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -692,8 +692,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
     shared_ptr<DescribeHostAvailabilityListResponseBody::TaskList> taskList_ {};
     // The total number of returned entries.

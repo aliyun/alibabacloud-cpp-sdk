@@ -67,8 +67,9 @@ namespace Models
     shared_ptr<string> id_ {};
     // Specifies whether to enable the blacklist policy. Valid values:
     // 
-    // *   true: The blacklist policy is enabled.
-    // *   false (default): The blacklist policy is disabled.
+    // - true: The blacklist policy is enabled.
+    // 
+    // - false (default): The blacklist policy is disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> isEnable_ {};

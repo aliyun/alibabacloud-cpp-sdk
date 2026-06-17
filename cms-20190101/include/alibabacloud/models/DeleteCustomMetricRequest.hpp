@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The MD5 value of the HTTP request body. The MD5 value is a 128-bit hash value used to verify the uniqueness of the reported monitoring data.
     // 
-    // >  `Md5` is returned when you query the reported monitoring data of a metric.
+    // > `Md5` is returned when you query the reported monitoring data of a metric.
     shared_ptr<string> md5_ {};
     // The name of the metric.
     // 
@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the request for reporting monitoring data.
     // 
-    // >  `UUID` is returned when you query the reported monitoring data of a metric. We recommend that you specify the `Md5` parameter.
+    // > `UUID` is returned when you query the reported monitoring data of a metric. We recommend that you specify the `Md5` parameter.
     shared_ptr<string> UUID_ {};
   };
 

@@ -51,7 +51,8 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the alert rule.
     // 
-    // For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // 
+    // For information about how to obtain the alert rule ID, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};

@@ -57,14 +57,14 @@ namespace Models
 
 
   protected:
-    // The name of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
+    // The name of the alert template. You must set either `Name` or `TemplateId`.
     // 
-    // For information about how to obtain the name of an alert template, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
+    // For information about how to obtain the alert template name, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
     shared_ptr<string> name_ {};
     shared_ptr<string> regionId_ {};
-    // The ID of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
+    // The ID of the alert template. You must set either `Name` or `TemplateId`.
     // 
-    // For information about how to obtain the ID of an alert template, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
+    // For information about how to obtain the alert template ID, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
     shared_ptr<string> templateId_ {};
   };
 

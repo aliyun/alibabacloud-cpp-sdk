@@ -565,7 +565,7 @@ namespace Models
   protected:
     // The HTTP status codes.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};

@@ -87,8 +87,9 @@ namespace Models
     shared_ptr<int32_t> result_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
   };
 

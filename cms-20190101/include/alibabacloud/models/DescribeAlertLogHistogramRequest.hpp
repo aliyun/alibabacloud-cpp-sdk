@@ -210,24 +210,29 @@ namespace Models
     // 
     // Unit: milliseconds.
     // 
-    // > 
+    // >
     // 
-    // *   You can query only the alert logs within the last year.
+    // - You can query only the alert logs within the last year.
     // 
-    // *   The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+    // - The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
     shared_ptr<int64_t> endTime_ {};
     // The type of the alert event. Valid values:
     // 
-    // *   TRIGGERED: The alert is triggered.
-    // *   RESOLVED: The alert is resolved.
+    // - TRIGGERED: The alert is triggered.
+    // 
+    // - RESOLVED: The alert is resolved.
     shared_ptr<string> eventType_ {};
     // The dimensions based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
     // 
-    // *   `product`: aggregates data by cloud service.
-    // *   `level`: aggregates data by alert level.
-    // *   `groupId`: aggregates data by application group.
-    // *   `contactGroup`: aggregates data by alert contact group.
-    // *   `product,metricName`: aggregates data both by cloud service and by metric.
+    // - `product`: aggregates data by cloud service.
+    // 
+    // - `level`: aggregates data by alert level.
+    // 
+    // - `groupId`: aggregates data by application group.
+    // 
+    // - `contactGroup`: aggregates data by alert contact group.
+    // 
+    // - `product,metricName`: aggregates data both by cloud service and by metric.
     shared_ptr<string> groupBy_ {};
     // The ID of the application group.
     shared_ptr<string> groupId_ {};
@@ -235,16 +240,17 @@ namespace Models
     shared_ptr<string> lastMin_ {};
     // The severity level and notification methods of the alert. Valid values:
     // 
-    // *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-    // *   OK: No alert is generated.
+    // - P4: Alert notifications are sent by using emails and DingTalk chatbots.
+    // 
+    // - OK: No alert is generated.
     shared_ptr<string> level_ {};
     // The metric name.
     // 
-    // >  For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> metricName_ {};
     // The namespace of the Alibaba Cloud service.
     // 
-    // >  For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // > For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> namespace_ {};
     // The page number.
     // 
@@ -267,11 +273,15 @@ namespace Models
     shared_ptr<string> searchKey_ {};
     // The alert status. Valid values:
     // 
-    // *   0: The alert is triggered or cleared.
-    // *   1: The alert is ineffective.
-    // *   2: The alert is muted and not triggered in a specified period.
-    // *   3: The host is restarting.
-    // *   4: No alert notification is sent.
+    // - 0: The alert is triggered or cleared.
+    // 
+    // - 1: The alert is ineffective.
+    // 
+    // - 2: The alert is muted and not triggered in a specified period.
+    // 
+    // - 3: The host is restarting.
+    // 
+    // - 4: No alert notification is sent.
     // 
     // If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
     shared_ptr<string> sendStatus_ {};
@@ -281,11 +291,11 @@ namespace Models
     // 
     // Unit: milliseconds.
     // 
-    // > 
+    // >
     // 
-    // *   You can query only the alert logs within the last year.
+    // - You can query only the alert logs within the last year.
     // 
-    // *   The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+    // - The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -386,21 +386,22 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeContactListResponseBody::Contacts> contacts_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<string> regionId_ {};
-    // The ID of the alert template.
+    // The ID of the alert rule template.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

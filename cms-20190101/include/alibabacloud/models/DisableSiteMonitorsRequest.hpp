@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<string> regionId_ {};
-    // The ID of the site monitoring task. Separate multiple IDs with commas (,).
+    // The IDs of site monitoring tasks. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> taskIds_ {};

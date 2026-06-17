@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the process monitoring task.
+    // The ID of the group process.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

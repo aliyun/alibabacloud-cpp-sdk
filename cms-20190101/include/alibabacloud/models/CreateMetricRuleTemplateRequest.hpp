@@ -159,21 +159,31 @@ namespace Models
         protected:
           // The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
           // 
-          // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-          // *   GreaterThanThreshold: greater than the threshold
-          // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-          // *   LessThanThreshold: less than the threshold
-          // *   NotEqualToThreshold: not equal to the threshold
-          // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-          // *   LessThanYesterday: less than the metric value at the same time yesterday
-          // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-          // *   LessThanLastWeek: less than the metric value at the same time last week
-          // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-          // *   LessThanLastPeriod: less than the metric value in the previous monitoring cycle
+          // - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+          // 
+          // - GreaterThanThreshold: greater than the threshold
+          // 
+          // - LessThanOrEqualToThreshold: less than or equal to the threshold
+          // 
+          // - LessThanThreshold: less than the threshold
+          // 
+          // - NotEqualToThreshold: not equal to the threshold
+          // 
+          // - GreaterThanYesterday: greater than the metric value at the same time yesterday
+          // 
+          // - LessThanYesterday: less than the metric value at the same time yesterday
+          // 
+          // - GreaterThanLastWeek: greater than the metric value at the same time last week
+          // 
+          // - LessThanLastWeek: less than the metric value at the same time last week
+          // 
+          // - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+          // 
+          // - LessThanLastPeriod: less than the metric value in the previous monitoring cycle
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> comparisonOperator_ {};
           shared_ptr<int32_t> n_ {};
           // The statistical method for the Warn-level alert.
@@ -182,19 +192,19 @@ namespace Models
           // 
           // The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> statistics_ {};
           // The threshold for Warn-level alerts.
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> threshold_ {};
           // The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<int32_t> times_ {};
         };
 
@@ -265,21 +275,31 @@ namespace Models
         protected:
           // The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
           // 
-          // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-          // *   GreaterThanThreshold: greater than the threshold
-          // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-          // *   LessThanThreshold: less than the threshold
-          // *   NotEqualToThreshold: not equal to the threshold
-          // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-          // *   LessThanYesterday: less than the metric value at the same time yesterday
-          // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-          // *   LessThanLastWeek: less than the metric value at the same time last week
-          // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-          // *   LessThanLastPeriod: less than the metric value in the previous monitoring cycle
+          // - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+          // 
+          // - GreaterThanThreshold: greater than the threshold
+          // 
+          // - LessThanOrEqualToThreshold: less than or equal to the threshold
+          // 
+          // - LessThanThreshold: less than the threshold
+          // 
+          // - NotEqualToThreshold: not equal to the threshold
+          // 
+          // - GreaterThanYesterday: greater than the metric value at the same time yesterday
+          // 
+          // - LessThanYesterday: less than the metric value at the same time yesterday
+          // 
+          // - GreaterThanLastWeek: greater than the metric value at the same time last week
+          // 
+          // - LessThanLastWeek: less than the metric value at the same time last week
+          // 
+          // - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+          // 
+          // - LessThanLastPeriod: less than the metric value in the previous monitoring cycle
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> comparisonOperator_ {};
           shared_ptr<int32_t> n_ {};
           // The statistical method for Info-level alerts.
@@ -288,19 +308,19 @@ namespace Models
           // 
           // The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> statistics_ {};
           // The threshold for Info-level alerts.
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> threshold_ {};
           // The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<int32_t> times_ {};
         };
 
@@ -371,21 +391,31 @@ namespace Models
         protected:
           // The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
           // 
-          // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-          // *   GreaterThanThreshold: greater than the threshold
-          // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-          // *   LessThanThreshold: less than the threshold
-          // *   NotEqualToThreshold: not equal to the threshold
-          // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-          // *   LessThanYesterday: less than the metric value at the same time yesterday
-          // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-          // *   LessThanLastWeek: less than the metric value at the same time last week
-          // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-          // *   LessThanLastPeriod: less than the metric value in the previous monitoring cycle
+          // - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+          // 
+          // - GreaterThanThreshold: greater than the threshold
+          // 
+          // - LessThanOrEqualToThreshold: less than or equal to the threshold
+          // 
+          // - LessThanThreshold: less than the threshold
+          // 
+          // - NotEqualToThreshold: not equal to the threshold
+          // 
+          // - GreaterThanYesterday: greater than the metric value at the same time yesterday
+          // 
+          // - LessThanYesterday: less than the metric value at the same time yesterday
+          // 
+          // - GreaterThanLastWeek: greater than the metric value at the same time last week
+          // 
+          // - LessThanLastWeek: less than the metric value at the same time last week
+          // 
+          // - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+          // 
+          // - LessThanLastPeriod: less than the metric value in the previous monitoring cycle
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> comparisonOperator_ {};
           shared_ptr<int32_t> n_ {};
           // The statistical method for Critical-level alerts.
@@ -394,19 +424,19 @@ namespace Models
           // 
           // The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> statistics_ {};
           // The threshold for Critical-level alerts.
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> threshold_ {};
           // The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
           // 
           // Valid values of N: 1 to 200.
           // 
-          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+          // > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<int32_t> times_ {};
         };
 
@@ -550,7 +580,7 @@ namespace Models
       // 
       // For example, an alert template is applied to an application group, this parameter is set to `{"disk":"/"}`, and the MetricName parameter is set to `DiskUtilization`. In this case, the generated alert rule is applied to the root disk partition (`"/"`) of all instances in the application group to which the alert template is applied.
       // 
-      // >  For more information about the values of extended fields, see [DescribeMetricRuleTemplateAttribute](https://help.aliyun.com/document_detail/114979.html).
+      // > For more information about the values of extended fields, see [DescribeMetricRuleTemplateAttribute](https://help.aliyun.com/document_detail/114979.html).
       shared_ptr<string> selector_ {};
       // The callback URL.
       // 

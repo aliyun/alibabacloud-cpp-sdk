@@ -234,26 +234,43 @@ namespace Models
 
 
     protected:
+      // The name of the area in Chinese.
       shared_ptr<string> areaCn_ {};
+      // The name of the area in English.
       shared_ptr<string> areaEn_ {};
+      // The city ID.
       shared_ptr<string> city_ {};
+      // The name of the city in Chinese.
       shared_ptr<string> cityCn_ {};
+      // The name of the city in English.
       shared_ptr<string> cityEn_ {};
+      // The country code.
       shared_ptr<string> country_ {};
+      // The name of the country in Chinese.
       shared_ptr<string> countryCn_ {};
+      // The name of the country or region in English.
       shared_ptr<string> countryEn_ {};
+      // The number of IPv4 detection points in data centers.
       shared_ptr<int32_t> idcV4ProbeCount_ {};
-      // The number of IPv6 nodes in data centers.
+      // The number of IDC IPv6 nodes.
       shared_ptr<int32_t> idcV6ProbeCount_ {};
-      // The IP addresses of the monitored nodes.
+      // The list of node IP addresses.
       shared_ptr<vector<string>> ipPool_ {};
+      // The carrier ID.
       shared_ptr<string> isp_ {};
+      // The name of the carrier in Chinese.
       shared_ptr<string> ispCn_ {};
+      // The name of the carrier in English.
       shared_ptr<string> ispEn_ {};
+      // The number of last-mile detection points.
       shared_ptr<int32_t> lmProbeCount_ {};
+      // The number of mobile detection points.
       shared_ptr<int32_t> mbProbeCount_ {};
+      // The province code.
       shared_ptr<string> region_ {};
+      // The name of the province in Chinese.
       shared_ptr<string> regionCn_ {};
+      // The name of the province in English.
       shared_ptr<string> regionEn_ {};
     };
 
@@ -297,11 +314,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
-    // The queried detection points.
+    // The list of detection points.
     shared_ptr<vector<DescribeSyntheticProbeListResponseBody::IspCityList>> ispCityList_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
     shared_ptr<string> success_ {};
   };
 

@@ -86,16 +86,21 @@ namespace Models
   protected:
     // The alert notification method. Valid values:
     // 
-    // *   Mail: emails
-    // *   DingWebHook: DingTalk chatbots
-    shared_ptr<string> chanelType_ {};
-    // The value specified for the alert notification method.
+    // <props="china">- SMS: text message.
     // 
-    // >  This parameter is required only if you set the `ChanelType` parameter to `Mail`.
+    // <props="china">- AliIM: TradeManager.
+    // 
+    // - Mail: email.
+    // 
+    // - DingWebHook: DingTalk chatbot.
+    shared_ptr<string> chanelType_ {};
+    // The value of the alert notification method.
+    // 
+    // > This parameter is required only when `ChanelType` is set to `Mail`.
     shared_ptr<string> chanelValue_ {};
     // The name of the alert contact.
     shared_ptr<string> contactName_ {};
-    // The page number.
+    // The current page number.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

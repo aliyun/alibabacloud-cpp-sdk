@@ -151,8 +151,9 @@ namespace Models
   protected:
     // The order of alerts. Valid values:
     // 
-    // *   true (default value): reverse chronological order
-    // *   false: chronological order
+    // - true (default value): reverse chronological order
+    // 
+    // - false: chronological order
     shared_ptr<bool> ascending_ {};
     // The end timestamp of the historical alerts that you want to query.
     // 
@@ -193,14 +194,17 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The status of the alert. Valid values:
     // 
-    // *   ALARM (default value): Alerts are triggered.
-    // *   OK: No alerts are triggered.
+    // - ALARM (default value): Alerts are triggered.
+    // 
+    // - OK: No alerts are triggered.
     shared_ptr<string> state_ {};
     // Specifies whether alerts are muted. Valid values:
     // 
-    // *   2 (default value): Alerts are muted and are not triggered within the mute period, even if the condition specified in the alert rule is met.
-    // *   0: Alerts are triggered or cleared.
-    // *   1: The alert rule is ineffective.
+    // - 2 (default value): Alerts are muted and are not triggered within the mute period, even if the condition specified in the alert rule is met.
+    // 
+    // - 0: Alerts are triggered or cleared.
+    // 
+    // - 1: The alert rule is ineffective.
     shared_ptr<string> status_ {};
   };
 

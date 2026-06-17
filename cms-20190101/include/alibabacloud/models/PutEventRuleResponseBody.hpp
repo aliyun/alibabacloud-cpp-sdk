@@ -75,20 +75,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the call was successful.
+    // >A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The number of event-triggered alert rules that were created or modified.
+    // The number of rows affected when the Event-triggered Alert Rule is created or modified.
     shared_ptr<string> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true: The call was successful.
-    // *   false: The call failed.
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

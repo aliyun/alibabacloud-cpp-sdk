@@ -244,20 +244,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status codes.
-    // 
-    // >  The status code 200 indicates that the request was successful.
+    // The status code.
+    // >A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The returned message.
     // 
-    // If the request was successful, a success message is returned. If the request failed, an error message is returned.
+    // If the request is successful, a success message is returned. If the request fails, the failure reason is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation is successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<string> success_ {};
     shared_ptr<DescribeSystemEventCountResponseBody::SystemEventCounts> systemEventCounts_ {};
   };

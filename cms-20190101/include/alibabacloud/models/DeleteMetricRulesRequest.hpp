@@ -51,6 +51,8 @@ namespace Models
 
 
   protected:
+    // The IDs of the alert rules to delete.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> id_ {};
     shared_ptr<string> regionId_ {};

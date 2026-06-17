@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The task ID. Valid values of N: 1 to 20.
+    // The IDs of the tasks.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> id_ {};

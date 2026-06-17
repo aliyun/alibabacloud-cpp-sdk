@@ -75,20 +75,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the call is successful.
+    // > A status code of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The ID of the tag matching rule.
     shared_ptr<string> id_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

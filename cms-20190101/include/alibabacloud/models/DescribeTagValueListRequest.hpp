@@ -68,16 +68,14 @@ namespace Models
   protected:
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    // 
-    // Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
     // The tag key.
     // 
-    // For more information about how to obtain a tag key, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145558.html).
+    // For more information about how to obtain the tag key, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145558.html).
     // 
     // This parameter is required.
     shared_ptr<string> tagKey_ {};

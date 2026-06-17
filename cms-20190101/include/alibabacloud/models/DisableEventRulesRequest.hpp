@@ -52,6 +52,8 @@ namespace Models
 
   protected:
     shared_ptr<string> regionId_ {};
+    // The names of the event-triggered alert rules.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> ruleNames_ {};
   };

@@ -77,21 +77,23 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     // The ID of the log monitoring metric.
     shared_ptr<string> logId_ {};
-    // The returned message.
+    // The returned message. Results:
     // 
-    // *   If the request was successful, `successful` is returned.
-    // *   If the request failed, an error message is returned. Example: `alias of aggreate must be set value.`
+    // - If the operation is successful, `successful` is returned.
+    // 
+    // - If the operation fails, an error message is returned, such as `alias of aggreate must be set value.`.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation is successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

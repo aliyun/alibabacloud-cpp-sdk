@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The monitoring data.
     shared_ptr<string> datapoints_ {};

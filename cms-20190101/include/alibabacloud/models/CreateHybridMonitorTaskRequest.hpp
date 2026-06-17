@@ -146,32 +146,32 @@ namespace Models
 
 
       protected:
-        // The alias of the aggregation result.
+        // The alias of the SLS log statistics result.
         shared_ptr<string> alias_ {};
-        // The function that is used to aggregate the log data of a statistical period. Valid values:
-        // 
-        // *   count: counts the number.
-        // *   sum: calculates the total value.
-        // *   avg: calculates the average value.
-        // *   max: calculates the maximum value.
-        // *   min: calculates the minimum value.
-        // *   value: collects samples within the statistical period.
-        // *   countps: calculates the number of values of the specified field divided by the total number of seconds within a statistical period.
-        // *   sumps: calculates the sum of the values of the specified field divided by the total number of seconds within a statistical period.
-        // *   distinct: calculates the number of unique values of the specified field within a statistical period.
-        // *   distribution: calculates the number of logs that meet a specified condition within the statistical period.
-        // *   percentile: sorts the values of the specified field in ascending order, and then returns the value that is at the specified percentile within the statistical period. Example: P50.
+        // Aggregates log data within the statistical period by using the specified statistical method. Valid values:
+        // - count: counts the number of occurrences.
+        // - sum: calculates the sum.
+        // - avg: calculates the average.
+        // - max: returns the maximum value.
+        // - min: returns the minimum value.
+        // - value: samples within the statistical period.
+        // - countps: calculates the average count per second for the specified field within the statistical period.
+        // - sumps: calculates the average sum per second for the specified field within the statistical period.
+        // - distinct: counts the number of occurrences of the specified field after deduplication within the statistical period.
+        // - distribution: counts the number of occurrences of field values within a specified range.
+        // - percentile: calculates the distribution value of field values, such as P50.
         shared_ptr<string> function_ {};
-        // The value of the function that is used to aggregate logs imported from Simple Log Service.
+        // The statistical value of SLS logs.
         // 
-        // *   If the `Function` parameter is set to `distribution`, this parameter specifies the lower limit of the statistical interval. For example, if you want to calculate the number of HTTP requests whose status code is 2XX, set this parameter to 200.
-        // *   If the `Function` parameter is set to `percentile`, this parameter specifies the percentile at which the expected value is. For example, 0.5 specifies P50.
+        // - If Function is set to `distribution`, this parameter specifies the lower limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 200.
+        // 
+        // - If Function is set to `percentile`, this parameter specifies the percentile of the statistical distribution. For example, 0.5 indicates P50.
         shared_ptr<string> parameter1_ {};
-        // The value of the function that is used to aggregate logs imported from Simple Log Service.
+        // The statistical value of SLS logs.
         // 
-        // >  This parameter is required only if the `Function` parameter is set to `distribution`. This parameter specifies the upper limit of the statistical interval. For example, if you want to calculate the number of HTTP requests whose status code is 2XX, set this parameter to 299.
+        // > This parameter is required only when Function is set to `distribution`. This parameter specifies the upper limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 299.
         shared_ptr<string> parameter2_ {};
-        // The name of the key that is used to aggregate logs imported from Simple Log Service.
+        // The name of the parameter for SLS log statistics.
         shared_ptr<string> SLSKeyName_ {};
       };
 
@@ -213,9 +213,9 @@ namespace Models
 
 
       protected:
-        // The alias of the aggregation result.
+        // The alias of the SLS log statistics result.
         shared_ptr<string> alias_ {};
-        // The name of the key that is used to aggregate logs imported from Simple Log Service.
+        // The name of the parameter for SLS log statistics.
         shared_ptr<string> SLSKeyName_ {};
       };
 
@@ -287,20 +287,19 @@ namespace Models
 
 
         protected:
-          // The method that is used to filter logs imported from Simple Log Service. Valid values:
-          // 
-          // *   `contain`: contains
-          // *   `notContain`: does not contain
-          // *   `>`: greater than
-          // *   `<`: less than
-          // *   `=`: equal to
-          // *   `! =`: not equal to
-          // *   `>=`: greater than or equal to
-          // *   `<=`: less than or equal to
+          // The method used to filter parameter values in SLS logs. Valid values:
+          // - `contain`: contains.
+          // - `notContain`: does not contain.
+          // - `>`: greater than.
+          // - `<`: less than.
+          // - `=`: equal to.
+          // - `!=`: not equal to.
+          // - `>=`: greater than or equal to.
+          // - `<=`: less than or equal to.
           shared_ptr<string> operator_ {};
-          // The name of the key that is used to filter logs imported from Simple Log Service.
+          // The name of the parameter to filter in SLS logs.
           shared_ptr<string> SLSKeyName_ {};
-          // The value of the key that is used to filter logs imported from Simple Log Service.
+          // The filter value of the parameter in SLS logs.
           shared_ptr<string> value_ {};
         };
 
@@ -323,12 +322,12 @@ namespace Models
 
 
       protected:
-        // The conditions that are used to filter logs imported from Simple Log Service.
+        // The list of filter conditions for parameters in SLS logs.
         shared_ptr<vector<Filter::Filters>> filters_ {};
         // The relationship between multiple filter conditions. Valid values:
         // 
-        // *   and (default): Logs are processed only if all filter conditions are met.
-        // *   or: Logs are processed if one of the filter conditions is met.
+        // - and (default): Logs are processed only when all filter conditions are met.
+        // - or: Logs are processed when any filter condition is met.
         shared_ptr<string> relation_ {};
       };
 
@@ -370,9 +369,9 @@ namespace Models
 
 
       protected:
-        // The alias of the extended field that specifies the result of basic operations performed on aggregation results.
+        // The alias of the arithmetic operation result on the extended fields of SLS log statistics results.
         shared_ptr<string> alias_ {};
-        // The extended field that specifies the result of basic operations performed on aggregation results.
+        // The result of arithmetic operations on the extended fields of SLS log statistics results.
         shared_ptr<string> express_ {};
       };
 
@@ -415,13 +414,13 @@ namespace Models
 
 
     protected:
-      // The extended fields that specify the results of basic operations performed on aggregation results.
+      // The result of arithmetic operations on the extended fields of SLS log statistics results.
       shared_ptr<vector<SLSProcessConfig::Express>> express_ {};
-      // The conditions that are used to filter logs imported from Simple Log Service.
+      // The filter conditions for parameters in SLS logs.
       shared_ptr<SLSProcessConfig::Filter> filter_ {};
-      // The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL.
+      // Aggregates data by spatial dimension, which is equivalent to the GROUP BY clause in SQL.
       shared_ptr<vector<SLSProcessConfig::GroupBy>> groupBy_ {};
-      // The method that is used to aggregate logs imported from Simple Log Service.
+      // The method used to aggregate SLS log data.
       shared_ptr<vector<SLSProcessConfig::Statistics>> statistics_ {};
     };
 
@@ -580,92 +579,93 @@ namespace Models
   protected:
     // The tags of the metric.
     // 
-    // >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+    // > This parameter is required only when TaskType is set to `aliyun_sls`.
     shared_ptr<vector<CreateHybridMonitorTaskRequest::AttachLabels>> attachLabels_ {};
+    // The IDs of the accounts of other cloud providers that are connected to CloudMonitor.
     shared_ptr<vector<string>> cloudAccessId_ {};
     // The collection period of the metric. Valid values:
     // 
-    // *   15
-    // *   60 (default)
+    // - 15
+    // - 60 (default)
     // 
     // Unit: seconds.
     // 
-    // >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+    // > This parameter is required only when TaskType is set to `aliyun_sls`.
     shared_ptr<string> collectInterval_ {};
-    // The type of the collection target.
-    // 
-    // *   If the `TaskType` parameter is set to `aliyun_fc`, enter `aliyun_fc`.
-    // *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the Logstore group.
+    // The type of the collection target for monitoring data.
+    // - If TaskType is set to `aliyun_fc`, set this parameter to `aliyun_fc`.
+    // - If TaskType is set to `aliyun_sls`, set this parameter to the name of the Logstore group for SLS logs.
     // 
     // This parameter is required.
     shared_ptr<string> collectTargetType_ {};
-    // The description of the metric import task.
+    // The description of the monitoring task.
     shared_ptr<string> description_ {};
     // The ID of the application group.
     // 
-    // For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+    // For information about how to obtain the application group ID, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
     // 
-    // >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+    // > This parameter is required only when TaskType is set to `aliyun_sls`.
     shared_ptr<string> groupId_ {};
-    // The name of the namespace.
+    // The name of the metric repository.
     // 
-    // For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
+    // For information about how to obtain the name of a metric repository, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
     shared_ptr<string> regionId_ {};
-    // The configurations of the logs that are imported from Simple Log Service.
+    // The configurations of SLS logs.
     // 
-    // >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+    // > This parameter is required only when TaskType is set to `aliyun_sls`.
     shared_ptr<CreateHybridMonitorTaskRequest::SLSProcessConfig> SLSProcessConfig_ {};
     // The ID of the member account.
     // 
-    // If you call this operation by using the management account of a resource directory, you can connect the Alibaba Cloud services that are activated for all members in the resource directory to Hybrid Cloud Monitoring. You can use the resource directory to monitor Alibaba Cloud services across enterprise accounts.
+    // When you call this operation by using a management account, you can connect any Alibaba Cloud service of any member account in the resource directory to Hybrid Cloud Monitoring. This allows you to use the resource directory to monitor the Alibaba Cloud services of member accounts across the enterprise in a unified manner.
     // 
-    // >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
+    // > This parameter is required only when TaskType is set to `aliyun_fc`.
     shared_ptr<string> targetUserId_ {};
-    // The IDs of the member accounts. Separate multiple member account IDs with commas (,).
+    // The IDs of the member accounts. Separate multiple IDs with commas (,).
     // 
-    // >  This parameter is required only if you call this operation by using the management account.
+    // > This parameter is required only when you call this operation by using a management account.
     shared_ptr<string> targetUserIdList_ {};
-    // The name of the metric import task.
+    // The name of the monitoring task.
     // 
-    // *   If the `TaskType` parameter is set to `aliyun_fc`, enter the name of the metric import task.
-    // *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the metric for logs imported from Simple Log Service.
+    // - If TaskType is set to `aliyun_fc`, specify the name of the data import task for the Alibaba Cloud service.
+    // - If TaskType is set to `aliyun_sls`, specify the metric name for SLS logs.
     shared_ptr<string> taskName_ {};
-    // The type of the metric import task. Valid values:
+    // The type of the monitoring task. Valid values:
     // 
-    // *   aliyun_fc: metric import tasks for Alibaba Cloud services.
-    // *   aliyun_sls: metrics for logs imported from Simple Log Service.
+    // - aliyun_fc: data import task for an Alibaba Cloud service.
+    // - aliyun_sls: metric for SLS logs.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};
-    // The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+    // The configuration file of the Alibaba Cloud service that is connected to Hybrid Cloud Monitoring.
     // 
-    // *   namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
-    // *   metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
+    // - namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
+    // - metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
     // 
-    // The following code shows a sample configuration file:
+    // The following example shows a sample configuration file:
     // 
-    //     products:
-    //     - namespace: acs_ecs_dashboard
-    //       metric_info:
-    //       - metric_list:
-    //         - cpu_total
-    //         - cpu_idle
-    //         - diskusage_utilization
-    //         - CPUUtilization
-    //         - DiskReadBPS
-    //         - InternetOut
-    //         - IntranetOut
-    //         - cpu_system
-    //     - namespace: acs_rds_dashboard
-    //       metric_info:
-    //       - metric_list:
-    //         - MySQL_QPS
-    //         - MySQL_TPS
-    // 
-    // >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
+    // ```
+    // products:
+    // - namespace: acs_ecs_dashboard
+    //   metric_info:
+    //   - metric_list:
+    //     - cpu_total
+    //     - cpu_idle
+    //     - diskusage_utilization
+    //     - CPUUtilization
+    //     - DiskReadBPS
+    //     - InternetOut
+    //     - IntranetOut
+    //     - cpu_system
+    // - namespace: acs_rds_dashboard
+    //   metric_info:
+    //   - metric_list:
+    //     - MySQL_QPS
+    //     - MySQL_TPS
+    // ```
+    // > This parameter is required only when TaskType is set to `aliyun_fc`.
     shared_ptr<string> YARMConfig_ {};
   };
 

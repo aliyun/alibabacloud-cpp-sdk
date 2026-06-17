@@ -130,48 +130,56 @@ namespace Models
 
 
   protected:
-    // Specifies whether to query Elastic Compute Service (ECS) instances that are provided by Alibaba Cloud or to query hosts that are not provided by Alibaba Cloud. Valid values:
+    // Specifies whether to filter for Alibaba Cloud Elastic Compute Service (ECS) instances. Valid values:
     // 
-    // *   true (default value): queries all the ECS instances that are provided by Alibaba Cloud.
-    // *   false: queries all the hosts that are not provided by Alibaba Cloud.
+    // - true (default): Returns only ECS instances.
+    // 
+    // - false: Returns only hosts that are not ECS instances.
     shared_ptr<bool> aliyunHost_ {};
-    // The name of the host.
+    // The hostname.
     shared_ptr<string> hostName_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceIds_ {};
-    // The region ID of the instance.
+    // The region where the instance resides.
     shared_ptr<string> instanceRegionId_ {};
-    // The keyword that is used in fuzzy match.
+    // The keyword for a fuzzy search.
     shared_ptr<string> keyWord_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values:
     // 
-    // *   10
-    // *   20
-    // *   50
-    // *   100
+    // - 10
     // 
-    // > Although Alibaba Cloud does not limit the maximum value of this parameter, we recommend that you do not set it to an excessively large value. If you set it to an excessively large value, a timeout error may occur.
+    // - 20
+    // 
+    // - 50
+    // 
+    // - 100
+    // 
+    // > Alibaba Cloud does not limit the maximum value of this parameter. However, setting this parameter to a large value may cause a timeout.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
     // The serial number of the host.
     // 
-    // After the CloudMonitor agent is installed on a host, a globally unique serial number is generated. A host that is not provided by Alibaba Cloud has a serial number instead of an instance ID.
+    // A globally unique serial number is generated after the CloudMonitor agent is successfully installed on a host. Hosts that are not Alibaba Cloud instances do not have an instance ID, but have a serial number.
     // 
-    // > This parameter can be used to accurately search for a monitored host.
+    // > Use this parameter to find a specific monitored host.
     shared_ptr<string> serialNumbers_ {};
-    // The status of the hosts that you want to query. Valid values:
+    // The status of the host. Valid values:
     // 
-    // *   Running: queries the hosts that are running.
-    // *   Stopped: queries the hosts that are stopped, are not installed, or fail to be installed.
+    // - Running: The host is running.
+    // 
+    // - Stopped: The host is stopped, the agent is not installed, or the agent installation failed.
     shared_ptr<string> status_ {};
     // The status of SysOM. Valid values:
     // 
-    // *   installing: SysOM is being installed.
-    // *   running: SysOM is running.
-    // *   stopped: SysOM is stopped.
-    // *   uninstalling: SysOM is being uninstalled.
+    // - installing: SysOM is being enabled.
+    // 
+    // - running: SysOM is running.
+    // 
+    // - stopped: SysOM is stopped.
+    // 
+    // - uninstalling: SysOM is being disabled.
     shared_ptr<string> sysomStatus_ {};
   };
 

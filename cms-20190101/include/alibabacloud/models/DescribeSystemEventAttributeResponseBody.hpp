@@ -246,7 +246,7 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the call is successful.
+    // > The status code 200 indicates that the call is successful.
     shared_ptr<string> code_ {};
     // The message that is returned. If the call is successful, `success` is returned. If the call fails, an error message is returned.
     shared_ptr<string> message_ {};

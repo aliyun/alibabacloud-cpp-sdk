@@ -74,13 +74,13 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+      // > You must specify both the tag key (`Tag.N.Key`) and the tag value (`Tag.N.Value`).
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+      // > You must specify both the tag key (`Tag.N.Key`) and the tag value (`Tag.N.Value`).
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -114,12 +114,12 @@ namespace Models
 
 
   protected:
-    // The IDs of the application groups.
+    // The ID of the application group.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> groupIds_ {};
     shared_ptr<string> regionId_ {};
-    // The tags.
+    // The list of tags.
     // 
     // This parameter is required.
     shared_ptr<vector<RemoveTagsRequest::Tag>> tag_ {};

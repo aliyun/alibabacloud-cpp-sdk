@@ -111,18 +111,14 @@ namespace Models
 
 
   protected:
-    // The status code.
-    // 
-    // >  The status code 200 indicates that the request was successful.
+    // 状态码。
+    // >200表示成功。
     shared_ptr<string> code_ {};
-    // The error message.
+    // 错误信息。
     shared_ptr<string> message_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // 用于标识本次调用是否成功
     shared_ptr<bool> success_ {};
     shared_ptr<DescribeTagKeyListResponseBody::TagKeys> tagKeys_ {};
   };

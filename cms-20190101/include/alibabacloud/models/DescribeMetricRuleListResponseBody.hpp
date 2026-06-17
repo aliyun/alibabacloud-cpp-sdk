@@ -85,6 +85,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Resources, resources_);
           DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
           DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+          DARABONBA_PTR_TO_JSON(SendOK, sendOK_);
           DARABONBA_PTR_TO_JSON(SilenceTime, silenceTime_);
           DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(Webhook, webhook_);
@@ -113,6 +114,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Resources, resources_);
           DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
           DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+          DARABONBA_PTR_FROM_JSON(SendOK, sendOK_);
           DARABONBA_PTR_FROM_JSON(SilenceTime, silenceTime_);
           DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(Webhook, webhook_);
@@ -800,7 +802,8 @@ namespace Models
         && this->escalations_ == nullptr && this->gmtCreate_ == nullptr && this->gmtUpdate_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr
         && this->labels_ == nullptr && this->mailSubject_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->noDataPolicy_ == nullptr
         && this->noEffectiveInterval_ == nullptr && this->period_ == nullptr && this->productCategory_ == nullptr && this->prometheus_ == nullptr && this->resources_ == nullptr
-        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->silenceTime_ == nullptr && this->sourceType_ == nullptr && this->webhook_ == nullptr; };
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sendOK_ == nullptr && this->silenceTime_ == nullptr && this->sourceType_ == nullptr
+        && this->webhook_ == nullptr; };
         // alertState Field Functions 
         bool hasAlertState() const { return this->alertState_ != nullptr;};
         void deleteAlertState() { this->alertState_ = nullptr;};
@@ -970,6 +973,13 @@ namespace Models
         inline Alarm& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
+        // sendOK Field Functions 
+        bool hasSendOK() const { return this->sendOK_ != nullptr;};
+        void deleteSendOK() { this->sendOK_ = nullptr;};
+        inline bool getSendOK() const { DARABONBA_PTR_GET_DEFAULT(sendOK_, false) };
+        inline Alarm& setSendOK(bool sendOK) { DARABONBA_PTR_SET_VALUE(sendOK_, sendOK) };
+
+
         // silenceTime Field Functions 
         bool hasSilenceTime() const { return this->silenceTime_ != nullptr;};
         void deleteSilenceTime() { this->silenceTime_ = nullptr;};
@@ -1015,6 +1025,8 @@ namespace Models
         shared_ptr<string> resources_ {};
         shared_ptr<string> ruleId_ {};
         shared_ptr<string> ruleName_ {};
+        // 是否关闭恢复告警。取值：true（是）、false（否）。
+        shared_ptr<bool> sendOK_ {};
         shared_ptr<int32_t> silenceTime_ {};
         shared_ptr<string> sourceType_ {};
         shared_ptr<string> webhook_ {};
@@ -1082,20 +1094,21 @@ namespace Models
 
   protected:
     shared_ptr<DescribeMetricRuleListResponseBody::Alarms> alarms_ {};
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the call is successful.
+    // >A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned entries.
+    // The total number of records.
     shared_ptr<string> total_ {};
   };
 

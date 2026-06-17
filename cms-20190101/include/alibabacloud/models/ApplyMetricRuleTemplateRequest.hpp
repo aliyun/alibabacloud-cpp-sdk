@@ -114,13 +114,15 @@ namespace Models
   protected:
     // The template application policy. Valid values:
     // 
-    // *   all (default): deletes all the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the template.
-    // *   append: deletes the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the existing template.
+    // - all (default): deletes all the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the template.
+    // 
+    // - append: deletes the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the existing template.
     shared_ptr<string> appendMode_ {};
     // The mode in which the alert template is applied. Valid values:
     // 
-    // *   GROUP_INSTANCE_FIRST: The metrics in the application group take precedence. If a metric specified in the alert template does not exist in the application group, the system does not generate an alert rule for the metric based on the alert template.
-    // *   ALARM_TEMPLATE_FIRST: The metrics specified in the alert template take precedence. If a metric specified in the alert template does not exist in the application group, the system still generates an alert rule for the metric based on the alert template.
+    // - GROUP_INSTANCE_FIRST: The metrics in the application group take precedence. If a metric specified in the alert template does not exist in the application group, the system does not generate an alert rule for the metric based on the alert template.
+    // 
+    // - ALARM_TEMPLATE_FIRST: The metrics specified in the alert template take precedence. If a metric specified in the alert template does not exist in the application group, the system still generates an alert rule for the metric based on the alert template.
     shared_ptr<string> applyMode_ {};
     // The end of the time period during which the alert rule is effective. Valid values: 00 to 23. A value of 00 indicates 00:59 and a value of 23 indicates 23:59.
     shared_ptr<int64_t> enableEndTime_ {};
@@ -138,7 +140,7 @@ namespace Models
     shared_ptr<int64_t> notifyLevel_ {};
     // The mute period during which notifications are not repeatedly sent for an alert. Unit: seconds. Default value: 86400.
     // 
-    // >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
+    // > Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
     shared_ptr<int64_t> silenceTime_ {};
     // The ID of the alert template.
     // 

@@ -312,27 +312,28 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // > The status code 200 indicates that the call is successful.
+    // > A status code of 200 indicates a successful response.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeMonitoringAgentHostsResponseBody::Hosts> hosts_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The total number of returned pages.
+    // The number of pages.
     shared_ptr<int32_t> pageTotal_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

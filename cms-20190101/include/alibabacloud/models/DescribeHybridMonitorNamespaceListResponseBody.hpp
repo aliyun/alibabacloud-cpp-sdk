@@ -137,23 +137,31 @@ namespace Models
 
 
       protected:
-        // The region where the metric data is stored.
+        // The region where the monitoring data is stored.
         // 
-        // >  This parameter is returned if you select `m_prom_user` for `NamespaceType` when you create a namespace.
+        // > This parameter is returned if you set `NamespaceType` to `m_prom_user` when you create the namespace.
         shared_ptr<string> namespaceRegion_ {};
+        // The Prometheus instance where the monitoring data is stored.
+        // 
+        // > This parameter is returned if you set `NamespaceType` to `aliyun_prometheus` when you create the namespace.
         shared_ptr<string> prometheusInstanceId_ {};
-        // The project where the metric data is located.
+        // The Simple Log Service (SLS) project where the monitoring data is stored.
         // 
-        // >  This parameter is returned if you select `m_prom_user` for `NamespaceType` when you create a namespace.
+        // > This parameter is returned if you set `NamespaceType` to `m_prom_user` when you create the namespace.
         shared_ptr<string> SLSProject_ {};
-        // The data retention period. Valid values:
+        // The data storage duration. Valid values:
         // 
-        // *   cms.s1.large (Retention Period 15 Days)
-        // *   cms.s1.xlarge (Retention Period 32 Days)
-        // *   cms.s1.2xlarge (Retention Period 63 Days)
-        // *   cms.s1.3xlarge (Retention Period 93 Days)
-        // *   cms.s1.6xlarge (Retention Period 185 Days)
-        // *   cms.s1.12xlarge (Retention Period 367 Days)
+        // - cms.s1.large: 15 days.
+        // 
+        // - cms.s1.xlarge: 32 days.
+        // 
+        // - cms.s1.2xlarge: 63 days.
+        // 
+        // - cms.s1.3xlarge: 93 days.
+        // 
+        // - cms.s1.6xlarge: 185 days.
+        // 
+        // - cms.s1.12xlarge: 376 days.
         shared_ptr<string> spec_ {};
       };
 
@@ -241,7 +249,7 @@ namespace Models
 
 
           protected:
-            // The metrics.
+            // The list of metrics.
             shared_ptr<vector<string>> list_ {};
             // The collection period of the metric.
             // 
@@ -268,9 +276,9 @@ namespace Models
 
 
         protected:
-          // The metrics for the Alibaba Cloud service.
+          // The list of metrics for the Alibaba Cloud service.
           shared_ptr<vector<NamespaceList::MetricList>> metricList_ {};
-          // The namespace for the Alibaba Cloud service.
+          // The data namespace of the Alibaba Cloud service.
           shared_ptr<string> namespace_ {};
         };
 
@@ -300,15 +308,17 @@ namespace Models
 
 
       protected:
-        // The namespaces.
+        // The list of namespaces.
         shared_ptr<vector<AliyunProductMetricList::NamespaceList>> namespaceList_ {};
         // The account that is used to create the namespace.
         shared_ptr<int64_t> userId_ {};
-        // The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+        // The configuration file for the Alibaba Cloud service that is connected to Hybrid Cloud Monitoring.
         // 
-        // *   namespace: the namespace of the Alibaba Cloud service.
-        // *   metric_list: the metrics of the Alibaba Cloud service.
-        // *   dimension: the resources of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring. If you do not specify a dimension, all resources of the Alibaba Cloud service are monitored.
+        // - namespace: the namespace of the Alibaba Cloud service.
+        // 
+        // - metric_list: the metrics of the Alibaba Cloud service.
+        // 
+        // - dimension: the resources of the Alibaba Cloud service that can be queried in Hybrid Cloud Monitoring. If this parameter is empty, all resources are monitored.
         shared_ptr<string> YAMLConfig_ {};
       };
 
@@ -390,33 +400,37 @@ namespace Models
 
 
     protected:
-      // The configuration details of metric import tasks for Alibaba Cloud services.
+      // The configuration details of data import tasks for Alibaba Cloud services.
       shared_ptr<vector<DescribeHybridMonitorNamespace::AliyunProductMetricList>> aliyunProductMetricList_ {};
-      // The timestamp that was generated when the namespace was created.
+      // The timestamp when the namespace was created.
       // 
       // Unit: milliseconds.
       shared_ptr<string> createTime_ {};
       // The description of the namespace.
       shared_ptr<string> description_ {};
-      // The details of the data retention period.
+      // The details of the data storage duration.
       shared_ptr<DescribeHybridMonitorNamespace::Detail> detail_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> id_ {};
       // Indicates whether the namespace is deleted. Valid values:
       // 
-      // *   0: The namespace is not deleted.
-      // *   1: The namespace is deleted.
+      // - 0: The namespace is not deleted.
+      // 
+      // - 1: The namespace is deleted.
       shared_ptr<int32_t> isDelete_ {};
-      // The timestamp that was generated when the namespace was last modified.
+      // The timestamp when the namespace was last modified. Unit: milliseconds.
       shared_ptr<string> modifyTime_ {};
       // The name of the namespace.
       shared_ptr<string> namespace_ {};
-      // The storage scheme of metric data. Valid values:
+      // The storage solution for monitoring data. Valid values:
       // 
-      // *   m_prom_user: The metric data is stored in Simple Log Service.
-      // *   m_prom_pool: The metric data is stored in the storage space provided by CloudMonitor.
+      // - m_prom_user: The monitoring data is stored in SLS.
+      // 
+      // - m_prom_pool: The monitoring data is stored in the storage space provided by Cloud Monitor.
+      // 
+      // - aliyun_prometheus: The monitoring data is stored in a Prometheus instance.
       shared_ptr<string> namespaceType_ {};
-      // The number of metric import tasks for third-party services.
+      // The number of data import tasks for non-Alibaba Cloud services.
       shared_ptr<int64_t> notAliyunTaskNumber_ {};
     };
 
@@ -482,24 +496,25 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code.
     shared_ptr<string> code_ {};
     // The details of the namespaces.
     shared_ptr<vector<DescribeHybridMonitorNamespaceListResponseBody::DescribeHybridMonitorNamespace>> describeHybridMonitorNamespace_ {};
-    // The returned message.
+    // The error message.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<string> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -111,7 +111,7 @@ namespace Models
   protected:
     // The responses code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The number of detection points that are affected by the site monitoring tasks.
     shared_ptr<EnableSiteMonitorsResponseBody::Data> data_ {};
@@ -121,8 +121,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
   };
 

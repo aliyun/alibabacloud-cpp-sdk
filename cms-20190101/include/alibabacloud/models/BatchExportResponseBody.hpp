@@ -116,33 +116,34 @@ namespace Models
 
 
   protected:
-    // The timestamp of the data requested by the backend. A larger timestamp indicates that the data export time is closer to the current time.
+    // The timestamp when the backend requested the data. A larger timestamp indicates that the exported data is closer to the current time.
     shared_ptr<int64_t> anchor_ {};
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The value 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The Cursor information that is used to call this operation again.
+    // The cursor that is used to call this operation again.
     // 
-    // >  If `null` is returned, the monitoring data is exported.
+    // > If the returned result is `null`, the monitoring data has been exported.
     shared_ptr<string> cursor_ {};
-    // The data returned in this call.
+    // The data returned by this call.
     shared_ptr<vector<MetricStat>> dataResults_ {};
     // Indicates whether the data has been exported. Valid values:
     // 
-    // *   true: Some data is not exported.
-    // *   false: All the data is exported.
+    // - true: Some data has not been exported.
+    // - false: All data has been exported.
     shared_ptr<bool> hasNext_ {};
-    // The number of data entries returned in this call.
+    // The number of data entries returned for this call.
     shared_ptr<int32_t> length_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: successful
+    // 
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

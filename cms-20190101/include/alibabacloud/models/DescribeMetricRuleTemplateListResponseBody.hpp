@@ -310,8 +310,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
     shared_ptr<DescribeMetricRuleTemplateListResponseBody::Templates> templates_ {};
     // The total number of entries returned.

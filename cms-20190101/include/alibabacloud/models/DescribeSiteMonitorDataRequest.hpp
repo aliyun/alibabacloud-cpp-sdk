@@ -114,15 +114,17 @@ namespace Models
   protected:
     // The end of the time range to query. The following formats are supported:
     // 
-    // *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
-    // *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
+    // - UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+    // 
+    // - UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> endTime_ {};
     // The number of data points to return.
     shared_ptr<int32_t> length_ {};
     // The metric name. Valid values:
     // 
-    // *   Availability
-    // *   ResponseTime
+    // - Availability
+    // 
+    // - ResponseTime
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
@@ -130,13 +132,14 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The statistical period. The value is an integral multiple of 60. Unit: seconds.
     // 
-    // >  The default value equals the minimum interval at which detection requests are sent to the monitored address.
+    // > The default value equals the minimum interval at which detection requests are sent to the monitored address.
     shared_ptr<string> period_ {};
     shared_ptr<string> regionId_ {};
     // The start of the time range to query. The following formats are supported:
     // 
-    // *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
-    // *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
+    // - UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+    // 
+    // - UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> startTime_ {};
     // The job ID.
     // 
@@ -144,8 +147,9 @@ namespace Models
     shared_ptr<string> taskId_ {};
     // The type of the monitored object whose monitoring data is to be queried. Valid values:
     // 
-    // *   metric
-    // *   event
+    // - metric
+    // 
+    // - event
     shared_ptr<string> type_ {};
   };
 

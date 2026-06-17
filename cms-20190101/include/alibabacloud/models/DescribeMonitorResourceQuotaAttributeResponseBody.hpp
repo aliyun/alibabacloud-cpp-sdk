@@ -899,9 +899,11 @@ namespace Models
       shared_ptr<ResourceQuota::SiteMonitorTask> siteMonitorTask_ {};
       // The current edition of CloudMonitor. Valid values:
       // 
-      // *   free: Free Edition
-      // *   pro: Pro Edition
-      // *   cms_post: pay-as-you-go
+      // - free: Free Edition
+      // 
+      // - pro: Pro Edition
+      // 
+      // - cms_post: pay-as-you-go
       shared_ptr<string> suitInfo_ {};
     };
 

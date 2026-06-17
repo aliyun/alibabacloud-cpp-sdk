@@ -57,11 +57,10 @@ namespace Models
 
 
   protected:
-    // The tags. Tags are used to filter services.
+    // The tags. Tags are used to filter alerts, and each alert can be marked with special tags.
     // 
-    // You can filter services only by the tag whose `name` is `product`. Example: {"name":"product","value":"ECS"}.
-    // 
-    // > We recommend that you do not use the special tags in the CloudMonitor console.
+    // Currently, only filtering by product is supported. That is, the `name` is `product`. For example: {"name":"product","value":"ECS"}.
+    // >We do not recommend that you use the special tags for the CloudMonitor console in Alibaba Cloud.
     shared_ptr<string> labels_ {};
     // The page number.
     // 
@@ -75,7 +74,7 @@ namespace Models
     // 
     // Default value: 30.
     // 
-    // > The value of this parameter is not limited. You can view a large number of entries per page.
+    // >Currently, Alibaba Cloud does not impose a limit on this parameter. If you need to obtain all results, set the page size to a large value.
     shared_ptr<int32_t> pageSize_ {};
   };
 

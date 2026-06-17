@@ -130,12 +130,17 @@ namespace Models
         shared_ptr<string> key_ {};
         // The method that is used to match the field value. Valid values:
         // 
-        // *   contain: contains
-        // *   notContain: does not contain
-        // *   `>`: greater than
-        // *   `<`: less than
-        // *   `>=`: greater than or equal to
-        // *   `<=`: less than or equal to
+        // - contain: contains
+        // 
+        // - notContain: does not contain
+        // 
+        // - `>`: greater than
+        // 
+        // - `<`: less than
+        // 
+        // - `>=`: greater than or equal to
+        // 
+        // - `<=`: less than or equal to
         shared_ptr<string> operator_ {};
         // The field value to be matched in the filter condition.
         shared_ptr<string> value_ {};
@@ -230,8 +235,9 @@ namespace Models
       shared_ptr<vector<LogMonitorList::ValueFilter>> valueFilter_ {};
       // The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
       // 
-      // *   and
-      // *   or
+      // - and
+      // 
+      // - or
       shared_ptr<string> valueFilterRelation_ {};
     };
 
@@ -299,7 +305,7 @@ namespace Models
   protected:
     // The status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The log monitoring metrics.
     shared_ptr<vector<DescribeLogMonitorListResponseBody::LogMonitorList>> logMonitorList_ {};
@@ -313,8 +319,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> total_ {};

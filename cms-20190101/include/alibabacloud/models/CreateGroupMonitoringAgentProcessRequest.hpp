@@ -89,12 +89,17 @@ namespace Models
     protected:
       // The matching condition. Valid values:
       // 
-      // *   all (default value): matches all
-      // *   startWith: starts with a prefix
-      // *   endWith: ends with a suffix
-      // *   contains: contains
-      // *   notContains: does not contain
-      // *   equals: equals
+      // - all (default value): matches all
+      // 
+      // - startWith: starts with a prefix
+      // 
+      // - endWith: ends with a suffix
+      // 
+      // - contains: contains
+      // 
+      // - notContains: does not contain
+      // 
+      // - equals: equals
       // 
       // Valid values of N: 1 to 3.
       shared_ptr<string> function_ {};
@@ -209,21 +214,23 @@ namespace Models
         // 
         // Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
         // 
-        // *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
+        // - {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
         // 
-        // *   {userId}: the ID of the Alibaba Cloud account.
+        // - {userId}: the ID of the Alibaba Cloud account.
         // 
-        // *   {regionId}: the region ID of the SMQ queue or topic.
+        // - {regionId}: the region ID of the SMQ queue or topic.
         // 
-        // *   {Resource type}: the type of the resource that triggers the alert. Valid values:
+        // - {Resource type}: the type of the resource that triggers the alert. Valid values:
         // 
-        //     *   **queues**
-        //     *   **topics**
+        //   - **queues**
         // 
-        // *   {Resource name}: the resource name.
+        //   - **topics**
         // 
-        //     *   If the resource type is **queues**, the resource name is the queue name.
-        //     *   If the resource type is **topics**, the resource name is the topic name.
+        // - {Resource name}: the resource name.
+        // 
+        //   - If the resource type is **queues**, the resource name is the queue name.
+        // 
+        //   - If the resource type is **topics**, the resource name is the topic name.
         shared_ptr<string> arn_ {};
         // The ID of the resource for which alerts are triggered.
         // 
@@ -233,9 +240,11 @@ namespace Models
         shared_ptr<string> jsonParams_ {};
         // The alert level. Valid values:
         // 
-        // *   INFO
-        // *   WARN
-        // *   CRITICAL
+        // - INFO
+        // 
+        // - WARN
+        // 
+        // - CRITICAL
         shared_ptr<string> level_ {};
       };
 
@@ -317,17 +326,27 @@ namespace Models
     protected:
       // The operator that is used to compare the metric value with the threshold. Valid values:
       // 
-      // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-      // *   GreaterThanThreshold: greater than the threshold
-      // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-      // *   LessThanThreshold: less than the threshold
-      // *   NotEqualToThreshold: not equal to the threshold
-      // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-      // *   LessThanYesterday: less than the metric value at the same time yesterday
-      // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-      // *   LessThanLastWeek: less than the metric value at the same time last week
-      // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-      // *   LessThanLastPeriod: less than the metric value in the previous monitoring cycle
+      // - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+      // 
+      // - GreaterThanThreshold: greater than the threshold
+      // 
+      // - LessThanOrEqualToThreshold: less than or equal to the threshold
+      // 
+      // - LessThanThreshold: less than the threshold
+      // 
+      // - NotEqualToThreshold: not equal to the threshold
+      // 
+      // - GreaterThanYesterday: greater than the metric value at the same time yesterday
+      // 
+      // - LessThanYesterday: less than the metric value at the same time yesterday
+      // 
+      // - GreaterThanLastWeek: greater than the metric value at the same time last week
+      // 
+      // - LessThanLastWeek: less than the metric value at the same time last week
+      // 
+      // - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+      // 
+      // - LessThanLastPeriod: less than the metric value in the previous monitoring cycle
       // 
       // Valid values of N: 1 to 3.
       // 
@@ -339,9 +358,11 @@ namespace Models
       shared_ptr<string> effectiveInterval_ {};
       // The alert level. Valid values:
       // 
-      // *   critical (default)
-      // *   warn
-      // *   info
+      // - critical (default)
+      // 
+      // - warn
+      // 
+      // - info
       // 
       // Valid values of N: 1 to 3.
       // 
@@ -353,13 +374,13 @@ namespace Models
       // 
       // Valid values of N: 1 to 3.
       // 
-      // >  Only one alert notification is sent during a mute period even if the metric value exceeds the alert threshold during consecutive checks.
+      // > Only one alert notification is sent during a mute period even if the metric value exceeds the alert threshold during consecutive checks.
       shared_ptr<string> silenceTime_ {};
       // The statistical aggregation method that is used to calculate the metric values.
       // 
       // Valid values of N: 1 to 3.
       // 
-      // >  Set the value to Average.
+      // > Set the value to Average.
       // 
       // This parameter is required.
       shared_ptr<string> statistics_ {};
@@ -375,7 +396,7 @@ namespace Models
       // 
       // Valid values of N: 1 to 3.
       // 
-      // >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
+      // > A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
       // 
       // This parameter is required.
       shared_ptr<string> times_ {};
@@ -452,9 +473,11 @@ namespace Models
     shared_ptr<vector<CreateGroupMonitoringAgentProcessRequest::MatchExpress>> matchExpress_ {};
     // The logical operator used between conditional expressions that are used to match instances. Valid values:
     // 
-    // *   all
-    // *   and
-    // *   or
+    // - all
+    // 
+    // - and
+    // 
+    // - or
     shared_ptr<string> matchExpressFilterRelation_ {};
     // The process name.
     // 

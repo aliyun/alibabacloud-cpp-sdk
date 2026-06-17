@@ -772,7 +772,7 @@ namespace Models
     shared_ptr<DescribeActiveMetricRuleListResponseBody::AlertList> alertList_ {};
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeActiveMetricRuleListResponseBody::Datapoints> datapoints_ {};
     // The returned message.
@@ -781,8 +781,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

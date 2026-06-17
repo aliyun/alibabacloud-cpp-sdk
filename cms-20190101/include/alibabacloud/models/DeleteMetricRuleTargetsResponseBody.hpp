@@ -146,7 +146,7 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // **
+    // \\*\\*
     // 
     // **Description** The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
@@ -158,8 +158,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

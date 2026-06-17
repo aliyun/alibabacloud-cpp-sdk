@@ -127,8 +127,9 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // Specifies whether the returned result includes metric import tasks for Alibaba Cloud services. Valid values:
     // 
-    // *   true (default): The returned result includes metric import tasks for Alibaba Cloud services.
-    // *   false: The returned result excludes metric import tasks for Alibaba Cloud services.
+    // - true (default): The returned result includes metric import tasks for Alibaba Cloud services.
+    // 
+    // - false: The returned result excludes metric import tasks for Alibaba Cloud services.
     shared_ptr<bool> includeAliyunTask_ {};
     // The keyword that is used for the search.
     shared_ptr<string> keyword_ {};
@@ -153,8 +154,9 @@ namespace Models
     shared_ptr<string> taskId_ {};
     // The type of the metric import task. Valid values:
     // 
-    // *   aliyun_fc: metric import tasks for Alibaba Cloud services
-    // *   aliyun_sls: metrics for logs imported from Log Service
+    // - aliyun_fc: metric import tasks for Alibaba Cloud services
+    // 
+    // - aliyun_sls: metrics for logs imported from Log Service
     shared_ptr<string> taskType_ {};
   };
 

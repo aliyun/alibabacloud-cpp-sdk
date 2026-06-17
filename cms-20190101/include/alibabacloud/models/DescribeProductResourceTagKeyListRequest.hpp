@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The pagination token.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> regionId_ {};
   };

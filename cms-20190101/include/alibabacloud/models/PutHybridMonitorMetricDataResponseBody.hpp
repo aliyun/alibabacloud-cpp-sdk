@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The error message of the invalid parameter.
+      // The error message that is returned for the invalid parameter.
       shared_ptr<string> errorMessage_ {};
-      // The position of the error message in the array.
+      // The position of the error information in the array.
       shared_ptr<int64_t> index_ {};
     };
 
@@ -104,13 +104,13 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The value 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The details of invalid parameters.
+    // The details of the invalid parameters.
     // 
-    // If a request parameter is invalid, the details of the invalid parameter are returned.
+    // If the request parameters that you specify do not meet the requirements, the details of the invalid parameters are displayed.
     shared_ptr<vector<PutHybridMonitorMetricDataResponseBody::ErrorDetail>> errorDetail_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

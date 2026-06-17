@@ -84,25 +84,25 @@ namespace Models
 
 
   protected:
-    // The ID of the tag rule.
+    // The ID of the dynamic tag rule.
     shared_ptr<string> dynamicTagRuleId_ {};
-    // The number of the page to return.
+    // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value: 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
     // The number of entries to return on each page.
     // 
-    // Minimum value: 1. Default value: 30.
+    // Start value: 1. Default value: 30.
     shared_ptr<string> pageSize_ {};
     // The tag key.
     // 
     // For more information about how to obtain a tag key, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145558.html).
     shared_ptr<string> tagKey_ {};
-    // The ID of the region to which the tags belong.
+    // The region ID of the tag.
     shared_ptr<string> tagRegionId_ {};
     // The tag value.
     // 
-    // For more information about how to obtain a tag value, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145557.html).
+    // For more information about how to obtain a tag value, see [DescribeTagValueList](https://help.aliyun.com/document_detail/145557.html).
     shared_ptr<string> tagValue_ {};
   };
 

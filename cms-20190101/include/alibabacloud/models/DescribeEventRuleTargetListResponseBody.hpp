@@ -746,9 +746,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // >  The status code 200 indicates that the call was successful.
+    // > A value of 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeEventRuleTargetListResponseBody::ContactParameters> contactParameters_ {};
     shared_ptr<DescribeEventRuleTargetListResponseBody::FcParameters> fcParameters_ {};
@@ -756,7 +756,7 @@ namespace Models
     shared_ptr<string> message_ {};
     shared_ptr<DescribeEventRuleTargetListResponseBody::MnsParameters> mnsParameters_ {};
     shared_ptr<DescribeEventRuleTargetListResponseBody::OpenApiParameters> openApiParameters_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeEventRuleTargetListResponseBody::SlsParameters> slsParameters_ {};
     shared_ptr<DescribeEventRuleTargetListResponseBody::WebhookParameters> webhookParameters_ {};

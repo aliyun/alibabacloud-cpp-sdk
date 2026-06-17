@@ -135,39 +135,48 @@ namespace Models
 
 
   protected:
-    // The ID of the blacklist policy.
+    // The category of the Alibaba Cloud service. For example, Redis has different editions, such as `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (Read/write Splitting Edition).
     shared_ptr<string> category_ {};
+    // The IDs of the blacklist policies.
     shared_ptr<vector<string>> ids_ {};
-    // The IDs of the instances in the blacklist policy.
+    // The IDs of instances in the blacklist policy.
     // 
-    // Valid values of N: 0 to 10.
+    // The value of N can be an integer from 0 to 10.
     shared_ptr<vector<string>> instanceIds_ {};
     // The status of the blacklist policy. Valid values:
     // 
-    // *   true: The blacklist policy is enabled.
-    // *   false: The blacklist policy is disabled.
+    // - true: enabled.
+    // 
+    // - false: disabled.
     shared_ptr<bool> isEnable_ {};
     // The name of the blacklist policy.
     // 
-    // This parameter supports fuzzy match.
+    // Fuzzy queries are supported.
     shared_ptr<string> name_ {};
-    // The timestamp when the blacklist policy expired.
+    // The namespace of the Alibaba Cloud service.
     // 
-    // Unit: milliseconds.
+    // For more information, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> namespace_ {};
-    // The HTTP status code.
+    // The order in which to sort the results by time. Valid values:
     // 
-    // >  The status code 200 indicates that the call was successful.
+    // - DESC (default): descending order.
+    // 
+    // - ASC: ascending order.
     shared_ptr<int32_t> order_ {};
-    // The name of the metric.
+    // The page number.
+    // 
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The categories of the Alibaba Cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+    // The number of entries to return on each page.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> regionId_ {};
-    // The effective scope of the blacklist policy. Valid values:
+    // The scope of the blacklist policy. Valid values:
     // 
-    // *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
-    // *   GROUP: The blacklist policy takes effect only within the specified application group.
+    // - USER: The blacklist policy takes effect only for the current Alibaba Cloud account.
+    // 
+    // - GROUP: The blacklist policy takes effect for the specified application groups.
     shared_ptr<string> scopeType_ {};
   };
 

@@ -100,17 +100,17 @@ namespace Models
 
 
     protected:
-      // The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+      // The unique identifier of the rule target. Valid values of N: 1 to 5.
       shared_ptr<string> id_ {};
-      // The HTTP request method. Valid values of N: 1 to 5.
+      // The request method of the HTTP callback. Valid values of N: 1 to 5.
       // 
-      // Valid values: GET and POST.
+      // Only GET and POST are supported.
       shared_ptr<string> method_ {};
-      // The name of the protocol. Valid values of N: 1 to 5. Valid values:
+      // The protocol name. Valid values of N: 1 to 5. Valid values:
       // 
-      // *   http
-      // *   telnet
-      // *   ping
+      // - http
+      // - telnet
+      // - ping.
       shared_ptr<string> protocol_ {};
       // The callback URL. Valid values of N: 1 to 5.
       shared_ptr<string> url_ {};
@@ -172,13 +172,13 @@ namespace Models
 
 
     protected:
-      // The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+      // The unique identifier of the rule target. Valid values of N: 1 to 5.
       shared_ptr<string> id_ {};
-      // The name of the Simple Log Service Logstore. Valid values of N: 1 to 5.
+      // The Logstore of Simple Log Service. Valid values of N: 1 to 5.
       shared_ptr<string> logStore_ {};
-      // The name of the Simple Log Service project. Valid values of N: 1 to 5.
+      // The project of Simple Log Service. Valid values of N: 1 to 5.
       shared_ptr<string> project_ {};
-      // The region where Simple Log Service is deployed. Valid values of N: 1 to 5.
+      // The region where Simple Log Service resides. Valid values of N: 1 to 5.
       shared_ptr<string> region_ {};
     };
 
@@ -277,25 +277,25 @@ namespace Models
     protected:
       // The API name.
       shared_ptr<string> action_ {};
-      // The Alibaba Cloud Resource Name (ARN) of the resource. Valid values of N: 1 to 5. Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
-      // 
-      // *   Service: the code of a cloud service
-      // *   Region: the region ID
-      // *   Account: the ID of an Alibaba Cloud account
-      // *   ResourceType: the resource type
-      // *   ResourceId: the resource ID
+      // The Alibaba Cloud Resource Name (ARN) of the resource. Valid values of N: 1 to 5.
+      // Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. The fields are described as follows:
+      //   - Service: the Alibaba Cloud service.
+      //   - Region: the region ID.
+      //   - Account: the Alibaba Cloud account ID.
+      //   - ResourceType: the resource type.
+      //   - ResourceId: the resource ID.
       shared_ptr<string> arn_ {};
-      // The ID of the recipient that receives alert notifications sent by an API callback.
+      // The unique identifier of the API callback notification method.
       shared_ptr<string> id_ {};
-      // The parameters of the alert callback. Specify the parameters in the JSON format.
+      // The JSON-formatted parameters of the alert callback.
       shared_ptr<string> jsonParams_ {};
-      // The ID of the cloud service to which the API operation belongs.
+      // The ID of the Alibaba Cloud service to which the API belongs.
       shared_ptr<string> product_ {};
       // The region where the resource resides.
       shared_ptr<string> region_ {};
-      // The name of the role.
+      // The role name.
       shared_ptr<string> role_ {};
-      // The version of the API.
+      // The API version.
       shared_ptr<string> version_ {};
     };
 
@@ -355,13 +355,13 @@ namespace Models
 
 
     protected:
-      // The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+      // The unique identifier of the rule target. Valid values of N: 1 to 5.
       shared_ptr<string> id_ {};
-      // The name of the SMQ queue. Valid values of N: 1 to 5.
+      // The name of the queue. Valid values of N: 1 to 5.
       shared_ptr<string> queue_ {};
-      // The region for SMQ. Valid values of N: 1 to 5.
+      // The region where Simple Message Queue (formerly MNS) resides. Valid values of N: 1 to 5.
       shared_ptr<string> region_ {};
-      // The SMQ topic.
+      // The topic of Simple Message Queue (formerly MNS).
       shared_ptr<string> topic_ {};
     };
 
@@ -423,11 +423,11 @@ namespace Models
     protected:
       // The name of the function. Valid values of N: 1 to 5.
       shared_ptr<string> functionName_ {};
-      // The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+      // The unique identifier of the rule target. Valid values of N: 1 to 5.
       shared_ptr<string> id_ {};
-      // The region where Function Compute is deployed. Valid values of N: 1 to 5.
+      // The region where the Function Compute service resides. Valid values of N: 1 to 5.
       shared_ptr<string> region_ {};
-      // The name of the Function Compute service. Valid values of N: 1 to 5.
+      // The service name of the Function Compute service. Valid values of N: 1 to 5.
       shared_ptr<string> serviceName_ {};
     };
 
@@ -480,11 +480,19 @@ namespace Models
     protected:
       // The name of the alert contact group. Valid values of N: 1 to 5.
       shared_ptr<string> contactGroupName_ {};
-      // The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+      // The unique identifier of the rule target. Valid values of N: 1 to 5.
       shared_ptr<string> id_ {};
-      // The alert notification methods. Valid values of N: 1 to 5. Valid values:
+      // The alert notification level. Valid values of N: 1 to 5. Valid values:
       // 
-      // 4: Alert notifications are sent by using DingTalk and emails.
+      // <props="china">- 2: phone call, text message, DingTalk, and email
+      // 
+      // <props="china">- 3: text message, DingTalk, and email
+      // 
+      // <props="china">- 4: DingTalk and email
+      // 
+      // <props="intl">4: DingTalk and email
+      // 
+      // <props="partner">4: DingTalk and email.
       shared_ptr<string> level_ {};
     };
 
@@ -560,22 +568,22 @@ namespace Models
 
 
   protected:
-    // The information about the alert contact groups that receive alert notifications.
+    // The alert contact group notification method.
     shared_ptr<vector<PutEventRuleTargetsRequest::ContactParameters>> contactParameters_ {};
-    // The information about the recipients in Function Compute.
+    // The Function Compute notification method.
     shared_ptr<vector<PutEventRuleTargetsRequest::FcParameters>> fcParameters_ {};
-    // The notifications of Simple Message Queue (formerly MNS) (SMQ).
+    // The Simple Message Queue (formerly MNS) notification method.
     shared_ptr<vector<PutEventRuleTargetsRequest::MnsParameters>> mnsParameters_ {};
-    // The parameters of API callback notification.
+    // The list of API callback notification parameters.
     shared_ptr<vector<PutEventRuleTargetsRequest::OpenApiParameters>> openApiParameters_ {};
     shared_ptr<string> regionId_ {};
     // The name of the alert rule.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // The information about the recipients in Simple Log Service.
+    // The Simple Log Service notification method.
     shared_ptr<vector<PutEventRuleTargetsRequest::SlsParameters>> slsParameters_ {};
-    // The information about the callback URLs that are used to receive alert notifications.
+    // The URL callback notification method.
     shared_ptr<vector<PutEventRuleTargetsRequest::WebhookParameters>> webhookParameters_ {};
   };
 

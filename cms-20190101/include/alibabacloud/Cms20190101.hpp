@@ -21,9 +21,9 @@ namespace Cms20190101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds tags to an application group.
+       * @summary The AddTags operation attaches tags to specified application groups.
        *
-       * @description This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+       * @description This topic provides an example of how to attach a tag to the application group `7301****`. In this example, the tag key is `key1` and the tag value is `value1`.
        *
        * @param request AddTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,9 +32,9 @@ namespace Cms20190101
       Models::AddTagsResponse addTagsWithOptions(const Models::AddTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to an application group.
+       * @summary The AddTags operation attaches tags to specified application groups.
        *
-       * @description This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+       * @description This topic provides an example of how to attach a tag to the application group `7301****`. In this example, the tag key is `key1` and the tag value is `value1`.
        *
        * @param request AddTagsRequest
        * @return AddTagsResponse
@@ -63,9 +63,9 @@ namespace Cms20190101
       Models::ApplyMetricRuleTemplateResponse applyMetricRuleTemplate(const Models::ApplyMetricRuleTemplateRequest &request);
 
       /**
-       * @summary Creates site monitoring tasks.
+       * @summary You can call the BatchCreateInstantSiteMonitor operation to create a batch of site monitoring tasks.
        *
-       * @description This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+       * @description This topic provides an example of how to create a site monitoring task named `HangZhou_ECS1`. The task uses the `HTTP` protocol to monitor `https://www.aliyun.com`. The response shows that the task is successfully created with the name `HangZhou_ECS1` and the ID `679fbe4f-b80b-4706-91b2-5427b43e****`.
        *
        * @param request BatchCreateInstantSiteMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -74,9 +74,9 @@ namespace Cms20190101
       Models::BatchCreateInstantSiteMonitorResponse batchCreateInstantSiteMonitorWithOptions(const Models::BatchCreateInstantSiteMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates site monitoring tasks.
+       * @summary You can call the BatchCreateInstantSiteMonitor operation to create a batch of site monitoring tasks.
        *
-       * @description This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+       * @description This topic provides an example of how to create a site monitoring task named `HangZhou_ECS1`. The task uses the `HTTP` protocol to monitor `https://www.aliyun.com`. The response shows that the task is successfully created with the name `HangZhou_ECS1` and the ID `679fbe4f-b80b-4706-91b2-5427b43e****`.
        *
        * @param request BatchCreateInstantSiteMonitorRequest
        * @return BatchCreateInstantSiteMonitorResponse
@@ -84,12 +84,12 @@ namespace Cms20190101
       Models::BatchCreateInstantSiteMonitorResponse batchCreateInstantSiteMonitor(const Models::BatchCreateInstantSiteMonitorRequest &request);
 
       /**
-       * @summary Exports the monitoring data that is defined in the Cursor operation.
+       * @summary Calls the BatchExport operation to export monitoring data defined in the Cursor operation.
        *
-       * @description ### [](#)Prerequisites
-       * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
-       * ### [](#)Description
-       * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+       * @description ### Prerequisites
+       * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial `Cursor`.
+       * ### Usage notes
+       * This topic provides an example to show how to export the monitoring data of an initial `Cursor` of the metric `cpu_idle` of the cloud service `acs_ecs_dashboard`. A maximum of 1,000 data entries are returned per call.
        *
        * @param tmpReq BatchExportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,12 +98,12 @@ namespace Cms20190101
       Models::BatchExportResponse batchExportWithOptions(const Models::BatchExportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports the monitoring data that is defined in the Cursor operation.
+       * @summary Calls the BatchExport operation to export monitoring data defined in the Cursor operation.
        *
-       * @description ### [](#)Prerequisites
-       * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
-       * ### [](#)Description
-       * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+       * @description ### Prerequisites
+       * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial `Cursor`.
+       * ### Usage notes
+       * This topic provides an example to show how to export the monitoring data of an initial `Cursor` of the metric `cpu_idle` of the cloud service `acs_ecs_dashboard`. A maximum of 1,000 data entries are returned per call.
        *
        * @param request BatchExportRequest
        * @return BatchExportResponse
@@ -111,10 +111,10 @@ namespace Cms20190101
       Models::BatchExportResponse batchExport(const Models::BatchExportRequest &request);
 
       /**
-       * @summary Creates an application group based on the tags of cloud resources.
+       * @summary You can call the CreateDynamicTagGroup operation to automatically create application groups using tags.
        *
-       * @description This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-       * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+       * @description This operation supports the following Alibaba Cloud services: Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+       * This topic provides an example of how to automatically create an application group for resources that have the `ecs_instance` tag key. The alert contact group for the application group is `ECS_Group`.
        *
        * @param request CreateDynamicTagGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -123,10 +123,10 @@ namespace Cms20190101
       Models::CreateDynamicTagGroupResponse createDynamicTagGroupWithOptions(const Models::CreateDynamicTagGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application group based on the tags of cloud resources.
+       * @summary You can call the CreateDynamicTagGroup operation to automatically create application groups using tags.
        *
-       * @description This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-       * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+       * @description This operation supports the following Alibaba Cloud services: Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+       * This topic provides an example of how to automatically create an application group for resources that have the `ecs_instance` tag key. The alert contact group for the application group is `ECS_Group`.
        *
        * @param request CreateDynamicTagGroupRequest
        * @return CreateDynamicTagGroupResponse
@@ -134,9 +134,9 @@ namespace Cms20190101
       Models::CreateDynamicTagGroupResponse createDynamicTagGroup(const Models::CreateDynamicTagGroupRequest &request);
 
       /**
-       * @summary Creates one or more alert rules for a specified application group.
+       * @summary Creates alert rules in batches for a specified application group by calling the CreateGroupMetricRules operation.
        *
-       * @description This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+       * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
        *
        * @param request CreateGroupMetricRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -145,9 +145,9 @@ namespace Cms20190101
       Models::CreateGroupMetricRulesResponse createGroupMetricRulesWithOptions(const Models::CreateGroupMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates one or more alert rules for a specified application group.
+       * @summary Creates alert rules in batches for a specified application group by calling the CreateGroupMetricRules operation.
        *
-       * @description This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+       * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
        *
        * @param request CreateGroupMetricRulesRequest
        * @return CreateGroupMetricRulesResponse
@@ -172,9 +172,9 @@ namespace Cms20190101
       Models::CreateGroupMonitoringAgentProcessResponse createGroupMonitoringAgentProcess(const Models::CreateGroupMonitoringAgentProcessRequest &request);
 
       /**
-       * @summary Creates an availability monitoring task.
+       * @summary Creates an availability monitoring task by calling the CreateHostAvailability operation.
        *
-       * @description This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+       * @description This topic provides an example of how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
        *
        * @param request CreateHostAvailabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,9 +183,9 @@ namespace Cms20190101
       Models::CreateHostAvailabilityResponse createHostAvailabilityWithOptions(const Models::CreateHostAvailabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an availability monitoring task.
+       * @summary Creates an availability monitoring task by calling the CreateHostAvailability operation.
        *
-       * @description This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+       * @description This topic provides an example of how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
        *
        * @param request CreateHostAvailabilityRequest
        * @return CreateHostAvailabilityResponse
@@ -193,12 +193,12 @@ namespace Cms20190101
       Models::CreateHostAvailabilityResponse createHostAvailability(const Models::CreateHostAvailabilityRequest &request);
 
       /**
-       * @summary Creates a namespace.
+       * @summary Calls the CreateHybridMonitorNamespace operation to create a metric repository.
        *
-       * @description ## [](#)Prerequisites
-       * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * ## [](#)Operation description
-       * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+       * @description ## Before you begin
+       * Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+       * ## Operation description
+       * This topic provides an example on how to create a metric repository named `aliyun` with a data storage duration of `cms.s1.3xlarge`. The response indicates that the metric repository is created.
        *
        * @param request CreateHybridMonitorNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -207,12 +207,12 @@ namespace Cms20190101
       Models::CreateHybridMonitorNamespaceResponse createHybridMonitorNamespaceWithOptions(const Models::CreateHybridMonitorNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a namespace.
+       * @summary Calls the CreateHybridMonitorNamespace operation to create a metric repository.
        *
-       * @description ## [](#)Prerequisites
-       * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * ## [](#)Operation description
-       * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+       * @description ## Before you begin
+       * Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+       * ## Operation description
+       * This topic provides an example on how to create a metric repository named `aliyun` with a data storage duration of `cms.s1.3xlarge`. The response indicates that the metric repository is created.
        *
        * @param request CreateHybridMonitorNamespaceRequest
        * @return CreateHybridMonitorNamespaceResponse
@@ -220,12 +220,12 @@ namespace Cms20190101
       Models::CreateHybridMonitorNamespaceResponse createHybridMonitorNamespace(const Models::CreateHybridMonitorNamespaceRequest &request);
 
       /**
-       * @summary Creates a Logstore group of Hybrid Cloud Monitoring.
+       * @summary Creates a Logstore group for Hybrid Cloud Monitoring.
        *
-       * @description ### [](#)Prerequisites
-       * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-       * ### [](#)Operation description
-       * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+       * @description ### Before you begin
+       * Make sure that you have activated Simple Log Service (SLS) and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+       * ### Operation description
+       * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region is `ap-southeast-1`, the project is `aliyun-project`, and the Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
        *
        * @param request CreateHybridMonitorSLSGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,12 +234,12 @@ namespace Cms20190101
       Models::CreateHybridMonitorSLSGroupResponse createHybridMonitorSLSGroupWithOptions(const Models::CreateHybridMonitorSLSGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Logstore group of Hybrid Cloud Monitoring.
+       * @summary Creates a Logstore group for Hybrid Cloud Monitoring.
        *
-       * @description ### [](#)Prerequisites
-       * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-       * ### [](#)Operation description
-       * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+       * @description ### Before you begin
+       * Make sure that you have activated Simple Log Service (SLS) and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+       * ### Operation description
+       * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region is `ap-southeast-1`, the project is `aliyun-project`, and the Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
        *
        * @param request CreateHybridMonitorSLSGroupRequest
        * @return CreateHybridMonitorSLSGroupResponse
@@ -247,13 +247,13 @@ namespace Cms20190101
       Models::CreateHybridMonitorSLSGroupResponse createHybridMonitorSLSGroup(const Models::CreateHybridMonitorSLSGroupRequest &request);
 
       /**
-       * @summary Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+       * @summary Calls the CreateHybridMonitorTask operation to create a data import task for an Alibaba Cloud service or a metric for Simple Log Service (SLS) logs.
        *
-       * @description # [](#)Prerequisites
-       * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-       * # [](#)Description
-       * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
+       * @description ## Before you begin
+       * - Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+       * - If you want to create a metric for SLS logs, make sure that you have activated SLS and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+       * ## Operation description
+       * This topic provides an example of how to create a data import task named `aliyun_task` for an Alibaba Cloud service to import the `cpu_total` metric of Elastic Compute Service (ECS) into the `aliyun` metric repository. The response shows that the data import task is created.
        *
        * @param request CreateHybridMonitorTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -262,13 +262,13 @@ namespace Cms20190101
       Models::CreateHybridMonitorTaskResponse createHybridMonitorTaskWithOptions(const Models::CreateHybridMonitorTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+       * @summary Calls the CreateHybridMonitorTask operation to create a data import task for an Alibaba Cloud service or a metric for Simple Log Service (SLS) logs.
        *
-       * @description # [](#)Prerequisites
-       * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-       * # [](#)Description
-       * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
+       * @description ## Before you begin
+       * - Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+       * - If you want to create a metric for SLS logs, make sure that you have activated SLS and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+       * ## Operation description
+       * This topic provides an example of how to create a data import task named `aliyun_task` for an Alibaba Cloud service to import the `cpu_total` metric of Elastic Compute Service (ECS) into the `aliyun` metric repository. The response shows that the data import task is created.
        *
        * @param request CreateHybridMonitorTaskRequest
        * @return CreateHybridMonitorTaskResponse
@@ -276,10 +276,10 @@ namespace Cms20190101
       Models::CreateHybridMonitorTaskResponse createHybridMonitorTask(const Models::CreateHybridMonitorTaskRequest &request);
 
       /**
-       * @summary Creates an instant test task.
+       * @summary Call the CreateInstantSiteMonitor operation to create a one-time detection task.
        *
-       * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
-       * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+       * @description Only Alibaba Cloud accounts that have Network Analysis and Monitoring activated can create one-time detection tasks.
+       * This topic provides an example of how to create a one-time detection task. The example creates a task named `task1` that detects the address `http://www.aliyun.com`. The detection type is `HTTP`, and the number of detection points is `1`.
        *
        * @param request CreateInstantSiteMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,10 +288,10 @@ namespace Cms20190101
       Models::CreateInstantSiteMonitorResponse createInstantSiteMonitorWithOptions(const Models::CreateInstantSiteMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an instant test task.
+       * @summary Call the CreateInstantSiteMonitor operation to create a one-time detection task.
        *
-       * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
-       * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+       * @description Only Alibaba Cloud accounts that have Network Analysis and Monitoring activated can create one-time detection tasks.
+       * This topic provides an example of how to create a one-time detection task. The example creates a task named `task1` that detects the address `http://www.aliyun.com`. The detection type is `HTTP`, and the number of detection points is `1`.
        *
        * @param request CreateInstantSiteMonitorRequest
        * @return CreateInstantSiteMonitorResponse
@@ -302,8 +302,8 @@ namespace Cms20190101
        * @summary Creates a blacklist policy.
        *
        * @description ### Background information
-       * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
-       * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+       * - CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+       * - CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
        *
        * @param request CreateMetricRuleBlackListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -315,8 +315,8 @@ namespace Cms20190101
        * @summary Creates a blacklist policy.
        *
        * @description ### Background information
-       * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
-       * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+       * - CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+       * - CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
        *
        * @param request CreateMetricRuleBlackListRequest
        * @return CreateMetricRuleBlackListResponse
@@ -324,7 +324,7 @@ namespace Cms20190101
       Models::CreateMetricRuleBlackListResponse createMetricRuleBlackList(const Models::CreateMetricRuleBlackListRequest &request);
 
       /**
-       * @summary Associates resources with an alert rule.
+       * @summary Calls the CreateMetricRuleResources operation to create a resource associated with an alert rule.
        *
        * @param request CreateMetricRuleResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -333,7 +333,7 @@ namespace Cms20190101
       Models::CreateMetricRuleResourcesResponse createMetricRuleResourcesWithOptions(const Models::CreateMetricRuleResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates resources with an alert rule.
+       * @summary Calls the CreateMetricRuleResources operation to create a resource associated with an alert rule.
        *
        * @param request CreateMetricRuleResourcesRequest
        * @return CreateMetricRuleResourcesResponse
@@ -440,10 +440,11 @@ namespace Cms20190101
       Models::CreateMonitorGroupInstancesResponse createMonitorGroupInstances(const Models::CreateMonitorGroupInstancesRequest &request);
 
       /**
-       * @summary Creates a policy to pause alert notifications for an application group.
+       * @summary Calls the CreateMonitorGroupNotifyPolicy operation to create a pause alert notification policy for an application group.
        *
-       * @description If the policy is valid, no alert notifications are sent for the application group.
-       * This topic describes how to create a `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+       * @description During the effective period of the policy, no alert notifications are sent for any alerts triggered within the application group.
+       *  
+       * This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group pauses alert notifications during the period from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
        *
        * @param request CreateMonitorGroupNotifyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -452,10 +453,11 @@ namespace Cms20190101
       Models::CreateMonitorGroupNotifyPolicyResponse createMonitorGroupNotifyPolicyWithOptions(const Models::CreateMonitorGroupNotifyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a policy to pause alert notifications for an application group.
+       * @summary Calls the CreateMonitorGroupNotifyPolicy operation to create a pause alert notification policy for an application group.
        *
-       * @description If the policy is valid, no alert notifications are sent for the application group.
-       * This topic describes how to create a `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+       * @description During the effective period of the policy, no alert notifications are sent for any alerts triggered within the application group.
+       *  
+       * This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group pauses alert notifications during the period from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
        *
        * @param request CreateMonitorGroupNotifyPolicyRequest
        * @return CreateMonitorGroupNotifyPolicyResponse
@@ -482,7 +484,7 @@ namespace Cms20190101
       /**
        * @summary Creates a site monitoring task.
        *
-       * @description This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+       * @description This topic describes how to create a site monitoring task. The example creates a task named `HanZhou_ECS1` to monitor the URL `https://www.aliyun.com` over `HTTPS`.
        *
        * @param request CreateSiteMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +495,7 @@ namespace Cms20190101
       /**
        * @summary Creates a site monitoring task.
        *
-       * @description This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+       * @description This topic describes how to create a site monitoring task. The example creates a task named `HanZhou_ECS1` to monitor the URL `https://www.aliyun.com` over `HTTPS`.
        *
        * @param request CreateSiteMonitorRequest
        * @return CreateSiteMonitorResponse
@@ -501,14 +503,14 @@ namespace Cms20190101
       Models::CreateSiteMonitorResponse createSiteMonitor(const Models::CreateSiteMonitorRequest &request);
 
       /**
-       * @summary Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+       * @summary Calls the Cursor operation to define the scope of monitoring data to be exported, and returns the Cursor value used for the initial call to the BatchExport operation.
        *
-       * @description ### [](#)Prerequisites
-       * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * ### [](#)Background information
-       * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
-       * ### [](#)Description
-       * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+       * @description ### Prerequisites
+       * Make sure that Enterprise CloudMonitor is activated. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+       * ### Background information
+       * First, call this operation to obtain the initial Cursor. Then, call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
+       * ### Usage notes
+       * This topic provides an example to describe how to define the scope to export data of the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service every 60 seconds in the time range from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The returned result shows the `Cursor` information.
        *
        * @param tmpReq CursorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -517,14 +519,14 @@ namespace Cms20190101
       Models::CursorResponse cursorWithOptions(const Models::CursorRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+       * @summary Calls the Cursor operation to define the scope of monitoring data to be exported, and returns the Cursor value used for the initial call to the BatchExport operation.
        *
-       * @description ### [](#)Prerequisites
-       * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * ### [](#)Background information
-       * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
-       * ### [](#)Description
-       * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+       * @description ### Prerequisites
+       * Make sure that Enterprise CloudMonitor is activated. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+       * ### Background information
+       * First, call this operation to obtain the initial Cursor. Then, call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
+       * ### Usage notes
+       * This topic provides an example to describe how to define the scope to export data of the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service every 60 seconds in the time range from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The returned result shows the `Cursor` information.
        *
        * @param request CursorRequest
        * @return CursorResponse
@@ -549,7 +551,7 @@ namespace Cms20190101
       Models::DeleteContactResponse deleteContact(const Models::DeleteContactRequest &request);
 
       /**
-       * @summary Deletes an alert contact group.
+       * @summary Calls the DeleteContactGroup operation to delete an alert contact group.
        *
        * @param request DeleteContactGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -558,7 +560,7 @@ namespace Cms20190101
       Models::DeleteContactGroupResponse deleteContactGroupWithOptions(const Models::DeleteContactGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an alert contact group.
+       * @summary Calls the DeleteContactGroup operation to delete an alert contact group.
        *
        * @param request DeleteContactGroupRequest
        * @return DeleteContactGroupResponse
@@ -617,7 +619,7 @@ namespace Cms20190101
       Models::DeleteEventRuleTargetsResponse deleteEventRuleTargets(const Models::DeleteEventRuleTargetsRequest &request);
 
       /**
-       * @summary Deletes event-triggered alert rules.
+       * @summary Deletes one or more event-triggered alert rules.
        *
        * @param request DeleteEventRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -626,7 +628,7 @@ namespace Cms20190101
       Models::DeleteEventRulesResponse deleteEventRulesWithOptions(const Models::DeleteEventRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes event-triggered alert rules.
+       * @summary Deletes one or more event-triggered alert rules.
        *
        * @param request DeleteEventRulesRequest
        * @return DeleteEventRulesResponse
@@ -634,7 +636,7 @@ namespace Cms20190101
       Models::DeleteEventRulesResponse deleteEventRules(const Models::DeleteEventRulesRequest &request);
 
       /**
-       * @summary Deletes a configuration set that is used to export monitoring data.
+       * @summary Calls the DeleteExporterOutput operation to delete a monitoring data export configuration.
        *
        * @param request DeleteExporterOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -643,7 +645,7 @@ namespace Cms20190101
       Models::DeleteExporterOutputResponse deleteExporterOutputWithOptions(const Models::DeleteExporterOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a configuration set that is used to export monitoring data.
+       * @summary Calls the DeleteExporterOutput operation to delete a monitoring data export configuration.
        *
        * @param request DeleteExporterOutputRequest
        * @return DeleteExporterOutputResponse
@@ -651,7 +653,7 @@ namespace Cms20190101
       Models::DeleteExporterOutputResponse deleteExporterOutput(const Models::DeleteExporterOutputRequest &request);
 
       /**
-       * @summary Deletes a data export rule.
+       * @summary Invokes the DeleteExporterRule operation to delete export rules.
        *
        * @param request DeleteExporterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -660,7 +662,7 @@ namespace Cms20190101
       Models::DeleteExporterRuleResponse deleteExporterRuleWithOptions(const Models::DeleteExporterRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data export rule.
+       * @summary Invokes the DeleteExporterRule operation to delete export rules.
        *
        * @param request DeleteExporterRuleRequest
        * @return DeleteExporterRuleResponse
@@ -668,7 +670,7 @@ namespace Cms20190101
       Models::DeleteExporterRuleResponse deleteExporterRule(const Models::DeleteExporterRuleRequest &request);
 
       /**
-       * @summary Deletes a process monitoring task for an application group.
+       * @summary Deletes a group process monitoring task by calling the DeleteGroupMonitoringAgentProcess operation.
        *
        * @param request DeleteGroupMonitoringAgentProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -677,7 +679,7 @@ namespace Cms20190101
       Models::DeleteGroupMonitoringAgentProcessResponse deleteGroupMonitoringAgentProcessWithOptions(const Models::DeleteGroupMonitoringAgentProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a process monitoring task for an application group.
+       * @summary Deletes a group process monitoring task by calling the DeleteGroupMonitoringAgentProcess operation.
        *
        * @param request DeleteGroupMonitoringAgentProcessRequest
        * @return DeleteGroupMonitoringAgentProcessResponse
@@ -685,7 +687,7 @@ namespace Cms20190101
       Models::DeleteGroupMonitoringAgentProcessResponse deleteGroupMonitoringAgentProcess(const Models::DeleteGroupMonitoringAgentProcessRequest &request);
 
       /**
-       * @summary Deletes availability monitoring tasks.
+       * @summary Deletes one or more availability monitoring jobs.
        *
        * @param request DeleteHostAvailabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -694,7 +696,7 @@ namespace Cms20190101
       Models::DeleteHostAvailabilityResponse deleteHostAvailabilityWithOptions(const Models::DeleteHostAvailabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes availability monitoring tasks.
+       * @summary Deletes one or more availability monitoring jobs.
        *
        * @param request DeleteHostAvailabilityRequest
        * @return DeleteHostAvailabilityResponse
@@ -784,7 +786,7 @@ namespace Cms20190101
       Models::DeleteLogMonitorResponse deleteLogMonitor(const Models::DeleteLogMonitorRequest &request);
 
       /**
-       * @summary Deletes multiple blacklist policies at a time.
+       * @summary Calls the DeleteMetricRuleBlackList operation to delete alert blacklist policies.
        *
        * @param request DeleteMetricRuleBlackListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -793,7 +795,7 @@ namespace Cms20190101
       Models::DeleteMetricRuleBlackListResponse deleteMetricRuleBlackListWithOptions(const Models::DeleteMetricRuleBlackListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes multiple blacklist policies at a time.
+       * @summary Calls the DeleteMetricRuleBlackList operation to delete alert blacklist policies.
        *
        * @param request DeleteMetricRuleBlackListRequest
        * @return DeleteMetricRuleBlackListResponse
@@ -835,7 +837,7 @@ namespace Cms20190101
       Models::DeleteMetricRuleTargetsResponse deleteMetricRuleTargets(const Models::DeleteMetricRuleTargetsRequest &request);
 
       /**
-       * @summary Deletes an alert template.
+       * @summary Deletes an alert rule template.
        *
        * @param request DeleteMetricRuleTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -844,7 +846,7 @@ namespace Cms20190101
       Models::DeleteMetricRuleTemplateResponse deleteMetricRuleTemplateWithOptions(const Models::DeleteMetricRuleTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an alert template.
+       * @summary Deletes an alert rule template.
        *
        * @param request DeleteMetricRuleTemplateRequest
        * @return DeleteMetricRuleTemplateResponse
@@ -852,7 +854,7 @@ namespace Cms20190101
       Models::DeleteMetricRuleTemplateResponse deleteMetricRuleTemplate(const Models::DeleteMetricRuleTemplateRequest &request);
 
       /**
-       * @summary Deletes one or more alert rules.
+       * @summary The DeleteMetricRules operation deletes one or more alert rules.
        *
        * @param request DeleteMetricRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -861,7 +863,7 @@ namespace Cms20190101
       Models::DeleteMetricRulesResponse deleteMetricRulesWithOptions(const Models::DeleteMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more alert rules.
+       * @summary The DeleteMetricRules operation deletes one or more alert rules.
        *
        * @param request DeleteMetricRulesRequest
        * @return DeleteMetricRulesResponse
@@ -937,7 +939,7 @@ namespace Cms20190101
       Models::DeleteMonitorGroupNotifyPolicyResponse deleteMonitorGroupNotifyPolicy(const Models::DeleteMonitorGroupNotifyPolicyRequest &request);
 
       /**
-       * @summary Disables monitoring on a process.
+       * @summary Calls the DeleteMonitoringAgentProcess operation to delete the specified process monitoring from a specified host.
        *
        * @param request DeleteMonitoringAgentProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -946,7 +948,7 @@ namespace Cms20190101
       Models::DeleteMonitoringAgentProcessResponse deleteMonitoringAgentProcessWithOptions(const Models::DeleteMonitoringAgentProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables monitoring on a process.
+       * @summary Calls the DeleteMonitoringAgentProcess operation to delete the specified process monitoring from a specified host.
        *
        * @param request DeleteMonitoringAgentProcessRequest
        * @return DeleteMonitoringAgentProcessResponse
@@ -954,7 +956,7 @@ namespace Cms20190101
       Models::DeleteMonitoringAgentProcessResponse deleteMonitoringAgentProcess(const Models::DeleteMonitoringAgentProcessRequest &request);
 
       /**
-       * @summary Deletes one or more site monitoring tasks.
+       * @summary Deletes site monitoring tasks by calling the DeleteSiteMonitors operation.
        *
        * @param request DeleteSiteMonitorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -963,7 +965,7 @@ namespace Cms20190101
       Models::DeleteSiteMonitorsResponse deleteSiteMonitorsWithOptions(const Models::DeleteSiteMonitorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more site monitoring tasks.
+       * @summary Deletes site monitoring tasks by calling the DeleteSiteMonitors operation.
        *
        * @param request DeleteSiteMonitorsRequest
        * @return DeleteSiteMonitorsResponse
@@ -971,7 +973,7 @@ namespace Cms20190101
       Models::DeleteSiteMonitorsResponse deleteSiteMonitors(const Models::DeleteSiteMonitorsRequest &request);
 
       /**
-       * @summary Queries the details of initiative alert rules.
+       * @summary Queries initiative alert rules.
        *
        * @param request DescribeActiveMetricRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -980,7 +982,7 @@ namespace Cms20190101
       Models::DescribeActiveMetricRuleListResponse describeActiveMetricRuleListWithOptions(const Models::DescribeActiveMetricRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of initiative alert rules.
+       * @summary Queries initiative alert rules.
        *
        * @param request DescribeActiveMetricRuleListRequest
        * @return DescribeActiveMetricRuleListResponse
@@ -1057,10 +1059,10 @@ namespace Cms20190101
       Models::DescribeAlertLogHistogramResponse describeAlertLogHistogram(const Models::DescribeAlertLogHistogramRequest &request);
 
       /**
-       * @summary Queries alert logs.
+       * @summary Queries the alert history by calling the DescribeAlertLogList operation.
        *
-       * @description You can call the operation to query only the alert logs within the last year.
-       * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+       * @description This operation can query the alert history only within the last year.
+       * This topic provides an example to show how to query the alert history of Elastic Compute Service (ECS) from the cloud service `product` dimension.
        *
        * @param request DescribeAlertLogListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1069,10 +1071,10 @@ namespace Cms20190101
       Models::DescribeAlertLogListResponse describeAlertLogListWithOptions(const Models::DescribeAlertLogListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert logs.
+       * @summary Queries the alert history by calling the DescribeAlertLogList operation.
        *
-       * @description You can call the operation to query only the alert logs within the last year.
-       * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+       * @description This operation can query the alert history only within the last year.
+       * This topic provides an example to show how to query the alert history of Elastic Compute Service (ECS) from the cloud service `product` dimension.
        *
        * @param request DescribeAlertLogListRequest
        * @return DescribeAlertLogListResponse
@@ -1114,7 +1116,7 @@ namespace Cms20190101
       Models::DescribeContactGroupListResponse describeContactGroupList(const Models::DescribeContactGroupListRequest &request);
 
       /**
-       * @summary Queries alert contacts.
+       * @summary Calls the DescribeContactList operation to query a list of alert contacts.
        *
        * @param request DescribeContactListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1123,7 +1125,7 @@ namespace Cms20190101
       Models::DescribeContactListResponse describeContactListWithOptions(const Models::DescribeContactListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert contacts.
+       * @summary Calls the DescribeContactList operation to query a list of alert contacts.
        *
        * @param request DescribeContactListRequest
        * @return DescribeContactListResponse
@@ -1148,7 +1150,7 @@ namespace Cms20190101
       Models::DescribeContactListByContactGroupResponse describeContactListByContactGroup(const Models::DescribeContactListByContactGroupRequest &request);
 
       /**
-       * @summary Queries the details of a custom event.
+       * @summary Queries a custom event.
        *
        * @param request DescribeCustomEventAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1157,7 +1159,7 @@ namespace Cms20190101
       Models::DescribeCustomEventAttributeResponse describeCustomEventAttributeWithOptions(const Models::DescribeCustomEventAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a custom event.
+       * @summary Queries a custom event.
        *
        * @param request DescribeCustomEventAttributeRequest
        * @return DescribeCustomEventAttributeResponse
@@ -1167,7 +1169,7 @@ namespace Cms20190101
       /**
        * @summary Queries the number of times that a custom event occurred within a period of time.
        *
-       * @description >  This operation queries the number of times that a custom event occurred for each service.
+       * @description > This operation queries the number of times that a custom event occurred for each service.
        *
        * @param request DescribeCustomEventCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1178,7 +1180,7 @@ namespace Cms20190101
       /**
        * @summary Queries the number of times that a custom event occurred within a period of time.
        *
-       * @description >  This operation queries the number of times that a custom event occurred for each service.
+       * @description > This operation queries the number of times that a custom event occurred for each service.
        *
        * @param request DescribeCustomEventCountRequest
        * @return DescribeCustomEventCountResponse
@@ -1205,7 +1207,7 @@ namespace Cms20190101
       /**
        * @summary Queries the reported monitoring data.
        *
-       * @description >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+       * @description > You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
        *
        * @param request DescribeCustomMetricListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1216,7 +1218,7 @@ namespace Cms20190101
       /**
        * @summary Queries the reported monitoring data.
        *
-       * @description >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+       * @description > You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
        *
        * @param request DescribeCustomMetricListRequest
        * @return DescribeCustomMetricListResponse
@@ -1224,9 +1226,9 @@ namespace Cms20190101
       Models::DescribeCustomMetricListResponse describeCustomMetricList(const Models::DescribeCustomMetricListRequest &request);
 
       /**
-       * @summary Queries tag rules.
+       * @summary Call the DescribeDynamicTagRuleList operation to query the rules for dynamic tags.
        *
-       * @description This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+       * @description This topic provides an example of how to query the rules for the tag key `tagkey1`. The response shows that two rules are returned. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
        *
        * @param request DescribeDynamicTagRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1235,9 +1237,9 @@ namespace Cms20190101
       Models::DescribeDynamicTagRuleListResponse describeDynamicTagRuleListWithOptions(const Models::DescribeDynamicTagRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tag rules.
+       * @summary Call the DescribeDynamicTagRuleList operation to query the rules for dynamic tags.
        *
-       * @description This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+       * @description This topic provides an example of how to query the rules for the tag key `tagkey1`. The response shows that two rules are returned. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
        *
        * @param request DescribeDynamicTagRuleListRequest
        * @return DescribeDynamicTagRuleListResponse
@@ -1245,9 +1247,9 @@ namespace Cms20190101
       Models::DescribeDynamicTagRuleListResponse describeDynamicTagRuleList(const Models::DescribeDynamicTagRuleListRequest &request);
 
       /**
-       * @summary Queries the details of an event-triggered alert rule.
+       * @summary Queries the details of a specified event-triggered alert rule by calling the DescribeEventRuleAttribute operation.
        *
-       * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+       * @description This topic provides an example on how to query the details of the event-triggered alert rule `testRule`.
        *
        * @param request DescribeEventRuleAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1256,9 +1258,9 @@ namespace Cms20190101
       Models::DescribeEventRuleAttributeResponse describeEventRuleAttributeWithOptions(const Models::DescribeEventRuleAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an event-triggered alert rule.
+       * @summary Queries the details of a specified event-triggered alert rule by calling the DescribeEventRuleAttribute operation.
        *
-       * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+       * @description This topic provides an example on how to query the details of the event-triggered alert rule `testRule`.
        *
        * @param request DescribeEventRuleAttributeRequest
        * @return DescribeEventRuleAttributeResponse
@@ -1283,9 +1285,9 @@ namespace Cms20190101
       Models::DescribeEventRuleListResponse describeEventRuleList(const Models::DescribeEventRuleListRequest &request);
 
       /**
-       * @summary Queries event-triggered alert rules.
+       * @summary Queries the list of event-triggered alert rules.
        *
-       * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+       * @description This topic provides an example to query the details of the event-triggered alert rule `testRule`.
        *
        * @param request DescribeEventRuleTargetListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1294,9 +1296,9 @@ namespace Cms20190101
       Models::DescribeEventRuleTargetListResponse describeEventRuleTargetListWithOptions(const Models::DescribeEventRuleTargetListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries event-triggered alert rules.
+       * @summary Queries the list of event-triggered alert rules.
        *
-       * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+       * @description This topic provides an example to query the details of the event-triggered alert rule `testRule`.
        *
        * @param request DescribeEventRuleTargetListRequest
        * @return DescribeEventRuleTargetListResponse
@@ -1304,7 +1306,7 @@ namespace Cms20190101
       Models::DescribeEventRuleTargetListResponse describeEventRuleTargetList(const Models::DescribeEventRuleTargetListRequest &request);
 
       /**
-       * @summary Queries configuration sets that are used to export monitoring data.
+       * @summary Queries the list of monitoring data exports by calling the DescribeExporterOutputList operation.
        *
        * @param request DescribeExporterOutputListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1313,7 +1315,7 @@ namespace Cms20190101
       Models::DescribeExporterOutputListResponse describeExporterOutputListWithOptions(const Models::DescribeExporterOutputListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries configuration sets that are used to export monitoring data.
+       * @summary Queries the list of monitoring data exports by calling the DescribeExporterOutputList operation.
        *
        * @param request DescribeExporterOutputListRequest
        * @return DescribeExporterOutputListResponse
@@ -1321,7 +1323,7 @@ namespace Cms20190101
       Models::DescribeExporterOutputListResponse describeExporterOutputList(const Models::DescribeExporterOutputListRequest &request);
 
       /**
-       * @summary Queries data export rules.
+       * @summary Queries the list of data export rules by calling the DescribeExporterRuleList operation.
        *
        * @param request DescribeExporterRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1330,7 +1332,7 @@ namespace Cms20190101
       Models::DescribeExporterRuleListResponse describeExporterRuleListWithOptions(const Models::DescribeExporterRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data export rules.
+       * @summary Queries the list of data export rules by calling the DescribeExporterRuleList operation.
        *
        * @param request DescribeExporterRuleListRequest
        * @return DescribeExporterRuleListResponse
@@ -1411,9 +1413,9 @@ namespace Cms20190101
       Models::DescribeHybridMonitorDataListResponse describeHybridMonitorDataList(const Models::DescribeHybridMonitorDataListRequest &request);
 
       /**
-       * @summary Queries namespaces and the details of the related metric import tasks.
+       * @summary Queries a list of namespaces and the details of their data sources.
        *
-       * @description In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+       * @description This example shows how to query all namespaces that belong to the current account. The response indicates that only one namespace, `aliyun-test`, exists.
        *
        * @param request DescribeHybridMonitorNamespaceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1422,9 +1424,9 @@ namespace Cms20190101
       Models::DescribeHybridMonitorNamespaceListResponse describeHybridMonitorNamespaceListWithOptions(const Models::DescribeHybridMonitorNamespaceListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries namespaces and the details of the related metric import tasks.
+       * @summary Queries a list of namespaces and the details of their data sources.
        *
-       * @description In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+       * @description This example shows how to query all namespaces that belong to the current account. The response indicates that only one namespace, `aliyun-test`, exists.
        *
        * @param request DescribeHybridMonitorNamespaceListRequest
        * @return DescribeHybridMonitorNamespaceListResponse
@@ -1432,9 +1434,9 @@ namespace Cms20190101
       Models::DescribeHybridMonitorNamespaceListResponse describeHybridMonitorNamespaceList(const Models::DescribeHybridMonitorNamespaceListRequest &request);
 
       /**
-       * @summary Queries Logstore groups.
+       * @summary Queries the list of Logstore groups by calling the DescribeHybridMonitorSLSGroup operation.
        *
-       * @description In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+       * @description This topic provides an example of how to query all Logstore groups in the current account. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
        *
        * @param request DescribeHybridMonitorSLSGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1443,9 +1445,9 @@ namespace Cms20190101
       Models::DescribeHybridMonitorSLSGroupResponse describeHybridMonitorSLSGroupWithOptions(const Models::DescribeHybridMonitorSLSGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Logstore groups.
+       * @summary Queries the list of Logstore groups by calling the DescribeHybridMonitorSLSGroup operation.
        *
-       * @description In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+       * @description This topic provides an example of how to query all Logstore groups in the current account. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
        *
        * @param request DescribeHybridMonitorSLSGroupRequest
        * @return DescribeHybridMonitorSLSGroupResponse
@@ -1474,7 +1476,7 @@ namespace Cms20190101
       Models::DescribeHybridMonitorTaskListResponse describeHybridMonitorTaskList(const Models::DescribeHybridMonitorTaskListRequest &request);
 
       /**
-       * @summary Queries the details of a log monitoring metric.
+       * @summary Queries a Log Monitoring task.
        *
        * @param request DescribeLogMonitorAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1483,7 +1485,7 @@ namespace Cms20190101
       Models::DescribeLogMonitorAttributeResponse describeLogMonitorAttributeWithOptions(const Models::DescribeLogMonitorAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a log monitoring metric.
+       * @summary Queries a Log Monitoring task.
        *
        * @param request DescribeLogMonitorAttributeRequest
        * @return DescribeLogMonitorAttributeResponse
@@ -1511,10 +1513,10 @@ namespace Cms20190101
        * @summary Queries the monitoring data of a metric for a cloud service.
        *
        * @description ### [](#)Limits
-       * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-       * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+       * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
        * ### [](#)Description
-       * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
+       * > Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
        * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
        *
        * @param request DescribeMetricDataRequest
@@ -1527,10 +1529,10 @@ namespace Cms20190101
        * @summary Queries the monitoring data of a metric for a cloud service.
        *
        * @description ### [](#)Limits
-       * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-       * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+       * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
        * ### [](#)Description
-       * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
+       * > Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
        * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
        *
        * @param request DescribeMetricDataRequest
@@ -1542,14 +1544,14 @@ namespace Cms20190101
        * @summary Queries the latest monitoring data of a metric.
        *
        * @description ### [](#)Limits
-       * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-       * *   Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
-       * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
+       * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+       * > If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
        * ### [](#)Precautions
        * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-       * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-       * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-       * *   The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
+       * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+       * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+       * - The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
        * ### [](#)Operation description
        * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
        *
@@ -1563,14 +1565,14 @@ namespace Cms20190101
        * @summary Queries the latest monitoring data of a metric.
        *
        * @description ### [](#)Limits
-       * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-       * *   Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
-       * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
+       * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+       * > If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
        * ### [](#)Precautions
        * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-       * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-       * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-       * *   The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
+       * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+       * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+       * - The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
        * ### [](#)Operation description
        * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
        *
@@ -1580,11 +1582,19 @@ namespace Cms20190101
       Models::DescribeMetricLastResponse describeMetricLast(const Models::DescribeMetricLastRequest &request);
 
       /**
-       * @summary Queries the monitoring data of a metric for a specified cloud service.
+       * @summary The DescribeMetricList operation queries the monitoring data of a specific metric for a cloud service.
        *
-       * @description ## Limits
-       * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota. 
-       * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+       * @description ### Limits
+       * - You have a free quota of 1 million total API calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If you use up the free quota and have not enabled the pay-as-you-go billing method for CloudMonitor Basic, you can no longer use these API operations. If you have enabled the pay-as-you-go billing method, you can continue to use the API operations after the free quota is used up. API calls that exceed the free quota are automatically charged on a pay-as-you-go basis. For more information, see [Enable pay-as-you-go](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - You can call each API operation up to 50 times per second. This limit is shared between an Alibaba Cloud account and its RAM users.
+       * > If you receive the `Throttling.User` or `Request was denied due to user flow control` error message when you call an API operation, the API call is throttled. For more information, see [How do I resolve an API call throttling issue?](https://help.aliyun.com/document_detail/2615031.html).
+       * ### Notes
+       * The storage duration of monitoring data for a cloud service depends on the `Period` (statistical period). A larger `Period` value indicates that the monitoring data is less granular and is stored for a longer period. The relationship is as follows:
+       * - If the value of `Period` is less than 60 seconds, the storage duration is 7 days.
+       * - If the value of `Period` is 60 seconds, the storage duration is 31 days.
+       * - If the value of `Period` is 300 seconds or greater, the storage duration is 91 days.
+       * ### Usage notes
+       * This topic provides an example of how to query the monitoring data of the `cpu_idle` metric for the `acs_ecs_dashboard` cloud service. The response shows the data for the instance `i-abcdefgh12****`, which belongs to the Alibaba Cloud account `120886317861****`. At a 60 second interval, the maximum, minimum, and average values of the metric are 100, 93.1, and 99.52, respectively.
        *
        * @param request DescribeMetricListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1593,11 +1603,19 @@ namespace Cms20190101
       Models::DescribeMetricListResponse describeMetricListWithOptions(const Models::DescribeMetricListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monitoring data of a metric for a specified cloud service.
+       * @summary The DescribeMetricList operation queries the monitoring data of a specific metric for a cloud service.
        *
-       * @description ## Limits
-       * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota. 
-       * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+       * @description ### Limits
+       * - You have a free quota of 1 million total API calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If you use up the free quota and have not enabled the pay-as-you-go billing method for CloudMonitor Basic, you can no longer use these API operations. If you have enabled the pay-as-you-go billing method, you can continue to use the API operations after the free quota is used up. API calls that exceed the free quota are automatically charged on a pay-as-you-go basis. For more information, see [Enable pay-as-you-go](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - You can call each API operation up to 50 times per second. This limit is shared between an Alibaba Cloud account and its RAM users.
+       * > If you receive the `Throttling.User` or `Request was denied due to user flow control` error message when you call an API operation, the API call is throttled. For more information, see [How do I resolve an API call throttling issue?](https://help.aliyun.com/document_detail/2615031.html).
+       * ### Notes
+       * The storage duration of monitoring data for a cloud service depends on the `Period` (statistical period). A larger `Period` value indicates that the monitoring data is less granular and is stored for a longer period. The relationship is as follows:
+       * - If the value of `Period` is less than 60 seconds, the storage duration is 7 days.
+       * - If the value of `Period` is 60 seconds, the storage duration is 31 days.
+       * - If the value of `Period` is 300 seconds or greater, the storage duration is 91 days.
+       * ### Usage notes
+       * This topic provides an example of how to query the monitoring data of the `cpu_idle` metric for the `acs_ecs_dashboard` cloud service. The response shows the data for the instance `i-abcdefgh12****`, which belongs to the Alibaba Cloud account `120886317861****`. At a 60 second interval, the maximum, minimum, and average values of the metric are 100, 93.1, and 99.52, respectively.
        *
        * @param request DescribeMetricListRequest
        * @return DescribeMetricListResponse
@@ -1605,9 +1623,9 @@ namespace Cms20190101
       Models::DescribeMetricListResponse describeMetricList(const Models::DescribeMetricListRequest &request);
 
       /**
-       * @summary Queries the details of metrics that are supported in CloudMonitor.
+       * @summary Queries metrics that are supported in CloudMonitor.
        *
-       * @description This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+       * @description Use this operation together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
        *
        * @param request DescribeMetricMetaListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1616,9 +1634,9 @@ namespace Cms20190101
       Models::DescribeMetricMetaListResponse describeMetricMetaListWithOptions(const Models::DescribeMetricMetaListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of metrics that are supported in CloudMonitor.
+       * @summary Queries metrics that are supported in CloudMonitor.
        *
-       * @description This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+       * @description Use this operation together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
        *
        * @param request DescribeMetricMetaListRequest
        * @return DescribeMetricMetaListResponse
@@ -1626,7 +1644,7 @@ namespace Cms20190101
       Models::DescribeMetricMetaListResponse describeMetricMetaList(const Models::DescribeMetricMetaListRequest &request);
 
       /**
-       * @summary Queries blacklist policies.
+       * @summary You can call the DescribeMetricRuleBlackList operation to query blacklist policies.
        *
        * @param request DescribeMetricRuleBlackListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1635,7 +1653,7 @@ namespace Cms20190101
       Models::DescribeMetricRuleBlackListResponse describeMetricRuleBlackListWithOptions(const Models::DescribeMetricRuleBlackListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries blacklist policies.
+       * @summary You can call the DescribeMetricRuleBlackList operation to query blacklist policies.
        *
        * @param request DescribeMetricRuleBlackListRequest
        * @return DescribeMetricRuleBlackListResponse
@@ -1660,9 +1678,9 @@ namespace Cms20190101
       Models::DescribeMetricRuleCountResponse describeMetricRuleCount(const Models::DescribeMetricRuleCountRequest &request);
 
       /**
-       * @summary Queries alert rules.
+       * @summary Queries all alert rules in the alert rule list.
        *
-       * @description This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+       * @description This topic provides an example of how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
        *
        * @param request DescribeMetricRuleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1671,9 +1689,9 @@ namespace Cms20190101
       Models::DescribeMetricRuleListResponse describeMetricRuleListWithOptions(const Models::DescribeMetricRuleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert rules.
+       * @summary Queries all alert rules in the alert rule list.
        *
-       * @description This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+       * @description This topic provides an example of how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
        *
        * @param request DescribeMetricRuleListRequest
        * @return DescribeMetricRuleListResponse
@@ -1681,11 +1699,10 @@ namespace Cms20190101
       Models::DescribeMetricRuleListResponse describeMetricRuleList(const Models::DescribeMetricRuleListRequest &request);
 
       /**
-       * @summary Queries the resources that are associated with a specified alert rule.
+       * @summary Queries the notification channels of a specified alert rule by calling the DescribeMetricRuleTargets operation.
        *
-       * @description ## Limit
-       * This operation supports only Message Service (MNS) resources. 
-       * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
+       * @description ## Usage notes
+       * This topic provides an example to query the target resources associated with the alert rule `ae06917_75a8c43178ab66****`.
        *
        * @param request DescribeMetricRuleTargetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1694,11 +1711,10 @@ namespace Cms20190101
       Models::DescribeMetricRuleTargetsResponse describeMetricRuleTargetsWithOptions(const Models::DescribeMetricRuleTargetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resources that are associated with a specified alert rule.
+       * @summary Queries the notification channels of a specified alert rule by calling the DescribeMetricRuleTargets operation.
        *
-       * @description ## Limit
-       * This operation supports only Message Service (MNS) resources. 
-       * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
+       * @description ## Usage notes
+       * This topic provides an example to query the target resources associated with the alert rule `ae06917_75a8c43178ab66****`.
        *
        * @param request DescribeMetricRuleTargetsRequest
        * @return DescribeMetricRuleTargetsResponse
@@ -1706,9 +1722,9 @@ namespace Cms20190101
       Models::DescribeMetricRuleTargetsResponse describeMetricRuleTargets(const Models::DescribeMetricRuleTargetsRequest &request);
 
       /**
-       * @summary Queries the details of an alert template.
+       * @summary Queries the details of an alert template by calling the DescribeMetricRuleTemplateAttribute operation.
        *
-       * @description This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+       * @description This topic provides an example on how to query the details of the alert template `70****`.
        *
        * @param request DescribeMetricRuleTemplateAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1717,9 +1733,9 @@ namespace Cms20190101
       Models::DescribeMetricRuleTemplateAttributeResponse describeMetricRuleTemplateAttributeWithOptions(const Models::DescribeMetricRuleTemplateAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an alert template.
+       * @summary Queries the details of an alert template by calling the DescribeMetricRuleTemplateAttribute operation.
        *
-       * @description This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+       * @description This topic provides an example on how to query the details of the alert template `70****`.
        *
        * @param request DescribeMetricRuleTemplateAttributeRequest
        * @return DescribeMetricRuleTemplateAttributeResponse
@@ -1751,13 +1767,13 @@ namespace Cms20190101
        * @summary Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
        *
        * @description ### [](#)Limits
-       * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-       * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+       * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
        * ### [](#)Precautions
        * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-       * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-       * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-       * *   The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
+       * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+       * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+       * - The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
        * ### [](#)Operation description
        * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in descending order based on the `Average` field.
        *
@@ -1771,13 +1787,13 @@ namespace Cms20190101
        * @summary Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
        *
        * @description ### [](#)Limits
-       * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-       * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+       * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+       * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
        * ### [](#)Precautions
        * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-       * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-       * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-       * *   The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
+       * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+       * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+       * - The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
        * ### [](#)Operation description
        * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in descending order based on the `Average` field.
        *
@@ -1821,7 +1837,7 @@ namespace Cms20190101
       Models::DescribeMonitorGroupDynamicRulesResponse describeMonitorGroupDynamicRules(const Models::DescribeMonitorGroupDynamicRulesRequest &request);
 
       /**
-       * @summary Queries the details of the resources in an application group.
+       * @summary Queries the resources in an application group.
        *
        * @param request DescribeMonitorGroupInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1830,7 +1846,7 @@ namespace Cms20190101
       Models::DescribeMonitorGroupInstanceAttributeResponse describeMonitorGroupInstanceAttributeWithOptions(const Models::DescribeMonitorGroupInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the resources in an application group.
+       * @summary Queries the resources in an application group.
        *
        * @param request DescribeMonitorGroupInstanceAttributeRequest
        * @return DescribeMonitorGroupInstanceAttributeResponse
@@ -1855,7 +1871,7 @@ namespace Cms20190101
       Models::DescribeMonitorGroupInstancesResponse describeMonitorGroupInstances(const Models::DescribeMonitorGroupInstancesRequest &request);
 
       /**
-       * @summary Queries the policies that are used to pause alert notifications for an application group.
+       * @summary Queries the list of alert notification pause policies for an application group by calling the DescribeMonitorGroupNotifyPolicyList operation.
        *
        * @param request DescribeMonitorGroupNotifyPolicyListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1864,7 +1880,7 @@ namespace Cms20190101
       Models::DescribeMonitorGroupNotifyPolicyListResponse describeMonitorGroupNotifyPolicyListWithOptions(const Models::DescribeMonitorGroupNotifyPolicyListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the policies that are used to pause alert notifications for an application group.
+       * @summary Queries the list of alert notification pause policies for an application group by calling the DescribeMonitorGroupNotifyPolicyList operation.
        *
        * @param request DescribeMonitorGroupNotifyPolicyListRequest
        * @return DescribeMonitorGroupNotifyPolicyListResponse
@@ -1872,9 +1888,9 @@ namespace Cms20190101
       Models::DescribeMonitorGroupNotifyPolicyListResponse describeMonitorGroupNotifyPolicyList(const Models::DescribeMonitorGroupNotifyPolicyListRequest &request);
 
       /**
-       * @summary Queries application groups.
+       * @summary You can call the DescribeMonitorGroups operation to query a list of application groups.
        *
-       * @description This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+       * @description This topic provides an example of how to query a list of application groups. The response shows that two application groups are returned: `testGroup124` and `test123`.
        *
        * @param request DescribeMonitorGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1883,9 +1899,9 @@ namespace Cms20190101
       Models::DescribeMonitorGroupsResponse describeMonitorGroupsWithOptions(const Models::DescribeMonitorGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries application groups.
+       * @summary You can call the DescribeMonitorGroups operation to query a list of application groups.
        *
-       * @description This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+       * @description This topic provides an example of how to query a list of application groups. The response shows that two application groups are returned: `testGroup124` and `test123`.
        *
        * @param request DescribeMonitorGroupsRequest
        * @return DescribeMonitorGroupsResponse
@@ -1944,7 +1960,7 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentConfigResponse describeMonitoringAgentConfig(const Models::DescribeMonitoringAgentConfigRequest &request);
 
       /**
-       * @summary Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
+       * @summary You can call the DescribeMonitoringAgentHosts operation to query a list of all hosts, regardless of whether the CloudMonitor agent is installed.
        *
        * @param request DescribeMonitoringAgentHostsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1953,7 +1969,7 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentHostsResponse describeMonitoringAgentHostsWithOptions(const Models::DescribeMonitoringAgentHostsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
+       * @summary You can call the DescribeMonitoringAgentHosts operation to query a list of all hosts, regardless of whether the CloudMonitor agent is installed.
        *
        * @param request DescribeMonitoringAgentHostsRequest
        * @return DescribeMonitoringAgentHostsResponse
@@ -1961,10 +1977,10 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentHostsResponse describeMonitoringAgentHosts(const Models::DescribeMonitoringAgentHostsRequest &request);
 
       /**
-       * @summary Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
+       * @summary Call the DescribeMonitoringAgentProcesses operation to query the list of processes for a specified resource.
        *
-       * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
-       * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
+       * @description > Before you call this operation, you must call the CreateMonitoringAgentProcess operation to create a process monitoring task. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/2513212.html).
+       * This topic provides an example of how to query the list of processes for the resource i-hp3hl3cx1pbahzy8\\*\\*\\*\\*. The response shows the details of the Nginx and HTTP processes.
        *
        * @param request DescribeMonitoringAgentProcessesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1973,10 +1989,10 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentProcessesResponse describeMonitoringAgentProcessesWithOptions(const Models::DescribeMonitoringAgentProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
+       * @summary Call the DescribeMonitoringAgentProcesses operation to query the list of processes for a specified resource.
        *
-       * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
-       * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
+       * @description > Before you call this operation, you must call the CreateMonitoringAgentProcess operation to create a process monitoring task. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/2513212.html).
+       * This topic provides an example of how to query the list of processes for the resource i-hp3hl3cx1pbahzy8\\*\\*\\*\\*. The response shows the details of the Nginx and HTTP processes.
        *
        * @param request DescribeMonitoringAgentProcessesRequest
        * @return DescribeMonitoringAgentProcessesResponse
@@ -1984,7 +2000,7 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentProcessesResponse describeMonitoringAgentProcesses(const Models::DescribeMonitoringAgentProcessesRequest &request);
 
       /**
-       * @summary Queries the status of the CloudMonitor agent.
+       * @summary Queries the running status of the CloudMonitor agent by calling the DescribeMonitoringAgentStatuses operation.
        *
        * @description This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
        *
@@ -1995,7 +2011,7 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentStatusesResponse describeMonitoringAgentStatusesWithOptions(const Models::DescribeMonitoringAgentStatusesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of the CloudMonitor agent.
+       * @summary Queries the running status of the CloudMonitor agent by calling the DescribeMonitoringAgentStatuses operation.
        *
        * @description This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
        *
@@ -2022,9 +2038,7 @@ namespace Cms20190101
       Models::DescribeMonitoringConfigResponse describeMonitoringConfig(const Models::DescribeMonitoringConfigRequest &request);
 
       /**
-       * @summary Queries the keys of all tags that are attached to cloud resources in a region.
-       *
-       * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+       * @summary Call the DescribeProductResourceTagKeyList operation to query all tag keys of cloud resources in a specified region.
        *
        * @param request DescribeProductResourceTagKeyListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2033,9 +2047,7 @@ namespace Cms20190101
       Models::DescribeProductResourceTagKeyListResponse describeProductResourceTagKeyListWithOptions(const Models::DescribeProductResourceTagKeyListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the keys of all tags that are attached to cloud resources in a region.
-       *
-       * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+       * @summary Call the DescribeProductResourceTagKeyList operation to query all tag keys of cloud resources in a specified region.
        *
        * @param request DescribeProductResourceTagKeyListRequest
        * @return DescribeProductResourceTagKeyListResponse
@@ -2060,9 +2072,9 @@ namespace Cms20190101
       Models::DescribeProductsOfActiveMetricRuleResponse describeProductsOfActiveMetricRule(const Models::DescribeProductsOfActiveMetricRuleRequest &request);
 
       /**
-       * @summary Queries the information about monitored services in CloudMonitor.
+       * @summary Calls the DescribeProjectMeta operation to query the list of cloud services that support time series monitoring metrics in CloudMonitor.
        *
-       * @description The information obtained by this operation includes the service description, namespace, and tags.
+       * @description Obtains the information about the connected cloud services, including the description, namespace, and tags of each service.
        *
        * @param request DescribeProjectMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2071,9 +2083,9 @@ namespace Cms20190101
       Models::DescribeProjectMetaResponse describeProjectMetaWithOptions(const Models::DescribeProjectMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about monitored services in CloudMonitor.
+       * @summary Calls the DescribeProjectMeta operation to query the list of cloud services that support time series monitoring metrics in CloudMonitor.
        *
-       * @description The information obtained by this operation includes the service description, namespace, and tags.
+       * @description Obtains the information about the connected cloud services, including the description, namespace, and tags of each service.
        *
        * @param request DescribeProjectMetaRequest
        * @return DescribeProjectMetaResponse
@@ -2081,9 +2093,9 @@ namespace Cms20190101
       Models::DescribeProjectMetaResponse describeProjectMeta(const Models::DescribeProjectMetaRequest &request);
 
       /**
-       * @summary Queries the details of a site monitoring task.
+       * @summary Queries the details of a site monitoring task by calling the DescribeSiteMonitorAttribute operation.
        *
-       * @description This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+       * @description This topic provides an example on how to query the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
        *
        * @param request DescribeSiteMonitorAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2092,9 +2104,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorAttributeResponse describeSiteMonitorAttributeWithOptions(const Models::DescribeSiteMonitorAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a site monitoring task.
+       * @summary Queries the details of a site monitoring task by calling the DescribeSiteMonitorAttribute operation.
        *
-       * @description This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+       * @description This topic provides an example on how to query the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
        *
        * @param request DescribeSiteMonitorAttributeRequest
        * @return DescribeSiteMonitorAttributeResponse
@@ -2119,9 +2131,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorDataResponse describeSiteMonitorData(const Models::DescribeSiteMonitorDataRequest &request);
 
       /**
-       * @summary Queries the detection points that are provided by carriers.
+       * @summary Queries the details of all carrier detection points by calling the DescribeSiteMonitorISPCityList operation.
        *
-       * @description This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+       * @description 本文将提供一个示例，查询运营商“联通”在“贵阳市”的探测点详情。
        *
        * @param request DescribeSiteMonitorISPCityListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2130,9 +2142,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorISPCityListResponse describeSiteMonitorISPCityListWithOptions(const Models::DescribeSiteMonitorISPCityListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detection points that are provided by carriers.
+       * @summary Queries the details of all carrier detection points by calling the DescribeSiteMonitorISPCityList operation.
        *
-       * @description This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+       * @description 本文将提供一个示例，查询运营商“联通”在“贵阳市”的探测点详情。
        *
        * @param request DescribeSiteMonitorISPCityListRequest
        * @return DescribeSiteMonitorISPCityListResponse
@@ -2140,9 +2152,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorISPCityListResponse describeSiteMonitorISPCityList(const Models::DescribeSiteMonitorISPCityListRequest &request);
 
       /**
-       * @summary Queries site monitoring tasks.
+       * @summary Queries the list of site monitoring tasks by calling the DescribeSiteMonitorList operation.
        *
-       * @description This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+       * @description This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring task named `HanZhou_ECS2`.
        *
        * @param request DescribeSiteMonitorListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2151,9 +2163,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorListResponse describeSiteMonitorListWithOptions(const Models::DescribeSiteMonitorListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries site monitoring tasks.
+       * @summary Queries the list of site monitoring tasks by calling the DescribeSiteMonitorList operation.
        *
-       * @description This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+       * @description This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring task named `HanZhou_ECS2`.
        *
        * @param request DescribeSiteMonitorListRequest
        * @return DescribeSiteMonitorListResponse
@@ -2161,10 +2173,10 @@ namespace Cms20190101
       Models::DescribeSiteMonitorListResponse describeSiteMonitorList(const Models::DescribeSiteMonitorListRequest &request);
 
       /**
-       * @summary Queries the logs of one or more instant test tasks.
+       * @summary Call the DescribeSiteMonitorLog operation to query the detection logs for a one-time detection task.
        *
-       * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-       * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+       * @description Only Alibaba Cloud accounts with Network Analysis and Monitoring activated can create one-time detection tasks.
+       * This topic provides an example of how to query the detection logs for the one-time detection task `afa5c3ce-f944-4363-9edb-ce919a29****`.
        *
        * @param request DescribeSiteMonitorLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2173,10 +2185,10 @@ namespace Cms20190101
       Models::DescribeSiteMonitorLogResponse describeSiteMonitorLogWithOptions(const Models::DescribeSiteMonitorLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the logs of one or more instant test tasks.
+       * @summary Call the DescribeSiteMonitorLog operation to query the detection logs for a one-time detection task.
        *
-       * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-       * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+       * @description Only Alibaba Cloud accounts with Network Analysis and Monitoring activated can create one-time detection tasks.
+       * This topic provides an example of how to query the detection logs for the one-time detection task `afa5c3ce-f944-4363-9edb-ce919a29****`.
        *
        * @param request DescribeSiteMonitorLogRequest
        * @return DescribeSiteMonitorLogResponse
@@ -2184,7 +2196,7 @@ namespace Cms20190101
       Models::DescribeSiteMonitorLogResponse describeSiteMonitorLog(const Models::DescribeSiteMonitorLogRequest &request);
 
       /**
-       * @summary Queries the quotas and version of site monitoring.
+       * @summary Calls the DescribeSiteMonitorQuota operation to query the quota and version of site monitoring.
        *
        * @param request DescribeSiteMonitorQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2193,7 +2205,7 @@ namespace Cms20190101
       Models::DescribeSiteMonitorQuotaResponse describeSiteMonitorQuotaWithOptions(const Models::DescribeSiteMonitorQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the quotas and version of site monitoring.
+       * @summary Calls the DescribeSiteMonitorQuota operation to query the quota and version of site monitoring.
        *
        * @param request DescribeSiteMonitorQuotaRequest
        * @return DescribeSiteMonitorQuotaResponse
@@ -2201,9 +2213,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorQuotaResponse describeSiteMonitorQuota(const Models::DescribeSiteMonitorQuotaRequest &request);
 
       /**
-       * @summary Queries the statistics of a specified metric for a specified site monitoring task.
+       * @summary Queries the average statistics of a specified metric in a specified site monitoring task by calling the DescribeSiteMonitorStatistics operation.
        *
-       * @description This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+       * @description This topic provides an example on how to query the average statistics of the `Availability` metric in the site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The returned result shows that the availability is `100`.
        *
        * @param request DescribeSiteMonitorStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2212,9 +2224,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorStatisticsResponse describeSiteMonitorStatisticsWithOptions(const Models::DescribeSiteMonitorStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics of a specified metric for a specified site monitoring task.
+       * @summary Queries the average statistics of a specified metric in a specified site monitoring task by calling the DescribeSiteMonitorStatistics operation.
        *
-       * @description This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+       * @description This topic provides an example on how to query the average statistics of the `Availability` metric in the site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The returned result shows that the availability is `100`.
        *
        * @param request DescribeSiteMonitorStatisticsRequest
        * @return DescribeSiteMonitorStatisticsResponse
@@ -2222,7 +2234,9 @@ namespace Cms20190101
       Models::DescribeSiteMonitorStatisticsResponse describeSiteMonitorStatistics(const Models::DescribeSiteMonitorStatisticsRequest &request);
 
       /**
-       * @summary Queries detection points.
+       * @summary Queries a list of detection points.
+       *
+       * @description This topic provides an example of how to call the DescribeSyntheticProbeList operation to query detection point details for the China Unicom carrier in Beijing.
        *
        * @param request DescribeSyntheticProbeListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2245,9 @@ namespace Cms20190101
       Models::DescribeSyntheticProbeListResponse describeSyntheticProbeListWithOptions(const Models::DescribeSyntheticProbeListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries detection points.
+       * @summary Queries a list of detection points.
+       *
+       * @description This topic provides an example of how to call the DescribeSyntheticProbeList operation to query detection point details for the China Unicom carrier in Beijing.
        *
        * @param request DescribeSyntheticProbeListRequest
        * @return DescribeSyntheticProbeListResponse
@@ -2239,7 +2255,7 @@ namespace Cms20190101
       Models::DescribeSyntheticProbeListResponse describeSyntheticProbeList(const Models::DescribeSyntheticProbeListRequest &request);
 
       /**
-       * @summary Queries the details of a system event.
+       * @summary Queries a system event.
        *
        * @param request DescribeSystemEventAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2248,7 +2264,7 @@ namespace Cms20190101
       Models::DescribeSystemEventAttributeResponse describeSystemEventAttributeWithOptions(const Models::DescribeSystemEventAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a system event.
+       * @summary Queries a system event.
        *
        * @param request DescribeSystemEventAttributeRequest
        * @return DescribeSystemEventAttributeResponse
@@ -2256,12 +2272,12 @@ namespace Cms20190101
       Models::DescribeSystemEventAttributeResponse describeSystemEventAttribute(const Models::DescribeSystemEventAttributeRequest &request);
 
       /**
-       * @summary Queries the number of times that a system event of a cloud service has occurred.
+       * @summary Queries the number of events that occurred for each Alibaba Cloud service under the current account.
        *
-       * @description ### [](#)Background information
-       * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
-       * ### [](#)Description
-       * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
+       * @description ### Background information
+       * You can call [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) to obtain the Alibaba Cloud services and their system events supported by CloudMonitor.
+       * ### Operation description
+       * This topic provides an example of how to query the number of events that occurred for Elastic Compute Service (`ECS`) under the current account. The response shows that a total of 3 events occurred.
        *
        * @param request DescribeSystemEventCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2270,12 +2286,12 @@ namespace Cms20190101
       Models::DescribeSystemEventCountResponse describeSystemEventCountWithOptions(const Models::DescribeSystemEventCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of times that a system event of a cloud service has occurred.
+       * @summary Queries the number of events that occurred for each Alibaba Cloud service under the current account.
        *
-       * @description ### [](#)Background information
-       * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
-       * ### [](#)Description
-       * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
+       * @description ### Background information
+       * You can call [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) to obtain the Alibaba Cloud services and their system events supported by CloudMonitor.
+       * ### Operation description
+       * This topic provides an example of how to query the number of events that occurred for Elastic Compute Service (`ECS`) under the current account. The response shows that a total of 3 events occurred.
        *
        * @param request DescribeSystemEventCountRequest
        * @return DescribeSystemEventCountResponse
@@ -2300,7 +2316,7 @@ namespace Cms20190101
       Models::DescribeSystemEventHistogramResponse describeSystemEventHistogram(const Models::DescribeSystemEventHistogramRequest &request);
 
       /**
-       * @summary Queries the meta information about system events.
+       * @summary Queries the meta information of system events by calling the DescribeSystemEventMetaList operation.
        *
        * @param request DescribeSystemEventMetaListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2309,7 +2325,7 @@ namespace Cms20190101
       Models::DescribeSystemEventMetaListResponse describeSystemEventMetaListWithOptions(const Models::DescribeSystemEventMetaListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the meta information about system events.
+       * @summary Queries the meta information of system events by calling the DescribeSystemEventMetaList operation.
        *
        * @param request DescribeSystemEventMetaListRequest
        * @return DescribeSystemEventMetaListResponse
@@ -2317,7 +2333,7 @@ namespace Cms20190101
       Models::DescribeSystemEventMetaListResponse describeSystemEventMetaList(const Models::DescribeSystemEventMetaListRequest &request);
 
       /**
-       * @summary Queries tag keys.
+       * @summary Queries a list of tag keys by calling the DescribeTagKeyList operation.
        *
        * @param request DescribeTagKeyListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2326,7 +2342,7 @@ namespace Cms20190101
       Models::DescribeTagKeyListResponse describeTagKeyListWithOptions(const Models::DescribeTagKeyListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tag keys.
+       * @summary Queries a list of tag keys by calling the DescribeTagKeyList operation.
        *
        * @param request DescribeTagKeyListRequest
        * @return DescribeTagKeyListResponse
@@ -2334,9 +2350,7 @@ namespace Cms20190101
       Models::DescribeTagKeyListResponse describeTagKeyList(const Models::DescribeTagKeyListRequest &request);
 
       /**
-       * @summary Queries the tag values corresponding to a specified tag key.
-       *
-       * @description This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+       * @summary Queries the tag values for a specified tag key.
        *
        * @param request DescribeTagValueListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2345,9 +2359,7 @@ namespace Cms20190101
       Models::DescribeTagValueListResponse describeTagValueListWithOptions(const Models::DescribeTagValueListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tag values corresponding to a specified tag key.
-       *
-       * @description This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+       * @summary Queries the tag values for a specified tag key.
        *
        * @param request DescribeTagValueListRequest
        * @return DescribeTagValueListResponse
@@ -2355,7 +2367,7 @@ namespace Cms20190101
       Models::DescribeTagValueListResponse describeTagValueList(const Models::DescribeTagValueListRequest &request);
 
       /**
-       * @summary Queries unhealthy instances detected by availability monitoring tasks.
+       * @summary Call the DescribeUnhealthyHostAvailability operation to query a list of unhealthy servers.
        *
        * @param request DescribeUnhealthyHostAvailabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2364,7 +2376,7 @@ namespace Cms20190101
       Models::DescribeUnhealthyHostAvailabilityResponse describeUnhealthyHostAvailabilityWithOptions(const Models::DescribeUnhealthyHostAvailabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries unhealthy instances detected by availability monitoring tasks.
+       * @summary Call the DescribeUnhealthyHostAvailability operation to query a list of unhealthy servers.
        *
        * @param request DescribeUnhealthyHostAvailabilityRequest
        * @return DescribeUnhealthyHostAvailabilityResponse
@@ -2389,6 +2401,8 @@ namespace Cms20190101
       Models::DisableActiveMetricRuleResponse disableActiveMetricRule(const Models::DisableActiveMetricRuleRequest &request);
 
       /**
+       * @summary Disables one or more event-triggered alert rules.
+       *
        * @param request DisableEventRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableEventRulesResponse
@@ -2396,13 +2410,15 @@ namespace Cms20190101
       Models::DisableEventRulesResponse disableEventRulesWithOptions(const Models::DisableEventRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Disables one or more event-triggered alert rules.
+       *
        * @param request DisableEventRulesRequest
        * @return DisableEventRulesResponse
        */
       Models::DisableEventRulesResponse disableEventRules(const Models::DisableEventRulesRequest &request);
 
       /**
-       * @summary Disables availability monitoring tasks.
+       * @summary Disables one or more specified availability monitoring jobs.
        *
        * @param request DisableHostAvailabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2411,7 +2427,7 @@ namespace Cms20190101
       Models::DisableHostAvailabilityResponse disableHostAvailabilityWithOptions(const Models::DisableHostAvailabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables availability monitoring tasks.
+       * @summary Disables one or more specified availability monitoring jobs.
        *
        * @param request DisableHostAvailabilityRequest
        * @return DisableHostAvailabilityResponse
@@ -2419,7 +2435,7 @@ namespace Cms20190101
       Models::DisableHostAvailabilityResponse disableHostAvailability(const Models::DisableHostAvailabilityRequest &request);
 
       /**
-       * @summary Disables alert rules.
+       * @summary You can call the DisableMetricRules operation to disable alert rules.
        *
        * @param request DisableMetricRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2428,7 +2444,7 @@ namespace Cms20190101
       Models::DisableMetricRulesResponse disableMetricRulesWithOptions(const Models::DisableMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables alert rules.
+       * @summary You can call the DisableMetricRules operation to disable alert rules.
        *
        * @param request DisableMetricRulesRequest
        * @return DisableMetricRulesResponse
@@ -2436,7 +2452,7 @@ namespace Cms20190101
       Models::DisableMetricRulesResponse disableMetricRules(const Models::DisableMetricRulesRequest &request);
 
       /**
-       * @summary Disables site monitoring tasks.
+       * @summary Disables one or more site monitoring tasks by calling the DisableSiteMonitors operation.
        *
        * @param request DisableSiteMonitorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2445,7 +2461,7 @@ namespace Cms20190101
       Models::DisableSiteMonitorsResponse disableSiteMonitorsWithOptions(const Models::DisableSiteMonitorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables site monitoring tasks.
+       * @summary Disables one or more site monitoring tasks by calling the DisableSiteMonitors operation.
        *
        * @param request DisableSiteMonitorsRequest
        * @return DisableSiteMonitorsResponse
@@ -2470,6 +2486,8 @@ namespace Cms20190101
       Models::EnableActiveMetricRuleResponse enableActiveMetricRule(const Models::EnableActiveMetricRuleRequest &request);
 
       /**
+       * @summary The EnableEventRules operation enables one or more event rules.
+       *
        * @param request EnableEventRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableEventRulesResponse
@@ -2477,13 +2495,15 @@ namespace Cms20190101
       Models::EnableEventRulesResponse enableEventRulesWithOptions(const Models::EnableEventRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary The EnableEventRules operation enables one or more event rules.
+       *
        * @param request EnableEventRulesRequest
        * @return EnableEventRulesResponse
        */
       Models::EnableEventRulesResponse enableEventRules(const Models::EnableEventRulesRequest &request);
 
       /**
-       * @summary Enables availability monitoring tasks.
+       * @summary Enables a specified availability monitoring task.
        *
        * @param request EnableHostAvailabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2492,7 +2512,7 @@ namespace Cms20190101
       Models::EnableHostAvailabilityResponse enableHostAvailabilityWithOptions(const Models::EnableHostAvailabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables availability monitoring tasks.
+       * @summary Enables a specified availability monitoring task.
        *
        * @param request EnableHostAvailabilityRequest
        * @return EnableHostAvailabilityResponse
@@ -2551,10 +2571,14 @@ namespace Cms20190101
       Models::EnableSiteMonitorsResponse enableSiteMonitors(const Models::EnableSiteMonitorsRequest &request);
 
       /**
-       * @summary InstallMonitoringAgent
+       * @summary Call the InstallMonitoringAgent operation to install the CloudMonitor agent on specified Alibaba Cloud hosts.
        *
        * @description ## Prerequisites
-       * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+       * Ensure that Cloud Assistant is installed on the Alibaba Cloud host. For more information, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
+       * ## Background information
+       * This API applies only to Alibaba Cloud hosts, which are Elastic Compute Service (ECS) instances. The success rate for installing the CloudMonitor agent using this API is approximately 95%. If the installation fails, you must manually install the agent. For more information about how to install the CloudMonitor agent, see [Install and uninstall the C++ agent](https://help.aliyun.com/document_detail/183482.html).
+       * ## Example
+       * This example shows how to forcibly install the latest version of the CloudMonitor agent on the ECS instance `i-m5e0k0bexac8tykr****`.
        *
        * @param request InstallMonitoringAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2563,10 +2587,14 @@ namespace Cms20190101
       Models::InstallMonitoringAgentResponse installMonitoringAgentWithOptions(const Models::InstallMonitoringAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary InstallMonitoringAgent
+       * @summary Call the InstallMonitoringAgent operation to install the CloudMonitor agent on specified Alibaba Cloud hosts.
        *
        * @description ## Prerequisites
-       * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+       * Ensure that Cloud Assistant is installed on the Alibaba Cloud host. For more information, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
+       * ## Background information
+       * This API applies only to Alibaba Cloud hosts, which are Elastic Compute Service (ECS) instances. The success rate for installing the CloudMonitor agent using this API is approximately 95%. If the installation fails, you must manually install the agent. For more information about how to install the CloudMonitor agent, see [Install and uninstall the C++ agent](https://help.aliyun.com/document_detail/183482.html).
+       * ## Example
+       * This example shows how to forcibly install the latest version of the CloudMonitor agent on the ECS instance `i-m5e0k0bexac8tykr****`.
        *
        * @param request InstallMonitoringAgentRequest
        * @return InstallMonitoringAgentResponse
@@ -2574,7 +2602,7 @@ namespace Cms20190101
       Models::InstallMonitoringAgentResponse installMonitoringAgent(const Models::InstallMonitoringAgentRequest &request);
 
       /**
-       * @summary 修改应用分组内的进程监控
+       * @summary You can call the ModifyGroupMonitoringAgentProcess operation to modify the process monitoring settings for an application group.
        *
        * @param request ModifyGroupMonitoringAgentProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2583,7 +2611,7 @@ namespace Cms20190101
       Models::ModifyGroupMonitoringAgentProcessResponse modifyGroupMonitoringAgentProcessWithOptions(const Models::ModifyGroupMonitoringAgentProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用分组内的进程监控
+       * @summary You can call the ModifyGroupMonitoringAgentProcess operation to modify the process monitoring settings for an application group.
        *
        * @param request ModifyGroupMonitoringAgentProcessRequest
        * @return ModifyGroupMonitoringAgentProcessResponse
@@ -2612,7 +2640,7 @@ namespace Cms20190101
       Models::ModifyHostAvailabilityResponse modifyHostAvailability(const Models::ModifyHostAvailabilityRequest &request);
 
       /**
-       * @summary 修改非阿里云的主机显示信息
+       * @summary Calls the ModifyHostInfo operation to modify the display information of a non-Alibaba Cloud host.
        *
        * @description ****
        *
@@ -2623,7 +2651,7 @@ namespace Cms20190101
       Models::ModifyHostInfoResponse modifyHostInfoWithOptions(const Models::ModifyHostInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改非阿里云的主机显示信息
+       * @summary Calls the ModifyHostInfo operation to modify the display information of a non-Alibaba Cloud host.
        *
        * @description ****
        *
@@ -2633,9 +2661,9 @@ namespace Cms20190101
       Models::ModifyHostInfoResponse modifyHostInfo(const Models::ModifyHostInfoRequest &request);
 
       /**
-       * @summary Modifies a namespace.
+       * @summary Calls the ModifyHybridMonitorNamespace operation to modify a metric store.
        *
-       * @description This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+       * @description This topic provides an example on how to change the data storage duration of the metric store `aliyun` to `cms.s1.2xlarge`. The response shows that the metric store is modified.
        *
        * @param request ModifyHybridMonitorNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2644,9 +2672,9 @@ namespace Cms20190101
       Models::ModifyHybridMonitorNamespaceResponse modifyHybridMonitorNamespaceWithOptions(const Models::ModifyHybridMonitorNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a namespace.
+       * @summary Calls the ModifyHybridMonitorNamespace operation to modify a metric store.
        *
-       * @description This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+       * @description This topic provides an example on how to change the data storage duration of the metric store `aliyun` to `cms.s1.2xlarge`. The response shows that the metric store is modified.
        *
        * @param request ModifyHybridMonitorNamespaceRequest
        * @return ModifyHybridMonitorNamespaceResponse
@@ -2654,9 +2682,9 @@ namespace Cms20190101
       Models::ModifyHybridMonitorNamespaceResponse modifyHybridMonitorNamespace(const Models::ModifyHybridMonitorNamespaceRequest &request);
 
       /**
-       * @summary Modifies a Logstore group.
+       * @summary Modifies a Logstore group by calling the ModifyHybridMonitorSLSGroup operation.
        *
-       * @description In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+       * @description This topic provides an example on how to change the Logstore in the `aliyun-project` log project in the `ap-southeast-1` region of the Logstore group `Logstore_test` to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
        *
        * @param request ModifyHybridMonitorSLSGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2665,9 +2693,9 @@ namespace Cms20190101
       Models::ModifyHybridMonitorSLSGroupResponse modifyHybridMonitorSLSGroupWithOptions(const Models::ModifyHybridMonitorSLSGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a Logstore group.
+       * @summary Modifies a Logstore group by calling the ModifyHybridMonitorSLSGroup operation.
        *
-       * @description In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+       * @description This topic provides an example on how to change the Logstore in the `aliyun-project` log project in the `ap-southeast-1` region of the Logstore group `Logstore_test` to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
        *
        * @param request ModifyHybridMonitorSLSGroupRequest
        * @return ModifyHybridMonitorSLSGroupResponse
@@ -2675,9 +2703,9 @@ namespace Cms20190101
       Models::ModifyHybridMonitorSLSGroupResponse modifyHybridMonitorSLSGroup(const Models::ModifyHybridMonitorSLSGroupRequest &request);
 
       /**
-       * @summary Modifies a metric for the logs that are imported from Log Service.
+       * @summary Modifies the metrics of a Simple Log Service (SLS) log monitoring task by calling the ModifyHybridMonitorTask operation.
        *
-       * @description This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+       * @description This topic provides an example on how to change the collection interval of the SLS log monitoring task `36****` to `15` seconds. The response shows that the metric is modified.
        *
        * @param request ModifyHybridMonitorTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2686,9 +2714,9 @@ namespace Cms20190101
       Models::ModifyHybridMonitorTaskResponse modifyHybridMonitorTaskWithOptions(const Models::ModifyHybridMonitorTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a metric for the logs that are imported from Log Service.
+       * @summary Modifies the metrics of a Simple Log Service (SLS) log monitoring task by calling the ModifyHybridMonitorTask operation.
        *
-       * @description This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+       * @description This topic provides an example on how to change the collection interval of the SLS log monitoring task `36****` to `15` seconds. The response shows that the metric is modified.
        *
        * @param request ModifyHybridMonitorTaskRequest
        * @return ModifyHybridMonitorTaskResponse
@@ -2734,7 +2762,7 @@ namespace Cms20190101
       Models::ModifyMetricRuleTemplateResponse modifyMetricRuleTemplate(const Models::ModifyMetricRuleTemplateRequest &request);
 
       /**
-       * @summary 修改应用分组
+       * @summary You can call the ModifyMonitorGroup operation to modify an application group.
        *
        * @param request ModifyMonitorGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2743,7 +2771,7 @@ namespace Cms20190101
       Models::ModifyMonitorGroupResponse modifyMonitorGroupWithOptions(const Models::ModifyMonitorGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用分组
+       * @summary You can call the ModifyMonitorGroup operation to modify an application group.
        *
        * @param request ModifyMonitorGroupRequest
        * @return ModifyMonitorGroupResponse
@@ -2751,7 +2779,7 @@ namespace Cms20190101
       Models::ModifyMonitorGroupResponse modifyMonitorGroup(const Models::ModifyMonitorGroupRequest &request);
 
       /**
-       * @summary 修改应用分组中的资源
+       * @summary The ModifyMonitorGroupInstances operation modifies the resources in an application group.
        *
        * @param request ModifyMonitorGroupInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2760,7 +2788,7 @@ namespace Cms20190101
       Models::ModifyMonitorGroupInstancesResponse modifyMonitorGroupInstancesWithOptions(const Models::ModifyMonitorGroupInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用分组中的资源
+       * @summary The ModifyMonitorGroupInstances operation modifies the resources in an application group.
        *
        * @param request ModifyMonitorGroupInstancesRequest
        * @return ModifyMonitorGroupInstancesResponse
@@ -2768,9 +2796,7 @@ namespace Cms20190101
       Models::ModifyMonitorGroupInstancesResponse modifyMonitorGroupInstances(const Models::ModifyMonitorGroupInstancesRequest &request);
 
       /**
-       * @summary Modifies a site monitoring task.
-       *
-       * @description The number of site monitoring tasks.
+       * @summary Modifies a site monitoring task by calling the ModifySiteMonitor operation.
        *
        * @param request ModifySiteMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2779,9 +2805,7 @@ namespace Cms20190101
       Models::ModifySiteMonitorResponse modifySiteMonitorWithOptions(const Models::ModifySiteMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a site monitoring task.
-       *
-       * @description The number of site monitoring tasks.
+       * @summary Modifies a site monitoring task by calling the ModifySiteMonitor operation.
        *
        * @param request ModifySiteMonitorRequest
        * @return ModifySiteMonitorResponse
@@ -2789,7 +2813,7 @@ namespace Cms20190101
       Models::ModifySiteMonitorResponse modifySiteMonitor(const Models::ModifySiteMonitorRequest &request);
 
       /**
-       * @summary Creates or modifies an alert contact.
+       * @summary Creates or modifies an alert contact by calling the PutContact operation.
        *
        * @param request PutContactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2798,7 +2822,7 @@ namespace Cms20190101
       Models::PutContactResponse putContactWithOptions(const Models::PutContactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an alert contact.
+       * @summary Creates or modifies an alert contact by calling the PutContact operation.
        *
        * @param request PutContactRequest
        * @return PutContactResponse
@@ -2806,9 +2830,7 @@ namespace Cms20190101
       Models::PutContactResponse putContact(const Models::PutContactRequest &request);
 
       /**
-       * @summary Creates or modifies an alert contact group.
-       *
-       * @description This topic provides an example on how to create an alert contact group named `ECS_Group`.
+       * @summary Creates or modifies an alert contact group by calling the PutContactGroup operation.
        *
        * @param request PutContactGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2817,9 +2839,7 @@ namespace Cms20190101
       Models::PutContactGroupResponse putContactGroupWithOptions(const Models::PutContactGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an alert contact group.
-       *
-       * @description This topic provides an example on how to create an alert contact group named `ECS_Group`.
+       * @summary Creates or modifies an alert contact group by calling the PutContactGroup operation.
        *
        * @param request PutContactGroupRequest
        * @return PutContactGroupResponse
@@ -2844,7 +2864,9 @@ namespace Cms20190101
       Models::PutCustomEventResponse putCustomEvent(const Models::PutCustomEventRequest &request);
 
       /**
-       * @description Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
+       * @summary Calls the PutCustomEventRule operation to create an alert rule for a custom event.
+       *
+       * @description Before you call this operation, you must call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
        *
        * @param request PutCustomEventRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +2875,9 @@ namespace Cms20190101
       Models::PutCustomEventRuleResponse putCustomEventRuleWithOptions(const Models::PutCustomEventRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @description Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
+       * @summary Calls the PutCustomEventRule operation to create an alert rule for a custom event.
+       *
+       * @description Before you call this operation, you must call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
        *
        * @param request PutCustomEventRuleRequest
        * @return PutCustomEventRuleResponse
@@ -2861,9 +2885,9 @@ namespace Cms20190101
       Models::PutCustomEventRuleResponse putCustomEventRule(const Models::PutCustomEventRuleRequest &request);
 
       /**
-       * @summary Reports monitoring data.
+       * @summary Calls the PutCustomMetric operation to report custom monitoring data.
        *
-       * @description >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+       * @description > We recommend that you use the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation in Enterprise CloudMonitor.
        *
        * @param request PutCustomMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2872,9 +2896,9 @@ namespace Cms20190101
       Models::PutCustomMetricResponse putCustomMetricWithOptions(const Models::PutCustomMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reports monitoring data.
+       * @summary Calls the PutCustomMetric operation to report custom monitoring data.
        *
-       * @description >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+       * @description > We recommend that you use the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation in Enterprise CloudMonitor.
        *
        * @param request PutCustomMetricRequest
        * @return PutCustomMetricResponse
@@ -2882,9 +2906,9 @@ namespace Cms20190101
       Models::PutCustomMetricResponse putCustomMetric(const Models::PutCustomMetricRequest &request);
 
       /**
-       * @summary Creates a custom alert rule.
+       * @summary Creates a custom monitoring alert rule by calling the PutCustomMetricRule operation.
        *
-       * @description Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+       * @description 调用本接口前，请先调用PutCustomMetric接口上报自定义监控数据，详情请参见 [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html)。
        *
        * @param request PutCustomMetricRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2893,9 +2917,9 @@ namespace Cms20190101
       Models::PutCustomMetricRuleResponse putCustomMetricRuleWithOptions(const Models::PutCustomMetricRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom alert rule.
+       * @summary Creates a custom monitoring alert rule by calling the PutCustomMetricRule operation.
        *
-       * @description Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+       * @description 调用本接口前，请先调用PutCustomMetric接口上报自定义监控数据，详情请参见 [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html)。
        *
        * @param request PutCustomMetricRuleRequest
        * @return PutCustomMetricRuleResponse
@@ -2903,10 +2927,10 @@ namespace Cms20190101
       Models::PutCustomMetricRuleResponse putCustomMetricRule(const Models::PutCustomMetricRuleRequest &request);
 
       /**
-       * @summary 创建或者修改事件监控
+       * @summary Creates or modifies an event-based alert rule by calling the PutEventRule operation.
        *
-       * @description If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-       * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+       * @description If the Event-triggered Alert Rule name does not exist, a new alert rule is created. If the Event-triggered Alert Rule name already exists, the existing alert rule is modified.
+       * This topic provides an example of how to create an event-based alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
        *
        * @param request PutEventRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2915,10 +2939,10 @@ namespace Cms20190101
       Models::PutEventRuleResponse putEventRuleWithOptions(const Models::PutEventRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建或者修改事件监控
+       * @summary Creates or modifies an event-based alert rule by calling the PutEventRule operation.
        *
-       * @description If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-       * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+       * @description If the Event-triggered Alert Rule name does not exist, a new alert rule is created. If the Event-triggered Alert Rule name already exists, the existing alert rule is modified.
+       * This topic provides an example of how to create an event-based alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
        *
        * @param request PutEventRuleRequest
        * @return PutEventRuleResponse
@@ -2926,7 +2950,7 @@ namespace Cms20190101
       Models::PutEventRuleResponse putEventRule(const Models::PutEventRuleRequest &request);
 
       /**
-       * @summary Adds or modifies the push channels of an event-triggered alert rule.
+       * @summary Adds or modifies the notification channels of an event-triggered alert rule by calling the PutEventRuleTargets operation.
        *
        * @param request PutEventRuleTargetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2935,7 +2959,7 @@ namespace Cms20190101
       Models::PutEventRuleTargetsResponse putEventRuleTargetsWithOptions(const Models::PutEventRuleTargetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds or modifies the push channels of an event-triggered alert rule.
+       * @summary Adds or modifies the notification channels of an event-triggered alert rule by calling the PutEventRuleTargets operation.
        *
        * @param request PutEventRuleTargetsRequest
        * @return PutEventRuleTargetsResponse
@@ -2943,9 +2967,9 @@ namespace Cms20190101
       Models::PutEventRuleTargetsResponse putEventRuleTargets(const Models::PutEventRuleTargetsRequest &request);
 
       /**
-       * @summary Creates or modifies a configuration set for exporting monitoring data.
+       * @summary Creates or modifies a monitoring data export configuration by calling the PutExporterOutput operation.
        *
-       * @description > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+       * @description > Only Log Service (SLS) is supported. More products will be supported in the future.
        *
        * @param request PutExporterOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2954,9 +2978,9 @@ namespace Cms20190101
       Models::PutExporterOutputResponse putExporterOutputWithOptions(const Models::PutExporterOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies a configuration set for exporting monitoring data.
+       * @summary Creates or modifies a monitoring data export configuration by calling the PutExporterOutput operation.
        *
-       * @description > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+       * @description > Only Log Service (SLS) is supported. More products will be supported in the future.
        *
        * @param request PutExporterOutputRequest
        * @return PutExporterOutputResponse
@@ -2964,7 +2988,7 @@ namespace Cms20190101
       Models::PutExporterOutputResponse putExporterOutput(const Models::PutExporterOutputRequest &request);
 
       /**
-       * @summary Creates or modifies a data export rule.
+       * @summary Invokes the PutExporterRule operation to create or modify export rules.
        *
        * @param request PutExporterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2973,7 +2997,7 @@ namespace Cms20190101
       Models::PutExporterRuleResponse putExporterRuleWithOptions(const Models::PutExporterRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies a data export rule.
+       * @summary Invokes the PutExporterRule operation to create or modify export rules.
        *
        * @param request PutExporterRuleRequest
        * @return PutExporterRuleResponse
@@ -2981,9 +3005,9 @@ namespace Cms20190101
       Models::PutExporterRuleResponse putExporterRule(const Models::PutExporterRuleRequest &request);
 
       /**
-       * @summary Creates or modifies an alert rule for an application group.
+       * @summary Creates or modifies an alert rule in a specified application group.
        *
-       * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+       * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created. The alert rule ID is `123456`.
        *
        * @param request PutGroupMetricRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2992,9 +3016,9 @@ namespace Cms20190101
       Models::PutGroupMetricRuleResponse putGroupMetricRuleWithOptions(const Models::PutGroupMetricRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an alert rule for an application group.
+       * @summary Creates or modifies an alert rule in a specified application group.
        *
-       * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+       * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created. The alert rule ID is `123456`.
        *
        * @param request PutGroupMetricRuleRequest
        * @return PutGroupMetricRuleResponse
@@ -3002,14 +3026,14 @@ namespace Cms20190101
       Models::PutGroupMetricRuleResponse putGroupMetricRule(const Models::PutGroupMetricRuleRequest &request);
 
       /**
-       * @summary Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
+       * @summary Reports the specified monitoring data to a specified metric namespace of Enterprise CloudMonitor by calling the PutHybridMonitorMetricData operation.
        *
-       * @description ## [](#)Prerequisites
-       * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * ## [](#)Limits
-       * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-       * ## [](#)Operation description
-       * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+       * @description ## Prerequisites
+       * Make sure that you have activated Enterprise CloudMonitor. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+       * ## Limits
+       * The size of the monitoring data that you can report at a time cannot exceed 1 MB.
+       * ## Usage notes
+       * This topic provides an example to show how to report the monitoring data of the `CPU_Usage` metric to the `default-aliyun` metric namespace of Enterprise CloudMonitor.
        *
        * @param request PutHybridMonitorMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3018,14 +3042,14 @@ namespace Cms20190101
       Models::PutHybridMonitorMetricDataResponse putHybridMonitorMetricDataWithOptions(const Models::PutHybridMonitorMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
+       * @summary Reports the specified monitoring data to a specified metric namespace of Enterprise CloudMonitor by calling the PutHybridMonitorMetricData operation.
        *
-       * @description ## [](#)Prerequisites
-       * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-       * ## [](#)Limits
-       * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-       * ## [](#)Operation description
-       * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+       * @description ## Prerequisites
+       * Make sure that you have activated Enterprise CloudMonitor. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+       * ## Limits
+       * The size of the monitoring data that you can report at a time cannot exceed 1 MB.
+       * ## Usage notes
+       * This topic provides an example to show how to report the monitoring data of the `CPU_Usage` metric to the `default-aliyun` metric namespace of Enterprise CloudMonitor.
        *
        * @param request PutHybridMonitorMetricDataRequest
        * @return PutHybridMonitorMetricDataResponse
@@ -3033,9 +3057,9 @@ namespace Cms20190101
       Models::PutHybridMonitorMetricDataResponse putHybridMonitorMetricData(const Models::PutHybridMonitorMetricDataRequest &request);
 
       /**
-       * @summary Creates or modifies a log monitoring metric.
+       * @summary Creates or modifies a log monitoring metric by calling the PutLogMonitor operation.
        *
-       * @description In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+       * @description This topic provides an example of how to create a log monitoring metric named `cpu_total`. The response shows that the log monitoring metric is created. The log monitoring metric ID is `16****`.
        *
        * @param request PutLogMonitorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3044,9 +3068,9 @@ namespace Cms20190101
       Models::PutLogMonitorResponse putLogMonitorWithOptions(const Models::PutLogMonitorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies a log monitoring metric.
+       * @summary Creates or modifies a log monitoring metric by calling the PutLogMonitor operation.
        *
-       * @description In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+       * @description This topic provides an example of how to create a log monitoring metric named `cpu_total`. The response shows that the log monitoring metric is created. The log monitoring metric ID is `16****`.
        *
        * @param request PutLogMonitorRequest
        * @return PutLogMonitorResponse
@@ -3054,10 +3078,10 @@ namespace Cms20190101
       Models::PutLogMonitorResponse putLogMonitor(const Models::PutLogMonitorRequest &request);
 
       /**
-       * @summary Adds or modifies the push channels of an alert rule.
+       * @summary Adds or modifies push channels for a specified alert rule by calling the PutMetricRuleTargets operation.
        *
-       * @description # [](#)
-       * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+       * @description ## Usage notes
+       * This topic provides an example on how to associate the resource `acs:mns:ap-southeast-1:120886317861****:/queues/test/message` with the alert rule `ae06917_75a8c43178ab66****`. The alert trigger target ID is `1`. The response shows that the resource is associated.
        *
        * @param request PutMetricRuleTargetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3066,10 +3090,10 @@ namespace Cms20190101
       Models::PutMetricRuleTargetsResponse putMetricRuleTargetsWithOptions(const Models::PutMetricRuleTargetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds or modifies the push channels of an alert rule.
+       * @summary Adds or modifies push channels for a specified alert rule by calling the PutMetricRuleTargets operation.
        *
-       * @description # [](#)
-       * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+       * @description ## Usage notes
+       * This topic provides an example on how to associate the resource `acs:mns:ap-southeast-1:120886317861****:/queues/test/message` with the alert rule `ae06917_75a8c43178ab66****`. The alert trigger target ID is `1`. The response shows that the resource is associated.
        *
        * @param request PutMetricRuleTargetsRequest
        * @return PutMetricRuleTargetsResponse
@@ -3111,10 +3135,10 @@ namespace Cms20190101
       Models::PutMonitoringConfigResponse putMonitoringConfig(const Models::PutMonitoringConfigRequest &request);
 
       /**
-       * @summary Configures an alert rule.
+       * @summary Configures a threshold alert rule.
        *
-       * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-       * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+       * @description This topic provides an example on how to configure a threshold alert rule for the `cpu_total` metric of the Elastic Computing Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+       * > As of August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
        *
        * @param tmpReq PutResourceMetricRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3123,10 +3147,10 @@ namespace Cms20190101
       Models::PutResourceMetricRuleResponse putResourceMetricRuleWithOptions(const Models::PutResourceMetricRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures an alert rule.
+       * @summary Configures a threshold alert rule.
        *
-       * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-       * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+       * @description This topic provides an example on how to configure a threshold alert rule for the `cpu_total` metric of the Elastic Computing Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+       * > As of August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
        *
        * @param request PutResourceMetricRuleRequest
        * @return PutResourceMetricRuleResponse
@@ -3134,10 +3158,10 @@ namespace Cms20190101
       Models::PutResourceMetricRuleResponse putResourceMetricRule(const Models::PutResourceMetricRuleRequest &request);
 
       /**
-       * @summary Creates multiple alert rules for the specified metric of a specified resource.
+       * @summary Creates multiple threshold alert rules for a specified metric of a specified resource by calling the PutResourceMetricRules operation.
        *
-       * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-       * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+       * @description 本文将提供一个示例，为云服务器ECS `acs_ecs_dashboard`的实例`i-uf6j91r34rnwawoo****`中的监控项`cpu_total`设置阈值报警规则。该报警规则的报警联系组为`ECS_Group`、报警规则名称为`test123`、报警规则ID为`a151cd6023eacee2f0978e03863cc1697c89508****`、Critical级别的统计方法为`Average`、Critical级别的比较符为`GreaterThanOrEqualToThreshold`、Critical级别的阈值为`90`和Critical级别的报警重试次数为`3`。
+       * > 2024-08-15 增加Statistics校验，统计值只能填对应指标的Statistics。关于如何获取该参数的取值，请参见[云产品监控项](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics)。
        *
        * @param request PutResourceMetricRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3146,10 +3170,10 @@ namespace Cms20190101
       Models::PutResourceMetricRulesResponse putResourceMetricRulesWithOptions(const Models::PutResourceMetricRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates multiple alert rules for the specified metric of a specified resource.
+       * @summary Creates multiple threshold alert rules for a specified metric of a specified resource by calling the PutResourceMetricRules operation.
        *
-       * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-       * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+       * @description 本文将提供一个示例，为云服务器ECS `acs_ecs_dashboard`的实例`i-uf6j91r34rnwawoo****`中的监控项`cpu_total`设置阈值报警规则。该报警规则的报警联系组为`ECS_Group`、报警规则名称为`test123`、报警规则ID为`a151cd6023eacee2f0978e03863cc1697c89508****`、Critical级别的统计方法为`Average`、Critical级别的比较符为`GreaterThanOrEqualToThreshold`、Critical级别的阈值为`90`和Critical级别的报警重试次数为`3`。
+       * > 2024-08-15 增加Statistics校验，统计值只能填对应指标的Statistics。关于如何获取该参数的取值，请参见[云产品监控项](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics)。
        *
        * @param request PutResourceMetricRulesRequest
        * @return PutResourceMetricRulesResponse
@@ -3157,7 +3181,7 @@ namespace Cms20190101
       Models::PutResourceMetricRulesResponse putResourceMetricRules(const Models::PutResourceMetricRulesRequest &request);
 
       /**
-       * @summary Deletes tags.
+       * @summary The RemoveTags operation removes one or more tags.
        *
        * @param request RemoveTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3166,7 +3190,7 @@ namespace Cms20190101
       Models::RemoveTagsResponse removeTagsWithOptions(const Models::RemoveTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes tags.
+       * @summary The RemoveTags operation removes one or more tags.
        *
        * @param request RemoveTagsRequest
        * @return RemoveTagsResponse
@@ -3176,7 +3200,7 @@ namespace Cms20190101
       /**
        * @summary Debugs a system event of an Alibaba Cloud service.
        *
-       * @description This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after the system event triggers an alert.
+       * @description Tests whether a system event can be triggered as expected. Simulates a system event and verifies the response when the event triggers an alert.
        *
        * @param request SendDryRunSystemEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3187,7 +3211,7 @@ namespace Cms20190101
       /**
        * @summary Debugs a system event of an Alibaba Cloud service.
        *
-       * @description This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after the system event triggers an alert.
+       * @description Tests whether a system event can be triggered as expected. Simulates a system event and verifies the response when the event triggers an alert.
        *
        * @param request SendDryRunSystemEventRequest
        * @return SendDryRunSystemEventResponse
@@ -3197,7 +3221,7 @@ namespace Cms20190101
       /**
        * @summary Uninstalls the CloudMonitor agent from a third-party host.
        *
-       * @description >  This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
+       * @description > This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
        *
        * @param request UninstallMonitoringAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3208,7 +3232,7 @@ namespace Cms20190101
       /**
        * @summary Uninstalls the CloudMonitor agent from a third-party host.
        *
-       * @description >  This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
+       * @description > This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
        *
        * @param request UninstallMonitoringAgentRequest
        * @return UninstallMonitoringAgentResponse

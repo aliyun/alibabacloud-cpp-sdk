@@ -375,20 +375,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
-    // 
-    // >  The status code 200 indicates that the request was successful.
+    // The status code.
+    // >The value 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<PutEventRuleTargetsResponseBody::FailedContactParameters> failedContactParameters_ {};
     shared_ptr<PutEventRuleTargetsResponseBody::FailedFcParameters> failedFcParameters_ {};
     shared_ptr<PutEventRuleTargetsResponseBody::FailedMnsParameters> failedMnsParameters_ {};
-    // The number of resources that failed to be created or modified.
+    // The number of failed parameters.
     shared_ptr<string> failedParameterCount_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the operation was successful. The value true indicates success. The value false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

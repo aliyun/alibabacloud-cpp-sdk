@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<string> period_ {};
     // The metric name.
     // 
-    // >  PromQL statements are supported.
+    // > PromQL statements are supported.
     // 
     // This parameter is required.
     shared_ptr<string> promSQL_ {};

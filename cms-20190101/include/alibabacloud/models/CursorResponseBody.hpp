@@ -77,18 +77,19 @@ namespace Models
   protected:
     // The HTTP status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the call is successful.
     shared_ptr<int32_t> code_ {};
-    // Cursor is used as an input parameter for data export in the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation.
+    // The Cursor that is used as an input parameter to export data in the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation.
     shared_ptr<string> cursor_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The call is successful.
+    // 
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

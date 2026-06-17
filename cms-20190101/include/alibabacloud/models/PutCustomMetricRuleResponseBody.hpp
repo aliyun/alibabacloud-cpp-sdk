@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // 状态码。
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > 200表示成功。
     shared_ptr<string> code_ {};
-    // The returned message. If the request was successful, the return value is null. If the request failed, an error message is returned.
+    // 返回信息。接口调用成功时，返回为空；接口调用失败时，返回失败原因。
     shared_ptr<string> message_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // 操作是否成功。取值：
     // 
-    // *   true
-    // *   false
+    // - true：成功。
+    // 
+    // - false：失败。
     shared_ptr<bool> success_ {};
   };
 

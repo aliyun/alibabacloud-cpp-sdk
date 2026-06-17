@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The number of site monitoring tasks.
+      // The number of monitoring tasks.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -109,20 +109,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // > The status code 200 indicates that the request was successful.
+    // > The value 200 indicates success.
     shared_ptr<string> code_ {};
-    // The result of modifying the task.
+    // The details of the node task result.
     shared_ptr<ModifySiteMonitorResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<string> success_ {};
   };
 

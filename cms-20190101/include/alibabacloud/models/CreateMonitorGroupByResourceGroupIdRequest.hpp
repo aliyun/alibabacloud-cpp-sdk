@@ -95,13 +95,15 @@ namespace Models
     shared_ptr<vector<string>> contactGroupList_ {};
     // Specifies whether the CloudMonitor agent is automatically installed for the application group. CloudMonitor determines whether to automatically install the CloudMonitor agent for the hosts in an application group based on the value of this parameter. Valid values:
     // 
-    // *   true: The CloudMonitor agent is automatically installed.
-    // *   false (default): The CloudMonitor agent is not automatically installed.
+    // - true: The CloudMonitor agent is automatically installed.
+    // 
+    // - false (default): The CloudMonitor agent is not automatically installed.
     shared_ptr<bool> enableInstallAgent_ {};
     // Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
     // 
-    // *   true: The application group automatically subscribes to event notifications.
-    // *   false (default): The application group does not automatically subscribe to event notifications.
+    // - true: The application group automatically subscribes to event notifications.
+    // 
+    // - false (default): The application group does not automatically subscribe to event notifications.
     shared_ptr<bool> enableSubscribeEvent_ {};
     // The ID of the region where the resource group resides.
     // 

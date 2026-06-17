@@ -146,19 +146,21 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The type of the system event.
     // 
-    // >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the types of system events.
+    // > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the types of system events.
     shared_ptr<string> eventType_ {};
     // The ID of the application group.
     shared_ptr<string> groupId_ {};
     // The level of the system event. Valid values:
     // 
-    // *   CRITICAL: critical
-    // *   WARN: warning
-    // *   INFO: information
+    // - CRITICAL: critical
+    // 
+    // - WARN: warning
+    // 
+    // - INFO: information
     shared_ptr<string> level_ {};
     // The name of the system event.
     // 
-    // >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the names of system events.
+    // > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the names of system events.
     shared_ptr<string> name_ {};
     // The number of the page to return.
     // 
@@ -174,13 +176,14 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The abbreviation of the service name.
     // 
-    // >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the abbreviations of service names.
+    // > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the abbreviations of service names.
     shared_ptr<string> product_ {};
     shared_ptr<string> regionId_ {};
     // The keywords that are used to search for the system event. Valid values:
     // 
-    // *   If you want to search for the system event whose content contains a and b, set the value to `a and b`.
-    // *   If you want to search for the system event whose content contains a or b, set the value to `a or b`.
+    // - If you want to search for the system event whose content contains a and b, set the value to `a and b`.
+    // 
+    // - If you want to search for the system event whose content contains a or b, set the value to `a or b`.
     shared_ptr<string> searchKeywords_ {};
     // The beginning of the time range to query.
     // 
@@ -188,7 +191,7 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The status of the system event.
     // 
-    // >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the statuses of system events.
+    // > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the statuses of system events.
     shared_ptr<string> status_ {};
   };
 

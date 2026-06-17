@@ -123,9 +123,9 @@ namespace Models
 
 
       protected:
-        // The metric name.
+        // The name of the metric.
         shared_ptr<string> metricName_ {};
-        // The extended dimension of the instance. For example, `{"device":"C:"}` specifies that the blacklist policy is applied to all C disks of the specified Elastic Compute Service (ECS) instance.
+        // The extended dimension of the instance. For example, `{"device":"C:"}` means that the blacklist policy is applied to all C drives of an Elastic Compute Service (ECS) instance.
         shared_ptr<string> resource_ {};
       };
 
@@ -238,45 +238,47 @@ namespace Models
 
 
     protected:
-      // The category of the cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+      // The category of the Alibaba Cloud service. For example, Redis has different editions, such as `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (Read/write Splitting Edition).
       shared_ptr<string> category_ {};
-      // The timestamp when the blacklist policy was created.
+      // The timestamp that indicates when the blacklist policy was created.
       // 
       // Unit: milliseconds.
       shared_ptr<string> createTime_ {};
-      // The time range within which the blacklist policy is effective.
+      // The time range during which the blacklist policy is effective.
       shared_ptr<string> effectiveTime_ {};
-      // The timestamp when the blacklist policy started to take effect.
+      // The timestamp that indicates when the alert blacklist policy is no longer in effect.
       // 
-      // Unit: milliseconds.
+      // The timestamp is measured in milliseconds.
       shared_ptr<int64_t> enableEndTime_ {};
-      // The timestamp when the blacklist policy expired.
+      // The time when the alert blacklist policy expires.
       // 
-      // Unit: milliseconds.
+      // This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> enableStartTime_ {};
       // The ID of the blacklist policy.
       shared_ptr<string> id_ {};
-      // The IDs of the instances that belong to the specified cloud service.
+      // The instances of the Alibaba Cloud service in the blacklist policy.
       shared_ptr<vector<string>> instances_ {};
       // The status of the blacklist policy. Valid values:
       // 
-      // *   true: The blacklist policy is enabled.
-      // *   false: The blacklist policy is disabled.
+      // - true: enabled.
+      // 
+      // - false: disabled.
       shared_ptr<bool> isEnable_ {};
       // The metrics of the instance.
       shared_ptr<vector<DescribeMetricRuleBlackList::Metrics>> metrics_ {};
       // The name of the blacklist policy.
       shared_ptr<string> name_ {};
-      // The namespace of the cloud service.
+      // The namespace of the Alibaba Cloud service.
       shared_ptr<string> namespace_ {};
-      // The effective scope of the blacklist policy. Valid values:
+      // The scope of the blacklist policy. Valid values:
       // 
-      // *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
-      // *   GROUP: The blacklist policy takes effect only within the specified application group.
+      // - USER: The blacklist policy takes effect only for the current Alibaba Cloud account.
+      // 
+      // - GROUP: The blacklist policy takes effect for the specified application groups.
       shared_ptr<string> scopeType_ {};
       // The IDs of the application groups.
       shared_ptr<vector<string>> scopeValue_ {};
-      // The timestamp when the blacklist policy was modified.
+      // The timestamp that indicates when the blacklist policy was modified.
       // 
       // Unit: milliseconds.
       shared_ptr<string> updateTime_ {};
@@ -329,21 +331,23 @@ namespace Models
 
 
   protected:
-    // The categories of the Alibaba Cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+    // The status code.
+    // 
+    // > A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The queried blacklist policies.
+    // The blacklist policies.
     shared_ptr<vector<DescribeMetricRuleBlackListResponseBody::DescribeMetricRuleBlackList>> describeMetricRuleBlackList_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The namespace of the cloud service.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The namespace of the cloud service.
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
-    // The timestamp when the blacklist policy was created.
-    // 
-    // Unit: milliseconds.
+    // The total number of blacklist policies.
     shared_ptr<int32_t> total_ {};
   };
 

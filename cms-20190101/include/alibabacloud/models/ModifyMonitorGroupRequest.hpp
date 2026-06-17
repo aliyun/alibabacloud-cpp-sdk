@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The alert groups that can receive alert notifications for the application group.
+    // The alert contact group.
     shared_ptr<string> contactGroups_ {};
     // The ID of the application group.
     // 

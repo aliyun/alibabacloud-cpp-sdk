@@ -225,7 +225,7 @@ namespace Models
   protected:
     // The response code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -234,8 +234,9 @@ namespace Models
     shared_ptr<DescribeMetricMetaListResponseBody::Resources> resources_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
     // The total number of entries returned.
     shared_ptr<string> totalCount_ {};

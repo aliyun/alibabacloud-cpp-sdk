@@ -128,18 +128,23 @@ namespace Models
 
 
       protected:
-        // The name of the log field used for matching in the filter condition.
+        // The key.
         shared_ptr<string> key_ {};
-        // The method that is used to match the field value. Valid values:
+        // The operator that is used to match the field value. Valid values:
         // 
-        // *   `contain`: contains
-        // *   `notContain`: does not contain
-        // *   `>`: greater than
-        // *   `<`: less than
-        // *   `>=`: greater than or equal to
-        // *   `<=`: less than or equal to
+        // - `contain`: contains.
+        // 
+        // - `notContain`: does not contain.
+        // 
+        // - `>`: greater than.
+        // 
+        // - `<`: less than.
+        // 
+        // - `>=`: greater than or equal to.
+        // 
+        // - `<=`: less than or equal to.
         shared_ptr<string> operator_ {};
-        // The field value to be matched in the filter condition.
+        // The value.
         shared_ptr<string> value_ {};
       };
 
@@ -210,18 +215,25 @@ namespace Models
       protected:
         // The alias of the field.
         shared_ptr<string> alias_ {};
-        // The name of the field in logs.
+        // The original name of the field in the log.
         shared_ptr<string> fieldName_ {};
-        // The function that is used to aggregate the monitoring data of logs within a statistical period. Valid values:
+        // The function that is used to aggregate log data in a statistical period. Valid values:
         // 
-        // *   count: counts the number
-        // *   sum: calculates the total value
-        // *   avg: calculates the average value
-        // *   max: calculates the maximum value
-        // *   min: calculates the minimum value
-        // *   countps: calculates the number of values of the specified field divided by the total number of seconds within a statistical period
-        // *   sumps: calculates the sum of the values of the specified field divided by the total number of seconds within a statistical period
-        // *   distinct: calculates the number of unique values of the specified field within a statistical period
+        // - count: Counts the number of logs.
+        // 
+        // - sum: Calculates the sum of values in a field.
+        // 
+        // - avg: Calculates the average of values in a field.
+        // 
+        // - max: Selects the maximum value in a field.
+        // 
+        // - min: Selects the minimum value in a field.
+        // 
+        // - countps: Calculates the average number of logs that are generated per second in a statistical period.
+        // 
+        // - sumps: Calculates the average sum of values in a field per second in a statistical period.
+        // 
+        // - distinct: Counts the number of unique values in a field in a statistical period.
         shared_ptr<string> function_ {};
         // The maximum value.
         shared_ptr<string> max_ {};
@@ -333,38 +345,39 @@ namespace Models
 
 
     protected:
-      // The aggregation logic.
+      // The definitions of aggregations.
       shared_ptr<vector<LogMonitor::Aggregates>> aggregates_ {};
-      // The time when the metric was created.
+      // The time when the task was created.
       // 
-      // This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970.
       shared_ptr<int64_t> gmtCreate_ {};
       // The ID of the application group.
       shared_ptr<int64_t> groupId_ {};
+      // The dimension based on which log data is aggregated. This parameter is equivalent to the \\`GROUP BY\\` clause in an SQL statement. You can specify a dimension to group monitoring data. If you do not specify this parameter, all monitoring data is aggregated based on the aggregation method.
       shared_ptr<vector<string>> groupbys_ {};
-      // The ID of the log.
+      // The ID of the Log Monitoring task.
       shared_ptr<int64_t> logId_ {};
-      // The extended field. The extended field allows you to perform basic operations on the aggregation results.
-      // 
-      // For example, if you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\\*100.
+      // The metric expression.
       shared_ptr<string> metricExpress_ {};
-      // The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+      // The name of the metric.
       shared_ptr<string> metricName_ {};
       // The name of the Simple Log Service Logstore.
       shared_ptr<string> slsLogstore_ {};
-      // The name of the SLS project.
+      // The name of the Simple Log Service project.
       shared_ptr<string> slsProject_ {};
-      // The ID of the region where the Simple Log Service (SLS) Logstore resides.
+      // The ID of the region where Simple Log Service resides.
       shared_ptr<string> slsRegionId_ {};
+      // The pre-aggregation window. Unit: seconds. Cloud Monitor aggregates data in the specified pre-aggregation window.
       shared_ptr<vector<string>> tumblingwindows_ {};
-      // The condition that is used to filter logs. The ValueFilter and ValueFilterRelation parameters are used in pair. The filter condition is equivalent to the WHERE clause in SQL statements.
+      // The filter conditions. This parameter is used with \\`ValueFilterRelation\\`. This parameter is equivalent to the \\`WHERE\\` clause in an SQL statement.
       // 
-      // If no filter condition is specified, all logs are processed. For example, logs contain the Level and Error fields. If you need to calculate the number of times that logs of the Error level appear every minute, you can set the filter condition to Level=Error and count the number of logs that meet this condition.
+      // If you do not specify this parameter, all data is processed. For example, if a log contains a \\`Level\\` field and you want to count the number of logs where the value of \\`Level\\` is \\`Error\\`, you can set the aggregation function to \\`count\\` and specify a filter condition where \\`Level\\` equals \\`Error\\`.
       shared_ptr<vector<LogMonitor::ValueFilter>> valueFilter_ {};
-      // The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters must be used in pair. Valid values:
+      // The logical operator for the filter conditions. This parameter is used with \\`ValueFilter\\`. Valid values:
       // 
-      // *   and
-      // *   or
+      // - and: The logical AND operator.
+      // 
+      // - or: The logical OR operator.
       shared_ptr<string> valueFilterRelation_ {};
     };
 
@@ -410,18 +423,19 @@ namespace Models
   protected:
     // The status code.
     // 
-    // >  The status code 200 indicates that the request was successful.
+    // > A status code of 200 indicates a successful request.
     shared_ptr<string> code_ {};
-    // The details of the log monitoring metric.
+    // The details of the Log Monitoring task.
     shared_ptr<DescribeLogMonitorAttributeResponseBody::LogMonitor> logMonitor_ {};
-    // The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

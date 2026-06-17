@@ -112,14 +112,26 @@ namespace Models
 
 
   protected:
+    // The name or ID of the city where the carrier detection point is located.
     shared_ptr<string> city_ {};
+    // Specifies whether to return only detection points in data centers.
     shared_ptr<bool> idcProbe_ {};
+    // Specifies whether to return only IPv4 detection points.
     shared_ptr<bool> ipv4_ {};
+    // Specifies whether to return only IPv6 detection points.
     shared_ptr<bool> ipv6_ {};
+    // The name or ID of the carrier.
     shared_ptr<string> isp_ {};
+    // Specifies whether to return only last-mile detection points.
     shared_ptr<bool> lmProbe_ {};
+    // Specifies whether to return only mobile detection points.
     shared_ptr<bool> mbProbe_ {};
     shared_ptr<string> regionId_ {};
+    // Specifies whether to return all detection points. Valid values:
+    // 
+    // - false (default): Returns the detection points that are available to you.
+    // 
+    // - true: Returns all detection points.
     shared_ptr<bool> viewAll_ {};
   };
 

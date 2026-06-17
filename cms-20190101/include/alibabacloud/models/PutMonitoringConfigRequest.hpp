@@ -61,8 +61,9 @@ namespace Models
     shared_ptr<bool> autoInstall_ {};
     // Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
     // 
-    // *   true (default): The CloudMonitor agent is automatically installed on new ECS instances.
-    // *   false: The CloudMonitor agent is not automatically installed on new ECS instances.
+    // - true (default): The CloudMonitor agent is automatically installed on new ECS instances.
+    // 
+    // - false: The CloudMonitor agent is not automatically installed on new ECS instances.
     shared_ptr<bool> enableInstallAgentNewECS_ {};
     shared_ptr<string> regionId_ {};
   };

@@ -72,11 +72,11 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The process ID.
     // 
-    // > You must configure either `ProcessId` or `ProcessName`.
+    // > You must specify either ProcessId or ProcessName.
     shared_ptr<string> processId_ {};
     // The process name.
     // 
-    // > You must configure either `ProcessId` or `ProcessName`.
+    // > You must specify either ProcessId or ProcessName.
     shared_ptr<string> processName_ {};
     shared_ptr<string> regionId_ {};
   };

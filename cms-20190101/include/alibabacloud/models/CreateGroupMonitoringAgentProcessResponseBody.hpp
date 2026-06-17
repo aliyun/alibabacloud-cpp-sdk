@@ -121,8 +121,9 @@ namespace Models
     shared_ptr<CreateGroupMonitoringAgentProcessResponseBody::Resource> resource_ {};
     // Indicates whether the call is successful. Valid values:
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The call is successful.
+    // 
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

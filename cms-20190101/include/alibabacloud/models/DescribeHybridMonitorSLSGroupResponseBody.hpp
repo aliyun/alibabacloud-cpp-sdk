@@ -131,11 +131,11 @@ namespace Models
         shared_ptr<string> SLSLogstore_ {};
         // The Simple Log Service project.
         shared_ptr<string> SLSProject_ {};
-        // The region ID.
+        // The region.
         shared_ptr<string> SLSRegion_ {};
         // The member ID.
         // 
-        // **Description** This parameter is returned when you call the operation by using an administrative account.
+        // > This parameter is returned only when you call this operation by using a management account.
         shared_ptr<string> SLSUserId_ {};
       };
 
@@ -179,17 +179,17 @@ namespace Models
 
 
     protected:
-      // The time when the Logstore group was created.
+      // The timestamp when the Logstore group was created.
       // 
       // Unit: milliseconds.
       shared_ptr<string> createTime_ {};
-      // The configurations of the Logstore group.
+      // The configuration information of the Logstore group.
       shared_ptr<vector<List::SLSGroupConfig>> SLSGroupConfig_ {};
       // The description of the Logstore group.
       shared_ptr<string> SLSGroupDescription_ {};
       // The name of the Logstore group.
       shared_ptr<string> SLSGroupName_ {};
-      // The time when the Logstore group was modified.
+      // The timestamp when the Logstore group was last modified.
       // 
       // Unit: milliseconds.
       shared_ptr<string> updateTime_ {};
@@ -257,11 +257,11 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // > The status code 200 indicates that the request was successful.
+    // > A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The queried Logstore groups.
+    // The list of Logstore groups.
     shared_ptr<vector<DescribeHybridMonitorSLSGroupResponseBody::List>> list_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -271,12 +271,12 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<string> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 

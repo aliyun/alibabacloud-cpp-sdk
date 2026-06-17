@@ -209,22 +209,33 @@ namespace Models
           shared_ptr<string> alias_ {};
           // The function that is used to aggregate log data within a statistical period. Valid values:
           // 
-          // *   count: counts the number.
-          // *   sum: calculates the total value.
-          // *   avg: calculates the average value.
-          // *   max: calculates the maximum value.
-          // *   min: calculates the minimum value.
-          // *   value: collects samples within the statistical period.
-          // *   countps: calculates the average number of the specified field per second by using the following formula: Counted number of the specified field/Total number of seconds within the statistical period.
-          // *   sumps: calculates the average number of the specified field per second by using the following formula: Total value of the specified field/Total number of seconds within the statistical period.
-          // *   distinct: counts the number of logs where the specified field appears within the statistical period.
-          // *   distribution: counts the number of logs that meet a specified condition within the statistical period.
-          // *   percentile: sorts the values of the specified field in ascending order, and then returns the value that is at the specified percentile within the statistical period. Example: P50.
+          // - count: counts the number.
+          // 
+          // - sum: calculates the total value.
+          // 
+          // - avg: calculates the average value.
+          // 
+          // - max: calculates the maximum value.
+          // 
+          // - min: calculates the minimum value.
+          // 
+          // - value: collects samples within the statistical period.
+          // 
+          // - countps: calculates the average number of the specified field per second by using the following formula: Counted number of the specified field/Total number of seconds within the statistical period.
+          // 
+          // - sumps: calculates the average number of the specified field per second by using the following formula: Total value of the specified field/Total number of seconds within the statistical period.
+          // 
+          // - distinct: counts the number of logs where the specified field appears within the statistical period.
+          // 
+          // - distribution: counts the number of logs that meet a specified condition within the statistical period.
+          // 
+          // - percentile: sorts the values of the specified field in ascending order, and then returns the value that is at the specified percentile within the statistical period. Example: P50.
           shared_ptr<string> function_ {};
           // The value of the function that is used to aggregate logs imported from Log Service.
           // 
-          // *   If the `Function` parameter is set to `distribution`, this parameter indicates the lower limit of the statistical interval. For example, 200 indicates that the number of HTTP requests whose status code is 2XX is calculated.
-          // *   If the `Function` parameter is set to `percentile`, this parameter specifies the percentile at which the expected value is. For example, 0.5 specifies P50.
+          // - If the `Function` parameter is set to `distribution`, this parameter indicates the lower limit of the statistical interval. For example, 200 indicates that the number of HTTP requests whose status code is 2XX is calculated.
+          // 
+          // - If the `Function` parameter is set to `percentile`, this parameter specifies the percentile at which the expected value is. For example, 0.5 specifies P50.
           shared_ptr<string> parameter1_ {};
           // The value of the function that is used to aggregate logs imported from Log Service.
           // 
@@ -348,14 +359,21 @@ namespace Models
           protected:
             // The method that is used to filter logs imported from Log Service. Valid values:
             // 
-            // *   `contain`: contains
-            // *   `notContain`: does not contain
-            // *   `>`: greater than
-            // *   `<`: less than
-            // *   `=`: equal to
-            // *   `! =`: not equal to
-            // *   `>=`: greater than or equal to
-            // *   `<=`: less than or equal to
+            // - `contain`: contains
+            // 
+            // - `notContain`: does not contain
+            // 
+            // - `>`: greater than
+            // 
+            // - `<`: less than
+            // 
+            // - `=`: equal to
+            // 
+            // - `! =`: not equal to
+            // 
+            // - `>=`: greater than or equal to
+            // 
+            // - `<=`: less than or equal to
             shared_ptr<string> operator_ {};
             // The name of the key that is used to filter logs imported from Log Service.
             shared_ptr<string> SLSKeyName_ {};
@@ -386,8 +404,9 @@ namespace Models
           shared_ptr<vector<Filter::Filters>> filters_ {};
           // The relationship between multiple filter conditions. Valid values:
           // 
-          // *   and (default): Logs are processed only if all filter conditions are met.
-          // *   or: Logs are processed if one of the filter conditions is met.
+          // - and (default): Logs are processed only if all filter conditions are met.
+          // 
+          // - or: Logs are processed if one of the filter conditions is met.
           shared_ptr<string> relation_ {};
         };
 
@@ -533,12 +552,17 @@ namespace Models
       protected:
         // The method that is used to match the instance name. Valid values:
         // 
-        // *   startWith: starts with a prefix
-        // *   endWith: ends with a suffix
-        // *   all: matches all
-        // *   equals: equals
-        // *   contains: contains
-        // *   notContains: does not contain
+        // - startWith: starts with a prefix
+        // 
+        // - endWith: ends with a suffix
+        // 
+        // - all: matches all
+        // 
+        // - equals: equals
+        // 
+        // - contains: contains
+        // 
+        // - notContains: does not contain
         shared_ptr<string> function_ {};
         // The instance name.
         shared_ptr<string> name_ {};
@@ -799,9 +823,11 @@ namespace Models
       shared_ptr<vector<TaskList::AttachLabels>> attachLabels_ {};
       // The interval at which the CloudMonitor agent collects host monitoring data. Valid values:
       // 
-      // *   15
-      // *   30
-      // *   60
+      // - 15
+      // 
+      // - 30
+      // 
+      // - 60
       // 
       // Unit: seconds.
       shared_ptr<int32_t> collectInterval_ {};
@@ -813,10 +839,13 @@ namespace Models
       shared_ptr<string> collectTargetType_ {};
       // The timeout period during which the CloudMonitor agent collects host monitoring data. Valid values:
       // 
-      // *   0
-      // *   15
-      // *   30
-      // *   60
+      // - 0
+      // 
+      // - 15
+      // 
+      // - 30
+      // 
+      // - 60
       // 
       // Unit: seconds.
       shared_ptr<int32_t> collectTimout_ {};
@@ -845,15 +874,17 @@ namespace Models
       shared_ptr<vector<TaskList::MatchExpress>> matchExpress_ {};
       // The relationship between the conditions that are used to filter metric import tasks. Valid values:
       // 
-      // *   or
-      // *   and
+      // - or
+      // 
+      // - and
       shared_ptr<string> matchExpressRelation_ {};
       // The namespace to which the host belongs.
       shared_ptr<string> namespace_ {};
       // The network type of the host. Valid values:
       // 
-      // *   `vpc`
-      // *   `Internet`
+      // - `vpc`
+      // 
+      // - `Internet`
       shared_ptr<string> networkType_ {};
       // The configurations of the logs that are imported from Log Service.
       shared_ptr<string> SLSProcess_ {};
@@ -871,15 +902,17 @@ namespace Models
       shared_ptr<string> taskName_ {};
       // The type of the metric import task. Valid values:
       // 
-      // *   aliyun_fc: metric import tasks for Alibaba Cloud services
-      // *   aliyun_sls: metrics for logs imported from Log Service
+      // - aliyun_fc: metric import tasks for Alibaba Cloud services
+      // 
+      // - aliyun_sls: metrics for logs imported from Log Service
       shared_ptr<string> taskType_ {};
       // The region where the host resides.
       shared_ptr<string> uploadRegion_ {};
       // The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
       // 
-      // *   namespace: the namespace of the Alibaba Cloud service.
-      // *   metric_list: the metrics of the Alibaba Cloud service.
+      // - namespace: the namespace of the Alibaba Cloud service.
+      // 
+      // - metric_list: the metrics of the Alibaba Cloud service.
       shared_ptr<string> YARMConfig_ {};
     };
 
@@ -951,8 +984,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned message.
     // 
-    // *   If the request was successful, the value `successful` is returned.
-    // *   If the request failed, an error message is returned.
+    // - If the request was successful, the value `successful` is returned.
+    // 
+    // - If the request failed, an error message is returned.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -962,8 +996,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> success_ {};
     // The metric import tasks.
     shared_ptr<vector<DescribeHybridMonitorTaskListResponseBody::TaskList>> taskList_ {};
