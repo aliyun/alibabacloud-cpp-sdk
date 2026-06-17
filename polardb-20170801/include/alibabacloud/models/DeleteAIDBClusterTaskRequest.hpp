@@ -94,10 +94,13 @@ namespace Models
 
 
   protected:
+    // The task ID.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the PolarDB database instance for the AI model service.
     shared_ptr<string> relativeDBClusterId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

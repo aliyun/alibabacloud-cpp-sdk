@@ -15,12 +15,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDBClusterVersionResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(DBLatestStableVersion, DBLatestStableVersion_);
       DARABONBA_PTR_TO_JSON(DBLatestVersion, DBLatestVersion_);
       DARABONBA_PTR_TO_JSON(DBMinorVersion, DBMinorVersion_);
       DARABONBA_PTR_TO_JSON(DBRevisionVersion, DBRevisionVersion_);
       DARABONBA_PTR_TO_JSON(DBRevisionVersionList, DBRevisionVersionList_);
       DARABONBA_PTR_TO_JSON(DBVersion, DBVersion_);
       DARABONBA_PTR_TO_JSON(DBVersionStatus, DBVersionStatus_);
+      DARABONBA_PTR_TO_JSON(IsLatestStableVersion, isLatestStableVersion_);
       DARABONBA_PTR_TO_JSON(IsLatestVersion, isLatestVersion_);
       DARABONBA_PTR_TO_JSON(IsProxyLatestVersion, isProxyLatestVersion_);
       DARABONBA_PTR_TO_JSON(ProxyLatestVersion, proxyLatestVersion_);
@@ -31,12 +33,14 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBClusterVersionResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(DBLatestStableVersion, DBLatestStableVersion_);
       DARABONBA_PTR_FROM_JSON(DBLatestVersion, DBLatestVersion_);
       DARABONBA_PTR_FROM_JSON(DBMinorVersion, DBMinorVersion_);
       DARABONBA_PTR_FROM_JSON(DBRevisionVersion, DBRevisionVersion_);
       DARABONBA_PTR_FROM_JSON(DBRevisionVersionList, DBRevisionVersionList_);
       DARABONBA_PTR_FROM_JSON(DBVersion, DBVersion_);
       DARABONBA_PTR_FROM_JSON(DBVersionStatus, DBVersionStatus_);
+      DARABONBA_PTR_FROM_JSON(IsLatestStableVersion, isLatestStableVersion_);
       DARABONBA_PTR_FROM_JSON(IsLatestVersion, isLatestVersion_);
       DARABONBA_PTR_FROM_JSON(IsProxyLatestVersion, isProxyLatestVersion_);
       DARABONBA_PTR_FROM_JSON(ProxyLatestVersion, proxyLatestVersion_);
@@ -112,16 +116,17 @@ namespace Models
 
 
     protected:
-      // The release notes for the PolarProxy revision version.
+      // The release notes of the version.
       shared_ptr<string> releaseNote_ {};
       // The release type. Valid values:
       // 
-      // *   **LTS**: a long-term version
-      // *   **BETA**: a preview version
+      // - **LTS**: long-term support version.
+      // 
+      // - **BETA**: preview version.
       shared_ptr<string> releaseType_ {};
-      // The PolarProxy revision version code. You can use this code to specify the PolarProxy revision version.
+      // The revision version code of the database proxy engine. You can use this code to specify the target version for an upgrade.
       shared_ptr<string> revisionVersionCode_ {};
-      // The PolarProxy revision version number.
+      // The revision version of the database proxy engine.
       shared_ptr<string> revisionVersionName_ {};
     };
 
@@ -181,30 +186,40 @@ namespace Models
 
 
     protected:
-      // The release notes for the database engine revision version.
+      // The release notes of the version.
       shared_ptr<string> releaseNote_ {};
-      // The release status of the database engine revision version. Valid values:
+      // The release status of the database version. Valid values:
       // 
-      // *   **Stable**: The database engine revision version is stable.
-      // *   **Old**: The database engine revision version is outdated. We recommend that you do not update the database engine to this revision version.
-      // *   **HighRisk**: The database engine revision version has critical defects. We recommend that you do not update the database engine to this revision version.
-      // *   **Beta**: The database engine revision version is a Beta version.
+      // - **Stable**: The current version is stable.
+      // 
+      // - **Old**: The current version is outdated. Do not upgrade to this version.
+      // 
+      // - **HighRisk**: The current version has critical bugs. Do not upgrade to this version.
+      // 
+      // - **Beta**: The current version is a beta version.
       shared_ptr<string> releaseType_ {};
-      // The code of the database engine revision version. You can use the code to specify the database engine revision version.
+      // The revision version code of the database engine. You can use this code to specify the target version for an upgrade.
       shared_ptr<string> revisionVersionCode_ {};
-      // The database engine revision version number.
+      // The revision version of the database engine.
       shared_ptr<string> revisionVersionName_ {};
     };
 
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->DBLatestVersion_ == nullptr && this->DBMinorVersion_ == nullptr && this->DBRevisionVersion_ == nullptr && this->DBRevisionVersionList_ == nullptr && this->DBVersion_ == nullptr
-        && this->DBVersionStatus_ == nullptr && this->isLatestVersion_ == nullptr && this->isProxyLatestVersion_ == nullptr && this->proxyLatestVersion_ == nullptr && this->proxyRevisionVersion_ == nullptr
-        && this->proxyRevisionVersionList_ == nullptr && this->proxyVersionStatus_ == nullptr && this->requestId_ == nullptr; };
+        && this->DBLatestStableVersion_ == nullptr && this->DBLatestVersion_ == nullptr && this->DBMinorVersion_ == nullptr && this->DBRevisionVersion_ == nullptr && this->DBRevisionVersionList_ == nullptr
+        && this->DBVersion_ == nullptr && this->DBVersionStatus_ == nullptr && this->isLatestStableVersion_ == nullptr && this->isLatestVersion_ == nullptr && this->isProxyLatestVersion_ == nullptr
+        && this->proxyLatestVersion_ == nullptr && this->proxyRevisionVersion_ == nullptr && this->proxyRevisionVersionList_ == nullptr && this->proxyVersionStatus_ == nullptr && this->requestId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
     inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeDBClusterVersionResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // DBLatestStableVersion Field Functions 
+    bool hasDBLatestStableVersion() const { return this->DBLatestStableVersion_ != nullptr;};
+    void deleteDBLatestStableVersion() { this->DBLatestStableVersion_ = nullptr;};
+    inline string getDBLatestStableVersion() const { DARABONBA_PTR_GET_DEFAULT(DBLatestStableVersion_, "") };
+    inline DescribeDBClusterVersionResponseBody& setDBLatestStableVersion(string DBLatestStableVersion) { DARABONBA_PTR_SET_VALUE(DBLatestStableVersion_, DBLatestStableVersion) };
 
 
     // DBLatestVersion Field Functions 
@@ -249,6 +264,13 @@ namespace Models
     void deleteDBVersionStatus() { this->DBVersionStatus_ = nullptr;};
     inline string getDBVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(DBVersionStatus_, "") };
     inline DescribeDBClusterVersionResponseBody& setDBVersionStatus(string DBVersionStatus) { DARABONBA_PTR_SET_VALUE(DBVersionStatus_, DBVersionStatus) };
+
+
+    // isLatestStableVersion Field Functions 
+    bool hasIsLatestStableVersion() const { return this->isLatestStableVersion_ != nullptr;};
+    void deleteIsLatestStableVersion() { this->isLatestStableVersion_ = nullptr;};
+    inline string getIsLatestStableVersion() const { DARABONBA_PTR_GET_DEFAULT(isLatestStableVersion_, "") };
+    inline DescribeDBClusterVersionResponseBody& setIsLatestStableVersion(string isLatestStableVersion) { DARABONBA_PTR_SET_VALUE(isLatestStableVersion_, isLatestStableVersion) };
 
 
     // isLatestVersion Field Functions 
@@ -303,66 +325,89 @@ namespace Models
 
 
   protected:
-    // The ID of cluster.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The latest version of the database engine.
+    shared_ptr<string> DBLatestStableVersion_ {};
+    // The latest version of the database kernel.
     shared_ptr<string> DBLatestVersion_ {};
     // The minor version of the database engine.
     // 
-    // - If DBVersion is 8.0, the valid values of this parameter are:
-    //   - 8.0.2
-    //   - 8.0.1
-    // - If DBVersion is 5.7, set the value of this parameter to 5.7.28.
-    // - If DBVersion is 5.6, the value of this parameter is 5.6.16.
+    // - If `DBVersion` is **8.0**, valid values are:
+    // 
+    //   - **8.0.2**
+    // 
+    //   - **8.0.1**
+    // 
+    // - If `DBVersion` is **5.7**, the value is **5.7.28**.
+    // 
+    // - If `DBVersion` is **5.6**, the value is **5.6.16**.
     shared_ptr<string> DBMinorVersion_ {};
     // The revision version of the database engine.
-    // >For a cluster of the PolarDB for MySQL 5.6, the DBRevisionVersion parameter returns the revision version information only if the Revision Version is released later than August 31, 2020. Otherwise, this parameter returns an empty value.
+    // 
+    // > For a PolarDB for MySQL 5.6 cluster, this parameter is returned only when the release date of the revision version is later than 20200831. Otherwise, this parameter is empty. For more information about the kernel version of a PolarDB for MySQL cluster, see [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
     shared_ptr<string> DBRevisionVersion_ {};
-    // The versions to which the cluster can be upgraded.
+    // A list of upgradable versions.
     shared_ptr<vector<DescribeDBClusterVersionResponseBody::DBRevisionVersionList>> DBRevisionVersionList_ {};
-    // The version of the database engine. Valid values:
+    // The major version of the database engine. Valid values:
     // 
-    // - 5.6
-    // - 5.7
-    // - 8.0
+    // - **8.0**
+    // 
+    // - **5.7**
+    // 
+    // - **5.6**
     shared_ptr<string> DBVersion_ {};
-    // The status of the minor version. Valid values:
+    // The status of the current minor version of the database. Valid values:
     // 
-    // *   **Stable**: The minor version is stable.
-    // *   **Old**: The minor version is outdated. We recommend that you upgrade the cluster to the latest version.
-    // *   **HighRisk**: The minor version has critical defects. We recommend that you immediately update the cluster to the latest minor version.
+    // - **Stable**: The current version is stable.
     // 
-    // >  For more information about how to update the minor version, see [Minor version update](https://help.aliyun.com/document_detail/158572.html).
+    // - **Old**: The current version is outdated. Upgrade to the latest version.
+    // 
+    // - **HighRisk**: The current version has critical bugs. Upgrade to the latest version immediately.
+    // 
+    // - **Beta**: The current version is a beta version.
+    // 
+    // > For more information about how to upgrade the minor version of a database, see [Upgrade versions](https://help.aliyun.com/document_detail/158572.html).
     shared_ptr<string> DBVersionStatus_ {};
-    // Indicates whether the kernel is of the latest version. Valid values:
+    shared_ptr<string> isLatestStableVersion_ {};
+    // Indicates whether the current database kernel version is the latest version. Valid values:
     // 
-    // - true
-    // - false
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> isLatestVersion_ {};
-    // Indicates whether PolarProxy uses the latest version. Valid values:
+    // Indicates whether the current database proxy version is the latest version. Valid values:
     // 
-    // - true
-    // - false
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> isProxyLatestVersion_ {};
-    // The latest version of PolarProxy.
+    // The latest version of the database proxy.
     shared_ptr<string> proxyLatestVersion_ {};
-    // The revision version of the database engine.
+    // The version of the database proxy.
     shared_ptr<string> proxyRevisionVersion_ {};
-    // The release status of the PolarProxy version. Valid values:
+    // A list of upgradable proxy versions.
     // 
-    // *   **Stable**: The PolarProxy revision version is stable.
-    // *   **Old**: The PolarProxy revision version is outdated. We recommend that you do not update the PolarProxy to this revision version.
-    // *   **HighRisk**: The PolarProxy revision version has critical defects. We recommend that you do not update the PolarProxy to this revision version.
-    // *   **Beta**: The PolarProxy revision version is a Beta version.
+    // - **Stable**: The current version is stable.
+    // 
+    // - **Old**: This version is outdated and not recommended for upgrades.
+    // 
+    // - **HighRisk**: This version has critical bugs and is not recommended for upgrades.
+    // 
+    // - **Beta**: This is a beta version.
     shared_ptr<vector<DescribeDBClusterVersionResponseBody::ProxyRevisionVersionList>> proxyRevisionVersionList_ {};
-    // The status of PolarProxy. Valid values:
+    // The status of the database proxy version. Valid values:
     // 
-    // - Stable: The minor version is stable.
-    // - Old: The minor version is outdated. We recommend that you upgrade the cluster to the latest version.
-    // - HighRisk: The minor version has critical defects. We recommend that you immediately upgrade the cluster to the latest version.
-    // - Beta: The minor version is a beta version.
+    // - **Stable**: The current version is stable.
+    // 
+    // - **Old**: The current version is outdated. Upgrade to the latest version.
+    // 
+    // - **HighRisk**: The current version has critical bugs. Upgrade to the latest version immediately.
+    // 
+    // - **Beta**: The current version is a beta version.
+    // 
+    // > For more information about how to upgrade the database proxy version, see [Upgrade versions](https://help.aliyun.com/document_detail/158572.html).
     shared_ptr<string> proxyVersionStatus_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

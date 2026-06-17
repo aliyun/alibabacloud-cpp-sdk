@@ -68,6 +68,7 @@ namespace Models
 
 
     protected:
+      // The list of firewall rules.
       shared_ptr<vector<string>> ruleList_ {};
     };
 
@@ -111,11 +112,21 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The result set.
     shared_ptr<DescribeFirewallRulesResponseBody::Data> data_ {};
+    // The response message.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message is returned, such as an error code.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

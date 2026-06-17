@@ -84,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The account name.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};

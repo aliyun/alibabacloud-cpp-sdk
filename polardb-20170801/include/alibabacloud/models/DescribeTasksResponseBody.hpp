@@ -303,17 +303,17 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster for which the task was created.
+    // The ID of the cluster to which the task belongs.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query.
+    // The end of the time range to query.
     shared_ptr<string> endTime_ {};
-    // The page number of the page returned.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query.
+    // The beginning of the time range to query.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeTasksResponseBody::Tasks> tasks_ {};
     // The total number of entries returned.

@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the model service.
     shared_ptr<string> modelServiceId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the model service.
     shared_ptr<string> status_ {};
   };
 

@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The status of the key. Valid values:
+    // 
+    // - **Enabled**
+    // 
+    // - **Disabled**
     shared_ptr<string> encryptionDBStatus_ {};
+    // The key ID.
     shared_ptr<string> encryptionKey_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The Global Resource Descriptor (GRD) of the role. For more information, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
     shared_ptr<string> roleArn_ {};
   };
 

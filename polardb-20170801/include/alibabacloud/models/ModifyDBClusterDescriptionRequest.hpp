@@ -86,12 +86,13 @@ namespace Models
   protected:
     // The name of the cluster. The name must meet the following requirements:
     // 
-    // *   The name cannot start with `http://` or `https://`.
-    // *   The name must be 2 to 256 characters in length.
+    // - It cannot start with `http://` or `https://`.
+    // 
+    // - It must be 2 to 256 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterDescription_ {};
-    // The ID of the PolarDB cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

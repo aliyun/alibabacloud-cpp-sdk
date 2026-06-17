@@ -170,17 +170,37 @@ namespace Models
 
 
     protected:
+      // The API key for the model service.
       shared_ptr<string> apiKey_ {};
+      // The base URL of the upstream service.
       shared_ptr<string> baseUrl_ {};
+      // The time when the model service was created.
       shared_ptr<string> gmtCreated_ {};
+      // The cost in points per million input tokens.
       shared_ptr<string> inputCostPointsPerMillion_ {};
+      // The model category.
       shared_ptr<string> modelCategory_ {};
+      // The model service ID.
       shared_ptr<string> modelServiceId_ {};
+      // The model service name.
       shared_ptr<string> name_ {};
+      // The cost in points per million output tokens.
       shared_ptr<string> outputCostPointsPerMillion_ {};
+      // The protocol. Valid values:
+      // 
+      // - **OpenAI**
+      // 
+      // - **Anthropic**
+      // 
+      // - **bailian**: Alibaba Cloud Model Studio.
+      // 
+      // - **vLLM**
       shared_ptr<string> protocol_ {};
+      // The cost in points per request.
       shared_ptr<string> requestCostPoints_ {};
+      // The status of the model service.
       shared_ptr<string> status_ {};
+      // The vendor of the model service.
       shared_ptr<string> vendor_ {};
     };
 
@@ -231,12 +251,25 @@ namespace Models
 
 
   protected:
+    // The details of the model services.
     shared_ptr<vector<DescribeModelServicesResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The number of records to return on each page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

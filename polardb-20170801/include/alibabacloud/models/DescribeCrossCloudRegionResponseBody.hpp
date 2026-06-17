@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The ID of the third-party cloud zone.
         shared_ptr<string> crossCloudZoneId_ {};
+        // The name of the third-party cloud zone.
         shared_ptr<string> crossCloudZoneName_ {};
       };
 
@@ -132,9 +134,13 @@ namespace Models
 
 
     protected:
+      // The ID of the third-party cloud region.
       shared_ptr<string> crossCloudRegionId_ {};
+      // The name of the third-party cloud region.
       shared_ptr<string> crossCloudRegionName_ {};
+      // A list of third-party cloud zones.
       shared_ptr<vector<CrossCloudRegionList::CrossCloudZoneList>> crossCloudZoneList_ {};
+      // The resource pool ID.
       shared_ptr<string> projectId_ {};
     };
 
@@ -157,7 +163,9 @@ namespace Models
 
 
   protected:
+    // The information about the cross-cloud regions.
     shared_ptr<vector<DescribeCrossCloudRegionResponseBody::CrossCloudRegionList>> crossCloudRegionList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

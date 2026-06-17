@@ -14,8 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const EnableDBClusterServerlessRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(FromTimeService, fromTimeService_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PlannedEndTime, plannedEndTime_);
+      DARABONBA_PTR_TO_JSON(PlannedStartTime, plannedStartTime_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(ScaleApRoNumMax, scaleApRoNumMax_);
@@ -27,8 +30,11 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, EnableDBClusterServerlessRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(FromTimeService, fromTimeService_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PlannedEndTime, plannedEndTime_);
+      DARABONBA_PTR_FROM_JSON(PlannedStartTime, plannedStartTime_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(ScaleApRoNumMax, scaleApRoNumMax_);
@@ -50,13 +56,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->scaleApRoNumMax_ == nullptr
-        && this->scaleApRoNumMin_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->scaleRoNumMax_ == nullptr && this->scaleRoNumMin_ == nullptr; };
+        && this->fromTimeService_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->plannedEndTime_ == nullptr && this->plannedStartTime_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->scaleApRoNumMax_ == nullptr && this->scaleApRoNumMin_ == nullptr && this->scaleMax_ == nullptr
+        && this->scaleMin_ == nullptr && this->scaleRoNumMax_ == nullptr && this->scaleRoNumMin_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
     inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline EnableDBClusterServerlessRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // fromTimeService Field Functions 
+    bool hasFromTimeService() const { return this->fromTimeService_ != nullptr;};
+    void deleteFromTimeService() { this->fromTimeService_ = nullptr;};
+    inline bool getFromTimeService() const { DARABONBA_PTR_GET_DEFAULT(fromTimeService_, false) };
+    inline EnableDBClusterServerlessRequest& setFromTimeService(bool fromTimeService) { DARABONBA_PTR_SET_VALUE(fromTimeService_, fromTimeService) };
 
 
     // ownerAccount Field Functions 
@@ -71,6 +85,20 @@ namespace Models
     void deleteOwnerId() { this->ownerId_ = nullptr;};
     inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline EnableDBClusterServerlessRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
+    // plannedEndTime Field Functions 
+    bool hasPlannedEndTime() const { return this->plannedEndTime_ != nullptr;};
+    void deletePlannedEndTime() { this->plannedEndTime_ = nullptr;};
+    inline string getPlannedEndTime() const { DARABONBA_PTR_GET_DEFAULT(plannedEndTime_, "") };
+    inline EnableDBClusterServerlessRequest& setPlannedEndTime(string plannedEndTime) { DARABONBA_PTR_SET_VALUE(plannedEndTime_, plannedEndTime) };
+
+
+    // plannedStartTime Field Functions 
+    bool hasPlannedStartTime() const { return this->plannedStartTime_ != nullptr;};
+    void deletePlannedStartTime() { this->plannedStartTime_ = nullptr;};
+    inline string getPlannedStartTime() const { DARABONBA_PTR_GET_DEFAULT(plannedStartTime_, "") };
+    inline EnableDBClusterServerlessRequest& setPlannedStartTime(string plannedStartTime) { DARABONBA_PTR_SET_VALUE(plannedStartTime_, plannedStartTime) };
 
 
     // resourceOwnerAccount Field Functions 
@@ -134,21 +162,24 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    shared_ptr<bool> fromTimeService_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> plannedEndTime_ {};
+    shared_ptr<string> plannedStartTime_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The maximum number of stable AP read-only nodes. Valid values: 0 to 7.
+    // The maximum number of steady-state AP read-only nodes. Valid values: 0 to 7.
     shared_ptr<string> scaleApRoNumMax_ {};
-    // The minimum number of stable AP read-only nodes. Valid values: 0 to 7.
+    // The minimum number of steady-state AP read-only nodes. Valid values: 0 to 7.
     shared_ptr<string> scaleApRoNumMin_ {};
-    // The maximum number of PCUs per node for scaling. Valid values: 1 to 8 PCUs.
+    // The maximum scaling limit per node. Valid values: 0 PCU to 16 PCU.
     shared_ptr<string> scaleMax_ {};
-    // The minimum number of PolarDB capacity units (PCUs) per node for scaling. Valid values: 1 to 8 PCUs.
+    // The minimum scaling limit per node. Valid values: 0 PCU to 16 PCU.
     shared_ptr<string> scaleMin_ {};
-    // The maximum number of read-only nodes for scaling. Valid values: 0 to 7.
+    // The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMax_ {};
-    // The minimum number of read-only nodes for scaling. Valid values: 0 to 7.
+    // The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMin_ {};
   };
 

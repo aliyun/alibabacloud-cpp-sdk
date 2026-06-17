@@ -116,14 +116,19 @@ namespace Models
         protected:
           // The edition of the cluster. Valid values:
           // 
-          // *   **Normal**: Cluster Edition.
-          // *   **Basic**: Single Node Edition.
-          // *   **ArchiveNormal**: X-Engine.
-          // *   **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition.
-          // *   **SENormal**: Standard Edition.
+          // - **Normal**: Cluster Edition.
           // 
-          // >- Only PolarDB for MySQL supports Single Node Edition.
-          // >- Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster (Database/Table) Edition.
+          // - **Basic**: Single Node Edition.
+          // 
+          // - **ArchiveNormal**: X-Engine.
+          // 
+          // - **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition.
+          // 
+          // - **SENormal**: Standard Edition.
+          // 
+          // > * Only PolarDB for MySQL supports Single Node Edition.
+          // >
+          // > * Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster (Database/Table) Edition.
           shared_ptr<string> category_ {};
           // The specifications of the node.
           shared_ptr<string> DBNodeClass_ {};
@@ -180,11 +185,11 @@ namespace Models
 
 
     protected:
-      // The region ID of the cluster.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The database engines that the available resources support.
+      // The list of available engines.
       shared_ptr<vector<AvailableZones::SupportedEngines>> supportedEngines_ {};
-      // The zone ID of the cluster.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -207,9 +212,9 @@ namespace Models
 
 
   protected:
-    // The available zones of the cluster.
+    // The list of available resources.
     shared_ptr<vector<DescribeDBClusterAvailableResourcesResponseBody::AvailableZones>> availableZones_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

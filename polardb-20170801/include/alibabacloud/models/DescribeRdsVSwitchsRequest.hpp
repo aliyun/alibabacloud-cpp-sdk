@@ -105,12 +105,16 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view available regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The ID of the virtual private cloud (VPC) where the endpoint is located.
     shared_ptr<string> vpcId_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

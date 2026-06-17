@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The username of the account.
+    // The account name.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};

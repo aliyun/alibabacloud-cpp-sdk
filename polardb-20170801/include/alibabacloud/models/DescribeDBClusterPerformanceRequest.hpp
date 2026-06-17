@@ -98,19 +98,33 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+    // The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The interval at which performance data is collected. Valid values: 5, 30, 60, 600, 1800, 3600, 86400, in seconds.
+    // The granularity of the performance data. Valid values:
+    // 
+    // - 5
+    // 
+    // - 30
+    // 
+    // - 60
+    // 
+    // - 600
+    // 
+    // - 1800
+    // 
+    // - 3600
+    // 
+    // - 86400
     shared_ptr<string> interval_ {};
     // The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/141787.html).
     // 
-    // >  You can specify a maximum of five performance metrics.
+    // > Specify up to five performance metrics.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

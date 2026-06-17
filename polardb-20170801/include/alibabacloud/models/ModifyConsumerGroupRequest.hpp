@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The ID of the consumer group.
+    // 
     // This parameter is required.
     shared_ptr<string> consumerGroupName_ {};
+    // The ID of the gateway instance.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // Indicates whether the consumer group is the default group. Valid values: `0` (false) and `1` (true).
     shared_ptr<string> isDefault_ {};
+    // The nickname of the consumer group.
     shared_ptr<string> nickName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

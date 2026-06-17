@@ -125,41 +125,52 @@ namespace Models
     shared_ptr<string> DBNodeClass_ {};
     // The type of the database engine. Valid values:
     // 
-    // *   **MySQL**
-    // *   **PostgreSQL**
-    // *   **Oracle**
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> DBType_ {};
-    // The version of the database engine. Valid values for the MySQL database engine:
+    // The version of the database engine.
+    // Valid values for MySQL:
     // 
-    // *   **5.6**
-    // *   **5.7**
-    // *   **8.0**
+    // - **5.6**
     // 
-    // Valid values for the PostgreSQL database engine:
+    // - **5.7**
     // 
-    // *   **11**
-    // *   **14**
+    // - **8.0**
     // 
-    // Valid value for the Oracle database engine: **11**
+    // Valid values for PostgreSQL:
     // 
-    // > This parameter is required when you specify the **DBType** parameter.
+    // - **11**
+    // 
+    // - **14**
+    // 
+    // Valid values for Oracle:
+    // 
+    // - **11**
+    // 
+    // - **14**
+    // 
+    // > This parameter is required when the **DBType** parameter is specified.
     shared_ptr<string> DBVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The billing method of the cluster. Valid values:
+    // The billing method. Valid values:
     // 
-    // *   **Postpaid**: pay-as-you-go
-    // *   **Prepaid**: subscription
+    // - **Postpaid**: pay-as-you-go (also known as postpaid or hourly billing).
+    // 
+    // - **Prepaid**: subscription (also known as prepaid).
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The region ID of the cluster. Default value: **cn-hangzhou**.
+    // The region ID. The default value is **cn-hangzhou**.
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The zone ID of the cluster.
+    // The zone ID.
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available zones.
     shared_ptr<string> zoneId_ {};

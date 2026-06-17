@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The ID of the deleted agent.
     shared_ptr<string> agentId_ {};
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The status code.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The number of automatically removed bindings.
     shared_ptr<int32_t> removedBindings_ {};
+    // **The request ID.**
     shared_ptr<string> requestId_ {};
   };
 

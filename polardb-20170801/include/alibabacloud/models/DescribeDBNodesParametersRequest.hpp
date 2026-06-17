@@ -88,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The node ID. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+    // The ID of the node. You can specify multiple node IDs. Separate the IDs with a comma (,).
     // 
     // This parameter is required.
     shared_ptr<string> DBNodeIds_ {};

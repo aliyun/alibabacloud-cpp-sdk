@@ -84,7 +84,16 @@ namespace Models
 
 
   protected:
+    // The type of the endpoint. Valid values:
+    // 
+    // - Normal: the primary endpoint
+    // 
+    // - ReadWriteSplitting: the cluster endpoint
+    // 
+    // - MPP: the Massively Parallel Processing (MPP) endpoint
     shared_ptr<string> connectionStringType_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};

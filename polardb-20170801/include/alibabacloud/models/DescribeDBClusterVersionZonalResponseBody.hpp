@@ -112,9 +112,17 @@ namespace Models
 
 
     protected:
+      // The release notes.
       shared_ptr<string> releaseNote_ {};
+      // The release type. Valid values:
+      // 
+      // - **LTS**: Long-Term Support (LTS) version.
+      // 
+      // - **BETA**: Preview version.
       shared_ptr<string> releaseType_ {};
+      // The code of the patch version for the database proxy. Use this code to specify the target version for an upgrade.
       shared_ptr<string> revisionVersionCode_ {};
+      // The patch version of the database proxy.
       shared_ptr<string> revisionVersionName_ {};
     };
 
@@ -174,9 +182,21 @@ namespace Models
 
 
     protected:
+      // The release notes.
       shared_ptr<string> releaseNote_ {};
+      // The release status of the database version. Valid values:
+      // 
+      // - **Stable**: The current version is stable.
+      // 
+      // - **Old**: The current version is outdated. Do not upgrade to this version.
+      // 
+      // - **HighRisk**: The current version has critical bugs. Do not upgrade to this version.
+      // 
+      // - **Beta**: The current version is a beta version.
       shared_ptr<string> releaseType_ {};
+      // The code of the patch version for the database engine. Use this code to specify the target version for an upgrade.
       shared_ptr<string> revisionVersionCode_ {};
+      // The patch version of the database engine.
       shared_ptr<string> revisionVersionName_ {};
     };
 
@@ -287,19 +307,81 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The latest version of the database kernel.
     shared_ptr<string> DBLatestVersion_ {};
+    // The minor version of the database engine.
+    // 
+    // - If `DBVersion` is **8.0**, the valid values are:
+    // 
+    //   - **8.0.2**
+    // 
+    //   - **8.0.1**
+    // 
+    // - If `DBVersion` is **5.7**, the value is **5.7.28**.
+    // 
+    // - If `DBVersion` is **5.6**, the value is **5.6.16**.
     shared_ptr<string> DBMinorVersion_ {};
+    // The patch version of the database engine.
     shared_ptr<string> DBRevisionVersion_ {};
+    // The list of upgradable versions.
     shared_ptr<vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList>> DBRevisionVersionList_ {};
+    // The major version of the database engine. Valid values:
+    // 
+    // - 8.0
+    // 
+    // - 5.7
+    // 
+    // - 5.6
     shared_ptr<string> DBVersion_ {};
+    // The status of the current minor version of the database. Valid values:
+    // 
+    // - Stable: The current version is stable.
+    // 
+    // - Old: The current version is outdated. Upgrade to the latest version.
+    // 
+    // - HighRisk: The current version has critical bugs. Upgrade to the latest version immediately.
+    // 
+    // - Beta: The current version is a beta version.
     shared_ptr<string> DBVersionStatus_ {};
+    // Indicates whether the current database kernel version is the latest version. Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<string> isLatestVersion_ {};
+    // Indicates whether the current database proxy version is the latest version. Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<string> isProxyLatestVersion_ {};
+    // The latest version of the database proxy.
     shared_ptr<string> proxyLatestVersion_ {};
+    // The version of the database proxy.
     shared_ptr<string> proxyRevisionVersion_ {};
+    // The list of upgradable database proxy versions.
+    // 
+    // - **Stable**: The current version is stable.
+    // 
+    // - **Old**: The current version is outdated. Do not upgrade to this version.
+    // 
+    // - **HighRisk**: The current version has critical bugs. Do not upgrade to this version.
+    // 
+    // - **Beta**: The current version is a beta version.
     shared_ptr<vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList>> proxyRevisionVersionList_ {};
+    // The status of the database proxy version. Valid values:
+    // 
+    // - Stable: The current version is stable.
+    // 
+    // - Old: The current version is outdated. Upgrade to the latest version.
+    // 
+    // - HighRisk: The current version has critical bugs. Upgrade to the latest version immediately.
+    // 
+    // - Beta: The current version is a beta version.
     shared_ptr<string> proxyVersionStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -317,33 +317,105 @@ namespace Models
 
 
     protected:
+      // Indicates whether cancellation is allowed. Valid values:
+      // 
+      // - 1: indicates that users are allowed to cancel the task.
+      // 
+      // - 0: indicates that cancellation is not allowed.
       shared_ptr<int64_t> allowCancel_ {};
+      // Indicates whether time modification is allowed. Valid values:
+      // 
+      // - 1: indicates that users are allowed to modify the time.
+      // 
+      // - 0: indicates that users are not allowed to modify the time.
       shared_ptr<int64_t> allowChange_ {};
+      // The event level code. Valid values:
+      // 
+      // - S1: system maintenance.
+      // 
+      // - S0: threat fix.
       shared_ptr<string> changeLevel_ {};
+      // The event level (English).
       shared_ptr<string> changeLevelEn_ {};
+      // The event level (Chinese).
       shared_ptr<string> changeLevelZh_ {};
+      // The creation time. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createdTime_ {};
+      // The current zone.
       shared_ptr<string> currentAVZ_ {};
+      // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
+      // The list of node IDs.
       shared_ptr<vector<string>> DBNodeIds_ {};
+      // The database engine type. Valid values:
+      // 
+      // - **MySQL**
+      // 
+      // - **PostgreSQL**
+      // 
+      // - **Oracle**
       shared_ptr<string> DBType_ {};
+      // The kernel version number.
       shared_ptr<string> DBVersion_ {};
+      // The latest deadline for the adjustable range of task execution time. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> deadline_ {};
+      // The event impact.
       shared_ptr<string> impact_ {};
+      // The event impact (English).
       shared_ptr<string> impactEn_ {};
+      // The event impact (Chinese).
       shared_ptr<string> impactZh_ {};
+      // The cluster alias or cluster comment.
       shared_ptr<string> insComment_ {};
+      // The modification time. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> modifiedTime_ {};
+      // The preparation time required between the start time and the switch time. Format: HH:mm:ss.
       shared_ptr<string> prepareInterval_ {};
+      // The region code.
       shared_ptr<string> region_ {};
+      // The execution result information.
       shared_ptr<string> resultInfo_ {};
+      // The time when the background task is executed. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> startTime_ {};
+      // The task status. Valid values:
+      // 
+      // - 0: indicates waiting for notification.
+      // 
+      // - 1: indicates retry notification.
+      // 
+      // - 2: indicates waiting for user-specified time.
+      // 
+      // - 3: indicates waiting for processing.
+      // 
+      // - 4: indicates in progress.
+      // 
+      // - 5: indicates successfully completed.
+      // 
+      // - 6: indicates failed.
+      // 
+      // - 7: indicates canceled.
       shared_ptr<int32_t> status_ {};
+      // The time when the background initiates the switch operation. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> switchTime_ {};
+      // The task ID.
       shared_ptr<int32_t> taskId_ {};
+      // The task parameters.
       shared_ptr<string> taskParams_ {};
+      // The type of the pending event task. Valid values:
+      // 
+      // - **DatabaseSoftwareUpgrading**: database software upgrade.
+      // 
+      // - **DatabaseHardwareMaintenance**: hardware maintenance and upgrade.
+      // 
+      // - **DatabaseStorageUpgrading**: database storage upgrade.
+      // 
+      // - **DatabaseProxyUpgrading**: proxy minor version upgrade.
+      // 
+      // - **all**: returns all types of pending events.
       shared_ptr<string> taskType_ {};
+      // The task reason in English.
       shared_ptr<string> taskTypeEn_ {};
+      // The task reason in Chinese.
       shared_ptr<string> taskTypeZh_ {};
     };
 
@@ -387,10 +459,23 @@ namespace Models
 
 
   protected:
+    // The list of O\\&M tasks.
     shared_ptr<vector<DescribeActiveOperationTasksResponseBody::Items>> items_ {};
+    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of task records returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

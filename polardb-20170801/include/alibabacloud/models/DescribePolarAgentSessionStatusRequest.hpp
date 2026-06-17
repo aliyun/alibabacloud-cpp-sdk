@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the session. This ID is used to identify a visitor\\"s session and maintain context information.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // The source of the product. Set the value to polardb-console.
     shared_ptr<string> source_ {};
   };
 

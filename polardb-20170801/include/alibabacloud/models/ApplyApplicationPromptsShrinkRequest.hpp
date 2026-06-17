@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // An array of prompt IDs to disable.
     shared_ptr<string> disabledPromptIdsShrink_ {};
+    // An array of prompt IDs to enable.
     shared_ptr<string> enabledPromptIdsShrink_ {};
   };
 

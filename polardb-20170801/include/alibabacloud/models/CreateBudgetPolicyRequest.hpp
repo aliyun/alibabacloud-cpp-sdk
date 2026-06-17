@@ -94,15 +94,32 @@ namespace Models
 
 
   protected:
+    // The alert threshold, as a percentage. Valid values: 0 to 100.
     shared_ptr<string> alertThresholdPct_ {};
+    // The ID of the dimension object. This parameter is required if `BudgetType` is set to `ConsumerTotal` or `ConsumerGroupTotal`.
     shared_ptr<string> budgetDimensionRefId_ {};
+    // The number of budget points.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetPoints_ {};
+    // The budget type. Valid values:
+    // 
+    // - `GlobalTotal`: global total budget
+    // 
+    // - `ConsumerTotal`: consumer total budget
+    // 
+    // - `ConsumerGroupTotal`: consumer group total budget
+    // 
     // This parameter is required.
     shared_ptr<string> budgetType_ {};
+    // The gateway cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The day of the month on which the budget resets. Valid values: 1 to 28.
+    // 
     // This parameter is required.
     shared_ptr<string> resetDayOfMonth_ {};
   };

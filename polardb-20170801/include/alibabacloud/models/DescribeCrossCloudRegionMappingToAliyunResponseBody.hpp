@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The region ID of Alibaba Cloud.
       shared_ptr<string> aliyunRegionId_ {};
+      // The cloud provider.
       shared_ptr<string> cloudProvider_ {};
+      // The region ID of the third-party cloud.
       shared_ptr<string> crossCloudRegionId_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The list of cross-cloud region mappings.
     shared_ptr<vector<DescribeCrossCloudRegionMappingToAliyunResponseBody::CrossCloudRegionMappingList>> crossCloudRegionMappingList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

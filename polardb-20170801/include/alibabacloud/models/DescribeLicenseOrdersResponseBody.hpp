@@ -177,37 +177,41 @@ namespace Models
 
 
     protected:
-      // The number of generated activation codes.
+      // The number of activation codes that have been generated.
       shared_ptr<int32_t> activatedCodeCount_ {};
-      // The maximum number of activation codes that you can apply for.
+      // The quota for requesting activation codes.
       shared_ptr<int32_t> activationCodeQuota_ {};
-      // The ID of the Alibaba Cloud order. The ID of a virtual order may be returned.
+      // The Alibaba Cloud order ID or virtual order ID.
       shared_ptr<string> aliyunOrderId_ {};
-      // Indicates whether the SystemIdentifier parameter can be left empty when the system generates an activation code.
+      // Specifies whether the System Identifier can be left empty when an activation code is generated.
       shared_ptr<bool> allowEmptySystemIdentifier_ {};
-      // The engine of the PolarDB cluster. Valid values: PG, Oracle, and MySQL.
+      // The database type, such as PG, Oracle, or MySQL.
       shared_ptr<string> engine_ {};
-      // The time when the order was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the order was updated.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether the order is a virtual order. Pre-generation of activation codes is allowed for virtual orders.
+      // Indicates whether the order is a virtual order. Virtual orders allow for pre-generating activation codes.
       shared_ptr<bool> isVirtualOrder_ {};
-      // Indicates whether the virtual order is frozen. Generation of activation codes is not allowed for frozen virtual orders.
+      // Indicates whether the virtual order is frozen. No more activation codes can be generated from a frozen order.
       shared_ptr<bool> isVirtualOrderFrozen_ {};
-      // The type of the package. Valid values:
+      // The package type. Valid values:
       // 
-      // *   single_node_subscribe: Single-node Edition (Subscription).
-      // *   single_node_long_term: Single-node Edition (Long-term).
-      // *   primary_backup_subscribe: HA Edition (Subscription).
-      // *   primary_backup_long_term: HA Edition (Long-term).
-      // *   pre_generation_long_term: Pre-generated (Long-term).
+      // - single_node_subscribe: single node (subscription)
+      // 
+      // - single_node_long_term: single node (long-term)
+      // 
+      // - primary_backup_subscribe: primary/standby (subscription)
+      // 
+      // - primary_backup_long_term: primary/standby (long-term)
+      // 
+      // - pre_generation_long_term: pre-generated (long-term)
       shared_ptr<string> packageType_ {};
-      // The validity period of the package. Valid values: 1 year and 30 years.
+      // The validity period of the package. Common options are one year or long-term (30 years).
       shared_ptr<string> packageValidity_ {};
-      // The purchase channel. Valid values: aliyun_market and aliyun_public. aliyun_market indicates Alibaba Cloud Marketplace. aliyun_public indicates the PolarDB buy page.
+      // The purchase channel. Valid values: \\`aliyun_market\\` (Alibaba Cloud Marketplace) and \\`aliyun_public\\` (standard purchase page).
       shared_ptr<string> purchaseChannel_ {};
-      // The ID of the virtual order.
+      // The virtual order ID.
       shared_ptr<string> virtualAliyunOrderId_ {};
     };
 
@@ -251,15 +255,15 @@ namespace Models
 
 
   protected:
-    // The queried orders.
+    // The list of orders.
     shared_ptr<vector<DescribeLicenseOrdersResponseBody::Items>> items_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

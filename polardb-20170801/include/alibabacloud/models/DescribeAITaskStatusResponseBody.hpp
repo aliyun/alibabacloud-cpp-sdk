@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The name of the database account that is used to connect to the AI nodes in the cluster.
+    // The most recently configured account name.
     shared_ptr<string> accountName_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
@@ -83,10 +83,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status of the PolarDB for AI feature. Valid values:
     // 
-    // *   **1**: enabled.
-    // *   **2**: disabled.
+    // - **1**: Enabled
+    // 
+    // - **2**: Disabled
     shared_ptr<string> status_ {};
-    // The description of the status of the PolarDB for AI feature.
+    // A description of the feature status.
     shared_ptr<string> statusName_ {};
   };
 

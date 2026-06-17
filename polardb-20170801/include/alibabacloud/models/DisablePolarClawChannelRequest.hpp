@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The unique ID of the channel.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // Specifies whether to restart the gateway after the channel is disabled. Defaults to true.
     shared_ptr<bool> restart_ {};
   };
 

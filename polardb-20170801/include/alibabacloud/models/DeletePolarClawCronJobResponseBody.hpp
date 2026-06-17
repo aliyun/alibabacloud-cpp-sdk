@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The status code.
     shared_ptr<int32_t> code_ {};
+    // The ID of the deleted cron job.
     shared_ptr<string> jobId_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
+    // Indicates whether a matching cron job was found and deleted.
     shared_ptr<bool> removed_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

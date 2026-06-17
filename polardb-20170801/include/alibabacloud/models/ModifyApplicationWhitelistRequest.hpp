@@ -84,12 +84,25 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the application subcomponent. If you specify this parameter, the whitelist modification takes effect only for this subcomponent.
     shared_ptr<string> componentId_ {};
+    // The method to modify the whitelist. Valid values:
+    // 
+    // - **Cover**: Overwrites the original IP address whitelist. This is the default value.
+    // 
+    // - **Append**: Appends IP addresses.
+    // 
+    // - **Delete**: Deletes IP addresses.
     shared_ptr<string> modifyMode_ {};
+    // The list of security group IDs. Separate multiple IDs with commas.
     shared_ptr<string> securityGroups_ {};
+    // The name of the IP address group. The default value is `default`.
     shared_ptr<string> securityIPArrayName_ {};
+    // The IP addresses for the whitelist. Separate multiple IP addresses with commas.
     shared_ptr<string> securityIPList_ {};
   };
 

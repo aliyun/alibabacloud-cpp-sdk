@@ -150,30 +150,32 @@ namespace Models
 
   protected:
     shared_ptr<bool> autoUseCoupon_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token to ensure the idempotence of the request. The client generates the token, but you must make sure that the token is unique among different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
-    // The cluster ID.
+    // The ID of the PolarDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The billing method of the cluster. Valid values:
+    // The billing method of the instance. Valid values:
     // 
-    // *   **Postpaid**: pay-as-you-go.
-    // *   **Prepaid**: subscription.
+    // - **Postpaid**: pay-as-you-go
+    // 
+    // - **Prepaid**: subscription
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The renewal cycle of the cluster. Valid values:
+    // The unit of the subscription duration. Valid values:
     // 
-    // *   **Year**
-    // *   **Month**
+    // - **Year**
     // 
-    // >  This parameter is required if you set the **PayType** parameter to **Prepaid**.
+    // - **Month**
+    // 
+    // > This parameter is required when you set **PayType** to **Prepaid**.
     shared_ptr<string> period_ {};
     shared_ptr<string> promotionCode_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -181,12 +183,13 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The subscription duration of the cluster. Valid values:
+    // The subscription duration. Valid values:
     // 
-    // *   If the **Period** parameter is set to **Year**, the **UsedTime** parameter can be set to 1, 2, or 3.
-    // *   If the **Period** parameter is set to **Month**, the **UsedTime** parameter can be set to 1, 2, 3, 4, 5, 6, 7, 8, or 9.
+    // - If you set **Period** to **Year**, the value of **UsedTime** can be 1, 2, or 3.
     // 
-    // >  This parameter is required if you set the **PayType** parameter to **Prepaid**.
+    // - If you set **Period** to **Month**, the value of **UsedTime** can be an integer from 1 to 9.
+    // 
+    // > This parameter is required when you set **PayType** to **Prepaid**.
     shared_ptr<string> usedTime_ {};
   };
 

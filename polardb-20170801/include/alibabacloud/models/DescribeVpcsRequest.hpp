@@ -132,14 +132,32 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the cloud product.
     shared_ptr<string> product_ {};
+    // The ID of the resource group to which the VPC belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The ID of the VPC.
+    // 
+    // > You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the details of VPCs.
     shared_ptr<string> vpcId_ {};
+    // The ID of the zone.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query zones.
     shared_ptr<string> zoneId_ {};
   };
 

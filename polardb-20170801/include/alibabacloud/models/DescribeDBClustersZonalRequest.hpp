@@ -114,7 +114,9 @@ namespace Models
 
 
     protected:
+      // The key of tag \\`n\\`. You can filter clusters by specifying up to 20 tags. The \\`n\\` must be a unique and consecutive integer that starts from 1. \\`Tag.n.Key\\` corresponds to \\`Tag.n.Value\\`.
       shared_ptr<string> key_ {};
+      // The value of the tag key.
       shared_ptr<string> value_ {};
     };
 
@@ -295,30 +297,67 @@ namespace Models
 
 
   protected:
+    // The cloud service provider.
     shared_ptr<string> cloudProvider_ {};
+    // The database endpoint.
     shared_ptr<string> connectionString_ {};
+    // The description of the cluster. Fuzzy search is supported.
     shared_ptr<string> DBClusterDescription_ {};
+    // The cluster ID. To specify multiple cluster IDs, separate them with commas (,).
     shared_ptr<string> DBClusterIds_ {};
+    // The status of the cluster.
     shared_ptr<string> DBClusterStatus_ {};
+    // The node ID. You can specify multiple node IDs. Separate them with commas (,).
     shared_ptr<string> DBNodeIds_ {};
+    // The database type. Valid values:
+    // 
+    // - MySQL
+    // 
+    // - PostgreSQL
+    // 
+    // - Oracle
     shared_ptr<string> DBType_ {};
+    // The database version.
     shared_ptr<string> DBVersion_ {};
+    // The query mode. Set the value to \\`Simple\\`. In this mode, only the basic metadata of the clusters is returned.
     shared_ptr<string> describeType_ {};
+    // Specifies whether the cluster has expired. Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<string> expired_ {};
+    // The maximum number of entries to return for the current request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // A token used to retrieve the next page of results. Set this parameter to the \\`NextToken\\` value returned from the previous API call. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values: 30, 50, and 100.
+    // 
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The billing method. Valid values:
+    // 
+    // - Postpaid: pay-as-you-go
+    // 
+    // - Prepaid: subscription
     shared_ptr<string> payType_ {};
+    // Filters for clusters created in the last N days. Valid values: 0 to 15.
     shared_ptr<int32_t> recentCreationInterval_ {};
+    // Filters for clusters that expire in N days. Valid values: 0 to 15.
     shared_ptr<int32_t> recentExpirationInterval_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The list of tags.
     shared_ptr<vector<DescribeDBClustersZonalRequest::Tag>> tag_ {};
   };
 

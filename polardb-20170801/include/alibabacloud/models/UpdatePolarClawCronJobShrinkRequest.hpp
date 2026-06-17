@@ -167,22 +167,39 @@ namespace Models
 
 
   protected:
+    // The ID of the Agent that runs the task.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // Specifies whether to delete the task after its first execution.
     shared_ptr<bool> deleteAfterRun_ {};
+    // The result delivery configuration.
     shared_ptr<string> deliveryShrink_ {};
+    // The new description for the task.
     shared_ptr<string> description_ {};
+    // Specifies whether the task is enabled.
     shared_ptr<bool> enabled_ {};
+    // The configuration for failure alerts. Set this to `false` to disable alerts.
     shared_ptr<string> failureAlertShrink_ {};
+    // The ID of the scheduled task to update.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The new name for the task.
     shared_ptr<string> name_ {};
+    // The new payload configuration.
     shared_ptr<string> payloadShrink_ {};
+    // Specifies whether to restart the gateway after the update. Default value: `true`.
     shared_ptr<bool> restart_ {};
+    // The scheduling configuration.
     shared_ptr<string> scheduleShrink_ {};
+    // The session routing key.
     shared_ptr<string> sessionKey_ {};
+    // The new session target.
     shared_ptr<string> sessionTarget_ {};
+    // The new wake mode.
     shared_ptr<string> wakeMode_ {};
   };
 

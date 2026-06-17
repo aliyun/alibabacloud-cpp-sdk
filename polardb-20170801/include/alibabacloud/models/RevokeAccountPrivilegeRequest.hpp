@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The name of the account.
+    // The account name.
     // 
-    // >  You can specify only a standard account.
+    // > Only standard accounts are supported. Privileged accounts are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The ID of the PolarDB cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The names of the databases. If you need to specify multiple database names, separate the names with commas (,).
+    // The database name. To specify multiple databases, separate the names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

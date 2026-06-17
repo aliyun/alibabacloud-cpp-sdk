@@ -87,13 +87,23 @@ namespace Models
 
 
   protected:
+    // The end time of the query range. Specify the time in UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // The page number. The value must be a positive integer. The default is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time of the query range. Specify the time in UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
+    // The task statuses.
+    // 
+    // > If you omit this parameter, the operation returns tasks of all statuses.
     shared_ptr<vector<string>> status_ {};
+    // The type of the batch task.
     shared_ptr<string> taskType_ {};
   };
 

@@ -75,18 +75,19 @@ namespace Models
 
 
   protected:
-    // The billing method of the cluster. Valid values:
+    // The billing method of the instance. Valid values:
     // 
-    // *   **Postpaid**: pay-as-you-go.
-    // *   **Prepaid**: subscription.
+    // - **Postpaid**: pay-as-you-go
+    // 
+    // - **Prepaid**: subscription
     shared_ptr<string> chargeType_ {};
-    // The cluster ID.
+    // The ID of the PolarDB cluster.
     shared_ptr<string> DBClusterId_ {};
-    // The time when the cluster expires.
+    // The expiration time of the instance.
     // 
-    // >  This parameter is returned if you set the **PayType** parameter to **Prepaid**.
+    // > This parameter is returned only when **PayType** is set to **Prepaid**.
     shared_ptr<string> expiredTime_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

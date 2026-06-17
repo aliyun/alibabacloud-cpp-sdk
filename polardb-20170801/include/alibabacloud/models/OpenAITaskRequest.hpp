@@ -127,22 +127,23 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The node type. Valid values:
     // 
-    // *   **DLNode**: This node is an AI node.
-    // *   **SearchNode**: This node is a node for which the PolarDB for AI feature is enabled.
+    // - **DLNode**: AI node.
+    // 
+    // - **SearchNode**: search AI node.
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The password used to access the database for which you want to enable the PolarDB for AI feature.
+    // The password of the database account.
     shared_ptr<string> password_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The username used to access the database for which you want to enable the PolarDB for AI feature.
+    // The database account on which to enable the PolarDB for AI feature.
     shared_ptr<string> username_ {};
   };
 

@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -158,8 +160,11 @@ namespace Models
 
 
       protected:
+        // The capacity allocated to the resource pool.
         shared_ptr<int64_t> allocatedCapacity_ {};
+        // The ID of the resource pool.
         shared_ptr<string> projectId_ {};
+        // The used capacity of the resource pool.
         shared_ptr<int64_t> usedCapacity_ {};
       };
 
@@ -241,15 +246,29 @@ namespace Models
 
 
     protected:
+      // Indicates whether automatic quota allocation is enabled.
       shared_ptr<bool> autoQuota_ {};
+      // The time when the resource plan was created.
       shared_ptr<int64_t> createTime_ {};
+      // The time when the resource plan expires.
       shared_ptr<int64_t> expireTime_ {};
+      // The ID of the cross-cloud resource plan.
       shared_ptr<string> resourcePackageId_ {};
+      // The quota allocation details.
       shared_ptr<vector<ResourcePackageList::ResourcePackageQuotaList>> resourcePackageQuotaList_ {};
+      // The type of the cross-cloud resource plan.
       shared_ptr<string> resourcePackageType_ {};
+      // The status of the cross-cloud resource plan. Valid values:
+      // 
+      // - Normal: Normal.
+      // 
+      // - Maintaining: Under maintenance.
       shared_ptr<string> status_ {};
+      // The list of tags.
       shared_ptr<vector<ResourcePackageList::Tags>> tags_ {};
+      // The total capacity.
       shared_ptr<int64_t> totalCapacity_ {};
+      // The used capacity.
       shared_ptr<int64_t> usedCapacity_ {};
     };
 
@@ -272,7 +291,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of cross-cloud resource plans.
     shared_ptr<vector<DescribeResourcePackagesResponseBody::ResourcePackageList>> resourcePackageList_ {};
   };
 

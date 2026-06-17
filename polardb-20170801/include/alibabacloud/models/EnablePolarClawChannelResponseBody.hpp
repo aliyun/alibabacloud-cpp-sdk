@@ -94,13 +94,19 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
     shared_ptr<string> applicationId_ {};
+    // The ID of the enabled channel.
     shared_ptr<string> channelId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The message returned in the response.
     shared_ptr<string> message_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the gateway was restarted.
     shared_ptr<bool> restarted_ {};
   };
 

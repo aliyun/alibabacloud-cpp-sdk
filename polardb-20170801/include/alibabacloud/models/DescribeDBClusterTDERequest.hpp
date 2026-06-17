@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

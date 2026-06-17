@@ -112,15 +112,29 @@ namespace Models
 
 
   protected:
+    // A client token to ensure the idempotence of the request. The client generates this token. It must be unique across requests. The token is case-sensitive and cannot exceed 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Specifies whether to fail back to the original primary zone after a failover. Valid values:
+    // 
+    // - true: Yes.
+    // 
+    // - false: No.
     shared_ptr<bool> rollBackForDisaster_ {};
+    // The ID of the node to promote to the primary node. If you do not specify this parameter, the system automatically selects a node. Call the DescribeDBClusters operation to query node information, such as node IDs.
     shared_ptr<string> targetDBNodeId_ {};
+    // The type of failover. Valid values:
+    // 
+    // - Primary: A primary/secondary failover within the primary zone.
+    // 
+    // - Standby: A switch to the hot standby storage cluster.
     shared_ptr<string> targetZoneType_ {};
   };
 

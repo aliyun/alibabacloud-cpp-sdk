@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The ID of the vSwitch.
+      // The virtual switch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -177,21 +177,23 @@ namespace Models
 
 
   protected:
-    // The prefix of the new endpoint. The prefix of the endpoint must meet the following requirements:
+    // The prefix of the new endpoint. The prefix must meet the following requirements:
     // 
-    // *   The prefix can contain lowercase letters, digits, and hyphens (-).
-    // *   The prefix must start with a letter and end with a digit or a letter.
-    // *   The prefix must be 6 to 40 characters in length.
+    // - Consist of lowercase letters, digits, and hyphens (-).
+    // 
+    // - Start with a letter and end with a digit or a letter.
+    // 
+    // - Be 6 to 40 characters in length.
     shared_ptr<string> connectionStringPrefix_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the endpoint.
+    // The endpoint ID.
     // 
-    // >  You can call the [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html) operation to query endpoint details.
+    // > For more information, see [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html).
     shared_ptr<string> DBEndpointId_ {};
-    // The network type of the endpoint. Set the value to **Public**.
+    // The network type of the new endpoint. Set the value to **Public**.
     // 
     // This parameter is required.
     shared_ptr<string> netType_ {};
@@ -203,7 +205,7 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The ID of the virtual private cloud (VPC).
     shared_ptr<string> VPCId_ {};
-    // The details of the zones.
+    // The zone information.
     shared_ptr<vector<CreateDBEndpointAddressRequest::ZoneInfo>> zoneInfo_ {};
   };
 

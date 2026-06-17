@@ -121,17 +121,25 @@ namespace Models
 
 
   protected:
+    // The name of the channel.
+    // 
     // This parameter is required.
     shared_ptr<string> channelName_ {};
+    // A client token that ensures request idempotence. The client generates this token. It must be unique across requests. The token is case-sensitive and can contain up to 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The name of the target instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the virtual private cloud (VPC) where the endpoint is located.
     shared_ptr<string> vpcId_ {};
   };
 

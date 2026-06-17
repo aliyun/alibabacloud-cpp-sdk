@@ -339,32 +339,119 @@ namespace Models
 
 
       protected:
+        // The type of the Alibaba Cloud service for the application group. Valid values:
+        // 
+        // - **web**: web application.
+        // 
+        // - **native**: native application.
         shared_ptr<string> cmsProduct_ {};
+        // The database type.
         shared_ptr<string> dbType_ {};
+        // This parameter is used for pagination.
         shared_ptr<string> detailImpact_ {};
+        // The details of the instance operation.
         shared_ptr<string> detailReason_ {};
+        // The end of the query time range. The end time must be later than the start time. The interval between the start time and the end time must be within 24 hours. The time is in the `YYYY-MM-DDThh:mmZ` format and is displayed in UTC.
         shared_ptr<string> endTime_ {};
+        // The category of the system event. Valid values:
+        // 
+        // - **Exception**: anomalous activity
+        // 
+        // - **Optimize**: optimization events
+        // 
+        // - **Notification**: notification events
+        // 
+        // - **Maintenance**: scheduled O\\&M events
         shared_ptr<string> eventCategory_ {};
+        // The event code.
         shared_ptr<string> eventCode_ {};
+        // The event details.
         shared_ptr<string> eventDetail_ {};
+        // The event ID.
         shared_ptr<string> eventId_ {};
+        // An overview of the event\\"s impact.
         shared_ptr<string> eventImpact_ {};
+        // The event level. Valid values:
+        // 
+        // - **INFO**: notification
+        // 
+        // - **WARN**: warning
+        // 
+        // - **CRITICAL**: urgent
         shared_ptr<string> eventLevel_ {};
+        // The source of the event operation.
         shared_ptr<string> eventReason_ {};
+        // The event status. Valid values:
+        // 
+        // - **Inquiring**: The event is being inquired.
+        // 
+        // - **Scheduled**: The event is scheduled.
+        // 
+        // - **Running**: The event is in progress.
+        // 
+        // - **Succeed**: The event is successful.
+        // 
+        // - **Failed**: The event failed.
+        // 
+        // - **Canceled**: The event is canceled.
         shared_ptr<string> eventStatus_ {};
+        // The type of the system event. Valid values:
+        // 
+        // - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
+        // 
+        // - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
+        // 
+        // - **SystemFailure.Reboot**: The instance is restarted due to a system fault.
+        // 
+        // - **SystemFailure.Redeploy**: The instance is redeployed due to a system fault.
+        // 
+        // - **SystemFailure.Delete**: The instance is released because it failed to be created.
+        // 
+        // - **InstanceFailure.Reboot**: The instance is restarted due to an instance fault.
+        // 
+        // - **InstanceExpiration.Stop**: The subscription instance is stopped because its subscription expires.
+        // 
+        // - **InstanceExpiration.Delete**: The subscription instance is released because its subscription expires.
+        // 
+        // - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
+        // 
+        // - **AccountUnbalanced.Delete**: The pay-as-you-go instance is released due to an overdue payment.
         shared_ptr<string> eventType_ {};
+        // The creation time.
         shared_ptr<string> gmtCreated_ {};
+        // The update time.
         shared_ptr<string> gmtModified_ {};
+        // The processing status.
         shared_ptr<string> handleStatus_ {};
+        // Indicates whether a lifecycle exists.
         shared_ptr<int32_t> hasLifeCycle_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The instance name.
         shared_ptr<string> instanceName_ {};
+        // Indicates whether the event is successfully closed. Valid values:
+        // 
+        // - **0**: closed
+        // 
+        // - **1**: open
         shared_ptr<int32_t> isClosed_ {};
+        // The product name.
         shared_ptr<string> product_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The resource type. Valid values:
+        // 
+        // - **Instance**: instance resource
+        // 
+        // - **Host**: host resource
+        // 
+        // - **User**: user resource
         shared_ptr<string> resourceType_ {};
+        // The type of the source data.
         shared_ptr<string> sourceType_ {};
+        // The start of the query time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
         shared_ptr<string> startTime_ {};
+        // The ID of the user to whom the resource belongs.
         shared_ptr<string> uid_ {};
       };
 
@@ -430,13 +517,21 @@ namespace Models
 
 
     protected:
+      // The data overview.
       shared_ptr<Items::Data> data_ {};
+      // The task ID.
       shared_ptr<string> id_ {};
+      // The ID of the region where the task is located.
       shared_ptr<string> region_ {};
+      // The event source.
       shared_ptr<string> source_ {};
+      // The database version.
       shared_ptr<string> specversion_ {};
+      // The name of the pending event.
       shared_ptr<string> subject_ {};
+      // The runtime of the query task. Unit: seconds (s).
       shared_ptr<string> time_ {};
+      // The event type.
       shared_ptr<string> type_ {};
     };
 
@@ -480,10 +575,21 @@ namespace Models
 
 
   protected:
+    // The list of events.
     shared_ptr<vector<DescribeHistoryEventsResponseBody::Items>> items_ {};
+    // The page number of the returned page. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -103,16 +103,32 @@ namespace Models
 
 
   protected:
+    // The ID of the model operator instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The end of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The log type. Set the value to:
+    // 
+    // - **sls**
+    // 
     // This parameter is required.
     shared_ptr<string> logType_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records to return on each page. Valid values: **30**, **50**, and **100**.
+    // 
+    // The default value is **100**.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the PolarDB cluster.
     shared_ptr<string> relativeDBClusterId_ {};
+    // Specifies whether to return the results in reverse order. The default value is *false*.
     shared_ptr<bool> reverse_ {};
+    // The start of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

@@ -113,20 +113,61 @@ namespace Models
 
   protected:
     shared_ptr<bool> autoUseCoupon_ {};
-    // Specifies whether to enable the I/O Burst feature for the ESSD AutoPL disk. Valid value:
+    // Specifies if the I/O performance burst feature is enabled for an ESSD AutoPL disk. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: Enabled
     // 
-    // >  This parameter is available only when the StorageType parameter is set to ESSDAUTOPL.
+    // - **false**: Disabled (Default)
+    // 
+    // > This parameter applies only when StorageType is set to ESSDAUTOPL.
     shared_ptr<string> burstingEnabled_ {};
+    // A client-generated token that ensures request idempotence. The token must be unique for each request. It is case-sensitive and can be up to 64 ASCII characters long.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The modification type. Valid values:
+    // 
+    // - **Upgrade**: Upgrades the storage performance.
+    // 
+    // - **Downgrade**: Downgrades the storage performance.
     shared_ptr<string> modifyType_ {};
     shared_ptr<string> promotionCode_ {};
+    // <props="china">
+    // 
+    // Valid values: 0 to min{50,000, 1000 \\* capacity - baseline performance}.
+    // 
+    // 
+    // 
+    // <props="china">
+    // 
+    // Baseline performance = min{1,800 + 50 \\* capacity, 50,000}.
+    // 
+    // 
+    // 
+    // <props="china">
+    // 
+    // > This parameter applies only when StorageType is set to ESSDAUTOPL.
     shared_ptr<int32_t> provisionedIops_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The target storage type. Valid values for Enterprise Edition:
+    // 
+    // - **PSL5**
+    // 
+    // - **PSL4**
+    // 
+    // Valid values for Standard Edition:
+    // 
+    // - **ESSDPL0**
+    // 
+    // - **ESSDPL1**
+    // 
+    // - **ESSDPL2**
+    // 
+    // - **ESSDPL3**
+    // 
+    // - **ESSDAUTOPL**
     shared_ptr<string> storageType_ {};
   };
 

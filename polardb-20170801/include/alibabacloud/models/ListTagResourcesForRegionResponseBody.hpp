@@ -155,7 +155,9 @@ namespace Models
 
 
   protected:
+    // If the response does not return all results, this parameter is returned. You can use this token in the next request to continue the query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListTagResourcesForRegionResponseBody::TagResources> tagResources_ {};
   };

@@ -158,19 +158,41 @@ namespace Models
 
 
   protected:
+    // The product series. Valid values:
+    // 
+    // - **Normal**: Cluster Edition (default)
+    // 
+    // - **SENormal**: Standard Edition
+    // 
+    // For more information, see [Product series](https://help.aliyun.com/document_detail/183258.html).
     shared_ptr<string> creationCategory_ {};
+    // The database type. Valid values:
+    // 
+    // - **MySQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> DBType_ {};
+    // The compatible database version.
     shared_ptr<string> DBVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region.
+    // 
+    // > For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the source instance.
     shared_ptr<string> sourceDBClusterId_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // A special metric. This parameter is supported only for instances that use the Tair architecture.
     shared_ptr<string> type_ {};
   };
 

@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The name of the consumer group.
+    // 
     // This parameter is required.
     shared_ptr<string> consumerGroupName_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

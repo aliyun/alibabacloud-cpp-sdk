@@ -66,11 +66,40 @@ namespace Models
 
 
   protected:
+    // The database engine type. Valid values:
+    // 
+    // - MySQL
+    // 
+    // - PostgreSQL
+    // 
+    // - Oracle
+    // 
     // This parameter is required.
     shared_ptr<string> DBType_ {};
+    // The version number of the database engine.
+    // 
+    // Valid values for MySQL:
+    // 
+    // - 5.6
+    // 
+    // - 5.7
+    // 
+    // - 8.0
+    // 
+    // Valid values for PostgreSQL:
+    // 
+    // - 11
+    // 
+    // - 14
+    // 
+    // - 15
     shared_ptr<string> DBVersion_ {};
+    // The resource pool ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // The storage class.
+    // 
     // This parameter is required.
     shared_ptr<string> storageType_ {};
   };

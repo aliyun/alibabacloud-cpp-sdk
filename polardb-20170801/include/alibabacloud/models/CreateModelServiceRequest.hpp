@@ -130,22 +130,40 @@ namespace Models
 
 
   protected:
+    // The API key for the model service.
+    // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // The URL of the upstream service.
+    // 
     // This parameter is required.
     shared_ptr<string> baseUrl_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The billing cost for input, measured in points per one million tokens.
     shared_ptr<string> inputCostPointsPerMillion_ {};
+    // The model category.
+    // 
     // This parameter is required.
     shared_ptr<string> modelCategory_ {};
+    // The model service name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The billing cost for output, measured in points per one million tokens.
     shared_ptr<string> outputCostPointsPerMillion_ {};
+    // The protocol type.
+    // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The billing cost per request, measured in points.
     shared_ptr<string> requestCostPoints_ {};
+    // The model service provider. The example value `bailian` is a pinyin-based identifier that corresponds to the product name Model Studio.
+    // 
     // This parameter is required.
     shared_ptr<string> vendor_ {};
   };

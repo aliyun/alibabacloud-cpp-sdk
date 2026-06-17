@@ -142,14 +142,23 @@ namespace Models
 
 
     protected:
+      // The cost in points per one million cached tokens.
       shared_ptr<string> cacheCostPointsPerMillion_ {};
+      // The cost rule ID.
       shared_ptr<string> costRuleId_ {};
+      // The time when the cost rule was created.
       shared_ptr<string> gmtCreated_ {};
+      // The time when the cost rule was last updated.
       shared_ptr<string> gmtModified_ {};
+      // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
+      // The cost in points per one million input tokens.
       shared_ptr<string> inputCostPointsPerMillion_ {};
+      // The model name.
       shared_ptr<string> model_ {};
+      // The model service ID.
       shared_ptr<string> modelServiceId_ {};
+      // The cost in points per one million output tokens.
       shared_ptr<string> outputCostPointsPerMillion_ {};
     };
 
@@ -200,12 +209,17 @@ namespace Models
 
 
   protected:
+    // A list of cost rules.
     shared_ptr<vector<DescribeCostRulesResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

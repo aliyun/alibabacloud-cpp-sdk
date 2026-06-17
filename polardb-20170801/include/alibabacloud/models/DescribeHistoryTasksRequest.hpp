@@ -186,23 +186,58 @@ namespace Models
 
 
   protected:
+    // The minimum task execution time in seconds. Filters for tasks that took longer than this value. Default value: 0.
     shared_ptr<int32_t> fromExecTime_ {};
+    // The start of the time range to query, based on task start time. The time follows the ISO8601 standard and must be in `UTC+0` time. Format: `yyyy-MM-ddTHH:mm:ssZ`.
+    // 
+    // The earliest supported time is 30 days ago. If the specified time is more than 30 days ago, it will be automatically converted to 30 days ago.
+    // 
     // This parameter is required.
     shared_ptr<string> fromStartTime_ {};
+    // The resource ID to filter by. You can provide a comma-separated list of up to 30 IDs. Default value: empty, indicating no restriction.
+    // 
+    // > Currently, only PolarDB cluster IDs are supported.
     shared_ptr<string> instanceId_ {};
+    // Currently, only Instance is supported.
     shared_ptr<string> instanceType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Valid values: positive integers. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records per page. Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
+    // > For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The task status. Valid values:
+    // 
+    // - **Scheduled**: waiting for execution
+    // 
+    // - **Running**: executing
+    // 
+    // - **Succeed**: executed successfully
+    // 
+    // - **Cancelling**: stopping
+    // 
+    // - **Canceled**: stopped
+    // 
+    // - **Waiting**: waiting for preset time
+    // 
+    // You can provide a comma-separated list. Default value: empty, which indicates all statuses.
     shared_ptr<string> status_ {};
+    // The task ID. You can provide a comma-separated list of up to 30 IDs. Default value: empty, indicating no restriction.
     shared_ptr<string> taskId_ {};
+    // The task type. You can provide a comma-separated list of up to 30 task types. Default value: empty, indicating no restriction.
     shared_ptr<string> taskType_ {};
+    // The maximum task execution time in seconds. Filters for tasks that took less than this value. Default value: 0.
     shared_ptr<int32_t> toExecTime_ {};
+    // The end of the time range to query, based on task start time. The time follows the ISO8601 standard and must be in `UTC+0` time. Format: `yyyy-MM-ddTHH:mm:ssZ`.
+    // 
     // This parameter is required.
     shared_ptr<string> toStartTime_ {};
   };

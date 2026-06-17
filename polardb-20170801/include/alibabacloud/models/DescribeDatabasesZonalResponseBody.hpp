@@ -127,9 +127,37 @@ namespace Models
 
 
       protected:
+        // The account name.
+        // 
+        // > If the cluster is a PolarDB for MySQL cluster, privileged accounts are not included.
         shared_ptr<string> accountName_ {};
+        // The permissions of the account. Valid values:
+        // 
+        // - **ReadWrite**
+        // 
+        // - **ReadOnly**
+        // 
+        // - **DMLOnly**
+        // 
+        // - **DDLOnly**
+        // 
+        // - **ReadIndex**
         shared_ptr<string> accountPrivilege_ {};
+        // The status of the account. Valid values:
+        // 
+        // - **Creating**
+        // 
+        // - **Available**
+        // 
+        // - **Deleting**
         shared_ptr<string> accountStatus_ {};
+        // The authorization status. Valid values:
+        // 
+        // - **Empowering**: Permissions are being granted.
+        // 
+        // - **Empowered**: Permissions are granted.
+        // 
+        // - **Removing**: Permissions are being revoked.
         shared_ptr<string> privilegeStatus_ {};
       };
 
@@ -188,12 +216,33 @@ namespace Models
 
 
     protected:
+      // The details of the database accounts.
+      // 
+      // > If the cluster is a PolarDB for MySQL cluster, privileged accounts are not included.
       shared_ptr<vector<Databases::Accounts>> accounts_ {};
+      // The character set.
       shared_ptr<string> characterSetName_ {};
+      // The description of the database.
       shared_ptr<string> DBDescription_ {};
+      // The name of the database.
       shared_ptr<string> DBName_ {};
+      // The status of the database. Valid values:
+      // 
+      // - **Creating**
+      // 
+      // - **Running**
+      // 
+      // - **Deleting**
       shared_ptr<string> DBStatus_ {};
+      // The database engine type. Valid values:
+      // 
+      // - **MySQL**
+      // 
+      // - **Oracle**
+      // 
+      // - **PostgreSQL**
       shared_ptr<string> engine_ {};
+      // The ID of the primary node that corresponds to the database in a Multi-master Cluster (Database/Table) edition cluster.
       shared_ptr<string> masterID_ {};
     };
 
@@ -244,11 +293,17 @@ namespace Models
 
 
   protected:
+    // The details of the databases.
     shared_ptr<vector<DescribeDatabasesZonalResponseBody::Databases>> databases_ {};
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The query token. This is the NextToken value from the previous API call. If there are no more results, do not specify this parameter.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

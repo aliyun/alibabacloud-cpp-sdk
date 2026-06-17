@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The complete api key, which is returned only in this response.
     shared_ptr<string> apiKey_ {};
+    // The user ID.
     shared_ptr<string> consumerId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

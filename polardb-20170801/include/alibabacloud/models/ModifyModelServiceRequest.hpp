@@ -130,21 +130,45 @@ namespace Models
 
 
   protected:
+    // The API key for the model service.
     shared_ptr<string> apiKey_ {};
+    // The address of the upstream service.
     shared_ptr<string> baseUrl_ {};
+    // The ID of the gateway instance.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The cost in points per million input tokens.
     shared_ptr<string> inputCostPointsPerMillion_ {};
+    // The model category.
+    // 
     // This parameter is required.
     shared_ptr<string> modelCategory_ {};
+    // The ID of the model service.
+    // 
     // This parameter is required.
     shared_ptr<string> modelServiceId_ {};
+    // The name of the model service.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The cost in points per million output tokens.
     shared_ptr<string> outputCostPointsPerMillion_ {};
+    // The protocol type. Valid values:
+    // 
+    // - **openai**
+    // 
+    // - **anthropic**
+    // 
+    // - **bailian**
+    // 
+    // - **vllm**
+    // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The cost in points per request.
     shared_ptr<string> requestCostPoints_ {};
   };
 

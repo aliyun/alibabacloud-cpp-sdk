@@ -168,17 +168,37 @@ namespace Models
 
 
     protected:
+      // The number of available IP addresses in the vSwitch.
       shared_ptr<int64_t> availableIpAddressCount_ {};
+      // The vSwitch CIDR block.
       shared_ptr<string> cidrBlock_ {};
+      // The description of the vSwitch.
       shared_ptr<string> description_ {};
+      // Indicates whether the vSwitch is the default vSwitch. Valid values:
+      // 
+      // - **true**: The vSwitch is the default vSwitch.
+      // 
+      // - **false**: The vSwitch is not the default vSwitch.
       shared_ptr<bool> isDefault_ {};
+      // The ID of the zone where the vSwitch resides.
       shared_ptr<string> izNo_ {};
+      // The ID of the Alibaba Cloud account that owns the resource.
       shared_ptr<string> ownerId_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The sharing type.
       shared_ptr<string> shareType_ {};
+      // The status of the vSwitch. Valid values:
+      // 
+      // - **Pending**: The vSwitch is being configured.
+      // 
+      // - **Available**: The vSwitch is available.
       shared_ptr<string> status_ {};
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
+      // The name of the vSwitch.
       shared_ptr<string> vSwitchName_ {};
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -222,10 +242,23 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // A list of vSwitches.
     shared_ptr<vector<DescribeVSwitchListResponseBody::VSwitchs>> vSwitchs_ {};
   };
 

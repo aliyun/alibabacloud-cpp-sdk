@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the database.
     shared_ptr<string> DBName_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -189,31 +189,43 @@ namespace Models
 
 
       protected:
-        // The endpoint.
+        // The connection string.
         shared_ptr<string> connectionString_ {};
-        // Whether it is the dashboard endpoint of the PolarDB search node.
+        // Indicates whether the endpoint is a dashboard endpoint for a PolarDB Search node.
         // 
-        // *   Ture
-        // *   False
+        // - **True**: Yes
+        // 
+        // - **False**: No
         shared_ptr<bool> dashboardUsed_ {};
         // The IP address.
         shared_ptr<string> IPAddress_ {};
-        // The network type of the endpoint. Valid values:
+        // The network type. Valid values:
         // 
-        // *   **Public**
-        // *   **Private**
+        // - **Public**: public network
+        // 
+        // - **Private**: private network
+        // 
+        // <props="china">
+        // 
+        // - **Inner**: classic network
+        // 
+        // 
+        // 
+        // <props="china">
+        // 
+        // Only PolarDB for MySQL clusters support the classic network type.
         shared_ptr<string> netType_ {};
         // The port.
         shared_ptr<string> port_ {};
-        // The private domain name that is bound to the endpoint.
+        // The connection string for the private domain name.
         shared_ptr<string> privateZoneConnectionString_ {};
-        // The ID of the VPC.
+        // The VPC ID.
         shared_ptr<string> VPCId_ {};
-        // The ID of the vSwitch.
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the virtual private cloud (VPC) instance.
+        // The VPC instance ID.
         // 
-        // > This parameter is returned for only PolarDB for MySQL clusters.
+        // > This parameter is returned only for PolarDB for MySQL clusters.
         shared_ptr<string> vpcInstanceId_ {};
       };
 
@@ -358,73 +370,93 @@ namespace Models
 
 
     protected:
-      // The details of the endpoint.
+      // The connection addresses for the endpoint.
       shared_ptr<vector<Items::AddressItems>> addressItems_ {};
-      // Indicates whether new nodes are automatically associated with the default cluster endpoint. Valid values:
+      // Indicates whether new nodes are automatically added to the default cluster endpoint. Valid values:
       // 
-      // *   **Enable**
-      // *   **Disable**
+      // - **Enable**
+      // 
+      // - **Disable**
       shared_ptr<string> autoAddNewNodes_ {};
+      // The connection string.
       shared_ptr<string> connectionString_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The name of the endpoint.
+      // The endpoint name.
       shared_ptr<string> DBEndpointDescription_ {};
-      // The ID of the endpoint.
+      // The endpoint ID.
       shared_ptr<string> DBEndpointId_ {};
-      // The advanced configurations of the endpoint.
+      // The advanced settings for the cluster endpoint.
       // 
-      // *   **DistributedTransaction**: indicates whether transaction splitting is enabled. Valid values:
+      // - **DistributedTransaction**: The transaction splitting status. Valid values:
       // 
-      //     *   **on**
-      //     *   **off**
+      //   - **on**: enabled
       // 
-      // *   **ConsistLevel**: the consistency level of sessions. Valid values:
+      //   - **off**: disabled
       // 
-      //     *   **0**: eventual consistency.
-      //     *   **1**: session consistency.
-      //     *   **2**: global consistency.
+      // - **ConsistLevel**: The consistency level. Valid values:
       // 
-      // *   **LoadBalanceStrategy**: the load balancing policy that automatically schedules loads. Only **load** may be returned.
+      //   - **0**: eventual consistency
       // 
-      // *   **MasterAcceptReads**: indicates whether the primary node processes read requests. Valid values:
+      //   - **1**: session consistency
       // 
-      //     *   **on**
-      //     *   **off**
+      //   - **2**: global consistency
+      // 
+      // - **LoadBalanceStrategy**: The load balancing policy. The value is fixed to **load**, which indicates load-based scheduling.
+      // 
+      // - **MasterAcceptReads**: Indicates whether the primary node accepts read requests. Valid values:
+      // 
+      //   - **on**: The primary node accepts read requests.
+      // 
+      //   - **off**: The primary node does not accept read requests.
       shared_ptr<string> endpointConfig_ {};
-      // The type of the endpoint. Valid values:
+      // The type of the cluster endpoint. Valid values:
       // 
-      // *   **Cluster**: the default endpoint.
-      // *   **Primary**: the primary endpoint.
-      // *   **Custom**: a custom cluster endpoint.
+      // - **Cluster**: the default cluster endpoint.
+      // 
+      // - **Primary**: the primary endpoint.
+      // 
+      // - **Custom**: a custom cluster endpoint.
       shared_ptr<string> endpointType_ {};
+      // The network type. Valid values:
+      // 
+      // - **Public**: public network
+      // 
+      // - **Private**: private network
       shared_ptr<string> netType_ {};
-      // The role name of each node in the endpoint. The role name of the primary node is **Writer**. Multiple read-only nodes can be associated with an endpoint. Therefore, the role name of each read-only node is suffixed with a number. For example, you can use **Reader1** and **Reader2** as the role names.
+      // The role of each node in the endpoint. The primary node has the **Writer** role. Read-only nodes have numbered roles, such as **Reader1**, **Reader2**, and so on.
       // 
-      // >  This parameter is valid only for PolarDB for PostgreSQL clusters and PolarDB for PostgreSQL (Compatible with Oracle)) clusters.
+      // > This parameter is supported only by PolarDB for PostgreSQL clusters and PolarDB for PostgreSQL (compatible with Oracle) clusters.
       shared_ptr<string> nodeWithRoles_ {};
-      // The nodes in the endpoint.
+      // The list of nodes configured for the endpoint.
       shared_ptr<string> nodes_ {};
-      // The global consistency timeout policy. Valid values:
+      // The policy for handling global consistency read timeouts. Valid values:
       // 
-      // *   **0**: sends the request to the primary node.
-      // *   **2**: downgrades the consistency level of a query to inconsistent read when a global consistent read in the query times out. No error message is returned to the client.
+      // - **0**: Redirects the request to the primary node.
+      // 
+      // - **2**: Downgrades the request. If a global consistency read times out, the system automatically downgrades the query to a non-consistent read, and the client does not receive an error.
       shared_ptr<string> polarSccTimeoutAction_ {};
-      // Global consistency timeout.
+      // The timeout period for global consistency reads.
       shared_ptr<string> polarSccWaitTimeout_ {};
+      // The port.
       shared_ptr<string> port_ {};
+      // The protocol type.
       shared_ptr<string> protocol_ {};
       // The read/write mode. Valid values:
       // 
-      // *   **ReadWrite**: handles read and write requests. Automatic read/write splitting is enabled.
-      // *   **ReadOnly**: handles read-only requests.
-      shared_ptr<string> readWriteMode_ {};
-      // Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
+      // - **ReadWrite**: read and write (automatic read/write splitting).
       // 
-      // *   **on**: enabled.
-      // *   **off**: disabled
+      // - **ReadOnly**: read-only.
+      shared_ptr<string> readWriteMode_ {};
+      // Indicates whether global consistency (high-performance mode) is enabled for the node. Valid values:
+      // 
+      // - **on**: enabled
+      // 
+      // - **off**: disabled
       shared_ptr<string> sccMode_ {};
+      // The service name.
       shared_ptr<string> serviceName_ {};
+      // The VPC ID.
       shared_ptr<string> VPCId_ {};
     };
 
@@ -447,9 +479,9 @@ namespace Models
 
 
   protected:
-    // The information about the endpoints.
+    // A list of cluster endpoints.
     shared_ptr<vector<DescribeDBClusterEndpointsResponseBody::Items>> items_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

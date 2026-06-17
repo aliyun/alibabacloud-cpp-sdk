@@ -66,8 +66,13 @@ namespace Models
 
 
   protected:
+    // The database engine.
     shared_ptr<string> engine_ {};
+    // The engine extension.
     shared_ptr<string> extra_ {};
+    // The region ID.
+    // 
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view information about all available regions for your account, including region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

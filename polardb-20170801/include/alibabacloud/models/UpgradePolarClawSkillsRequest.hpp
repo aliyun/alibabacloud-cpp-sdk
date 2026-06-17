@@ -66,10 +66,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The application type.
+    // 
+    // > You can omit this parameter when you first call this operation.
     shared_ptr<string> applicationType_ {};
+    // The region ID.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions of all clusters in your account.
     shared_ptr<string> regionId_ {};
+    // The upgrade method.
     shared_ptr<string> upgradeMethod_ {};
   };
 

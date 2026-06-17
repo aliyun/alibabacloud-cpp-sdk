@@ -112,11 +112,49 @@ namespace Models
 
 
     protected:
+      // The node specifications. For more information, see the following documents:
+      // 
+      // - PolarDB for MySQL: [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+      // 
+      // - PolarDB for Oracle: [Compute node specifications](https://help.aliyun.com/document_detail/207921.html).
+      // 
+      // - PolarDB for PostgreSQL: [Compute node specifications](https://help.aliyun.com/document_detail/209380.html).
       shared_ptr<string> DBNodeClass_ {};
+      // The private IP address of the database cluster node.
       shared_ptr<string> DBNodeIP_ {};
+      // The ID of the database cluster node.
       shared_ptr<string> DBNodeId_ {};
+      // The port of the database cluster node.
       shared_ptr<string> DBNodePort_ {};
+      // The status of the node. Valid values:
+      // 
+      // - **Creating**: The node is being created.
+      // 
+      // - **Running**: The node is running.
+      // 
+      // - **Deleting**: The node is being deleted.
+      // 
+      // - **Rebooting**: The node is being restarted.
+      // 
+      // - **DBNodeCreating**: A node is being added.
+      // 
+      // - **DBNodeDeleting**: A node is being deleted.
+      // 
+      // - **ClassChanging**: The node specifications are being changed.
+      // 
+      // - **NetAddressCreating**: A network connection is being created.
+      // 
+      // - **NetAddressDeleting**: A network connection is being deleted.
+      // 
+      // - **NetAddressModifying**: A network connection is being modified.
+      // 
+      // - **MinorVersionUpgrading**: The minor version is being upgraded.
+      // 
+      // - **Maintaining**: The instance is being maintained.
+      // 
+      // - **Switching**: A switchover is in progress.
       shared_ptr<string> DBNodeStatus_ {};
+      // The hostname.
       shared_ptr<string> hostName_ {};
     };
 
@@ -160,10 +198,15 @@ namespace Models
 
 
   protected:
+    // A list of network instances loaded by the Cloud Enterprise Network (CEN) instance.
     shared_ptr<vector<DescribeDBClusterProxyResponseBody::ChildInstances>> childInstances_ {};
+    // The proxy cluster ID.
     shared_ptr<string> DBProxyClusterId_ {};
+    // The number of proxy nodes.
     shared_ptr<int64_t> DBProxyClusterNum_ {};
+    // The status of the proxy cluster.
     shared_ptr<string> DBProxyClusterStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

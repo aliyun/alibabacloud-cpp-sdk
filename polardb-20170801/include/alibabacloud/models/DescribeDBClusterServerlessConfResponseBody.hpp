@@ -176,47 +176,49 @@ namespace Models
 
 
   protected:
+    // The maximum capacity, in PCUs, for a cluster in agile mode. In agile mode, the cluster consists of only serverless nodes.
     shared_ptr<string> agileScaleMax_ {};
-    // Whether to enable idle shutdown. Values:
+    // Indicates whether the no-activity suspension feature is enabled. Valid values:
     // 
-    // - **true**: Enable
+    // - **true**: Enabled
     // 
-    // - **false**: Disable (default)
+    // - **false**: Disabled (Default)
     shared_ptr<string> allowShutDown_ {};
-    // Serverless cluster ID.
+    // The ID of the serverless cluster.
     shared_ptr<string> DBClusterId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The maximum number of read-only column store nodes. Valid values: 0 to 15.
     shared_ptr<string> scaleApRoNumMax_ {};
     // The minimum number of read-only column store nodes. Valid values: 0 to 15.
     shared_ptr<string> scaleApRoNumMin_ {};
-    // Maximum scaling limit for a single node. Range: 1 PCU~32 PCU.
+    // The maximum compute capacity of a single node in PCUs. Valid values: 1 to 32.
     shared_ptr<string> scaleMax_ {};
-    // Minimum scaling limit for a single node. Range: 1 PCU~31 PCU.
+    // The minimum compute capacity of a single node in PolarDB Capacity Units (PCUs). Valid values: 1 to 31.
     shared_ptr<string> scaleMin_ {};
-    // Maximum scaling limit for the number of read-only nodes. Range: 0~15.
+    // The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMax_ {};
-    // Minimum scaling limit for the number of read-only nodes. Range: 0~15.
+    // The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMin_ {};
-    // Detection duration for idle shutdown. Range: 300~86,400. Unit: seconds. The detection duration must be a multiple of 300 seconds.
+    // The detection period for no-activity suspension, in seconds. The value must be an integer from 300 to 86,400 and must be a multiple of 300.
     shared_ptr<string> secondsUntilAutoPause_ {};
-    // CPU upscale threshold.
+    // The CPU scale-up threshold.
     shared_ptr<string> serverlessRuleCpuEnlargeThreshold_ {};
-    // CPU downscale threshold.
+    // The CPU scale-down threshold.
     shared_ptr<string> serverlessRuleCpuShrinkThreshold_ {};
-    // Elasticity sensitivity. Values:
+    // The elasticity sensitivity. Valid values:
     // 
     // - normal: Standard
     // 
-    // - flexible: Sensitive
+    // - flexible: Flexible
     shared_ptr<string> serverlessRuleMode_ {};
-    // Whether steady state is enabled. Values:
+    // Indicates whether the steady-state mode is enabled. Valid values:
     // 
     // 1: Enabled
     // 
     // 0: Disabled
     shared_ptr<string> switchs_ {};
+    // The maximum capacity, in PCUs, for a cluster in steady-state mode. Steady-state mode adds serverless capabilities to nodes that have fixed specifications.
     shared_ptr<string> traditionalScaleMaxThreshold_ {};
   };
 

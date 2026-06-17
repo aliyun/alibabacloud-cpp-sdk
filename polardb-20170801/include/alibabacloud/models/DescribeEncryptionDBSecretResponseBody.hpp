@@ -84,12 +84,23 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The region where the encryption key is located.
     shared_ptr<string> encryptionDBRegion_ {};
+    // Indicates whether encryption is enabled. Valid values:
+    // 
+    // Enabled: Encryption is enabled. Disabled: Encryption is disabled.
     shared_ptr<string> encryptionDBStatus_ {};
+    // The custom key ID.
     shared_ptr<string> encryptionKey_ {};
+    // The status of the key. Valid values:
+    // 
+    // - **Enabled**
+    // 
+    // - **Disabled**
     shared_ptr<string> encryptionKeyStatus_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

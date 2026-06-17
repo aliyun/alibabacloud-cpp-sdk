@@ -103,14 +103,25 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The number of entries per page.
+    // 
+    // Maximum value: 100.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name of the SQL throttling rule that you want to query. You can specify multiple rule names for a batch query. Separate the rule names with commas (,).
+    // 
+    // > Call the [DescribeSQLRateLimitingRules](https://help.aliyun.com/document_detail/212573.html) operation to query the details of all SQL throttling rules for the cluster, including the rule names.
     shared_ptr<string> ruleNameList_ {};
   };
 

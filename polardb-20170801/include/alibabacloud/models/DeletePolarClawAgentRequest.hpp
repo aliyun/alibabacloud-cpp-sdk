@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the agent to delete. This parameter cannot be set to `main`.
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // Specifies whether to delete the working directory and session files. Default value: `true`.
     shared_ptr<bool> deleteFiles_ {};
   };
 

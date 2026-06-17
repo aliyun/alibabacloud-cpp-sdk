@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether the Prompt is enabled. A value of 1 indicates enabled, and 0 indicates disabled.
       shared_ptr<int32_t> promptEnabled_ {};
+      // The Prompt ID.
       shared_ptr<string> promptId_ {};
+      // The Prompt Name.
       shared_ptr<string> promptName_ {};
+      // The Prompt Type.
       shared_ptr<string> promptType_ {};
+      // The Prompt Value.
       shared_ptr<string> promptValue_ {};
     };
 
@@ -150,10 +155,15 @@ namespace Models
 
 
   protected:
+    // A list of Application Prompts.
     shared_ptr<vector<DescribeApplicationPromptsResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
+    // The Request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matching entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

@@ -165,31 +165,29 @@ namespace Models
 
 
       protected:
-        // Indicates whether SSL encryption is enabled. Valid values:
-        // 
-        // *   **Enabled**
-        // *   **Disabled**
+        // The connection string.
         shared_ptr<string> connectionString_ {};
-        // The type of the source database. Valid values:
-        // 
-        // *   **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
-        // *   **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
+        // The IP address.
         shared_ptr<string> IPAddress_ {};
-        // The ID of the endpoint.
-        shared_ptr<string> netType_ {};
-        // The type of the endpoint. Valid values:
+        // The network type of the endpoint. Valid values:
         // 
-        // *   **Normal**: the standard endpoint
-        // *   **ReadWriteSplitting**: the read/write splitting endpoint
+        // - **Public**: An endpoint for the Internet.
+        // 
+        // - **Private**: A private endpoint.
+        // 
+        // - **Inner**: A private endpoint in a classic network.
+        shared_ptr<string> netType_ {};
+        // The port.
         shared_ptr<string> port_ {};
         // Indicates whether SSL encryption is enabled. Valid values:
         // 
-        // - **Enabled**
-        // - **Disabled**
+        // - **Enabled**: SSL encryption is enabled.
+        // 
+        // - **Disabled**: SSL encryption is disabled.
         shared_ptr<string> SSLEnabled_ {};
-        // The instance type.
+        // The ID of the VPC.
         shared_ptr<string> VPCId_ {};
-        // The IP address of the endpoint.
+        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -226,16 +224,17 @@ namespace Models
 
 
     protected:
-      // The VPC ID.
+      // The details of the connection strings.
       shared_ptr<vector<RdsEndpointList::AddressItems>> addressItems_ {};
       // The instance type.
       shared_ptr<string> custinsType_ {};
-      // The ID of the endpoint.
+      // The endpoint ID.
       shared_ptr<string> DBEndpointId_ {};
       // The type of the endpoint. Valid values:
       // 
-      // - **Normal**: the standard endpoint
-      // - **ReadWriteSplitting**: the read/write splitting endpoint
+      // - **Normal**: A regular endpoint.
+      // 
+      // - **ReadWriteSplitting**: A read/write splitting endpoint.
       shared_ptr<string> endpointType_ {};
     };
 
@@ -348,29 +347,29 @@ namespace Models
 
 
       protected:
-        // Indicates whether SSL encryption is enabled. Valid values:
-        // 
-        // *   **Enabled**
-        // *   **Disabled**
+        // The connection string.
         shared_ptr<string> connectionString_ {};
-        // The description of a migration exception. If no exception occurs during the migration, an empty string is returned.
+        // The IP address.
         shared_ptr<string> IPAddress_ {};
-        // The ID of the endpoint.
+        // The network type of the endpoint. Valid values:
+        // 
+        // - **Public**: An endpoint for the Internet.
+        // 
+        // - **Private**: A private endpoint.
+        // 
+        // - **Inner**: A private endpoint in a classic network.
         shared_ptr<string> netType_ {};
-        // The type of the endpoint. Valid values:
-        // 
-        // *   **Cluster**: the default cluster endpoint
-        // *   **Primary**: the primary endpoint
-        // *   **Custom**: the custom endpoint
+        // The port.
         shared_ptr<string> port_ {};
-        // The ID of the request.
-        shared_ptr<string> SSLEnabled_ {};
-        // The read/write mode. Valid values:
+        // Indicates whether Secure Sockets Layer (SSL) encryption is enabled. Valid values:
         // 
-        // *   ReadWrite: receives and forwards read and write requests (automatic read-write splitting).
-        // *   ReadOnly (default): receives and forwards read requests only.
+        // - **Enabled**: SSL encryption is enabled.
+        // 
+        // - **Disabled**: SSL encryption is disabled.
+        shared_ptr<string> SSLEnabled_ {};
+        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> VPCId_ {};
-        // The IP address of the endpoint.
+        // The ID of the virtual switch.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -407,16 +406,23 @@ namespace Models
 
 
     protected:
-      // The VPC ID.
+      // The details of the connection strings.
       shared_ptr<vector<DBClusterEndpointList::AddressItems>> addressItems_ {};
-      // The expiration time of the replication between ApsaraDB RDS and PolarDB. The time is in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+      // The endpoint ID.
       shared_ptr<string> DBEndpointId_ {};
-      // The ID of the cluster.
-      shared_ptr<string> endpointType_ {};
-      // The synchronization direction. Valid values:
+      // The type of the endpoint. Valid values:
       // 
-      // *   **RDS2POLARDB**: Data is replicated from an ApsaraDB RDS instance to a PolarDB cluster.
-      // *   **POLARDB2RDS**: Data is replicated from a PolarDB cluster to an ApsaraDB RDS instance.
+      // - **Cluster**: The default cluster endpoint.
+      // 
+      // - **Primary**: The primary endpoint.
+      // 
+      // - **Custom**: A custom cluster endpoint.
+      shared_ptr<string> endpointType_ {};
+      // The read/write mode. Valid values:
+      // 
+      // - ReadWrite: Read and write (automatic read/write splitting).
+      // 
+      // - ReadOnly (Default): Read-only.
       shared_ptr<string> readWriteMode_ {};
     };
 
@@ -527,54 +533,63 @@ namespace Models
 
 
   protected:
-    // The mode of the source ApsaraDB RDS instance. Valid values:
-    // 
-    // *   **rw**: read and write mode
-    // *   **ro**: read-only mode
+    // The comments on the migration exception. If no exception occurs during the migration, an empty value is returned.
     shared_ptr<string> comment_ {};
-    // The port number.
+    // The details of the PolarDB endpoints.
     shared_ptr<vector<DescribeDBClusterMigrationResponseBody::DBClusterEndpointList>> DBClusterEndpointList_ {};
-    // The replication latency between the ApsaraDB RDS instance and the PolarDB cluster. Unit: seconds.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // Details about the endpoints.
+    // The read/write mode of the cluster. Valid values:
+    // 
+    // - **rw**: Read and write.
+    // 
+    // - **ro**: Read-only.
     shared_ptr<string> DBClusterReadWriteMode_ {};
-    // The vSwitch ID.
+    // The replication delay between the ApsaraDB RDS instance and the PolarDB cluster, in seconds.
     shared_ptr<int32_t> delayedSeconds_ {};
-    // The network type of the endpoint. Valid values:
-    // 
-    // *   **Public**: the public endpoint
-    // *   **Private**: the internal endpoint (VPC)
-    // *   **Inner**: the internal endpoint (classic network)
+    // The ID of the sync task.
     shared_ptr<string> dtsInstanceId_ {};
-    // The mode of the PolarDB cluster. Valid values:
-    // 
-    // *   **rw**: read and write mode
-    // *   **ro**: read-only mode
+    // The time when the replication relationship between the ApsaraDB RDS instance and the PolarDB cluster expires. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is displayed in UTC.
     shared_ptr<string> expiredTime_ {};
-    // The endpoint.
+    // The migration status of the PolarDB cluster. Valid values:
+    // 
+    // - **NO_MIGRATION**: No migration task is created.
+    // 
+    // - **RDS2POLARDB_CLONING**: Data is being cloned.
+    // 
+    // - **RDS2POLARDB_SYNCING**: Data is being synchronized. In this state, the PolarDB cluster is read-only, and the ApsaraDB RDS instance is read-write.
+    // 
+    // - **SWITCHING**: The database is being switched.
+    // 
+    // - **POLARDB2RDS_SYNCING**: The database switch is complete. In this state, the PolarDB cluster is read-write, and the ApsaraDB RDS instance is read-only. Change the endpoints in your application.
+    // 
+    // - **ROLLBACK**: The migration is being rolled back. After the rollback is complete, the migration status changes to **RDS2POLARDB_SYNCING**.
+    // 
+    // - **CLOSING_MIGRATION**: The migration task is being shut down.
     shared_ptr<string> migrationStatus_ {};
-    // The endpoints of the ApsaraDB RDS instance.
+    // The details of the ApsaraDB RDS endpoints.
     shared_ptr<vector<DescribeDBClusterMigrationResponseBody::RdsEndpointList>> rdsEndpointList_ {};
-    // The ID of the synchronous task.
+    // The read/write mode of the source ApsaraDB RDS instance. Valid values:
+    // 
+    // - **rw**: Read and write.
+    // 
+    // - **ro**: Read-only.
     shared_ptr<string> rdsReadWriteMode_ {};
-    // The ID of the source ApsaraDB RDS instance.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The endpoints of the ApsaraDB RDS instance.
+    // The ID of the source ApsaraDB RDS instance.
     shared_ptr<string> sourceRDSDBInstanceId_ {};
     // The type of the source database. Valid values:
     // 
-    // - **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
-    // - **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
-    shared_ptr<string> srcDbType_ {};
-    // The migration state of the PolarDB cluster. Valid values:
+    // - **PolarDBMySQL**: The source database for a major version upgrade of a PolarDB cluster.
     // 
-    // *   **NO_MIGRATION**: No migration task is running.
-    // *   **RDS2POLARDB_CLONING**: Data is being replicated.
-    // *   **RDS2POLARDB_SYNCING**: Data is being replicated. During the replication, the PolarDB cluster is running in read-only mode and the source ApsaraDB RDS instance is running in read and write mode.
-    // *   **SWITCHING**: Databases are being switched.
-    // *   **POLARDB2RDS_SYNCING**: Databases are switched. The PolarDB cluster is running in read and write mode and the source ApsaraDB RDS instance is running in read-only mode. In this state, you can modify the endpoints for your applications.
-    // *   **ROLLBACK**: The migration is being rolled back. After the rollback is complete, the value **RDS2POLARDB_SYNCING** is returned.
-    // *   **CLOSING_MIGRATION**: The migration task is being terminated.
+    // - **RDS**: The source database for migrating data from an ApsaraDB RDS instance to a PolarDB for MySQL cluster.
+    shared_ptr<string> srcDbType_ {};
+    // The data synchronization relationship. Valid values:
+    // 
+    // - **RDS2POLARDB**: Data is synchronized from the ApsaraDB RDS instance to the PolarDB cluster.
+    // 
+    // - **POLARDB2RDS**: Data is synchronized from the PolarDB cluster to the ApsaraDB RDS instance.
     shared_ptr<string> topologies_ {};
   };
 

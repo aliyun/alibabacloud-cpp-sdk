@@ -138,14 +138,23 @@ namespace Models
 
 
     protected:
+      // The extension type.
       shared_ptr<string> category_ {};
+      // The purpose of the extension.
       shared_ptr<string> comment_ {};
+      // The default version of the extension.
       shared_ptr<string> defaultVersion_ {};
+      // The currently installed version of the extension.
       shared_ptr<string> installedVersion_ {};
+      // The extension name.
       shared_ptr<string> name_ {};
+      // The owner of the extension.
       shared_ptr<string> owner_ {};
+      // The priority of the extension.
       shared_ptr<string> priority_ {};
+      // The extensions on which this extension depends.
       shared_ptr<string> requires_ {};
+      // Specifies whether to restart the application. \\`true\\`: The application is restarted. \\`false\\`: The application is not restarted.
       shared_ptr<string> restart_ {};
     };
 
@@ -251,14 +260,23 @@ namespace Models
 
 
     protected:
+      // The extension type.
       shared_ptr<string> category_ {};
+      // The description of the extension.
       shared_ptr<string> comment_ {};
+      // The default version of the extension.
       shared_ptr<string> defaultVersion_ {};
+      // The currently installed version of the extension.
       shared_ptr<string> installedVersion_ {};
+      // The extension name.
       shared_ptr<string> name_ {};
+      // The owner of the extension.
       shared_ptr<string> owner_ {};
+      // The priority of the extension.
       shared_ptr<string> priority_ {};
+      // The extensions on which this extension depends.
       shared_ptr<string> requires_ {};
+      // Specifies whether to restart the application. \\`true\\`: The application is restarted. \\`false\\`: The application is not restarted.
       shared_ptr<string> restart_ {};
     };
 
@@ -297,10 +315,13 @@ namespace Models
 
 
   protected:
+    // The extensions that are installed in the specified database.
     shared_ptr<vector<DescribeExtensionsResponseBody::InstalledExtensions>> installedExtensions_ {};
+    // The overview of the extension.
     shared_ptr<string> overview_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The extensions that are not installed in the specified database.
     shared_ptr<vector<DescribeExtensionsResponseBody::UninstalledExtensions>> uninstalledExtensions_ {};
   };
 

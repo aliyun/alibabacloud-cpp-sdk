@@ -126,12 +126,19 @@ namespace Models
 
 
     protected:
+      // The creation time of the device pairing, in Unix milliseconds.
       shared_ptr<int64_t> createdAtMs_ {};
+      // The device family.
       shared_ptr<string> deviceFamily_ {};
+      // The unique ID of the device.
       shared_ptr<string> deviceId_ {};
+      // The display name of the device.
       shared_ptr<string> displayName_ {};
+      // The operating system of the device.
       shared_ptr<string> platform_ {};
+      // The role of the device.
       shared_ptr<string> role_ {};
+      // A list of permission scopes.
       shared_ptr<vector<string>> scopes_ {};
     };
 
@@ -182,12 +189,17 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The paired device information.
     shared_ptr<ApprovePolarClawDevicePairResponseBody::Device> device_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pairing request ID.
     shared_ptr<string> pairRequestId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -714,14 +714,15 @@ namespace Models
 
 
   protected:
+    // The details of the clusters.
     shared_ptr<DescribeDBClustersResponseBody::Items> items_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of clusters returned per page.
+    // The number of clusters returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

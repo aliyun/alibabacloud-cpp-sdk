@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // Application ID
     shared_ptr<string> applicationId_ {};
-    // PolarFS ID
+    // PolarLakeBase instance ID
     shared_ptr<string> polarFSInstanceId_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

@@ -209,37 +209,39 @@ namespace Models
 
 
       protected:
-        // The type of the scheduled tasks.
+        // The task type.
         shared_ptr<string> action_ {};
-        // The ID of the scheduled task.
+        // The ID of the scheduled O\\&M task.
         shared_ptr<string> crontabJobId_ {};
         // The cluster ID.
         shared_ptr<string> DBClusterId_ {};
-        // The description of the cluster.
+        // The cluster description.
         shared_ptr<string> dbClusterDescription_ {};
-        // The state of the cluster.
+        // The cluster status.
         shared_ptr<string> dbClusterStatus_ {};
-        // The ID of the order.
+        // The order ID.
         // 
-        // >  This parameter is returned only when you set the `Action` parameter to **CreateDBNodes** or **ModifyDBNodeClass**.
+        // > This parameter is returned only if `Action` is **CreateDBNodes** or **ModifyDBNodeClass**.
         shared_ptr<string> orderId_ {};
-        // The latest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+        // The latest start time of the task. The time is in UTC.
         shared_ptr<string> plannedEndTime_ {};
+        // The scheduled time for the transient switchover.
         shared_ptr<string> plannedFlashingOffTime_ {};
-        // The earliest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+        // The scheduled start time of the task. The time is in UTC.
         shared_ptr<string> plannedStartTime_ {};
-        // The expected start time of the task. The time is displayed in UTC.
+        // The estimated start time of the task. The time is in UTC.
         shared_ptr<string> plannedTime_ {};
-        // The ID of the region in which the scheduled task runs.
+        // The region ID of the task.
         shared_ptr<string> region_ {};
-        // The state of the scheduled task.
+        // The status of the task.
         shared_ptr<string> status_ {};
         // Indicates whether the scheduled task can be canceled. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> taskCancel_ {};
-        // The ID of the task.
+        // The task ID.
         shared_ptr<string> taskId_ {};
       };
 
@@ -276,13 +278,13 @@ namespace Models
 
 
     protected:
-      // The page number of the page returned.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The details of the scheduled tasks.
+      // Details of scheduled tasks.
       shared_ptr<vector<Data::TimerInfos>> timerInfos_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalRecordCount_ {};
     };
 
@@ -319,15 +321,15 @@ namespace Models
 
 
   protected:
-    // The result data.
+    // The result set.
     shared_ptr<DescribeScheduleTasksResponseBody::Data> data_ {};
-    // The message that is returned for the request.
+    // The response message.
     // 
-    // >  If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. Otherwise, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

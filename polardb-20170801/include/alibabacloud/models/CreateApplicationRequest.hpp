@@ -144,7 +144,9 @@ namespace Models
 
 
     protected:
+      // The key of the tag.
       shared_ptr<string> key_ {};
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -186,7 +188,9 @@ namespace Models
 
 
     protected:
+      // The name of the parameter.
       shared_ptr<string> parameterName_ {};
+      // The value of the parameter.
       shared_ptr<string> parameterValue_ {};
     };
 
@@ -301,15 +305,25 @@ namespace Models
 
 
     protected:
+      // The name of the database.
       shared_ptr<string> dbName_ {};
+      // The password.
       shared_ptr<string> dbPassword_ {};
+      // The username.
       shared_ptr<string> dbUser_ {};
+      // This parameter is required for mem0 applications. It specifies the name of the embedder model, such as text-embedding-v4.
       shared_ptr<string> embedderModel_ {};
+      // The vector dimensions.
       shared_ptr<int32_t> embedderModelDimension_ {};
+      // The graph LLM.
       shared_ptr<string> graphLlmModel_ {};
+      // This parameter is required for mem0 applications. It specifies the name of the large language model (LLM), such as qwen3-max.
       shared_ptr<string> llmModel_ {};
+      // The project name. This corresponds to the schema in the database where project data is stored.
       shared_ptr<string> projectName_ {};
+      // This parameter is required for mem0 applications. It specifies the name of the reranker model, such as qwen3-rerank.
       shared_ptr<string> rerankerModel_ {};
+      // The number of sharded tables.
       shared_ptr<int32_t> shard_ {};
     };
 
@@ -360,8 +374,11 @@ namespace Models
 
 
     protected:
+      // The password for the dashboard.
       shared_ptr<string> dashboardPassword_ {};
+      // The password.
       shared_ptr<string> dbPassword_ {};
+      // This parameter is required for knowledge applications. It specifies the name of the LLM, such as qwen3-max.
       shared_ptr<string> llmModel_ {};
     };
 
@@ -403,7 +420,9 @@ namespace Models
 
 
     protected:
+      // The description of the server-side endpoint.
       shared_ptr<string> description_ {};
+      // The type of the server-side endpoint. This value is fixed to Primary.
       shared_ptr<string> endpointType_ {};
     };
 
@@ -518,15 +537,41 @@ namespace Models
 
 
     protected:
+      // The specifications of the child component.
       shared_ptr<string> componentClass_ {};
+      // The maximum number of child components with the same specifications. The default value is the value of ComponentReplica.
+      // 
+      // - This parameter is supported only for raycluster.
       shared_ptr<int64_t> componentMaxReplica_ {};
+      // The number of replicas for the child component. The default value is 1.
       shared_ptr<int64_t> componentReplica_ {};
+      // The type of the child component.
+      // 
+      // For supabase, valid values are:
+      // 
+      // - gateway
+      // 
+      // - backend
+      // 
+      // For raycluster, valid values are:
+      // 
+      // - head
+      // 
+      // - worker
+      // 
+      // - gpuworker
       shared_ptr<string> componentType_ {};
+      // The maximum number of component replicas for scaling.
       shared_ptr<string> scaleMax_ {};
+      // The minimum number of component replicas for scaling.
       shared_ptr<string> scaleMin_ {};
+      // The security groups for the child component. Separate multiple security group IDs with commas (,).
       shared_ptr<string> securityGroups_ {};
+      // The name of the IP address whitelist group for the child component. The default value is default.
       shared_ptr<string> securityIPArrayName_ {};
+      // The IP address whitelist for the child component. Separate multiple IP addresses with commas (,).
       shared_ptr<string> securityIPList_ {};
+      // The type of the IP address in the whitelist for the child component. The default value is ipv4.
       shared_ptr<string> securityIPType_ {};
     };
 
@@ -825,46 +870,115 @@ namespace Models
 
 
   protected:
+    // The ID of an existing model operator instance to associate. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> AIDBClusterId_ {};
+    // The type of the application. Valid values:
+    // 
+    // - supabase: Creates a managed Supabase application.
+    // 
+    // - raycluster: Creates a managed Ray Cluster application.
+    // 
+    // - polarclaw: Creates a managed PolarClaw application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationType_ {};
+    // The CPU architecture. Valid value:
+    // 
+    // - x86
+    // 
     // This parameter is required.
     shared_ptr<string> architecture_ {};
+    // The authentication service provider.
     shared_ptr<string> authProvider_ {};
+    // The configuration of the authentication provider.
     shared_ptr<string> authProviderConfig_ {};
+    // Specifies whether to automatically create and bind an Elastic IP Address (EIP).
     shared_ptr<bool> autoAllocatePublicEip_ {};
+    // Specifies whether to automatically create a PolarFS cold storage instance. Valid values:
+    // 
+    // - false (default): Does not automatically create the instance.
+    // 
+    // - true: Automatically creates the instance.
     shared_ptr<bool> autoCreatePolarFs_ {};
+    // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
+    // Specifies whether to automatically use a coupon. Valid values:
+    // 
+    // - true (default): Uses a coupon.
+    // 
+    // - false: Does not use a coupon.
     shared_ptr<bool> autoUseCoupon_ {};
+    // A list of custom child components for the application.
     shared_ptr<vector<CreateApplicationRequest::Components>> components_ {};
+    // The ID of the PolarDB instance that the application depends on.
     shared_ptr<string> DBClusterId_ {};
+    // The description of the application.
     shared_ptr<string> description_ {};
+    // The default value is `false`. If you set this parameter to `true`, the system only checks the parameters and resources without creating the actual resources.
     shared_ptr<bool> dryRun_ {};
+    // A list of custom server-side endpoints. By default, a VPC Endpoint is created.
     shared_ptr<vector<CreateApplicationRequest::Endpoints>> endpoints_ {};
+    // This parameter is required for knowledge applications.
     shared_ptr<CreateApplicationRequest::KnowledgeApplicationSpec> knowledgeApplicationSpec_ {};
+    // This parameter is required for mem0 applications.
     shared_ptr<CreateApplicationRequest::MemApplicationSpec> memApplicationSpec_ {};
+    // The model API. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApi_ {};
+    // The API key for the model. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApiKey_ {};
+    // The URL of the model. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelBaseUrl_ {};
+    // The source of the model. Valid values:
+    // 
+    // - bailian: Alibaba Cloud Model Studio model.
+    // 
+    // - custom: A custom model.
+    // 
+    // - maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
+    // The name of the model. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelName_ {};
+    // A list of parameters.
     shared_ptr<vector<CreateApplicationRequest::Parameters>> parameters_ {};
+    // The billing method.
     shared_ptr<string> payType_ {};
+    // The subscription period type.
     shared_ptr<string> period_ {};
+    // The ID of the PolarFileSystem (PolarFS) cold storage or high-performance instance. This parameter is empty by default. If you specify this parameter, the corresponding storage is mounted to the application.
+    // 
+    // This feature is currently supported only by the following applications:
+    // 
+    // - supabase
+    // 
+    // - raycluster
     shared_ptr<string> polarFSInstanceId_ {};
+    // The coupon code. If you do not specify this parameter, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
+    // The region. The default value is the region of the instance.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
+    // The name of the IP address whitelist group. The default value is `default`.
     shared_ptr<string> securityIPArrayName_ {};
+    // The IP address whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
     shared_ptr<string> securityIPList_ {};
+    // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
+    // The ID of the skill template.
     shared_ptr<string> skillTemplateId_ {};
+    // The tag.
     shared_ptr<vector<CreateApplicationRequest::Tag>> tag_ {};
+    // The target version.
     shared_ptr<string> targetVersion_ {};
+    // The subscription duration.
     shared_ptr<string> usedTime_ {};
+    // The vSwitch. The default value is the current vSwitch in the primary zone of the instance.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the Virtual Private Cloud (VPC).
     shared_ptr<string> vpcId_ {};
+    // The zone. The default value is the primary zone of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

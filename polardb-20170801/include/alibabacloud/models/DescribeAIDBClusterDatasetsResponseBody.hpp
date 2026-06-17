@@ -169,15 +169,37 @@ namespace Models
 
 
     protected:
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
+      // The file size in bytes.
       shared_ptr<string> capacity_ {};
+      // The time the file was created, in UTC and formatted as ISO 8601.
       shared_ptr<string> creationTime_ {};
+      // The dataset ID.
       shared_ptr<string> datasetId_ {};
+      // The dataset type. Valid values:
+      // 
+      // - **train**: The training set.
+      // 
+      // - **eval**: The evaluation set.
       shared_ptr<string> datasetType_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
+      // The time the file was last modified, in UTC and formatted as ISO 8601.
       shared_ptr<string> lastModified_ {};
+      // The file path.
       shared_ptr<string> path_ {};
+      // The storage type. The only valid value is:
+      // 
+      // - **Standard**.
       shared_ptr<string> storageType_ {};
+      // The training mode. Valid values:
+      // 
+      // - **sft**: Supervised Fine-Tuning (SFT).
+      // 
+      // - **grpo**: Reinforcement Learning (RL).
+      // 
+      // - **text**: Text generation.
       shared_ptr<string> trainMode_ {};
     };
 
@@ -293,21 +315,49 @@ namespace Models
 
 
   protected:
+    // The continuation token from the request.
     shared_ptr<string> continuationToken_ {};
+    // The data service ID.
     shared_ptr<string> dataServiceId_ {};
+    // The dataset ID.
     shared_ptr<string> datasetId_ {};
+    // The training mode. Valid values:
+    // 
+    // - **sft**: Supervised Fine-Tuning (SFT).
+    // 
+    // - **grpo**: Reinforcement Learning (RL).
+    // 
+    // - **text**: Text generation.
     shared_ptr<string> datasetMode_ {};
+    // The dataset type. Valid values:
+    // 
+    // - **train**: The training set.
+    // 
+    // - **eval**: The evaluation set.
     shared_ptr<string> datasetType_ {};
+    // An array of dataset objects.
     shared_ptr<vector<DescribeAIDBClusterDatasetsResponseBody::Datasets>> datasets_ {};
+    // The total number of files in the dataset.
     shared_ptr<string> fileCount_ {};
+    // Indicates if more datasets are available. Valid values:
+    // 
+    // - **true**: More datasets are available.
+    // 
+    // - **false**: All datasets have been listed.
     shared_ptr<bool> isTruncated_ {};
+    // The token for retrieving the next page of results. This parameter is returned only if `IsTruncated` is `true`.
     shared_ptr<string> nextContinuationToken_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The page size.
     shared_ptr<string> pageSize_ {};
+    // The relative DB cluster ID.
     shared_ptr<string> relativeDBClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count of datasets.
     shared_ptr<string> totalCount_ {};
+    // The total number of records.
     shared_ptr<string> totalRecords_ {};
   };
 

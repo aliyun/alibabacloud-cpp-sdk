@@ -204,29 +204,59 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The instance type.
     shared_ptr<string> DBInstanceClass_ {};
+    // The ID of the training dataset. This parameter is required for fine-tuning.
     shared_ptr<string> datasetPath_ {};
+    // The ID of the validation dataset. This parameter is required for evaluation.
     shared_ptr<string> evalDatasetPath_ {};
+    // The type of model service. Valid values:
+    // 
+    // - **aitrain**: For model operator tuning.
+    // 
     // This parameter is required.
     shared_ptr<string> kubeType_ {};
+    // The model name.
+    // 
+    // - For a **preset model**, specify the model name.
+    // 
+    // - For a **custom model**, specify the path to the model. This option is for models trained in a cold storage edition instance.
+    // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
+    // The model source. Valid values:
+    // 
+    // - **public**: A preset model.
+    // 
+    // - **custom**: A custom model.
+    // 
     // This parameter is required.
     shared_ptr<string> modelSource_ {};
+    // The type of the custom model.
     shared_ptr<string> modelType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The runtime parameters, specified as a JSON string.
+    // 
     // This parameter is required.
     shared_ptr<string> runningParameter_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
+    // The name of the task.
     shared_ptr<string> taskName_ {};
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

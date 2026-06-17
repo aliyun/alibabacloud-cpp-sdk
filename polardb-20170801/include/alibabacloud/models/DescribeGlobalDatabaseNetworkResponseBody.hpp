@@ -82,6 +82,7 @@ namespace Models
 
 
     protected:
+      // The version of the GDN.
       shared_ptr<string> GDNVersion_ {};
     };
 
@@ -238,36 +239,47 @@ namespace Models
       protected:
         // The time when the node was created.
         shared_ptr<string> creationTime_ {};
-        // The specifications of the node.
+        // The node type.
         shared_ptr<string> DBNodeClass_ {};
         // The node ID.
         shared_ptr<string> DBNodeId_ {};
         // The role of the node. Valid values:
         // 
-        // *   **Writer**: the primary node
-        // *   **Reader**: a read-only node
+        // - **Writer**: the primary node
+        // 
+        // - **Reader**: a read-only node
         shared_ptr<string> DBNodeRole_ {};
         // The status of the node. Valid values:
         // 
-        // *   **Creating**: The node is being created.
-        // *   **Running**: The node is running.
-        // *   **Deleting**: The node is being deleted.
-        // *   **Rebooting**: The node is restarting.
-        // *   **ClassChanging**: The specifications of the node are being changed.
-        // *   **NetAddressCreating**: The network connection is being created.
-        // *   **NetAddressDeleting**: The network connection is being deleted.
-        // *   **NetAddressModifying**: The network connection is being modified.
-        // *   **MinorVersionUpgrading**: The minor version of the node is being updated.
-        // *   **Maintaining**: The node is being maintained.
-        // *   **Switching**: A failover is being performed.
+        // - **Creating**: The node is being created.
+        // 
+        // - **Running**: The node is running.
+        // 
+        // - **Deleting**: The node is being deleted.
+        // 
+        // - **Rebooting**: The node is being restarted.
+        // 
+        // - **ClassChanging**: The node type is being changed.
+        // 
+        // - **NetAddressCreating**: A network connection is being created.
+        // 
+        // - **NetAddressDeleting**: A network connection is being deleted.
+        // 
+        // - **NetAddressModifying**: A network connection is being modified.
+        // 
+        // - **MinorVersionUpgrading**: The minor version is being upgraded.
+        // 
+        // - **Maintaining**: The cluster is being maintained.
+        // 
+        // - **Switching**: A failover is in progress.
         shared_ptr<string> DBNodeStatus_ {};
-        // The failover priority. Each node is assigned a failover priority. The failover priority determines which node is selected as the primary node when a failover occurs. A larger value indicates a higher priority. Valid values: 1 to 15.
+        // The failover priority. In the event of a failover, the system promotes a read-only node to the primary node. A larger value indicates a higher priority. Each read-only node is assigned a failover priority. Valid values: 1 to 15.
         shared_ptr<int32_t> failoverPriority_ {};
         // The maximum number of concurrent connections.
         shared_ptr<int32_t> maxConnections_ {};
-        // The maximum input/output operations per second (IOPS).
+        // The maximum I/O operations per second (IOPS).
         shared_ptr<int32_t> maxIOPS_ {};
-        // The zone ID of the node.
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -392,62 +404,63 @@ namespace Models
     protected:
       // The edition of the cluster. Valid values:
       // 
-      // Normal: Cluster Edition Basic: Single Node Edition Archive: X-Engine Edition NormalMultimaster: Multi-master Cluster Edition SENormal: Standard Edition
+      // `Normal`: Cluster Edition `Basic`: Single-node Edition `Archive`: X-Engine Edition `NormalMultimaster`: Multi-master Cluster Edition `SENormal`: Standard Edition
       // 
-      // > 
-      // 
-      // *   PolarDB for PostgreSQL clusters that run the PostgreSQL 11 database engine do not support Single Node Edition.
-      // 
-      // *   PolarDB for MySQL 8.0 and 5.7 clusters, and PolarDB for PostgreSQL clusters that run the PostgreSQL 14 database engine support Standard Edition.
-      // 
-      // *   PolarDB for MySQL 8.0 clusters support X-Engine Edition and Multi-master Cluster Edition.
+      // > - Single-node Edition is not supported for PolarDB for PostgreSQL clusters that run PostgreSQL 11.
+      // >
+      // > - Standard Edition is supported for PolarDB for MySQL clusters that run MySQL 8.0 or 5.7 and for PolarDB for PostgreSQL clusters that run PostgreSQL 14.
+      // >
+      // > - X-Engine Edition and Multi-master Cluster Edition are supported only for PolarDB for MySQL clusters that run MySQL 8.0.
       shared_ptr<string> category_ {};
       // The description of the cluster.
       shared_ptr<string> DBClusterDescription_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The status of the cluster. For more information, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
+      // The status of the cluster. For more information, see [Cluster statuses](https://help.aliyun.com/document_detail/99286.html).
       shared_ptr<string> DBClusterStatus_ {};
-      // The node specifications of the cluster.
+      // The node type.
       shared_ptr<string> DBNodeClass_ {};
-      // The nodes of the cluster.
+      // The details of the nodes in the cluster.
       shared_ptr<vector<DBClusters::DBNodes>> DBNodes_ {};
-      // The database engine type of the cluster. Only MySQL is supported.
+      // The database engine. Only MySQL is supported.
       shared_ptr<string> DBType_ {};
-      // The version of the database engine. Only version 8.0 is supported.
+      // The database engine version. Only version 8.0 is supported.
       shared_ptr<string> DBVersion_ {};
       // The expiration time of the cluster.
       // 
-      // >  A specific value is returned only for subscription (**Prepaid**) clusters. No value is returned for pay-as-you-go (**Postpaid**) clusters.
+      // > This parameter is returned only for subscription clusters. An empty string is returned for pay-as-you-go clusters.
       shared_ptr<string> expireTime_ {};
       // Indicates whether the cluster has expired. Valid values:
       // 
-      // *   **true** (default)
-      // *   **false**
+      // - **true**: The cluster has expired.
       // 
-      // >  This parameter is returned only for subscription (**Prepaid**) clusters.
+      // - **false**: The cluster has not expired.
+      // 
+      // > This parameter is returned only for subscription clusters.
       shared_ptr<string> expired_ {};
       // The billing method of the cluster. Valid values:
       // 
-      // *   **Postpaid**: pay-as-you-go
-      // *   **Prepaid**: subscription
+      // - **Postpaid**: pay-as-you-go.
+      // 
+      // - **Prepaid**: subscription.
       shared_ptr<string> payType_ {};
       // The region ID of the cluster.
       shared_ptr<string> regionId_ {};
-      // The cross-region data replication latency between the primary cluster and secondary clusters. Unit: seconds.
+      // The replication lag for cross-region replication between the primary and standby clusters. Unit: seconds.
       shared_ptr<string> replicaLag_ {};
-      // The role of the cluster. Valid values:
+      // The role of the cluster in the GDN. Valid values:
       // 
-      // *   **Primary**: the primary cluster
-      // *   **standby**: a secondary cluster
+      // - **primary**: the primary cluster
       // 
-      // >  A GDN consists of one primary cluster and up to four secondary clusters.
+      // - **standby**: a standby cluster
+      // 
+      // > A GDN consists of one primary cluster and up to four standby clusters.
       shared_ptr<string> role_ {};
-      // Indicates whether the cluster is a serverless cluster. The value is fixed at AgileServerless.
+      // The type of the Serverless cluster. The value is fixed as `AgileServerless`.
       // 
-      // >  This parameter is returned only for serverless clusters.
+      // > This parameter is returned only for Serverless clusters.
       shared_ptr<string> serverlessType_ {};
-      // The storage usage of the cluster. Unit: bytes.
+      // The amount of storage space used. Unit: bytes.
       shared_ptr<string> storageUsed_ {};
     };
 
@@ -498,11 +511,11 @@ namespace Models
 
 
     protected:
-      // The endpoint URL of the database service.
+      // The connection string.
       shared_ptr<string> connectionString_ {};
-      // The network type for the database connection.
+      // The network type.
       shared_ptr<string> netType_ {};
-      // The port number for the database connection.
+      // The port number of the connection string.
       shared_ptr<string> port_ {};
     };
 
@@ -608,41 +621,49 @@ namespace Models
 
 
   protected:
-    // The information about the connection to the cluster.
+    // The connection details.
     shared_ptr<vector<DescribeGlobalDatabaseNetworkResponseBody::Connections>> connections_ {};
-    // The time at which the GDN was created.
+    // The time when the GDN was created.
     shared_ptr<string> createTime_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The clusters in the GDN.
     shared_ptr<vector<DescribeGlobalDatabaseNetworkResponseBody::DBClusters>> DBClusters_ {};
-    // The type of the database engine. Only MySQL is supported.
+    // The database engine type. Only MySQL is supported.
     shared_ptr<string> DBType_ {};
-    // The version of the database engine. Only version 8.0 is supported.
+    // The database engine version. Only version 8.0 is supported.
     shared_ptr<string> DBVersion_ {};
-    // The description of the GDN. The description must meet the following requirements:
+    // The description of the GDN. It must meet the following requirements:
     // 
-    // *   It cannot start with `http://` or `https://`.
-    // *   It must start with a letter.
-    // *   It can contain letters, digits, underscores (_), and hyphens (-).
-    // *   It must be 2 to 126 characters in length.
+    // - It cannot start with `http://` or `https://`.
+    // 
+    // - It must start with a letter or a Chinese character.
+    // 
+    // - It can contain only letters, Chinese characters, digits, underscores (_), and hyphens (-).
+    // 
+    // - It must be 2 to 126 characters in length.
     shared_ptr<string> GDNDescription_ {};
-    // The ID of the GDN.
+    // The GDN ID.
     shared_ptr<string> GDNId_ {};
-    // The status of the GDN. Valid values:
+    // The status of the Global Database Network (GDN). Valid values:
     // 
-    // *   **Creating**: The GDN is being created.
-    // *   **active**: The GDN is running.
-    // *   **deleting**: The GDN is being deleted.
-    // *   **locked**: The GDN is locked. If the GDN is locked, you cannot perform operations on clusters in the GDN.
-    // *   **removing_member**: The secondary cluster is being removed from the GDN.
+    // - **creating**: The GDN is being created.
+    // 
+    // - **active**: The GDN is running.
+    // 
+    // - **deleting**: The GDN is being deleted.
+    // 
+    // - **locked**: The GDN is locked. In this state, you cannot perform any operations on any cluster in the GDN.
+    // 
+    // - **removing_member**: A cluster is being removed from the GDN.
     shared_ptr<string> GDNStatus_ {};
     // The global domain name.
     shared_ptr<string> globalDomainName_ {};
+    // The labels of the GDN.
     shared_ptr<DescribeGlobalDatabaseNetworkResponseBody::Labels> labels_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

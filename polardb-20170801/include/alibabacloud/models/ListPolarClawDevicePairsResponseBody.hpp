@@ -201,20 +201,35 @@ namespace Models
 
 
     protected:
+      // The client ID.
       shared_ptr<string> clientId_ {};
+      // The client mode.
       shared_ptr<string> clientMode_ {};
+      // The device family.
       shared_ptr<string> deviceFamily_ {};
+      // The unique device ID.
       shared_ptr<string> deviceId_ {};
+      // The display name of the device.
       shared_ptr<string> displayName_ {};
+      // Whether the request is to repair an existing pairing.
       shared_ptr<bool> isRepair_ {};
+      // The pairing request ID.
       shared_ptr<string> pairRequestId_ {};
+      // The operating system.
       shared_ptr<string> platform_ {};
+      // The Ed25519 public key.
       shared_ptr<string> publicKey_ {};
+      // The requester\\"s remote IP address.
       shared_ptr<string> remoteIp_ {};
+      // The device role.
       shared_ptr<string> role_ {};
+      // The list of roles.
       shared_ptr<vector<string>> roles_ {};
+      // The list of permission scopes.
       shared_ptr<vector<string>> scopes_ {};
+      // Whether this is a silent pairing.
       shared_ptr<bool> silent_ {};
+      // The timestamp of the pairing request, in Unix milliseconds.
       shared_ptr<int64_t> ts_ {};
     };
 
@@ -331,15 +346,25 @@ namespace Models
 
 
     protected:
+      // The client ID.
       shared_ptr<string> clientId_ {};
+      // The client mode.
       shared_ptr<string> clientMode_ {};
+      // The time when the device pairing was created, in Unix milliseconds.
       shared_ptr<int64_t> createdAtMs_ {};
+      // The device family.
       shared_ptr<string> deviceFamily_ {};
+      // The unique device ID.
       shared_ptr<string> deviceId_ {};
+      // The display name of the device.
       shared_ptr<string> displayName_ {};
+      // The time when the device was last active, in Unix milliseconds.
       shared_ptr<int64_t> lastSeenAtMs_ {};
+      // The operating system.
       shared_ptr<string> platform_ {};
+      // The device role.
       shared_ptr<string> role_ {};
+      // The list of permission scopes.
       shared_ptr<vector<string>> scopes_ {};
     };
 
@@ -392,12 +417,17 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The status code of the response.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of paired devices.
     shared_ptr<vector<ListPolarClawDevicePairsResponseBody::Paired>> paired_ {};
+    // A list of pending pairing requests.
     shared_ptr<vector<ListPolarClawDevicePairsResponseBody::Pending>> pending_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

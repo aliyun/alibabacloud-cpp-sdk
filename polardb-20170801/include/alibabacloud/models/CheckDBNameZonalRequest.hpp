@@ -84,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerAccount_ {};

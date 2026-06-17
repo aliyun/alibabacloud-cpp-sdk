@@ -79,10 +79,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to enable real-time synchronization. Valid values:
+    // Specifies the synchronization mode. Valid values:
     // 
-    // *   **true**
-    // *   **false**: T + 1
+    // - **true**: Real-time synchronization.
+    // 
+    // - **false**: T+1 synchronization.
     shared_ptr<bool> syncRealTime_ {};
   };
 

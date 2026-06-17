@@ -84,18 +84,19 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the target cluster.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to.obtain the cluster ID.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to find the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to enable the cluster lock feature. Default value: false. Valid values:
+    // Specifies whether to enable or disable the cluster lock. The default value is false. Valid values:
     // 
-    // *   **true**: enables the cluster lock feature. If you enable the cluster lock feature, you cannot directly release the cluster. You must disable the cluster lock feature before you can release the cluster.
-    // *   **false**: disables the cluster lock feature.
+    // - **true**: Enables the cluster lock. When this feature is enabled, the cluster cannot be released. To release the cluster, first disable the cluster lock.
+    // 
+    // - **false**: Disables the cluster lock.
     shared_ptr<bool> protection_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

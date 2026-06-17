@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The destination path.
       shared_ptr<string> destinationPath_ {};
+      // The source path.
       shared_ptr<string> sourcePath_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // A list of files to move or rename.
     shared_ptr<vector<MovePolarFsObjectsRequest::ObjectsToMove>> objectsToMove_ {};
+    // The PolarFs instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
   };
 

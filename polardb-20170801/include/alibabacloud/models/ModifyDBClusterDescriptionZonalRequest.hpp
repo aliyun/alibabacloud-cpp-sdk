@@ -94,9 +94,18 @@ namespace Models
 
 
   protected:
+    // A client token to ensure the idempotence of the request. The client generates this value. It must be unique among different requests. The token is case-sensitive and can contain up to 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The cluster name. The cluster name must meet the following requirements:
+    // 
+    // - It cannot start with `http://` or `https://`.
+    // 
+    // - It must be 2 to 256 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterDescription_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};

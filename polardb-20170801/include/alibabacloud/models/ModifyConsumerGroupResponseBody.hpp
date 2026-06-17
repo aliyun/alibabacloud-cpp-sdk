@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the consumer group.
     shared_ptr<string> consumerGroupId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

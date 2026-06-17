@@ -84,15 +84,30 @@ namespace Models
 
 
   protected:
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The maximum number of requests per minute.
+    // 
     // This parameter is required.
     shared_ptr<string> rateLimitRpm_ {};
+    // The maximum number of tokens per minute.
+    // 
     // This parameter is required.
     shared_ptr<string> rateLimitTpm_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
+    // The ID of the consumer group or consumer.
+    // 
     // This parameter is required.
     shared_ptr<string> scopeRefId_ {};
+    // The rate limiting dimension. Valid values:
+    // 
+    // - **ConsumerGroup**: Consumer group
+    // 
+    // - **Consumer**: Consumer
+    // 
     // This parameter is required.
     shared_ptr<string> scopeType_ {};
   };

@@ -294,11 +294,17 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // A container for the log data.
     shared_ptr<DescribeApplicationLogsResponseBody::Items> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

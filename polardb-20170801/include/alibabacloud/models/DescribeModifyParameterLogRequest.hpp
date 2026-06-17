@@ -94,14 +94,20 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The end of the time range to query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format and is in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The beginning of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

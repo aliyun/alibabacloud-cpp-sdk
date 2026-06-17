@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // The permissions that the account is granted on the database. Valid values:
+        // The permissions of the account.
         shared_ptr<string> accountPrivilege_ {};
-        // The name of the database.
+        // The database name.
         shared_ptr<string> DBName_ {};
       };
 
@@ -166,28 +166,33 @@ namespace Models
 
 
     protected:
-      // The description of the account.
+      // The description of the database account.
       shared_ptr<string> accountDescription_ {};
-      // The locking state of the account. Valid values:
+      // The lock status of the account. Valid values:
       // 
-      // *   **UnLock**
-      // *   **Lock**
+      // - **UnLock**: The account is not locked.
+      // 
+      // - **Lock**: The account is locked.
       shared_ptr<string> accountLockState_ {};
-      // The name of the account.
+      // The name of the database account.
       shared_ptr<string> accountName_ {};
       // The validity period of the password.
       shared_ptr<string> accountPasswordValidTime_ {};
-      // The state of the account. Valid values:
+      // The status of the database account. Valid values:
       // 
-      // *   **Creating**: The account is being created.
-      // *   **Available**: The account is available.
-      // *   **Deleting**: The account is being deleted
+      // - **Creating**: The account is being created.
+      // 
+      // - **Available**: The account is available.
+      // 
+      // - **Deleting**: The account is being deleted.
       shared_ptr<string> accountStatus_ {};
       // The type of the account. Valid values:
       // 
-      // *   **Normal**: standard account.
-      // *   **Super**: privileged account.
-      // *   **ReadOnly**: global read-only account.
+      // - **Normal**: standard account.
+      // 
+      // - **Super**: privileged account.
+      // 
+      // - **ReadOnly**: global read-only account.
       shared_ptr<string> accountType_ {};
       // The list of database permissions that are granted to the account.
       shared_ptr<vector<Accounts::DatabasePrivileges>> databasePrivileges_ {};
@@ -228,7 +233,7 @@ namespace Models
   protected:
     // The details of the account.
     shared_ptr<vector<DescribeAccountsResponseBody::Accounts>> accounts_ {};
-    // The page number of the page returned.
+    // The page number. Pages start from page 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageRecordCount_ {};

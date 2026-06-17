@@ -156,13 +156,15 @@ namespace Models
   protected:
     // The database type. Valid values:
     // 
-    // *   Oracle
-    // *   PostgreSQL
-    // *   MySQL
+    // - Oracle
+    // 
+    // - PostgreSQL
+    // 
+    // - MySQL
     shared_ptr<string> DBType_ {};
-    // The version of the database engine.
+    // The database version.
     shared_ptr<string> DBVersion_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeDBInitializeVariableResponseBody::Variables> variables_ {};
   };

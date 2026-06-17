@@ -103,14 +103,39 @@ namespace Models
 
 
   protected:
+    // The ID of the consumer group or user. This parameter is required if BudgetDimensionType is set to ConsumerGroup or Consumer.
     shared_ptr<string> budgetDimensionRefId_ {};
+    // The policy type. Valid values:
+    // 
+    // - **ConsumerGroup**: The policy applies to a consumer group.
+    // 
+    // - **Consumer**: The policy applies to a user.
     shared_ptr<string> budgetDimensionType_ {};
+    // The budget policy ID.
     shared_ptr<string> budgetPolicyId_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // The default value is **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The policy status. Valid values:
+    // 
+    // - **Enabled**
+    // 
+    // - **Disabled**
     shared_ptr<string> status_ {};
   };
 

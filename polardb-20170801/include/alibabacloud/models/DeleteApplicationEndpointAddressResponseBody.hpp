@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The server-side endpoint ID.
     shared_ptr<string> endpointId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -399,9 +399,11 @@ namespace Models
 
 
   protected:
+    // The network type of the cluster. The value is fixed as **VPC**.
     shared_ptr<string> clusterNetworkType_ {};
     shared_ptr<DescribeDBClusterNetInfoResponseBody::DBClusterNetInfos> DBClusterNetInfos_ {};
     shared_ptr<DescribeDBClusterNetInfoResponseBody::DBNodeNetInfos> DBNodeNetInfos_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -178,13 +178,33 @@ namespace Models
 
 
       protected:
+        // The node ID.
+        // 
+        // > You must specify either the `DBNodeId` or `DBClusterId` parameter. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of your clusters, including the node IDs.
         shared_ptr<string> DBNodeId_ {};
+        // The time when the step was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
         shared_ptr<string> endTime_ {};
+        // Indicates whether the step was successful. Valid values:
+        // 
+        // - `true`: The step was successful.
+        // 
+        // - `false`: The step failed.
         shared_ptr<string> isSuccess_ {};
+        // The fault simulation phase. Valid values:
+        // 
+        // - **PolarDB.MySQL.FaultSimulate.Phase.FAULT_INJECTION**: The fault injection phase.
+        // 
+        // - **PolarDB.MySQL.FaultSimulate.Phase.RECOVERY**: The recovery phase.
+        // 
+        // - **PolarDB.MySQL.FaultSimulate.Phase.POST_PROCESS**: The post-processing phase.
         shared_ptr<string> simulatePhase_ {};
+        // The time when the step started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
         shared_ptr<string> startTime_ {};
+        // A message about the execution status of the step.
         shared_ptr<string> stepMsg_ {};
+        // The name of the step.
         shared_ptr<string> stepName_ {};
+        // The duration of the step in milliseconds.
         shared_ptr<string> timeCost_ {};
       };
 
@@ -257,14 +277,45 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
+      // 
+      // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of your clusters, including the cluster IDs.
       shared_ptr<string> DBInstanceId_ {};
+      // The destination database type. Valid values:
+      // 
+      // - **PolarDBMySQL**: A major version upgrade of PolarDB for MySQL.
+      // 
+      // - **RDS**: A migration from RDS to PolarDB for MySQL.
       shared_ptr<string> dstDbType_ {};
+      // The time when the system event was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> eventFinishTime_ {};
+      // The time when the system event started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> eventStartTime_ {};
+      // The simulation list ID.
       shared_ptr<string> simulateListId_ {};
+      // The fault simulation status. Valid values:
+      // 
+      // - **0**: Pending
+      // 
+      // - **1**: Success
+      // 
+      // - **2**: Running
+      // 
+      // - **3**: Failed
+      // 
+      // - **4**: Aborted
+      // 
+      // - **5**: Awaiting rollback
       shared_ptr<string> simulateStatus_ {};
+      // The status code of the fault simulation.
       shared_ptr<string> simulatecode_ {};
+      // The source database type. Valid values:
+      // 
+      // - **PolarDBMySQL**: A major version upgrade of PolarDB for MySQL.
+      // 
+      // - **RDS**: A migration from RDS to PolarDB for MySQL.
       shared_ptr<string> srcDbType_ {};
+      // A list of failover steps.
       shared_ptr<vector<SwitchLogItems::SwitchStepItems>> switchStepItems_ {};
     };
 
@@ -393,12 +444,31 @@ namespace Models
 
 
       protected:
+        // The cluster node ID.
+        // 
+        // > This parameter is returned only when the `Key` parameter in the request is not set to `PolarDBDiskUsage`.
         shared_ptr<string> DBNodeId_ {};
+        // The time when the step was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
         shared_ptr<string> endTime_ {};
+        // Indicates whether the step was successful. Valid values:
+        // 
+        // - `true`: The step was successful.
+        // 
+        // - `false`: The step failed.
         shared_ptr<string> isSuccess_ {};
+        // The fault simulation phase. Valid values:
+        // 
+        // - **PolarDB.MySQL.FaultSimulate.Phase.FAULT_INJECTION**: The fault injection phase.
+        // 
+        // - **PolarDB.MySQL.FaultSimulate.Phase.RECOVERY**: The recovery phase.
+        // 
+        // - **PolarDB.MySQL.FaultSimulate.Phase.POST_PROCESS**: The post-processing phase.
         shared_ptr<string> simulatePhase_ {};
+        // The time when the step started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
         shared_ptr<string> startTime_ {};
+        // The name of the current step. You can call the [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2400077.html) operation to query the current step of a specified task. A common value is **do_pause**, which indicates that the system waits for a specified period of time.
         shared_ptr<string> stepName_ {};
+        // The duration of the step in milliseconds.
         shared_ptr<string> timeCost_ {};
       };
 
@@ -511,11 +581,27 @@ namespace Models
 
 
         protected:
+          // The time when the step was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
           shared_ptr<string> endTime_ {};
+          // Indicates whether the step was successful. Valid values:
+          // 
+          // - `true`: The step was successful.
+          // 
+          // - `false`: The step failed.
           shared_ptr<string> isSuccess_ {};
+          // The fault simulation phase. Valid values:
+          // 
+          // - **PolarDB.MySQL.FaultSimulate.Phase.FAULT_INJECTION**: The fault injection phase.
+          // 
+          // - **PolarDB.MySQL.FaultSimulate.Phase.RECOVERY**: The recovery phase.
+          // 
+          // - **PolarDB.MySQL.FaultSimulate.Phase.POST_PROCESS**: The post-processing phase.
           shared_ptr<string> simulatePhase_ {};
+          // The time when the step started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
           shared_ptr<string> startTime_ {};
+          // The name of the current step. You can call the [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2400077.html) operation to query the current step of a specified task. A common value is **do_pause**, which indicates that the system waits for a specified period of time.
           shared_ptr<string> stepName_ {};
+          // The duration of the step in milliseconds.
           shared_ptr<string> timeCost_ {};
         };
 
@@ -588,14 +674,45 @@ namespace Models
 
 
       protected:
+        // The cluster ID.
+        // 
+        // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of your clusters, including the cluster IDs.
         shared_ptr<string> DBInstanceId_ {};
+        // The destination database type. Valid values:
+        // 
+        // - **PolarDBMySQL**: A major version upgrade of PolarDB for MySQL.
+        // 
+        // - **RDS**: A migration from RDS to PolarDB for MySQL.
         shared_ptr<string> dstDbType_ {};
+        // The time when the system event was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
         shared_ptr<string> eventFinishTime_ {};
+        // The time when the system event started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
         shared_ptr<string> eventStartTime_ {};
+        // The simulation list ID.
         shared_ptr<string> simulateListId_ {};
+        // The simulation log ID.
         shared_ptr<string> simulateLogId_ {};
+        // The fault simulation status. Valid values:
+        // 
+        // - **0**: Pending
+        // 
+        // - **1**: Success
+        // 
+        // - **2**: Running
+        // 
+        // - **3**: Failed
+        // 
+        // - **4**: Aborted
+        // 
+        // - **5**: Awaiting rollback
         shared_ptr<string> simulateStatus_ {};
+        // The source database type. Valid values:
+        // 
+        // - **PolarDBMySQL**: A major version upgrade of PolarDB for MySQL.
+        // 
+        // - **RDS**: A migration from RDS to PolarDB for MySQL.
         shared_ptr<string> srcDbType_ {};
+        // A list of fault simulation steps.
         shared_ptr<vector<SwitchLogItems::SwitchStepItems>> switchStepItems_ {};
       };
 
@@ -694,17 +811,45 @@ namespace Models
 
 
     protected:
+      // The IDs of nodes on which to simulate a fault.
+      // 
+      // > For a node-level fault simulation, specify the ID of a single node. For an availability zone-level fault simulation, you can either omit this parameter or specify the IDs of all nodes in the zone.
       shared_ptr<vector<string>> DBNodeCrashList_ {};
+      // The time when the fault simulation was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> endTime_ {};
+      // The time when the system event was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> eventFinishTime_ {};
+      // The time when the system event started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> eventStartTime_ {};
+      // The fault injection method. Valid values:
+      // 
+      // - CrashSQLInjection: Injects a fault into the instance by using `Crash SQL`.
       shared_ptr<string> faultInjectionType_ {};
+      // The fault simulation record ID.
       shared_ptr<string> simulateListId_ {};
+      // The fault simulation mode.
       shared_ptr<string> simulateMode_ {};
+      // The fault simulation status. Valid values:
+      // 
+      // - **0**: Pending
+      // 
+      // - **1**: Success
+      // 
+      // - **2**: Running
+      // 
+      // - **3**: Failed
+      // 
+      // - **4**: Aborted
+      // 
+      // - **5**: Awaiting rollback
       shared_ptr<string> simulateStatus_ {};
+      // The fault simulation task ID.
       shared_ptr<string> simulateTaskId_ {};
+      // The time when the fault simulation started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> startTime_ {};
+      // A list of fault simulation logs.
       shared_ptr<vector<SwitchListItems::SwitchLogItems>> switchLogItems_ {};
+      // A list of failover steps.
       shared_ptr<vector<SwitchListItems::SwitchStepItems>> switchStepItems_ {};
     };
 
@@ -810,14 +955,29 @@ namespace Models
 
 
     protected:
+      // The number of affected sessions during the failover.
       shared_ptr<int64_t> affectedSessions_ {};
+      // The instance type before the failover. Valid values:
+      // 
+      // - **polardb_mysql_rw**: read-write instance.
+      // 
+      // - **polardb_mysql_ro**: read-only instance.
+      // 
+      // - **polardb_mysql_standby**: standby instance.
       shared_ptr<string> fromDBType_ {};
+      // The error code for the failover cause.
       shared_ptr<string> switchCauseCode_ {};
+      // Details about the failover cause.
       shared_ptr<string> switchCauseDetail_ {};
+      // The time when the failover was complete. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> switchFinishTime_ {};
+      // The failover log ID.
       shared_ptr<string> switchId_ {};
+      // The time when the failover started. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
       shared_ptr<string> switchStartTime_ {};
+      // The failover type.
       shared_ptr<int64_t> switchType_ {};
+      // The total number of sessions during the failover.
       shared_ptr<int64_t> totalSessions_ {};
     };
 
@@ -908,16 +1068,37 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBInstanceName_ {};
+    // The instance type. Valid values:
+    // 
+    // - **polardb_mysql_rw**: read-write instance.
+    // 
+    // - **polardb_mysql_ro**: read-only instance.
+    // 
+    // - **polardb_mysql_standby**: standby instance.
     shared_ptr<string> DBInstanceType_ {};
+    // A list of failover logs.
     shared_ptr<vector<DescribeDBLogFilesResponseBody::HaLogItems>> haLogItems_ {};
+    // Indicates whether a failover record exists. Valid values:
+    // 
+    // - **1**: No
+    // 
+    // - **0**: Yes
     shared_ptr<int32_t> haStatus_ {};
+    // The number of log items on the current page.
     shared_ptr<int32_t> itemsNumbers_ {};
+    // The page number. It must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values: 5 to 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of fault simulation records.
     shared_ptr<vector<DescribeDBLogFilesResponseBody::SwitchListItems>> switchListItems_ {};
+    // A list of fault simulation logs.
     shared_ptr<vector<DescribeDBLogFilesResponseBody::SwitchLogItems>> switchLogItems_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecords_ {};
   };
 

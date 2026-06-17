@@ -449,10 +449,15 @@ namespace Models
 
 
   protected:
+    // Contains the returned applications.
     shared_ptr<DescribeApplicationsResponseBody::Items> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total record count.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

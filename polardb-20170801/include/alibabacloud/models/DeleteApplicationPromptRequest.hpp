@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The Application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The Prompt ID.
+    // 
     // This parameter is required.
     shared_ptr<string> promptId_ {};
   };

@@ -103,11 +103,22 @@ namespace Models
 
 
   protected:
+    // A client token to ensure the idempotence of the request. The client generates this token. It must be unique across requests, case-sensitive, and up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The description of the database. The description must meet the following requirements:
+    // 
+    // - It cannot start with `http://` or `https://`.
+    // 
+    // - It must be 2 to 256 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> DBDescription_ {};
+    // The database name.
+    // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerAccount_ {};

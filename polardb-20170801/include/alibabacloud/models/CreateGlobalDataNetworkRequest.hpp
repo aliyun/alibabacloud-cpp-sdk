@@ -121,15 +121,39 @@ namespace Models
 
 
   protected:
+    // The description or remarks for the GDN.
     shared_ptr<string> description_ {};
+    // Destination path
     shared_ptr<string> destinationFileSystemPath_ {};
+    // Target PolarFileSystem (PolarFS) instance
     shared_ptr<string> destinationId_ {};
+    // The region of the destination PolarFS instance.
     shared_ptr<string> destinationRegion_ {};
+    // The type of the destination instance. Valid values:
+    // 
+    // - **pfs**: PolarFS High-Performance Edition.
+    // 
+    // - **pcs**: PolarFS Cold Storage Edition.
     shared_ptr<string> destinationType_ {};
+    // Whether to freeze the source path during transmission. Valid values:
+    // 
+    // - **true**: Freeze.
+    // 
+    // - **false**: Do not freeze.
+    // 
+    // > Currently only supports oss source.
     shared_ptr<string> freezeSourceDuringSync_ {};
+    // The source path.
     shared_ptr<string> sourceFileSystemPath_ {};
+    // Source PolarFileSystem (PolarFS) instance.
     shared_ptr<string> sourceId_ {};
+    // The region of the source PolarFS instance.
     shared_ptr<string> sourceRegion_ {};
+    // The type of the source instance. Valid values:
+    // 
+    // - **pfs**: PolarFS High-Performance Edition.
+    // 
+    // - **pcs**: PolarFS Cold Storage Edition.
     shared_ptr<string> sourceType_ {};
   };
 

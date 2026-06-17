@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The service endpoint ID.
+    // 
     // This parameter is required.
     shared_ptr<string> endpointId_ {};
+    // The network type of the new connection address. The value must be `Public`, which indicates an Internet address.
+    // 
     // This parameter is required.
     shared_ptr<string> netType_ {};
   };

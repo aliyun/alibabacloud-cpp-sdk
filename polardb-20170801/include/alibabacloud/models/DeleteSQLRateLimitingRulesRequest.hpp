@@ -84,12 +84,18 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The names of the SQL throttling rules to delete. To delete multiple rules in a batch, separate the rule names with commas (,).
+    // 
+    // > Call the [DescribeSQLRateLimitingRules](https://help.aliyun.com/document_detail/212573.html) operation to view the details of all SQL throttling rules for the target cluster, including their names.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleNameList_ {};
   };

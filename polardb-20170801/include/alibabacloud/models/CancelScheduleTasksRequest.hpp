@@ -96,20 +96,21 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all clusters that are deployed in a specified region, such as the cluster IDs.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view information about all clusters in the destination region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the scheduled task that you want to cancel.
+    // The ID of the scheduled task to cancel.
     // 
-    // > *   You can call the [DescribeScheduleTasks](https://help.aliyun.com/document_detail/199648.html) operation to query the details of all scheduled tasks that belong to the current account, such as the task IDs.
-    // >*   You can cancel only the tasks whose status is `pending`.``
+    // > - Call the [DescribeScheduleTasks](https://help.aliyun.com/document_detail/199648.html) operation to view information about all scheduled tasks for your account, including task IDs.
+    // >
+    // > - You can cancel only tasks that are in the pending state. The `Status` parameter for these tasks returns `pending`.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Indicates whether to enable automatic quotas.
     shared_ptr<bool> autoQuota_ {};
+    // The ID of the cross-cloud resource plan.
+    // 
     // This parameter is required.
     shared_ptr<string> resourcePackageId_ {};
   };

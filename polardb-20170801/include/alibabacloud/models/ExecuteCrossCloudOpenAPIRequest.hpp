@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The information required to call the cross-cloud OpenAPI.
     shared_ptr<string> proxyInfo_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cold storage instance.
     shared_ptr<string> coldStorageInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

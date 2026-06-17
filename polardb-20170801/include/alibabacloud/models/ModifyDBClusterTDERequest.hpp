@@ -121,23 +121,25 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to allow the TDE key of the cluster to be automatically rotated within the next maintenance window after a lapse of the rotation period when a change in the KMS key version is detected. This parameter is supported only for custom keys. Valid values:
+    // Specifies whether to automatically rotate the TDE key of the instance during the next O\\&M window after a new version of the KMS key is available. This parameter is valid only for custom keys.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
     // 
-    // >  This parameter is supported only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+    // - **false**
+    // 
+    // > This parameter is supported only when the database engine is compatible with PostgreSQL or Oracle.
     shared_ptr<string> enableAutomaticRotation_ {};
-    // Specifies whether to enable automatic encryption for new tables. Valid values:
+    // Specifies whether to automatically encrypt all new tables. Valid values:
     // 
-    // *   **ON**
-    // *   **OFF**
+    // - **ON**
     // 
-    // >  This parameter takes effect only for a PolarDB for MySQL cluster.
+    // - **OFF**
+    // 
+    // > This parameter is valid only when the database engine is compatible with MySQL.
     shared_ptr<string> encryptNewTables_ {};
     // The ID of the custom key.
     shared_ptr<string> encryptionKey_ {};
@@ -145,9 +147,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
+    // The Global Resource Descriptor of the role. You can use this parameter to specify a role. For more information, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
     shared_ptr<string> roleArn_ {};
-    // Modifies the TDE status. Set the value to **Enable**.
+    // The TDE status. Set the value to **Enable**.
     // 
     // This parameter is required.
     shared_ptr<string> TDEStatus_ {};

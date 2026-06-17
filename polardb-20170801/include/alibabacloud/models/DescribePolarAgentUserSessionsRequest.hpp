@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The source of the product. The value is \\`polardb-console\\`.
     shared_ptr<string> source_ {};
   };
 

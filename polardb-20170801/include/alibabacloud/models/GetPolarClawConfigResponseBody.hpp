@@ -96,13 +96,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The configuration object.
     Darabonba::Json config_ {};
+    // The configuration hash.
     shared_ptr<string> hash_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The version of OpenClaw.
     shared_ptr<string> openclawVersion_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

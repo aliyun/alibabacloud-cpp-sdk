@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The absolute path of the directory to create.
+    // 
     // This parameter is required.
     shared_ptr<string> path_ {};
+    // The PolarFS instance id.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
   };

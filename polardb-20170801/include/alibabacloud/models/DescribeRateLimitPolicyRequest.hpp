@@ -94,13 +94,31 @@ namespace Models
 
 
   protected:
+    // The ID of the gateway instance.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The page number to return. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**. The default value is **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the rate limit policy.
     shared_ptr<string> policyId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the target resource, which can be a consumer group or a consumer, depending on the `ScopeType` value.
     shared_ptr<string> scopeRefId_ {};
+    // The scope of the rate limit policy. Valid values:
+    // 
+    // - **ConsumerGroup**: The policy applies to a consumer group.
+    // 
+    // - **Consumer**: The policy applies to a specific consumer.
     shared_ptr<string> scopeType_ {};
   };
 

@@ -71,9 +71,9 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The details of the nodes.
+    // The list of nodes.
     shared_ptr<vector<string>> DBNodeIds_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

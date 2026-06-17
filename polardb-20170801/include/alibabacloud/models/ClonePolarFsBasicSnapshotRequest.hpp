@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the database cluster.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the Polarlakebase instance.
     shared_ptr<string> polarFsInstanceId_ {};
+    // The source path of the file resource. This parameter is empty if the type is local.
     shared_ptr<string> sourcePath_ {};
+    // The destination path.
     shared_ptr<string> targetPath_ {};
   };
 

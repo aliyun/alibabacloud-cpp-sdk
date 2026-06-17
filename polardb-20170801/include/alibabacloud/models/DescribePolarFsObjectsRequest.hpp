@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The absolute path of the directory.
+    // 
     // This parameter is required.
     shared_ptr<string> path_ {};
+    // The PolarFs instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
   };

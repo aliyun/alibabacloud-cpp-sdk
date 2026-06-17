@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the batch task.
     shared_ptr<string> batchId_ {};
   };
 

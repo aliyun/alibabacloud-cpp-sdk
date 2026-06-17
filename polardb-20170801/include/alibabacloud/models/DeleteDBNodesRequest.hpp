@@ -115,30 +115,27 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
+    // The client token that is used to ensure the idempotence of the request. The client generates this value, which must be unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
     shared_ptr<string> clientToken_ {};
+    // The service provider of the node.
     shared_ptr<string> cloudProvider_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The IDs of the nodes.
+    // The IDs of the nodes to be deleted.
     // 
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters that belong to your Alibaba Cloud account, such as the cluster ID.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters in your account, including node IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> DBNodeId_ {};
     // The node type. Valid values:
     // 
-    // *   RO
-    // *   STANDBY
-    // *   DLNode
+    // - RO
     // 
-    // Enumerated values:
+    // - STANDBY
     // 
-    // *   DLNode: AI node
-    // *   STANDBY: standby node
-    // *   RO: read-only node
+    // - DLNode
     shared_ptr<string> DBNodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

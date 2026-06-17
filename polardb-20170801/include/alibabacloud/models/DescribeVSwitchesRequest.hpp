@@ -140,28 +140,28 @@ namespace Models
 
 
   protected:
-    // The dedicated cluster ID.
+    // The ID of the dedicated cluster.
     // 
-    // >  You must specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
+    // > Specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
     shared_ptr<string> dedicatedHostGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. Default value: 1.
+    // The page number of the list. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: 50. The default value is 50.
+    // The number of entries to return on each page for a paged query. The maximum value is 50. The default value is 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the vSwitch is deployed.
+    // The region ID of the vSwitch.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the vSwitch belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The ID of the virtual private type (VPC) to which the vSwitch belongs.
+    // The ID of the virtual private cloud (VPC) to which the vSwitch belongs.
     // 
-    // >  You must specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
+    // > Specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone to which the vSwitch belongs.
+    // The zone ID of the vSwitch.
     shared_ptr<string> zoneId_ {};
   };
 

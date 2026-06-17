@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to list all clusters in the destination region, including their IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
   };

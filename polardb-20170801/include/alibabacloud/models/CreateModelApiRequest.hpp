@@ -121,20 +121,50 @@ namespace Models
 
 
   protected:
+    // The model to which requests are forcibly routed.
     shared_ptr<string> forceModel_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The model API category. Valid values:
+    // 
+    // - **text**
+    // 
+    // - **embedding**
+    // 
+    // - **rerank**
+    // 
     // This parameter is required.
     shared_ptr<string> modelCategory_ {};
+    // The model API name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The path prefix.
+    // 
     // This parameter is required.
     shared_ptr<string> pathPrefix_ {};
+    // The model API protocol. Valid values:
+    // 
+    // - **OpenAI**
+    // 
+    // - **Anthropic**
+    // 
+    // - **Model Studio**
+    // 
+    // - **vLLM**
+    // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
+    // Specifies whether to record input for billing.
     shared_ptr<string> recordInput_ {};
+    // Specifies whether to record output for billing.
     shared_ptr<string> recordOutput_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // A list of routing rules, provided as a JSON array string.
+    // 
     // This parameter is required.
     shared_ptr<string> routeRules_ {};
   };

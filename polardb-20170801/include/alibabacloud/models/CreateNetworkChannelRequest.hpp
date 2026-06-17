@@ -158,21 +158,33 @@ namespace Models
 
 
   protected:
+    // The name of the network channel. The name must consist of lowercase letters, digits, and underscores (_). It must start and end with a letter or a digit. The name can be up to 64 characters long.
+    // 
     // This parameter is required.
     shared_ptr<string> channelName_ {};
+    // A client token that ensures the request is idempotent. The client generates this token. The token must be unique for each request. It is case-sensitive and can be up to 64 ASCII characters long.
     shared_ptr<string> clientToken_ {};
+    // The name of the source instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The notes.
     shared_ptr<string> notes_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name of the destination instance.
     shared_ptr<string> targetDBClusterId_ {};
+    // The IP address of the destination instance.
     shared_ptr<string> targetIp_ {};
+    // The port of the destination instance.
     shared_ptr<string> targetPort_ {};
+    // The ID of the virtual private cloud (VPC) where the endpoint is located.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -145,17 +145,39 @@ namespace Models
 
 
     protected:
+      // The time to live (TTL) for the access time. Unit: seconds.
       shared_ptr<int64_t> accessTTL_ {};
+      // The TTL for the change time. Unit: seconds.
       shared_ptr<int64_t> changeTTL_ {};
+      // The description of the resource quota.
       shared_ptr<string> description_ {};
+      // Specifies whether to enable the rule. Valid values:
+      // 
+      // - **True**: The rule immediately applies to new items. This is the default value.
+      // 
+      // - **False**: The rule does not apply to new items.
       shared_ptr<bool> enabled_ {};
+      // The rule to exclude specific paths from matching.
+      // 
+      // - A path pattern that starts with a forward slash (/). Supports glob syntax, including `*`, `?`, and `**`.
       shared_ptr<string> exclude_ {};
+      // The limit on the number of files for a user in the directory.
       shared_ptr<int64_t> fileCountLimit_ {};
+      // The wildcard pattern to match paths.
+      // 
+      // - A path pattern that starts with a forward slash (/). Supports glob syntax, including `*`, `?`, and `**`.
+      // 
       // This parameter is required.
       shared_ptr<string> include_ {};
+      // The name of the rule.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The priority of the quota rule.
       shared_ptr<int32_t> priority_ {};
+      // The total size limit for files in the directory. Unit: GB.
+      // 
+      // - Note: The value must be at least 1 GB.
       shared_ptr<int64_t> sizeLimit_ {};
     };
 
@@ -185,9 +207,14 @@ namespace Models
 
 
   protected:
+    // The ID of the PolarDB instance on which the application depends.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the Polarlakebase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
+    // The details of the quota rules.
+    // 
     // This parameter is required.
     shared_ptr<vector<AddPolarFsQuotaRequest::Quotas>> quotas_ {};
   };

@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the cost budget policy.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetPolicyId_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

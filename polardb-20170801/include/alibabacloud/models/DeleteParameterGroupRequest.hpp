@@ -98,18 +98,17 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The parameter template ID.
     // 
-    //  
-    // >  You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the parameter template ID.
+    // > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to view parameter template IDs.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
     // The region ID.
-    //  
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

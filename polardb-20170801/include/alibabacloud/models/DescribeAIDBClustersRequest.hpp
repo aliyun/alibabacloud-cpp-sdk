@@ -92,7 +92,9 @@ namespace Models
 
 
     protected:
+      // The tag key. Use this parameter with `Tag.n.Value` to filter clusters by tag. You can specify up to 20 tag pairs. The index n must be a unique, consecutive integer starting from 1.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -194,19 +196,65 @@ namespace Models
 
 
   protected:
+    // The node type. To specify multiple types, separate them with a comma. Valid values:
+    // 
+    // - **vnode**: a node managed by Kubernetes
+    // 
+    // - **container**: a container that you can log on to
+    // 
+    // - **maas**: model service
     shared_ptr<string> aiNodeType_ {};
+    // The cluster description. Fuzzy search is supported.
     shared_ptr<string> DBClusterDescription_ {};
+    // The cluster ID. To specify multiple clusters, separate their IDs with a comma.
     shared_ptr<string> DBClusterIds_ {};
+    // The cluster status. Valid values:
+    // 
+    // - **Creating**: The cluster is being created.
+    // 
+    // - **Running**: The cluster is running.
+    // 
+    // - **Deleting**: The cluster is being released.
+    // 
+    // - **Rebooting**: The cluster is restarting.
+    // 
+    // - **DBNodeCreating**: A node is being added.
+    // 
+    // - **DBNodeDeleting**: A node is being deleted.
+    // 
+    // - **ClassChanging**: The node specifications are being changed.
+    // 
+    // - **NetAddressCreating**: A network connection is being created.
+    // 
+    // - **NetAddressDeleting**: A network connection is being deleted.
+    // 
+    // - **NetAddressModifying**: A network connection is being modified.
+    // 
+    // - **Deleted**: The cluster is released.
+    // 
+    // * **ClassChanged**: Resources are being reclaimed after the upgrade or downgrade.
     shared_ptr<string> DBClusterStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: **30**, **50**, and **100**.
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The billing method. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go
+    // 
+    // - **Prepaid**: subscription
     shared_ptr<string> payType_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // A list of tags.
     shared_ptr<vector<DescribeAIDBClustersRequest::Tag>> tag_ {};
   };
 

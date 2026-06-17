@@ -167,20 +167,47 @@ namespace Models
 
 
   protected:
+    // The ID of the PolarDB cluster.
     shared_ptr<string> DBClusterId_ {};
+    // The name of the database.
     shared_ptr<string> DBName_ {};
+    // The type of the supported engine. The return value is the sum of the values of the supported engine types.
+    // 
+    // - 1: Search engine
+    // 
+    // - 2: LindormTSDB
+    // 
+    // - 4: LindormTable
+    // 
+    // - 8: File engine
+    // 
+    // > For example, if \\`EngineType\\` is 15 (8 + 4 + 2 + 1), the instance supports the search engine, LindormTSDB, LindormTable, and file engine. If \\`EngineType\\` is 6 (4 + 2), the instance supports LindormTSDB and LindormTable.
     shared_ptr<string> engineType_ {};
+    // The expiration time of the cluster. Note: This parameter is returned only for subscription clusters. An empty value is returned for pay-as-you-go clusters.
     shared_ptr<int32_t> expireTime_ {};
+    // - If you do not specify the **MaxResults** parameter, the query is not paged. The value of the **MaxResults** parameter in the response indicates the total number of entries.
+    // 
+    // - If you specify the **MaxResults** parameter, the query is paged. **MaxResults** specifies the number of entries to return on each page. Valid values: **1** to **100**. The value of the **MaxResults** parameter in the response indicates the number of entries on the current page. The recommended value is **20**.
     shared_ptr<int32_t> maxResults_ {};
+    // A token to retrieve the next page of results. Set this parameter to the \\`NextToken\\` value from a previous call. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
+    // The object type. Valid values: \\`TABLE\\`, \\`PARTITION_TABLE\\`, and \\`LOB\\`.
     shared_ptr<string> objectType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The region ID.
+    // 
+    // > - For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
+    // 
+    // - If you do not specify this parameter, the operation queries scheduled tasks in all regions within your account.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name of the data table.
     shared_ptr<string> tableName_ {};
   };
 

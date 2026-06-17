@@ -96,19 +96,19 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all clusters that are deployed in a specific region, such as the cluster IDs.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation to query information about all clusters in the destination region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region.
+    // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all regions that are available for your account, such as the region IDs.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/2319134.html) operation to query information about the available regions of the destination account, including region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The region in which the TDE key resides.
+    // The region where the transparent data encryption (TDE) key is located.
     shared_ptr<string> TDERegion_ {};
   };
 

@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // **The application ID.**
     shared_ptr<string> applicationId_ {};
+    // The ID of the deleted channel.
     shared_ptr<string> channelId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> ok_ {};
+    // The ID of the uninstalled plugin.
     shared_ptr<string> pluginId_ {};
+    // Indicates whether the channel plugin was uninstalled.
     shared_ptr<bool> pluginUninstalled_ {};
+    // **The request ID.**
     shared_ptr<string> requestId_ {};
+    // Indicates whether the gateway was restarted.
     shared_ptr<bool> restarted_ {};
   };
 

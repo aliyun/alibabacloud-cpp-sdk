@@ -130,20 +130,59 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable auto-renewal. Valid values:
+    // 
+    // - **true**: enables auto-renewal.
+    // 
+    // - **false**: disables auto-renewal.
+    // 
+    // Default value: **false**.
+    // 
+    // > This parameter applies only when **PayType** is set to **Prepaid**.
     shared_ptr<bool> autoRenew_ {};
+    // The cluster specification.
     shared_ptr<string> DBClusterClass_ {};
+    // The database engine type. Valid values:
+    // 
+    // - MySQL
+    // 
+    // - PostgreSQL
     shared_ptr<string> DBType_ {};
+    // The billing method. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go
+    // 
+    // - **Prepaid**: subscription
+    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
+    // The unit of the subscription duration. This parameter is required when **PayType** is set to **Prepaid**.
+    // 
+    // - **Year**: The subscription duration is measured in years.
+    // 
+    // - **Month**: The subscription duration is measured in months.
     shared_ptr<string> period_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
+    // The subscription duration. This parameter is required when **PayType** is set to **Prepaid**.
+    // 
+    // - If **Period** is set to **Month**, the value must be an integer from `1` to `9`.
+    // 
+    // - If **Period** is set to **Year**, the value must be an integer from `1` to `3`.
     shared_ptr<string> usedTime_ {};
+    // The ID of the virtual private cloud (VPC).
+    // 
     // This parameter is required.
     shared_ptr<string> VPCId_ {};
+    // The vSwitch ID.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The availability zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

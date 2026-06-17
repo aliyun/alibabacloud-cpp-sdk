@@ -94,12 +94,13 @@ namespace Models
 
 
   protected:
-    // The ID of the backup task.
+    // The backup job ID.
     shared_ptr<string> backupJobId_ {};
     // The backup mode. Valid values:
     // 
-    // *   **Automated**
-    // *   **Manual**
+    // - **Automated**: An automatic backup.
+    // 
+    // - **Manual**: A manual backup.
     shared_ptr<string> backupMode_ {};
     // The cluster ID.
     // 

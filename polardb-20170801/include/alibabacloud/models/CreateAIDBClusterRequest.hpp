@@ -29,7 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KubeType, kubeType_);
       DARABONBA_PTR_TO_JSON(KubernetesConfig, kubernetesConfig_);
       DARABONBA_PTR_TO_JSON(ManagementMode, managementMode_);
-      DARABONBA_PTR_TO_JSON(ModeName, modeName_);
+      DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Password, password_);
@@ -64,7 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KubeType, kubeType_);
       DARABONBA_PTR_FROM_JSON(KubernetesConfig, kubernetesConfig_);
       DARABONBA_PTR_FROM_JSON(ManagementMode, managementMode_);
-      DARABONBA_PTR_FROM_JSON(ModeName, modeName_);
+      DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
@@ -132,14 +132,16 @@ namespace Models
 
 
     protected:
+      // The start time of the billing interval. The time is in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<int64_t> beginTime_ {};
+      // The end time of the billing interval, which must be later than the start time. The time is in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<int64_t> endTime_ {};
     };
 
     virtual bool empty() const override { return this->ackAdmin_ == nullptr
         && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr
         && this->DBNodeClass_ == nullptr && this->extension_ == nullptr && this->inferenceEngine_ == nullptr && this->kubeClusterId_ == nullptr && this->kubeConfig_ == nullptr
-        && this->kubeManagement_ == nullptr && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr && this->managementMode_ == nullptr && this->modeName_ == nullptr
+        && this->kubeManagement_ == nullptr && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr && this->managementMode_ == nullptr && this->modelName_ == nullptr
         && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->password_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
         && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr
         && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->timeSlices_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr
@@ -249,11 +251,11 @@ namespace Models
     inline CreateAIDBClusterRequest& setManagementMode(string managementMode) { DARABONBA_PTR_SET_VALUE(managementMode_, managementMode) };
 
 
-    // modeName Field Functions 
-    bool hasModeName() const { return this->modeName_ != nullptr;};
-    void deleteModeName() { this->modeName_ = nullptr;};
-    inline string getModeName() const { DARABONBA_PTR_GET_DEFAULT(modeName_, "") };
-    inline CreateAIDBClusterRequest& setModeName(string modeName) { DARABONBA_PTR_SET_VALUE(modeName_, modeName) };
+    // modelName Field Functions 
+    bool hasModelName() const { return this->modelName_ != nullptr;};
+    void deleteModelName() { this->modelName_ = nullptr;};
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline CreateAIDBClusterRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
     // ownerAccount Field Functions 
@@ -378,44 +380,100 @@ namespace Models
 
 
   protected:
+    // Specifies whether the cluster is managed by an ACK cluster.
     shared_ptr<string> ackAdmin_ {};
+    // Specifies whether to enable auto-renewal. Valid values:
+    // 
+    // - **true**: Auto-renewal is enabled.
+    // 
+    // - **false**: Auto-renewal is disabled.
+    // 
+    // Default value: **false**.
+    // 
+    // > This parameter takes effect only when **PayType** is set to **Prepaid**.
     shared_ptr<string> autoRenew_ {};
+    // Specifies whether to automatically use a coupon. Valid values:
     shared_ptr<bool> autoUseCoupon_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The description of the cluster. You can use the description to perform a fuzzy search.
     shared_ptr<string> DBClusterDescription_ {};
+    // The ID of the PolarDB cluster that the application depends on.
     shared_ptr<string> DBClusterId_ {};
+    // The node specification.
+    // 
     // This parameter is required.
     shared_ptr<string> DBNodeClass_ {};
+    // The extension.
     shared_ptr<string> extension_ {};
+    // The inference engine.
     shared_ptr<string> inferenceEngine_ {};
+    // The Container Service for Kubernetes (ACK) cluster ID.
     shared_ptr<string> kubeClusterId_ {};
+    // The Kubernetes configuration.
     shared_ptr<string> kubeConfig_ {};
+    // The management mode of the Kubernetes cluster.
     shared_ptr<string> kubeManagement_ {};
-    // aideploy
+    // The type of the Kubernetes deployment.
     shared_ptr<string> kubeType_ {};
+    // The Kubernetes configuration.
     shared_ptr<string> kubernetesConfig_ {};
+    // The management mode.
     shared_ptr<string> managementMode_ {};
-    shared_ptr<string> modeName_ {};
+    shared_ptr<string> modelName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The password.
     shared_ptr<string> password_ {};
+    // The billing method. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go.
+    // 
+    // - **Prepaid**: subscription.
+    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
+    // The unit of the subscription duration. This parameter is required if **PayType** is set to **Prepaid**. Valid values:
+    // 
+    // - **Year**
+    // 
+    // - **Month**
     shared_ptr<string> period_ {};
+    // The coupon code. If you do not specify this parameter, the default coupon is used.
+    // 
+    // - true (default): Use a coupon.
+    // 
+    // - false: Do not use a coupon.
     shared_ptr<string> promotionCode_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
+    // The storage space. Unit: GB.
     shared_ptr<int32_t> storageSpace_ {};
+    // The storage type.
     shared_ptr<string> storageType_ {};
+    // The billing intervals for the pay-as-you-go cluster.
     shared_ptr<vector<CreateAIDBClusterRequest::TimeSlices>> timeSlices_ {};
+    // The subscription duration. This parameter is required if **PayType** is set to **Prepaid**.
+    // 
+    // - If **Period** is set to **Month**, the value of **UsedTime** must be an integer from `[1-9]`.
+    // 
+    // - If **Period** is set to **Year**, the value of **UsedTime** must be an integer from `[1-3]`.
     shared_ptr<string> usedTime_ {};
+    // The virtual private cloud (VPC) ID.
+    // 
     // This parameter is required.
     shared_ptr<string> VPCId_ {};
+    // The vSwitch ID.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The availability zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The token required to obtain more results. If not all results are returned in this query, the token is returned. You can use this token in the next query to obtain more results.
+    // A token to retrieve more results. This parameter is returned if a query does not return all results. You can use the token in a subsequent query to continue retrieving results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

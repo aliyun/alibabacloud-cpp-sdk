@@ -98,11 +98,15 @@ namespace Models
 
 
     protected:
+      // The storage capacity quota.
       shared_ptr<int64_t> capacity_ {};
-      // Inodes
+      // The inode quota.
       shared_ptr<int64_t> inodes_ {};
+      // The directory path.
       shared_ptr<string> path_ {};
+      // The used capacity, in bytes.
       shared_ptr<int64_t> usedCapacity_ {};
+      // The number of used inodes.
       shared_ptr<int64_t> usedInodes_ {};
     };
 
@@ -132,8 +136,11 @@ namespace Models
 
 
   protected:
+    // The ID of the PolarFS instance.
     shared_ptr<string> polarFsInstanceId_ {};
+    // An object that contains details about the quota.
     shared_ptr<CheckPolarFsQuotaConsistencyResponseBody::QuotaItem> quotaItem_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

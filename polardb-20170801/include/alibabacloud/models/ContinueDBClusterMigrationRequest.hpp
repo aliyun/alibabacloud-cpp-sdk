@@ -112,12 +112,25 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters in the destination region, including cluster IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to skip the current error. Valid values:
+    // 
+    // **true**: Skips the error.
+    // 
+    // **false**: Does not skip the error.
     shared_ptr<string> forceSwitch_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
+    // 
+    // > For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The gateway instance ID.
     shared_ptr<string> gwClusterId_ {};
+    // The policy ID.
     shared_ptr<string> policyId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

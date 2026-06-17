@@ -327,13 +327,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBClustersWithBackupsResponseBody::Items> items_ {};
-    // The total number of returned pages.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of clusters returned per page.
+    // The number of clusters on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

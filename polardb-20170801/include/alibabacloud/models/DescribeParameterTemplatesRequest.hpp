@@ -103,15 +103,17 @@ namespace Models
 
 
   protected:
-    // The type of the database engine. Only **MySQL** is supported.
+    // The database engine type. Only **MySQL** is supported.
     // 
     // This parameter is required.
     shared_ptr<string> DBType_ {};
-    // The version of the database. Valid values:
+    // The database version. Valid values:
     // 
-    // *   **5.6**
-    // *   **5.7**
-    // *   **8.0**
+    // - **5.6**
+    // 
+    // - **5.7**
+    // 
+    // - **8.0**
     // 
     // This parameter is required.
     shared_ptr<string> DBVersion_ {};
@@ -119,11 +121,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all regions that are available within your account, such as the region IDs.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the IDs of available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

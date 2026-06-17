@@ -241,25 +241,67 @@ namespace Models
 
 
     protected:
+      // The allowed operation information.
+      // 
+      // > This feature is not supported yet.
       shared_ptr<string> actionInfo_ {};
+      // The request source. Valid values:
+      // 
+      // - **System**: system
+      // 
+      // - **User**: user
       shared_ptr<string> callerSource_ {};
+      // The ID of the requesting user. If `CallerSource` is `User`, this is the user\\"s UID.
       shared_ptr<string> callerUid_ {};
+      // The name of the current step being executed. If this parameter is empty, the task has not started.
       shared_ptr<string> currentStepName_ {};
+      // The database type.
       shared_ptr<string> dbType_ {};
+      // The end time of the task.
       shared_ptr<string> endTime_ {};
+      // The resource ID.
       shared_ptr<string> instanceId_ {};
+      // The resource name.
       shared_ptr<string> instanceName_ {};
+      // The resource type.
       shared_ptr<string> instanceType_ {};
+      // The product.
       shared_ptr<string> product_ {};
+      // The completion progress of the task, from 0.0 to 100.0.
       shared_ptr<float> progress_ {};
+      // The reason for initiating the current task.
       shared_ptr<string> reasonCode_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The estimated remaining execution time, in seconds (s).
+      // 
+      // > This value is for reference only. The actual execution time prevails.
       shared_ptr<int32_t> remainTime_ {};
+      // The start time of the task.
       shared_ptr<string> startTime_ {};
+      // The final status of the task.
+      // 
+      // - Scheduled: waiting for execution
+      // 
+      // - Running: executing
+      // 
+      // - Succeed: executed successfully
+      // 
+      // - Failed: execution failed
+      // 
+      // - Cancelling: stopping
+      // 
+      // - Canceled: stopped
+      // 
+      // - Waiting: waiting for preset time
       shared_ptr<string> status_ {};
+      // The task details.
       shared_ptr<string> taskDetail_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task type.
       shared_ptr<string> taskType_ {};
+      // The UID of the account that owns the resource.
       shared_ptr<string> uid_ {};
     };
 
@@ -303,10 +345,15 @@ namespace Models
 
 
   protected:
+    // The list of tasks.
     shared_ptr<vector<DescribeHistoryTasksResponseBody::Items>> items_ {};
+    // The page number of the query result.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of tasks that meet the conditions, regardless of paging factors.
     shared_ptr<string> totalCount_ {};
   };
 

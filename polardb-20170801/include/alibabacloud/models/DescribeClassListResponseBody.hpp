@@ -210,54 +210,61 @@ namespace Models
 
 
     protected:
-      // The specifications of the cluster.
+      // The cluster specifications.
       shared_ptr<string> classCode_ {};
-      // The instance family of the cluster. Valid values:
+      // The family of the cluster specifications. Valid values:
       // 
-      // *   Exclusive package: dedicated
-      // *   Exclusive physical machine: dedicated host
-      // *   Beginner: starter
-      // *   Historical specifications: historical
+      // - Exclusive package
+      // 
+      // - Exclusive physical machine
+      // 
+      // - Beginner
+      // 
+      // - Historical specifications
       shared_ptr<string> classGroup_ {};
-      // The specification type of the cluster.
+      // The specification type.
       shared_ptr<string> classTypeLevel_ {};
-      // The number of vCPU cores. Unit: cores.
+      // The number of CPU cores. Unit: cores.
       shared_ptr<string> cpu_ {};
-      // The maximum ESSD storage capacity. Unit: TB.
+      // The maximum storage capacity of an ESSD. Unit: TB.
       shared_ptr<string> essdMaxStorageCapacity_ {};
-      // The maximum number of concurrent connections in the cluster.
+      // The maximum number of concurrent connections to the cluster.
       shared_ptr<string> maxConnections_ {};
-      // The maximum IOPS. Unit: operations per second.
+      // The maximum IOPS. Unit: IOPS.
       shared_ptr<string> maxIOPS_ {};
       // The maximum storage capacity. Unit: TB.
       shared_ptr<string> maxStorageCapacity_ {};
-      // The memory size. Unit: GB.
+      // The memory capacity. Unit: GB.
       shared_ptr<string> memoryClass_ {};
-      // The maximum IOPS of an enhanced SSD (ESSD) of performance level 1 (PL1). Unit: operations per second.
+      // The maximum IOPS of an Enhanced SSD (ESSD) at performance level 1 (PL1). Unit: IOPS.
       shared_ptr<string> pl1MaxIOPS_ {};
-      // The maximum IOPS of an ESSD of performance level 2 (PL2). Unit: operations per second.
+      // The maximum IOPS of an ESSD at PL2. Unit: IOPS.
       shared_ptr<string> pl2MaxIOPS_ {};
-      // The maximum IOPS of an ESSD of performance level 3 (PL3). Unit: operations per second.
+      // The maximum IOPS of an ESSD at PL3. Unit: IOPS.
       shared_ptr<string> pl3MaxIOPS_ {};
-      // The maximum PSL4/PSL5 storage capacity. Unit: TB.
+      // The maximum storage capacity of PSL4/PSL5. Unit: TB.
       shared_ptr<string> polarStoreMaxStorageCapacity_ {};
-      // The maximum Input/output operations per second (IOPS) for PolarStore Level 4 (PSL4). Unit: operations per second.
+      // The maximum input/output operations per second (IOPS) of PSL4. Unit: IOPS.
       shared_ptr<string> psl4MaxIOPS_ {};
-      // The maximum IOPS for PolarStore Level 5 (PSL5). Unit: operations per second.
+      // The maximum IOPS of PSL5. Unit: IOPS.
       shared_ptr<string> psl5MaxIOPS_ {};
       // The additional price.
       // 
-      // Unit: cents (USD).
+      // <props="china">Unit: cents (CNY).
+      // <props="intl">Unit: cents (USD).
       // 
-      // >- If you set MasterHa to cluster or single, the value of ReferenceExtPrice is the same as the value of ReferencePrice.
-      // >- If you set MasterHa to cluster or single, the value of ReferenceExtPrice is the price of the single-node cluster.
+      // > - If you set the MasterHa parameter to cluster or single, the value of this parameter is the same as the value of the ReferencePrice parameter.
+      // >
+      // > - If you set the MasterHa parameter to cluster or single, the price for a single-node commodity is returned.
       shared_ptr<string> referenceExtPrice_ {};
       // The price.
       // 
-      // Unit: cents (USD).
+      // <props="china">Unit: cents (CNY).
+      // <props="intl">Unit: cents (USD).
       // 
-      // >- If you set CommodityCode to a commodity that uses the pay-as-you-go billing method, ReferencePrice indicates the hourly fee that you need to pay.
-      // >- If you set CommodityCode to a commodity that uses the subscription billing method, ReferencePrice indicates the monthly fee that you need to pay.
+      // > - If you set the CommodityCode parameter to a pay-as-you-go commodity code, the hourly price is returned.
+      // >
+      // > - If you set the CommodityCode parameter to a subscription commodity code, the monthly price is returned.
       shared_ptr<string> referencePrice_ {};
     };
 
@@ -287,11 +294,11 @@ namespace Models
 
 
   protected:
-    // The cluster specifications.
+    // The list of cluster specifications.
     shared_ptr<vector<DescribeClassListResponseBody::Items>> items_ {};
-    // The region ID of the cluster.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

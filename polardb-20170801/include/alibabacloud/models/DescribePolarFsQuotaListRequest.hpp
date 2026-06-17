@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
+    // The PolarFS instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
+    // The quota mode.
     shared_ptr<string> quotaMode_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

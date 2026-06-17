@@ -113,8 +113,11 @@ namespace Models
 
 
     protected:
+      // The name of the IP whitelist. The default value is `default`.
       shared_ptr<string> securityIPArrayName_ {};
+      // The tag of the IP whitelist.
       shared_ptr<string> securityIPArrayTag_ {};
+      // A comma-separated list of IP addresses in the IP whitelist.
       shared_ptr<string> securityIPList_ {};
     };
 
@@ -202,12 +205,23 @@ namespace Models
 
 
     protected:
+      // The endpoint address.
       shared_ptr<string> address_ {};
+      // The ID of the endpoint.
       shared_ptr<string> endpointId_ {};
+      // The ID of the gateway instance.
       shared_ptr<string> gwClusterId_ {};
+      // The network type of the endpoint. Valid values:
+      // 
+      // - **Private**: VPC endpoint.
+      // 
+      // - **Public**: public endpoint.
       shared_ptr<string> netType_ {};
+      // The port number.
       shared_ptr<string> port_ {};
+      // The tunnel ID.
       shared_ptr<string> tunnelId_ {};
+      // The ID of the VPC to which the endpoint belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -354,25 +368,54 @@ namespace Models
 
 
   protected:
+    // The specification code for the gateway instance.
     shared_ptr<string> classCode_ {};
+    // The time when the gateway instance was created.
     shared_ptr<string> createTime_ {};
     shared_ptr<string> currentVersion_ {};
+    // The database type.
     shared_ptr<string> dbType_ {};
+    // A list of endpoints for the gateway instance.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::Endpoints>> endpoints_ {};
+    // The time when the subscription for the gateway instance expires.
+    // 
+    // This parameter is empty for pay-as-you-go instances.
     shared_ptr<string> expireTime_ {};
+    // Indicates whether the subscription for the gateway instance has expired. Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<bool> expired_ {};
+    // The ID of the gateway instance.
     shared_ptr<string> gwClusterId_ {};
+    // The description of the gateway instance.
     shared_ptr<string> gwDescription_ {};
     shared_ptr<string> latestVersion_ {};
+    // The time when the gateway instance was last modified.
     shared_ptr<string> modifyTime_ {};
+    // The billing method of the gateway instance. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go.
+    // 
+    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> runningVersion_ {};
+    // A list of IP whitelists for the gateway instance.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
+    // The status of the gateway instance. Valid values:
+    // 
+    // - **CREATE**: The gateway instance is being created.
+    // 
+    // - **ACTIVATION**: The gateway instance is running.
     shared_ptr<string> status_ {};
+    // The ID of the VSwitch where the gateway instance is deployed.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the VPC where the gateway instance is deployed.
     shared_ptr<string> vpcId_ {};
   };
 

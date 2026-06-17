@@ -75,10 +75,24 @@ namespace Models
 
 
   protected:
+    // The ID of the gateway instance.
     shared_ptr<string> gwClusterId_ {};
+    // The description of the gateway instance.
     shared_ptr<string> gwDescription_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: **30**.
     shared_ptr<string> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

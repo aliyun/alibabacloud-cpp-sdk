@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // > You can find cluster IDs by calling the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the PolarFS instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
+    // Specifies whether to query the FUSE mount information. Valid values:
+    // 
+    // - **true**: Queries the FUSE mount information.
+    // 
+    // - **false**: Does not query the FUSE mount information. This is the default value.
     shared_ptr<bool> queryFuseMountInfo_ {};
   };
 

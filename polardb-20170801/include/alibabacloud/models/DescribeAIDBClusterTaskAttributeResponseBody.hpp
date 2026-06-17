@@ -161,13 +161,33 @@ namespace Models
 
 
     protected:
+      // The task completion time.
       shared_ptr<string> completedTime_ {};
+      // The base model.
       shared_ptr<string> modelName_ {};
+      // The path to the custom model.
       shared_ptr<string> modelPath_ {};
+      // The source of the model. Valid values:
+      // 
+      // - **public**: A pre-built model.
+      // 
+      // - **custom**: A custom model.
       shared_ptr<string> modelSource_ {};
+      // The runtime parameters.
       shared_ptr<string> runningTimes_ {};
+      // The task start time.
       shared_ptr<string> startTime_ {};
+      // The task type. Valid values:
+      // 
+      // - **sft**: Supervised Fine-tuning.
+      // 
+      // - **grpo**: Reinforcement learning.
       shared_ptr<string> trainMode_ {};
+      // The training method. Valid values:
+      // 
+      // - **lora**: Low-Rank Adaptation (LoRA) training.
+      // 
+      // - **full**: Full training.
       shared_ptr<string> trainType_ {};
     };
 
@@ -227,9 +247,17 @@ namespace Models
 
 
     protected:
+      // The dataset name.
       shared_ptr<string> datasetName_ {};
+      // The dataset path.
       shared_ptr<string> path_ {};
+      // The proportion of the training set reserved for validation.
       shared_ptr<string> splitDatasetRatio_ {};
+      // The type of the dataset. Valid values:
+      // 
+      // - **train**: The training set.
+      // 
+      // - **eval**: The validation set.
       shared_ptr<string> type_ {};
     };
 
@@ -385,26 +413,65 @@ namespace Models
 
 
   protected:
+    // The access information for the model in a test deployment.
     shared_ptr<string> accessInfo_ {};
+    // The cluster network type.
     shared_ptr<string> clusterNetworkType_ {};
+    // The task creation time.
     shared_ptr<string> createTime_ {};
+    // The cluster description.
     shared_ptr<string> DBClusterDescription_ {};
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The training status. Valid values:
+    // 
+    // - **ACTIVATION**: Training in progress.
+    // 
+    // - **COMPLETED**: Training successful.
+    // 
+    // - **FAILED**: Training failed.
     shared_ptr<string> DBClusterStatus_ {};
+    // The training status description. Valid values:
+    // 
+    // - **ACTIVATION**: Training in progress.
+    // 
+    // - **COMPLETED**: Training successful.
+    // 
+    // - **FAILED**: Training failed.
     shared_ptr<string> DBClusterStatusDesc_ {};
+    // The engine type.
     shared_ptr<string> DBType_ {};
+    // The version. Valid value:
+    // 
+    // - **3.1**: Model operator tuning.
     shared_ptr<string> DBVersion_ {};
+    // The datasets used for the task.
     shared_ptr<vector<DescribeAIDBClusterTaskAttributeResponseBody::DataSets>> dataSets_ {};
+    // A list of objects containing additional information about the task.
     shared_ptr<vector<Darabonba::Json>> extraInfo_ {};
+    // The instance type. Valid value:
+    // 
+    // - **18**.
     shared_ptr<int64_t> kindCode_ {};
+    // The lock mode. Valid values:
+    // 
+    // - **0**: Locked.
+    // 
+    // - **1**: Unlocked.
     shared_ptr<string> lockMode_ {};
+    // The maintenance end time.
     shared_ptr<string> maintainEndTime_ {};
+    // The maintenance start time.
     shared_ptr<string> maintainStartTime_ {};
+    // A comma-separated list of output model paths from the model fine-tuning task.
     shared_ptr<string> modelPath_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A list of objects containing information about each training task.
     shared_ptr<vector<DescribeAIDBClusterTaskAttributeResponseBody::TaskInfo>> taskInfo_ {};
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
   };
 

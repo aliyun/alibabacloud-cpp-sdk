@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The database engine type.
       shared_ptr<string> DBType_ {};
+      // The specification code.
       shared_ptr<string> levelCode_ {};
+      // The CPU and memory.
       shared_ptr<string> levelName_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The list of supported cross-cloud specifications.
     shared_ptr<vector<DescribeCrossCloudLevelsResponseBody::CrossCloudLevelList>> crossCloudLevelList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

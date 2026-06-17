@@ -222,30 +222,59 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable No-activity Suspension. Valid values:
+    // 
+    // - **true**: Enables the feature.
+    // 
+    // - **false** (default): Disables the feature.
     shared_ptr<string> allowShutDown_ {};
+    // The Cron expression.
+    // 
     // This parameter is required.
     shared_ptr<string> cronExpression_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The end time.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The ID of the scheduled task.
     shared_ptr<string> jobId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The maximum number of read-only column store nodes. Valid values: 0 to 15.
     shared_ptr<string> scaleApRoNumMax_ {};
+    // The minimum number of read-only column store nodes. Valid values: 0 to 15.
     shared_ptr<string> scaleApRoNumMin_ {};
+    // The maximum number of PCUs. Valid values: 1 to 32.
     shared_ptr<string> scaleMax_ {};
+    // The minimum number of PolarDB Capacity Units (PCUs). Valid values: 0.25 to 32. This value must be less than or equal to the value of ScaleMax.
     shared_ptr<string> scaleMin_ {};
+    // The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMax_ {};
+    // The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMin_ {};
+    // The detection period for No-activity Suspension. Unit: minutes. Valid values: 5 to 1440. The value must be a multiple of 5.
     shared_ptr<string> secondsUntilAutoPause_ {};
+    // The CPU utilization threshold for a scale-up. Unit: percent. Valid values: 40 to 100.
     shared_ptr<string> serverlessRuleCpuEnlargeThreshold_ {};
+    // The CPU utilization threshold for a scale-down. Unit: percent. Valid values: 10 to 100. The value of ServerlessRuleCpuEnlargeThreshold minus the value of this parameter must be greater than or equal to 30.
     shared_ptr<string> serverlessRuleCpuShrinkThreshold_ {};
+    // The scaling sensitivity. Valid values:
+    // 
+    // - normal
+    // 
+    // - flexible
     shared_ptr<string> serverlessRuleMode_ {};
+    // The start time. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

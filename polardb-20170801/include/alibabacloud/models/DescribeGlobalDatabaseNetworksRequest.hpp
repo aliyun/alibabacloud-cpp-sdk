@@ -140,32 +140,37 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to find the IDs of all clusters in a region.
     shared_ptr<string> DBClusterId_ {};
-    // Specify the region in which you want to query GDNs. You can create secondary clusters for the GDNs.
+    // Returns only GDNs that support creating a secondary cluster in the specified region.
     shared_ptr<string> filterRegion_ {};
     // The description of the GDN. The description must meet the following requirements:
     // 
-    // *   It cannot start with `http://` or `https://`.
-    // *   It must start with a letter.
-    // *   It can contain letters, digits, underscores (_), and hyphens (-).
-    // *   It must be 2 to 126 characters in length.
+    // - It cannot start with `http://` or `https://`.
+    // 
+    // - It must start with a letter or a Chinese character.
+    // 
+    // - It can contain letters, Chinese characters, digits, underscores (_), and hyphens (-).
+    // 
+    // - It must be 2 to 126 characters in length.
     shared_ptr<string> GDNDescription_ {};
-    // The ID of the GDN.
+    // The GDN ID.
     shared_ptr<string> GDNId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: 1. The value must be an integer that is greater than 0.
+    // The page number. The value must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 30. Valid values:
+    // The number of entries to return on each page. Default value: 30. Valid values:
     // 
-    // *   30
-    // *   50
-    // *   100
+    // - 30
+    // 
+    // - 50
+    // 
+    // - 100
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

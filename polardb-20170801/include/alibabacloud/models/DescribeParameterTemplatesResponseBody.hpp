@@ -223,11 +223,11 @@ namespace Models
 
 
   protected:
-    // The type of the database engine.
+    // The database engine type.
     shared_ptr<string> DBType_ {};
-    // The version of the database engine.
+    // The database engine version.
     shared_ptr<string> DBVersion_ {};
-    // The database engine of the cluster.
+    // The database engine.
     shared_ptr<string> engine_ {};
     // The number of parameters.
     shared_ptr<string> parameterCount_ {};

@@ -108,11 +108,21 @@ namespace Models
 
 
     protected:
+      // The capacity quota in GB.
       shared_ptr<int64_t> capacity_ {};
+      // The absolute path of the directory.
       shared_ptr<string> filePathId_ {};
+      // The inode quota.
       shared_ptr<int64_t> inodes_ {};
+      // The maximum depth of subdirectories to traverse under the path specified by `FilePathId`. A value of 1 traverses only the first level of subdirectories. A value of 0 traverses to the deepest level.
       shared_ptr<int32_t> maxDepth_ {};
+      // A list of file quota rule IDs, separated by a comma (`,`).
       shared_ptr<string> quotaIds_ {};
+      // Specifies how to apply the rule to existing files. Valid values:
+      // 
+      // - **missing**: Applies the rule only if one does not already exist. (Default)
+      // 
+      // - **all**: Applies the rule to all files.
       shared_ptr<string> strategy_ {};
     };
 
@@ -142,9 +152,14 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // An array of objects defining the file quota rules for specific directories.
+    // 
     // This parameter is required.
     shared_ptr<vector<SetPolarFsFileQuotaRequest::FilePathQuotas>> filePathQuotas_ {};
+    // The ID of the PolarFS instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
   };

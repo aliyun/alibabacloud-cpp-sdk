@@ -94,12 +94,15 @@ namespace Models
 
 
   protected:
-    // The retention policy applied to the backup sets when the cluster is released. Valid values:
+    // The retention policy for backup sets when the cluster is deleted. Valid values:
     // 
-    // *   **ALL**: permanently retains all backup sets.
-    // *   **LATEST**: permanently retains the most recent backup set that is automatically created before the cluster is released.
-    // *   **NONE**: does not retain backup sets.
+    // - **ALL**: permanently retains all backup sets.
+    // 
+    // - **LATEST**: permanently retains the last backup set. The system automatically creates a new backup before the cluster is deleted.
+    // 
+    // - **NONE**: does not retain any backup sets after the cluster is deleted.
     shared_ptr<string> backupRetentionPolicyOnClusterDeletion_ {};
+    // The cloud service provider of the instance.
     shared_ptr<string> cloudProvider_ {};
     // The cluster ID.
     // 

@@ -94,15 +94,53 @@ namespace Models
 
 
   protected:
+    // The CPU architecture. Valid values:
+    // 
+    // - **X86**
+    // 
+    // - **ARM**
     shared_ptr<string> architecture_ {};
+    // The product series. Valid values:
+    // 
+    // - **Normal**: Cluster Edition (default)
+    // 
+    // - **SENormal**: Standard Edition
+    // 
+    // For more information about product series, see [Product series](https://help.aliyun.com/document_detail/183258.html).
     shared_ptr<string> creationCategory_ {};
+    // The minor version of the database engine.
+    // 
+    // - If `DBVersion` is set to **8.0**, valid values are:
+    // 
+    //   - **8.0.2**
+    // 
+    //   - **8.0.1**
+    // 
+    // - If `DBVersion` is set to **5.7**, the valid value is **5.7.28**.
+    // 
+    // - If `DBVersion` is set to **5.6**, the valid value is **5.6.16**.
     shared_ptr<string> DBMinorVersion_ {};
+    // The database type. The only valid value is **MySQL**.
+    // 
+    // - **MySQL**.
+    // 
     // This parameter is required.
     shared_ptr<string> DBType_ {};
+    // The major version of the database engine. Valid values:
+    // 
+    // - **8.0**
+    // 
+    // - **5.7**
+    // 
+    // - **5.6**
+    // 
     // This parameter is required.
     shared_ptr<string> DBVersion_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The zone.
     shared_ptr<string> zoneId_ {};
   };
 

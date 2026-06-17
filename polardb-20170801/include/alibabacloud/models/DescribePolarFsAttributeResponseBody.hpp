@@ -147,8 +147,11 @@ namespace Models
 
 
     protected:
+      // The cluster management address.
       shared_ptr<string> polarDbProxy_ {};
+      // The file system name.
       shared_ptr<string> polarFsCluster_ {};
+      // The token value.
       shared_ptr<string> token_ {};
     };
 
@@ -190,7 +193,9 @@ namespace Models
 
 
     protected:
+      // The endpoint of the custom storage bucket.
       shared_ptr<string> bucket_ {};
+      // The path in the custom storage bucket.
       shared_ptr<string> path_ {};
     };
 
@@ -459,42 +464,117 @@ namespace Models
 
 
   protected:
+    // The acceleration type.
     shared_ptr<string> accelerateType_ {};
+    // The capacity of the acceleration cache in GB.
     shared_ptr<double> acceleratedStorageSpace_ {};
+    // Indicates whether the acceleration cache is enabled. Valid values:
+    // 
+    // - **ON**: Enabled
+    // 
+    // - **OFF**: Disabled
     shared_ptr<string> acceleratingEnable_ {};
+    // The bandwidth in MB/s.
     shared_ptr<double> bandwidth_ {};
+    // The baseline bandwidth in MB/s per TiB.
     shared_ptr<double> bandwidthBaseLine_ {};
+    // The bucket ID.
     shared_ptr<string> bucketId_ {};
+    // The edition of the PolarFS instance. Valid values:
+    // 
+    // - **high_performance**: High-performance Edition
+    // 
+    // - **basic**: Basic Edition
+    // 
+    // - **cold**: Cold Storage Edition
     shared_ptr<string> category_ {};
+    // The download path for the client.
     shared_ptr<string> clientDownloadPath_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The custom bucket path.
     shared_ptr<string> customBucketPath_ {};
+    // A list of custom storage paths.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList>> customBucketPathList_ {};
+    // The database engine type. Valid values:
+    // 
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
     shared_ptr<string> DBType_ {};
+    // The expiration time of the cluster.
+    // 
+    // > This parameter is returned only for **Prepaid** (subscription) clusters. It is empty for **Postpaid** (pay-as-you-go) clusters.
     shared_ptr<string> expireTime_ {};
+    // Indicates whether the cluster has expired.
+    // 
+    // > This parameter is returned only for **Prepaid** (subscription) clusters.
     shared_ptr<string> expired_ {};
+    // The file system ID.
     shared_ptr<string> fileSystemId_ {};
+    // The lock mode. Valid values:
+    // 
+    // - **Unlock**: The cluster is not locked.
+    // 
+    // - **ManualLock**: The cluster is manually locked.
+    // 
+    // - **LockByExpiration**: The cluster is automatically locked after it expires.
     shared_ptr<string> lockMode_ {};
+    // The encrypted metadata address for the FUSE mount.
     shared_ptr<string> metaUrl_ {};
+    // The minor version of the instance.
     shared_ptr<string> minorVersion_ {};
+    // The mount configuration.
     shared_ptr<DescribePolarFsAttributeResponseBody::MountInfo> mountInfo_ {};
+    // The billing method. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go.
+    // 
+    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
+    // The description of the PolarFS instance.
     shared_ptr<string> polarFsInstanceDescription_ {};
+    // The ID of the PolarFS instance.
     shared_ptr<string> polarFsInstanceId_ {};
+    // The status of the PolarFS instance.
     shared_ptr<string> polarFsStatus_ {};
+    // The version of PolarFS. Valid values:
+    // 
+    // - **PolarFS 2.0**
+    // 
+    // - **PolarFS 1.0**
     shared_ptr<string> polarFsType_ {};
+    // The version of the PolarFS instance.
     shared_ptr<string> polarFsVersion_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
+    // The ID of the associated PolarFS instance.
     shared_ptr<string> relativePfsClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the managed security group.
     shared_ptr<string> securityGroupId_ {};
+    // The storage capacity in GB.
     shared_ptr<double> storageSpace_ {};
+    // The storage class for the High-performance Edition. Valid values:
+    // 
+    // - **ESSDPL1**
+    // 
+    // - **ESSDPL0**
+    // 
+    // The storage class for the Basic Edition. Valid values:
+    // 
+    // - **city_redundancy**: zone-redundant storage
     shared_ptr<string> storageType_ {};
+    // The amount of used storage in bytes.
     shared_ptr<double> storageUsed_ {};
+    // The ID of the VPC.
     shared_ptr<string> VPCId_ {};
+    // The VSwitch ID.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the zone where the vSwitch is located.
     shared_ptr<string> zoneId_ {};
   };
 

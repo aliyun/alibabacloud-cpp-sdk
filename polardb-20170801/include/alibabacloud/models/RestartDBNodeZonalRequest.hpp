@@ -94,9 +94,14 @@ namespace Models
 
 
   protected:
+    // A client token to ensure request idempotence. Generate a unique token for each request. The token must be case-sensitive and up to 64 ASCII characters long.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The cluster node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBNodeId_ {};
     shared_ptr<string> ownerAccount_ {};

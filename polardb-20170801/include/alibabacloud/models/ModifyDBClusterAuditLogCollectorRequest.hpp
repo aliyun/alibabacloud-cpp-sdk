@@ -86,8 +86,9 @@ namespace Models
   protected:
     // Specifies whether to enable or disable SQL collector. Valid values:
     // 
-    // *   Enable
-    // *   Disable
+    // - Enable
+    // 
+    // - Disable
     // 
     // This parameter is required.
     shared_ptr<string> collectorStatus_ {};

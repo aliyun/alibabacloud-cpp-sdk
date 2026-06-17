@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the cron job to enable.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Specifies whether to restart the gateway after the job is enabled. The default value is `true`.
     shared_ptr<bool> restart_ {};
   };
 

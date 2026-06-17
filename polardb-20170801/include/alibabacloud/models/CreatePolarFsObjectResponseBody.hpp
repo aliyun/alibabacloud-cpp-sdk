@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The absolute path of the created directory.
     shared_ptr<string> path_ {};
+    // The PolarFS instance id.
     shared_ptr<string> polarFsInstanceId_ {};
-    // Id of the request
+    // The request id.
     shared_ptr<string> requestId_ {};
   };
 

@@ -79,8 +79,15 @@ namespace Models
 
 
     protected:
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The status of the session. Valid values:
+      // 
+      // - **1**: Active
+      // 
+      // - **0**: Closed
       shared_ptr<int64_t> sessionStatus_ {};
+      // The content.
       shared_ptr<string> title_ {};
     };
 
@@ -103,7 +110,9 @@ namespace Models
 
 
   protected:
+    // The result set.
     shared_ptr<vector<DescribePolarAgentUserSessionsResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

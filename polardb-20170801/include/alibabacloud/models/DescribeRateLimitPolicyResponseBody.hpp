@@ -151,15 +151,33 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The ID of the gateway instance.
       shared_ptr<string> gwClusterId_ {};
+      // The ID of the rate limit policy.
       shared_ptr<string> policyId_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
+      // The maximum requests per minute (RPM).
       shared_ptr<string> rateLimitRpm_ {};
+      // The maximum tokens per minute (TPM).
       shared_ptr<string> rateLimitTpm_ {};
+      // The ID of the object within the policy\\"s scope, such as a consumer group or a consumer.
       shared_ptr<string> scopeRefId_ {};
+      // The scope of the policy. Valid values:
+      // 
+      // - **ConsumerGroup**: The policy applies to a consumer group.
+      // 
+      // - **Consumer**: The policy applies to a specific consumer.
       shared_ptr<string> scopeType_ {};
+      // The status of the policy. Valid values:
+      // 
+      // - **Enabled**: The policy is enabled.
+      // 
+      // - **Disabled**: The policy is disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -210,12 +228,17 @@ namespace Models
 
 
   protected:
+    // An array of rate limit policy objects.
     shared_ptr<vector<DescribeRateLimitPolicyResponseBody::Items>> items_ {};
+    // The returned page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries returned on the current page.
     shared_ptr<string> pageRecordCount_ {};
+    // The number of entries returned per page.
     shared_ptr<string> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matching entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

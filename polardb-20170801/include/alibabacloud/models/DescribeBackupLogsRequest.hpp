@@ -121,31 +121,33 @@ namespace Models
 
 
   protected:
-    // The region for the backup data.
+    // The backup region.
     shared_ptr<string> backupRegion_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+    // The end of the time range to query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. The value must be an integer that is larger than 0. Default value: **1**.
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **30**
     // 
-    // Default value: **30**.
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // The default value is **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+    // The beginning of the time range to query. The time is in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

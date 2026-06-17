@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The budget usage percentage that triggers an alert. Valid values: 0 to 100.
     shared_ptr<string> alertThresholdPct_ {};
+    // The budget amount in points.
     shared_ptr<string> budgetPoints_ {};
+    // The ID of the budget policy.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetPolicyId_ {};
+    // The ID of the gateway instance.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
+    // The day of the month when the budget is reset. Valid values: 1 to 28.
     shared_ptr<string> resetDayOfMonth_ {};
   };
 

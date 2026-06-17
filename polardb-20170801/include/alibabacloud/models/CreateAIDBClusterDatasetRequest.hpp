@@ -121,15 +121,33 @@ namespace Models
 
 
   protected:
+    // The ID of the PolarDB database cluster.
     shared_ptr<string> DBClusterId_ {};
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
+    // The type of the dataset. Valid values:
+    // 
+    // - **train**: training set
+    // 
+    // - **eval**: evaluation set
     shared_ptr<string> datasetType_ {};
+    // The import method. Valid values:
+    // 
+    // - **LocalImport**: local import
     shared_ptr<string> importMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The training mode for the dataset. The dataset format depends on the mode. Valid values:
+    // 
+    // - **sft**: supervised fine-tuning. For training sets only.
+    // 
+    // - **grpo**: reinforcement learning optimization. For training sets only.
+    // 
+    // - **text**: text generation. For validation sets only.
     shared_ptr<string> trainMode_ {};
   };
 

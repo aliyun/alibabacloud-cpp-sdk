@@ -178,14 +178,23 @@ namespace Models
 
 
         protected:
+          // The default value of the parameter.
           shared_ptr<string> default_ {};
+          // The parameter description.
           shared_ptr<string> description_ {};
+          // The parameter name.
           shared_ptr<string> name_ {};
+          // Indicates whether the application needs to be restarted after you modify the parameter.
           shared_ptr<bool> needRestart_ {};
+          // The regular expression for the parameter.
           shared_ptr<string> pattern_ {};
+          // Indicates whether the parameter is read-only.
           shared_ptr<bool> readOnly_ {};
+          // The status.
           shared_ptr<string> status_ {};
+          // The parameter type.
           shared_ptr<string> type_ {};
+          // The current value of the parameter.
           shared_ptr<string> value_ {};
         };
 
@@ -215,8 +224,11 @@ namespace Models
 
 
       protected:
+        // The subcomponent ID or application ID.
         shared_ptr<string> componentId_ {};
+        // The type of the subcomponent.
         shared_ptr<string> componentType_ {};
+        // A list of parameter details.
         shared_ptr<vector<ComponentParameters::Parameters>> parameters_ {};
       };
 
@@ -231,6 +243,7 @@ namespace Models
 
 
     protected:
+      // A list of subcomponents that contain lists of parameter details.
       shared_ptr<vector<Parameters::ComponentParameters>> componentParameters_ {};
     };
 
@@ -360,12 +373,19 @@ namespace Models
 
 
         protected:
+          // The default value of the parameter.
           shared_ptr<string> default_ {};
+          // The parameter description.
           shared_ptr<string> description_ {};
+          // The parameter name.
           shared_ptr<string> name_ {};
+          // Indicates whether the application needs to be restarted after you modify the parameter.
           shared_ptr<bool> needRestart_ {};
+          // The regular expression for the parameter.
           shared_ptr<string> pattern_ {};
+          // Indicates whether the parameter is read-only.
           shared_ptr<bool> readOnly_ {};
+          // The parameter type.
           shared_ptr<string> type_ {};
         };
 
@@ -395,8 +415,11 @@ namespace Models
 
 
       protected:
+        // The subcomponent ID or application ID.
         shared_ptr<string> componentId_ {};
+        // The type of the subcomponent.
         shared_ptr<string> componentType_ {};
+        // A list of parameter template details.
         shared_ptr<vector<ComponentParameterTemplates::Parameters>> parameters_ {};
       };
 
@@ -411,6 +434,7 @@ namespace Models
 
 
     protected:
+      // A list of subcomponents that contain lists of parameter template details.
       shared_ptr<vector<ParameterTemplates::ComponentParameterTemplates>> componentParameterTemplates_ {};
     };
 
@@ -442,8 +466,11 @@ namespace Models
 
 
   protected:
+    // The details of the parameter template.
     shared_ptr<DescribeApplicationParametersResponseBody::ParameterTemplates> parameterTemplates_ {};
+    // The parameter details.
     shared_ptr<DescribeApplicationParametersResponseBody::Parameters> parameters_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

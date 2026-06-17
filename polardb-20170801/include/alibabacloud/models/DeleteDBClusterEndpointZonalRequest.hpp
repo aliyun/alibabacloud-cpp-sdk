@@ -84,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The custom cluster endpoint ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBEndpointId_ {};
     shared_ptr<string> ownerAccount_ {};

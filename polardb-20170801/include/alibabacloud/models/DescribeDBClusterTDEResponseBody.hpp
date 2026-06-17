@@ -114,37 +114,45 @@ namespace Models
   protected:
     // Indicates whether automatic key rotation is allowed. Valid values:
     // 
-    // *   **Enabled**: Automatic key rotation is allowed.
-    // *   **Disabled**: Automatic key rotation is not allowed.
+    // - **Enabled**: Automatic key rotation is allowed.
     // 
-    // >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+    // - **Disabled**: Automatic key rotation is not allowed.
+    // 
+    // > This parameter is returned only when the database engine is compatible with PostgreSQL or Oracle syntax.
     shared_ptr<string> automaticRotation_ {};
-    // The ID of the cluster.
+    // The unique ID of the cluster.
     shared_ptr<string> DBClusterId_ {};
-    // Indicates whether automatic encryption is enabled for new tables. Valid values:
+    // Indicates whether automatic encryption is enabled for all newly created tables. Valid values:
     // 
-    // *   **ON**
-    // *   **OFF**
+    // - **ON**: Automatic encryption is enabled.
     // 
-    // >  This parameter is returned only for a PolarDB for MySQL cluster.
+    // - **OFF**: Automatic encryption is disabled.
+    // 
+    // > This parameter is returned only when the database engine is compatible with MySQL.
     shared_ptr<string> encryptNewTables_ {};
     // The ID of the custom key.
     shared_ptr<string> encryptionKey_ {};
+    // The status of the key. Valid values:
+    // 
+    // - **Enabled**: The key is enabled.
+    // 
+    // - **Disabled**: The key is disabled.
     shared_ptr<string> encryptionKeyStatus_ {};
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The automatic key rotation period configured in Key Management Service (KMS). If no automatic key rotation period is configured, 0s is returned. Unit: seconds.
+    // The automatic key rotation interval configured in KMS. If no automatic key rotation interval is set, 0 s is returned. Unit: s.
     // 
-    // For example, if the rotation period is set to 7 days, 604800s is returned.
+    // For example, if the rotation interval is 7 days, 604800 s is returned.
     // 
-    // >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster whose AutomaticRotation parameter is set to Enabled.
+    // > This parameter is returned only when the database engine is compatible with PostgreSQL or Oracle syntax, and the value of `AutomaticRotation` is `Enabled`.
     shared_ptr<string> rotationInterval_ {};
-    // The region where the TDE key resides.
+    // The region where the TDE key is located.
     shared_ptr<string> TDERegion_ {};
     // Indicates whether TDE encryption is enabled. Valid values:
     // 
-    // *   **Enabled**
-    // *   **Disabled**
+    // - **Enabled**: TDE encryption is enabled.
+    // 
+    // - **Disabled**: TDE encryption is disabled.
     shared_ptr<string> TDEStatus_ {};
   };
 

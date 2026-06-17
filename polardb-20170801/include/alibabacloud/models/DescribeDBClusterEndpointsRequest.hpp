@@ -105,15 +105,17 @@ namespace Models
   protected:
     // The ID of the cluster.
     // 
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to find the IDs of all clusters in your account.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the endpoint.
+    // The ID of the cluster endpoint.
     shared_ptr<string> DBEndpointId_ {};
+    // Specifies whether to return information about AI nodes.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the PolarFS instance.
     shared_ptr<string> polarFsInstanceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

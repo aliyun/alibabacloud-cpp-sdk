@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // A list of subcomponent IDs. If you specify this parameter, the operation returns the parameters and parameter templates for only these components.
     shared_ptr<string> componentIdListShrink_ {};
   };
 

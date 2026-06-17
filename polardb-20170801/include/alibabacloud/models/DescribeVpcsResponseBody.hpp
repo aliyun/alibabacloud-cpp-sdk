@@ -170,13 +170,29 @@ namespace Models
 
 
       protected:
+        // The IPv4 CIDR block of the vSwitch.
         shared_ptr<string> cidrBlock_ {};
+        // The time when the vSwitch was created.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the vSwitch was last modified.
         shared_ptr<string> gmtModified_ {};
+        // Indicates whether the vSwitch is the default vSwitch. Valid values:
+        // 
+        // - **true**: The vSwitch is the default vSwitch.
+        // 
+        // - **false**: The vSwitch is not the default vSwitch.
         shared_ptr<bool> isDefault_ {};
+        // The zone to which the vSwitch belongs.
         shared_ptr<string> izNo_ {};
+        // The status of the vSwitch. Valid values:
+        // 
+        // - **Pending**: The vSwitch is being configured.
+        // 
+        // - **Available**: The vSwitch is active.
         shared_ptr<string> status_ {};
+        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
+        // The name of the vSwitch.
         shared_ptr<string> vSwitchName_ {};
       };
 
@@ -263,16 +279,37 @@ namespace Models
 
 
     protected:
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> aliUid_ {};
+      // Indicates whether the account is an Alibaba Finance Cloud account, an Alibaba Gov Cloud account, or a public cloud account.
       shared_ptr<string> bid_ {};
+      // The IPv4 CIDR block of the VPC.
       shared_ptr<string> cidrBlock_ {};
+      // The time when the VPC was created.
       shared_ptr<string> gmtCreate_ {};
+      // The time when the VPC was last modified.
       shared_ptr<string> gmtModified_ {};
+      // Indicates whether the VPC is the default VPC. Valid values:
+      // 
+      // - **true**: The VPC is the default VPC.
+      // 
+      // - **false**: The VPC is not the default VPC.
       shared_ptr<bool> isDefault_ {};
+      // The ID of the region to which the VPC belongs.
       shared_ptr<string> regionNo_ {};
+      // The status of the VPC. Valid values:
+      // 
+      // - `Pending`: The VPC is being configured.
+      // 
+      // - `Available`: The VPC is active.
       shared_ptr<string> status_ {};
+      // A list of vSwitches.
       shared_ptr<vector<Vpcs::VSwitchs>> vSwitchs_ {};
+      // The ID of the VPC.
+      // 
+      // > You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the details of VPCs.
       shared_ptr<string> vpcId_ {};
+      // The name of the VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -316,10 +353,23 @@ namespace Models
 
 
   protected:
+    // The page number of the returned page. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    //   **30**
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // A list of VPCs.
     shared_ptr<vector<DescribeVpcsResponseBody::Vpcs>> vpcs_ {};
   };
 

@@ -94,15 +94,19 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBNodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // SCC
+    // The SCC mode to set for the node.
     // 
     // This parameter is required.
     shared_ptr<string> sccMode_ {};

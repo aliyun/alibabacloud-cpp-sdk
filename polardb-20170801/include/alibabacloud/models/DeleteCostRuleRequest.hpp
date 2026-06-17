@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the cost rule.
+    // 
     // This parameter is required.
     shared_ptr<string> costRuleId_ {};
+    // The ID of the gateway instance.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
   };
 

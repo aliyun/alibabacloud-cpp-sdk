@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters in a destination region, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The parameter name.
     shared_ptr<string> parameterName_ {};
+    // The parameter value.
     shared_ptr<string> parameterValue_ {};
+    // The list of parameter names and values for modifying multiple parameters.
     shared_ptr<string> parametersShrink_ {};
   };
 

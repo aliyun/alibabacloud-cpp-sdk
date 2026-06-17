@@ -153,7 +153,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -363,33 +365,107 @@ namespace Models
 
 
     protected:
+      // The AI node type. Valid values:
+      // 
+      // - SearchNode: search node
+      // 
+      // - DLNode: AI node
       shared_ptr<string> aiType_ {};
+      // The Cluster Edition. The following editions are supported:
+      // 
+      // - Normal: Cluster Edition
+      // 
+      // - Basic: single node
+      // 
+      // - Archive: X-Engine
+      // 
+      // - NormalMultimaster: Multi-master Cluster (Database/Table)
       shared_ptr<string> category_ {};
+      // The ID of the central control region.
       shared_ptr<string> centralControlRegionId_ {};
+      // The cloud service provider.
       shared_ptr<string> cloudProvider_ {};
+      // The number of CPU cores.
       shared_ptr<string> cpuCores_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description of the cluster.
       shared_ptr<string> DBClusterDescription_ {};
+      // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
+      // The status of the cluster.
       shared_ptr<string> DBClusterStatus_ {};
+      // The node specifications.
       shared_ptr<string> DBNodeClass_ {};
+      // The number of nodes.
       shared_ptr<int32_t> DBNodeNumber_ {};
+      // The database type.
       shared_ptr<string> DBType_ {};
+      // The database version.
       shared_ptr<string> DBVersion_ {};
+      // The ENS region ID.
       shared_ptr<string> ENSRegionId_ {};
+      // The expiration time of the cluster.
+      // 
+      // > This parameter is returned only for **Prepaid** (subscription) clusters. For **Postpaid** (pay-as-you-go) clusters, this parameter is empty.
       shared_ptr<string> expireTime_ {};
+      // Indicates whether the cluster has expired. Valid values:
+      // 
+      // - true
+      // 
+      // - false
       shared_ptr<string> expired_ {};
+      // The lock state of the cluster. Valid values:
+      // 
+      // - Unlock: Normal.
+      // 
+      // - ManualLock: The cluster is manually locked.
+      // 
+      // - LockByExpiration: The cluster is automatically locked upon expiration.
       shared_ptr<string> lockMode_ {};
+      // The billing method. Valid values:
+      // 
+      // - Postpaid: pay-as-you-go.
+      // 
+      // - Prepaid: subscription.
       shared_ptr<string> payType_ {};
+      // The Serverless type. \\`**AgileServerless**\\` indicates that the cluster is a Serverless cluster. An empty value indicates that the cluster is a common cluster.
       shared_ptr<string> serverlessType_ {};
+      // The storage capacity of the instance.
       shared_ptr<int64_t> storageSpace_ {};
+      // The storage class of the Standard Edition cluster. Valid values:
+      // 
+      // - essdpl0
+      // 
+      // - essdpl1
+      // 
+      // - essdpl2
+      // 
+      // - essdpl3
+      // 
+      // - essdautopl
       shared_ptr<string> storageType_ {};
+      // The used storage space of the cluster. Unit: bytes.
       shared_ptr<int64_t> storageUsed_ {};
+      // Indicates whether strong consistency is enabled for data across multiple zones. Valid values:
+      // 
+      // - **ON**: Strong consistency is enabled. This applies to Standard Edition clusters that are deployed in three zones.
+      // 
+      // - **OFF**: Strong consistency is not enabled.
       shared_ptr<string> strictConsistency_ {};
+      // The specification type of the compute node. Valid values:
+      // 
+      // - **Exclusive**: Dedicated
+      // 
+      // - **General**: General-purpose
       shared_ptr<string> subCategory_ {};
+      // The list of tags.
       shared_ptr<vector<Items::Tags>> tags_ {};
+      // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
+      // The virtual switch ID.
       shared_ptr<string> vswitchId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -448,12 +524,19 @@ namespace Models
 
 
   protected:
+    // The list of clusters.
     shared_ptr<vector<DescribeDBClustersZonalResponseBody::Items>> items_ {};
+    // The maximum number of entries returned for the current request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If more results are available, this parameter is returned. To retrieve the next page, include this token in your next request. If all results have been returned, this parameter is not returned.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of clusters on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

@@ -140,43 +140,43 @@ namespace Models
 
 
   protected:
-    // The ID of the data backup file.
+    // The ID of the backup set.
     // 
-    // >*   When you run a query, you must specify the `BackId` or `RestoreTime` parameter.
-    // >*   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the ID of the backup set.
+    // > - You must specify either the `BackupId` or `RestoreTime` parameter.
+    // >
+    // > - Call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the backup set ID.
     shared_ptr<string> backupId_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specify the specific database name (such as `test_db`) to query the names of all data tables that can be restored in the desired database.
+    // The name of the database, such as `test_db`. If you specify this parameter, the names of all tables that can be recovered from the specified database are returned.
     // 
-    // >*   You can specify only one database name each time.
-    // >*   If you do not specify this parameter, you can query the names of all databases that can be restored in the current backup set. However, you cannot query the names of data tables in each database.
+    // > - You can specify only one database name at a time.
+    // >
+    // > - If you do not specify this parameter, the names of all databases that can be recovered from the current backup set are returned. The names of tables in each database are not returned.
     shared_ptr<string> getDbName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values:
     // 
-    // *   **30**
+    // - **30**
     // 
-    // *   **50**
+    // - **50**
     // 
-    // *   **100**
-    // 
-    //     Default value: **30**.
+    // - **100** Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which the instance resides. You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/2319132.html) operation to query the region ID of the instance.
+    // The region ID of the instance. You can call [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/2319132.html) to query the region ID.
     shared_ptr<string> regionCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The point in time for the restoration. Specify the time in the YYYY-MM-DDThh:mmZ format. The time must be in UTC.
+    // The point in time to which you want to restore data. Specify the time in the YYYY-MM-DDThh:mmZ format. The time must be in UTC.
     // 
-    // >  When you run a query, you must specify the `BackId` or `RestoreTime` parameter. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the point in time for the restoration.
+    // > You must specify either the `BackupId` or `RestoreTime` parameter. Call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the point in time for restoration.
     shared_ptr<string> restoreTime_ {};
     shared_ptr<string> securityToken_ {};
   };

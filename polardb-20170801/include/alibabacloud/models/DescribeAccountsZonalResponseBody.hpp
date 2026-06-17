@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The permissions of the account.
         shared_ptr<string> accountPrivilege_ {};
+        // The name of the database.
         shared_ptr<string> DBName_ {};
       };
 
@@ -168,12 +170,35 @@ namespace Models
 
 
     protected:
+      // The description of the account.
       shared_ptr<string> accountDescription_ {};
+      // The lock state of the account. Valid values:
+      // 
+      // - UnLock: The account is not locked.
+      // 
+      // - Lock: The account is locked.
       shared_ptr<string> accountLockState_ {};
+      // The name of the account.
       shared_ptr<string> accountName_ {};
+      // The time when the password expires.
       shared_ptr<string> accountPasswordValidTime_ {};
+      // The status of the account. Valid values:
+      // 
+      // Creating: The account is being created.
+      // 
+      // Available: The account is active.
+      // 
+      // Deleting: The account is being deleted.
       shared_ptr<string> accountStatus_ {};
+      // The type of the account. Valid values:
+      // 
+      // - Normal: A standard account.
+      // 
+      // - Super: A privileged account.
+      // 
+      // - ReadOnly: A global read-only account.
       shared_ptr<string> accountType_ {};
+      // The details of the database permissions that the account has.
       shared_ptr<vector<Accounts::DatabasePrivileges>> databasePrivileges_ {};
     };
 
@@ -224,11 +249,17 @@ namespace Models
 
 
   protected:
+    // The details of the accounts.
     shared_ptr<vector<DescribeAccountsZonalResponseBody::Accounts>> accounts_ {};
+    // The maximum number of entries returned in the request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If the results are not fully returned, this token is returned. You can use this token in the next request to retrieve the remaining results.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

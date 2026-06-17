@@ -106,14 +106,21 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> ok_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the gateway was restarted.
     shared_ptr<bool> restarted_ {};
+    // The total number of environment variables for the application after the update.
     shared_ptr<int32_t> totalVariables_ {};
+    // A list of the environment variable names that were added or updated.
     shared_ptr<vector<string>> updatedKeys_ {};
   };
 

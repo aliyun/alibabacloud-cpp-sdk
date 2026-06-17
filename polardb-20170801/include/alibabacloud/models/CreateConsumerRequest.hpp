@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The consumer group name.
     shared_ptr<string> consumerGroupName_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The key type. The only supported value is ApiKey.
     shared_ptr<string> keyType_ {};
+    // The user name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The user nickname.
     shared_ptr<string> nickName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

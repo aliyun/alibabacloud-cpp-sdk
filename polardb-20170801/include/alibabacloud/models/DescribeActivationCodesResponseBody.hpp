@@ -140,23 +140,23 @@ namespace Models
 
 
     protected:
-      // The time when the activation code takes effect.
+      // Effective period
       shared_ptr<string> activateAt_ {};
-      // The description of the activation code.
+      // Activation code description
       shared_ptr<string> description_ {};
-      // The time when the activation code expires.
+      // Expiration time
       shared_ptr<string> expireAt_ {};
-      // The time when the activation code was generated.
+      // Creation time
       shared_ptr<string> gmtCreated_ {};
-      // The time when the activation code was updated.
+      // Update time
       shared_ptr<string> gmtModified_ {};
-      // The activation code ID.
+      // Activation code ID
       shared_ptr<int32_t> id_ {};
-      // The media access control (MAC) address used in the generation of the activation code.
+      // MAC address
       shared_ptr<string> macAddress_ {};
-      // The name of the activation code.
+      // Activation code name
       shared_ptr<string> name_ {};
-      // The unique identifier of the database.
+      // Unique identifier in the database
       shared_ptr<string> systemIdentifier_ {};
     };
 
@@ -200,15 +200,15 @@ namespace Models
 
 
   protected:
-    // The queried activation codes.
+    // List of activation codes
     shared_ptr<vector<DescribeActivationCodesResponseBody::Items>> items_ {};
-    // The page number.
+    // Current page number
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // Number of records on the current page
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The request ID.
+    // The unique ID generated for this request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // Total number of records
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

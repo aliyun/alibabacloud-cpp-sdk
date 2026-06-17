@@ -164,16 +164,27 @@ namespace Models
 
 
     protected:
+      // A list of channel IDs, which can be empty.
       shared_ptr<vector<string>> channelIds_ {};
+      // The description of the plugin.
       shared_ptr<string> description_ {};
+      // The error message, or `null` if no error occurred.
       shared_ptr<string> error_ {};
+      // The format of the plugin, which can be an empty string.
       shared_ptr<string> format_ {};
+      // The plugin ID.
       shared_ptr<string> id_ {};
+      // The display name of the plugin.
       shared_ptr<string> name_ {};
+      // The origin of the plugin. Valid values: `bundled`, `global`, and `user-install`.
       shared_ptr<string> origin_ {};
+      // A list of provider IDs, which can be empty.
       shared_ptr<vector<string>> providerIds_ {};
+      // The file path to the plugin\\"s entry point.
       shared_ptr<string> source_ {};
+      // The status of the plugin. Valid values: `loaded`, `disabled`, and `error`.
       shared_ptr<string> status_ {};
+      // The version number of the plugin.
       shared_ptr<string> version_ {};
     };
 
@@ -233,9 +244,13 @@ namespace Models
 
 
     protected:
+      // The severity level. Valid values: `error` and `warn`.
       shared_ptr<string> level_ {};
+      // The detailed diagnostic message.
       shared_ptr<string> message_ {};
+      // The ID of the associated plugin.
       shared_ptr<string> pluginId_ {};
+      // The source file path associated with the diagnostic.
       shared_ptr<string> source_ {};
     };
 
@@ -288,11 +303,17 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // An array of diagnostic objects.
     shared_ptr<vector<DescribePolarClawPluginsResponseBody::Diagnostics>> diagnostics_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // An array of plugin objects.
     shared_ptr<vector<DescribePolarClawPluginsResponseBody::Plugins>> plugins_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

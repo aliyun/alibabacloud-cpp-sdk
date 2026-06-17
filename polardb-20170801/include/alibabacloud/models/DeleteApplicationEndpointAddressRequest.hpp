@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the server-side endpoint to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> endpointId_ {};
+    // The network type of the connection address to delete. The value is fixed to `Public`.
+    // 
     // This parameter is required.
     shared_ptr<string> netType_ {};
   };

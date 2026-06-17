@@ -170,17 +170,45 @@ namespace Models
 
 
     protected:
+      // The time when the gateway instance was created.
       shared_ptr<string> createTime_ {};
+      // The database type.
       shared_ptr<string> dbType_ {};
+      // The expiration time of the gateway instance.
+      // 
+      // - For subscription instances, this parameter indicates the expiration time.
+      // 
+      // - This parameter is empty for pay-as-you-go instances.
       shared_ptr<string> expireTime_ {};
+      // Indicates whether the gateway instance has expired. Valid values:
+      // 
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> expired_ {};
+      // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
+      // The description of the gateway instance.
       shared_ptr<string> gwDescription_ {};
+      // The time when the gateway instance was last modified.
       shared_ptr<string> modifyTime_ {};
+      // The billing method. Valid values:
+      // 
+      // - **Postpaid**: pay-as-you-go
+      // 
+      // - **Prepaid**: subscription
       shared_ptr<string> payType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The status of the gateway instance. Valid values:
+      // 
+      // - **CREATE**: creating
+      // 
+      // - **ACTIVATION**: running
       shared_ptr<string> status_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
     };
 
@@ -231,12 +259,25 @@ namespace Models
 
 
   protected:
+    // A list of gateway instances.
     shared_ptr<vector<DescribeGatewayListResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries returned on the current page.
     shared_ptr<string> pageRecordCount_ {};
+    // The number of entries per page.
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: 30.
     shared_ptr<string> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 

@@ -94,9 +94,13 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The cluster endpoint ID.
     shared_ptr<string> DBEndpointId_ {};
+    // Specifies whether to return information about AI nodes.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

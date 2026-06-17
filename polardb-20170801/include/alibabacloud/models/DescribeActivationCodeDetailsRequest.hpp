@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The ID of the activation code.
     shared_ptr<int32_t> activationCodeId_ {};
-    // The Alibaba Cloud order ID (including the virtual order ID).
+    // The Alibaba Cloud order ID, including virtual orders.
     // 
     // This parameter is required.
     shared_ptr<string> aliyunOrderId_ {};

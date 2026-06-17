@@ -86,10 +86,11 @@ namespace Models
   protected:
     // Specifies whether to continue to enable binary logging. Valid values:
     // 
-    // *   **true**: continues to enable binary logging.
-    // *   **false**: disables binary logging.
+    // - **True**: continues to enable binary logging.
     // 
-    // Default value: **true**.
+    // - **False**: disables binary logging.
+    // 
+    // Default value: **True**.
     // 
     // > If binary logging is disabled, your PolarDB cluster is restarted.
     shared_ptr<bool> continueEnableBinlog_ {};

@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // The invocation endpoint.
     shared_ptr<string> invokeEndpoint_ {};
+    // The model API ID.
     shared_ptr<string> modelApiId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The model API status.
     shared_ptr<string> status_ {};
   };
 

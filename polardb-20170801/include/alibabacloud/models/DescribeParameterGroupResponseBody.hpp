@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // The name of the parameter.
+        // The parameter name.
         shared_ptr<string> paramName_ {};
-        // The value of the parameter.
+        // The parameter value.
         shared_ptr<string> paramValue_ {};
       };
 
@@ -189,20 +189,21 @@ namespace Models
 
 
     protected:
-      // The time when the parameter template was created. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+      // The creation time of the parameter template, in `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
       shared_ptr<string> createTime_ {};
-      // The type of the database engine.
+      // The database engine type.
       shared_ptr<string> DBType_ {};
-      // The version of the database engine.
+      // The database engine version.
       shared_ptr<string> DBVersion_ {};
-      // Indicates whether to restart the cluster when this parameter template is applied. Valid values:
+      // Specifies whether a cluster restart is required for the parameter template to take effect. Valid values:
       // 
-      // *   **0**: A restart is not required.
-      // *   **1**: A restart is required.
+      // - **0**: No restart is required.
+      // 
+      // - **1**: A restart is required.
       shared_ptr<string> forceRestart_ {};
       // The number of parameters in the parameter template.
       shared_ptr<int32_t> parameterCounts_ {};
-      // Details about the parameters.
+      // A list of parameters.
       shared_ptr<vector<ParameterGroup::ParameterDetail>> parameterDetail_ {};
       // The description of the parameter template.
       shared_ptr<string> parameterGroupDesc_ {};
@@ -212,9 +213,11 @@ namespace Models
       shared_ptr<string> parameterGroupName_ {};
       // The type of the parameter template. Valid values:
       // 
-      // *   **0**: the default parameter template.
-      // *   **1**: a custom parameter template.
-      // *   **2**: an automatic backup parameter template. After you apply this type of template, the system automatically backs up the original parameter settings and saves the backup as a template.
+      // - **0**: default template
+      // 
+      // - **1**: custom template
+      // 
+      // - **2**: automatic backup template. This type of template is an automatic backup of the previous settings, created when you apply a new template.
       shared_ptr<string> parameterGroupType_ {};
     };
 
@@ -237,9 +240,9 @@ namespace Models
 
 
   protected:
-    // Details about the parameter templates.
+    // A list of parameter templates.
     shared_ptr<vector<DescribeParameterGroupResponseBody::ParameterGroup>> parameterGroup_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

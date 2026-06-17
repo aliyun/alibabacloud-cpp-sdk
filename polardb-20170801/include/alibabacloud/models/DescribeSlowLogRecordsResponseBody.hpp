@@ -274,18 +274,18 @@ namespace Models
 
 
   protected:
-    // Cluster ID.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // Database engine.
+    // The database engine.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeSlowLogRecordsResponseBody::Items> items_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of records on this page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of SQL statements.
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

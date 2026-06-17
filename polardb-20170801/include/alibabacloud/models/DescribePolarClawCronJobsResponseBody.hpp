@@ -145,9 +145,13 @@ namespace Models
 
 
       protected:
+        // Number of consecutive failures
         shared_ptr<int32_t> consecutiveErrors_ {};
+        // Last execution timestamp (milliseconds)
         shared_ptr<int64_t> lastRunAtMs_ {};
+        // Last execution status
         shared_ptr<string> lastRunStatus_ {};
+        // Next execution timestamp (milliseconds)
         shared_ptr<int64_t> nextRunAtMs_ {};
       };
 
@@ -225,11 +229,17 @@ namespace Models
 
 
       protected:
+        // Alignment anchor timestamp for interval
         shared_ptr<int64_t> anchorMs_ {};
+        // ISO 8601 timestamp
         shared_ptr<string> at_ {};
+        // Interval in milliseconds
         shared_ptr<int64_t> everyMs_ {};
+        // Cron expression
         shared_ptr<string> expr_ {};
+        // Schedule type: cron/every/at
         shared_ptr<string> kind_ {};
+        // IANA time zone
         shared_ptr<string> tz_ {};
       };
 
@@ -327,8 +337,11 @@ namespace Models
 
 
         protected:
+          // Number of input tokens
           shared_ptr<int32_t> inputTokens_ {};
+          // Number of output tokens
           shared_ptr<int32_t> outputTokens_ {};
+          // Total number of tokens
           shared_ptr<int32_t> totalTokens_ {};
         };
 
@@ -444,20 +457,35 @@ namespace Models
 
 
       protected:
+        // Action: finished/error/skipped
         shared_ptr<string> action_ {};
+        // Indicates whether the job has been delivered.
         shared_ptr<bool> delivered_ {};
+        // Delivery status
         shared_ptr<string> deliveryStatus_ {};
+        // Execution duration (milliseconds)
         shared_ptr<int64_t> durationMs_ {};
+        // Associated task ID
         shared_ptr<string> jobId_ {};
+        // Task name
         shared_ptr<string> jobName_ {};
+        // Model used
         shared_ptr<string> model_ {};
+        // Next execution timestamp (milliseconds)
         shared_ptr<int64_t> nextRunAtMs_ {};
+        // Model provider
         shared_ptr<string> provider_ {};
+        // Actual execution timestamp (milliseconds)
         shared_ptr<int64_t> runAtMs_ {};
+        // Associated session ID
         shared_ptr<string> sessionId_ {};
+        // Status: ok/error/skipped
         shared_ptr<string> status_ {};
+        // Run summary text
         shared_ptr<string> summary_ {};
+        // Run timestamp (milliseconds)
         shared_ptr<int64_t> ts_ {};
+        // Token usage details
         shared_ptr<Runs::Usage> usage_ {};
       };
 
@@ -572,15 +600,25 @@ namespace Models
 
 
       protected:
+        // Ignore delivery failures
         shared_ptr<bool> bestEffortDeliver_ {};
+        // Delivery channel ID
         shared_ptr<string> channel_ {};
+        // Deliver output to channel
         shared_ptr<bool> deliver_ {};
+        // Payload type: agentTurn/systemEvent
         shared_ptr<string> kind_ {};
+        // Indicates whether lightweight context is used.
         shared_ptr<bool> lightContext_ {};
+        // Agent conversation prompt
         shared_ptr<string> message_ {};
+        // Model override
         shared_ptr<string> model_ {};
+        // System event text
         shared_ptr<string> text_ {};
+        // Execution timeout in seconds
         shared_ptr<int32_t> timeoutSeconds_ {};
+        // Delivery destination
         shared_ptr<string> to_ {};
       };
 
@@ -649,10 +687,15 @@ namespace Models
 
 
       protected:
+        // Channel account ID
         shared_ptr<string> accountId_ {};
+        // Ignore delivery failures
         shared_ptr<bool> bestEffort_ {};
+        // Delivery channel
         shared_ptr<string> channel_ {};
+        // Delivery mode: none/announce/webhook
         shared_ptr<string> mode_ {};
+        // Delivery destination
         shared_ptr<string> to_ {};
       };
 
@@ -783,21 +826,37 @@ namespace Models
 
 
     protected:
+      // Execution Agent ID
       shared_ptr<string> agentId_ {};
+      // Creation timestamp (milliseconds)
       shared_ptr<int64_t> createdAtMs_ {};
+      // Delete after first execution
       shared_ptr<bool> deleteAfterRun_ {};
+      // Result delivery configuration
       shared_ptr<Jobs::Delivery> delivery_ {};
+      // Task description
       shared_ptr<string> description_ {};
+      // Whether enabled
       shared_ptr<bool> enabled_ {};
+      // Task ID (UUID)
       shared_ptr<string> id_ {};
+      // Task name
       shared_ptr<string> name_ {};
+      // Execution payload
       shared_ptr<Jobs::Payload> payload_ {};
+      // Run history
       shared_ptr<vector<Jobs::Runs>> runs_ {};
+      // Scheduling Configuration
       shared_ptr<Jobs::Schedule> schedule_ {};
+      // Session routing key
       shared_ptr<string> sessionKey_ {};
+      // Session target: main/isolated/current
       shared_ptr<string> sessionTarget_ {};
+      // Run status
       shared_ptr<Jobs::State> state_ {};
+      // Update timestamp (milliseconds)
       shared_ptr<int64_t> updatedAtMs_ {};
+      // Wake mode: now/next-heartbeat
       shared_ptr<string> wakeMode_ {};
     };
 
@@ -848,11 +907,17 @@ namespace Models
 
 
   protected:
+    // Application ID
     shared_ptr<string> applicationId_ {};
+    // Status code
     shared_ptr<int32_t> code_ {};
+    // List of scheduled tasks
     shared_ptr<vector<DescribePolarClawCronJobsResponseBody::Jobs>> jobs_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Total number of tasks
     shared_ptr<int32_t> total_ {};
   };
 

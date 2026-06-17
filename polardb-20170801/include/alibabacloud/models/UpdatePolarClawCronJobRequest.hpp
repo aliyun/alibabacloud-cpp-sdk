@@ -142,12 +142,19 @@ namespace Models
 
 
     protected:
+      // The anchor timestamp for interval alignment, in milliseconds.
       shared_ptr<int64_t> anchorMs_ {};
+      // An ISO 8601 timestamp. This parameter is required if `Schedule.Kind` is `at`. For example: `2026-04-10T09:00:00+08:00`.
       shared_ptr<string> at_ {};
+      // The interval in milliseconds. This parameter is required if `Schedule.Kind` is `every`.
       shared_ptr<int64_t> everyMs_ {};
+      // The cron expression.
       shared_ptr<string> expr_ {};
+      // The schedule type.
       shared_ptr<string> kind_ {};
+      // The deterministic jitter window, in milliseconds.
       shared_ptr<int32_t> staggerMs_ {};
+      // The time zone.
       shared_ptr<string> tz_ {};
     };
 
@@ -283,17 +290,29 @@ namespace Models
 
 
     protected:
+      // Specifies whether to ignore delivery failures.
       shared_ptr<bool> bestEffortDeliver_ {};
+      // The ID of the delivery channel.
       shared_ptr<string> channel_ {};
+      // Specifies whether to deliver the output to a channel.
       shared_ptr<bool> deliver_ {};
+      // A list of fallback models.
       shared_ptr<vector<string>> fallbacks_ {};
+      // The payload type. Valid values are `agentTurn` (for an Agent conversation) or `systemEvent` (for a system event).
       shared_ptr<string> kind_ {};
+      // Specifies whether to use a lightweight context.
       shared_ptr<bool> lightContext_ {};
+      // The prompt for the Agent conversation. This parameter is required if `Payload.Kind` is `agentTurn`.
       shared_ptr<string> message_ {};
+      // The model override.
       shared_ptr<string> model_ {};
+      // The text for the system event. This parameter is required if `Payload.Kind` is `systemEvent`.
       shared_ptr<string> text_ {};
+      // The thinking level. Valid values: `off`, `minimal`, `low`, `medium`, `high`, and `xhigh`.
       shared_ptr<string> thinking_ {};
+      // The execution timeout in seconds.
       shared_ptr<int32_t> timeoutSeconds_ {};
+      // The delivery target.
       shared_ptr<string> to_ {};
     };
 
@@ -371,11 +390,17 @@ namespace Models
 
 
     protected:
+      // The account ID for the channel.
       shared_ptr<string> accountId_ {};
+      // The number of consecutive failures after which to send an alert.
       shared_ptr<int32_t> after_ {};
+      // The alert channel.
       shared_ptr<string> channel_ {};
+      // The minimum interval between two alerts, in milliseconds.
       shared_ptr<int32_t> cooldownMs_ {};
+      // The alert mode. Valid values: `announce` and `webhook`.
       shared_ptr<string> mode_ {};
+      // The alert target.
       shared_ptr<string> to_ {};
     };
 
@@ -444,10 +469,15 @@ namespace Models
 
 
     protected:
+      // The account ID for the channel.
       shared_ptr<string> accountId_ {};
+      // Specifies whether to ignore delivery failures.
       shared_ptr<bool> bestEffort_ {};
+      // The delivery channel.
       shared_ptr<string> channel_ {};
+      // The delivery mode. Valid values: `none`, `announce`, and `webhook`.
       shared_ptr<string> mode_ {};
+      // The delivery target. This parameter is required and must be a URL if `Delivery.Mode` is `webhook`.
       shared_ptr<string> to_ {};
     };
 
@@ -569,22 +599,39 @@ namespace Models
 
 
   protected:
+    // The ID of the Agent that runs the task.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // Specifies whether to delete the task after its first execution.
     shared_ptr<bool> deleteAfterRun_ {};
+    // The result delivery configuration.
     shared_ptr<UpdatePolarClawCronJobRequest::Delivery> delivery_ {};
+    // The new description for the task.
     shared_ptr<string> description_ {};
+    // Specifies whether the task is enabled.
     shared_ptr<bool> enabled_ {};
+    // The configuration for failure alerts. Set this to `false` to disable alerts.
     shared_ptr<UpdatePolarClawCronJobRequest::FailureAlert> failureAlert_ {};
+    // The ID of the scheduled task to update.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The new name for the task.
     shared_ptr<string> name_ {};
+    // The new payload configuration.
     shared_ptr<UpdatePolarClawCronJobRequest::Payload> payload_ {};
+    // Specifies whether to restart the gateway after the update. Default value: `true`.
     shared_ptr<bool> restart_ {};
+    // The scheduling configuration.
     shared_ptr<UpdatePolarClawCronJobRequest::Schedule> schedule_ {};
+    // The session routing key.
     shared_ptr<string> sessionKey_ {};
+    // The new session target.
     shared_ptr<string> sessionTarget_ {};
+    // The new wake mode.
     shared_ptr<string> wakeMode_ {};
   };
 

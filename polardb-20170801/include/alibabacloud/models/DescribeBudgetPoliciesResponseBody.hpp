@@ -188,19 +188,47 @@ namespace Models
 
 
     protected:
+      // The alert threshold, as a percentage (0 to 100).
       shared_ptr<string> alertThresholdPct_ {};
+      // Indicates whether the alert threshold was triggered.
       shared_ptr<bool> alertTriggered_ {};
+      // The ID of the dimension object. This parameter is required when `BudgetDimensionType` is set to `ConsumerGroup` or `Consumer`.
       shared_ptr<string> budgetDimensionRefId_ {};
+      // The dimension of the budget policy. Valid values:
+      // 
+      // - **ConsumerGroup**: consumer group
+      // 
+      // - **Consumer**: consumer
       shared_ptr<string> budgetDimensionType_ {};
+      // The number of budget points.
       shared_ptr<string> budgetPoints_ {};
+      // The budget policy ID.
       shared_ptr<string> budgetPolicyId_ {};
+      // The budget type. Valid values:
+      // 
+      // - **GlobalTotal**: Global budget
+      // 
+      // - **ConsumerTotal**: Consumer budget
+      // 
+      // - **ConsumerGroupTotal**: Consumer group budget
       shared_ptr<string> budgetType_ {};
+      // Indicates whether the budget was exceeded.
       shared_ptr<string> exceeded_ {};
+      // The time when the policy was created.
       shared_ptr<string> gmtCreated_ {};
+      // The time when the policy was last modified.
       shared_ptr<string> gmtModified_ {};
+      // The gateway cluster ID.
       shared_ptr<string> gwClusterId_ {};
+      // The day of the month (1 to 28) on which the budget is reset.
       shared_ptr<string> resetDayOfMonth_ {};
+      // The status of the policy. Valid values:
+      // 
+      // - **Enabled**: enabled
+      // 
+      // - **Disabled**: disabled
       shared_ptr<string> status_ {};
+      // The number of used points.
       shared_ptr<int32_t> usedPoints_ {};
     };
 
@@ -251,12 +279,19 @@ namespace Models
 
 
   protected:
+    // A list of budget policies.
     shared_ptr<vector<DescribeBudgetPoliciesResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The number of records to return on each page. Valid values: **30**, **50**, and **100**.
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

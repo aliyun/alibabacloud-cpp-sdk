@@ -70,7 +70,23 @@ namespace Models
 
 
     protected:
+      // The task status.
+      // 
+      // - Scheduled: The task is waiting to be executed.
+      // 
+      // - Running: The task is running.
+      // 
+      // - Succeed: The task is successful.
+      // 
+      // - Failed: The task failed.
+      // 
+      // - Cancelling: The task is being canceled.
+      // 
+      // - Canceled: The task is canceled.
+      // 
+      // - Waiting: The task is waiting for a scheduled time.
       shared_ptr<string> status_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -93,8 +109,9 @@ namespace Models
 
 
   protected:
+    // The list of tasks.
     shared_ptr<vector<DescribeHistoryTasksStatResponseBody::Items>> items_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

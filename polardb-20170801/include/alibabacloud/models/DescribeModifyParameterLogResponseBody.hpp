@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // The time when the parameter was last modified.
       shared_ptr<string> modifyTime_ {};
+      // The parameter value after the modification.
       shared_ptr<string> newParameterValue_ {};
+      // The parameter value before the modification.
       shared_ptr<string> oldParameterValue_ {};
+      // The parameter name.
       shared_ptr<string> parameterName_ {};
+      // Indicates whether the modification was applied successfully.
       shared_ptr<string> status_ {};
     };
 
@@ -141,10 +146,13 @@ namespace Models
 
 
   protected:
+    // The cluster engine.
     shared_ptr<string> engine_ {};
+    // The engine version.
     shared_ptr<string> engineVersion_ {};
+    // The list of parameter modification history.
     shared_ptr<vector<DescribeModifyParameterLogResponseBody::Items>> items_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

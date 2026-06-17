@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The ID of the agent to update.
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The new avatar for the agent.
     shared_ptr<string> avatar_ {};
+    // The file list to update.
     shared_ptr<string> filesShrink_ {};
+    // The model to override the agent\\"s default setting.
     shared_ptr<string> model_ {};
+    // The new display name for the agent.
     shared_ptr<string> name_ {};
+    // Specifies whether to restart the gateway after the update. The default value is true.
     shared_ptr<bool> restart_ {};
+    // The new path for the agent\\"s workspace.
     shared_ptr<string> workspace_ {};
   };
 

@@ -149,16 +149,48 @@ namespace Models
 
 
   protected:
+    // The name of the account that is authorized to access the database.
     shared_ptr<string> accountName_ {};
+    // The permissions of the account. Valid values:
+    // 
+    // - ReadWrite: read and write permissions.
+    // 
+    // - ReadOnly: read-only permissions.
+    // 
+    // - DMLOnly: DML permissions only.
+    // 
+    // - DDLOnly: DDL permissions only.
+    // 
+    // - ReadIndex: read-only and index permissions.
+    // 
+    // If you do not specify this parameter, the default value is ReadWrite.
     shared_ptr<string> accountPrivilege_ {};
+    // The character set.
+    // 
     // This parameter is required.
     shared_ptr<string> characterSetName_ {};
+    // A client token to ensure request idempotence. The client generates this token. The token must be unique across requests. It is case-sensitive and can be up to 64 ASCII characters long.
     shared_ptr<string> clientToken_ {};
+    // The locale setting. This specifies the collation for the new database.
     shared_ptr<string> collate_ {};
+    // The locale setting. This specifies the character classification for the database.
     shared_ptr<string> ctype_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The description of the database. The description must meet the following requirements:
+    // 
+    // - It cannot start with `http://` or `https://`.
+    // 
+    // - It must be 2 to 256 characters in length.
     shared_ptr<string> DBDescription_ {};
+    // The name of the database. The name must meet the following requirements:
+    // 
+    // - It must consist of lowercase letters, digits, hyphens (-), and underscores (_).
+    // 
+    // - It must start with a letter and end with a letter or a digit. The name can be up to 64 characters long.
+    // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerAccount_ {};

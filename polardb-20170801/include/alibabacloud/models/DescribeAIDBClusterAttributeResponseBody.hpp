@@ -153,10 +153,15 @@ namespace Models
 
 
     protected:
+      // The mount path in the container.
       shared_ptr<string> mountPath_ {};
+      // The disk name.
       shared_ptr<string> name_ {};
+      // The storage size in GB.
       shared_ptr<string> sizeGB_ {};
+      // The storage category.
       shared_ptr<string> storageCategory_ {};
+      // The storage type.
       shared_ptr<string> storageType_ {};
     };
 
@@ -226,8 +231,17 @@ namespace Models
 
 
       protected:
+        // The database endpoint.
         shared_ptr<string> connectionString_ {};
+        // The network type of the endpoint. Valid values:
+        // 
+        // - **Public**: A public endpoint.
+        // 
+        // - **Private**: A private endpoint.
+        // 
+        // - **Inner**: A private endpoint in a classic network.
         shared_ptr<string> netType_ {};
+        // The port number.
         shared_ptr<string> port_ {};
       };
 
@@ -242,6 +256,7 @@ namespace Models
 
 
     protected:
+      // A list of network information for the instance.
       shared_ptr<vector<EndpointList::NetInfoItems>> netInfoItems_ {};
     };
 
@@ -357,10 +372,15 @@ namespace Models
 
 
       protected:
+        // The mount path.
         shared_ptr<string> mountPath_ {};
+        // The disk name.
         shared_ptr<string> name_ {};
+        // The size of the data disk in GB.
         shared_ptr<string> sizeGB_ {};
+        // The storage category.
         shared_ptr<string> storageCategory_ {};
+        // The storage type.
         shared_ptr<string> storageType_ {};
       };
 
@@ -476,20 +496,55 @@ namespace Models
 
 
     protected:
+      // A list of data disks.
       shared_ptr<vector<DBNodes::ChildVolumes>> childVolumes_ {};
+      // The number of CPU cores.
       shared_ptr<string> cpuCores_ {};
+      // The time when the node was created.
       shared_ptr<string> creationTime_ {};
+      // The node specification.
       shared_ptr<string> DBNodeClass_ {};
+      // The node description.
       shared_ptr<string> DBNodeDescription_ {};
+      // The node ID.
       shared_ptr<string> DBNodeId_ {};
+      // The status of the node. Valid values:
+      // 
+      // - **Creating**: The node is being created.
+      // 
+      // - **Running**: The node is running.
+      // 
+      // - **Deleting**: The node is being deleted.
+      // 
+      // - **Rebooting**: The node is being rebooted.
+      // 
+      // - **DBNodeCreating**: A node is being added to the cluster.
+      // 
+      // - **DBNodeDeleting**: A node is being deleted from the cluster.
+      // 
+      // - **ClassChanging**: The node specifications are being changed.
+      // 
+      // - **MinorVersionUpgrading**: The minor version is being updated.
+      // 
+      // - **Maintaining**: The node is being maintained.
+      // 
+      // - **Switching**: A failover is in progress.
       shared_ptr<string> DBNodeStatus_ {};
+      // The number of GPUs.
       shared_ptr<string> GPU_ {};
+      // The private IP address.
       shared_ptr<string> linkIP_ {};
+      // The memory size in MB.
       shared_ptr<string> memorySize_ {};
+      // The public IP address.
       shared_ptr<string> publicIp_ {};
+      // The Kubernetes virtual node ID.
       shared_ptr<string> VNodeId_ {};
+      // The VPC ID.
       shared_ptr<string> VPCId_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -717,36 +772,123 @@ namespace Models
 
 
   protected:
+    // The node type. Valid values:
+    // 
+    // - **vnode**: The node is managed by ACK.
+    // 
+    // - **container**: A container that you can log on to.
+    // 
+    // - **maas**: Model-as-a-Service (MaaS).
     shared_ptr<string> aiNodeType_ {};
+    // The API key.
     shared_ptr<string> apiKey_ {};
+    // The time when the cluster was created.
     shared_ptr<string> creationTime_ {};
+    // The description of the cluster. Fuzzy search is supported.
     shared_ptr<string> DBClusterDescription_ {};
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The status of the cluster. Valid values:
+    // 
+    // - **Creating**: The cluster is being created.
+    // 
+    // - **Running**: The cluster is running.
+    // 
+    // - **Deleting**: The cluster is being deleted.
+    // 
+    // - **DBNodeCreating**: Nodes are being added.
+    // 
+    // - **DBNodeDeleting**: Nodes are being deleted.
+    // 
+    // - **ClassChanging**: The node specifications are being changed.
+    // 
+    // - **Deleted**: The cluster is deleted.
     shared_ptr<string> DBClusterStatus_ {};
+    // The details of the nodes.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::DBNodes>> DBNodes_ {};
+    // The cluster version. Valid values:
+    // 
+    // **1.0**
+    // 
+    // **2.0**
+    // 
+    // **3.0**
     shared_ptr<string> DBVersion_ {};
+    // The security group ID.
     shared_ptr<string> ecsSecurityGroupId_ {};
+    // A list of endpoints for the instance.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::EndpointList>> endpointList_ {};
+    // The expiration time of the cluster.
+    // 
+    // > This parameter is returned only for **subscription** clusters. For **pay-as-you-go** clusters, an empty string is returned.
     shared_ptr<string> expireTime_ {};
+    // Indicates whether the cluster has expired. Valid values:
+    // 
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> expired_ {};
+    // The private IP address.
     shared_ptr<string> internalIp_ {};
+    // The KVCache instance ID.
     shared_ptr<string> KVCacheInstanceId_ {};
+    // The ACK cluster ID.
     shared_ptr<string> kubeClusterId_ {};
+    // The lock mode of the instance. A value of **lock** indicates that the instance is locked due to expiration or an overdue payment.
     shared_ptr<string> lockMode_ {};
+    // The maximum number of queries per minute.
     shared_ptr<string> maxQPM_ {};
+    // The model name.
     shared_ptr<string> modelName_ {};
+    // The model type.
     shared_ptr<string> modelType_ {};
+    // The billing method. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go.
+    // 
+    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
+    // The public IP address.
     shared_ptr<string> publicIp_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The architecture type. Valid values:
+    // 
+    // - **container**: AI container.
+    // 
+    // - **ainode**: AI node.
     shared_ptr<string> runType_ {};
+    // The storage type for Enterprise Edition. Valid values:
+    // 
+    // - **PSL5**
+    // 
+    // - **PSL4**
+    // 
+    // The storage type for Standard Edition. Valid values:
+    // 
+    // - **ESSDPL0**
+    // 
+    // - **ESSDPL1**
+    // 
+    // - **ESSDPL2**
+    // 
+    // - **ESSDPL3**
+    // 
+    // - **ESSDAUTOPL**
     shared_ptr<string> storageType_ {};
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
+    // The vSwitch ID.
+    // 
+    // >
     shared_ptr<string> vSwitchId_ {};
+    // A list of data disks.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::Volumes>> volumes_ {};
+    // The ID of the zone in which the PolarDB cluster nodes are deployed.
     shared_ptr<string> zoneId_ {};
+    // The zone IDs.
     shared_ptr<string> zoneIds_ {};
   };
 

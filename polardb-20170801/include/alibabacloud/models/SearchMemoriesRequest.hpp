@@ -94,15 +94,25 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The start time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
     shared_ptr<string> createTimeBegin_ {};
+    // The end time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
     shared_ptr<string> createTimeEnd_ {};
+    // The agent ID associated with the memory.
     shared_ptr<string> memoryAgentId_ {};
+    // The user ID associated with the memory.
+    // 
     // This parameter is required.
     shared_ptr<string> memoryUserId_ {};
+    // The search query.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The maximum number of results to return.
     shared_ptr<string> topK_ {};
   };
 

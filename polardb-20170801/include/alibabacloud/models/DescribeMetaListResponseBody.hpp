@@ -93,10 +93,11 @@ namespace Models
 
 
     protected:
-      // The name of the database that can be restored.
+      // The name of the database that can be recovered.
       shared_ptr<string> database_ {};
+      // The size of the database or table, in bytes.
       shared_ptr<vector<int64_t>> size_ {};
-      // The name of the table that can be restored.
+      // The names of the tables that can be recovered.
       shared_ptr<vector<string>> tables_ {};
     };
 
@@ -155,19 +156,19 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The details of databases and tables that can be restored.
+    // The details of recoverable databases and tables.
     shared_ptr<vector<DescribeMetaListResponseBody::Items>> items_ {};
-    // The number of the returned page.
+    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of records on the current page.
     shared_ptr<string> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned pages.
+    // The total number of pages.
     shared_ptr<string> totalPageCount_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

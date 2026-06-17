@@ -112,31 +112,29 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The ID of the endpoint.
     // 
-    // > 
-    // 
-    // *   This parameter is required for PolarDB for MySQL clusters.
-    // 
-    // *   This parameter is not required for PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) clusters. By default, SSL encryption is enabled for all endpoints of the clusters.
-    // 
-    // *   You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to view the details of the endpoint.
+    // > - This parameter is required for PolarDB for MySQL clusters.
+    // >
+    // > - This parameter is not required for PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) clusters. By default, SSL encryption is enabled for all endpoints of the clusters.
+    // >
+    // > - You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to view the details of the endpoint.
     shared_ptr<string> DBEndpointId_ {};
-    // The network type supported by the endpoint that is specified by **DBEndpointId**. Valid values:
+    // The network type of the endpoint. The value must be the same as the network type of the endpoint specified by the **DBEndpointId** parameter. Valid values:
     // 
-    // *   **Public**
-    // *   **Private**
-    // *   **Inner**
+    // - **Public**
     // 
-    // > 
+    // - **Private**
     // 
-    // *   This parameter is required for a PolarDB for MySQL cluster.
+    // - **Inner**
     // 
-    // *   This parameter is not required for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. By default, SSL encryption is enabled for all endpoints.
+    // > * This parameter is required for PolarDB for MySQL clusters.
+    // >
+    // > * This parameter is not required for PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) clusters. By default, SSL encryption is enabled for all endpoints of the clusters.
     shared_ptr<string> netType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -144,16 +142,19 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether automatic rotation of SSL certificates is enabled.
     // 
-    // *   **Enable**: The feature is enabled.
-    // *   **Disable**: The feature is disabled.
+    // - **Enable**
+    // 
+    // - **Disable**
     shared_ptr<string> SSLAutoRotate_ {};
     // The SSL encryption status. Valid values:
     // 
-    // *   **Disable**: SSL encryption is disabled.
-    // *   **Enable**: SSL encryption is enabled.
-    // *   **Update**: The SSL certificate is updated.
+    // - **Disabled**
     // 
-    // > After you enable SSL encryption or update the SSL certificate, you must download and configure the certificate. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/153182.html).
+    // - **Enabled**
+    // 
+    // - **Update**: The SSL certificate is updated.
+    // 
+    // > After you enable SSL encryption or update the SSL certificate, you must download and configure the certificate. See [Configure SSL encryption](https://help.aliyun.com/document_detail/153182.html).
     shared_ptr<string> SSLEnabled_ {};
   };
 

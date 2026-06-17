@@ -57,9 +57,21 @@ namespace Models
 
 
   protected:
+    // The Application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
   };
 

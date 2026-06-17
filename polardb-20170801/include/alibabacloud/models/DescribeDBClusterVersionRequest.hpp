@@ -84,14 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view details of all clusters in your account, such as cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to query the information about the latest versions or the versions to which the cluster can be updated. Valid values:
+    // Specifies whether to return information about the latest version or a list of upgradable versions. Valid values:
     // 
-    // *   LATEST_VERSION: the information about the latest versions.
-    // *   AVAILABLE_VERSION: the information about the versions to which the cluster can be updated.
+    // - LATEST_VERSION: Queries information about the latest version.
+    // 
+    // - AVAILABLE_VERSION: Queries a list of upgradable versions.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

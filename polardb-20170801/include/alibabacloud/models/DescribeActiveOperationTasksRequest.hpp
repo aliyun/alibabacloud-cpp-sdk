@@ -167,27 +167,90 @@ namespace Models
 
 
   protected:
+    // Specifies whether to allow cancellation. Valid values:
+    // 
+    // - **-1** (default): all.
+    // 
+    // - **0**: returns only tasks that do not allow cancellation.
+    // 
+    // - **1**: returns only tasks that allow cancellation.
     shared_ptr<int64_t> allowCancel_ {};
+    // Specifies whether to allow time modification. Valid values:
+    // 
+    // - **-1** (default): all.
+    // 
+    // - **0**: returns only tasks that do not allow time modification.
+    // 
+    // - **1**: returns only tasks that allow time modification.
     shared_ptr<int64_t> allowChange_ {};
+    // The task level. Valid values:
+    // 
+    // - **all** (default): all.
+    // 
+    // - **S0**: returns tasks at the abnormal repair level.
+    // 
+    // - **S1**: returns tasks at the system maintenance level.
     shared_ptr<string> changeLevel_ {};
+    // The cluster ID.
+    // 
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query detailed information about all clusters under your account, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
+    // The database engine type. Valid values:
+    // 
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> DBType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID of the pending event.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The task status. Valid values:
+    // 
+    // - -1: all tasks.
+    // 
+    // - 3: pending tasks.
+    // 
+    // - 4: tasks in progress.
+    // 
+    // - 5: successfully completed tasks.
+    // 
+    // - 6: failed tasks.
+    // 
+    // - 7: canceled tasks.
     shared_ptr<int64_t> status_ {};
+    // The type of the pending event task. Valid values:
+    // 
+    // - **DatabaseSoftwareUpgrading**: database software upgrade
+    // 
+    // - **DatabaseHardwareMaintenance**: hardware maintenance and upgrade
+    // 
+    // - **DatabaseStorageUpgrading**: database storage upgrade
+    // 
+    // - **DatabaseProxyUpgrading**: proxy minor version upgrade
+    // 
+    // - **all**: returns all types of pending events
+    // 
+    // > When `Region` is set to **all**, `TaskType` must also be set to **all**.
     shared_ptr<string> taskType_ {};
   };
 

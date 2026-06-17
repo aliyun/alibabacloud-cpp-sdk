@@ -124,12 +124,23 @@ namespace Models
 
 
     protected:
+      // The list of supported models.
       shared_ptr<string> allowedModels_ {};
+      // The ID of the consumer group.
       shared_ptr<string> consumerGroupId_ {};
+      // The name of the consumer group.
       shared_ptr<string> consumerGroupName_ {};
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
+      // The update time.
       shared_ptr<string> gmtModified_ {};
+      // Indicates whether the consumer group is the default group. Valid values:
+      // 
+      // - **0**: No
+      // 
+      // - **1**: Yes
       shared_ptr<string> isDefault_ {};
+      // The nickname of the consumer group.
       shared_ptr<string> nickName_ {};
     };
 
@@ -180,12 +191,17 @@ namespace Models
 
 
   protected:
+    // A list of consumer groups.
     shared_ptr<vector<DescribeConsumerGroupsResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The number of records returned per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

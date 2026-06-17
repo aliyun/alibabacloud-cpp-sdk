@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The ID of the IP whitelist template.
+    // The ID of the IP allowlist template.
     shared_ptr<string> globalSecurityGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the IP whitelist template.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

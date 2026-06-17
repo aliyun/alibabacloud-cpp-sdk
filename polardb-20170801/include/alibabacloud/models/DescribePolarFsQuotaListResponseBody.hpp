@@ -107,11 +107,15 @@ namespace Models
 
 
     protected:
+      // The capacity in bytes.
       shared_ptr<int64_t> capacity_ {};
-      // Inodes
+      // The inode quota.
       shared_ptr<int64_t> inodes_ {};
+      // The directory path.
       shared_ptr<string> path_ {};
+      // The used capacity in bytes.
       shared_ptr<int64_t> usedCapacity_ {};
+      // The number of inodes in use.
       shared_ptr<int64_t> usedInodes_ {};
     };
 
@@ -170,13 +174,21 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<string> pageRecordCount_ {};
+    // The number of records per page. Valid values: **30**, **50**, and **100**.
+    // 
+    // Default value: **30**.
     shared_ptr<string> pageSize_ {};
+    // The PolarFS instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
+    // A list of directory quotas.
     shared_ptr<vector<DescribePolarFsQuotaListResponseBody::QuotaItems>> quotaItems_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

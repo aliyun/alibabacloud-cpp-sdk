@@ -1076,6 +1076,9 @@
 #include <alibabacloud/models/OpenAITaskRequest.hpp>
 #include <alibabacloud/models/OpenAITaskResponseBody.hpp>
 #include <alibabacloud/models/OpenAITaskResponse.hpp>
+#include <alibabacloud/models/OperateApplicationRequest.hpp>
+#include <alibabacloud/models/OperateApplicationResponseBody.hpp>
+#include <alibabacloud/models/OperateApplicationResponse.hpp>
 #include <alibabacloud/models/PatchPolarClawConfigRequest.hpp>
 #include <alibabacloud/models/PatchPolarClawConfigShrinkRequest.hpp>
 #include <alibabacloud/models/PatchPolarClawConfigResponseBody.hpp>

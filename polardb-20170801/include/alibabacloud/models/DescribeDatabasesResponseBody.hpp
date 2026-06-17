@@ -295,7 +295,7 @@ namespace Models
     shared_ptr<DescribeDatabasesResponseBody::Databases> databases_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

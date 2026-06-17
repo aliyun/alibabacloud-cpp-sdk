@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of regions available for cross-region backup.
     shared_ptr<vector<string>> regions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

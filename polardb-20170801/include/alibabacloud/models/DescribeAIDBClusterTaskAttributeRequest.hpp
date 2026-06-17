@@ -94,10 +94,15 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
     shared_ptr<string> DBClusterId_ {};
+    // The query mode. Valid value:
+    // 
+    // - **RelatedAITask**: Returns the task details.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

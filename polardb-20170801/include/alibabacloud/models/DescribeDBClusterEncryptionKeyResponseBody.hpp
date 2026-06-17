@@ -152,16 +152,41 @@ namespace Models
 
 
     protected:
+      // The alias of the key.
       shared_ptr<string> aliasName_ {};
+      // The UID of the Alibaba Cloud account that created the key.
       shared_ptr<string> creator_ {};
+      // The scheduled time to delete the key. The format is yyyy-MM-ddTHH:mm:ssZ (UTC).
+      // 
+      // - This field is empty if the key is not scheduled for deletion.
       shared_ptr<string> deleteDate_ {};
+      // The description of the key.
       shared_ptr<string> description_ {};
+      // The key ID.
       shared_ptr<string> encryptionKey_ {};
+      // The status of the key. Valid values:
+      // 
+      // - Enabled: The key is enabled.
+      // 
+      // - Disabled: The key is not enabled.
       shared_ptr<string> encryptionKeyStatus_ {};
+      // The type of the key. Valid values:
+      // 
+      // - CMK: customer master key
+      // 
+      // - ServiceKey: service key
       shared_ptr<string> keyType_ {};
+      // The purpose of the key.
       shared_ptr<string> keyUsage_ {};
+      // The expiration time of the key. The format is yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> materialExpireTime_ {};
+      // The source of the key.
       shared_ptr<string> origin_ {};
+      // The service that uses the key. Valid values:
+      // 
+      // - TDE: transparent data encryption (TDE).
+      // 
+      // - DiskEncryption: disk encryption.
       shared_ptr<string> usedBy_ {};
     };
 
@@ -184,7 +209,9 @@ namespace Models
 
 
   protected:
+    // The list of keys.
     shared_ptr<vector<DescribeDBClusterEncryptionKeyResponseBody::EncryptionKeyList>> encryptionKeyList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

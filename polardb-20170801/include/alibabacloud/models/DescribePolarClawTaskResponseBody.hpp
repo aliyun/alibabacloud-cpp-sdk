@@ -106,7 +106,9 @@ namespace Models
 
 
       protected:
+        // The error code.
         shared_ptr<string> code_ {};
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -167,12 +169,19 @@ namespace Models
 
 
     protected:
+      // The timestamp when the task was created, in milliseconds.
       shared_ptr<int64_t> createdAtMs_ {};
+      // The error object. This parameter is returned only if the task fails.
       shared_ptr<Task::Error> error_ {};
+      // The operation name.
       shared_ptr<string> operation_ {};
+      // The task result object. This parameter is returned only if the task succeeds. The content of this object varies by operation.
       Darabonba::Json result_ {};
+      // The task state. Valid values: pending, running, succeeded, and failed.
       shared_ptr<string> state_ {};
+      // The task ID, which is a universally unique identifier (UUID).
       shared_ptr<string> taskId_ {};
+      // The timestamp when the task was last updated, in milliseconds.
       shared_ptr<int64_t> updatedAtMs_ {};
     };
 
@@ -216,11 +225,15 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The status code.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task object.
     shared_ptr<DescribePolarClawTaskResponseBody::Task> task_ {};
   };
 

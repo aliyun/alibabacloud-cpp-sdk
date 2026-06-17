@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of regions where the backup sets are stored.
     shared_ptr<vector<string>> regions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

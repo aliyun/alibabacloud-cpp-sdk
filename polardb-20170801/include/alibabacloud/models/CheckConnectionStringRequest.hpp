@@ -84,8 +84,18 @@ namespace Models
 
 
   protected:
+    // The prefix of the new connection string. The prefix must meet the following requirements:
+    // 
+    // - It must consist of lowercase letters, digits, and periods (.).
+    // 
+    // - It must start with a letter and end with a letter or a digit.
+    // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
+    // The ID of the cluster.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view the details of all clusters in your account, including cluster IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};

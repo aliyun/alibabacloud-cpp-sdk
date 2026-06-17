@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The result of the request.
     shared_ptr<string> proxyData_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

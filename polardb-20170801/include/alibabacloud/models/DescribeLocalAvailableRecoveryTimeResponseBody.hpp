@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The start of the time range available for recovery.
+    // 
+    // > This is calculated based on level-1 backups and does not include level-2 backups.
     shared_ptr<string> recoveryBeginTime_ {};
+    // The end of the time range available for recovery.
+    // 
+    // > This is calculated based on level-1 backups and does not include level-2 backups.
     shared_ptr<string> recoveryEndTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -167,66 +167,69 @@ namespace Models
 
 
   protected:
-    // The description of the cluster.
+    // The cluster description.
     shared_ptr<string> DBClusterDescription_ {};
     // The cluster ID.
     // 
-    // > 
-    // 
-    // *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all PolarDB clusters that are deployed in a specific region, such as the cluster IDs.
-    // 
-    // *   If you do not specify this parameter, all scheduled tasks on your clusters are queried.
+    // > - You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in a specific region, including cluster IDs.
+    // >
+    // > - If this parameter is omitted, scheduled tasks for all clusters in your account are queried.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the order.
+    // The order ID.
     // 
-    // >  The order ID can contain only digits.
+    // > The order ID can contain only digits.
     shared_ptr<string> orderId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. Set this parameter to an integer that is greater than 0. Default value: **1**.
+    // The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: 30.
+    // The number of entries to return on each page. Valid values: **30** (default), **50**, and **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The latest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+    // The latest start time of the task. The time is in UTC. If the task does not start by this time, it expires.
     shared_ptr<string> plannedEndTime_ {};
-    // The earliest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+    // The earliest start time of the task. The time is in UTC.
     shared_ptr<string> plannedStartTime_ {};
-    // The ID of the region.
+    // The region ID.
     // 
-    // > 
-    // 
-    // *   You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region information of all clusters in a specific account.
-    // 
-    // *   If you do not specify this parameter, scheduled tasks on your clusters that are deployed in all regions are queried.
+    // > - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
+    // >
+    // > - If this parameter is omitted, scheduled tasks in all regions in your account are queried.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The state of the tasks that you want to query. Valid values:
+    // The task status. Valid values:
     // 
-    // *   **pending**: The tasks are pending execution.
-    // *   **executing**: The tasks are being executed.
-    // *   **failure**: The tasks failed and need to be run again.
-    // *   **finish**: The tasks are complete.
-    // *   **cancel**: The tasks are canceled.
-    // *   **expired**: The tasks are expired. The tasks are not started within the time periods that are specified to start the tasks.
-    // *   **rollback**: The tasks are being rolled back.
+    // - **pending**: The task is waiting to be executed.
     // 
-    // >  If you do not specify this parameter, all scheduled tasks in all states are queried.
+    // - **executing**: The task is being executed.
+    // 
+    // - **failure**: The task failed and is waiting for a retry.
+    // 
+    // - **finish**: The task is complete.
+    // 
+    // - **cancel**: The task is canceled.
+    // 
+    // - **expired**: The task has expired because it did not start within the scheduled time window.
+    // 
+    // - **rollback**: The task is being rolled back.
+    // 
+    // > If this parameter is omitted, scheduled tasks in all states are queried.
     shared_ptr<string> status_ {};
-    // The type of scheduled tasks that you want to query. Valid values:
+    // The action of the scheduled task. Valid values:
     // 
-    // *   **CreateDBNodes**
-    // *   **ModifyDBNodeClass**
-    // *   **UpgradeDBClusterVersion**
-    // *   **ModifyDBClusterPrimaryZone**
+    // - **CreateDBNodes**
     // 
-    // > 
+    // - **ModifyDBNodeClass**
     // 
-    // *   If you specify the `PlannedStartTime` parameter when you call the four preceding operations, the details of each task are returned. Otherwise, an empty string is returned for the `TimerInfos` parameter.
+    // - **UpgradeDBClusterVersion**
     // 
-    // *   If you do not specify this parameter, all types of scheduled tasks on you clusters are queried.
+    // - **ModifyDBClusterPrimaryZone**
+    // 
+    // > * Task details are returned only if you specify the `PlannedStartTime` parameter when you call one of the preceding API operations. Otherwise, the `TimerInfos` field in the response is empty.
+    // >
+    // > * If this parameter is omitted, scheduled tasks of all types are queried.
     shared_ptr<string> taskAction_ {};
   };
 

@@ -94,13 +94,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The name of the operation.
     shared_ptr<string> operation_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The state of the asynchronous task.
     shared_ptr<string> state_ {};
+    // The ID of the asynchronous task.
     shared_ptr<string> taskId_ {};
   };
 

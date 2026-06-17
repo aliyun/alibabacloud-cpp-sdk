@@ -59,9 +59,14 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The configuration object for the MCP server.
     Darabonba::Json serverConfig_ {};
+    // The unique identifier for the MCP server.
+    // 
     // This parameter is required.
     shared_ptr<string> serverName_ {};
   };

@@ -75,17 +75,19 @@ namespace Models
 
 
   protected:
-    // The error code for connection diagnosis. Valid values:
+    // The connection check error code. Valid values:
     // 
-    // *   **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
-    // *   **CONNECTION_ABNORMAL**: The connection to the cluster is normal.
+    // - **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not in the whitelist.
+    // 
+    // - **CONNECTION_ABNORMAL**: The connection is abnormal.
     shared_ptr<string> connCheckErrorCode_ {};
-    // The error message for connection diagnosis.
+    // The connection check error message.
     shared_ptr<string> connCheckErrorMessage_ {};
-    // The connection diagnosis result. Valid values:
+    // The connection check result. Valid values:
     // 
-    // *   **Success**
-    // *   **Failed**
+    // - **Success**
+    // 
+    // - **Failed**
     shared_ptr<string> connCheckResult_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};

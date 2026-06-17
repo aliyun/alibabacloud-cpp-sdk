@@ -94,14 +94,28 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to enable or disable the specified SQL throttling rules. Valid values:
+    // 
+    // - **true**: Enable.
+    // 
+    // - **false**: Disable.
+    // 
+    // > This parameter applies only when you specify the **RuleNameList** parameter.
+    // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The names of the SQL throttling rules to enable. To specify multiple rules, separate the names with a comma (,).
+    // 
+    // > You can view all SQL throttling rules and their names on the SQL Firewall tab of the Security Management page for the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleNameList_ {};
   };

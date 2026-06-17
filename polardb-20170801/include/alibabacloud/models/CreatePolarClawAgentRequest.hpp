@@ -84,13 +84,22 @@ namespace Models
 
 
   protected:
+    // The agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The avatar\\"s URL or path.
     shared_ptr<string> avatar_ {};
+    // The emoji character.
     shared_ptr<string> emoji_ {};
+    // Specifies whether to restart the gateway after the agent is created. The default value is `true`.
     shared_ptr<bool> restart_ {};
+    // The absolute path of the agent workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};
   };

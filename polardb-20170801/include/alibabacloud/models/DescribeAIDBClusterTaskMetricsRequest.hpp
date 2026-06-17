@@ -103,15 +103,42 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The metric type. Valid values:
+    // 
+    // - `all`
+    // 
+    // - `train`
+    // 
+    // - `eval`
+    // 
+    // > The default value is *all*.
     shared_ptr<string> metricType_ {};
+    // The page number of the query result.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of records to return on each page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // The default value is 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the associated PolarDB instance.
     shared_ptr<string> relativeDBClusterId_ {};
+    // Specifies whether to sort the results in reverse order. The default value is *false*.
     shared_ptr<bool> reverse_ {};
+    // The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

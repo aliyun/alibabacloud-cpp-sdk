@@ -111,10 +111,15 @@ namespace Models
 
 
     protected:
+      // The capacity. Unit: bytes.
       shared_ptr<int64_t> capacity_ {};
+      // The total number of inodes.
       shared_ptr<int64_t> inodes_ {};
+      // The directory path.
       shared_ptr<string> path_ {};
+      // The used capacity. Unit: bytes.
       shared_ptr<int64_t> usedCapacity_ {};
+      // The number of used inodes.
       shared_ptr<int64_t> usedInodes_ {};
     };
 
@@ -238,16 +243,37 @@ namespace Models
 
 
     protected:
+      // The TTL of the access time. Unit: seconds.
       shared_ptr<int64_t> accessTTL_ {};
+      // The TTL of the change time. Unit: seconds.
       shared_ptr<int64_t> changeTTL_ {};
+      // The rule description.
       shared_ptr<string> description_ {};
+      // Indicates whether the rule is enabled. Valid values:
+      // 
+      // - **true**: The rule takes effect immediately for new events. This is the default value.
+      // 
+      // - **false**: The rule does not take effect for new events.
       shared_ptr<bool> enabled_ {};
+      // The glob pattern of paths to exclude.
+      // 
+      // - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
       shared_ptr<string> exclude_ {};
+      // The maximum number of files in the directory.
       shared_ptr<int64_t> fileCountLimit_ {};
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
+      // The glob pattern for paths to include.
+      // 
+      // - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
       shared_ptr<string> include_ {};
+      // The rule name.
       shared_ptr<string> name_ {};
+      // The priority of the quota rule.
       shared_ptr<int32_t> priority_ {};
+      // The maximum total size of files in the directory. Unit: GB.
+      // 
+      // - The value must be greater than or equal to 1.
       shared_ptr<int64_t> sizeLimit_ {};
     };
 
@@ -322,15 +348,23 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries returned on the current page.
     shared_ptr<string> pageRecordCount_ {};
+    // The number of entries per page. Valid values: 5 to 50. Default value: 10.
     shared_ptr<string> pageSize_ {};
+    // The path of the directory.
     shared_ptr<string> path_ {};
+    // The PolarFS instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
+    // The details of the rules.
     shared_ptr<vector<DescribePolarFsQuotaResponseBody::PolicyItems>> policyItems_ {};
+    // The quota information.
     shared_ptr<vector<DescribePolarFsQuotaResponseBody::QuotaItems>> quotaItems_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<string> totalRecordCount_ {};
   };
 

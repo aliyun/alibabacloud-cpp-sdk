@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The list of objects to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> objectsToDeleteShrink_ {};
+    // The PolarLakebase instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
   };

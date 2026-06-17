@@ -147,9 +147,13 @@ namespace Models
 
 
       protected:
+        // The number of consecutive execution failures.
         shared_ptr<int32_t> consecutiveErrors_ {};
+        // The last run timestamp in milliseconds.
         shared_ptr<int64_t> lastRunAtMs_ {};
+        // The last run status.
         shared_ptr<string> lastRunStatus_ {};
+        // The next run timestamp in milliseconds.
         shared_ptr<int64_t> nextRunAtMs_ {};
       };
 
@@ -227,11 +231,17 @@ namespace Models
 
 
       protected:
+        // The anchor timestamp for interval alignment.
         shared_ptr<int64_t> anchorMs_ {};
+        // The ISO 8601 timestamp.
         shared_ptr<string> at_ {};
+        // The interval in milliseconds.
         shared_ptr<int64_t> everyMs_ {};
+        // The cron expression.
         shared_ptr<string> expr_ {};
+        // The schedule type. Valid values: `cron`, `every`, and `at`.
         shared_ptr<string> kind_ {};
+        // The IANA time zone.
         shared_ptr<string> tz_ {};
       };
 
@@ -329,8 +339,11 @@ namespace Models
 
 
         protected:
+          // The number of input tokens.
           shared_ptr<int32_t> inputTokens_ {};
+          // The number of output tokens.
           shared_ptr<int32_t> outputTokens_ {};
+          // The total number of tokens.
           shared_ptr<int32_t> totalTokens_ {};
         };
 
@@ -446,20 +459,35 @@ namespace Models
 
 
       protected:
+        // The action performed. Valid values: `finished`, `error`, and `skipped`.
         shared_ptr<string> action_ {};
+        // Specifies whether the results were delivered.
         shared_ptr<bool> delivered_ {};
+        // The delivery status.
         shared_ptr<string> deliveryStatus_ {};
+        // The execution duration in milliseconds.
         shared_ptr<int64_t> durationMs_ {};
+        // The associated job ID.
         shared_ptr<string> jobId_ {};
+        // The job name.
         shared_ptr<string> jobName_ {};
+        // The model used for the run.
         shared_ptr<string> model_ {};
+        // The next run timestamp in milliseconds.
         shared_ptr<int64_t> nextRunAtMs_ {};
+        // The model provider.
         shared_ptr<string> provider_ {};
+        // The actual execution timestamp in milliseconds.
         shared_ptr<int64_t> runAtMs_ {};
+        // The associated session ID.
         shared_ptr<string> sessionId_ {};
+        // The status of the run. Valid values: `ok`, `error`, and `skipped`.
         shared_ptr<string> status_ {};
+        // The run summary.
         shared_ptr<string> summary_ {};
+        // The run timestamp in milliseconds.
         shared_ptr<int64_t> ts_ {};
+        // The token usage details.
         shared_ptr<Runs::Usage> usage_ {};
       };
 
@@ -574,15 +602,25 @@ namespace Models
 
 
       protected:
+        // Specifies whether to ignore delivery failures.
         shared_ptr<bool> bestEffortDeliver_ {};
+        // The delivery channel ID.
         shared_ptr<string> channel_ {};
+        // Indicates whether to deliver the output to the delivery channel.
         shared_ptr<bool> deliver_ {};
+        // The payload type. Valid values: `agentTurn` and `systemEvent`.
         shared_ptr<string> kind_ {};
+        // Indicates whether to use a light context.
         shared_ptr<bool> lightContext_ {};
+        // The agent prompt.
         shared_ptr<string> message_ {};
+        // The overriding model.
         shared_ptr<string> model_ {};
+        // The system event text.
         shared_ptr<string> text_ {};
+        // The execution timeout in seconds.
         shared_ptr<int32_t> timeoutSeconds_ {};
+        // The recipient.
         shared_ptr<string> to_ {};
       };
 
@@ -651,10 +689,15 @@ namespace Models
 
 
       protected:
+        // The channel account ID.
         shared_ptr<string> accountId_ {};
+        // Specifies whether to ignore delivery failures.
         shared_ptr<bool> bestEffort_ {};
+        // The delivery channel.
         shared_ptr<string> channel_ {};
+        // The delivery mode. Valid values: `none`, `announce`, and `webhook`.
         shared_ptr<string> mode_ {};
+        // The recipient.
         shared_ptr<string> to_ {};
       };
 
@@ -785,21 +828,37 @@ namespace Models
 
 
     protected:
+      // The ID of the executing agent.
       shared_ptr<string> agentId_ {};
+      // The creation timestamp in milliseconds.
       shared_ptr<int64_t> createdAtMs_ {};
+      // Indicates whether the cron job is deleted after its first run.
       shared_ptr<bool> deleteAfterRun_ {};
+      // The delivery configuration.
       shared_ptr<Job::Delivery> delivery_ {};
+      // The job description.
       shared_ptr<string> description_ {};
+      // Indicates whether the cron job is enabled.
       shared_ptr<bool> enabled_ {};
+      // The job ID (UUID).
       shared_ptr<string> id_ {};
+      // The job name.
       shared_ptr<string> name_ {};
+      // The execution payload.
       shared_ptr<Job::Payload> payload_ {};
+      // The run history.
       shared_ptr<vector<Job::Runs>> runs_ {};
+      // The schedule configuration.
       shared_ptr<Job::Schedule> schedule_ {};
+      // The session key.
       shared_ptr<string> sessionKey_ {};
+      // The session target. Valid values: `main`, `isolated`, and `current`.
       shared_ptr<string> sessionTarget_ {};
+      // The current state of the job.
       shared_ptr<Job::State> state_ {};
+      // The update timestamp in milliseconds.
       shared_ptr<int64_t> updatedAtMs_ {};
+      // The wake mode. Valid values: `now` and `next-heartbeat`.
       shared_ptr<string> wakeMode_ {};
     };
 
@@ -858,13 +917,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // Details of the created cron job.
     shared_ptr<CreatePolarClawCronJobResponseBody::Job> job_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
+    // Indicates whether the job ran immediately after creation.
     shared_ptr<bool> ranImmediately_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

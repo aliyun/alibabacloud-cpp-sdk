@@ -148,14 +148,51 @@ namespace Models
 
 
     protected:
+      // The operation type. Valid values:
+      // 
+      // - **CREATE**: Create
+      // 
+      // - **UPDATE**: Update
+      // 
+      // - **DELETE**: Delete
       shared_ptr<string> actionType_ {};
+      // The destination region of the log backup policy.
       shared_ptr<string> destRegion_ {};
+      // The destination type of the backup policy. Valid values:
+      // 
+      // - **level1**: level-1 backup
+      // 
+      // - **level2**: level-2 backup
+      // 
+      // - **level2Cross**: level-2 cross-region backup
       shared_ptr<string> destType_ {};
+      // Specifies whether to enable log backup. Set the value to 1.
       shared_ptr<int32_t> enableLogBackup_ {};
+      // The retention period type for log backups. Valid values:
+      // 
+      // - **never**: The backups never expire.
+      // 
+      // - **delay**: The backups expire after a fixed number of days.
       shared_ptr<string> logRetentionType_ {};
+      // The number of days to retain the log backups. Valid values:
+      // 
+      // - 3 to 7300: The retention period in days.
+      // 
+      // - -1: long-term retention.
       shared_ptr<string> logRetentionValue_ {};
+      // The ID of the log backup policy.
       shared_ptr<string> policyId_ {};
+      // The source region of the log backup policy.
       shared_ptr<string> srcRegion_ {};
+      // The source type of the log backup policy. Valid values:
+      // 
+      // - **db**: database cluster
+      // 
+      // - **level1**: level-1 backup
+      // 
+      // - **level2**: level-2 backup
+      // 
+      // - **level2Cross**: level-2 cross-region backup
       shared_ptr<string> srcType_ {};
     };
 
@@ -228,27 +265,41 @@ namespace Models
 
 
   protected:
+    // The advanced backup policies.
+    // 
+    // > - - This parameter is not supported for PolarDB for PostgreSQL (Oracle Compatible) or PolarDB for PostgreSQL.
+    // >
+    // > - - This parameter is supported only for clusters for which the BackupPolicyLevel parameter is set to Advanced.
     shared_ptr<vector<ModifyLogBackupPolicyRequest::AdvancedLogPolicies>> advancedLogPolicies_ {};
     // The cluster ID.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all clusters that are deployed in a specific region, such as the cluster IDs.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view information about all clusters in a specific region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The region in which you want to store cross-region log backups. For information about regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+    // The destination region for cross-region log backups. For information about the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+    // 
+    // > - - After you enable the advanced backup feature, this parameter is no longer valid. Use the AdvancedLogPolicies parameter instead.
     shared_ptr<string> logBackupAnotherRegionRegion_ {};
     // The retention period of cross-region log backups. Valid values:
     // 
-    // *   **0**: The cross-region backup feature is disabled.
-    // *   **30 to 7300**: Cross-region log backups are retained for 30 to 7,300 days.
-    // *   **-1**: The log backups are permanently retained.
+    // - **0**: Disables the cross-region log backup feature.
     // 
-    // >  When you create a cluster, the default value of this parameter is **0**.
+    // - **30 to 7300**: The retention period in days.
+    // 
+    // - **-1**: long-term retention.
+    // 
+    // > * * When you create a cluster, the default value of this parameter is **0**. This value disables the cross-region log backup feature.
+    // >
+    // > * - After you enable the advanced backup feature, this parameter is no longer valid. Use the AdvancedLogPolicies parameter instead.
     shared_ptr<string> logBackupAnotherRegionRetentionPeriod_ {};
-    // The retention period of the log backups. Valid values:
+    // The retention period of log backups. Valid values:
     // 
-    // *   3 to 7300: The log backups are retained for 3 to 7,300 days.
-    // *   \\-1: The log backups are permanently retained.
+    // - 3 to 7300: The retention period in days.
+    // 
+    // - -1: long-term retention.
+    // 
+    // > * * After you enable the advanced backup feature, this parameter is no longer valid. Use the AdvancedLogPolicies parameter instead.
     shared_ptr<string> logBackupRetentionPeriod_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

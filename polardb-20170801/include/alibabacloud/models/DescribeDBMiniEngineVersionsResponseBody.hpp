@@ -88,9 +88,21 @@ namespace Models
 
 
     protected:
+      // The release notes of the version.
       shared_ptr<string> releaseNote_ {};
+      // The release state of the database version. Valid values:
+      // 
+      // - **Stable**: The version is stable.
+      // 
+      // - **Old**: The version is outdated. Upgrading to this version is not recommended.
+      // 
+      // - **HighRisk**: The version has a critical bug. Upgrading to this version is not recommended.
+      // 
+      // - **Beta**: The version is a beta version.
       shared_ptr<string> releaseType_ {};
+      // The code of the database engine revision version. Use this code to specify the target version for an upgrade.
       shared_ptr<string> revisionVersionCode_ {};
+      // The number of the database engine revision version.
       shared_ptr<string> revisionVersionName_ {};
     };
 
@@ -113,8 +125,9 @@ namespace Models
 
 
   protected:
+    // A list of information about the versions available for an upgrade.
     shared_ptr<vector<DescribeDBMiniEngineVersionsResponseBody::DBRevisionVersionList>> DBRevisionVersionList_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

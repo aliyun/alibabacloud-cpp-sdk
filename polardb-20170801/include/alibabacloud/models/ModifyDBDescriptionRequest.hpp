@@ -94,18 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The description of the database. The description must meet the following requirements:
     // 
-    // *   It cannot start with `http://` or `https://`.
-    // *   It must be 2 to 256 characters in length.
+    // - Cannot start with `http://` or `https://`.
+    // 
+    // - Must be 2 to 256 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> DBDescription_ {};
-    // The name of the database.
+    // The database name.
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

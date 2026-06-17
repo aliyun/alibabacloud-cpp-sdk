@@ -142,12 +142,19 @@ namespace Models
 
 
     protected:
+      // The anchor timestamp for aligning interval-based schedules, in milliseconds.
       shared_ptr<int64_t> anchorMs_ {};
+      // The specific time for a one-time execution, specified as an ISO 8601 timestamp.
       shared_ptr<string> at_ {};
+      // The task execution interval, in milliseconds.
       shared_ptr<int64_t> everyMs_ {};
+      // The cron expression that specifies when the task runs.
       shared_ptr<string> expr_ {};
+      // The type of schedule.
       shared_ptr<string> kind_ {};
+      // The deterministic jitter window, in milliseconds.
       shared_ptr<int32_t> staggerMs_ {};
+      // The time zone for the schedule.
       shared_ptr<string> tz_ {};
     };
 
@@ -283,17 +290,29 @@ namespace Models
 
 
     protected:
+      // Specifies whether to use best-effort delivery. If `true`, delivery failures are ignored.
       shared_ptr<bool> bestEffortDeliver_ {};
+      // The ID of the delivery channel.
       shared_ptr<string> channel_ {};
+      // Specifies whether to deliver the agent\\"s output to a channel.
       shared_ptr<bool> deliver_ {};
+      // A list of fallback models to use if the primary model fails.
       shared_ptr<vector<string>> fallbacks_ {};
+      // The payload type. Valid values are `agentTurn` and `systemEvent`.
       shared_ptr<string> kind_ {};
+      // Specifies whether to use a light context for the agent conversation.
       shared_ptr<bool> lightContext_ {};
+      // The prompt for an agent conversation, used when `Kind` is `agentTurn`.
       shared_ptr<string> message_ {};
+      // Specifies a model that overrides the agent\\"s default model.
       shared_ptr<string> model_ {};
+      // The text for the system event, used when `Kind` is `systemEvent`.
       shared_ptr<string> text_ {};
+      // The thinking level for the agent\\"s response generation. Valid values are `off`, `minimal`, `low`, `medium`, `high`, and `xhigh`.
       shared_ptr<string> thinking_ {};
+      // The execution timeout, in seconds.
       shared_ptr<int32_t> timeoutSeconds_ {};
+      // The specific target or recipient within the channel.
       shared_ptr<string> to_ {};
     };
 
@@ -371,11 +390,17 @@ namespace Models
 
 
     protected:
+      // The account ID for the alert channel.
       shared_ptr<string> accountId_ {};
+      // The number of consecutive failures required to trigger an alert.
       shared_ptr<int32_t> after_ {};
+      // The channel for sending failure alerts.
       shared_ptr<string> channel_ {};
+      // The cooldown period, in milliseconds, between alerts for the same job.
       shared_ptr<int32_t> cooldownMs_ {};
+      // The mode for sending alerts. Valid values are `announce` and `webhook`.
       shared_ptr<string> mode_ {};
+      // The recipient for the failure alert.
       shared_ptr<string> to_ {};
     };
 
@@ -444,10 +469,15 @@ namespace Models
 
 
     protected:
+      // The account ID for the delivery channel.
       shared_ptr<string> accountId_ {};
+      // Specifies whether to use best-effort delivery. If `true`, delivery failures are ignored.
       shared_ptr<bool> bestEffort_ {};
+      // The delivery channel.
       shared_ptr<string> channel_ {};
+      // The delivery mode. Valid values are `none`, `announce`, and `webhook`.
       shared_ptr<string> mode_ {};
+      // The recipient for the delivery.
       shared_ptr<string> to_ {};
     };
 
@@ -569,25 +599,46 @@ namespace Models
 
 
   protected:
+    // The ID of the agent that executes the task.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // Specifies whether to automatically delete the job after its first execution. This is useful for one-time tasks. Default: `false`.
     shared_ptr<bool> deleteAfterRun_ {};
+    // The configuration for delivering task execution results.
     shared_ptr<CreatePolarClawCronJobRequest::Delivery> delivery_ {};
+    // A description of the task.
     shared_ptr<string> description_ {};
+    // Specifies whether the cron job is enabled. Default: `true`.
     shared_ptr<bool> enabled_ {};
+    // The failure alert configuration.
     shared_ptr<CreatePolarClawCronJobRequest::FailureAlert> failureAlert_ {};
+    // The unique name of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The execution payload configuration.
+    // 
     // This parameter is required.
     shared_ptr<CreatePolarClawCronJobRequest::Payload> payload_ {};
+    // Specifies whether to restart the gateway upon job creation. Default: `true`.
     shared_ptr<bool> restart_ {};
+    // Specifies whether to run the job once immediately upon creation. Default: `false`.
     shared_ptr<bool> runImmediately_ {};
+    // The schedule configuration.
+    // 
     // This parameter is required.
     shared_ptr<CreatePolarClawCronJobRequest::Schedule> schedule_ {};
+    // The session routing key, which determines the conversation session for the task.
     shared_ptr<string> sessionKey_ {};
+    // The session target. Valid values are `main`, `isolated`, and `current`.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionTarget_ {};
+    // The wake mode for the agent. Valid values are `now` and `next-heartbeat`.
+    // 
     // This parameter is required.
     shared_ptr<string> wakeMode_ {};
   };

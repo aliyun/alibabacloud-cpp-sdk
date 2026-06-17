@@ -112,19 +112,21 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud order. The value can be the ID of a virtual order.
+    // The ID of the Alibaba Cloud order (including virtual orders) used to purchase the activation codes.
     // 
     // This parameter is required.
     shared_ptr<string> aliyunOrderId_ {};
+    // Filters the list to return only the activation code matching the specified MAC address.
     shared_ptr<string> macAddress_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // Number of records to return per page
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Filters the list to return only the activation code matching the specified system identifier.
     shared_ptr<string> systemIdentifier_ {};
   };
 

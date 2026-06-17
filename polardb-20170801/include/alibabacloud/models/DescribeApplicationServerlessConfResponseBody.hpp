@@ -81,8 +81,17 @@ namespace Models
 
 
     protected:
+      // The type of the application sub-component.
+      // 
+      // For Supabase, valid values are:
+      // 
+      // - gateway
+      // 
+      // - backend
       shared_ptr<string> componentType_ {};
+      // The maximum scaling capacity for a single node. Valid values: 0 PCU to 16 PCU.
       shared_ptr<string> scaleMax_ {};
+      // The minimum scaling capacity for a single node, measured in PolarDB Capacity Units (PCU). Valid values: 0 PCU to 16 PCU.
       shared_ptr<string> scaleMin_ {};
     };
 
@@ -112,8 +121,11 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of serverless configurations.
     shared_ptr<vector<DescribeApplicationServerlessConfResponseBody::ServerlessConfItems>> serverlessConfItems_ {};
   };
 

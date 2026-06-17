@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the task for disabling the PolarDB for AI feature.
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
   };
 

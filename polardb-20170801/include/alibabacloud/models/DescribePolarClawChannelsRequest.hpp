@@ -51,8 +51,11 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The channel IDs to query. Leave this parameter empty to return all channels.
     shared_ptr<vector<string>> channelList_ {};
   };
 

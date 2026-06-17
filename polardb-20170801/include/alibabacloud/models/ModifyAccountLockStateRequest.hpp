@@ -103,11 +103,24 @@ namespace Models
 
 
   protected:
+    // The lock status of the account. Valid values:
+    // 
+    // - **UnLock**: The account is not locked.
+    // 
+    // - **Lock**: The account is locked.
+    // 
     // This parameter is required.
     shared_ptr<string> accountLockState_ {};
+    // The name of the database account.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The expiration time of the account. The time must be in the \\`YYYY-MM-DDThh:mm:ssZ\\` format.
     shared_ptr<string> accountPasswordValidTime_ {};
+    // The ID of the cluster.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view the details of all clusters in a region, including cluster IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};

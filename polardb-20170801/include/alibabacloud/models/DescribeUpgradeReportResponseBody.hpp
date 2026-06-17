@@ -161,15 +161,25 @@ namespace Models
 
 
     protected:
+      // The check time.
       shared_ptr<string> checkTime_ {};
+      // The version of the destination instance.
       shared_ptr<string> dstVersion_ {};
+      // The effective time of the evaluation.
       shared_ptr<string> effectiveTime_ {};
+      // The end time of the evaluation.
       shared_ptr<string> endTime_ {};
+      // The status of the evaluation task.
       shared_ptr<string> result_ {};
+      // The name of the source instance.
       shared_ptr<string> srcInsName_ {};
+      // The version of the source instance.
       shared_ptr<string> srcVersion_ {};
+      // The start time of the evaluation.
       shared_ptr<string> startTime_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The upgrade mode.
       shared_ptr<string> upgradeMode_ {};
     };
 
@@ -238,10 +248,19 @@ namespace Models
 
 
     protected:
+      // The Data Definition Language (DDL) statements for object synchronization.
       shared_ptr<string> DDL_ {};
+      // The name of the evaluation object.
       shared_ptr<string> name_ {};
+      // The schema of the evaluation object.
       shared_ptr<string> schema_ {};
+      // The result of the compatibility evaluation. Valid values:
+      // 
+      // - **0**: Failed.
+      // 
+      // - **1**: Succeeded.
       shared_ptr<string> status_ {};
+      // The type of the evaluation object.
       shared_ptr<string> type_ {};
     };
 
@@ -330,17 +349,41 @@ namespace Models
 
 
   protected:
+    // The details.
     shared_ptr<string> details_ {};
+    // The database type of the destination instance. Valid values:
+    // 
+    // - **MySQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> dstDBType_ {};
+    // The list of Oracle compatibility evaluation details.
+    // 
+    // > This parameter is supported only for **Oracle** instances.
     shared_ptr<vector<DescribeUpgradeReportResponseBody::Items>> items_ {};
+    // The number of entries in the list of Oracle compatibility evaluation details.
     shared_ptr<int64_t> itemsSize_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the source instance.
     shared_ptr<string> sourceDBClusterId_ {};
+    // The database type of the source instance. Valid values:
+    // 
+    // - **MySQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> srcDBType_ {};
+    // The deletion status of the source instance. Valid values:
+    // 
+    // - **0**: Not deleted.
+    // 
+    // - **1**: Deleted.
     shared_ptr<string> srcDeleted_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalSize_ {};
+    // A special metric. This parameter is supported only for instances that use the Tair architecture.
     shared_ptr<string> type_ {};
+    // The list of evaluation reports.
     shared_ptr<vector<DescribeUpgradeReportResponseBody::UpgradeReportList>> upgradeReportList_ {};
   };
 

@@ -269,18 +269,18 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The database cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The type of the database engine.
+    // The compatible database type.
     shared_ptr<string> DBType_ {};
-    // The version of the database engine.
+    // The compatible database version.
     shared_ptr<string> DBVersion_ {};
-    // The end time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The end of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeDBClusterPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The beginning of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

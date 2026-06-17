@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // Specifies whether to restart the gateway after removing the variables. The default is `true`.
     shared_ptr<bool> restart_ {};
+    // A list of the environment variable names to remove.
+    // 
     // This parameter is required.
     shared_ptr<string> variableNamesShrink_ {};
   };

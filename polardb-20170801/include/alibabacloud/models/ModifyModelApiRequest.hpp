@@ -112,19 +112,48 @@ namespace Models
 
 
   protected:
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The model API ID.
+    // 
     // This parameter is required.
     shared_ptr<string> modelApiId_ {};
+    // The model category. Valid values:
+    // 
+    // - `text`
+    // 
+    // - `embedding`
+    // 
+    // - `rerank`
+    // 
     // This parameter is required.
     shared_ptr<string> modelCategory_ {};
+    // The API path prefix.
+    // 
     // This parameter is required.
     shared_ptr<string> pathPrefix_ {};
+    // The protocol. Valid values:
+    // 
+    // - `openai`
+    // 
+    // - `anthropic`
+    // 
+    // - `Model Studio`
+    // 
+    // - `vllm`
+    // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
+    // The number of input units.
     shared_ptr<string> recordInput_ {};
+    // The number of output units.
     shared_ptr<string> recordOutput_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // A JSON array of routing rules, provided as a string.
+    // 
     // This parameter is required.
     shared_ptr<string> routeRules_ {};
   };

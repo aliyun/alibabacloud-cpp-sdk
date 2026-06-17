@@ -84,12 +84,27 @@ namespace Models
 
 
   protected:
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The model name, such as `gpt-4` or `qwen-turbo`.
     shared_ptr<string> modelName_ {};
+    // The model service ID.
     shared_ptr<string> modelServiceId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

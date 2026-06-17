@@ -14,6 +14,7 @@ namespace Models
   class CreateBatchTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateBatchTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(Param, param_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateBatchTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(Param, param_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -38,8 +40,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && this->param_ == nullptr && this->regionId_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->applicationType_ == nullptr
+        && this->instanceIds_ == nullptr && this->param_ == nullptr && this->regionId_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+    // applicationType Field Functions 
+    bool hasApplicationType() const { return this->applicationType_ != nullptr;};
+    void deleteApplicationType() { this->applicationType_ = nullptr;};
+    inline string getApplicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
+    inline CreateBatchTaskRequest& setApplicationType(string applicationType) { DARABONBA_PTR_SET_VALUE(applicationType_, applicationType) };
+
+
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
@@ -78,13 +87,25 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> applicationType_ {};
+    // The instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The task parameters.
     shared_ptr<string> param_ {};
+    // The region ID.
+    // 
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions of all clusters in your account.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The name of the batch task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
+    // The task type.
+    // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};
   };

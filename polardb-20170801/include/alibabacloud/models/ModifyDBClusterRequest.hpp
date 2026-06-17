@@ -176,80 +176,74 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable storage compression. Set the value to **ON**.
+    // Enables storage compression. Set the value to **ON**.
     shared_ptr<string> compressStorage_ {};
     // The cluster ID.
     // 
-    // >  You can call the DescribeDBClusters operation to query information about all PolarDB clusters that are deployed in a specified region, such as cluster IDs.
+    // > You can call the DescribeDBClusters operation to query the details of all clusters in a specific region, including their cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The list of nodes for the drill.
+    // The names of the nodes to target in the fault simulation.
     // 
-    // >  You can specify only one node for a node-level disaster recovery drill. For a primary zone-level disaster recovery drill, you can either choose not to specify this parameter or specify all nodes.
+    // > For a node-level simulation, you can specify only a single node. For a zone-level simulation, you can leave this parameter empty or specify all nodes.
     shared_ptr<string> DBNodeCrashList_ {};
-    // The method used to replicate data across zones. Valid values:
+    // The cross-zone data replication method for the cluster. Valid values:
     // 
-    // *   **AsyncSync**: the asynchronous mode.
-    // *   **SemiSync**: the semi-synchronous mode.
+    // - **AsyncSync**: asynchronous.
+    // 
+    // - **SemiSync**: semi-synchronous.
     shared_ptr<string> dataSyncMode_ {};
     // The fault injection method. Valid values:
     // 
-    // *   0: `Crash SQL`-based fault injection.
-    // 
-    // Enumerated values:
-    // 
-    // *   CrashSQLInjection: CrashSQLInjection.
+    // - `0`: instance-level fault injection based on Crash SQL.
     shared_ptr<string> faultInjectionType_ {};
-    // The level of the disaster recovery drill. Valid values:
+    // The fault simulation scope for the cluster. Valid values:
     // 
-    // *   `0` or `FaultInjection`: The primary zone level.
-    // *   `1`: The node level.
+    // - `0` or `FaultInjection`: primary zone-level fault simulation.
     // 
-    // > 
+    // - `1`: node-level fault simulation.
     // 
-    // *   In **primary zone-level disaster recovery drill** scenarios, all compute nodes in the primary zone are unavailable. Data loss occurs during failovers in the scenarios.
-    // 
-    // *   In **node-level disaster recovery drill** scenarios, you can specify only one compute node for the disaster recovery drill. You can use the `DBNodeCrashList` parameter to specify the name of the compute node that you want to use for the drill.
-    // 
-    // Enumerated values:
-    // 
-    // *   FaultInjectToPrimaryAz
-    // *   FaultInjectToDbNode
-    // *   FaultInjection
-    // *   0
-    // *   1
+    // > * In a **primary zone-level fault simulation**, all compute nodes in the primary zone become unavailable. The disaster recovery failover in this scenario is lossy.
+    // >
+    // > * In a **node-level fault simulation**, you can simulate a fault on only a single compute node. You must specify the target compute node by using the `DBNodeCrashList` parameter.
     shared_ptr<string> faultSimulateMode_ {};
-    // Specifies whether to enable automatic IMCI-based query acceleration. IMCI is short for In-Memory Column Index. Valid values:
+    // Controls the automatic columnar index feature. Valid values:
     // 
-    // *   `ON`: enables automatic IMCI-based query acceleration.
-    // *   `OFF`: disables automatic IMCI-based query acceleration.
+    // - `ON`: enables the feature.
     // 
-    // > 
+    // - `OFF`: disables the feature.
     // 
-    // *   This parameter is supported only for PolarDB for MySQL clusters.
-    // 
-    // *   For information about the cluster version limits, see [Automatic IMCI-based query acceleration](https://help.aliyun.com/document_detail/2854119.html).
+    // > * This feature is available only for PolarDB for MySQL clusters.
+    // >
+    // > * For cluster version limits, see [Automatic indexing (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
     shared_ptr<string> imciAutoIndex_ {};
+    // Enables or disables row-level compression.
     shared_ptr<string> modifyRowCompression_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to enable cross-zone automatic switchover. Valid values:
+    // The automatic cross-zone failover mode for the cluster. Valid values:
     // 
-    // *   **ON**: enables cross-zone automatic switchover.
-    // *   **OFF**: disables cross-zone automatic switchover.
+    // - **ON**: enables automatic cross-zone failover.
+    // 
+    // - **OFF**: disables automatic cross-zone failover.
     shared_ptr<string> standbyHAMode_ {};
-    // Specifies whether to enable automatic storage scaling for the Standard Edition cluster. Valid values:
+    // Enables or disables automatic storage scaling for a standard cluster. Valid values:
     // 
-    // *   Enable
-    // *   Disable
+    // - Enable: enables automatic storage scaling.
+    // 
+    // - Disable: disables automatic storage scaling.
     shared_ptr<string> storageAutoScale_ {};
-    // The maximum storage capacity of the cluster of Standard Edition in automatic scaling. Unit: GB.
+    // The upper limit for automatic storage scaling on a standard cluster. Unit: GB.
     // 
-    // >  The maximum value of this parameter is 32000.
+    // > The maximum value is 32000.
     shared_ptr<int64_t> storageUpperBound_ {};
+    // A JSON string that specifies information about the destination databases and tables to be restored. All values in the database and table information must be strings.
+    // Example: `[ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]`.
+    // 
+    // > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to query for restorable databases and tables. Use the returned information to populate the fields in the example JSON.
     shared_ptr<string> tableMeta_ {};
   };
 

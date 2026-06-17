@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the serverless cluster.
+    // The serverless cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

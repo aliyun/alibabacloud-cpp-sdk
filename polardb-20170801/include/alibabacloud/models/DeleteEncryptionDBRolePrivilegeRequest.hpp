@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, such as the cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name of the role permission.
     shared_ptr<string> rolePrivilegeNameList_ {};
   };
 

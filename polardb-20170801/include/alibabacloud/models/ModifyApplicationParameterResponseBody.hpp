@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

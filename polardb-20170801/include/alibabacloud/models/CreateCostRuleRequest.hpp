@@ -94,15 +94,25 @@ namespace Models
 
 
   protected:
+    // The number of cost points per million cache tokens. The default value is 0.
     shared_ptr<string> cacheCostPointsPerMillion_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The number of cost points per million input tokens. The default value is 0.
     shared_ptr<string> inputCostPointsPerMillion_ {};
+    // The name of the model, such as `gpt-4` or `qwen-turbo`.
+    // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
+    // The model service ID.
+    // 
     // This parameter is required.
     shared_ptr<string> modelServiceId_ {};
+    // The number of cost points per million output tokens. The default value is 0.
     shared_ptr<string> outputCostPointsPerMillion_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

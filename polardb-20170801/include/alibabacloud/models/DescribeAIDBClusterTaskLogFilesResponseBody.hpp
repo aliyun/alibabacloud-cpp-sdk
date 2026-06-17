@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The time when the log was recorded.
         shared_ptr<string> logTime_ {};
+        // The log message.
         shared_ptr<string> message_ {};
+        // The specific point in time when the metric was recorded. The value is a UNIX timestamp. Unit: seconds.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -124,6 +127,7 @@ namespace Models
 
 
     protected:
+      // The SLS log information.
       shared_ptr<vector<Items::SlsLogItems>> slsLogItems_ {};
     };
 
@@ -182,13 +186,19 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query.
     shared_ptr<string> endTime_ {};
+    // The list of logs.
     shared_ptr<DescribeAIDBClusterTaskLogFilesResponseBody::Items> items_ {};
+    // The page number of the returned page. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The total number of entries that meet the query conditions. This parameter is optional and may not be returned.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The maximum number of records returned for the current request.
     shared_ptr<int64_t> pageSize_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The start of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

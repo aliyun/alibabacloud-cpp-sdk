@@ -144,15 +144,23 @@ namespace Models
 
 
     protected:
+      // The size of the item in bytes.
       shared_ptr<string> capacity_ {};
+      // The time when the item was created, as a UNIX timestamp in seconds.
       shared_ptr<int64_t> creationTime_ {};
+      // The time the item was last modified, as a UNIX timestamp in seconds.
       shared_ptr<int64_t> lastModified_ {};
+      // The target path of the symbolic link.
       shared_ptr<string> linkTarget_ {};
+      // The file system permissions in octal format.
       shared_ptr<string> mode_ {};
+      // The number of hard links to the item.
       shared_ptr<int32_t> nlink_ {};
-      // Owner
+      // The owner of the file or directory.
       shared_ptr<string> owner_ {};
+      // The absolute path of the file or subdirectory.
       shared_ptr<string> path_ {};
+      // The file type.
       shared_ptr<string> type_ {};
     };
 
@@ -211,12 +219,19 @@ namespace Models
 
 
   protected:
+    // The files and subdirectories in the specified path.
     shared_ptr<vector<DescribePolarFsObjectsResponseBody::Items>> items_ {};
+    // The number of records returned on the current page.
     shared_ptr<string> pageRecordCount_ {};
+    // The number of records to return per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<string> pageSize_ {};
+    // The path that was queried.
     shared_ptr<string> path_ {};
+    // The PolarFs instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the query.
     shared_ptr<string> totalRecordCount_ {};
   };
 

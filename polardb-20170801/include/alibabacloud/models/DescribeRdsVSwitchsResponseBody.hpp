@@ -171,16 +171,31 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> aliUid_ {};
+        // Identifies the cloud service type, such as Alibaba Finance Cloud, Alibaba Gov Cloud, or public cloud.
         shared_ptr<string> bid_ {};
+        // The CIDR block of the vSwitch.
         shared_ptr<string> cidrBlock_ {};
+        // The time when the vSwitch was created.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the vSwitch was last modified.
         shared_ptr<string> gmtModified_ {};
+        // Indicates whether the vSwitch is the default vSwitch. Valid values:
+        // 
+        // - **true**: The vSwitch is the default vSwitch.
+        // 
+        // - **false**: The vSwitch is not the default vSwitch.
         shared_ptr<bool> isDefault_ {};
+        // The ID of the zone to which the vSwitch belongs.
         shared_ptr<string> izNo_ {};
+        // The ID of the region to which the vSwitch belongs.
         shared_ptr<string> regionNo_ {};
+        // The status of the vSwitch. Valid values: ***Pending***\\*: The vSwitch is being configured.\\* **Available**: The vSwitch is available.
         shared_ptr<string> status_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The name of the vSwitch.
         shared_ptr<string> vSwitchName_ {};
       };
 
@@ -195,6 +210,7 @@ namespace Models
 
 
     protected:
+      // The vSwitch information.
       shared_ptr<vector<VSwitches::VSwitch>> vSwitch_ {};
     };
 
@@ -217,7 +233,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The vSwitch information.
     shared_ptr<DescribeRdsVSwitchsResponseBody::VSwitches> vSwitches_ {};
   };
 

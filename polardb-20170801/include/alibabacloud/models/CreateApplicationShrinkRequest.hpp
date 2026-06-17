@@ -144,7 +144,9 @@ namespace Models
 
 
     protected:
+      // The key of the tag.
       shared_ptr<string> key_ {};
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -433,46 +435,115 @@ namespace Models
 
 
   protected:
+    // The ID of an existing model operator instance to associate. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> AIDBClusterId_ {};
+    // The type of the application. Valid values:
+    // 
+    // - supabase: Creates a managed Supabase application.
+    // 
+    // - raycluster: Creates a managed Ray Cluster application.
+    // 
+    // - polarclaw: Creates a managed PolarClaw application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationType_ {};
+    // The CPU architecture. Valid value:
+    // 
+    // - x86
+    // 
     // This parameter is required.
     shared_ptr<string> architecture_ {};
+    // The authentication service provider.
     shared_ptr<string> authProvider_ {};
+    // The configuration of the authentication provider.
     shared_ptr<string> authProviderConfig_ {};
+    // Specifies whether to automatically create and bind an Elastic IP Address (EIP).
     shared_ptr<bool> autoAllocatePublicEip_ {};
+    // Specifies whether to automatically create a PolarFS cold storage instance. Valid values:
+    // 
+    // - false (default): Does not automatically create the instance.
+    // 
+    // - true: Automatically creates the instance.
     shared_ptr<bool> autoCreatePolarFs_ {};
+    // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
+    // Specifies whether to automatically use a coupon. Valid values:
+    // 
+    // - true (default): Uses a coupon.
+    // 
+    // - false: Does not use a coupon.
     shared_ptr<bool> autoUseCoupon_ {};
+    // A list of custom child components for the application.
     shared_ptr<string> componentsShrink_ {};
+    // The ID of the PolarDB instance that the application depends on.
     shared_ptr<string> DBClusterId_ {};
+    // The description of the application.
     shared_ptr<string> description_ {};
+    // The default value is `false`. If you set this parameter to `true`, the system only checks the parameters and resources without creating the actual resources.
     shared_ptr<bool> dryRun_ {};
+    // A list of custom server-side endpoints. By default, a VPC Endpoint is created.
     shared_ptr<string> endpointsShrink_ {};
+    // This parameter is required for knowledge applications.
     shared_ptr<string> knowledgeApplicationSpecShrink_ {};
+    // This parameter is required for mem0 applications.
     shared_ptr<string> memApplicationSpecShrink_ {};
+    // The model API. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApi_ {};
+    // The API key for the model. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApiKey_ {};
+    // The URL of the model. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelBaseUrl_ {};
+    // The source of the model. Valid values:
+    // 
+    // - bailian: Alibaba Cloud Model Studio model.
+    // 
+    // - custom: A custom model.
+    // 
+    // - maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
+    // The name of the model. This parameter is effective only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelName_ {};
+    // A list of parameters.
     shared_ptr<string> parametersShrink_ {};
+    // The billing method.
     shared_ptr<string> payType_ {};
+    // The subscription period type.
     shared_ptr<string> period_ {};
+    // The ID of the PolarFileSystem (PolarFS) cold storage or high-performance instance. This parameter is empty by default. If you specify this parameter, the corresponding storage is mounted to the application.
+    // 
+    // This feature is currently supported only by the following applications:
+    // 
+    // - supabase
+    // 
+    // - raycluster
     shared_ptr<string> polarFSInstanceId_ {};
+    // The coupon code. If you do not specify this parameter, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
+    // The region. The default value is the region of the instance.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
+    // The name of the IP address whitelist group. The default value is `default`.
     shared_ptr<string> securityIPArrayName_ {};
+    // The IP address whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
     shared_ptr<string> securityIPList_ {};
+    // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
+    // The ID of the skill template.
     shared_ptr<string> skillTemplateId_ {};
+    // The tag.
     shared_ptr<vector<CreateApplicationShrinkRequest::Tag>> tag_ {};
+    // The target version.
     shared_ptr<string> targetVersion_ {};
+    // The subscription duration.
     shared_ptr<string> usedTime_ {};
+    // The vSwitch. The default value is the current vSwitch in the primary zone of the instance.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the Virtual Private Cloud (VPC).
     shared_ptr<string> vpcId_ {};
+    // The zone. The default value is the primary zone of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

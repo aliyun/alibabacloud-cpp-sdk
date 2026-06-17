@@ -117,29 +117,29 @@ namespace Models
 
 
   protected:
-    // Specifies whether to detach all tags from the cluster. Valid values: **true** and **false**. Default value: **false**.
+    // Specifies whether to detach all tags. Valid values: **true** and **false**. Default value: **false**.
     // 
-    // >  This parameter takes effect only if `TagKey.n` is empty.
+    // > This parameter takes effect only when the `TagKey.n` parameter is empty.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region.
+    // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the clusters.
+    // The ID of the target cluster.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **cluster**.
+    // The resource type. Set the value to **cluster**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The keys of the tags.
+    // The tag key.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

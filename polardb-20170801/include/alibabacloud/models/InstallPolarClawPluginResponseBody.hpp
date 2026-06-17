@@ -103,14 +103,21 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The status code.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The name of the installed npm package.
     shared_ptr<string> npmPackage_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> ok_ {};
+    // The ID of the installed plugin.
     shared_ptr<string> pluginId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the gateway restarted.
     shared_ptr<bool> restarted_ {};
   };
 

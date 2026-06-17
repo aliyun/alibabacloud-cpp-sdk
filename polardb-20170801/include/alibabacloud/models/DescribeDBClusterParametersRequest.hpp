@@ -84,14 +84,15 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The type of the parameter information to query. Valid values:
+    // The kernel parameters. Valid values:
     // 
-    // *   **Normal**: the information about the cluster parameters
-    // *   **MigrationFromRDS**: a comparison of parameters between the source RDS instance and the destination PolarDB cluster
+    // - **Normal**: The list of kernel parameters.
+    // 
+    // - **MigrationFromRDS**: Compares parameters with those of an ApsaraDB RDS instance.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

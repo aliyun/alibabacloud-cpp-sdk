@@ -153,15 +153,71 @@ namespace Models
 
 
     protected:
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> aliUid_ {};
+      // The billing method of the instance. Valid values:
+      // 
+      // - **Postpaid**: pay-as-you-go
+      // 
+      // - **Prepaid**: subscription
       shared_ptr<string> chargeType_ {};
+      // The commodity code. Valid values:
+      // 
+      // - polardb_sub: subscription in the Chinese mainland.
+      // 
+      // - polardb_sub_intl: subscription in Hong Kong (China) and regions outside China.
+      // 
+      // - polardb_payg: pay-as-you-go in the Chinese mainland.
+      // 
+      // - polardb_payg_intl: pay-as-you-go in Hong Kong (China) and regions outside China.
+      // 
+      // - polardb_sub_jushita: Jushita subscription.
+      // 
+      // - polardb_payg_jushita: Jushita pay-as-you-go.
+      // 
+      // - polardb_sub_cainiao: Cainiao subscription.
+      // 
+      // - polardb_payg_cainiao: Cainiao pay-as-you-go.
+      // 
+      // > * If you use an Alibaba Cloud account for the China site, you can view only the commodity codes for the Chinese mainland.
+      // >
+      // > * If you use an Alibaba Cloud international site account, you can view only the commodity codes for regions outside the Chinese mainland.
+      // >
+      // > * If you use a Jushita account, you can view only the commodity codes for Jushita.
+      // >
+      // > * If you use a Cainiao account, you can view only the commodity codes for Cainiao.
       shared_ptr<string> commodityCode_ {};
+      // The time when the order was created.
       shared_ptr<string> createdTime_ {};
+      // The cluster ID.
       shared_ptr<string> instanceId_ {};
+      // The order ID.
       shared_ptr<string> orderId_ {};
+      // The status of the order.
+      // 
+      // - **pending**: The task is waiting to start.
+      // 
+      // - **create**: The order is placed and is being processed.
+      // 
+      // - **fail**: The instance failed to be created.
+      // 
+      // - **cancel**: The order is canceled.
+      // 
+      // - **success**: The instance is created.
       shared_ptr<string> orderStatus_ {};
+      // The type of the order. Valid values:
+      // 
+      // - BUY: The instance is purchased.
+      // 
+      // - UPGRADE: The instance configuration is changed.
+      // 
+      // - RENEW: The subscription is renewed.
+      // 
+      // - CONVERT: The billing method is changed.
       shared_ptr<string> orderType_ {};
+      // The product code.
       shared_ptr<string> produceCode_ {};
+      // The region information
       shared_ptr<string> region_ {};
     };
 
@@ -220,13 +276,29 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned for the current request. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. If the query results are not returned in a single call, this token is returned. Use this token in a subsequent call to retrieve the remaining results.
     shared_ptr<string> nextToken_ {};
+    // The list of orders.
+    // 
     // This parameter is required.
     shared_ptr<vector<ListOrdersResponseBody::OrderList>> orderList_ {};
+    // The page number of the returned page. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

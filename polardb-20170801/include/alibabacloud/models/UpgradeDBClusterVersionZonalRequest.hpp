@@ -158,20 +158,59 @@ namespace Models
 
 
   protected:
+    // A unique, case-sensitive token that you provide to ensure the idempotence of the request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to immediately perform or schedule the kernel upgrade. Valid values:
+    // 
+    // - **false** (default): Schedules the upgrade.
+    // 
+    // - **true**: Immediately performs the upgrade.
+    // 
+    // > You do not need to specify this parameter when you call this operation.
     shared_ptr<bool> fromTimeService_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The latest time to start the scheduled task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time is in UTC.
+    // 
+    // > - The latest start time must be at least 30 minutes later than the earliest start time.
+    // >
+    // > - If you specify `PlannedStartTime` but not this parameter, the latest start time is 30 minutes after the value of `PlannedStartTime` by default. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and leave this parameter empty, the task starts no later than `2021-01-14T09:30:00Z`.
     shared_ptr<string> plannedEndTime_ {};
+    // The earliest time to start the scheduled kernel upgrade. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time is in UTC.
+    // 
+    // > - The start time can be any point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a time in the range of `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
+    // 
+    // - If you do not specify this parameter, the upgrade task is executed immediately.
     shared_ptr<string> plannedStartTime_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The version code of the target DB version. You can obtain this value by calling the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation.
     shared_ptr<string> targetDBRevisionVersionCode_ {};
+    // The version code of the target proxy version. You can obtain this value by calling the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation.
     shared_ptr<string> targetProxyRevisionVersionCode_ {};
+    // The label for the kernel version upgrade. Set the value to **INNOVATE**.
+    // 
+    // > - This parameter is applicable only when you upgrade a PolarDB for MySQL 8.0.1 cluster to PolarDB for MySQL 8.0.2.
+    // >
+    // > - If you specify this parameter, you must set `UpgradePolicy` to **COLD**.
     shared_ptr<string> upgradeLabel_ {};
+    // The upgrade policy for the kernel version. Valid values:
+    // 
+    // - **HOT**: hot upgrade
+    // 
+    // - **COLD**: cold upgrade. This upgrade method is supported only for PolarDB for MySQL 8.0 clusters.
     shared_ptr<string> upgradePolicy_ {};
+    // The upgrade type. Valid values:
+    // 
+    // - **PROXY**: Upgrades only the database proxy (PolarProxy).
+    // 
+    // - **DB**: Upgrades only the kernel.
+    // 
+    // - **ALL** (default): Upgrades both the database proxy (PolarProxy) and the kernel.
     shared_ptr<string> upgradeType_ {};
   };
 

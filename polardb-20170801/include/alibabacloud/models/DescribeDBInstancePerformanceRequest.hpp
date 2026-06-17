@@ -103,15 +103,22 @@ namespace Models
 
 
   protected:
+    // The node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The end time of the query. The time is in the yyyy-MM-ddTHH:mmZ format in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The performance metrics. Separate multiple metrics with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/141787.html).
     shared_ptr<string> key_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The start time of the query. The time is in the yyyy-MM-ddTHH:mmZ format in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

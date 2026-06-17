@@ -472,31 +472,43 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The database engine that the clusters runs. Valid values:
+    // The database type. Valid values:
     // 
-    // *   **MySQL**
-    // *   **PostgreSQL**
-    // *   **Oracle**
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> DBType_ {};
-    // The version of the database engine. 
+    // The database engine version.
+    // Valid values for MySQL:
     // 
-    // - Valid values for the MySQL database engine:   
-    //   - **5.6**
-    //   - **5.7**
-    //   - **8.0**
-    // - Valid value for the PostgreSQL database engine:    
-    //   - **11**
-    //   - **14**
-    // - Valid value for the Oracle database engine:  **11**
+    // - **5.6**
+    // 
+    // - **5.7**
+    // 
+    // - **8.0**
+    // 
+    // Valid values for PostgreSQL:
+    // 
+    // - **11**
+    // 
+    // - **14**
+    // 
+    // Valid values for Oracle:
+    // 
+    // - **11**
+    // 
+    // - **14**
     shared_ptr<string> DBVersion_ {};
-    // The cluster engine.
+    // The engine.
     shared_ptr<string> engine_ {};
     // The number of parameters.
     shared_ptr<string> parameterNumbers_ {};
     shared_ptr<DescribeDBClusterParametersResponseBody::Parameters> parameters_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeDBClusterParametersResponseBody::RunningParameters> runningParameters_ {};
   };

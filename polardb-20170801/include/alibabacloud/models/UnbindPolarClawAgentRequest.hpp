@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The agent ID to unbind.
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The channel plugin ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // The channel account ID. Omit this parameter to remove all bindings for the specified agent ID and channel plugin ID.
     shared_ptr<string> channelAccountId_ {};
   };
 

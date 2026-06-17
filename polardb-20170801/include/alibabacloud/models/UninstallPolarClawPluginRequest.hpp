@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The plugin ID.
+    // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
+    // Indicates whether to restart the gateway after the plugin is uninstalled. The default is true.
     shared_ptr<bool> restart_ {};
   };
 

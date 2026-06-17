@@ -102,9 +102,11 @@ namespace Models
     shared_ptr<string> accountName_ {};
     // The password of the account. The password must meet the following requirements:
     // 
-    // *   It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-    // *   The password must be 8 to 32 characters in length.
-    // *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+    // - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // 
+    // - The password must be 8 to 32 characters in length.
+    // 
+    // - Special characters include `! @ # $ % ^ & * ( ) _ + - =`
     shared_ptr<string> accountPassword_ {};
     // The ID of the cluster.
     // 

@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The minimum number of GPUs required.
         shared_ptr<string> gpuMinCount_ {};
+        // The GPU model.
         shared_ptr<string> gpuModel_ {};
       };
 
@@ -156,11 +158,17 @@ namespace Models
 
 
     protected:
+      // The required GPU configurations.
       shared_ptr<vector<Items::GpuRequired>> gpuRequired_ {};
+      // The minimum number of CPU cores required.
       shared_ptr<int64_t> minimumCpu_ {};
+      // The minimum memory required, in MiB.
       shared_ptr<int64_t> minimumMemory_ {};
+      // The model name.
       shared_ptr<string> modelName_ {};
+      // The model series.
       shared_ptr<string> modelSeries_ {};
+      // The supported GPU models.
       shared_ptr<vector<string>> supportedGpuModels_ {};
     };
 
@@ -197,10 +205,13 @@ namespace Models
 
 
   protected:
+    // The database engine.
     shared_ptr<string> engine_ {};
+    // The engine version.
     shared_ptr<string> engineVersion_ {};
+    // The list of models.
     shared_ptr<vector<DescribeAvailableModelsResponseBody::Items>> items_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

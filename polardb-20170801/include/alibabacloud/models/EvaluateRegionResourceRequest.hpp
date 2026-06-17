@@ -158,54 +158,69 @@ namespace Models
 
 
   protected:
-    // The cluster link type. The backend randomly selects the default value. Valid values:
+    // The link type of the cluster. The backend randomly selects a default value. Valid values:
     // 
-    // *   **lvs**: Linux virtual server.
-    // *   **proxy**: proxy server.
-    // *   **dns**: domain name system.
+    // - **lvs**: Linux Virtual Server.
+    // 
+    // - **proxy**: proxy server.
+    // 
+    // - **dns**: Domain Name System.
     shared_ptr<string> DBInstanceConnType_ {};
-    // The specifications of the node. For information about node specifications, see the following topics:
+    // The node specifications. For more information, see the following documents:
     // 
-    // *   PolarDB for MySQL: [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html)
-    // *   PolarDB for Oracle: [Specifications of compute nodes](https://help.aliyun.com/document_detail/207921.html)
-    // *   PolarDB for PostgreSQL: [Specifications of compute nodes](https://help.aliyun.com/document_detail/209380.html)
+    // - PolarDB for MySQL: [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+    // 
+    // - PolarDB for PostgreSQL (Oracle Compatible): [Compute node specifications](https://help.aliyun.com/document_detail/207921.html).
+    // 
+    // - PolarDB for PostgreSQL: [Compute node specifications](https://help.aliyun.com/document_detail/209380.html).
     // 
     // This parameter is required.
     shared_ptr<string> DBNodeClass_ {};
-    // The type of the database engine. Valid values:
+    // The database engine type. Valid values:
     // 
-    // *   **MySQL**
-    // *   **PostgreSQL**
-    // *   **Oracle**
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **Oracle**
     // 
     // This parameter is required.
     shared_ptr<string> DBType_ {};
-    // The version of the database engine
+    // The version of the database engine.
     // 
-    // *   Valid values for the MySQL database engine:
+    // - Valid values for MySQL:
     // 
-    //     *   **5.6**
-    //     *   **5.7**
-    //     *   **8.0**
+    //   - **5.6**
     // 
-    // *   Valid values for the PostgreSQL database engine:
+    //   - **5.7**
     // 
-    //     *   **11**
-    //     *   **14**
+    //   - **8.0**
     // 
-    // *   Valid value for the Oracle database engine: **11**
+    // - Valid values for PostgreSQL:
+    // 
+    //   - **11**
+    // 
+    //   - **14**
+    // 
+    // - Valid values for Oracle:
+    // 
+    //   - **11**
+    // 
+    //   - **14**
     // 
     // This parameter is required.
     shared_ptr<string> DBVersion_ {};
-    // Specifies whether to return the zones in which the single-zone deployment method is supported. Default value: 0. Valid values:
+    // Specifies whether to return the list of zones that support single-zone deployment. Valid values:
     // 
-    // *   **0**: no value returned
-    // *   **1**: returns the zones.
+    // - **0** (default): The list is not returned.
+    // 
+    // - **1**: The list is returned.
     shared_ptr<string> dispenseMode_ {};
-    // Specifies whether to create Maxscale. Valid values:
+    // Specifies whether to create a MaxScale cluster. Valid values:
     // 
-    // *   **true** (default)
-    // *   **false**
+    // - **true** (default): A MaxScale cluster is created.
+    // 
+    // - **false**: A MaxScale cluster is not created.
     // 
     // This parameter is required.
     shared_ptr<string> needMaxScaleLink_ {};
@@ -213,7 +228,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -221,11 +236,11 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The subdomain. It is the child domain of the top-level domain name or parent domain. For example, if the parent domain name is cn-beijing, its child domain can be cn-beijing-i-aliyun.
+    // The subdomain. A subdomain is a level below a top-level domain. For example, if the parent domain is \\`cn-beijing\\`, a valid subdomain is \\`cn-beijing-i-aliyun\\`.
     shared_ptr<string> subDomain_ {};
     // The zone ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available zones.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available zones.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

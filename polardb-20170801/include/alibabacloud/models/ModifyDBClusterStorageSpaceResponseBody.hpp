@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the database cluster.
     shared_ptr<string> DBClusterId_ {};
-    // The order ID.
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The ID of the application subcomponent.
     shared_ptr<string> componentId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

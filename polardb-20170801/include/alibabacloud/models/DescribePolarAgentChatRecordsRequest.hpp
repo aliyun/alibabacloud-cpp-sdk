@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // The product source. Valid value: polardb-console.
     shared_ptr<string> source_ {};
   };
 

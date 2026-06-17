@@ -167,25 +167,46 @@ namespace Models
 
 
   protected:
+    // The ID of the agent that executes the task.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // Specifies whether to automatically delete the job after its first execution. This is useful for one-time tasks. Default: `false`.
     shared_ptr<bool> deleteAfterRun_ {};
+    // The configuration for delivering task execution results.
     shared_ptr<string> deliveryShrink_ {};
+    // A description of the task.
     shared_ptr<string> description_ {};
+    // Specifies whether the cron job is enabled. Default: `true`.
     shared_ptr<bool> enabled_ {};
+    // The failure alert configuration.
     shared_ptr<string> failureAlertShrink_ {};
+    // The unique name of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The execution payload configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> payloadShrink_ {};
+    // Specifies whether to restart the gateway upon job creation. Default: `true`.
     shared_ptr<bool> restart_ {};
+    // Specifies whether to run the job once immediately upon creation. Default: `false`.
     shared_ptr<bool> runImmediately_ {};
+    // The schedule configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> scheduleShrink_ {};
+    // The session routing key, which determines the conversation session for the task.
     shared_ptr<string> sessionKey_ {};
+    // The session target. Valid values are `main`, `isolated`, and `current`.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionTarget_ {};
+    // The wake mode for the agent. Valid values are `now` and `next-heartbeat`.
+    // 
     // This parameter is required.
     shared_ptr<string> wakeMode_ {};
   };

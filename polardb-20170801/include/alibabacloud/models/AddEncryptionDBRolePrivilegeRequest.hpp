@@ -94,13 +94,17 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The access policy for the role.
     shared_ptr<string> rolePrivilegeConfig_ {};
+    // The name of the role-based permission.
     shared_ptr<string> rolePrivilegeName_ {};
   };
 

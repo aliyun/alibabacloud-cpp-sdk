@@ -112,12 +112,13 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster in the GDN.
+    // The ID of the secondary cluster that you want to remove from the GDN.
     // 
-    // >  You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to view the ID of the cluster in the GDN.
+    // > You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to query the IDs of clusters in the GDN.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to forcibly remove the cluster.
     shared_ptr<bool> force_ {};
     // The ID of the GDN.
     // 
@@ -128,6 +129,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The ID of the target cluster.
     shared_ptr<string> targetDBClusterId_ {};
   };
 

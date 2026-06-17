@@ -103,16 +103,42 @@ namespace Models
 
 
   protected:
+    // The ID of the application cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the consumer.
     shared_ptr<string> consumer_ {};
+    // The ID of the consumer group.
     shared_ptr<string> consumerGroup_ {};
+    // The end time for the query. Specify the time in UTC in the `yyyy-MM-ddTHH:mmZ` format.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The granularity of the performance data, in seconds. Valid values:
+    // 
+    // - 5
+    // 
+    // - 30
+    // 
+    // - 60
+    // 
+    // - 600
+    // 
+    // - 1800
+    // 
+    // - 3600
+    // 
+    // - 86400
     shared_ptr<string> interval_ {};
+    // The performance metrics to query. Separate multiple metrics with commas (,).<br>You can specify up to five performance metrics.<br>
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The ID of the model service.
     shared_ptr<string> modelService_ {};
+    // The start time for the query. Specify the time in UTC in the `yyyy-MM-ddTHH:mmZ` format.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

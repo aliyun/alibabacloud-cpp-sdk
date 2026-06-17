@@ -121,16 +121,48 @@ namespace Models
 
 
   protected:
+    // The ID of the gateway instance.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The IDs of the model APIs. Separate multiple IDs with a comma.
     shared_ptr<string> modelApiIds_ {};
+    // The model category. Valid values:
+    // 
+    // - **text**
+    // 
+    // - **embedding**
+    // 
+    // - **rerank**
     shared_ptr<string> modelCategory_ {};
+    // The name of the model API.
     shared_ptr<string> name_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    //   The default value is **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The API path prefix.
     shared_ptr<string> pathPrefix_ {};
+    // The protocol. Valid values:
+    // 
+    // - **openai**
+    // 
+    // - **anthropic**
+    // 
+    // - **bailian**
+    // 
+    // - **vllm**
     shared_ptr<string> protocol_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
+    // The model API status.
     shared_ptr<string> status_ {};
   };
 

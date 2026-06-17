@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // The full APIKey, returned only in this response.
     shared_ptr<string> apiKey_ {};
+    // The consumer ID.
     shared_ptr<string> consumerId_ {};
+    // The key type. The value is always ApiKey.
     shared_ptr<string> keyType_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -434,11 +434,15 @@ namespace Models
 
 
   protected:
+    // The details of the AI clusters.
     shared_ptr<DescribeAIDBClustersResponseBody::Items> items_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

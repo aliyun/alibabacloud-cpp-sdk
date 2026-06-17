@@ -259,18 +259,18 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster node.
+    // The ID of the node in the PolarDB cluster.
     shared_ptr<string> DBNodeId_ {};
-    // The type of the database engine.
+    // The database engine type.
     shared_ptr<string> DBType_ {};
-    // The version of the database engine.
+    // The database engine version.
     shared_ptr<string> DBVersion_ {};
-    // The end time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The end of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeDBNodePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The beginning of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is in UTC.
     shared_ptr<string> startTime_ {};
   };
 

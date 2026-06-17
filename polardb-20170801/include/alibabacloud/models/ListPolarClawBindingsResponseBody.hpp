@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // Agent ID
+      // The agent ID.
       shared_ptr<string> agentId_ {};
-      // Channel ID
+      // The channel ID.
       shared_ptr<string> channel_ {};
-      // Account ID
+      // The account ID.
       shared_ptr<string> channelAccountId_ {};
     };
 
@@ -133,11 +133,15 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The list of bindings.
     shared_ptr<vector<ListPolarClawBindingsResponseBody::Bindings>> bindings_ {};
+    // The status code.
     shared_ptr<int32_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

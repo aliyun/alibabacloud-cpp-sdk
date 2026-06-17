@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The description of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
   };

@@ -86,13 +86,21 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The channel configuration object.
     Darabonba::Json channelConfig_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The npm package name of the channel plugin, including the version number.
     shared_ptr<string> npmPackage_ {};
+    // The ID of the channel plugin.
     shared_ptr<string> pluginId_ {};
+    // Specifies whether to restart the gateway after the upgrade. The default value is `true`.
     shared_ptr<bool> restart_ {};
   };
 

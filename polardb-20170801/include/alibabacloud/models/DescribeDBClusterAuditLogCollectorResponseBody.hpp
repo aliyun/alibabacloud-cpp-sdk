@@ -50,8 +50,9 @@ namespace Models
   protected:
     // The status of SQL collector. Valid values:
     // 
-    // *   Enable
-    // *   Disabled
+    // - Enable
+    // 
+    // - Disabled
     shared_ptr<string> collectorStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

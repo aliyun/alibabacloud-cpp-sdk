@@ -88,9 +88,11 @@ namespace Models
 
 
     protected:
+      // The account ID.
       shared_ptr<string> accountId_ {};
-      // Agent ID
+      // The agent ID.
       shared_ptr<string> agentId_ {};
+      // The channel ID.
       shared_ptr<string> channel_ {};
     };
 
@@ -149,15 +151,19 @@ namespace Models
 
 
   protected:
-    // Agent ID
+    // The agent ID.
     shared_ptr<string> agentId_ {};
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // Details of the newly created binding.
     shared_ptr<BindPolarClawAgentResponseBody::Binding> binding_ {};
-    // 200
+    // The HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // successful
+    // A message that indicates the request result.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of global bindings after the operation.
     shared_ptr<int32_t> totalBindings_ {};
   };
 

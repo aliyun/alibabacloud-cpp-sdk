@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // The account ID for the channel. If omitted, the default value is \\"default\\".
     shared_ptr<string> channelAccountId_ {};
   };
 

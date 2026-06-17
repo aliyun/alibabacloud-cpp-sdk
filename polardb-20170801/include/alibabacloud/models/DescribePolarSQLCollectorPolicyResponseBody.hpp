@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The IDs of the clusters.
+    // The ID of the cluster.
     shared_ptr<string> DBClusterId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the SQL Explorer feature is enabled. Valid values:
     // 
-    // *   **Enable**
-    // *   **Disabled**
+    // - **Enable**: The feature is enabled.
+    // 
+    // - **Disabled**: The feature is disabled.
     shared_ptr<string> SQLCollectorStatus_ {};
   };
 

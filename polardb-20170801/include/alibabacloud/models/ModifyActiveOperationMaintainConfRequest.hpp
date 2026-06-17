@@ -149,23 +149,45 @@ namespace Models
 
 
   protected:
+    // The remarks for the operation.
     shared_ptr<string> comment_ {};
+    // The time of the cycle.
+    // 
+    // - If CycleType is set to Month, specify the day of the month. Valid values: 1 to 28. Use commas (,) to separate multiple days.
+    // 
+    // - If CycleType is set to Week, specify the day of the week. Valid values: 1 to 7. Use commas (,) to separate multiple days.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleTime_ {};
+    // The cycle type. Valid values:
+    // 
+    // - Month
+    // 
+    // - Week
+    // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};
+    // The end time of the maintenance window. Use the HH:mmZ format. The time is in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> maintainEndTime_ {};
+    // The start time of the task. The time must be in UTC and in the yyyy-mm-ddThh:mm:ssZ format.
+    // 
     // This parameter is required.
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // Specifies whether to enable the configuration. Valid values: 1 (Enable) and 2 (Disable).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> status_ {};
   };

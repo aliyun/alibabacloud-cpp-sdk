@@ -84,6 +84,7 @@ namespace Models
     protected:
       // xxx
       shared_ptr<string> argsText_ {};
+      // The tool command that is invoked.
       shared_ptr<string> toolName_ {};
     };
 
@@ -143,9 +144,13 @@ namespace Models
 
 
     protected:
+      // The operation-related output result.
       shared_ptr<string> arguments_ {};
+      // The quota ID.
       shared_ptr<string> id_ {};
+      // The rule name.
       shared_ptr<string> name_ {};
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -215,12 +220,19 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> content_ {};
+    // Indicates whether FunctionCall is supported.
     shared_ptr<vector<GetPolarAgentResponseBody::FunctionCall>> functionCall_ {};
+    // The cloud product type.
     shared_ptr<string> product_ {};
+    // The ID of the user query pipeline task.
     shared_ptr<string> queryId_ {};
+    // The model\\"s reasoning content.
     shared_ptr<string> reasoningContent_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The session ID for code execution.
     shared_ptr<string> sessionId_ {};
+    // Indicates whether UiFunctionCall is supported.
     shared_ptr<vector<GetPolarAgentResponseBody::UiFunctionCall>> uiFunctionCall_ {};
   };
 

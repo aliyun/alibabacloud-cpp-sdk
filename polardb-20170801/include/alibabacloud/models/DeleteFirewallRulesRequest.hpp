@@ -84,12 +84,18 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The names of the firewall rules to delete. You can specify multiple rule names. Separate the names with commas (,).
+    // 
+    // > Call the [DescribeFirewallRules](https://help.aliyun.com/document_detail/212573.html) operation to query the details of all firewall rules for the cluster, including the rule names.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleNameList_ {};
   };

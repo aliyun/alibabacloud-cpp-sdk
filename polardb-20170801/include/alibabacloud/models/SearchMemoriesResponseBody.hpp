@@ -125,13 +125,21 @@ namespace Models
 
 
     protected:
+      // The creation time of the memory.
       shared_ptr<string> createTime_ {};
+      // The unique ID of the memory.
       shared_ptr<string> id_ {};
+      // The content of the memory.
       shared_ptr<string> memory_ {};
+      // The agent ID that owns the memory.
       shared_ptr<string> memoryAgentId_ {};
+      // The user ID that owns the memory.
       shared_ptr<string> memoryUserId_ {};
+      // Additional metadata associated with the memory.
       shared_ptr<string> metadata_ {};
+      // The relevance score of the result.
       shared_ptr<string> score_ {};
+      // The update time of the memory.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -154,7 +162,9 @@ namespace Models
 
 
   protected:
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // An array of search results.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
   };
 

@@ -134,14 +134,23 @@ namespace Models
 
 
     protected:
+      // The channel name.
       shared_ptr<string> channelName_ {};
+      // The ID of the source cluster.
       shared_ptr<string> DBClusterId_ {};
+      // The notes about the channel.
       shared_ptr<string> notes_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The ID of the target cluster.
       shared_ptr<string> targetDBClusterId_ {};
+      // The IP address of the target cluster.
       shared_ptr<string> targetIp_ {};
+      // The port of the target cluster.
       shared_ptr<string> targetPort_ {};
+      // The type of the target cluster.
       shared_ptr<string> targetType_ {};
+      // The ID of the VPC that contains the endpoint.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -164,8 +173,9 @@ namespace Models
 
 
   protected:
+    // A list of network channels.
     shared_ptr<vector<DescribeNetworkChannelResponseBody::ChannelInfos>> channelInfos_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

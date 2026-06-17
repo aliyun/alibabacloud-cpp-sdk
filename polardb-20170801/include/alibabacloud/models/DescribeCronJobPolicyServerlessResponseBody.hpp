@@ -241,25 +241,57 @@ namespace Models
 
 
     protected:
+      // A system parameter. Set the value to **ModifyDBClusterServerlessConf**.
       shared_ptr<string> action_ {};
+      // Specifies whether to enable No-activity Suspension. Valid values:
+      // 
+      // - **true**: enabled
+      // 
+      // - **false**: disabled (default)
       shared_ptr<string> allowShutDown_ {};
+      // The Cron expression for the scheduled task.
       shared_ptr<string> cronExpression_ {};
+      // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
+      // The end time of the task. The time is in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
       shared_ptr<string> endTime_ {};
+      // The ID of the scheduled task.
       shared_ptr<string> jobId_ {};
+      // The order ID.
       shared_ptr<string> orderId_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The maximum number of read-only IMCI nodes. Valid values: 1 to 15.
       shared_ptr<string> scaleApRoNumMax_ {};
+      // The minimum number of read-only IMCI nodes. Valid values: 0 to 15.
       shared_ptr<string> scaleApRoNumMin_ {};
+      // The maximum capacity. The value must be from 1 to 32. Unit: PCU.
       shared_ptr<string> scaleMax_ {};
+      // The minimum capacity. The value must be from 0.25 to 32 and less than or equal to the maximum capacity. Unit: PolarDB Capacity Unit (PCU).
       shared_ptr<string> scaleMin_ {};
+      // The maximum number of read-only nodes. The value must be greater than or equal to the minimum value. Valid values: 0 to 15.
       shared_ptr<string> scaleRoNumMax_ {};
+      // The minimum number of read-only nodes. Valid values: 0 to 15.
       shared_ptr<string> scaleRoNumMin_ {};
+      // The detection period for No-activity Suspension. The value must be a multiple of 5. Valid values: 5 to 1440. Unit: minutes.
       shared_ptr<string> secondsUntilAutoPause_ {};
+      // The CPU utilization threshold for scaling up. Valid values: 40 to 100. Unit: %.
       shared_ptr<string> serverlessRuleCpuEnlargeThreshold_ {};
+      // The CPU utilization threshold for scaling down. Valid values: 10 to 100. Unit: %. The difference between the scale-up threshold and the scale-down threshold must be 30 or greater.
       shared_ptr<string> serverlessRuleCpuShrinkThreshold_ {};
+      // The elasticity sensitivity. Valid values:
+      // 
+      // - normal: standard
+      // 
+      // - flexible: sensitive
       shared_ptr<string> serverlessRuleMode_ {};
+      // The start time of the task. The time is in the `yyyy-MM-ddTHH:mmZ` format and in UTC.
       shared_ptr<string> startTime_ {};
+      // The status of the task. Valid values:
+      // 
+      // - **working**: The scheduled task is running.
+      // 
+      // - **finish**: The scheduled task is complete.
       shared_ptr<string> status_ {};
     };
 
@@ -303,11 +335,23 @@ namespace Models
 
 
   protected:
+    // The list of tasks.
     shared_ptr<vector<DescribeCronJobPolicyServerlessResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on each page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

@@ -84,12 +84,13 @@ namespace Models
 
 
   protected:
-    // Cluster ID.
-    // > You can view detailed information about all clusters under your account, including the cluster ID, through the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) interface.
+    // The cluster ID.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, including the cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Whether to obtain information about AI-related nodes.
+    // Specifies whether to query information about AI nodes.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

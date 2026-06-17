@@ -51,7 +51,10 @@ namespace Models
 
 
   protected:
+    // A list of agent IDs to filter the bindings.
     shared_ptr<vector<string>> agentList_ {};
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
   };

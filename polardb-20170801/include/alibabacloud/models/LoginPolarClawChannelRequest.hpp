@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the PolarClaw channel to log into.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
   };

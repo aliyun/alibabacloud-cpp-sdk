@@ -140,17 +140,40 @@ namespace Models
 
 
   protected:
+    // The backup set ID.
     shared_ptr<string> backupId_ {};
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The database type. Valid values:
+    // 
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **Oracle**
+    // 
+    // To specify multiple types, separate them with a comma.
     shared_ptr<string> DBType_ {};
+    // The database version.
     shared_ptr<string> DBVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The value must be an integer that is greater than 0. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 30 to 100. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The share type. Valid values:
+    // 
+    // - **ShareIncoming**: backups shared with you.
+    // 
+    // - **ShareOutgoing**: backups you shared.
+    // 
     // This parameter is required.
     shared_ptr<string> shareType_ {};
   };

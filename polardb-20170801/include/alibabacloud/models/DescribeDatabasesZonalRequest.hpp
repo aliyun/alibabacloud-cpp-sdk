@@ -121,14 +121,29 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The database name.
     shared_ptr<string> DBName_ {};
+    // The maximum number of entries to return for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The query token. This is the NextToken value from the previous API call. If there are no more results, do not specify this parameter.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values:
+    // 
+    // - 30
+    // 
+    // - 50
+    // 
+    // - 100
+    // 
+    // The default value is 30.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

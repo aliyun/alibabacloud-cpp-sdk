@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // A client token to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html)Operation to query the details of all clusters in your account, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
   };
 

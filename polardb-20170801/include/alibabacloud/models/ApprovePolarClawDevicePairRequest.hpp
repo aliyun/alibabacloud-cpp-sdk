@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The pairing request ID.
+    // 
     // This parameter is required.
     shared_ptr<string> pairRequestId_ {};
   };

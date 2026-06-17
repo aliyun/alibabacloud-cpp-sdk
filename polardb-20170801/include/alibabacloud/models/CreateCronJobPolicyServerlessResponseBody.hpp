@@ -112,15 +112,27 @@ namespace Models
 
 
   protected:
+    // The action of the scheduled task. The value is fixed as `ModifyDBClusterServerlessConf`.
     shared_ptr<string> action_ {};
+    // The Cron expression.
     shared_ptr<string> cronExpression_ {};
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The end time of the task. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and in UTC.
     shared_ptr<string> endTime_ {};
+    // The ID of the scheduled task.
     shared_ptr<string> jobId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time of the task. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and in UTC.
     shared_ptr<string> startTime_ {};
+    // The status of the task. Valid values:
+    // 
+    // - `working`: The scheduled task is running.
+    // 
+    // - `finish`: The scheduled task is complete.
     shared_ptr<string> status_ {};
   };
 

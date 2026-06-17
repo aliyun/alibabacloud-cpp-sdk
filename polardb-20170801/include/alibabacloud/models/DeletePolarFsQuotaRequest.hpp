@@ -72,8 +72,12 @@ namespace Models
 
 
     protected:
+      // The ID of the quota.
+      // 
       // This parameter is required.
       shared_ptr<string> id_ {};
+      // The name of the quota.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -104,9 +108,16 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view the details of all clusters under your account, including the cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the Polarlakebase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
+    // The details of the quota rules.
+    // 
     // This parameter is required.
     shared_ptr<vector<DeletePolarFsQuotaRequest::Quotas>> quotas_ {};
   };

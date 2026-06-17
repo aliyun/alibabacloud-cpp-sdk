@@ -223,23 +223,57 @@ namespace Models
 
 
     protected:
+      // The end time of the backup, in UTC.
       shared_ptr<string> backupEndTime_ {};
+      // The backup set ID.
       shared_ptr<string> backupId_ {};
+      // The backup method. Only snapshot backup is supported. The value is fixed to **Snapshot**.
       shared_ptr<string> backupMethod_ {};
+      // The backup mode. Valid values:
+      // 
+      // - **Automated**: automated backup
+      // 
+      // - **Manual**: manual backup
       shared_ptr<string> backupMode_ {};
+      // The size of the backup set, in bytes.
       shared_ptr<string> backupSetSize_ {};
+      // The start time of the backup, in UTC.
       shared_ptr<string> backupStartTime_ {};
+      // The backup status. Valid values:
+      // 
+      // - **Success**: The backup is complete.
+      // 
+      // - **Failed**: The backup failed.
       shared_ptr<string> backupStatus_ {};
+      // The backup type. Only full backups are supported. The value is fixed to **FullBackup**.
       shared_ptr<string> backupType_ {};
+      // The backup level. Valid values:
+      // 
+      // - **Level-1**: Level-1 backup.
+      // 
+      // - **Level-2**: Level-2 backup.
       shared_ptr<string> backupsLevel_ {};
+      // The UNIX timestamp of the consistent snapshot, in seconds.
       shared_ptr<string> consistentTime_ {};
+      // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
+      // The database engine type.
       shared_ptr<string> DBType_ {};
+      // The database engine version.
       shared_ptr<string> DBVersion_ {};
+      // The billing method. Valid values:
+      // 
+      // - **Postpaid**: pay-as-you-go.
+      // 
+      // - **Prepaid**: prepaid (subscription)
       shared_ptr<string> payType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The Serverless type. A value of **AgileServerless** indicates a Serverless cluster, while an empty value indicates a standard cluster.
       shared_ptr<string> serverlessType_ {};
+      // The share type.
       shared_ptr<string> shareType_ {};
+      // The UID of the account that shared the backup set.
       shared_ptr<string> sharerUID_ {};
     };
 
@@ -283,10 +317,15 @@ namespace Models
 
 
   protected:
+    // A list of shared backup sets.
     shared_ptr<vector<DescribeSharedBackupsResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total record count.
     shared_ptr<string> totalRecordCount_ {};
   };
 

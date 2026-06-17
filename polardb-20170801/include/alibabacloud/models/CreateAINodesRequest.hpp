@@ -60,6 +60,7 @@ namespace Models
 
 
     protected:
+      // The node specifications.
       shared_ptr<string> DBNodeClass_ {};
     };
 
@@ -82,7 +83,11 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // > Call the [DescribeAIDBClusters](https://api.aliyun.com/api/polardb/2017-08-01/DescribeAIDBClusters) operation to query information about all clusters in your account, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
+    // The information about the nodes to add.
     shared_ptr<vector<CreateAINodesRequest::DBNodes>> DBNodes_ {};
   };
 

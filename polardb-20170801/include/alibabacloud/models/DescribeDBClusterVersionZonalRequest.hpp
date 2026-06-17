@@ -84,8 +84,15 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to return information about the latest version or a list of upgradable versions. Valid values:
+    // 
+    // - LATEST_VERSION: Queries information about the latest version.
+    // 
+    // - AVAILABLE_VERSION: Queries the list of upgradable versions.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

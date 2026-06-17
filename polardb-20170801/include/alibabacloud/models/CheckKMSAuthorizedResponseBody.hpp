@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // Indicates whether the cluster is authorized to use KMS. Valid values:
+    // The authorization status. Valid values:
     // 
-    // *   **0**: no.
-    // *   **1**: yes.
+    // - **0**: Unauthorized.
+    // 
+    // - **1**: Authorized.
     shared_ptr<int32_t> authorizationState_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
+    // The Global Resource Descriptor of the role. It specifies the role. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
     shared_ptr<string> roleArn_ {};
   };
 

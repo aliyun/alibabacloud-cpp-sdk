@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the cluster.
+    // The ID of the region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

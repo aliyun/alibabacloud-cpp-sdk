@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the cron job to run.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The execution mode. Valid values: force and due. Default value: force.
     shared_ptr<string> mode_ {};
+    // Specifies whether to restart the gateway after the job completes. Default value: true.
     shared_ptr<bool> restart_ {};
   };
 

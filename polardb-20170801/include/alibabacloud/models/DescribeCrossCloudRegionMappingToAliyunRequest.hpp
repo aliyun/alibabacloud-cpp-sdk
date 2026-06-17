@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The region ID of Alibaba Cloud.
     shared_ptr<string> aliyunRegionId_ {};
+    // The cloud provider. Valid values:
+    // 
+    // - HuaweiCloud
+    // 
+    // - Azure
     shared_ptr<string> cloudProvider_ {};
+    // The region ID of the third-party cloud.
     shared_ptr<string> crossCloudRegionId_ {};
   };
 

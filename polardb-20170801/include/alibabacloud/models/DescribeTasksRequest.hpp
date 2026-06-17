@@ -132,46 +132,49 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // >  You must specify `DBNodeId` or `DBClusterId`. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+    // > Specify either `DBNodeId` or `DBClusterId`. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
     // The node ID.
     // 
-    // >  You must specify `DBNodeId` or `DBClusterId`. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as node IDs.
+    // > Specify either `DBNodeId` or `DBClusterId`. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, including node IDs.
     shared_ptr<string> DBNodeId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC. The end time must be later than the start time.
+    // The end of the time range to query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1.
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **30**, **50**, and **100**.
+    // The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The state of the tasks that you want to query. Valid values:
+    // The task status. Valid values:
     // 
-    // *   **Waiting**: The task is pending.
-    // *   **Running**: The task is running.
-    // *   **Finished**: The task is completed.
-    // *   **Closed**: The task is closed.
-    // *   **Pause**: The task is paused.
-    // *   **Stop**: The task is interrupted.
+    // - **Waiting**: The task is waiting to be executed.
     // 
-    // > 
+    // - **Running**: The task is running.
     // 
-    // *   If you do not specify this parameter, the operation returns the details of only the tasks that are in the **Waiting** or **Running** state for the cluster or node.
+    // - **Finished**: The task is complete.
     // 
-    // *   You can enter multiple task states. Separate multiple task states with commas (,).
+    // - **Closed**: The task is closed.
+    // 
+    // - **Pause**: The task is paused.
+    // 
+    // - **Stop**: The task is interrupted.
+    // 
+    // > * If you leave this parameter empty, the details of all tasks in the **Waiting** or **Running** state for the current cluster or node are returned.
+    // >
+    // > * To query tasks in multiple states, separate the state names with a comma (,).
     shared_ptr<string> status_ {};
   };
 

@@ -149,58 +149,71 @@ namespace Models
 
 
   protected:
-    // The name of the cluster. The name must meet the following requirements:
+    // The cluster name. The cluster name must meet the following requirements:
     // 
-    // *   It cannot start with `http://` or `https://`.
-    // *   It must be 2 to 256 characters in length.
+    // - It cannot start with `http://` or `https://`.
+    // 
+    // - It must be 2 to 256 characters in length.
     shared_ptr<string> DBClusterDescription_ {};
-    // The ID of the cluster. If you need to specify multiple cluster IDs, separate the cluster IDs with commas (,).
+    // The ID of the cluster. You can specify multiple cluster IDs. Separate the IDs with a comma (,).
     shared_ptr<string> DBClusterIds_ {};
-    // The type of the database engine. Valid values:
+    // The database engine type. Valid values:
     // 
-    // *   **MySQL**
-    // *   **PostgreSQL**
-    // *   **Oracle**
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> DBType_ {};
-    // The version of the database engine.
+    // The database engine version.
     // 
-    // *   Valid values for the MySQL database engine:
+    // - Valid values for MySQL:
     // 
-    //     *   **5.6**
-    //     *   **5.7**
-    //     *   **8.0**
+    //   - **5.6**
     // 
-    // *   Valid values for the PostgreSQL database engine:
+    //   - **5.7**
     // 
-    //     *   **11**
-    //     *   **14**
+    //   - **8.0**
     // 
-    // *   Valid value for the Oracle database engine: **11**
+    // - Valid values for PostgreSQL:
+    // 
+    //   - **11**
+    // 
+    //   - **14**
+    // 
+    // - Valid values for Oracle:
+    // 
+    //   - **11**
+    // 
+    //   - **14**
     shared_ptr<string> DBVersion_ {};
     // Specifies whether the cluster is deleted. Valid values:
     // 
-    // *   **0**: not deleted
-    // *   **1**: deleted
+    // - **0**: The cluster is not deleted.
+    // 
+    // - **1**: The cluster is deleted.
     shared_ptr<int32_t> isDeleted_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of records on each page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query information about regions.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view details about regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

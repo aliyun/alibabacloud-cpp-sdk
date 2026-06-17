@@ -51,7 +51,11 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // > Call the [DescribeAIDBClusters](https://api.aliyun.com/api/polardb/2017-08-01/DescribeAIDBClusters) operation to view the cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The IDs of the nodes to delete.
     shared_ptr<vector<string>> DBNodeId_ {};
   };
 

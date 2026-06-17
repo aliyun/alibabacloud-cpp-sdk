@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // **The application ID.**
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The ID of the enabled job.
     shared_ptr<string> jobId_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
+    // **The request ID.**
     shared_ptr<string> requestId_ {};
   };
 

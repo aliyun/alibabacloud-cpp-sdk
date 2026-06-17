@@ -206,21 +206,37 @@ namespace Models
 
 
     protected:
+      // The completion time.
       shared_ptr<string> completedTime_ {};
+      // The creation time.
       shared_ptr<string> creationTime_ {};
+      // The node description.
       shared_ptr<string> DBNodeDescription_ {};
+      // The model operator instance ID.
       shared_ptr<string> DBNodeId_ {};
+      // The instance status. This parameter is not always returned.
       shared_ptr<string> DBNodeStatus_ {};
+      // The description of the instance status.
       shared_ptr<string> DBNodeStatusDesc_ {};
+      // The availability zone.
       shared_ptr<string> dataZoneId_ {};
+      // The engine.
       shared_ptr<string> engine_ {};
+      // The engine version.
       shared_ptr<string> engineVersion_ {};
+      // The model name.
       shared_ptr<string> modelName_ {};
+      // The model path.
       shared_ptr<string> modelPath_ {};
+      // The model source.
       shared_ptr<string> modelSource_ {};
+      // The runtime parameters.
       shared_ptr<string> runningTimes_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
+      // The training mode.
       shared_ptr<string> trainMode_ {};
+      // The training type.
       shared_ptr<string> trainType_ {};
     };
 
@@ -271,12 +287,17 @@ namespace Models
 
 
   protected:
+    // The engine.
     shared_ptr<string> engine_ {};
+    // The engine version.
     shared_ptr<string> engineVersion_ {};
+    // A list of model operators.
     shared_ptr<vector<DescribeAIDBClusterTasksResponseBody::Items>> items_ {};
+    // The PolarDB cluster ID.
     shared_ptr<string> relativeDBClusterId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task type.
     shared_ptr<string> taskType_ {};
   };
 

@@ -145,9 +145,13 @@ namespace Models
 
 
       protected:
+        // **The number of consecutive failures.**
         shared_ptr<int32_t> consecutiveErrors_ {};
+        // **The optional timestamp of the last run, in milliseconds.**
         shared_ptr<int64_t> lastRunAtMs_ {};
+        // **The optional status of the last run.**
         shared_ptr<string> lastRunStatus_ {};
+        // **The timestamp for the next run, in milliseconds.**
         shared_ptr<int64_t> nextRunAtMs_ {};
       };
 
@@ -225,11 +229,17 @@ namespace Models
 
 
       protected:
+        // The base timestamp for interval alignment, in milliseconds.
         shared_ptr<int64_t> anchorMs_ {};
+        // The ISO 8601 timestamp. Required if `Kind` is `at`.
         shared_ptr<string> at_ {};
+        // The interval in milliseconds. Required if `Kind` is `every`.
         shared_ptr<int64_t> everyMs_ {};
+        // The cron expression. Required if `Kind` is `cron`.
         shared_ptr<string> expr_ {};
+        // The schedule type. Valid values: `cron` (cron expression), `every` (fixed interval), or `at` (one-time).
         shared_ptr<string> kind_ {};
+        // The IANA time zone, such as `Asia/Shanghai`.
         shared_ptr<string> tz_ {};
       };
 
@@ -327,8 +337,11 @@ namespace Models
 
 
         protected:
+          // The number of input tokens.
           shared_ptr<int32_t> inputTokens_ {};
+          // The number of output tokens.
           shared_ptr<int32_t> outputTokens_ {};
+          // The total number of tokens.
           shared_ptr<int32_t> totalTokens_ {};
         };
 
@@ -444,20 +457,35 @@ namespace Models
 
 
       protected:
+        // The action performed. Valid values: `finished`, `error`, or `skipped`.
         shared_ptr<string> action_ {};
+        // Indicates whether the result was delivered.
         shared_ptr<bool> delivered_ {};
+        // The delivery status.
         shared_ptr<string> deliveryStatus_ {};
+        // The execution duration, in milliseconds.
         shared_ptr<int64_t> durationMs_ {};
+        // The associated job ID.
         shared_ptr<string> jobId_ {};
+        // The job name.
         shared_ptr<string> jobName_ {};
+        // The model used for the run.
         shared_ptr<string> model_ {};
+        // The timestamp of the next scheduled run, in milliseconds.
         shared_ptr<int64_t> nextRunAtMs_ {};
+        // The model provider.
         shared_ptr<string> provider_ {};
+        // The actual execution timestamp, in milliseconds.
         shared_ptr<int64_t> runAtMs_ {};
+        // The associated session ID.
         shared_ptr<string> sessionId_ {};
+        // The status of the run. Valid values: `ok`, `error`, or `skipped`.
         shared_ptr<string> status_ {};
+        // The run summary text.
         shared_ptr<string> summary_ {};
+        // The run timestamp, in milliseconds.
         shared_ptr<int64_t> ts_ {};
+        // Optional token usage details.
         shared_ptr<Runs::Usage> usage_ {};
       };
 
@@ -572,15 +600,25 @@ namespace Models
 
 
       protected:
+        // Indicates whether to ignore delivery failures.
         shared_ptr<bool> bestEffortDeliver_ {};
+        // The optional delivery channel ID.
         shared_ptr<string> channel_ {};
+        // Indicates whether to deliver the output to a channel.
         shared_ptr<bool> deliver_ {};
+        // The payload type. Valid values: `agentTurn` (Agent conversation) or `systemEvent` (system event).
         shared_ptr<string> kind_ {};
+        // Indicates whether to use a lightweight context.
         shared_ptr<bool> lightContext_ {};
+        // The Agent conversation prompt.
         shared_ptr<string> message_ {};
+        // The model override.
         shared_ptr<string> model_ {};
+        // The system event text.
         shared_ptr<string> text_ {};
+        // The optional execution timeout in seconds.
         shared_ptr<int32_t> timeoutSeconds_ {};
+        // The optional delivery target.
         shared_ptr<string> to_ {};
       };
 
@@ -649,10 +687,15 @@ namespace Models
 
 
       protected:
+        // The optional channel account ID.
         shared_ptr<string> accountId_ {};
+        // Indicates whether to ignore delivery failures.
         shared_ptr<bool> bestEffort_ {};
+        // The delivery channel.
         shared_ptr<string> channel_ {};
+        // The delivery mode. Valid values: `none`, `announce`, or `webhook`.
         shared_ptr<string> mode_ {};
+        // The delivery target. Required and must be a URL if `Mode` is `webhook`.
         shared_ptr<string> to_ {};
       };
 
@@ -783,21 +826,37 @@ namespace Models
 
 
     protected:
+      // The optional ID of the Agent that runs the job.
       shared_ptr<string> agentId_ {};
+      // The creation timestamp, in milliseconds.
       shared_ptr<int64_t> createdAtMs_ {};
+      // Indicates whether the job is deleted after its first run.
       shared_ptr<bool> deleteAfterRun_ {};
+      // The optional result delivery configuration.
       shared_ptr<Job::Delivery> delivery_ {};
+      // The optional job description.
       shared_ptr<string> description_ {};
+      // Indicates whether the job is enabled.
       shared_ptr<bool> enabled_ {};
+      // The job ID (UUID).
       shared_ptr<string> id_ {};
+      // The job name.
       shared_ptr<string> name_ {};
+      // The execution payload configuration.
       shared_ptr<Job::Payload> payload_ {};
+      // **The run history. Returned only if `IncludeRuns` is `true`.**
       shared_ptr<vector<Job::Runs>> runs_ {};
+      // The schedule configuration.
       shared_ptr<Job::Schedule> schedule_ {};
+      // The optional session routing key.
       shared_ptr<string> sessionKey_ {};
+      // The session target. Valid values: `main`, `isolated`, or `current`.
       shared_ptr<string> sessionTarget_ {};
+      // **The running state of the job.**
       shared_ptr<Job::State> state_ {};
+      // The last update timestamp, in milliseconds.
       shared_ptr<int64_t> updatedAtMs_ {};
+      // The wake mode. Valid values: `now` or `next-heartbeat`.
       shared_ptr<string> wakeMode_ {};
     };
 
@@ -848,12 +907,17 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> code_ {};
+    // Details of the updated job.
     shared_ptr<UpdatePolarClawCronJobResponseBody::Job> job_ {};
+    // The success message.
     shared_ptr<string> message_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

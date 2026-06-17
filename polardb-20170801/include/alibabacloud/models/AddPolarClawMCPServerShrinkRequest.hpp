@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The configuration object for the MCP server.
     shared_ptr<string> serverConfigShrink_ {};
+    // The unique identifier for the MCP server.
+    // 
     // This parameter is required.
     shared_ptr<string> serverName_ {};
   };

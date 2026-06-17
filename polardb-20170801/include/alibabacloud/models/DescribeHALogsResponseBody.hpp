@@ -111,14 +111,15 @@ namespace Models
 
 
     protected:
-      // The reason code of the failover.
+      // The cause code of the switchover.
       shared_ptr<string> switchCauseCode_ {};
-      // The reason of the failover.
+      // The cause of the switchover.
       shared_ptr<string> switchCauseDetail_ {};
-      // The time when the failover ended.
+      // The end time of the switchover.
       shared_ptr<string> switchFinishTime_ {};
+      // The ID of the primary/secondary switchover log.
       shared_ptr<string> switchId_ {};
-      // The time when the failover started.
+      // The start time of the switchover.
       shared_ptr<string> switchStartTime_ {};
     };
 
@@ -191,15 +192,30 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
+    // The instance type. Valid values:
+    // 
+    // - **polardb_mysql_rw**: read-write instance.
+    // - **polardb_mysql_ro**: read-only instance.
+    // - **polardb_mysql_standby**: standby instance.
     shared_ptr<string> DBInstanceType_ {};
-    // The failover logs.
+    // The list of primary/secondary 这里 AI 机翻使用了 failover，但代码里用了 switch，建议保持一致，都改为 swichover logs.
     shared_ptr<vector<DescribeHALogsResponseBody::HaLogItems>> haLogItems_ {};
+    // Indicates whether primary/secondary switchover records exist. Valid values:
+    // 
+    // - **1**: No
+    // - **0**: Yes
     shared_ptr<int32_t> haStatus_ {};
+    // The number of items in the log list on the current page.
     shared_ptr<int32_t> itemsNumbers_ {};
+    // The page number. The value is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page. Valid values: 30 to 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecords_ {};
   };
 

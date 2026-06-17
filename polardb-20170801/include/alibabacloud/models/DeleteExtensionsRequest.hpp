@@ -130,19 +130,29 @@ namespace Models
 
 
   protected:
+    // A client-generated token to ensure that the request is idempotent. The token must be unique for each request. It is case-sensitive and can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> DBNames_ {};
+    // The extensions to uninstall. Separate multiple extension names with a comma (,).
+    // 
     // This parameter is required.
     shared_ptr<string> extensions_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the virtual private cloud (VPC) where the endpoint is located.
     shared_ptr<string> vpcId_ {};
   };
 

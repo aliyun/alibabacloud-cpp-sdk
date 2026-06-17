@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The file paths for which the quotas were deleted. Multiple paths are separated by a comma (`,`).
     shared_ptr<string> filePathIds_ {};
+    // The ID of the Polarlakebase instance.
     shared_ptr<string> polarFsInstanceId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -112,15 +112,17 @@ namespace Models
 
 
   protected:
-    // The name of the IP whitelist template. The name must meet the following requirements:
+    // The name of the IP address whitelist template. The name must meet the following requirements:
     // 
-    // *   The name can contain lowercase letters, digits, and underscores (_).
-    // *   The name must start with a letter and end with a letter or digit.
-    // *   The name must be 2 to 120 characters in length.
+    // - It must consist of lowercase letters, digits, and underscores (_).
+    // 
+    // - It must start with a letter and end with a letter or a digit.
+    // 
+    // - It must be 2 to 120 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> globalIgName_ {};
-    // The ID of the IP whitelist template.
+    // The ID of the IP address whitelist template.
     // 
     // This parameter is required.
     shared_ptr<string> globalSecurityGroupId_ {};
@@ -130,7 +132,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The name and version of the new npm package.
+    // 
     // This parameter is required.
     shared_ptr<string> npmPackage_ {};
+    // The ID of the plugin to upgrade.
+    // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
+    // Specifies whether to restart the gateway after the upgrade. The default is true.
     shared_ptr<bool> restart_ {};
   };
 

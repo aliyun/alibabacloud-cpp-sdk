@@ -268,13 +268,32 @@ namespace Models
 
 
   protected:
+    // The node ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The database engine type. Valid values:
+    // 
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **Oracle**
     shared_ptr<string> DBType_ {};
+    // The MySQL version number. Valid values:
+    // 
+    // - **5.6**
+    // 
+    // - **5.7**
+    // 
+    // - **8.0**
     shared_ptr<string> DBVersion_ {};
+    // The end time of the query. The time is in the `yyyy-MM-ddTHH:mmZ` format in UTC.
     shared_ptr<string> endTime_ {};
+    // The database engine type.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeDBInstancePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time of the query. The time is in the `yyyy-MM-ddTHH:mmZ` format in UTC.
     shared_ptr<string> startTime_ {};
   };
 

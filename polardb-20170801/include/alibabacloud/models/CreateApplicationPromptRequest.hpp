@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The ID of the Application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The name of the Prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptName_ {};
+    // The type of the Prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptType_ {};
+    // The content of the Prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptValue_ {};
   };

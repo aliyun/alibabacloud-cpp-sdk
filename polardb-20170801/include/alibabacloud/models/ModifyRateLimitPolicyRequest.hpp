@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The rate limit policy ID.
+    // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The maximum number of requests per minute.
     shared_ptr<string> rateLimitRpm_ {};
+    // The maximum number of tokens per minute.
     shared_ptr<string> rateLimitTpm_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

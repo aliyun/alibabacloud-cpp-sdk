@@ -129,11 +129,15 @@ namespace Models
     shared_ptr<bool> enableGlobalDomainName_ {};
     // The description of the GDN. The description must meet the following requirements:
     // 
-    // *   It cannot start with [http:// or https://.](http://https://。)
-    // *   It must start with a letter.
-    // *   It can contain letters, digits, underscores (_), and hyphens (-).
-    // *   It must be 2 to 126 characters in length.
+    // - It cannot start with http\\:// or https\\://.
+    // 
+    // - It must start with a letter or a Chinese character.
+    // 
+    // - It can contain letters, Chinese characters, digits, underscores (_), and hyphens (-).
+    // 
+    // - It must be 2 to 126 characters in length.
     shared_ptr<string> GDNDescription_ {};
+    // The GDN version.
     shared_ptr<string> GDNVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

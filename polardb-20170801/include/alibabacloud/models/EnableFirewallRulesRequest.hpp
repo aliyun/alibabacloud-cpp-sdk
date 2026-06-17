@@ -100,18 +100,18 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // Specifies whether to enable or disable the specified firewall rules. Valid values:
     // 
-    // *   **true**: enables the specified firewall rules.
-    // *   **false**: disables the specified firewall rules.
+    // - **true**: Enable.
+    // - **false**: Disable.
     // 
-    // > This parameter is valid only when you specify the **RuleNameList** parameter.
+    // > This parameter takes effect only when a value is specified for the **RuleNameList** parameter.
     shared_ptr<bool> enable_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the firewall rule that you want to enable for the cluster. You can specify multiple firewall rules at a time. Separate multiple rules with commas (,).
+    // A comma-separated list of the firewall rule names to enable or disable.
     // 
-    // > You can call the **DescribeFirewallRules** operation to query the details of all firewall rules that are applicable to a cluster, such as rule names.
+    // > You can find rule names under **Security Management****SQL Firewall** tab of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ruleNameList_ {};

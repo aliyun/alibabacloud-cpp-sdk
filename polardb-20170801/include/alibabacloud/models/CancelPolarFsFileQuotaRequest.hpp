@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The ID of the PolarDB cluster that the application depends on.
     shared_ptr<string> DBClusterId_ {};
+    // The file paths. Separate multiple paths with a comma (`,`).
+    // 
     // This parameter is required.
     shared_ptr<string> filePathIds_ {};
+    // The ID of the Polarlakebase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
   };

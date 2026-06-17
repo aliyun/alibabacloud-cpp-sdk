@@ -97,11 +97,15 @@ namespace Models
 
 
     protected:
+      // The answer.
       shared_ptr<string> answer_ {};
+      // The feedback type.
       shared_ptr<string> feedbackType_ {};
+      // The session query. Obtain this value from the response of the API call to start a digital human.
       shared_ptr<string> query_ {};
-      // Query ID。
+      // The query ID.
       shared_ptr<string> queryId_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -124,7 +128,9 @@ namespace Models
 
 
   protected:
+    // The result set.
     shared_ptr<vector<DescribePolarAgentChatRecordsResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

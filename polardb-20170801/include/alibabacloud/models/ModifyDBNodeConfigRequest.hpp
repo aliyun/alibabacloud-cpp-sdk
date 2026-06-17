@@ -112,12 +112,24 @@ namespace Models
 
 
   protected:
+    // The name of the node configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> configName_ {};
+    // The configuration of the node.
+    // 
     // This parameter is required.
     shared_ptr<string> configValue_ {};
+    // The cluster ID.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, including the cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the cluster node.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters in your account, including the node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBNodeId_ {};
     shared_ptr<string> ownerAccount_ {};

@@ -183,13 +183,25 @@ namespace Models
 
 
         protected:
+          // The vSwitch CIDR block.
           shared_ptr<string> cidrBlock_ {};
+          // The time when the vSwitch was created.
           shared_ptr<string> gmtCreate_ {};
+          // The time when the vSwitch was last modified.
           shared_ptr<string> gmtModified_ {};
+          // Indicates whether the vSwitch is the default vSwitch. Valid values:
+          // 
+          // - **true**: The vSwitch is the default vSwitch.
+          // 
+          // - **false**: The vSwitch is not the default vSwitch.
           shared_ptr<bool> isDefault_ {};
+          // The ID of the zone.
           shared_ptr<string> izNo_ {};
+          // The status of the vSwitch. **Available** indicates that the vSwitch is available.
           shared_ptr<string> status_ {};
+          // The ID of the vSwitch.
           shared_ptr<string> vSwitchId_ {};
+          // The name of the vSwitch.
           shared_ptr<string> vSwitchName_ {};
         };
 
@@ -276,16 +288,31 @@ namespace Models
 
 
       protected:
+        // The ID of the Alibaba Cloud account.
         shared_ptr<string> aliUid_ {};
+        // The business type of the account. This parameter indicates whether the account is an Alibaba Finance Cloud account, an Alibaba Gov Cloud account, or a public cloud account.
         shared_ptr<string> bid_ {};
+        // The CIDR block of the VPC.
         shared_ptr<string> cidrBlock_ {};
+        // The time when the VPC was created.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the VPC was last modified.
         shared_ptr<string> gmtModified_ {};
+        // Indicates whether the VPC is the default VPC.
         shared_ptr<bool> isDefault_ {};
+        // The region ID.
         shared_ptr<string> regionNo_ {};
+        // The status of the VPC. Valid values:
+        // 
+        // - Pending: The VPC is being configured.
+        // 
+        // - Available: The VPC is available.
         shared_ptr<string> status_ {};
+        // The details of the vSwitches in the VPC.
         shared_ptr<vector<Vpc::VSwitchs>> vSwitchs_ {};
+        // The ID of the VPC.
         shared_ptr<string> vpcId_ {};
+        // The name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -300,6 +327,7 @@ namespace Models
 
 
     protected:
+      // The VPC details.
       shared_ptr<vector<Vpcs::Vpc>> vpc_ {};
     };
 
@@ -322,7 +350,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of VPCs.
     shared_ptr<DescribeRdsVpcsResponseBody::Vpcs> vpcs_ {};
   };
 

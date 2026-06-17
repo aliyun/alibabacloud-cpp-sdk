@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The asynchronous task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

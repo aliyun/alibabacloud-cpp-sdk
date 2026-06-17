@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The name of the bucket.
       shared_ptr<string> bucket_ {};
+      // The custom storage path.
       shared_ptr<string> path_ {};
     };
 
@@ -102,9 +104,14 @@ namespace Models
 
 
   protected:
+    // A list of objects, each containing a bucket and its corresponding path.
     shared_ptr<vector<AddPolarFsPathMappingRequest::CustomBucketPathList>> customBucketPathList_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the PolarFS instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
   };

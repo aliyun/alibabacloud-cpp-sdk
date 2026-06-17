@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the Data Service instance.
     shared_ptr<string> dataServiceId_ {};
+    // The dataset ID.
     shared_ptr<string> datasetId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

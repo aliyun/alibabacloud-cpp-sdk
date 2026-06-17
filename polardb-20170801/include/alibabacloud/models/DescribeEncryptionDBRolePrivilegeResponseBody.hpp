@@ -113,9 +113,13 @@ namespace Models
 
 
       protected:
+        // The regular users.
         shared_ptr<string> encryption_ {};
+        // Other users.
         shared_ptr<string> negation_ {};
+        // The privileged users.
         shared_ptr<string> notEncryption_ {};
+        // The name of the role permission.
         shared_ptr<string> rolePrivilegeName_ {};
       };
 
@@ -130,6 +134,7 @@ namespace Models
 
 
     protected:
+      // A list of role access policies.
       shared_ptr<vector<Data::RolePrivilegeList>> rolePrivilegeList_ {};
     };
 
@@ -173,11 +178,21 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The result set.
     shared_ptr<DescribeEncryptionDBRolePrivilegeResponseBody::Data> data_ {};
+    // The response message.
+    // 
+    // > If the request is successful, \\`Successful\\` is returned. If the request fails, an error message, such as an error code, is returned.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

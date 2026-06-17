@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to view information about all clusters in the destination region, including the cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
   };
 

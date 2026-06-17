@@ -14,6 +14,7 @@ namespace Models
   class DescribeBatchTaskResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeBatchTaskResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(BatchId, batchId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeBatchTaskResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -122,17 +124,30 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMsg_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The status of the subtask.
       shared_ptr<string> status_ {};
+      // The time when the subtask started.
       shared_ptr<string> taskBegin_ {};
+      // The time when the subtask ended.
       shared_ptr<string> taskEnd_ {};
+      // The ID of the subtask.
       shared_ptr<string> taskId_ {};
     };
 
-    virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->requestId_ == nullptr && this->status_ == nullptr && this->subTasks_ == nullptr && this->successCount_ == nullptr && this->taskBegin_ == nullptr
-        && this->taskEnd_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr && this->totalCount_ == nullptr; };
+    virtual bool empty() const override { return this->applicationType_ == nullptr
+        && this->batchId_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->subTasks_ == nullptr && this->successCount_ == nullptr
+        && this->taskBegin_ == nullptr && this->taskEnd_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr && this->totalCount_ == nullptr; };
+    // applicationType Field Functions 
+    bool hasApplicationType() const { return this->applicationType_ != nullptr;};
+    void deleteApplicationType() { this->applicationType_ = nullptr;};
+    inline string getApplicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
+    inline DescribeBatchTaskResponseBody& setApplicationType(string applicationType) { DARABONBA_PTR_SET_VALUE(applicationType_, applicationType) };
+
+
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};
@@ -206,16 +221,26 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> applicationType_ {};
+    // The ID of the batch task.
     shared_ptr<string> batchId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // A list of subtasks.
     shared_ptr<vector<DescribeBatchTaskResponseBody::SubTasks>> subTasks_ {};
+    // The number of successful subtasks.
     shared_ptr<int32_t> successCount_ {};
+    // The time when the task started.
     shared_ptr<string> taskBegin_ {};
+    // The time when the task ended.
     shared_ptr<string> taskEnd_ {};
+    // The name of the task.
     shared_ptr<string> taskName_ {};
+    // The type of the task.
     shared_ptr<string> taskType_ {};
+    // The total number of subtasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the plugin to enable.
+    // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
+    // Indicates whether to restart the gateway after the plugin is enabled. Default value: `true`.
     shared_ptr<bool> restart_ {};
   };
 

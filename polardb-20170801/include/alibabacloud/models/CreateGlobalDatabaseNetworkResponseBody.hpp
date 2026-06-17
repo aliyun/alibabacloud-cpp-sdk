@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the GDN.
     shared_ptr<string> GDNId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -99,17 +99,25 @@ namespace Models
 
 
     protected:
-      // The ID of the endpoint.
+      // The cluster endpoint ID.
       shared_ptr<string> DBEndpointId_ {};
+      // Indicates whether automatic rotation of SSL certificates is enabled. Valid values:
+      // 
+      // - **Enable**: enabled
+      // 
+      // - **Disable**: disabled
+      // 
+      // > This parameter is supported only when the database engine is compatible with PostgreSQL or Oracle syntax.
       shared_ptr<string> SSLAutoRotate_ {};
-      // The SSL connection string.
+      // The SSL connection endpoint.
       shared_ptr<string> SSLConnectionString_ {};
       // Indicates whether SSL encryption is enabled. Valid values:
       // 
-      // *   **Enabled**: SSL is enabled.
-      // *   **Disable**: SSL is disabled.
+      // - **Enabled**: enabled.
+      // 
+      // - **Disabled**: disabled.
       shared_ptr<string> SSLEnabled_ {};
-      // The time when the server certificate expires. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+      // The certificate validity period. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
       shared_ptr<string> SSLExpireTime_ {};
     };
 
@@ -139,16 +147,17 @@ namespace Models
 
 
   protected:
-    // The list of SSL connections.
+    // A list of SSL connection information.
     shared_ptr<vector<DescribeDBClusterSSLResponseBody::Items>> items_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether automatic rotation of SSL certificates is enabled. Valid values:
     // 
-    // *   **Enable**: The feature is enabled.
-    // *   **Disable**: The feature is disabled.
+    // - **Enable**: enabled
     // 
-    // > This parameter is valid only for a PolarDB for MySQL cluster.
+    // - **Disable**: disabled
+    // 
+    // > This parameter is supported only for PolarDB for MySQL.
     shared_ptr<string> SSLAutoRotate_ {};
   };
 

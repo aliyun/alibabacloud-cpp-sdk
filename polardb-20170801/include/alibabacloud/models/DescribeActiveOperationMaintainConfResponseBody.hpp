@@ -117,12 +117,27 @@ namespace Models
 
 
     protected:
+      // The time when the configuration was created.
       shared_ptr<string> createdTime_ {};
+      // The day of the cycle.
+      // 
+      // - If CycleType is set to Month, this parameter returns a number from 1 to 28 that indicates the day of the month. Multiple days are separated by commas (,).
+      // 
+      // - If CycleType is set to Week, this parameter returns a number from 1 to 7 that indicates the day of the week. Multiple days are separated by commas (,).
       shared_ptr<string> cycleTime_ {};
+      // The cycle type. Valid values:
+      // 
+      // - Month: monthly
+      // 
+      // - Week: weekly
       shared_ptr<int32_t> cycleType_ {};
+      // The end time of the maintenance window.
       shared_ptr<string> maintainEndTime_ {};
+      // The start time of the maintenance window.
       shared_ptr<string> maintainStartTime_ {};
+      // The time when the configuration was last modified.
       shared_ptr<string> modifiedTime_ {};
+      // Indicates whether the configuration is enabled. Valid values:1: Enabled2: Disabled
       shared_ptr<int64_t> status_ {};
     };
 
@@ -152,8 +167,11 @@ namespace Models
 
 
   protected:
+    // The configuration information.
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
+    // Indicates whether a configuration has been set. Valid values:1: Yes0: NoThe value of this parameter is 0 for the first query.
     shared_ptr<int64_t> hasConfig_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

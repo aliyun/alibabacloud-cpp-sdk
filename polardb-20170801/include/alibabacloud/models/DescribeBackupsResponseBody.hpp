@@ -76,6 +76,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ExpectExpireTime, expectExpireTime_);
           DARABONBA_PTR_TO_JSON(ExpectExpireType, expectExpireType_);
           DARABONBA_PTR_TO_JSON(IsAvail, isAvail_);
+          DARABONBA_PTR_TO_JSON(TableRestoreMetaStatus, tableRestoreMetaStatus_);
         };
         friend void from_json(const Darabonba::Json& j, Backup& obj) { 
           DARABONBA_PTR_FROM_JSON(BackupEndTime, backupEndTime_);
@@ -92,6 +93,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ExpectExpireTime, expectExpireTime_);
           DARABONBA_PTR_FROM_JSON(ExpectExpireType, expectExpireType_);
           DARABONBA_PTR_FROM_JSON(IsAvail, isAvail_);
+          DARABONBA_PTR_FROM_JSON(TableRestoreMetaStatus, tableRestoreMetaStatus_);
         };
         Backup() = default ;
         Backup(const Backup &) = default ;
@@ -107,7 +109,7 @@ namespace Models
         virtual bool empty() const override { return this->backupEndTime_ == nullptr
         && this->backupId_ == nullptr && this->backupMethod_ == nullptr && this->backupMode_ == nullptr && this->backupSetSize_ == nullptr && this->backupStartTime_ == nullptr
         && this->backupStatus_ == nullptr && this->backupType_ == nullptr && this->backupsLevel_ == nullptr && this->consistentTime_ == nullptr && this->DBClusterId_ == nullptr
-        && this->expectExpireTime_ == nullptr && this->expectExpireType_ == nullptr && this->isAvail_ == nullptr; };
+        && this->expectExpireTime_ == nullptr && this->expectExpireType_ == nullptr && this->isAvail_ == nullptr && this->tableRestoreMetaStatus_ == nullptr; };
         // backupEndTime Field Functions 
         bool hasBackupEndTime() const { return this->backupEndTime_ != nullptr;};
         void deleteBackupEndTime() { this->backupEndTime_ = nullptr;};
@@ -206,6 +208,13 @@ namespace Models
         inline Backup& setIsAvail(string isAvail) { DARABONBA_PTR_SET_VALUE(isAvail_, isAvail) };
 
 
+        // tableRestoreMetaStatus Field Functions 
+        bool hasTableRestoreMetaStatus() const { return this->tableRestoreMetaStatus_ != nullptr;};
+        void deleteTableRestoreMetaStatus() { this->tableRestoreMetaStatus_ = nullptr;};
+        inline string getTableRestoreMetaStatus() const { DARABONBA_PTR_GET_DEFAULT(tableRestoreMetaStatus_, "") };
+        inline Backup& setTableRestoreMetaStatus(string tableRestoreMetaStatus) { DARABONBA_PTR_SET_VALUE(tableRestoreMetaStatus_, tableRestoreMetaStatus) };
+
+
       protected:
         shared_ptr<string> backupEndTime_ {};
         shared_ptr<string> backupId_ {};
@@ -221,6 +230,7 @@ namespace Models
         shared_ptr<string> expectExpireTime_ {};
         shared_ptr<string> expectExpireType_ {};
         shared_ptr<string> isAvail_ {};
+        shared_ptr<string> tableRestoreMetaStatus_ {};
       };
 
       virtual bool empty() const override { return this->backup_ == nullptr; };
@@ -287,12 +297,19 @@ namespace Models
     shared_ptr<DescribeBackupsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total size of level-2 backups in the specified region, in bytes.
+    // 
+    // > - Supported only for storage classes PSL4 and PSL5.
+    // >
+    // > - Supported only for clusters with the level-2 backup feature enabled.
+    // >
+    // > - If this field is not returned, the level-2 backup size is 0.
     shared_ptr<string> totalLevel2BackupSize_ {};
-    // The total number of returned entries.
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

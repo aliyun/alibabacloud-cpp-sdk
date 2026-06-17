@@ -57,8 +57,21 @@ namespace Models
 
 
   protected:
+    // The cloud service provider. Valid values:
+    // 
+    // - HuaweiCloud
+    // 
+    // - Azure
     shared_ptr<string> cloudProvider_ {};
+    // The ID of the third-party cloud region.
     shared_ptr<string> crossCloudRegionId_ {};
+    // The database engine type. Valid values:
+    // 
+    // - MySQL
+    // 
+    // - PostgreSQL
+    // 
+    // - Oracle
     shared_ptr<string> DBType_ {};
   };
 

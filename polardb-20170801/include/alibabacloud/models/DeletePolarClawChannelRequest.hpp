@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The plugin ID. This parameter is required if `UninstallPlugin` is set to `true`.
     shared_ptr<string> pluginId_ {};
+    // Specifies whether to restart the gateway after the channel is deleted. Default value: `true`.
     shared_ptr<bool> restart_ {};
+    // Specifies whether to uninstall the channel plugin. Default value: `false`.
     shared_ptr<bool> uninstallPlugin_ {};
   };
 

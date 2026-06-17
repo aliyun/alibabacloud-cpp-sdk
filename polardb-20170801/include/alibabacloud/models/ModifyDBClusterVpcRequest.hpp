@@ -103,15 +103,26 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to switch existing endpoints. Valid values:
+    // 
+    // - **NONE**: Does not switch existing endpoints.
+    // 
+    // - **ALL**: Switches all existing endpoints.
+    // 
     // This parameter is required.
     shared_ptr<string> existedEndpointSwitchType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the virtual private cloud (VPC).
     shared_ptr<string> VPCId_ {};
+    // The ID of the virtual switch.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
   };

@@ -112,13 +112,28 @@ namespace Models
 
 
   protected:
+    // The ID of the serverless cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the scheduled task.
     shared_ptr<string> jobId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records to return on each page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
+    // 
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

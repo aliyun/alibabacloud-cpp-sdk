@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The name of the bucket.
       shared_ptr<string> bucket_ {};
+      // The path in the bucket.
       shared_ptr<string> path_ {};
     };
 
@@ -102,9 +104,14 @@ namespace Models
 
 
   protected:
+    // The list of bucket-path mappings to delete.
     shared_ptr<vector<DeletePolarFsPathMappingRequest::CustomBucketPathList>> customBucketPathList_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The ID of the PolarFS instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
   };

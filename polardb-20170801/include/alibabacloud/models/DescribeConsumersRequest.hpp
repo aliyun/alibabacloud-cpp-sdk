@@ -84,12 +84,25 @@ namespace Models
 
 
   protected:
+    // The consumer group ID.
     shared_ptr<string> consumerGroupId_ {};
+    // The consumer ID.
     shared_ptr<string> consumerId_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values are:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**. The default is **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

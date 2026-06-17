@@ -112,15 +112,29 @@ namespace Models
 
 
   protected:
+    // The account name.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // A client-generated, case-sensitive token that you can use to ensure the idempotence of the request. The token must be unique among different requests and can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The new password for the account. The password must meet the following requirements:
+    // 
+    // - Contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // 
+    // - Be 8 to 32 characters in length.
+    // 
+    // - The special characters are `!@#$%^&*()_+-=`.
+    // 
     // This parameter is required.
     shared_ptr<string> newAccountPassword_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The password type.
     shared_ptr<string> passwordType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
