@@ -16,10 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(ApplicationTypeText, applicationTypeText_);
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(ChatbiTaskId, chatbiTaskId_);
+      DARABONBA_PTR_TO_JSON(ChatbiTaskStatus, chatbiTaskStatus_);
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(CustomerService, customerService_);
       DARABONBA_PTR_TO_JSON(DeployArea, deployArea_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(OpenChatBi, openChatBi_);
       DARABONBA_PTR_TO_JSON(OrdTime, ordTime_);
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(PayTime, payTime_);
@@ -30,17 +33,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(TemplateEtag, templateEtag_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
-      DARABONBA_PTR_TO_JSON(chatbiTaskId, chatbiTaskId_);
-      DARABONBA_PTR_TO_JSON(chatbiTaskStatus, chatbiTaskStatus_);
     };
     friend void from_json(const Darabonba::Json& j, AppInstanceProfile& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(ApplicationTypeText, applicationTypeText_);
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(ChatbiTaskId, chatbiTaskId_);
+      DARABONBA_PTR_FROM_JSON(ChatbiTaskStatus, chatbiTaskStatus_);
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(CustomerService, customerService_);
       DARABONBA_PTR_FROM_JSON(DeployArea, deployArea_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(OpenChatBi, openChatBi_);
       DARABONBA_PTR_FROM_JSON(OrdTime, ordTime_);
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(PayTime, payTime_);
@@ -51,8 +55,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(TemplateEtag, templateEtag_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
-      DARABONBA_PTR_FROM_JSON(chatbiTaskId, chatbiTaskId_);
-      DARABONBA_PTR_FROM_JSON(chatbiTaskStatus, chatbiTaskStatus_);
     };
     AppInstanceProfile() = default ;
     AppInstanceProfile(const AppInstanceProfile &) = default ;
@@ -66,10 +68,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
-        && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->commodityCode_ == nullptr && this->customerService_ == nullptr && this->deployArea_ == nullptr
-        && this->instanceId_ == nullptr && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr
-        && this->seoSite_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr
-        && this->templateId_ == nullptr && this->chatbiTaskId_ == nullptr && this->chatbiTaskStatus_ == nullptr; };
+        && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->chatbiTaskId_ == nullptr && this->chatbiTaskStatus_ == nullptr && this->commodityCode_ == nullptr
+        && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->instanceId_ == nullptr && this->openChatBi_ == nullptr && this->ordTime_ == nullptr
+        && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr && this->seoSite_ == nullptr && this->siteVersion_ == nullptr
+        && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -89,6 +91,20 @@ namespace Models
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline AppInstanceProfile& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // chatbiTaskId Field Functions 
+    bool hasChatbiTaskId() const { return this->chatbiTaskId_ != nullptr;};
+    void deleteChatbiTaskId() { this->chatbiTaskId_ = nullptr;};
+    inline string getChatbiTaskId() const { DARABONBA_PTR_GET_DEFAULT(chatbiTaskId_, "") };
+    inline AppInstanceProfile& setChatbiTaskId(string chatbiTaskId) { DARABONBA_PTR_SET_VALUE(chatbiTaskId_, chatbiTaskId) };
+
+
+    // chatbiTaskStatus Field Functions 
+    bool hasChatbiTaskStatus() const { return this->chatbiTaskStatus_ != nullptr;};
+    void deleteChatbiTaskStatus() { this->chatbiTaskStatus_ = nullptr;};
+    inline string getChatbiTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(chatbiTaskStatus_, "") };
+    inline AppInstanceProfile& setChatbiTaskStatus(string chatbiTaskStatus) { DARABONBA_PTR_SET_VALUE(chatbiTaskStatus_, chatbiTaskStatus) };
 
 
     // commodityCode Field Functions 
@@ -117,6 +133,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AppInstanceProfile& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // openChatBi Field Functions 
+    bool hasOpenChatBi() const { return this->openChatBi_ != nullptr;};
+    void deleteOpenChatBi() { this->openChatBi_ = nullptr;};
+    inline bool getOpenChatBi() const { DARABONBA_PTR_GET_DEFAULT(openChatBi_, false) };
+    inline AppInstanceProfile& setOpenChatBi(bool openChatBi) { DARABONBA_PTR_SET_VALUE(openChatBi_, openChatBi) };
 
 
     // ordTime Field Functions 
@@ -189,28 +212,17 @@ namespace Models
     inline AppInstanceProfile& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
-    // chatbiTaskId Field Functions 
-    bool hasChatbiTaskId() const { return this->chatbiTaskId_ != nullptr;};
-    void deleteChatbiTaskId() { this->chatbiTaskId_ = nullptr;};
-    inline string getChatbiTaskId() const { DARABONBA_PTR_GET_DEFAULT(chatbiTaskId_, "") };
-    inline AppInstanceProfile& setChatbiTaskId(string chatbiTaskId) { DARABONBA_PTR_SET_VALUE(chatbiTaskId_, chatbiTaskId) };
-
-
-    // chatbiTaskStatus Field Functions 
-    bool hasChatbiTaskStatus() const { return this->chatbiTaskStatus_ != nullptr;};
-    void deleteChatbiTaskStatus() { this->chatbiTaskStatus_ = nullptr;};
-    inline string getChatbiTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(chatbiTaskStatus_, "") };
-    inline AppInstanceProfile& setChatbiTaskStatus(string chatbiTaskStatus) { DARABONBA_PTR_SET_VALUE(chatbiTaskStatus_, chatbiTaskStatus) };
-
-
   protected:
     shared_ptr<string> applicationType_ {};
     shared_ptr<string> applicationTypeText_ {};
     shared_ptr<string> bizId_ {};
+    shared_ptr<string> chatbiTaskId_ {};
+    shared_ptr<string> chatbiTaskStatus_ {};
     shared_ptr<string> commodityCode_ {};
     shared_ptr<string> customerService_ {};
     shared_ptr<string> deployArea_ {};
     shared_ptr<string> instanceId_ {};
+    shared_ptr<bool> openChatBi_ {};
     shared_ptr<string> ordTime_ {};
     shared_ptr<string> orderId_ {};
     shared_ptr<string> payTime_ {};
@@ -221,8 +233,6 @@ namespace Models
     shared_ptr<string> source_ {};
     shared_ptr<string> templateEtag_ {};
     shared_ptr<string> templateId_ {};
-    shared_ptr<string> chatbiTaskId_ {};
-    shared_ptr<string> chatbiTaskStatus_ {};
   };
 
   } // namespace Models

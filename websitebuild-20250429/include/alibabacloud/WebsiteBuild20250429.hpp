@@ -143,9 +143,9 @@ namespace WebsiteBuild20250429
       Models::CheckUserResourceMeasureResponse checkUserResourceMeasure(const Models::CheckUserResourceMeasureRequest &request);
 
       /**
-       * @summary 试用转正
+       * @summary Converts a trial instance to a paid instance.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request ConfirmAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -154,9 +154,9 @@ namespace WebsiteBuild20250429
       Models::ConfirmAppInstanceResponse confirmAppInstanceWithOptions(const Models::ConfirmAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 试用转正
+       * @summary Converts a trial instance to a paid instance.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request ConfirmAppInstanceRequest
        * @return ConfirmAppInstanceResponse
@@ -1834,9 +1834,9 @@ namespace WebsiteBuild20250429
       Models::MoveMaterialFileResponse moveMaterialFile(const Models::MoveMaterialFileRequest &request);
 
       /**
-       * @summary 数据变更通知触发（for admin）
+       * @summary Triggers a data change notification (for admin).
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request NotifyAppNotificationForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1845,9 +1845,9 @@ namespace WebsiteBuild20250429
       Models::NotifyAppNotificationForAdminResponse notifyAppNotificationForAdminWithOptions(const Models::NotifyAppNotificationForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据变更通知触发（for admin）
+       * @summary Triggers a data change notification (for admin).
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request NotifyAppNotificationForAdminRequest
        * @return NotifyAppNotificationForAdminResponse

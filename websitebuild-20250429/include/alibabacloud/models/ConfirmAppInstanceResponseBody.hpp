@@ -106,9 +106,13 @@ namespace Models
 
 
     protected:
+      // The business ID.
       shared_ptr<string> bizId_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The order ID.
       shared_ptr<string> orderId_ {};
+      // The second-level domain name of the website.
       shared_ptr<string> siteHost_ {};
     };
 
@@ -197,16 +201,27 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The response data.
     shared_ptr<ConfirmAppInstanceResponseBody::Module> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

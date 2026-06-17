@@ -140,16 +140,31 @@ namespace Models
 
 
   protected:
+    // The application type.
     shared_ptr<string> applicationType_ {};
+    // Specifies whether to enable auto-renewal upon expiration.
     shared_ptr<bool> autoRenew_ {};
+    // The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The deployment region.
     shared_ptr<string> deployArea_ {};
+    // Required. The number of subscription periods.
     shared_ptr<int32_t> duration_ {};
+    // The extended information.
     shared_ptr<string> extend_ {};
+    // The payment type.
     shared_ptr<string> paymentType_ {};
+    // Required. The unit of the subscription period. Valid values:
+    // - Year: year
+    // - Month: month
+    // - Day: day
+    // - Hour: hour.
     shared_ptr<string> pricingCycle_ {};
+    // Required. The number of instances to purchase.
     shared_ptr<int32_t> quantity_ {};
+    // The website version.
     shared_ptr<string> siteVersion_ {};
+    // The business ID of the trial instance.
     shared_ptr<string> trialBizId_ {};
     shared_ptr<string> version_ {};
   };

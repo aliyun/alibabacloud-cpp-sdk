@@ -18,7 +18,11 @@ namespace WebsiteBuild20250429
 {
 
 AlibabaCloud::WebsiteBuild20250429::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"public" , "websitebuild.aliyuncs.com"},
+    {"cn-zhangjiakou" , "websitebuild.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("websitebuild", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -425,9 +429,9 @@ CheckUserResourceMeasureResponse Client::checkUserResourceMeasure(const CheckUse
 }
 
 /**
- * @summary 试用转正
+ * @summary Converts a trial instance to a paid instance.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request ConfirmAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -502,9 +506,9 @@ ConfirmAppInstanceResponse Client::confirmAppInstanceWithOptions(const ConfirmAp
 }
 
 /**
- * @summary 试用转正
+ * @summary Converts a trial instance to a paid instance.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request ConfirmAppInstanceRequest
  * @return ConfirmAppInstanceResponse
@@ -5178,9 +5182,9 @@ MoveMaterialFileResponse Client::moveMaterialFile(const MoveMaterialFileRequest 
 }
 
 /**
- * @summary 数据变更通知触发（for admin）
+ * @summary Triggers a data change notification (for admin).
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request NotifyAppNotificationForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5195,6 +5199,10 @@ NotifyAppNotificationForAdminResponse Client::notifyAppNotificationForAdminWithO
 
   if (!!request.hasEnv()) {
     query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasPayload()) {
+    query["Payload"] = request.getPayload();
   }
 
   if (!!request.hasSceneId()) {
@@ -5219,9 +5227,9 @@ NotifyAppNotificationForAdminResponse Client::notifyAppNotificationForAdminWithO
 }
 
 /**
- * @summary 数据变更通知触发（for admin）
+ * @summary Triggers a data change notification (for admin).
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request NotifyAppNotificationForAdminRequest
  * @return NotifyAppNotificationForAdminResponse

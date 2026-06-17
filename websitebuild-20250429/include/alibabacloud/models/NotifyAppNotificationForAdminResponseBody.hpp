@@ -133,16 +133,27 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name. The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which is used to replace the %s variable in the ErrMessage response parameter.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The response data.
     shared_ptr<bool> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 
