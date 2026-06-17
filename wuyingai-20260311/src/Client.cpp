@@ -18,7 +18,7 @@ namespace WuyingAI20260311
 {
 
 AlibabaCloud::WuyingAI20260311::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("wuyingai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +37,17 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+ * @summary Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+ *
+ * @description **Features**
+ * - Real-time streaming response that reduces time to first token.
+ * - Supports multimodal input (text, images, and files).
+ * - Session persistence for multi-turn conversations.
+ * - Event-driven architecture for precise message status control.
+ * **Request information**
+ * - **Request method**: `POST`
+ * - **Content-Type**: `application/json`
+ * - **Response Content-Type**: `text/event-stream`.
  *
  * @param tmpReq ChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -75,6 +85,14 @@ FutureGenerator<ChatResponse> Client::chatWithSSE(const ChatRequest &tmpReq, con
 
   if (!!request.hasInputShrink()) {
     body["Input"] = request.getInputShrink();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasResume()) {
+    body["Resume"] = request.getResume();
   }
 
   if (!!request.hasRoutingKey()) {
@@ -126,7 +144,17 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+ * @summary Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+ *
+ * @description **Features**
+ * - Real-time streaming response that reduces time to first token.
+ * - Supports multimodal input (text, images, and files).
+ * - Session persistence for multi-turn conversations.
+ * - Event-driven architecture for precise message status control.
+ * **Request information**
+ * - **Request method**: `POST`
+ * - **Content-Type**: `application/json`
+ * - **Response Content-Type**: `text/event-stream`.
  *
  * @param tmpReq ChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -166,6 +194,14 @@ ChatResponse Client::chatWithOptions(const ChatRequest &tmpReq, const Darabonba:
     body["Input"] = request.getInputShrink();
   }
 
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasResume()) {
+    body["Resume"] = request.getResume();
+  }
+
   if (!!request.hasRoutingKey()) {
     body["RoutingKey"] = request.getRoutingKey();
   }
@@ -201,7 +237,17 @@ ChatResponse Client::chatWithOptions(const ChatRequest &tmpReq, const Darabonba:
 }
 
 /**
- * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+ * @summary Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+ *
+ * @description **Features**
+ * - Real-time streaming response that reduces time to first token.
+ * - Supports multimodal input (text, images, and files).
+ * - Session persistence for multi-turn conversations.
+ * - Event-driven architecture for precise message status control.
+ * **Request information**
+ * - **Request method**: `POST`
+ * - **Content-Type**: `application/json`
+ * - **Response Content-Type**: `text/event-stream`.
  *
  * @param request ChatRequest
  * @return ChatResponse
@@ -212,7 +258,12 @@ ChatResponse Client::chat(const ChatRequest &request) {
 }
 
 /**
- * @summary 获取用户进行对话所需的访问令牌（AccessToken），用于后续调用 Chat 接口进行身份验证。
+ * @summary Obtains an access token (AccessToken) for user conversations, which is used to authenticate when invoking the Chat operation.
+ *
+ * @description **Token format**: The AccessToken is a **JWT** consisting of **Header.Payload.Signature** segments, each Base64URL-encoded and concatenated with `.` into a single line. The examples in the following table are masked for illustration purposes. The actual RequestId and JWT segments are longer.
+ * **Token validity**: The AccessToken **is valid for a limited period of time**. After it expires, call this operation again to obtain a new token.
+ * **Authentication method**: POP V1 signature (AK/SK)
+ * **Action**: `GetAccessToken`.
  *
  * @param request GetAccessTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -247,7 +298,12 @@ GetAccessTokenResponse Client::getAccessTokenWithOptions(const GetAccessTokenReq
 }
 
 /**
- * @summary 获取用户进行对话所需的访问令牌（AccessToken），用于后续调用 Chat 接口进行身份验证。
+ * @summary Obtains an access token (AccessToken) for user conversations, which is used to authenticate when invoking the Chat operation.
+ *
+ * @description **Token format**: The AccessToken is a **JWT** consisting of **Header.Payload.Signature** segments, each Base64URL-encoded and concatenated with `.` into a single line. The examples in the following table are masked for illustration purposes. The actual RequestId and JWT segments are longer.
+ * **Token validity**: The AccessToken **is valid for a limited period of time**. After it expires, call this operation again to obtain a new token.
+ * **Authentication method**: POP V1 signature (AK/SK)
+ * **Action**: `GetAccessToken`.
  *
  * @param request GetAccessTokenRequest
  * @return GetAccessTokenResponse

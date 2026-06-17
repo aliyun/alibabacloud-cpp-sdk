@@ -21,7 +21,17 @@ namespace WuyingAI20260311
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+       * @summary Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+       *
+       * @description **Features**
+       * - Real-time streaming response that reduces time to first token.
+       * - Supports multimodal input (text, images, and files).
+       * - Session persistence for multi-turn conversations.
+       * - Event-driven architecture for precise message status control.
+       * **Request information**
+       * - **Request method**: `POST`
+       * - **Content-Type**: `application/json`
+       * - **Response Content-Type**: `text/event-stream`.
        *
        * @param tmpReq ChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +40,17 @@ namespace WuyingAI20260311
       FutureGenerator<Models::ChatResponse> chatWithSSE(const Models::ChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+       * @summary Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+       *
+       * @description **Features**
+       * - Real-time streaming response that reduces time to first token.
+       * - Supports multimodal input (text, images, and files).
+       * - Session persistence for multi-turn conversations.
+       * - Event-driven architecture for precise message status control.
+       * **Request information**
+       * - **Request method**: `POST`
+       * - **Content-Type**: `application/json`
+       * - **Response Content-Type**: `text/event-stream`.
        *
        * @param tmpReq ChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -39,7 +59,17 @@ namespace WuyingAI20260311
       Models::ChatResponse chatWithOptions(const Models::ChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+       * @summary Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+       *
+       * @description **Features**
+       * - Real-time streaming response that reduces time to first token.
+       * - Supports multimodal input (text, images, and files).
+       * - Session persistence for multi-turn conversations.
+       * - Event-driven architecture for precise message status control.
+       * **Request information**
+       * - **Request method**: `POST`
+       * - **Content-Type**: `application/json`
+       * - **Response Content-Type**: `text/event-stream`.
        *
        * @param request ChatRequest
        * @return ChatResponse
@@ -47,7 +77,12 @@ namespace WuyingAI20260311
       Models::ChatResponse chat(const Models::ChatRequest &request);
 
       /**
-       * @summary 获取用户进行对话所需的访问令牌（AccessToken），用于后续调用 Chat 接口进行身份验证。
+       * @summary Obtains an access token (AccessToken) for user conversations, which is used to authenticate when invoking the Chat operation.
+       *
+       * @description **Token format**: The AccessToken is a **JWT** consisting of **Header.Payload.Signature** segments, each Base64URL-encoded and concatenated with `.` into a single line. The examples in the following table are masked for illustration purposes. The actual RequestId and JWT segments are longer.
+       * **Token validity**: The AccessToken **is valid for a limited period of time**. After it expires, call this operation again to obtain a new token.
+       * **Authentication method**: POP V1 signature (AK/SK)
+       * **Action**: `GetAccessToken`.
        *
        * @param request GetAccessTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -56,7 +91,12 @@ namespace WuyingAI20260311
       Models::GetAccessTokenResponse getAccessTokenWithOptions(const Models::GetAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户进行对话所需的访问令牌（AccessToken），用于后续调用 Chat 接口进行身份验证。
+       * @summary Obtains an access token (AccessToken) for user conversations, which is used to authenticate when invoking the Chat operation.
+       *
+       * @description **Token format**: The AccessToken is a **JWT** consisting of **Header.Payload.Signature** segments, each Base64URL-encoded and concatenated with `.` into a single line. The examples in the following table are masked for illustration purposes. The actual RequestId and JWT segments are longer.
+       * **Token validity**: The AccessToken **is valid for a limited period of time**. After it expires, call this operation again to obtain a new token.
+       * **Authentication method**: POP V1 signature (AK/SK)
+       * **Action**: `GetAccessToken`.
        *
        * @param request GetAccessTokenRequest
        * @return GetAccessTokenResponse

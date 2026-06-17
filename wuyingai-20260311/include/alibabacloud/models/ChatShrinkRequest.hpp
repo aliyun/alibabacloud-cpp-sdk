@@ -16,6 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Authorization, authorization_);
       DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(Input, inputShrink_);
+      DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(Resume, resume_);
       DARABONBA_PTR_TO_JSON(RoutingKey, routingKey_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(Settings, settingsShrink_);
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Authorization, authorization_);
       DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(Input, inputShrink_);
+      DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(Resume, resume_);
       DARABONBA_PTR_FROM_JSON(RoutingKey, routingKey_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(Settings, settingsShrink_);
@@ -44,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorization_ == nullptr
-        && this->externalUserId_ == nullptr && this->inputShrink_ == nullptr && this->routingKey_ == nullptr && this->sessionId_ == nullptr && this->settingsShrink_ == nullptr
-        && this->streamOptionsShrink_ == nullptr && this->templateId_ == nullptr; };
+        && this->externalUserId_ == nullptr && this->inputShrink_ == nullptr && this->model_ == nullptr && this->resume_ == nullptr && this->routingKey_ == nullptr
+        && this->sessionId_ == nullptr && this->settingsShrink_ == nullptr && this->streamOptionsShrink_ == nullptr && this->templateId_ == nullptr; };
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
@@ -65,6 +69,20 @@ namespace Models
     void deleteInputShrink() { this->inputShrink_ = nullptr;};
     inline string getInputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
     inline ChatShrinkRequest& setInputShrink(string inputShrink) { DARABONBA_PTR_SET_VALUE(inputShrink_, inputShrink) };
+
+
+    // model Field Functions 
+    bool hasModel() const { return this->model_ != nullptr;};
+    void deleteModel() { this->model_ = nullptr;};
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline ChatShrinkRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+    // resume Field Functions 
+    bool hasResume() const { return this->resume_ != nullptr;};
+    void deleteResume() { this->resume_ = nullptr;};
+    inline bool getResume() const { DARABONBA_PTR_GET_DEFAULT(resume_, false) };
+    inline ChatShrinkRequest& setResume(bool resume) { DARABONBA_PTR_SET_VALUE(resume_, resume) };
 
 
     // routingKey Field Functions 
@@ -103,13 +121,23 @@ namespace Models
 
 
   protected:
+    // Bearer + JWT returned by GetAccessToken. URL-encode the entire string and pass it as a query parameter.
     shared_ptr<string> authorization_ {};
+    // The user ID from the external system.
     shared_ptr<string> externalUserId_ {};
+    // The message list (JSON string), sorted in chronological order.
     shared_ptr<string> inputShrink_ {};
+    shared_ptr<string> model_ {};
+    shared_ptr<bool> resume_ {};
+    // The routing key that specifies the backend instance to process the request.
     shared_ptr<string> routingKey_ {};
+    // The session ID for multi-turn conversation context persistence.
     shared_ptr<string> sessionId_ {};
+    // The additional settings. Contains the output file mode control parameter OutputFileMode (string, valid values: url or base64. Defaults to base64 for legacy compatibility. We recommend url).
     shared_ptr<string> settingsShrink_ {};
+    // The streaming output control options. Contains IncludeReasoning (boolean, default true, specifies whether to include the model thinking process) and IncludeToolCalls (boolean, default true, specifies whether to include tool invocation details). If not specified or set to a null object, the behavior is consistent with the legacy version.
     shared_ptr<string> streamOptionsShrink_ {};
+    // The agent template ID.
     shared_ptr<string> templateId_ {};
   };
 

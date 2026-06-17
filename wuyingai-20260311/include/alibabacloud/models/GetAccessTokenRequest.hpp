@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the user in the external system.
     shared_ptr<string> externalUserId_ {};
+    // The ID of the agent template.
     shared_ptr<string> templateId_ {};
   };
 

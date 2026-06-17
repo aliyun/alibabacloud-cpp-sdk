@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Success, success_);
       DARABONBA_PTR_TO_JSON(Text, text_);
+      DARABONBA_PTR_TO_JSON(TraceId, traceId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ChatResponseBody& obj) { 
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
       DARABONBA_PTR_FROM_JSON(Text, text_);
+      DARABONBA_PTR_FROM_JSON(TraceId, traceId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     ChatResponseBody() = default ;
@@ -118,16 +120,21 @@ namespace Models
 
 
     protected:
+      // The structured data (such as tool invocation). Example: {"call_id":"call_xxx","name":"get_weather", "output":"Tool output details in text format"}.
       Darabonba::Json data_ {};
+      // The object type.
       shared_ptr<string> object_ {};
+      // The text content.
       shared_ptr<string> text_ {};
+      // The content type ("text" / "data").
       shared_ptr<string> type_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
         && this->content_ == nullptr && this->created_ == nullptr && this->createdAt_ == nullptr && this->httpStatusCode_ == nullptr && this->id_ == nullptr
         && this->message_ == nullptr && this->object_ == nullptr && this->requestId_ == nullptr && this->role_ == nullptr && this->sequenceNumber_ == nullptr
-        && this->sessionId_ == nullptr && this->status_ == nullptr && this->success_ == nullptr && this->text_ == nullptr && this->type_ == nullptr; };
+        && this->sessionId_ == nullptr && this->status_ == nullptr && this->success_ == nullptr && this->text_ == nullptr && this->traceId_ == nullptr
+        && this->type_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -235,6 +242,13 @@ namespace Models
     inline ChatResponseBody& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
+    // traceId Field Functions 
+    bool hasTraceId() const { return this->traceId_ != nullptr;};
+    void deleteTraceId() { this->traceId_ = nullptr;};
+    inline string getTraceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
+    inline ChatResponseBody& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -243,21 +257,39 @@ namespace Models
 
 
   protected:
+    // The business status code.
     shared_ptr<string> code_ {};
+    // The content block list (included only when Status is completed).
     shared_ptr<vector<ChatResponseBody::Content>> content_ {};
+    // （已废弃）创建时间戳
     shared_ptr<string> created_ {};
+    // The creation timestamp (Unix seconds).
     shared_ptr<string> createdAt_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The unique message identifier.
     shared_ptr<string> id_ {};
+    // The error details (returned on failure).
     shared_ptr<string> message_ {};
+    // The event object type.
     shared_ptr<string> object_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The role (user / assistant / system / tool).
     shared_ptr<string> role_ {};
+    // The event sequence number (an incrementing integer in string format, used to guarantee ordering). Note: When StreamOptions filters out certain event types, the filtered events still consume sequence numbers. Therefore, the sequence numbers received by the client may not be contiguous.
     shared_ptr<string> sequenceNumber_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    // The reply status (created / in_progress / completed).
     shared_ptr<string> status_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // The incremental text content (included in Object=content events).
+    // [_single.resp.200.props.Created.desc](Deprecated) The creation timestamp.
     shared_ptr<string> text_ {};
+    shared_ptr<string> traceId_ {};
+    // The message type (reasoning (model thinking process) / message (formal reply)).
     shared_ptr<string> type_ {};
   };
 

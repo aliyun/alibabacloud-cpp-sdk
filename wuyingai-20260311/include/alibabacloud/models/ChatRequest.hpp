@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Authorization, authorization_);
       DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(Input, input_);
+      DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(Resume, resume_);
       DARABONBA_PTR_TO_JSON(RoutingKey, routingKey_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(Settings, settings_);
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Authorization, authorization_);
       DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(Input, input_);
+      DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(Resume, resume_);
       DARABONBA_PTR_FROM_JSON(RoutingKey, routingKey_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(Settings, settings_);
@@ -82,7 +86,9 @@ namespace Models
 
 
     protected:
+      // Specifies whether to include the model thinking process. When set to false, the SSE stream does not include messages with Type="reasoning" or their content events.
       shared_ptr<bool> includeReasoning_ {};
+      // Specifies whether to include tool invocation details. When set to false, the SSE stream does not include messages of type plugin_call, plugin_call_output, mcp_call, or mcp_call_output, or their content events.
       shared_ptr<bool> includeToolCalls_ {};
     };
 
@@ -114,6 +120,7 @@ namespace Models
 
 
     protected:
+      // Controls the file output mode. Valid values: url or base64. If this parameter is not specified, base64 is used by default for legacy compatibility.
       shared_ptr<string> outputFileMode_ {};
     };
 
@@ -204,9 +211,13 @@ namespace Models
 
       protected:
         shared_ptr<string> fileName_ {};
+        // The file path or URL (Type=file).
         shared_ptr<string> fileUrl_ {};
+        // The image URL or Base64-encoded string (Type=image).
         shared_ptr<string> imageUrl_ {};
+        // The text content (Type=text).
         shared_ptr<string> text_ {};
+        // The content type.
         shared_ptr<string> type_ {};
       };
 
@@ -229,13 +240,15 @@ namespace Models
 
 
     protected:
+      // The content block list.
       shared_ptr<vector<Input::Content>> content_ {};
+      // The message role.
       shared_ptr<string> role_ {};
     };
 
     virtual bool empty() const override { return this->authorization_ == nullptr
-        && this->externalUserId_ == nullptr && this->input_ == nullptr && this->routingKey_ == nullptr && this->sessionId_ == nullptr && this->settings_ == nullptr
-        && this->streamOptions_ == nullptr && this->templateId_ == nullptr; };
+        && this->externalUserId_ == nullptr && this->input_ == nullptr && this->model_ == nullptr && this->resume_ == nullptr && this->routingKey_ == nullptr
+        && this->sessionId_ == nullptr && this->settings_ == nullptr && this->streamOptions_ == nullptr && this->templateId_ == nullptr; };
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
@@ -257,6 +270,20 @@ namespace Models
     inline vector<ChatRequest::Input> getInput() { DARABONBA_PTR_GET(input_, vector<ChatRequest::Input>) };
     inline ChatRequest& setInput(const vector<ChatRequest::Input> & input) { DARABONBA_PTR_SET_VALUE(input_, input) };
     inline ChatRequest& setInput(vector<ChatRequest::Input> && input) { DARABONBA_PTR_SET_RVALUE(input_, input) };
+
+
+    // model Field Functions 
+    bool hasModel() const { return this->model_ != nullptr;};
+    void deleteModel() { this->model_ = nullptr;};
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline ChatRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+    // resume Field Functions 
+    bool hasResume() const { return this->resume_ != nullptr;};
+    void deleteResume() { this->resume_ = nullptr;};
+    inline bool getResume() const { DARABONBA_PTR_GET_DEFAULT(resume_, false) };
+    inline ChatRequest& setResume(bool resume) { DARABONBA_PTR_SET_VALUE(resume_, resume) };
 
 
     // routingKey Field Functions 
@@ -299,13 +326,23 @@ namespace Models
 
 
   protected:
+    // Bearer + JWT returned by GetAccessToken. URL-encode the entire string and pass it as a query parameter.
     shared_ptr<string> authorization_ {};
+    // The user ID from the external system.
     shared_ptr<string> externalUserId_ {};
+    // The message list (JSON string), sorted in chronological order.
     shared_ptr<vector<ChatRequest::Input>> input_ {};
+    shared_ptr<string> model_ {};
+    shared_ptr<bool> resume_ {};
+    // The routing key that specifies the backend instance to process the request.
     shared_ptr<string> routingKey_ {};
+    // The session ID for multi-turn conversation context persistence.
     shared_ptr<string> sessionId_ {};
+    // The additional settings. Contains the output file mode control parameter OutputFileMode (string, valid values: url or base64. Defaults to base64 for legacy compatibility. We recommend url).
     shared_ptr<ChatRequest::Settings> settings_ {};
+    // The streaming output control options. Contains IncludeReasoning (boolean, default true, specifies whether to include the model thinking process) and IncludeToolCalls (boolean, default true, specifies whether to include tool invocation details). If not specified or set to a null object, the behavior is consistent with the legacy version.
     shared_ptr<ChatRequest::StreamOptions> streamOptions_ {};
+    // The agent template ID.
     shared_ptr<string> templateId_ {};
   };
 

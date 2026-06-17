@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The details of the authentication failure.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The JWT used as the Authorization query parameter for the Chat operation. The token is valid for a limited period of time.
     shared_ptr<string> accessToken_ {};
+    // The business status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details. This parameter is returned only when the request fails.
     shared_ptr<string> message_ {};
+    // The request ID, in UUID format. The first and last characters are retained for illustration purposes.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 
