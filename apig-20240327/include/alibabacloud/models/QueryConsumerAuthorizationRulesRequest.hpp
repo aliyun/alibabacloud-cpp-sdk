@@ -138,11 +138,11 @@ namespace Models
     shared_ptr<string> consumerNameLike_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // Specifies whether to group the results by API.
+    // Specifies whether to group results by API.
     shared_ptr<bool> groupByApi_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The parent resource ID.
     shared_ptr<string> parentResourceId_ {};
@@ -150,7 +150,7 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
-    // The resource types.
+    // The service source type.
     shared_ptr<string> resourceTypes_ {};
   };
 

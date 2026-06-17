@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The released version ID.
+      // The publish version ID.
       shared_ptr<string> deployRevisionId_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The returned data.
     shared_ptr<UpdateDomainResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID. You can use this value to trace the API call.
+    // The request ID, which is used to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

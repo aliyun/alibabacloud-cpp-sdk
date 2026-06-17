@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // The list of domain information.
+      // 域名信息列表。
       shared_ptr<vector<DomainInfo>> items_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -138,13 +138,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Response parameters.
+    // The response data.
     shared_ptr<ListDomainsResponseBody::Data> data_ {};
-    // The message returned.
+    // The response description.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to trace the API call link.
+    // The request ID, which is used to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // Environment alias, fuzzy search.
+    // The environment alias. Fuzzy match is supported.
     shared_ptr<string> aliasLike_ {};
-    // Gateway ID, exact search.
+    // The gateway ID. Exact match is supported.
     shared_ptr<string> gatewayId_ {};
-    // Gateway name, fuzzy search.
+    // The gateway name. Fuzzy match is supported.
     shared_ptr<string> gatewayNameLike_ {};
-    // The gateway type
+    // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // Environment name, fuzzy search.
+    // The environment name. Fuzzy match is supported.
     shared_ptr<string> nameLike_ {};
-    // Page number, default is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, default is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

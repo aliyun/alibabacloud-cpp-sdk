@@ -446,10 +446,12 @@ namespace Models
       class GatewayInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const GatewayInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
           DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
           DARABONBA_PTR_TO_JSON(name, name_);
         };
         friend void from_json(const Darabonba::Json& j, GatewayInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
           DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
           DARABONBA_PTR_FROM_JSON(name, name_);
         };
@@ -464,8 +466,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->gatewayId_ == nullptr
-        && this->name_ == nullptr; };
+        virtual bool empty() const override { return this->gatewayEdition_ == nullptr
+        && this->gatewayId_ == nullptr && this->name_ == nullptr; };
+        // gatewayEdition Field Functions 
+        bool hasGatewayEdition() const { return this->gatewayEdition_ != nullptr;};
+        void deleteGatewayEdition() { this->gatewayEdition_ = nullptr;};
+        inline string getGatewayEdition() const { DARABONBA_PTR_GET_DEFAULT(gatewayEdition_, "") };
+        inline GatewayInfo& setGatewayEdition(string gatewayEdition) { DARABONBA_PTR_SET_VALUE(gatewayEdition_, gatewayEdition) };
+
+
         // gatewayId Field Functions 
         bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
         void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -481,6 +490,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> gatewayEdition_ {};
         // The instance ID.
         shared_ptr<string> gatewayId_ {};
         // The instance name.

@@ -160,25 +160,27 @@ namespace Models
   protected:
     // The API information.
     shared_ptr<HttpApiApiInfo> apiInfo_ {};
-    // Filters the list of operations by a specific consumer authorization rule ID. Only authorized operations are returned in the response.
+    // The consumer authorization rule ID used to filter the API list. The API list in the response contains only authorized APIs.
     shared_ptr<string> consumerAuthorizationRuleId_ {};
     // The consumer ID.
     shared_ptr<string> consumerId_ {};
     // The creation timestamp. Unit: milliseconds.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The publishing status of the API in the current environment.
+    // The publish status of the API in the current environment.
     shared_ptr<string> deployStatus_ {};
-    // The environment information.
+    // The environment context.
     shared_ptr<EnvironmentInfo> environmentInfo_ {};
-    // The expiry mode. Valid values: LongTerm and ShortTerm.
+    // The expiration mode. Valid values:
+    // - LongTerm
+    // - ShortTerm.
     shared_ptr<string> expireMode_ {};
-    // The rule status.
+    // The expiration status.
     shared_ptr<string> expireStatus_ {};
     // The expiration time.
     shared_ptr<int64_t> expireTimestamp_ {};
     // The gateway information.
     shared_ptr<GatewayInfo> gatewayInfo_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};

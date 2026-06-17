@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The ID of the domain name.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response code.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<CreateDomainResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to trace the API call link.
+    // The request ID, which is used to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

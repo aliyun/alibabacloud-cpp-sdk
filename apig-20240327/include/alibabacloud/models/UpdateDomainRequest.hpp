@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(caCertIdentifier, caCertIdentifier_);
       DARABONBA_PTR_TO_JSON(certIdentifier, certIdentifier_);
       DARABONBA_PTR_TO_JSON(clientCACert, clientCACert_);
+      DARABONBA_PTR_TO_JSON(domainScope, domainScope_);
       DARABONBA_PTR_TO_JSON(forceHttps, forceHttps_);
       DARABONBA_PTR_TO_JSON(http2Option, http2Option_);
       DARABONBA_PTR_TO_JSON(mTLSEnabled, mTLSEnabled_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(caCertIdentifier, caCertIdentifier_);
       DARABONBA_PTR_FROM_JSON(certIdentifier, certIdentifier_);
       DARABONBA_PTR_FROM_JSON(clientCACert, clientCACert_);
+      DARABONBA_PTR_FROM_JSON(domainScope, domainScope_);
       DARABONBA_PTR_FROM_JSON(forceHttps, forceHttps_);
       DARABONBA_PTR_FROM_JSON(http2Option, http2Option_);
       DARABONBA_PTR_FROM_JSON(mTLSEnabled, mTLSEnabled_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caCertIdentifier_ == nullptr
-        && this->certIdentifier_ == nullptr && this->clientCACert_ == nullptr && this->forceHttps_ == nullptr && this->http2Option_ == nullptr && this->mTLSEnabled_ == nullptr
-        && this->protocol_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
+        && this->certIdentifier_ == nullptr && this->clientCACert_ == nullptr && this->domainScope_ == nullptr && this->forceHttps_ == nullptr && this->http2Option_ == nullptr
+        && this->mTLSEnabled_ == nullptr && this->protocol_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
     // caCertIdentifier Field Functions 
     bool hasCaCertIdentifier() const { return this->caCertIdentifier_ != nullptr;};
     void deleteCaCertIdentifier() { this->caCertIdentifier_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deleteClientCACert() { this->clientCACert_ = nullptr;};
     inline string getClientCACert() const { DARABONBA_PTR_GET_DEFAULT(clientCACert_, "") };
     inline UpdateDomainRequest& setClientCACert(string clientCACert) { DARABONBA_PTR_SET_VALUE(clientCACert_, clientCACert) };
+
+
+    // domainScope Field Functions 
+    bool hasDomainScope() const { return this->domainScope_ != nullptr;};
+    void deleteDomainScope() { this->domainScope_ = nullptr;};
+    inline string getDomainScope() const { DARABONBA_PTR_GET_DEFAULT(domainScope_, "") };
+    inline UpdateDomainRequest& setDomainScope(string domainScope) { DARABONBA_PTR_SET_VALUE(domainScope_, domainScope) };
 
 
     // forceHttps Field Functions 
@@ -124,36 +133,29 @@ namespace Models
 
 
   protected:
-    // The CA certificate ID.
+    // The CA certificate identifier.
     shared_ptr<string> caCertIdentifier_ {};
-    // The certificate ID.
+    // The certificate identifier.
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
-    // Specifies whether to enable forcible HTTPS redirection. If protocol is set to HTTPS, forceHttps is required.
+    shared_ptr<string> domainScope_ {};
+    // Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS. This parameter is required when the protocol is HTTPS.
     shared_ptr<bool> forceHttps_ {};
-    // The HTTP/2 configuration.
-    // 
-    // Enumerated values:
-    // 
-    // *   GlobalConfig
-    // *   Close
-    // *   Open
+    // The HTTP/2 settings.
     shared_ptr<string> http2Option_ {};
-    // Specifies whether to enable mutual TLS (mTLS) authentication.
+    // Specifies whether to enable mTLS mutual authentication.
     shared_ptr<bool> mTLSEnabled_ {};
-    // The protocol type to be supported by the domain name. Valid values:
+    // The protocol type supported by the domain name.
     // 
-    // *   HTTP
-    // *   HTTPS
-    // 
-    // This parameter is required.
+    // - HTTP: Only HTTP is supported.
+    // - HTTPS: Only HTTPS is supported.
     shared_ptr<string> protocol_ {};
     // The cipher suite configuration.
     shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-    // The maximum TLS version. Up to TLS 1.3 is supported.
+    // The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
     shared_ptr<string> tlsMax_ {};
-    // The minimum TLS version. Down to TLS 1.0 is supported.
+    // The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
     shared_ptr<string> tlsMin_ {};
   };
 

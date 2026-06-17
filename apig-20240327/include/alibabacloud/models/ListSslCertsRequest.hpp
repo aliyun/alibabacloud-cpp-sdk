@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The name keyword for matching.
+    // The keyword for fuzzy match of the certificate name.
     shared_ptr<string> certNameLike_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The page number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

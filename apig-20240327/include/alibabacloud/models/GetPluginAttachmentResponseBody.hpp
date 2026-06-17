@@ -153,23 +153,23 @@ namespace Models
 
 
     protected:
-      // Indicates whether the plug-in is enabled.
+      // Indicates whether the plugin attachment is enabled.
       shared_ptr<bool> enable_ {};
-      // The environment information.
+      // The environment context.
       shared_ptr<EnvironmentInfo> environmentInfo_ {};
-      // The instance information.
+      // The gateway information.
       shared_ptr<GatewayInfo> gatewayInfo_ {};
-      // The information about the parent resource to which the plug-in is attached.
+      // The parent attachment resource information.
       shared_ptr<ParentResourceInfo> parentResourceInfo_ {};
-      // The attachment ID.
+      // The plugin attachment ID.
       shared_ptr<string> pluginAttachmentId_ {};
-      // The plug-in type information.
+      // The plugin type information.
       shared_ptr<PluginClassInfo> pluginClassInfo_ {};
-      // The Base64-encoded configurations of the plug-in.
+      // The Base64-encoded content of the original plugin configuration.
       shared_ptr<string> pluginConfig_ {};
-      // The plug-in ID.
+      // The plugin ID.
       shared_ptr<string> pluginId_ {};
-      // The resource information.
+      // The list of attachment resource information.
       shared_ptr<vector<ResourceInfo>> resourceInfos_ {};
     };
 
@@ -206,11 +206,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<GetPluginAttachmentResponseBody::Data> data_ {};
-    // The status message.
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

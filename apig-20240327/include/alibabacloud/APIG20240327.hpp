@@ -187,8 +187,6 @@ namespace APIG20240327
       /**
        * @summary Creates a domain name.
        *
-       * @description Create Domain.
-       *
        * @param request CreateDomainRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -198,8 +196,6 @@ namespace APIG20240327
 
       /**
        * @summary Creates a domain name.
-       *
-       * @description Create Domain.
        *
        * @param request CreateDomainRequest
        * @return CreateDomainResponse
@@ -839,7 +835,7 @@ namespace APIG20240327
       Models::GetConsumerResponse getConsumer(const string &consumerId);
 
       /**
-       * @summary Obtains a consumer authentication rule.
+       * @summary Retrieves a consumer authorization rule.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -848,7 +844,7 @@ namespace APIG20240327
       Models::GetConsumerAuthorizationRuleResponse getConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a consumer authentication rule.
+       * @summary Retrieves a consumer authorization rule.
        *
        * @return GetConsumerAuthorizationRuleResponse
        */
@@ -873,7 +869,7 @@ namespace APIG20240327
       Models::GetDashboardResponse getDashboard(const string &gatewayId, const Models::GetDashboardRequest &request);
 
       /**
-       * @summary Queries the information about a domain name.
+       * @summary Queries a domain name.
        *
        * @param request GetDomainRequest
        * @param headers map
@@ -883,7 +879,7 @@ namespace APIG20240327
       Models::GetDomainResponse getDomainWithOptions(const string &domainId, const Models::GetDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a domain name.
+       * @summary Queries a domain name.
        *
        * @param request GetDomainRequest
        * @return GetDomainResponse
@@ -1005,7 +1001,7 @@ namespace APIG20240327
       Models::GetHttpApiOperationResponse getHttpApiOperation(const string &httpApiId, const string &operationId);
 
       /**
-       * @summary Queries the details of a route of an HTTP API.
+       * @summary Retrieves the route details of an HTTP API.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1014,7 +1010,7 @@ namespace APIG20240327
       Models::GetHttpApiRouteResponse getHttpApiRouteWithOptions(const string &httpApiId, const string &routeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a route of an HTTP API.
+       * @summary Retrieves the route details of an HTTP API.
        *
        * @return GetHttpApiRouteResponse
        */
@@ -1041,7 +1037,7 @@ namespace APIG20240327
       Models::GetMcpServerResponse getMcpServer(const string &mcpServerId);
 
       /**
-       * @summary Queries a plug-in attachment.
+       * @summary Queries a plugin attachment.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1046,7 @@ namespace APIG20240327
       Models::GetPluginAttachmentResponse getPluginAttachmentWithOptions(const string &pluginAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a plug-in attachment.
+       * @summary Queries a plugin attachment.
        *
        * @return GetPluginAttachmentResponse
        */
@@ -1163,7 +1159,7 @@ namespace APIG20240327
       Models::GetServiceResponse getService(const string &serviceId);
 
       /**
-       * @summary Obtains the details of a service source.
+       * @summary Queries the details of a service source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1172,7 +1168,7 @@ namespace APIG20240327
       Models::GetSourceResponse getSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a service source.
+       * @summary Queries the details of a service source.
        *
        * @return GetSourceResponse
        */
@@ -1233,7 +1229,7 @@ namespace APIG20240327
       Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
 
       /**
-       * @summary Obtains a list of consumer authentication rules.
+       * @summary Retrieves the list of consumer authorization rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
        * @param headers map
@@ -1243,7 +1239,7 @@ namespace APIG20240327
       Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRulesWithOptions(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a list of consumer authentication rules.
+       * @summary Retrieves the list of consumer authorization rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
        * @return ListConsumerAuthorizationRulesResponse
@@ -1289,7 +1285,7 @@ namespace APIG20240327
       /**
        * @deprecated OpenAPI ListEnvironments is deprecated
        *
-       * @summary ListEnvironments
+       * @summary Queries a list of environments.
        *
        * @param request ListEnvironmentsRequest
        * @param headers map
@@ -1301,7 +1297,7 @@ namespace APIG20240327
       /**
        * @deprecated OpenAPI ListEnvironments is deprecated
        *
-       * @summary ListEnvironments
+       * @summary Queries a list of environments.
        *
        * @param request ListEnvironmentsRequest
        * @return ListEnvironmentsResponse
@@ -1405,7 +1401,7 @@ namespace APIG20240327
       Models::ListHttpApiOperationsResponse listHttpApiOperations(const string &httpApiId, const Models::ListHttpApiOperationsRequest &request);
 
       /**
-       * @summary Gets the route list for an HTTP API.
+       * @summary Queries the route list of an HTTP API.
        *
        * @param request ListHttpApiRoutesRequest
        * @param headers map
@@ -1415,7 +1411,7 @@ namespace APIG20240327
       Models::ListHttpApiRoutesResponse listHttpApiRoutesWithOptions(const string &httpApiId, const Models::ListHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the route list for an HTTP API.
+       * @summary Queries the route list of an HTTP API.
        *
        * @param request ListHttpApiRoutesRequest
        * @return ListHttpApiRoutesResponse
@@ -1619,7 +1615,7 @@ namespace APIG20240327
       Models::ListServicesResponse listServices(const Models::ListServicesRequest &request);
 
       /**
-       * @summary Queries SSL certificates.
+       * @summary Retrieves a list of certificates.
        *
        * @param request ListSslCertsRequest
        * @param headers map
@@ -1629,7 +1625,7 @@ namespace APIG20240327
       Models::ListSslCertsResponse listSslCertsWithOptions(const Models::ListSslCertsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries SSL certificates.
+       * @summary Retrieves a list of certificates.
        *
        * @param request ListSslCertsRequest
        * @return ListSslCertsResponse
@@ -1653,7 +1649,7 @@ namespace APIG20240327
       Models::ListZonesResponse listZones();
 
       /**
-       * @summary Queries a list of consumer authentication rules.
+       * @summary Queries a list of consumer authorization rules.
        *
        * @param request QueryConsumerAuthorizationRulesRequest
        * @param headers map
@@ -1663,7 +1659,7 @@ namespace APIG20240327
       Models::QueryConsumerAuthorizationRulesResponse queryConsumerAuthorizationRulesWithOptions(const Models::QueryConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of consumer authentication rules.
+       * @summary Queries a list of consumer authorization rules.
        *
        * @param request QueryConsumerAuthorizationRulesRequest
        * @return QueryConsumerAuthorizationRulesResponse
@@ -1865,7 +1861,7 @@ namespace APIG20240327
       /**
        * @summary Updates a domain name.
        *
-       * @description You can update the listening Ingress only for sources whose types are **ACK**.
+       * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
        *
        * @param request UpdateDomainRequest
        * @param headers map
@@ -1877,7 +1873,7 @@ namespace APIG20240327
       /**
        * @summary Updates a domain name.
        *
-       * @description You can update the listening Ingress only for sources whose types are **ACK**.
+       * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
        *
        * @param request UpdateDomainRequest
        * @return UpdateDomainResponse
@@ -2019,7 +2015,7 @@ namespace APIG20240327
       Models::UpdateHttpApiResponse updateHttpApi(const string &httpApiId, const Models::UpdateHttpApiRequest &request);
 
       /**
-       * @summary Updates an operation of an HTTP API.
+       * @summary Updates an API operation.
        *
        * @param request UpdateHttpApiOperationRequest
        * @param headers map
@@ -2029,7 +2025,7 @@ namespace APIG20240327
       Models::UpdateHttpApiOperationResponse updateHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const Models::UpdateHttpApiOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an operation of an HTTP API.
+       * @summary Updates an API operation.
        *
        * @param request UpdateHttpApiOperationRequest
        * @return UpdateHttpApiOperationResponse

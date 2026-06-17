@@ -118,7 +118,7 @@ namespace Models
 
 
       protected:
-        // 4
+        // The online resource count.
         shared_ptr<vector<ResourceStatistic>> resourceStatistics_ {};
         // The total number of entries.
         shared_ptr<int32_t> totalCount_ {};
@@ -211,27 +211,27 @@ namespace Models
 
 
     protected:
-      // Test environment
-      shared_ptr<string> alias_ {};
-      // The update timestamp.
-      shared_ptr<int64_t> createTimestamp_ {};
-      // The creation timestamp.
-      shared_ptr<bool> default_ {};
-      // Testing environment for xx project of xxx
-      shared_ptr<string> description_ {};
-      // The environment name.
-      shared_ptr<string> environmentId_ {};
-      // The subdomains.
-      shared_ptr<GatewayInfo> gatewayInfo_ {};
       // The environment alias.
+      shared_ptr<string> alias_ {};
+      // The creation timestamp.
+      shared_ptr<int64_t> createTimestamp_ {};
+      // Indicates whether this is the default environment.
+      shared_ptr<bool> default_ {};
+      // The environment description.
+      shared_ptr<string> description_ {};
+      // The environment ID.
+      shared_ptr<string> environmentId_ {};
+      // The gateway information.
+      shared_ptr<GatewayInfo> gatewayInfo_ {};
+      // The environment name.
       shared_ptr<string> name_ {};
-      // rg-aekzzzntl5njbpi
-      shared_ptr<string> resourceGroupId_ {};
-      // The information about online resources.
-      shared_ptr<Data::StatisticsInfo> statisticsInfo_ {};
-      // The subdomain information.
-      shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};
       // The resource group ID.
+      shared_ptr<string> resourceGroupId_ {};
+      // The online resource information.
+      shared_ptr<Data::StatisticsInfo> statisticsInfo_ {};
+      // The list of subdomains.
+      shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};
+      // The update timestamp.
       shared_ptr<int64_t> updateTimestamp_ {};
     };
 
@@ -268,13 +268,13 @@ namespace Models
 
 
   protected:
-    // The response message returned.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The environment ID.
-    shared_ptr<GetEnvironmentResponseBody::Data> data_ {};
     // The response data.
+    shared_ptr<GetEnvironmentResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // The status code returned.
+    // The request ID, which is used to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

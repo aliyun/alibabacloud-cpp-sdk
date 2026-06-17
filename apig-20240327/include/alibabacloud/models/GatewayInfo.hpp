@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GatewayInfo& obj) { 
       DARABONBA_PTR_TO_JSON(engineVersion, engineVersion_);
+      DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(vpcInfo, vpcInfo_);
     };
     friend void from_json(const Darabonba::Json& j, GatewayInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(engineVersion, engineVersion_);
+      DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(vpcInfo, vpcInfo_);
@@ -80,12 +82,19 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->engineVersion_ == nullptr
-        && this->gatewayId_ == nullptr && this->name_ == nullptr && this->vpcInfo_ == nullptr; };
+        && this->gatewayEdition_ == nullptr && this->gatewayId_ == nullptr && this->name_ == nullptr && this->vpcInfo_ == nullptr; };
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
     inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline GatewayInfo& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
+
+
+    // gatewayEdition Field Functions 
+    bool hasGatewayEdition() const { return this->gatewayEdition_ != nullptr;};
+    void deleteGatewayEdition() { this->gatewayEdition_ = nullptr;};
+    inline string getGatewayEdition() const { DARABONBA_PTR_GET_DEFAULT(gatewayEdition_, "") };
+    inline GatewayInfo& setGatewayEdition(string gatewayEdition) { DARABONBA_PTR_SET_VALUE(gatewayEdition_, gatewayEdition) };
 
 
     // gatewayId Field Functions 
@@ -112,13 +121,14 @@ namespace Models
 
 
   protected:
-    // The instance engine version.
+    // The gateway DPI engine database engine version.
     shared_ptr<string> engineVersion_ {};
-    // The instance ID.
+    shared_ptr<string> gatewayEdition_ {};
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The instance name.
+    // The gateway name.
     shared_ptr<string> name_ {};
-    // The virtual private cloud (VPC) information.
+    // The VPC information.
     shared_ptr<GatewayInfo::VpcInfo> vpcInfo_ {};
   };
 

@@ -90,6 +90,8 @@
 #include <alibabacloud/models/ServiceLinkedRole.hpp>
 #include <alibabacloud/models/SslCertMetaInfo.hpp>
 #include <alibabacloud/models/TlsCipherSuitesConfig.hpp>
+#include <alibabacloud/models/TransportCertificateInfo.hpp>
+#include <alibabacloud/models/TransportEncryptionInfo.hpp>
 #include <alibabacloud/models/ValidationOptions.hpp>
 #include <alibabacloud/models/AddGatewayQuotaRuleRequest.hpp>
 #include <alibabacloud/models/AddGatewayQuotaRuleResponseBody.hpp>

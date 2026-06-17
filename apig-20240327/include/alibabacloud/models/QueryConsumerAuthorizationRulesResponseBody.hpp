@@ -156,9 +156,9 @@ namespace Models
 
 
         protected:
-          // The operation information.
+          // 接口信息。
           shared_ptr<HttpApiOperationInfo> operationInfo_ {};
-          // The route.
+          // 路由规则。
           shared_ptr<HttpRoute> route_ {};
         };
 
@@ -282,35 +282,35 @@ namespace Models
 
 
       protected:
-        // The API details.
+        // API信息详情。
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
-        // The rule ID.
+        // 消费者授权规则ID。
         shared_ptr<string> consumerAuthorizationRuleId_ {};
-        // The consumer ID.
+        // 消费者ID。
         shared_ptr<string> consumerId_ {};
-        // The consumer information.
+        // 消费者信息详情。
         shared_ptr<ConsumerInfo> consumerInfo_ {};
-        // The creation timestamp. Unit: milliseconds.
+        // 创建时间戳。单位: 毫秒。
         shared_ptr<int64_t> createTimestamp_ {};
-        // The deployment status of the API in the current environment.
+        // API在当前环境的发布状态
         shared_ptr<string> deployStatus_ {};
-        // The environment information.
+        // 环境信息。
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
-        // The expiry mode. Valid values: LongTerm and ShortTerm.
+        // 失效模式。LongTerm、ShortTerm，二选一。
         shared_ptr<string> expireMode_ {};
-        // The rule status.
+        // 失效状态。
         shared_ptr<string> expireStatus_ {};
-        // The time when the rule expires.
+        // 到期时间。
         shared_ptr<int64_t> expireTimestamp_ {};
-        // The instance information.
+        // 网关信息。
         shared_ptr<GatewayInfo> gatewayInfo_ {};
-        // The resource IDs.
+        // 资源ID。
         shared_ptr<string> resourceId_ {};
-        // The resource information.
+        // 资源信息详情。
         shared_ptr<Items::ResourceInfo> resourceInfo_ {};
-        // The resource type.
+        // 资源类型。
         shared_ptr<string> resourceType_ {};
-        // The update timestamp. Unit: milliseconds.
+        // 更新时间戳。单位: 毫秒。
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -347,13 +347,13 @@ namespace Models
 
 
     protected:
-      // The rules.
+      // 消费者规则列表。
       shared_ptr<vector<Data::Items>> items_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<string> totalSize_ {};
     };
 
@@ -390,13 +390,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<QueryConsumerAuthorizationRulesResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createFrom, createFrom_);
       DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_TO_JSON(domainId, domainId_);
+      DARABONBA_PTR_TO_JSON(domainScope, domainScope_);
       DARABONBA_PTR_TO_JSON(forceHttps, forceHttps_);
       DARABONBA_PTR_TO_JSON(mTLSEnabled, mTLSEnabled_);
       DARABONBA_PTR_TO_JSON(name, name_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createFrom, createFrom_);
       DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_FROM_JSON(domainId, domainId_);
+      DARABONBA_PTR_FROM_JSON(domainScope, domainScope_);
       DARABONBA_PTR_FROM_JSON(forceHttps, forceHttps_);
       DARABONBA_PTR_FROM_JSON(mTLSEnabled, mTLSEnabled_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -52,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certIdentifier_ == nullptr
-        && this->clientCACert_ == nullptr && this->createFrom_ == nullptr && this->createTimestamp_ == nullptr && this->domainId_ == nullptr && this->forceHttps_ == nullptr
-        && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr
-        && this->updateTimestamp_ == nullptr; };
+        && this->clientCACert_ == nullptr && this->createFrom_ == nullptr && this->createTimestamp_ == nullptr && this->domainId_ == nullptr && this->domainScope_ == nullptr
+        && this->forceHttps_ == nullptr && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->status_ == nullptr && this->updateTimestamp_ == nullptr; };
     // certIdentifier Field Functions 
     bool hasCertIdentifier() const { return this->certIdentifier_ != nullptr;};
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     void deleteDomainId() { this->domainId_ = nullptr;};
     inline string getDomainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
     inline DomainInfo& setDomainId(string domainId) { DARABONBA_PTR_SET_VALUE(domainId_, domainId) };
+
+
+    // domainScope Field Functions 
+    bool hasDomainScope() const { return this->domainScope_ != nullptr;};
+    void deleteDomainScope() { this->domainScope_ = nullptr;};
+    inline string getDomainScope() const { DARABONBA_PTR_GET_DEFAULT(domainScope_, "") };
+    inline DomainInfo& setDomainScope(string domainScope) { DARABONBA_PTR_SET_VALUE(domainScope_, domainScope) };
 
 
     // forceHttps Field Functions 
@@ -140,40 +149,31 @@ namespace Models
 
 
   protected:
-    // The certificate identifier.
+    // The China Security certificate identity.
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
-    // The creation source of the domain name.
-    // 
-    // Valid values:
-    // 
-    // *   Console
-    // *   Ingress
+    // The source from which the domain name was created.
     shared_ptr<string> createFrom_ {};
     // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
     // The domain name ID.
     shared_ptr<string> domainId_ {};
-    // Specifies whether to enable forcible HTTPS redirection when HTTPS is used as the protocol.
+    shared_ptr<string> domainScope_ {};
+    // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
     shared_ptr<bool> forceHttps_ {};
-    // Specifies whether to enable mutual authentication.
+    // Specifies whether to enable mTLS mutual authentication.
     shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     shared_ptr<string> name_ {};
-    // The supported protocol. Valid values:
+    // The protocol type supported by the domain name. Valid values:
     // 
-    // *   HTTP
-    // *   HTTPS
+    // - HTTP: Only HTTP is supported.
+    // - HTTPS: Only HTTPS is supported.
     shared_ptr<string> protocol_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The domain name status.
-    // 
-    // Valid values:
-    // 
-    // *   UnPublished
-    // *   Published
     shared_ptr<string> status_ {};
     // The update timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};

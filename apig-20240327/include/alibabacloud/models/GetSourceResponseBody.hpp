@@ -38,6 +38,8 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(associationReason, associationReason_);
+        DARABONBA_PTR_TO_JSON(associationStatus, associationStatus_);
         DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
         DARABONBA_PTR_TO_JSON(k8SSourceInfo, k8SSourceInfo_);
@@ -49,6 +51,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(updateTimestamp, updateTimestamp_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(associationReason, associationReason_);
+        DARABONBA_PTR_FROM_JSON(associationStatus, associationStatus_);
         DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
         DARABONBA_PTR_FROM_JSON(k8SSourceInfo, k8SSourceInfo_);
@@ -117,11 +121,11 @@ namespace Models
 
 
       protected:
-        // The endpoint of the Nacos instance.
+        // Nacos instance access address.
         shared_ptr<string> address_ {};
-        // The cluster ID.
+        // Cluster ID.
         shared_ptr<string> clusterId_ {};
-        // The Nacos instance ID.
+        // Nacos instance ID.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -153,13 +157,27 @@ namespace Models
 
 
       protected:
-        // The ID of the Container Service for Kubernetes (ACK) cluster.
+        // Container Service cluster ID.
         shared_ptr<string> clusterId_ {};
       };
 
-      virtual bool empty() const override { return this->createTimestamp_ == nullptr
-        && this->gatewayId_ == nullptr && this->k8SSourceInfo_ == nullptr && this->nacosSourceInfo_ == nullptr && this->name_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->sourceId_ == nullptr && this->type_ == nullptr && this->updateTimestamp_ == nullptr; };
+      virtual bool empty() const override { return this->associationReason_ == nullptr
+        && this->associationStatus_ == nullptr && this->createTimestamp_ == nullptr && this->gatewayId_ == nullptr && this->k8SSourceInfo_ == nullptr && this->nacosSourceInfo_ == nullptr
+        && this->name_ == nullptr && this->resourceGroupId_ == nullptr && this->sourceId_ == nullptr && this->type_ == nullptr && this->updateTimestamp_ == nullptr; };
+      // associationReason Field Functions 
+      bool hasAssociationReason() const { return this->associationReason_ != nullptr;};
+      void deleteAssociationReason() { this->associationReason_ = nullptr;};
+      inline string getAssociationReason() const { DARABONBA_PTR_GET_DEFAULT(associationReason_, "") };
+      inline Data& setAssociationReason(string associationReason) { DARABONBA_PTR_SET_VALUE(associationReason_, associationReason) };
+
+
+      // associationStatus Field Functions 
+      bool hasAssociationStatus() const { return this->associationStatus_ != nullptr;};
+      void deleteAssociationStatus() { this->associationStatus_ = nullptr;};
+      inline string getAssociationStatus() const { DARABONBA_PTR_GET_DEFAULT(associationStatus_, "") };
+      inline Data& setAssociationStatus(string associationStatus) { DARABONBA_PTR_SET_VALUE(associationStatus_, associationStatus) };
+
+
       // createTimestamp Field Functions 
       bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
       void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
@@ -228,23 +246,25 @@ namespace Models
 
 
     protected:
-      // The creation timestamp.
+      shared_ptr<string> associationReason_ {};
+      shared_ptr<string> associationStatus_ {};
+      // Creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The gateway ID.
+      // Gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // Kubernetes source information.
+      // K8s source information.
       shared_ptr<Data::K8SSourceInfo> k8SSourceInfo_ {};
-      // The source information when the source type is MSE_NACOS.
+      // MSE Nacos source information.
       shared_ptr<Data::NacosSourceInfo> nacosSourceInfo_ {};
-      // The name.
+      // Name.
       shared_ptr<string> name_ {};
-      // The resource group ID.
+      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The source ID.
+      // Source ID.
       shared_ptr<string> sourceId_ {};
-      // The type.
+      // Type.
       shared_ptr<string> type_ {};
-      // The update timestamp.
+      // Update timestamp.
       shared_ptr<int64_t> updateTimestamp_ {};
     };
 
@@ -281,13 +301,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // Response status code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // Response data.
     shared_ptr<GetSourceResponseBody::Data> data_ {};
-    // The response message.
+    // Response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
   };
 

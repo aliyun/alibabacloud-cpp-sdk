@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_TO_JSON(default, default_);
         DARABONBA_PTR_TO_JSON(domainId, domainId_);
+        DARABONBA_PTR_TO_JSON(domainScope, domainScope_);
         DARABONBA_PTR_TO_JSON(forceHttps, forceHttps_);
         DARABONBA_PTR_TO_JSON(http2Option, http2Option_);
         DARABONBA_PTR_TO_JSON(issuer, issuer_);
@@ -76,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_FROM_JSON(default, default_);
         DARABONBA_PTR_FROM_JSON(domainId, domainId_);
+        DARABONBA_PTR_FROM_JSON(domainScope, domainScope_);
         DARABONBA_PTR_FROM_JSON(forceHttps, forceHttps_);
         DARABONBA_PTR_FROM_JSON(http2Option, http2Option_);
         DARABONBA_PTR_FROM_JSON(issuer, issuer_);
@@ -145,16 +147,16 @@ namespace Models
       protected:
         // The resource statistics.
         shared_ptr<vector<ResourceStatistic>> resourceStatistics_ {};
-        // The total number of resources.
+        // The total count.
         shared_ptr<string> totalCount_ {};
       };
 
       virtual bool empty() const override { return this->algorithm_ == nullptr
         && this->caCertIdentifier_ == nullptr && this->certIdentifier_ == nullptr && this->certName_ == nullptr && this->clientCACert_ == nullptr && this->createFrom_ == nullptr
-        && this->createTimestamp_ == nullptr && this->default_ == nullptr && this->domainId_ == nullptr && this->forceHttps_ == nullptr && this->http2Option_ == nullptr
-        && this->issuer_ == nullptr && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->notAfterTimstamp_ == nullptr && this->notBeforeTimestamp_ == nullptr
-        && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr && this->sans_ == nullptr && this->statisticsInfo_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr
-        && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr && this->updatetimestamp_ == nullptr; };
+        && this->createTimestamp_ == nullptr && this->default_ == nullptr && this->domainId_ == nullptr && this->domainScope_ == nullptr && this->forceHttps_ == nullptr
+        && this->http2Option_ == nullptr && this->issuer_ == nullptr && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->notAfterTimstamp_ == nullptr
+        && this->notBeforeTimestamp_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr && this->sans_ == nullptr && this->statisticsInfo_ == nullptr
+        && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr && this->updatetimestamp_ == nullptr; };
       // algorithm Field Functions 
       bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
       void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -216,6 +218,13 @@ namespace Models
       void deleteDomainId() { this->domainId_ = nullptr;};
       inline string getDomainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
       inline Data& setDomainId(string domainId) { DARABONBA_PTR_SET_VALUE(domainId_, domainId) };
+
+
+      // domainScope Field Functions 
+      bool hasDomainScope() const { return this->domainScope_ != nullptr;};
+      void deleteDomainScope() { this->domainScope_ = nullptr;};
+      inline string getDomainScope() const { DARABONBA_PTR_GET_DEFAULT(domainScope_, "") };
+      inline Data& setDomainScope(string domainScope) { DARABONBA_PTR_SET_VALUE(domainScope_, domainScope) };
 
 
       // forceHttps Field Functions 
@@ -328,70 +337,55 @@ namespace Models
 
 
     protected:
-      // The encryption algorithm.
+      // The encryption algorithm name.
       shared_ptr<string> algorithm_ {};
-      // The CA certificate ID.
+      // The CA certificate identifier.
       shared_ptr<string> caCertIdentifier_ {};
-      // The certificate ID.
+      // The certificate identifier.
       shared_ptr<string> certIdentifier_ {};
       // The certificate name.
       shared_ptr<string> certName_ {};
       // The client CA certificate.
       shared_ptr<string> clientCACert_ {};
-      // The creation source.
-      // 
-      // Valid values:
-      // 
-      // *   Console
-      // *   Ingress
+      // The source from which the domain name was created.
       shared_ptr<string> createFrom_ {};
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Indicates whether the domain name is the default domain name.
+      // Indicates whether this is the default domain name.
       shared_ptr<bool> default_ {};
-      // The ID of the domain name.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
-      // Indicates whether forcible HTTPS redirection is enabled.
+      shared_ptr<string> domainScope_ {};
+      // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
       shared_ptr<bool> forceHttps_ {};
-      // The HTTP/2 configuration.
-      // 
-      // Valid values:
-      // 
-      // *   GlobalConfig
-      // *   Close
-      // *   Open
+      // The HTTP/2 setting.
       shared_ptr<string> http2Option_ {};
-      // The certificate issuer.
+      // The certification authority.
       shared_ptr<string> issuer_ {};
-      // Indicates whether mutual authentication is enabled.
-      // 
-      // Valid values:
-      // 
-      // *   false
-      // *   true
+      // Indicates whether mutual TLS (mTLS) authentication is enabled.
       shared_ptr<bool> mTLSEnabled_ {};
       // The domain name.
       shared_ptr<string> name_ {};
-      // The expiration time of the certificate.
+      // The certificate expiration time.
       shared_ptr<int64_t> notAfterTimstamp_ {};
-      // The time when the certificate started to take effect.
+      // The certificate effective period.
       shared_ptr<int64_t> notBeforeTimestamp_ {};
-      // The supported protocol. Valid values:
+      // The protocol type supported by the domain name. Valid values:
       // 
-      // *   HTTP: Only HTTP is supported.
-      // *   HTTPS: Only HTTPS is supported.
+      // - HTTP: only HTTP is supported.
+      // - HTTPS: only HTTPS is supported.
       shared_ptr<string> protocol_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // All domain names that are bound to the certificate.
+      // All domain names bound to the certificate.
       shared_ptr<string> sans_ {};
-      // The information about online resources.
+      // The online resource information.
       shared_ptr<Data::StatisticsInfo> statisticsInfo_ {};
       // The cipher suite configuration.
       shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-      // The maximum version of the TLS protocol. Up to TLS 1.3 is supported.
+      // The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
       shared_ptr<string> tlsMax_ {};
-      // The minimum version of the TLS protocol. Down to TLS 1.0 is supported.
+      // The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
       shared_ptr<string> tlsMin_ {};
       // The update timestamp.
       shared_ptr<int64_t> updatetimestamp_ {};
@@ -430,13 +424,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response code.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<GetDomainResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to trace the API call link.
+    // The request ID, which is used to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

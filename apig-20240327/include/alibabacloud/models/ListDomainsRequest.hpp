@@ -13,6 +13,7 @@ namespace Models
   class ListDomainsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDomainsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(domainScope, domainScope_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(nameLike, nameLike_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDomainsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(domainScope, domainScope_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(nameLike, nameLike_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->gatewayId_ == nullptr
-        && this->gatewayType_ == nullptr && this->nameLike_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr; };
+    virtual bool empty() const override { return this->domainScope_ == nullptr
+        && this->gatewayId_ == nullptr && this->gatewayType_ == nullptr && this->nameLike_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->resourceGroupId_ == nullptr; };
+    // domainScope Field Functions 
+    bool hasDomainScope() const { return this->domainScope_ != nullptr;};
+    void deleteDomainScope() { this->domainScope_ = nullptr;};
+    inline string getDomainScope() const { DARABONBA_PTR_GET_DEFAULT(domainScope_, "") };
+    inline ListDomainsRequest& setDomainScope(string domainScope) { DARABONBA_PTR_SET_VALUE(domainScope_, domainScope) };
+
+
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -84,17 +94,18 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    shared_ptr<string> domainScope_ {};
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The gateway type to filter. Valid values: **AI** and **API**.
+    // The gateway type used for filtering. Valid values: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
-    // The domain name keyword for fuzzy search.
+    // The domain name. Fuzzy match is supported.
     shared_ptr<string> nameLike_ {};
-    // The page number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

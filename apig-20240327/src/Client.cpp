@@ -18,7 +18,34 @@ namespace APIG20240327
 {
 
 AlibabaCloud::APIG20240327::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "apig.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "apig.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "apig.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "apig.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "apig.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "apig.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "apig.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "apig.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "apig.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "apig.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "apig.cn-qingdao.aliyuncs.com"},
+    {"cn-hongkong" , "apig.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "apig.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou" , "apig.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "apig.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "apig.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "apig.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "apig.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "apig.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "apig.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "apig.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "apig.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "apig.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-2" , "apig.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "apig.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("apig", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -547,8 +574,6 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
 /**
  * @summary Creates a domain name.
  *
- * @description Create Domain.
- *
  * @param request CreateDomainRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -567,6 +592,10 @@ CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &
 
   if (!!request.hasClientCACert()) {
     body["clientCACert"] = request.getClientCACert();
+  }
+
+  if (!!request.hasDomainScope()) {
+    body["domainScope"] = request.getDomainScope();
   }
 
   if (!!request.hasForceHttps()) {
@@ -629,8 +658,6 @@ CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &
 
 /**
  * @summary Creates a domain name.
- *
- * @description Create Domain.
  *
  * @param request CreateDomainRequest
  * @return CreateDomainResponse
@@ -2452,7 +2479,7 @@ GetConsumerResponse Client::getConsumer(const string &consumerId) {
 }
 
 /**
- * @summary Obtains a consumer authentication rule.
+ * @summary Retrieves a consumer authorization rule.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2477,7 +2504,7 @@ GetConsumerAuthorizationRuleResponse Client::getConsumerAuthorizationRuleWithOpt
 }
 
 /**
- * @summary Obtains a consumer authentication rule.
+ * @summary Retrieves a consumer authorization rule.
  *
  * @return GetConsumerAuthorizationRuleResponse
  */
@@ -2571,7 +2598,7 @@ GetDashboardResponse Client::getDashboard(const string &gatewayId, const GetDash
 }
 
 /**
- * @summary Queries the information about a domain name.
+ * @summary Queries a domain name.
  *
  * @param request GetDomainRequest
  * @param headers map
@@ -2604,7 +2631,7 @@ GetDomainResponse Client::getDomainWithOptions(const string &domainId, const Get
 }
 
 /**
- * @summary Queries the information about a domain name.
+ * @summary Queries a domain name.
  *
  * @param request GetDomainRequest
  * @return GetDomainResponse
@@ -2887,7 +2914,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperation(const string &httpApiId,
 }
 
 /**
- * @summary Queries the details of a route of an HTTP API.
+ * @summary Retrieves the route details of an HTTP API.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2912,7 +2939,7 @@ GetHttpApiRouteResponse Client::getHttpApiRouteWithOptions(const string &httpApi
 }
 
 /**
- * @summary Queries the details of a route of an HTTP API.
+ * @summary Retrieves the route details of an HTTP API.
  *
  * @return GetHttpApiRouteResponse
  */
@@ -2963,7 +2990,7 @@ GetMcpServerResponse Client::getMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Queries a plug-in attachment.
+ * @summary Queries a plugin attachment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2988,7 +3015,7 @@ GetPluginAttachmentResponse Client::getPluginAttachmentWithOptions(const string 
 }
 
 /**
- * @summary Queries a plug-in attachment.
+ * @summary Queries a plugin attachment.
  *
  * @return GetPluginAttachmentResponse
  */
@@ -3232,7 +3259,7 @@ GetServiceResponse Client::getService(const string &serviceId) {
 }
 
 /**
- * @summary Obtains the details of a service source.
+ * @summary Queries the details of a service source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3257,7 +3284,7 @@ GetSourceResponse Client::getSourceWithOptions(const string &sourceId, const map
 }
 
 /**
- * @summary Obtains the details of a service source.
+ * @summary Queries the details of a service source.
  *
  * @return GetSourceResponse
  */
@@ -3459,7 +3486,7 @@ InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request)
 }
 
 /**
- * @summary Obtains a list of consumer authentication rules.
+ * @summary Retrieves the list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @param headers map
@@ -3500,7 +3527,7 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRulesWit
 }
 
 /**
- * @summary Obtains a list of consumer authentication rules.
+ * @summary Retrieves the list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @return ListConsumerAuthorizationRulesResponse
@@ -3579,6 +3606,10 @@ ListConsumersResponse Client::listConsumers(const ListConsumersRequest &request)
 ListDomainsResponse Client::listDomainsWithOptions(const ListDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDomainScope()) {
+    query["domainScope"] = request.getDomainScope();
+  }
+
   if (!!request.hasGatewayId()) {
     query["gatewayId"] = request.getGatewayId();
   }
@@ -3636,7 +3667,7 @@ ListDomainsResponse Client::listDomains(const ListDomainsRequest &request) {
 /**
  * @deprecated OpenAPI ListEnvironments is deprecated
  *
- * @summary ListEnvironments
+ * @summary Queries a list of environments.
  *
  * @param request ListEnvironmentsRequest
  * @param headers map
@@ -3699,7 +3730,7 @@ ListEnvironmentsResponse Client::listEnvironmentsWithOptions(const ListEnvironme
 /**
  * @deprecated OpenAPI ListEnvironments is deprecated
  *
- * @summary ListEnvironments
+ * @summary Queries a list of environments.
  *
  * @param request ListEnvironmentsRequest
  * @return ListEnvironmentsResponse
@@ -4049,7 +4080,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperations(const string &httpAp
 }
 
 /**
- * @summary Gets the route list for an HTTP API.
+ * @summary Queries the route list of an HTTP API.
  *
  * @param request ListHttpApiRoutesRequest
  * @param headers map
@@ -4138,7 +4169,7 @@ ListHttpApiRoutesResponse Client::listHttpApiRoutesWithOptions(const string &htt
 }
 
 /**
- * @summary Gets the route list for an HTTP API.
+ * @summary Queries the route list of an HTTP API.
  *
  * @param request ListHttpApiRoutesRequest
  * @return ListHttpApiRoutesResponse
@@ -4896,7 +4927,7 @@ ListServicesResponse Client::listServices(const ListServicesRequest &request) {
 }
 
 /**
- * @summary Queries SSL certificates.
+ * @summary Retrieves a list of certificates.
  *
  * @param request ListSslCertsRequest
  * @param headers map
@@ -4941,7 +4972,7 @@ ListSslCertsResponse Client::listSslCertsWithOptions(const ListSslCertsRequest &
 }
 
 /**
- * @summary Queries SSL certificates.
+ * @summary Retrieves a list of certificates.
  *
  * @param request ListSslCertsRequest
  * @return ListSslCertsResponse
@@ -4989,7 +5020,7 @@ ListZonesResponse Client::listZones() {
 }
 
 /**
- * @summary Queries a list of consumer authentication rules.
+ * @summary Queries a list of consumer authorization rules.
  *
  * @param request QueryConsumerAuthorizationRulesRequest
  * @param headers map
@@ -5062,7 +5093,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRulesW
 }
 
 /**
- * @summary Queries a list of consumer authentication rules.
+ * @summary Queries a list of consumer authorization rules.
  *
  * @param request QueryConsumerAuthorizationRulesRequest
  * @return QueryConsumerAuthorizationRulesResponse
@@ -5606,7 +5637,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRule(
 /**
  * @summary Updates a domain name.
  *
- * @description You can update the listening Ingress only for sources whose types are **ACK**.
+ * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
  *
  * @param request UpdateDomainRequest
  * @param headers map
@@ -5626,6 +5657,10 @@ UpdateDomainResponse Client::updateDomainWithOptions(const string &domainId, con
 
   if (!!request.hasClientCACert()) {
     body["clientCACert"] = request.getClientCACert();
+  }
+
+  if (!!request.hasDomainScope()) {
+    body["domainScope"] = request.getDomainScope();
   }
 
   if (!!request.hasForceHttps()) {
@@ -5677,7 +5712,7 @@ UpdateDomainResponse Client::updateDomainWithOptions(const string &domainId, con
 /**
  * @summary Updates a domain name.
  *
- * @description You can update the listening Ingress only for sources whose types are **ACK**.
+ * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
  *
  * @param request UpdateDomainRequest
  * @return UpdateDomainResponse
@@ -6069,7 +6104,7 @@ UpdateHttpApiResponse Client::updateHttpApi(const string &httpApiId, const Updat
 }
 
 /**
- * @summary Updates an operation of an HTTP API.
+ * @summary Updates an API operation.
  *
  * @param request UpdateHttpApiOperationRequest
  * @param headers map
@@ -6102,7 +6137,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Updates an operation of an HTTP API.
+ * @summary Updates an API operation.
  *
  * @param request UpdateHttpApiOperationRequest
  * @return UpdateHttpApiOperationResponse
