@@ -107,6 +107,10 @@ DeleteComputeInstanceResponse Client::deleteComputeInstanceWithOptions(const Del
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
