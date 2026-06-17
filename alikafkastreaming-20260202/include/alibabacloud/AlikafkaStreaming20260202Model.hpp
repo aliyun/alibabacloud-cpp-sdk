@@ -5,5 +5,8 @@
 #include <alibabacloud/models/CreateComputeInstanceRequest.hpp>
 #include <alibabacloud/models/CreateComputeInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateComputeInstanceResponse.hpp>
+#include <alibabacloud/models/DeleteComputeInstanceRequest.hpp>
+#include <alibabacloud/models/DeleteComputeInstanceResponseBody.hpp>
+#include <alibabacloud/models/DeleteComputeInstanceResponse.hpp>
 
 #endif

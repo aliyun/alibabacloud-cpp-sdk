@@ -36,6 +36,23 @@ namespace AlikafkaStreaming20260202
        * @return CreateComputeInstanceResponse
        */
       Models::CreateComputeInstanceResponse createComputeInstance(const Models::CreateComputeInstanceRequest &request);
+
+      /**
+       * @summary  删除实例
+       *
+       * @param request DeleteComputeInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteComputeInstanceResponse
+       */
+      Models::DeleteComputeInstanceResponse deleteComputeInstanceWithOptions(const Models::DeleteComputeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary  删除实例
+       *
+       * @param request DeleteComputeInstanceRequest
+       * @return DeleteComputeInstanceResponse
+       */
+      Models::DeleteComputeInstanceResponse deleteComputeInstance(const Models::DeleteComputeInstanceRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AlikafkaStreaming20260202

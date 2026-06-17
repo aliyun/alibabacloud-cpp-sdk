@@ -88,5 +88,51 @@ CreateComputeInstanceResponse Client::createComputeInstance(const CreateComputeI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createComputeInstanceWithOptions(request, runtime);
 }
+
+/**
+ * @summary  删除实例
+ *
+ * @param request DeleteComputeInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteComputeInstanceResponse
+ */
+DeleteComputeInstanceResponse Client::deleteComputeInstanceWithOptions(const DeleteComputeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteComputeInstance"},
+    {"version" , "2026-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteComputeInstanceResponse>();
+}
+
+/**
+ * @summary  删除实例
+ *
+ * @param request DeleteComputeInstanceRequest
+ * @return DeleteComputeInstanceResponse
+ */
+DeleteComputeInstanceResponse Client::deleteComputeInstance(const DeleteComputeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteComputeInstanceWithOptions(request, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace AlikafkaStreaming20260202
