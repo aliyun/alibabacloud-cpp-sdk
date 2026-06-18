@@ -4372,6 +4372,10 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
   tmpReq.validate();
   ListAppInstancesShrinkRequest request = ListAppInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBizIds()) {
+    request.setBizIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBizIds(), "BizIds", "json"));
+  }
+
   if (!!tmpReq.hasStatusList()) {
     request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatusList(), "StatusList", "json"));
   }
@@ -4379,6 +4383,10 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
   json query = {};
   if (!!request.hasBizId()) {
     query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasBizIdsShrink()) {
+    query["BizIds"] = request.getBizIdsShrink();
   }
 
   if (!!request.hasEndTimeBegin()) {

@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListAppInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(BizIds, bizIdsShrink_);
       DARABONBA_PTR_TO_JSON(EndTimeBegin, endTimeBegin_);
       DARABONBA_PTR_TO_JSON(EndTimeEnd, endTimeEnd_);
       DARABONBA_PTR_TO_JSON(Extend, extend_);
@@ -28,6 +29,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListAppInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(BizIds, bizIdsShrink_);
       DARABONBA_PTR_FROM_JSON(EndTimeBegin, endTimeBegin_);
       DARABONBA_PTR_FROM_JSON(EndTimeEnd, endTimeEnd_);
       DARABONBA_PTR_FROM_JSON(Extend, extend_);
@@ -52,14 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->endTimeBegin_ == nullptr && this->endTimeEnd_ == nullptr && this->extend_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr
-        && this->statusListShrink_ == nullptr; };
+        && this->bizIdsShrink_ == nullptr && this->endTimeBegin_ == nullptr && this->endTimeEnd_ == nullptr && this->extend_ == nullptr && this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
+        && this->query_ == nullptr && this->statusListShrink_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline ListAppInstancesShrinkRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // bizIdsShrink Field Functions 
+    bool hasBizIdsShrink() const { return this->bizIdsShrink_ != nullptr;};
+    void deleteBizIdsShrink() { this->bizIdsShrink_ = nullptr;};
+    inline string getBizIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(bizIdsShrink_, "") };
+    inline ListAppInstancesShrinkRequest& setBizIdsShrink(string bizIdsShrink) { DARABONBA_PTR_SET_VALUE(bizIdsShrink_, bizIdsShrink) };
 
 
     // endTimeBegin Field Functions 
@@ -142,6 +151,7 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
+    shared_ptr<string> bizIdsShrink_ {};
     // The start of the expiration time range.
     shared_ptr<string> endTimeBegin_ {};
     // The end of the expiration time range.
@@ -152,11 +162,11 @@ namespace Models
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort the results.
+    // The field used for sorting.
     shared_ptr<string> orderColumn_ {};
-    // The sort order. Valid values: ASC and DESC.
+    // The sort type. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};

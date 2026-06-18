@@ -221,7 +221,7 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -241,7 +241,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
@@ -249,7 +249,7 @@ namespace Models
     shared_ptr<bool> prePage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the result limit is reached. The server processes up to 1000 recent records excluding pagination limits. If the results exceed 1000 records, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+    // In addition to pagination limits, the server processes up to 1,000 recent records per query. If the result exceeds 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
