@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // Custom fields.
       Darabonba::Json customizeFields_ {};
+      // Nickname.
       shared_ptr<string> nick_ {};
+      // External ID.
       shared_ptr<string> outerId_ {};
+      // Profile picture.
       shared_ptr<string> photo_ {};
+      // Real name.
       shared_ptr<string> realName_ {};
+      // Membership ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -161,10 +167,15 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Membership information.
     shared_ptr<GetCustomerInfoResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

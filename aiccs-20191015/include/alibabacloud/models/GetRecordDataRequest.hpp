@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // Session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> acid_ {};
+    // Instance ID.
+    // 
+    // Log on to the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview) and view the instance ID in **Instance Management**.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

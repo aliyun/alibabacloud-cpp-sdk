@@ -220,8 +220,11 @@ namespace Models
 
 
           protected:
+            // The description of the enumerated value.
             shared_ptr<string> description_ {};
+            // The unique ID of the enumerated value.
             shared_ptr<string> id_ {};
+            // The enumerated value.
             shared_ptr<string> value_ {};
           };
 
@@ -287,13 +290,20 @@ namespace Models
 
 
         protected:
+          // The unique ID of the variable.
           shared_ptr<string> id_ {};
+          // The description of the variable.
           shared_ptr<string> phoneTagDescription_ {};
+          // A list of enumerated values for the variable. This parameter is returned only if the value of `PhoneTagType` is `ENUM`.
           shared_ptr<vector<PhoneTagConfig::PhoneTagEnum>> phoneTagEnum_ {};
+          // The key of the variable.
           shared_ptr<string> phoneTagKey_ {};
+          // The name of the variable.
           shared_ptr<string> phoneTagName_ {};
+          // Specifies whether the variable is required.
           shared_ptr<bool> phoneTagRequired_ {};
           shared_ptr<string> phoneTagSource_ {};
+          // The data type of the variable.
           shared_ptr<string> phoneTagType_ {};
         };
 
@@ -371,8 +381,11 @@ namespace Models
 
 
           protected:
+            // The description of the enumerated value.
             shared_ptr<string> description_ {};
+            // The unique ID of the enumerated value.
             shared_ptr<string> id_ {};
+            // The enumerated value.
             shared_ptr<string> value_ {};
           };
 
@@ -416,10 +429,15 @@ namespace Models
 
 
         protected:
+          // The unique ID of the tag.
           shared_ptr<string> id_ {};
+          // The description of the tag.
           shared_ptr<string> outputTagDescription_ {};
+          // The enumerated values for the tag. This parameter is returned only if the value of `OutputTagType` is `ENUM`.
           shared_ptr<vector<OutputTagConfig::OutputTagEnum>> outputTagEnum_ {};
+          // The name of the tag.
           shared_ptr<string> outputTagName_ {};
+          // The data type of the tag.
           shared_ptr<string> outputTagType_ {};
         };
 
@@ -497,8 +515,11 @@ namespace Models
 
 
           protected:
+            // The description of the value.
             shared_ptr<string> description_ {};
+            // The unique ID of the value.
             shared_ptr<string> id_ {};
+            // The value.
             shared_ptr<string> value_ {};
           };
 
@@ -542,10 +563,15 @@ namespace Models
 
 
         protected:
+          // The ID of the main intent.
           shared_ptr<string> id_ {};
+          // The description of the main intent.
           shared_ptr<string> mainPurposeDescription_ {};
+          // The list of valid values for the main intent.
           shared_ptr<vector<MainPurpose::MainPurposeEnum>> mainPurposeEnum_ {};
+          // The name of the main intent.
           shared_ptr<string> mainPurposeName_ {};
+          // The value type of the main intent. Currently, only the `ENUM` type is supported.
           shared_ptr<string> mainPurposeType_ {};
         };
 
@@ -605,9 +631,13 @@ namespace Models
 
 
         protected:
+          // Specifies whether to output the content as an exception tag.
           shared_ptr<bool> exceptionSign_ {};
+          // The exception type.
           shared_ptr<string> exceptionType_ {};
+          // The reply.
           shared_ptr<string> reply_ {};
+          // Specifies whether interruption is supported.
           shared_ptr<bool> supportBreak_ {};
         };
 
@@ -658,8 +688,11 @@ namespace Models
 
 
         protected:
+          // The description of the subtask.
           shared_ptr<string> childTaskDescription_ {};
+          // The name of the subtask.
           shared_ptr<string> childTaskName_ {};
+          // The unique ID of the subtask.
           shared_ptr<string> id_ {};
         };
 
@@ -854,29 +887,51 @@ namespace Models
 
 
       protected:
+        // The configuration for the basic task.
         shared_ptr<string> basicTaskDescription_ {};
+        // The business scenario.
         shared_ptr<int64_t> businessType_ {};
+        // The list of subtask configurations.
         shared_ptr<vector<AiVoiceAgentModelConfig::ChildTaskList>> childTaskList_ {};
+        // Specifies whether custom exception handling is enabled.
         shared_ptr<bool> customExceptionEnable_ {};
+        // The ID of the custom exception file.
         shared_ptr<string> customExceptionFileId_ {};
+        // The name of the custom exception file.
         shared_ptr<string> customExceptionFileName_ {};
+        // This parameter is deprecated and will be removed in a future release.
         shared_ptr<vector<AiVoiceAgentModelConfig::CustomExceptionList>> customExceptionList_ {};
+        // This parameter is deprecated and will be removed in a future release.
         shared_ptr<string> customExceptionUrlPath_ {};
+        // The voice style.
         shared_ptr<int64_t> customExceptionVoiceStyle_ {};
+        // The description of the advanced task flow.
         shared_ptr<string> flowDesc_ {};
+        // The list of knowledge document IDs.
         shared_ptr<vector<string>> knowledgeDocIdList_ {};
+        // The list of knowledge document names.
         shared_ptr<vector<string>> knowledgeDocNameList_ {};
+        // A list of original file names for the knowledge base documents.
         shared_ptr<vector<string>> knowledgeDocOriginalNameList_ {};
+        // Specifies whether the agent is associated with a knowledge base.
         shared_ptr<bool> knowledgeEnable_ {};
+        // The ID of the knowledge base.
         shared_ptr<string> knowledgeId_ {};
+        // The main intent configuration.
         shared_ptr<AiVoiceAgentModelConfig::MainPurpose> mainPurpose_ {};
+        // The output tag configuration.
         shared_ptr<vector<AiVoiceAgentModelConfig::OutputTagConfig>> outputTagConfig_ {};
+        // The call variable configuration.
         shared_ptr<vector<AiVoiceAgentModelConfig::PhoneTagConfig>> phoneTagConfig_ {};
+        // The opening statement.
         shared_ptr<string> prologue_ {};
         shared_ptr<string> recordingFile_ {};
         shared_ptr<int64_t> startWordType_ {};
+        // The system role.
         shared_ptr<string> sysRole_ {};
+        // The task type.
         shared_ptr<string> taskType_ {};
+        // The user role.
         shared_ptr<string> userRole_ {};
       };
 
@@ -1019,8 +1074,19 @@ namespace Models
           shared_ptr<int64_t> backgroundVolume_ {};
           shared_ptr<bool> mixingEnabled_ {};
           shared_ptr<int64_t> mixingTemplate_ {};
+          // The TTS speech rate.
+          // 
+          // > - Valid values: -200 to 200. Default value: 0.
+          // >
+          // > - If this parameter is not specified, the speech rate configured for the large model application is used.
           shared_ptr<int64_t> ttsSpeed_ {};
+          // The voice style.
           shared_ptr<string> ttsStyle_ {};
+          // The TTS playback volume.
+          // 
+          // > - Valid values: 0 to 100. Default value: 0.
+          // >
+          // > - If this parameter is not specified, the volume configured for the large model application is used.
           shared_ptr<int64_t> ttsVolume_ {};
           shared_ptr<string> voiceCode_ {};
           shared_ptr<string> voiceType_ {};
@@ -1100,11 +1166,29 @@ namespace Models
 
 
         protected:
+          // Specifies whether to hang up the call if an answering machine is detected.
           shared_ptr<bool> callAssistantHangup_ {};
+          // Whether answering machine detection is enabled.
           shared_ptr<bool> callAssistantRecognize_ {};
+          // Specifies whether to trigger the model on the first silence event.
           shared_ptr<bool> muteActive_ {};
+          // Silence duration.
+          // 
+          // > - Maximum value: 15 s.
+          // >
+          // > - Minimum value: 3 s.
           shared_ptr<int64_t> muteDuration_ {};
+          // The system automatically disconnects the call after a specified number of consecutive silence events.
+          // 
+          // > - Maximum value: 5.
+          // >
+          // > - Minimum value: 1.
           shared_ptr<int64_t> muteHangupNum_ {};
+          // The maximum call duration, in seconds. The call automatically disconnects when this duration is exceeded.
+          // 
+          // > - Maximum value: 3600.
+          // >
+          // > - Minimum value: 600.
           shared_ptr<int64_t> sessionTimeout_ {};
         };
 
@@ -1136,8 +1220,11 @@ namespace Models
 
 
       protected:
+        // The call event configuration.
         shared_ptr<AiVoiceAgentCallConfig::EventConfig> eventConfig_ {};
+        // The TTS configuration.
         shared_ptr<AiVoiceAgentCallConfig::TtsConfig> ttsConfig_ {};
+        // The ID of the hotword.
         shared_ptr<string> vocabId_ {};
       };
 
@@ -1212,14 +1299,23 @@ namespace Models
 
 
     protected:
+      // The ID of the agent.
       shared_ptr<int64_t> agentId_ {};
+      // The name of the agent.
       shared_ptr<string> agentName_ {};
+      // The voice configuration for AI-powered outbound calls.
       shared_ptr<Data::AiVoiceAgentCallConfig> aiVoiceAgentCallConfig_ {};
+      // The model configuration for the agent.
       shared_ptr<Data::AiVoiceAgentModelConfig> aiVoiceAgentModelConfig_ {};
+      // The name of the business scenario.
       shared_ptr<string> businessTypeName_ {};
+      // The description of the agent.
       shared_ptr<string> description_ {};
+      // The name of the knowledge base.
       shared_ptr<string> knowledgeName_ {};
+      // The status of the agent.
       shared_ptr<int64_t> status_ {};
+      // The name of the voice style.
       shared_ptr<string> voiceStyleName_ {};
     };
 
@@ -1270,11 +1366,21 @@ namespace Models
 
 
   protected:
+    // The detailed reason why the access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Status code.
     shared_ptr<string> code_ {};
+    // The details of the agent.
     shared_ptr<QueryAiVoiceAgentDetailResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call is successful. Possible values:
+    // 
+    // - **true**: The operation was successful.
+    // 
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

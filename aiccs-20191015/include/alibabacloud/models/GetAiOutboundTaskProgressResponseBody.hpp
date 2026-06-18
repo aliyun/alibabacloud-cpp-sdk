@@ -201,18 +201,42 @@ namespace Models
 
 
       protected:
+        // Number of jobs in calling status.
         shared_ptr<int32_t> callingCount_ {};
+        // Number of connected jobs.
+        // 
+        // > Parameter specific to auto dialing.
         shared_ptr<int32_t> connectCount_ {};
+        // Job connection rate.  
+        // > A parameter specific to automatic outbound calls.
         shared_ptr<float> connectRate_ {};
+        // Number of completed jobs.
         shared_ptr<int32_t> finishCount_ {};
+        // Job completion rate.
         shared_ptr<float> finishRate_ {};
+        // Number of agent pickups.
+        // 
+        // > Parameter specific to predictive dialing.
         shared_ptr<int32_t> servicerPickupCount_ {};
+        // Agent pickup rate.
+        // 
+        // > Exclusive parameter for predictive outbound calls.
         shared_ptr<float> servicerPickupRate_ {};
+        // Number of stopped jobs.
         shared_ptr<int32_t> terminateCount_ {};
+        // Total number of jobs.
         shared_ptr<int32_t> totalCount_ {};
+        // Number of customer pickups.
+        // 
+        // > Parameter specific to predictive dialing.
         shared_ptr<int32_t> userPickupCount_ {};
+        // Customer pickup rate.
+        // 
+        // > Exclusive parameter for predictive outbound calls.
         shared_ptr<float> userPickupRate_ {};
+        // Number of pending call jobs.
         shared_ptr<int32_t> waitingCallCount_ {};
+        // Number of jobs pending redial.
         shared_ptr<int32_t> waitingRecallCount_ {};
       };
 
@@ -318,14 +342,31 @@ namespace Models
 
 
       protected:
+        // Call loss count.  
+        // > A parameter specific to predictive outbound calls.
         shared_ptr<int32_t> callLossCount_ {};
+        // Call Loss Rate.  
+        // > A parameter exclusive to predictive outbound calls.
         shared_ptr<float> callLossRate_ {};
+        // Number of successful outbound call connections.  
+        // > This parameter is specific to automatic outbound calls.
         shared_ptr<int32_t> callOutConnectCount_ {};
+        // Outbound Call Connection Rate.  
+        // > A parameter exclusive to automated outbound calls.
         shared_ptr<float> callOutConnectRate_ {};
+        // Number of outbound calls.
         shared_ptr<int32_t> callOutCount_ {};
+        // Agent Pickup Count.  
+        // > A parameter exclusive to predictive outbound calls.
         shared_ptr<int32_t> callOutServicerPickupCount_ {};
+        // Agent pickup rate.  
+        // > A parameter specific to predictive outbound calls.
         shared_ptr<float> callOutServicerPickupRate_ {};
+        // Customer Pickup Count.  
+        // > A parameter exclusive to predictive outbound calls.
         shared_ptr<int32_t> callOutUserPickupCount_ {};
+        // Customer Pickup Rate.  
+        // > A parameter exclusive to predictive outbound calls.
         shared_ptr<float> callOutUserPickupRate_ {};
       };
 
@@ -364,9 +405,15 @@ namespace Models
 
 
     protected:
+      // Progress by outbound call dimension.
       shared_ptr<Data::CalloutProgress> calloutProgress_ {};
+      // The job ID.
       shared_ptr<int64_t> taskId_ {};
+      // Job dimension progress.
       shared_ptr<Data::TaskProgress> taskProgress_ {};
+      // Task Type. Valid values:  
+      // - **2**: Predictive.  
+      // - **3**: Automatic.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -410,10 +457,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Job progress.
     shared_ptr<GetAiOutboundTaskProgressResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

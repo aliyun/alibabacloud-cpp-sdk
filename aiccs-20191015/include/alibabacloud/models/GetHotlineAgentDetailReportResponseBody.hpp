@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // Metric.
         shared_ptr<string> key_ {};
+        // Metric description.
         shared_ptr<string> title_ {};
       };
 
@@ -151,10 +153,15 @@ namespace Models
 
 
     protected:
+      // Description of returned columns.
       shared_ptr<vector<Data::Columns>> columns_ {};
+      // Current page.
       shared_ptr<int32_t> page_ {};
+      // Number of records per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The returned data result.
       shared_ptr<vector<Darabonba::Json>> rows_ {};
+      // Total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -205,11 +212,19 @@ namespace Models
 
 
   protected:
+    // The status code. A value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Query result data.
     shared_ptr<GetHotlineAgentDetailReportResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API was invoked successfully. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<string> success_ {};
   };
 

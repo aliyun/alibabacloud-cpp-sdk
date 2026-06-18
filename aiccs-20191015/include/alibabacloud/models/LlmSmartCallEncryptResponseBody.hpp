@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The call ID.
       shared_ptr<string> callId_ {};
     };
 
@@ -117,11 +118,21 @@ namespace Models
 
 
   protected:
+    // Details about the access denied error.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. A value of \\"ok\\" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<LlmSmartCallEncryptResponseBody::Data> data_ {};
+    // A description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful. Valid values:
+    // 
+    // - **true**: The API call was successful.
+    // 
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

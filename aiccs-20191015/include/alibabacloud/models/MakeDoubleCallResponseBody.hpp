@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // Session ID.
       shared_ptr<string> acid_ {};
     };
 
@@ -108,10 +109,15 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<MakeDoubleCallResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

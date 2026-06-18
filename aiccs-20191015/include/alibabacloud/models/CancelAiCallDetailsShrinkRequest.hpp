@@ -103,13 +103,18 @@ namespace Models
 
 
   protected:
+    // The batch ID. This ID is returned when you import callee data. You can find the task batch ID on the **Call Task Management**>**Details**>**Execution Record** page, or use the import batch ID that is returned by the [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) API operation. If DetailIdList is specified, this parameter is invalid.
     shared_ptr<string> batchId_ {};
+    // A list of detail IDs. If you specify this parameter, `BatchId` and `PhoneNumbers` are ignored.
     shared_ptr<string> detailIdListShrink_ {};
     shared_ptr<int64_t> encryptionType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // A list of phone numbers. This parameter takes effect only when `BatchId` is also specified.
     shared_ptr<string> phoneNumbersShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The task ID. You can view the task ID on the **Call Task Management** page or obtain it by calling the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

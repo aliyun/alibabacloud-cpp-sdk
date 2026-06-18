@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // External skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> outerGroupId_ {};
+    // External skill group type.
+    // 
     // This parameter is required.
     shared_ptr<string> outerGroupType_ {};
   };

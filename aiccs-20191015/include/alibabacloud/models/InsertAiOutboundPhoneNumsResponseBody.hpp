@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // Custom business information.
         shared_ptr<string> bizData_ {};
+        // Description of the failure reason.
         shared_ptr<string> msg_ {};
+        // The callee number for outbound calls.
         shared_ptr<string> phoneNum_ {};
       };
 
@@ -139,8 +142,11 @@ namespace Models
 
 
     protected:
+      // Details of failed numbers.
       shared_ptr<vector<Data::FailInfo>> failInfo_ {};
+      // Number of successfully imported entries.
       shared_ptr<int32_t> successCount_ {};
+      // Total number of imported entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -184,10 +190,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // Import result.
     shared_ptr<InsertAiOutboundPhoneNumsResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

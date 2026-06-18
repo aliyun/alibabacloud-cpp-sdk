@@ -80,11 +80,19 @@ namespace Models
 
 
   protected:
+    // Current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // List of department IDs.
     shared_ptr<vector<int64_t>> depIds_ {};
+    // List of skill group IDs.
     shared_ptr<vector<int64_t>> groupIds_ {};
+    // AICCS instance ID.  
+    // 
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page size. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The agent ID.
     shared_ptr<string> agentId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

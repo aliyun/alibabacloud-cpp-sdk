@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // The department ID.  
+    // 
+    // You can call the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API and check the **DepartmentId** field in the response to obtain the department ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> departmentId_ {};
+    // The AICCS instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

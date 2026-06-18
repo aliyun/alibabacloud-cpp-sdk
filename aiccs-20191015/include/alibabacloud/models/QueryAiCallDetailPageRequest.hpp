@@ -216,26 +216,81 @@ namespace Models
 
 
   protected:
+    // The batch ID. You can find this ID by clicking Details on the **Call Task Management** page.
     shared_ptr<string> batchId_ {};
+    // The call result. Valid values:
+    // 
+    // - CALL_FORWARDING: Call Forwarding.
+    // 
+    // - INCOMING_CALL_BARRED: Incoming Call Barred.
+    // 
+    // - CALL_REJECTED: Call Rejected.
+    // 
+    // - ANSWERED: Answered.
+    // 
+    // - USER_BUSY: User Busy.
+    // 
+    // - POWERED_OFF: Powered Off.
+    // 
+    // - NO_USER_RESPONSE: No User Response.
+    // 
+    // - OPERATOR_BLOCK: Operator Block.
+    // 
+    // - OTHERS: Others.
+    // 
+    // - SUSPEND: Suspend.
+    // 
+    // - CANCEL: Canceled by the caller.
+    // 
+    // - INVALID_NUMBER: Invalid Number.
+    // 
+    // - UNAVAILABLE: Unavailable.
+    // 
+    // - NETWORK_BUSY: Network Busy.
+    // 
+    // - NO_ANSWER: No Answer.
     shared_ptr<string> callResult_ {};
+    // The called number.
     shared_ptr<string> calledNumber_ {};
+    // A list of up to 100 detail IDs.
     shared_ptr<vector<int64_t>> detailIds_ {};
+    // The encryption method. Valid values: 0 (None), 1 (MD5), 2 (SHA256), and 3 (SM3).
     shared_ptr<int64_t> encryptionType_ {};
+    // The end of the call time range. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> endCallingTime_ {};
+    // The end of the import time range. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> endImportedTime_ {};
+    // The major intent. You can find this intent by clicking Agent Details on the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page.
     shared_ptr<string> majorIntent_ {};
+    // The maximum conversation duration, in minutes.
     shared_ptr<int64_t> maxConversationDuration_ {};
+    // The minimum conversation duration, in minutes.
     shared_ptr<int64_t> minConversationDuration_ {};
+    // A custom ID provided by the caller. This ID is returned in the receipt message for request tracking.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The value must be greater than **0**. The default value is **1**.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page. The default value is **10**.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The start of the call time range. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> startCallingTime_ {};
+    // The start of the import time range. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> startImportedTime_ {};
+    // The task status. Valid values:
+    // 
+    // - 0: Pending.
+    // 
+    // - 1: Completed.
+    // 
+    // - 2: Failed.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> status_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

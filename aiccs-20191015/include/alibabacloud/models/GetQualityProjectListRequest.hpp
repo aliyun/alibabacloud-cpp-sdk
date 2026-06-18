@@ -94,13 +94,27 @@ namespace Models
 
 
   protected:
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The current page. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
+    // Page size. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
+    // Quality inspection job ID (supports fuzzy search).
     shared_ptr<int64_t> projectId_ {};
+    // Quality inspection job name (supports fuzzy search).
     shared_ptr<string> projectName_ {};
+    // Quality inspection job status. Valid values:  
+    // 
+    // - **0**: Start  
+    // - **1**: Shutdown
     shared_ptr<int32_t> status_ {};
+    // The check frequency type. Valid values:
+    // 
+    // - **1**: Periodic quality inspection
+    // - **4**: Temporary quality inspection
     shared_ptr<int64_t> checkFreqType_ {};
   };
 

@@ -229,25 +229,46 @@ namespace Models
 
 
   protected:
+    // List of session IDs for term query.
     shared_ptr<vector<string>> channelId_ {};
+    // Channel Type.
     shared_ptr<vector<int32_t>> channelType_ {};
+    // The right boundary of the time range for session end. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> closeTimeEnd_ {};
+    // The left boundary of the time range for session end. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> closeTimeStart_ {};
+    // Current page. The value must be greater than **0**. Default Value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // Satisfaction level.
     shared_ptr<vector<int32_t>> evaluationLevel_ {};
+    // Satisfaction score.
     shared_ptr<vector<int32_t>> evaluationScore_ {};
+    // Evaluation status.
     shared_ptr<vector<int32_t>> evaluationStatus_ {};
+    // The right boundary of the time range for session start. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> firstTimeEnd_ {};
+    // The left boundary of the time range for session start. UNIX timestamp format (unit: ms).
     shared_ptr<int64_t> firstTimeStart_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of membership IDs to query.
     shared_ptr<vector<int64_t>> memberId_ {};
+    // A list of membership names to query.
     shared_ptr<vector<string>> memberName_ {};
+    // Number of entries per page. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
+    // List of inbound skill group IDs.
     shared_ptr<vector<int64_t>> queueId_ {};
+    // A list of service agent IDs to query.
     shared_ptr<vector<int64_t>> servicerId_ {};
+    // List of service agent names to query.
     shared_ptr<vector<string>> servicerName_ {};
+    // List of touch IDs for term query.
     shared_ptr<vector<int64_t>> touchId_ {};
+    // Touch type.
     shared_ptr<vector<int32_t>> touchType_ {};
   };
 

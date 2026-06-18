@@ -113,13 +113,29 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of items per page. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The robot name, which is the script name. You can view the names of scripts that have passed Review in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface.
     shared_ptr<string> robotName_ {};
+    // Job Status. Valid values:
+    // 
+    // - **INIT**: Not started.
+    // - **RELEASE**: Parsing.
+    // - **RUNNING**: Executing.
+    // - **STOP**: Paused manually.
+    // - **SYSTEM_STOP**: Paused by the system.
+    // - **READY**: Pending execution.
+    // - **CANCEL**: Stopped manually.
+    // - **SYSTEM_CANCEL**: Stopped by the system.
+    // - **DONE**: Completed.
     shared_ptr<string> status_ {};
+    // The unique job ID of the robot calling job. You can view it in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or obtain it by using the [CreateTask](https://help.aliyun.com/document_detail/223556.html) API.
     shared_ptr<int64_t> taskId_ {};
+    // The job name. You can view the names of created jobs in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
     shared_ptr<string> taskName_ {};
   };
 

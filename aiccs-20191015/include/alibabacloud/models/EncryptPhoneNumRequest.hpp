@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The plaintext phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNum_ {};
   };

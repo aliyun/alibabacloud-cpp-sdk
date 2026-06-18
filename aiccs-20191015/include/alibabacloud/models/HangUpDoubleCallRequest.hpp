@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Session ID.
     shared_ptr<string> acid_ {};
+    // Artificial Intelligence Cloud Call Service instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
     shared_ptr<string> instanceId_ {};
   };
 

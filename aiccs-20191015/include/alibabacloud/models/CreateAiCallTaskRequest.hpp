@@ -220,29 +220,53 @@ namespace Models
 
 
   protected:
+    // The ID of a published agent.
     shared_ptr<string> agentId_ {};
     shared_ptr<string> applicationCode_ {};
+    // The list of callable days.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> callDay_ {};
+    // The retry interval, in minutes. The maximum value is 720.
     shared_ptr<int64_t> callRetryInterval_ {};
+    // The failure reasons that trigger a retry.
     shared_ptr<vector<string>> callRetryReason_ {};
+    // The number of retries. The maximum value is 3.
     shared_ptr<int64_t> callRetryTimes_ {};
+    // The list of callable time periods.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> callTime_ {};
     shared_ptr<string> lineEncoding_ {};
     shared_ptr<string> linePhoneNum_ {};
+    // Specifies whether to enable retry. Valid values:
+    // 
+    // - `true`: Enables retry.
+    // 
+    // - `false` (default): Disables retry.
     shared_ptr<bool> missCallRetry_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<int64_t> phoneType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<int64_t> source_ {};
+    // The startup mode. Valid values:
+    // 
+    // - `IMMEDIATE`: Starts the task immediately.
+    // 
+    // - `SCHEDULE`: Starts the task at a scheduled time.
+    // 
     // This parameter is required.
     shared_ptr<string> startType_ {};
+    // The task concurrency. The maximum value is 500.
     shared_ptr<int64_t> taskCps_ {};
+    // The name of the task. It must be unique within an account.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
+    // The scheduled start time for the task, specified as a timestamp in milliseconds. This parameter is required and applies only when `StartType` is set to `SCHEDULE`.
     shared_ptr<int64_t> taskStartTime_ {};
+    // The service instance used for outbound calls.
     shared_ptr<string> virtualNumber_ {};
   };
 

@@ -103,13 +103,18 @@ namespace Models
 
 
   protected:
+    // AccountId.
     shared_ptr<string> accountId_ {};
+    // Account type.
     shared_ptr<string> accountType_ {};
+    // Session ID.
     shared_ptr<string> acid_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Product name. Default value: **aiccs**.
     shared_ptr<string> prodCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Recording desensitization level. Valid values: **1–4**.
     shared_ptr<int32_t> secLevel_ {};
   };
 

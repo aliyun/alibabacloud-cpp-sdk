@@ -130,16 +130,30 @@ namespace Models
 
 
   protected:
+    // The agent name. The system performs a fuzzy search based on this name.
     shared_ptr<string> agentName_ {};
     shared_ptr<string> applicationCode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The value must be greater than **0**. The default value is **1**.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<int64_t> source_ {};
+    // The task status. Valid values:
+    // 
+    // - **INIT**: The task is initialized but has not started.
+    // 
+    // - **FAILED**: The task failed to start.
+    // 
+    // - **RUNNING**: The task is running.
+    // 
+    // - **STOPPED**: The task is stopped.
     shared_ptr<string> status_ {};
+    // The unique ID of the task.
     shared_ptr<string> taskId_ {};
+    // The task name. The system performs a fuzzy search based on this name.
     shared_ptr<string> taskName_ {};
   };
 

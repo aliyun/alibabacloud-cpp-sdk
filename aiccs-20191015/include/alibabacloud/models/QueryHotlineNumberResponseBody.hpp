@@ -163,7 +163,9 @@ namespace Models
 
 
           protected:
+            // The skill group ID.
             shared_ptr<int64_t> groupId_ {};
+            // The skill group name.
             shared_ptr<string> groupName_ {};
           };
 
@@ -193,8 +195,11 @@ namespace Models
 
 
         protected:
+          // Department ID.
           shared_ptr<int64_t> departmentId_ {};
+          // The department name.
           shared_ptr<string> departmentName_ {};
+          // The skill group list.
           shared_ptr<vector<CalloutRangeList::GroupDOList>> groupDOList_ {};
         };
 
@@ -281,16 +286,31 @@ namespace Models
 
 
       protected:
+        // Outbound calls apply to all departments.
         shared_ptr<bool> calloutAllDepartment_ {};
+        // List of departments for which outbound calls are effective.
         shared_ptr<vector<HotlineNumList::CalloutRangeList>> calloutRangeList_ {};
+        // Number description.
         shared_ptr<string> description_ {};
+        // Satisfaction status. Valid values:  
+        // - **0**: Neither inbound nor outbound calls are enabled.  
+        // - **1**: Inbound calls are enabled.  
+        // - **2**: Outbound calls are enabled.  
+        // - **3**: Both inbound and outbound calls are enabled.
         shared_ptr<int32_t> evaluationStatus_ {};
+        // Incoming call flow ID.
         shared_ptr<int64_t> flowId_ {};
+        // Inbound flow name.
         shared_ptr<string> flowName_ {};
+        // Hotline number.
         shared_ptr<string> hotlineNumber_ {};
+        // Indicates whether the number is used for inbound calls.
         shared_ptr<bool> inBoundEnabled_ {};
+        // Number location.
         shared_ptr<string> location_ {};
+        // Indicates whether the number is used for outbound calls.
         shared_ptr<bool> outboundEnabled_ {};
+        // Carrier.
         shared_ptr<string> sp_ {};
       };
 
@@ -327,9 +347,13 @@ namespace Models
 
 
     protected:
+      // Current page.
       shared_ptr<int64_t> currentPage_ {};
+      // Number list.
       shared_ptr<vector<Data::HotlineNumList>> hotlineNumList_ {};
+      // Page size.
       shared_ptr<int64_t> pageSize_ {};
+      // Total amount of data.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -373,10 +397,17 @@ namespace Models
 
 
   protected:
+    // The status code. A value of Success indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Hotline number configuration information.
     shared_ptr<QueryHotlineNumberResponseBody::Data> data_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

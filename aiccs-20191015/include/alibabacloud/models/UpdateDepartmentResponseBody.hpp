@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Indicates whether the operation succeeded. Valid values:  
+    // - **true**: Succeeded  
+    // - **false**: Failed.
     shared_ptr<bool> data_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API was invoked successfully. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

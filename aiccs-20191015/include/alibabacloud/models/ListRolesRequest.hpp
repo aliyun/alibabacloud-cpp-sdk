@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Unique ID for the customer request. Used for idempotency validation and can be generated using UUID.
     shared_ptr<string> clientToken_ {};
+    // AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

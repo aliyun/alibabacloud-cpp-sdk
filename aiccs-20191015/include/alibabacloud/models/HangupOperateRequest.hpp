@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // The call ID. Obtain this ID from the response of the [LlmSmartCall](https://help.aliyun.com/document_detail/2862828.html) or [LlmSmartCallEncrypt](https://help.aliyun.com/document_detail/2881065.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
+    // Specifies whether to hang up the call immediately. Valid values:
+    // 
+    // - true (default): Hangs up the call immediately.
+    // 
+    // - false: Hangs up the call after the current playback finishes.
     shared_ptr<bool> immediateHangup_ {};
   };
 

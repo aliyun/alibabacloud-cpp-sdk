@@ -26,8 +26,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DtmfOutOfRangeAction, dtmfOutOfRangeAction_);
       DARABONBA_PTR_TO_JSON(DtmfRetryPlayTimes, dtmfRetryPlayTimes_);
       DARABONBA_PTR_TO_JSON(DtmfRetryPromptText, dtmfRetryPromptText_);
+      DARABONBA_PTR_TO_JSON(DtmfSendMaxCount, dtmfSendMaxCount_);
+      DARABONBA_PTR_TO_JSON(DtmfSendWaitTimeout, dtmfSendWaitTimeout_);
       DARABONBA_PTR_TO_JSON(DyvmsSceneName, dyvmsSceneName_);
       DARABONBA_PTR_TO_JSON(EnableDtmfReceive, enableDtmfReceive_);
+      DARABONBA_PTR_TO_JSON(EnableDtmfSend, enableDtmfSend_);
       DARABONBA_PTR_TO_JSON(EnableMorse, enableMorse_);
       DARABONBA_PTR_TO_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_TO_JSON(ModelCode, modelCode_);
@@ -35,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MuteActive, muteActive_);
       DARABONBA_PTR_TO_JSON(MuteDuration, muteDuration_);
       DARABONBA_PTR_TO_JSON(MuteHangupNum, muteHangupNum_);
+      DARABONBA_PTR_TO_JSON(MutePushMode, mutePushMode_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(QualificationId, qualificationId_);
@@ -65,8 +69,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DtmfOutOfRangeAction, dtmfOutOfRangeAction_);
       DARABONBA_PTR_FROM_JSON(DtmfRetryPlayTimes, dtmfRetryPlayTimes_);
       DARABONBA_PTR_FROM_JSON(DtmfRetryPromptText, dtmfRetryPromptText_);
+      DARABONBA_PTR_FROM_JSON(DtmfSendMaxCount, dtmfSendMaxCount_);
+      DARABONBA_PTR_FROM_JSON(DtmfSendWaitTimeout, dtmfSendWaitTimeout_);
       DARABONBA_PTR_FROM_JSON(DyvmsSceneName, dyvmsSceneName_);
       DARABONBA_PTR_FROM_JSON(EnableDtmfReceive, enableDtmfReceive_);
+      DARABONBA_PTR_FROM_JSON(EnableDtmfSend, enableDtmfSend_);
       DARABONBA_PTR_FROM_JSON(EnableMorse, enableMorse_);
       DARABONBA_PTR_FROM_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_FROM_JSON(ModelCode, modelCode_);
@@ -74,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MuteActive, muteActive_);
       DARABONBA_PTR_FROM_JSON(MuteDuration, muteDuration_);
       DARABONBA_PTR_FROM_JSON(MuteHangupNum, muteHangupNum_);
+      DARABONBA_PTR_FROM_JSON(MutePushMode, mutePushMode_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(QualificationId, qualificationId_);
@@ -231,25 +239,35 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable background sound.
       shared_ptr<bool> backgroundEnabled_ {};
-      // 背景音id
+      // The background sound ID.
       shared_ptr<int64_t> backgroundSound_ {};
-      // 背景音音量(id)
+      // The volume of the background sound. Valid values: `0` (low), `1` (medium), and `2` (high).
       shared_ptr<int64_t> backgroundVolume_ {};
+      // The account ID.
       shared_ptr<int64_t> customerAccountId_ {};
+      // Specifies whether to enable audio mixing.
       shared_ptr<bool> mixingEnabled_ {};
-      // 混音模版id
+      // The mixing template ID.
       shared_ptr<int64_t> mixingTemplate_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // TTS 变量播放时的声音速度。取值范围：-200~200，默认值为 0。
+      // The TTS playback speech rate. Valid values range from -200 to 200. The default value is 0.
       shared_ptr<int64_t> ttsSpeed_ {};
-      // 声音风格
+      // The voice style.
       shared_ptr<string> ttsStyle_ {};
-      // TTS 变量播放的音量。取值范围：0~100，默认值为 0。
+      // The TTS playback volume. Valid values range from 0 to 100. The default value is 0.
       shared_ptr<int64_t> ttsVolume_ {};
-      // 声音编码
+      // The voice code.
       shared_ptr<string> voiceCode_ {};
-      // 声音类型
+      // The voice type. Valid values:
+      // 
+      // ```
+      // SYSTEM: System voice.
+      // COSYCLONE: Cloned voice.
+      // BL-CUSTOM: Premium custom-cloned voice.
+      // ```
       shared_ptr<string> voiceType_ {};
     };
 
@@ -320,7 +338,9 @@ namespace Models
 
 
       protected:
+        // The number of consecutive interruptions.
         shared_ptr<int64_t> interruptNum_ {};
+        // The interruption protection duration, in seconds.
         shared_ptr<double> interruptProtectDuration_ {};
       };
 
@@ -371,28 +391,29 @@ namespace Models
 
 
     protected:
-      // 防止连续抢话功能配置
+      // The configuration to prevent consecutive barge-ins.
       shared_ptr<InterruptConfig::AvoidInterruptDTO> avoidInterruptDTO_ {};
-      // 防止连续抢话功能是否开启
+      // Specifies whether to prevent consecutive barge-ins.
       shared_ptr<bool> enableAvoidInterrupt_ {};
+      // Specifies whether to enable the backchannel configuration for interruptions.
       shared_ptr<bool> enableInterruptBackchannel_ {};
-      // 开场白全程不打断
+      // Specifies whether to make the entire opening statement non-interruptible.
       shared_ptr<bool> enableStartwordEntireNotInterrupt_ {};
-      // 开场白不打断配置是否开启
+      // Specifies whether to make the opening statement non-interruptible.
       shared_ptr<bool> enableStartwordNotInterrupt_ {};
-      // 开场白保护时长
+      // The protection duration for the opening statement, in seconds.
       shared_ptr<double> startwordProtectDuration_ {};
     };
 
     virtual bool empty() const override { return this->applicationCode_ == nullptr
         && this->applicationCps_ == nullptr && this->applicationName_ == nullptr && this->callAssistantHangup_ == nullptr && this->callAssistantRecognize_ == nullptr && this->callConnectedTriggerModel_ == nullptr
         && this->dtmfAllowedDigits_ == nullptr && this->dtmfAutoValidateEnable_ == nullptr && this->dtmfDigitCount_ == nullptr && this->dtmfInputTimeout_ == nullptr && this->dtmfOutOfRangeAction_ == nullptr
-        && this->dtmfRetryPlayTimes_ == nullptr && this->dtmfRetryPromptText_ == nullptr && this->dyvmsSceneName_ == nullptr && this->enableDtmfReceive_ == nullptr && this->enableMorse_ == nullptr
-        && this->interruptConfig_ == nullptr && this->modelCode_ == nullptr && this->modelVersion_ == nullptr && this->muteActive_ == nullptr && this->muteDuration_ == nullptr
-        && this->muteHangupNum_ == nullptr && this->ownerId_ == nullptr && this->prompt_ == nullptr && this->qualificationId_ == nullptr && this->qualificationName_ == nullptr
-        && this->recordingFile_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sessionTimeout_ == nullptr && this->source_ == nullptr
-        && this->speechContent_ == nullptr && this->speechId_ == nullptr && this->startWord_ == nullptr && this->startWordType_ == nullptr && this->ttsConfig_ == nullptr
-        && this->usageDesc_ == nullptr; };
+        && this->dtmfRetryPlayTimes_ == nullptr && this->dtmfRetryPromptText_ == nullptr && this->dtmfSendMaxCount_ == nullptr && this->dtmfSendWaitTimeout_ == nullptr && this->dyvmsSceneName_ == nullptr
+        && this->enableDtmfReceive_ == nullptr && this->enableDtmfSend_ == nullptr && this->enableMorse_ == nullptr && this->interruptConfig_ == nullptr && this->modelCode_ == nullptr
+        && this->modelVersion_ == nullptr && this->muteActive_ == nullptr && this->muteDuration_ == nullptr && this->muteHangupNum_ == nullptr && this->mutePushMode_ == nullptr
+        && this->ownerId_ == nullptr && this->prompt_ == nullptr && this->qualificationId_ == nullptr && this->qualificationName_ == nullptr && this->recordingFile_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sessionTimeout_ == nullptr && this->source_ == nullptr && this->speechContent_ == nullptr
+        && this->speechId_ == nullptr && this->startWord_ == nullptr && this->startWordType_ == nullptr && this->ttsConfig_ == nullptr && this->usageDesc_ == nullptr; };
     // applicationCode Field Functions 
     bool hasApplicationCode() const { return this->applicationCode_ != nullptr;};
     void deleteApplicationCode() { this->applicationCode_ = nullptr;};
@@ -484,6 +505,20 @@ namespace Models
     inline UpdateModelApplicationRequest& setDtmfRetryPromptText(string dtmfRetryPromptText) { DARABONBA_PTR_SET_VALUE(dtmfRetryPromptText_, dtmfRetryPromptText) };
 
 
+    // dtmfSendMaxCount Field Functions 
+    bool hasDtmfSendMaxCount() const { return this->dtmfSendMaxCount_ != nullptr;};
+    void deleteDtmfSendMaxCount() { this->dtmfSendMaxCount_ = nullptr;};
+    inline int64_t getDtmfSendMaxCount() const { DARABONBA_PTR_GET_DEFAULT(dtmfSendMaxCount_, 0L) };
+    inline UpdateModelApplicationRequest& setDtmfSendMaxCount(int64_t dtmfSendMaxCount) { DARABONBA_PTR_SET_VALUE(dtmfSendMaxCount_, dtmfSendMaxCount) };
+
+
+    // dtmfSendWaitTimeout Field Functions 
+    bool hasDtmfSendWaitTimeout() const { return this->dtmfSendWaitTimeout_ != nullptr;};
+    void deleteDtmfSendWaitTimeout() { this->dtmfSendWaitTimeout_ = nullptr;};
+    inline int64_t getDtmfSendWaitTimeout() const { DARABONBA_PTR_GET_DEFAULT(dtmfSendWaitTimeout_, 0L) };
+    inline UpdateModelApplicationRequest& setDtmfSendWaitTimeout(int64_t dtmfSendWaitTimeout) { DARABONBA_PTR_SET_VALUE(dtmfSendWaitTimeout_, dtmfSendWaitTimeout) };
+
+
     // dyvmsSceneName Field Functions 
     bool hasDyvmsSceneName() const { return this->dyvmsSceneName_ != nullptr;};
     void deleteDyvmsSceneName() { this->dyvmsSceneName_ = nullptr;};
@@ -496,6 +531,13 @@ namespace Models
     void deleteEnableDtmfReceive() { this->enableDtmfReceive_ = nullptr;};
     inline bool getEnableDtmfReceive() const { DARABONBA_PTR_GET_DEFAULT(enableDtmfReceive_, false) };
     inline UpdateModelApplicationRequest& setEnableDtmfReceive(bool enableDtmfReceive) { DARABONBA_PTR_SET_VALUE(enableDtmfReceive_, enableDtmfReceive) };
+
+
+    // enableDtmfSend Field Functions 
+    bool hasEnableDtmfSend() const { return this->enableDtmfSend_ != nullptr;};
+    void deleteEnableDtmfSend() { this->enableDtmfSend_ = nullptr;};
+    inline bool getEnableDtmfSend() const { DARABONBA_PTR_GET_DEFAULT(enableDtmfSend_, false) };
+    inline UpdateModelApplicationRequest& setEnableDtmfSend(bool enableDtmfSend) { DARABONBA_PTR_SET_VALUE(enableDtmfSend_, enableDtmfSend) };
 
 
     // enableMorse Field Functions 
@@ -547,6 +589,13 @@ namespace Models
     void deleteMuteHangupNum() { this->muteHangupNum_ = nullptr;};
     inline int64_t getMuteHangupNum() const { DARABONBA_PTR_GET_DEFAULT(muteHangupNum_, 0L) };
     inline UpdateModelApplicationRequest& setMuteHangupNum(int64_t muteHangupNum) { DARABONBA_PTR_SET_VALUE(muteHangupNum_, muteHangupNum) };
+
+
+    // mutePushMode Field Functions 
+    bool hasMutePushMode() const { return this->mutePushMode_ != nullptr;};
+    void deleteMutePushMode() { this->mutePushMode_ = nullptr;};
+    inline string getMutePushMode() const { DARABONBA_PTR_GET_DEFAULT(mutePushMode_, "") };
+    inline UpdateModelApplicationRequest& setMutePushMode(string mutePushMode) { DARABONBA_PTR_SET_VALUE(mutePushMode_, mutePushMode) };
 
 
     // ownerId Field Functions 
@@ -657,65 +706,83 @@ namespace Models
 
 
   protected:
-    // 应用编码
+    // The application code.
     // 
     // This parameter is required.
     shared_ptr<string> applicationCode_ {};
-    // 应用并发请求数
+    // The number of concurrent requests for the application.
     shared_ptr<int64_t> applicationCps_ {};
-    // 模型应用名称
+    // The name of the model application.
     shared_ptr<string> applicationName_ {};
+    // Specifies whether to hang up the call when a call assistant is detected.
     shared_ptr<bool> callAssistantHangup_ {};
-    // 通话助手识别
+    // Specifies whether to enable call assistant recognition.
     shared_ptr<bool> callAssistantRecognize_ {};
+    // Specifies whether to trigger the model immediately after the call is connected.
     shared_ptr<bool> callConnectedTriggerModel_ {};
+    // The allowed DTMF digits, specified as a comma-separated string such as `1,2,3`. You can specify a maximum of 20 digits.
     shared_ptr<string> dtmfAllowedDigits_ {};
+    // Specifies whether to automatically validate the DTMF digits.
     shared_ptr<bool> dtmfAutoValidateEnable_ {};
+    // The number of DTMF digits to collect. The value must be between 1 and 12.
     shared_ptr<int64_t> dtmfDigitCount_ {};
+    // The timeout for DTMF input, in seconds. The value must be between 1 and 10.
     shared_ptr<int64_t> dtmfInputTimeout_ {};
+    // The action to take when the input is outside the allowed range. Valid values: `RETURN_MODEL` and `AUTO_RETRY`.
     shared_ptr<string> dtmfOutOfRangeAction_ {};
+    // The number of retry attempts. The value must be between 1 and 3. This parameter is effective only when `DtmfOutOfRangeAction` is set to `AUTO_RETRY`.
     shared_ptr<int64_t> dtmfRetryPlayTimes_ {};
+    // The custom text for the retry prompt. The text can contain a maximum of 50 characters. If this parameter is empty, the system uses the default prompt: "Invalid input. Please try again."
     shared_ptr<string> dtmfRetryPromptText_ {};
-    // 场景名称
+    shared_ptr<int64_t> dtmfSendMaxCount_ {};
+    shared_ptr<int64_t> dtmfSendWaitTimeout_ {};
+    // The scene name.
     shared_ptr<string> dyvmsSceneName_ {};
+    // Specifies whether to enable the collection of DTMF signals. The default value is `false`.
     shared_ptr<bool> enableDtmfReceive_ {};
+    shared_ptr<bool> enableDtmfSend_ {};
+    // Specifies whether to enable the Morse code configuration. The default value is `false`.
     shared_ptr<bool> enableMorse_ {};
-    // 打断配置
+    // The interruption configuration.
     shared_ptr<UpdateModelApplicationRequest::InterruptConfig> interruptConfig_ {};
-    // 模型编码
+    // The model code.
     shared_ptr<string> modelCode_ {};
-    // 模型版本
+    // The model version.
     shared_ptr<string> modelVersion_ {};
-    // 第一个静音是否唤起模型
+    // Specifies whether the first mute event triggers the model.
     shared_ptr<bool> muteActive_ {};
-    // 静音时长
+    // The mute duration.
     shared_ptr<int64_t> muteDuration_ {};
-    // 连续多少个静音事件主动挂机
+    // The number of consecutive mute events that trigger an automatic hang-up.
     shared_ptr<int64_t> muteHangupNum_ {};
+    // 静音事件推送模式
+    shared_ptr<string> mutePushMode_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // 提示词
+    // The prompt.
     shared_ptr<string> prompt_ {};
-    // 资质ID
+    // The qualification ID.
     shared_ptr<int64_t> qualificationId_ {};
-    // 资质名称
+    // The name of the qualification.
     shared_ptr<string> qualificationName_ {};
+    // The URL of the recording file.
     shared_ptr<string> recordingFile_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 最大通话时长
+    // The session timeout, which is the maximum duration of a call.
     shared_ptr<int64_t> sessionTimeout_ {};
-    // 来源
+    // The value must be `USER`.
     shared_ptr<string> source_ {};
-    // 话术内容
+    // The content of the speech.
     shared_ptr<string> speechContent_ {};
-    // 话束id
+    // The speech ID.
     shared_ptr<int64_t> speechId_ {};
-    // 开场白
+    // The opening statement.
     shared_ptr<string> startWord_ {};
+    // The type of the opening statement. Valid values:
     shared_ptr<int64_t> startWordType_ {};
-    // tts配置，包括音色、音量、音速等。
+    // The TTS configuration, such as voice, volume, and speech rate.
     shared_ptr<UpdateModelApplicationRequest::TtsConfig> ttsConfig_ {};
-    // 用途
+    // The purpose of the application.
     shared_ptr<string> usageDesc_ {};
   };
 

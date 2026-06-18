@@ -213,19 +213,34 @@ namespace Models
 
 
       protected:
+        // The agent ID.
         shared_ptr<int64_t> agentId_ {};
+        // The agent creation mode. Valid values:<br>
+        // `0`: Prompt mode (`PROMPT`). `1`: Conversation flow mode (`CONVERSATION`).<br>
         shared_ptr<int64_t> agentMode_ {};
+        // The agent name.
         shared_ptr<string> agentName_ {};
+        // The application code.
         shared_ptr<string> applicationCode_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The deployment branch ID.
         shared_ptr<int64_t> deployBranchId_ {};
+        // The effective branch name.
         shared_ptr<string> deployBranchName_ {};
+        // The agent description.
         shared_ptr<string> description_ {};
+        // The effective version ID.
         shared_ptr<int64_t> effectiveVersionId_ {};
+        // The effective version name.
         shared_ptr<string> effectiveVersionName_ {};
+        // Specifies whether the agent can be used for outbound calls. A value of `true` means the agent\\"s current deployment branch has a published version.
         shared_ptr<bool> isAvailable_ {};
+        // The most recent publish time.
         shared_ptr<string> latestPublishTime_ {};
+        // The last modified time.
         shared_ptr<string> modifyTime_ {};
+        // The scene.
         shared_ptr<string> scene_ {};
       };
 
@@ -262,9 +277,13 @@ namespace Models
 
 
     protected:
+      // The data list.
       shared_ptr<vector<Data::List>> list_ {};
+      // The current page number.
       shared_ptr<int64_t> pageNo_ {};
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
+      // The total count.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -315,11 +334,21 @@ namespace Models
 
 
   protected:
+    // The access denied detail.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<PageQueryAgentListNewResponseBody::Data> data_ {};
+    // The message that describes the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Specifies whether the request succeeded.
+    // 
+    // - **`true`**: The request succeeded.
+    // 
+    // - **`false`**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

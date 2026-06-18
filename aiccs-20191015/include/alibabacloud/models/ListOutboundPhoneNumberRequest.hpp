@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // Agent account name, which is the phone number or mailbox entered during account registration. It is unique within the instance.
     shared_ptr<string> accountName_ {};
+    // Unique customer request ID. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+    // You can obtain it in the <b>Instance Management</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

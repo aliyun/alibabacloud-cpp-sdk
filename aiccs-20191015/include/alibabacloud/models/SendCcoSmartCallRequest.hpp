@@ -324,40 +324,100 @@ namespace Models
 
 
   protected:
+    // Indicates whether the initial playback file can be interrupted. The default value is **true**, meaning the initial playback file can be interrupted.
     shared_ptr<bool> actionCodeBreak_ {};
+    // Interrupts based on the user\\"s continuous speaking duration. Takes effect only when ActionCodeBreak is set to **true**. Unit: milliseconds.
     shared_ptr<int32_t> actionCodeTimeBreak_ {};
+    // Acoustic model ID.
     shared_ptr<string> asrAlsAmId_ {};
+    // ASR foundation model.
+    // 
+    // - **customer_service_8k**: Mandarin.
+    // - **dialect_customer_service_8k**: Strong accent.
+    // - If only **asrModelId** is set, the specified ASR model is used.
+    // - If only **AsrBaseId** is set, the specified ASR foundation model is used.
+    // - If neither is set, the default ASR foundation model is used. By default, **AsrBaseId** is **customer_service_8k**, which corresponds to the Mandarin ASR foundation model.
+    // - If both are set, ensure they correctly correspond to each other.
+    // 
+    // > When invoking the **SendCcoSmartCall** API, you must specify the ASR model to use. We recommend that you specify either **asrModelId** or **AsrBaseId**, but not both.
     shared_ptr<string> asrBaseId_ {};
+    // The ASR model ID. You can view the ASR model ID on the [ASR Model Management Page](https://aiccs.console.aliyun.com/sentence/model/private?spm=a2c4g.11186623.0.0.7f9b2964fYSGv4).
     shared_ptr<string> asrModelId_ {};
+    // Hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management Page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
     shared_ptr<string> asrVocabularyId_ {};
+    // ID of the background audio file played during the conversation between the user and the robot. You can log on to the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview), choose **Intelligent Interaction > Audio File Management**, and click **View Details** to obtain the corresponding audio ID.
     shared_ptr<string> backgroundFileCode_ {};
+    // This parameter is not currently supported.
     shared_ptr<int32_t> backgroundSpeed_ {};
+    // This parameter is not currently supported.
     shared_ptr<int32_t> backgroundVolume_ {};
+    // Callee number. Only numbers from the Chinese mainland are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> calledNumber_ {};
+    // Called party display number. This must be a purchased number.
+    // 
+    // You can log on to the [Contact Center console](https://aiccs.console.aliyun.com/overview?spm=a2c4g.11186623.0.0.7f9bf9658X6jte) to view your purchased numbers.
+    // 
     // This parameter is required.
     shared_ptr<string> calledShowNumber_ {};
+    // A dynamic extension ID reserved for the caller. This ID is returned in the webhook address and used as a developer identity for the customer.
     shared_ptr<string> dynamicId_ {};
+    // The early media speech recognition identity. When set to true, it records the reason why the call was not answered. The default value is **false**, meaning this feature is disabled.
+    // 
+    // > To enable early media speech recognition, you must manually set this parameter to **true**.
     shared_ptr<bool> earlyMediaAsr_ {};
+    // Whether to execute ITN in post-processing.
+    // 
+    // > When set to **true**, Chinese numerals are converted to Arabic numerals in the output. The default value is **false**.
     shared_ptr<bool> enableITN_ {};
+    // Mute duration, used to set how long the user remains silent before the call ends. The unit is milliseconds, and the valid range is **1000–20000**.  
+    // 
+    // - If the specified value is outside this range, the default MuteTime is **10000**.  
+    // - This parameter can be dynamically set during the call, and the last setting takes effect.
     shared_ptr<int32_t> muteTime_ {};
+    // An ID reserved for the caller, which will ultimately be returned to the caller in the receipt message.  
+    // It is of string type and must be 1 to 15 bytes in length.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The pause duration. This parameter specifies how long a user must pause to indicate the end of a sentence. Unit: milliseconds. Valid values are **300–1200**. If the specified value is outside this range, PauseTime defaults to **800**.
+    // 
+    // > The first setting takes effect; subsequent settings are ignored.
     shared_ptr<int32_t> pauseTime_ {};
+    // This parameter is not currently supported.
     shared_ptr<int32_t> playTimes_ {};
+    // Product name. Default value: **aiccs**.
     shared_ptr<string> prodCode_ {};
+    // Whether to record during the call.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> recordFlag_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The maximum call duration, in seconds. The call is automatically disconnected after timeout.
     shared_ptr<int32_t> sessionTimeout_ {};
+    // This parameter is currently not supported.
     shared_ptr<int32_t> speed_ {};
+    // Whether to configure TTS voice parameters.
+    // - If set to **true**, you must configure the voice style using the TtsStyle, TtsVolume, and TtsSpeed parameters.
+    // - If set to **false**, related parameters do not take effect, even if configured.
     shared_ptr<bool> ttsConf_ {};
+    // The playback speed of the TTS variable. Valid values range from -200 to 200. The default value is 0.
     shared_ptr<int32_t> ttsSpeed_ {};
+    // The voice style for TTS variable playback. The default value is **xiaoyun**. For available styles, see the voice style list.
     shared_ptr<string> ttsStyle_ {};
+    // Playback volume for TTS variables. Valid values: **0–100**. Default value: **0**.
     shared_ptr<int32_t> ttsVolume_ {};
+    // The audio playback file for Intelligent outbound calls, which supports both network files and TTS. Multiple files and TTS parameters can be mixed and separated by commas (,). The replacement values for TTS parameters are specified in **VoiceCodeParam**.
+    // 
+    // - When using a network file for playback: Set the VoiceCode parameter to a publicly accessible URL of the audio file. We recommend using a .wav audio file with a sampling frequency of 8000 Hz or 16000 Hz.
+    // - When using TTS for playback: Set the VoiceCode parameter to a variable name such as $name$, and define the corresponding content for this variable in VoiceCodeParam.
+    // 
     // This parameter is required.
     shared_ptr<string> voiceCode_ {};
+    // A JSON-formatted string for passing TTS parameters. It must correspond to the TTS parameters of VoiceCode.
     shared_ptr<string> voiceCodeParam_ {};
+    // Playback volume for user audio. Valid values: –4 to 4. We recommend setting it to 1.
     shared_ptr<int32_t> volume_ {};
   };
 

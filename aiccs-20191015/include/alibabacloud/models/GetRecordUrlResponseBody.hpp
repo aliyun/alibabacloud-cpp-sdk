@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The session ID.
       shared_ptr<string> acid_ {};
+      // The recording link.
       shared_ptr<string> ossLink_ {};
     };
 
@@ -110,9 +112,13 @@ namespace Models
 
 
   protected:
+    // The data list.
     shared_ptr<GetRecordUrlResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

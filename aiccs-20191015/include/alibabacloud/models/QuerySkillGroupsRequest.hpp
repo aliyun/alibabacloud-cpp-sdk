@@ -84,13 +84,32 @@ namespace Models
 
 
   protected:
+    // The channel type of the skill group. Valid values:
+    // 
+    // - **0**: Returns all skill groups.
+    // - **1**: Hotline skill group.
+    // - **2**: Online skill group.
+    // - **3**: Online and hotline skill group.
+    // - **4**: Ticket skill group.
+    // - **5**: Hotline and ticket skill group.
+    // - **6**: Online and ticket skill group.
+    // - **7**: Online, hotline, and ticket skill group.
     shared_ptr<int32_t> channelType_ {};
+    // A unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // The department ID.
     shared_ptr<int64_t> departmentId_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The current page number. The value must be greater than **0**. Default Value: **1**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // Page size. The value must be greater than **0**. Default value: **20**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

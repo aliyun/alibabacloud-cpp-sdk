@@ -349,34 +349,122 @@ namespace Models
 
 
       protected:
+        // Session ID. The acid in WebSocket after an incoming call.
         shared_ptr<string> acid_ {};
+        // Agent ID.  
+        // 
+        // > This field is null in non–change owner scenarios.
         shared_ptr<string> activeTransferId_ {};
+        // Call duration, in seconds.  
+        // 
+        // > Unconnected calls do not include call duration.
         shared_ptr<int32_t> callContinueTime_ {};
+        // Call result. Valid values:
+        // 
+        // - **normal**: Normal hang-up.
+        // - **touchRouteError**: Queue hang-up.
+        // - **touchInQueue**: Queue hang-up.
+        // - **touchInLoss**: Queue hang-up.
+        // - **userHangup**: User hang-up or IVR hang-up.
+        // - **sysHangup**: System hang-up or IVR hang-up.
+        // - **transferAgent**: User hang-up or IVR hang-up.
+        // - **dailing**: Agent hang-up or ring-off hang-up.
+        // - **TouchRingCallLoss**: Queue hang-up or ring-off hang-up.
         shared_ptr<string> callResult_ {};
+        // Call type. Valid values:
+        // - **1**: Outbound call
+        // - **2**: Inbound call
+        // - **3**: Change owner
         shared_ptr<int32_t> callType_ {};
+        // Called number.
         shared_ptr<string> calledNumber_ {};
+        // Calling party number, such as a user\\"s phone number, agent number, or machine number.
         shared_ptr<string> callingNumber_ {};
+        // Call creation time.
+        // 
+        // > - In outbound scenarios, this is the time when the outbound call was initiated.
+        // > - In inbound scenarios, this is the time when the call entered the ACC system.
         shared_ptr<string> createTime_ {};
+        // Satisfaction rating, indicated by star level. Valid values:
+        // 
+        // - **2**: Two-star satisfaction
+        // - **3**: Three-star satisfaction
+        // - **4**: Four-star satisfaction
+        // - **5**: Five-star satisfaction
+        // 
+        // > This field has no data in outbound scenarios or scenarios where the call was not answered.
         shared_ptr<int32_t> evaluationLevel_ {};
+        // Satisfaction score. Valid values:
+        // - **1**: Very dissatisfied
+        // - **2**: Dissatisfied
+        // - **3**: Neutral
+        // - **4**: Satisfied
+        // - **5**: Very satisfied
+        // 
+        // > This field has no data in outbound scenarios or scenarios where the call was not answered.
         shared_ptr<int32_t> evaluationScore_ {};
+        // Skill group ID.  
+        // 
+        // > When CallType is **1**, outbound call scenarios do not include skill group information.
         shared_ptr<int64_t> groupId_ {};
+        // Skill group name.  
+        // > When CallType is **1**, outbound call scenarios do not include skill group information.
         shared_ptr<string> groupName_ {};
+        // Party that hung up. Valid values:  
+        // 
+        // - **1**: System hung up  
+        // - **2**: Customer hung up  
+        // - **3**: Agent hung up  
+        // - **null**: Unknown
         shared_ptr<string> hangUpRole_ {};
+        // Hang-up time.
         shared_ptr<string> hangUpTime_ {};
+        // The GUID of the call detail record.
         shared_ptr<string> id_ {};
+        // Time when the call entered the queue for assignment.  
+        // 
+        // > Outbound call scenarios do not include queue entry time.
         shared_ptr<string> inQueueTime_ {};
+        // Membership ID.
         shared_ptr<string> memberId_ {};
+        // Membership name.
         shared_ptr<string> memberName_ {};
+        // The time when the hotline call is assigned and dequeued.
+        // 
+        // > Outbound scenarios do not have a dequeue time.
         shared_ptr<string> outQueueTime_ {};
+        // Agent ID. The phone number to which the call is transferred.
+        // > This field is null in non-transfer scenarios.
         shared_ptr<string> passiveTransferId_ {};
+        // The recipient of the transferred session. Valid values:
+        // - **1**: Agent ID.
+        // - **2**: Transferred phone number.
+        // 
+        // > This field is null in non-transfer scenarios.
         shared_ptr<string> passiveTransferIdType_ {};
+        // The time when the call is answered.
         shared_ptr<string> pickUpTime_ {};
+        // Queue duration.
         shared_ptr<int32_t> queueUpContinueTime_ {};
+        // Ringing duration, in seconds.
+        // 
+        // > Outbound scenarios do not have ringing duration.
         shared_ptr<int32_t> ringContinueTime_ {};
+        // The time when ringing ends.
+        // 
+        // > Outbound scenarios do not have a ring end time.
         shared_ptr<string> ringEndTime_ {};
+        // Ringing start time.  
+        // 
+        // > Outbound call scenarios do not include ringing start time.
         shared_ptr<string> ringStartTime_ {};
+        // Agent ID.  
+        // > In inbound scenarios, agent information is unavailable until the call is assigned to an agent.
         shared_ptr<string> servicerId_ {};
+        // Agent name.
+        // > Agent information is unavailable before the call is assigned to an agent in inbound scenarios.
         shared_ptr<string> servicerName_ {};
+        // Long-distance call.
         shared_ptr<string> trunkCall_ {};
       };
 
@@ -413,9 +501,13 @@ namespace Models
 
 
     protected:
+      // Call detail records.
       shared_ptr<vector<Data::CallDetailRecord>> callDetailRecord_ {};
+      // Current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // Number of items per page.
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -459,10 +551,15 @@ namespace Models
 
 
   protected:
+    // Status code. A value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Call data.
     shared_ptr<HotlineSessionQueryResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

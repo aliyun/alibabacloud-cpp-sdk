@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Customer information.
     shared_ptr<string> customerInfo_ {};
+    // Command ID.
     shared_ptr<string> invokeCmdId_ {};
+    // Creation Time
     shared_ptr<string> invokeCreateTime_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The status code. A value of \\"OK\\" indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The status message.
     shared_ptr<string> mesage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result of the operation. Valid values:
+    // 
+    // - **true**: The hang-up was successful.
+    // 
+    // - **false**: The hang-up operation failed.
     shared_ptr<bool> result_ {};
   };
 

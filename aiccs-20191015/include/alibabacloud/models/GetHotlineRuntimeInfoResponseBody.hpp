@@ -77,10 +77,15 @@ namespace Models
 
 
   protected:
+    // The status code. A return value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Hotline runtime information.
     Darabonba::Json data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

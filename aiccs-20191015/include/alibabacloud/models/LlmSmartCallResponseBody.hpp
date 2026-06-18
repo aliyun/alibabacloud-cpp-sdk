@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // Unique receipt ID for this call.
     shared_ptr<string> callId_ {};
+    // Request status code. A return value of "OK" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

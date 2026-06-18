@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // Session ID. This corresponds to the acid in WebSocket after an inbound call.
       shared_ptr<string> callId_ {};
+      // Connection ID.
       shared_ptr<string> connectionId_ {};
+      // Recording end UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
+      // Recording start UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
+      // Recording file URL.
       shared_ptr<string> url_ {};
     };
 
@@ -150,10 +155,15 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of Success indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Hotline session information.
     shared_ptr<vector<ListHotlineRecordResponseBody::Data>> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

@@ -93,9 +93,13 @@ namespace Models
 
 
     protected:
+      // Custom business information.
       shared_ptr<string> bizData_ {};
+      // The Activity ID associated with this outbound call.
       shared_ptr<int64_t> caseId_ {};
+      // The outbound phone number.
       shared_ptr<string> phoneNum_ {};
+      // The job ID.
       shared_ptr<int64_t> taskId_ {};
     };
 
@@ -139,10 +143,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business information associated with this call.
     shared_ptr<GetAiOutboundTaskBizDataResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

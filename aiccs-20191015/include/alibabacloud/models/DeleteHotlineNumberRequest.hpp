@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The hotline number.
+    // 
     // This parameter is required.
     shared_ptr<string> hotlineNumber_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

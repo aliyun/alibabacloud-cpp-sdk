@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // Channel type of the skill group.
       shared_ptr<int32_t> channelType_ {};
+      // Skill group description.
       shared_ptr<string> description_ {};
+      // Display name of the skill group.
       shared_ptr<string> displayName_ {};
+      // Name of the skill group.
       shared_ptr<string> name_ {};
+      // Skill group ID.
       shared_ptr<int64_t> skillGroupId_ {};
     };
 
@@ -150,10 +155,17 @@ namespace Models
 
 
   protected:
+    // Status code. A value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Skill group information.
     shared_ptr<vector<ListSkillGroupResponseBody::Data>> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

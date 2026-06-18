@@ -94,12 +94,28 @@ namespace Models
 
 
   protected:
+    // Hotline Custom Parameter in JSON format.
     shared_ptr<string> acc_ {};
+    // Agent account name, which is the phone number or mailbox specified during account registration. It is unique within the instance.
     shared_ptr<string> accountName_ {};
+    // Operation Type. Valid values:
+    // - **1**: Hotline.
+    // - **2**: Online.
+    // - **3**: Ticket.
     shared_ptr<int32_t> act_ {};
+    // Business Custom Parameter in JSON format.
     shared_ptr<string> biz_ {};
+    // Unique ID of the customer request. Used for idempotency validation. You can generate it by using a UUID.
     shared_ptr<string> clientToken_ {};
+    // Source type. Valid values:
+    // 
+    // - **hotlinebs_out**: Hotline.
+    // - **ticket_out**: Ticket.
+    // - **other_system_out**: Other system.
     shared_ptr<string> fromSource_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID.
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

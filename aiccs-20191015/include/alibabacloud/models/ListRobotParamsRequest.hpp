@@ -69,6 +69,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Robot ID, which is also the script ID. You can view it on the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface or obtain it by using the [ListAiccsRobot](https://help.aliyun.com/document_detail/2717998.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> robotId_ {};
   };

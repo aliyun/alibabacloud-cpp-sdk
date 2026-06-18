@@ -105,10 +105,15 @@ namespace Models
 
 
     protected:
+      // Skill group channel type.
       shared_ptr<int32_t> channelType_ {};
+      // Skill group description.
       shared_ptr<string> description_ {};
+      // Skill group display name.
       shared_ptr<string> displayName_ {};
+      // Skill group ID.
       shared_ptr<int64_t> skillGroupId_ {};
+      // Skill group name.
       shared_ptr<string> skillGroupName_ {};
     };
 
@@ -159,11 +164,17 @@ namespace Models
 
 
   protected:
+    // Current page.
     shared_ptr<int32_t> currentPage_ {};
+    // Data.
     shared_ptr<vector<QuerySkillGroupsResponseBody::Data>> data_ {};
+    // Number of items per page.
     shared_ptr<int32_t> onePageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalResults_ {};
   };
 

@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
-    // Agent ID
+    // The agent ID.
     shared_ptr<string> agentId_ {};
+    // The agent name.
     shared_ptr<string> agentName_ {};
+    // Indicates whether the agent is available for outbound calls. The value is `true` if the agent\\"s current deployment branch has a published version.
     shared_ptr<bool> isAvailable_ {};
+    // The page index. This parameter is deprecated. Use `PageNo` instead.
     shared_ptr<int64_t> pageIndex_ {};
+    // The page number.
     shared_ptr<int64_t> pageNo_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
   };
 

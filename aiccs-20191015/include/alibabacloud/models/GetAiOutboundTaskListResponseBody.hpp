@@ -195,17 +195,38 @@ namespace Models
 
 
       protected:
+        // Concurrent outbound calls.
+        // 
+        // > Parameter specific to auto dialing.
         shared_ptr<int32_t> concurrentRate_ {};
+        // The deadline for job creation. UNIX timestamp format, in milliseconds.
         shared_ptr<int64_t> createTime_ {};
+        // Job description.
         shared_ptr<string> description_ {};
+        // The number of completed tasks.
         shared_ptr<int32_t> finishCount_ {};
+        // Job completion rate.
         shared_ptr<float> finishRate_ {};
+        // Skill group ID (for predictive dialing) or IVR ID (for auto dialing).
         shared_ptr<int64_t> handlerId_ {};
+        // Skill group name or IVR name.
         shared_ptr<string> handlerName_ {};
+        // Job name.
         shared_ptr<string> name_ {};
+        // Task Status. Valid values:
+        // 
+        // - **0**: Not started.
+        // - **1**: In progress.
+        // - **2**: System paused.
+        // - **3**: Manually paused.
+        // - **4**: Completed.
+        // - **5**: Stopped.
         shared_ptr<int32_t> status_ {};
+        // Task status description.
         shared_ptr<string> statusDesc_ {};
+        // Job ID.
         shared_ptr<int64_t> taskId_ {};
+        // Total number of jobs.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -249,10 +270,18 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // Indicates whether there is a next page. Valid values:
+      // 
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> hasNextPage_ {};
+      // Job information.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of data entries.
       shared_ptr<int32_t> totalResults_ {};
     };
 
@@ -296,10 +325,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Job list.
     shared_ptr<GetAiOutboundTaskListResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

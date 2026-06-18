@@ -213,22 +213,42 @@ namespace Models
 
 
     protected:
+      // Customer ID.
       shared_ptr<int64_t> actionId_ {};
+      // Tenant ID.
       shared_ptr<int64_t> buId_ {};
+      // Callout ID.
       shared_ptr<int64_t> calloutId_ {};
+      // Call name.
       shared_ptr<string> calloutName_ {};
+      // Ticket ID.
       shared_ptr<int64_t> caseId_ {};
+      // Channel ID.
       shared_ptr<string> channelId_ {};
+      // Channel Type. Valid values:
+      // 
+      // - **1**: Hotline.
+      // - **2**: Online.
       shared_ptr<int64_t> channelType_ {};
+      // Department ID.
       shared_ptr<int64_t> depId_ {};
+      // Indicates whether the call is transferred.
       shared_ptr<string> isTransfer_ {};
+      // Membership ID.
       shared_ptr<int64_t> memberId_ {};
+      // Membership List.
       shared_ptr<string> memberList_ {};
+      // Membership name.
       shared_ptr<string> memberName_ {};
+      // Agent ID.
       shared_ptr<int64_t> servicerId_ {};
+      // Agent name.
       shared_ptr<string> servicerName_ {};
+      // Sub-touch ID.
       shared_ptr<int64_t> subTouchId_ {};
+      // Job ID.
       shared_ptr<int64_t> taskId_ {};
+      // Touch ID.
       shared_ptr<int64_t> touchId_ {};
     };
 
@@ -272,10 +292,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<GetHotlineCallActionResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

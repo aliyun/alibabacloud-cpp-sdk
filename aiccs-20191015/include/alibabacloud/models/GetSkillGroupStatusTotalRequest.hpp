@@ -147,18 +147,46 @@ namespace Models
 
 
   protected:
+    // List of agent IDs.
     shared_ptr<vector<int64_t>> agentIds_ {};
+    // Current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // List of department IDs.
     shared_ptr<vector<int64_t>> depIds_ {};
+    // End UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // Whether to query by agent group. Default value: **false**. Valid values:  
+    // 
+    // - **true**: Yes.  
+    // - **false**: No.
     shared_ptr<bool> existAgentGrouping_ {};
+    // Whether to query by department group. Default value: **false**. Valid values:  
+    // 
+    // - **true**: Yes.  
+    // - **false**: No.
     shared_ptr<bool> existDepartmentGrouping_ {};
+    // Specifies whether to query by skill group grouping. Default value: **false**. Valid values:
+    // 
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> existSkillGroupGrouping_ {};
+    // List of skill group IDs.
     shared_ptr<vector<int64_t>> groupIds_ {};
+    // AICCS instance ID.
+    // 
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page size. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
+    // Start Datetime Variable UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startDate_ {};
+    // Time latitude type. Valid values:
+    // 
+    // - **minute**: Minute.
+    // - **hour**: Hour.
+    // - **day**: Day.
     shared_ptr<string> timeLatitudeType_ {};
   };
 

@@ -69,6 +69,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The robot name. You can view the robot name in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface.
     shared_ptr<string> robotName_ {};
   };
 

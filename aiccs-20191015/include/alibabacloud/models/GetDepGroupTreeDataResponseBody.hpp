@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // The name of the skill group.
         shared_ptr<string> name_ {};
+        // The skill group ID.
         shared_ptr<int64_t> skillGroupId_ {};
       };
 
@@ -129,8 +131,11 @@ namespace Models
 
 
     protected:
+      // The department ID.
       shared_ptr<string> depGroupId_ {};
+      // The department name.
       shared_ptr<string> depGroupName_ {};
+      // Skill group data.
       shared_ptr<vector<Data::GroupDTOS>> groupDTOS_ {};
     };
 
@@ -174,10 +179,17 @@ namespace Models
 
 
   protected:
+    // The status code. A value of Success indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Department information.
     shared_ptr<vector<GetDepGroupTreeDataResponseBody::Data>> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<string> success_ {};
   };
 

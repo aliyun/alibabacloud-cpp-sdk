@@ -121,7 +121,9 @@ namespace Models
 
 
       protected:
+        // Number of retries.
         shared_ptr<int32_t> count_ {};
+        // Recall interval. Unit: minutes.
         shared_ptr<int32_t> interval_ {};
       };
 
@@ -232,19 +234,46 @@ namespace Models
 
 
     protected:
+      // Concurrency for automated outbound calls.
       shared_ptr<int32_t> concurrentRate_ {};
+      // Job description.
       shared_ptr<string> description_ {};
+      // Task execution time.
       shared_ptr<string> executionTime_ {};
+      // Fixed outbound call ratio for predictive dialing.
       shared_ptr<float> forecastCallRate_ {};
+      // Skill group ID (for predictive outbound calls) or IVR ID (for automated outbound calls).
       shared_ptr<int64_t> handlerId_ {};
+      // Skill group name or IVR name.
       shared_ptr<string> handlerName_ {};
+      // Job name.
       shared_ptr<string> name_ {};
+      // Called number deduplication policy.
+      // 
+      // - **0**: Remove duplicates.
+      // - **1**: Do not remove duplicates.
       shared_ptr<int32_t> numRepeated_ {};
+      // Outbound caller numbers.
       shared_ptr<vector<string>> outboundNums_ {};
+      // Failed-call retry policy.
       shared_ptr<Data::RecallRule> recallRule_ {};
+      // Job status. Valid values:  
+      // 
+      // - **0**: Not started.  
+      // - **1**: In progress.  
+      // - **2**: System paused.  
+      // - **3**: Manually paused.  
+      // - **4**: Completed.  
+      // - **5**: Stopped.
       shared_ptr<int32_t> status_ {};
+      // Task status description.
       shared_ptr<string> statusDesc_ {};
+      // Job ID.
       shared_ptr<int64_t> taskId_ {};
+      // Task Type. Valid values:
+      // 
+      // - **2**: Predictive outbound call.
+      // - **3**: Automated outbound call.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -288,10 +317,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Outbound call job details.
     shared_ptr<GetAiOutboundTaskDetailResponseBody::Data> data_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API was invoked successfully.  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

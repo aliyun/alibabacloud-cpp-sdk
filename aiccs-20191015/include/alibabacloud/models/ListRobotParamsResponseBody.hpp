@@ -85,8 +85,15 @@ namespace Models
 
 
     protected:
+      // Indicates whether the parameter is required. Valid values:
+      // 
+      // - 0: Not required.
+      // 
+      // - 1: Required.
       shared_ptr<int32_t> isEmpty_ {};
+      // Parameter ID.
       shared_ptr<string> paramCode_ {};
+      // Parameter name.
       shared_ptr<string> paramName_ {};
     };
 
@@ -130,10 +137,17 @@ namespace Models
 
 
   protected:
+    // Status code. A value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Parameter information.
     shared_ptr<vector<ListRobotParamsResponseBody::Data>> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API invocation succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

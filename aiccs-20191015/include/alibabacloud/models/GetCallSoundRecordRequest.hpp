@@ -75,8 +75,18 @@ namespace Models
 
 
   protected:
+    // Unique call ID.
+    // 
+    // 
+    // You can invoke the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) API and check the **Data** field in the response parameters to obtain this value.
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
+    // Call creation time. Format: YYYY-MM-DD hh:mm:ss.
+    // 
+    // 
+    // You can invoke the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) API and check the **date** parameter in the **Response Header** to obtain this value.
+    // 
     // This parameter is required.
     shared_ptr<string> createTime_ {};
     shared_ptr<int64_t> ownerId_ {};

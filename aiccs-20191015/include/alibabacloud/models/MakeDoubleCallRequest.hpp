@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // Account name.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // Business data carried in the request. The value must be in JSON format.
     shared_ptr<string> bizData_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // User\\"s phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> memberPhone_ {};
+    // Outbound caller number.
+    // 
     // This parameter is required.
     shared_ptr<string> outboundCallNumber_ {};
+    // Agent\\"s phone number.  
+    // > This parameter is required only if the call needs to be placed through the agent\\"s phone.
     shared_ptr<string> servicerPhone_ {};
   };
 

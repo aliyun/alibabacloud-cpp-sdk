@@ -123,9 +123,13 @@ namespace Models
 
 
       protected:
+        // Hotline End Time.
         shared_ptr<int64_t> endTime_ {};
+        // OSS URL of the hotline call recording.
         shared_ptr<string> ossUrl_ {};
+        // Servicer Account.
         shared_ptr<string> servicerName_ {};
+        // Start Time of the hotline call.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -169,10 +173,15 @@ namespace Models
 
 
     protected:
+      // Current page.
       shared_ptr<int64_t> currentPage_ {};
+      // Query result data.
       shared_ptr<vector<ResultData::Data>> data_ {};
+      // Page size.
       shared_ptr<int64_t> onePageSize_ {};
+      // Total number of pages.
       shared_ptr<int64_t> totalPage_ {};
+      // Total number of records.
       shared_ptr<int64_t> totalResults_ {};
     };
 
@@ -223,11 +232,17 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Returned data.
     shared_ptr<ListHotlineRecordDetailResponseBody::ResultData> resultData_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

@@ -151,19 +151,38 @@ namespace Models
 
 
   protected:
+    // Ticket ID.
     shared_ptr<int64_t> caseId_ {};
+    // Ticket status code.
     shared_ptr<int32_t> caseStatus_ {};
+    // Ticket type code (assigned by the system).
     shared_ptr<int32_t> caseType_ {};
+    // Channel ID.
     shared_ptr<string> channelId_ {};
+    // Channel Type. Valid values:
+    // - **0**: Not filled in
+    // - **1**: Hotline
+    // - **2**: Online
     shared_ptr<int32_t> channelType_ {};
+    // Current page. Default Value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // Assignee ID.
     shared_ptr<int64_t> dealId_ {};
+    // Additional information.
     Darabonba::Json extra_ {};
+    // Instance ID.
+    // 
+    // Log on to the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview) and view the instance ID in **Instance Management**.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page size. Default Value: **10**.
     shared_ptr<int32_t> pageSize_ {};
+    // Template ID.
     shared_ptr<int64_t> srType_ {};
+    // Job status.
     shared_ptr<int32_t> taskStatus_ {};
+    // Touch ID.
     shared_ptr<int64_t> touchId_ {};
   };
 

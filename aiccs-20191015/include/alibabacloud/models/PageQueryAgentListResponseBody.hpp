@@ -204,18 +204,30 @@ namespace Models
 
 
       protected:
+        // The agent ID.
         shared_ptr<string> agentId_ {};
+        // The agent name.
         shared_ptr<string> agentName_ {};
+        // The application code.
         shared_ptr<string> applicationCode_ {};
+        // The reason for the review failure.
         shared_ptr<string> auditReason_ {};
+        // The reason for the build failure.
         shared_ptr<string> buildFailReason_ {};
+        // The business scenario name.
         shared_ptr<string> businessTypeName_ {};
+        // The time the agent was created.
         shared_ptr<string> createTime_ {};
+        // The agent description.
         shared_ptr<string> description_ {};
+        // The time the agent was last online.
         shared_ptr<string> lastOnlineTime_ {};
+        // The time the agent was last modified.
         shared_ptr<string> modifyTime_ {};
+        // The agent status.
         shared_ptr<int64_t> status_ {};
         shared_ptr<bool> withActivePrompt_ {};
+        // Indicates whether the agent has been configured.
         shared_ptr<bool> withConfig_ {};
       };
 
@@ -252,9 +264,13 @@ namespace Models
 
 
     protected:
+      // A list of agents.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int64_t> pageNo_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total count of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -305,11 +321,21 @@ namespace Models
 
 
   protected:
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<PageQueryAgentListResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

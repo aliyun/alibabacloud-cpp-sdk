@@ -112,11 +112,19 @@ namespace Models
 
 
     protected:
+      // The session ID.
       shared_ptr<string> acid_ {};
+      // The session content.
       shared_ptr<string> content_ {};
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
+      // The record ID.
       shared_ptr<string> mid_ {};
+      // The sender type. Valid values:  
+      // - **1**: Membership  
+      // - **2**: Agent
       shared_ptr<int32_t> senderType_ {};
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -160,10 +168,15 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Voice messages.
     shared_ptr<vector<GetHotlineMessageLogResponseBody::Data>> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

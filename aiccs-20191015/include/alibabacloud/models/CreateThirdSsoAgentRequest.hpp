@@ -108,17 +108,29 @@ namespace Models
 
 
   protected:
+    // Account ID to synchronize.
+    // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};
+    // Account name to synchronize.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The client ID issued to the tenant instance.
+    // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
+    // Unique ID for the customer request. Used for idempotency validation and can be generated using UUID.
     shared_ptr<string> clientToken_ {};
+    // Agent display name.
     shared_ptr<string> displayName_ {};
+    // AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of role IDs.
     shared_ptr<vector<int64_t>> roleIds_ {};
+    // List of skill group IDs.
     shared_ptr<vector<int64_t>> skillGroupIds_ {};
   };
 

@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Session ID. This corresponds to the acid in WebSocket after an inbound call.
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
+    // Unique customer request ID. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

@@ -112,17 +112,26 @@ namespace Models
 
 
   protected:
+    // The application code for the large language model.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationCode_ {};
+    // The caller number.
+    // 
     // This parameter is required.
     shared_ptr<string> callerNumber_ {};
+    // The encrypted called number.
+    // 
     // This parameter is required.
     shared_ptr<string> encryptCalledNumber_ {};
+    // A user-defined ID for the outbound call.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Parameters for the large language model\\"s prompt.
     shared_ptr<string> promptParamShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Parameters for the large language model\\"s opening statement.
     shared_ptr<string> startWordParamShrink_ {};
   };
 

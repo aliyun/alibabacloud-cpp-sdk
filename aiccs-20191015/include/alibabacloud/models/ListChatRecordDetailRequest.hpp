@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // Unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // Right boundary of the time range for session end time. Format: UNIX timestamp in milliseconds.
     shared_ptr<int64_t> closeTimeEnd_ {};
+    // Left boundary of the time range for session end time. Format: UNIX timestamp in milliseconds.
     shared_ptr<int64_t> closeTimeStart_ {};
+    // Current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page size. Default value: **500**.
     shared_ptr<int32_t> pageSize_ {};
   };
 

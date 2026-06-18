@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Hotline agent data.
     shared_ptr<string> data_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

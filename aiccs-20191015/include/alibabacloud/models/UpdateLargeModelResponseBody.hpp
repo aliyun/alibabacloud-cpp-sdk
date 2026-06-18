@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Details about an authentication error.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code returned for the request.
     shared_ptr<string> code_ {};
+    // The result of the update operation.
     shared_ptr<bool> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. `OK` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The import batch ID.
     shared_ptr<int64_t> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,11 +84,19 @@ namespace Models
 
 
   protected:
+    // Status code. A value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Agent ID.
     shared_ptr<int64_t> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

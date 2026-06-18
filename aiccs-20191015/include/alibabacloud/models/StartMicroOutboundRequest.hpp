@@ -130,14 +130,22 @@ namespace Models
 
 
   protected:
+    // Account ID.
     shared_ptr<string> accountId_ {};
+    // Account type.
     shared_ptr<string> accountType_ {};
+    // Custom AppName for the business.
     shared_ptr<string> appName_ {};
+    // Called number.
     shared_ptr<string> calledNumber_ {};
+    // Calling number.
     shared_ptr<string> callingNumber_ {};
+    // Instruction code.
     shared_ptr<string> commandCode_ {};
+    // Business information.
     shared_ptr<string> extInfo_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Product name. Default value: **aiccs**.
     shared_ptr<string> prodCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

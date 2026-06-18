@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The agent account name. It is unique within the instance (logon name).
     shared_ptr<string> accountName_ {};
+    // The department ID.
     shared_ptr<int64_t> departmentId_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

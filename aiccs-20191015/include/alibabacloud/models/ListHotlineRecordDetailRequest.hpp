@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // A unique ID for the customer request. Used for idempotency validation and can be generated using UUID.
     shared_ptr<string> clientToken_ {};
+    // The start time when the hotline call ends. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> closeTimeEnd_ {};
+    // The end time when the hotline call ends. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> closeTimeStart_ {};
+    // Current page number. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page size. Default value: **100**.
     shared_ptr<int32_t> pageSize_ {};
   };
 

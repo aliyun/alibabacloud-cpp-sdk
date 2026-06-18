@@ -287,25 +287,64 @@ namespace Models
 
 
       protected:
+        // The batch ID.
         shared_ptr<string> batchId_ {};
         shared_ptr<int64_t> branchId_ {};
         shared_ptr<string> branchName_ {};
         shared_ptr<int64_t> branchVersionId_ {};
+        // The call result.
         shared_ptr<string> callResult_ {};
+        // The called number.
         shared_ptr<string> calledNumber_ {};
+        // The call time, formatted as a timestamp in milliseconds.
         shared_ptr<int64_t> callingTime_ {};
+        // The conversation duration, in seconds.
         shared_ptr<int64_t> conversationDuration_ {};
+        // The conversation record, formatted as a chronologically sorted JSON array. Each object has the following structure:
+        // 
+        // ```json
+        // [
+        //     {
+        //         "content":"The content of the message.",
+        //         "role":"The role of the speaker.", // Valid values: user, assistant
+        //     }
+        // ]
+        // ```
         shared_ptr<string> conversationRecord_ {};
+        // The conversation turn count.
         shared_ptr<int64_t> conversationTurnCount_ {};
+        // The task detail ID.
         shared_ptr<string> detailId_ {};
+        // The encryption type. Valid values are: 0 (no encryption), 1 (MD5), 2 (SHA256), and 3 (SM3).
         shared_ptr<int64_t> encryptionType_ {};
+        // The failure reason. Provided only if the call fails.
         shared_ptr<string> failedReason_ {};
+        // The import time, formatted as a timestamp in milliseconds.
         shared_ptr<int64_t> importedTime_ {};
+        // The major intent.
         shared_ptr<string> majorIntent_ {};
+        // A JSON object of key-value pairs for runtime variables.
         shared_ptr<string> options_ {};
         shared_ptr<string> outId_ {};
+        // The recording file path. Provided only after the recording file is generated.
         shared_ptr<string> recordingFilePath_ {};
+        // The task detail status.
+        // 
+        // - 0: Initializing
+        // 
+        // - 1: Waiting to call
+        // 
+        // - 2: Waiting to retry
+        // 
+        // - 3: Calling
+        // 
+        // - 4: Call ended
+        // 
+        // - 5: Call failed
+        // 
+        // Only statuses 4 and 5 are terminal states.
         shared_ptr<int64_t> status_ {};
+        // The task ID.
         shared_ptr<string> taskId_ {};
         shared_ptr<string> versionName_ {};
         shared_ptr<int64_t> versionNo_ {};
@@ -344,9 +383,13 @@ namespace Models
 
 
     protected:
+      // A list of task details.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int64_t> pageNo_ {};
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -397,11 +440,21 @@ namespace Models
 
 
   protected:
+    // The reason why the access request was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<QueryAiCallDetailPageResponseBody::Data> data_ {};
+    // A description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values are:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

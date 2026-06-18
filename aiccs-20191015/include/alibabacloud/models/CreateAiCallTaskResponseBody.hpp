@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
     shared_ptr<string> code_ {};
+    // The task ID.
     shared_ptr<int64_t> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // 
+    // - **true**: The call succeeded.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

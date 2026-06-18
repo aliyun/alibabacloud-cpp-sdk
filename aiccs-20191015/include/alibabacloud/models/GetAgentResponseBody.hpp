@@ -132,10 +132,15 @@ namespace Models
 
 
       protected:
+        // Skill group channel type.
         shared_ptr<int32_t> channelType_ {};
+        // Skill group description.
         shared_ptr<string> description_ {};
+        // Display name of the skill group.
         shared_ptr<string> displayName_ {};
+        // Skill group name.
         shared_ptr<string> name_ {};
+        // Skill group ID.
         shared_ptr<int64_t> skillGroupId_ {};
       };
 
@@ -186,11 +191,23 @@ namespace Models
 
 
     protected:
+      // Agent account name, which is the phone number or mailbox entered during account registration. Unique within the instance.
       shared_ptr<string> accountName_ {};
+      // Agent ID.
       shared_ptr<int64_t> agentId_ {};
+      // Agent display name shown externally.
       shared_ptr<string> displayName_ {};
+      // Skill group information to which the agent belongs.
       shared_ptr<vector<Data::GroupList>> groupList_ {};
+      // Agent status. Valid values:
+      // 
+      // - **0**: Normal
+      // - **1**: Freeze
+      // - **2**: Delete
+      // 
+      // > Only agents with a Normal status can perform Business Activities.
       shared_ptr<int32_t> status_ {};
+      // Tenant ID to which the agent belongs, corresponding to the instance ID in the request parameters.
       shared_ptr<int64_t> tenantId_ {};
     };
 
@@ -234,10 +251,17 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of Success indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Agent data.
     shared_ptr<GetAgentResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API invocation succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // Account name.
       shared_ptr<string> accountName_ {};
+      // The identity of the endpoint that accesses through the Internet domain.
       shared_ptr<string> rtcId_ {};
+      // Token information.
       shared_ptr<string> token_ {};
     };
 
@@ -129,10 +132,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<GetRtcTokenResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

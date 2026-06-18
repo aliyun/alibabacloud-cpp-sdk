@@ -165,14 +165,23 @@ namespace Models
 
 
       protected:
+        // Number of completed calls.
         shared_ptr<int32_t> completeCount_ {};
+        // Job start time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<string> fireTime_ {};
+        // Creation Time of the job. Format: UNIX timestamp in milliseconds.
         shared_ptr<string> gmtCreate_ {};
+        // The unique job ID for the robot calling task.
         shared_ptr<int64_t> id_ {};
+        // The ID of the specified robot, which is the script ID.
         shared_ptr<int64_t> robotId_ {};
+        // Robot Name.
         shared_ptr<string> robotName_ {};
+        // Task Status.
         shared_ptr<string> status_ {};
+        // Task Name.
         shared_ptr<string> taskName_ {};
+        // Total number of processed calls.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -209,9 +218,13 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int64_t> pageNo_ {};
+      // Number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // List of job information.
       shared_ptr<vector<Data::Record>> record_ {};
+      // Total number of jobs.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -255,10 +268,17 @@ namespace Models
 
 
   protected:
+    // Request status code. A return value of OK indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // List of job data.
     shared_ptr<ListTaskResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API was invoked successfully. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

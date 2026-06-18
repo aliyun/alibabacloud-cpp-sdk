@@ -201,17 +201,29 @@ namespace Models
 
 
       protected:
+        // Quality inspection job frequency.
         shared_ptr<int32_t> checkFreqType_ {};
+        // Creation Time.
         shared_ptr<string> createTime_ {};
+        // Quality inspection sampling scope.
         shared_ptr<vector<int64_t>> depList_ {};
+        // Quality inspection sampling scope.
         shared_ptr<vector<int64_t>> groupList_ {};
+        // Quality inspection job ID.
         shared_ptr<int64_t> id_ {};
+        // Updated At.
         shared_ptr<string> modifyTime_ {};
+        // Quality inspection job name.
         shared_ptr<string> projectName_ {};
+        // Quality inspection rule IDs.
         shared_ptr<vector<int64_t>> qualityRuleIds_ {};
+        // Quality inspection type. Fixed value is **1** (Consultation).
         shared_ptr<int32_t> qualityType_ {};
+        // Scope of quality inspection sampling.
         shared_ptr<vector<int64_t>> servicerList_ {};
+        // Status of the quality inspection job.
         shared_ptr<int32_t> status_ {};
+        // Quality inspection job version number.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -248,9 +260,13 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> pageNo_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // List of quality inspection jobs.
       shared_ptr<vector<Data::QualityProjectList>> qualityProjectList_ {};
+      // Total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -294,10 +310,15 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Quality inspection job information.
     shared_ptr<GetQualityProjectListResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

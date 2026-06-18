@@ -193,8 +193,11 @@ namespace Models
 
 
           protected:
+            // The tag description.
             shared_ptr<string> description_ {};
+            // The tag ID.
             shared_ptr<string> id_ {};
+            // The enumerated value of the tag.
             shared_ptr<string> value_ {};
           };
 
@@ -238,10 +241,15 @@ namespace Models
 
 
         protected:
+          // The ID of the output tag.
           shared_ptr<string> id_ {};
+          // The description of the output tag.
           shared_ptr<string> outputTagDescription_ {};
+          // The enumerated values for the output tag.
           shared_ptr<vector<OutputTagConfig::OutputTagEnum>> outputTagEnum_ {};
+          // The name of the output tag.
           shared_ptr<string> outputTagName_ {};
+          // The value type of the output tag. Valid values: `TEXT` and `ENUM`.
           shared_ptr<string> outputTagType_ {};
         };
 
@@ -319,8 +327,11 @@ namespace Models
 
 
           protected:
+            // The description of the value.
             shared_ptr<string> description_ {};
+            // The unique ID of the tag.
             shared_ptr<string> id_ {};
+            // The value.
             shared_ptr<string> value_ {};
           };
 
@@ -364,10 +375,15 @@ namespace Models
 
 
         protected:
+          // The ID of the main intent.
           shared_ptr<string> id_ {};
+          // The description of the main intent.
           shared_ptr<string> mainPurposeDescription_ {};
+          // The enumerated values for the main intent.
           shared_ptr<vector<MainPurpose::MainPurposeEnum>> mainPurposeEnum_ {};
+          // The name of the main intent.
           shared_ptr<string> mainPurposeName_ {};
+          // The value type of the main intent. Valid values: `TEXT` and `ENUM`.
           shared_ptr<string> mainPurposeType_ {};
         };
 
@@ -430,7 +446,9 @@ namespace Models
 
 
           protected:
+            // The description.
             shared_ptr<string> desc_ {};
+            // The tag.
             shared_ptr<string> tag_ {};
           };
 
@@ -455,7 +473,9 @@ namespace Models
 
 
         protected:
+          // The default fallback tag information.
           shared_ptr<CallResultTagConfig::DefaultTag> defaultTag_ {};
+          // The mapping of call results to tags.
           shared_ptr<map<string, string>> mappingTag_ {};
         };
 
@@ -489,8 +509,11 @@ namespace Models
 
 
       protected:
+        // The configuration for mapping call results to tags.
         shared_ptr<SummaryConfig::CallResultTagConfig> callResultTagConfig_ {};
+        // The main intent.
         shared_ptr<SummaryConfig::MainPurpose> mainPurpose_ {};
+        // The output tag configuration.
         shared_ptr<vector<SummaryConfig::OutputTagConfig>> outputTagConfig_ {};
       };
 
@@ -572,8 +595,11 @@ namespace Models
 
 
         protected:
+          // The description.
           shared_ptr<string> description_ {};
+          // The tag ID.
           shared_ptr<string> id_ {};
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -632,12 +658,19 @@ namespace Models
 
 
       protected:
+        // The ID of the call variable.
         shared_ptr<string> id_ {};
+        // The enumerated values for the call variable.
         shared_ptr<vector<PhoneTagConfig::PhoneTagEnum>> phoneTagEnum_ {};
+        // The key of the call variable.
         shared_ptr<string> phoneTagKey_ {};
+        // The description of the call variable.
         shared_ptr<string> phoneTagName_ {};
+        // Specifies whether the call variable is required.
         shared_ptr<bool> phoneTagRequired_ {};
+        // The source of the call variable.
         shared_ptr<string> phoneTagSource_ {};
+        // The type of the call variable. Valid values: `TEXT` and `ENUM`.
         shared_ptr<string> phoneTagType_ {};
       };
 
@@ -700,7 +733,9 @@ namespace Models
 
 
         protected:
+          // RAG retrieval description
           shared_ptr<string> description_ {};
+          // Enable RAG retrieval
           shared_ptr<bool> enabled_ {};
         };
 
@@ -742,7 +777,9 @@ namespace Models
 
 
         protected:
+          // The ID of the knowledge base.
           shared_ptr<int64_t> knowledgeId_ {};
+          // The name of the knowledge base.
           shared_ptr<string> knowledgeName_ {};
         };
 
@@ -767,7 +804,9 @@ namespace Models
 
 
       protected:
+        // The collection of knowledge bases.
         shared_ptr<vector<KnowledgeConfig::KnowledgeIds>> knowledgeIds_ {};
+        // The Retrieval-Augmented Generation (RAG) configuration.
         shared_ptr<KnowledgeConfig::RagConfig> ragConfig_ {};
       };
 
@@ -845,11 +884,17 @@ namespace Models
 
 
       protected:
+        // Specifies whether the agent was built with AI assistance.
         shared_ptr<bool> aiGenerate_ {};
+        // The basic task configuration.
         shared_ptr<string> basicTaskDescription_ {};
+        // The business scenario.
         shared_ptr<int64_t> businessType_ {};
+        // The core objective.
         shared_ptr<string> coreTarget_ {};
+        // The system role.
         shared_ptr<string> sysRole_ {};
+        // The user role.
         shared_ptr<string> userRole_ {};
       };
 
@@ -1014,17 +1059,41 @@ namespace Models
 
 
         protected:
+          // Specifies whether to enable background sound.
           shared_ptr<bool> backgroundEnabled_ {};
+          // The ID of the background sound.
           shared_ptr<int64_t> backgroundSound_ {};
+          // The volume of the background sound. Valid values: `0` (low), `1` (medium), and `2` (high).
           shared_ptr<int64_t> backgroundVolume_ {};
+          // The account of the third-party voice platform.
           shared_ptr<int64_t> customerAccountId_ {};
+          // Specifies whether to enable audio mixing.
           shared_ptr<bool> mixingEnabled_ {};
+          // The ID of the audio mixing template.
           shared_ptr<int64_t> mixingTemplate_ {};
+          // The resource ID. This parameter is required only for third-party voices.
           shared_ptr<string> resourceId_ {};
+          // The speech rate for TTS playback. Valid values: -200 to 200. Default value: 0.
           shared_ptr<int64_t> ttsSpeed_ {};
+          // The voice style.
           shared_ptr<string> ttsStyle_ {};
+          // The volume of TTS playback. Valid values: 0 to 100.
           shared_ptr<int64_t> ttsVolume_ {};
+          // The voice code.
           shared_ptr<string> voiceCode_ {};
+          // The type of the TTS voice. Valid values:
+          // 
+          // `VOICE_TYPE_SYSTEM`: a system voice.
+          // 
+          // `VOICE_TYPE_CLONE`: a cloned voice.
+          // 
+          // `VOICE_TYPE_DOUBAO`: a Doubao voice.
+          // 
+          // `VOICE_TYPE_MINIMAX`: a Minimax voice.
+          // 
+          // `VOICE_TYPE_OPENTTS`: an open voice.
+          // 
+          // `VOICE_TYPE_BL_CUSTOM`: a high-quality custom cloned voice.
           shared_ptr<bool> voiceType_ {};
         };
 
@@ -1176,19 +1245,33 @@ namespace Models
 
 
         protected:
+          // The called number.
           shared_ptr<string> calledNumber_ {};
+          // The caller number.
           shared_ptr<string> callerNumber_ {};
+          // The type of the caller number.
           shared_ptr<int64_t> callerNumberType_ {};
+          // The destination number for the transfer, such as the phone number of a customer service agent.
           shared_ptr<string> callingNumber_ {};
+          // The type of the called number.
           shared_ptr<int64_t> callingNumberType_ {};
+          // The customer route code.
           shared_ptr<string> customerRouteCode_ {};
+          // Specifies whether to enable call transfer.
           shared_ptr<bool> enabled_ {};
+          // The supplementary information.
           shared_ptr<string> extraInfo_ {};
+          // The prompt that is played when the transfer to a manual agent fails.
           shared_ptr<string> failureContent_ {};
+          // The agent route code.
           shared_ptr<string> seatRouteCode_ {};
+          // The name of the agent route.
           shared_ptr<string> seatRouteName_ {};
+          // The business ID.
           shared_ptr<string> transferBizId_ {};
+          // The prompt that is played when the call is transferred to a manual agent.
           shared_ptr<string> transferContent_ {};
+          // The agent transfer type.
           shared_ptr<int64_t> transferType_ {};
         };
 
@@ -1266,11 +1349,17 @@ namespace Models
 
 
         protected:
+          // Specifies whether to disconnect the call when an answering machine is detected.
           shared_ptr<bool> callAssistantHangup_ {};
+          // Specifies whether to enable answering machine detection.
           shared_ptr<bool> callAssistantRecognize_ {};
+          // Specifies whether to wake up the model upon the first mute event.
           shared_ptr<bool> muteActive_ {};
+          // The mute duration. Unit: seconds. Valid values: 3 to 15.
           shared_ptr<int64_t> muteDuration_ {};
+          // The number of consecutive mute events that trigger an automatic disconnection. Valid values: 1 to 5.
           shared_ptr<int64_t> muteHangupNum_ {};
+          // The maximum call duration. Unit: seconds. Valid values: 600 to 3600. The call is automatically disconnected if this duration is exceeded.
           shared_ptr<int64_t> sessionTimeout_ {};
         };
 
@@ -1333,12 +1422,19 @@ namespace Models
 
 
       protected:
+        // The event configuration.
         shared_ptr<AgentCallConfig::EventConfig> eventConfig_ {};
+        // The prologue.
         shared_ptr<string> prologue_ {};
+        // The URL of the audio file for the prologue. This parameter is returned only when `StartWordType` is set to `1`.
         shared_ptr<string> recordingFile_ {};
+        // The type of the prologue. Valid values: `0` (text) and `1` (recording).
         shared_ptr<int64_t> startWordType_ {};
+        // The configuration for transferring the call to a manual agent.
         shared_ptr<AgentCallConfig::TransferConfig> transferConfig_ {};
+        // The Text-to-Speech (TTS) configuration.
         shared_ptr<AgentCallConfig::TtsConfig> ttsConfig_ {};
+        // The ID of the hotword vocabulary.
         shared_ptr<string> vocabId_ {};
       };
 
@@ -1491,24 +1587,51 @@ namespace Models
 
 
     protected:
+      // The voice configuration for intelligent outbound calls.
       shared_ptr<Data::AgentCallConfig> agentCallConfig_ {};
+      // The business requirement configuration for the agent.
       shared_ptr<Data::AgentDemandConfig> agentDemandConfig_ {};
+      // The agent description.
       shared_ptr<string> agentDesc_ {};
+      // The agent ID.
       shared_ptr<int64_t> agentId_ {};
+      // The build mode. Valid values:
+      // 
+      // - `0`: prompt-based mode.
+      // 
+      // - `1`: dialog flow mode.
       shared_ptr<int64_t> agentMode_ {};
+      // The agent name.
       shared_ptr<string> agentName_ {};
+      // The deployment status. Valid values:
+      // 
+      // - `0`: Inactive (NOT_EFFECT).
+      // 
+      // - `1`: Active (EFFECT).
       shared_ptr<int64_t> branchDeployStatus_ {};
+      // The branch description.
       shared_ptr<string> branchDesc_ {};
+      // The branch ID.
       shared_ptr<int64_t> branchId_ {};
+      // The branch name.
       shared_ptr<string> branchName_ {};
+      // The knowledge base configuration.
       shared_ptr<Data::KnowledgeConfig> knowledgeConfig_ {};
+      // The call variable configuration.
       shared_ptr<vector<Data::PhoneTagConfig>> phoneTagConfig_ {};
+      // The scenario.
       shared_ptr<string> scene_ {};
+      // The call summary configuration.
       shared_ptr<Data::SummaryConfig> summaryConfig_ {};
+      // Version Description
       shared_ptr<string> versionDesc_ {};
+      // Version ID.
       shared_ptr<int64_t> versionId_ {};
+      // Version name.
       shared_ptr<string> versionName_ {};
+      // The release status of the version. 0 indicates Unreleased, 1 indicates Released, and 2 indicates Draft.
       shared_ptr<int64_t> versionPublishStatus_ {};
+      // The most recent release time of the version.
       shared_ptr<string> versionPublishTime_ {};
     };
 
@@ -1559,11 +1682,21 @@ namespace Models
 
 
   protected:
+    // The reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Status code.
     shared_ptr<string> code_ {};
+    // The detailed data of the agent.
     shared_ptr<QueryAiVoiceAgentDetailNewResponseBody::Data> data_ {};
+    // The message that is associated with the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful. Possible values:
+    // 
+    // - **true**: The operation was successful.
+    // 
+    // - **false**: Failure.
     shared_ptr<bool> success_ {};
   };
 

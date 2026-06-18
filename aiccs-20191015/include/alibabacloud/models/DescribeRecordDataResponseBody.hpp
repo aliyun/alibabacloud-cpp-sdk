@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Session ID.
     shared_ptr<string> acid_ {};
+    // Agent ID.
     shared_ptr<string> agentId_ {};
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Recording file link.
     shared_ptr<string> ossLink_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

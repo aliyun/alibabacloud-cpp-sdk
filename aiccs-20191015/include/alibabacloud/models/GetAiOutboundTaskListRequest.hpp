@@ -103,16 +103,41 @@ namespace Models
 
 
   protected:
+    // The end time for job creation. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTimeEnd_ {};
+    // The start time for job creation. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTimeStart_ {};
+    // The page number to query.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page size. The value must be greater than **0**. Default value: **20**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Filter condition.
+    // 
+    // > Matches job ID or performs fuzzy matching on job name.
     shared_ptr<string> searchKey_ {};
+    // Job status. Valid values:
+    // 
+    // - **0**: Not started.
+    // - **1**: In progress.
+    // - **2**: Paused by the system.
+    // - **3**: Manually paused.
+    // - **4**: Completed.
+    // - **5**: Stopped.
     shared_ptr<int32_t> status_ {};
+    // Task Type. Valid values:
+    // 
+    // - **2**: Predictive outbound call.
+    // - **3**: Automated outbound call.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};
   };

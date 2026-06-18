@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The code of the large model application.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationCode_ {};
+    // A list of inbound numbers.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> inboundNumbers_ {};
+    // The line type. Valid values: `1` (cloud communication resource) and `2` (customer-owned line).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> inboundType_ {};
+    // The code for the custom line.
     shared_ptr<string> lineCode_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

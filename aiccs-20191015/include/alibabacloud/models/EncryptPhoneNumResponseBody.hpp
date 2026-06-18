@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The status code. A return value of 200 indicates that the Request Succeeded.
     shared_ptr<string> code_ {};
+    // The ciphertext after encryption.
     shared_ptr<string> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API Call Succeeded.
     shared_ptr<bool> success_ {};
   };
 

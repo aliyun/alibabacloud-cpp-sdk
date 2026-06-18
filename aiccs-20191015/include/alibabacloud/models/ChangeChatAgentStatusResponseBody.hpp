@@ -84,11 +84,19 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Current agent status. Valid values:
+    // - **0**: Offline
+    // - **3**: On break
     shared_ptr<string> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

@@ -124,22 +124,22 @@ namespace Models
 
 
   protected:
-    // 授权码
+    // The authorization code.
     shared_ptr<string> authCode_ {};
-    // 基础模型
+    // The base model.
     shared_ptr<vector<string>> baseModel_ {};
-    // 模型名称
+    // The model name.
     shared_ptr<string> modelName_ {};
-    // 模型地址
+    // The model URL.
     shared_ptr<string> modelUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 温度
+    // The temperature.
     shared_ptr<double> temperature_ {};
-    // topK
+    // The `top-k` value.
     shared_ptr<int64_t> topK_ {};
-    // topP
+    // The `top-p` value.
     shared_ptr<double> topP_ {};
   };
 

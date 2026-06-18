@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Intelligent Cloud Call console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

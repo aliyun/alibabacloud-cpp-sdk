@@ -94,12 +94,20 @@ namespace Models
 
 
   protected:
+    // Unique receipt ID of the call. This can be obtained from the response of the [SendCcoSmartCall](https://help.aliyun.com/document_detail/311247.html) API.
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
+    // Specifies the action to be performed for the called number during an Intelligent Outbound Call.  
+    // 
+    // > Currently, only the **parallelBridge** parameter is supported, which indicates bridging the called number with a call center agent.
+    // 
     // This parameter is required.
     shared_ptr<string> command_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Extension field.
     shared_ptr<string> param_ {};
+    // Product name. Default value: **aiccs**.
     shared_ptr<string> prodCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

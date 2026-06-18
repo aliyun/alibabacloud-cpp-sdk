@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The inbound number.
       shared_ptr<string> inboundNumber_ {};
+      // The error description.
       shared_ptr<string> message_ {};
+      // Indicates whether the number was added successfully. `true` indicates success, and `false` indicates failure.
       shared_ptr<bool> result_ {};
     };
 
@@ -139,11 +142,21 @@ namespace Models
 
 
   protected:
+    // Details about why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<AddInboundNumberResponseBody::Data>> data_ {};
+    // The status code description.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // 
+    // - **true**: The call succeeded.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

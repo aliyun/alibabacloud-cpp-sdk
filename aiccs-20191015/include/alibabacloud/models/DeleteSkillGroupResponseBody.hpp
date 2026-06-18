@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Fault encoding
     shared_ptr<string> code_ {};
+    // Data
     shared_ptr<bool> data_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Request ID, used to trail the cause of an error
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded
     shared_ptr<bool> success_ {};
   };
 

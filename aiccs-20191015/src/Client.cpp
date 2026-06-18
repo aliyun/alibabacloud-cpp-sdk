@@ -17,7 +17,33 @@ namespace Aiccs20191015
 {
 
 AlibabaCloud::Aiccs20191015::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "central";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "aiccs.aliyuncs.com"},
+    {"us-east-1" , "aiccs.aliyuncs.com"},
+    {"me-east-1" , "aiccs.aliyuncs.com"},
+    {"eu-west-1" , "aiccs.aliyuncs.com"},
+    {"eu-central-1" , "aiccs.aliyuncs.com"},
+    {"cn-zhangjiakou" , "aiccs.aliyuncs.com"},
+    {"cn-wulanchabu" , "aiccs.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "aiccs.aliyuncs.com"},
+    {"cn-shenzhen" , "aiccs.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "aiccs.aliyuncs.com"},
+    {"cn-shanghai" , "aiccs.aliyuncs.com"},
+    {"cn-qingdao" , "aiccs.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "aiccs.aliyuncs.com"},
+    {"cn-huhehaote" , "aiccs.aliyuncs.com"},
+    {"cn-hongkong" , "aiccs.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "aiccs.aliyuncs.com"},
+    {"cn-hangzhou" , "aiccs.aliyuncs.com"},
+    {"cn-chengdu" , "aiccs.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "aiccs.aliyuncs.com"},
+    {"cn-beijing" , "aiccs.aliyuncs.com"},
+    {"ap-southeast-5" , "aiccs.aliyuncs.com"},
+    {"ap-southeast-3" , "aiccs.aliyuncs.com"},
+    {"ap-southeast-1" , "aiccs.aliyuncs.com"},
+    {"ap-northeast-1" , "aiccs.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aiccs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +62,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 新增热线号码
+ * @summary Invoke the AddHotlineNumber API to add a hotline number.
+ *
+ * @description > Hotline numbers are for inbound and outbound calls only.
  *
  * @param tmpReq AddHotlineNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -113,7 +141,9 @@ AddHotlineNumberResponse Client::addHotlineNumberWithOptions(const AddHotlineNum
 }
 
 /**
- * @summary 新增热线号码
+ * @summary Invoke the AddHotlineNumber API to add a hotline number.
+ *
+ * @description > Hotline numbers are for inbound and outbound calls only.
  *
  * @param request AddHotlineNumberRequest
  * @return AddHotlineNumberResponse
@@ -124,7 +154,7 @@ AddHotlineNumberResponse Client::addHotlineNumber(const AddHotlineNumberRequest 
 }
 
 /**
- * @summary 添加呼入号码
+ * @summary Adds one or more inbound numbers.
  *
  * @param tmpReq AddInboundNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -185,7 +215,7 @@ AddInboundNumberResponse Client::addInboundNumberWithOptions(const AddInboundNum
 }
 
 /**
- * @summary 添加呼入号码
+ * @summary Adds one or more inbound numbers.
  *
  * @param request AddInboundNumberRequest
  * @return AddInboundNumberResponse
@@ -196,7 +226,7 @@ AddInboundNumberResponse Client::addInboundNumber(const AddInboundNumberRequest 
 }
 
 /**
- * @summary AddLargeModel
+ * @summary Adds a large language model.
  *
  * @param tmpReq AddLargeModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -269,7 +299,7 @@ AddLargeModelResponse Client::addLargeModelWithOptions(const AddLargeModelReques
 }
 
 /**
- * @summary AddLargeModel
+ * @summary Adds a large language model.
  *
  * @param request AddLargeModelRequest
  * @return AddLargeModelResponse
@@ -280,7 +310,7 @@ AddLargeModelResponse Client::addLargeModel(const AddLargeModelRequest &request)
 }
 
 /**
- * @summary 新增模型应用
+ * @summary Add a model application
  *
  * @param tmpReq AddModelApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -405,7 +435,7 @@ AddModelApplicationResponse Client::addModelApplicationWithOptions(const AddMode
 }
 
 /**
- * @summary 新增模型应用
+ * @summary Add a model application
  *
  * @param request AddModelApplicationRequest
  * @return AddModelApplicationResponse
@@ -416,6 +446,8 @@ AddModelApplicationResponse Client::addModelApplication(const AddModelApplicatio
 }
 
 /**
+ * @summary Invoke AddOuterAccount to add an external account.
+ *
  * @param request AddOuterAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddOuterAccountResponse
@@ -441,6 +473,8 @@ AddOuterAccountResponse Client::addOuterAccountWithOptions(const AddOuterAccount
 }
 
 /**
+ * @summary Invoke AddOuterAccount to add an external account.
+ *
  * @param request AddOuterAccountRequest
  * @return AddOuterAccountResponse
  */
@@ -450,6 +484,8 @@ AddOuterAccountResponse Client::addOuterAccount(const AddOuterAccountRequest &re
 }
 
 /**
+ * @summary Invoke AddSkillGroup to create an external skill group.
+ *
  * @param request AddSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddSkillGroupResponse
@@ -475,6 +511,8 @@ AddSkillGroupResponse Client::addSkillGroupWithOptions(const AddSkillGroupReques
 }
 
 /**
+ * @summary Invoke AddSkillGroup to create an external skill group.
+ *
  * @param request AddSkillGroupRequest
  * @return AddSkillGroupResponse
  */
@@ -484,6 +522,8 @@ AddSkillGroupResponse Client::addSkillGroup(const AddSkillGroupRequest &request)
 }
 
 /**
+ * @summary Invoke the AiccsSmartCall API to initiate an Intelligent Speech Interaction call.
+ *
  * @param request AiccsSmartCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AiccsSmartCallResponse
@@ -637,6 +677,8 @@ AiccsSmartCallResponse Client::aiccsSmartCallWithOptions(const AiccsSmartCallReq
 }
 
 /**
+ * @summary Invoke the AiccsSmartCall API to initiate an Intelligent Speech Interaction call.
+ *
  * @param request AiccsSmartCallRequest
  * @return AiccsSmartCallResponse
  */
@@ -646,6 +688,8 @@ AiccsSmartCallResponse Client::aiccsSmartCall(const AiccsSmartCallRequest &reque
 }
 
 /**
+ * @summary Invoke the AiccsSmartCallOperate API to initiate a specified action during an Intelligent outbound call. This API is only used for scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+ *
  * @param request AiccsSmartCallOperateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AiccsSmartCallOperateResponse
@@ -699,6 +743,8 @@ AiccsSmartCallOperateResponse Client::aiccsSmartCallOperateWithOptions(const Aic
 }
 
 /**
+ * @summary Invoke the AiccsSmartCallOperate API to initiate a specified action during an Intelligent outbound call. This API is only used for scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+ *
  * @param request AiccsSmartCallOperateRequest
  * @return AiccsSmartCallOperateResponse
  */
@@ -708,6 +754,8 @@ AiccsSmartCallOperateResponse Client::aiccsSmartCallOperate(const AiccsSmartCall
 }
 
 /**
+ * @summary Invoke AnswerCall to answer an incoming call.
+ *
  * @param request AnswerCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AnswerCallResponse
@@ -757,6 +805,8 @@ AnswerCallResponse Client::answerCallWithOptions(const AnswerCallRequest &reques
 }
 
 /**
+ * @summary Invoke AnswerCall to answer an incoming call.
+ *
  * @param request AnswerCallRequest
  * @return AnswerCallResponse
  */
@@ -766,7 +816,15 @@ AnswerCallResponse Client::answerCall(const AnswerCallRequest &request) {
 }
 
 /**
- * @summary 追加任务明细
+ * @summary Append job details.
+ *
+ * @description - After creating an Intelligent Contact Robot calling job, you can invoke this API to append job details.
+ * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
+ * - If you do not have a successfully created Intelligent Contact Robot calling job, you can click **Create Job** on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or create a job by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request AttachTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -813,7 +871,15 @@ AttachTaskResponse Client::attachTaskWithOptions(const AttachTaskRequest &reques
 }
 
 /**
- * @summary 追加任务明细
+ * @summary Append job details.
+ *
+ * @description - After creating an Intelligent Contact Robot calling job, you can invoke this API to append job details.
+ * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
+ * - If you do not have a successfully created Intelligent Contact Robot calling job, you can click **Create Job** on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or create a job by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request AttachTaskRequest
  * @return AttachTaskResponse
@@ -886,7 +952,12 @@ BatchCreateQualityProjectsResponse Client::batchCreateQualityProjects(const Batc
 }
 
 /**
- * @summary 批量取消大模型解决方案Ai外呼明细任务
+ * @summary This operation cancels calls from a call task. You cannot cancel a call if its detail record is already in the pending call queue or is in progress.
+ *
+ * @description - Use this operation to cancel calls. Alternatively, you can manually cancel calls in the console by navigating to **Call Task Management** > **Manage** > **Execution Records** > **Pending**.
+ * - Before calling this operation, ensure you have created a call task and imported callee data.
+ * - If you have not created a call task, you can create one and import callee data on the **Call Task Management** page. You can also call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926815.html) and [ImportTaskNumberDatas]() operations.
+ * - Canceling a call task may affect your business. Please proceed with caution.
  *
  * @param tmpReq CancelAiCallDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -955,7 +1026,12 @@ CancelAiCallDetailsResponse Client::cancelAiCallDetailsWithOptions(const CancelA
 }
 
 /**
- * @summary 批量取消大模型解决方案Ai外呼明细任务
+ * @summary This operation cancels calls from a call task. You cannot cancel a call if its detail record is already in the pending call queue or is in progress.
+ *
+ * @description - Use this operation to cancel calls. Alternatively, you can manually cancel calls in the console by navigating to **Call Task Management** > **Manage** > **Execution Records** > **Pending**.
+ * - Before calling this operation, ensure you have created a call task and imported callee data.
+ * - If you have not created a call task, you can create one and import callee data on the **Call Task Management** page. You can also call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926815.html) and [ImportTaskNumberDatas]() operations.
+ * - Canceling a call task may affect your business. Please proceed with caution.
  *
  * @param request CancelAiCallDetailsRequest
  * @return CancelAiCallDetailsResponse
@@ -966,7 +1042,15 @@ CancelAiCallDetailsResponse Client::cancelAiCallDetails(const CancelAiCallDetail
 }
 
 /**
- * @summary 删除智能外呼任务
+ * @summary Cancel an Intelligent Contact Robot calling job.
+ *
+ * @description - You can invoke this API to cancel an Intelligent Contact Robot calling job, or manually cancel the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
+ * - After an Intelligent Contact Robot calling job is canceled, it cannot be started again. Proceed with caution.
+ * - If you want to pause a job and restart it later, you can manually pause the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or pause it by using the [StopTask](https://help.aliyun.com/document_detail/2718006.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request CancelTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1009,7 +1093,15 @@ CancelTaskResponse Client::cancelTaskWithOptions(const CancelTaskRequest &reques
 }
 
 /**
- * @summary 删除智能外呼任务
+ * @summary Cancel an Intelligent Contact Robot calling job.
+ *
+ * @description - You can invoke this API to cancel an Intelligent Contact Robot calling job, or manually cancel the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
+ * - After an Intelligent Contact Robot calling job is canceled, it cannot be started again. Proceed with caution.
+ * - If you want to pause a job and restart it later, you can manually pause the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or pause it by using the [StopTask](https://help.aliyun.com/document_detail/2718006.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request CancelTaskRequest
  * @return CancelTaskResponse
@@ -1020,7 +1112,9 @@ CancelTaskResponse Client::cancelTask(const CancelTaskRequest &request) {
 }
 
 /**
- * @summary 修改在线客服状态
+ * @summary Invoke ChangeChatAgentStatus to modify the Live Support status.
+ *
+ * @description > Currently, only changing the Live Support status to offline is supported.
  *
  * @param request ChangeChatAgentStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1063,7 +1157,9 @@ ChangeChatAgentStatusResponse Client::changeChatAgentStatusWithOptions(const Cha
 }
 
 /**
- * @summary 修改在线客服状态
+ * @summary Invoke ChangeChatAgentStatus to modify the Live Support status.
+ *
+ * @description > Currently, only changing the Live Support status to offline is supported.
  *
  * @param request ChangeChatAgentStatusRequest
  * @return ChangeChatAgentStatusResponse
@@ -1120,6 +1216,16 @@ ChangeQualityProjectStatusResponse Client::changeQualityProjectStatus(const Chan
 }
 
 /**
+ * @summary Create an agent account in the Cloud Customer Service System and return the agent ID.
+ *
+ * @description - Before calling this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify skill group information, refer to the guidance in [Request Parameters](#api-detail-35).  
+ * - You can manage agents by calling [DeleteAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-deleteagent) to delete an agent or [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update agent data.  
+ * ### QPS Limit
+ * - Per-user call frequency: No rate limiting.  
+ * - API call frequency: 100 queries per second (QPS).  
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request CreateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAgentResponse
@@ -1173,6 +1279,16 @@ CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &req
 }
 
 /**
+ * @summary Create an agent account in the Cloud Customer Service System and return the agent ID.
+ *
+ * @description - Before calling this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify skill group information, refer to the guidance in [Request Parameters](#api-detail-35).  
+ * - You can manage agents by calling [DeleteAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-deleteagent) to delete an agent or [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update agent data.  
+ * ### QPS Limit
+ * - Per-user call frequency: No rate limiting.  
+ * - API call frequency: 100 queries per second (QPS).  
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request CreateAgentRequest
  * @return CreateAgentResponse
  */
@@ -1182,7 +1298,9 @@ CreateAgentResponse Client::createAgent(const CreateAgentRequest &request) {
 }
 
 /**
- * @summary 创建任务
+ * @summary Creates a call task.
+ *
+ * @description Before creating a call task, make a test call with an agent to ensure the results meet your requirements.
  *
  * @param tmpReq CreateAiCallTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1303,7 +1421,9 @@ CreateAiCallTaskResponse Client::createAiCallTaskWithOptions(const CreateAiCallT
 }
 
 /**
- * @summary 创建任务
+ * @summary Creates a call task.
+ *
+ * @description Before creating a call task, make a test call with an agent to ensure the results meet your requirements.
  *
  * @param request CreateAiCallTaskRequest
  * @return CreateAiCallTaskResponse
@@ -1314,7 +1434,14 @@ CreateAiCallTaskResponse Client::createAiCallTask(const CreateAiCallTaskRequest 
 }
 
 /**
- * @summary 创建智能外呼任务（预测式外呼、自动外呼）
+ * @summary Create an Intelligent Outbound Call Job. You can configure the Task Type, job name, outbound caller ID, callee number deduplication policy, and other settings when creating the job.
+ *
+ * @description - The **Data** field in the response parameters of this API is the job ID.  
+ * - After creating an Intelligent Outbound Call Job, if you need to make updates, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API to update the outbound call job.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 20 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param tmpReq CreateAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1395,7 +1522,14 @@ CreateAiOutboundTaskResponse Client::createAiOutboundTaskWithOptions(const Creat
 }
 
 /**
- * @summary 创建智能外呼任务（预测式外呼、自动外呼）
+ * @summary Create an Intelligent Outbound Call Job. You can configure the Task Type, job name, outbound caller ID, callee number deduplication policy, and other settings when creating the job.
+ *
+ * @description - The **Data** field in the response parameters of this API is the job ID.  
+ * - After creating an Intelligent Outbound Call Job, if you need to make updates, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API to update the outbound call job.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 20 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request CreateAiOutboundTaskRequest
  * @return CreateAiOutboundTaskResponse
@@ -1406,7 +1540,13 @@ CreateAiOutboundTaskResponse Client::createAiOutboundTask(const CreateAiOutbound
 }
 
 /**
- * @summary 创建智能外呼任务批次
+ * @summary Creates a batch for an Intelligent Outbound Calling job based on the instance ID and job ID, enabling data under the job to be queried by batch.
+ *
+ * @description Before invoking this API, we recommend that you confirm the instance ID and job ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
+ * ### QPS limit
+ * - Per-user invocation frequency: 20 queries per second (QPS).
+ * - API-wide invocation frequency: 20 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request CreateAiOutboundTaskBatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1581,13 @@ CreateAiOutboundTaskBatchResponse Client::createAiOutboundTaskBatchWithOptions(c
 }
 
 /**
- * @summary 创建智能外呼任务批次
+ * @summary Creates a batch for an Intelligent Outbound Calling job based on the instance ID and job ID, enabling data under the job to be queried by batch.
+ *
+ * @description Before invoking this API, we recommend that you confirm the instance ID and job ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
+ * ### QPS limit
+ * - Per-user invocation frequency: 20 queries per second (QPS).
+ * - API-wide invocation frequency: 20 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request CreateAiOutboundTaskBatchRequest
  * @return CreateAiOutboundTaskBatchResponse
@@ -1452,7 +1598,14 @@ CreateAiOutboundTaskBatchResponse Client::createAiOutboundTaskBatch(const Create
 }
 
 /**
- * @summary 创建部门信息
+ * @summary Creates department information based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department name. Upon successful creation, the department ID is returned.
+ *
+ * @description - If you need to update department information, you can invoke the [UpdateDepartment](https://help.aliyun.com/document_detail/2717977.html) API.
+ * - After successfully creating department information by invoking this API, the **Data** field in the response contains the department ID. If you need to query the department ID later, you can invoke the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request CreateDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1487,7 +1640,14 @@ CreateDepartmentResponse Client::createDepartmentWithOptions(const CreateDepartm
 }
 
 /**
- * @summary 创建部门信息
+ * @summary Creates department information based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department name. Upon successful creation, the department ID is returned.
+ *
+ * @description - If you need to update department information, you can invoke the [UpdateDepartment](https://help.aliyun.com/document_detail/2717977.html) API.
+ * - After successfully creating department information by invoking this API, the **Data** field in the response contains the department ID. If you need to query the department ID later, you can invoke the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request CreateDepartmentRequest
  * @return CreateDepartmentResponse
@@ -1732,6 +1892,15 @@ CreateQualityRuleResponse Client::createQualityRule(const CreateQualityRuleReque
 }
 
 /**
+ * @summary Create a skill group based on the skill group name and channel type.
+ *
+ * @description - This API allows you to define information such as the external display name and description of the skill group. For details, see [Request Parameters](#api-detail-35).
+ * - The **Data** parameter returned by this API is the ID of the successfully created skill group.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request CreateSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateSkillGroupResponse
@@ -1785,6 +1954,15 @@ CreateSkillGroupResponse Client::createSkillGroupWithOptions(const CreateSkillGr
 }
 
 /**
+ * @summary Create a skill group based on the skill group name and channel type.
+ *
+ * @description - This API allows you to define information such as the external display name and description of the skill group. For details, see [Request Parameters](#api-detail-35).
+ * - The **Data** parameter returned by this API is the ID of the successfully created skill group.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request CreateSkillGroupRequest
  * @return CreateSkillGroupResponse
  */
@@ -1794,7 +1972,14 @@ CreateSkillGroupResponse Client::createSkillGroup(const CreateSkillGroupRequest 
 }
 
 /**
- * @summary 创建外呼任务
+ * @summary Create an Artificial Intelligence Cloud Call Service robot outbound calling job.
+ *
+ * @description - You can invoke this API to create a job, or create one in the **Artificial Intelligence Cloud Call Service console** > **Outbound Robot (Standard Edition)** > [Task Management](https://aiccs.console.aliyun.com/job/list) by clicking **Create Job**.  
+ * - After invoking this API, the **Data** field in the response contains the unique job ID of the robot outbound calling task.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request CreateTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1885,7 +2070,14 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
 }
 
 /**
- * @summary 创建外呼任务
+ * @summary Create an Artificial Intelligence Cloud Call Service robot outbound calling job.
+ *
+ * @description - You can invoke this API to create a job, or create one in the **Artificial Intelligence Cloud Call Service console** > **Outbound Robot (Standard Edition)** > [Task Management](https://aiccs.console.aliyun.com/job/list) by clicking **Create Job**.  
+ * - After invoking this API, the **Data** field in the response contains the unique job ID of the robot outbound calling task.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request CreateTaskRequest
  * @return CreateTaskResponse
@@ -1896,7 +2088,7 @@ CreateTaskResponse Client::createTask(const CreateTaskRequest &request) {
 }
 
 /**
- * @summary 创建坐席并开通sso登录能力
+ * @summary Create an agent that enables password-free login to the Cloud Customer Service System based on a User Account.
  *
  * @param request CreateThirdSsoAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1959,7 +2151,7 @@ CreateThirdSsoAgentResponse Client::createThirdSsoAgentWithOptions(const CreateT
 }
 
 /**
- * @summary 创建坐席并开通sso登录能力
+ * @summary Create an agent that enables password-free login to the Cloud Customer Service System based on a User Account.
  *
  * @param request CreateThirdSsoAgentRequest
  * @return CreateThirdSsoAgentResponse
@@ -1970,7 +2162,15 @@ CreateThirdSsoAgentResponse Client::createThirdSsoAgent(const CreateThirdSsoAgen
 }
 
 /**
- * @summary 删除坐席账号
+ * @summary Deletes an agent account in the Cloud Customer Service System based on the instance ID and agent account name.
+ *
+ * @description - Before deletion, we recommend that you confirm the agent account name and instance ID to be deleted. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
+ * - If an agent is accidentally deleted, you can invoke the [CreateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createagent) API to recreate the agent.
+ * > If an account is re-added after deletion, the agent ID remains unchanged.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request DeleteAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2009,7 +2209,15 @@ DeleteAgentResponse Client::deleteAgentWithOptions(const DeleteAgentRequest &req
 }
 
 /**
- * @summary 删除坐席账号
+ * @summary Deletes an agent account in the Cloud Customer Service System based on the instance ID and agent account name.
+ *
+ * @description - Before deletion, we recommend that you confirm the agent account name and instance ID to be deleted. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
+ * - If an agent is accidentally deleted, you can invoke the [CreateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createagent) API to recreate the agent.
+ * > If an account is re-added after deletion, the agent ID remains unchanged.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request DeleteAgentRequest
  * @return DeleteAgentResponse
@@ -2020,7 +2228,15 @@ DeleteAgentResponse Client::deleteAgent(const DeleteAgentRequest &request) {
 }
 
 /**
- * @summary 删除智能外呼任务
+ * @summary Deletes an Intelligent Outbound Calling job by instance ID and job ID. After deletion, the job will no longer appear in the outbound calling job list.
+ *
+ * @description >Notice: Deletion is a sensitive operation. Proceed with caution.
+ * - Before deletion, we recommend that you confirm the job ID and related information. You can call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API to view the outbound calling job list and verify the task name, description, and corresponding job ID.
+ * - If you need to recreate an Intelligent Outbound Calling job, you can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times/second.
+ * - API invocation frequency: 20 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request DeleteAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2055,7 +2271,15 @@ DeleteAiOutboundTaskResponse Client::deleteAiOutboundTaskWithOptions(const Delet
 }
 
 /**
- * @summary 删除智能外呼任务
+ * @summary Deletes an Intelligent Outbound Calling job by instance ID and job ID. After deletion, the job will no longer appear in the outbound calling job list.
+ *
+ * @description >Notice: Deletion is a sensitive operation. Proceed with caution.
+ * - Before deletion, we recommend that you confirm the job ID and related information. You can call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API to view the outbound calling job list and verify the task name, description, and corresponding job ID.
+ * - If you need to recreate an Intelligent Outbound Calling job, you can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times/second.
+ * - API invocation frequency: 20 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request DeleteAiOutboundTaskRequest
  * @return DeleteAiOutboundTaskResponse
@@ -2066,7 +2290,15 @@ DeleteAiOutboundTaskResponse Client::deleteAiOutboundTask(const DeleteAiOutbound
 }
 
 /**
- * @summary 删除部门信息
+ * @summary Deletes department information based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department ID.
+ *
+ * @description - Deletion is a sensitive operation. Proceed with caution.
+ * - Before invoking this API, we recommend that you confirm the AICCS instance ID and department ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
+ * - If you accidentally delete department information, you can call the [CreateDepartment](https://help.aliyun.com/document_detail/2717974.html) API to recreate it.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request DeleteDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2101,7 +2333,15 @@ DeleteDepartmentResponse Client::deleteDepartmentWithOptions(const DeleteDepartm
 }
 
 /**
- * @summary 删除部门信息
+ * @summary Deletes department information based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department ID.
+ *
+ * @description - Deletion is a sensitive operation. Proceed with caution.
+ * - Before invoking this API, we recommend that you confirm the AICCS instance ID and department ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
+ * - If you accidentally delete department information, you can call the [CreateDepartment](https://help.aliyun.com/document_detail/2717974.html) API to recreate it.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request DeleteDepartmentRequest
  * @return DeleteDepartmentResponse
@@ -2112,7 +2352,7 @@ DeleteDepartmentResponse Client::deleteDepartment(const DeleteDepartmentRequest 
 }
 
 /**
- * @summary 删除热线号码
+ * @summary Invoke the DeleteHotlineNumber API to delete a configured hotline number.
  *
  * @param request DeleteHotlineNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2147,7 +2387,7 @@ DeleteHotlineNumberResponse Client::deleteHotlineNumberWithOptions(const DeleteH
 }
 
 /**
- * @summary 删除热线号码
+ * @summary Invoke the DeleteHotlineNumber API to delete a configured hotline number.
  *
  * @param request DeleteHotlineNumberRequest
  * @return DeleteHotlineNumberResponse
@@ -2200,6 +2440,8 @@ DeleteOutboundTaskResponse Client::deleteOutboundTask(const DeleteOutboundTaskRe
 }
 
 /**
+ * @summary Invoke DeleteOuterAccount to delete an external account by its external Account ID.
+ *
  * @param request DeleteOuterAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteOuterAccountResponse
@@ -2225,6 +2467,8 @@ DeleteOuterAccountResponse Client::deleteOuterAccountWithOptions(const DeleteOut
 }
 
 /**
+ * @summary Invoke DeleteOuterAccount to delete an external account by its external Account ID.
+ *
  * @param request DeleteOuterAccountRequest
  * @return DeleteOuterAccountResponse
  */
@@ -2318,6 +2562,8 @@ DeleteQualityRuleResponse Client::deleteQualityRule(const DeleteQualityRuleReque
 }
 
 /**
+ * @summary Deletes an external skill group based on the skill group ID and skill group channel type.
+ *
  * @param request DeleteSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteSkillGroupResponse
@@ -2343,6 +2589,8 @@ DeleteSkillGroupResponse Client::deleteSkillGroupWithOptions(const DeleteSkillGr
 }
 
 /**
+ * @summary Deletes an external skill group based on the skill group ID and skill group channel type.
+ *
  * @param request DeleteSkillGroupRequest
  * @return DeleteSkillGroupResponse
  */
@@ -2352,6 +2600,8 @@ DeleteSkillGroupResponse Client::deleteSkillGroup(const DeleteSkillGroupRequest 
 }
 
 /**
+ * @summary Invoke the DescribeRecordData API to retrieve call information.
+ *
  * @param request DescribeRecordDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRecordDataResponse
@@ -2409,6 +2659,8 @@ DescribeRecordDataResponse Client::describeRecordDataWithOptions(const DescribeR
 }
 
 /**
+ * @summary Invoke the DescribeRecordData API to retrieve call information.
+ *
  * @param request DescribeRecordDataRequest
  * @return DescribeRecordDataResponse
  */
@@ -2606,7 +2858,7 @@ EditQualityRuleTagResponse Client::editQualityRuleTag(const EditQualityRuleTagRe
 }
 
 /**
- * @summary 热线号码加密
+ * @summary Invoke EncryptPhoneNum to encrypt the User\\"s Phone number.
  *
  * @param request EncryptPhoneNumRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2633,7 +2885,7 @@ EncryptPhoneNumResponse Client::encryptPhoneNumWithOptions(const EncryptPhoneNum
 }
 
 /**
- * @summary 热线号码加密
+ * @summary Invoke EncryptPhoneNum to encrypt the User\\"s Phone number.
  *
  * @param request EncryptPhoneNumRequest
  * @return EncryptPhoneNumResponse
@@ -2644,6 +2896,8 @@ EncryptPhoneNumResponse Client::encryptPhoneNum(const EncryptPhoneNumRequest &re
 }
 
 /**
+ * @summary Retrieve or recover a call.
+ *
  * @param request FetchCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return FetchCallResponse
@@ -2697,6 +2951,8 @@ FetchCallResponse Client::fetchCallWithOptions(const FetchCallRequest &request, 
 }
 
 /**
+ * @summary Retrieve or recover a call.
+ *
  * @param request FetchCallRequest
  * @return FetchCallResponse
  */
@@ -2706,6 +2962,13 @@ FetchCallResponse Client::fetchCall(const FetchCallRequest &request) {
 }
 
 /**
+ * @summary End the hotline service by instance ID and agent account name.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user API call frequency: No rate limiting.
+ * - API frequency: 100 calls per second.
+ * > If the total number of calls from multiple users exceeds the API frequency limit, throttling will be triggered.
+ *
  * @param request FinishHotlineServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return FinishHotlineServiceResponse
@@ -2743,6 +3006,13 @@ FinishHotlineServiceResponse Client::finishHotlineServiceWithOptions(const Finis
 }
 
 /**
+ * @summary End the hotline service by instance ID and agent account name.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user API call frequency: No rate limiting.
+ * - API frequency: 100 calls per second.
+ * > If the total number of calls from multiple users exceeds the API frequency limit, throttling will be triggered.
+ *
  * @param request FinishHotlineServiceRequest
  * @return FinishHotlineServiceResponse
  */
@@ -2752,6 +3022,15 @@ FinishHotlineServiceResponse Client::finishHotlineService(const FinishHotlineSer
 }
 
 /**
+ * @summary Generate a message channel access signature based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and agent account name.
+ *
+ * @description - You can invoke this API to generate a message channel access signature. The **Data** field in the response contains the MessageBox message channel signature code.
+ * - Before invoking the API, we recommend that you confirm your AICCS instance ID. For instructions on how to obtain it, see the description of [Request Parameters](#api-detail-35).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API-wide frequency: 100 queries per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+ *
  * @param request GenerateWebSocketSignRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateWebSocketSignResponse
@@ -2789,6 +3068,15 @@ GenerateWebSocketSignResponse Client::generateWebSocketSignWithOptions(const Gen
 }
 
 /**
+ * @summary Generate a message channel access signature based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and agent account name.
+ *
+ * @description - You can invoke this API to generate a message channel access signature. The **Data** field in the response contains the MessageBox message channel signature code.
+ * - Before invoking the API, we recommend that you confirm your AICCS instance ID. For instructions on how to obtain it, see the description of [Request Parameters](#api-detail-35).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API-wide frequency: 100 queries per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+ *
  * @param request GenerateWebSocketSignRequest
  * @return GenerateWebSocketSignResponse
  */
@@ -2798,6 +3086,15 @@ GenerateWebSocketSignResponse Client::generateWebSocketSign(const GenerateWebSoc
 }
 
 /**
+ * @summary Query agent information in the Cloud Customer Service System by instance ID and agent account name, such as agent ID.
+ *
+ * @description - Before invoking this API, confirm the AICCS instance information and the agent account name. For guidance on how to obtain these details, refer to the instructions in [Request Parameters](#api-detail-35).
+ * - Deleted agents can also be queried. Check the **Status** parameter in the response. If its value is 2, it indicates that the agent has been deleted.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAgentResponse
@@ -2823,6 +3120,15 @@ GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, con
 }
 
 /**
+ * @summary Query agent information in the Cloud Customer Service System by instance ID and agent account name, such as agent ID.
+ *
+ * @description - Before invoking this API, confirm the AICCS instance information and the agent account name. For guidance on how to obtain these details, refer to the instructions in [Request Parameters](#api-detail-35).
+ * - Deleted agents can also be queried. Check the **Status** parameter in the response. If its value is 2, it indicates that the agent has been deleted.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetAgentRequest
  * @return GetAgentResponse
  */
@@ -2832,7 +3138,14 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 }
 
 /**
- * @summary 坐席纬度基础状态量
+ * @summary Obtain the agent-level status metrics under hotline monitoring. Supports queries by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetAgentBasisStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2869,7 +3182,14 @@ GetAgentBasisStatusResponse Client::getAgentBasisStatusWithOptions(const GetAgen
 }
 
 /**
- * @summary 坐席纬度基础状态量
+ * @summary Obtain the agent-level status metrics under hotline monitoring. Supports queries by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetAgentBasisStatusRequest
  * @return GetAgentBasisStatusResponse
@@ -2922,7 +3242,14 @@ GetAgentByIdResponse Client::getAgentById(const GetAgentByIdRequest &request) {
 }
 
 /**
- * @summary 热线坐席纬度详情汇总
+ * @summary Retrieve the summary data of hotline agent details under hotline reports. Supports queries by instance, time range, agent, and department group.
+ *
+ * @description - Before you invoke this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent or department information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetAgentDetailReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2959,7 +3286,14 @@ GetAgentDetailReportResponse Client::getAgentDetailReportWithOptions(const GetAg
 }
 
 /**
- * @summary 热线坐席纬度详情汇总
+ * @summary Retrieve the summary data of hotline agent details under hotline reports. Supports queries by instance, time range, agent, and department group.
+ *
+ * @description - Before you invoke this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent or department information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetAgentDetailReportRequest
  * @return GetAgentDetailReportResponse
@@ -2970,6 +3304,15 @@ GetAgentDetailReportResponse Client::getAgentDetailReport(const GetAgentDetailRe
 }
 
 /**
+ * @summary Obtain real-time agent detail data grouped by instance, department, and skill group (real-time data).
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
+ * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 10 requests per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetAgentIndexRealTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAgentIndexRealTimeResponse
@@ -3015,6 +3358,15 @@ GetAgentIndexRealTimeResponse Client::getAgentIndexRealTimeWithOptions(const Get
 }
 
 /**
+ * @summary Obtain real-time agent detail data grouped by instance, department, and skill group (real-time data).
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
+ * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 10 requests per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetAgentIndexRealTimeRequest
  * @return GetAgentIndexRealTimeResponse
  */
@@ -3024,7 +3376,14 @@ GetAgentIndexRealTimeResponse Client::getAgentIndexRealTime(const GetAgentIndexR
 }
 
 /**
- * @summary 坐席服务状态量
+ * @summary Obtain the agent service status metrics from online reports. Supports queries by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 queries per second.
+ * - API-wide invocation frequency: 100 queries per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param tmpReq GetAgentServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3061,7 +3420,14 @@ GetAgentServiceStatusResponse Client::getAgentServiceStatusWithOptions(const Get
 }
 
 /**
- * @summary 坐席服务状态量
+ * @summary Obtain the agent service status metrics from online reports. Supports queries by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 queries per second.
+ * - API-wide invocation frequency: 100 queries per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param request GetAgentServiceStatusRequest
  * @return GetAgentServiceStatusResponse
@@ -3072,7 +3438,14 @@ GetAgentServiceStatusResponse Client::getAgentServiceStatus(const GetAgentServic
 }
 
 /**
- * @summary 坐席纬度统计量
+ * @summary Obtain agent-level statistics under hotline monitoring. Supports querying by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param tmpReq GetAgentStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3109,7 +3482,14 @@ GetAgentStatisticsResponse Client::getAgentStatisticsWithOptions(const GetAgentS
 }
 
 /**
- * @summary 坐席纬度统计量
+ * @summary Obtain agent-level statistics under hotline monitoring. Supports querying by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param request GetAgentStatisticsRequest
  * @return GetAgentStatisticsResponse
@@ -3120,7 +3500,12 @@ GetAgentStatisticsResponse Client::getAgentStatistics(const GetAgentStatisticsRe
 }
 
 /**
- * @summary 获取智能外呼任务业务自定义信息
+ * @summary Query the business information associated with this call by instance ID and session ID.
+ *
+ * @description ### Queries per second (QPS) limits
+ * - Call frequency per user: 100 times/second.
+ * - API call frequency: 100 times/second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskBizDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3147,7 +3532,12 @@ GetAiOutboundTaskBizDataResponse Client::getAiOutboundTaskBizDataWithOptions(con
 }
 
 /**
- * @summary 获取智能外呼任务业务自定义信息
+ * @summary Query the business information associated with this call by instance ID and session ID.
+ *
+ * @description ### Queries per second (QPS) limits
+ * - Call frequency per user: 100 times/second.
+ * - API call frequency: 100 times/second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskBizDataRequest
  * @return GetAiOutboundTaskBizDataResponse
@@ -3158,7 +3548,13 @@ GetAiOutboundTaskBizDataResponse Client::getAiOutboundTaskBizData(const GetAiOut
 }
 
 /**
- * @summary 智能外呼任务配置详情查询
+ * @summary Obtain the outbound call job details by instance ID and job ID.
+ *
+ * @description The outbound call job details include the job ID, job status, task type, outbound caller number, callee number repetition policy, and other information. For more information, see [Response parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3185,7 +3581,13 @@ GetAiOutboundTaskDetailResponse Client::getAiOutboundTaskDetailWithOptions(const
 }
 
 /**
- * @summary 智能外呼任务配置详情查询
+ * @summary Obtain the outbound call job details by instance ID and job ID.
+ *
+ * @description The outbound call job details include the job ID, job status, task type, outbound caller number, callee number repetition policy, and other information. For more information, see [Response parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskDetailRequest
  * @return GetAiOutboundTaskDetailResponse
@@ -3196,7 +3598,13 @@ GetAiOutboundTaskDetailResponse Client::getAiOutboundTaskDetail(const GetAiOutbo
 }
 
 /**
- * @summary 智能外呼任务执行详情
+ * @summary Obtain task execution details by instance ID and job ID.
+ *
+ * @description The task execution details include the total number of jobs, job batches, outbound call numbers, corresponding call counts, execution status, and other information.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskExecDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3223,7 +3631,13 @@ GetAiOutboundTaskExecDetailResponse Client::getAiOutboundTaskExecDetailWithOptio
 }
 
 /**
- * @summary 智能外呼任务执行详情
+ * @summary Obtain task execution details by instance ID and job ID.
+ *
+ * @description The task execution details include the total number of jobs, job batches, outbound call numbers, corresponding call counts, execution status, and other information.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskExecDetailRequest
  * @return GetAiOutboundTaskExecDetailResponse
@@ -3234,7 +3648,14 @@ GetAiOutboundTaskExecDetailResponse Client::getAiOutboundTaskExecDetail(const Ge
 }
 
 /**
- * @summary 智能外呼任务列表查询
+ * @summary Retrieve the outbound call job list by instance ID and Task Type.
+ *
+ * @description - The job list contains job information, including job ID, Task Status, Task Name, task completion rate, and more. For details, see [Response parameters](#api-detail-40).
+ * - If you need to update job information, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request GetAiOutboundTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3261,7 +3682,14 @@ GetAiOutboundTaskListResponse Client::getAiOutboundTaskListWithOptions(const Get
 }
 
 /**
- * @summary 智能外呼任务列表查询
+ * @summary Retrieve the outbound call job list by instance ID and Task Type.
+ *
+ * @description - The job list contains job information, including job ID, Task Status, Task Name, task completion rate, and more. For details, see [Response parameters](#api-detail-40).
+ * - If you need to update job information, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.
+ * - API invocation frequency: 100 times/second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request GetAiOutboundTaskListRequest
  * @return GetAiOutboundTaskListResponse
@@ -3272,7 +3700,14 @@ GetAiOutboundTaskListResponse Client::getAiOutboundTaskList(const GetAiOutboundT
 }
 
 /**
- * @summary 智能外呼任务执行进度
+ * @summary Obtain the outbound call job progress by instance ID and job ID.
+ *
+ * @description - Before invoking this API, we recommend that you confirm the instance ID and job ID. For more information, see [Request Parameters](#api-detail-35).  
+ * - The outbound call job progress includes information such as job ID, Task Type, job completion rate, agent connection rate, and customer connection rate. For details, see [Response Parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API-wide invocation frequency: 100 times/second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3299,7 +3734,14 @@ GetAiOutboundTaskProgressResponse Client::getAiOutboundTaskProgressWithOptions(c
 }
 
 /**
- * @summary 智能外呼任务执行进度
+ * @summary Obtain the outbound call job progress by instance ID and job ID.
+ *
+ * @description - Before invoking this API, we recommend that you confirm the instance ID and job ID. For more information, see [Request Parameters](#api-detail-35).  
+ * - The outbound call job progress includes information such as job ID, Task Type, job completion rate, agent connection rate, and customer connection rate. For details, see [Response Parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API-wide invocation frequency: 100 times/second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetAiOutboundTaskProgressRequest
  * @return GetAiOutboundTaskProgressResponse
@@ -3311,6 +3753,13 @@ GetAiOutboundTaskProgressResponse Client::getAiOutboundTaskProgress(const GetAiO
 
 /**
  * @summary getAllDepartment
+ *
+ * @description - You can invoke this API to obtain department IDs for department group queries in certain data query APIs (such as [GetHotlineServiceStatistics](https://help.aliyun.com/document_detail/2717938.html)).  
+ * - After creating, deleting, or updating department information, you can invoke this API to confirm whether the department information matches your expectations.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetAllDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3339,6 +3788,13 @@ GetAllDepartmentResponse Client::getAllDepartmentWithOptions(const GetAllDepartm
 /**
  * @summary getAllDepartment
  *
+ * @description - You can invoke this API to obtain department IDs for department group queries in certain data query APIs (such as [GetHotlineServiceStatistics](https://help.aliyun.com/document_detail/2717938.html)).  
+ * - After creating, deleting, or updating department information, you can invoke this API to confirm whether the department information matches your expectations.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetAllDepartmentRequest
  * @return GetAllDepartmentResponse
  */
@@ -3348,7 +3804,53 @@ GetAllDepartmentResponse Client::getAllDepartment(const GetAllDepartmentRequest 
 }
 
 /**
- * @summary 查询对话内容
+ * @summary Retrieves the upload address for a voice memo recording.
+ *
+ * @param request GetAudioNoteUploadUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAudioNoteUploadUrlResponse
+ */
+GetAudioNoteUploadUrlResponse Client::getAudioNoteUploadUrlWithOptions(const GetAudioNoteUploadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.getFileType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAudioNoteUploadUrl"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAudioNoteUploadUrlResponse>();
+}
+
+/**
+ * @summary Retrieves the upload address for a voice memo recording.
+ *
+ * @param request GetAudioNoteUploadUrlRequest
+ * @return GetAudioNoteUploadUrlResponse
+ */
+GetAudioNoteUploadUrlResponse Client::getAudioNoteUploadUrl(const GetAudioNoteUploadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAudioNoteUploadUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the dialog content for a call by using its call ID. You can retrieve content for calls completed within the last 30 days.
  *
  * @param request GetCallDialogContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3395,7 +3897,7 @@ GetCallDialogContentResponse Client::getCallDialogContentWithOptions(const GetCa
 }
 
 /**
- * @summary 查询对话内容
+ * @summary Retrieves the dialog content for a call by using its call ID. You can retrieve content for calls completed within the last 30 days.
  *
  * @param request GetCallDialogContentRequest
  * @return GetCallDialogContentResponse
@@ -3406,7 +3908,17 @@ GetCallDialogContentResponse Client::getCallDialogContent(const GetCallDialogCon
 }
 
 /**
- * @summary 获取通话录音文件
+ * @summary Obtain the URL of a call recording file based on the call creation time and the unique call ID, and then retrieve the call recording file using the URL.
+ *
+ * @description ### Prerequisites
+ * Before invoking this API, ensure that call recording was enabled during the invocation of the [RobotCall](https://help.aliyun.com/document_detail/223270.html) API and that you successfully received the recording receipt, indicating that the recording file has been generated. Otherwise, an invalid URL will be returned.
+ * ### How-To
+ * This API serves as a supplementary method to the recording receipt. If the URL in the recording receipt message expires, you can use this API to obtain a new recording URL. By default, the validity period of the recording receipt URL is three days.
+ * > We recommend that you directly download the recording content using the recording receipt URL and save it locally, rather than relying on the receipt URL, to avoid issues caused by expiration.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > Throttling will be triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request GetCallSoundRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3453,7 +3965,17 @@ GetCallSoundRecordResponse Client::getCallSoundRecordWithOptions(const GetCallSo
 }
 
 /**
- * @summary 获取通话录音文件
+ * @summary Obtain the URL of a call recording file based on the call creation time and the unique call ID, and then retrieve the call recording file using the URL.
+ *
+ * @description ### Prerequisites
+ * Before invoking this API, ensure that call recording was enabled during the invocation of the [RobotCall](https://help.aliyun.com/document_detail/223270.html) API and that you successfully received the recording receipt, indicating that the recording file has been generated. Otherwise, an invalid URL will be returned.
+ * ### How-To
+ * This API serves as a supplementary method to the recording receipt. If the URL in the recording receipt message expires, you can use this API to obtain a new recording URL. By default, the validity period of the recording receipt URL is three days.
+ * > We recommend that you directly download the recording content using the recording receipt URL and save it locally, rather than relying on the receipt URL, to avoid issues caused by expiration.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > Throttling will be triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request GetCallSoundRecordRequest
  * @return GetCallSoundRecordResponse
@@ -3464,7 +3986,7 @@ GetCallSoundRecordResponse Client::getCallSoundRecord(const GetCallSoundRecordRe
 }
 
 /**
- * @summary 获取热线配置号码列表
+ * @summary Invoke the GetConfigNumList API to obtain the hotline settings number list.
  *
  * @param request GetConfigNumListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3491,7 +4013,7 @@ GetConfigNumListResponse Client::getConfigNumListWithOptions(const GetConfigNumL
 }
 
 /**
- * @summary 获取热线配置号码列表
+ * @summary Invoke the GetConfigNumList API to obtain the hotline settings number list.
  *
  * @param request GetConfigNumListRequest
  * @return GetConfigNumListResponse
@@ -3502,7 +4024,7 @@ GetConfigNumListResponse Client::getConfigNumList(const GetConfigNumListRequest 
 }
 
 /**
- * @summary 获取会员信息
+ * @summary You can invoke the GetCustomerInfo API to obtain membership details by Workbench membership ID.
  *
  * @param request GetCustomerInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3529,7 +4051,7 @@ GetCustomerInfoResponse Client::getCustomerInfoWithOptions(const GetCustomerInfo
 }
 
 /**
- * @summary 获取会员信息
+ * @summary You can invoke the GetCustomerInfo API to obtain membership details by Workbench membership ID.
  *
  * @param request GetCustomerInfoRequest
  * @return GetCustomerInfoResponse
@@ -3540,7 +4062,15 @@ GetCustomerInfoResponse Client::getCustomerInfo(const GetCustomerInfoRequest &re
 }
 
 /**
- * @summary 获取技能组分组
+ * @summary Queries skill group categories and the skill group list by AICCS instance ID and agent ID.
+ *
+ * @description - The skill groups returned by this API are grouped by department ID, which can be specified when you [create a skill group](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup).
+ * - To query detailed skill group information, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API.
+ * - Before invoking this API, you should confirm the AICCS instance ID and agent ID. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 1000 queries per second.
+ * - API-wide invocation frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetDepGroupTreeDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3567,7 +4097,15 @@ GetDepGroupTreeDataResponse Client::getDepGroupTreeDataWithOptions(const GetDepG
 }
 
 /**
- * @summary 获取技能组分组
+ * @summary Queries skill group categories and the skill group list by AICCS instance ID and agent ID.
+ *
+ * @description - The skill groups returned by this API are grouped by department ID, which can be specified when you [create a skill group](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup).
+ * - To query detailed skill group information, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API.
+ * - Before invoking this API, you should confirm the AICCS instance ID and agent ID. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 1000 queries per second.
+ * - API-wide invocation frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetDepGroupTreeDataRequest
  * @return GetDepGroupTreeDataResponse
@@ -3578,7 +4116,14 @@ GetDepGroupTreeDataResponse Client::getDepGroupTreeData(const GetDepGroupTreeDat
 }
 
 /**
- * @summary 部门纬度坐席状态量
+ * @summary Obtain department-level status metrics under hotline monitoring. Supports queries by instance, time range, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API-wide invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetDepartmentalLatitudeAgentStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3611,7 +4156,14 @@ GetDepartmentalLatitudeAgentStatusResponse Client::getDepartmentalLatitudeAgentS
 }
 
 /**
- * @summary 部门纬度坐席状态量
+ * @summary Obtain department-level status metrics under hotline monitoring. Supports queries by instance, time range, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API-wide invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetDepartmentalLatitudeAgentStatusRequest
  * @return GetDepartmentalLatitudeAgentStatusResponse
@@ -3622,6 +4174,14 @@ GetDepartmentalLatitudeAgentStatusResponse Client::getDepartmentalLatitudeAgentS
 }
 
 /**
+ * @summary Obtain the current service details of a hotline agent based on the instance ID and agent account name.
+ *
+ * @description The hotline agent details include information such as agent posture status, agent ID, and heartbeat signature. For more information, see [Response parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limit  
+ * - Per-user invocation frequency: Rate Limiting is not applied.  
+ * - API frequency: 100 queries per second (QPS).  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetHotlineAgentDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHotlineAgentDetailResponse
@@ -3647,6 +4207,14 @@ GetHotlineAgentDetailResponse Client::getHotlineAgentDetailWithOptions(const Get
 }
 
 /**
+ * @summary Obtain the current service details of a hotline agent based on the instance ID and agent account name.
+ *
+ * @description The hotline agent details include information such as agent posture status, agent ID, and heartbeat signature. For more information, see [Response parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limit  
+ * - Per-user invocation frequency: Rate Limiting is not applied.  
+ * - API frequency: 100 queries per second (QPS).  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetHotlineAgentDetailRequest
  * @return GetHotlineAgentDetailResponse
  */
@@ -3656,6 +4224,19 @@ GetHotlineAgentDetailResponse Client::getHotlineAgentDetail(const GetHotlineAgen
 }
 
 /**
+ * @summary Obtain detailed data metrics by hotline agent dimension (T+1). Supports grouping queries by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).
+ * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * > Query logic priority:
+ * > - If GroupIds is not empty, query data metrics under the specified skill groups.
+ * > - Otherwise, if DepIds is not empty, query data metrics under the corresponding department groups.
+ * > - Otherwise, query data metrics under the AICCS instance.
+ * ### QPS Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 10 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetHotlineAgentDetailReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHotlineAgentDetailReportResponse
@@ -3709,6 +4290,19 @@ GetHotlineAgentDetailReportResponse Client::getHotlineAgentDetailReportWithOptio
 }
 
 /**
+ * @summary Obtain detailed data metrics by hotline agent dimension (T+1). Supports grouping queries by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).
+ * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * > Query logic priority:
+ * > - If GroupIds is not empty, query data metrics under the specified skill groups.
+ * > - Otherwise, if DepIds is not empty, query data metrics under the corresponding department groups.
+ * > - Otherwise, query data metrics under the AICCS instance.
+ * ### QPS Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 10 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetHotlineAgentDetailReportRequest
  * @return GetHotlineAgentDetailReportResponse
  */
@@ -3718,6 +4312,15 @@ GetHotlineAgentDetailReportResponse Client::getHotlineAgentDetailReport(const Ge
 }
 
 /**
+ * @summary Queries the hotline agent status in the Cloud Customer Service System by AICCS instance ID and agent account name.
+ *
+ * @description - Before invoking this API, confirm the AICCS instance information and the agent account name. For guidance on how to obtain these details, see the description in [Request Parameters](#api-detail-35).  
+ * - To retrieve detailed information about a hotline agent, you can invoke the [GetHotlineAgentDetail](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-gethotlineagentdetail) API.  
+ * ### Queries per second (QPS) Limit  
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API-wide frequency: 200 queries per second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetHotlineAgentStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHotlineAgentStatusResponse
@@ -3751,6 +4354,15 @@ GetHotlineAgentStatusResponse Client::getHotlineAgentStatusWithOptions(const Get
 }
 
 /**
+ * @summary Queries the hotline agent status in the Cloud Customer Service System by AICCS instance ID and agent account name.
+ *
+ * @description - Before invoking this API, confirm the AICCS instance information and the agent account name. For guidance on how to obtain these details, see the description in [Request Parameters](#api-detail-35).  
+ * - To retrieve detailed information about a hotline agent, you can invoke the [GetHotlineAgentDetail](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-gethotlineagentdetail) API.  
+ * ### Queries per second (QPS) Limit  
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API-wide frequency: 200 queries per second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetHotlineAgentStatusRequest
  * @return GetHotlineAgentStatusResponse
  */
@@ -3760,7 +4372,12 @@ GetHotlineAgentStatusResponse Client::getHotlineAgentStatus(const GetHotlineAgen
 }
 
 /**
- * @summary 查询话务动作结果数据
+ * @summary Invoke the GetHotlineCallAction API to query the result data of call actions.
+ *
+ * @description ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 50 times/second.  
+ * - API invocation frequency: 100 times/second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetHotlineCallActionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3815,7 +4432,12 @@ GetHotlineCallActionResponse Client::getHotlineCallActionWithOptions(const GetHo
 }
 
 /**
- * @summary 查询话务动作结果数据
+ * @summary Invoke the GetHotlineCallAction API to query the result data of call actions.
+ *
+ * @description ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 50 times/second.  
+ * - API invocation frequency: 100 times/second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetHotlineCallActionRequest
  * @return GetHotlineCallActionResponse
@@ -3826,6 +4448,15 @@ GetHotlineCallActionResponse Client::getHotlineCallAction(const GetHotlineCallAc
 }
 
 /**
+ * @summary Retrieve detailed (T+1) data by hotline skill group dimension. Supports grouping by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).  
+ * - If you need to specify agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No Rate Limiting.  
+ * - API frequency: 10 queries per second.
+ * > Throttle will be triggered if the total invocations from multiple users exceed the API frequency limit.
+ *
  * @param request GetHotlineGroupDetailReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHotlineGroupDetailReportResponse
@@ -3879,6 +4510,15 @@ GetHotlineGroupDetailReportResponse Client::getHotlineGroupDetailReportWithOptio
 }
 
 /**
+ * @summary Retrieve detailed (T+1) data by hotline skill group dimension. Supports grouping by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).  
+ * - If you need to specify agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No Rate Limiting.  
+ * - API frequency: 10 queries per second.
+ * > Throttle will be triggered if the total invocations from multiple users exceed the API frequency limit.
+ *
  * @param request GetHotlineGroupDetailReportRequest
  * @return GetHotlineGroupDetailReportResponse
  */
@@ -3888,7 +4528,7 @@ GetHotlineGroupDetailReportResponse Client::getHotlineGroupDetailReport(const Ge
 }
 
 /**
- * @summary 获取热线聊天记录
+ * @summary Invoke the GetHotlineMessageLog API to retrieve hotline message records.
  *
  * @param request GetHotlineMessageLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3915,7 +4555,7 @@ GetHotlineMessageLogResponse Client::getHotlineMessageLogWithOptions(const GetHo
 }
 
 /**
- * @summary 获取热线聊天记录
+ * @summary Invoke the GetHotlineMessageLog API to retrieve hotline message records.
  *
  * @param request GetHotlineMessageLogRequest
  * @return GetHotlineMessageLogResponse
@@ -3926,7 +4566,7 @@ GetHotlineMessageLogResponse Client::getHotlineMessageLog(const GetHotlineMessag
 }
 
 /**
- * @summary 获取热线当前信息
+ * @summary Invoke the GetHotlineRuntimeInfo API to query hotline runtime information.
  *
  * @param request GetHotlineRuntimeInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3953,7 +4593,7 @@ GetHotlineRuntimeInfoResponse Client::getHotlineRuntimeInfoWithOptions(const Get
 }
 
 /**
- * @summary 获取热线当前信息
+ * @summary Invoke the GetHotlineRuntimeInfo API to query hotline runtime information.
  *
  * @param request GetHotlineRuntimeInfoRequest
  * @return GetHotlineRuntimeInfoResponse
@@ -3964,7 +4604,14 @@ GetHotlineRuntimeInfoResponse Client::getHotlineRuntimeInfo(const GetHotlineRunt
 }
 
 /**
- * @summary 服务统计量数据
+ * @summary Obtain service statistics under hotline monitoring. Supports grouped queries by instance, time dimension, agent, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param tmpReq GetHotlineServiceStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4005,7 +4652,14 @@ GetHotlineServiceStatisticsResponse Client::getHotlineServiceStatisticsWithOptio
 }
 
 /**
- * @summary 服务统计量数据
+ * @summary Obtain service statistics under hotline monitoring. Supports grouped queries by instance, time dimension, agent, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to provide agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param request GetHotlineServiceStatisticsRequest
  * @return GetHotlineServiceStatisticsResponse
@@ -4016,6 +4670,8 @@ GetHotlineServiceStatisticsResponse Client::getHotlineServiceStatistics(const Ge
 }
 
 /**
+ * @summary Obtain the queue length of hotline members.
+ *
  * @param request GetHotlineWaitingNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHotlineWaitingNumberResponse
@@ -4041,6 +4697,8 @@ GetHotlineWaitingNumberResponse Client::getHotlineWaitingNumberWithOptions(const
 }
 
 /**
+ * @summary Obtain the queue length of hotline members.
+ *
  * @param request GetHotlineWaitingNumberRequest
  * @return GetHotlineWaitingNumberResponse
  */
@@ -4050,6 +4708,19 @@ GetHotlineWaitingNumberResponse Client::getHotlineWaitingNumber(const GetHotline
 }
 
 /**
+ * @summary You can obtain the current statistical metrics (real-time data) and query them by instance ID, department, or skill group.
+ *
+ * @description - The current data statistics metrics include cumulative metrics for the day and real-time metrics.  
+ * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * > Query logic priority:  
+ * > - If GroupIds is not empty, query the data metrics for the specified skill groups.  
+ * > - Otherwise, if DepIds is not empty, query the data metrics for the specified departments.  
+ * > - Otherwise, query the data metrics for the Artificial Intelligence Cloud Call Service (AICCS) instance.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetIndexCurrentValueRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetIndexCurrentValueResponse
@@ -4087,6 +4758,19 @@ GetIndexCurrentValueResponse Client::getIndexCurrentValueWithOptions(const GetIn
 }
 
 /**
+ * @summary You can obtain the current statistical metrics (real-time data) and query them by instance ID, department, or skill group.
+ *
+ * @description - The current data statistics metrics include cumulative metrics for the day and real-time metrics.  
+ * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * > Query logic priority:  
+ * > - If GroupIds is not empty, query the data metrics for the specified skill groups.  
+ * > - Otherwise, if DepIds is not empty, query the data metrics for the specified departments.  
+ * > - Otherwise, query the data metrics for the Artificial Intelligence Cloud Call Service (AICCS) instance.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetIndexCurrentValueRequest
  * @return GetIndexCurrentValueResponse
  */
@@ -4142,7 +4826,7 @@ GetInstanceListResponse Client::getInstanceList(const GetInstanceListRequest &re
 }
 
 /**
- * @summary 热线检测获取mcu ip地址
+ * @summary Invoke the GetMcuLvsIp API to query the hotline server IP address.
  *
  * @param request GetMcuLvsIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4169,7 +4853,7 @@ GetMcuLvsIpResponse Client::getMcuLvsIpWithOptions(const GetMcuLvsIpRequest &req
 }
 
 /**
- * @summary 热线检测获取mcu ip地址
+ * @summary Invoke the GetMcuLvsIp API to query the hotline server IP address.
  *
  * @param request GetMcuLvsIpRequest
  * @return GetMcuLvsIpResponse
@@ -4180,6 +4864,13 @@ GetMcuLvsIpResponse Client::getMcuLvsIp(const GetMcuLvsIpRequest &request) {
 }
 
 /**
+ * @summary Obtain the number\\"s归属地 information based on the instance ID and phone number.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetNumLocationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetNumLocationResponse
@@ -4205,6 +4896,13 @@ GetNumLocationResponse Client::getNumLocationWithOptions(const GetNumLocationReq
 }
 
 /**
+ * @summary Obtain the number\\"s归属地 information based on the instance ID and phone number.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request GetNumLocationRequest
  * @return GetNumLocationResponse
  */
@@ -4214,7 +4912,14 @@ GetNumLocationResponse Client::getNumLocation(const GetNumLocationRequest &reque
 }
 
 /**
- * @summary 在线坐席信息
+ * @summary Obtain online agent information data under real-time monitoring. Support queries by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param tmpReq GetOnlineSeatInformationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4251,7 +4956,14 @@ GetOnlineSeatInformationResponse Client::getOnlineSeatInformationWithOptions(con
 }
 
 /**
- * @summary 在线坐席信息
+ * @summary Obtain online agent information data under real-time monitoring. Support queries by instance, time range, agent, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param request GetOnlineSeatInformationRequest
  * @return GetOnlineSeatInformationResponse
@@ -4262,7 +4974,14 @@ GetOnlineSeatInformationResponse Client::getOnlineSeatInformation(const GetOnlin
 }
 
 /**
- * @summary 在线服务总量
+ * @summary Obtain the volume of Online Services under online monitoring. Support grouped queries by instance, time range, agent, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetOnlineServiceVolumeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4303,7 +5022,14 @@ GetOnlineServiceVolumeResponse Client::getOnlineServiceVolumeWithOptions(const G
 }
 
 /**
- * @summary 在线服务总量
+ * @summary Obtain the volume of Online Services under online monitoring. Support grouped queries by instance, time range, agent, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetOnlineServiceVolumeRequest
  * @return GetOnlineServiceVolumeResponse
@@ -4314,6 +5040,8 @@ GetOnlineServiceVolumeResponse Client::getOnlineServiceVolume(const GetOnlineSer
 }
 
 /**
+ * @summary Retrieve the list of external hotline numbers.
+ *
  * @param request GetOutbounNumListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetOutbounNumListResponse
@@ -4351,6 +5079,8 @@ GetOutbounNumListResponse Client::getOutbounNumListWithOptions(const GetOutbounN
 }
 
 /**
+ * @summary Retrieve the list of external hotline numbers.
+ *
  * @param request GetOutbounNumListRequest
  * @return GetOutbounNumListResponse
  */
@@ -4360,6 +5090,8 @@ GetOutbounNumListResponse Client::getOutbounNumList(const GetOutbounNumListReque
 }
 
 /**
+ * @summary Invoke GetQualityProjectDetail to obtain the quality inspection job details.
+ *
  * @param request GetQualityProjectDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetQualityProjectDetailResponse
@@ -4393,6 +5125,8 @@ GetQualityProjectDetailResponse Client::getQualityProjectDetailWithOptions(const
 }
 
 /**
+ * @summary Invoke GetQualityProjectDetail to obtain the quality inspection job details.
+ *
  * @param request GetQualityProjectDetailRequest
  * @return GetQualityProjectDetailResponse
  */
@@ -4402,6 +5136,8 @@ GetQualityProjectDetailResponse Client::getQualityProjectDetail(const GetQuality
 }
 
 /**
+ * @summary Invoke GetQualityProjectList to obtain the quality inspection job list.
+ *
  * @param request GetQualityProjectListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetQualityProjectListResponse
@@ -4455,6 +5191,8 @@ GetQualityProjectListResponse Client::getQualityProjectListWithOptions(const Get
 }
 
 /**
+ * @summary Invoke GetQualityProjectList to obtain the quality inspection job list.
+ *
  * @param request GetQualityProjectListRequest
  * @return GetQualityProjectListResponse
  */
@@ -4706,7 +5444,14 @@ GetQualityRuleTagListResponse Client::getQualityRuleTagList(const GetQualityRule
 }
 
 /**
- * @summary 技能组纬度队列信息
+ * @summary Obtain queue information under the skill group dimension in online monitoring. Supports queries grouped by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetQueueInformationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4743,7 +5488,14 @@ GetQueueInformationResponse Client::getQueueInformationWithOptions(const GetQueu
 }
 
 /**
- * @summary 技能组纬度队列信息
+ * @summary Obtain queue information under the skill group dimension in online monitoring. Supports queries grouped by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetQueueInformationRequest
  * @return GetQueueInformationResponse
@@ -4754,6 +5506,8 @@ GetQueueInformationResponse Client::getQueueInformation(const GetQueueInformatio
 }
 
 /**
+ * @summary Invoke the GetRecordData API to obtain a recording file.
+ *
  * @param request GetRecordDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRecordDataResponse
@@ -4787,6 +5541,8 @@ GetRecordDataResponse Client::getRecordDataWithOptions(const GetRecordDataReques
 }
 
 /**
+ * @summary Invoke the GetRecordData API to obtain a recording file.
+ *
  * @param request GetRecordDataRequest
  * @return GetRecordDataResponse
  */
@@ -4796,7 +5552,7 @@ GetRecordDataResponse Client::getRecordData(const GetRecordDataRequest &request)
 }
 
 /**
- * @summary 获取录音链接
+ * @summary Invoke the GetRecordUrl API to obtain the incoming and outgoing calls recording link.
  *
  * @param request GetRecordUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4823,7 +5579,7 @@ GetRecordUrlResponse Client::getRecordUrlWithOptions(const GetRecordUrlRequest &
 }
 
 /**
- * @summary 获取录音链接
+ * @summary Invoke the GetRecordUrl API to obtain the incoming and outgoing calls recording link.
  *
  * @param request GetRecordUrlRequest
  * @return GetRecordUrlResponse
@@ -4834,7 +5590,7 @@ GetRecordUrlResponse Client::getRecordUrl(const GetRecordUrlRequest &request) {
 }
 
 /**
- * @summary 获取RtcToken
+ * @summary Invoke GetRtcToken to obtain the token for a shift agent.
  *
  * @param request GetRtcTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4861,7 +5617,7 @@ GetRtcTokenResponse Client::getRtcTokenWithOptions(const GetRtcTokenRequest &req
 }
 
 /**
- * @summary 获取RtcToken
+ * @summary Invoke GetRtcToken to obtain the token for a shift agent.
  *
  * @param request GetRtcTokenRequest
  * @return GetRtcTokenResponse
@@ -4872,7 +5628,14 @@ GetRtcTokenResponse Client::getRtcToken(const GetRtcTokenRequest &request) {
 }
 
 /**
- * @summary 部门纬度坐席信息数据
+ * @summary Obtain agent service capacity data under online monitoring. Supports queries by instance, time range, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetSeatInformationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4905,7 +5668,14 @@ GetSeatInformationResponse Client::getSeatInformationWithOptions(const GetSeatIn
 }
 
 /**
- * @summary 部门纬度坐席信息数据
+ * @summary Obtain agent service capacity data under online monitoring. Supports queries by instance, time range, and department group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetSeatInformationRequest
  * @return GetSeatInformationResponse
@@ -4916,7 +5686,14 @@ GetSeatInformationResponse Client::getSeatInformation(const GetSeatInformationRe
 }
 
 /**
- * @summary 技能组坐席状态详情
+ * @summary Obtain the service status metrics of skill groups. Support grouped queries by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetSkillGroupAgentStatusDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4953,7 +5730,14 @@ GetSkillGroupAgentStatusDetailsResponse Client::getSkillGroupAgentStatusDetailsW
 }
 
 /**
- * @summary 技能组坐席状态详情
+ * @summary Obtain the service status metrics of skill groups. Support grouped queries by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request GetSkillGroupAgentStatusDetailsRequest
  * @return GetSkillGroupAgentStatusDetailsResponse
@@ -4964,7 +5748,14 @@ GetSkillGroupAgentStatusDetailsResponse Client::getSkillGroupAgentStatusDetails(
 }
 
 /**
- * @summary 技能组坐席汇总状态量
+ * @summary Obtain the aggregated agent status metrics for skill groups under hotline monitoring. Supports grouped queries by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param tmpReq GetSkillGroupAndAgentStatusSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5001,7 +5792,14 @@ GetSkillGroupAndAgentStatusSummaryResponse Client::getSkillGroupAndAgentStatusSu
 }
 
 /**
- * @summary 技能组坐席汇总状态量
+ * @summary Obtain the aggregated agent status metrics for skill groups under hotline monitoring. Supports grouped queries by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param request GetSkillGroupAndAgentStatusSummaryRequest
  * @return GetSkillGroupAndAgentStatusSummaryResponse
@@ -5012,7 +5810,14 @@ GetSkillGroupAndAgentStatusSummaryResponse Client::getSkillGroupAndAgentStatusSu
 }
 
 /**
- * @summary 技能组纬度状态量
+ * @summary Obtain the hotline monitoring status metrics by skill group dimension. Supports queries grouped by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetSkillGroupLatitudeStateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5049,7 +5854,14 @@ GetSkillGroupLatitudeStateResponse Client::getSkillGroupLatitudeStateWithOptions
 }
 
 /**
- * @summary 技能组纬度状态量
+ * @summary Obtain the hotline monitoring status metrics by skill group dimension. Supports queries grouped by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetSkillGroupLatitudeStateRequest
  * @return GetSkillGroupLatitudeStateResponse
@@ -5060,7 +5872,14 @@ GetSkillGroupLatitudeStateResponse Client::getSkillGroupLatitudeState(const GetS
 }
 
 /**
- * @summary 技能组纬度服务能力
+ * @summary Retrieve skill group–level service capacity data under online monitoring. Supports queries grouped by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param tmpReq GetSkillGroupServiceCapabilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5097,7 +5916,14 @@ GetSkillGroupServiceCapabilityResponse Client::getSkillGroupServiceCapabilityWit
 }
 
 /**
- * @summary 技能组纬度服务能力
+ * @summary Retrieve skill group–level service capacity data under online monitoring. Supports queries grouped by instance, time range, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param request GetSkillGroupServiceCapabilityRequest
  * @return GetSkillGroupServiceCapabilityResponse
@@ -5108,7 +5934,12 @@ GetSkillGroupServiceCapabilityResponse Client::getSkillGroupServiceCapability(co
 }
 
 /**
- * @summary 技能组服务状态量
+ * @summary Obtain the service status metrics of skill groups in online reports.
+ *
+ * @description ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param tmpReq GetSkillGroupServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5149,7 +5980,12 @@ GetSkillGroupServiceStatusResponse Client::getSkillGroupServiceStatusWithOptions
 }
 
 /**
- * @summary 技能组服务状态量
+ * @summary Obtain the service status metrics of skill groups in online reports.
+ *
+ * @description ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API invocation frequency: 100 times per second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request GetSkillGroupServiceStatusRequest
  * @return GetSkillGroupServiceStatusResponse
@@ -5160,7 +5996,14 @@ GetSkillGroupServiceStatusResponse Client::getSkillGroupServiceStatus(const GetS
 }
 
 /**
- * @summary 技能组状态总量
+ * @summary Obtain the total status count of skill groups under hotline reports. Supports grouped queries by instance, time range, agent, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling will be triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param tmpReq GetSkillGroupStatusTotalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5201,7 +6044,14 @@ GetSkillGroupStatusTotalResponse Client::getSkillGroupStatusTotalWithOptions(con
 }
 
 /**
- * @summary 技能组状态总量
+ * @summary Obtain the total status count of skill groups under hotline reports. Supports grouped queries by instance, time range, agent, department, and skill group.
+ *
+ * @description - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).  
+ * - If you need to specify agent, department, or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times per second.  
+ * - API-wide invocation frequency: 100 times per second.  
+ * > Throttling will be triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request GetSkillGroupStatusTotalRequest
  * @return GetSkillGroupStatusTotalResponse
@@ -5212,7 +6062,7 @@ GetSkillGroupStatusTotalResponse Client::getSkillGroupStatusTotal(const GetSkill
 }
 
 /**
- * @summary 移动端呼叫挂断
+ * @summary Cancel dual-call.
  *
  * @param request HangUpDoubleCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5247,7 +6097,7 @@ HangUpDoubleCallResponse Client::hangUpDoubleCallWithOptions(const HangUpDoubleC
 }
 
 /**
- * @summary 移动端呼叫挂断
+ * @summary Cancel dual-call.
  *
  * @param request HangUpDoubleCallRequest
  * @return HangUpDoubleCallResponse
@@ -5258,6 +6108,8 @@ HangUpDoubleCallResponse Client::hangUpDoubleCall(const HangUpDoubleCallRequest 
 }
 
 /**
+ * @summary Invoke HangupCall to execute the agent hang-up operation.
+ *
  * @param request HangupCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return HangupCallResponse
@@ -5307,6 +6159,8 @@ HangupCallResponse Client::hangupCallWithOptions(const HangupCallRequest &reques
 }
 
 /**
+ * @summary Invoke HangupCall to execute the agent hang-up operation.
+ *
  * @param request HangupCallRequest
  * @return HangupCallResponse
  */
@@ -5316,7 +6170,10 @@ HangupCallResponse Client::hangupCall(const HangupCallRequest &request) {
 }
 
 /**
- * @summary 通信智能引擎中主动挂断通话
+ * @summary Hangs up a call in Communication Intelligence Engine.
+ *
+ * @description - Before you hang up a call in Communication Intelligence Engine, ensure that a call has been initiated by a large model.
+ * - If a call has not been initiated, use the [LlmSmartCall](https://help.aliyun.com/document_detail/2862828.html) or [LlmSmartCallEncrypt](https://help.aliyun.com/document_detail/2881065.html) operation to do so.
  *
  * @param request HangupOperateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5351,7 +6208,10 @@ HangupOperateResponse Client::hangupOperateWithOptions(const HangupOperateReques
 }
 
 /**
- * @summary 通信智能引擎中主动挂断通话
+ * @summary Hangs up a call in Communication Intelligence Engine.
+ *
+ * @description - Before you hang up a call in Communication Intelligence Engine, ensure that a call has been initiated by a large model.
+ * - If a call has not been initiated, use the [LlmSmartCall](https://help.aliyun.com/document_detail/2862828.html) or [LlmSmartCallEncrypt](https://help.aliyun.com/document_detail/2881065.html) operation to do so.
  *
  * @param request HangupOperateRequest
  * @return HangupOperateResponse
@@ -5362,6 +6222,8 @@ HangupOperateResponse Client::hangupOperate(const HangupOperateRequest &request)
 }
 
 /**
+ * @summary Hang up a third-party call.
+ *
  * @param request HangupThirdCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return HangupThirdCallResponse
@@ -5411,6 +6273,8 @@ HangupThirdCallResponse Client::hangupThirdCallWithOptions(const HangupThirdCall
 }
 
 /**
+ * @summary Hang up a third-party call.
+ *
  * @param request HangupThirdCallRequest
  * @return HangupThirdCallResponse
  */
@@ -5420,6 +6284,8 @@ HangupThirdCallResponse Client::hangupThirdCall(const HangupThirdCallRequest &re
 }
 
 /**
+ * @summary Hold the call.
+ *
  * @param request HoldCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return HoldCallResponse
@@ -5469,6 +6335,8 @@ HoldCallResponse Client::holdCallWithOptions(const HoldCallRequest &request, con
 }
 
 /**
+ * @summary Hold the call.
+ *
  * @param request HoldCallRequest
  * @return HoldCallResponse
  */
@@ -5478,6 +6346,14 @@ HoldCallResponse Client::holdCall(const HoldCallRequest &request) {
 }
 
 /**
+ * @summary Query call details by instance ID.
+ *
+ * @description Call details include the total number of records, call result, agent name, call time, and other information.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 80 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency, throttling will be triggered.
+ *
  * @param request HotlineSessionQueryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return HotlineSessionQueryResponse
@@ -5611,6 +6487,14 @@ HotlineSessionQueryResponse Client::hotlineSessionQueryWithOptions(const Hotline
 }
 
 /**
+ * @summary Query call details by instance ID.
+ *
+ * @description Call details include the total number of records, call result, agent name, call time, and other information.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 80 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency, throttling will be triggered.
+ *
  * @param request HotlineSessionQueryRequest
  * @return HotlineSessionQueryResponse
  */
@@ -5620,7 +6504,7 @@ HotlineSessionQueryResponse Client::hotlineSessionQuery(const HotlineSessionQuer
 }
 
 /**
- * @summary 语音智能体外呼任务导入单条数据
+ * @summary Imports a single phone number to a task.
  *
  * @param tmpReq ImportOneTaskPhoneNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5685,7 +6569,7 @@ ImportOneTaskPhoneNumberResponse Client::importOneTaskPhoneNumberWithOptions(con
 }
 
 /**
- * @summary 语音智能体外呼任务导入单条数据
+ * @summary Imports a single phone number to a task.
  *
  * @param request ImportOneTaskPhoneNumberRequest
  * @return ImportOneTaskPhoneNumberResponse
@@ -5696,7 +6580,12 @@ ImportOneTaskPhoneNumberResponse Client::importOneTaskPhoneNumber(const ImportOn
 }
 
 /**
- * @summary 导入任务号码数据
+ * @summary Imports callee data for a call task.
+ *
+ * @description - You can import callee data by calling this operation. Alternatively, go to the **call task management** page, click **Import Callee Data**, download the template, and then upload your file.
+ * - This API operation currently supports only the JSON data type for importing callee data.
+ * - Ensure that you have created a call task before you call this operation.
+ * - To create a call task, go to the **call task management** page and click **Create Call Task**, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param tmpReq ImportTaskNumberDatasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5763,7 +6652,12 @@ ImportTaskNumberDatasResponse Client::importTaskNumberDatasWithOptions(const Imp
 }
 
 /**
- * @summary 导入任务号码数据
+ * @summary Imports callee data for a call task.
+ *
+ * @description - You can import callee data by calling this operation. Alternatively, go to the **call task management** page, click **Import Callee Data**, download the template, and then upload your file.
+ * - This API operation currently supports only the JSON data type for importing callee data.
+ * - Ensure that you have created a call task before you call this operation.
+ * - To create a call task, go to the **call task management** page and click **Create Call Task**, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param request ImportTaskNumberDatasRequest
  * @return ImportTaskNumberDatasResponse
@@ -5774,7 +6668,14 @@ ImportTaskNumberDatasResponse Client::importTaskNumberDatas(const ImportTaskNumb
 }
 
 /**
- * @summary 智能外呼任务导入号码
+ * @summary Import outbound call callee numbers based on the instance ID and job ID.
+ *
+ * @description - After importing outbound call callee numbers, the outbound calling job can operate normally.  
+ * - Before invoking this API, we recommend that you confirm the instance ID and job ID. For more information, see [Request Parameters](#api-detail-35).  
+ * ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 20 times/second.  
+ * - API invocation frequency: 50 times/second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param tmpReq InsertAiOutboundPhoneNumsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5823,7 +6724,14 @@ InsertAiOutboundPhoneNumsResponse Client::insertAiOutboundPhoneNumsWithOptions(c
 }
 
 /**
- * @summary 智能外呼任务导入号码
+ * @summary Import outbound call callee numbers based on the instance ID and job ID.
+ *
+ * @description - After importing outbound call callee numbers, the outbound calling job can operate normally.  
+ * - Before invoking this API, we recommend that you confirm the instance ID and job ID. For more information, see [Request Parameters](#api-detail-35).  
+ * ### Queries per second (QPS) limits  
+ * - Per-user invocation frequency: 20 times/second.  
+ * - API invocation frequency: 50 times/second.  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request InsertAiOutboundPhoneNumsRequest
  * @return InsertAiOutboundPhoneNumsResponse
@@ -5880,6 +6788,8 @@ InsertTaskDetailResponse Client::insertTaskDetail(const InsertTaskDetailRequest 
 }
 
 /**
+ * @summary Add a third party to the call.
+ *
  * @param request JoinThirdCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return JoinThirdCallResponse
@@ -5933,6 +6843,8 @@ JoinThirdCallResponse Client::joinThirdCallWithOptions(const JoinThirdCallReques
 }
 
 /**
+ * @summary Add a third party to the call.
+ *
  * @param request JoinThirdCallRequest
  * @return JoinThirdCallResponse
  */
@@ -5942,6 +6854,15 @@ JoinThirdCallResponse Client::joinThirdCall(const JoinThirdCallRequest &request)
 }
 
 /**
+ * @summary Query the agent list in the Cloud Customer Service System by AICCS instance ID and skill group ID.
+ *
+ * @description - Before invoking this API, confirm the AICCS instance information and skill group information. For guidance on how to obtain these details, refer to the description of [Request Parameters](#api-detail-35).
+ * - If an agent is not assigned to any skill group, you can invoke [GetAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-getagent) to query the agent information.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request ListAgentBySkillGroupIdRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAgentBySkillGroupIdResponse
@@ -5967,6 +6888,15 @@ ListAgentBySkillGroupIdResponse Client::listAgentBySkillGroupIdWithOptions(const
 }
 
 /**
+ * @summary Query the agent list in the Cloud Customer Service System by AICCS instance ID and skill group ID.
+ *
+ * @description - Before invoking this API, confirm the AICCS instance information and skill group information. For guidance on how to obtain these details, refer to the description of [Request Parameters](#api-detail-35).
+ * - If an agent is not assigned to any skill group, you can invoke [GetAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-getagent) to query the agent information.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request ListAgentBySkillGroupIdRequest
  * @return ListAgentBySkillGroupIdResponse
  */
@@ -5976,7 +6906,14 @@ ListAgentBySkillGroupIdResponse Client::listAgentBySkillGroupId(const ListAgentB
 }
 
 /**
- * @summary 查询所有机器人列表
+ * @summary Retrieve the list of robot scripts, including robot type, robot name, robot ID, associated business, and industry information.
+ *
+ * @description - Before invoking this API, ensure that you already have scripts that have passed the Review.
+ * - If you do not have any scripts that have passed the Review, add a script and submit it for Review in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface first.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
  *
  * @param request ListAiccsRobotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6019,7 +6956,14 @@ ListAiccsRobotResponse Client::listAiccsRobotWithOptions(const ListAiccsRobotReq
 }
 
 /**
- * @summary 查询所有机器人列表
+ * @summary Retrieve the list of robot scripts, including robot type, robot name, robot ID, associated business, and industry information.
+ *
+ * @description - Before invoking this API, ensure that you already have scripts that have passed the Review.
+ * - If you do not have any scripts that have passed the Review, add a script and submit it for Review in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface first.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
  *
  * @param request ListAiccsRobotRequest
  * @return ListAiccsRobotResponse
@@ -6030,7 +6974,9 @@ ListAiccsRobotResponse Client::listAiccsRobot(const ListAiccsRobotRequest &reque
 }
 
 /**
- * @summary 获取tts音色列表
+ * @summary Lists the system and custom TTS voices available for large model-based outbound calls.
+ *
+ * @description If you have not created and published any custom voices on the [Custom Voice](https://aiccs.console.aliyun.com/engine/voiceprint) page, the operation returns only system voices.
  *
  * @param request ListAvailableTtsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6077,7 +7023,9 @@ ListAvailableTtsResponse Client::listAvailableTtsWithOptions(const ListAvailable
 }
 
 /**
- * @summary 获取tts音色列表
+ * @summary Lists the system and custom TTS voices available for large model-based outbound calls.
+ *
+ * @description If you have not created and published any custom voices on the [Custom Voice](https://aiccs.console.aliyun.com/engine/voiceprint) page, the operation returns only system voices.
  *
  * @param request ListAvailableTtsRequest
  * @return ListAvailableTtsResponse
@@ -6088,7 +7036,14 @@ ListAvailableTtsResponse Client::listAvailableTts(const ListAvailableTtsRequest 
 }
 
 /**
- * @summary 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天
+ * @summary Invoke ListChatRecordDetail to query online session details by time period.
+ *
+ * @description This API queries information about completed online sessions within a specified time range, including session content. The query rules are as follows:  
+ * - The maximum time span for the query is 1 Day.  
+ * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.  
+ * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.  
+ * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.  
+ * - If both times are provided but the time span exceeds 1 Day, an abnormal response is returned.
  *
  * @param request ListChatRecordDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6115,7 +7070,14 @@ ListChatRecordDetailResponse Client::listChatRecordDetailWithOptions(const ListC
 }
 
 /**
- * @summary 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天
+ * @summary Invoke ListChatRecordDetail to query online session details by time period.
+ *
+ * @description This API queries information about completed online sessions within a specified time range, including session content. The query rules are as follows:  
+ * - The maximum time span for the query is 1 Day.  
+ * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.  
+ * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.  
+ * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.  
+ * - If both times are provided but the time span exceeds 1 Day, an abnormal response is returned.
  *
  * @param request ListChatRecordDetailRequest
  * @return ListChatRecordDetailResponse
@@ -6126,7 +7088,15 @@ ListChatRecordDetailResponse Client::listChatRecordDetail(const ListChatRecordDe
 }
 
 /**
- * @summary 查看对话记录
+ * @summary Query Intelligent Contact Bot conversation records.
+ *
+ * @description - You can invoke this API to query Intelligent Contact Bot conversation records, or view them in the **Task Management** > **Details** > **View Conversation Records** interface.
+ * - Before invoking this API, ensure that your created Intelligent Contact Bot calling job has successfully connected to at least one phone number.
+ * - If you do not have an existing Intelligent Contact Bot calling job, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListDialogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6173,7 +7143,15 @@ ListDialogResponse Client::listDialogWithOptions(const ListDialogRequest &reques
 }
 
 /**
- * @summary 查看对话记录
+ * @summary Query Intelligent Contact Bot conversation records.
+ *
+ * @description - You can invoke this API to query Intelligent Contact Bot conversation records, or view them in the **Task Management** > **Details** > **View Conversation Records** interface.
+ * - Before invoking this API, ensure that your created Intelligent Contact Bot calling job has successfully connected to at least one phone number.
+ * - If you do not have an existing Intelligent Contact Bot calling job, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListDialogRequest
  * @return ListDialogResponse
@@ -6184,6 +7162,8 @@ ListDialogResponse Client::listDialog(const ListDialogRequest &request) {
 }
 
 /**
+ * @summary Invoke ListHotlineRecord to query the hotline recording list by hotline session ID.
+ *
  * @param request ListHotlineRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListHotlineRecordResponse
@@ -6209,6 +7189,8 @@ ListHotlineRecordResponse Client::listHotlineRecordWithOptions(const ListHotline
 }
 
 /**
+ * @summary Invoke ListHotlineRecord to query the hotline recording list by hotline session ID.
+ *
  * @param request ListHotlineRecordRequest
  * @return ListHotlineRecordResponse
  */
@@ -6218,7 +7200,14 @@ ListHotlineRecordResponse Client::listHotlineRecord(const ListHotlineRecordReque
 }
 
 /**
- * @summary 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天
+ * @summary Query the list of hotline details by time period.
+ *
+ * @description This API queries detailed hotline information within a specified time range, including hotline call information. The query rules are as follows:  
+ * - The maximum time span for the query is 1 Day.  
+ * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.  
+ * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.  
+ * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.  
+ * - If both times are provided but the time span exceeds 1 Day, an abnormal result is returned.
  *
  * @param request ListHotlineRecordDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6245,7 +7234,14 @@ ListHotlineRecordDetailResponse Client::listHotlineRecordDetailWithOptions(const
 }
 
 /**
- * @summary 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天
+ * @summary Query the list of hotline details by time period.
+ *
+ * @description This API queries detailed hotline information within a specified time range, including hotline call information. The query rules are as follows:  
+ * - The maximum time span for the query is 1 Day.  
+ * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.  
+ * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.  
+ * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.  
+ * - If both times are provided but the time span exceeds 1 Day, an abnormal result is returned.
  *
  * @param request ListHotlineRecordDetailRequest
  * @return ListHotlineRecordDetailResponse
@@ -6256,6 +7252,13 @@ ListHotlineRecordDetailResponse Client::listHotlineRecordDetail(const ListHotlin
 }
 
 /**
+ * @summary Obtain the outbound caller phone numbers for a specified agent based on the instance ID and agent account name.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user API call frequency: No rate limiting.
+ * - API frequency: 100 calls per second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request ListOutboundPhoneNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListOutboundPhoneNumberResponse
@@ -6281,6 +7284,13 @@ ListOutboundPhoneNumberResponse Client::listOutboundPhoneNumberWithOptions(const
 }
 
 /**
+ * @summary Obtain the outbound caller phone numbers for a specified agent based on the instance ID and agent account name.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user API call frequency: No rate limiting.
+ * - API frequency: 100 calls per second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request ListOutboundPhoneNumberRequest
  * @return ListOutboundPhoneNumberResponse
  */
@@ -6290,7 +7300,14 @@ ListOutboundPhoneNumberResponse Client::listOutboundPhoneNumber(const ListOutbou
 }
 
 /**
- * @summary 查看对话记录
+ * @summary Query Intelligent Contact Robot call records.
+ *
+ * @description - Before invoking this API, ensure that you have already initiated an outbound job using the Intelligent Contact Robot.
+ * - If you have not yet initiated an outbound job using the Intelligent Contact Robot, you can invoke the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) API to start one.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListRobotCallDialogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6337,7 +7354,14 @@ ListRobotCallDialogResponse Client::listRobotCallDialogWithOptions(const ListRob
 }
 
 /**
- * @summary 查看对话记录
+ * @summary Query Intelligent Contact Robot call records.
+ *
+ * @description - Before invoking this API, ensure that you have already initiated an outbound job using the Intelligent Contact Robot.
+ * - If you have not yet initiated an outbound job using the Intelligent Contact Robot, you can invoke the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) API to start one.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListRobotCallDialogRequest
  * @return ListRobotCallDialogResponse
@@ -6348,7 +7372,14 @@ ListRobotCallDialogResponse Client::listRobotCallDialog(const ListRobotCallDialo
 }
 
 /**
- * @summary 查询机器人输出列表
+ * @summary Retrieves the list of robot node information based on the robot ID, which is the script ID.
+ *
+ * @description - Robot node information includes flow name, model name, node name, whether it is an output, and output ID.  
+ * - Before invoking this API, you can confirm the robot ID (that is, the script ID) by following the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListRobotNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6391,7 +7422,14 @@ ListRobotNodeResponse Client::listRobotNodeWithOptions(const ListRobotNodeReques
 }
 
 /**
- * @summary 查询机器人输出列表
+ * @summary Retrieves the list of robot node information based on the robot ID, which is the script ID.
+ *
+ * @description - Robot node information includes flow name, model name, node name, whether it is an output, and output ID.  
+ * - Before invoking this API, you can confirm the robot ID (that is, the script ID) by following the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListRobotNodeRequest
  * @return ListRobotNodeResponse
@@ -6402,7 +7440,14 @@ ListRobotNodeResponse Client::listRobotNode(const ListRobotNodeRequest &request)
 }
 
 /**
- * @summary 查询参数列表
+ * @summary Queries the list of robot parameters by robot ID, which is also the script ID.
+ *
+ * @description - Before invoking this API, ensure that you have already added input parameters for the robot.
+ * - If your robot does not have any input parameters, go to the [**Script Management**](https://aiccs.console.aliyun.com/patter/list) > **Configuration** > **Input and Output Parameters** interface and click to add an input parameter.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
  *
  * @param request ListRobotParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6445,7 +7490,14 @@ ListRobotParamsResponse Client::listRobotParamsWithOptions(const ListRobotParams
 }
 
 /**
- * @summary 查询参数列表
+ * @summary Queries the list of robot parameters by robot ID, which is also the script ID.
+ *
+ * @description - Before invoking this API, ensure that you have already added input parameters for the robot.
+ * - If your robot does not have any input parameters, go to the [**Script Management**](https://aiccs.console.aliyun.com/patter/list) > **Configuration** > **Input and Output Parameters** interface and click to add an input parameter.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
  *
  * @param request ListRobotParamsRequest
  * @return ListRobotParamsResponse
@@ -6456,7 +7508,7 @@ ListRobotParamsResponse Client::listRobotParams(const ListRobotParamsRequest &re
 }
 
 /**
- * @summary 获取租户下的所有角色
+ * @summary Invoke ListRoles to obtain the list of all roles under a tenant.
  *
  * @param request ListRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6483,7 +7535,7 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
 }
 
 /**
- * @summary 获取租户下的所有角色
+ * @summary Invoke ListRoles to obtain the list of all roles under a tenant.
  *
  * @param request ListRolesRequest
  * @return ListRolesResponse
@@ -6494,6 +7546,13 @@ ListRolesResponse Client::listRoles(const ListRolesRequest &request) {
 }
 
 /**
+ * @summary Query skill groups in the Cloud Customer Service System by instance ID and skill group channel type.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request ListSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSkillGroupResponse
@@ -6519,6 +7578,13 @@ ListSkillGroupResponse Client::listSkillGroupWithOptions(const ListSkillGroupReq
 }
 
 /**
+ * @summary Query skill groups in the Cloud Customer Service System by instance ID and skill group channel type.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request ListSkillGroupRequest
  * @return ListSkillGroupResponse
  */
@@ -6528,7 +7594,15 @@ ListSkillGroupResponse Client::listSkillGroup(const ListSkillGroupRequest &reque
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Perform a paged query to retrieve the list of Intelligent Contact Robot call jobs. The response includes the total number of jobs and job details.
+ *
+ * @description - You can use this API to obtain the list of Intelligent Contact Robot call jobs, or retrieve the job list from the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
+ * - If you have not created any Intelligent Contact Robot call jobs, you can click **Create Job** in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or create a job by invoking the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
+ * - The optional parameters of this API serve as Filter Conditions for the Intelligent Contact Robot call job list. If these parameters are not specified, the API queries all jobs.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 500 calls per second.
+ * > If the combined invocations from multiple users exceed the API frequency limit, throttle will be triggered.
  *
  * @param request ListTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6591,7 +7665,15 @@ ListTaskResponse Client::listTaskWithOptions(const ListTaskRequest &request, con
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Perform a paged query to retrieve the list of Intelligent Contact Robot call jobs. The response includes the total number of jobs and job details.
+ *
+ * @description - You can use this API to obtain the list of Intelligent Contact Robot call jobs, or retrieve the job list from the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
+ * - If you have not created any Intelligent Contact Robot call jobs, you can click **Create Job** in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or create a job by invoking the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
+ * - The optional parameters of this API serve as Filter Conditions for the Intelligent Contact Robot call job list. If these parameters are not specified, the API queries all jobs.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No Rate Limiting.
+ * - API frequency: 500 calls per second.
+ * > If the combined invocations from multiple users exceed the API frequency limit, throttle will be triggered.
  *
  * @param request ListTaskRequest
  * @return ListTaskResponse
@@ -6602,7 +7684,16 @@ ListTaskResponse Client::listTask(const ListTaskRequest &request) {
 }
 
 /**
- * @summary 任务详情查看通话列表
+ * @summary Obtain the detail information of Intelligent Contact Robot call jobs.
+ *
+ * @description - You can invoke this API to obtain the detail information of Intelligent Contact Robot call jobs. Alternatively, you can view this information in the **Detail** interface under [**Task Management**](https://aiccs.console.aliyun.com/job/list).
+ * - Before invoking this API, ensure that you have created an Intelligent Contact Robot and successfully started a job.
+ * - If you do not have any successfully created Intelligent Contact Robot call jobs, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
+ * - The optional parameters in this API serve as filter conditions for the detail information of Intelligent Contact Robot call jobs. If these parameters are not specified, all job details will be queried.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6669,7 +7760,16 @@ ListTaskDetailResponse Client::listTaskDetailWithOptions(const ListTaskDetailReq
 }
 
 /**
- * @summary 任务详情查看通话列表
+ * @summary Obtain the detail information of Intelligent Contact Robot call jobs.
+ *
+ * @description - You can invoke this API to obtain the detail information of Intelligent Contact Robot call jobs. Alternatively, you can view this information in the **Detail** interface under [**Task Management**](https://aiccs.console.aliyun.com/job/list).
+ * - Before invoking this API, ensure that you have created an Intelligent Contact Robot and successfully started a job.
+ * - If you do not have any successfully created Intelligent Contact Robot call jobs, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
+ * - The optional parameters in this API serve as filter conditions for the detail information of Intelligent Contact Robot call jobs. If these parameters are not specified, all job details will be queried.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request ListTaskDetailRequest
  * @return ListTaskDetailResponse
@@ -6680,7 +7780,10 @@ ListTaskDetailResponse Client::listTaskDetail(const ListTaskDetailRequest &reque
 }
 
 /**
- * @summary 高德全双工
+ * @summary Performs full-duplex large language model operations.
+ *
+ * @description - This operation can be called only during an intelligent outbound call. When you call this operation, set the **CallId** request parameter to the unique receipt ID of the ongoing call.
+ * - **CallId** is the **CallId** parameter returned by the [LlmSmartCallFullDuplex](https://help.aliyun.com/document_detail/2718012.html) operation.
  *
  * @param request LlmFullDuplexCallOperateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6719,7 +7822,10 @@ LlmFullDuplexCallOperateResponse Client::llmFullDuplexCallOperateWithOptions(con
 }
 
 /**
- * @summary 高德全双工
+ * @summary Performs full-duplex large language model operations.
+ *
+ * @description - This operation can be called only during an intelligent outbound call. When you call this operation, set the **CallId** request parameter to the unique receipt ID of the ongoing call.
+ * - **CallId** is the **CallId** parameter returned by the [LlmSmartCallFullDuplex](https://help.aliyun.com/document_detail/2718012.html) operation.
  *
  * @param request LlmFullDuplexCallOperateRequest
  * @return LlmFullDuplexCallOperateResponse
@@ -6730,7 +7836,10 @@ LlmFullDuplexCallOperateResponse Client::llmFullDuplexCallOperate(const LlmFullD
 }
 
 /**
- * @summary 基于大模型的智能外呼
+ * @summary Intelligent outbound call based on an LLM.
+ *
+ * @description - Each API invocation supports adding only one called number. If you have multiple called numbers, invoke the API multiple times.
+ * - Before initiating an intelligent call based on an LLM, ensure that you have created an LLM application in the [Application Management](https://aiccs.console.aliyun.com/engine/llmApp) interface and have successfully requested a real number in the Voice Service [Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
  *
  * @param tmpReq LlmSmartCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6823,7 +7932,10 @@ LlmSmartCallResponse Client::llmSmartCallWithOptions(const LlmSmartCallRequest &
 }
 
 /**
- * @summary 基于大模型的智能外呼
+ * @summary Intelligent outbound call based on an LLM.
+ *
+ * @description - Each API invocation supports adding only one called number. If you have multiple called numbers, invoke the API multiple times.
+ * - Before initiating an intelligent call based on an LLM, ensure that you have created an LLM application in the [Application Management](https://aiccs.console.aliyun.com/engine/llmApp) interface and have successfully requested a real number in the Voice Service [Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
  *
  * @param request LlmSmartCallRequest
  * @return LlmSmartCallResponse
@@ -6834,7 +7946,7 @@ LlmSmartCallResponse Client::llmSmartCall(const LlmSmartCallRequest &request) {
 }
 
 /**
- * @summary 大模型外呼加密号码接口
+ * @summary Initiates a smart call to an encrypted number using a large language model.
  *
  * @param tmpReq LlmSmartCallEncryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6907,7 +8019,7 @@ LlmSmartCallEncryptResponse Client::llmSmartCallEncryptWithOptions(const LlmSmar
 }
 
 /**
- * @summary 大模型外呼加密号码接口
+ * @summary Initiates a smart call to an encrypted number using a large language model.
  *
  * @param request LlmSmartCallEncryptRequest
  * @return LlmSmartCallEncryptResponse
@@ -6918,7 +8030,16 @@ LlmSmartCallEncryptResponse Client::llmSmartCallEncrypt(const LlmSmartCallEncryp
 }
 
 /**
- * @summary 基于大模型的智能外呼
+ * @summary Initiates a full-duplex Artificial Intelligence Cloud Call Service call with support for personalized configurations.
+ *
+ * @description ## Operation description
+ * - Before calling this operation, make sure that you have configured the ASR callback URL.
+ * - This operation is available only to users whose UIDs are added to the whitelist.
+ * - The request rate limit for a single user is 100 QPS.
+ * - `CalledNumber` and `CallerNumber` are required parameters that specify the called number and the calling number, respectively.
+ * - Optional parameters such as `StartWordParam`, `TtsVoiceCode`, `TtsSpeed`, and `TtsVolume` allow you to customize the call experience. If these parameters are not specified, the default settings of the application are used.
+ * - The `SessionTimeout` parameter specifies the maximum call duration in seconds. The call is automatically ended when the specified duration is exceeded. For the default value and valid range, refer to the relevant documentation.
+ * - The `OutId` field can be used to track a unique identifier in an external system. The value must be 1 to 32 bytes in length.
  *
  * @param tmpReq LlmSmartCallFullDuplexRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6987,7 +8108,16 @@ LlmSmartCallFullDuplexResponse Client::llmSmartCallFullDuplexWithOptions(const L
 }
 
 /**
- * @summary 基于大模型的智能外呼
+ * @summary Initiates a full-duplex Artificial Intelligence Cloud Call Service call with support for personalized configurations.
+ *
+ * @description ## Operation description
+ * - Before calling this operation, make sure that you have configured the ASR callback URL.
+ * - This operation is available only to users whose UIDs are added to the whitelist.
+ * - The request rate limit for a single user is 100 QPS.
+ * - `CalledNumber` and `CallerNumber` are required parameters that specify the called number and the calling number, respectively.
+ * - Optional parameters such as `StartWordParam`, `TtsVoiceCode`, `TtsSpeed`, and `TtsVolume` allow you to customize the call experience. If these parameters are not specified, the default settings of the application are used.
+ * - The `SessionTimeout` parameter specifies the maximum call duration in seconds. The call is automatically ended when the specified duration is exceeded. For the default value and valid range, refer to the relevant documentation.
+ * - The `OutId` field can be used to track a unique identifier in an external system. The value must be 1 to 32 bytes in length.
  *
  * @param request LlmSmartCallFullDuplexRequest
  * @return LlmSmartCallFullDuplexResponse
@@ -6998,6 +8128,8 @@ LlmSmartCallFullDuplexResponse Client::llmSmartCallFullDuplex(const LlmSmartCall
 }
 
 /**
+ * @summary Invoke MakeCall to initiate a call.
+ *
  * @param request MakeCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return MakeCallResponse
@@ -7047,6 +8179,8 @@ MakeCallResponse Client::makeCallWithOptions(const MakeCallRequest &request, con
 }
 
 /**
+ * @summary Invoke MakeCall to initiate a call.
+ *
  * @param request MakeCallRequest
  * @return MakeCallResponse
  */
@@ -7056,7 +8190,7 @@ MakeCallResponse Client::makeCall(const MakeCallRequest &request) {
 }
 
 /**
- * @summary 移动端发起呼叫
+ * @summary You can invoke MakeDoubleCall to initiate a call by using the server-side software development kit (SDK).
  *
  * @param request MakeDoubleCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7107,7 +8241,7 @@ MakeDoubleCallResponse Client::makeDoubleCallWithOptions(const MakeDoubleCallReq
 }
 
 /**
- * @summary 移动端发起呼叫
+ * @summary You can invoke MakeDoubleCall to initiate a call by using the server-side software development kit (SDK).
  *
  * @param request MakeDoubleCallRequest
  * @return MakeDoubleCallResponse
@@ -7118,7 +8252,7 @@ MakeDoubleCallResponse Client::makeDoubleCall(const MakeDoubleCallRequest &reque
 }
 
 /**
- * @summary 分页查询智能体列表
+ * @summary Returns a paginated list of agents.
  *
  * @param request PageQueryAgentListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7177,7 +8311,7 @@ PageQueryAgentListResponse Client::pageQueryAgentListWithOptions(const PageQuery
 }
 
 /**
- * @summary 分页查询智能体列表
+ * @summary Returns a paginated list of agents.
  *
  * @param request PageQueryAgentListRequest
  * @return PageQueryAgentListResponse
@@ -7188,7 +8322,7 @@ PageQueryAgentListResponse Client::pageQueryAgentList(const PageQueryAgentListRe
 }
 
 /**
- * @summary 分页查询智能体列表（代运营模式V2）
+ * @summary Retrieve a paginated list of agents (agency mode V2)
  *
  * @param request PageQueryAgentListNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7239,7 +8373,7 @@ PageQueryAgentListNewResponse Client::pageQueryAgentListNewWithOptions(const Pag
 }
 
 /**
- * @summary 分页查询智能体列表（代运营模式V2）
+ * @summary Retrieve a paginated list of agents (agency mode V2)
  *
  * @param request PageQueryAgentListNewRequest
  * @return PageQueryAgentListNewResponse
@@ -7250,7 +8384,10 @@ PageQueryAgentListNewResponse Client::pageQueryAgentListNew(const PageQueryAgent
 }
 
 /**
- * @summary 查询明细记录
+ * @summary Runs a paginated query for call task details.
+ *
+ * @description - You must create a call task before you can query its details.
+ * - You can create a call task on the **call task management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) API.
  *
  * @param tmpReq QueryAiCallDetailPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7363,7 +8500,10 @@ QueryAiCallDetailPageResponse Client::queryAiCallDetailPageWithOptions(const Que
 }
 
 /**
- * @summary 查询明细记录
+ * @summary Runs a paginated query for call task details.
+ *
+ * @description - You must create a call task before you can query its details.
+ * - You can create a call task on the **call task management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) API.
  *
  * @param request QueryAiCallDetailPageRequest
  * @return QueryAiCallDetailPageResponse
@@ -7374,7 +8514,7 @@ QueryAiCallDetailPageResponse Client::queryAiCallDetailPage(const QueryAiCallDet
 }
 
 /**
- * @summary 查询任务详情
+ * @summary Gets basic information for a call task.
  *
  * @param request QueryAiCallTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7417,7 +8557,7 @@ QueryAiCallTaskDetailResponse Client::queryAiCallTaskDetailWithOptions(const Que
 }
 
 /**
- * @summary 查询任务详情
+ * @summary Gets basic information for a call task.
  *
  * @param request QueryAiCallTaskDetailRequest
  * @return QueryAiCallTaskDetailResponse
@@ -7428,7 +8568,7 @@ QueryAiCallTaskDetailResponse Client::queryAiCallTaskDetail(const QueryAiCallTas
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Retrieves a list of call tasks.
  *
  * @param request QueryAiCallTaskPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7499,7 +8639,7 @@ QueryAiCallTaskPageResponse Client::queryAiCallTaskPageWithOptions(const QueryAi
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Retrieves a list of call tasks.
  *
  * @param request QueryAiCallTaskPageRequest
  * @return QueryAiCallTaskPageResponse
@@ -7510,7 +8650,7 @@ QueryAiCallTaskPageResponse Client::queryAiCallTaskPage(const QueryAiCallTaskPag
 }
 
 /**
- * @summary 查询智能体明细
+ * @summary Retrieve the details of a communication agent.
  *
  * @param request QueryAiVoiceAgentDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7553,7 +8693,7 @@ QueryAiVoiceAgentDetailResponse Client::queryAiVoiceAgentDetailWithOptions(const
 }
 
 /**
- * @summary 查询智能体明细
+ * @summary Retrieve the details of a communication agent.
  *
  * @param request QueryAiVoiceAgentDetailRequest
  * @return QueryAiVoiceAgentDetailResponse
@@ -7564,7 +8704,14 @@ QueryAiVoiceAgentDetailResponse Client::queryAiVoiceAgentDetail(const QueryAiVoi
 }
 
 /**
- * @summary 查询智能体详情（代运营模式V2）
+ * @summary Gets details for a specified agent, including its basic, branch, and version information.
+ *
+ * @description ## Usage notes
+ * - This API retrieves the details of a communication agent.
+ * - If you do not specify `BranchId` and `VersionId`, the API returns the configuration for the latest published version on the effective branch. If the effective branch only contains a draft version, no configuration is returned.
+ * - If you specify only `BranchId`, the API returns the configuration for the latest published version on the specified branch. If the specified branch only contains a draft version, no configuration is returned.
+ * - If you specify both `BranchId` and `VersionId`, the API returns the configuration for the specified version.
+ * - When `BranchDeployStatus` is `1` (branch deployed) and `VersionPublishStatus` is `1` (version published), imported outbound tasks use the configuration of this branch.
  *
  * @param request QueryAiVoiceAgentDetailNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7603,7 +8750,14 @@ QueryAiVoiceAgentDetailNewResponse Client::queryAiVoiceAgentDetailNewWithOptions
 }
 
 /**
- * @summary 查询智能体详情（代运营模式V2）
+ * @summary Gets details for a specified agent, including its basic, branch, and version information.
+ *
+ * @description ## Usage notes
+ * - This API retrieves the details of a communication agent.
+ * - If you do not specify `BranchId` and `VersionId`, the API returns the configuration for the latest published version on the effective branch. If the effective branch only contains a draft version, no configuration is returned.
+ * - If you specify only `BranchId`, the API returns the configuration for the latest published version on the specified branch. If the specified branch only contains a draft version, no configuration is returned.
+ * - If you specify both `BranchId` and `VersionId`, the API returns the configuration for the specified version.
+ * - When `BranchDeployStatus` is `1` (branch deployed) and `VersionPublishStatus` is `1` (version published), imported outbound tasks use the configuration of this branch.
  *
  * @param request QueryAiVoiceAgentDetailNewRequest
  * @return QueryAiVoiceAgentDetailNewResponse
@@ -7614,7 +8768,11 @@ QueryAiVoiceAgentDetailNewResponse Client::queryAiVoiceAgentDetailNew(const Quer
 }
 
 /**
- * @summary 查询通话详情信息
+ * @summary Gets call details.
+ *
+ * @description - This API retrieves call details. You can also view these details on the **call task management** > **details** > **execution history** > **completed** > **call details** page.
+ * - Before calling this API, make sure you have created a call task and imported called number data.
+ * - You can create a call task and import called number data either on the **call task management** page or by using the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) APIs.
  *
  * @param request QueryConversationDetailInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7665,7 +8823,11 @@ QueryConversationDetailInfoResponse Client::queryConversationDetailInfoWithOptio
 }
 
 /**
- * @summary 查询通话详情信息
+ * @summary Gets call details.
+ *
+ * @description - This API retrieves call details. You can also view these details on the **call task management** > **details** > **execution history** > **completed** > **call details** page.
+ * - Before calling this API, make sure you have created a call task and imported called number data.
+ * - You can create a call task and import called number data either on the **call task management** page or by using the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) APIs.
  *
  * @param request QueryConversationDetailInfoRequest
  * @return QueryConversationDetailInfoResponse
@@ -7676,7 +8838,11 @@ QueryConversationDetailInfoResponse Client::queryConversationDetailInfo(const Qu
 }
 
 /**
- * @summary 查询通话记录接口-新
+ * @summary Queries the details of a call task and call records.
+ *
+ * @description - You can call this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
+ * - Before calling this operation, make sure that you have created a call task and imported callee data.
+ * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
  *
  * @param request QueryConversationDetailInfoNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7731,7 +8897,11 @@ QueryConversationDetailInfoNewResponse Client::queryConversationDetailInfoNewWit
 }
 
 /**
- * @summary 查询通话记录接口-新
+ * @summary Queries the details of a call task and call records.
+ *
+ * @description - You can call this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
+ * - Before calling this operation, make sure that you have created a call task and imported callee data.
+ * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
  *
  * @param request QueryConversationDetailInfoNewRequest
  * @return QueryConversationDetailInfoNewResponse
@@ -7742,6 +8912,8 @@ QueryConversationDetailInfoNewResponse Client::queryConversationDetailInfoNew(co
 }
 
 /**
+ * @summary Invoke QueryHotlineInQueue to obtain hotline agent data for a skill group by skill group ID.
+ *
  * @param request QueryHotlineInQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryHotlineInQueueResponse
@@ -7767,6 +8939,8 @@ QueryHotlineInQueueResponse Client::queryHotlineInQueueWithOptions(const QueryHo
 }
 
 /**
+ * @summary Invoke QueryHotlineInQueue to obtain hotline agent data for a skill group by skill group ID.
+ *
  * @param request QueryHotlineInQueueRequest
  * @return QueryHotlineInQueueResponse
  */
@@ -7776,7 +8950,13 @@ QueryHotlineInQueueResponse Client::queryHotlineInQueue(const QueryHotlineInQueu
 }
 
 /**
- * @summary 查询热线号码配置
+ * @summary Query the hotline number configuration list by instance ID. Fuzzy query by hotline number is supported.
+ *
+ * @description The hotline number configuration includes information such as the hotline number, number location, carrier, and whether it is used for incoming calls. For details, see [Return Parameters](#api-detail-40).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times per second.
+ * - API invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param tmpReq QueryHotlineNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7809,7 +8989,13 @@ QueryHotlineNumberResponse Client::queryHotlineNumberWithOptions(const QueryHotl
 }
 
 /**
- * @summary 查询热线号码配置
+ * @summary Query the hotline number configuration list by instance ID. Fuzzy query by hotline number is supported.
+ *
+ * @description The hotline number configuration includes information such as the hotline number, number location, carrier, and whether it is used for incoming calls. For details, see [Return Parameters](#api-detail-40).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: 100 times per second.
+ * - API invocation frequency: 100 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request QueryHotlineNumberRequest
  * @return QueryHotlineNumberResponse
@@ -7972,6 +9158,14 @@ QueryOutboundTaskResponse Client::queryOutboundTask(const QueryOutboundTaskReque
 }
 
 /**
+ * @summary Queries the skill group list of the Cloud Customer Service System by instance ID.
+ *
+ * @description This API allows you to query information such as the display name, description, channel type, and ID of skill groups. For details, see [Response Parameters](#api-detail-40).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request QuerySkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QuerySkillGroupsResponse
@@ -8021,6 +9215,14 @@ QuerySkillGroupsResponse Client::querySkillGroupsWithOptions(const QuerySkillGro
 }
 
 /**
+ * @summary Queries the skill group list of the Cloud Customer Service System by instance ID.
+ *
+ * @description This API allows you to query information such as the display name, description, channel type, and ID of skill groups. For details, see [Response Parameters](#api-detail-40).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request QuerySkillGroupsRequest
  * @return QuerySkillGroupsResponse
  */
@@ -8124,6 +9326,8 @@ QueryTaskDetailResponse Client::queryTaskDetail(const QueryTaskDetailRequest &re
 }
 
 /**
+ * @summary Invoke the QueryTickets API to query ticket information.
+ *
  * @param tmpReq QueryTicketsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryTicketsResponse
@@ -8207,6 +9411,8 @@ QueryTicketsResponse Client::queryTicketsWithOptions(const QueryTicketsRequest &
 }
 
 /**
+ * @summary Invoke the QueryTickets API to query ticket information.
+ *
  * @param request QueryTicketsRequest
  * @return QueryTicketsResponse
  */
@@ -8216,6 +9422,14 @@ QueryTicketsResponse Client::queryTickets(const QueryTicketsRequest &request) {
 }
 
 /**
+ * @summary Query contact data by instance, list of contact IDs, list of session IDs, and so on.
+ *
+ * @description This API allows you to query contact data such as contact status, session recipient, agent name, contact channel, satisfaction rating, and evaluation status. For details, see [Response parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limit  
+ * - Per-user invocation frequency: No Rate Limiting.  
+ * - API frequency: 50 queries per second (QPS).  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request QueryTouchListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryTouchListResponse
@@ -8317,6 +9531,14 @@ QueryTouchListResponse Client::queryTouchListWithOptions(const QueryTouchListReq
 }
 
 /**
+ * @summary Query contact data by instance, list of contact IDs, list of session IDs, and so on.
+ *
+ * @description This API allows you to query contact data such as contact status, session recipient, agent name, contact channel, satisfaction rating, and evaluation status. For details, see [Response parameters](#api-detail-40).  
+ * ### Queries per second (QPS) limit  
+ * - Per-user invocation frequency: No Rate Limiting.  
+ * - API frequency: 50 queries per second (QPS).  
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request QueryTouchListRequest
  * @return QueryTouchListResponse
  */
@@ -8326,7 +9548,15 @@ QueryTouchListResponse Client::queryTouchList(const QueryTouchListRequest &reque
 }
 
 /**
- * @summary 从技能组中移除坐席
+ * @summary Remove agent accounts from a skill group by specifying the skill group and agent IDs.
+ *
+ * @description - If you need to provide agent or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * - You can invoke [ListAgentBySkillGroupId](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-listagentbyskillgroupid) to retrieve agent information under a skill group and verify whether the removal aligns with your expectations.
+ * - If you accidentally remove an agent, you can invoke [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update the agent data and reassign the skill group to the agent.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 50 times/second.
+ * - API-wide invocation frequency: 100 times/second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param tmpReq RemoveAgentFromSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8371,7 +9601,15 @@ RemoveAgentFromSkillGroupResponse Client::removeAgentFromSkillGroupWithOptions(c
 }
 
 /**
- * @summary 从技能组中移除坐席
+ * @summary Remove agent accounts from a skill group by specifying the skill group and agent IDs.
+ *
+ * @description - If you need to provide agent or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * - You can invoke [ListAgentBySkillGroupId](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-listagentbyskillgroupid) to retrieve agent information under a skill group and verify whether the removal aligns with your expectations.
+ * - If you accidentally remove an agent, you can invoke [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update the agent data and reassign the skill group to the agent.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 50 times/second.
+ * - API-wide invocation frequency: 100 times/second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
  *
  * @param request RemoveAgentFromSkillGroupRequest
  * @return RemoveAgentFromSkillGroupResponse
@@ -8382,6 +9620,17 @@ RemoveAgentFromSkillGroupResponse Client::removeAgentFromSkillGroup(const Remove
 }
 
 /**
+ * @summary Deletes a skill group in the Cloud Customer Service System based on the AICCS instance ID and skill group ID.
+ *
+ * @description - Deletion is a sensitive operation. Proceed with caution.  
+ * - Before deletion, confirm the AICCS instance ID and the skill group ID to be deleted. Refer to the guidance in [Request Parameters](#api-detail-35) for details on how to obtain them.  
+ * - After deletion, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to verify the skill group status.  
+ * - If you accidentally delete a skill group, you can recreate it by invoking the [CreateSkillGroup](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup) API.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request RemoveSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveSkillGroupResponse
@@ -8419,6 +9668,17 @@ RemoveSkillGroupResponse Client::removeSkillGroupWithOptions(const RemoveSkillGr
 }
 
 /**
+ * @summary Deletes a skill group in the Cloud Customer Service System based on the AICCS instance ID and skill group ID.
+ *
+ * @description - Deletion is a sensitive operation. Proceed with caution.  
+ * - Before deletion, confirm the AICCS instance ID and the skill group ID to be deleted. Refer to the guidance in [Request Parameters](#api-detail-35) for details on how to obtain them.  
+ * - After deletion, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to verify the skill group status.  
+ * - If you accidentally delete a skill group, you can recreate it by invoking the [CreateSkillGroup](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup) API.
+ * ### Queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API frequency: 1000 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request RemoveSkillGroupRequest
  * @return RemoveSkillGroupResponse
  */
@@ -8428,7 +9688,7 @@ RemoveSkillGroupResponse Client::removeSkillGroup(const RemoveSkillGroupRequest 
 }
 
 /**
- * @summary 重置热线号码
+ * @summary Invoke the ResetHotlineNumber API to reset the inbound (IVR flow) and outbound (effective scope) configuration information of a hotline number.
  *
  * @param tmpReq ResetHotlineNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8505,7 +9765,7 @@ ResetHotlineNumberResponse Client::resetHotlineNumberWithOptions(const ResetHotl
 }
 
 /**
- * @summary 重置热线号码
+ * @summary Invoke the ResetHotlineNumber API to reset the inbound (IVR flow) and outbound (effective scope) configuration information of a hotline number.
  *
  * @param request ResetHotlineNumberRequest
  * @return ResetHotlineNumberResponse
@@ -8558,6 +9818,16 @@ RestartOutboundTaskResponse Client::restartOutboundTask(const RestartOutboundTas
 }
 
 /**
+ * @summary Initiate an outbound call using the Intelligent Contact Robot.
+ *
+ * @description - Before initiating an outbound call using the Intelligent Contact Robot, ensure that you already have a reviewed and approved script in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface and an approved real number in the Voice Service [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
+ * - You can obtain the creation time of the call from the **date** parameter in the **Response Header** after invoking this API.  
+ * > For example, if the **date** parameter is: `"date": "Mon, 24 Jun 2024 03:40:31 GMT"`, then the call creation time is: `"2024-06-24 03:40:31"`.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 1000 calls per second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttle will be triggered.
+ *
  * @param request RobotCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RobotCallResponse
@@ -8623,6 +9893,16 @@ RobotCallResponse Client::robotCallWithOptions(const RobotCallRequest &request, 
 }
 
 /**
+ * @summary Initiate an outbound call using the Intelligent Contact Robot.
+ *
+ * @description - Before initiating an outbound call using the Intelligent Contact Robot, ensure that you already have a reviewed and approved script in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface and an approved real number in the Voice Service [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
+ * - You can obtain the creation time of the call from the **date** parameter in the **Response Header** after invoking this API.  
+ * > For example, if the **date** parameter is: `"date": "Mon, 24 Jun 2024 03:40:31 GMT"`, then the call creation time is: `"2024-06-24 03:40:31"`.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 1000 calls per second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttle will be triggered.
+ *
  * @param request RobotCallRequest
  * @return RobotCallResponse
  */
@@ -8632,6 +9912,15 @@ RobotCallResponse Client::robotCall(const RobotCallRequest &request) {
 }
 
 /**
+ * @summary Initiate an Intelligent Speech Interaction call based on the callee\\"s caller ID, callee number, and intelligent outbound call audio file.
+ *
+ * @description - The following characters cannot appear in the Intelligent Speech Interaction SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.  
+ * - After invoking this API, the **Data** field in the response contains the unique receipt ID for this call, which can be used when invoking the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) API.
+ * ### Queries Per Second (QPS) Limits
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request SendCcoSmartCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SendCcoSmartCallResponse
@@ -8785,6 +10074,15 @@ SendCcoSmartCallResponse Client::sendCcoSmartCallWithOptions(const SendCcoSmartC
 }
 
 /**
+ * @summary Initiate an Intelligent Speech Interaction call based on the callee\\"s caller ID, callee number, and intelligent outbound call audio file.
+ *
+ * @description - The following characters cannot appear in the Intelligent Speech Interaction SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.  
+ * - After invoking this API, the **Data** field in the response contains the unique receipt ID for this call, which can be used when invoking the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) API.
+ * ### Queries Per Second (QPS) Limits
+ * - Per-user invocation frequency: No rate limiting.  
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request SendCcoSmartCallRequest
  * @return SendCcoSmartCallResponse
  */
@@ -8794,6 +10092,11 @@ SendCcoSmartCallResponse Client::sendCcoSmartCall(const SendCcoSmartCallRequest 
 }
 
 /**
+ * @summary Initiates a specified action during an Intelligent Outbound Call, applicable only to scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+ *
+ * @description - This API can be successfully invoked only during an ongoing Intelligent Outbound Call. When invoking it, note that the **CallId** in the request parameters must be set to the unique receipt ID of the active call.  
+ * - The **CallId** is the **Data** parameter returned when you invoke the [SendCcoSmartCall](https://help.aliyun.com/document_detail/2718012.html) API.
+ *
  * @param request SendCcoSmartCallOperateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SendCcoSmartCallOperateResponse
@@ -8847,6 +10150,11 @@ SendCcoSmartCallOperateResponse Client::sendCcoSmartCallOperateWithOptions(const
 }
 
 /**
+ * @summary Initiates a specified action during an Intelligent Outbound Call, applicable only to scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+ *
+ * @description - This API can be successfully invoked only during an ongoing Intelligent Outbound Call. When invoking it, note that the **CallId** in the request parameters must be set to the unique receipt ID of the active call.  
+ * - The **CallId** is the **Data** parameter returned when you invoke the [SendCcoSmartCall](https://help.aliyun.com/document_detail/2718012.html) API.
+ *
  * @param request SendCcoSmartCallOperateRequest
  * @return SendCcoSmartCallOperateResponse
  */
@@ -8856,6 +10164,13 @@ SendCcoSmartCallOperateResponse Client::sendCcoSmartCallOperate(const SendCcoSma
 }
 
 /**
+ * @summary Send a hotline heartbeat request based on the instance ID, agent account name, and heartbeat signature.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request SendHotlineHeartBeatRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SendHotlineHeartBeatResponse
@@ -8897,6 +10212,13 @@ SendHotlineHeartBeatResponse Client::sendHotlineHeartBeatWithOptions(const SendH
 }
 
 /**
+ * @summary Send a hotline heartbeat request based on the instance ID, agent account name, and heartbeat signature.
+ *
+ * @description ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request SendHotlineHeartBeatRequest
  * @return SendHotlineHeartBeatResponse
  */
@@ -8906,7 +10228,10 @@ SendHotlineHeartBeatResponse Client::sendHotlineHeartBeat(const SendHotlineHeart
 }
 
 /**
- * @summary 启动任务
+ * @summary Starts a call task.
+ *
+ * @description - Before you start a call task, ensure its status is Stopped.
+ * - If you do not have a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param request StartAiCallTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8949,7 +10274,10 @@ StartAiCallTaskResponse Client::startAiCallTaskWithOptions(const StartAiCallTask
 }
 
 /**
- * @summary 启动任务
+ * @summary Starts a call task.
+ *
+ * @description - Before you start a call task, ensure its status is Stopped.
+ * - If you do not have a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param request StartAiCallTaskRequest
  * @return StartAiCallTaskResponse
@@ -8960,7 +10288,14 @@ StartAiCallTaskResponse Client::startAiCallTask(const StartAiCallTaskRequest &re
 }
 
 /**
- * @summary 启动智能外呼任务
+ * @summary Start an outbound calling job by instance ID and job ID.
+ *
+ * @description - You can invoke this API to start an outbound calling job that is in the paused state.  
+ * - An outbound calling job in the stopped state cannot be started again.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times per second.  
+ * - API invocation frequency: 20 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StartAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8995,7 +10330,14 @@ StartAiOutboundTaskResponse Client::startAiOutboundTaskWithOptions(const StartAi
 }
 
 /**
- * @summary 启动智能外呼任务
+ * @summary Start an outbound calling job by instance ID and job ID.
+ *
+ * @description - You can invoke this API to start an outbound calling job that is in the paused state.  
+ * - An outbound calling job in the stopped state cannot be started again.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times per second.  
+ * - API invocation frequency: 20 times per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StartAiOutboundTaskRequest
  * @return StartAiOutboundTaskResponse
@@ -9006,6 +10348,13 @@ StartAiOutboundTaskResponse Client::startAiOutboundTask(const StartAiOutboundTas
 }
 
 /**
+ * @summary Initiate an outbound call based on the instance ID, agent account name, hotline outbound caller number, and callee number.
+ *
+ * @description ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request StartCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartCallResponse
@@ -9051,6 +10400,13 @@ StartCallResponse Client::startCallWithOptions(const StartCallRequest &request, 
 }
 
 /**
+ * @summary Initiate an outbound call based on the instance ID, agent account name, hotline outbound caller number, and callee number.
+ *
+ * @description ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request StartCallRequest
  * @return StartCallResponse
  */
@@ -9060,6 +10416,8 @@ StartCallResponse Client::startCall(const StartCallRequest &request) {
 }
 
 /**
+ * @summary Invoke StartCallV2 to initiate an outbound call V2.
+ *
  * @param request StartCallV2Request
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartCallV2Response
@@ -9109,6 +10467,8 @@ StartCallV2Response Client::startCallV2WithOptions(const StartCallV2Request &req
 }
 
 /**
+ * @summary Invoke StartCallV2 to initiate an outbound call V2.
+ *
  * @param request StartCallV2Request
  * @return StartCallV2Response
  */
@@ -9118,7 +10478,7 @@ StartCallV2Response Client::startCallV2(const StartCallV2Request &request) {
 }
 
 /**
- * @summary 修改在线客服为上班状态
+ * @summary Invoke StartChatWork to switch an online agent to the working status.
  *
  * @param request StartChatWorkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9153,7 +10513,7 @@ StartChatWorkResponse Client::startChatWorkWithOptions(const StartChatWorkReques
 }
 
 /**
- * @summary 修改在线客服为上班状态
+ * @summary Invoke StartChatWork to switch an online agent to the working status.
  *
  * @param request StartChatWorkRequest
  * @return StartChatWorkResponse
@@ -9164,6 +10524,15 @@ StartChatWorkResponse Client::startChatWork(const StartChatWorkRequest &request)
 }
 
 /**
+ * @summary Sign in a hotline agent by instance ID and agent account name to start the hotline service.
+ *
+ * @description - The **Data** parameter returned by this API is the token required to initiate a heartbeat.  
+ * - If the agent takes a break, you can pause the hotline service by invoking the [SuspendHotlineService](https://help.aliyun.com/document_detail/2718046.html) API.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request StartHotlineServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartHotlineServiceResponse
@@ -9201,6 +10570,15 @@ StartHotlineServiceResponse Client::startHotlineServiceWithOptions(const StartHo
 }
 
 /**
+ * @summary Sign in a hotline agent by instance ID and agent account name to start the hotline service.
+ *
+ * @description - The **Data** parameter returned by this API is the token required to initiate a heartbeat.  
+ * - If the agent takes a break, you can pause the hotline service by invoking the [SuspendHotlineService](https://help.aliyun.com/document_detail/2718046.html) API.
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request StartHotlineServiceRequest
  * @return StartHotlineServiceResponse
  */
@@ -9210,6 +10588,8 @@ StartHotlineServiceResponse Client::startHotlineService(const StartHotlineServic
 }
 
 /**
+ * @summary Invoke the StartMicroOutbound API to initiate an outbound call request.
+ *
  * @param request StartMicroOutboundRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartMicroOutboundResponse
@@ -9279,6 +10659,8 @@ StartMicroOutboundResponse Client::startMicroOutboundWithOptions(const StartMicr
 }
 
 /**
+ * @summary Invoke the StartMicroOutbound API to initiate an outbound call request.
+ *
  * @param request StartMicroOutboundRequest
  * @return StartMicroOutboundResponse
  */
@@ -9288,7 +10670,15 @@ StartMicroOutboundResponse Client::startMicroOutbound(const StartMicroOutboundRe
 }
 
 /**
- * @summary 立即或定时启动智能外呼任务
+ * @summary Start a successfully created Intelligent Contact Robot calling job.
+ *
+ * @description - You can invoke this API to start a successfully created Intelligent Contact Robot calling job, or manually start the job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
+ * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
+ * - If you do not have a successfully created Intelligent Contact Robot outbound calling job, you can click to create a job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or create one by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StartTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9335,7 +10725,15 @@ StartTaskResponse Client::startTaskWithOptions(const StartTaskRequest &request, 
 }
 
 /**
- * @summary 立即或定时启动智能外呼任务
+ * @summary Start a successfully created Intelligent Contact Robot calling job.
+ *
+ * @description - You can invoke this API to start a successfully created Intelligent Contact Robot calling job, or manually start the job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
+ * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
+ * - If you do not have a successfully created Intelligent Contact Robot outbound calling job, you can click to create a job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or create one by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
+ * ### queries per second (QPS) Limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StartTaskRequest
  * @return StartTaskResponse
@@ -9346,7 +10744,10 @@ StartTaskResponse Client::startTask(const StartTaskRequest &request) {
 }
 
 /**
- * @summary 停止任务
+ * @summary Stops an outbound call task.
+ *
+ * @description - Before you stop an outbound call task, ensure that the task has been created and its status is `running`.
+ * - If you have not created an outbound call task, create one on the Outbound Task Management page or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param request StopAiCallTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9389,7 +10790,10 @@ StopAiCallTaskResponse Client::stopAiCallTaskWithOptions(const StopAiCallTaskReq
 }
 
 /**
- * @summary 停止任务
+ * @summary Stops an outbound call task.
+ *
+ * @description - Before you stop an outbound call task, ensure that the task has been created and its status is `running`.
+ * - If you have not created an outbound call task, create one on the Outbound Task Management page or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param request StopAiCallTaskRequest
  * @return StopAiCallTaskResponse
@@ -9400,7 +10804,13 @@ StopAiCallTaskResponse Client::stopAiCallTask(const StopAiCallTaskRequest &reque
 }
 
 /**
- * @summary 手动暂停智能外呼任务
+ * @summary Pause an outbound calling job by instance ID and job ID.
+ *
+ * @description After pausing an outbound calling job, you can invoke the [StartAiOutboundTask](https://help.aliyun.com/document_detail/2718027.html) API to restart it.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times/second.
+ * - API invocation frequency: 20 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StopAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9435,7 +10845,13 @@ StopAiOutboundTaskResponse Client::stopAiOutboundTaskWithOptions(const StopAiOut
 }
 
 /**
- * @summary 手动暂停智能外呼任务
+ * @summary Pause an outbound calling job by instance ID and job ID.
+ *
+ * @description After pausing an outbound calling job, you can invoke the [StartAiOutboundTask](https://help.aliyun.com/document_detail/2718027.html) API to restart it.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times/second.
+ * - API invocation frequency: 20 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StopAiOutboundTaskRequest
  * @return StopAiOutboundTaskResponse
@@ -9446,7 +10862,15 @@ StopAiOutboundTaskResponse Client::stopAiOutboundTask(const StopAiOutboundTaskRe
 }
 
 /**
- * @summary 暂停外呼任务
+ * @summary Pause an Intelligent Contact Robot calling job that has been successfully started.
+ *
+ * @description - You can use this API to pause an Intelligent Contact Robot calling job that has been successfully started, or manually pause the job on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
+ * - Before invoking this API, ensure that you already have a successfully started Intelligent Contact Robot calling job.
+ * - If you do not have a successfully started Intelligent Contact Robot calling job, click **Start** on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or start a job by using the [StartTask](https://help.aliyun.com/document_detail/2718005.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StopTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9489,7 +10913,15 @@ StopTaskResponse Client::stopTaskWithOptions(const StopTaskRequest &request, con
 }
 
 /**
- * @summary 暂停外呼任务
+ * @summary Pause an Intelligent Contact Robot calling job that has been successfully started.
+ *
+ * @description - You can use this API to pause an Intelligent Contact Robot calling job that has been successfully started, or manually pause the job on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
+ * - Before invoking this API, ensure that you already have a successfully started Intelligent Contact Robot calling job.
+ * - If you do not have a successfully started Intelligent Contact Robot calling job, click **Start** on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or start a job by using the [StartTask](https://help.aliyun.com/document_detail/2718005.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 500 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request StopTaskRequest
  * @return StopTaskResponse
@@ -9500,6 +10932,68 @@ StopTaskResponse Client::stopTask(const StopTaskRequest &request) {
 }
 
 /**
+ * @summary Submits a recording notes task.
+ *
+ * @param request SubmitAudioNoteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAudioNoteResponse
+ */
+SubmitAudioNoteResponse Client::submitAudioNoteWithOptions(const SubmitAudioNoteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasFilePath()) {
+    query["FilePath"] = request.getFilePath();
+  }
+
+  if (!!request.hasLlmModelId()) {
+    query["LlmModelId"] = request.getLlmModelId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitAudioNote"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAudioNoteResponse>();
+}
+
+/**
+ * @summary Submits a recording notes task.
+ *
+ * @param request SubmitAudioNoteRequest
+ * @return SubmitAudioNoteResponse
+ */
+SubmitAudioNoteResponse Client::submitAudioNote(const SubmitAudioNoteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitAudioNoteWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pause hotline service when an agent takes a short break.
+ *
+ * @description If the break ends and you need to resume hotline service, you can invoke the [StartHotlineService](https://help.aliyun.com/document_detail/2718045.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request SuspendHotlineServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SuspendHotlineServiceResponse
@@ -9541,6 +11035,14 @@ SuspendHotlineServiceResponse Client::suspendHotlineServiceWithOptions(const Sus
 }
 
 /**
+ * @summary Pause hotline service when an agent takes a short break.
+ *
+ * @description If the break ends and you need to resume hotline service, you can invoke the [StartHotlineService](https://help.aliyun.com/document_detail/2718045.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 100 queries per second (QPS).
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request SuspendHotlineServiceRequest
  * @return SuspendHotlineServiceResponse
  */
@@ -9592,7 +11094,14 @@ SuspendOutboundTaskResponse Client::suspendOutboundTask(const SuspendOutboundTas
 }
 
 /**
- * @summary 终止智能外呼任务
+ * @summary Terminate an outbound call job by instance ID and job ID.
+ *
+ * @description - This API supports terminating an outbound call job. Once terminated, the job cannot be restarted.
+ * - To temporarily stop an outbound call job, you can invoke the [StopAiOutboundTask](https://help.aliyun.com/document_detail/2718024.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times/second.
+ * - API-wide invocation frequency: 20 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request TerminateAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9627,7 +11136,14 @@ TerminateAiOutboundTaskResponse Client::terminateAiOutboundTaskWithOptions(const
 }
 
 /**
- * @summary 终止智能外呼任务
+ * @summary Terminate an outbound call job by instance ID and job ID.
+ *
+ * @description - This API supports terminating an outbound call job. Once terminated, the job cannot be restarted.
+ * - To temporarily stop an outbound call job, you can invoke the [StopAiOutboundTask](https://help.aliyun.com/document_detail/2718024.html) API.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 20 times/second.
+ * - API-wide invocation frequency: 20 times/second.
+ * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
  *
  * @param request TerminateAiOutboundTaskRequest
  * @return TerminateAiOutboundTaskResponse
@@ -9706,6 +11222,8 @@ TestLargeModelResponse Client::testLargeModel(const TestLargeModelRequest &reque
 }
 
 /**
+ * @summary Invoke the TransferCallToSkillGroup API to execute a single-step or two-step transfer to a skill group.
+ *
  * @param request TransferCallToSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TransferCallToSkillGroupResponse
@@ -9771,6 +11289,8 @@ TransferCallToSkillGroupResponse Client::transferCallToSkillGroupWithOptions(con
 }
 
 /**
+ * @summary Invoke the TransferCallToSkillGroup API to execute a single-step or two-step transfer to a skill group.
+ *
  * @param request TransferCallToSkillGroupRequest
  * @return TransferCallToSkillGroupResponse
  */
@@ -9780,6 +11300,16 @@ TransferCallToSkillGroupResponse Client::transferCallToSkillGroup(const Transfer
 }
 
 /**
+ * @summary Modify agent information in the Cloud Customer Service System based on the instance ID and agent account name. You can modify the agent\\"s display name and the skill groups to which the agent belongs.
+ *
+ * @description - Before invoking this API, we recommend that you confirm your Artificial Intelligence Cloud Call Service (AICCS) instance ID. For guidance on how to obtain it, see the description of [Request Parameters](#api-detail-35).
+ * - After the update, you can invoke the [GetAgent](https://help.aliyun.com/document_detail/2717961.html) API to confirm whether the update meets your expectations.
+ * > Currently, only the display name and assigned skill groups can be modified.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API-wide invocation frequency: 100 queries per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+ *
  * @param request UpdateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateAgentResponse
@@ -9829,6 +11359,16 @@ UpdateAgentResponse Client::updateAgentWithOptions(const UpdateAgentRequest &req
 }
 
 /**
+ * @summary Modify agent information in the Cloud Customer Service System based on the instance ID and agent account name. You can modify the agent\\"s display name and the skill groups to which the agent belongs.
+ *
+ * @description - Before invoking this API, we recommend that you confirm your Artificial Intelligence Cloud Call Service (AICCS) instance ID. For guidance on how to obtain it, see the description of [Request Parameters](#api-detail-35).
+ * - After the update, you can invoke the [GetAgent](https://help.aliyun.com/document_detail/2717961.html) API to confirm whether the update meets your expectations.
+ * > Currently, only the display name and assigned skill groups can be modified.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: No rate limiting.
+ * - API-wide invocation frequency: 100 queries per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+ *
  * @param request UpdateAgentRequest
  * @return UpdateAgentResponse
  */
@@ -9838,7 +11378,9 @@ UpdateAgentResponse Client::updateAgent(const UpdateAgentRequest &request) {
 }
 
 /**
- * @summary 更新AI外呼任务配置
+ * @summary Updates a call task configuration.
+ *
+ * @description Ensure the call task is stopped before you update its configuration.
  *
  * @param tmpReq UpdateAiCallTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9955,7 +11497,9 @@ UpdateAiCallTaskResponse Client::updateAiCallTaskWithOptions(const UpdateAiCallT
 }
 
 /**
- * @summary 更新AI外呼任务配置
+ * @summary Updates a call task configuration.
+ *
+ * @description Ensure the call task is stopped before you update its configuration.
  *
  * @param request UpdateAiCallTaskRequest
  * @return UpdateAiCallTaskResponse
@@ -9966,7 +11510,13 @@ UpdateAiCallTaskResponse Client::updateAiCallTask(const UpdateAiCallTaskRequest 
 }
 
 /**
- * @summary 更新智能外呼任务（预测式外呼、自动外呼）
+ * @summary Update an outbound call job by instance ID and job ID.
+ *
+ * @description This API supports updating information such as the task name, task description, outbound caller number, and skill group ID. For details, see [Request Parameters](#api-detail-35).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 20 times per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param tmpReq UpdateAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10047,7 +11597,13 @@ UpdateAiOutboundTaskResponse Client::updateAiOutboundTaskWithOptions(const Updat
 }
 
 /**
- * @summary 更新智能外呼任务（预测式外呼、自动外呼）
+ * @summary Update an outbound call job by instance ID and job ID.
+ *
+ * @description This API supports updating information such as the task name, task description, outbound caller number, and skill group ID. For details, see [Request Parameters](#api-detail-35).
+ * ### Queries per second (QPS) limit
+ * - Per-user invocation frequency: No rate limiting.
+ * - API frequency: 20 times per second.
+ * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
  *
  * @param request UpdateAiOutboundTaskRequest
  * @return UpdateAiOutboundTaskResponse
@@ -10058,7 +11614,15 @@ UpdateAiOutboundTaskResponse Client::updateAiOutboundTask(const UpdateAiOutbound
 }
 
 /**
- * @summary 更新部门信息
+ * @summary Update the department name based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department ID.
+ *
+ * @description - This API supports updating only the department name and does not support updating the department ID.  
+ * - Before invoking this API, we recommend that you confirm the AICCS instance ID and department ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).  
+ * - After the update is complete, you can invoke the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API to confirm whether the department information matches your expectations.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API-wide invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request UpdateDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10097,7 +11661,15 @@ UpdateDepartmentResponse Client::updateDepartmentWithOptions(const UpdateDepartm
 }
 
 /**
- * @summary 更新部门信息
+ * @summary Update the department name based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department ID.
+ *
+ * @description - This API supports updating only the department name and does not support updating the department ID.  
+ * - Before invoking this API, we recommend that you confirm the AICCS instance ID and department ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).  
+ * - After the update is complete, you can invoke the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API to confirm whether the department information matches your expectations.
+ * ### Queries per second (QPS) limits
+ * - Per-user invocation frequency: 100 times/second.  
+ * - API-wide invocation frequency: 100 times/second.
+ * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
  *
  * @param request UpdateDepartmentRequest
  * @return UpdateDepartmentResponse
@@ -10108,7 +11680,7 @@ UpdateDepartmentResponse Client::updateDepartment(const UpdateDepartmentRequest 
 }
 
 /**
- * @summary UpdateLargeModel
+ * @summary Updates a large language model.
  *
  * @param tmpReq UpdateLargeModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10185,7 +11757,7 @@ UpdateLargeModelResponse Client::updateLargeModelWithOptions(const UpdateLargeMo
 }
 
 /**
- * @summary UpdateLargeModel
+ * @summary Updates a large language model.
  *
  * @param request UpdateLargeModelRequest
  * @return UpdateLargeModelResponse
@@ -10196,7 +11768,7 @@ UpdateLargeModelResponse Client::updateLargeModel(const UpdateLargeModelRequest 
 }
 
 /**
- * @summary 修改模型应用
+ * @summary Edit Model Application
  *
  * @param tmpReq UpdateModelApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10267,12 +11839,24 @@ UpdateModelApplicationResponse Client::updateModelApplicationWithOptions(const U
     query["DtmfRetryPromptText"] = request.getDtmfRetryPromptText();
   }
 
+  if (!!request.hasDtmfSendMaxCount()) {
+    query["DtmfSendMaxCount"] = request.getDtmfSendMaxCount();
+  }
+
+  if (!!request.hasDtmfSendWaitTimeout()) {
+    query["DtmfSendWaitTimeout"] = request.getDtmfSendWaitTimeout();
+  }
+
   if (!!request.hasDyvmsSceneName()) {
     query["DyvmsSceneName"] = request.getDyvmsSceneName();
   }
 
   if (!!request.hasEnableDtmfReceive()) {
     query["EnableDtmfReceive"] = request.getEnableDtmfReceive();
+  }
+
+  if (!!request.hasEnableDtmfSend()) {
+    query["EnableDtmfSend"] = request.getEnableDtmfSend();
   }
 
   if (!!request.hasEnableMorse()) {
@@ -10301,6 +11885,10 @@ UpdateModelApplicationResponse Client::updateModelApplicationWithOptions(const U
 
   if (!!request.hasMuteHangupNum()) {
     query["MuteHangupNum"] = request.getMuteHangupNum();
+  }
+
+  if (!!request.hasMutePushMode()) {
+    query["MutePushMode"] = request.getMutePushMode();
   }
 
   if (!!request.hasOwnerId()) {
@@ -10381,7 +11969,7 @@ UpdateModelApplicationResponse Client::updateModelApplicationWithOptions(const U
 }
 
 /**
- * @summary 修改模型应用
+ * @summary Edit Model Application
  *
  * @param request UpdateModelApplicationRequest
  * @return UpdateModelApplicationResponse
@@ -10392,6 +11980,8 @@ UpdateModelApplicationResponse Client::updateModelApplication(const UpdateModelA
 }
 
 /**
+ * @summary Invoke UpdateOuterAccount to update an external account based on the external account ID.
+ *
  * @param request UpdateOuterAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateOuterAccountResponse
@@ -10417,6 +12007,8 @@ UpdateOuterAccountResponse Client::updateOuterAccountWithOptions(const UpdateOut
 }
 
 /**
+ * @summary Invoke UpdateOuterAccount to update an external account based on the external account ID.
+ *
  * @param request UpdateOuterAccountRequest
  * @return UpdateOuterAccountResponse
  */
@@ -10426,6 +12018,16 @@ UpdateOuterAccountResponse Client::updateOuterAccount(const UpdateOuterAccountRe
 }
 
 /**
+ * @summary Update the skill group information in the Cloud Customer Service System based on the AICCS instance ID and skill group ID. This API supports updating the skill group description and display name.
+ *
+ * @description - This API does not support updating the skill group ID or skill group name.  
+ * - After the update, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to query the skill group information.  
+ * - If you need to provide the AICCS instance ID and skill group ID, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limit
+ * - Per-user call frequency: No rate limiting.
+ * - API call frequency: 1000 calls per second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request UpdateSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateSkillGroupResponse
@@ -10475,6 +12077,16 @@ UpdateSkillGroupResponse Client::updateSkillGroupWithOptions(const UpdateSkillGr
 }
 
 /**
+ * @summary Update the skill group information in the Cloud Customer Service System based on the AICCS instance ID and skill group ID. This API supports updating the skill group description and display name.
+ *
+ * @description - This API does not support updating the skill group ID or skill group name.  
+ * - After the update, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to query the skill group information.  
+ * - If you need to provide the AICCS instance ID and skill group ID, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+ * ### Queries per second (QPS) limit
+ * - Per-user call frequency: No rate limiting.
+ * - API call frequency: 1000 calls per second.
+ * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+ *
  * @param request UpdateSkillGroupRequest
  * @return UpdateSkillGroupResponse
  */

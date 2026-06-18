@@ -169,11 +169,20 @@ namespace Models
 
 
       protected:
+        // The variable ID.
         shared_ptr<string> id_ {};
+        // The variable key.
         shared_ptr<string> key_ {};
+        // The variable name.
         shared_ptr<string> name_ {};
+        // Indicates whether the variable is required. Valid values:
+        // 
+        // - `true`: The variable is required.
+        // 
+        // - `false`: The variable is optional.
         shared_ptr<bool> required_ {};
         shared_ptr<string> source_ {};
+        // The variable value.
         shared_ptr<string> value_ {};
       };
 
@@ -233,9 +242,13 @@ namespace Models
 
 
       protected:
+        // The tag ID.
         shared_ptr<string> id_ {};
+        // The tag description.
         shared_ptr<string> outputTagDescription_ {};
+        // The tag name.
         shared_ptr<string> outputTagName_ {};
+        // The tag value.
         shared_ptr<string> outputTagValue_ {};
       };
 
@@ -382,24 +395,85 @@ namespace Models
 
 
     protected:
+      // The unique call ID.
       shared_ptr<string> callId_ {};
+      // The call result. Valid values:
+      // 
+      // - `CALL_FORWARDING`: Call forwarding.
+      // 
+      // - `INCOMING_CALL_BARRED`: Incoming call barred.
+      // 
+      // - `CALL_REJECTED`: Call rejected.
+      // 
+      // - `ANSWERED`: Answered by user.
+      // 
+      // - `USER_BUSY`: Called party busy.
+      // 
+      // - `POWERED_OFF`: Powered off.
+      // 
+      // - `NO_USER_RESPONSE`: Out of service area.
+      // 
+      // - `OPERATOR_BLOCK`: Blocked by carrier.
+      // 
+      // - `OTHERS`: Other.
+      // 
+      // - `SUSPEND`: Suspended.
+      // 
+      // - `CANCEL`: Canceled by caller.
+      // 
+      // - `INVALID_NUMBER`: Invalid number.
+      // 
+      // - `UNAVAILABLE`: Temporarily unavailable.
+      // 
+      // - `NETWORK_BUSY`: Network busy.
+      // 
+      // - `NO_ANSWER`: No answer.
       shared_ptr<string> callResult_ {};
+      // The called number.
       shared_ptr<string> calledPhone_ {};
+      // The caller number.
       shared_ptr<string> callerPhone_ {};
+      // The conversation record. The structure is a JSON array in which entries are sorted by time. Example:
+      // 
+      // ```json
+      // [
+      //     {
+      //         "content":"Conversation content",
+      //         "role":"Role", // Valid values: user, assistant
+      //     }
+      // ]
+      // ```
       shared_ptr<string> conversationRecord_ {};
+      // The duration of the call, in seconds. If the call was not connected, the value is 0.
       shared_ptr<int64_t> duration_ {};
       shared_ptr<string> encryptionType_ {};
+      // The failure reason.
       shared_ptr<string> failedReason_ {};
+      // The party that hung up. Valid values:
+      // 
+      // - **0**: user.
+      // 
+      // - **1**: assistant.
       shared_ptr<string> hangupDirection_ {};
+      // The primary intent.
       shared_ptr<string> majorIntent_ {};
+      // The business-specific ID that is passed in. You can use this unique ID to associate the call with your business.
       shared_ptr<string> outId_ {};
+      // A list of output tags.
       shared_ptr<vector<Data::OutputTags>> outputTags_ {};
+      // The timestamp when the call was answered, in milliseconds.
       shared_ptr<int64_t> pickUpTime_ {};
+      // The download URL for the recording file. This parameter is returned only after the recording file is generated.
       shared_ptr<string> recordingFileDownloadUrl_ {};
+      // The timestamp when the call ended, in milliseconds.
       shared_ptr<int64_t> releaseTime_ {};
+      // The timestamp when the call was initiated, in milliseconds.
       shared_ptr<int64_t> startCallTime_ {};
+      // The call status code. For more information, see [Call status codes](https://help.aliyun.com/document_detail/112804.html) for the voice service.
       shared_ptr<string> statusCode_ {};
+      // The status message returned by the carrier.
       shared_ptr<string> statusMsg_ {};
+      // A list of variables associated with the call task.
       shared_ptr<vector<Data::Variables>> variables_ {};
     };
 
@@ -450,11 +524,21 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<QueryConversationDetailInfoResponseBody::Data> data_ {};
+    // The status code message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

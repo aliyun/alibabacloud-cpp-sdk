@@ -69,6 +69,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

@@ -106,10 +106,21 @@ namespace Models
 
 
     protected:
+      // The number of calls that could not be canceled.
       shared_ptr<int64_t> failedCount_ {};
+      // Details about the failed cancellations. This is a map where the key is the failed detail ID or phone number, and the value is the reason for the failure.
       Darabonba::Json failedDetails_ {};
+      // The result code of the cancellation. Valid values:
+      // 
+      // - ALL_FAILED: All cancellations failed.
+      // 
+      // - ALL_SUCCEED: All cancellations succeeded.
+      // 
+      // - PART_FAILED: Some cancellations failed.
       shared_ptr<string> resultCode_ {};
+      // The number of calls that were successfully canceled.
       shared_ptr<int64_t> succeedCount_ {};
+      // The total number of items.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -160,11 +171,21 @@ namespace Models
 
 
   protected:
+    // The detailed reason why the access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CancelAiCallDetailsResponseBody::Data> data_ {};
+    // The message returned for the request.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

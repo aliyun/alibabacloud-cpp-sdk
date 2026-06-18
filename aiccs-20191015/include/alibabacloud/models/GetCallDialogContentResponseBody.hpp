@@ -86,8 +86,19 @@ namespace Models
 
 
     protected:
+      // The call ID.
       shared_ptr<string> callId_ {};
+      // The call status.
+      // 
+      // > Valid values:
+      // >
+      // > - `0`: Not connected
+      // >
+      // > - `1`: Connected
+      // >
+      // > - `2`: Disconnected
       shared_ptr<int64_t> callStatus_ {};
+      // The dialog content.
       shared_ptr<string> dialogContent_ {};
     };
 
@@ -138,11 +149,21 @@ namespace Models
 
 
   protected:
+    // Details about the access denial. Returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetCallDialogContentResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

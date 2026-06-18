@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This parameter is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code. A value of Success indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The result of the command execution. Valid values:
+    // - **true**: The command was executed.
+    // - **false**: The command failed to be executed.
     shared_ptr<bool> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

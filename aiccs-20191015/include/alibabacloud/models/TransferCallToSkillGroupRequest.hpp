@@ -121,18 +121,36 @@ namespace Models
 
 
   protected:
+    // The agent account name, which is the phone number or mailbox entered during account registration. It is unique within the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // Hotline session ID.
     shared_ptr<string> callId_ {};
+    // Unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // The connId in the WebSocket after an inbound call.
     shared_ptr<string> connectionId_ {};
+    // The holdConnId in the WebSocket after an inbound call (required only for two-step transfer).
     shared_ptr<string> holdConnectionId_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID.
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Default value: **true**. Valid values:
+    // - **true**: Single-step transfer.
+    // - **false**: Two-step transfer.
     shared_ptr<bool> isSingleTransfer_ {};
+    // The jobId in the WebSocket after an inbound call.
     shared_ptr<string> jobId_ {};
+    // Skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> skillGroupId_ {};
+    // Default value: **1**. Valid values:
+    // - **1**: Single-step transfer.
+    // - **2**: Two-step transfer.
     shared_ptr<int32_t> type_ {};
   };
 

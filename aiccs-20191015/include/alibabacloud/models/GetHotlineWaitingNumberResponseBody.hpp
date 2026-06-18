@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Error encoding
     shared_ptr<string> code_ {};
+    // Queue length of hotline members
     shared_ptr<int64_t> data_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Request ID, used to trail the cause of an error
     shared_ptr<string> requestId_ {};
+    // Whether the API call succeeded
     shared_ptr<string> success_ {};
   };
 

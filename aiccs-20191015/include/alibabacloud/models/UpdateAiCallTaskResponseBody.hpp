@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // The reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // Indicates whether the task was updated successfully. Valid values:
+    // 
+    // - **true**: The update is successful.
+    // 
+    // - **false**: The update failed.
     shared_ptr<bool> data_ {};
+    // The error message that is returned when an error occurs.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful. Valid values:
+    // 
+    // - **true**: Successful.
+    // 
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

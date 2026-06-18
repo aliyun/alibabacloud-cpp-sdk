@@ -183,11 +183,17 @@ namespace Models
 
 
       protected:
+        // The variable ID.
         shared_ptr<string> id_ {};
+        // The variable key.
         shared_ptr<string> key_ {};
+        // The variable name.
         shared_ptr<string> name_ {};
+        // Indicates whether the variable is required.
         shared_ptr<bool> required_ {};
+        // The source.
         shared_ptr<string> source_ {};
+        // The variable value.
         shared_ptr<string> value_ {};
       };
 
@@ -247,9 +253,13 @@ namespace Models
 
 
       protected:
+        // The tag ID.
         shared_ptr<string> id_ {};
+        // The tag description.
         shared_ptr<string> outputTagDescription_ {};
+        // The tag name.
         shared_ptr<string> outputTagName_ {};
+        // The tag value.
         shared_ptr<string> outputTagValue_ {};
       };
 
@@ -446,31 +456,82 @@ namespace Models
 
 
     protected:
+      // The batch ID.
       shared_ptr<string> batchId_ {};
+      // The unique ID of the call.
       shared_ptr<string> callId_ {};
+      // The call result. Valid values:
+      // - CALL_FORWARDING: call forwarding.
+      // - INCOMING_CALL_BARRED: incoming call barred.
+      // - CALL_REJECTED: call rejected.
+      // - ANSWERED: the user answered.
+      // - USER_BUSY: the callee is busy.
+      // - POWERED_OFF: the phone is powered off.
+      // - NO_USER_RESPONSE: out of service area.
+      // - OPERATOR_BLOCK: blocked by the carrier.
+      // - OTHERS: other status.
+      // - SUSPEND: the phone is suspended.
+      // - CANCEL: the caller canceled.
+      // - INVALID_NUMBER: invalid number.
+      // - UNAVAILABLE: temporarily unavailable.
+      // - NETWORK_BUSY: network busy.
+      // - NO_ANSWER: no answer.
       shared_ptr<string> callResult_ {};
+      // The callee number.
       shared_ptr<string> calledPhone_ {};
+      // The caller number.
       shared_ptr<string> callerPhone_ {};
+      // The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The structure is as follows:
+      // ```json
+      // [
+      //     {
+      //         "content":"聊天内容",
+      //         "role":"角色",//Valid values: user and assistant (robot).
+      //     }
+      // ]
+      // ```.
       shared_ptr<string> conversationRecord_ {};
+      // The number of conversation turns.
       shared_ptr<int64_t> conversationTurnCount_ {};
+      // The task detail ID.
       shared_ptr<string> detailId_ {};
+      // The call duration. The value is 0 if the call is not connected. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
       shared_ptr<int64_t> encryptionType_ {};
+      // The failure reason.
       shared_ptr<string> failedReason_ {};
+      // The hangup direction. Valid values:
+      // 
+      // - **0**: the user.
+      // - **1**: the robot.
       shared_ptr<string> hangupDirection_ {};
+      // The import time. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> importedTime_ {};
+      // The major intent.
       shared_ptr<string> majorIntent_ {};
+      // The variable information used at runtime. The information is stored in this field as key-value pairs.
       shared_ptr<string> options_ {};
+      // The external business serial number. You can use a unique ID for business association.
       shared_ptr<string> outId_ {};
+      // The output tag information.
       shared_ptr<vector<Data::OutputTags>> outputTags_ {};
+      // The time when the call was answered. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> pickUpTime_ {};
+      // The download URL of the recording file. This field is available only after a recording file is generated.
       shared_ptr<string> recordingFileDownloadUrl_ {};
+      // The time when the call ended. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> releaseTime_ {};
+      // The time when the call started. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> startCallTime_ {};
+      // The agent status.
       shared_ptr<int64_t> status_ {};
+      // The call status code. For more information, see [Call status codes](https://help.aliyun.com/document_detail/112804.html) in voice messaging.
       shared_ptr<string> statusCode_ {};
+      // The call status information returned by the carrier.
       shared_ptr<string> statusMsg_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The call variable information.
       shared_ptr<vector<Data::Variables>> variables_ {};
     };
 
@@ -521,11 +582,19 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<QueryConversationDetailInfoNewResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: successful.
+    // - **false**: failed.
     shared_ptr<bool> success_ {};
   };
 

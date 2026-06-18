@@ -103,10 +103,18 @@ namespace Models
 
 
     protected:
+      // Account name of the agent, which is the phone number or mailbox entered during account registration. It is unique within the instance.
       shared_ptr<string> accountName_ {};
+      // Agent ID.
       shared_ptr<int64_t> agentId_ {};
+      // Display name of the agent.
       shared_ptr<string> displayName_ {};
+      // Agent status. Only agents with a Normal status can perform Business Activities. Valid values:
+      // - **0**: Normal
+      // - **1**: Frozen
+      // - **2**: Deleted
       shared_ptr<int32_t> status_ {};
+      // Tenant ID to which the agent belongs. This corresponds to the instance ID provided in the input parameter.
       shared_ptr<int64_t> tenantId_ {};
     };
 
@@ -150,10 +158,17 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Agent information.
     shared_ptr<vector<ListAgentBySkillGroupIdResponseBody::Data>> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API invocation succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

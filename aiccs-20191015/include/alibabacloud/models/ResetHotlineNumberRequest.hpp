@@ -90,7 +90,11 @@ namespace Models
 
 
     protected:
+      // Effective department ID.
       shared_ptr<int64_t> departmentId_ {};
+      // List of effective skill groups.
+      // 
+      // > If the skill group list is empty, the setting applies to the entire department. Otherwise, it applies only to the specified skill groups under the department.
       shared_ptr<vector<int64_t>> groupIdList_ {};
     };
 
@@ -177,24 +181,48 @@ namespace Models
 
 
   protected:
+    // Number description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // Indicates whether the number is used for inbound calls.
+    // 
     // This parameter is required.
     shared_ptr<bool> enableInbound_ {};
+    // Whether inbound call satisfaction evaluation is enabled.
+    // 
     // This parameter is required.
     shared_ptr<bool> enableInboundEvaluation_ {};
+    // Whether used for outbound calls.
+    // 
     // This parameter is required.
     shared_ptr<bool> enableOutbound_ {};
+    // Indicates whether outbound satisfaction evaluation is enabled.
+    // 
     // This parameter is required.
     shared_ptr<bool> enableOutboundEvaluation_ {};
+    // Satisfaction level. Valid values:
+    // 
+    // - **2**: Two-level (Satisfied, Not Satisfied)
+    // - **3**: Three-level (Satisfied, Neutral, Not Satisfied)
+    // - **4**: Four-level (Very Satisfied, Satisfied, Neutral, Not Satisfied)
+    // - **5**: Five-level (Very Satisfied, Satisfied, Neutral, Not Satisfied, Very Poor)
     shared_ptr<int32_t> evaluationLevel_ {};
+    // Hotline number.
+    // 
     // This parameter is required.
     shared_ptr<string> hotlineNumber_ {};
+    // The IVR flow ID for inbound calls.
     shared_ptr<int64_t> inboundFlowId_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether outbound calls apply to all departments.
+    // 
     // This parameter is required.
     shared_ptr<bool> outboundAllDepart_ {};
+    // Outbound call effective scope.
     shared_ptr<vector<ResetHotlineNumberRequest::OutboundRangeList>> outboundRangeList_ {};
   };
 

@@ -176,27 +176,78 @@ namespace Models
 
 
   protected:
+    // Call string (callee information and parameter list). Valid values:
+    // 
+    // - **LIST**: `05715678****,05715679****`
+    // - **JSON**: `{"ParamNames":["name","age"],"CalleeList":[{"Callee":"1810000****","Params":["Zhang San","20"]},{"Callee":"1810001****","Params":["Li Si","21"]}]}`. In this example, ParamNames represents the List of Parameter Names; Params represents the List of parameter values.
+    // 
+    // > - The order of the Parameter Name List and the parameter value List must correspond.  
+    // - A maximum of 1 000 callee numbers is allowed.
     shared_ptr<string> callString_ {};
+    // Call string type. Valid values:  
+    // - **LIST**  
+    // - **JSON**
+    // 
     // This parameter is required.
     shared_ptr<string> callStringType_ {};
+    // Outbound caller number.
+    // 
+    // > The number must be a purchased number. Separate multiple numbers with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> caller_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Retry Count.
     shared_ptr<int32_t> retryCount_ {};
+    // Whether to enable automatic retry. Valid values:
+    // 
+    // - **1**: Retry.
+    // - **0**: No retry.
     shared_ptr<int32_t> retryFlag_ {};
+    // Retry interval. Unit: minute. Must be greater than 1.
     shared_ptr<int32_t> retryInterval_ {};
+    // Call statuses that require redialing. Separate multiple statuses with commas (,). Valid values:  
+    // - **200010**: Power off  
+    // - **200011**: Service suspended  
+    // - **200002**: Busy  
+    // - **200012**: Call failed  
+    // - **200005**: Unable to connect  
+    // - **200003**: No acknowledgement
     shared_ptr<string> retryStatusCode_ {};
+    // ID of the specified robot (script ID), indicating which robot script to use for initiating calls.  
+    // 
+    // You can obtain the script ID on the [Script Management](https://aiccs.console.aliyun.com/patter/list) page in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> robotId_ {};
+    // Concurrency (number of agents).
+    // 
     // This parameter is required.
     shared_ptr<string> seatCount_ {};
+    // Indicates whether to start immediately.  
+    // - **true**: Yes.  
+    // - **false**: No.
     shared_ptr<bool> startNow_ {};
+    // Task Name. Supports Chinese and English characters. Length: 0 to 30 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
+    // Work day. Valid values:
+    // 
+    // - **1**: Monday.
+    // - **2**: Tuesday.
+    // - **3**: Wednesday.
+    // - **4**: Thursday.
+    // - **5**: Friday.
+    // - **6**: Saturday.
+    // - **7**: Sunday.
+    // 
     // This parameter is required.
     shared_ptr<string> workDay_ {};
+    // List of working hours (accurate to the minute).
+    // 
     // This parameter is required.
     shared_ptr<string> workTimeList_ {};
   };

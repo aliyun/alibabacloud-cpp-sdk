@@ -94,13 +94,22 @@ namespace Models
 
 
   protected:
+    // List of agent IDs.
     shared_ptr<string> agentIdsShrink_ {};
+    // Current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // List of department IDs.
     shared_ptr<string> depIdsShrink_ {};
+    // End date UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // AICCS instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page size. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
+    // Start date UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startDate_ {};
   };
 

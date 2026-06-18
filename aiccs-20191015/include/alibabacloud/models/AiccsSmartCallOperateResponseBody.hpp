@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // Request status code. A return value of OK indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Result of the command execution.  
+    // - **true**: The command executed successfully.  
+    // - **false**: The command failed to execute.
     shared_ptr<string> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

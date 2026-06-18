@@ -75,8 +75,14 @@ namespace Models
 
 
   protected:
+    // The outbound call date, in yyyy-MM-dd format. You can only query data from the last 30 days.
+    // 
     // This parameter is required.
     shared_ptr<string> callDate_ {};
+    // The unique identifier for a call.
+    // 
+    // > The LlmSmartCall API returns this ID in the CallId parameter of its response.
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
     shared_ptr<int64_t> ownerId_ {};

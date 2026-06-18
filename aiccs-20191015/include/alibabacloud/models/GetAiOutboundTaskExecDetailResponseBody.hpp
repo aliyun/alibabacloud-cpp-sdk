@@ -167,14 +167,29 @@ namespace Models
 
 
       protected:
+        // Job batch.
         shared_ptr<int32_t> batchVersion_ {};
+        // Custom business information
         shared_ptr<string> bizData_ {};
+        // The number of outbound calls.
         shared_ptr<int32_t> callCount_ {};
+        // The activity ID associated with this outbound call.
         shared_ptr<int64_t> caseId_ {};
+        // Number import time. UNIX timestamp format, unit: milliseconds.
         shared_ptr<int64_t> createTime_ {};
+        // Result of the last outbound call.
         shared_ptr<string> lastCallResult_ {};
+        // Outbound phone number.
         shared_ptr<string> phoneNum_ {};
+        // Execution status. Valid values:
+        // 
+        // - **1**: Pending call.
+        // - **2**: Calling.
+        // - **3**: Completed.
+        // - **4**: Stopped.
+        // - **5**: Pending retry.
         shared_ptr<int32_t> status_ {};
+        // Execution status description.
         shared_ptr<int32_t> statusDesc_ {};
       };
 
@@ -218,10 +233,15 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // Indicates whether a next page exists.
       shared_ptr<bool> hasNextPage_ {};
+      // List of outbound call executions.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of jobs.
       shared_ptr<int32_t> totalResults_ {};
     };
 
@@ -265,10 +285,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // List of task executions.
     shared_ptr<GetAiOutboundTaskExecDetailResponseBody::Data> data_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API was invoked successfully.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

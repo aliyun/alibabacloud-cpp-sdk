@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // Called number.
+    // 
     // This parameter is required.
     shared_ptr<string> calledNumber_ {};
+    // Calling number.
+    // 
     // This parameter is required.
     shared_ptr<string> callingNumber_ {};
+    // Operation code.
+    // 
     // This parameter is required.
     shared_ptr<string> commandCode_ {};
+    // Pass-through business information.
     shared_ptr<string> extInfo_ {};
+    // External account ID.
+    // 
     // This parameter is required.
     shared_ptr<string> outerAccountId_ {};
+    // External account type.
+    // 
     // This parameter is required.
     shared_ptr<string> outerAccountType_ {};
   };

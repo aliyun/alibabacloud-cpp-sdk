@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The request status code. A value of OK indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Indicates whether the operation succeeded. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

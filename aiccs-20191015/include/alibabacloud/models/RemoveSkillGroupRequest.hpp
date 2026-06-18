@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // Unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // AICCS instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Skill group ID.  
+    // 
+    // You can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API and check the **SkillGroupId** field in the response to obtain the skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupId_ {};
   };

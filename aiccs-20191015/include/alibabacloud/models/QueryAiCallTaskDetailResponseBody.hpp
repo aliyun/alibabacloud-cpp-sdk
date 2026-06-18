@@ -135,7 +135,9 @@ namespace Models
 
 
       protected:
+        // The end of the time window.
         shared_ptr<string> endTime_ {};
+        // The beginning of the time window.
         shared_ptr<string> startTime_ {};
       };
 
@@ -291,25 +293,48 @@ namespace Models
 
 
     protected:
+      // The ID of the deployed agent.
       shared_ptr<string> agentId_ {};
+      // The name of the agent.
       shared_ptr<string> agentName_ {};
       shared_ptr<string> applicationCode_ {};
       shared_ptr<string> applicationName_ {};
+      // The days of the week on which calls are permitted.
       shared_ptr<vector<string>> callDays_ {};
+      // The allowed call time windows.
       shared_ptr<vector<Data::CallTimes>> callTimes_ {};
+      // The caller ID.
       shared_ptr<string> callerNumber_ {};
+      // The number of concurrent tasks.
       shared_ptr<int64_t> concurrentCount_ {};
       shared_ptr<string> lineEncoding_ {};
       shared_ptr<string> linePhoneNum_ {};
       shared_ptr<int64_t> phoneType_ {};
+      // The actual start time of the task. This value is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> realStartTime_ {};
+      // The number of retries.
       shared_ptr<int64_t> retryCount_ {};
+      // Indicates whether call retry is enabled. Valid values:
+      // 
+      // - `true`
+      // 
+      // - `false`
       shared_ptr<bool> retryEnable_ {};
+      // The retry interval. Unit: minutes.
       shared_ptr<int64_t> retryInterval_ {};
+      // The reasons for which a failed call can be retried.
       shared_ptr<vector<string>> retryReasons_ {};
+      // The scheduled start time of the task. This value is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
+      // The start mode. Valid values:
+      // 
+      // - `IMMEDIATE`: The task starts immediately.
+      // 
+      // - `SCHEDULE`: The task starts at a scheduled time.
       shared_ptr<string> startType_ {};
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
+      // The name of the task.
       shared_ptr<string> taskName_ {};
     };
 
@@ -360,11 +385,21 @@ namespace Models
 
 
   protected:
+    // The access denial details. This parameter is returned only if RAM validation fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<QueryAiCallTaskDetailResponseBody::Data> data_ {};
+    // The error message. This parameter is returned only if the call fails.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

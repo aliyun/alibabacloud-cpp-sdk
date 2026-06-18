@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // Request status code.
     shared_ptr<string> code_ {};
+    // Job ID.
     shared_ptr<int64_t> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API invocation succeeded. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

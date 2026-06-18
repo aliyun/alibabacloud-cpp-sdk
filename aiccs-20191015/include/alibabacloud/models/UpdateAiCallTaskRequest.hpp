@@ -211,30 +211,56 @@ namespace Models
 
 
   protected:
+    // The days of the week when calls can be made.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> callDay_ {};
+    // The retry interval in minutes. The maximum value is 120.
     shared_ptr<int64_t> callRetryInterval_ {};
+    // The call failure statuses that trigger a retry.
     shared_ptr<vector<string>> callRetryReason_ {};
+    // The number of retries. The maximum value is 3.
     shared_ptr<int64_t> callRetryTimes_ {};
+    // The callable time windows.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> callTime_ {};
     shared_ptr<string> lineEncoding_ {};
     shared_ptr<string> linePhoneNum_ {};
+    // Specifies whether to enable retry. Valid values:
+    // 
+    // - `true`: Yes.
+    // 
+    // - `false` (default): No.
     shared_ptr<bool> missCallRetry_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<int64_t> phoneType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<int64_t> source_ {};
+    // The startup method. Valid values:
+    // 
+    // - `IMMEDIATE`: Start immediately.
+    // 
+    // - `SCHEDULE`: Start at a specified time.
+    // 
     // This parameter is required.
     shared_ptr<string> startType_ {};
+    // The number of concurrent calls per second (CPS) for the task. The maximum value is 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskCps_ {};
+    // The ID of the task to update.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The task name. The name must be unique within an Alibaba Cloud account.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
+    // The scheduled start time for the task, specified as a Unix timestamp in milliseconds. This parameter is required when `StartType` is set to `SCHEDULE`.
     shared_ptr<int64_t> taskStartTime_ {};
+    // The service instance used for outbound calls.
     shared_ptr<string> virtualNumber_ {};
   };
 

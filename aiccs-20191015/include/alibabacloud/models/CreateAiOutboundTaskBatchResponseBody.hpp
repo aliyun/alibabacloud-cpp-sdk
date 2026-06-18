@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The request status code.
     shared_ptr<string> code_ {};
+    // The version ID of the newly created job batch.
     shared_ptr<int32_t> data_ {};
+    // The status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

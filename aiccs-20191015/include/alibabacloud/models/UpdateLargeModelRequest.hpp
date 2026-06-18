@@ -133,24 +133,24 @@ namespace Models
 
 
   protected:
-    // 授权码
+    // The authorization code.
     shared_ptr<string> authCode_ {};
-    // 基础模型
+    // A list of base models.
     shared_ptr<vector<string>> baseModel_ {};
-    // 模型编码
+    // The model code.
     shared_ptr<string> modelCode_ {};
-    // 模型名称
+    // The model name.
     shared_ptr<string> modelName_ {};
-    // 模型地址
+    // The model URL.
     shared_ptr<string> modelUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 温度
+    // Controls the randomness of the model\\"s output. A higher value increases randomness, and a lower value makes the output more deterministic.
     shared_ptr<double> temperature_ {};
-    // topK
+    // Restricts token selection to the top k most probable tokens.
     shared_ptr<int64_t> topK_ {};
-    // topP
+    // Controls output diversity by using nucleus sampling. It defines a cumulative probability threshold for token selection, considering only the most likely tokens.
     shared_ptr<double> topP_ {};
   };
 

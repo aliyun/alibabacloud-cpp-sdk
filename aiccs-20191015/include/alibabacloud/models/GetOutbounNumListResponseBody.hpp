@@ -108,8 +108,14 @@ namespace Models
 
 
       protected:
+        // Number group description (number group name).
         shared_ptr<string> description_ {};
+        // Number group type. Valid values:  
+        // 
+        // - **1**: Number.  
+        // - **2**: Number group.
         shared_ptr<int32_t> type_ {};
+        // Number group ID.
         shared_ptr<string> value_ {};
       };
 
@@ -160,8 +166,14 @@ namespace Models
 
 
       protected:
+        // Description of the caller number (geographic location information).
         shared_ptr<string> description_ {};
+        // Caller number type. Valid values:  
+        // 
+        // - **1**: Number.  
+        // - **2**: Number group.
         shared_ptr<int32_t> type_ {};
+        // Caller number.
         shared_ptr<string> value_ {};
       };
 
@@ -186,7 +198,9 @@ namespace Models
 
 
     protected:
+      // Caller number information.
       shared_ptr<vector<Data::Num>> num_ {};
+      // Number group information.
       shared_ptr<vector<Data::NumGroup>> numGroup_ {};
     };
 
@@ -237,11 +251,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Information about the number list.
     shared_ptr<GetOutbounNumListResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

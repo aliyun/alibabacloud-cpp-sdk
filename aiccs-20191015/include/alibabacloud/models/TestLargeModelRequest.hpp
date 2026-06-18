@@ -87,14 +87,14 @@ namespace Models
 
 
   protected:
-    // 基础模型
+    // The base models.
     shared_ptr<vector<string>> baseModel_ {};
-    // 场景ID
+    // The ID of the test scenario.
     shared_ptr<string> modelCode_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 用户对话内容
+    // The user dialog content.
     shared_ptr<string> userDialogContent_ {};
   };
 

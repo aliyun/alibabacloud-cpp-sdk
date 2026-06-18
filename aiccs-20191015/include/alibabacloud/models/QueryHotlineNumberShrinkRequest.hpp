@@ -84,13 +84,23 @@ namespace Models
 
 
   protected:
+    // The current page number. The value must be greater than **0**. Default value: **1**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The department ID.
     shared_ptr<int64_t> departmentId_ {};
+    // The list of skill groups.
     shared_ptr<string> groupIdsShrink_ {};
+    // The hotline number. Fuzzy query is supported.
     shared_ptr<string> hotlineNumber_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries per page. The value must be greater than **0**. Default value: **20**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

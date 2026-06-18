@@ -93,9 +93,13 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int64_t> pageNum_ {};
+      // Page size.
       shared_ptr<int64_t> pageSize_ {};
+      // Information provided as a JSON string of type List<Map>.
       shared_ptr<string> rows_ {};
+      // Total number of records.
       shared_ptr<int64_t> totalNum_ {};
     };
 
@@ -139,10 +143,17 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Data list.
     shared_ptr<GetAgentServiceStatusResponseBody::Data> data_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

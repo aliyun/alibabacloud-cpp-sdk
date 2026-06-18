@@ -112,15 +112,31 @@ namespace Models
 
 
   protected:
+    // Current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // List of department IDs.
     shared_ptr<string> depIdsShrink_ {};
+    // End Datetime Variable as a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // Indicates whether to query by department grouping. Default value: **false**. Valid values:  
+    // 
+    // - **true**: Yes.  
+    // - **false**: No.
     shared_ptr<bool> existDepartmentGrouping_ {};
+    // Specifies whether to query by skill group grouping. Default value: **false**. Valid values:
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> existSkillGroupGrouping_ {};
+    // A list of skill group IDs.
     shared_ptr<string> groupIdsShrink_ {};
+    // AICCS instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page size. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
+    // The start date as a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startDate_ {};
   };
 

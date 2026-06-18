@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // Department ID.
       shared_ptr<int64_t> departmentId_ {};
+      // Department name.
       shared_ptr<string> departmentName_ {};
     };
 
@@ -129,11 +131,19 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Department information.
     shared_ptr<vector<GetAllDepartmentResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API invocation succeeded. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

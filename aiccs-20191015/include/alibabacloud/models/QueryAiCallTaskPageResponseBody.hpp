@@ -287,27 +287,47 @@ namespace Models
 
 
       protected:
+        // The agent ID.
         shared_ptr<string> agentId_ {};
+        // The agent name.
         shared_ptr<string> agentName_ {};
         shared_ptr<string> applicationCode_ {};
         shared_ptr<string> applicationName_ {};
+        // The number of calls in progress.
         shared_ptr<int64_t> callingCount_ {};
+        // The completion rate of the task.
         shared_ptr<string> completeRate_ {};
+        // The number of concurrent tasks.
         shared_ptr<int64_t> concurrentCount_ {};
+        // The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTime_ {};
+        // The number of calls made on the current day.
         shared_ptr<int64_t> dayCallCount_ {};
+        // The connection rate of the current day. This is the number of connected calls on the current day divided by the total number of calls on the current day (`DayCallCount`).
         shared_ptr<string> dayConnectRate_ {};
+        // The number of data entries imported on the current day.
         shared_ptr<int64_t> dayImportCount_ {};
+        // The total number of failed tasks.
         shared_ptr<int64_t> failedCount_ {};
+        // The historical connection rate. This is the historical number of connected calls divided by the total number of calls (`TotalCallCount`).
         shared_ptr<string> historyConnectRate_ {};
+        // The time when the task actually starts. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> realStartTime_ {};
+        // The reason why the task failed to start.
         shared_ptr<string> startFailedReason_ {};
+        // The time when the task is scheduled to start. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> startTime_ {};
+        // The status of the task.
         shared_ptr<int64_t> status_ {};
+        // The total number of successful tasks.
         shared_ptr<int64_t> succeedCount_ {};
+        // The task ID.
         shared_ptr<string> taskId_ {};
+        // The task name.
         shared_ptr<string> taskName_ {};
+        // The total number of calls.
         shared_ptr<int64_t> totalCallCount_ {};
+        // The total number of tasks.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -344,9 +364,13 @@ namespace Models
 
 
     protected:
+      // The tasks.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int64_t> pageNo_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -397,11 +421,21 @@ namespace Models
 
 
   protected:
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The details of the tasks.
     shared_ptr<QueryAiCallTaskPageResponseBody::Data> data_ {};
+    // The error message. This parameter is returned only if the call fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

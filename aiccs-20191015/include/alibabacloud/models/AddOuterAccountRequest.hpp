@@ -121,17 +121,29 @@ namespace Models
 
 
   protected:
+    // Profile picture.
     shared_ptr<string> avatar_ {};
+    // Extension field, in JSON string format.
     shared_ptr<string> ext_ {};
+    // External Account ID.
+    // 
     // This parameter is required.
     shared_ptr<string> outerAccountId_ {};
+    // External account name.
     shared_ptr<string> outerAccountName_ {};
+    // External account type.
+    // 
     // This parameter is required.
     shared_ptr<string> outerAccountType_ {};
+    // External department ID.
     shared_ptr<string> outerDepartmentId_ {};
+    // External department type: Invalid department type.
     shared_ptr<string> outerDepartmentType_ {};
+    // List of external skill group IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> outerGroupIds_ {};
+    // Skill group type.
     shared_ptr<string> outerGroupType_ {};
+    // Real name of the account.
     shared_ptr<string> realName_ {};
   };
 

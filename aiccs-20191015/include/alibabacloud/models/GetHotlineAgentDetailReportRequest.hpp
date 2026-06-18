@@ -99,14 +99,26 @@ namespace Models
 
 
   protected:
+    // The current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of department IDs.
     shared_ptr<vector<int64_t>> depIds_ {};
+    // The UNIX timestamp of the end date. Unit: milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // The list of skill group IDs.
     shared_ptr<vector<int64_t>> groupIds_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
+    // 
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries per page. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
+    // The UNIX timestamp of the start date. Unit: milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
   };

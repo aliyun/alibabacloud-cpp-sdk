@@ -106,14 +106,24 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> encryptionType_ {};
+    // The external ID. We recommend that you use a unique ID to ensure idempotency. The value cannot exceed 128 characters.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number of the callee.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
+    // A list of variables in a map.
+    // 
+    // > The format of variables for an engine-based call task is as follows:
+    // >
+    // > - {"startWordParam.variable_key1":"variable_value1","promptParam.variable_key2":"variable_value2","bizParam.variable_key3":"variable_value3"}
     Darabonba::Json variables_ {};
   };
 

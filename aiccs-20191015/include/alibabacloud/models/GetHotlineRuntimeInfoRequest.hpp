@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The agent account name. It is unique within the instance (logon name).
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The instance ID.  
+    // 
+    // You can log on to the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview) and view the instance ID in **Instance Management**.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

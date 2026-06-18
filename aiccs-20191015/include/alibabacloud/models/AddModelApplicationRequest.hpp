@@ -203,22 +203,35 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable background sound.
       shared_ptr<bool> backgroundEnabled_ {};
+      // The background sound ID.
       shared_ptr<int64_t> backgroundSound_ {};
+      // The background sound volume.
       shared_ptr<int64_t> backgroundVolume_ {};
+      // The account ID.
       shared_ptr<int64_t> customerAccountId_ {};
+      // Specifies whether to enable mixing.
       shared_ptr<bool> mixingEnabled_ {};
+      // The mixing template ID.
       shared_ptr<int64_t> mixingTemplate_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // TTS 变量播放时的声音速度。取值范围：-200~200，默认值为 0。
+      // The speech speed for TTS playback. Valid values: -200–200. The default value is 0.
       shared_ptr<int64_t> ttsSpeed_ {};
-      // 声音风格
+      // The voice style.
       shared_ptr<string> ttsStyle_ {};
-      // TTS 变量播放的音量。取值范围：0~100，默认值为 0。
+      // The volume for TTS playback. Valid values: 0–100. The default value is 0.
       shared_ptr<int64_t> ttsVolume_ {};
-      // 音色code
+      // The voice code.
       shared_ptr<string> voiceCode_ {};
-      // 声音类型
+      // The voice type.
+      // 
+      // ```
+      // SYSTEM: System voice
+      // COSYCLONE: Cloned voice
+      // BL-CUSTOM: Premium custom cloned voice
+      // ```
       shared_ptr<string> voiceType_ {};
     };
 
@@ -392,55 +405,58 @@ namespace Models
 
 
   protected:
-    // 应用并发请求数
+    // The number of concurrent requests per second (CPS).
     // 
     // This parameter is required.
     shared_ptr<int64_t> applicationCps_ {};
-    // 模型应用名称
+    // The name of the model application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationName_ {};
+    // Specifies whether to push an event notification when a call is connected. The default value is false.
     shared_ptr<bool> callConnectedTriggerModel_ {};
-    // 场景名称
+    // The scene name.
     shared_ptr<string> dyvmsSceneName_ {};
-    // 模型编码
+    // The model code.
     // 
     // This parameter is required.
     shared_ptr<string> modelCode_ {};
-    // 模型版本
+    // The model version.
     shared_ptr<string> modelVersion_ {};
-    // 第一个静音是否唤起模型
+    // Specifies whether the first mute event triggers the model.
     shared_ptr<bool> muteActive_ {};
-    // 静音时长
+    // The mute duration.
     shared_ptr<int64_t> muteDuration_ {};
-    // 连续多少个静音事件主动挂机
+    // The number of consecutive mute events that trigger an automatic hang-up.
     shared_ptr<int64_t> muteHangupNum_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // 提示词
+    // The prompt.
     shared_ptr<string> prompt_ {};
-    // 资质ID
+    // The qualification ID.
     shared_ptr<int64_t> qualificationId_ {};
-    // 资质名称
+    // The name of the qualification.
     shared_ptr<string> qualificationName_ {};
+    // The URL of the audio file for the opening line. This parameter is required if `StartWordType` is set to `1`.
     shared_ptr<string> recordingFile_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 来源
+    // The source. The value must be `USER`.
     shared_ptr<string> source_ {};
-    // 话术内容
+    // The speech script content.
     shared_ptr<string> speechContent_ {};
-    // 话束id
+    // The speech script ID.
     shared_ptr<int64_t> speechId_ {};
-    // 开场白
+    // The opening line.
     // 
     // This parameter is required.
     shared_ptr<string> startWord_ {};
+    // The type of the opening line.
     shared_ptr<int64_t> startWordType_ {};
-    // tts配置，包括音色、音量、音速等。
+    // The TTS configuration, including voice, volume, speech speed, and more.
     // 
     // This parameter is required.
     shared_ptr<AddModelApplicationRequest::TtsConfig> ttsConfig_ {};
-    // 用途
+    // The purpose of the application.
     shared_ptr<string> usageDesc_ {};
   };
 

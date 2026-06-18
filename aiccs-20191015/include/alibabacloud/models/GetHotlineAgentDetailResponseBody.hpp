@@ -123,12 +123,31 @@ namespace Models
 
 
     protected:
+      // Agent ID.
       shared_ptr<int64_t> agentId_ {};
+      // Agent status. Valid values: **1~6**.
       shared_ptr<int32_t> agentStatus_ {};
+      // Agent status code. Valid values:  
+      // - **AgentCheckout**: Agent logged off.  
+      // - **AgentReady**: Agent idle.  
+      // - **AgentBreak**: Agent on break.  
+      // - **AgentAcw**: Post-processing after a call.  
+      // - **AgentBusyForCall**: In a call.
       shared_ptr<string> agentStatusCode_ {};
+      // Indicates whether the agent is assigned. Valid values:  
+      // **false**: Not assigned (no call).  
+      // **true**: Assigned (in a call).
       shared_ptr<bool> assigned_ {};
+      // Break type. Valid values:  
+      // - **1**: Short break.  
+      // - **2**: Meal break.  
+      // - **3**: Meeting.  
+      // - **4**: Coaching.  
+      // - **5**: Training.
       shared_ptr<int32_t> restType_ {};
+      // Tenant ID to which the agent belongs, corresponding to the instance ID in the input parameter.
       shared_ptr<int64_t> tenantId_ {};
+      // Heartbeat signature.
       shared_ptr<string> token_ {};
     };
 
@@ -179,11 +198,19 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Agent service data.
     shared_ptr<GetHotlineAgentDetailResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

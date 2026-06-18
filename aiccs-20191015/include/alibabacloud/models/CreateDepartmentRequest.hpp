@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // Department name.
+    // 
     // This parameter is required.
     shared_ptr<string> departmentName_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

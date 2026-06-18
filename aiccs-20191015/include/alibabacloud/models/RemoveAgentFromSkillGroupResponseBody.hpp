@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The number of agents successfully removed.
       shared_ptr<int32_t> successCount_ {};
     };
 
@@ -108,10 +109,17 @@ namespace Models
 
 
   protected:
+    // The status code. A value of "Success" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<RemoveAgentFromSkillGroupResponseBody::Data> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API invocation succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

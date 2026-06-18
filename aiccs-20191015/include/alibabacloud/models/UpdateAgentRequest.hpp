@@ -89,14 +89,25 @@ namespace Models
 
 
   protected:
+    // The agent account name, which is the phone number or mailbox entered during account registration. It is unique within the instance.  
+    // > Update is not supported.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // Unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // Agent\\"s display name.
+    // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
+    // AICCS instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Skill groups to which the agent belongs.
     shared_ptr<vector<int64_t>> skillGroupId_ {};
+    // List of skill groups to which the agent belongs.
     shared_ptr<vector<int64_t>> skillGroupIdList_ {};
   };
 

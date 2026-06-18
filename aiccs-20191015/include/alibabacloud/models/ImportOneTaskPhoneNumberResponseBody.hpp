@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The task detail ID.
       shared_ptr<int64_t> detailId_ {};
     };
 
@@ -117,11 +118,21 @@ namespace Models
 
 
   protected:
+    // The detailed reason why the access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ImportOneTaskPhoneNumberResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful. Valid values:
+    // 
+    // - **true**: The API call was successful.
+    // 
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

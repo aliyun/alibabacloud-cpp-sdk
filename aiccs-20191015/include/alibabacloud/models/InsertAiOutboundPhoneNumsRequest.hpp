@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // Custom business information.
       shared_ptr<string> bizData_ {};
+      // The callee number for outbound calls.
       shared_ptr<string> phoneNum_ {};
     };
 
@@ -111,11 +113,24 @@ namespace Models
 
 
   protected:
+    // The batch version number of the job.  
+    // 
+    // > If this parameter is not specified, numbers are imported into the default batch.
     shared_ptr<int32_t> batchVersion_ {};
+    // Number details.  
+    // > A maximum of 30 entries are allowed.
+    // 
     // This parameter is required.
     shared_ptr<vector<InsertAiOutboundPhoneNumsRequest::Details>> details_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The job ID.  
+    // 
+    // You can invoke the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API and check the **Data** field in the response, or invoke the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API and check the **TaskId** field in the response.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
   };

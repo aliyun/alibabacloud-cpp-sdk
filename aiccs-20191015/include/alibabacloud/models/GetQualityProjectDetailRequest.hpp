@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the console of Artificial Intelligence Cloud Call Service.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The quality inspection job ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

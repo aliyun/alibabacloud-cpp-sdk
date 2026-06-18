@@ -181,6 +181,9 @@
 #include <alibabacloud/models/GetAllDepartmentRequest.hpp>
 #include <alibabacloud/models/GetAllDepartmentResponseBody.hpp>
 #include <alibabacloud/models/GetAllDepartmentResponse.hpp>
+#include <alibabacloud/models/GetAudioNoteUploadUrlRequest.hpp>
+#include <alibabacloud/models/GetAudioNoteUploadUrlResponseBody.hpp>
+#include <alibabacloud/models/GetAudioNoteUploadUrlResponse.hpp>
 #include <alibabacloud/models/GetCallDialogContentRequest.hpp>
 #include <alibabacloud/models/GetCallDialogContentResponseBody.hpp>
 #include <alibabacloud/models/GetCallDialogContentResponse.hpp>
@@ -528,6 +531,9 @@
 #include <alibabacloud/models/StopTaskRequest.hpp>
 #include <alibabacloud/models/StopTaskResponseBody.hpp>
 #include <alibabacloud/models/StopTaskResponse.hpp>
+#include <alibabacloud/models/SubmitAudioNoteRequest.hpp>
+#include <alibabacloud/models/SubmitAudioNoteResponseBody.hpp>
+#include <alibabacloud/models/SubmitAudioNoteResponse.hpp>
 #include <alibabacloud/models/SuspendHotlineServiceRequest.hpp>
 #include <alibabacloud/models/SuspendHotlineServiceResponseBody.hpp>
 #include <alibabacloud/models/SuspendHotlineServiceResponse.hpp>

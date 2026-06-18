@@ -66,8 +66,13 @@ namespace Models
 
 
   protected:
+    // The call record ID that identifies a call record.
+    // 
+    // > When you call the LlmSmartCall operation to initiate an LLM-based outbound call, this call record ID (CallId) is returned.
     shared_ptr<string> callId_ {};
+    // The error code.
     shared_ptr<string> code_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // Agent account name (agent logon name)
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // acid from WebSocket after an inbound call
     shared_ptr<string> callId_ {};
+    // Unique customer request ID used for idempotency validation; can be generated using UUID
     shared_ptr<string> clientToken_ {};
+    // connId from WebSocket after an inbound call
     shared_ptr<string> connectionId_ {};
+    // holdConnId from WebSocket after an inbound call (only provided during two-step transfer)
     shared_ptr<string> holdConnectionId_ {};
+    // AICCS instance ID, visible in the Artificial Intelligence Cloud Call Service console
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // jobId from WebSocket after an inbound call
     shared_ptr<string> jobId_ {};
   };
 

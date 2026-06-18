@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // Agent account.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // Unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The target online status to switch to. Currently, only **requestLogout** (request offline) is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> method_ {};
   };

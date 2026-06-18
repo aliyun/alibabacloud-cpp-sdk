@@ -121,17 +121,34 @@ namespace Models
 
 
   protected:
+    // Called number.
+    // 
     // This parameter is required.
     shared_ptr<string> calledNumber_ {};
+    // Outbound caller number. View it in the Voice Service [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
+    // 
     // This parameter is required.
     shared_ptr<string> calledShowNumber_ {};
+    // Whether to enable the number status detection identity. Valid values:  
+    // 
+    // - **false** (Default Value): Disable.  
+    // - **true**: Enable.  
+    // > When enabled, the reason for unanswered calls will be recorded.
     shared_ptr<bool> earlyMediaAsr_ {};
+    // An ID reserved for the caller. This ID will be returned to the caller through the receipt message. It must be 1 to 15 bytes in length.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Parameter list for the robot, in JSON format. The total length must not exceed 512 bytes. You can view the parameters in [Script Management](https://aiccs.console.aliyun.com/patter/list) > **Details** > **Input Parameters**, or by using the [ListRobotParams](https://help.aliyun.com/document_detail/2717999.html) API.
     shared_ptr<string> params_ {};
+    // Whether to record the call. Valid values:
+    // 
+    // - **false** (default): Do not record.
+    // - **true**: Record.
     shared_ptr<bool> recordFlag_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Robot ID, which is the script ID. View the reviewed and approved script ID in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> robotId_ {};
   };

@@ -94,12 +94,17 @@ namespace Models
 
 
   protected:
+    // The unique ID of the call.
     shared_ptr<string> callId_ {};
+    // The task detail ID. View the task detail ID in the upper-left corner of the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console, or call the [QueryAiCallDetailPage](https://help.aliyun.com/document_detail/2926853.html) operation to obtain the task detail ID.
     shared_ptr<string> detailId_ {};
+    // The external business serial number reserved for external input. You can use a unique ID for business association.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The task ID. View the task ID in the **Call Task Management** console or call the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation to obtain the task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

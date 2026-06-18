@@ -78,8 +78,15 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // 复刻音色编码
+    // The voice code for a custom voice. You can find it on the [Custom Voice](https://aiccs.console.aliyun.com/engine/voiceprint) page.
     shared_ptr<string> ttsVoiceCode_ {};
+    // The type of the TTS voice. Valid values:
+    // 
+    // `SYSTEM`: system voice.
+    // 
+    // `COSYCLONE`: cloned voice.
+    // 
+    // `BL-CUSTOM`: premium custom voice.
     shared_ptr<string> voiceType_ {};
   };
 

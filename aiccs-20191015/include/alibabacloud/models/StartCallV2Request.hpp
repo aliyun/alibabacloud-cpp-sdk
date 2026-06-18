@@ -84,15 +84,29 @@ namespace Models
 
 
   protected:
+    // Agent account name (agent logon name).
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // Callee number for hotline outbound calls.
+    // 
     // This parameter is required.
     shared_ptr<string> callee_ {};
+    // Caller number for hotline outbound calls.
+    // 
     // This parameter is required.
     shared_ptr<string> caller_ {};
+    // Call type. Valid values:
+    // 
+    // - **1**: Inbound
+    // - **2**: Outbound
+    // 
     // This parameter is required.
     shared_ptr<int32_t> callerType_ {};
+    // Unique customer request ID. Used for idempotency validation. You can generate it using UUID.
     shared_ptr<string> clientToken_ {};
+    // AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // External skill group ID
     shared_ptr<string> outerGroupId_ {};
+    // External skill group type. Valid enumeration values are: 1: Hotline, 2: Online, 4: Ticket
     shared_ptr<string> outerGroupType_ {};
   };
 

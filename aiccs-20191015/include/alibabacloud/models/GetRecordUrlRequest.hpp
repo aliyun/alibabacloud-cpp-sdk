@@ -57,10 +57,20 @@ namespace Models
 
 
   protected:
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> acid_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview) > Instance Management.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call type. Valid values:
+    // 
+    // - **DUP_CALL**: Incoming and outgoing calls.
+    // - **IVR_CALL**: IVR outbound call.
+    // - **SMART_CALL**: Intelligent outbound call.
+    // 
     // This parameter is required.
     shared_ptr<string> recordType_ {};
   };

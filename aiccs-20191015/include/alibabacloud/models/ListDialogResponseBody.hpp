@@ -103,10 +103,19 @@ namespace Models
 
 
     protected:
+      // Dialogue content.
       shared_ptr<string> content_ {};
+      // File Type.
       shared_ptr<string> nodeType_ {};
+      // Speaking role. Valid values:
+      // 
+      // - robot: Bot.
+      // 
+      // - user: User.
       shared_ptr<string> role_ {};
+      // Intent label.
       shared_ptr<string> tag_ {};
+      // Start Time. UNIX timestamp format, in milliseconds.
       shared_ptr<string> time_ {};
     };
 
@@ -150,10 +159,17 @@ namespace Models
 
 
   protected:
+    // Request status code. A return value of OK indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Call interaction content.
     shared_ptr<vector<ListDialogResponseBody::Data>> data_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API invocation succeeded. Valid values:  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

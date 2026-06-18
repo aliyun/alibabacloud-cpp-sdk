@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The reason for the authentication failure.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code. A value of `OK` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The result of the operation.
     shared_ptr<bool> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

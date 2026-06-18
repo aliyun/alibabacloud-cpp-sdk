@@ -121,18 +121,42 @@ namespace Models
 
 
   protected:
+    // The job batch version.
     shared_ptr<int32_t> batchVersion_ {};
+    // Activity ID associated with this outbound call.
     shared_ptr<int64_t> caseId_ {};
+    // Job execution status for a single phone number. Valid values:
+    // 
+    // - **1**: Pending call.
+    // - **2**: Calling.
+    // - **3**: Completed.
+    // - **4**: Stopped.
+    // - **5**: Pending retry.
     shared_ptr<int32_t> caseStatus_ {};
+    // End time of phone number import. Format: UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTimeEnd_ {};
+    // Start time of phone number import. Format: UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTimeStart_ {};
+    // Page size. The value must be greater than **0**. Default Value: **20**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
+    // 
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries per page. The value must be greater than **0**. Default value: **20**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The outbound phone number.
     shared_ptr<string> phoneNum_ {};
+    // The job ID.
+    // 
+    // You can invoke the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API and check the **Data** field in the response, or invoke the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API and check the **TaskId** field in the response.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
   };

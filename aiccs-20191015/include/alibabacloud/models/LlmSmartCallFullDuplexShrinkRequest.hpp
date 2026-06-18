@@ -112,17 +112,35 @@ namespace Models
 
 
   protected:
+    // **ApplicationCode**  
+    // The application code.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationCode_ {};
+    // **CalledNumber**  
+    // The phone number that receives the intelligent outbound call.
+    // 
     // This parameter is required.
     shared_ptr<string> calledNumber_ {};
+    // **CallerNumber**  
+    // The calling number.
+    // 
     // This parameter is required.
     shared_ptr<string> callerNumber_ {};
+    // **OutId**  
+    // The external ID. The value must be 1 to 15 bytes in length.
     shared_ptr<string> outId_ {};
+    // **SessionTimeout**  
+    // The maximum call duration. The call is automatically ended when the specified duration is exceeded. Unit: seconds. Maximum value: 3600.
     shared_ptr<int32_t> sessionTimeout_ {};
+    // **StartWordParam**  
+    // The opening greeting variable. Format: JSON. Specify the variable name and parameter, for example, `{"custom":"XXX"}`.
     shared_ptr<string> startWordParamShrink_ {};
+    // The voice speed. Valid values: 0 to 100. If this parameter is not specified, the value configured in the application is used.
     shared_ptr<int32_t> ttsSpeed_ {};
+    // The voice code from the personalized voice interface. If this parameter is not specified, the value configured in the application is used.
     shared_ptr<string> ttsVoiceCode_ {};
+    // The volume. Valid values: -200 to 200. If this parameter is not specified, the value configured in the application is used.
     shared_ptr<int32_t> ttsVolume_ {};
   };
 

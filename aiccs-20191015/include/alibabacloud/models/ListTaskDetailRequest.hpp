@@ -121,15 +121,26 @@ namespace Models
 
 
   protected:
+    // The callee number. You can view the callee number on the **Detail** interface of [**Task Management**](https://aiccs.console.aliyun.com/job/list).
     shared_ptr<string> called_ {};
+    // The detail ID. You can view the detail ID on the **Detail** interface of [**Task Management**](https://aiccs.console.aliyun.com/job/list).
     shared_ptr<int64_t> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Detail status. Valid values:
+    // - **SUCCESS**: The outbound call succeeded.
+    // - **FAIL**: The outbound call failed.
+    // - **INIT**: The outbound call has not been made.
     shared_ptr<string> status_ {};
+    // The call status code. For more information, see [Call Status Codes](https://help.aliyun.com/document_detail/112804.html) in Voice Service.
     shared_ptr<string> statusCode_ {};
+    // The job ID. You can view the job ID on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or obtain it by using the [ListTask](https://help.aliyun.com/document_detail/2718008.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
   };

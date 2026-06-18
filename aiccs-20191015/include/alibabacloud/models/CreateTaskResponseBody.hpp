@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // Request status code. A return value of "OK" indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // Unique job ID of the robot outbound calling task.
     shared_ptr<int64_t> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.  
+    // - **true**: Succeeded.  
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

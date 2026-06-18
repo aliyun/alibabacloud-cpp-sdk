@@ -131,13 +131,21 @@ namespace Models
 
 
     protected:
+      // Tenant ID.
       shared_ptr<int64_t> buId_ {};
+      // Role code.
       shared_ptr<string> code_ {};
+      // Creation Time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> createTime_ {};
+      // Role description.
       shared_ptr<string> description_ {};
+      // ID of the group to which the role belongs.
       shared_ptr<int64_t> roleGroupId_ {};
+      // Name of the role group to which the role belongs.
       shared_ptr<string> roleGroupName_ {};
+      // Role ID.
       shared_ptr<int64_t> roleId_ {};
+      // Role name.
       shared_ptr<string> title_ {};
     };
 
@@ -181,10 +189,15 @@ namespace Models
 
 
   protected:
+    // Role information.
     shared_ptr<vector<ListRolesResponseBody::Data>> data_ {};
+    // Status code. A return value of 200 indicates that the request succeeded.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Status code description.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
   };
 

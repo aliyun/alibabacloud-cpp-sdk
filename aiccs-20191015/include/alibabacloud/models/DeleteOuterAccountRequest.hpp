@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // External Account ID.
+    // 
     // This parameter is required.
     shared_ptr<string> outerAccountId_ {};
+    // Type of the external account.
+    // 
     // This parameter is required.
     shared_ptr<string> outerAccountType_ {};
   };

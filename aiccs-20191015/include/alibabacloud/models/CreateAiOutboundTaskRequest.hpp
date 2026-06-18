@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // Number of retries. Valid values: **1 to 3**.
       shared_ptr<int32_t> count_ {};
+      // Retry interval. Valid values: **1 to 60**, unit: minutes.
       shared_ptr<int32_t> interval_ {};
     };
 
@@ -177,22 +179,51 @@ namespace Models
 
 
   protected:
+    // Concurrent call rate for automated outbound calls.
     shared_ptr<int32_t> concurrentRate_ {};
+    // Job description. Length: 0 to 100 characters.
     shared_ptr<string> description_ {};
+    // Job execution time, in JSON format.
+    // 
+    // > The end time must be later than the start time.
+    // 
     // This parameter is required.
     shared_ptr<string> executionTime_ {};
+    // Fixed outbound ratio for predictive dialing. Valid values: **≥1**.
     shared_ptr<float> forecastCallRate_ {};
+    // The skill group ID (for predictive outbound calls) or IVR ID (for automated outbound calls). You can obtain this information in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> handlerId_ {};
+    // AICCS instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Job name. Length: 1 to 15 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Called number deduplication policy. Valid values:
+    // - **0**: Remove duplicates within the job.
+    // - **1**: Do not remove duplicates.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> numRepeated_ {};
+    // Outbound caller numbers.  
+    // 
+    // > Must be purchased numbers. Separate multiple numbers with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> outboundNums_ {};
+    // Failed call retry policy.  
+    // 
+    // > If empty, no retries are performed.
     shared_ptr<CreateAiOutboundTaskRequest::RecallRule> recallRule_ {};
+    // Task Type. Valid values:  
+    // - **2**: Predictive outbound call.  
+    // - **3**: Automated outbound call.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};
   };

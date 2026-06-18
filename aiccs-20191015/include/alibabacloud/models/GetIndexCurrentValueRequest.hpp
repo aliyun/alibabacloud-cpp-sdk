@@ -57,8 +57,24 @@ namespace Models
 
 
   protected:
+    // List of department IDs. Separate multiple IDs with commas (,).
+    // 
+    // You can call the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API and check the **DepartmentId** field in the response to obtain department IDs.
+    // 
+    // > When this parameter is not empty:  
+    // > - If GroupIds is not empty, the system prioritizes querying data metrics for the skill groups specified by GroupIds.  
+    // > - If GroupIds is empty, the system prioritizes querying data metrics for the departments specified by this parameter.
     shared_ptr<string> depIds_ {};
+    // List of skill group IDs. Separate multiple IDs with commas (,).
+    // 
+    // You can call the [QuerySkillGroups](https://help.aliyun.com/document_detail/2717970.html) API and check the **SkillGroupId** field in the response to obtain skill group IDs.
+    // 
+    // > When this parameter is not empty, the system prioritizes querying data metrics for the specified skill groups.
     shared_ptr<string> groupIds_ {};
+    // Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // 
+    // > The AICCS instance ID is required.
     shared_ptr<string> instanceId_ {};
   };
 

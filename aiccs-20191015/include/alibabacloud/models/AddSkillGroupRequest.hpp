@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // ID of the external department.
     shared_ptr<string> outerDepartmentId_ {};
+    // Type of the external department.
     shared_ptr<string> outerDepartmentType_ {};
+    // ID of the external skill group.
+    // 
     // This parameter is required.
     shared_ptr<string> outerGroupId_ {};
+    // Name of the external skill group.
+    // 
     // This parameter is required.
     shared_ptr<string> outerGroupName_ {};
+    // Type of the external skill group.
+    // 
     // This parameter is required.
     shared_ptr<string> outerGroupType_ {};
   };

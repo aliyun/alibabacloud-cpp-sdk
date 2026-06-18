@@ -103,10 +103,18 @@ namespace Models
 
 
     protected:
+      // Whether it is an output. Valid values:
+      // 
+      // - **1**: Yes.
+      // - **0**: No.
       shared_ptr<int32_t> isOutput_ {};
+      // Model name.
       shared_ptr<string> modelName_ {};
+      // Output ID.
       shared_ptr<string> nodeIdentifier_ {};
+      // Node name.
       shared_ptr<string> nodeName_ {};
+      // Flow name.
       shared_ptr<string> processName_ {};
     };
 
@@ -150,10 +158,17 @@ namespace Models
 
 
   protected:
+    // Request status code. A return value of OK indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // List of robot nodes.
     shared_ptr<vector<ListRobotNodeResponseBody::Data>> data_ {};
+    // Description of the status code.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the API invocation succeeded. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 
