@@ -80,10 +80,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags. This parameter takes effect only when TagKey.N is not specified. Valid values:
+    // Specifies whether to remove all tags from the resources. This parameter takes effect only if you do not specify the TagKey.N parameter. Valid values:
     // 
-    // *   True
-    // *   False
+    // - true: Removes all tags.
+    // 
+    // - false: Does not remove all tags.
     // 
     // Default value: false.
     shared_ptr<bool> all_ {};
@@ -91,20 +92,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs.
+    // The list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     // 
-    // Valid values:
-    // 
-    // *   Node
-    // *   Cluster
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag keys.
+    // The list of tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

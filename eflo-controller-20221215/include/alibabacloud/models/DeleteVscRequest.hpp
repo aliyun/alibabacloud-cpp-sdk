@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The ID of the VSC that you want to delete.
+    // The ID of the VSC to delete.
     // 
     // This parameter is required.
     shared_ptr<string> vscId_ {};

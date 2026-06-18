@@ -131,17 +131,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of data entries to return.
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
+    // The token that marks the position from which to start the query. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The IDs of the nodes.
+    // The list of node IDs.
     shared_ptr<string> nodeIdsShrink_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListVscsShrinkRequest::Tag>> tag_ {};
-    // The VSC name.
+    // The name of the VSC.
     shared_ptr<string> vscName_ {};
   };
 

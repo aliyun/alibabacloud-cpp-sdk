@@ -114,8 +114,33 @@ namespace Models
 
 
     protected:
+      // The category of the disk.
       shared_ptr<string> category_ {};
+      // The performance level of the ESSD. Valid values:
+      // 
+      // - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+      // 
+      // - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
+      // The size of the system disk. Unit: GiB. Valid values:
+      // 
+      // - Basic disk: 20–500.
+      // 
+      // - ESSD:
+      // 
+      //   - PL0: 1–2,048.
+      // 
+      //   - PL1: 20–2,048.
+      // 
+      //   - PL2: 461–2,048.
+      // 
+      //   - PL3: 1,261–2,048.
+      // 
+      // - ESSD AutoPL disk: 1–2,048.
+      // 
+      // - Other disk categories: 20–2,048.
+      // 
+      // Default value: the larger value between 20 and the size of the image that is specified by `ImageId`.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -267,26 +292,50 @@ namespace Models
 
 
   protected:
+    // The zone ID.
     shared_ptr<string> az_ {};
+    // The ID of the cluster.
     shared_ptr<string> clusterId_ {};
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // Indicates whether file storage can be mounted.
     shared_ptr<bool> fileSystemMountEnabled_ {};
+    // The image ID.
     shared_ptr<string> imageId_ {};
+    // The name of the image.
     shared_ptr<string> imageName_ {};
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
+    // Valid values:
+    // • password: The node group supports only password-based logon.
+    // • keypair: The node group supports only key pair-based logon.
+    // • both: The node group supports password-based and key pair-based logon.
+    // 
+    // If this parameter is not returned, no logon method is configured for the node group.
     shared_ptr<string> loginType_ {};
+    // The instance type.
     shared_ptr<string> machineType_ {};
+    // The number of nodes.
     shared_ptr<string> nodeCount_ {};
+    // The description of the node group.
     shared_ptr<string> nodeGroupDescription_ {};
+    // The ID of the node group.
     shared_ptr<string> nodeGroupId_ {};
+    // The name of the node group.
     shared_ptr<string> nodeGroupName_ {};
+    // The name of the RAM role. You can call the ListRoles operation of the RAM API to query the RAM roles that you created.
     shared_ptr<string> ramRoleName_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The system disk information.
     shared_ptr<DescribeNodeGroupResponseBody::SystemDisk> systemDisk_ {};
+    // The time when the node group was last updated.
     shared_ptr<string> updateTime_ {};
+    // The user data.
     shared_ptr<string> userData_ {};
+    // Indicates whether the node group supports GPU virtualization.
     shared_ptr<bool> virtualGpuEnabled_ {};
   };
 

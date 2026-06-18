@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // Key
+      // The key.
       shared_ptr<string> key_ {};
-      // Value
+      // The value.
       shared_ptr<string> value_ {};
     };
 
@@ -188,15 +188,17 @@ namespace Models
 
 
       protected:
-        // Disk type. The value range is:
+        // The disk type. Valid value:
         // 
-        // - cloud_essd: ESSD disk.
+        // - cloud_essd: enhanced SSD (ESSD).
         shared_ptr<string> category_ {};
-        // When creating an ESSD disk as the system disk, set the performance level of the disk. The value range is:
-        // - PL0: Maximum random read/write IOPS for a single disk is 10,000.
-        // - PL1: Maximum random read/write IOPS for a single disk is 50,000.
+        // The performance level of the ESSD that you create as a system disk. Valid values:
+        // 
+        // - PL0: A single disk delivers up to 10,000 random read/write input/output operations per second (IOPS).
+        // 
+        // - PL1: A single disk delivers up to 50,000 random read/write IOPS.
         shared_ptr<string> performanceLevel_ {};
-        // Unit: GB.
+        // The unit is GB.
         shared_ptr<int32_t> size_ {};
       };
 
@@ -303,15 +305,17 @@ namespace Models
 
 
         protected:
+          // Specifies whether to enable performance burst.
           shared_ptr<bool> burstingEnabled_ {};
-          // Type
+          // The type.
           shared_ptr<string> category_ {};
-          // Whether the data disk is deleted with the node when it is unsubscribed
+          // Specifies whether to delete the data disk when the node is released.
           shared_ptr<bool> deleteWithNode_ {};
-          // Data disk performance level
+          // The performance metric of the data disk.
           shared_ptr<string> performanceLevel_ {};
+          // The provisioned performance (IOPS). The value must be in the range of 0 to 50,000.
           shared_ptr<int64_t> provisionedIops_ {};
-          // Disk size
+          // The disk size.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -362,17 +366,17 @@ namespace Models
 
 
       protected:
-        // Data disk specifications.
+        // The specifications of the data disk.
         shared_ptr<vector<Nodes::DataDisk>> dataDisk_ {};
-        // Hostname
+        // The hostname.
         shared_ptr<string> hostname_ {};
-        // Login password
+        // The logon password.
         shared_ptr<string> loginPassword_ {};
-        // Node ID
+        // The node ID.
         shared_ptr<string> nodeId_ {};
-        // VSwitch ID
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // VPC ID
+        // The virtual private cloud (VPC) ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -479,11 +483,29 @@ namespace Models
 
 
         protected:
+          // Specifies whether to enable performance burst.
           shared_ptr<bool> burstingEnabled_ {};
+          // The disk type. Valid value:
+          // 
+          // - cloud_essd: ESSD.
           shared_ptr<string> category_ {};
+          // Specifies whether to delete the data disk when the node is released.
           shared_ptr<bool> deleteWithNode_ {};
+          // The performance level of the ESSD that you create as a data disk. Valid values:
+          // 
+          // - PL0: A single disk delivers up to 10,000 random read/write IOPS.
+          // 
+          // - PL1: A single disk delivers up to 50,000 random read/write IOPS.
+          // 
+          // - PL2: A single disk delivers up to 100,000 random read/write IOPS.
+          // 
+          // - PL3: A single disk delivers up to 1,000,000 random read/write IOPS.
+          // 
+          // Default value: PL1.
           shared_ptr<string> performanceLevel_ {};
+          // The provisioned read/write IOPS of the ESSD AutoPL disk.
           shared_ptr<int64_t> provisionedIops_ {};
+          // The disk size in GiB.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -534,11 +556,17 @@ namespace Models
 
 
       protected:
+        // The list of data disks.
         shared_ptr<vector<HyperNodes::DataDisk>> dataDisk_ {};
+        // The hostname.
         shared_ptr<string> hostname_ {};
+        // The supernode ID.
         shared_ptr<string> hyperNodeId_ {};
+        // The logon password.
         shared_ptr<string> loginPassword_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -651,31 +679,34 @@ namespace Models
 
 
     protected:
-      // Whether to support file system mounting
+      // Specifies whether to enable file system mounting.
       shared_ptr<bool> fileSystemMountEnabled_ {};
+      // The list of supernodes.
       shared_ptr<vector<NodeGroups::HyperNodes>> hyperNodes_ {};
-      // System image ID
+      // The OS image ID.
       shared_ptr<string> imageId_ {};
-      // Key pair name.
+      // The name of the key pair.
       shared_ptr<string> keyPairName_ {};
-      // Login password
+      // The logon password.
       shared_ptr<string> loginPassword_ {};
-      // Machine type
+      // The machine type.
       shared_ptr<string> machineType_ {};
-      // Node group description
+      // The description of the node group.
       shared_ptr<string> nodeGroupDescription_ {};
-      // Node group name
+      // The name of the node group.
       shared_ptr<string> nodeGroupName_ {};
-      // Node list
+      // The list of nodes.
       shared_ptr<vector<NodeGroups::Nodes>> nodes_ {};
+      // The name of the RAM role for the node. You can call the ListRoles operation of the RAM API to query the RAM roles that you have created. The trusted entity of the role must be Intelligent Computing LINGJUN.
+      // Note: You cannot clear an existing role.
       shared_ptr<string> ramRoleName_ {};
-      // System disk information
+      // The information about the system disk.
       shared_ptr<NodeGroups::SystemDisk> systemDisk_ {};
-      // Instance custom data. It needs to be encoded in Base64, and the original data should not exceed 16 KB.
+      // The instance user data. The data must be Base64-encoded. The raw data can be up to 16 KB in size.
       shared_ptr<string> userData_ {};
-      // Whether to enable gpu virtualization or not
+      // Specifies whether to enable GPU virtualization.
       shared_ptr<bool> virtualGpuEnabled_ {};
-      // Zone ID
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -752,9 +783,9 @@ namespace Models
 
 
       protected:
-        // VPC ID
+        // The VPD ID.
         shared_ptr<string> vpdId_ {};
-        // List of cluster subnet IDs
+        // The list of cluster subnet IDs.
         shared_ptr<vector<string>> vpdSubnets_ {};
       };
 
@@ -836,11 +867,11 @@ namespace Models
 
 
         protected:
-          // Subnet CIDR
+          // The CIDR block of the subnet.
           shared_ptr<string> subnetCidr_ {};
-          // Subnet type
+          // The subnet type.
           shared_ptr<string> subnetType_ {};
-          // Zone ID
+          // The zone ID.
           shared_ptr<string> zoneId_ {};
         };
 
@@ -899,19 +930,19 @@ namespace Models
 
 
       protected:
-        // Cloud Enterprise Network ID
+        // The Cloud Enterprise Network (CEN) ID.
         shared_ptr<string> cenId_ {};
-        // Cloud link CIDR
+        // The Cloud Link CIDR block.
         shared_ptr<string> cloudLinkCidr_ {};
-        // Cloud link ID
+        // The Cloud Link ID.
         shared_ptr<string> cloudLinkId_ {};
-        // Virtual Private Cloud (VPC)
+        // The VPC.
         shared_ptr<string> monitorVpcId_ {};
-        // VPC switch
+        // The vSwitch.
         shared_ptr<string> monitorVswitchId_ {};
-        // Cluster network segment
+        // The CIDR block of the cluster.
         shared_ptr<string> vpdCidr_ {};
-        // Cluster subnets
+        // The subnets of the cluster.
         shared_ptr<vector<NewVpdInfo::VpdSubnets>> vpdSubnets_ {};
       };
 
@@ -997,9 +1028,9 @@ namespace Models
 
 
           protected:
-            // Bond name
+            // The bond name.
             shared_ptr<string> name_ {};
-            // IP source subnet for the cluster
+            // The source cluster subnet for the IP address.
             shared_ptr<string> subnet_ {};
           };
 
@@ -1022,9 +1053,9 @@ namespace Models
 
 
         protected:
-          // Bond information
+          // The bond information.
           shared_ptr<vector<NodePolicy::Bonds>> bonds_ {};
-          // Node ID
+          // The node ID.
           shared_ptr<string> nodeId_ {};
         };
 
@@ -1087,9 +1118,9 @@ namespace Models
 
 
           protected:
-            // Bond name
+            // The bond name.
             shared_ptr<string> name_ {};
-            // IP source subnet for the cluster
+            // The source cluster subnet for the IP address.
             shared_ptr<string> subnet_ {};
           };
 
@@ -1112,9 +1143,9 @@ namespace Models
 
 
         protected:
-          // Bond information
+          // The bond information.
           shared_ptr<vector<MachineTypePolicy::Bonds>> bonds_ {};
-          // Machine type
+          // The machine type.
           shared_ptr<string> machineType_ {};
         };
 
@@ -1177,9 +1208,9 @@ namespace Models
 
 
           protected:
-            // Bond name
+            // The bond name.
             shared_ptr<string> name_ {};
-            // IP source subnet for the cluster
+            // The source cluster subnet for the IP address.
             shared_ptr<string> subnet_ {};
           };
 
@@ -1202,9 +1233,9 @@ namespace Models
 
 
         protected:
-          // Default bond subnet for the cluster
+          // The default bond cluster subnet.
           shared_ptr<string> bondDefaultSubnet_ {};
-          // Bond information
+          // The bond information.
           shared_ptr<vector<BondPolicy::Bonds>> bonds_ {};
         };
 
@@ -1238,11 +1269,11 @@ namespace Models
 
 
       protected:
-        // Bond policy
+        // The bond policy.
         shared_ptr<IpAllocationPolicy::BondPolicy> bondPolicy_ {};
-        // Machine type allocation policy
+        // The machine type allocation policy.
         shared_ptr<vector<IpAllocationPolicy::MachineTypePolicy>> machineTypePolicy_ {};
-        // Node allocation policy
+        // The node allocation policy.
         shared_ptr<vector<IpAllocationPolicy::NodePolicy>> nodePolicy_ {};
       };
 
@@ -1312,21 +1343,21 @@ namespace Models
 
 
     protected:
-      // IP allocation policy
+      // The IP address allocation policy.
       shared_ptr<vector<Networks::IpAllocationPolicy>> ipAllocationPolicy_ {};
-      // Vpd configuration information
+      // The VPD configuration information.
       shared_ptr<Networks::NewVpdInfo> newVpdInfo_ {};
-      // Security group ID
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // IP version
+      // The IP version.
       shared_ptr<string> tailIpVersion_ {};
-      // VSwitch ID
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // VSwitch Zone ID
+      // The zone ID of the vSwitch.
       shared_ptr<string> vSwitchZoneId_ {};
-      // VPC ID
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // Reuse VPD information
+      // The information about the reused VPD.
       shared_ptr<Networks::VpdInfo> vpdInfo_ {};
     };
 
@@ -1393,9 +1424,9 @@ namespace Models
 
 
       protected:
-        // Basic component parameters
+        // The basic parameters of the component.
         Darabonba::Json basicArgs_ {};
-        // Node pool configuration, used to establish the correspondence between node groups and node pools. Required when ComponentType is "ACKEdge", otherwise it can be empty.
+        // The node pool configuration. This is used to establish the mapping between node groups and node pools. This parameter is required when ComponentType is set to ACKEdge. Otherwise, leave it empty.
         shared_ptr<vector<Darabonba::Json>> nodeUnits_ {};
       };
 
@@ -1418,9 +1449,9 @@ namespace Models
 
 
     protected:
-      // Component configuration
+      // The component configuration.
       shared_ptr<Components::ComponentConfig> componentConfig_ {};
-      // Component type
+      // The component type.
       shared_ptr<string> componentType_ {};
     };
 
@@ -1523,29 +1554,29 @@ namespace Models
 
 
   protected:
-    // Cluster description
+    // The description of the cluster.
     shared_ptr<string> clusterDescription_ {};
-    // Cluster name
+    // The name of the cluster.
     shared_ptr<string> clusterName_ {};
-    // Cluster type
+    // The type of the cluster.
     shared_ptr<string> clusterType_ {};
-    // Components (software instances)
+    // The components (software instances).
     shared_ptr<vector<CreateClusterRequest::Components>> components_ {};
-    // Cluster number
+    // The cluster number.
     shared_ptr<string> hpnZone_ {};
-    // Whether to allow skipping failed nodes, the default value is False
+    // Specifies whether to skip failed nodes. The default value is False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // Network information
+    // The network information.
     shared_ptr<CreateClusterRequest::Networks> networks_ {};
-    // Node VSwitches
+    // The vSwitches for the node.
     shared_ptr<vector<string>> nimizVSwitches_ {};
-    // Node group list
+    // The list of node groups.
     shared_ptr<vector<CreateClusterRequest::NodeGroups>> nodeGroups_ {};
-    // Whether the network interface supports jumbo frames
+    // Specifies whether the network interface supports jumbo frames.
     shared_ptr<bool> openEniJumboFrame_ {};
-    // Resource group ID
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Resource tags
+    // The resource tags.
     shared_ptr<vector<CreateClusterRequest::Tag>> tag_ {};
   };
 

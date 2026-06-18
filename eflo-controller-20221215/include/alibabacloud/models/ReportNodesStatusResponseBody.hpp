@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // Error Message
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

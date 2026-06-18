@@ -119,19 +119,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the resources.
+    // A list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
-    // 
-    // Valid values:
-    // 
-    // *   Node
-    // *   Vcc
-    // *   Cluster
-    // *   Vpd
-    // *   Subnet
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -129,12 +131,25 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The number of entries to return on each page. The maximum value is 100.
+    // 
+    // Default value:
+    // 
+    // • If this parameter is not set or is set to a value less than 20, the default value is 20.
+    // 
+    // • If this parameter is set to a value greater than 100, the default value is 100.
     shared_ptr<int64_t> maxResults_ {};
+    // The token used to start the query. Set this parameter to the NextToken value returned from a previous call.
     shared_ptr<string> nextToken_ {};
+    // The node group ID.
     shared_ptr<string> nodeGroupId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The tag information.
     shared_ptr<vector<ListClusterHyperNodesRequest::Tags>> tags_ {};
   };
 

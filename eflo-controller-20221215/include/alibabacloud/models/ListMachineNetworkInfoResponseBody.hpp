@@ -116,28 +116,19 @@ namespace Models
 
 
     protected:
-      // Network of cluster
+      // The cluster network.
       shared_ptr<string> clusterNet_ {};
-      // Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
-      // 
-      // *   true: The Jumbo Frame feature is enabled for the instance.
-      // *   false: The Jumbo Frame feature is disabled for the instance.
-      // 
-      // Take note of the following items:
-      // 
-      // *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
-      // *   The instance must reside in a VPC.
-      // *   After the Jumbo Frames feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frames feature is disabled, the MTU value of the instance is set to 1500. You can enable the Jumbo Frames feature only for specific instance types. For more information, see [Jumbo Frames](https://help.aliyun.com/document_detail/200512.html).
+      // Indicates whether jumbo frames are enabled.
       shared_ptr<bool> enableJumboFrame_ {};
-      // HPN zone
+      // The cluster ID.
       shared_ptr<string> hpnZone_ {};
-      // Specifies whether dpu machine.
+      // Indicates whether the machine is in DPU mode.
       shared_ptr<bool> isDpuMode_ {};
-      // The type of machine.
+      // The machine type.
       shared_ptr<string> machineType_ {};
-      // Network architecture
+      // The network architecture.
       shared_ptr<string> netArch_ {};
-      // The ID of the region in which the application is located.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -160,9 +151,9 @@ namespace Models
 
 
   protected:
-    // machine network infomation
+    // The network information of the machine types.
     shared_ptr<vector<ListMachineNetworkInfoResponseBody::MachineNetworkInfo>> machineNetworkInfo_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

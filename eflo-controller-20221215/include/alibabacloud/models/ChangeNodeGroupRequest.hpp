@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to skip failed nodes. The default value is False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
+    // The node information.
     shared_ptr<vector<string>> nodes_ {};
+    // The ID of the target node group.
     shared_ptr<string> targetNodeGroupId_ {};
   };
 

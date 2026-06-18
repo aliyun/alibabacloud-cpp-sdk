@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // Tag key.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // Tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Default value: 20.
+    // Number of entries per page. Default: 20.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+    // Token for retrieving the next page of results. Use the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
-    // The resource group ID.
+    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // List of tags.
     shared_ptr<vector<ListClustersRequest::Tags>> tags_ {};
   };
 

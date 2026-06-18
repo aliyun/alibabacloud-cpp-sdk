@@ -135,7 +135,9 @@ namespace Models
 
 
       protected:
+        // The name of the network interface on the machine.
         shared_ptr<string> bondName_ {};
+        // The IP address of the machine in the virtual private cloud (VPC).
         shared_ptr<string> ip_ {};
       };
 
@@ -204,10 +206,27 @@ namespace Models
 
 
       protected:
+        // The packet classification. Valid values:
+        // 
+        // - **DOWNLINK_PACKET**: downlink packet
+        // 
+        // - **UPLINK_PACKET**: uplink packet
         shared_ptr<string> category_ {};
+        // The disk ID.
         shared_ptr<string> diskId_ {};
+        // When you create an enhanced SSD (ESSD) to use as a system disk, set the performance level of the disk. Valid values:
+        // 
+        // - PL0: A maximum of 10,000 random read/write input/output operations per second (IOPS) per disk.
+        // 
+        // - PL1: A maximum of 50,000 random read/write IOPS per disk.
         shared_ptr<string> performanceLevel_ {};
+        // The disk size. Unit: GiB.
         shared_ptr<int32_t> size_ {};
+        // The disk type. Valid values:
+        // 
+        // - system: system disk.
+        // 
+        // - data: data disk.
         shared_ptr<string> type_ {};
       };
 
@@ -282,14 +301,23 @@ namespace Models
 
 
     protected:
+      // The disk information.
       shared_ptr<vector<Nodes::Disks>> disks_ {};
+      // The hostname.
       shared_ptr<string> hostname_ {};
+      // The image ID.
       shared_ptr<string> imageId_ {};
+      // The image name.
       shared_ptr<string> imageName_ {};
+      // The network information.
       shared_ptr<Nodes::Networks> networks_ {};
+      // The node ID.
       shared_ptr<string> nodeId_ {};
+      // The state of the node.
       shared_ptr<string> operatingState_ {};
+      // The state.
       shared_ptr<string> status_ {};
+      // The user-defined script.
       shared_ptr<string> userData_ {};
     };
 
@@ -420,22 +448,39 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
+    // The time when the hyper node was created.
     shared_ptr<string> createTime_ {};
+    // The expiration time.
     shared_ptr<string> expireTime_ {};
+    // Indicates whether file storage mounting is supported.
     shared_ptr<bool> fileSystemMountEnabled_ {};
+    // The hostname.
     shared_ptr<string> hostname_ {};
+    // The cluster number.
     shared_ptr<string> hpnZone_ {};
+    // The ID of the hyper node.
     shared_ptr<string> hyperNodeId_ {};
+    // The machine type.
     shared_ptr<string> machineType_ {};
+    // The node group ID.
     shared_ptr<string> nodeGroupId_ {};
+    // The name of the node group.
     shared_ptr<string> nodeGroupName_ {};
+    // The list of nodes.
     shared_ptr<vector<DescribeHyperNodeResponseBody::Nodes>> nodes_ {};
+    // The state of the hyper node.
     shared_ptr<string> operatingState_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The state of the node.
     shared_ptr<string> status_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

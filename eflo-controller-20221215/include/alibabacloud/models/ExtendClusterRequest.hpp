@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NodeTag, nodeTag_);
         DARABONBA_PTR_TO_JSON(Nodes, nodes_);
         DARABONBA_PTR_TO_JSON(Period, period_);
+        DARABONBA_PTR_TO_JSON(SavingsPlanId, savingsPlanId_);
         DARABONBA_PTR_TO_JSON(UserData, userData_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NodeTag, nodeTag_);
         DARABONBA_PTR_FROM_JSON(Nodes, nodes_);
         DARABONBA_PTR_FROM_JSON(Period, period_);
+        DARABONBA_PTR_FROM_JSON(SavingsPlanId, savingsPlanId_);
         DARABONBA_PTR_FROM_JSON(UserData, userData_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -190,15 +192,17 @@ namespace Models
 
 
         protected:
+          // Whether to enable burst (performance bursting).
           shared_ptr<bool> burstingEnabled_ {};
-          // Type
+          // Disk type.
           shared_ptr<string> category_ {};
-          // Whether the data disk is deleted with the node
+          // Whether the data disk is deleted when the node is unsubscribed.
           shared_ptr<bool> deleteWithNode_ {};
-          // Data Disk Performance Level
+          // Data disk performance level.
           shared_ptr<string> performanceLevel_ {};
+          // Provisioned performance (IOPS). Valid values: 0 to 50000.
           shared_ptr<int64_t> provisionedIops_ {};
-          // Disk Size
+          // Disk size.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -257,18 +261,19 @@ namespace Models
 
 
       protected:
-        // Data Disk Specifications
+        // Data disk specifications.
         shared_ptr<vector<Nodes::DataDisk>> dataDisk_ {};
-        // Hostname
+        // Hostname.
         shared_ptr<string> hostname_ {};
-        // Login Password
+        // Login password.
         shared_ptr<string> loginPassword_ {};
-        // Node ID
+        // Node ID.
         shared_ptr<string> nodeId_ {};
+        // Security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // VSwitch ID
+        // vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // VPC ID
+        // VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -310,9 +315,9 @@ namespace Models
 
 
       protected:
-        // Node tag key
+        // Node tag key.
         shared_ptr<string> key_ {};
-        // Node tag value
+        // Node tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -421,11 +426,21 @@ namespace Models
 
 
         protected:
+          // Whether to enable burst (performance bursting).
           shared_ptr<bool> burstingEnabled_ {};
+          // Disk type. Valid values:
+          // 
+          //  - cloud_essd: ESSD cloud disk.
           shared_ptr<string> category_ {};
+          // Whether the data disk is deleted when the node is unsubscribed.
           shared_ptr<bool> deleteWithNode_ {};
+          // The performance level of the ESSD cloud disk used as the system disk. Valid values:
+          // - PL0: maximum random read/write IOPS of 10,000 per disk.
+          // - PL1: maximum random read/write IOPS of 50,000 per disk.
           shared_ptr<string> performanceLevel_ {};
+          // Provisioned read/write IOPS of the ESSD AutoPL cloud disk (per disk).
           shared_ptr<int64_t> provisionedIops_ {};
+          // Disk size, in GiB.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -484,19 +499,26 @@ namespace Models
 
 
       protected:
+        // Disk information list.
         shared_ptr<vector<HyperNodes::DataDisk>> dataDisk_ {};
+        // Hostname.
         shared_ptr<string> hostname_ {};
+        // HyperNode ID.
         shared_ptr<string> hyperNodeId_ {};
+        // Login password.
         shared_ptr<string> loginPassword_ {};
+        // Security group ID.
         shared_ptr<string> securityGroupId_ {};
+        // vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
       virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->hostnames_ == nullptr && this->hyperNodes_ == nullptr && this->loginPassword_ == nullptr
-        && this->nodeGroupId_ == nullptr && this->nodeTag_ == nullptr && this->nodes_ == nullptr && this->period_ == nullptr && this->userData_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->nodeGroupId_ == nullptr && this->nodeTag_ == nullptr && this->nodes_ == nullptr && this->period_ == nullptr && this->savingsPlanId_ == nullptr
+        && this->userData_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
       // amount Field Functions 
       bool hasAmount() const { return this->amount_ != nullptr;};
       void deleteAmount() { this->amount_ = nullptr;};
@@ -575,6 +597,13 @@ namespace Models
       inline NodeGroups& setPeriod(int64_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
+      // savingsPlanId Field Functions 
+      bool hasSavingsPlanId() const { return this->savingsPlanId_ != nullptr;};
+      void deleteSavingsPlanId() { this->savingsPlanId_ = nullptr;};
+      inline string getSavingsPlanId() const { DARABONBA_PTR_GET_DEFAULT(savingsPlanId_, "") };
+      inline NodeGroups& setSavingsPlanId(string savingsPlanId) { DARABONBA_PTR_SET_VALUE(savingsPlanId_, savingsPlanId) };
+
+
       // userData Field Functions 
       bool hasUserData() const { return this->userData_ != nullptr;};
       void deleteUserData() { this->userData_ = nullptr;};
@@ -604,32 +633,34 @@ namespace Models
 
 
     protected:
-      // Number of nodes to purchase. Range: 0~500. If the Amount parameter is set to 0, it means no new nodes will be purchased and existing nodes will be used for scaling. If the Amount parameter is set to 1~500, it means a certain number of nodes will be purchased and used for scaling. Default value: 0
+      // The number of nodes to purchase. Valid values: 0 to 500. If the Amount parameter is set to 0, no nodes are purchased and existing nodes are used for scale-out. If the Amount parameter is set to a value from 1 to 500, the specified number of nodes are purchased and used for scale-out. Default value: 0.
       shared_ptr<int64_t> amount_ {};
-      // Whether to automatically renew the purchased nodes. This parameter takes effect when the Amount parameter is not 0 and the ChargeType is set to PrePaid. Valid values: True (auto-renewal); False (no auto-renewal). Default value: False
+      // Whether to enable auto-renewal for the purchased nodes. This parameter takes effect when the Amount parameter is not 0 and ChargeType is set to PREPAY or POSTPAY. Valid values: True: enable auto-renewal. False: disable auto-renewal. Default value: False.
       shared_ptr<bool> autoRenew_ {};
-      // Payment method for the nodes. When the Amount parameter is set to 0, this parameter does not take effect. Valid values: PrePaid (Subscription); PostPaid (Pay-As-You-Go). Default value: PrePaid.
+      // The billing method of nodes. This parameter does not take effect when the Amount parameter is set to 0. Valid values: PREPAY: subscription. POSTPAY: pay-as-you-go. Default value: PREPAY.
       shared_ptr<string> chargeType_ {};
-      // Set the hostnames for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
+      // The hostnames set for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
       shared_ptr<vector<string>> hostnames_ {};
+      // HyperNode list.
       shared_ptr<vector<NodeGroups::HyperNodes>> hyperNodes_ {};
-      // Set the login password for the purchased nodes. This parameter is not effective when the Amount parameter is set to 0.
+      // The login password set for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
       shared_ptr<string> loginPassword_ {};
-      // Node Group ID
+      // Node group ID.
       shared_ptr<string> nodeGroupId_ {};
-      // Node tags
+      // Node tags.
       shared_ptr<vector<NodeGroups::NodeTag>> nodeTag_ {};
-      // List of Nodes
+      // Node list.
       shared_ptr<vector<NodeGroups::Nodes>> nodes_ {};
-      // Duration of the node purchase (in months). Valid values: 1, 6, 12, 24, 36, 48. This parameter takes effect when the Amount parameter is not 0 and the ChargeType is set to PrePaid.
+      // The subscription duration of nodes (unit: month). Valid values: 1, 6, 12, 24, 36, and 48. This parameter takes effect when the Amount parameter is not 0 and ChargeType is set to PREPAY.
       shared_ptr<int64_t> period_ {};
-      // Custom Data
+      shared_ptr<string> savingsPlanId_ {};
+      // Custom data.
       shared_ptr<string> userData_ {};
-      // VSwitch ID
+      // vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID
+      // VPC ID.
       shared_ptr<string> vpcId_ {};
-      // Zone ID
+      // Zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -717,9 +748,9 @@ namespace Models
 
 
         protected:
-          // Bond name
+          // Bond name.
           shared_ptr<string> name_ {};
-          // IP source cluster subnet
+          // IP source cluster subnet.
           shared_ptr<string> subnet_ {};
         };
 
@@ -749,11 +780,11 @@ namespace Models
 
 
       protected:
-        // Bond information
+        // Bond information.
         shared_ptr<vector<NodePolicy::Bonds>> bonds_ {};
-        // Hostname
+        // Hostname.
         shared_ptr<string> hostname_ {};
-        // Node ID
+        // Node ID.
         shared_ptr<string> nodeId_ {};
       };
 
@@ -816,9 +847,9 @@ namespace Models
 
 
         protected:
-          // Bond name
+          // Bond name.
           shared_ptr<string> name_ {};
-          // IP source cluster subnet
+          // IP source cluster subnet.
           shared_ptr<string> subnet_ {};
         };
 
@@ -841,9 +872,9 @@ namespace Models
 
 
       protected:
-        // Bond information
+        // Bond information.
         shared_ptr<vector<MachineTypePolicy::Bonds>> bonds_ {};
-        // Machine type
+        // Machine type.
         shared_ptr<string> machineType_ {};
       };
 
@@ -906,9 +937,9 @@ namespace Models
 
 
         protected:
-          // Bond name
+          // Bond name.
           shared_ptr<string> name_ {};
-          // IP source cluster subnet
+          // IP source cluster subnet.
           shared_ptr<string> subnet_ {};
         };
 
@@ -931,9 +962,9 @@ namespace Models
 
 
       protected:
-        // Default bond cluster subnet
+        // Default bond cluster subnet.
         shared_ptr<string> bondDefaultSubnet_ {};
-        // Bond information
+        // Bond information.
         shared_ptr<vector<BondPolicy::Bonds>> bonds_ {};
       };
 
@@ -967,11 +998,11 @@ namespace Models
 
 
     protected:
-      // Specify the cluster subnet ID based on the bond name
+      // Specifies the cluster subnet ID based on the bond name.
       shared_ptr<IpAllocationPolicy::BondPolicy> bondPolicy_ {};
-      // Machine type allocation policy
+      // Machine type allocation policy.
       shared_ptr<vector<IpAllocationPolicy::MachineTypePolicy>> machineTypePolicy_ {};
-      // Node allocation policy
+      // Node allocation policy.
       shared_ptr<vector<IpAllocationPolicy::NodePolicy>> nodePolicy_ {};
     };
 
@@ -1026,17 +1057,17 @@ namespace Models
 
 
   protected:
-    // Cluster ID
+    // Cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Whether to allow skipping failed node tasks, default value is False
+    // Whether to allow skipping failed nodes. Default value: False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // IP allocation combination policy: Each policy can only choose one type, and multiple policies can be combined
+    // Combined policy for IP allocation. Each policy can only select one policy type, and multiple policies can be combined.
     shared_ptr<vector<ExtendClusterRequest::IpAllocationPolicy>> ipAllocationPolicy_ {};
-    // Node Groups
+    // Node groups.
     shared_ptr<vector<ExtendClusterRequest::NodeGroups>> nodeGroups_ {};
-    // VSwitch availability zone ID
+    // vSwitch zone ID.
     shared_ptr<string> vSwitchZoneId_ {};
-    // List of cluster subnets
+    // Cluster subnet list.
     shared_ptr<vector<string>> vpdSubnets_ {};
   };
 

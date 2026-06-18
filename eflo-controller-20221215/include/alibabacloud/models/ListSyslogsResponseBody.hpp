@@ -219,23 +219,41 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The security domain of the client.
       shared_ptr<string> domain_ {};
+      // A standard field in Linux syslog.
       shared_ptr<string> facility_ {};
+      // The hostname of the client.
       shared_ptr<string> hostname_ {};
+      // The IP address of the client.
       shared_ptr<string> ip_ {};
+      // The content of the syslog.
       shared_ptr<string> msg_ {};
+      // The node ID.
       shared_ptr<string> nodeId_ {};
+      // A standard field in Linux syslog.
       shared_ptr<string> severity_ {};
+      // The unique identifier of the machine.
       shared_ptr<string> sn_ {};
+      // The hostname of the syslog server.
       shared_ptr<string> source_ {};
+      // A standard field in Linux syslog.
       shared_ptr<string> syslogtag_ {};
+      // Tag: Hostname.
       shared_ptr<string> tagHostname_ {};
+      // Tag: Package ID.
       shared_ptr<string> tagPackId_ {};
+      // Tag: Path.
       shared_ptr<string> tagPath_ {};
+      // Tag: Receive time.
       shared_ptr<string> tagReceiveTime_ {};
+      // Tag: User-defined ID.
       shared_ptr<string> tagUserDefinedId_ {};
+      // The time in UNIX format.
       shared_ptr<string> time_ {};
+      // The topic. Valid values are \\`logserver\\` and \\`log2sls\\`. Note: Both are syslog servers. \\`logserver\\` collects data over TCP. \\`log2sls\\` collects data over UDP.
       shared_ptr<string> topic_ {};
     };
 
@@ -265,9 +283,11 @@ namespace Models
 
 
   protected:
+    // The object that contains the paginated list of logs.
     shared_ptr<vector<ListSyslogsResponseBody::Logs>> logs_ {};
+    // The \\`NextToken\\` for the next page. To retrieve the next page of results, include this return value in the next request.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

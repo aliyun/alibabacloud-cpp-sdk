@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the hyper node.
+    // 
     // This parameter is required.
     shared_ptr<string> hyperNodeId_ {};
   };

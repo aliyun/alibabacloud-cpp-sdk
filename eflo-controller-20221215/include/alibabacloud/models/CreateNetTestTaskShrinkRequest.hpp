@@ -107,17 +107,17 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // Specify when NetTestType is CommTest.
+    // Specify this parameter if NetTestType is set to CommTest.
     shared_ptr<string> commTestShrink_ {};
-    // Specify when NetTestType is DelayTest.
+    // Specify this parameter if NetTestType is set to DelayTest.
     shared_ptr<string> delayTestShrink_ {};
-    // The type of the network test. Valid values: DelayTest, TrafficTest, and CommTest.
+    // The type of network test. Valid values: DelayTest, TrafficTest, and CommTest.
     shared_ptr<string> netTestType_ {};
     // The network mode.
     shared_ptr<string> networkMode_ {};
-    // The port number.
+    // The test port number.
     shared_ptr<string> port_ {};
-    // If the TrafficModel is Fullmesh, leave this parameter empty.
+    // This field is empty if TrafficModel is set to Fullmesh.
     shared_ptr<string> trafficTestShrink_ {};
   };
 

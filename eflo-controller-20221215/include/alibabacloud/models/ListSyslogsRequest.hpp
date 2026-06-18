@@ -84,13 +84,22 @@ namespace Models
 
 
   protected:
+    // The start time.
+    // 
     // This parameter is required.
     shared_ptr<string> fromTime_ {};
+    // The token for the next page. To retrieve the next page of results, include the token in the next request.
     shared_ptr<string> nextToken_ {};
+    // The node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
+    // The query condition.
     shared_ptr<string> query_ {};
+    // Specifies whether to sort the results by time in descending order.
     shared_ptr<bool> reverse_ {};
+    // The end time.
+    // 
     // This parameter is required.
     shared_ptr<string> toTime_ {};
   };

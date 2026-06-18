@@ -121,9 +121,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // Tag key.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // Tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -248,50 +248,37 @@ namespace Models
 
 
     protected:
-      // The cluster description.
+      // Cluster description.
       shared_ptr<string> clusterDescription_ {};
-      // The cluster ID.
+      // Cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The cluster name.
+      // Cluster name.
       shared_ptr<string> clusterName_ {};
-      // The cluster type.
-      // 
-      // Valid values:
-      // 
-      // *   AckEdgePro
-      // *   ExclusiveBareCluster
-      // *   Lite
+      // Cluster type.
       shared_ptr<string> clusterType_ {};
-      // The component information.
+      // Component information.
       Darabonba::Json components_ {};
-      // The IP type of the computing network.
+      // IP version of computing network.
       shared_ptr<string> computingIpVersion_ {};
-      // The creation time.
+      // Cluster creation time.
       shared_ptr<string> createTime_ {};
-      // The cluster number.
+      // Cluster zone identifier.
       shared_ptr<string> hpnZone_ {};
-      // The number of nodes.
+      // Number of nodes.
       shared_ptr<int64_t> nodeCount_ {};
-      // The number of node groups.
+      // Number of node groups.
       shared_ptr<int64_t> nodeGroupCount_ {};
-      // The cluster status.
-      // 
-      // Valid values:
-      // 
-      // *   running
-      // *   expanding
-      // *   shrinking
-      // *   initializing
+      // Cluster status.
       shared_ptr<string> operatingState_ {};
-      // The resource group ID.
+      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags.
+      // Tag information.
       shared_ptr<vector<Clusters::Tags>> tags_ {};
-      // The job ID.
+      // Task ID.
       shared_ptr<string> taskId_ {};
-      // The update time.
+      // Last update time.
       shared_ptr<string> updateTime_ {};
-      // The virtual private cloud (VPC) ID.
+      // VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -321,11 +308,11 @@ namespace Models
 
 
   protected:
-    // The clusters.
+    // Cluster information.
     shared_ptr<vector<ListClustersResponseBody::Clusters>> clusters_ {};
-    // The returned pagination token which can be used in the next request to retrieve a new page of results.
+    // Token returned by this call for retrieving next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

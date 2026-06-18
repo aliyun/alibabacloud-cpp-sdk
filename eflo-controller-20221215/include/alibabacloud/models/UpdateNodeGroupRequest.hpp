@@ -103,20 +103,21 @@ namespace Models
 
 
   protected:
-    // Whether file storage mounting is supported
+    // Specifies whether to mount file storage on nodes.
     shared_ptr<bool> fileSystemMountEnabled_ {};
-    // The default image ID of the node group. If not set, it will not change.
+    // The ID of the image for the node group. If you omit this parameter, the image remains unchanged.
     shared_ptr<string> imageId_ {};
-    // Key pair name.
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
-    // Login password for machines within the node group
+    // The login password for the nodes in the node group.
     shared_ptr<string> loginPassword_ {};
-    // Node group name
+    // The new name of the node group.
     shared_ptr<string> newNodeGroupName_ {};
-    // Node group ID
+    // The ID of the node group.
     shared_ptr<string> nodeGroupId_ {};
+    // To query the RAM roles that you have created, call the ListRoles operation in the RAM API. The trust policy for the role must specify Intelligent Computing Lingjun as the trusted entity. Note: You cannot remove a role by clearing this parameter.
     shared_ptr<string> ramRoleName_ {};
-    // User-defined script
+    // The user data. This script runs at node startup.
     shared_ptr<string> userData_ {};
   };
 

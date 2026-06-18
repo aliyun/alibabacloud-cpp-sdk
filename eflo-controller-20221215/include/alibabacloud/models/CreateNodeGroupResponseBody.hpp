@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Node group ID
+    // The ID of the node group.
     shared_ptr<string> nodeGroupId_ {};
-    // NodeGroupName
+    // The name of the node group.
     shared_ptr<string> nodeGroupName_ {};
-    // ID of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

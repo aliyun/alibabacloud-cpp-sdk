@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -254,22 +256,39 @@ namespace Models
 
 
     protected:
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
+      // The time when the node was created.
       shared_ptr<string> createTime_ {};
+      // The expiration time of the machine.
       shared_ptr<string> expireTime_ {};
+      // Indicates whether file storage mounting is supported.
       shared_ptr<bool> fileSystemMountEnabled_ {};
+      // The hostname.
       shared_ptr<string> hostname_ {};
+      // The cluster ID.
       shared_ptr<string> hpnZone_ {};
+      // The node ID.
       shared_ptr<string> hyperNodeId_ {};
+      // The machine type.
       shared_ptr<string> machineType_ {};
+      // The node group ID.
       shared_ptr<string> nodeGroupId_ {};
+      // The name of the node group.
       shared_ptr<string> nodeGroupName_ {};
+      // The status of the hyper node.
       shared_ptr<string> operatingState_ {};
+      // The status of the node.
       shared_ptr<string> status_ {};
+      // The tag information.
       shared_ptr<vector<HyperNodes::Tags>> tags_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The virtual private cloud (VPC) ID.
       shared_ptr<string> vpcId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -299,9 +318,11 @@ namespace Models
 
 
   protected:
+    // The list of nodes.
     shared_ptr<vector<ListClusterHyperNodesResponseBody::HyperNodes>> hyperNodes_ {};
+    // The query token returned from this call.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

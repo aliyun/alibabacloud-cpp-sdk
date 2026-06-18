@@ -140,7 +140,7 @@ namespace Models
 
 
       protected:
-        // The bonding of network interface card.
+        // The bonded NIC port.
         shared_ptr<string> bond_ {};
         // The IP address of the node.
         shared_ptr<string> IP_ {};
@@ -148,7 +148,7 @@ namespace Models
         shared_ptr<string> nodeId_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -217,7 +217,7 @@ namespace Models
 
 
       protected:
-        // The bonding of network interface card.
+        // The bonded port of the network interface card (NIC).
         shared_ptr<string> bond_ {};
         // The IP address of the node.
         shared_ptr<string> IP_ {};
@@ -225,7 +225,7 @@ namespace Models
         shared_ptr<string> nodeId_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -286,19 +286,19 @@ namespace Models
 
 
     protected:
-      // The client IDs.
+      // The client resources.
       shared_ptr<vector<TrafficTest::Clients>> clients_ {};
-      // The running duration of the pipeline job. Unit: seconds.
+      // The runtime duration of the flow task, in seconds.
       shared_ptr<int64_t> duration_ {};
-      // If the protocol is RDMA, enter True or False. If the protocol is TCP, leave this field empty.
+      // If Protocol is set to RDMA, specify True or False. This field is empty if Protocol is set to TCP.
       shared_ptr<bool> GDR_ {};
-      // The network protocol, which can be RDMA or TCP.
+      // The network protocol. Valid values: RDMA and TCP.
       shared_ptr<string> protocol_ {};
-      // If the protocol is TCP, enter the number of concurrent connections. If the protocol is RDMA, enter the configured QP value.
+      // If Protocol is set to TCP, specify the number of concurrent connections for the test. If Protocol is set to RDMA, specify the QP value.
       shared_ptr<int64_t> QP_ {};
-      // The services.
+      // The list of servers.
       shared_ptr<vector<TrafficTest::Servers>> servers_ {};
-      // The traffic model, which can be MTON or Fullmesh.
+      // The traffic model. Valid values: MTON and Fullmesh.
       shared_ptr<string> trafficModel_ {};
     };
 
@@ -386,7 +386,7 @@ namespace Models
 
 
       protected:
-        // The bonding of network interface card.
+        // The bonded NIC port.
         shared_ptr<string> bond_ {};
         // The IP address of the node.
         shared_ptr<string> IP_ {};
@@ -394,7 +394,7 @@ namespace Models
         shared_ptr<string> nodeId_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -409,7 +409,7 @@ namespace Models
 
 
     protected:
-      // The hosts of the test node.
+      // The hosts of the test nodes.
       shared_ptr<vector<DelayTest::Hosts>> hosts_ {};
     };
 
@@ -500,7 +500,7 @@ namespace Models
         shared_ptr<string> nodeId_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -539,11 +539,11 @@ namespace Models
     protected:
       // The number of GPUs.
       shared_ptr<int64_t> GPUNum_ {};
-      // The host IDs.
+      // The hosts.
       shared_ptr<vector<CommTest::Hosts>> hosts_ {};
       // The communication library model.
       shared_ptr<string> model_ {};
-      // The CommTest type, which can be ACCL or NCCL.
+      // The type of communication library test. Valid values: ACCL and NCCL.
       shared_ptr<string> type_ {};
     };
 
@@ -617,17 +617,17 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // Specify when NetTestType is CommTest.
+    // Specify this parameter if NetTestType is set to CommTest.
     shared_ptr<CreateNetTestTaskRequest::CommTest> commTest_ {};
-    // Specify when NetTestType is DelayTest.
+    // Specify this parameter if NetTestType is set to DelayTest.
     shared_ptr<CreateNetTestTaskRequest::DelayTest> delayTest_ {};
-    // The type of the network test. Valid values: DelayTest, TrafficTest, and CommTest.
+    // The type of network test. Valid values: DelayTest, TrafficTest, and CommTest.
     shared_ptr<string> netTestType_ {};
     // The network mode.
     shared_ptr<string> networkMode_ {};
-    // The port number.
+    // The test port number.
     shared_ptr<string> port_ {};
-    // If the TrafficModel is Fullmesh, leave this parameter empty.
+    // This field is empty if TrafficModel is set to Fullmesh.
     shared_ptr<CreateNetTestTaskRequest::TrafficTest> trafficTest_ {};
   };
 

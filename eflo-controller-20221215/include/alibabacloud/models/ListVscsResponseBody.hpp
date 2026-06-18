@@ -170,23 +170,17 @@ namespace Models
     protected:
       // The ID of the Lingjun node.
       shared_ptr<string> nodeId_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The VSC status.
-      // 
-      // Valid values:
-      // 
-      // *   Creating
-      // *   Normal
-      // *   Deleting
+      // The status of the VSC.
       shared_ptr<string> status_ {};
       // The tags.
       shared_ptr<vector<Vscs::Tags>> tags_ {};
-      // The VSC ID.
+      // The ID of the VSC.
       shared_ptr<string> vscId_ {};
       // The custom name of the VSC.
       shared_ptr<string> vscName_ {};
-      // The VSC type. Valid values: primary and standard.
+      // The type of the VSC. Valid values: \\`primary\\` and \\`standard\\`.
       shared_ptr<string> vscType_ {};
     };
 
@@ -230,17 +224,17 @@ namespace Models
 
 
   protected:
-    // No response is returned. The TotalCount parameter is used.
+    // This parameter is not returned. Use the \\`TotalCount\\` parameter instead.
     shared_ptr<int32_t> maxResults_ {};
-    // The token. It can be used in the next request to retrieve a new page of results. If this parameter is empty, no next page exists.
+    // The token to retrieve the next page of results. If this parameter is empty, all results have been returned.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of VSCs.
+    // The total number of entries that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
-    // The VSCs.
+    // A list of VSCs.
     shared_ptr<vector<ListVscsResponseBody::Vscs>> vscs_ {};
   };
 

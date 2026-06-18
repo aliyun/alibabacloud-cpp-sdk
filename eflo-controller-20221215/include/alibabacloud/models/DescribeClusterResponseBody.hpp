@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The ID of the CIDR block for the cluster.
+      // The ID of the virtual private datacenter (VPD).
       shared_ptr<string> vpdId_ {};
     };
 
@@ -140,12 +140,7 @@ namespace Models
     protected:
       // The component ID.
       shared_ptr<string> componentId_ {};
-      // The component type.
-      // 
-      // Valid values:
-      // 
-      // *   ARMS
-      // *   ACKEdge
+      // The type of the component.
       shared_ptr<string> componentType_ {};
     };
 
@@ -299,21 +294,21 @@ namespace Models
 
 
   protected:
-    // The cluster description.
+    // The description of the cluster.
     shared_ptr<string> clusterDescription_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The cluster name.
+    // The name of the cluster.
     shared_ptr<string> clusterName_ {};
-    // The cluster type.
+    // The type of the cluster.
     shared_ptr<string> clusterType_ {};
     // The component information.
     shared_ptr<vector<DescribeClusterResponseBody::Components>> components_ {};
-    // The IP type of the computing network.
+    // The IP version of the computing network.
     shared_ptr<string> computingIpVersion_ {};
-    // The creation time.
+    // The time when the cluster was created.
     shared_ptr<string> createTime_ {};
-    // The cluster number.
+    // The zone of the cluster.
     shared_ptr<string> hpnZone_ {};
     // The network information.
     shared_ptr<DescribeClusterResponseBody::Networks> networks_ {};
@@ -321,19 +316,21 @@ namespace Models
     shared_ptr<int64_t> nodeCount_ {};
     // The number of node groups.
     shared_ptr<int64_t> nodeGroupCount_ {};
-    // The status of Jumbo Frames for the elastic network interface (ENI).
+    // The jumbo frame setting for the network interface.
     shared_ptr<string> openEniJumboFrame_ {};
-    // The cluster status.
+    // The state of the cluster.
     shared_ptr<string> operatingState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The job ID.
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // The update time.
+    // The time when the cluster was last updated.
     shared_ptr<string> updateTime_ {};
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};

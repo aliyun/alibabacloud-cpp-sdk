@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The VSC ID.
+    // The ID of the Vsc.
     // 
     // This parameter is required.
     shared_ptr<string> vscId_ {};

@@ -117,6 +117,7 @@ namespace Models
 
 
       protected:
+        // The hyper node ID.
         shared_ptr<string> hyperNodeId_ {};
       };
 
@@ -148,10 +149,11 @@ namespace Models
 
 
     protected:
+      // The list of hyper nodes.
       shared_ptr<vector<NodeGroups::HyperNodes>> hyperNodes_ {};
       // The node group ID.
       shared_ptr<string> nodeGroupId_ {};
-      // The nodes.
+      // The list of nodes.
       shared_ptr<vector<NodeGroups::Nodes>> nodes_ {};
     };
 
@@ -183,9 +185,9 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to allow skipping failed nodes. Default value: False.
+    // Specifies whether to skip failed nodes. The default value is False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // The node groups.
+    // The information about the node groups.
     shared_ptr<vector<ShrinkClusterRequest::NodeGroups>> nodeGroups_ {};
   };
 

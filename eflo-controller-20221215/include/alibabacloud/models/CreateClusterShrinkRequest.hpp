@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // Key
+      // The key.
       shared_ptr<string> key_ {};
-      // Value
+      // The value.
       shared_ptr<string> value_ {};
     };
 
@@ -187,29 +187,29 @@ namespace Models
 
 
   protected:
-    // Cluster description
+    // The description of the cluster.
     shared_ptr<string> clusterDescription_ {};
-    // Cluster name
+    // The name of the cluster.
     shared_ptr<string> clusterName_ {};
-    // Cluster type
+    // The type of the cluster.
     shared_ptr<string> clusterType_ {};
-    // Components (software instances)
+    // The components (software instances).
     shared_ptr<string> componentsShrink_ {};
-    // Cluster number
+    // The cluster number.
     shared_ptr<string> hpnZone_ {};
-    // Whether to allow skipping failed nodes, the default value is False
+    // Specifies whether to skip failed nodes. The default value is False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // Network information
+    // The network information.
     shared_ptr<string> networksShrink_ {};
-    // Node VSwitches
+    // The vSwitches for the node.
     shared_ptr<string> nimizVSwitchesShrink_ {};
-    // Node group list
+    // The list of node groups.
     shared_ptr<string> nodeGroupsShrink_ {};
-    // Whether the network interface supports jumbo frames
+    // Specifies whether the network interface supports jumbo frames.
     shared_ptr<bool> openEniJumboFrame_ {};
-    // Resource group ID
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Resource tags
+    // The resource tags.
     shared_ptr<vector<CreateClusterShrinkRequest::Tag>> tag_ {};
   };
 

@@ -84,11 +84,32 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The end time of the node issue. The time is in the ISO 8601 format \\`yyyy-MM-ddTHH:mm:ss+0800\\` and includes the time zone.
     shared_ptr<string> endTime_ {};
+    // The category of the issue. This parameter is required when \\`Reason\\` is set to \\`HardwareError\\`. Valid values:<br>
+    // ● hardware-cpu-error: CPU failure<br>
+    // ● hardware-gpu-error: GPU failure<br>
+    // ● hardware-motherboard-error: Motherboard failure<br>
+    // ● hardware-mem-error: Memory failure<br>
+    // ● hardware-power-error: Power supply failure<br>
+    // ● hardware-disk-error: Disk failure
+    // ● hardware-networkcard-error: Network interface card failure<br>
+    // ● hardware-fan-error: Fan failure<br>
+    // ● hardware-cable-error: Network cable failure<br>
+    // ● others: Other<br><br><br><br><br><br><br><br><br>
     shared_ptr<string> issueCategory_ {};
+    // The list of nodes.
     shared_ptr<string> nodesShrink_ {};
+    // The impact of the issue on the Lingjun node.
+    // Valid values:
+    // ● HardwareError: A hardware error occurred.
+    // ● SoftwareError: A software error occurred.
+    // ● NetworkError: A network error occurred.
+    // ● Others: Other issues. If none of the preceding values apply, set this parameter to \\`Others\\` and provide details in the \\`Description\\` parameter.
     shared_ptr<string> reason_ {};
+    // The start time of the node issue. The time is in the ISO 8601 format \\`yyyy-MM-ddTHH:mm:ss+0800\\` and includes the time zone.
     shared_ptr<string> startTime_ {};
   };
 

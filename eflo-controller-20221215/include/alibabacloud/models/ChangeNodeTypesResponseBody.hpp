@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The response code for the node.
       shared_ptr<string> code_ {};
+      // The response message for the node.
       shared_ptr<string> message_ {};
+      // The ID of the node included in the response.
       shared_ptr<string> nodeId_ {};
     };
 
@@ -112,8 +115,11 @@ namespace Models
 
 
   protected:
+    // The responses for the nodes.
     shared_ptr<vector<ChangeNodeTypesResponseBody::NodeResponse>> nodeResponse_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID. A task ID is returned only if all nodes pass the precheck. If an exception occurs, this parameter is empty.
     shared_ptr<string> taskId_ {};
   };
 

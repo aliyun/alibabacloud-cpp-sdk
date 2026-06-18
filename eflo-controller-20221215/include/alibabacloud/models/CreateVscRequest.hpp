@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The resource tag key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The resource tag value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -131,19 +131,19 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A client token to ensure the idempotency of the request.
     shared_ptr<string> clientToken_ {};
-    // The node ID.
+    // The ID of the node.
     // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource tags.
+    // The tags of the resource.
     shared_ptr<vector<CreateVscRequest::Tag>> tag_ {};
-    // The custom name of the VSC, which is unique on a compute node.
+    // The custom name of the VSC. The name must be unique on a single compute node.
     shared_ptr<string> vscName_ {};
-    // The VSC type. Valid values: primary and standard. Default value: primary.
+    // The type of the VSC. Valid values: primary and standard. The default value is primary.
     shared_ptr<string> vscType_ {};
   };
 

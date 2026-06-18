@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // hpn information of machine
+    // The information about the machine types.
     shared_ptr<string> machineHpnInfoShrink_ {};
   };
 

@@ -124,27 +124,19 @@ namespace Models
 
 
   protected:
-    // The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+    // The token used to retrieve the next page of results. Set this parameter to the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the resources.
+    // The list of resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     // 
-    // Valid values:
-    // 
-    // *   Node
-    // *   Vcc
-    // *   Cluster
-    // *   Subnet
-    // *   Vpd
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

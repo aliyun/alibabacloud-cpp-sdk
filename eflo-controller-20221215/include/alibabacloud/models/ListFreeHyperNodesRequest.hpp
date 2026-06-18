@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -141,12 +143,25 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> hpnZone_ {};
+    // The machine type.
     shared_ptr<string> machineType_ {};
+    // The number of entries to return on each page. The maximum value is 100.
+    // 
+    // Default value:
+    // 
+    // • If you do not set this parameter or you set a value less than 20, the default value is 20.
+    // 
+    // • If you set a value greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. Set this parameter to the NextToken value from the previous response.
     shared_ptr<string> nextToken_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // A list of statuses of unused nodes to return.
     shared_ptr<vector<string>> status_ {};
+    // The list of tags.
     shared_ptr<vector<ListFreeHyperNodesRequest::Tags>> tags_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the test task. The unique identifier of a network test task.
+    // The ID of the network test task. This ID is the unique identifier for the task.
     shared_ptr<string> testId_ {};
   };
 

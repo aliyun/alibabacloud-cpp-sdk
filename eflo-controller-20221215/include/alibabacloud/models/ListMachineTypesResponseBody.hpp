@@ -147,23 +147,23 @@ namespace Models
     protected:
       // The number of bonds.
       shared_ptr<int32_t> bondNum_ {};
-      // The CPU information.
+      // CPU information.
       shared_ptr<string> cpuInfo_ {};
-      // The disk information.
+      // Disk information.
       shared_ptr<string> diskInfo_ {};
-      // The GPU information.
+      // GPU information.
       shared_ptr<string> gpuInfo_ {};
-      // The storage information.
+      // Memory information.
       shared_ptr<string> memoryInfo_ {};
-      // The name of the instance type.
+      // The name of the machine type.
       shared_ptr<string> name_ {};
-      // The network information.
+      // Network information.
       shared_ptr<string> networkInfo_ {};
       // The number of nodes.
       shared_ptr<string> nodeCount_ {};
-      // The number of vCPUs.
+      // The number of CPU cores.
       shared_ptr<int32_t> totalCpuCore_ {};
-      // The access type.
+      // The type of the machine type.
       shared_ptr<string> type_ {};
     };
 
@@ -193,11 +193,11 @@ namespace Models
 
 
   protected:
-    // The instance types.
+    // Details of the machine types.
     shared_ptr<vector<ListMachineTypesResponseBody::MachineTypes>> machineTypes_ {};
-    // The token that is used in the next request to retrieve a new page of results.
+    // The token to request the next page of results. Include this token in your next request to retrieve the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

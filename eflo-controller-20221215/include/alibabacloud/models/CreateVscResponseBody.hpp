@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The VSC ID.
+    // The ID of the VSC that is created.
     shared_ptr<string> vscId_ {};
   };
 

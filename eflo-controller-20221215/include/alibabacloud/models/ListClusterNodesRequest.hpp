@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag key for the node.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The tag value for the node.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -147,16 +147,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries to return on each page. The default value is 20.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+    // The token for pagination. To retrieve the next page of results, set this parameter to the NextToken value returned from the previous call.
     shared_ptr<string> nextToken_ {};
     // The node group ID.
     shared_ptr<string> nodeGroupId_ {};
+    // The operating states for filtering nodes.
     shared_ptr<vector<string>> operatingStates_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // The tags for filtering nodes.
     shared_ptr<vector<ListClusterNodesRequest::Tags>> tags_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
     protected:
       // The hostname.
       shared_ptr<string> hostname_ {};
-      // The system image ID.
+      // The OS image ID.
       shared_ptr<string> imageId_ {};
       // The logon password.
       shared_ptr<string> loginPassword_ {};
@@ -137,11 +137,11 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to allow skipping failed nodes. Default value: False.
+    // Specifies whether to skip failed nodes. The default value is False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // The nodes.
+    // The list of nodes.
     shared_ptr<vector<ReimageNodesRequest::Nodes>> nodes_ {};
-    // The user data.
+    // The custom data.
     shared_ptr<string> userData_ {};
   };
 

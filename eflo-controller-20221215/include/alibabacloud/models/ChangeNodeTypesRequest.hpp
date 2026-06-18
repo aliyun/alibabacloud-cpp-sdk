@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of node IDs. You can specify a maximum of 10 nodes in a single request.
     shared_ptr<vector<string>> nodeIds_ {};
+    // The node specifications.
     shared_ptr<string> nodeType_ {};
   };
 

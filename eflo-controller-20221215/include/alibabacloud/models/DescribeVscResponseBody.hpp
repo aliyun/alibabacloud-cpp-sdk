@@ -94,25 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of the compute node in which the VSC resides.
+    // The ID of the compute node where the Vsc is located.
     shared_ptr<string> nodeId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The VSC status.
-    // 
-    // Valid values:
-    // 
-    // *   Creating
-    // *   Normal
-    // *   Deleting
+    // The status of the Vsc.
     shared_ptr<string> status_ {};
-    // The VSC ID.
+    // VscId
     shared_ptr<string> vscId_ {};
-    // The custom name of the VSC.
+    // The custom name of the Vsc.
     shared_ptr<string> vscName_ {};
-    // The VSC type.
+    // The type of the Vsc.
     shared_ptr<string> vscType_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the instance type.
+    // The name of the machine type.
     shared_ptr<string> name_ {};
   };
 

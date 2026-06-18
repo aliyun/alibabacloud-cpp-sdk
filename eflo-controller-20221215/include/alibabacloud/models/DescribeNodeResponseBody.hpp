@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(SavingsPlanId, savingsPlanId_);
       DARABONBA_PTR_TO_JSON(Sn, sn_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -59,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(SavingsPlanId, savingsPlanId_);
       DARABONBA_PTR_FROM_JSON(Sn, sn_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -148,15 +150,17 @@ namespace Models
 
 
     protected:
-      // The port information of the elastic network interface (ENI).
+      // The NIC port information.
       shared_ptr<string> bondName_ {};
-      // The IP address of the node.
+      // The machine IP address.
       shared_ptr<string> ip_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // The subnet ID.
+      // The cluster subnet ID.
       shared_ptr<string> subnetId_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the cluster network.
+      // The cluster network ID.
       shared_ptr<string> vpdId_ {};
     };
 
@@ -227,21 +231,20 @@ namespace Models
     protected:
       // The disk type. Valid values:
       // 
-      // *   cloud_essd
+      //  - cloud_essd: ESSD cloud disk.
       shared_ptr<string> category_ {};
       // The disk ID.
       shared_ptr<string> diskId_ {};
-      // The performance level of the ESSD that is used as the system disk. Valid values:
-      // 
-      // *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-      // *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+      // The performance level of the cloud disk when an ESSD cloud disk is created as a system disk. Valid values:
+      // - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+      // - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
       // The disk size. Unit: GiB.
       shared_ptr<int32_t> size_ {};
       // The disk type. Valid values:
       // 
-      // *   system: system disk
-      // *   data: data disk
+      // - system: system disk.
+      // - data: data disk.
       shared_ptr<string> type_ {};
     };
 
@@ -249,8 +252,8 @@ namespace Models
         && this->clusterName_ == nullptr && this->createTime_ == nullptr && this->disks_ == nullptr && this->expiredTime_ == nullptr && this->fileSystemMountEnabled_ == nullptr
         && this->hostname_ == nullptr && this->hpnZone_ == nullptr && this->hyperNodeId_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr
         && this->machineType_ == nullptr && this->networks_ == nullptr && this->nodeGroupId_ == nullptr && this->nodeGroupName_ == nullptr && this->nodeId_ == nullptr
-        && this->nodeType_ == nullptr && this->operatingState_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->sn_ == nullptr
-        && this->userData_ == nullptr && this->zoneId_ == nullptr; };
+        && this->nodeType_ == nullptr && this->operatingState_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->savingsPlanId_ == nullptr
+        && this->sn_ == nullptr && this->userData_ == nullptr && this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -395,6 +398,13 @@ namespace Models
     inline DescribeNodeResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // savingsPlanId Field Functions 
+    bool hasSavingsPlanId() const { return this->savingsPlanId_ != nullptr;};
+    void deleteSavingsPlanId() { this->savingsPlanId_ = nullptr;};
+    inline string getSavingsPlanId() const { DARABONBA_PTR_GET_DEFAULT(savingsPlanId_, "") };
+    inline DescribeNodeResponseBody& setSavingsPlanId(string savingsPlanId) { DARABONBA_PTR_SET_VALUE(savingsPlanId_, savingsPlanId) };
+
+
     // sn Field Functions 
     bool hasSn() const { return this->sn_ != nullptr;};
     void deleteSn() { this->sn_ = nullptr;};
@@ -423,22 +433,23 @@ namespace Models
     shared_ptr<string> clusterName_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
-    // The disks.
+    // The list of disk information.
     shared_ptr<vector<DescribeNodeResponseBody::Disks>> disks_ {};
     // The expiration time.
     shared_ptr<string> expiredTime_ {};
-    // Indicates whether file storage mounting is supported.
+    // Indicates whether file system mounting is supported.
     shared_ptr<bool> fileSystemMountEnabled_ {};
     // The hostname.
     shared_ptr<string> hostname_ {};
     // The cluster number.
     shared_ptr<string> hpnZone_ {};
+    // The hyper node ID.
     shared_ptr<string> hyperNodeId_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // The instance type.
+    // The machine type.
     shared_ptr<string> machineType_ {};
     // The network information.
     shared_ptr<vector<DescribeNodeResponseBody::Networks>> networks_ {};
@@ -448,32 +459,25 @@ namespace Models
     shared_ptr<string> nodeGroupName_ {};
     // The node ID.
     shared_ptr<string> nodeId_ {};
+    // The type of the current node. Valid values:
+    // ● cpfs-enhanced
+    // ● ebs-enhanced
+    // ● standard
+    // ● standby
+    // ● standard-v2
+    // ● standby-v2
     shared_ptr<string> nodeType_ {};
     // The node status.
-    // 
-    // Valid values:
-    // 
-    // *   Extending
-    // *   UnusedNodeStopped
-    // *   UnusedNodeStopping
-    // *   Unused
-    // *   Using
-    // *   ReleaseLocking
-    // *   Operating
-    // *   Cutting
-    // *   ClusterNodeStopped
-    // *   UnusedNodeRecovering
-    // *   ClusterNodeStopping
-    // *   ClusterNodeRecovering
-    // *   Replacing
     shared_ptr<string> operatingState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The serial number of the node.
+    // The savings plan ID.
+    shared_ptr<string> savingsPlanId_ {};
+    // The unique machine identifier.
     shared_ptr<string> sn_ {};
-    // The custom script.
+    // The user-defined script.
     shared_ptr<string> userData_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

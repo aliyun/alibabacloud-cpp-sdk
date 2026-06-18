@@ -77,11 +77,11 @@ namespace Models
 
 
     protected:
-      // hpn zone infomation
+      // The cluster ID.
       shared_ptr<string> hpnZone_ {};
-      // The type of machine.
+      // The machine type.
       shared_ptr<string> machineType_ {};
-      // The ID of the region in which the application is located.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -96,7 +96,7 @@ namespace Models
 
 
   protected:
-    // hpn information of machine
+    // The information about the machine types.
     shared_ptr<vector<ListMachineNetworkInfoRequest::MachineHpnInfo>> machineHpnInfo_ {};
   };
 

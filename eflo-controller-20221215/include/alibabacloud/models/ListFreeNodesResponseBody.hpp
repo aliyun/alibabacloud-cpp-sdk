@@ -214,12 +214,13 @@ namespace Models
       shared_ptr<string> commodityCode_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
-      // The time when the node expires.
+      // The expiration time of the machine.
       shared_ptr<string> expiredTime_ {};
-      // The cluster number.
+      // The cluster ID.
       shared_ptr<string> hpnZone_ {};
+      // The hyper node ID.
       shared_ptr<string> hyperNodeId_ {};
-      // The instance type.
+      // The machine type.
       shared_ptr<string> machineType_ {};
       // The node ID.
       shared_ptr<string> nodeId_ {};
@@ -227,9 +228,9 @@ namespace Models
       shared_ptr<string> operatingState_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The serial number of the node.
+      // The serial number (SN) of the machine.
       shared_ptr<string> sn_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<Nodes::Tags>> tags_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -261,9 +262,9 @@ namespace Models
 
 
   protected:
-    // The returned pagination token which can be used in the next request to retrieve a new page of results.
+    // The token returned for the next query.
     shared_ptr<string> nextToken_ {};
-    // The nodes.
+    // The list of nodes.
     shared_ptr<vector<ListFreeNodesResponseBody::Nodes>> nodes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

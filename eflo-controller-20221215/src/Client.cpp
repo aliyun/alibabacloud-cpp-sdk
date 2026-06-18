@@ -18,6 +18,26 @@ namespace EfloController20221215
 
 AlibabaCloud::EfloController20221215::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"me-east-1" , "eflo-controller.me-east-1.aliyuncs.com"},
+    {"eu-central-1" , "eflo-controller.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "eflo-controller.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "eflo-controller.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "eflo-controller.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "eflo-controller.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "eflo-controller.cn-shanghai.aliyuncs.com"},
+    {"cn-huhehaote" , "eflo-controller.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "eflo-controller.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "eflo-controller.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou" , "eflo-controller.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "eflo-controller.cn-guangzhou.aliyuncs.com"},
+    {"cn-beijing" , "eflo-controller.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-8" , "eflo-controller.ap-sourtheast-8.aliyuncs.com"},
+    {"ap-southeast-7" , "eflo-controller.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-3" , "eflo-controller.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "eflo-controller.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "eflo-controller.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eflo-controller", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -82,7 +102,9 @@ ApproveOperationResponse Client::approveOperation(const ApproveOperationRequest 
 }
 
 /**
- * @summary 修改节点的节点组
+ * @summary Changes the node group of a node.
+ *
+ * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
  *
  * @param tmpReq ChangeNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -129,7 +151,9 @@ ChangeNodeGroupResponse Client::changeNodeGroupWithOptions(const ChangeNodeGroup
 }
 
 /**
- * @summary 修改节点的节点组
+ * @summary Changes the node group of a node.
+ *
+ * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
  *
  * @param request ChangeNodeGroupRequest
  * @return ChangeNodeGroupResponse
@@ -140,7 +164,7 @@ ChangeNodeGroupResponse Client::changeNodeGroup(const ChangeNodeGroupRequest &re
 }
 
 /**
- * @summary 节点规格变配
+ * @summary Upgrades or downgrades the specifications of one or more nodes. Before you change the specifications, ensure that the node resources meet the requirements of the target specifications. If a node does not meet the new specification requirements, the task reports success, but the specifications are not changed. Therefore, do not rely on the task status. To confirm a successful change, query the node after the task is complete and check the returned specifications.
  *
  * @param tmpReq ChangeNodeTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -181,7 +205,7 @@ ChangeNodeTypesResponse Client::changeNodeTypesWithOptions(const ChangeNodeTypes
 }
 
 /**
- * @summary 节点规格变配
+ * @summary Upgrades or downgrades the specifications of one or more nodes. Before you change the specifications, ensure that the node resources meet the requirements of the target specifications. If a node does not meet the new specification requirements, the task reports success, but the specifications are not changed. Therefore, do not rely on the task status. To confirm a successful change, query the node after the task is complete and check the returned specifications.
  *
  * @param request ChangeNodeTypesRequest
  * @return ChangeNodeTypesResponse
@@ -192,7 +216,7 @@ ChangeNodeTypesResponse Client::changeNodeTypes(const ChangeNodeTypesRequest &re
 }
 
 /**
- * @summary Moves a resource from one resource group to another.
+ * @summary Changes the resource group of a resource.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -235,7 +259,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Moves a resource from one resource group to another.
+ * @summary Changes the resource group of a resource.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -247,6 +271,8 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 
 /**
  * @summary Disconnect Connection
+ *
+ * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
  *
  * @param request CloseSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -283,6 +309,8 @@ CloseSessionResponse Client::closeSessionWithOptions(const CloseSessionRequest &
 /**
  * @summary Disconnect Connection
  *
+ * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+ *
  * @param request CloseSessionRequest
  * @return CloseSessionResponse
  */
@@ -292,7 +320,9 @@ CloseSessionResponse Client::closeSession(const CloseSessionRequest &request) {
 }
 
 /**
- * @summary Create a large-scale computing cluster
+ * @summary Creates a new LINGJUN Cluster.
+ *
+ * @description 关闭远程会话的接口。
  *
  * @param tmpReq CreateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +417,9 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
 }
 
 /**
- * @summary Create a large-scale computing cluster
+ * @summary Creates a new LINGJUN Cluster.
+ *
+ * @description 关闭远程会话的接口。
  *
  * @param request CreateClusterRequest
  * @return CreateClusterResponse
@@ -464,8 +496,6 @@ CreateDiagnosticTaskResponse Client::createDiagnosticTask(const CreateDiagnostic
 /**
  * @summary Creates a network test task.
  *
- * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
- *
  * @param tmpReq CreateNetTestTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateNetTestTaskResponse
@@ -539,8 +569,6 @@ CreateNetTestTaskResponse Client::createNetTestTaskWithOptions(const CreateNetTe
 /**
  * @summary Creates a network test task.
  *
- * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
- *
  * @param request CreateNetTestTaskRequest
  * @return CreateNetTestTaskResponse
  */
@@ -550,7 +578,9 @@ CreateNetTestTaskResponse Client::createNetTestTask(const CreateNetTestTaskReque
 }
 
 /**
- * @summary Create Node Group under Cluster
+ * @summary Create a node group in a cluster.
+ *
+ * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
  *
  * @param tmpReq CreateNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -599,7 +629,9 @@ CreateNodeGroupResponse Client::createNodeGroupWithOptions(const CreateNodeGroup
 }
 
 /**
- * @summary Create Node Group under Cluster
+ * @summary Create a node group in a cluster.
+ *
+ * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
  *
  * @param request CreateNodeGroupRequest
  * @return CreateNodeGroupResponse
@@ -664,7 +696,7 @@ CreateSessionResponse Client::createSession(const CreateSessionRequest &request)
 }
 
 /**
- * @summary Creates a virtual storage channel (VSC).
+ * @summary Creates a VSC.
  *
  * @param request CreateVscRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -717,7 +749,7 @@ CreateVscResponse Client::createVscWithOptions(const CreateVscRequest &request, 
 }
 
 /**
- * @summary Creates a virtual storage channel (VSC).
+ * @summary Creates a VSC.
  *
  * @param request CreateVscRequest
  * @return CreateVscResponse
@@ -770,7 +802,7 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
- * @summary 删除一个未使用超节点
+ * @summary Deletes an unused hyper node.
  *
  * @param request DeleteHyperNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -801,7 +833,7 @@ DeleteHyperNodeResponse Client::deleteHyperNodeWithOptions(const DeleteHyperNode
 }
 
 /**
- * @summary 删除一个未使用超节点
+ * @summary Deletes an unused hyper node.
  *
  * @param request DeleteHyperNodeRequest
  * @return DeleteHyperNodeResponse
@@ -812,7 +844,7 @@ DeleteHyperNodeResponse Client::deleteHyperNode(const DeleteHyperNodeRequest &re
 }
 
 /**
- * @summary 删除一个未使用节点
+ * @summary Releases a pay-as-you-go node.
  *
  * @param request DeleteNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -843,7 +875,7 @@ DeleteNodeResponse Client::deleteNodeWithOptions(const DeleteNodeRequest &reques
 }
 
 /**
- * @summary 删除一个未使用节点
+ * @summary Releases a pay-as-you-go node.
  *
  * @param request DeleteNodeRequest
  * @return DeleteNodeResponse
@@ -900,7 +932,7 @@ DeleteNodeGroupResponse Client::deleteNodeGroup(const DeleteNodeGroupRequest &re
 }
 
 /**
- * @summary Deletes a virtual storage channel (VSC).
+ * @summary Deletes a VSC.
  *
  * @param request DeleteVscRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -937,7 +969,7 @@ DeleteVscResponse Client::deleteVscWithOptions(const DeleteVscRequest &request, 
 }
 
 /**
- * @summary Deletes a virtual storage channel (VSC).
+ * @summary Deletes a VSC.
  *
  * @param request DeleteVscRequest
  * @return DeleteVscResponse
@@ -948,7 +980,9 @@ DeleteVscResponse Client::deleteVsc(const DeleteVscRequest &request) {
 }
 
 /**
- * @summary Queries information about a Lingjun cluster.
+ * @summary Queries the details of a cluster.
+ *
+ * @description Queries the details of a specified cluster.
  *
  * @param request DescribeClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -979,7 +1013,9 @@ DescribeClusterResponse Client::describeClusterWithOptions(const DescribeCluster
 }
 
 /**
- * @summary Queries information about a Lingjun cluster.
+ * @summary Queries the details of a cluster.
+ *
+ * @description Queries the details of a specified cluster.
  *
  * @param request DescribeClusterRequest
  * @return DescribeClusterResponse
@@ -1036,7 +1072,9 @@ DescribeDiagnosticResultResponse Client::describeDiagnosticResult(const Describe
 }
 
 /**
- * @summary 查询节点列表
+ * @summary Queries the details of a hyper node.
+ *
+ * @description Queries the details of a specified hyper node.
  *
  * @param request DescribeHyperNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1105,9 @@ DescribeHyperNodeResponse Client::describeHyperNodeWithOptions(const DescribeHyp
 }
 
 /**
- * @summary 查询节点列表
+ * @summary Queries the details of a hyper node.
+ *
+ * @description Queries the details of a specified hyper node.
  *
  * @param request DescribeHyperNodeRequest
  * @return DescribeHyperNodeResponse
@@ -1078,7 +1118,7 @@ DescribeHyperNodeResponse Client::describeHyperNode(const DescribeHyperNodeReque
 }
 
 /**
- * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
+ * @summary Queries the execution history and status of Cloud Assistant commands.
  *
  * @param request DescribeInvocationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,7 +1161,7 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 }
 
 /**
- * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
+ * @summary Queries the execution history and status of Cloud Assistant commands.
  *
  * @param request DescribeInvocationsRequest
  * @return DescribeInvocationsResponse
@@ -1132,7 +1172,7 @@ DescribeInvocationsResponse Client::describeInvocations(const DescribeInvocation
 }
 
 /**
- * @summary Query Network Test Result
+ * @summary Queries the results of a network test.
  *
  * @param request DescribeNetTestResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1163,7 +1203,7 @@ DescribeNetTestResultResponse Client::describeNetTestResultWithOptions(const Des
 }
 
 /**
- * @summary Query Network Test Result
+ * @summary Queries the results of a network test.
  *
  * @param request DescribeNetTestResultRequest
  * @return DescribeNetTestResultResponse
@@ -1174,7 +1214,9 @@ DescribeNetTestResultResponse Client::describeNetTestResult(const DescribeNetTes
 }
 
 /**
- * @summary Queries a list of nodes.
+ * @summary Queries the list of nodes.
+ *
+ * @description Queries the detailed information of a hyper node.
  *
  * @param request DescribeNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1205,7 +1247,9 @@ DescribeNodeResponse Client::describeNodeWithOptions(const DescribeNodeRequest &
 }
 
 /**
- * @summary Queries a list of nodes.
+ * @summary Queries the list of nodes.
+ *
+ * @description Queries the detailed information of a hyper node.
  *
  * @param request DescribeNodeRequest
  * @return DescribeNodeResponse
@@ -1216,7 +1260,9 @@ DescribeNodeResponse Client::describeNode(const DescribeNodeRequest &request) {
 }
 
 /**
- * @summary 查询节点分组
+ * @summary Queries the details of a node group.
+ *
+ * @description This operation queries the details of a node group.
  *
  * @param request DescribeNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,7 +1293,9 @@ DescribeNodeGroupResponse Client::describeNodeGroupWithOptions(const DescribeNod
 }
 
 /**
- * @summary 查询节点分组
+ * @summary Queries the details of a node group.
+ *
+ * @description This operation queries the details of a node group.
  *
  * @param request DescribeNodeGroupRequest
  * @return DescribeNodeGroupResponse
@@ -1258,7 +1306,7 @@ DescribeNodeGroupResponse Client::describeNodeGroup(const DescribeNodeGroupReque
 }
 
 /**
- * @summary 查询节点规格详情
+ * @summary Describes the constraints for a node type.
  *
  * @param request DescribeNodeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1289,7 +1337,7 @@ DescribeNodeTypeResponse Client::describeNodeTypeWithOptions(const DescribeNodeT
 }
 
 /**
- * @summary 查询节点规格详情
+ * @summary Describes the constraints for a node type.
  *
  * @param request DescribeNodeTypeRequest
  * @return DescribeNodeTypeResponse
@@ -1430,7 +1478,7 @@ DescribeTaskResponse Client::describeTask(const DescribeTaskRequest &request) {
 }
 
 /**
- * @summary Queries information about a virtual storage channel (VSC).
+ * @summary Retrieves the details of a specific virtual switch controller (Vsc).
  *
  * @param request DescribeVscRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1461,7 +1509,7 @@ DescribeVscResponse Client::describeVscWithOptions(const DescribeVscRequest &req
 }
 
 /**
- * @summary Queries information about a virtual storage channel (VSC).
+ * @summary Retrieves the details of a specific virtual switch controller (Vsc).
  *
  * @param request DescribeVscRequest
  * @return DescribeVscResponse
@@ -1514,7 +1562,9 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
- * @summary Cluster Scaling
+ * @summary Extends a cluster.
+ *
+ * @description Closes a remote session.
  *
  * @param tmpReq ExtendClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1579,7 +1629,9 @@ ExtendClusterResponse Client::extendClusterWithOptions(const ExtendClusterReques
 }
 
 /**
- * @summary Cluster Scaling
+ * @summary Extends a cluster.
+ *
+ * @description Closes a remote session.
  *
  * @param request ExtendClusterRequest
  * @return ExtendClusterResponse
@@ -1590,7 +1642,7 @@ ExtendClusterResponse Client::extendCluster(const ExtendClusterRequest &request)
 }
 
 /**
- * @summary 集群下的主机分组列表，分组下的主机列表
+ * @summary Lists the node groups of a cluster and the nodes in each group.
  *
  * @param request ListClusterHyperNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1643,7 +1695,7 @@ ListClusterHyperNodesResponse Client::listClusterHyperNodesWithOptions(const Lis
 }
 
 /**
- * @summary 集群下的主机分组列表，分组下的主机列表
+ * @summary Lists the node groups of a cluster and the nodes in each group.
  *
  * @param request ListClusterHyperNodesRequest
  * @return ListClusterHyperNodesResponse
@@ -1654,7 +1706,7 @@ ListClusterHyperNodesResponse Client::listClusterHyperNodes(const ListClusterHyp
 }
 
 /**
- * @summary Queries a list of nodes in a cluster.
+ * @summary Queries the nodes in a cluster.
  *
  * @param request ListClusterNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1711,7 +1763,7 @@ ListClusterNodesResponse Client::listClusterNodesWithOptions(const ListClusterNo
 }
 
 /**
- * @summary Queries a list of nodes in a cluster.
+ * @summary Queries the nodes in a cluster.
  *
  * @param request ListClusterNodesRequest
  * @return ListClusterNodesResponse
@@ -1722,7 +1774,7 @@ ListClusterNodesResponse Client::listClusterNodes(const ListClusterNodesRequest 
 }
 
 /**
- * @summary Queries a list of clusters.
+ * @summary Query cluster instances with optional filtering by resource group and tags.
  *
  * @param request ListClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1767,7 +1819,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary Queries a list of clusters.
+ * @summary Query cluster instances with optional filtering by resource group and tags.
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -1779,6 +1831,8 @@ ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
 
 /**
  * @summary List of Diagnostic Tasks
+ *
+ * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
  *
  * @param request ListDiagnosticResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1823,6 +1877,8 @@ ListDiagnosticResultsResponse Client::listDiagnosticResultsWithOptions(const Lis
 /**
  * @summary List of Diagnostic Tasks
  *
+ * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+ *
  * @param request ListDiagnosticResultsRequest
  * @return ListDiagnosticResultsResponse
  */
@@ -1832,7 +1888,7 @@ ListDiagnosticResultsResponse Client::listDiagnosticResults(const ListDiagnostic
 }
 
 /**
- * @summary 可用rack物理机列表
+ * @summary Lists the active physical servers in the rack.
  *
  * @param request ListFreeHyperNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1887,7 +1943,7 @@ ListFreeHyperNodesResponse Client::listFreeHyperNodesWithOptions(const ListFreeH
 }
 
 /**
- * @summary 可用rack物理机列表
+ * @summary Lists the active physical servers in the rack.
  *
  * @param request ListFreeHyperNodesRequest
  * @return ListFreeHyperNodesResponse
@@ -1898,7 +1954,7 @@ ListFreeHyperNodesResponse Client::listFreeHyperNodes(const ListFreeHyperNodesRe
 }
 
 /**
- * @summary Queries a list of nodes that are not used.
+ * @summary Lists all unused nodes.
  *
  * @param request ListFreeNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1955,7 +2011,7 @@ ListFreeNodesResponse Client::listFreeNodesWithOptions(const ListFreeNodesReques
 }
 
 /**
- * @summary Queries a list of nodes that are not used.
+ * @summary Lists all unused nodes.
  *
  * @param request ListFreeNodesRequest
  * @return ListFreeNodesResponse
@@ -1966,7 +2022,9 @@ ListFreeNodesResponse Client::listFreeNodes(const ListFreeNodesRequest &request)
 }
 
 /**
- * @summary 机器列表
+ * @summary Machines
+ *
+ * @description Queries the details of hypernodes.
  *
  * @param tmpReq ListHyperNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2057,7 +2115,9 @@ ListHyperNodesResponse Client::listHyperNodesWithOptions(const ListHyperNodesReq
 }
 
 /**
- * @summary 机器列表
+ * @summary Machines
+ *
+ * @description Queries the details of hypernodes.
  *
  * @param request ListHyperNodesRequest
  * @return ListHyperNodesResponse
@@ -2118,7 +2178,7 @@ ListImagesResponse Client::listImages(const ListImagesRequest &request) {
 }
 
 /**
- * @summary Query machine network configuration using HPNZone and machine type
+ * @summary Queries the network configurations for machine types.
  *
  * @param tmpReq ListMachineNetworkInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2155,7 +2215,7 @@ ListMachineNetworkInfoResponse Client::listMachineNetworkInfoWithOptions(const L
 }
 
 /**
- * @summary Query machine network configuration using HPNZone and machine type
+ * @summary Queries the network configurations for machine types.
  *
  * @param request ListMachineNetworkInfoRequest
  * @return ListMachineNetworkInfoResponse
@@ -2166,7 +2226,7 @@ ListMachineNetworkInfoResponse Client::listMachineNetworkInfo(const ListMachineN
 }
 
 /**
- * @summary Queries a list of instance types that are available to users.
+ * @summary Queries a list of available machine types.
  *
  * @param request ListMachineTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2197,7 +2257,7 @@ ListMachineTypesResponse Client::listMachineTypesWithOptions(const ListMachineTy
 }
 
 /**
- * @summary Queries a list of instance types that are available to users.
+ * @summary Queries a list of available machine types.
  *
  * @param request ListMachineTypesRequest
  * @return ListMachineTypesResponse
@@ -2208,9 +2268,7 @@ ListMachineTypesResponse Client::listMachineTypes(const ListMachineTypesRequest 
 }
 
 /**
- * @summary Lists the results of network test results.
- *
- * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+ * @summary Lists network test results.
  *
  * @param request ListNetTestResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2253,9 +2311,7 @@ ListNetTestResultsResponse Client::listNetTestResultsWithOptions(const ListNetTe
 }
 
 /**
- * @summary Lists the results of network test results.
- *
- * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+ * @summary Lists network test results.
  *
  * @param request ListNetTestResultsRequest
  * @return ListNetTestResultsResponse
@@ -2266,7 +2322,7 @@ ListNetTestResultsResponse Client::listNetTestResults(const ListNetTestResultsRe
 }
 
 /**
- * @summary Queries node groups in a cluster.
+ * @summary Query Node Group Information Under the Cluster
  *
  * @param request ListNodeGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2309,7 +2365,7 @@ ListNodeGroupsResponse Client::listNodeGroupsWithOptions(const ListNodeGroupsReq
 }
 
 /**
- * @summary Queries node groups in a cluster.
+ * @summary Query Node Group Information Under the Cluster
  *
  * @param request ListNodeGroupsRequest
  * @return ListNodeGroupsResponse
@@ -2320,7 +2376,7 @@ ListNodeGroupsResponse Client::listNodeGroups(const ListNodeGroupsRequest &reque
 }
 
 /**
- * @summary 查询系统日志
+ * @summary Queries system logs.
  *
  * @param request ListSyslogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2371,7 +2427,7 @@ ListSyslogsResponse Client::listSyslogsWithOptions(const ListSyslogsRequest &req
 }
 
 /**
- * @summary 查询系统日志
+ * @summary Queries system logs.
  *
  * @param request ListSyslogsRequest
  * @return ListSyslogsResponse
@@ -2382,7 +2438,7 @@ ListSyslogsResponse Client::listSyslogs(const ListSyslogsRequest &request) {
 }
 
 /**
- * @summary Queries the tags of resources.
+ * @summary Queries the tags that are attached to resources.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2429,7 +2485,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags of resources.
+ * @summary Queries the tags that are attached to resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2442,7 +2498,8 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 /**
  * @summary Query the cluster types available to the user
  *
- * @param request ListUserClusterTypesRequest
+ * @description An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+ *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListUserClusterTypesResponse
  */
@@ -2465,6 +2522,8 @@ ListUserClusterTypesResponse Client::listUserClusterTypesWithOptions(const Darab
 /**
  * @summary Query the cluster types available to the user
  *
+ * @description An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+ *
  * @return ListUserClusterTypesResponse
  */
 ListUserClusterTypesResponse Client::listUserClusterTypes() {
@@ -2473,7 +2532,7 @@ ListUserClusterTypesResponse Client::listUserClusterTypes() {
 }
 
 /**
- * @summary Queries a list of virtual storage channels (VSC).
+ * @summary Queries a list of VSCs.
  *
  * @param tmpReq ListVscsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2532,7 +2591,7 @@ ListVscsResponse Client::listVscsWithOptions(const ListVscsRequest &tmpReq, cons
 }
 
 /**
- * @summary Queries a list of virtual storage channels (VSC).
+ * @summary Queries a list of VSCs.
  *
  * @param request ListVscsRequest
  * @return ListVscsResponse
@@ -2599,7 +2658,7 @@ RebootNodesResponse Client::rebootNodes(const RebootNodesRequest &request) {
 }
 
 /**
- * @summary Reinstall a node.
+ * @summary Reimages the specified nodes.
  *
  * @param tmpReq ReimageNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2648,7 +2707,7 @@ ReimageNodesResponse Client::reimageNodesWithOptions(const ReimageNodesRequest &
 }
 
 /**
- * @summary Reinstall a node.
+ * @summary Reimages the specified nodes.
  *
  * @param request ReimageNodesRequest
  * @return ReimageNodesResponse
@@ -2659,7 +2718,9 @@ ReimageNodesResponse Client::reimageNodes(const ReimageNodesRequest &request) {
 }
 
 /**
- * @summary 节点异常问题上报
+ * @summary Reports issues with abnormal nodes.
+ *
+ * @description Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
  *
  * @param tmpReq ReportNodesStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2716,7 +2777,9 @@ ReportNodesStatusResponse Client::reportNodesStatusWithOptions(const ReportNodes
 }
 
 /**
- * @summary 节点异常问题上报
+ * @summary Reports issues with abnormal nodes.
+ *
+ * @description Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
  *
  * @param request ReportNodesStatusRequest
  * @return ReportNodesStatusResponse
@@ -2927,7 +2990,7 @@ SendFileResponse Client::sendFile(const SendFileRequest &request) {
 }
 
 /**
- * @summary Scales in a cluster.
+ * @summary Scales in a CC cluster.
  *
  * @param tmpReq ShrinkClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2972,7 +3035,7 @@ ShrinkClusterResponse Client::shrinkClusterWithOptions(const ShrinkClusterReques
 }
 
 /**
- * @summary Scales in a cluster.
+ * @summary Scales in a CC cluster.
  *
  * @param request ShrinkClusterRequest
  * @return ShrinkClusterResponse
@@ -3087,7 +3150,7 @@ StopNodesResponse Client::stopNodes(const StopNodesRequest &request) {
 }
 
 /**
- * @summary Tags resources.
+ * @summary Applies tags to resources.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3130,7 +3193,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Tags resources.
+ * @summary Applies tags to resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -3141,7 +3204,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Deletes a custom tag from a resource.
+ * @summary Removes custom tags from resources.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3188,7 +3251,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Deletes a custom tag from a resource.
+ * @summary Removes custom tags from resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -3199,7 +3262,9 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Update Node Group
+ * @summary Updates a node group.
+ *
+ * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
  *
  * @param request UpdateNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3258,7 +3323,9 @@ UpdateNodeGroupResponse Client::updateNodeGroupWithOptions(const UpdateNodeGroup
 }
 
 /**
- * @summary Update Node Group
+ * @summary Updates a node group.
+ *
+ * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
  *
  * @param request UpdateNodeGroupRequest
  * @return UpdateNodeGroupResponse

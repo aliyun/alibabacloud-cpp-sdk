@@ -115,7 +115,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -210,17 +212,29 @@ namespace Models
 
 
     protected:
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
+      // The time when the node was created.
       shared_ptr<string> createTime_ {};
+      // The expiration time of the machine.
       shared_ptr<string> expireTime_ {};
+      // The hostname.
       shared_ptr<string> hostname_ {};
+      // The cluster ID.
       shared_ptr<string> hpnZone_ {};
+      // The node ID.
       shared_ptr<string> hyperNodeId_ {};
+      // The machine type.
       shared_ptr<string> machineType_ {};
+      // The status of the hypernode.
       shared_ptr<string> operatingState_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The status of the hypernode.
       shared_ptr<string> status_ {};
+      // The list of tags.
       shared_ptr<vector<HyperNodes::Tags>> tags_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -257,9 +271,19 @@ namespace Models
 
 
   protected:
+    // The list of nodes.
     shared_ptr<vector<ListFreeHyperNodesResponseBody::HyperNodes>> hyperNodes_ {};
+    // The number of entries returned on each page. The maximum value is 100.
+    // 
+    // Default value:
+    // 
+    // • If you do not set this parameter or you set a value less than 20, the default value is 20.
+    // 
+    // • If you set a value greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

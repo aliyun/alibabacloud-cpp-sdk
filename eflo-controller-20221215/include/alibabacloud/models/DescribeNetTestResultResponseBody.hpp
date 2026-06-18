@@ -141,13 +141,13 @@ namespace Models
 
 
       protected:
-        // Network interface bond port
+        // The bonded port of the NIC.
         shared_ptr<string> bond_ {};
-        // The IP address.
+        // The IP address of the node.
         shared_ptr<string> IP_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // Service name.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -207,13 +207,13 @@ namespace Models
 
 
       protected:
-        // Network interface bond port
+        // The bonded port of the network interface card (NIC).
         shared_ptr<string> bond_ {};
-        // IP address.
+        // The IP address of the node.
         shared_ptr<string> IP_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -274,20 +274,19 @@ namespace Models
 
 
     protected:
-      // All clients information
+      // The client nodes.
       shared_ptr<vector<TrafficTest::Clients>> clients_ {};
-      // Call duration, in seconds.
+      // The runtime of the flow task in seconds.
       shared_ptr<int64_t> duration_ {};
-      // When the protocol is RDMA, fill in True/False,
-      // when the protocol is TCP, this field is empty.
+      // Indicates whether GPUDirect RDMA (GDR) is enabled. This parameter is returned only if the protocol is RDMA. Valid values: True and False. If the protocol is TCP, this field is empty.
       shared_ptr<string> GDR_ {};
-      // Network protocol, either RDMA or TCP.
+      // The network protocol. Valid values: Remote Direct Memory Access (RDMA) and Transmission Control Protocol (TCP).
       shared_ptr<string> protocol_ {};
-      // When the protocol is TCP, fill in the number of concurrent connections; when the protocol is RDMA, fill in the configured QP value.
+      // If the protocol is TCP, this is the number of concurrent connections for the test. If the protocol is RDMA, this is the Queue Pair (QP) value.
       shared_ptr<int64_t> QP_ {};
-      // Servers infomation.
+      // The list of servers.
       shared_ptr<vector<TrafficTest::Servers>> servers_ {};
-      // Traffic model, either MTON or Fullmesh.
+      // The traffic model. Valid values: MTON and Fullmesh.
       shared_ptr<string> trafficModel_ {};
     };
 
@@ -366,13 +365,13 @@ namespace Models
 
 
       protected:
-        // The bonding of network interface card.
+        // The bonded port of the NIC.
         shared_ptr<string> bond_ {};
-        // The IP address.
+        // The IP address of the node.
         shared_ptr<string> IP_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // Service name.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -387,7 +386,7 @@ namespace Models
 
 
     protected:
-      // All hosts infomation
+      // The hosts of the test nodes.
       shared_ptr<vector<DelayTest::Hosts>> hosts_ {};
     };
 
@@ -467,7 +466,7 @@ namespace Models
         shared_ptr<string> IP_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // Service name.
+        // The service name.
         shared_ptr<string> serverName_ {};
       };
 
@@ -504,13 +503,13 @@ namespace Models
 
 
     protected:
-      // Number of GPUs
+      // The number of GPUs.
       shared_ptr<string> GPUNum_ {};
-      // All hosts infomation
+      // The hosts for the test.
       shared_ptr<vector<CommTest::Hosts>> hosts_ {};
       // The communication library model.
       shared_ptr<string> model_ {};
-      // The CommTest type, which can be ACCL or NCCL.
+      // The type of the communication library test. Valid values: Alibaba Cloud Collective Communication Library (ACCL) and NVIDIA Collective Communication Library (NCCL).
       shared_ptr<string> type_ {};
     };
 
@@ -620,27 +619,33 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // Specify when NetTestType is CommTest.
+    // The configuration for the communication library test. This parameter is returned when the network test type is a communication library test.
     shared_ptr<DescribeNetTestResultResponseBody::CommTest> commTest_ {};
-    // create time
+    // The time when the diagnostic task was created.
     shared_ptr<string> creationTime_ {};
-    // Fill in when the network test type is a delay test.
+    // The configuration for the delay test. This parameter is returned when the network test type is a delay test.
     shared_ptr<DescribeNetTestResultResponseBody::DelayTest> delayTest_ {};
-    // finish time
+    // The time when the diagnostic task was completed.
     shared_ptr<string> finishedTime_ {};
     // The type of the network test.
     shared_ptr<string> netTestType_ {};
-    // Test port number.
+    // The test port number.
     shared_ptr<string> port_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // result detail
+    // The details of the diagnostic result. The value is a JSON string.
     shared_ptr<string> resultDetial_ {};
-    // status of session
+    // The status of the diagnostic task. Valid values:
+    // 
+    // - InProgress: The task is in progress.
+    // 
+    // - Finished: The task is complete.
+    // 
+    // - Failed: The task failed.
     shared_ptr<string> status_ {};
-    // The ID of the test task. The unique identifier of a network test task.
+    // The ID of the test task. This ID uniquely identifies the network test task.
     shared_ptr<string> testId_ {};
-    // Fill in when the network test type is a traffic test.
+    // The configuration for the traffic test. This parameter is returned when the network test type is a traffic test.
     shared_ptr<DescribeNetTestResultResponseBody::TrafficTest> trafficTest_ {};
   };
 

@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to allow skipping failed nodes. Default value: False.
+    // Specifies whether to skip failed nodes. The default value is False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // The nodes.
+    // The list of nodes.
     shared_ptr<string> nodesShrink_ {};
-    // The user data.
+    // The custom data.
     shared_ptr<string> userData_ {};
   };
 

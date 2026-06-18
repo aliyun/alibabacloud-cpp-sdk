@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the node group.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
   };

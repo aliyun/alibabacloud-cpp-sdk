@@ -38,7 +38,9 @@ namespace EfloController20221215
       Models::ApproveOperationResponse approveOperation(const Models::ApproveOperationRequest &request);
 
       /**
-       * @summary 修改节点的节点组
+       * @summary Changes the node group of a node.
+       *
+       * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
        *
        * @param tmpReq ChangeNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +49,9 @@ namespace EfloController20221215
       Models::ChangeNodeGroupResponse changeNodeGroupWithOptions(const Models::ChangeNodeGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改节点的节点组
+       * @summary Changes the node group of a node.
+       *
+       * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
        *
        * @param request ChangeNodeGroupRequest
        * @return ChangeNodeGroupResponse
@@ -55,7 +59,7 @@ namespace EfloController20221215
       Models::ChangeNodeGroupResponse changeNodeGroup(const Models::ChangeNodeGroupRequest &request);
 
       /**
-       * @summary 节点规格变配
+       * @summary Upgrades or downgrades the specifications of one or more nodes. Before you change the specifications, ensure that the node resources meet the requirements of the target specifications. If a node does not meet the new specification requirements, the task reports success, but the specifications are not changed. Therefore, do not rely on the task status. To confirm a successful change, query the node after the task is complete and check the returned specifications.
        *
        * @param tmpReq ChangeNodeTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +68,7 @@ namespace EfloController20221215
       Models::ChangeNodeTypesResponse changeNodeTypesWithOptions(const Models::ChangeNodeTypesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 节点规格变配
+       * @summary Upgrades or downgrades the specifications of one or more nodes. Before you change the specifications, ensure that the node resources meet the requirements of the target specifications. If a node does not meet the new specification requirements, the task reports success, but the specifications are not changed. Therefore, do not rely on the task status. To confirm a successful change, query the node after the task is complete and check the returned specifications.
        *
        * @param request ChangeNodeTypesRequest
        * @return ChangeNodeTypesResponse
@@ -72,7 +76,7 @@ namespace EfloController20221215
       Models::ChangeNodeTypesResponse changeNodeTypes(const Models::ChangeNodeTypesRequest &request);
 
       /**
-       * @summary Moves a resource from one resource group to another.
+       * @summary Changes the resource group of a resource.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +85,7 @@ namespace EfloController20221215
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves a resource from one resource group to another.
+       * @summary Changes the resource group of a resource.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -90,6 +94,8 @@ namespace EfloController20221215
 
       /**
        * @summary Disconnect Connection
+       *
+       * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
        *
        * @param request CloseSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -100,13 +106,17 @@ namespace EfloController20221215
       /**
        * @summary Disconnect Connection
        *
+       * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+       *
        * @param request CloseSessionRequest
        * @return CloseSessionResponse
        */
       Models::CloseSessionResponse closeSession(const Models::CloseSessionRequest &request);
 
       /**
-       * @summary Create a large-scale computing cluster
+       * @summary Creates a new LINGJUN Cluster.
+       *
+       * @description 关闭远程会话的接口。
        *
        * @param tmpReq CreateClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +125,9 @@ namespace EfloController20221215
       Models::CreateClusterResponse createClusterWithOptions(const Models::CreateClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a large-scale computing cluster
+       * @summary Creates a new LINGJUN Cluster.
+       *
+       * @description 关闭远程会话的接口。
        *
        * @param request CreateClusterRequest
        * @return CreateClusterResponse
@@ -142,8 +154,6 @@ namespace EfloController20221215
       /**
        * @summary Creates a network test task.
        *
-       * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
-       *
        * @param tmpReq CreateNetTestTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateNetTestTaskResponse
@@ -153,15 +163,15 @@ namespace EfloController20221215
       /**
        * @summary Creates a network test task.
        *
-       * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
-       *
        * @param request CreateNetTestTaskRequest
        * @return CreateNetTestTaskResponse
        */
       Models::CreateNetTestTaskResponse createNetTestTask(const Models::CreateNetTestTaskRequest &request);
 
       /**
-       * @summary Create Node Group under Cluster
+       * @summary Create a node group in a cluster.
+       *
+       * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
        *
        * @param tmpReq CreateNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +180,9 @@ namespace EfloController20221215
       Models::CreateNodeGroupResponse createNodeGroupWithOptions(const Models::CreateNodeGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Node Group under Cluster
+       * @summary Create a node group in a cluster.
+       *
+       * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
        *
        * @param request CreateNodeGroupRequest
        * @return CreateNodeGroupResponse
@@ -199,7 +211,7 @@ namespace EfloController20221215
       Models::CreateSessionResponse createSession(const Models::CreateSessionRequest &request);
 
       /**
-       * @summary Creates a virtual storage channel (VSC).
+       * @summary Creates a VSC.
        *
        * @param request CreateVscRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -208,7 +220,7 @@ namespace EfloController20221215
       Models::CreateVscResponse createVscWithOptions(const Models::CreateVscRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a virtual storage channel (VSC).
+       * @summary Creates a VSC.
        *
        * @param request CreateVscRequest
        * @return CreateVscResponse
@@ -233,7 +245,7 @@ namespace EfloController20221215
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
 
       /**
-       * @summary 删除一个未使用超节点
+       * @summary Deletes an unused hyper node.
        *
        * @param request DeleteHyperNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,7 +254,7 @@ namespace EfloController20221215
       Models::DeleteHyperNodeResponse deleteHyperNodeWithOptions(const Models::DeleteHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除一个未使用超节点
+       * @summary Deletes an unused hyper node.
        *
        * @param request DeleteHyperNodeRequest
        * @return DeleteHyperNodeResponse
@@ -250,7 +262,7 @@ namespace EfloController20221215
       Models::DeleteHyperNodeResponse deleteHyperNode(const Models::DeleteHyperNodeRequest &request);
 
       /**
-       * @summary 删除一个未使用节点
+       * @summary Releases a pay-as-you-go node.
        *
        * @param request DeleteNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -259,7 +271,7 @@ namespace EfloController20221215
       Models::DeleteNodeResponse deleteNodeWithOptions(const Models::DeleteNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除一个未使用节点
+       * @summary Releases a pay-as-you-go node.
        *
        * @param request DeleteNodeRequest
        * @return DeleteNodeResponse
@@ -284,7 +296,7 @@ namespace EfloController20221215
       Models::DeleteNodeGroupResponse deleteNodeGroup(const Models::DeleteNodeGroupRequest &request);
 
       /**
-       * @summary Deletes a virtual storage channel (VSC).
+       * @summary Deletes a VSC.
        *
        * @param request DeleteVscRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -293,7 +305,7 @@ namespace EfloController20221215
       Models::DeleteVscResponse deleteVscWithOptions(const Models::DeleteVscRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a virtual storage channel (VSC).
+       * @summary Deletes a VSC.
        *
        * @param request DeleteVscRequest
        * @return DeleteVscResponse
@@ -301,7 +313,9 @@ namespace EfloController20221215
       Models::DeleteVscResponse deleteVsc(const Models::DeleteVscRequest &request);
 
       /**
-       * @summary Queries information about a Lingjun cluster.
+       * @summary Queries the details of a cluster.
+       *
+       * @description Queries the details of a specified cluster.
        *
        * @param request DescribeClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -310,7 +324,9 @@ namespace EfloController20221215
       Models::DescribeClusterResponse describeClusterWithOptions(const Models::DescribeClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a Lingjun cluster.
+       * @summary Queries the details of a cluster.
+       *
+       * @description Queries the details of a specified cluster.
        *
        * @param request DescribeClusterRequest
        * @return DescribeClusterResponse
@@ -339,7 +355,9 @@ namespace EfloController20221215
       Models::DescribeDiagnosticResultResponse describeDiagnosticResult(const Models::DescribeDiagnosticResultRequest &request);
 
       /**
-       * @summary 查询节点列表
+       * @summary Queries the details of a hyper node.
+       *
+       * @description Queries the details of a specified hyper node.
        *
        * @param request DescribeHyperNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -348,7 +366,9 @@ namespace EfloController20221215
       Models::DescribeHyperNodeResponse describeHyperNodeWithOptions(const Models::DescribeHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询节点列表
+       * @summary Queries the details of a hyper node.
+       *
+       * @description Queries the details of a specified hyper node.
        *
        * @param request DescribeHyperNodeRequest
        * @return DescribeHyperNodeResponse
@@ -356,7 +376,7 @@ namespace EfloController20221215
       Models::DescribeHyperNodeResponse describeHyperNode(const Models::DescribeHyperNodeRequest &request);
 
       /**
-       * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
+       * @summary Queries the execution history and status of Cloud Assistant commands.
        *
        * @param request DescribeInvocationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -365,7 +385,7 @@ namespace EfloController20221215
       Models::DescribeInvocationsResponse describeInvocationsWithOptions(const Models::DescribeInvocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
+       * @summary Queries the execution history and status of Cloud Assistant commands.
        *
        * @param request DescribeInvocationsRequest
        * @return DescribeInvocationsResponse
@@ -373,7 +393,7 @@ namespace EfloController20221215
       Models::DescribeInvocationsResponse describeInvocations(const Models::DescribeInvocationsRequest &request);
 
       /**
-       * @summary Query Network Test Result
+       * @summary Queries the results of a network test.
        *
        * @param request DescribeNetTestResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -382,7 +402,7 @@ namespace EfloController20221215
       Models::DescribeNetTestResultResponse describeNetTestResultWithOptions(const Models::DescribeNetTestResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Network Test Result
+       * @summary Queries the results of a network test.
        *
        * @param request DescribeNetTestResultRequest
        * @return DescribeNetTestResultResponse
@@ -390,7 +410,9 @@ namespace EfloController20221215
       Models::DescribeNetTestResultResponse describeNetTestResult(const Models::DescribeNetTestResultRequest &request);
 
       /**
-       * @summary Queries a list of nodes.
+       * @summary Queries the list of nodes.
+       *
+       * @description Queries the detailed information of a hyper node.
        *
        * @param request DescribeNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -399,7 +421,9 @@ namespace EfloController20221215
       Models::DescribeNodeResponse describeNodeWithOptions(const Models::DescribeNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of nodes.
+       * @summary Queries the list of nodes.
+       *
+       * @description Queries the detailed information of a hyper node.
        *
        * @param request DescribeNodeRequest
        * @return DescribeNodeResponse
@@ -407,7 +431,9 @@ namespace EfloController20221215
       Models::DescribeNodeResponse describeNode(const Models::DescribeNodeRequest &request);
 
       /**
-       * @summary 查询节点分组
+       * @summary Queries the details of a node group.
+       *
+       * @description This operation queries the details of a node group.
        *
        * @param request DescribeNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -416,7 +442,9 @@ namespace EfloController20221215
       Models::DescribeNodeGroupResponse describeNodeGroupWithOptions(const Models::DescribeNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询节点分组
+       * @summary Queries the details of a node group.
+       *
+       * @description This operation queries the details of a node group.
        *
        * @param request DescribeNodeGroupRequest
        * @return DescribeNodeGroupResponse
@@ -424,7 +452,7 @@ namespace EfloController20221215
       Models::DescribeNodeGroupResponse describeNodeGroup(const Models::DescribeNodeGroupRequest &request);
 
       /**
-       * @summary 查询节点规格详情
+       * @summary Describes the constraints for a node type.
        *
        * @param request DescribeNodeTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -433,7 +461,7 @@ namespace EfloController20221215
       Models::DescribeNodeTypeResponse describeNodeTypeWithOptions(const Models::DescribeNodeTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询节点规格详情
+       * @summary Describes the constraints for a node type.
        *
        * @param request DescribeNodeTypeRequest
        * @return DescribeNodeTypeResponse
@@ -492,7 +520,7 @@ namespace EfloController20221215
       Models::DescribeTaskResponse describeTask(const Models::DescribeTaskRequest &request);
 
       /**
-       * @summary Queries information about a virtual storage channel (VSC).
+       * @summary Retrieves the details of a specific virtual switch controller (Vsc).
        *
        * @param request DescribeVscRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +529,7 @@ namespace EfloController20221215
       Models::DescribeVscResponse describeVscWithOptions(const Models::DescribeVscRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a virtual storage channel (VSC).
+       * @summary Retrieves the details of a specific virtual switch controller (Vsc).
        *
        * @param request DescribeVscRequest
        * @return DescribeVscResponse
@@ -526,7 +554,9 @@ namespace EfloController20221215
       Models::DescribeZonesResponse describeZones(const Models::DescribeZonesRequest &request);
 
       /**
-       * @summary Cluster Scaling
+       * @summary Extends a cluster.
+       *
+       * @description Closes a remote session.
        *
        * @param tmpReq ExtendClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -535,7 +565,9 @@ namespace EfloController20221215
       Models::ExtendClusterResponse extendClusterWithOptions(const Models::ExtendClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cluster Scaling
+       * @summary Extends a cluster.
+       *
+       * @description Closes a remote session.
        *
        * @param request ExtendClusterRequest
        * @return ExtendClusterResponse
@@ -543,7 +575,7 @@ namespace EfloController20221215
       Models::ExtendClusterResponse extendCluster(const Models::ExtendClusterRequest &request);
 
       /**
-       * @summary 集群下的主机分组列表，分组下的主机列表
+       * @summary Lists the node groups of a cluster and the nodes in each group.
        *
        * @param request ListClusterHyperNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -552,7 +584,7 @@ namespace EfloController20221215
       Models::ListClusterHyperNodesResponse listClusterHyperNodesWithOptions(const Models::ListClusterHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 集群下的主机分组列表，分组下的主机列表
+       * @summary Lists the node groups of a cluster and the nodes in each group.
        *
        * @param request ListClusterHyperNodesRequest
        * @return ListClusterHyperNodesResponse
@@ -560,7 +592,7 @@ namespace EfloController20221215
       Models::ListClusterHyperNodesResponse listClusterHyperNodes(const Models::ListClusterHyperNodesRequest &request);
 
       /**
-       * @summary Queries a list of nodes in a cluster.
+       * @summary Queries the nodes in a cluster.
        *
        * @param request ListClusterNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -569,7 +601,7 @@ namespace EfloController20221215
       Models::ListClusterNodesResponse listClusterNodesWithOptions(const Models::ListClusterNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of nodes in a cluster.
+       * @summary Queries the nodes in a cluster.
        *
        * @param request ListClusterNodesRequest
        * @return ListClusterNodesResponse
@@ -577,7 +609,7 @@ namespace EfloController20221215
       Models::ListClusterNodesResponse listClusterNodes(const Models::ListClusterNodesRequest &request);
 
       /**
-       * @summary Queries a list of clusters.
+       * @summary Query cluster instances with optional filtering by resource group and tags.
        *
        * @param request ListClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,7 +618,7 @@ namespace EfloController20221215
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of clusters.
+       * @summary Query cluster instances with optional filtering by resource group and tags.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -595,6 +627,8 @@ namespace EfloController20221215
 
       /**
        * @summary List of Diagnostic Tasks
+       *
+       * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
        *
        * @param request ListDiagnosticResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -605,13 +639,15 @@ namespace EfloController20221215
       /**
        * @summary List of Diagnostic Tasks
        *
+       * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+       *
        * @param request ListDiagnosticResultsRequest
        * @return ListDiagnosticResultsResponse
        */
       Models::ListDiagnosticResultsResponse listDiagnosticResults(const Models::ListDiagnosticResultsRequest &request);
 
       /**
-       * @summary 可用rack物理机列表
+       * @summary Lists the active physical servers in the rack.
        *
        * @param request ListFreeHyperNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,7 +656,7 @@ namespace EfloController20221215
       Models::ListFreeHyperNodesResponse listFreeHyperNodesWithOptions(const Models::ListFreeHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 可用rack物理机列表
+       * @summary Lists the active physical servers in the rack.
        *
        * @param request ListFreeHyperNodesRequest
        * @return ListFreeHyperNodesResponse
@@ -628,7 +664,7 @@ namespace EfloController20221215
       Models::ListFreeHyperNodesResponse listFreeHyperNodes(const Models::ListFreeHyperNodesRequest &request);
 
       /**
-       * @summary Queries a list of nodes that are not used.
+       * @summary Lists all unused nodes.
        *
        * @param request ListFreeNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +673,7 @@ namespace EfloController20221215
       Models::ListFreeNodesResponse listFreeNodesWithOptions(const Models::ListFreeNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of nodes that are not used.
+       * @summary Lists all unused nodes.
        *
        * @param request ListFreeNodesRequest
        * @return ListFreeNodesResponse
@@ -645,7 +681,9 @@ namespace EfloController20221215
       Models::ListFreeNodesResponse listFreeNodes(const Models::ListFreeNodesRequest &request);
 
       /**
-       * @summary 机器列表
+       * @summary Machines
+       *
+       * @description Queries the details of hypernodes.
        *
        * @param tmpReq ListHyperNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -654,7 +692,9 @@ namespace EfloController20221215
       Models::ListHyperNodesResponse listHyperNodesWithOptions(const Models::ListHyperNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机器列表
+       * @summary Machines
+       *
+       * @description Queries the details of hypernodes.
        *
        * @param request ListHyperNodesRequest
        * @return ListHyperNodesResponse
@@ -679,7 +719,7 @@ namespace EfloController20221215
       Models::ListImagesResponse listImages(const Models::ListImagesRequest &request);
 
       /**
-       * @summary Query machine network configuration using HPNZone and machine type
+       * @summary Queries the network configurations for machine types.
        *
        * @param tmpReq ListMachineNetworkInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -688,7 +728,7 @@ namespace EfloController20221215
       Models::ListMachineNetworkInfoResponse listMachineNetworkInfoWithOptions(const Models::ListMachineNetworkInfoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query machine network configuration using HPNZone and machine type
+       * @summary Queries the network configurations for machine types.
        *
        * @param request ListMachineNetworkInfoRequest
        * @return ListMachineNetworkInfoResponse
@@ -696,7 +736,7 @@ namespace EfloController20221215
       Models::ListMachineNetworkInfoResponse listMachineNetworkInfo(const Models::ListMachineNetworkInfoRequest &request);
 
       /**
-       * @summary Queries a list of instance types that are available to users.
+       * @summary Queries a list of available machine types.
        *
        * @param request ListMachineTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -705,7 +745,7 @@ namespace EfloController20221215
       Models::ListMachineTypesResponse listMachineTypesWithOptions(const Models::ListMachineTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instance types that are available to users.
+       * @summary Queries a list of available machine types.
        *
        * @param request ListMachineTypesRequest
        * @return ListMachineTypesResponse
@@ -713,9 +753,7 @@ namespace EfloController20221215
       Models::ListMachineTypesResponse listMachineTypes(const Models::ListMachineTypesRequest &request);
 
       /**
-       * @summary Lists the results of network test results.
-       *
-       * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+       * @summary Lists network test results.
        *
        * @param request ListNetTestResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -724,9 +762,7 @@ namespace EfloController20221215
       Models::ListNetTestResultsResponse listNetTestResultsWithOptions(const Models::ListNetTestResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the results of network test results.
-       *
-       * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+       * @summary Lists network test results.
        *
        * @param request ListNetTestResultsRequest
        * @return ListNetTestResultsResponse
@@ -734,7 +770,7 @@ namespace EfloController20221215
       Models::ListNetTestResultsResponse listNetTestResults(const Models::ListNetTestResultsRequest &request);
 
       /**
-       * @summary Queries node groups in a cluster.
+       * @summary Query Node Group Information Under the Cluster
        *
        * @param request ListNodeGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -743,7 +779,7 @@ namespace EfloController20221215
       Models::ListNodeGroupsResponse listNodeGroupsWithOptions(const Models::ListNodeGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries node groups in a cluster.
+       * @summary Query Node Group Information Under the Cluster
        *
        * @param request ListNodeGroupsRequest
        * @return ListNodeGroupsResponse
@@ -751,7 +787,7 @@ namespace EfloController20221215
       Models::ListNodeGroupsResponse listNodeGroups(const Models::ListNodeGroupsRequest &request);
 
       /**
-       * @summary 查询系统日志
+       * @summary Queries system logs.
        *
        * @param request ListSyslogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -760,7 +796,7 @@ namespace EfloController20221215
       Models::ListSyslogsResponse listSyslogsWithOptions(const Models::ListSyslogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询系统日志
+       * @summary Queries system logs.
        *
        * @param request ListSyslogsRequest
        * @return ListSyslogsResponse
@@ -768,7 +804,7 @@ namespace EfloController20221215
       Models::ListSyslogsResponse listSyslogs(const Models::ListSyslogsRequest &request);
 
       /**
-       * @summary Queries the tags of resources.
+       * @summary Queries the tags that are attached to resources.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -777,7 +813,7 @@ namespace EfloController20221215
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags of resources.
+       * @summary Queries the tags that are attached to resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -787,7 +823,8 @@ namespace EfloController20221215
       /**
        * @summary Query the cluster types available to the user
        *
-       * @param request ListUserClusterTypesRequest
+       * @description An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+       *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListUserClusterTypesResponse
        */
@@ -796,12 +833,14 @@ namespace EfloController20221215
       /**
        * @summary Query the cluster types available to the user
        *
+       * @description An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+       *
        * @return ListUserClusterTypesResponse
        */
       Models::ListUserClusterTypesResponse listUserClusterTypes();
 
       /**
-       * @summary Queries a list of virtual storage channels (VSC).
+       * @summary Queries a list of VSCs.
        *
        * @param tmpReq ListVscsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -810,7 +849,7 @@ namespace EfloController20221215
       Models::ListVscsResponse listVscsWithOptions(const Models::ListVscsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of virtual storage channels (VSC).
+       * @summary Queries a list of VSCs.
        *
        * @param request ListVscsRequest
        * @return ListVscsResponse
@@ -835,7 +874,7 @@ namespace EfloController20221215
       Models::RebootNodesResponse rebootNodes(const Models::RebootNodesRequest &request);
 
       /**
-       * @summary Reinstall a node.
+       * @summary Reimages the specified nodes.
        *
        * @param tmpReq ReimageNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -844,7 +883,7 @@ namespace EfloController20221215
       Models::ReimageNodesResponse reimageNodesWithOptions(const Models::ReimageNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reinstall a node.
+       * @summary Reimages the specified nodes.
        *
        * @param request ReimageNodesRequest
        * @return ReimageNodesResponse
@@ -852,7 +891,9 @@ namespace EfloController20221215
       Models::ReimageNodesResponse reimageNodes(const Models::ReimageNodesRequest &request);
 
       /**
-       * @summary 节点异常问题上报
+       * @summary Reports issues with abnormal nodes.
+       *
+       * @description Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
        *
        * @param tmpReq ReportNodesStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -861,7 +902,9 @@ namespace EfloController20221215
       Models::ReportNodesStatusResponse reportNodesStatusWithOptions(const Models::ReportNodesStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 节点异常问题上报
+       * @summary Reports issues with abnormal nodes.
+       *
+       * @description Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
        *
        * @param request ReportNodesStatusRequest
        * @return ReportNodesStatusResponse
@@ -903,7 +946,7 @@ namespace EfloController20221215
       Models::SendFileResponse sendFile(const Models::SendFileRequest &request);
 
       /**
-       * @summary Scales in a cluster.
+       * @summary Scales in a CC cluster.
        *
        * @param tmpReq ShrinkClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -912,7 +955,7 @@ namespace EfloController20221215
       Models::ShrinkClusterResponse shrinkClusterWithOptions(const Models::ShrinkClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scales in a cluster.
+       * @summary Scales in a CC cluster.
        *
        * @param request ShrinkClusterRequest
        * @return ShrinkClusterResponse
@@ -954,7 +997,7 @@ namespace EfloController20221215
       Models::StopNodesResponse stopNodes(const Models::StopNodesRequest &request);
 
       /**
-       * @summary Tags resources.
+       * @summary Applies tags to resources.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -963,7 +1006,7 @@ namespace EfloController20221215
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tags resources.
+       * @summary Applies tags to resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -971,7 +1014,7 @@ namespace EfloController20221215
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Deletes a custom tag from a resource.
+       * @summary Removes custom tags from resources.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -980,7 +1023,7 @@ namespace EfloController20221215
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom tag from a resource.
+       * @summary Removes custom tags from resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -988,7 +1031,9 @@ namespace EfloController20221215
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Update Node Group
+       * @summary Updates a node group.
+       *
+       * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
        *
        * @param request UpdateNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -997,7 +1042,9 @@ namespace EfloController20221215
       Models::UpdateNodeGroupResponse updateNodeGroupWithOptions(const Models::UpdateNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Node Group
+       * @summary Updates a node group.
+       *
+       * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
        *
        * @param request UpdateNodeGroupRequest
        * @return UpdateNodeGroupResponse

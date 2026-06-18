@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of disks that can be attached.
     shared_ptr<int32_t> diskQuantity_ {};
+    // The maximum number of network interfaces for high-density mode.
     shared_ptr<int32_t> eniHighDenseQuantity_ {};
+    // The maximum number of IPv6 addresses that an ENI can have.
     shared_ptr<int32_t> eniIpv6AddressQuantity_ {};
+    // The maximum number of IPv4 addresses that an ENI can have.
     shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
+    // The maximum number of supported elastic network interfaces (ENIs), including primary and secondary ENIs.
     shared_ptr<int32_t> eniQuantity_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -125,7 +125,9 @@ namespace Models
 
 
       protected:
+        // The key of the node tag.
         shared_ptr<string> key_ {};
+        // The value of the node tag.
         shared_ptr<string> value_ {};
       };
 
@@ -256,22 +258,39 @@ namespace Models
 
 
     protected:
+      // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
+      // The name of the cluster.
       shared_ptr<string> clusterName_ {};
+      // The product code.
       shared_ptr<string> commodityCode_ {};
+      // The time when the node was created.
       shared_ptr<string> createTime_ {};
+      // The expiration time.
       shared_ptr<string> expireTime_ {};
+      // The hostname.
       shared_ptr<string> hostname_ {};
+      // The cluster number.
       shared_ptr<string> hpnZone_ {};
+      // The ID of the node.
       shared_ptr<string> hyperNodeId_ {};
+      // The machine type.
       shared_ptr<string> machineType_ {};
+      // The ID of the node group.
       shared_ptr<string> nodeGroupId_ {};
+      // The name of the node group.
       shared_ptr<string> nodeGroupName_ {};
+      // The status of the hypernode.
       shared_ptr<string> operatingState_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The status of the node.
       shared_ptr<string> status_ {};
+      // The list of tags.
       shared_ptr<vector<HyperNodes::Tags>> tags_ {};
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
+      // The ID of the zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -308,10 +327,19 @@ namespace Models
 
 
   protected:
+    // The list of nodes.
     shared_ptr<vector<ListHyperNodesResponseBody::HyperNodes>> hyperNodes_ {};
+    // The number of entries to return on each page. The maximum value is 100.
+    // 
+    // Default values:
+    // 
+    // • If you do not specify this parameter or you specify a value that is less than 20, the default value is 20.
+    // 
+    // • If you specify a value that is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this parameter is not returned, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
