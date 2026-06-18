@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The data returned by the request.
     shared_ptr<SubmitSqlFlashbackTaskResponseBody::Data> data_ {};
+    // The description of the request result.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API request was successful.
     shared_ptr<bool> success_ {};
   };
 

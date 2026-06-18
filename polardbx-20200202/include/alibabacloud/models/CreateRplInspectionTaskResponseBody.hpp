@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The slink task ID.
       shared_ptr<string> slinkTaskId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The task details.
     shared_ptr<CreateRplInspectionTaskResponseBody::Data> data_ {};
+    // The error message of the task. > This parameter is returned only when the task status is **stop**.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The import task ID.
       shared_ptr<string> slinkTaskId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<CreateDataImportTaskResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

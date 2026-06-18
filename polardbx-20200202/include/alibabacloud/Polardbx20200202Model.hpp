@@ -222,6 +222,9 @@
 #include <alibabacloud/models/DescribeMem0InfoRequest.hpp>
 #include <alibabacloud/models/DescribeMem0InfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeMem0InfoResponse.hpp>
+#include <alibabacloud/models/DescribeMem0SecurityIpsRequest.hpp>
+#include <alibabacloud/models/DescribeMem0SecurityIpsResponseBody.hpp>
+#include <alibabacloud/models/DescribeMem0SecurityIpsResponse.hpp>
 #include <alibabacloud/models/DescribeOpenBackupSetRequest.hpp>
 #include <alibabacloud/models/DescribeOpenBackupSetResponseBody.hpp>
 #include <alibabacloud/models/DescribeOpenBackupSetResponse.hpp>
@@ -350,6 +353,9 @@
 #include <alibabacloud/models/ModifyEngineMigrationRequest.hpp>
 #include <alibabacloud/models/ModifyEngineMigrationResponseBody.hpp>
 #include <alibabacloud/models/ModifyEngineMigrationResponse.hpp>
+#include <alibabacloud/models/ModifyMem0SecurityIpsRequest.hpp>
+#include <alibabacloud/models/ModifyMem0SecurityIpsResponseBody.hpp>
+#include <alibabacloud/models/ModifyMem0SecurityIpsResponse.hpp>
 #include <alibabacloud/models/ModifyParameterRequest.hpp>
 #include <alibabacloud/models/ModifyParameterResponseBody.hpp>
 #include <alibabacloud/models/ModifyParameterResponse.hpp>
@@ -374,6 +380,9 @@
 #include <alibabacloud/models/ResetAccountPasswordRestrictRequest.hpp>
 #include <alibabacloud/models/ResetAccountPasswordRestrictResponseBody.hpp>
 #include <alibabacloud/models/ResetAccountPasswordRestrictResponse.hpp>
+#include <alibabacloud/models/ResetMem0AccountPasswordRequest.hpp>
+#include <alibabacloud/models/ResetMem0AccountPasswordResponseBody.hpp>
+#include <alibabacloud/models/ResetMem0AccountPasswordResponse.hpp>
 #include <alibabacloud/models/RestartDBInstanceRequest.hpp>
 #include <alibabacloud/models/RestartDBInstanceResponseBody.hpp>
 #include <alibabacloud/models/RestartDBInstanceResponse.hpp>

@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The ID of the ApsaraDB RDS instance to which the migration object belongs in the target instance. > You can invoke the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all ApsaraDB RDS instances in the specified region, including instance IDs.
     shared_ptr<string> dstDb_ {};
+    // The password of the privileged account for the destination ApsaraDB RDS instance. > * The password must be 8 to 32 characters in length. * The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. * Special characters include ! @ # $ & % ^ * ( ) _ + - =.
     shared_ptr<string> dstPassword_ {};
+    // The destination task ID.
     shared_ptr<string> dstResId_ {};
+    // The username used to connect to the target instance.
     shared_ptr<string> dstUserName_ {};
+    // The region ID. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The switchover task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
+    // The password of the source ApsaraDB RDS instance. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the specified region, including the password.
     shared_ptr<string> srcPassword_ {};
+    // The username used to connect to the source instance (source database).
     shared_ptr<string> srcUserName_ {};
   };
 

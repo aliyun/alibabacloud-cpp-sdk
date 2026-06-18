@@ -88,9 +88,15 @@ namespace Models
 
 
     protected:
+      // The name.
       shared_ptr<string> name_ {};
+      // The display order of the commodity module property.
+      // 
+      // The returned content varies depending on the commodity module.
       shared_ptr<string> orderIndex_ {};
+      // The commodity module.
       shared_ptr<string> propertyCode_ {};
+      // The label value.
       shared_ptr<string> value_ {};
     };
 
@@ -113,6 +119,7 @@ namespace Models
 
 
   protected:
+    // The export parameters of the exception event.
     shared_ptr<vector<DescribeComponentPropetiesResponseBody::Properties>> properties_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

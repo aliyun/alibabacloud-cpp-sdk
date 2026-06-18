@@ -130,22 +130,45 @@ namespace Models
 
 
   protected:
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // The end time for executing the flashback SQL.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The instance ID of the PolarDB-X instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polardbxInstanceId_ {};
+    // The restoration type. Valid values:
+    // 
+    // - **1**: Image-based restoration.
+    // - **0**: Reverse restoration.
+    // 
     // This parameter is required.
     shared_ptr<string> recallRestoreType_ {};
+    // The matching mode. Valid values:
+    // 
+    // - **0**: exact match.
+    // - **1**: fuzzy match.
     shared_ptr<string> recallType_ {};
+    // The region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The primary key of the flashback SQL.
     shared_ptr<string> sqlPk_ {};
+    // The type of SQL. Valid values: INSERT, UPDATE, and DELETE. Separate multiple types with commas (,).
     shared_ptr<string> sqlType_ {};
+    // The start time for executing the flashback SQL.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The name of the table on which the flashback SQL operation is performed.
     shared_ptr<string> tableName_ {};
+    // The trace ID of the flashback SQL.
     shared_ptr<string> traceId_ {};
   };
 

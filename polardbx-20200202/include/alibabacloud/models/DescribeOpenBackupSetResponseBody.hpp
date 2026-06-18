@@ -50,7 +50,10 @@ namespace Models
 
 
   protected:
+    // The struct that contains instance topology information and backup set download links.
+    // > The canBinlogRecoverToTimeUTC field indicates the point in time to which the backup set can be restored. This point in time is close to the RestoreTime input parameter. Because the latest local binlog of a DN may not have been uploaded, restoration to the desired point in time is not guaranteed.
     Darabonba::Json data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

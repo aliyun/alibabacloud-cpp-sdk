@@ -240,23 +240,50 @@ namespace Models
 
 
       protected:
+        // The name of the database on which the flashback task was performed.
         shared_ptr<string> dbName_ {};
+        // The download URL of the result file.
         shared_ptr<string> downloadUrl_ {};
+        // The expiration time of the download URL. Unit: ms.
         shared_ptr<string> expireTime_ {};
+        // The creation time of the flashback task in the database. Unit: ms.
         shared_ptr<string> gmtCreate_ {};
+        // The last modification time of the flashback task in the database. Unit: ms.
         shared_ptr<string> gmtModified_ {};
+        // The primary key ID.
         shared_ptr<string> id_ {};
+        // The instance ID of the PolarDB-X instance.
         shared_ptr<string> instId_ {};
+        // The execution progress of the flashback task. Value range: 1 to 100.
         shared_ptr<string> recallProgress_ {};
+        // The SQL flashback restoration type. Valid values: 
+        // 
+        // - **1**: Image-based restoration.
+        // - **2**: Reverse restoration.
         shared_ptr<string> recallRestoreType_ {};
+        // The status of the data recall task. Valid values:
+        // 
+        // - **1**: In progress.
+        // - **2**: Completed.
         shared_ptr<string> recallStatus_ {};
+        // The recall type. Valid values:
+        // 
+        // - **0**: exact match.
+        // - **1**: fuzzy match.
         shared_ptr<string> recallType_ {};
+        // The end time specified when the SQL flashback task was submitted. Unit: ms.
         shared_ptr<string> searchEndTime_ {};
+        // The start time specified when the SQL flashback task was submitted. Unit: ms.
         shared_ptr<string> searchStartTime_ {};
+        // The number of recovered data rows.
         shared_ptr<string> sqlCounter_ {};
+        // The primary key value involved in the SQL statement.
         shared_ptr<string> sqlPk_ {};
+        // The type of the SQL statement. Valid values: INSERT, UPDATE, and DELETE. Multiple types are separated by commas (,).
         shared_ptr<string> sqlType_ {};
+        // The name of the table to which the data belongs.
         shared_ptr<string> tableName_ {};
+        // The trace_id of the SQL statement.
         shared_ptr<string> traceId_ {};
       };
 
@@ -271,6 +298,7 @@ namespace Models
 
 
     protected:
+      // The flashback task objects.
       shared_ptr<vector<Data::SqlFlashbackTasks>> sqlFlashbackTasks_ {};
     };
 
@@ -307,9 +335,13 @@ namespace Models
 
 
   protected:
+    // The data returned by the request.
     shared_ptr<DescribeSqlFlashbackTaskListResponseBody::Data> data_ {};
+    // The description of the request result.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Indicates whether the task is deleted.
     shared_ptr<bool> data_ {};
+    // The returned message. > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -99,9 +99,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<CreateBackupResponseBody::Data> data_ {};
+    // Empty if the request is successful. An error message is returned if the request fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

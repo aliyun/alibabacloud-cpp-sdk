@@ -153,13 +153,23 @@ namespace Models
 
 
       protected:
+        // The number of available IP addresses.
         shared_ptr<string> availabeIpCount_ {};
+        // The CIDR block of the VPC.
         shared_ptr<string> cidrBlock_ {};
+        // The description of the database.
         shared_ptr<string> description_ {};
+        // The node ID.
         shared_ptr<int64_t> id_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // Indicates whether the VPC is the default VPC. Valid values:
+        // - **true**: The VPC is the default VPC.
+        // - **false**: The VPC is not the default VPC.
         shared_ptr<string> isDefault_ {};
+        // The zone ID.
         shared_ptr<string> izNo_ {};
+        // The name.
         shared_ptr<string> name_ {};
         // vpc id。
         shared_ptr<string> vpcInstanceId_ {};
@@ -176,6 +186,7 @@ namespace Models
 
 
     protected:
+      // The vSwitch list.
       shared_ptr<vector<Data::VswitchList>> vswitchList_ {};
     };
 
@@ -198,6 +209,7 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeRdsVswitchesResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

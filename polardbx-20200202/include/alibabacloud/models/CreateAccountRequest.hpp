@@ -112,18 +112,40 @@ namespace Models
 
 
   protected:
+    // The description of the account.
     shared_ptr<string> accountDescription_ {};
+    // The name of the account to be created.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The password of the account to be created.
+    // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
+    // The permissions to be granted to the new account on the specified database. Valid values:
+    // 
+    // - ReadWrite
+    // - ReadOnly
+    // - DMLOnly
+    // - DDLOnly.
     shared_ptr<string> accountPrivilege_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the database to be authorized.
     shared_ptr<string> DBName_ {};
+    // The region in which the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The name of the security administrator account.
+    // 
+    // > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
     shared_ptr<string> securityAccountName_ {};
+    // The password of the security administrator account.
+    // 
+    // > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
     shared_ptr<string> securityAccountPassword_ {};
   };
 

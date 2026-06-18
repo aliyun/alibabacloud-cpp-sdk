@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The order ID generated when the number of instance nodes is changed.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The instance name.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The unique ID of the short-link task that identifies the task to be rolled back.
+    // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
   };

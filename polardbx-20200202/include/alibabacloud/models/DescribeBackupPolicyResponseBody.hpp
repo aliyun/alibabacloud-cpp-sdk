@@ -293,9 +293,13 @@ namespace Models
 
 
   protected:
+    // The response body.
     shared_ptr<DescribeBackupPolicyResponseBody::Data> data_ {};
+    // The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

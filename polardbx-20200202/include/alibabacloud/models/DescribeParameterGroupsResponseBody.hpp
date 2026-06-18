@@ -183,17 +183,33 @@ namespace Models
 
 
       protected:
+        // Indicates whether a forced restart of CN is required.
         shared_ptr<bool> cnForceRestart_ {};
+        // The number of CN parameters.
         shared_ptr<int32_t> cnParamCount_ {};
+        // The database type.
         shared_ptr<string> dbType_ {};
+        // The database engine version.
         shared_ptr<string> dbVersion_ {};
+        // Indicates whether a forced restart of DN is required.
         shared_ptr<bool> dnForceRestart_ {};
+        // The number of DN parameters.
         shared_ptr<int32_t> dnParamCount_ {};
+        // The time when the account was created.
         shared_ptr<string> gmtCreated_ {};
+        // The modification time, in timestamp format.
         shared_ptr<string> gmtModified_ {};
+        // The parameter template ID.
+        // > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the details of all parameter templates in the specified region, including the parameter template ID.
         shared_ptr<string> parameterGroupId_ {};
+        // The parameter template name.
         shared_ptr<string> parameterGroupName_ {};
+        // The parameter templatetype.
         shared_ptr<string> parameterGroupType_ {};
+        // The instance edition. Valid values:
+        // 
+        // - **enterprise**: Enterprise Edition.
+        // - **standard**: Standard Edition.
         shared_ptr<string> series_ {};
       };
 
@@ -216,7 +232,9 @@ namespace Models
 
 
     protected:
+      // The parameter template name.
       shared_ptr<vector<Data::ParameterGroups>> parameterGroups_ {};
+      // The request ID.
       shared_ptr<string> requestId_ {};
     };
 
@@ -239,6 +257,7 @@ namespace Models
 
 
   protected:
+    // The instance details.
     shared_ptr<DescribeParameterGroupsResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

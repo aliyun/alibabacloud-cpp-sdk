@@ -103,18 +103,33 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the access control instance. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name can contain digits, underscores (_), and hyphens (-).
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Specifies whether a node automatically joins the cluster and starts providing services after the node is added or recovered.
+    // 
     // This parameter is required.
     shared_ptr<bool> nodeAutoEnter_ {};
+    // The IDs of the monitored nodes when RemindUnit (object type) is set to NODE (node). Separate multiple IDs with commas (,). A maximum of 50 nodes can be monitored per rule.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeIds_ {};
+    // To query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** and specify the **NodeId** parameter.
+    // >  In other cases, you do not need to specify this parameter or you can set it to **MASTER**.
     shared_ptr<string> nodeRole_ {};
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The vSwitch ID.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the virtual private cloud (VPC) in which the endpoint resides.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

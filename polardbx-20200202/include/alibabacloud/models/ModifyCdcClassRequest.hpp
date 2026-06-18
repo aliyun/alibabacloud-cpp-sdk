@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The number of CDC nodes.
     shared_ptr<string> CDCNodeCount_ {};
+    // The instance type.
+    // 
     // This parameter is required.
     shared_ptr<string> cdcClass_ {};
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The switch mode.
     shared_ptr<string> switchMode_ {};
   };
 

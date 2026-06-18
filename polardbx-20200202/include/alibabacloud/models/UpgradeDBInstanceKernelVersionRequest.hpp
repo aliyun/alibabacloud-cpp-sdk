@@ -66,11 +66,20 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The kernel version.
     shared_ptr<string> minorVersion_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The switch mode. Valid values:
+    // 
+    // - 0: immediately.
+    // - 1: during the O&M window.
     shared_ptr<string> switchMode_ {};
   };
 

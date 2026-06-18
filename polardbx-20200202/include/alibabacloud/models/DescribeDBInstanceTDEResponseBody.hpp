@@ -59,6 +59,10 @@ namespace Models
 
 
     protected:
+      // Indicates whether TDE is enabled. Valid values:
+      // 
+      // - 0: TDE is disabled.
+      // - 1: TDE is enabled.
       shared_ptr<string> TDEStatus_ {};
     };
 
@@ -81,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeDBInstanceTDEResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

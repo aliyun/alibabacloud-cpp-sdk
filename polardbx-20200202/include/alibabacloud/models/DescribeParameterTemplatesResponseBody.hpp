@@ -141,11 +141,23 @@ namespace Models
 
 
       protected:
+        // The validation constraint.
         shared_ptr<string> checkingCode_ {};
+        // Indicates whether the parameter is dynamic. Valid values:
+        // 
+        // - **0**: No.
+        // - **1**: Yes.
         shared_ptr<int32_t> dynamic_ {};
+        // The parameter description.
         shared_ptr<string> parameterDescription_ {};
+        // The parameter name.
         shared_ptr<string> parameterName_ {};
+        // The parameter value.
         shared_ptr<string> parameterValue_ {};
+        // Indicates whether the parameter can be modified. Valid values:
+        // 
+        // - **0**: The parameter cannot be modified.
+        // - **1**: The parameter can be modified.
         shared_ptr<int32_t> revisable_ {};
         shared_ptr<int32_t> userChangable_ {};
       };
@@ -183,9 +195,13 @@ namespace Models
 
 
     protected:
+      // The engine. Default value: polarx.
       shared_ptr<string> engine_ {};
+      // The DPI engine version. Default value: 2.0.
       shared_ptr<string> engineVersion_ {};
+      // The number of parameters.
       shared_ptr<int32_t> parameterCount_ {};
+      // The parameter list.
       shared_ptr<vector<Data::Parameters>> parameters_ {};
     };
 
@@ -208,7 +224,9 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeParameterTemplatesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

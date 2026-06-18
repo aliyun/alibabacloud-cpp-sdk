@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The description of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> dbDescription_ {};
+    // The database name.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

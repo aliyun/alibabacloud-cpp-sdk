@@ -94,15 +94,25 @@ namespace Models
 
 
   protected:
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The end time for querying the binlog list.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> instanceName_ {};
+    // The page number when paginating through the current binlog list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of binlog entries to return per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start time for querying the binlog list.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of storage pool DNs.
     shared_ptr<string> storagePoolDNList_ {};
+    // The name of the storage pool.
     shared_ptr<string> storagePoolName_ {};
   };
 

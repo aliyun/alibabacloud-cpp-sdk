@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The original task ID, used to match the response with the request.
       shared_ptr<string> slinkTaskId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ConfirmNoConnectionResponseBody::Data> data_ {};
+    // The additional information returned. The value success is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

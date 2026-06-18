@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The name of the whitelist group.
         shared_ptr<string> groupName_ {};
+        // The details of the whitelist in the group.
         shared_ptr<string> securityIPList_ {};
       };
 
@@ -118,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The name of the instance.
       shared_ptr<string> DBInstanceName_ {};
+      // The list of whitelist groups.
       shared_ptr<vector<Data::GroupItems>> groupItems_ {};
     };
 
@@ -155,9 +159,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<DescribeSecurityIpsResponseBody::Data> data_ {};
+    // The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

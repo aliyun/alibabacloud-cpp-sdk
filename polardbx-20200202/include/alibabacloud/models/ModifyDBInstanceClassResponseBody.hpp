@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The order ID. An order is generated when you upgrade, downgrade, or change the specifications of an instance.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

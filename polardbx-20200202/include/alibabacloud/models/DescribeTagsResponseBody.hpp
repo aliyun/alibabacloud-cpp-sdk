@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The list of database instances associated with the tag.
       shared_ptr<vector<string>> DBInstanceIds_ {};
+      // The tag key.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -107,6 +110,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of tag information.
     shared_ptr<vector<DescribeTagsResponseBody::TagInfos>> tagInfos_ {};
   };
 

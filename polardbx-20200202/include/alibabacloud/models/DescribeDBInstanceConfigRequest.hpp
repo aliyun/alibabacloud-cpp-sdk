@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The configuration identifier. Default value: htap.
+    // 
     // This parameter is required.
     shared_ptr<string> configName_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The ID of the region in which the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

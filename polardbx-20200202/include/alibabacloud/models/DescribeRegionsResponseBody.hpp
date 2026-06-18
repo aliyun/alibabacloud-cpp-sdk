@@ -259,11 +259,16 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<int32_t> code_ {};
+    // The error code.
     shared_ptr<int32_t> errorCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

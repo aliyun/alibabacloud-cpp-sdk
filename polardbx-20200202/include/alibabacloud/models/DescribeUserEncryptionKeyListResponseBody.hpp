@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The key list.
       shared_ptr<vector<string>> keyIds_ {};
     };
 
@@ -84,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<DescribeUserEncryptionKeyListResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

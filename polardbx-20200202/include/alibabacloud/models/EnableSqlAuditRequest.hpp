@@ -75,11 +75,24 @@ namespace Models
 
 
   protected:
+    // The name of the audit administrator account. > If the three-authority separation mode is enabled, this parameter is required. For more information about the three-authority separation module, see [Three-authority separation](https://help.aliyun.com/document_detail/213824.html).
     shared_ptr<string> auditAccountName_ {};
+    // The password of the audit administrator account. > If the three-authority separation mode is enabled, this parameter is required. For more information about the three-authority separation module, see [Three-authority separation](https://help.aliyun.com/document_detail/213824.html).
     shared_ptr<string> auditAccountPassword_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The number of days to retain audit logs:
+    // 
+    // - 0: Do not retain (i.e., disable automatic log expiration)
+    // 
+    // - >0: Logs are automatically deleted after N days
+    // 
+    // - >Common values: 30, 45, 90, 180, 365
     shared_ptr<int32_t> expireAfterDays_ {};
+    // The region where the instance is located.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

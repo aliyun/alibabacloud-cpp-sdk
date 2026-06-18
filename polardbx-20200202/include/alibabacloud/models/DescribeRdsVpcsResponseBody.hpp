@@ -183,13 +183,21 @@ namespace Models
 
 
         protected:
+          // The vSwitch CIDR block.
           shared_ptr<string> cidrBlock_ {};
+          // The time when the vSwitch was created. The value is a UNIX timestamp accurate to milliseconds.
           shared_ptr<string> gmtCreate_ {};
+          // The time when the vSwitch was last modified. The value is a UNIX timestamp.
           shared_ptr<string> gmtModified_ {};
+          // Indicates whether the vSwitch is the default vSwitch.
           shared_ptr<bool> isDefault_ {};
+          // The zone ID.
           shared_ptr<string> izNo_ {};
+          // The vSwitch status.
           shared_ptr<string> status_ {};
+          // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
+          // The name of the vSwitch.
           shared_ptr<string> vSwitchName_ {};
         };
 
@@ -276,16 +284,27 @@ namespace Models
 
 
       protected:
+        // The Alibaba Cloud account ID.
         shared_ptr<string> aliUid_ {};
+        // The VPC ID.
         shared_ptr<string> bid_ {};
+        // The IPv4 CIDR block of the VPC.
         shared_ptr<string> cidrBlock_ {};
+        // The time when the VPC was created.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the VPC was last modified.
         shared_ptr<string> gmtModified_ {};
+        // Indicates whether the VPC is the default VPC. Valid values: **true**: The VPC is the default VPC. **false**: The VPC is not the default VPC.
         shared_ptr<bool> isDefault_ {};
+        // The region in which the VPC resides.
         shared_ptr<string> regionNo_ {};
+        // The VPC status.
         shared_ptr<string> status_ {};
+        // The vSwitch information of the VPC.
         shared_ptr<vector<Vpc::VSwitchs>> vSwitchs_ {};
+        // The ID of the VPC.
         shared_ptr<string> vpcId_ {};
+        // The name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -300,6 +319,7 @@ namespace Models
 
 
     protected:
+      // The VPC information.
       shared_ptr<vector<Vpcs::Vpc>> vpc_ {};
     };
 
@@ -322,7 +342,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The VPC information.
     shared_ptr<DescribeRdsVpcsResponseBody::Vpcs> vpcs_ {};
   };
 

@@ -158,16 +158,30 @@ namespace Models
 
 
     protected:
+      // The start time of the task, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
       shared_ptr<string> beginTime_ {};
+      // The database name associated with the task. This parameter is generally empty.
       shared_ptr<string> DBName_ {};
+      // The end time of the task, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
       shared_ptr<string> finishTime_ {};
+      // The task progress, in percentage.
       shared_ptr<string> progress_ {};
+      // The detailed progress information of the task. This parameter is generally empty.
       shared_ptr<string> progressInfo_ {};
+      // The scale-out ID if the task is a scale-out task. This value serves as a unique key in the backend.
       shared_ptr<string> scaleOutToken_ {};
+      // The task status. Valid values:
+      // 
+      // - **RUNNING**: The task is running.
+      // - **FAILED**: The task failed.
       shared_ptr<string> status_ {};
+      // The task action, which serves as the unique key for the backend task type.
       shared_ptr<string> taskAction_ {};
+      // The error code of the failed task.
       shared_ptr<string> taskErrorCode_ {};
+      // The error message of the failed task.
       shared_ptr<string> taskErrorMessage_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -211,10 +225,15 @@ namespace Models
 
 
   protected:
+    // The list of result items.
     shared_ptr<vector<DescribeTasksResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

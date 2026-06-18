@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The backup set ID.
+    // 
     // This parameter is required.
     shared_ptr<string> backupSetId_ {};
+    // The name of the PolarDB-X instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The destination region for cross-region backup.
     shared_ptr<string> destCrossRegion_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

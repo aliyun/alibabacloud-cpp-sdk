@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The account name.
         shared_ptr<string> accountName_ {};
+        // The account privilege.
         shared_ptr<string> accountPrivilege_ {};
       };
 
@@ -145,10 +147,15 @@ namespace Models
 
 
     protected:
+      // The list of accounts.
       shared_ptr<vector<Data::Accounts>> accounts_ {};
+      // The character set.
       shared_ptr<string> characterSetName_ {};
+      // The database description.
       shared_ptr<string> DBDescription_ {};
+      // The instance name.
       shared_ptr<string> DBInstanceName_ {};
+      // The database name.
       shared_ptr<string> DBName_ {};
     };
 
@@ -185,9 +192,13 @@ namespace Models
 
 
   protected:
+    // The list of databases.
     shared_ptr<vector<DescribeDbListResponseBody::Data>> data_ {};
+    // The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -158,16 +158,27 @@ namespace Models
 
 
     protected:
+      // The event ID.
       shared_ptr<int64_t> eventId_ {};
+      // The event name.
       shared_ptr<string> eventName_ {};
+      // The supplementary information.
       shared_ptr<string> eventPayload_ {};
+      // The reason.
       shared_ptr<string> eventReason_ {};
+      // The record time.
       shared_ptr<string> eventRecordTime_ {};
+      // The event time.
       shared_ptr<string> eventTime_ {};
+      // The event type.
       shared_ptr<string> eventType_ {};
+      // The event user type.
       shared_ptr<string> eventUserType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource name.
       shared_ptr<string> resourceName_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -211,10 +222,15 @@ namespace Models
 
 
   protected:
+    // The event items.
     shared_ptr<vector<DescribeEventsResponseBody::EventItems>> eventItems_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of pages.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

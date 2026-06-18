@@ -84,11 +84,22 @@ namespace Models
 
 
   protected:
+    // The specific endpoints to switch. Set this parameter to a JSON string that contains the pairs of endpoints to swap.
+    // > This parameter takes effect only when SwapConnectionString is set to true.
     shared_ptr<string> connectionStrings_ {};
+    // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the new primary instance after the migration is complete.
     shared_ptr<string> newMasterDBInstanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The name of the source database instance.
     shared_ptr<string> sourceDBInstanceName_ {};
+    // Specifies whether to automatically swap connection strings. Valid values:
+    // 
+    // - true: The application does not need to modify its configuration. Connections are automatically directed to the new instance.
+    // 
+    // - false: You must manually update the application endpoint.
     shared_ptr<string> swapConnectionString_ {};
   };
 

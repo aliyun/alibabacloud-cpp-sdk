@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The target version number.
     shared_ptr<string> targetMinorVersion_ {};
+    // The backend task ID.
     shared_ptr<string> taskId_ {};
   };
 

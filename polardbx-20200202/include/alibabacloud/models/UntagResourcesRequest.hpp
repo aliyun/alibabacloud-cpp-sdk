@@ -80,13 +80,21 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete all tags. This parameter is valid only when TagKey.N is empty. Valid values: true, false, True, and False. Default value: false.
     shared_ptr<bool> all_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource IDs. A maximum of 50 subkeys are supported.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set this parameter to PolarDBXInstance.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The tag keys. A maximum of 20 subkeys are supported.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

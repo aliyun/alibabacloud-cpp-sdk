@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The column store version.
     shared_ptr<string> columnarVersion_ {};
+    // The instance name.
     shared_ptr<string> DBInstanceName_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The switch mode.
     shared_ptr<string> switchMode_ {};
   };
 

@@ -278,7 +278,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> topologyType_ {};
     shared_ptr<int32_t> usedTime_ {};
-    // VPC ID。
     shared_ptr<string> VPCId_ {};
     shared_ptr<string> vSwitchId_ {};
   };

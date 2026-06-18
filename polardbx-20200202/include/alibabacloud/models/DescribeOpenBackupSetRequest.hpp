@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // The point in time to which you want to restore the instance. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> restoreTime_ {};
   };
 

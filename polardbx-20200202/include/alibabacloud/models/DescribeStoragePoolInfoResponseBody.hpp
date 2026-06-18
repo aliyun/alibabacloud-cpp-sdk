@@ -159,15 +159,23 @@ namespace Models
 
 
       protected:
+        // The specification type of the instance (the specification code).
         shared_ptr<string> class_ {};
+        // The list of DN IDs.
         shared_ptr<vector<string>> dnIdList_ {};
         // DN id
         shared_ptr<string> dnIdString_ {};
+        // The reserved field.
         shared_ptr<string> extra_ {};
+        // The time when the account was created.
         shared_ptr<string> gmtCreated_ {};
+        // The time when the storage pool was last modified, in timestamp format.
         shared_ptr<string> gmtModified_ {};
+        // The list of idle DN IDs.
         shared_ptr<vector<string>> idleDNIdList_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The DN that cannot be deleted.
         shared_ptr<string> unDeletableDNId_ {};
       };
 
@@ -182,6 +190,7 @@ namespace Models
 
 
     protected:
+      // The storage pools.
       shared_ptr<vector<Data::StoragePools>> storagePools_ {};
     };
 
@@ -211,7 +220,9 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of instance details.
     shared_ptr<DescribeStoragePoolInfoResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

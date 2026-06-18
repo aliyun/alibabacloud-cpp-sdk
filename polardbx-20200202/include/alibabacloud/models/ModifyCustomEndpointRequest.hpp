@@ -94,15 +94,23 @@ namespace Models
 
 
   protected:
+    // The ID of the custom endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> customEndpointId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the custom endpoint.
     shared_ptr<string> name_ {};
+    // Specifies whether a node automatically joins the cluster and starts providing services after it is added or recovered.
     shared_ptr<bool> nodeAutoEnter_ {};
-    // node ids
+    // The node IDs.
     shared_ptr<string> nodeIds_ {};
+    // The role of the node.
     shared_ptr<string> nodeRole_ {};
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
   };
 

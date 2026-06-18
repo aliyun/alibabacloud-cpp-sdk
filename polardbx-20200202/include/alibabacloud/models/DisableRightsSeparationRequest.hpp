@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The name of the database instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the DBA account.
+    // 
     // This parameter is required.
     shared_ptr<string> dbaAccountName_ {};
+    // The password of the DBA account.
+    // 
     // This parameter is required.
     shared_ptr<string> dbaAccountPassword_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

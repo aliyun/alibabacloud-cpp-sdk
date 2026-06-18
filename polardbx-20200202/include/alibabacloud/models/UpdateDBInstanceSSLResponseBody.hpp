@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The backend task ID.
       shared_ptr<int64_t> taskId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The data returned by the request.
     shared_ptr<UpdateDBInstanceSSLResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

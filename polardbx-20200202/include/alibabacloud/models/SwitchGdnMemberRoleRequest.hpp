@@ -112,17 +112,24 @@ namespace Models
 
 
   protected:
+    // The instance ID of the primary instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<string> dstMainConnectString_ {};
     shared_ptr<string> dstMainPort_ {};
     shared_ptr<string> isModifyEndpoint_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> srcMainConnectString_ {};
     shared_ptr<string> srcMainPort_ {};
+    // The switchover mode.
+    // 
     // This parameter is required.
     shared_ptr<string> switchMode_ {};
+    // The timeout period of the switchover task. Unit: seconds.
     shared_ptr<int64_t> taskTimeout_ {};
   };
 

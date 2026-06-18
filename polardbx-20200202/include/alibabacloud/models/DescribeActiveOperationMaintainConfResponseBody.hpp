@@ -117,12 +117,19 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createdTime_ {};
+      // The cycle time.
       shared_ptr<string> cycleTime_ {};
+      // The cycle type.
       shared_ptr<string> cycleType_ {};
+      // The end time of the O&M window.
       shared_ptr<string> maintainEndTime_ {};
+      // The start time of the O&M window.
       shared_ptr<string> maintainStartTime_ {};
+      // The modification time.
       shared_ptr<string> modifiedTime_ {};
+      // The status.
       shared_ptr<int64_t> status_ {};
     };
 
@@ -152,8 +159,14 @@ namespace Models
 
 
   protected:
+    // The configuration information.
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
+    // Indicates whether the O&M window has been configured. Valid values:
+    // 
+    // - 1: configured.
+    // - 0: not configured.
     shared_ptr<int64_t> hasConfig_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

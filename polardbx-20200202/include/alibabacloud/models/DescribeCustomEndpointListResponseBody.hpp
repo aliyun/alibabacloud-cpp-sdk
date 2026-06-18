@@ -177,15 +177,26 @@ namespace Models
       protected:
         // [\\"pxc-i-vb1sqa7llp\\",\\"pxc-i-bemprx50ad\\"]
         shared_ptr<vector<string>> cnNames_ {};
+        // The endpoint of the instance.
         shared_ptr<string> connectionString_ {};
+        // The ID of the custom endpoint.
         shared_ptr<string> customEndpointId_ {};
+        // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
+        // The name of the custom endpoint.
         shared_ptr<string> name_ {};
+        // Indicates whether a node automatically joins the cluster and starts providing services after the node is added or recovered.
         shared_ptr<string> nodeAutoEnter_ {};
+        // To query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** and specify the **NodeId** parameter.
+        // >  In other cases, you do not need to specify this parameter or you can set it to **MASTER**.
         shared_ptr<string> nodeRole_ {};
+        // The port used to connect to the instance.
         shared_ptr<int32_t> port_ {};
+        // The status of the custom endpoint.
         shared_ptr<string> status_ {};
+        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
+        // The ID of the virtual private cloud (VPC) in which the endpoint resides.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -208,7 +219,9 @@ namespace Models
 
 
     protected:
+      // Indicates whether the node can be deleted.
       shared_ptr<int32_t> canDeleteCount_ {};
+      // The details of the endpoints.
       shared_ptr<vector<Data::Endpoints>> endpoints_ {};
     };
 
@@ -231,6 +244,7 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeCustomEndpointListResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

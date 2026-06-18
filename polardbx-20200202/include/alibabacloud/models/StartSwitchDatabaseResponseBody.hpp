@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The ID of the slink task.
       shared_ptr<string> slinkTaskId_ {};
     };
 
@@ -99,10 +100,13 @@ namespace Models
 
 
   protected:
+    // The monitoring data.
     shared_ptr<StartSwitchDatabaseResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

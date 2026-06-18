@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The Slink task ID.
       shared_ptr<string> slinkTaskId_ {};
     };
 
@@ -99,10 +100,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<SkipCurrentStepResponseBody::Data> data_ {};
+    // The return message. This parameter is empty when the request succeeds. When the request fails, exception information such as error codes is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

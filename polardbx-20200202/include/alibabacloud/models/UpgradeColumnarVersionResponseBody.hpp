@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> dbInstanceName_ {};
+        // The target task ID.
         shared_ptr<int32_t> taskId_ {};
       };
 
@@ -118,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The target version number.
       shared_ptr<string> minorVersion_ {};
+      // The list of upgrade tasks.
       shared_ptr<vector<Data::TaskList>> taskList_ {};
     };
 
@@ -155,10 +159,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<UpgradeColumnarVersionResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

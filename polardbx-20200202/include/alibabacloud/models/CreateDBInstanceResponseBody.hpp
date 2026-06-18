@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the created instance.
     shared_ptr<string> DBInstanceName_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

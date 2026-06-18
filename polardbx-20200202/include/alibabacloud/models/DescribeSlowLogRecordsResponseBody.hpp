@@ -298,31 +298,60 @@ namespace Models
 
 
     protected:
+      // The compute node name. This field is available only for CN.
       shared_ptr<string> CNname_ {};
+      // The database name.
       shared_ptr<string> DBName_ {};
+      // The extension field. This field is available only for CN.
       shared_ptr<string> extension_ {};
+      // Indicates whether the execution failed. This field is available only for CN.
       shared_ptr<string> fail_ {};
+      // The number of rows fetched. This field is available only for CN.
       shared_ptr<string> frows_ {};
+      // The name and address of the client that connects to the database.
       shared_ptr<string> hostAddress_ {};
+      // The instance name. This field is available only for DN.
       shared_ptr<string> insName_ {};
+      // Indicates whether the Prepare mode is used. This field is available only for CN.
       shared_ptr<string> isBind_ {};
+      // The lock duration. Unit: milliseconds (ms). This field is available only for DN.
       shared_ptr<string> lockTimeMS_ {};
+      // The parameters in Prepare mode. This field is available only for CN.
       shared_ptr<string> params_ {};
+      // The number of rows scanned. This field is available only for DN.
       shared_ptr<string> parseRowCounts_ {};
+      // The timestamp in the YYYY-MM-ddTHH:mm.ss.SSSZ format (UTC).
+      // 
+      // - In CN slow logs, this field indicates the execution start time.
+      // - In DN slow logs, this field indicates the execution end time.
       shared_ptr<string> queryStartTime_ {};
+      // The execution duration of the SQL statement. Unit: seconds.
       shared_ptr<string> queryTime_ {};
+      // The execution duration of the SQL statement. Unit: milliseconds (ms).
       shared_ptr<string> queryTimeMS_ {};
+      // The number of rows returned. This field is available only for DN.
       shared_ptr<string> returnRowCounts_ {};
+      // The number of rows affected or returned. This field is available only for CN.
       shared_ptr<string> rows_ {};
+      // The number of physical SQL statements. This field is available only for CN.
       shared_ptr<string> SCNT_ {};
+      // The unique identifier of the SQL statement in slow query log statistics.
       shared_ptr<string> SQLHash_ {};
+      // The SQL statement.
       shared_ptr<string> SQLText_ {};
+      // The SQL type. This field is available only for CN.
       shared_ptr<string> sqlType_ {};
+      // The kernel template ID. This field is available only for CN.
       shared_ptr<string> templateId_ {};
+      // Indicates whether the SQL statement is too long. This field is available only for CN.
       shared_ptr<string> tooLong_ {};
+      // The trace ID. This field is available only for CN.
       shared_ptr<string> traceId_ {};
+      // The transaction policy. This field is available only for CN.
       shared_ptr<string> transactionPolicy_ {};
+      // The transaction ID. This field is available only for CN.
       shared_ptr<string> trxId_ {};
+      // The workload type. This field is available only for CN.
       shared_ptr<string> WT_ {};
     };
 
@@ -373,12 +402,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The list of slow log details.
     shared_ptr<vector<DescribeSlowLogRecordsResponseBody::Items>> items_ {};
+    // The page number of the current query.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageRecordCount_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

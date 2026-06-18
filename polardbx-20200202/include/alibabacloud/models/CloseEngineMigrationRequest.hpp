@@ -57,9 +57,20 @@ namespace Models
 
 
   protected:
+    // Specifies whether to keep binlog enabled. Valid values:
+    // 
+    // * **true**: Keeps binlog enabled.
+    // * **false**: Disables binlog.
+    // 
+    // Default value: **true**.
+    // 
+    // > Disabling binlog restarts your PolarDB cluster.
     shared_ptr<string> continueEnableBinlog_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

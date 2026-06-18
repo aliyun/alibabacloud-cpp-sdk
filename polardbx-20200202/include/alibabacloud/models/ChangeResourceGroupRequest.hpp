@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The ID of the new resource group.
+    // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource ID.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The resource type. Currently, only PolarDB-X 2.0 instances are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

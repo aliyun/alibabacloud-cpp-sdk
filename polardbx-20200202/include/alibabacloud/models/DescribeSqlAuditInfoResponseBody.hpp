@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether the SQL audit feature is enabled.
       shared_ptr<bool> isEnabled_ {};
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> SLSLogStore_ {};
+      // The name of the Simple Log Service project.
       shared_ptr<string> SLSProject_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The returned result set.
     shared_ptr<DescribeSqlAuditInfoResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

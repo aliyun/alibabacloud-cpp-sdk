@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Specifies whether to check if the compute node (CN) has been deleted.
     shared_ptr<bool> checkDeleteCN_ {};
+    // The IDs of custom endpoints.
     shared_ptr<string> customEndpointIds_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
   };
 

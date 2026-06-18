@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Migration task progress.
     shared_ptr<int32_t> progress_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

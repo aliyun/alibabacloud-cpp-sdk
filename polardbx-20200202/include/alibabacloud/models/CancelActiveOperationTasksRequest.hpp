@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The event IDs, separated by commas.
+    // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

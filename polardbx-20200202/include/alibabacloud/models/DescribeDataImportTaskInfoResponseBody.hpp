@@ -200,13 +200,21 @@ namespace Models
 
 
           protected:
+            // The delay time.
             shared_ptr<int64_t> delay_ {};
+            // The most recent error message.
             shared_ptr<string> lastError_ {};
+            // The physical database name.
             shared_ptr<string> physicalDbName_ {};
+            // The data import progress.
             shared_ptr<int64_t> progress_ {};
+            // The performance and runtime metrics collected during the execution of the data migration or import task.
             shared_ptr<string> statistics_ {};
+            // The task status.
             shared_ptr<string> status_ {};
+            // The task ID.
             shared_ptr<int64_t> taskId_ {};
+            // The task type.
             shared_ptr<string> type_ {};
           };
 
@@ -243,9 +251,15 @@ namespace Models
 
 
         protected:
+          // The service detail ID.
           shared_ptr<int64_t> id_ {};
+          // The task execution status.
           shared_ptr<string> status_ {};
+          // The task details.
           shared_ptr<vector<ServiceDetailList::TaskDetailList>> taskDetailList_ {};
+          // Valid values:
+          // - FULL_COPY: full replication.
+          // - INC_COPY: incremental replication.
           shared_ptr<string> type_ {};
         };
 
@@ -282,9 +296,13 @@ namespace Models
 
 
       protected:
+        // The progress ID.
         shared_ptr<int64_t> fsmId_ {};
+        // The state identifier in a data migration or synchronization task.
         shared_ptr<string> fsmState_ {};
+        // The status in a data migration, import, or synchronization system.
         shared_ptr<string> fsmStatus_ {};
+        // The data import task details.
         shared_ptr<vector<DataImportTaskDetailInfo::ServiceDetailList>> serviceDetailList_ {};
       };
 
@@ -299,6 +317,7 @@ namespace Models
 
 
     protected:
+      // The task details.
       shared_ptr<Data::DataImportTaskDetailInfo> dataImportTaskDetailInfo_ {};
     };
 
@@ -342,10 +361,15 @@ namespace Models
 
 
   protected:
+    // The return code. This parameter is empty when the request succeeds. When the request fails, an exception message such as an error code is returned.
     shared_ptr<int64_t> code_ {};
+    // The returned result set.
     shared_ptr<DescribeDataImportTaskInfoResponseBody::Data> data_ {};
+    // The returned message. This parameter has a value only when the task status is success. Otherwise, an empty value is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

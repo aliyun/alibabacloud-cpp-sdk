@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
   };
 

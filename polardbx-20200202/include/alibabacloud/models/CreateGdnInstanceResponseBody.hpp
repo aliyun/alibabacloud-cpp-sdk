@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<int32_t> taskId_ {};
     };
 
@@ -99,10 +100,14 @@ namespace Models
 
 
   protected:
+    // The instance details.
     shared_ptr<CreateGdnInstanceResponseBody::Data> data_ {};
+    // The returned message.
+    // > This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

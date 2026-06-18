@@ -171,7 +171,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -249,11 +251,17 @@ namespace Models
 
 
       protected:
+        // The name of the compute node.
         shared_ptr<string> computeNodeId_ {};
+        // The name of the storage node.
         shared_ptr<string> dataNodeId_ {};
+        // The logical node ID.
         shared_ptr<string> id_ {};
+        // The node specifications.
         shared_ptr<string> nodeClass_ {};
+        // The region ID of the node.
         shared_ptr<string> regionId_ {};
+        // The zone where the node resides.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -331,12 +339,17 @@ namespace Models
 
 
       protected:
+        // The endpoint.
         shared_ptr<string> connectionString_ {};
+        // The port number.
         shared_ptr<int64_t> port_ {};
+        // The connection type. **VPC** indicates an internal network connection. **PUBLIC** indicates a public network connection.
         shared_ptr<string> type_ {};
         // VPC ID。
         shared_ptr<string> VPCId_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The internal cloud instance ID within the VPC. You can ignore this parameter.
         shared_ptr<string> vpcInstanceId_ {};
       };
 
@@ -655,49 +668,147 @@ namespace Models
 
 
     protected:
+      // The CN node specifications. Valid values:
+      // - **polarx.x4.medium.2e**: 2 cores, 8 GB
+      // - **polarx.x4.large.2e**: 4 cores, 16 GB
+      // - **polarx.x8.large.2e**: 4 cores, 32 GB
+      // - **polarx.x4.xlarge.2e**: 8 cores, 32 GB
+      // - **polarx.x8.xlarge.2e**: 8 cores, 64 GB
+      // - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB
+      // - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB
+      // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
+      // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
+      // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
+      // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
       shared_ptr<string> cnNodeClassCode_ {};
+      // The number of CN nodes.
       shared_ptr<int32_t> cnNodeCount_ {};
+      // The commodity code of the instance. The value is fixed as drds_polarxpost_public_cn.
       shared_ptr<string> commodityCode_ {};
+      // The endpoint information.
       shared_ptr<vector<DBInstance::ConnAddrs>> connAddrs_ {};
+      // The endpoint of the instance.
       shared_ptr<string> connectionString_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The instance type. Valid values:
+      // 
+      // - **ReadWrite**: primary instance.
+      // - **ReadOnly**: read-only instance.
       shared_ptr<string> DBInstanceType_ {};
+      // The node specifications of the instance.
       shared_ptr<string> DBNodeClass_ {};
+      // The number of instance nodes.
       shared_ptr<int32_t> DBNodeCount_ {};
+      // The database node information.
       shared_ptr<vector<DBInstance::DBNodes>> DBNodes_ {};
+      // The database type. The value is fixed as polarx.
       shared_ptr<string> DBType_ {};
+      // The database version.
       shared_ptr<string> DBVersion_ {};
+      // The instance description.
       shared_ptr<string> description_ {};
+      // The DN node specifications. Valid values:
+      // - **mysql.n2.medium.25**: 2 cores, 4 GB
+      // - **mysql.n4.medium.25**: 2 cores, 8 GB
+      // - **mysql.x8.medium.25**: 2 cores, 16 GB
+      // - **mysql.n2.large.25**: 4 cores, 8 GB
+      // - **mysql.n4.large.25**: 4 cores, 16 GB
+      // - **mysql.x8.large.25**: 4 cores, 32 GB
+      // - **mysql.n2.xlarge.25**: 8 cores, 16 GB
+      // - **mysql.n4.xlarge.25**: 8 cores, 32 GB
+      // - **mysql.x8.xlarge.25**: 8 cores, 64 GB
+      // - **mysql.n4.2xlarge.25**: 16 cores, 64 GB
+      // - **mysql.x8.2xlarge.25**: 16 cores, 128 GB
+      // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
+      // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
+      // - **mysql.st.8xlarge.25**: 60 cores, 470 GB
+      // - **mysql.st.12xlarge.25**: 90 cores, 720 GB.
       shared_ptr<string> dnNodeClassCode_ {};
+      // The number of DN nodes.
       shared_ptr<int32_t> dnNodeCount_ {};
+      // The database type. The value is fixed as MySQL.
       shared_ptr<string> engine_ {};
+      // The expiration time. The time is in the yyyy-MM-ddTHH:mm:ss.sss+0000 format (UTC).
       shared_ptr<string> expireDate_ {};
+      // Indicates whether the instance has expired. Valid values:
+      // 
+      // - **true**: The instance has expired.
+      // - **false**: The instance is running normally.
       shared_ptr<string> expired_ {};
+      // The ID of the primary instance. If this parameter is not returned, the instance is a primary instance.
       shared_ptr<string> id_ {};
+      // The DPI engine version of the instance. This is an internal parameter.
       shared_ptr<int32_t> kindCode_ {};
+      // The Long-Term Support (LTS) version number.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> LTSVersions_ {};
+      // The latest kernel version supported by the instance.
       shared_ptr<string> latestMinorVersion_ {};
+      // The lock mode of the instance. Valid values:
+      // 
+      // - **Unlock**: Normal.
+      // - **ManualLock**: Manually locked.
+      // - **LockByExpiration**: Automatically locked due to instance expiration.
+      // - **LockByRestoration**: Automatically locked before instance rollback.
+      // - **LockByDiskQuota**: Automatically locked because the instance storage is full.
+      // - **LockReadInstanceByDiskQuota**: Automatically locked because the read-only instance storage is full.
       shared_ptr<string> lockMode_ {};
+      // The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainEndTime_ {};
+      // The start time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainStartTime_ {};
+      // The current kernel version.
       shared_ptr<string> minorVersion_ {};
+      // The network type of the instance. Only VPC is supported, which indicates a virtual private cloud (VPC).
       shared_ptr<string> network_ {};
+      // The billing method of the instance. Valid values:
+      // 
+      // - **Postpaid**: pay-as-you-go.
+      // - **Prepaid**: subscription.
       shared_ptr<string> payType_ {};
+      // The port of the instance endpoint.
       shared_ptr<string> port_ {};
+      // The names of the read-only instances.
       shared_ptr<vector<string>> readDBInstances_ {};
+      // The region where the instance resides.
       shared_ptr<string> regionId_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The three-role mode status. Valid values:
+      // 
+      // - **false**: Disabled.
+      // - **true**: Enabled.
       shared_ptr<bool> rightsSeparationEnabled_ {};
+      // The three-role mode status. Valid values:
+      // 
+      // - **disabled**: Disabled.
+      // - **enabled**: Enabled.
+      // - **processing**: Being processed.
+      // - **unknown**: Unknown. The instance may be disconnected.
       shared_ptr<string> rightsSeparationStatus_ {};
+      // The instance edition. Valid values:
+      // 
+      // - **enterprise**: Enterprise Edition.
+      // - **standard**: Standard Edition.
       shared_ptr<string> series_ {};
+      // The instance status. For more information, see [Instance status](https://help.aliyun.com/document_detail/339826.html).
       shared_ptr<string> status_ {};
+      // The used storage space, in bytes.
       shared_ptr<int64_t> storageUsed_ {};
+      // The tag set.
       shared_ptr<vector<DBInstance::TagSet>> tagSet_ {};
+      // The instance type. Valid values:
+      // 
+      // - **ReadWrite**: primary instance.
+      // - **ReadOnly**: read-only instance.
       shared_ptr<string> type_ {};
       // VPC ID。
       shared_ptr<string> VPCId_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The zone where the instance resides.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -720,7 +831,9 @@ namespace Models
 
 
   protected:
+    // The instance information.
     shared_ptr<DescribeDBInstanceViaEndpointResponseBody::DBInstance> DBInstance_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

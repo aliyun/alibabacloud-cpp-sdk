@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: ***30*****50*****100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the destination task.
     shared_ptr<string> slinkTaskId_ {};
   };
 

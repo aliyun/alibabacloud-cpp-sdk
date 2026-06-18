@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the custom endpoint domain name.
     shared_ptr<string> customEndpointId_ {};
+    // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
   };
 

@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -128,12 +130,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ModifyEngineMigrationResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The additional information. The value success is returned if the request succeeds. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<string> successResponse_ {};
   };
 

@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The description of the node instance.
       shared_ptr<string> DBInstanceDescription_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
     };
 
@@ -130,10 +133,15 @@ namespace Models
 
 
   protected:
+    // The list of node information.
     shared_ptr<vector<DescribePolarxDataNodesResponseBody::DBInstanceDataNodes>> DBInstanceDataNodes_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of nodes.
     shared_ptr<int32_t> totalNumber_ {};
   };
 

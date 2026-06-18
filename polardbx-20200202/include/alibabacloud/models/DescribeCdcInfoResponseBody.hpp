@@ -184,12 +184,19 @@ namespace Models
 
 
         protected:
+          // The zone in which the instance resides.
           shared_ptr<string> AZone_ {};
+          // The disk size. Unit: MB.
           shared_ptr<int32_t> disk_ {};
+          // The instance specifications.
           shared_ptr<string> nodeClass_ {};
+          // The node ID.
           shared_ptr<string> nodeId_ {};
+          // The name of the node.
           shared_ptr<string> nodeName_ {};
+          // The instance status.
           shared_ptr<string> status_ {};
+          // The instance version.
           shared_ptr<string> version_ {};
         };
 
@@ -248,12 +255,19 @@ namespace Models
 
 
       protected:
+        // The cluster type.
         shared_ptr<string> clusterType_ {};
+        // The remarks on the instance type.
         shared_ptr<string> comment_ {};
+        // The name of the multi-stream group.
         shared_ptr<string> groupName_ {};
+        // The split level.
         shared_ptr<string> hashLevel_ {};
+        // The name of the instance.
         shared_ptr<string> instanceName_ {};
+        // The array of nodes.
         shared_ptr<vector<InstanceTopologyList::PhysicalNodes>> physicalNodes_ {};
+        // The number of splits.
         shared_ptr<int32_t> streamNum_ {};
       };
 
@@ -319,18 +333,27 @@ namespace Models
 
 
     protected:
+      // The number of days that binlogs are retained.
       shared_ptr<int32_t> binlogPersistTime_ {};
+      // The size of the binlog.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> binlogSize_ {};
+      // The latest CDC version.
+      // 
       // This parameter is required.
       shared_ptr<string> cdcNewVersion_ {};
+      // The checksum switch status.
       shared_ptr<string> checkSumSwitch_ {};
+      // Indicates whether bidirectional replication is supported.
       shared_ptr<bool> enableCyclicReplication_ {};
+      // The list of instances.
       shared_ptr<vector<Data::InstanceTopologyList>> instanceTopologyList_ {};
       // server id
       // 
       // This parameter is required.
       shared_ptr<int32_t> serverId_ {};
+      // Indicates whether multi-stream CDC is supported.
       shared_ptr<bool> versionSupportMultiCdc_ {};
     };
 
@@ -367,11 +390,16 @@ namespace Models
 
 
   protected:
+    // The instance data.
     shared_ptr<DescribeCdcInfoResponseBody::Data> data_ {};
+    // The HTTP status code of the request.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
     // This parameter is required.
     shared_ptr<bool> success_ {};
   };

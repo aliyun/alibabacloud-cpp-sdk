@@ -111,9 +111,13 @@ namespace Models
 
 
       protected:
+        // The data key.
         shared_ptr<string> dbKey_ {};
+        // The table name.
         shared_ptr<string> tableName_ {};
+        // The table type.
         shared_ptr<string> tableType_ {};
+        // The table key.
         shared_ptr<string> tbKey_ {};
       };
 
@@ -128,6 +132,7 @@ namespace Models
 
 
     protected:
+      // The list of tables.
       shared_ptr<vector<Data::Tables>> tables_ {};
     };
 
@@ -164,9 +169,13 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeDistributeTableListResponseBody::Data> data_ {};
+    // The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

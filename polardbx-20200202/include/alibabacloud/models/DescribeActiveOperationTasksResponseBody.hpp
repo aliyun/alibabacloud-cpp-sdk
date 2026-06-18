@@ -308,32 +308,68 @@ namespace Models
 
 
     protected:
+      // Indicates whether cancellation is allowed. Valid values:
+      // 
+      // - **0**: Not allowed.
+      // - **1**: Allowed.
       shared_ptr<string> allowCancel_ {};
+      // Indicates whether modification is allowed. Valid values:
+      // 
+      // - **0**: Not allowed.
+      // - **1**: Allowed.
       shared_ptr<string> allowChange_ {};
+      // The change level. This parameter can be ignored.
       shared_ptr<string> changeLevel_ {};
+      // The change level in English.
       shared_ptr<string> changeLevelEn_ {};
+      // The change level in Chinese.
       shared_ptr<string> changeLevelZh_ {};
+      // The creation time.
       shared_ptr<string> createdTime_ {};
+      // The current availability zone.
       shared_ptr<string> currentAVZ_ {};
+      // The database type.
       shared_ptr<string> dbType_ {};
+      // The database version.
       shared_ptr<string> dbVersion_ {};
+      // The deadline.
       shared_ptr<string> deadline_ {};
+      // The task ID.
       shared_ptr<int64_t> id_ {};
+      // The impact. This parameter is not returned.
       shared_ptr<string> impact_ {};
+      // The impact description in English.
       shared_ptr<string> impactEn_ {};
+      // The impact description in Chinese.
       shared_ptr<string> impactZh_ {};
+      // The description.
       shared_ptr<string> insComment_ {};
+      // The instance name.
       shared_ptr<string> insName_ {};
+      // The modification time.
       shared_ptr<string> modifiedTime_ {};
+      // The preparation interval.
       shared_ptr<string> prepareInterval_ {};
+      // The region.
       shared_ptr<string> region_ {};
+      // The result information. This parameter can be ignored.
       shared_ptr<string> resultInfo_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
+      // The status. Valid values:
+      // 
+      // - **3**: Pending. 
+      // - **4**: Running.
       shared_ptr<int64_t> status_ {};
+      // The list of child instances.
       shared_ptr<vector<string>> subInsNames_ {};
+      // The switchover time.
       shared_ptr<string> switchTime_ {};
+      // The task type.
       shared_ptr<string> taskType_ {};
+      // The task type in English. This parameter can be ignored.
       shared_ptr<string> taskTypeEn_ {};
+      // The task type in Chinese. This parameter can be ignored.
       shared_ptr<string> taskTypeZh_ {};
     };
 
@@ -377,10 +413,15 @@ namespace Models
 
 
   protected:
+    // The list of parameters.
     shared_ptr<vector<DescribeActiveOperationTasksResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

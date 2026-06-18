@@ -84,16 +84,31 @@ namespace Models
 
 
   protected:
+    // The day of the week. Valid values: 1 to 7.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleTime_ {};
+    // The cycle mode. Set this parameter to Week.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};
+    // The end time.
+    // 
     // This parameter is required.
     shared_ptr<string> maintainEndTime_ {};
+    // The start time.
+    // 
     // This parameter is required.
     shared_ptr<string> maintainStartTime_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Specifies whether to enable the configuration. Valid values:
+    // 
+    // - **1**: Enabled.
+    // - **0**: Disabled.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
   };

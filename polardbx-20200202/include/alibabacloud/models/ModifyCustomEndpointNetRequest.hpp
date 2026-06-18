@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The connection prefix.
     shared_ptr<string> connPrefix_ {};
+    // The ID of the custom endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> customEndpointId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The public endpoint port.
     shared_ptr<int32_t> port_ {};
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the virtual private cloud (VPC) in which the endpoint resides.
     shared_ptr<string> vpcId_ {};
   };
 

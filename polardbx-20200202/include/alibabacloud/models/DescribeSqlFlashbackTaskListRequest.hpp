@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID of the PolarDB-X instance.
+    // 
     // This parameter is required.
     shared_ptr<string> polardbxInstanceId_ {};
+    // The region in which the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

@@ -187,7 +187,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -256,10 +258,14 @@ namespace Models
 
 
       protected:
+        // The instance specifications.
         shared_ptr<string> classCode_ {};
+        // The node ID.
         shared_ptr<string> id_ {};
         shared_ptr<string> name_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -612,62 +618,140 @@ namespace Models
 
 
     protected:
+      // The name of the log node.
       shared_ptr<string> cdcInstanceName_ {};
+      // The CN node specifications. Valid values:
+      // 
+      // - **polarx.x4.medium.2e**: 2 cores, 8 GB memory
+      // - **polarx.x4.large.2e**: 4 cores, 16 GB memory
+      // - **polarx.x8.large.2e**: 4 cores, 32 GB memory
+      // - **polarx.x4.xlarge.2e**: 8 cores, 32 GB memory
+      // - **polarx.x8.xlarge.2e**: 8 cores, 64 GB memory
+      // - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB memory
+      // - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB memory
+      // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB memory
+      // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB memory
+      // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB memory
+      // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB memory.
       shared_ptr<string> cnNodeClassCode_ {};
+      // The number of CN nodes.
       shared_ptr<int32_t> cnNodeCount_ {};
+      // The name of the column store engine instance.
       shared_ptr<string> columnarInstanceName_ {};
+      // The column store read-only instance information.
       shared_ptr<vector<string>> columnarReadDBInstances_ {};
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
+      // Indicates whether the instance contains the multi-stream log service. Valid values:
+      // 
+      // - **true**: The instance contains the multi-stream log service.
+      // - **false**: The instance does not contain the multi-stream log service.
       shared_ptr<bool> containBinlogX_ {};
       shared_ptr<string> cpuType_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The name of the database instance.
       shared_ptr<string> DBInstanceName_ {};
+      // The database type.
       shared_ptr<string> DBType_ {};
+      // The database version.
       shared_ptr<string> DBVersion_ {};
+      // The database description.
       shared_ptr<string> description_ {};
+      // The DN node specifications. Valid values:
+      // - **mysql.n2.medium.25**: 2 cores, 4 GB memory
+      // - **mysql.n4.medium.25**: 2 cores, 8 GB memory
+      // - **mysql.x8.medium.25**: 2 cores, 16 GB memory
+      // - **mysql.n2.large.25**: 4 cores, 8 GB memory
+      // - **mysql.n4.large.25**: 4 cores, 16 GB memory
+      // - **mysql.x8.large.25**: 4 cores, 32 GB memory
+      // - **mysql.n2.xlarge.25**: 8 cores, 16 GB memory
+      // - **mysql.n4.xlarge.25**: 8 cores, 32 GB memory
+      // - **mysql.x8.xlarge.25**: 8 cores, 64 GB memory
+      // - **mysql.n4.2xlarge.25**: 16 cores, 64 GB memory
+      // - **mysql.x8.2xlarge.25**: 16 cores, 128 GB memory
+      // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB memory
+      // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB memory
+      // - **mysql.st.8xlarge.25**: 60 cores, 470 GB memory
+      // - **mysql.st.12xlarge.25**: 90 cores, 720 GB memory.
       shared_ptr<string> dnNodeClassCode_ {};
+      // The number of DN nodes.
       shared_ptr<int32_t> dnNodeCount_ {};
+      // The engine type.
       shared_ptr<string> engine_ {};
       shared_ptr<string> engineVersion_ {};
+      // The expiration time.
       shared_ptr<string> expireTime_ {};
+      // Indicates whether the instance has expired.
       shared_ptr<bool> expired_ {};
+      // The instance ID.
       shared_ptr<string> id_ {};
+      // Indicates whether the instance is locked.
       shared_ptr<string> lockMode_ {};
+      // The reason why the instance is locked.
       shared_ptr<string> lockReason_ {};
+      // The current Milvus version.
       shared_ptr<string> minorVersion_ {};
+      // The network type.
       shared_ptr<string> network_ {};
+      // The node specifications.
       shared_ptr<string> nodeClass_ {};
+      // The number of nodes.
       shared_ptr<int32_t> nodeCount_ {};
+      // The list of nodes.
       shared_ptr<vector<DBInstances::Nodes>> nodes_ {};
+      // The billing method of the instance. Valid values:
+      // 
+      // - **Postpaid**: pay-as-you-go.
+      // - **Prepaid**: subscription.
       shared_ptr<string> payType_ {};
       shared_ptr<string> primaryInstanceId_ {};
-      // 主可用区。
+      // The primary zone.
       // 
       // This parameter is required.
       shared_ptr<string> primaryZone_ {};
+      // The list of read-only instances.
       shared_ptr<vector<string>> readDBInstances_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // 次可用区。
+      // The secondary zone.
       shared_ptr<string> secondaryZone_ {};
+      // The instance edition. Valid values:
+      // 
+      // - **enterprise**: Enterprise Edition.
+      // - **standard**: Standard Edition.
       shared_ptr<string> series_ {};
+      // The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/339826.html).
       shared_ptr<string> status_ {};
       shared_ptr<string> storageType_ {};
+      // The storage usage.
       shared_ptr<int64_t> storageUsed_ {};
-      shared_ptr<bool> supportBinlogX_ {};
-      shared_ptr<vector<DBInstances::TagSet>> tagSet_ {};
-      // 第三可用区。
-      shared_ptr<string> tertiaryZone_ {};
-      // 拓扑类型：
+      // Indicates whether the instance supports multi-stream. Valid values:
       // 
-      // - **3azones**：三可用区；
-      // - **1azone**：单可用区。
+      // - **true**: Yes.
+      // - **false**: No.
+      shared_ptr<bool> supportBinlogX_ {};
+      // The set of tags.
+      shared_ptr<vector<DBInstances::TagSet>> tagSet_ {};
+      // The third zone in the three-zone deployment.
+      shared_ptr<string> tertiaryZone_ {};
+      // The topology type. Valid values:
+      // 
+      // - **3azones**: three-zone deployment.
+      // - **1azone**: single-zone deployment.
       // 
       // This parameter is required.
       shared_ptr<string> topologyType_ {};
+      // The instance type. Valid values:
+      // 
+      // - **ReadWrite**: primary instance.
+      // - **ReadOnly**: read-only instance.
       shared_ptr<string> type_ {};
       // VPC ID。
       shared_ptr<string> VPCId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
       shared_ptr<string> gdnRole_ {};
       shared_ptr<bool> isInGdn_ {};
@@ -713,10 +797,15 @@ namespace Models
 
 
   protected:
+    // The list of instances.
     shared_ptr<vector<DescribeDBInstancesResponseBody::DBInstances>> DBInstances_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalNumber_ {};
   };
 

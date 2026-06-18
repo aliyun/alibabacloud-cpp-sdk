@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> failPageNumber_ {};
+    // The number of records per page.
     shared_ptr<int32_t> failPageSize_ {};
+    // The region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The switchover task ID.
     shared_ptr<string> slinkTaskId_ {};
+    // The requested page number.
     shared_ptr<int64_t> successPageNumber_ {};
+    // The number of records per page.
     shared_ptr<int64_t> successPageSize_ {};
   };
 

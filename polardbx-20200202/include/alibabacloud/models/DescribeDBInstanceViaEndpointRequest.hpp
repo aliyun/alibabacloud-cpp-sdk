@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The endpoint of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> endpoint_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

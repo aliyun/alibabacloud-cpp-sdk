@@ -78,8 +78,19 @@ namespace Models
 
 
     protected:
+      // The configuration key.
       shared_ptr<string> configName_ {};
+      // The configuration item. The following parameters are included:
+      // 
+      // - attendHtapList: the list of instances for which HTAP is enabled.
+      // - autoAttendHtap: specifies whether to automatically add newly created read-only instances to the HTAP list.
+      // - delayExecutionStrategy: when the read-only instance lag reaches the value specified by storageDelayThreshold, read-only traffic is routed back to the primary instance. Default value: 1. Valid values: 0 and 1.
+      // - enableConsistentReplicaRead: specifies whether to enable consistent reads.
+      // - storageDelayThreshold: the latency threshold for read-only instances. Default value: 3s. Valid values: 0 to 86400.
+      // - enableHtap: specifies whether to enable HTAP.
+      // - masterReadWeight: the read weight of the primary node. A value of 100 indicates that 100% of traffic is routed to the primary node. Valid values: 0 to 100.
       shared_ptr<string> configValue_ {};
+      // The instance ID.
       shared_ptr<string> dbInstanceName_ {};
     };
 
@@ -102,7 +113,9 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeDBInstanceConfigResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

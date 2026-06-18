@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
+      // The backend task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -128,12 +130,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The new endpoint information.
     shared_ptr<CloseEngineMigrationResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<string> successResponse_ {};
   };
 

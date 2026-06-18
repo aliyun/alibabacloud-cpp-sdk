@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The name of the primary instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The description of the instance.
     shared_ptr<string> description_ {};
+    // The GDN mode.
     shared_ptr<string> gdnMode_ {};
+    // The region in which the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The conflict strategy.
     shared_ptr<string> rplConflictStrategy_ {};
+    // The DML replication policy.
     shared_ptr<string> rplDmlStrategy_ {};
+    // Specifies whether to synchronize DDL statements.
     shared_ptr<bool> rplSyncDdl_ {};
   };
 

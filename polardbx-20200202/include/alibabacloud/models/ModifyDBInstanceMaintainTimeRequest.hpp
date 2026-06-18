@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The unique token.
     shared_ptr<string> clientToken_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The maintenance window in UTC. Valid values: 00:00Z-23:59Z.
+    // 
     // This parameter is required.
     shared_ptr<string> maintainTime_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

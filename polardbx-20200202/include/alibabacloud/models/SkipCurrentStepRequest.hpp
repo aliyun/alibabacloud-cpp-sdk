@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The current operation step of the task.
     shared_ptr<string> currentStep_ {};
+    // The region where the instance is located.
     shared_ptr<string> regionId_ {};
+    // The import task ID.
     shared_ptr<string> slinkTaskId_ {};
   };
 

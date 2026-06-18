@@ -75,14 +75,24 @@ namespace Models
 
 
   protected:
+    // The database name.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // The end time of the flashback SQL execution.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> polardbxInstanceId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start time of the flashback SQL execution.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

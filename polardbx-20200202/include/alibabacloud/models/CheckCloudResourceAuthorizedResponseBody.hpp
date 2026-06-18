@@ -69,7 +69,13 @@ namespace Models
 
 
     protected:
+      // The authorization status. Valid values:
+      // 
+      // - **0**: not authorized.
+      // - **1**: authorized.
+      // - **2**: KMS is not activated.
       shared_ptr<string> authorizationState_ {};
+      // The global resource descriptor ARN (Alibaba Cloud Resource Name) of the authorized role. After the authorization of this role is complete, the related KMS can be used. Format: acs:ram::$accountID:role/$roleName.
       shared_ptr<string> roleArn_ {};
     };
 
@@ -92,7 +98,9 @@ namespace Models
 
 
   protected:
+    // The response body.
     shared_ptr<CheckCloudResourceAuthorizedResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

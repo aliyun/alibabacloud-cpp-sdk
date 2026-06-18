@@ -236,24 +236,43 @@ namespace Models
 
 
     protected:
+      // The business ID of the import task.
       shared_ptr<string> bid_ {};
+      // The creator of the import task.
       shared_ptr<string> creator_ {};
+      // Indicates whether the task is deleted.
       shared_ptr<bool> deleted_ {};
+      // The task creation timestamp, in milliseconds.
       shared_ptr<int64_t> gmtCreated_ {};
+      // The modification time of the metadata information.
       shared_ptr<int64_t> gmtModified_ {};
+      // The task ID.
       shared_ptr<int64_t> id_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The name of the slink destination database.
       shared_ptr<string> slinkDstDb_ {};
+      // The instance ID of the destination.
       shared_ptr<string> slinkDstResId_ {};
+      // The username for the data connection of the destination.
       shared_ptr<string> slinkDstUserName_ {};
+      // The name of the slink source database.
       shared_ptr<string> slinkSrcDb_ {};
+      // The instance ID of the source.
       shared_ptr<string> slinkSrcResId_ {};
+      // The resource type of the source.
       shared_ptr<string> slinkSrcResType_ {};
+      // The username for the data connection of the source.
       shared_ptr<string> slinkSrcUserName_ {};
+      // The stage of the synchronization task.
       shared_ptr<string> slinkStage_ {};
+      // The running status of the synchronization task.
       shared_ptr<string> slinkStatus_ {};
+      // The description of the slink task.
       shared_ptr<string> slinkTaskDesc_ {};
+      // The slink task ID.
       shared_ptr<string> slinkTaskId_ {};
+      // The synchronization type.
       shared_ptr<string> slinkType_ {};
     };
 
@@ -312,12 +331,19 @@ namespace Models
 
 
   protected:
+    // The task details.
     shared_ptr<vector<DescribeEvaluateAndImportTasksResponseBody::Data>> data_ {};
+    // The returned message. > This parameter is empty when the request succeeds. When the request fails, exception information (such as error codes) is returned.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalNumber_ {};
   };
 

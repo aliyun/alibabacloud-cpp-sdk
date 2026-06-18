@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
+    // The endpoint of the primary node of the target instance.
     shared_ptr<string> dstMainConnectString_ {};
+    // The port number of the target instance.
     shared_ptr<string> dstMainPort_ {};
+    // Specifies whether to modify the endpoint or port of the source or target instance.
     shared_ptr<string> isModifyEndpoint_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the import task.
+    // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
+    // The endpoint of the primary node of the source instance, which is typically the internal or public endpoint of the instance.
     shared_ptr<string> srcMainConnectString_ {};
+    // The port number of the primary node of the source instance.
     shared_ptr<string> srcMainPort_ {};
   };
 

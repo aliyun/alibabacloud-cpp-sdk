@@ -91,9 +91,13 @@ namespace Models
 
 
     protected:
+      // The connection string.
       shared_ptr<string> connectionString_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
+      // The network type of the connection string.
       shared_ptr<string> DBInstanceNetType_ {};
+      // The port number.
       shared_ptr<string> port_ {};
     };
 
@@ -130,9 +134,13 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int64_t> code_ {};
+    // The new connection string information.
     shared_ptr<ModifyDBInstanceConnectionStringResponseBody::Data> data_ {};
+    // The response message. This is typically an error message.
     shared_ptr<string> message_ {};
+    // The request ID. It is a unique identifier.
     shared_ptr<string> requestId_ {};
   };
 

@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<int32_t> taskId_ {};
     };
 
@@ -99,10 +100,13 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<SwitchGdnMemberRoleResponseBody::Data> data_ {};
+    // The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

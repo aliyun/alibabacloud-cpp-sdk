@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<int32_t> taskId_ {};
     };
 
@@ -99,10 +100,14 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DeleteGdnInstanceResponseBody::Data> data_ {};
+    // The response message.
+    // > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

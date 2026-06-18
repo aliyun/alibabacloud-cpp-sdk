@@ -166,11 +166,17 @@ namespace Models
 
 
         protected:
+          // The zone in which the instance resides.
           shared_ptr<string> AZone_ {};
+          // The disk size, in MB.
           shared_ptr<int32_t> disk_ {};
+          // The instance specifications.
           shared_ptr<string> nodeClass_ {};
+          // The node ID.
           shared_ptr<string> nodeId_ {};
+          // The instance status.
           shared_ptr<string> status_ {};
+          // The instance version.
           shared_ptr<string> version_ {};
         };
 
@@ -200,8 +206,11 @@ namespace Models
 
 
       protected:
+        // The instance type description.
         shared_ptr<string> comment_ {};
+        // The instance name.
         shared_ptr<string> instanceName_ {};
+        // The node array.
         shared_ptr<vector<InstanceTopologyList::PhysicalNodes>> physicalNodes_ {};
       };
 
@@ -267,14 +276,23 @@ namespace Models
 
 
     protected:
+      // The number of days that binlogs are retained.
       shared_ptr<int32_t> binlogPersistTime_ {};
+      // The binlog size.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> binlogSize_ {};
+      // The checksum switch.
       shared_ptr<string> checkSumSwitch_ {};
+      // The instance specifications.
       shared_ptr<string> classCode_ {};
+      // The new column store version.
+      // 
       // This parameter is required.
       shared_ptr<string> columnarNewVersion_ {};
+      // The column store version.
       shared_ptr<string> columnarVersion_ {};
+      // The instance list.
       shared_ptr<vector<Data::InstanceTopologyList>> instanceTopologyList_ {};
       // server id
       // 
@@ -315,11 +333,16 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeColumnarInfoResponseBody::Data> data_ {};
+    // The HTTP status code.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
     // This parameter is required.
     shared_ptr<bool> success_ {};
   };

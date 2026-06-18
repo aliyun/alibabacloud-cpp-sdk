@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The version list.
       shared_ptr<vector<string>> versionList_ {};
     };
 
@@ -84,6 +85,7 @@ namespace Models
 
 
   protected:
+    // The parameter details.
     shared_ptr<DescribeColumnarVersionListResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

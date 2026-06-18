@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
+    // The type of the operation.
     shared_ptr<string> operation_ {};
+    // The ID of the region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
     shared_ptr<string> regionId_ {};
   };
 

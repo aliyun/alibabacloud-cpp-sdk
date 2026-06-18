@@ -103,18 +103,32 @@ namespace Models
 
 
   protected:
+    // The description of the audit account.
     shared_ptr<string> auditAccountDescription_ {};
+    // The name of the audit account.
+    // 
     // This parameter is required.
     shared_ptr<string> auditAccountName_ {};
+    // The password of the audit account.
+    // 
     // This parameter is required.
     shared_ptr<string> auditAccountPassword_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The description of the security administrator account.
     shared_ptr<string> securityAccountDescription_ {};
+    // The name of the security administrator account.
+    // 
     // This parameter is required.
     shared_ptr<string> securityAccountName_ {};
+    // The password of the security administrator account.
+    // 
     // This parameter is required.
     shared_ptr<string> securityAccountPassword_ {};
   };

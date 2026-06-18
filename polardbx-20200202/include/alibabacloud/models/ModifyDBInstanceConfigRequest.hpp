@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The configuration item to modify. For more information, see [Compute layer variables](https://help.aliyun.com/document_detail/316576.html).
+    // 
     // This parameter is required.
     shared_ptr<string> configName_ {};
+    // If configName is set to ENABLE_CONSISTENT_REPLICA_READ, the valid values are "true" and "false".
+    // 
     // This parameter is required.
     shared_ptr<string> configValue_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

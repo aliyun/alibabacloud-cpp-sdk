@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The connection string of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> currentConnectionString_ {};
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

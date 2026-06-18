@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The name of the GDN instance.
+    // 
     // This parameter is required.
     shared_ptr<string> gdnInstanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

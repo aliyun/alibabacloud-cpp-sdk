@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Indicates whether a pop-up notification is required. Valid values:
+    // 
+    // - 1: Required.
+    // - 0: Not required.
     shared_ptr<int64_t> needPop_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number.
     shared_ptr<int64_t> taskCount_ {};
   };
 

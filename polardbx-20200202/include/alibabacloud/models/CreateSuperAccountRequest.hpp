@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The description of the account.
     shared_ptr<string> accountDescription_ {};
+    // The name of the account.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The password of the account.
+    // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The export task ID.
       shared_ptr<string> slinkTaskId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The monitoring data.
     shared_ptr<RefreshImportMetaResponseBody::Data> data_ {};
+    // The result details of the import or export task. > This parameter is empty unless an exception occurs.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

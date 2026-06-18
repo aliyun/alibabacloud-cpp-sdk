@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The domain name bound to the certificate.
     shared_ptr<string> certCommonName_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // Specifies whether to enable SSL.
+    // 
     // This parameter is required.
     shared_ptr<bool> enableSSL_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

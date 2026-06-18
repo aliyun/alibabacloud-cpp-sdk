@@ -112,15 +112,22 @@ namespace Models
 
 
   protected:
+    // The prefix of the public endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<string> instanceClusterName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The port of the public endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> port_ {};
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

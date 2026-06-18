@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The end time of the time range for querying historical instances in the topology. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endTime_ {};
+    // Specifies whether to query the historical topology.
     shared_ptr<bool> minuteSimple_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start time of the time range for querying historical instances in the topology. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startTime_ {};
   };
 

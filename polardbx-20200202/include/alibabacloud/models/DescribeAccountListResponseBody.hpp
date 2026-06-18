@@ -120,12 +120,22 @@ namespace Models
 
 
     protected:
+      // The description of the account.
       shared_ptr<string> accountDescription_ {};
+      // The name of the account.
       shared_ptr<string> accountName_ {};
+      // The permissions granted to the account.
       shared_ptr<string> accountPrivilege_ {};
+      // The type of the account.
+      // 
+      // - Before three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged user account.
+      // - After three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
       shared_ptr<string> accountType_ {};
+      // The name of the instance.
       shared_ptr<string> DBInstanceName_ {};
+      // The database to which the account is granted permissions.
       shared_ptr<string> DBName_ {};
+      // The time when the account was created.
       shared_ptr<string> gmtCreated_ {};
     };
 
@@ -162,9 +172,13 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<vector<DescribeAccountListResponseBody::Data>> data_ {};
+    // The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

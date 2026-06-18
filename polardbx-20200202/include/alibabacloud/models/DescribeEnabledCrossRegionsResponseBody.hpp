@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether VPC is supported.
       shared_ptr<vector<string>> regions_ {};
     };
 
@@ -102,10 +103,13 @@ namespace Models
 
 
   protected:
+    // The parameter details.
     shared_ptr<vector<DescribeEnabledCrossRegionsResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

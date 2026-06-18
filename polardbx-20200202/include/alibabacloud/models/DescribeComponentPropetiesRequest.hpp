@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The commodity code.
+    // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
+    // The resource group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> componentName_ {};
+    // The region in which the instance resides. > You can call the [describeregions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The storage type.
     shared_ptr<string> storageType_ {};
   };
 

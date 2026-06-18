@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The parameter description.
         shared_ptr<string> parameterDescription_ {};
+        // The parameter name.
         shared_ptr<string> parameterName_ {};
+        // The parameter value.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -158,8 +161,11 @@ namespace Models
 
 
       protected:
+        // The parameter description.
         shared_ptr<string> parameterDescription_ {};
+        // The parameter name.
         shared_ptr<string> parameterName_ {};
+        // The parameter value.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -205,10 +211,14 @@ namespace Models
 
 
     protected:
+      // The list of original parameters.
       shared_ptr<vector<Data::ConfigParameters>> configParameters_ {};
       shared_ptr<string> DBInstanceId_ {};
+      // The engine. Default value: polarx.
       shared_ptr<string> engine_ {};
+      // The DPI engine version. Default value: 2.0.
       shared_ptr<string> engineVersion_ {};
+      // The list of running parameter details.
       shared_ptr<vector<Data::RunningParameters>> runningParameters_ {};
     };
 
@@ -231,7 +241,9 @@ namespace Models
 
 
   protected:
+    // The parameter details.
     shared_ptr<DescribeParametersResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

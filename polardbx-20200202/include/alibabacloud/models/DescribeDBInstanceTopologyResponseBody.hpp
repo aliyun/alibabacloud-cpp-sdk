@@ -224,8 +224,11 @@ namespace Models
 
 
           protected:
+            // The connection information.
             shared_ptr<string> connectionString_ {};
+            // The internal connection type. The value is fixed to 1, which indicates the classic network.
             shared_ptr<int32_t> DBInstanceNetType_ {};
+            // The port.
             shared_ptr<string> port_ {};
           };
 
@@ -267,7 +270,13 @@ namespace Models
 
 
           protected:
+            // The zone of a node in the RDS three-node cluster.
             shared_ptr<string> azone_ {};
+            // The role of a node in the RDS three-node cluster. Valid values:
+            // 
+            // - **leader**: primary node
+            // - **follower**: secondary node
+            // - **logger**: logger node.
             shared_ptr<string> role_ {};
           };
 
@@ -493,35 +502,97 @@ namespace Models
 
 
         protected:
+          // Indicates whether the node is activated. For the compute layer, only the node in the primary zone is activated. After a primary/secondary switchover is performed on the instance, the standby compute node becomes the primary node. All storage layer nodes are activated.
           shared_ptr<bool> activated_ {};
+          // The zone of the node. If the node is an RDS node, the zones of multiple child nodes are separated with a delimiter (,).
           shared_ptr<string> azone_ {};
+          // The data information list of the RDS three-node cluster.
           shared_ptr<vector<Items::AzoneRoleList>> azoneRoleList_ {};
+          // The node type. Valid values:
+          // 
+          // - **polarx_cn**: compute node.
+          // - **polarx_store**: data node.
+          // - **polarx_gms**: GMS node.
           shared_ptr<string> characterType_ {};
+          // The data struct.
           shared_ptr<vector<Items::ConnectionIp>> connectionIp_ {};
+          // The connection type.
           shared_ptr<int32_t> DBInstanceConnType_ {};
+          // The time when the instance was created.
           shared_ptr<string> DBInstanceCreateTime_ {};
+          // The instance description.
           shared_ptr<string> DBInstanceDescription_ {};
+          // The instance ID.
           shared_ptr<string> DBInstanceId_ {};
+          // The instance name.
           shared_ptr<string> DBInstanceName_ {};
+          // The instance status.
           shared_ptr<int32_t> DBInstanceStatus_ {};
+          // The description of the instance status.
           shared_ptr<string> DBInstanceStatusDescription_ {};
+          // The disk size.
           shared_ptr<int64_t> diskSize_ {};
+          // The engine type. Valid values:
+          // 
+          // - **mysql**
+          // - **polarx_cdc**
+          // - **polarx_dn**
           shared_ptr<string> engine_ {};
+          // The engine version. Default value: 2.0.
           shared_ptr<string> engineVersion_ {};
           shared_ptr<string> instanceClusterName_ {};
+          // Indicates whether the node is locked. Valid values:
+          // 
+          // - **0**: Not locked.
+          // - **1**: Locked.
           shared_ptr<int32_t> lockMode_ {};
+          // The reason why the instance is locked.
           shared_ptr<string> lockReason_ {};
+          // The end time of the O&M window.
           shared_ptr<string> maintainEndTime_ {};
+          // The start time of the O&M window.
           shared_ptr<string> maintainStartTime_ {};
+          // The maximum number of connections.
           shared_ptr<int32_t> maxConnections_ {};
+          // The maximum IOPS.
           shared_ptr<int32_t> maxIops_ {};
+          // The node specifications. Valid values:
+          // 
+          // - **polarx.x4.medium.2e**: 2 cores, 8 GB
+          // - **polarx.x4.large.2e**: 4 cores, 16 GB
+          // - **polarx.x8.large.2e**: 4 cores, 32 GB
+          // - **polarx.x4.xlarge.2e**: 8 cores, 32 GB
+          // - **polarx.x8.xlarge.2e**: 8 cores, 64 GB
+          // - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB
+          // - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB
+          // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
+          // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
+          // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
+          // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
           shared_ptr<string> nodeClass_ {};
+          // The physical instance name.
           shared_ptr<string> phyInstanceName_ {};
           shared_ptr<string> readType_ {};
+          // The region of the node. If the node is an RDS node, the regions of multiple child nodes are separated with a delimiter (,).
           shared_ptr<string> region_ {};
+          // The role of the node. Valid values:
+          // 
+          // - **master**: primary node
+          // - **standby**: secondary node.
           shared_ptr<string> role_ {};
+          // The node status. Valid values:
+          // 
+          // - **0**: Running.
+          // - **1**: Creating.
+          // - **2**: Abnormal.
+          // - **3**: Expired.
+          // - **4**: Releasing.
+          // - **5**: Released.
+          // - **6**: Locked.
           shared_ptr<string> status_ {};
+          // The storage usage, in MB.
           shared_ptr<string> storageUsed_ {};
+          // The logger node version.
           shared_ptr<string> version_ {};
         };
 
@@ -618,13 +689,28 @@ namespace Models
 
 
         protected:
+          // Indicates whether the node is activated. For the compute layer, only the node in the primary zone is activated. After a primary/secondary switchover is performed on the instance, the standby compute node becomes the primary node. All storage layer nodes are activated.
           shared_ptr<bool> activated_ {};
+          // The zone of the node. If the node is an RDS node, the zones of multiple child nodes are separated with a delimiter (,).
           shared_ptr<string> azone_ {};
+          // The node type. Valid values:
+          // 
+          // - **polarx_cn**: compute node.
+          // - **polarx_store**: data node.
+          // - **polarx_gms**: GMS node.
           shared_ptr<string> characterType_ {};
+          // The instance ID.
           shared_ptr<string> DBInstanceId_ {};
+          // The instance name.
           shared_ptr<string> DBInstanceName_ {};
+          // The physical instance name.
           shared_ptr<string> phyInstanceName_ {};
+          // The region of the node. If the node is an RDS node, the regions of multiple child nodes are separated with a delimiter (,).
           shared_ptr<string> region_ {};
+          // The role of the node. Valid values:
+          // 
+          // - **master**: primary node
+          // - **standby**: secondary node.
           shared_ptr<string> role_ {};
         };
 
@@ -749,21 +835,40 @@ namespace Models
 
 
       protected:
+        // Indicates that LVS is used for load balancing.
         shared_ptr<string> DBInstanceConnType_ {};
+        // The time when the instance was created. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> DBInstanceCreateTime_ {};
+        // The instance description.
         shared_ptr<string> DBInstanceDescription_ {};
+        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
+        // The instance name.
         shared_ptr<string> DBInstanceName_ {};
+        // The instance status.
         shared_ptr<int32_t> DBInstanceStatus_ {};
+        // The description of the instance status.
         shared_ptr<string> DBInstanceStatusDescription_ {};
+        // The number of storage nodes.
         shared_ptr<int32_t> DBInstanceStorage_ {};
+        // The engine type. Default value: polarx.
         shared_ptr<string> engine_ {};
+        // The engine version. Default value: 2.0.
         shared_ptr<string> engineVersion_ {};
+        // The list of historical nodes.
         shared_ptr<vector<LogicInstanceTopology::HistoryItems>> historyItems_ {};
+        // The list of nodes.
         shared_ptr<vector<LogicInstanceTopology::Items>> items_ {};
+        // The lock status. Valid values:
+        // 
+        // - **0**: Not locked.
+        // - **1**: Locked.
         shared_ptr<int32_t> lockMode_ {};
+        // The reason why the instance is locked.
         shared_ptr<string> lockReason_ {};
+        // The end time of the O&M window. Format: HH:mm:ss.
         shared_ptr<string> maintainEndTime_ {};
+        // The start time of the O&M window. Format: HH:mm:ss.
         shared_ptr<string> maintainStartTime_ {};
       };
 
@@ -778,6 +883,7 @@ namespace Models
 
 
     protected:
+      // The topology information.
       shared_ptr<Data::LogicInstanceTopology> logicInstanceTopology_ {};
     };
 
@@ -800,7 +906,9 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeDBInstanceTopologyResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

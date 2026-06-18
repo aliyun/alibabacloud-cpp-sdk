@@ -428,7 +428,6 @@ namespace Models
     shared_ptr<DescribeDBInstanceEndpointResponseBody::Data> data_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

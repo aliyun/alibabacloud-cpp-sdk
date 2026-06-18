@@ -103,19 +103,37 @@ namespace Models
 
 
   protected:
+    // The node type. Valid values: polarx_cn, polarx_dn, polarx_cdc, polarx_gms, and polarx_columnar.
+    // 
     // This parameter is required.
     shared_ptr<string> characterType_ {};
+    // The name of the PolarDB-X instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The node names. Separate multiple node names with commas (,). You can specify up to 10 CDC nodes and compute nodes, or up to 1 data node at a time.
+    // 
     // This parameter is required.
     shared_ptr<string> DBNodeIds_ {};
+    // The node role. Valid values:
+    // - master: primary node.
+    // - slave: secondary node. This value applies to DN and GMS nodes.
+    // - standby: secondary node. This value applies to CN nodes.
     shared_ptr<string> DBNodeRole_ {};
+    // The end of the time range to query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The metric names. Separate multiple metric names with commas (,). You can specify up to 6 metrics. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/332726.html).
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The beginning of the time range to query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The label key.
       shared_ptr<string> key_ {};
+      // The label value.
       shared_ptr<string> value_ {};
     };
 
@@ -122,12 +124,19 @@ namespace Models
 
 
   protected:
+    // The token for the next query. If this parameter is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource IDs. You can specify up to 50 subkeys.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set this parameter to PolarDBXInstance.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The list of labels. You can specify up to 20 subkeys.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

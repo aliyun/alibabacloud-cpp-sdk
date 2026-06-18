@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The page number of failed records.
     shared_ptr<int32_t> failPageNumber_ {};
+    // The number of failed records to display per page.
     shared_ptr<int32_t> failPageSize_ {};
+    // The region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
+    // The page number of successful records.
     shared_ptr<int64_t> successPageNumber_ {};
+    // The number of successful records to display per page.
     shared_ptr<int64_t> successPageSize_ {};
   };
 

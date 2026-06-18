@@ -76,7 +76,14 @@ namespace Models
 
 
     protected:
+      // The character sets supported by the instance. Valid values:
+      // 
+      // - utf8mb4
+      // - gbk
+      // - latin1
+      // - utf8.
       shared_ptr<vector<string>> characterSet_ {};
+      // The storage type of databases in the target instance. Currently, only polarx is supported.
       shared_ptr<string> engine_ {};
     };
 
@@ -113,9 +120,13 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeCharacterSetResponseBody::Data> data_ {};
+    // The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

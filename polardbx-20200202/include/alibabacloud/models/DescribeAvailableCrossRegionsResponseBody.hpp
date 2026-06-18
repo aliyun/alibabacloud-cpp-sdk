@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<vector<string>> regions_ {};
     };
 
@@ -102,10 +103,13 @@ namespace Models
 
 
   protected:
+    // The parameter details.
     shared_ptr<vector<DescribeAvailableCrossRegionsResponseBody::Data>> data_ {};
+    // The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

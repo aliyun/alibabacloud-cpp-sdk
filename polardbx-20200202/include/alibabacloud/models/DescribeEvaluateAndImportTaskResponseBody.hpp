@@ -238,25 +238,45 @@ namespace Models
 
 
     protected:
+      // The business ID of the import task.
       shared_ptr<string> bid_ {};
+      // The summary information.
       shared_ptr<string> context_ {};
+      // The creator of the import task.
       shared_ptr<string> creator_ {};
+      // Indicates whether the import task is successful.
       shared_ptr<bool> deleted_ {};
+      // The timestamp when the task was created.
       shared_ptr<int64_t> gmtCreated_ {};
+      // The modification time in timestamp format.
       shared_ptr<int64_t> gmtModified_ {};
+      // The task ID.
       shared_ptr<int64_t> id_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The name of the slink destination database.
       shared_ptr<string> slinkDstDb_ {};
+      // The instance ID of the destination.
       shared_ptr<string> slinkDstResId_ {};
+      // The username for the data connection of the destination.
       shared_ptr<string> slinkDstUserName_ {};
+      // The name of the slink source database.
       shared_ptr<string> slinkSrcDb_ {};
+      // The instance ID of the source.
       shared_ptr<string> slinkSrcResId_ {};
+      // The resource type of the source.
       shared_ptr<string> slinkSrcResType_ {};
+      // The username for the data connection of the source.
       shared_ptr<string> slinkSrcUserName_ {};
+      // The stage of the synchronization.
       shared_ptr<string> slinkStage_ {};
+      // The running status of the synchronization.
       shared_ptr<string> slinkStatus_ {};
+      // The description of the slink task.
       shared_ptr<string> slinkTaskDesc_ {};
+      // The slink task ID.
       shared_ptr<string> slinkTaskId_ {};
+      // The synchronization type.
       shared_ptr<string> slinkType_ {};
     };
 
@@ -293,9 +313,13 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<DescribeEvaluateAndImportTaskResponseBody::Data> data_ {};
+    // The response message. This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

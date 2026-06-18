@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The parameter level. Valid values:
+    // 
+    // - compute: compute layer
+    // - storage: storage layer.
     shared_ptr<string> paramLevel_ {};
+    // The region to which the instance belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the created instance.
     shared_ptr<string> DBInstanceName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The backend task ID.
     shared_ptr<string> taskId_ {};
   };
 

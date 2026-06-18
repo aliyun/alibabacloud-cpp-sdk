@@ -82,7 +82,6 @@ namespace Models
 
   protected:
     shared_ptr<CreateSubCNInstanceResponseBody::Data> data_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

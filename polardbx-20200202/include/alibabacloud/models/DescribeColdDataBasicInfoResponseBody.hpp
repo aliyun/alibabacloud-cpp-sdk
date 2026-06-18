@@ -142,14 +142,20 @@ namespace Models
 
 
     protected:
+      // The number of backup sets.
       shared_ptr<int32_t> backupSetCount_ {};
+      // The data size of valid backup sets.
       shared_ptr<double> backupSetSpaceSize_ {};
+      // The underlying storage cloud service.
       shared_ptr<string> cloudProduct_ {};
+      // The data size of cold storage.
       shared_ptr<double> currentSpaceSize_ {};
       shared_ptr<string> dataRedundancyType_ {};
+      // Indicates whether cold storage is enabled.
       shared_ptr<bool> enableStatus_ {};
       shared_ptr<int64_t> readAccessNum_ {};
       shared_ptr<string> regionId_ {};
+      // The storage volume name.
       shared_ptr<string> volumeName_ {};
       shared_ptr<double> writeAccessNum_ {};
     };
@@ -173,7 +179,9 @@ namespace Models
 
 
   protected:
+    // The details.
     shared_ptr<DescribeColdDataBasicInfoResponseBody::Data> data_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
   };
 

@@ -98,8 +98,11 @@ namespace Models
 
 
       protected:
+        // The instance specification.
         shared_ptr<string> classCode_ {};
+        // The number of CPU cores.
         shared_ptr<string> cpuCore_ {};
+        // The total memory size of the tenant. Unit: GB.
         shared_ptr<string> mem_ {};
       };
 
@@ -137,6 +140,7 @@ namespace Models
 
 
   protected:
+    // The data struct.
     shared_ptr<DescribeCdcClassListResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -140,18 +140,46 @@ namespace Models
 
 
   protected:
+    // Specifies whether cancellation is allowed. Valid values:
+    // - **-1**: All O&M events can be canceled.
+    // - **0**: Not allowed. 
+    // - **1**: Allowed.
     shared_ptr<int64_t> allowCancel_ {};
+    // Specifies whether the time can be modified. Valid values:
+    // 
+    // - **-1**: The time of all O&M events can be modified.
+    // - **0**: Not allowed. 
+    // - **1**: Allowed.
     shared_ptr<int64_t> allowChange_ {};
+    // The change level. Default value: all. Valid values:
+    // 
+    // - **all**: All levels of exception recovery and system O&M.
+    // - **S0**: Exception recovery.
+    // - **S1**: System O&M.
     shared_ptr<string> changeLevel_ {};
+    // The database type. Set this parameter to polarx.
     shared_ptr<string> dbType_ {};
+    // The instance name. Default value: empty string.
     shared_ptr<string> insName_ {};
+    // The page number. The value must be greater than 0. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page. Default value: 25.
     shared_ptr<int64_t> pageSize_ {};
+    // The product name. Default value: polarx.
     shared_ptr<string> productId_ {};
+    // The region.
     shared_ptr<string> region_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The task status. Valid values:
+    // 
+    // - **-1**: All pending and running tasks.  
+    // - **3**: Pending. 
+    // - **4**: Running.
     shared_ptr<int64_t> status_ {};
+    // The task type. A value of all indicates that all tasks of the user are queried. Set this parameter to all.
     shared_ptr<string> taskType_ {};
   };
 

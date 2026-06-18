@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The backup type. Currently, only "0" is supported, which indicates fast backup.
     shared_ptr<string> backupType_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

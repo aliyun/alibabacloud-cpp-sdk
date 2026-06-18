@@ -113,13 +113,21 @@ namespace Models
 
   protected:
     shared_ptr<string> addDNSpec_ {};
+    // The number of compute nodes.
     shared_ptr<int32_t> CNNodeCount_ {};
+    // The client token. You can set this parameter to any random string.
     shared_ptr<string> clientToken_ {};
+    // The instance name ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The number of storage nodes.
     shared_ptr<int32_t> DNNodeCount_ {};
+    // The target number of nodes for the instance. Valid values: 0 to 99.
     shared_ptr<int32_t> dbInstanceNodeCount_ {};
     shared_ptr<string> deleteDNIds_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> storagePoolName_ {};
