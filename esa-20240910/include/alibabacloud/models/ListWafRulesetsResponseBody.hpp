@@ -139,21 +139,37 @@ namespace Models
 
 
     protected:
-      // List of match objects.
+      // A list of match fields.
       shared_ptr<vector<string>> fields_ {};
-      // ID of the WAF rule set.
+      // The ID of the WAF ruleset. This value is returned by the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
       shared_ptr<int64_t> id_ {};
-      // Name of the rule set.
+      // The ruleset name.
       shared_ptr<string> name_ {};
-      // WAF operation phase.
+      // The execution phase of the ruleset. Valid values are:
+      // 
+      // - `http_whitelist`: whitelist rule
+      // 
+      // - `http_custom`: custom rule
+      // 
+      // - `http_managed`: managed rule
+      // 
+      // - `http_anti_scan`: scan protection rule
+      // 
+      // - `http_ratelimit`: rate limiting rule
+      // 
+      // - `ip_access_rule`: IP access rule
+      // 
+      // - `http_bot`: advanced bot protection
+      // 
+      // - `http_security_level_rule`: security rule
       shared_ptr<string> phase_ {};
-      // Status of the rule set.
+      // The ruleset status.
       shared_ptr<string> status_ {};
-      // Protection target type in http_bot.
+      // The protection target for the \\"http_bot\\" phase.
       shared_ptr<string> target_ {};
-      // List of rule types.
+      // A list of rule types.
       shared_ptr<vector<string>> types_ {};
-      // Last modification time of the rule set.
+      // The time the ruleset was last modified.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -212,19 +228,19 @@ namespace Models
 
 
   protected:
-    // Number of WAF rule sets used by the instance in this WAF operation phase.
+    // The number of WAF rulesets used by the instance in this WAF phase.
     shared_ptr<int64_t> instanceUsage_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of rule set information, containing detailed information about the rule sets.
+    // A list of rulesets.
     shared_ptr<vector<ListWafRulesetsResponseBody::Rulesets>> rulesets_ {};
-    // Number of WAF rule sets used by the site in this WAF operation phase.
+    // The number of WAF rulesets used by the site in this WAF phase.
     shared_ptr<int64_t> siteUsage_ {};
-    // Total number of filtered records.
+    // The total number of entries returned after filtering.
     shared_ptr<int64_t> totalCount_ {};
   };
 

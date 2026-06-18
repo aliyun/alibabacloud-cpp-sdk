@@ -66,21 +66,25 @@ namespace Models
 
 
   protected:
-    // The mode of smart HTTP DDoS protection. Valid values:
+    // The protection mode for the intelligent HTTP DDoS protection feature. Valid values:
     // 
-    // *   **observe**: alert.
-    // *   **defense**: block.
+    // - **observe**: The system generates warnings for attack traffic but does not block it.
+    // 
+    // - **defense**: The system blocks detected attack traffic.
     shared_ptr<string> aiMode_ {};
-    // The level of smart HTTP DDoS protection. Valid values:
+    // The sensitivity level for the intelligent HTTP DDoS protection feature. Valid values:
     // 
-    // *   **level0**: very loose.
-    // *   **level30**: loose.
-    // *   **level60**: normal.
-    // *   **level90**: strict.
+    // - **level0**: very loose
+    // 
+    // - **level30**: loose
+    // 
+    // - **level60**: normal
+    // 
+    // - **level90**: strict
     shared_ptr<string> aiTemplate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

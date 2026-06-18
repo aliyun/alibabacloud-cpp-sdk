@@ -50,6 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The waiting room ID.
     shared_ptr<string> waitingRoomId_ {};
   };
 

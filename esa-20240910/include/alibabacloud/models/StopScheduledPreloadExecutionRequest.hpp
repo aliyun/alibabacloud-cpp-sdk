@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the prefetch plan.
+    // The prefetch plan ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

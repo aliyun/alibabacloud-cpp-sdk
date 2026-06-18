@@ -92,9 +92,12 @@ namespace Models
 
 
     protected:
-      // The resource ID.
+      // The resource ID. Enter a site ID or a DNS record ID.
       shared_ptr<string> resourceId_ {};
-      // The resource type.
+      // The resource type. Valid values:
+      // 
+      // - site: site
+      // - record: DNS record.
       shared_ptr<string> resourceType_ {};
       // The tag key.
       shared_ptr<string> tagKey_ {};
@@ -135,13 +138,13 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token for the next query. If NextToken is empty, all information has been displayed on the current page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags of the resource.
+    // The resource tags.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

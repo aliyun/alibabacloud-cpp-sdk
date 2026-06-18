@@ -176,63 +176,87 @@ namespace Models
 
 
   protected:
-    // Custom cipher suite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
+    // The custom cipher suite to use when `CiphersuiteGroup` is set to `custom`.
     shared_ptr<string> ciphersuite_ {};
-    // Cipher suite group. Default is all cipher suites. Value range:
-    // - all: All cipher suites.
-    // - strict: Strong cipher suites.
-    // - custom: Custom cipher suites.
+    // The cipher suite group. Default value: `all`. Valid values:
+    // 
+    // - `all`: All cipher suites.
+    // 
+    // - `strict`: strong cipher suites.
+    // 
+    // - `custom`: custom cipher suites.
     shared_ptr<string> ciphersuiteGroup_ {};
-    // Configuration ID.
+    // The configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Whether to enable HTTP2. Default is enabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether HTTP/2 is enabled. Default value: `on`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> http2_ {};
-    // Whether to enable HTTP3. Default is enabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether HTTP/3 is enabled. Default value: `on`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> http3_ {};
-    // Whether to enable HTTPS. Default is enabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether HTTPS is enabled. Default value: `on`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> https_ {};
-    // Whether to enable OCSP. Default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether OCSP stapling is enabled. Default value: `off`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> ocspStapling_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The conditional expression used to match incoming requests. This parameter is not required when you add a global configuration. Use cases:
+    // 
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, set the value to a custom expression, for example, `(http.host eq "video.example.com")`.
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether the rule is enabled. This parameter is not required when you add a global configuration. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The rule name. This parameter is not required when you add a global configuration.
     shared_ptr<string> ruleName_ {};
+    // The rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Whether to enable TLS1.0. Default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether TLS 1.0 is enabled. Default value: `off`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> tls10_ {};
-    // Whether to enable TLS1.1. Default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether TLS 1.1 is enabled. Default value: `off`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> tls11_ {};
-    // Whether to enable TLS1.2. Default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether TLS 1.2 is enabled. Default value: `off`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> tls12_ {};
-    // Whether to enable TLS1.3. Default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Indicates whether TLS 1.3 is enabled. Default value: `off`. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> tls13_ {};
   };
 

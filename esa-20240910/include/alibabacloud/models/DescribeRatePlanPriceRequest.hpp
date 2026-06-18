@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of plans.
     shared_ptr<int32_t> amount_ {};
+    // The purchase duration, in months.
     shared_ptr<int32_t> period_ {};
+    // The plan name.
     shared_ptr<string> planName_ {};
   };
 

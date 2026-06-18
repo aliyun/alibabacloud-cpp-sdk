@@ -103,13 +103,37 @@ namespace Models
 
 
   protected:
+    // The action to perform. Valid values:
+    // 
+    // - **observe**: Monitors requests.
+    // 
+    // - **deny**: Denies requests.
+    // 
+    // - **js**: Issues a JavaScript challenge.
     shared_ptr<string> actionType_ {};
+    // Indicates whether automatic frequency control is enabled. Valid values:
+    // 
+    // - **on**: Enabled.
+    // 
+    // - **off**: Disabled.
     shared_ptr<string> enable_ {};
+    // The statistics collection interval.
     shared_ptr<int32_t> interval_ {};
+    // The protection level. Valid values:
+    // 
+    // - **loose**: Loose.
+    // 
+    // - **normal**: Normal.
+    // 
+    // - **strict**: Strict.
     shared_ptr<string> level_ {};
+    // The duration of the penalty, in seconds.
     shared_ptr<int32_t> punishTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The rule ID.
     shared_ptr<int64_t> ruleId_ {};
+    // The threshold that triggers the action.
     shared_ptr<int32_t> threshold_ {};
   };
 

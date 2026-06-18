@@ -131,13 +131,25 @@ namespace Models
 
 
     protected:
+      // The action to perform.
       shared_ptr<string> action_ {};
+      // The default action.
       shared_ptr<string> defaultAction_ {};
+      // The ID of the protection rule used for log records.
       shared_ptr<int32_t> logRuleId_ {};
+      // The description of the rule.
       shared_ptr<string> ruleDesc_ {};
+      // The ID of the HTTP DDoS protection rule.
       shared_ptr<int32_t> ruleId_ {};
+      // The short name of the rule.
       shared_ptr<string> ruleIdInfo_ {};
+      // The name of the rule.
       shared_ptr<string> ruleName_ {};
+      // The status of the rule. Valid values:
+      // 
+      // - **on**: The rule is enabled.
+      // 
+      // - **off**: The rule is disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -181,11 +193,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A list of rule details.
     shared_ptr<vector<DescribeHttpDDoSAttackRulesResponseBody::RuleInfos>> ruleInfos_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

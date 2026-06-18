@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // The domain names with which the certificate is associated.
+    // The list of bound hostnames.
     shared_ptr<vector<string>> hostnames_ {};
-    // The ID of the client CA certificate.
+    // The client CA certificate ID.
     shared_ptr<string> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
+    // The site name.
     shared_ptr<string> siteName_ {};
   };
 

@@ -191,34 +191,51 @@ namespace Models
 
 
     protected:
-      // The domain name of the transport layer application.
+      // The client IP pass-through mode. Valid values:
+      // 
+      // - **off**: Client IP pass-through is disabled.
+      // 
+      // - **PPv1**: PROXY Protocol v1, which supports client IP pass-through for TCP.
+      // 
+      // - **PPv2**: PROXY Protocol v2, which supports client IP pass-through for both TCP and UDP.
+      // 
+      // - **SPP**: Simple Proxy Protocol, which supports client IP pass-through for UDP.
       shared_ptr<string> clientIPPassThroughMode_ {};
-      // Switch for IP access rules. When turned on, the IP access rules in WAF take effect on the transport layer application.
-      // 
-      // - on: Turned on.
-      // - off: Turned off.
+      // A comment about the forwarding rule.
       shared_ptr<string> comment_ {};
-      // Comment information of the rule.
+      // The edge port. The following formats are supported:
+      // 
+      // - A single port, for example, `80`.
+      // 
+      // - A port range, such as `81-85` (ports 81 to 85).
+      // 
+      // - A comma-separated list of ports and port ranges, such as `80,81-85,90`.
       shared_ptr<string> edgePort_ {};
-      // Client IP pass-through protocol, supporting:
-      // - **off**: No pass-through.
-      // - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
-      // - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
-      // - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
+      // The protocol for the forwarding rule. Valid values:
+      // 
+      // - **TCP**: For TCP traffic.
+      // 
+      // - **UDP**: For UDP traffic.
       shared_ptr<string> protocol_ {};
-      // Status of the transport layer application
-      // 
-      // - **deploying**: Deploying. In this state, modification and deletion are not allowed.
-      // - **active**: Active.
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
-      // Origin port. Supports:
-      // 
-      // - A single port, when the origin port is a single port, any valid edge port combination is supported.
-      // - Port range, only when the edge port is a port range, the origin port can be set as a port range and the size of the range must be consistent with the edge port. For example, if the edge port is 90-93, the origin port cannot be set to 81-85 because the origin port range is 5 and the edge port range is 3, which are inconsistent.
+      // The origin. This value must be consistent with the specified origin type.
       shared_ptr<string> source_ {};
-      // The CNAME domain corresponding to the transport layer acceleration application. This field is not empty only when the site is accessed via CNAME.
+      // The origin port. The following formats are supported:
+      // 
+      // - A single port. A single origin port can be mapped to one or more edge ports.
+      // 
+      // - A port range. When mapping a range of edge ports to a range of origin ports, both ranges must contain the same number of ports. For example, you cannot map edge ports `90-93` (4 ports) to origin ports `81-85` (5 ports).
       shared_ptr<string> sourcePort_ {};
-      // Rule ID.
+      // The origin type. Valid values:
+      // 
+      // - **ip**: An IP address.
+      // 
+      // - **domain**: A domain name.
+      // 
+      // - **OP**: An origin address pool.
+      // 
+      // - **LB**: A load balancer.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -329,37 +346,43 @@ namespace Models
 
 
   protected:
-    // Specific value of the origin, which needs to match the type of the origin.
+    // The ID of the Transport Layer Application.
     shared_ptr<int64_t> applicationId_ {};
-    // Whether to enable China mainland network access optimization, default is off. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // The CNAME domain name of the Transport Layer Application. This parameter is returned only if the Site was added using the CNAME method.
     shared_ptr<string> cname_ {};
+    // Indicates whether network optimization for access from the Chinese mainland is enabled. This feature is disabled by default. Valid values:
+    // 
+    // - **on**: Enabled.
+    // 
+    // - **off**: Disabled.
     shared_ptr<string> crossBorderOptimization_ {};
-    // #/components/schemas/WafRuleMatch2
+    // Indicates whether the IP Access Rule feature is enabled. If enabled, IP Access Rules in Web Application Firewall (WAF) take effect for the Transport Layer Application. Valid values:
+    // 
+    // - **on**: Enabled.
+    // 
+    // - **off**: Disabled.
     shared_ptr<string> ipAccessRule_ {};
-    // Ipv6 switch
+    // Indicates whether IPv6 is enabled.
     shared_ptr<string> ipv6_ {};
+    // Indicates whether keep-alive protection is enabled.
     shared_ptr<string> keepAliveProtection_ {};
-    // Query Transport Layer Acceleration Application
+    // The domain name of the Transport Layer Application.
     shared_ptr<string> recordName_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Edge port. Supports:
-    // 
-    // - A single port, such as 80.
-    // - Port range, such as 81-85, representing ports 81, 82, 83, 84, 85.
-    // - Combination of ports and port ranges, separated by commas, for example 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
+    // A list of forwarding rules.
     shared_ptr<vector<GetTransportLayerApplicationResponseBody::Rules>> rules_ {};
-    // Forwarding rule protocol, with values:
-    // 
-    // - TCP: TCP protocol.
-    // - UDP: UDP protocol.
+    // The number of forwarding rules in the Transport Layer Application.
     shared_ptr<int32_t> rulesCount_ {};
-    // Details of the forwarding rule.
+    // The ID of the Site.
     shared_ptr<int64_t> siteId_ {};
     shared_ptr<string> staticIp_ {};
     shared_ptr<vector<GetTransportLayerApplicationResponseBody::StaticIpV4List>> staticIpV4List_ {};
+    // The status of the Transport Layer Application. Valid values:
+    // 
+    // - **deploying**: The application is deploying. You cannot modify or delete the application in this state.
+    // 
+    // - **active**: The application is active.
     shared_ptr<string> status_ {};
   };
 

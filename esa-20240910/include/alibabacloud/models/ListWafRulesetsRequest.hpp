@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // Fuzzy search for rule set ID, rule set name, rule ID, and rule name.
+      // A keyword for a fuzzy search on the ID or name of a ruleset or rule.
       shared_ptr<string> anyLike_ {};
-      // Whether to sort in descending order.
+      // Specifies whether to sort in descending order.
       shared_ptr<bool> desc_ {};
-      // Fuzzy search for rule set name.
+      // A keyword for a fuzzy search on ruleset names.
       shared_ptr<string> nameLike_ {};
-      // Specify the column to sort by.
+      // Specifies the field for sorting the results.
       shared_ptr<string> orderBy_ {};
     };
 
@@ -152,17 +152,33 @@ namespace Models
 
 
   protected:
-    // Page number, specifying the current page number for paginated queries.
+    // The page number for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, specifying the number of records per page for paginated queries.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // WAF operation phase, specifying the rule set phase to query.
+    // The execution phase for WAF rules.
+    // 
+    // - `http_whitelist`: whitelist rule
+    // 
+    // - `http_custom`: custom rule
+    // 
+    // - `http_managed`: managed rule
+    // 
+    // - `http_anti_scan`: scan protection rule
+    // 
+    // - `http_ratelimit`: rate-limiting rule
+    // 
+    // - `ip_access_rule`: IP access rule
+    // 
+    // - `http_bot`: bot rule
+    // 
+    // - `http_security_level_rule`: security rule
     shared_ptr<string> phase_ {};
-    // Query parameters, passed in JSON format, containing various filtering conditions.
+    // A JSON object containing query parameters for filtering.
     shared_ptr<ListWafRulesetsRequest::QueryArgs> queryArgs_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The ID of the site. Get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
+    // The site\\"s configuration version. For sites with configuration version management enabled, use this parameter to specify the version. The default is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

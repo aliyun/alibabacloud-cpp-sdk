@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Comment, comment_);
       DARABONBA_PTR_TO_JSON(Data, dataShrink_);
       DARABONBA_PTR_TO_JSON(HostPolicy, hostPolicy_);
+      DARABONBA_PTR_TO_JSON(HttpPorts, httpPorts_);
+      DARABONBA_PTR_TO_JSON(HttpsPorts, httpsPorts_);
       DARABONBA_PTR_TO_JSON(Proxied, proxied_);
       DARABONBA_PTR_TO_JSON(RecordId, recordId_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
@@ -30,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
       DARABONBA_PTR_FROM_JSON(Data, dataShrink_);
       DARABONBA_PTR_FROM_JSON(HostPolicy, hostPolicy_);
+      DARABONBA_PTR_FROM_JSON(HttpPorts, httpPorts_);
+      DARABONBA_PTR_FROM_JSON(HttpsPorts, httpsPorts_);
       DARABONBA_PTR_FROM_JSON(Proxied, proxied_);
       DARABONBA_PTR_FROM_JSON(RecordId, recordId_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authConfShrink_ == nullptr
-        && this->bizName_ == nullptr && this->comment_ == nullptr && this->dataShrink_ == nullptr && this->hostPolicy_ == nullptr && this->proxied_ == nullptr
-        && this->recordId_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr && this->type_ == nullptr; };
+        && this->bizName_ == nullptr && this->comment_ == nullptr && this->dataShrink_ == nullptr && this->hostPolicy_ == nullptr && this->httpPorts_ == nullptr
+        && this->httpsPorts_ == nullptr && this->proxied_ == nullptr && this->recordId_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr
+        && this->type_ == nullptr; };
     // authConfShrink Field Functions 
     bool hasAuthConfShrink() const { return this->authConfShrink_ != nullptr;};
     void deleteAuthConfShrink() { this->authConfShrink_ = nullptr;};
@@ -83,6 +88,20 @@ namespace Models
     void deleteHostPolicy() { this->hostPolicy_ = nullptr;};
     inline string getHostPolicy() const { DARABONBA_PTR_GET_DEFAULT(hostPolicy_, "") };
     inline UpdateRecordShrinkRequest& setHostPolicy(string hostPolicy) { DARABONBA_PTR_SET_VALUE(hostPolicy_, hostPolicy) };
+
+
+    // httpPorts Field Functions 
+    bool hasHttpPorts() const { return this->httpPorts_ != nullptr;};
+    void deleteHttpPorts() { this->httpPorts_ = nullptr;};
+    inline string getHttpPorts() const { DARABONBA_PTR_GET_DEFAULT(httpPorts_, "") };
+    inline UpdateRecordShrinkRequest& setHttpPorts(string httpPorts) { DARABONBA_PTR_SET_VALUE(httpPorts_, httpPorts) };
+
+
+    // httpsPorts Field Functions 
+    bool hasHttpsPorts() const { return this->httpsPorts_ != nullptr;};
+    void deleteHttpsPorts() { this->httpsPorts_ = nullptr;};
+    inline string getHttpsPorts() const { DARABONBA_PTR_GET_DEFAULT(httpsPorts_, "") };
+    inline UpdateRecordShrinkRequest& setHttpsPorts(string httpsPorts) { DARABONBA_PTR_SET_VALUE(httpsPorts_, httpsPorts) };
 
 
     // proxied Field Functions 
@@ -121,45 +140,55 @@ namespace Models
 
 
   protected:
-    // The origin authentication information of the CNAME record.
+    // The origin authentication settings for the CNAME record.
     shared_ptr<string> authConfShrink_ {};
-    // The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+    // The use case for proxy acceleration. Omit this parameter if proxy acceleration is disabled. Valid values:
     // 
-    // *   **video_image**: video and image.
-    // *   **api**: API.
-    // *   **web**: web page.
+    // - **video_image**: Video and images.
+    // 
+    // - **api**: APIs.
+    // 
+    // - **web**: Web pages.
     shared_ptr<string> bizName_ {};
-    // The comments of the record.
+    // A comment for the record.
     shared_ptr<string> comment_ {};
-    // The DNS record information. The format of this field varies based on the record type. For more information, see [Add DNS records](https://www.alibabacloud.com/help/doc-detail/2708761.html).
+    // The DNS data for the record. The required content varies based on the record type. For more information, see <props="china">[Documentation](https://help.aliyun.com/document_detail/2708761.html)<props="intl">[Documentation](https://www.alibabacloud.com/help/doc-detail/2708761.html).
     // 
     // This parameter is required.
     shared_ptr<string> dataShrink_ {};
-    // The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+    // The origin HOST policy. This policy, which applies only to CNAME records, determines the value of the `HOST` header in requests sent to the origin. Valid values:
     // 
-    // *   **follow_hostname**: match the requested domain name.
-    // *   **follow_origin_domain**: match the origin\\"s domain name.
+    // - **follow_hostname**: Follows the host record.
+    // 
+    // - **follow_origin_domain**: Follows the origin domain name.
     shared_ptr<string> hostPolicy_ {};
-    // Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+    shared_ptr<string> httpPorts_ {};
+    shared_ptr<string> httpsPorts_ {};
+    // Indicates whether to enable proxy acceleration for the record. Only CNAME and A/AAAA records support proxy acceleration. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enables proxy acceleration.
+    // 
+    // - **false**: Disables proxy acceleration.
     shared_ptr<bool> proxied_ {};
-    // The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+    // The record ID. Call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to get this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> recordId_ {};
-    // The type of the origin for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+    // The origin type for the CNAME record. This parameter is required for CNAME records. Valid values:
     // 
-    // *   **OSS** : OSS origin.
-    // *   **S3** : S3 origin.
-    // *   **LB**: Load Balancer origin.
-    // *   **OP**: origin in an origin pool.
-    // *   **Domain**: common domain name.
+    // - **OSS**: An OSS origin.
     // 
-    // If you leave the parameter empty or set its value as null, the default is Domain, which is common domain name.
+    // - **S3**: An S3 origin.
+    // 
+    // - **LB**: A load balancer origin.
+    // 
+    // - **OP**: An origin address pool origin.
+    // 
+    // - **Domain**: A standard domain name origin.
+    // 
+    // If this parameter is omitted or left empty, the default value is `Domain`.
     shared_ptr<string> sourceType_ {};
-    // The TTL of the record. Unit: seconds. The range is 30 to 86,400, or 1. If the value is 1, the TTL of the record is determined by the system.
+    // The record\\"s time to live (TTL) in seconds. The value must be an integer from **30 to 86400** or 1. A value of 1 sets the TTL to automatic.
     shared_ptr<int32_t> ttl_ {};
     shared_ptr<string> type_ {};
   };

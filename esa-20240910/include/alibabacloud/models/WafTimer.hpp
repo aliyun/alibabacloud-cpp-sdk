@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // 结束时间，格式为HH:mm:ss。
         shared_ptr<string> end_ {};
+        // 起始时间，格式为HH:mm:ss。
         shared_ptr<string> start_ {};
       };
 
@@ -118,7 +120,9 @@ namespace Models
 
 
     protected:
+      // 该周期内的生效时间。
       shared_ptr<vector<WeeklyPeriods::DailyPeriods>> dailyPeriods_ {};
+      // 周期，多个使用逗号分隔，1-7分别代表周一-周日。<br>例：周一，周三值为"1,3"。
       shared_ptr<string> days_ {};
     };
 
@@ -160,7 +164,9 @@ namespace Models
 
 
     protected:
+      // 结束时间，值为RFC3339格式的UTC时间。
       shared_ptr<string> end_ {};
+      // 起始时间，值为RFC3339格式的UTC时间。
       shared_ptr<string> start_ {};
     };
 
@@ -199,9 +205,13 @@ namespace Models
 
 
   protected:
+    // 生效时间段。
     shared_ptr<vector<WafTimer::Periods>> periods_ {};
+    // 定时类型：永久生效（permanent/<空>）/时间段生效（periods）/weekly（周期生效）。
     shared_ptr<string> scopes_ {};
+    // 每周生效时间段。
     shared_ptr<vector<WafTimer::WeeklyPeriods>> weeklyPeriods_ {};
+    // 时区，不填则默认为UTC+00:00。<br>例：8表示东8区，-8表示西8区<br>范围：-12 - +14。
     shared_ptr<int32_t> zone_ {};
   };
 

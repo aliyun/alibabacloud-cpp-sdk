@@ -104,6 +104,7 @@ namespace Models
 
 
       protected:
+        // Whether slider captcha pages are enabled.
         shared_ptr<bool> enable_ {};
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
@@ -148,9 +149,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the scene protection feature is enabled.
+        // Whether the scenario protection feature is enabled.
         shared_ptr<bool> enable_ {};
-        // The total number quota for scene protection rules.
+        // The maximum number of scenario protection rules allowed.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -205,11 +206,11 @@ namespace Models
 
 
       protected:
-        // An object containing quota information for each Content-Type in custom response pages.
+        // The quota for each Content-Type in a custom response page.
         shared_ptr<map<string, QuotaPageContentTypesValue>> contentTypes_ {};
-        // Indicates whether the custom response page is enabled.
+        // Whether the custom response page feature is enabled.
         shared_ptr<bool> enable_ {};
-        // The total number quota allowed for custom response pages.
+        // The maximum number of custom response pages allowed.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -253,9 +254,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the WAF managed rules group is enabled.
+        // Whether the WAF managed rule group feature is enabled.
         shared_ptr<bool> enable_ {};
-        // The total number quota allowed for the WAF managed rules group.
+        // The maximum number of WAF managed rule groups allowed.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -332,15 +333,15 @@ namespace Models
 
 
       protected:
-        // Indicates whether the custom list is enabled.
+        // Whether the custom list feature is enabled.
         shared_ptr<bool> enable_ {};
-        // An object containing quota information for each type of item in the custom list.
+        // The quota for each item type in a custom list.
         shared_ptr<map<string, QuotaListItemsValue>> items_ {};
-        // The number quota allowed per custom list.
+        // The maximum number of items allowed per custom list.
         shared_ptr<WafQuotaInteger> numberItemsPerList_ {};
-        // The total number quota allowed for items in all custom lists.
+        // The maximum number of items allowed across all custom lists.
         shared_ptr<WafQuotaInteger> numberItemsTotal_ {};
-        // The total number quota allowed for custom lists.
+        // The maximum number of custom lists allowed.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -384,7 +385,9 @@ namespace Models
 
 
       protected:
+        // Whether captcha rules are enabled.
         shared_ptr<bool> enable_ {};
+        // The maximum number of captcha rules allowed.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -445,15 +448,17 @@ namespace Models
 
 
     protected:
+      // The quota for captcha rules.
       shared_ptr<Quota::Captcha> captcha_ {};
-      // Quota information related to custom lists.
+      // The quota for custom lists.
       shared_ptr<Quota::List> list_ {};
-      // Quota information related to the WAF managed rules group.
+      // The quota for WAF managed rule groups.
       shared_ptr<Quota::ManagedRulesGroup> managedRulesGroup_ {};
-      // Quota information related to custom response pages.
+      // The quota for custom response pages.
       shared_ptr<Quota::Page> page_ {};
-      // Quota information related to scene protection.
+      // The quota for scenario protection.
       shared_ptr<Quota::ScenePolicy> scenePolicy_ {};
+      // The quota for slider captcha pages.
       shared_ptr<Quota::SliderCaptchaPage> sliderCaptchaPage_ {};
     };
 
@@ -476,9 +481,9 @@ namespace Models
 
 
   protected:
-    // Returned quota information.
+    // The quota details.
     shared_ptr<GetWafQuotaResponseBody::Quota> quota_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

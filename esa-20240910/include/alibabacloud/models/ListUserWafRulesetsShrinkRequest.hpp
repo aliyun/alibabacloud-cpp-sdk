@@ -75,11 +75,33 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies the execution phase of the WAF rule.
+    // 
+    // - `http_whitelist`: whitelist rule
+    // 
+    // - `http_custom`: custom rule
+    // 
+    // - `http_managed`: managed rule
+    // 
+    // - `http_anti_scan`: anti-scan rule
+    // 
+    // - `http_ratelimit`: rate limit rule
+    // 
+    // - `ip_access_rule`: IP access rule
+    // 
+    // - `http_bot`: advanced mode bot
+    // 
+    // - `http_security_level_rule`: security rule
     shared_ptr<string> phase_ {};
+    // Parameters for filtering and sorting the results.
     shared_ptr<string> queryArgsShrink_ {};
   };
 

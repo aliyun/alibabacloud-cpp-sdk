@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // 正则表达式。
     shared_ptr<string> regexp_ {};
   };
 

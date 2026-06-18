@@ -61,6 +61,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BizName, bizName_);
           DARABONBA_PTR_TO_JSON(Data, data_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(HttpPorts, httpPorts_);
+          DARABONBA_PTR_TO_JSON(HttpsPorts, httpsPorts_);
           DARABONBA_PTR_TO_JSON(Proxied, proxied_);
           DARABONBA_PTR_TO_JSON(RecordId, recordId_);
           DARABONBA_PTR_TO_JSON(RecordName, recordName_);
@@ -72,6 +74,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(BizName, bizName_);
           DARABONBA_PTR_FROM_JSON(Data, data_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(HttpPorts, httpPorts_);
+          DARABONBA_PTR_FROM_JSON(HttpsPorts, httpsPorts_);
           DARABONBA_PTR_FROM_JSON(Proxied, proxied_);
           DARABONBA_PTR_FROM_JSON(RecordId, recordId_);
           DARABONBA_PTR_FROM_JSON(RecordName, recordName_);
@@ -238,48 +242,55 @@ namespace Models
 
 
         protected:
-          // The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+          // The encryption algorithm used by the record. The value ranges from **0** to **255**. This parameter applies to CERT and SSHFP records.
           shared_ptr<int32_t> algorithm_ {};
-          // The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+          // The public key certificate for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
           shared_ptr<string> certificate_ {};
-          // The public key fingerprint of the record. Applicable to SSHFP records.
+          // The public key fingerprint for the record. This parameter applies to SSHFP records.
           shared_ptr<string> fingerprint_ {};
-          // The flag bit of the record. Indicates its priority and handling method, used in CAA records.
+          // The flag for the record, which indicates its priority and processing method. This parameter applies to CAA records.
           shared_ptr<int32_t> flag_ {};
-          // The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+          // The public key identifier for the record. The value ranges from **0** to **65535**. This parameter applies to CERT records.
           shared_ptr<int32_t> keyTag_ {};
-          // The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+          // The algorithm policy used by the record to match or validate certificates. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> matchingType_ {};
-          // The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+          // The port for the record. The value ranges from **0** to **65535**. This parameter applies only to SRV records.
           shared_ptr<int32_t> port_ {};
-          // The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Applicable to MX, SRV, and URI records.
+          // The priority of the record. The value ranges from **0** to **65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
           shared_ptr<int32_t> priority_ {};
-          // The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+          // The type of certificate or public key used by the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> selector_ {};
-          // The label of a CAA record, which indicates its specific type and purpose, such as issue, issuewild, and iodef.
+          // The tag for a CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
           shared_ptr<string> tag_ {};
-          // The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+          // The certificate type for CERT records or the public key type for SSHFP records.
           shared_ptr<int32_t> type_ {};
-          // The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+          // The usage identifier for the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> usage_ {};
-          // The record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+          // The record value. This parameter applies to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning of this parameter varies based on the record type:
           // 
-          // *   **A/AAAA**: the IP addresses. Multiple IPs are separated by commas (,). There is at least one IPv4 address.
-          // *   **CNAME**: the mapped domain name.
-          // *   **NS**: the nameservers for the domain name.
-          // *   **MX**: a valid domain name of the target mail server.
-          // *   **TXT**: a valid text string.
-          // *   **CAA**: a valid domain name of the certificate authority.
-          // *   **SRV**: a valid domain name of the target host.
-          // *   **URI**: a valid URI string.
+          // - **A/AAAA**: The IP address. To specify multiple addresses, separate them with a comma (,). At least one IPv4 address is required.
+          // 
+          // - **CNAME**: The target domain name.
+          // 
+          // - **NS**: The name server for the domain.
+          // 
+          // - **MX**: The domain name of a valid target mail server.
+          // 
+          // - **TXT**: A valid text string.
+          // 
+          // - **CAA**: The domain name of a valid certificate authority.
+          // 
+          // - **SRV**: The domain name of a valid target host.
+          // 
+          // - **URI**: A valid URI string.
           shared_ptr<string> value_ {};
-          // The weight of the record. Valid values: 0 to 65535. Applicable to SRV and URI records.
+          // The weight of the record. The value ranges from **0** to **65535**. This parameter applies to SRV and URI records.
           shared_ptr<int32_t> weight_ {};
         };
 
         virtual bool empty() const override { return this->bizName_ == nullptr
-        && this->data_ == nullptr && this->description_ == nullptr && this->proxied_ == nullptr && this->recordId_ == nullptr && this->recordName_ == nullptr
-        && this->recordType_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr; };
+        && this->data_ == nullptr && this->description_ == nullptr && this->httpPorts_ == nullptr && this->httpsPorts_ == nullptr && this->proxied_ == nullptr
+        && this->recordId_ == nullptr && this->recordName_ == nullptr && this->recordType_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr; };
         // bizName Field Functions 
         bool hasBizName() const { return this->bizName_ != nullptr;};
         void deleteBizName() { this->bizName_ = nullptr;};
@@ -301,6 +312,20 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Success& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // httpPorts Field Functions 
+        bool hasHttpPorts() const { return this->httpPorts_ != nullptr;};
+        void deleteHttpPorts() { this->httpPorts_ = nullptr;};
+        inline string getHttpPorts() const { DARABONBA_PTR_GET_DEFAULT(httpPorts_, "") };
+        inline Success& setHttpPorts(string httpPorts) { DARABONBA_PTR_SET_VALUE(httpPorts_, httpPorts) };
+
+
+        // httpsPorts Field Functions 
+        bool hasHttpsPorts() const { return this->httpsPorts_ != nullptr;};
+        void deleteHttpsPorts() { this->httpsPorts_ = nullptr;};
+        inline string getHttpsPorts() const { DARABONBA_PTR_GET_DEFAULT(httpsPorts_, "") };
+        inline Success& setHttpsPorts(string httpsPorts) { DARABONBA_PTR_SET_VALUE(httpsPorts_, httpsPorts) };
 
 
         // proxied Field Functions 
@@ -346,36 +371,45 @@ namespace Models
 
 
       protected:
-        // The business scenario of the record for acceleration. Valid values:
+        // The acceleration use case for the record. Valid values:
         // 
-        // *   **image_video**
-        // *   **api**
-        // *   **web**
+        // - **image_video**: Images and videos.
+        // 
+        // - **api**: APIs.
+        // 
+        // - **web**: Web pages.
         shared_ptr<string> bizName_ {};
-        // The DNS record information.
+        // The DNS information for the record.
         shared_ptr<Success::Data> data_ {};
         // The result description.
         shared_ptr<string> description_ {};
-        // Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+        shared_ptr<string> httpPorts_ {};
+        shared_ptr<string> httpsPorts_ {};
+        // Specifies whether proxy acceleration is enabled for the record. This option is available only for CNAME, A, and AAAA records. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Proxy acceleration is enabled.
+        // 
+        // - **false**: Proxy acceleration is disabled.
         shared_ptr<bool> proxied_ {};
         // The record ID.
         shared_ptr<int64_t> recordId_ {};
         // The record name.
         shared_ptr<string> recordName_ {};
-        // The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+        // The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
         shared_ptr<string> recordType_ {};
-        // The origin type of the CNAME record. This field is left empty for other types of records. The type of the origin server. Valid values:
+        // The type of origin for a CNAME record. This parameter is empty for other record types. Valid values:
         // 
-        // *   **OSS**: OSS bucket.
-        // *   **S3**: S3 bucket.
-        // *   **LB**: load balancer.
-        // *   **OP**: origin pool.
-        // *   **Domain**: domain name.
+        // - **OSS**: An OSS origin.
+        // 
+        // - **S3**: An S3 origin.
+        // 
+        // - **LB**: A load balancer origin.
+        // 
+        // - **OP**: An origin pool.
+        // 
+        // - **Domain**: A domain name origin.
         shared_ptr<string> sourceType_ {};
-        // The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+        // The TTL of the record in seconds. A value of 1 sets the TTL to Automatic.
         shared_ptr<int32_t> ttl_ {};
       };
 
@@ -385,6 +419,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BizName, bizName_);
           DARABONBA_PTR_TO_JSON(Data, data_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(HttpPorts, httpPorts_);
+          DARABONBA_PTR_TO_JSON(HttpsPorts, httpsPorts_);
           DARABONBA_PTR_TO_JSON(Proxied, proxied_);
           DARABONBA_PTR_TO_JSON(RecordId, recordId_);
           DARABONBA_PTR_TO_JSON(RecordName, recordName_);
@@ -396,6 +432,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(BizName, bizName_);
           DARABONBA_PTR_FROM_JSON(Data, data_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(HttpPorts, httpPorts_);
+          DARABONBA_PTR_FROM_JSON(HttpsPorts, httpsPorts_);
           DARABONBA_PTR_FROM_JSON(Proxied, proxied_);
           DARABONBA_PTR_FROM_JSON(RecordId, recordId_);
           DARABONBA_PTR_FROM_JSON(RecordName, recordName_);
@@ -562,48 +600,55 @@ namespace Models
 
 
         protected:
-          // The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+          // The encryption algorithm used by the record. The value ranges from **0** to **255**. This parameter applies to CERT and SSHFP records.
           shared_ptr<int32_t> algorithm_ {};
-          // The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+          // The public key certificate for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
           shared_ptr<string> certificate_ {};
-          // The public key fingerprint of the record. Applicable to SSHFP records.
+          // The public key fingerprint for the record. This parameter applies to SSHFP records.
           shared_ptr<string> fingerprint_ {};
-          // The flag bit of the record. Indicates its priority and handling method, used in CAA records.
+          // The flag for the record, which indicates its priority and processing method. This parameter applies to CAA records.
           shared_ptr<int32_t> flag_ {};
-          // The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+          // The public key identifier for the record. The value ranges from **0** to **65535**. This parameter applies to CERT records.
           shared_ptr<int32_t> keyTag_ {};
-          // The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+          // The algorithm policy used by the record to match or validate certificates. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> matchingType_ {};
-          // The port number of the record, associated with the SRV record. Exclusive to SRV records.
+          // The port for the record. The value ranges from 0 to 65535. This parameter applies only to SRV records.
           shared_ptr<int32_t> port_ {};
-          // The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Applicable to MX, SRV, and URI records.
+          // The priority of the record. The value ranges from **0** to **65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
           shared_ptr<int32_t> priority_ {};
-          // The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+          // The type of certificate or public key used by the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> selector_ {};
-          // Indicates its priority and handling method, used in CAA records.
+          // The tag for a CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
           shared_ptr<string> tag_ {};
-          // The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+          // The certificate type for CERT records or the public key type for SSHFP records.
           shared_ptr<int32_t> type_ {};
-          // The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+          // The usage identifier for the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
           shared_ptr<int32_t> usage_ {};
-          // The record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+          // The record value. This parameter applies to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning of this parameter varies based on the record type:
           // 
-          // *   **A/AAAA**: the IP addresses. IP addresses are separated by commas (,). There is at least one IPv4 address.
-          // *   **CNAME**: the mapped domain name.
-          // *   **NS**: the nameservers for the domain name.
-          // *   **MX**: a valid domain name of the target mail server.
-          // *   **TXT**: a valid text string.
-          // *   **CAA**: a valid domain name of the certificate authority.
-          // *   **SRV**: a valid domain name of the target host.
-          // *   **URI**: a valid URI string.
+          // - **A/AAAA**: The IP address. To specify multiple addresses, separate them with a comma (,). At least one IPv4 address is required.
+          // 
+          // - **CNAME**: The target domain name.
+          // 
+          // - **NS**: The name server for the domain.
+          // 
+          // - **MX**: The domain name of a valid target mail server.
+          // 
+          // - **TXT**: A valid text string.
+          // 
+          // - **CAA**: The domain name of a valid certificate authority.
+          // 
+          // - **SRV**: The domain name of a valid target host.
+          // 
+          // - **URI**: A valid URI string.
           shared_ptr<string> value_ {};
-          // The weight of the record. Applicable to SRV and URI records.
+          // The weight of the record. The value ranges from 0 to 65535. This parameter applies to SRV and URI records.
           shared_ptr<int32_t> weight_ {};
         };
 
         virtual bool empty() const override { return this->bizName_ == nullptr
-        && this->data_ == nullptr && this->description_ == nullptr && this->proxied_ == nullptr && this->recordId_ == nullptr && this->recordName_ == nullptr
-        && this->recordType_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr; };
+        && this->data_ == nullptr && this->description_ == nullptr && this->httpPorts_ == nullptr && this->httpsPorts_ == nullptr && this->proxied_ == nullptr
+        && this->recordId_ == nullptr && this->recordName_ == nullptr && this->recordType_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr; };
         // bizName Field Functions 
         bool hasBizName() const { return this->bizName_ != nullptr;};
         void deleteBizName() { this->bizName_ = nullptr;};
@@ -625,6 +670,20 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Failed& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // httpPorts Field Functions 
+        bool hasHttpPorts() const { return this->httpPorts_ != nullptr;};
+        void deleteHttpPorts() { this->httpPorts_ = nullptr;};
+        inline string getHttpPorts() const { DARABONBA_PTR_GET_DEFAULT(httpPorts_, "") };
+        inline Failed& setHttpPorts(string httpPorts) { DARABONBA_PTR_SET_VALUE(httpPorts_, httpPorts) };
+
+
+        // httpsPorts Field Functions 
+        bool hasHttpsPorts() const { return this->httpsPorts_ != nullptr;};
+        void deleteHttpsPorts() { this->httpsPorts_ = nullptr;};
+        inline string getHttpsPorts() const { DARABONBA_PTR_GET_DEFAULT(httpsPorts_, "") };
+        inline Failed& setHttpsPorts(string httpsPorts) { DARABONBA_PTR_SET_VALUE(httpsPorts_, httpsPorts) };
 
 
         // proxied Field Functions 
@@ -670,36 +729,45 @@ namespace Models
 
 
       protected:
-        // The business scenario of the record for acceleration. Valid values:
+        // The acceleration use case for the record. Valid values:
         // 
-        // *   **image_video**
-        // *   **api**
-        // *   **web**
+        // - **image_video**: Images and videos.
+        // 
+        // - **api**: APIs.
+        // 
+        // - **web**: Web pages.
         shared_ptr<string> bizName_ {};
-        // The DNS information about the record, which contains various types of record values and their related attributes.
+        // The DNS information for the record.
         shared_ptr<Failed::Data> data_ {};
         // The result description.
         shared_ptr<string> description_ {};
-        // Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+        shared_ptr<string> httpPorts_ {};
+        shared_ptr<string> httpsPorts_ {};
+        // Specifies whether proxy acceleration is enabled for the record. This option is available only for CNAME, A, and AAAA records. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Proxy acceleration is enabled.
+        // 
+        // - **false**: Proxy acceleration is disabled.
         shared_ptr<bool> proxied_ {};
         // The record ID.
         shared_ptr<int64_t> recordId_ {};
         // The record name.
         shared_ptr<string> recordName_ {};
-        // The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+        // The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
         shared_ptr<string> recordType_ {};
-        // The origin type of the CNAME record. This field is left empty for other types of records. The type of the origin server. Valid values:
+        // The type of origin for a CNAME record. This parameter is empty for other record types. Valid values:
         // 
-        // *   **OSS**: OSS bucket.
-        // *   **S3**: S3 bucket.
-        // *   **LB**: load balancer.
-        // *   **OP**: origin pool.
-        // *   **Domain**: domain name.
+        // - **OSS**: An OSS origin.
+        // 
+        // - **S3**: An S3 origin.
+        // 
+        // - **LB**: A load balancer origin.
+        // 
+        // - **OP**: An origin pool.
+        // 
+        // - **Domain**: A domain name origin.
         shared_ptr<string> sourceType_ {};
-        // The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+        // The TTL of the record in seconds. A value of 1 sets the TTL to Automatic.
         shared_ptr<int32_t> ttl_ {};
       };
 
@@ -731,11 +799,11 @@ namespace Models
 
 
     protected:
-      // The records that failed to be created.
+      // A list of records that failed to be created.
       shared_ptr<vector<RecordResultList::Failed>> failed_ {};
-      // The records that have been created.
+      // A list of successfully created records.
       shared_ptr<vector<RecordResultList::Success>> success_ {};
-      // The total number of returned records.
+      // The total number of records in the creation operation.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -758,7 +826,7 @@ namespace Models
 
 
   protected:
-    // The records that have been created and failed to be created.
+    // The results of the batch record creation, with details for both successful and failed records.
     shared_ptr<BatchCreateRecordsResponseBody::RecordResultList> recordResultList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

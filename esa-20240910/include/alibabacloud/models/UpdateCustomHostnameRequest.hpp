@@ -103,21 +103,37 @@ namespace Models
 
 
   protected:
-    // 云盾证书ID，使用云盾证书时必填
+    // The ID of the Alibaba Cloud Security certificate. This parameter is required when CertType is set to cas.
     shared_ptr<int64_t> casId_ {};
-    // 云盾证书所在地域，使用云盾证书时必填
+    // The region of the Alibaba Cloud Security certificate. This parameter is required when CertType is set to cas.
+    // 
+    // - cn-hangzhou: The value for accounts on the Alibaba Cloud China Website (www\\.aliyun.com).
+    // 
+    // - ap-southeast-1: The value for accounts on the Alibaba Cloud International Website (www\\.alibabacloud.com).
     shared_ptr<string> casRegion_ {};
-    // 证书类型，SSL 开启时必填
+    // The certificate type. This parameter is required when SslFlag is set to on.
+    // 
+    // - **free**: Free certificate.
+    // 
+    // - **upload**: Uploaded certificate.
+    // 
+    // - **cas**: Alibaba Cloud Security certificate.
     shared_ptr<string> certType_ {};
-    // 证书公钥，使用上传证书时必填
+    // The content of the certificate. This parameter is required when CertType is set to upload.
     shared_ptr<string> certificate_ {};
+    // The ID of the SaaS domain name. You can obtain the ID by calling the [ListCustomHostnames](https://help.aliyun.com/document_detail/3018667.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> hostnameId_ {};
-    // 证书私钥，使用上传证书时必填
+    // The private key of the certificate. This parameter is required when CertType is set to upload.
     shared_ptr<string> privateKey_ {};
-    // 绑定的源站记录ID
+    // The ID of the record to attach. You can obtain the ID by calling the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation.
     shared_ptr<int64_t> recordId_ {};
-    // SSL开关
+    // The SSL switch.
+    // 
+    // - **on**: Enables SSL.
+    // 
+    // - **off**: Disables SSL.
     shared_ptr<string> sslFlag_ {};
   };
 

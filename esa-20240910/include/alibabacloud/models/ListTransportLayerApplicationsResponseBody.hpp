@@ -119,7 +119,15 @@ namespace Models
 
 
       protected:
+        // The IP address.
         shared_ptr<string> address_ {};
+        // The health status of the IP address. Valid values:
+        // 
+        // - healthy: The IP address is passing health checks.
+        // 
+        // - unhealthy: The IP address is failing health checks.
+        // 
+        // - unknown: The IP address is being provisioned.
         shared_ptr<string> status_ {};
       };
 
@@ -216,39 +224,51 @@ namespace Models
 
 
       protected:
-        // Client IP pass-through protocol, supports:
-        // - **off**: No pass-through.
-        // - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
-        // - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
-        // - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
+        // Specifies whether and how to pass the client\\"s IP address to the origin server. Valid values:
+        // 
+        // - **off**: Disables client IP pass-through.
+        // 
+        // - **PPv1**: The PROXY Protocol v1, which supports client IP pass-through for TCP traffic.
+        // 
+        // - **PPv2**: The PROXY Protocol v2, which supports client IP pass-through for both TCP and UDP traffic.
+        // 
+        // - **SPP**: The Simple Proxy Protocol, which supports client IP pass-through for UDP traffic.
         shared_ptr<string> clientIPPassThroughMode_ {};
-        // Comment information for the rule.
+        // The comment for the rule.
         shared_ptr<string> comment_ {};
-        // Edge port. Supports:
+        // The edge port. The following formats are supported:
         // 
-        // - A single port, e.g., 80.
-        // - Port range, e.g., 81-85, representing ports 81, 82, 83, 84, 85.
-        // - Combination of ports and port ranges, separated by commas, e.g., 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
+        // - A single port, for example, `80`.
+        // 
+        // - A port range, for example, `81-85`, which includes ports 81, 82, 83, 84, and 85.
+        // 
+        // - A combination of ports and port ranges separated by commas, for example, `80,81-85,90`, which includes ports 80, 81, 82, 83, 84, 85, and 90.
         shared_ptr<string> edgePort_ {};
-        // Forwarding rule protocol, with values:
+        // The protocol of the forwarding rule. Valid values:
         // 
-        // - TCP: TCP protocol.
-        // - UDP: UDP protocol.
+        // - **TCP**: The TCP protocol.
+        // 
+        // - **UDP**: The UDP protocol.
         shared_ptr<string> protocol_ {};
-        // Layer 4 acceleration rule ID.
+        // The unique ID of the forwarding rule.
         shared_ptr<int64_t> ruleId_ {};
-        // Specific value of the source, which needs to match the source type.
+        // The origin address. The value of this parameter must match the `SourceType`.
         shared_ptr<string> source_ {};
-        // Source port. Supports:
+        // The origin port. The following formats are supported:
         // 
-        // - A single port, when the source port is a single port, any valid combination of edge ports is supported.
-        // - Port range, only when the edge port is a port range, the source port can be set to a port range, and the range size must be consistent with the edge port. For example, if the edge port is 90-93, the source port cannot be set to 81-85 because the source port range is 5 and the edge port range is 3, which are inconsistent.
+        // - A single port. If you specify a single origin port, you can use any valid combination of edge ports.
+        // 
+        // - A port range. The origin port can be a port range only if the edge port is also a port range. The number of ports in the origin port range must be the same as that in the edge port range. For example, if the edge port range is `90-93` (which contains 4 ports), you cannot set the origin port range to `81-85` (which contains 5 ports) because their sizes do not match.
         shared_ptr<string> sourcePort_ {};
-        // Source type, supports:
-        // - **ip**: IP.
-        // - **domain**: Domain name.
-        // - **OP**: Origin pool.
-        // - **LB**: Load balancer.
+        // The origin type. Valid values:
+        // 
+        // - **ip**: An IP address.
+        // 
+        // - **domain**: A domain name.
+        // 
+        // - **OP**: An origin pool.
+        // 
+        // - **LB**: A load balancer.
         shared_ptr<string> sourceType_ {};
       };
 
@@ -352,38 +372,49 @@ namespace Models
 
 
     protected:
-      // Layer 4 application ID.
+      // The transport layer application ID.
       shared_ptr<int64_t> applicationId_ {};
-      // CNAME domain name corresponding to the Layer 4 acceleration application. This field is not empty only when the site is accessed via CNAME.
+      // The CNAME for the transport layer application. This parameter is returned only when the site is onboarded by using a CNAME record.
       shared_ptr<string> cname_ {};
-      // Whether to enable China mainland network access optimization. It is disabled by default. The value range is:
+      // Specifies whether cross-border optimization is enabled for Chinese mainland network access. By default, this feature is disabled. Valid values:
       // 
       // - on: Enabled.
+      // 
       // - off: Disabled.
       shared_ptr<string> crossBorderOptimization_ {};
-      // IP access rule switch. When enabled, the IP access rules in WAF take effect on the Layer 4 application.
+      // Specifies whether the IP access rule feature is enabled. When enabled, the IP access rules in WAF apply to this transport layer application.
       // 
       // - on: Enabled.
+      // 
       // - off: Disabled.
       shared_ptr<string> ipAccessRule_ {};
-      // IPv6 switch.
+      // Specifies whether IPv6 is enabled.
       shared_ptr<string> ipv6_ {};
+      // Specifies whether keep-alive protection is enabled.
       shared_ptr<string> keepAliveProtection_ {};
-      // Domain name of the Layer 4 application.
+      // The domain name of the transport layer application.
       shared_ptr<string> recordName_ {};
-      // List of forwarding rules.
+      // A list of forwarding rules.
       shared_ptr<vector<Applications::Rules>> rules_ {};
-      // Number of forwarding rules contained in the Layer 4 acceleration application.
+      // The number of forwarding rules in the transport layer application.
       shared_ptr<int32_t> rulesCount_ {};
-      // Site ID.
+      // The site ID.
       shared_ptr<int64_t> siteId_ {};
+      // Specifies whether the static IP feature is enabled. By default, this feature is disabled. Valid values:
+      // 
+      // - on: Enabled.
+      // 
+      // - off: Disabled.
       shared_ptr<string> staticIp_ {};
+      // A list of static IPv4 addresses assigned to the application when the static IP feature is enabled.
+      // 
       // This parameter is required.
       shared_ptr<vector<Applications::StaticIpV4List>> staticIpV4List_ {};
-      // Status of the Layer 4 application
+      // The status of the transport layer application. Valid values:
       // 
-      // - **deploying**: Deploying. In this state, modification and deletion are not allowed.
-      // - **active**: Active.
+      // - **deploying**: The application is being deployed. You cannot modify or delete the application in this state.
+      // 
+      // - **active**: The application is running.
       shared_ptr<string> status_ {};
     };
 
@@ -427,15 +458,15 @@ namespace Models
 
 
   protected:
-    // List of transport layer applications.
+    // A list of transport layer applications.
     shared_ptr<vector<ListTransportLayerApplicationsResponseBody::Applications>> applications_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of transport layer applications.
+    // The total number of transport layer applications.
     shared_ptr<int32_t> totalCount_ {};
   };
 

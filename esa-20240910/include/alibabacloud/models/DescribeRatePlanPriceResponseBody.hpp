@@ -502,8 +502,9 @@ namespace Models
 
 
   protected:
+    // The pricing information.
     shared_ptr<DescribeRatePlanPriceResponseBody::PriceModel> priceModel_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

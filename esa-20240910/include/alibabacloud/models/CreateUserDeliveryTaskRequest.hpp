@@ -104,11 +104,11 @@ namespace Models
 
 
     protected:
-      // The name of the SLS Logstore.
+      // The name of the destination logstore.
       shared_ptr<string> SLSLogStore_ {};
-      // The name of the SLS project.
+      // The name of the destination project.
       shared_ptr<string> SLSProject_ {};
-      // The region in which the SLS project resides.
+      // The region of the destination project.
       shared_ptr<string> SLSRegion_ {};
     };
 
@@ -214,19 +214,19 @@ namespace Models
 
 
     protected:
-      // The access key ID of your Amazon S3 account.
+      // The access key ID for the S3 account.
       shared_ptr<string> accessKey_ {};
-      // The directory in the bucket.
+      // The bucket path.
       shared_ptr<string> bucketPath_ {};
-      // The endpoint.
+      // The S3 endpoint.
       shared_ptr<string> endpoint_ {};
-      // The prefix of the path in which you want to store logs.
+      // The object key prefix.
       shared_ptr<string> prefixPath_ {};
-      // The region ID of the service.
+      // The destination region.
       shared_ptr<string> region_ {};
-      // Specifies whether the service is compatible with Amazon S3.
+      // Specifies whether the destination is an S3-compatible service.
       shared_ptr<bool> s3Cmpt_ {};
-      // The secret access key of your Amazon S3 account.
+      // The secret access key for the S3 account.
       shared_ptr<string> secretKey_ {};
       shared_ptr<bool> serverSideEncryption_ {};
       shared_ptr<string> vertifyType_ {};
@@ -288,13 +288,13 @@ namespace Models
 
 
     protected:
-      // The ID of your Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliuid_ {};
-      // The name of the OSS bucket.
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The prefix of the path in which you want to store logs.
+      // The object key prefix.
       shared_ptr<string> prefixPath_ {};
-      // The region in which the bucket is located.
+      // The region of the destination OSS bucket.
       shared_ptr<string> region_ {};
     };
 
@@ -395,19 +395,19 @@ namespace Models
     protected:
       // The load balancing method.
       shared_ptr<string> balancer_ {};
-      // The brokers.
+      // A list of Kafka brokers.
       shared_ptr<vector<string>> brokers_ {};
-      // The compression method. By default, data is not compressed.
+      // The compression method. Disabled by default.
       shared_ptr<string> compress_ {};
-      // The encryption method.
+      // The authentication mechanism.
       shared_ptr<string> machanismType_ {};
-      // The password.
+      // The password for authentication.
       shared_ptr<string> password_ {};
-      // The topic.
+      // The Kafka topic.
       shared_ptr<string> topic_ {};
-      // Specifies whether to enable authentication.
+      // Specifies whether to enable user authentication.
       shared_ptr<bool> userAuth_ {};
-      // The username.
+      // The username for authentication.
       shared_ptr<string> userName_ {};
     };
 
@@ -505,7 +505,7 @@ namespace Models
 
 
       protected:
-        // The validity period of the signature.
+        // The expiration time, in seconds.
         shared_ptr<int32_t> expiredTime_ {};
         // The private key.
         shared_ptr<string> privateKey_ {};
@@ -631,33 +631,33 @@ namespace Models
     protected:
       // The compression method.
       shared_ptr<string> compress_ {};
-      // The address of the HTTP server.
+      // The URL of the destination endpoint.
       shared_ptr<string> destUrl_ {};
-      // The custom headers.
+      // Custom HTTP headers.
       shared_ptr<map<string, HttpDeliveryHeaderParamValue>> headerParam_ {};
-      // The ending separator.
+      // The trailing delimiter.
       shared_ptr<bool> lastLogSplit_ {};
-      // The prefix of the log delivery package.
+      // The prefix to add to the log delivery payload.
       shared_ptr<string> logBodyPrefix_ {};
-      // The suffix of the log delivery package.
+      // The suffix to add to the log delivery payload.
       shared_ptr<string> logBodySuffix_ {};
-      // Specifies whether to enable log splitting. Default value: true.
+      // Specifies whether to split log entries. Defaults to true.
       shared_ptr<bool> logSplit_ {};
-      // The log separator.
+      // The delimiter for log entries.
       shared_ptr<string> logSplitWords_ {};
-      // The maximum size of data for each delivery. Unit: MB.
+      // The maximum size of a delivery batch, in MB.
       shared_ptr<int64_t> maxBatchMB_ {};
-      // The maximum number of entries for each delivery.
+      // The maximum number of log entries per delivery request.
       shared_ptr<int64_t> maxBatchSize_ {};
-      // The maximum number of retries.
+      // The maximum number of retries if a delivery fails.
       shared_ptr<int64_t> maxRetry_ {};
-      // The custom query parameters.
+      // Custom query parameters.
       shared_ptr<map<string, HttpDeliveryQueryParamValue>> queryParam_ {};
-      // Specifies whether to use server authentication.
+      // Specifies whether to enable standard authentication.
       shared_ptr<bool> standardAuthOn_ {};
-      // The authentication configurations.
+      // Configuration for standard authentication.
       shared_ptr<HttpDelivery::StandardAuthParam> standardAuthParam_ {};
-      // The timeout period. Unit: seconds.
+      // The delivery timeout, in seconds.
       shared_ptr<int64_t> transformTimeout_ {};
     };
 
@@ -767,48 +767,57 @@ namespace Models
 
 
   protected:
-    // The log category. Valid values:
+    // The real-time log type. Valid values:
     // 
-    // *   dcdn_log_access_l1 (default): access logs.
-    // *   dcdn_log_er: Edge Routine logs.
-    // *   dcdn_log_waf: firewall logs.
-    // *   dcdn_log_ipa: TCP/UDP proxy logs.
+    // - **dcdn_log_access_l1** (default): access log.
+    // 
+    // - **dcdn_log_er**: edge function log.
+    // 
+    // - **dcdn_log_waf**: WAF log.
+    // 
+    // - **dcdn_log_ipa**: Layer-4 acceleration log.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
     // 
-    // *   cn: the Chinese mainland.
-    // *   sg: outside the Chinese mainland.
-    shared_ptr<string> dataCenter_ {};
-    // The destination of the delivery. Valid values:
+    // - **cn**: Chinese mainland.
     // 
-    // 1.  sls: Alibaba Cloud SLS.
-    // 2.  http: HTTP server.
-    // 3.  aws3: Amazon S3.
-    // 4.  oss: Alibaba Cloud OSS.
-    // 5.  kafka: Kafka.
-    // 6.  aws3cmpt: S3-compatible storage service.
+    // - **sg**: global (excluding the Chinese mainland).
+    shared_ptr<string> dataCenter_ {};
+    // The log delivery destination. Valid values:
+    // 
+    // - **sls**: Log Service (SLS).
+    // 
+    // - **http**: an HTTP service.
+    // 
+    // - **aws3**: Amazon S3.
+    // 
+    // - **oss**: Object Storage Service (OSS).
+    // 
+    // - **kafka**: Kafka.
+    // 
+    // - **aws3cmpt**: an S3-compatible service.
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
     shared_ptr<string> details_ {};
-    // The discard rate. Default value: 0.
+    // The log discard rate. Defaults to 0.
     shared_ptr<float> discardRate_ {};
-    // The log field. If you specify multiple fields, separate them with commas (,).
+    // The fields to be delivered. Separate multiple fields with a comma.
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     shared_ptr<string> filterVer_ {};
-    // The configurations for delivery to an HTTP server.
+    // Configuration for delivering logs to an HTTP or HTTPS endpoint.
     shared_ptr<CreateUserDeliveryTaskRequest::HttpDelivery> httpDelivery_ {};
-    // The configurations for delivery to Kafka.
+    // Configuration for delivering logs to Kafka.
     shared_ptr<CreateUserDeliveryTaskRequest::KafkaDelivery> kafkaDelivery_ {};
-    // The configurations for delivery to OSS.
+    // Configuration for delivering logs to Object Storage Service (OSS).
     shared_ptr<CreateUserDeliveryTaskRequest::OssDelivery> ossDelivery_ {};
-    // The configurations for delivery to Amazon S3 or an S3-compatible service.
+    // Configuration for delivering logs to Amazon S3 or an S3-compatible service.
     shared_ptr<CreateUserDeliveryTaskRequest::S3Delivery> s3Delivery_ {};
-    // The configurations for delivery to SLS.
+    // Configuration for delivering logs to Log Service (SLS).
     shared_ptr<CreateUserDeliveryTaskRequest::SlsDelivery> slsDelivery_ {};
     // The task name.
     // 

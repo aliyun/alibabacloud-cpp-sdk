@@ -57,13 +57,19 @@ namespace Models
 
 
   protected:
-    // Indicates whether IPv6 is enabled. Valid values:
+    // Specifies whether IPv6 is enabled. Valid values:
     // 
-    // *   **on**
-    // *   **off**
+    // - **on**: Enabled.
+    // 
+    // - **off**: Disabled.
     shared_ptr<string> enable_ {};
+    // The region where IPv6 is enabled. The default value is `x.x`. Valid values:
+    // 
+    // - `x.x`: Global.
+    // 
+    // - `cn.cn`: Chinese mainland.
     shared_ptr<string> region_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

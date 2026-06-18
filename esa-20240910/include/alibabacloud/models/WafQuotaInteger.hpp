@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Is equal to
+    // 等于。
     shared_ptr<int32_t> equal_ {};
-    // Is greater than
+    // 大于。
     shared_ptr<int32_t> greaterThan_ {};
-    // Is greater than or equal to
+    // 大于等于。
     shared_ptr<int32_t> greaterThanOrEqual_ {};
-    // Is less than
+    // 小于。
     shared_ptr<int32_t> lessThan_ {};
-    // Is less than or equal to
+    // 小于等于。
     shared_ptr<int32_t> lessThanOrEqual_ {};
   };
 

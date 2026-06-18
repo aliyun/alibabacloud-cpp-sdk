@@ -112,29 +112,28 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     shared_ptr<string> aliUid_ {};
-    // The end time of the prefetch plan.
+    // The end time of the scheduled prefetch plan.
     shared_ptr<string> endTime_ {};
-    // The ID of the prefetch plan.
+    // The prefetch plan ID.
     shared_ptr<string> id_ {};
-    // The time interval between each batch execution in the plan. Unit: seconds.
+    // The execution interval between batches in the scheduled prefetch plan. Unit: seconds.
     shared_ptr<int32_t> interval_ {};
-    // The ID of the prefetch task.
+    // The prefetch task ID.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of URLs prefetched in each batch.
+    // The number of URLs prefetched per batch.
     shared_ptr<int32_t> sliceLen_ {};
-    // The start time of the prefetch plan.
+    // The start time of the scheduled prefetch plan.
     shared_ptr<string> startTime_ {};
-    // The status of the prefetch plan. Valid values:
-    // 
-    // *   **waiting**
-    // *   **running**
-    // *   **finished**
-    // *   **failed**
-    // *   **stopped**
+    // The status of the scheduled prefetch plan. Valid values:
+    // - **waiting**: waiting to be executed.
+    // - **running**: being executed.
+    // - **finished**: execution completed.
+    // - **failed**: execution failed.
+    // - **stopped**: execution paused.
     shared_ptr<string> status_ {};
   };
 

@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Record name.
+    // The name of the record.
     // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // Rule ID.
+    // The ID of the rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The ID of the site. Call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

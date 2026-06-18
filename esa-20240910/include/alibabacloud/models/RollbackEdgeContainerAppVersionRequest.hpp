@@ -79,11 +79,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The deployment percentage for the target version after the rollback. Valid values: **1 to 100**. Default value: **0**.
     shared_ptr<int32_t> percentage_ {};
-    // The remarks.
+    // Additional information about the rollback.
     shared_ptr<string> remarks_ {};
+    // Specifies whether to use percentage rollback.
     shared_ptr<bool> usedPercent_ {};
-    // The ID of version that you want to roll back.
+    // The ID of the version to roll back to.
     // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};

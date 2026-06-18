@@ -115,26 +115,43 @@ namespace Models
 
 
   protected:
-    // Rule configuration.
+    // The rule configuration.
     shared_ptr<WafRuleConfig> config_ {};
-    // The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
+    // The ID of the WAF rule. You can get this ID by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation.
     shared_ptr<int64_t> id_ {};
-    // Rule name.
+    // The name of the rule.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // WAF operation phase.
+    // The execution phase of the WAF rule.
+    // 
+    // - `http_whitelist`: A whitelist rule
+    // 
+    // - `http_custom`: A custom rule
+    // 
+    // - `http_managed`: A managed rule
+    // 
+    // - `http_anti_scan`: A scan protection rule
+    // 
+    // - `http_ratelimit`: A rate limiting rule
+    // 
+    // - `ip_access_rule`: An IP access rule
+    // 
+    // - `http_bot`: A bot management rule
+    // 
+    // - `http_security_level_rule`: A security rule
     // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // The position of the rule in the rule set.
+    // The position of the rule in the ruleset.
     shared_ptr<int64_t> position_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the WAF ruleset. You can get this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
     shared_ptr<int64_t> rulesetId_ {};
-    // Rule status.
+    // The status of the rule.
     shared_ptr<string> status_ {};
-    // The last modified time of the rule.
+    // The time the rule was last updated.
     shared_ptr<string> updateTime_ {};
   };
 

@@ -204,63 +204,97 @@ namespace Models
 
 
   protected:
-    // Feature switch, default is disabled. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable the `Alt-Svc` header. This feature is disabled by default. Valid values:
+    // 
+    // - `on`: Enables the Alt-Svc header.
+    // 
+    // - `off`: Disables the Alt-Svc header.
     shared_ptr<string> altSvc_ {};
-    // Whether the Alt-Svc header includes the clear parameter, default is disabled. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to include the `clear` directive in the `Alt-Svc` header. The directive is not included by default. Valid values:
+    // 
+    // - `on`: Includes the directive.
+    // 
+    // - `off`: Does not include the directive.
     shared_ptr<string> altSvcClear_ {};
-    // Alt-Svc validity period, in seconds, default is 86400 seconds.
+    // The max-age for the Alt-Svc header, in seconds. The default is 86400.
     shared_ptr<string> altSvcMa_ {};
-    // Whether the Alt-Svc header includes the persist parameter, default is disabled. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to include the `persist` directive in the `Alt-Svc` header. The directive is not included by default. Valid values:
+    // 
+    // - `on`: Includes the directive.
+    // 
+    // - `off`: Does not include the directive.
     shared_ptr<string> altSvcPersist_ {};
-    // Configuration ID.
+    // The configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Whether to enable HSTS, default is disabled. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable HTTP Strict Transport Security (HSTS). This feature is disabled by default. Valid values:
+    // 
+    // - `on`: Enables HSTS.
+    // 
+    // - `off`: Disables HSTS.
     shared_ptr<string> hsts_ {};
-    // Whether to include subdomains in HSTS, default is disabled. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to include subdomains in the HSTS policy. Subdomains are not included by default. Valid values:
+    // 
+    // - `on`: Includes subdomains.
+    // 
+    // - `off`: Does not include subdomains.
     shared_ptr<string> hstsIncludeSubdomains_ {};
-    // HSTS expiration time, in seconds.
+    // The HSTS max-age in seconds.
     shared_ptr<string> hstsMaxAge_ {};
-    // Whether to enable HSTS preload, default is disabled. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable HSTS Preload. HSTS Preload is disabled by default. Valid values:
+    // 
+    // - `on`: Enables Preload.
+    // 
+    // - `off`: Disables Preload.
     shared_ptr<string> hstsPreload_ {};
-    // Whether to enable forced HTTPS, default is disabled. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable Force HTTPS. This feature is disabled by default. Valid values:
+    // 
+    // - `on`: Enables Force HTTPS.
+    // 
+    // - `off`: Disables Force HTTPS.
     shared_ptr<string> httpsForce_ {};
-    // Forced HTTPS redirect status code, value range:
-    // - 301
-    // - 302
-    // - 307
-    // - 308
+    // The redirect status code for Force HTTPS. Valid values:
+    // 
+    // - `301`
+    // 
+    // - `302`
+    // 
+    // - `307`
+    // 
+    // - `308`
     shared_ptr<string> httpsForceCode_ {};
+    // Specifies whether to deny TLS handshake requests that do not include an SNI. This feature is disabled by default. Valid values:
+    // 
+    // - `on`: Denies requests without an SNI.
+    // 
+    // - `off`: Allows requests without an SNI.
     shared_ptr<string> httpsNoSniDeny_ {};
+    // Specifies whether to enable Server Name Indication (SNI) verification. This feature is disabled by default. Valid values:
+    // 
+    // - `on`: Enables SNI verification.
+    // 
+    // - `off`: Disables SNI verification.
     shared_ptr<string> httpsSniVerify_ {};
+    // The SNI allowlist. Separate multiple hostnames with spaces.
     shared_ptr<string> httpsSniWhitelist_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The conditional expression that the rule uses to match requests. This parameter is not required for a global configuration.
+    // 
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, provide a custom expression, such as `(http.host eq "video.example.com")`
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable the rule. This parameter is not required for a global configuration. Valid values:
+    // 
+    // - `on`: Enables the rule.
+    // 
+    // - `off`: Disables the rule.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The rule name. This parameter is not required for a global configuration.
     shared_ptr<string> ruleName_ {};
+    // The execution order of the rule. A lower value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The site ID. To obtain this ID, call the [ListSites](~~ListSites~~) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

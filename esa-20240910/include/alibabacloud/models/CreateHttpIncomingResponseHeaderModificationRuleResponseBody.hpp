@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The configuration ID.
+    // The ID of the created rule.
     shared_ptr<int64_t> configId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

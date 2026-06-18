@@ -121,28 +121,36 @@ namespace Models
 
 
   protected:
-    // The certificate ID on Certificate Management Service.
+    // The cloud certificate ID. This parameter is required when Type is set to cas.
     shared_ptr<int64_t> casId_ {};
-    // The certificate content.
+    // The certificate content. This parameter is required when Type is set to upload.
     shared_ptr<string> certificate_ {};
-    // The certificate ID on ESA.
+    // The certificate ID. Certificates of the free type (created by calling the ApplyCertificate operation) are not supported. Certificates of the cas and upload types are supported.
     shared_ptr<string> id_ {};
+    // The keyless server ID. This parameter takes effect only when Type is set to keyless.
     shared_ptr<string> keyServerId_ {};
-    // The certificate name.
+    // The certificate name. This parameter is required when Type is set to upload.
     shared_ptr<string> name_ {};
-    // The private key of the certificate.
+    // The certificate private key. This parameter is required when Type is set to upload.
     shared_ptr<string> privateKey_ {};
-    // The region.
+    // The region. This parameter is required when Type is set to cas. Valid values:
+    // 
+    // - China site accounts: cn-hangzhou.
+    // 
+    // - International site accounts: ap-southeast-1.
     shared_ptr<string> region_ {};
     shared_ptr<string> securityToken_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
     // The certificate type. Valid values:
     // 
-    // *   cas: a certificate purchased by using Certificate Management Service.
-    // *   upload: a custom certificate that you upload.
+    // - **cas**: certificate from SSL Certificates Service.
+    // 
+    // - **upload**: custom uploaded certificate.
+    // 
+    // - **keyless**: keyless certificate.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

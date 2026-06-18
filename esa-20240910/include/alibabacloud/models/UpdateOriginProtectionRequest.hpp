@@ -58,14 +58,15 @@ namespace Models
 
   protected:
     shared_ptr<string> autoConfirmIPList_ {};
-    // The IP convergence status.
+    // The origin fetch convergence switch.
     // 
-    // *   on
-    // *   off
+    // - on: Enable origin fetch convergence.
+    // 
+    // - off: Disable origin fetch convergence.
     // 
     // This parameter is required.
     shared_ptr<string> originConverge_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to get it.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

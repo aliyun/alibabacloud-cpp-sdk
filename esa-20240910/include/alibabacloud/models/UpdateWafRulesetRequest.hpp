@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+    // The WAF ruleset ID. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
+    // The version number of the site configuration. For a site with configuration version management enabled, this parameter specifies the version to update. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // The target status to change for the ruleset.
+    // The target status of the ruleset.
     shared_ptr<string> status_ {};
   };
 

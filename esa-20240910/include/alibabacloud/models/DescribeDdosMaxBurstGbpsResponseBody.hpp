@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The maximum protection bandwidth of the DDoS instance within mainland China, in Gbps.
     shared_ptr<string> maxBurstGbps_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

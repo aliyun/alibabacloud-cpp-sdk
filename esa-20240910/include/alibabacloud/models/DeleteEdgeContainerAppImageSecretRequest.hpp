@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Application ID, which can be obtained using the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) API.
+    // The application ID. Call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // Name of the image secret.
+    // The name of the image secret.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

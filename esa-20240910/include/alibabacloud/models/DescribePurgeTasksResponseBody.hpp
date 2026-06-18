@@ -132,20 +132,27 @@ namespace Models
       shared_ptr<string> process_ {};
       // The task status.
       // 
-      // *   **Complete**: The task is complete.
-      // *   **Refreshing**: The task is in progress.
-      // *   **Failed**: The task failed.
+      // - **Complete**: The task is complete.
+      // 
+      // - **Refreshing**: The task is in progress.
+      // 
+      // - **Failed**: The task failed.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The type of the purge task. Valid values:
       // 
-      // *   **file** (default): purges the cache by file.
-      // *   **cachetag**: purges the cache by cache tag.
-      // *   **directory**: purges the cache by directory.
-      // *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
-      // *   **hostname**: purges the cache by hostname.
-      // *   **purgeall**: purges all cache.
+      // - **file** (default): purges the cache by file.
+      // 
+      // - **cachetag**: purges the cache by cache tag.
+      // 
+      // - **directory**: purges the cache by directory.
+      // 
+      // - **ignoreParams**: purges the cache by URL with specified parameters ignored.
+      // 
+      // - **hostname**: purges the cache by hostname.
+      // 
+      // - **purgeall**: purges all cache.
       shared_ptr<string> type_ {};
     };
 

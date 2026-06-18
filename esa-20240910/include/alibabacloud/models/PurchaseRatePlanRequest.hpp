@@ -130,37 +130,67 @@ namespace Models
 
 
   protected:
+    // The number of plans to purchase.
     shared_ptr<int32_t> amount_ {};
-    // Specifies whether to enable auto payment.
+    // Specifies whether to enable automatic payment.
+    // Set this parameter to true when you directly call this operation.
     shared_ptr<bool> autoPay_ {};
-    // Auto-renewal:
-    // - true: Enable auto-renewal.
-    // - false: Disable auto-renewal.
+    // Specifies whether to enable auto-renewal. Valid values:
+    // - true: Auto-renewal is enabled.
+    // - false: Auto-renewal is disabled.
     shared_ptr<bool> autoRenew_ {};
+    // The channel field.
     shared_ptr<string> channel_ {};
     // The billing method. Valid values:
-    // 
-    // *   PREPAY: subscription.
-    // *   POSTPAY: pay-as-you-go.
+    // - PREPAY: subscription.
+    // - POSTPAY: pay-as-you-go.
+    // Set this parameter to PREPAY when you directly call this operation.
     shared_ptr<string> chargeType_ {};
-    // The service location. Valid values:
-    // 
-    // *   domestic: the Chinese mainland.
-    // *   global: global.
-    // *   overseas: outside the Chinese mainland.
+    // The acceleration region. Valid values:
+    // - domestic: the Chinese mainland only.
+    // - global: global.
+    // - overseas: global (excluding the Chinese mainland).
     shared_ptr<string> coverage_ {};
-    // Subscription period (in months).
+    // The purchase period, in months.
+    // This parameter is required when you directly call this operation.
     shared_ptr<int32_t> period_ {};
-    // Package code.
-    shared_ptr<string> planCode_ {};
-    // Package name.
-    shared_ptr<string> planName_ {};
-    // Site name.
-    shared_ptr<string> siteName_ {};
-    // The DNS setup option for the website. Valid values:
+    // The plan code.
     // 
-    // *   NS
-    // *   CNAME
+    // China site
+    // 
+    // - Free Edition: entranceplan
+    // - Basic: basicplan
+    // - Standard: standardplan
+    // - Premium: advancedplan
+    // 
+    // International site
+    // 
+    // - Entrance: entranceplan
+    // - Pro: standardplan
+    // - Premium: advancedpla.
+    shared_ptr<string> planCode_ {};
+    // The plan name.
+    // 
+    // China site
+    // 
+    // - Free Edition: entranceplan
+    // - Basic: basic
+    // - Standard: medium
+    // - Premium: high
+    // 
+    // International site
+    // 
+    // - Entrance: entranceplan_intl
+    // - Pro: basicplan_intl
+    // - Premium: vipplan_intl
+    // 
+    // > Note: For Enterprise Edition plans, the plan name is provided after backend configuration.
+    shared_ptr<string> planName_ {};
+    // The site name.
+    shared_ptr<string> siteName_ {};
+    // The site access type. Valid values:
+    // - NS: NS access.
+    // - CNAME: CNAME access.
     shared_ptr<string> type_ {};
   };
 

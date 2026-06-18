@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The switch for the Content-Type type in custom response pages.
+    // Whether the Content-Type is enabled.
     shared_ptr<bool> enable_ {};
-    // The content length quota for the Content-Type in custom response pages.
+    // The maximum content length for this Content-Type.
     shared_ptr<WafQuotaInteger> contentLength_ {};
   };
 

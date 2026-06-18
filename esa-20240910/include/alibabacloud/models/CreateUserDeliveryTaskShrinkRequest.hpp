@@ -149,48 +149,57 @@ namespace Models
 
 
   protected:
-    // The log category. Valid values:
+    // The real-time log type. Valid values:
     // 
-    // *   dcdn_log_access_l1 (default): access logs.
-    // *   dcdn_log_er: Edge Routine logs.
-    // *   dcdn_log_waf: firewall logs.
-    // *   dcdn_log_ipa: TCP/UDP proxy logs.
+    // - **dcdn_log_access_l1** (default): access log.
+    // 
+    // - **dcdn_log_er**: edge function log.
+    // 
+    // - **dcdn_log_waf**: WAF log.
+    // 
+    // - **dcdn_log_ipa**: Layer-4 acceleration log.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
     // 
-    // *   cn: the Chinese mainland.
-    // *   sg: outside the Chinese mainland.
-    shared_ptr<string> dataCenter_ {};
-    // The destination of the delivery. Valid values:
+    // - **cn**: Chinese mainland.
     // 
-    // 1.  sls: Alibaba Cloud SLS.
-    // 2.  http: HTTP server.
-    // 3.  aws3: Amazon S3.
-    // 4.  oss: Alibaba Cloud OSS.
-    // 5.  kafka: Kafka.
-    // 6.  aws3cmpt: S3-compatible storage service.
+    // - **sg**: global (excluding the Chinese mainland).
+    shared_ptr<string> dataCenter_ {};
+    // The log delivery destination. Valid values:
+    // 
+    // - **sls**: Log Service (SLS).
+    // 
+    // - **http**: an HTTP service.
+    // 
+    // - **aws3**: Amazon S3.
+    // 
+    // - **oss**: Object Storage Service (OSS).
+    // 
+    // - **kafka**: Kafka.
+    // 
+    // - **aws3cmpt**: an S3-compatible service.
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
     shared_ptr<string> details_ {};
-    // The discard rate. Default value: 0.
+    // The log discard rate. Defaults to 0.
     shared_ptr<float> discardRate_ {};
-    // The log field. If you specify multiple fields, separate them with commas (,).
+    // The fields to be delivered. Separate multiple fields with a comma.
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     shared_ptr<string> filterVer_ {};
-    // The configurations for delivery to an HTTP server.
+    // Configuration for delivering logs to an HTTP or HTTPS endpoint.
     shared_ptr<string> httpDeliveryShrink_ {};
-    // The configurations for delivery to Kafka.
+    // Configuration for delivering logs to Kafka.
     shared_ptr<string> kafkaDeliveryShrink_ {};
-    // The configurations for delivery to OSS.
+    // Configuration for delivering logs to Object Storage Service (OSS).
     shared_ptr<string> ossDeliveryShrink_ {};
-    // The configurations for delivery to Amazon S3 or an S3-compatible service.
+    // Configuration for delivering logs to Amazon S3 or an S3-compatible service.
     shared_ptr<string> s3DeliveryShrink_ {};
-    // The configurations for delivery to SLS.
+    // Configuration for delivering logs to Log Service (SLS).
     shared_ptr<string> slsDeliveryShrink_ {};
     // The task name.
     // 

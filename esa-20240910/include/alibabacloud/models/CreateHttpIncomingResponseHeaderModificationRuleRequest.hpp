@@ -102,18 +102,21 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The action. Valid values:
+      // The operation to perform on the header. Valid values:
       // 
-      // *   add: adds a response header.
-      // *   del: deletes a response header.
-      // *   modify: modifies a response header.
+      // - `add`: Adds the header.
+      // 
+      // - `del`: Deletes the header.
+      // 
+      // - `modify`: Modifies the header.
       // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
-      // The type of the value. Valid values:
+      // The type of the header value. Valid values:
       // 
-      // *   static
-      // *   dynamic
+      // - `static`: The `Value` is a fixed string.
+      // 
+      // - `dynamic`: The `Value` can contain variables.
       shared_ptr<string> type_ {};
       // The value of the response header.
       shared_ptr<string> value_ {};
@@ -174,29 +177,31 @@ namespace Models
 
 
   protected:
-    // The configurations of modifying response headers. You can add, delete, or modify a response header.
+    // Specifies the modifications for a response header. The supported operations are `add`, `del`, and `modify`.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateHttpIncomingResponseHeaderModificationRuleRequest::ResponseHeaderModification>> responseHeaderModification_ {};
-    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // The conditional expression used to match an incoming request. This parameter is not required when adding a Global configuration. Two scenarios are supported:
     // 
-    // *   true: Match all incoming requests.
-    // *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, use a custom expression. For example: `(http.host eq "video.example.com")`
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // Indicates if the Rule is enabled. This parameter is not required when adding a Global configuration. Valid values:
     // 
-    // *   on
-    // *   off
+    // - `on`: Enables the Rule.
+    // 
+    // - `off`: Disables the Rule.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. You do not need to set this parameter when you add global configuration.
+    // The Rule name. This parameter is not required when adding a Global configuration.
     shared_ptr<string> ruleName_ {};
-    // The order in which the rule is executed. A smaller value gives priority to the rule.
+    // The Rule execution order. A smaller value indicates a higher priority, and the Rule is executed sooner.
     shared_ptr<int32_t> sequence_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The unique identifier for the Site. To get this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+    // The configuration Version for the Site. If version management is enabled, this parameter specifies the target Version. Defaults to 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

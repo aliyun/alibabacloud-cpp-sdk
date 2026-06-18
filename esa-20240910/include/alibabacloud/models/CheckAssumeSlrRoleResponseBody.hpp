@@ -59,7 +59,6 @@ namespace Models
   protected:
     shared_ptr<string> errorMsg_ {};
     shared_ptr<string> isExist_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

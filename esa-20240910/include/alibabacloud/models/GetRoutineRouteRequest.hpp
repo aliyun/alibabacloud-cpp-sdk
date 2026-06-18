@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration. You can call the [ListSiteRoutes](https://help.aliyun.com/document_detail/2879631.html) operation to obtain the ID.
+    // The ID of the configuration. Call the [ListSiteRoutes](https://help.aliyun.com/document_detail/2879631.html) operation to get the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

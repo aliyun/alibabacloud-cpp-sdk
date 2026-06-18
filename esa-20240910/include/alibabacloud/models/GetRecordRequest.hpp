@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+    // The record ID. Obtain it by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> recordId_ {};

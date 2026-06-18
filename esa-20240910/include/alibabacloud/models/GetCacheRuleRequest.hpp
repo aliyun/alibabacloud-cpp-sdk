@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // ConfigId of the configuration, which can be obtained by calling the [ListCacheRules](https://help.aliyun.com/document_detail/2866985.html) interface.
+    // The configuration ID. Call the [ListCacheRules](https://help.aliyun.com/document_detail/2866985.html) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

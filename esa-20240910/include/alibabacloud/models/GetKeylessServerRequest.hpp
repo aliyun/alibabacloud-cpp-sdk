@@ -48,10 +48,12 @@ namespace Models
 
 
   protected:
-    // Keyless server ID。
+    // The keyless server ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The site ID. To obtain this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

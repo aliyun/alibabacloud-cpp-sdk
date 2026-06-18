@@ -259,32 +259,33 @@ namespace Models
 
 
       protected:
-        // The certificate ID on Certificate Management Service.
+        // The ID of the Alibaba Cloud certificate.
         shared_ptr<string> casId_ {};
-        // The Common Name of the certificate.
+        // The common name of the certificate.
         shared_ptr<string> commonName_ {};
-        // The creation time.
+        // The time when the certificate was created.
         shared_ptr<string> createTime_ {};
         // The SHA-256 fingerprint of the certificate.
         shared_ptr<string> fingerprintSha256_ {};
         // The ID of the certificate.
         shared_ptr<string> id_ {};
-        // The certificate authority (CA) that issued the certificate.
+        // The issuer of the certificate.
         shared_ptr<string> issuer_ {};
-        // The Common Name of the certificate issuer.
+        // The common name of the certificate issuer.
         shared_ptr<string> issuerCN_ {};
+        // The Keyless server ID. This parameter is valid only when `Type` is set to `keyless`.
         shared_ptr<string> keyServerId_ {};
-        // The certificate name.
+        // The name of the certificate.
         shared_ptr<string> name_ {};
-        // The time when the certificate expires.
+        // The date and time when the certificate expires.
         shared_ptr<string> notAfter_ {};
-        // The time when the certificate takes effect.
+        // The date and time when the certificate becomes valid.
         shared_ptr<string> notBefore_ {};
         // The public key algorithm of the certificate.
         shared_ptr<string> pubAlg_ {};
         // The region where the certificate is stored.
         shared_ptr<string> region_ {};
-        // The Subject Alternative Name (SAN) of the certificate.
+        // The Subject Alternative Names (SANs) of the certificate.
         shared_ptr<string> SAN_ {};
         // The serial number of the certificate.
         shared_ptr<string> serialNumber_ {};
@@ -292,9 +293,9 @@ namespace Models
         shared_ptr<string> sigAlg_ {};
         // The status of the certificate.
         shared_ptr<string> status_ {};
-        // The type of the SSL certificate. Valid values:
+        // The type of the certificate. Valid values:
         shared_ptr<string> type_ {};
-        // The update time.
+        // The time when the certificate was last updated.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -338,15 +339,15 @@ namespace Models
 
 
     protected:
-      // The number of certificates that are being requested.
+      // The number of certificate requests in progress.
       shared_ptr<int64_t> applylingCount_ {};
-      // The certificates that match the specified records.
+      // A list of certificates matching the record.
       shared_ptr<vector<Result::Certificates>> certificates_ {};
-      // The number of certificates that match the specified records.
+      // The number of certificates matching the record.
       shared_ptr<int64_t> count_ {};
-      // The name of the record.
+      // The record name.
       shared_ptr<string> recordName_ {};
-      // Certificate configuration status. Possible values: none; configured; applying; failed.
+      // The certificate configuration status for the record. Valid values:
       shared_ptr<string> status_ {};
     };
 
@@ -392,13 +393,13 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried certificates.
+    // An array of record details.
     shared_ptr<vector<ListCertificatesByRecordResponseBody::Result>> result_ {};
-    // The website ID,
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
+    // The site name.
     shared_ptr<string> siteName_ {};
-    // The total number of records that you specified.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

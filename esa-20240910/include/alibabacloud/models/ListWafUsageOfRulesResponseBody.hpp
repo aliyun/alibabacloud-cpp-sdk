@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // Site ID.
+      // The site ID.
       shared_ptr<int64_t> id_ {};
-      // Site name.
+      // The site name.
       shared_ptr<string> name_ {};
-      // Usage of WAF rules/WAF rule sets.
+      // The number of WAF rules or rule sets used by the site.
       shared_ptr<int64_t> usage_ {};
     };
 
@@ -126,9 +126,9 @@ namespace Models
   protected:
     shared_ptr<int64_t> batchConfigUsage_ {};
     shared_ptr<int64_t> instanceUsage_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of site usage.
+    // A list of sites and their respective WAF rule usage.
     shared_ptr<vector<ListWafUsageOfRulesResponseBody::Sites>> sites_ {};
   };
 

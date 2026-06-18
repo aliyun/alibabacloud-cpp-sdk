@@ -169,38 +169,41 @@ namespace Models
   protected:
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> aliUid_ {};
-    // The time when the task was created.
+    // The time the task was created.
     shared_ptr<string> createdAt_ {};
-    // The domain names to be prefetched.
+    // The list of domains to preload.
     shared_ptr<string> domains_ {};
-    // The error message. Multiple error messages are separated by commas (,). Valid values:
+    // The error message. Multiple error codes are separated by commas.
     // 
-    // *   **InvalidUrl**: The URL format is invalid.
-    // *   **InvalidDomain**: The domain name fails the domain ownership verification.
-    // *   **QuotaExcess**: the quota limit has been reached.
-    // *   **OtherErrors**: other errors.
+    // - **InvalidUrl**: The URL format is invalid.
+    // 
+    // - **InvalidDomain**: Domain ownership verification failed.
+    // 
+    // - **QuotaExcess**: The quota is exceeded.
+    // 
+    // - **OtherErrors**: Other errors.
     shared_ptr<string> errorInfo_ {};
-    // The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+    // The OSS URL for the file that lists the failed URLs.
     shared_ptr<string> failedFileOss_ {};
-    // The ID of the URL list file, which can be used during downloads.
+    // The ID of the file containing the list of URLs. Use this ID to download the file.
     shared_ptr<string> fileId_ {};
-    // The ID of the scheduled prefetch task.
+    // The task ID.
     shared_ptr<string> id_ {};
-    // The method to submit the URLs to be prefetched.
+    // The URL submission method.
     shared_ptr<string> insertWay_ {};
     // The task name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The number of submitted prefetch tasks.
+    // The number of tasks submitted. A value of 1 indicates that the task was created.
     shared_ptr<int32_t> taskSubmitted_ {};
-    // The task type (refresh or preload).
+    // The task type. Valid values are refresh or preload.
     shared_ptr<string> taskType_ {};
-    // The total number of URLs.
+    // The total number of URLs provided in the request.
     shared_ptr<int32_t> urlCount_ {};
-    // The number of submitted URLs.
+    // The number of URLs accepted for preloading.
     shared_ptr<int32_t> urlSubmitted_ {};
   };
 

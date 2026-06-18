@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Layer 4 application ID
+    // The Layer 4 application ID.
     shared_ptr<int64_t> applicationId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

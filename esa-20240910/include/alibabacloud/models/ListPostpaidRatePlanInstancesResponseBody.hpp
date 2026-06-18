@@ -128,8 +128,19 @@ namespace Models
 
 
       protected:
+        // The ID of the site.
         shared_ptr<int64_t> siteId_ {};
+        // The name of the site.
         shared_ptr<string> siteName_ {};
+        // The status of the site. Valid values:
+        // 
+        // - `pending`: The site is awaiting configuration.
+        // 
+        // - `active`: The site is active.
+        // 
+        // - `offline`: The site is offline.
+        // 
+        // - `moved`: The site has been replaced.
         shared_ptr<string> siteStatus_ {};
       };
 
@@ -224,17 +235,43 @@ namespace Models
 
 
     protected:
+      // The billing method. Valid value:
+      // 
+      // - `dps_month95`: Monthly 95th percentile.
       shared_ptr<string> billingMethod_ {};
+      // The billing mode. Valid value:
+      // 
+      // - `POSTPAY`: pay-as-you-go.
       shared_ptr<string> billingMode_ {};
+      // The coverage area of the instance. Only sites within this area can be bound to the instance. If multiple areas are supported, they are separated by a comma (`,`). Valid values:
+      // 
+      // - `domestic`: Chinese mainland.
+      // 
+      // - `overseas`: Regions outside the Chinese mainland.
+      // 
+      // - `global`: Global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
+      // The time when the instance was created.
       shared_ptr<string> createTime_ {};
+      // The time of a scheduled configuration change.
       shared_ptr<string> expectedUpdateTime_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The plan name in English.
       shared_ptr<string> planName_ {};
+      // The plan name in Chinese.
       shared_ptr<string> planNameCn_ {};
+      // The type of the plan. Valid values:
+      // 
+      // - `normal`: Normal plan.
+      // 
+      // - `enterprise`: Enterprise plan.
       shared_ptr<string> planType_ {};
+      // The maximum number of sites that can be bound to the instance.
       shared_ptr<string> siteQuota_ {};
+      // A list of sites bound to the instance.
       shared_ptr<vector<InstanceInfo::Sites>> sites_ {};
+      // The status of the instance.
       shared_ptr<string> status_ {};
     };
 
@@ -285,12 +322,17 @@ namespace Models
 
 
   protected:
+    // A list of instances.
     shared_ptr<vector<ListPostpaidRatePlanInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID, used for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

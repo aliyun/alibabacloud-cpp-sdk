@@ -168,15 +168,15 @@ namespace Models
 
 
       protected:
-        // The DCV ID.
+        // The ID of the DCV record.
         shared_ptr<string> id_ {};
-        // The DCV name. It is a TXT record name if Type is DNS or URL if Type is HTTP.
+        // The DCV key. For the `DNS` method, this is the name of the TXT record. For the `HTTP` method, this is the URL.
         shared_ptr<string> key_ {};
-        // The verification status.
+        // The validation status.
         shared_ptr<string> status_ {};
-        // The DCV type. Valid values: DNS and HTTP.
+        // The DCV method. Valid values: `DNS` and `HTTP`.
         shared_ptr<string> type_ {};
-        // The DCV content.
+        // The DCV value.
         shared_ptr<string> value_ {};
       };
 
@@ -343,60 +343,71 @@ namespace Models
 
 
     protected:
-      // The error code returned for certificate application.
+      // The error code returned when a certificate application fails.
       shared_ptr<int64_t> applyCode_ {};
-      // The error message returned for certificate application.
+      // The error message returned when a certificate application fails.
       shared_ptr<string> applyMessage_ {};
-      // The certificate ID on Certificate Management Service.
+      // The ID of the cloud certificate.
       shared_ptr<string> casId_ {};
-      // The Common Name of the certificate.
+      // The common name of the certificate.
       shared_ptr<string> commonName_ {};
       // The time when the certificate was created.
       shared_ptr<string> createTime_ {};
-      // The Domain Control Validation (DCV) information.
+      // The domain control validation (DCV) information.
       shared_ptr<vector<Result::DCV>> DCV_ {};
       // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
-      // The certificate ID on ESA.
+      // The ID of the certificate.
       shared_ptr<string> id_ {};
-      // The certificate authority (CA) that issued the certificate.
+      // The issuer of the certificate.
       shared_ptr<string> issuer_ {};
-      // The Common Name of the certificate issuer.
+      // The common name of the certificate issuer.
       shared_ptr<string> issuerCN_ {};
+      // The ID of the keyless server. This parameter is valid only when `Type` is set to `keyless`.
       shared_ptr<string> keyServerId_ {};
-      // The certificate name.
+      // The name of the certificate.
       shared_ptr<string> name_ {};
       // The time when the certificate expires.
       shared_ptr<string> notAfter_ {};
-      // The time when the certificate takes effect.
+      // The time when the certificate becomes valid.
       shared_ptr<string> notBefore_ {};
       // The public key algorithm of the certificate.
       shared_ptr<string> pubAlg_ {};
-      // The region where the certificate is stored.
+      // The region.
       shared_ptr<string> region_ {};
-      // The Subject Alternative Name (SAN) of the certificate.
+      // The subject alternative name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
       // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
       // The signature algorithm of the certificate.
       shared_ptr<string> sigAlg_ {};
-      // The certificate status.
+      // The status of the certificate. Valid values:
       // 
-      // *   OK
-      // *   Expired
-      // *   Expiring
-      // *   Issued
-      // *   Applying
-      // *   ApplyFailed
-      // *   Canceled
+      // - `OK`: The certificate is valid.
+      // 
+      // - `Expired`: The certificate has expired.
+      // 
+      // - `Expiring`: The certificate is due to expire within 30 days.
+      // 
+      // - `Issued`: The free certificate has been issued.
+      // 
+      // - `Applying`: The free certificate application is in progress.
+      // 
+      // - `ApplyFailed`: The free certificate application has failed.
+      // 
+      // - `Canceled`: The free certificate application has been canceled.
       shared_ptr<string> status_ {};
-      // The certificate type.
+      // The type of the certificate. Valid values:
       // 
-      // *   cas: certificate that is purchased by using Certificate Management Service
-      // *   upload: custom certificate that you upload
-      // *   free: free certificate
+      // - `cas`: An Alibaba Cloud certificate.
+      // 
+      // - `upload`: A user-uploaded certificate.
+      // 
+      // - `free`: A free certificate.
+      // 
+      // - `keyless`: A keyless certificate.
       shared_ptr<string> type_ {};
-      // The time when the certificate was updated.
+      // The time when the certificate was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -457,17 +468,17 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried certificates.
+    // A list of certificate details.
     shared_ptr<vector<ListCertificatesResponseBody::Result>> result_ {};
-    // The website ID.
+    // The ID of the site.
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
+    // The name of the site.
     shared_ptr<string> siteName_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

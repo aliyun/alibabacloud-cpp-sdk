@@ -149,53 +149,62 @@ namespace Models
 
 
   protected:
-    // The log category. Valid values:
+    // The business type. Valid values:
     // 
-    // *   **dcdn_log_access_l1** (default): access logs.
-    // *   **dcdn_log_er**: Edge Routine logs.
-    // *   **dcdn_log_waf**: firewall logs.
-    // *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+    // - **dcdn_log_access_l1** (default): access log.
+    // 
+    // - **dcdn_log_er**: edge function log.
+    // 
+    // - **dcdn_log_waf**: WAF protection log.
+    // 
+    // - **dcdn_log_ipa**: Layer-4 acceleration log.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
     // 
-    // *   cn: the Chinese mainland.
-    // *   oversea: outside the Chinese mainland.
-    shared_ptr<string> dataCenter_ {};
-    // The destination of the delivery. Valid values:
+    // - **cn**: Chinese mainland.
     // 
-    // *   sls: Alibaba Cloud Simple Log Service (SLS).
-    // *   http: HTTP server.
-    // *   aws3: Amazon Simple Storage Service (S3).
-    // *   oss: Alibaba Cloud Object Storage Service (OSS).
-    // *   kafka: Kafka.
-    // *   aws3cmpt: S3-compatible storage service.
+    // - **oversea**: regions outside the Chinese mainland.
+    shared_ptr<string> dataCenter_ {};
+    // The type of the delivery destination. Valid values:
+    // 
+    // - **sls**: Log Service.
+    // 
+    // - **http**: an HTTP service.
+    // 
+    // - **aws3**: Amazon S3.
+    // 
+    // - **oss**: Object Storage Service.
+    // 
+    // - **kafka**: a Kafka service.
+    // 
+    // - **aws3cmpt**: an Amazon S3-compatible service.
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
-    // The discard rate. Default value: 0.
+    // The discard rate. If you do not specify this parameter, the default value 0 is used.
     shared_ptr<float> discardRate_ {};
-    // The log fields, which are separated by commas (,).
+    // The log fields for delivery. Separate multiple fields with a comma (,).
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     shared_ptr<string> filterVer_ {};
-    // The configurations for delivery to an HTTP server.
+    // The parameters for delivering logs to an HTTP server.
     shared_ptr<string> httpDeliveryShrink_ {};
-    // The configurations for delivery to Kafka.
+    // The parameters for delivering logs to a Kafka cluster.
     shared_ptr<string> kafkaDeliveryShrink_ {};
-    // The configurations for delivery to OSS.
+    // The parameters for delivering logs to Object Storage Service (OSS).
     shared_ptr<string> ossDeliveryShrink_ {};
-    // The configurations for delivery to Amazon S3 or an S3-compatible service.
+    // The parameters for delivering logs to an Amazon S3 bucket or an S3-compatible service.
     shared_ptr<string> s3DeliveryShrink_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The configurations for delivery to SLS.
+    // The parameters for delivering logs to Log Service.
     shared_ptr<string> slsDeliveryShrink_ {};
-    // The name of the delivery task.
+    // The task name.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

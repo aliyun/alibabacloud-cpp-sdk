@@ -62,11 +62,11 @@ namespace Models
 
 
   protected:
-    // The keys that failed to be deleted.
+    // List of keys that failed to delete.
     shared_ptr<vector<string>> failKeys_ {};
-    // The request ID.
+    // ID of the request.
     shared_ptr<string> requestId_ {};
-    // The keys that are deleted.
+    // List of keys that deleted successfully.
     shared_ptr<vector<string>> successKeys_ {};
   };
 

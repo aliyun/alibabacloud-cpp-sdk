@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The custom hostname.
     shared_ptr<string> hostname_ {};
+    // The ID of the custom hostname.
     shared_ptr<int64_t> hostnameId_ {};
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

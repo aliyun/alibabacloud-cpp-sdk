@@ -94,25 +94,39 @@ namespace Models
 
 
   protected:
-    // Query page number, used for pagination.
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // Query page size, used for pagination.
+    // The number of items to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // WAF rule type. Values:
+    // The WAF rule execution phase. Valid values are:
     // 
-    // - http_anti_scan: Scan protection
-    // - http_bot: Bots
+    // - `http_whitelist`: whitelist rule
+    // 
+    // - `http_custom`: custom rule
+    // 
+    // - `http_managed`: managed rule
+    // 
+    // - `http_anti_scan`: scan protection rule
+    // 
+    // - `http_ratelimit`: rate limiting rule
+    // 
+    // - `ip_access_rule`: IP access rule
+    // 
+    // - `http_bot`: Advanced bots
+    // 
+    // - `http_security_level_rule`: security rule
     // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // Query filter conditions.
+    // Query filters.
     shared_ptr<string> queryArgsShrink_ {};
+    // The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
     shared_ptr<int64_t> rulesetId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
+    // The site configuration version. For sites with configuration version management enabled, this parameter specifies the version to use. Defaults to 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The WAF ruleset ID.
     shared_ptr<int64_t> id_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of rule IDs within the WAF ruleset.
     shared_ptr<vector<int64_t>> ruleIds_ {};
   };
 

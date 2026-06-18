@@ -133,25 +133,28 @@ namespace Models
 
 
     protected:
-      // Cache reserve capacity. Unit: GB.
+      // The cache reserve capacity, in GB.
       shared_ptr<int64_t> cacheReserveCapacity_ {};
-      // Cache reserve usage region.
+      // The region where the cache reserve instance is used.
       shared_ptr<string> cacheReserveRegion_ {};
       shared_ptr<string> chargeType_ {};
-      // Instance purchase time.
+      // The time when the instance was created.
       shared_ptr<string> createTime_ {};
-      // Duration of the instance purchase, unit: months.
+      // The purchase duration of the instance, in months.
       shared_ptr<int32_t> duration_ {};
-      // Instance expiration time.
+      // The expiration time of the instance.
       shared_ptr<string> expireTime_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the cache reserve instance. Valid values:
+      // The status of the instance. Valid values:
       // 
-      // *   **online**: The instance is in service.
-      // *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
-      // *   **disable**: The instance has been released.
-      // *   **overdue**: The instance has been stopped due to overdue payments.
+      // - **online**: The instance is running normally.
+      // 
+      // - **offline**: The instance has expired and is unavailable but remains within the grace period.
+      // 
+      // - **disable**: The instance is disabled.
+      // 
+      // - **overdue**: The instance is suspended due to an overdue payment.
       shared_ptr<string> status_ {};
     };
 
@@ -202,17 +205,17 @@ namespace Models
 
 
   protected:
-    // The cache reserve instances.
+    // A list of cache reserve instances.
     shared_ptr<vector<ListCacheReserveInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
-    // Page number. Default value: **1**.
+    // The page number of the returned data.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, default **500**, range: **1~500**.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Total pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

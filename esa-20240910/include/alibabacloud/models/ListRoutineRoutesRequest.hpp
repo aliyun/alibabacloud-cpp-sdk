@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 500. Default value: 500.
+    // The number of entries per page. The maximum value is 500. The default value is 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The function name.
+    // The name of the Edge Function routine.
     // 
     // This parameter is required.
     shared_ptr<string> routineName_ {};

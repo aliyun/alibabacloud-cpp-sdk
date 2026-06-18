@@ -129,16 +129,23 @@ namespace Models
 
 
       protected:
-        // The name of the request header.
+        // The header name.
         shared_ptr<string> name_ {};
-        // The operation type. The value range is as follows:
+        // The operation. Valid values:
         // 
-        // - add: Add.
-        // - del: Delete.
-        // - modify: Modify.
+        // - add: Add a header.
+        // 
+        // - del: Delete a header.
+        // 
+        // - modify: Modify a header.
         shared_ptr<string> operation_ {};
+        // The value type. Valid values:
+        // 
+        // - static: Static value.
+        // 
+        // - dynamic: Dynamic value.
         shared_ptr<string> type_ {};
-        // The value of the request header.
+        // The header value.
         shared_ptr<string> value_ {};
       };
 
@@ -204,27 +211,33 @@ namespace Models
 
 
     protected:
-      // Configuration ID.
+      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // Configuration type. Possible values:
-      // - global: Global configuration;
-      // - rule: Rule configuration;
+      // The configuration type. Valid values:
+      // 
+      // - global: Global configuration.
+      // 
+      // - rule: Rule configuration.
       shared_ptr<string> configType_ {};
-      // Modify request headers, supporting add, delete, and modify operations.
+      // The modifications to apply to the request headers, such as adding, deleting, or modifying them.
       shared_ptr<vector<Configs::RequestHeaderModification>> requestHeaderModification_ {};
-      // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-      // - Match all incoming requests: Set the value to true
-      // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+      // The conditional expression that determines which requests this rule applies to. This parameter is not required for global configurations. There are two use cases:
+      // 
+      // - To match all incoming requests, set the value to true.
+      // 
+      // - To match specified requests, set the value to a custom expression, for example, (http.host eq "video.example.com").
       shared_ptr<string> rule_ {};
-      // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-      // - on: Enable.
-      // - off: Disable.
+      // Specifies whether the rule is enabled or disabled. This parameter is not required for global configurations. Valid values:
+      // 
+      // - on: Enabled.
+      // 
+      // - off: Disabled.
       shared_ptr<string> ruleEnable_ {};
-      // Rule name. This parameter is not required when adding a global configuration.
+      // The rule name. This parameter is not required for global configurations.
       shared_ptr<string> ruleName_ {};
-      // Rule execution order. The smaller the value, the higher the priority.
+      // The execution priority of the rule. A smaller value indicates a higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
+      // The version number of the site configuration. For sites with version management enabled, this parameter specifies the version to which the configuration applies. The default is 0.
       shared_ptr<int32_t> siteVersion_ {};
     };
 
@@ -275,17 +288,17 @@ namespace Models
 
 
   protected:
-    // List of HTTP request header modification configurations.
+    // The request header modification configurations.
     shared_ptr<vector<ListHttpRequestHeaderModificationRulesResponseBody::Configs>> configs_ {};
-    // Page number. Default value: **1**.
+    // The page number. Default: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, default **500**, with a range of **1~500**.
+    // The page size. Default: **500**. Range: **1 to 500**.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of items.
+    // The total count of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total count of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

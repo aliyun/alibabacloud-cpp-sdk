@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
+    // The record ID.
     shared_ptr<int64_t> recordId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful.
+    // The status of the operation. A value of `OK` indicates that the operation was successful.
     shared_ptr<string> status_ {};
   };
 

@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // Site ID.
+      // The site ID.
       shared_ptr<string> siteId_ {};
-      // Site name.
+      // The site name.
       shared_ptr<string> siteName_ {};
-      // Site usage.
+      // The number of certificates used by the site.
       shared_ptr<int64_t> siteUsage_ {};
     };
 
@@ -142,17 +142,17 @@ namespace Models
 
 
   protected:
-    // Free certificate quota.
+    // The free certificate quota.
     shared_ptr<int64_t> quota_ {};
-    // Usage of free certificate quota.
+    // The number of used free certificates.
     shared_ptr<int64_t> quotaUsage_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Number of sites.
+    // The site count.
     shared_ptr<int64_t> siteCount_ {};
-    // List of site usage details.
+    // Details about the certificate usage for each site.
     shared_ptr<vector<GetCertificateQuotaResponseBody::SiteUsage>> siteUsage_ {};
-    // Certificate Quota type.
+    // The certificate quota type.
     shared_ptr<string> type_ {};
   };
 

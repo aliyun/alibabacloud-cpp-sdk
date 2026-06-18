@@ -135,31 +135,37 @@ namespace Models
 
 
     protected:
-      // The time when the policy expires.
+      // The end time of the policy.
       // 
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time is in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> endTime_ {};
-      // The name of the scenario-specific policy.
+      // The name of the custom scene policy.
       shared_ptr<string> name_ {};
-      // The IDs of websites that are associated with the policy.
+      // A list of associated site IDs.
+      // 
+      // > This field is deprecated. We recommend that you use the `SiteIds` field instead.
       shared_ptr<vector<string>> objects_ {};
       // The policy ID.
       shared_ptr<int64_t> policyId_ {};
+      // A comma-separated list of site IDs associated with the policy.
       shared_ptr<string> siteIds_ {};
-      // The time when the policy takes effect.
+      // The start time of the policy.
       // 
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time is in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> startTime_ {};
-      // The status of the policy. Valid values:
+      // The effective status of the policy. Valid values:
       // 
-      // *   **Disabled**
-      // *   **Pending**
-      // *   **Running**
-      // *   **Expired**
+      // - **disabled**: The policy is disabled.
+      // 
+      // - **pending**: The policy is waiting to take effect.
+      // 
+      // - **running**: The policy is in effect.
+      // 
+      // - **expired**: The policy has expired.
       shared_ptr<string> status_ {};
-      // The name of the policy template. Valid value:
+      // The template name. Valid value:
       // 
-      // *   **promotion**: major events.
+      // - **promotion**: A major event.
       shared_ptr<string> template_ {};
     };
 
@@ -210,17 +216,17 @@ namespace Models
 
 
   protected:
-    // The scenario-specific policies.
+    // The configurations of custom scene policies.
     shared_ptr<vector<DescribeCustomScenePoliciesResponseBody::DataModule>> dataModule_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The policy quota.
+    // The maximum number of policies that you can create.
     shared_ptr<int32_t> quota_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

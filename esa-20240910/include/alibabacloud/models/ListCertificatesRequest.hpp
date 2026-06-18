@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The keyword that is used for the search.
+    // The search keyword.
     shared_ptr<string> keyword_ {};
-    // The page number.
+    // The page number to return.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
-    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+    // The site ID. To get this ID, call the [ListSites](~~ListSites~~) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListRecordsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizName, bizName_);
+      DARABONBA_PTR_TO_JSON(CustomPort, customPort_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Proxied, proxied_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListRecordsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizName, bizName_);
+      DARABONBA_PTR_FROM_JSON(CustomPort, customPort_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Proxied, proxied_);
@@ -46,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->proxied_ == nullptr && this->recordMatchType_ == nullptr && this->recordName_ == nullptr
-        && this->siteId_ == nullptr && this->sourceType_ == nullptr && this->type_ == nullptr; };
+        && this->customPort_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->proxied_ == nullptr && this->recordMatchType_ == nullptr
+        && this->recordName_ == nullptr && this->siteId_ == nullptr && this->sourceType_ == nullptr && this->type_ == nullptr; };
     // bizName Field Functions 
     bool hasBizName() const { return this->bizName_ != nullptr;};
     void deleteBizName() { this->bizName_ = nullptr;};
     inline string getBizName() const { DARABONBA_PTR_GET_DEFAULT(bizName_, "") };
     inline ListRecordsRequest& setBizName(string bizName) { DARABONBA_PTR_SET_VALUE(bizName_, bizName) };
+
+
+    // customPort Field Functions 
+    bool hasCustomPort() const { return this->customPort_ != nullptr;};
+    void deleteCustomPort() { this->customPort_ = nullptr;};
+    inline string getCustomPort() const { DARABONBA_PTR_GET_DEFAULT(customPort_, "") };
+    inline ListRecordsRequest& setCustomPort(string customPort) { DARABONBA_PTR_SET_VALUE(customPort_, customPort) };
 
 
     // pageNumber Field Functions 
@@ -112,43 +121,54 @@ namespace Models
 
 
   protected:
-    // The business scenario of the record for acceleration. Valid values:
+    // The business scenario for acceleration. Use this parameter to filter results. Valid values:
     // 
-    // *   **image_video**: video and image.
-    // *   **api**: API.
-    // *   **web**: web page.
+    // - **image_video**: Images and videos.
+    // 
+    // - **api**: API.
+    // 
+    // - **web**: Web page.
     shared_ptr<string> bizName_ {};
-    // The page number. Default value: **1**.
+    shared_ptr<string> customPort_ {};
+    // The page number. Defaults to **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **500**.
+    // The page size. Defaults to **500**.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters by whether the record is proxied. Valid values:
+    // Filters the results based on whether the record is proxied. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The record is proxied.
+    // 
+    // - **false**: The record is not proxied.
     shared_ptr<bool> proxied_ {};
-    // The match mode to search for the record name. Default value: exact. Valid values:
+    // The match type for the record name search. Defaults to **exact**. Valid values:
     // 
-    // *   **prefix**: match by prefix.
-    // *   **suffix**: match by suffix.
-    // *   **exact**: exact match.
-    // *   **fuzzy**: fuzzy match.
+    // - **prefix**: Prefix match.
+    // 
+    // - **suffix**: Suffix match.
+    // 
+    // - **exact**: Exact match.
+    // 
+    // - **fuzzy**: Fuzzy match.
     shared_ptr<string> recordMatchType_ {};
-    // The record name. This parameter specifies a filter condition for the query.
+    // The record name. Use this parameter to filter query results.
     shared_ptr<string> recordName_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The origin type of the record. Only CNAME records can be filtered by using this field. Valid values:
+    // Filters the results by the record\\"s origin type. This filter applies only to CNAME records. Valid values:
     // 
-    // *   **OSS**: OSS bucket.
-    // *   **S3**: S3 bucket.
-    // *   **LB**: load balancer.
-    // *   **OP**: origin pool.
-    // *   **Domain**: domain name.
+    // - **OSS**: OSS origin.
+    // 
+    // - **S3**: S3 origin.
+    // 
+    // - **LB**: Load balancer origin.
+    // 
+    // - **OP**: Origin pool.
+    // 
+    // - **Domain**: Domain origin.
     shared_ptr<string> sourceType_ {};
-    // The DNS record type.
+    // The DNS record type. Use this parameter to filter results.
     shared_ptr<string> type_ {};
   };
 

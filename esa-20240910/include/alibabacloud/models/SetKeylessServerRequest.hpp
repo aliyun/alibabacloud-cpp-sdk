@@ -112,19 +112,31 @@ namespace Models
 
 
   protected:
+    // The CA certificate used to verify the server certificate of the keyless server. This parameter applies only when `Verify` is set to `true`.
     shared_ptr<string> caCertificate_ {};
+    // The client certificate. This parameter must be used with the `ClientPrivateKey` parameter.
     shared_ptr<string> clientCertificate_ {};
+    // The client private key. This parameter must be used with the `ClientCertificate` parameter.
     shared_ptr<string> clientPrivateKey_ {};
+    // The hostname of the keyless server. The value can be a domain name or an IP address.
+    // 
     // This parameter is required.
     shared_ptr<string> host_ {};
-    // Keyless server ID。
+    // The keyless server ID.
     shared_ptr<string> id_ {};
+    // The keyless server name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The keyless server port.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> port_ {};
+    // The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Specifies whether to verify the server certificate of the keyless server. Default: false.
     shared_ptr<bool> verify_ {};
   };
 

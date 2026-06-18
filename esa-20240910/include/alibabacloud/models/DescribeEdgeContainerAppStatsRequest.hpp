@@ -94,15 +94,25 @@ namespace Models
 
 
   protected:
+    // Basic information about the application.
+    // 
     // This parameter is required.
     shared_ptr<string> app_ {};
+    // The end time to retrieve data. The date must be in ISO 8601 format and use UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+    // 
+    // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
+    // The metric fields.
+    // 
     // This parameter is required.
     shared_ptr<string> fields_ {};
+    // The Internet Service Provider (ISP).
     shared_ptr<string> isp_ {};
+    // The region.
     shared_ptr<string> locate_ {};
+    // The start time. The date must be in ISO 8601 format and use UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
-    // The tenant ID.
+    // The tenant.
     shared_ptr<string> tenant_ {};
   };
 

@@ -115,17 +115,17 @@ namespace Models
 
 
   protected:
-    // The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+    // The Base64-encoded content of the custom response page.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The Content-Type field in the HTTP header.
+    // The value for the page\\"s Content-Type HTTP header.
     // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
-    // The description of the custom error page.
+    // The description of the custom response page.
     shared_ptr<string> description_ {};
-    // The ID of the custom error page.[](~~2850223~~)
+    // The ID of the custom response page.
     shared_ptr<int64_t> id_ {};
     // The type of the custom response page.
     shared_ptr<string> kind_ {};
@@ -135,8 +135,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The sites to which the page is applied.
     shared_ptr<vector<int64_t>> siteIds_ {};
-    // The time when the custom error page was last modified.
+    // The time the custom response page was last modified.
     shared_ptr<string> updateTime_ {};
   };
 

@@ -118,17 +118,21 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The error message returned upon a prefetch task failure. Valid values:
       // 
-      // *   **Internal Error**
-      // *   **Origin Timeout**
-      // *   **Origin Return StatusCode 5XX**
+      // - **Internal Error**
+      // 
+      // - **Origin Timeout**
+      // 
+      // - **Origin Return StatusCode 5XX**
       shared_ptr<string> description_ {};
       // The progress of the task, in percentage.
       shared_ptr<string> process_ {};
       // The task status.
       // 
-      // *   **Complete**: The task is complete.
-      // *   **Refreshing**: The task is in progress.
-      // *   **Failed**: The task failed.
+      // - **Complete**: The task is complete.
+      // 
+      // - **Refreshing**: The task is in progress.
+      // 
+      // - **Failed**: The task failed.
       shared_ptr<string> status_ {};
       // The ID of the queried task.
       shared_ptr<string> taskId_ {};

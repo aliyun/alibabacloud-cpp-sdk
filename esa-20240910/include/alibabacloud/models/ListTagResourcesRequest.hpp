@@ -143,24 +143,28 @@ namespace Models
 
 
   protected:
-    // The maximum number of tags to return.
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxItem_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    // 
-    // >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
+    // The token for the next query to return more results.
+    // > You do not need to specify this parameter for the first query. If a query does not return all results, pass the **NextToken** value returned from the previous query to continue the query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the resources reside.
+    // The region ID. Valid values:
+    // - Alibaba Cloud China Website (www.aliyun.com): cn-hangzhou
+    // - Alibaba Cloud International Website (www.alibabacloud.com): ap-southeast-1.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The website ID.
+    // The resource ID. Enter a site ID or a DNS record ID. You must specify at least one of ResourceId and Tag.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type.
+    // The resource type. Valid values:
+    // 
+    // - site: site
+    // - record: DNS record.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
-    // A list of tags. You can enter up to 20 tags.
+    // The list of tags. You can specify up to 20 tags. You must specify at least one of ResourceId and Tag.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

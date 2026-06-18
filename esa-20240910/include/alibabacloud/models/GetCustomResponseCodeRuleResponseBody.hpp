@@ -121,15 +121,37 @@ namespace Models
 
 
   protected:
+    // Configuration ID.
     shared_ptr<int64_t> configId_ {};
+    // The configuration type. Valid values:
+    // 
+    // - global: Global configuration.
+    // 
+    // - rule: Rule configuration.
     shared_ptr<string> configType_ {};
+    // The response page.
     shared_ptr<string> pageId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // The response code.
     shared_ptr<string> returnCode_ {};
+    // The rule content. Use conditional expressions to match user requests. Do not set this parameter when adding a global configuration. There are two scenarios:
+    // 
+    // - Match all incoming requests: Set the value to true.
+    // 
+    // - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
     shared_ptr<string> rule_ {};
+    // The rule switch. Do not set this parameter when adding a global configuration. Valid values:
+    // 
+    // - on: Enable.
+    // 
+    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
+    // The rule name. Do not set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
+    // The rule execution order. A smaller value indicates higher execution priority.
     shared_ptr<int32_t> sequence_ {};
+    // The version number of the site configuration. For sites with version control enabled, use this parameter to specify the site version where the configuration takes effect. The default is version 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

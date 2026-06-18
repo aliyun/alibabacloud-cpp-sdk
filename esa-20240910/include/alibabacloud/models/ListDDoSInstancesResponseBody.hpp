@@ -124,12 +124,27 @@ namespace Models
 
 
     protected:
+      // Time when the instance was purchased
       shared_ptr<string> createTime_ {};
+      // DDoS protection specification for the Chinese mainland
       shared_ptr<string> DDoSBurstableDomesticProtection_ {};
+      // DDoS protection specification for regions outside the Chinese mainland
       shared_ptr<string> DDoSBurstableOverseasProtection_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Scheduled release time
       shared_ptr<string> reserveReleaseTime_ {};
+      // Associated site package instance ID
       shared_ptr<string> siteInstanceId_ {};
+      // Instance status. Valid values:
+      // 
+      // - **online**: Normal service status.
+      // 
+      // - **offline**: Expired but not overdue. Instance is unavailable.
+      // 
+      // - **disable**: Released.
+      // 
+      // - **overdue**: Service suspended due to overdue payment.
       shared_ptr<string> status_ {};
     };
 
@@ -180,12 +195,17 @@ namespace Models
 
 
   protected:
+    // Instance details
     shared_ptr<vector<ListDDoSInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
+    // Page number. Default: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Total number of entries
     shared_ptr<int32_t> totalCount_ {};
+    // Total number of pages
     shared_ptr<int32_t> totalPage_ {};
   };
 

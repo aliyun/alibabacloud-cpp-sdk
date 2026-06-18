@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // ID of the load balancer.
+        // The ID of the load balancer.
         shared_ptr<int64_t> id_ {};
-        // Name of the load balancer.
+        // The name of the load balancer.
         shared_ptr<string> name_ {};
       };
 
@@ -151,9 +151,9 @@ namespace Models
 
 
       protected:
-        // 记录ID。
+        // The ID of the record.
         shared_ptr<int64_t> id_ {};
-        // Record name.
+        // The name of the record.
         shared_ptr<string> name_ {};
       };
 
@@ -195,9 +195,9 @@ namespace Models
 
 
       protected:
-        // Record ID.
+        // The ID of the record.
         shared_ptr<int64_t> id_ {};
-        // Record name.
+        // The name of the record.
         shared_ptr<string> name_ {};
       };
 
@@ -231,11 +231,11 @@ namespace Models
 
 
     protected:
-      // List of layer 7 records using this origin pool as the origin.
+      // The Layer 7 records that use this origin pool as their origin.
       shared_ptr<vector<References::DnsRecords>> dnsRecords_ {};
-      // List of layer 4 records using this origin pool as the origin.
+      // The Layer 4 records that use this origin pool as their origin.
       shared_ptr<vector<References::IPARecords>> IPARecords_ {};
-      // List of load balancers using this origin pool.
+      // The load balancers that use this origin pool.
       shared_ptr<vector<References::LoadBalancers>> loadBalancers_ {};
     };
 
@@ -339,20 +339,23 @@ namespace Models
 
 
       protected:
-        // The AccessKey required when AuthType is set to private_cross_account or private.
+        // The AccessKey ID. This parameter is required if `AuthType` is set to `private_cross_account` or `private`.
         shared_ptr<string> accessKey_ {};
-        // The type of authentication:
+        // The authentication type.
         // 
-        // - public: Public read/write, used when the origin is OSS or S3 and is publicly readable/writable;
-        // - private_same_account: Private same account, used when the origin is OSS and the authentication type is private within the same account;
-        // - private_cross_account: Private cross account, used when the origin is OSS and the authentication type is private across accounts;
-        // - private: Used when the origin is S3 and the authentication type is private.
+        // - public: Public access. For OSS or S3 origins with public read access.
+        // 
+        // - private_same_account: Private, same account. For private OSS origins in the same account.
+        // 
+        // - private_cross_account: Private, cross-account. For private OSS origins in a different account.
+        // 
+        // - private: Private. For private S3 origins.
         shared_ptr<string> authType_ {};
-        // The source Region to be passed when the origin is AWS S3.
+        // The AWS Region of the origin. Required if the origin is an AWS S3 bucket.
         shared_ptr<string> region_ {};
-        // The SecretKey required when AuthType is set to private_cross_account or private.
+        // The AccessKey secret. This parameter is required if `AuthType` is set to `private_cross_account` or `private`.
         shared_ptr<string> secretKey_ {};
-        // The signature version required when the origin is an AWS S3.
+        // The signature version. Required if the origin is an AWS S3 bucket.
         shared_ptr<string> version_ {};
       };
 
@@ -427,29 +430,41 @@ namespace Models
 
 
     protected:
-      // The address of the origin, e.g., www.example.com.
+      // The origin address. For example, www\\.example.com.
       shared_ptr<string> address_ {};
-      // Authentication information. When the origin is an OSS or S3, and authentication is required, you need to provide the relevant configuration information.
+      // The authentication configuration. This parameter is required if the origin is an OSS or S3 bucket that requires authentication.
       shared_ptr<Origins::AuthConf> authConf_ {};
-      // Whether the origin is enabled:
+      // Specifies if the origin is enabled.
       // 
-      // - true: Enabled;
-      // - false: Disabled.
+      // - true: The origin is enabled.
+      // 
+      // - false: The origin is disabled.
       shared_ptr<bool> enabled_ {};
-      // The request header to be included when fetching from the origin, only supports Host.
+      // The request header to include in origin requests. Only the Host header is supported.
       Darabonba::Json header_ {};
-      // The ID of the origin.
+      // The origin ID.
       shared_ptr<int64_t> id_ {};
-      shared_ptr<string> ipVersionPolicy_ {};
-      // The name of the origin.
-      shared_ptr<string> name_ {};
-      // The type of the origin:
+      // The IP version policy for origin requests.
       // 
-      // - ip_domain: IP or domain type origin;
-      // - OSS: OSS address origin;
-      // - S3: AWS S3 origin.
+      // - round_robin: Default policy. Routes requests to IPv4 and IPv6 origins on a round-robin basis.
+      // 
+      // - ipv4_first: Prioritizes IPv4. Routes requests to IPv4 origins first.
+      // 
+      // - ipv6_first: Prioritizes IPv6. Routes requests to IPv6 origins first.
+      // 
+      // - follow: Matches the client\\"s IP version. The origin request uses the same IP version as the incoming request.
+      shared_ptr<string> ipVersionPolicy_ {};
+      // The origin name.
+      shared_ptr<string> name_ {};
+      // The type of the origin.
+      // 
+      // - ip_domain: An IP address or a domain name.
+      // 
+      // - OSS: An OSS bucket.
+      // 
+      // - S3: An AWS S3 bucket.
       shared_ptr<string> type_ {};
-      // The weight, an integer between 0 and 100.
+      // The weight of the origin. Must be an integer from 0 to 100.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -524,26 +539,27 @@ namespace Models
 
 
   protected:
-    // Whether the origin pool is enabled:
+    // Specifies if the origin pool is enabled.
     // 
-    // - true: Enabled;
-    // - false: Disabled.
+    // - true: The origin pool is enabled.
+    // 
+    // - false: The origin pool is disabled.
     shared_ptr<bool> enabled_ {};
-    // Origin pool ID.
+    // The origin pool ID.
     shared_ptr<int64_t> id_ {};
-    // Name of the origin pool. The name is unique under a single site.
+    // The name of the origin pool. The name must be unique within a site.
     shared_ptr<string> name_ {};
-    // Information about the origins added to the origin pool.
+    // The origins in the origin pool.
     shared_ptr<vector<GetOriginPoolResponseBody::Origins>> origins_ {};
-    // The domain name assigned to the origin pool, which can be used as the origin address for records under the site.
+    // The domain name assigned to the origin pool. It serves as the origin address for records within the site.
     shared_ptr<string> recordName_ {};
     // The number of load balancers that reference this origin pool.
     shared_ptr<int32_t> referenceLBCount_ {};
-    // Reference information for the origin pool. The origin pool is considered referenced when it is configured in a load balancer or set as the origin for a record.
+    // Resources that reference the origin pool. An origin pool is referenced if a load balancer or record uses it as an origin.
     shared_ptr<GetOriginPoolResponseBody::References> references_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // ID of the site to which the origin pool belongs.
+    // The ID of the site that contains the origin pool.
     shared_ptr<int64_t> siteId_ {};
   };
 

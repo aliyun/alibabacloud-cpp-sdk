@@ -130,40 +130,41 @@ namespace Models
 
 
   protected:
-    // Whether to enable GRPC, disabled by default. Possible values:
-    // - on: Enable
-    // - off: Disable
+    // Specifies whether to enable gRPC. This feature is disabled by default. Valid values:
+    // - on: enabled
+    // - off: disabled.
     shared_ptr<string> grpc_ {};
-    // Whether to enable HTTP2 origin, disabled by default. Possible values:
-    // - on: Enable
-    // - off: Disable
+    // Specifies whether to enable HTTP/2 back-to-origin. This feature is disabled by default. Valid values:
+    // - on: enabled
+    // - off: disabled.
     shared_ptr<string> http2Origin_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+    // - Match all incoming requests: set the value to true.
+    // - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-    // - on: Enable.
-    // - off: Disable.
+    // The rule switch. This parameter is not required when you add a global configuration. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The rule name. This parameter is not required when you add a global configuration.
     shared_ptr<string> ruleName_ {};
+    // The rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the configuration, defaulting to version 0.
+    // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // Whether to enable smart routing service, disabled by default. Possible values:
-    // - on: Enable
-    // - off: Disable
+    // Specifies whether to enable smart routing. This feature is disabled by default. Valid values:
+    // - on: enabled
+    // - off: disabled.
     shared_ptr<string> smartRouting_ {};
-    // Maximum upload file size in MB, range: 100～500.
+    // The maximum upload file size, in MB. Valid values: 100 to 500.
     shared_ptr<string> uploadMaxFilesize_ {};
-    // Whether to enable Websocket, enabled by default. Possible values:
-    // - on: Enable
-    // - off: Disable
+    // Specifies whether to enable WebSocket. This feature is enabled by default. Valid values:
+    // - on: enabled
+    // - off: disabled.
     shared_ptr<string> websocket_ {};
   };
 

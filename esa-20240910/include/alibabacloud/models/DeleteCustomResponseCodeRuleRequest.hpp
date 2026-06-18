@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+    // The site ID. Obtain this by calling ListSites.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

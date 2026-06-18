@@ -205,35 +205,37 @@ namespace Models
 
 
     protected:
-      // The ID of the CA certificate.
+      // The CA certificate ID.
       shared_ptr<string> CACertificateId_ {};
-      // The Common Name of the certificate.
+      // The certificate\\"s common name.
       shared_ptr<string> commonName_ {};
-      // The time when the certificate was created.
+      // The time the certificate was created.
       shared_ptr<string> createTime_ {};
+      // The certificate\\"s SHA-256 fingerprint.
       shared_ptr<string> fingerprintSha256_ {};
       // The certificate ID.
       shared_ptr<string> id_ {};
-      // The certificate authority (CA) that issued the certificate.
+      // The certificate\\"s issuer.
       shared_ptr<string> issuer_ {};
       // The certificate name.
       shared_ptr<string> name_ {};
-      // The time when the certificate expires.
+      // The time the certificate expires.
       shared_ptr<string> notAfter_ {};
-      // The time when the certificate takes effect.
+      // The time the certificate becomes valid.
       shared_ptr<string> notBefore_ {};
-      // The public-key algorithm of the certificate.
+      // The certificate\\"s public key algorithm.
       shared_ptr<string> pubkeyAlgorithm_ {};
-      // The Subject Alternative Name (SAN) of the certificate.
+      // The certificate\\"s subject alternative name.
       shared_ptr<string> SAN_ {};
+      // The certificate\\"s serial number.
       shared_ptr<string> serialNumber_ {};
-      // The signature algorithm of the certificate.
+      // The certificate\\"s signature algorithm.
       shared_ptr<string> signatureAlgorithm_ {};
       // The certificate status.
       shared_ptr<string> status_ {};
       // The certificate type.
       shared_ptr<string> type_ {};
-      // The time when the certificate was updated.
+      // The time the certificate was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -288,11 +290,11 @@ namespace Models
     shared_ptr<string> certificate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The certificate information.
+    // Detailed certificate information.
     shared_ptr<GetClientCertificateResponseBody::Result> result_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
+    // The site name.
     shared_ptr<string> siteName_ {};
     // The certificate status.
     shared_ptr<string> status_ {};

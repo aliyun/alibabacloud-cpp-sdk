@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A diagnostic message.
     shared_ptr<string> tip_ {};
+    // The generated diagnostic link.
     shared_ptr<string> url_ {};
   };
 

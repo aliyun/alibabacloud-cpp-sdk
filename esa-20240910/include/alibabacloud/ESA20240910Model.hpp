@@ -409,6 +409,15 @@
 #include <alibabacloud/models/DeleteWaitingRoomRuleRequest.hpp>
 #include <alibabacloud/models/DeleteWaitingRoomRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteWaitingRoomRuleResponse.hpp>
+#include <alibabacloud/models/DescribeBotPriceRequest.hpp>
+#include <alibabacloud/models/DescribeBotPriceResponseBody.hpp>
+#include <alibabacloud/models/DescribeBotPriceResponse.hpp>
+#include <alibabacloud/models/DescribeCacheReservePriceRequest.hpp>
+#include <alibabacloud/models/DescribeCacheReservePriceResponseBody.hpp>
+#include <alibabacloud/models/DescribeCacheReservePriceResponse.hpp>
+#include <alibabacloud/models/DescribeCacheReservePriceGapRequest.hpp>
+#include <alibabacloud/models/DescribeCacheReservePriceGapResponseBody.hpp>
+#include <alibabacloud/models/DescribeCacheReservePriceGapResponse.hpp>
 #include <alibabacloud/models/DescribeCustomScenePoliciesRequest.hpp>
 #include <alibabacloud/models/DescribeCustomScenePoliciesResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomScenePoliciesResponse.hpp>
@@ -456,6 +465,9 @@
 #include <alibabacloud/models/DescribeRatePlanPriceRequest.hpp>
 #include <alibabacloud/models/DescribeRatePlanPriceResponseBody.hpp>
 #include <alibabacloud/models/DescribeRatePlanPriceResponse.hpp>
+#include <alibabacloud/models/DescribeRatePlanPriceGapRequest.hpp>
+#include <alibabacloud/models/DescribeRatePlanPriceGapResponseBody.hpp>
+#include <alibabacloud/models/DescribeRatePlanPriceGapResponse.hpp>
 #include <alibabacloud/models/DescribeSiteLogsRequest.hpp>
 #include <alibabacloud/models/DescribeSiteLogsResponseBody.hpp>
 #include <alibabacloud/models/DescribeSiteLogsResponse.hpp>
@@ -539,6 +551,9 @@
 #include <alibabacloud/models/GetDevelopmentModeRequest.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponseBody.hpp>
 #include <alibabacloud/models/GetDevelopmentModeResponse.hpp>
+#include <alibabacloud/models/GetEdgeContainerRequest.hpp>
+#include <alibabacloud/models/GetEdgeContainerResponseBody.hpp>
+#include <alibabacloud/models/GetEdgeContainerResponse.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppRequest.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResponseBody.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResponse.hpp>
@@ -575,6 +590,9 @@
 #include <alibabacloud/models/GetErServiceRequest.hpp>
 #include <alibabacloud/models/GetErServiceResponseBody.hpp>
 #include <alibabacloud/models/GetErServiceResponse.hpp>
+#include <alibabacloud/models/GetFailFileRequest.hpp>
+#include <alibabacloud/models/GetFailFileResponseBody.hpp>
+#include <alibabacloud/models/GetFailFileResponse.hpp>
 #include <alibabacloud/models/GetHttpIncomingRequestHeaderModificationRuleRequest.hpp>
 #include <alibabacloud/models/GetHttpIncomingRequestHeaderModificationRuleResponseBody.hpp>
 #include <alibabacloud/models/GetHttpIncomingRequestHeaderModificationRuleResponse.hpp>
@@ -757,6 +775,9 @@
 #include <alibabacloud/models/ListCacheRulesRequest.hpp>
 #include <alibabacloud/models/ListCacheRulesResponseBody.hpp>
 #include <alibabacloud/models/ListCacheRulesResponse.hpp>
+#include <alibabacloud/models/ListCasCertificatesRequest.hpp>
+#include <alibabacloud/models/ListCasCertificatesResponseBody.hpp>
+#include <alibabacloud/models/ListCasCertificatesResponse.hpp>
 #include <alibabacloud/models/ListCertificatesRequest.hpp>
 #include <alibabacloud/models/ListCertificatesResponseBody.hpp>
 #include <alibabacloud/models/ListCertificatesResponse.hpp>
@@ -1067,6 +1088,9 @@
 #include <alibabacloud/models/StopScheduledPreloadExecutionRequest.hpp>
 #include <alibabacloud/models/StopScheduledPreloadExecutionResponseBody.hpp>
 #include <alibabacloud/models/StopScheduledPreloadExecutionResponse.hpp>
+#include <alibabacloud/models/SubmitUploadTaskRequest.hpp>
+#include <alibabacloud/models/SubmitUploadTaskResponseBody.hpp>
+#include <alibabacloud/models/SubmitUploadTaskResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>

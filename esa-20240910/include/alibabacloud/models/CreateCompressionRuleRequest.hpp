@@ -112,37 +112,45 @@ namespace Models
 
 
   protected:
-    // Brotli compression. Value range:
+    // Specifies whether to enable Brotli compression. Valid values:
     // 
-    // - on: Enable.
-    // - off: Disable.
+    // - `on`: Enables Brotli compression.
+    // 
+    // - `off`: Disables Brotli compression.
     shared_ptr<string> brotli_ {};
-    // Gzip compression. Value range:
+    // Specifies whether to enable Gzip compression. Valid values:
     // 
-    // - on: Enable.
-    // - off: Disable.
+    // - `on`: Enables Gzip compression.
+    // 
+    // - `off`: Disables Gzip compression.
     shared_ptr<string> gzip_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - To match all incoming requests: Set the value to true
-    // - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The conditional expression used to match user requests. This parameter is not required when adding a global configuration. There are two use cases:
+    // 
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, set the value to a custom expression, for example, `(http.host eq "video.example.com")`.
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Specifies whether to enable the rule. This parameter is not required when adding a global configuration. Valid values:
+    // 
+    // - `on`: Enables the rule.
+    // 
+    // - `off`: Disables the rule.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The name of the rule. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
+    // The execution priority of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The unique identifier of the site. To obtain this value, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+    // The version of the site\\"s configuration. If versioning is enabled for the site, this parameter specifies the version to modify. Defaults to 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // Zstd compression. Value range:
+    // Specifies whether to enable Zstd compression. Valid values:
     // 
-    // - on: Enable.
-    // - off: Disable.
+    // - `on`: Enables Zstd compression.
+    // 
+    // - `off`: Disables Zstd compression.
     shared_ptr<string> zstd_ {};
   };
 

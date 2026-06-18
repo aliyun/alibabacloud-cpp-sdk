@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Ruleset ID.
+    // The ruleset ID.
     shared_ptr<int64_t> id_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

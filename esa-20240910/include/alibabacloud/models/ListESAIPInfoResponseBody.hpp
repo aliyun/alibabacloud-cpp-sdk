@@ -72,8 +72,9 @@ namespace Models
     protected:
       // Whether the IP address in the parameter belongs to ESA POPs.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<string> cdnIp_ {};
       // The IP addresses.
       shared_ptr<string> ip_ {};

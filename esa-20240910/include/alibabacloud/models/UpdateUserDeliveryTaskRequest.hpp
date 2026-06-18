@@ -84,22 +84,25 @@ namespace Models
 
 
   protected:
-    // The log category. Valid values:
+    // The real-time log type. Valid values:
     // 
-    // *   dcdn_log_access_l1 (default): access logs.
-    // *   dcdn_log_er: Edge Routine logs.
-    // *   dcdn_log_waf: firewall logs.
-    // *   dcdn_log_ipa: TCP/UDP proxy logs.
+    // - **dcdn_log_access_l1 (default)**: access log.
+    // 
+    // - **dcdn_log_er**: edge function log.
+    // 
+    // - **dcdn_log_waf**: WAF log.
+    // 
+    // - **dcdn_log_ipa**: layer 4 acceleration log.
     shared_ptr<string> businessType_ {};
     shared_ptr<string> details_ {};
-    // The discard rate. Default value: 0.
+    // The default value is 0.
     shared_ptr<float> discardRate_ {};
-    // The log fields that you want to include in logs to be delivered. Separate the log fields with commas (,).
+    // The selected fields. Separate multiple fields with a comma.
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     shared_ptr<string> filterVer_ {};
-    // The name of the delivery task.
+    // The task name.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

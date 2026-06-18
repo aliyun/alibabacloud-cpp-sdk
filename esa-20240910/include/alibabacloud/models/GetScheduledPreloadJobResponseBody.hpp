@@ -167,33 +167,33 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     shared_ptr<string> aliUid_ {};
-    // The time when the task was created.
+    // The creation time of the task.
     shared_ptr<string> createdAt_ {};
-    // The domain names to be prefetched.
+    // The list of domain names to preload.
     shared_ptr<string> domains_ {};
-    // The error message that is returned.
+    // The error message.
     shared_ptr<string> errorInfo_ {};
-    // The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+    // The URL of the OSS file that contains the URLs that failed to preload.
     shared_ptr<string> failedFileOss_ {};
-    // The ID of the URL list file, which can be used during downloads.
+    // The ID of the file that contains the list of URLs. You can use this ID to download the file.
     shared_ptr<string> fileId_ {};
-    // The ID of the prefetch task.
+    // The task ID.
     shared_ptr<string> id_ {};
-    // The method to submit the URLs to be prefetched.
+    // The method used to submit the URLs.
     shared_ptr<string> insertWay_ {};
     // The task name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The number of submitted prefetch tasks.
+    // The number of URLs submitted for the preload task.
     shared_ptr<int32_t> taskSubmitted_ {};
-    // The task type. Valid values: refresh and preload.
+    // The task type. Valid values are `preload` and `refresh`.
     shared_ptr<string> taskType_ {};
-    // The total number of URLs.
+    // The total number of URLs in the task.
     shared_ptr<int32_t> urlCount_ {};
     // The number of submitted URLs.
     shared_ptr<int32_t> urlSubmitted_ {};

@@ -119,9 +119,13 @@ namespace Models
 
 
     protected:
+      // Client information.
       shared_ptr<string> clientInfo_ {};
+      // Diagnostic result.
       shared_ptr<string> diagnoseResult_ {};
+      // Client request response header.
       shared_ptr<string> responseHeader_ {};
+      // Static snapshot page.
       shared_ptr<string> staticHtml_ {};
     };
 
@@ -172,8 +176,11 @@ namespace Models
 
 
     protected:
+      // Browser.
       shared_ptr<string> browserInfo_ {};
+      // Operating system name.
       shared_ptr<string> os_ {};
+      // Version.
       shared_ptr<string> uaString_ {};
     };
 
@@ -313,24 +320,50 @@ namespace Models
 
 
   protected:
+    // IP address of the local DNS server.
     shared_ptr<string> clientAddr_ {};
+    // Client information.
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::ClientInfo> clientInfo_ {};
+    // Client IP.
     shared_ptr<string> clientIp_ {};
+    // Creation time. Format: yyyy-MM-dd HH:mm:ss, timezone: +08:00.
     shared_ptr<string> createTime_ {};
+    // Diagnostic ID.
     shared_ptr<string> diagnoseId_ {};
+    // Diagnostic report link.
     shared_ptr<string> diagnoseReportLink_ {};
+    // Diagnostic link.
     shared_ptr<string> diagnoseUrl_ {};
+    // The diagnosed domain name.
     shared_ptr<string> domain_ {};
+    // Expiration time. Timestamp in seconds.
     shared_ptr<int64_t> expireTime_ {};
+    // Remaining available diagnosis count.
     shared_ptr<int64_t> remainDiagnoseTimes_ {};
+    // Diagnostic report details.
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::Report> report_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Report generation status.
+    // 
+    // 0: Success.
+    // 1: Failure.
+    // 2: Timeout.
+    // 3: Running.
+    // 4: Waiting.
     shared_ptr<string> state_ {};
+    // Status of the diagnostic link.
+    // 
+    // 1: Active.
+    // 0: Expired.
     shared_ptr<int64_t> status_ {};
+    // Task ID.
     shared_ptr<string> taskId_ {};
+    // Time consumed for report generation, in seconds.
     shared_ptr<int64_t> timeConsuming_ {};
+    // Trace display link.
     shared_ptr<string> traceDisplayLink_ {};
+    // Diagnostic trace ID.
     shared_ptr<string> traceId_ {};
   };
 

@@ -87,26 +87,27 @@ namespace Models
 
 
   protected:
-    // The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+    // The Base64-encoded content for the response page, corresponding to the specified `ContentType`.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The Content-Type field in the HTTP header. Valid values:
+    // The value for the Content-Type HTTP header. Examples:
     // 
-    // *   text/html
-    // *   application/json
+    // - text/html
+    // 
+    // - application/json
     // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
-    // The description of the custom error page.
+    // The description of the custom response page.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+    // The ID of the custom response page. Retrieve this ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The name of the custom error page.
+    // The name of the custom response page.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

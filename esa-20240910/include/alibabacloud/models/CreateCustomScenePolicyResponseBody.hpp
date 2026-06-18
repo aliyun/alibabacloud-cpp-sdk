@@ -106,24 +106,27 @@ namespace Models
 
 
   protected:
-    // The time when the policy expires.
+    // The policy end time.
     // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time must be in UTC and in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
     shared_ptr<string> endTime_ {};
     // The policy name.
     shared_ptr<string> name_ {};
-    // The IDs of websites associated.
+    // A list of associated site IDs.
+    // 
+    // > This field is deprecated. Read the value from the `SiteIds` field instead.
     shared_ptr<vector<string>> objects_ {};
     // The policy ID.
     shared_ptr<int64_t> policyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The associated site IDs, separated by commas.
     shared_ptr<string> siteIds_ {};
-    // The time when the policy takes effect.
+    // The policy start time.
     // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time must be in UTC and in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
     shared_ptr<string> startTime_ {};
-    // The name of the policy template.
+    // The template name.
     shared_ptr<string> template_ {};
   };
 

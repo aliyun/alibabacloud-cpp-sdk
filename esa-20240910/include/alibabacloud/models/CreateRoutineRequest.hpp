@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // The routine description.
+    // The description of the Edge Routine.
     shared_ptr<string> description_ {};
+    // Specifies whether the Edge Routine contains asset files.
     shared_ptr<bool> hasAssets_ {};
-    // The routine name, which must be unique in the same account.
+    // The name of the Edge Routine. The name must be unique within the same account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

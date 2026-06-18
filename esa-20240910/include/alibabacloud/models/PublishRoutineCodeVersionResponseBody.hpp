@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The code version.
     shared_ptr<string> codeVersion_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BuildId, buildId_);
       DARABONBA_PTR_TO_JSON(CodeDescription, codeDescription_);
       DARABONBA_PTR_TO_JSON(ConfOptions, confOptions_);
+      DARABONBA_PTR_TO_JSON(DeployEnv, deployEnv_);
       DARABONBA_PTR_TO_JSON(ExtraInfo, extraInfo_);
       DARABONBA_PTR_TO_JSON(Name, name_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BuildId, buildId_);
       DARABONBA_PTR_FROM_JSON(CodeDescription, codeDescription_);
       DARABONBA_PTR_FROM_JSON(ConfOptions, confOptions_);
+      DARABONBA_PTR_FROM_JSON(DeployEnv, deployEnv_);
       DARABONBA_PTR_FROM_JSON(ExtraInfo, extraInfo_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
     };
@@ -69,7 +71,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->buildId_ == nullptr
-        && this->codeDescription_ == nullptr && this->confOptions_ == nullptr && this->extraInfo_ == nullptr && this->name_ == nullptr; };
+        && this->codeDescription_ == nullptr && this->confOptions_ == nullptr && this->deployEnv_ == nullptr && this->extraInfo_ == nullptr && this->name_ == nullptr; };
     // buildId Field Functions 
     bool hasBuildId() const { return this->buildId_ != nullptr;};
     void deleteBuildId() { this->buildId_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     inline CreateRoutineWithAssetsCodeVersionRequest& setConfOptions(CreateRoutineWithAssetsCodeVersionRequest::ConfOptions && confOptions) { DARABONBA_PTR_SET_RVALUE(confOptions_, confOptions) };
 
 
+    // deployEnv Field Functions 
+    bool hasDeployEnv() const { return this->deployEnv_ != nullptr;};
+    void deleteDeployEnv() { this->deployEnv_ = nullptr;};
+    inline string getDeployEnv() const { DARABONBA_PTR_GET_DEFAULT(deployEnv_, "") };
+    inline CreateRoutineWithAssetsCodeVersionRequest& setDeployEnv(string deployEnv) { DARABONBA_PTR_SET_VALUE(deployEnv_, deployEnv) };
+
+
     // extraInfo Field Functions 
     bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
     void deleteExtraInfo() { this->extraInfo_ = nullptr;};
@@ -111,6 +120,7 @@ namespace Models
     shared_ptr<int64_t> buildId_ {};
     shared_ptr<string> codeDescription_ {};
     shared_ptr<CreateRoutineWithAssetsCodeVersionRequest::ConfOptions> confOptions_ {};
+    shared_ptr<string> deployEnv_ {};
     shared_ptr<string> extraInfo_ {};
     // This parameter is required.
     shared_ptr<string> name_ {};

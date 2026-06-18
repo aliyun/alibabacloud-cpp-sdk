@@ -122,12 +122,19 @@ namespace Models
 
 
     protected:
+      // The protection action.
       shared_ptr<string> action_ {};
+      // The rule trigger condition.
       shared_ptr<string> condition_ {};
+      // The ID of the protection rule for log records.
       shared_ptr<int64_t> logRuleId_ {};
+      // The action duration. Unit: seconds.
       shared_ptr<int64_t> punishTime_ {};
+      // The record name.
       shared_ptr<string> recordName_ {};
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -171,11 +178,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of rules.
     shared_ptr<vector<DescribeHttpDDoSIntelligentAclRulesResponseBody::RuleInfos>> ruleInfos_ {};
+    // The total number of rules.
     shared_ptr<int64_t> totalCount_ {};
   };
 

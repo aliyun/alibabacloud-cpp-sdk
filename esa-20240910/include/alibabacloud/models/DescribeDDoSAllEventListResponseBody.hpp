@@ -170,35 +170,51 @@ namespace Models
 
 
     protected:
-      // The peak of volumetric attacks. Unit: bit/s.
+      // The peak bits per second (Bps) of a volumetric attack.
       shared_ptr<int64_t> bps_ {};
+      // The attack region. Valid values:
+      // 
+      // - **domestic**: Chinese mainland.
+      // 
+      // - **global**: Global.
+      // 
+      // - **overseas**: global (excluding Chinese mainland).
       shared_ptr<string> coverage_ {};
-      // The peak of connection flood attacks. Unit: connections per seconds (CPS).
+      // The peak connections per second (Cps) of a connection-based attack.
       shared_ptr<int64_t> cps_ {};
-      // The time when the DDoS attack ends.
+      // The end time of the DDoS attack event.
       // 
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
       shared_ptr<string> endTime_ {};
-      // The attack event ID.
+      // The event ID.
       shared_ptr<string> eventId_ {};
+      // The event result. Valid values:
+      // 
+      // - **clean**: The attack was successfully cleaned.
+      // 
+      // - **ratelimit**: Rate limiting was applied.
+      // 
+      // - **blackhole**: Blackhole filtering was triggered.
       shared_ptr<string> eventResult_ {};
-      // The type of DDoS attacks that was queried. Valid values:
+      // The type of the DDoS attack event. Valid values:
       // 
-      // *   **web-cc**: web resource exhaustion attacks.
-      // *   **cc**: connection flood attacks.
-      // *   **traffic**: volumetric attacks.
+      // - **web-cc**: A web resource exhaustion attack.
+      // 
+      // - **cc**: A connection-based attack.
+      // 
+      // - **traffic**: A volumetric attack.
       shared_ptr<string> eventType_ {};
-      // The peak of volumetric attacks. Unit: packets per second (PPS).
+      // The peak packets per second (Pps) of a volumetric attack.
       shared_ptr<int64_t> pps_ {};
-      // The peak QPS of web resource exhaustion attacks.
+      // The peak queries per second (Qps) of a web resource exhaustion attack.
       shared_ptr<int64_t> qps_ {};
-      // The time when the DDoS attack starts.
+      // The start time of the DDoS attack event.
       // 
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
       shared_ptr<string> startTime_ {};
       // The attack target.
       shared_ptr<string> target_ {};
-      // The ID of the web resource exhaustion attack target.
+      // The ID of the attack target.
       shared_ptr<string> targetId_ {};
     };
 
@@ -249,15 +265,15 @@ namespace Models
 
 
   protected:
-    // The DDoS attack events.
+    // A list of DDoS attack event details.
     shared_ptr<vector<DescribeDDoSAllEventListResponseBody::DataList>> dataList_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

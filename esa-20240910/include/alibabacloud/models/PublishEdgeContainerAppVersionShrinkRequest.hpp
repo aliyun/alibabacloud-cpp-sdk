@@ -122,15 +122,17 @@ namespace Models
     shared_ptr<int32_t> percentage_ {};
     // The environment to which you want to release the version. Valid values:
     // 
-    // *   prod: the production environment.
-    // *   staging: the staging environment.
+    // - prod: the production environment.
+    // 
+    // - staging: the staging environment.
     // 
     // This parameter is required.
     shared_ptr<string> publishEnv_ {};
     // Specifies how the version is released. Valid values:
     // 
-    // *   percentage: releases the version by percentage.
-    // *   region: releases the version by region.
+    // - percentage: releases the version by percentage.
+    // 
+    // - region: releases the version by region.
     // 
     // If you do not specify this parameter, the version is released by percentage by default.
     shared_ptr<string> publishType_ {};

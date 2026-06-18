@@ -103,17 +103,46 @@ namespace Models
 
 
   protected:
+    // The description of the WAF ruleset.
     shared_ptr<string> description_ {};
+    // The expression for the WAF ruleset.
+    // 
     // This parameter is required.
     shared_ptr<string> expression_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name of the WAF ruleset.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The execution phase of the WAF ruleset.
+    // 
+    // - `http_whitelist`: whitelist rule
+    // 
+    // - `http_custom`: custom rule
+    // 
+    // - `http_managed`: managed rule
+    // 
+    // - `http_anti_scan`: scan protection rule
+    // 
+    // - `http_ratelimit`: rate limiting rule
+    // 
+    // - `ip_access_rule`: IP access rule
+    // 
+    // - `http_bot`: advanced bot
+    // 
+    // - `http_security_level_rule`: security rule
+    // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
+    // A list of rule configurations within the WAF ruleset.
     shared_ptr<string> rulesShrink_ {};
+    // The shared configuration for WAF batch rules.
     shared_ptr<string> sharedShrink_ {};
+    // The status of the WAF ruleset.
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
   };

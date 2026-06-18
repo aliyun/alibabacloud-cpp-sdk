@@ -112,16 +112,27 @@ namespace Models
 
 
   protected:
+    // The description of the WAF ruleset.
     shared_ptr<string> description_ {};
+    // The expression of the WAF ruleset.
     shared_ptr<string> expression_ {};
+    // The WAF ruleset ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name of the WAF ruleset.
     shared_ptr<string> name_ {};
+    // The position of the WAF ruleset.
     shared_ptr<int64_t> position_ {};
+    // A list of rule configurations in the WAF ruleset.
     shared_ptr<string> rulesShrink_ {};
+    // The shared configuration of the WAF ruleset.
     shared_ptr<string> sharedShrink_ {};
+    // The status of the WAF ruleset.
     shared_ptr<string> status_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The routine name.
+    // The name of the edge function Routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

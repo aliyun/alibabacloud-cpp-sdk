@@ -112,35 +112,46 @@ namespace Models
 
 
   protected:
-    // Brotli compression. Value range:
+    // Brotli compression. Valid values:
+    // 
     // - on: Enable.
+    // 
     // - off: Disable.
     shared_ptr<string> brotli_ {};
-    // Configuration ID. It can be obtained by calling the [ListCompressionRules](~~ListCompressionRules~~) interface.
+    // Configuration ID. Get this value by calling the [ListCompressionRules](~~ListCompressionRules~~) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Gzip compression. Value range:
+    // Gzip compression. Valid values:
+    // 
     // - on: Enable.
+    // 
     // - off: Disable.
     shared_ptr<string> gzip_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - To match all incoming requests: Set the value to true
-    // - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // Rule content, using a conditional expression to match user requests. Do not set this parameter when adding a global configuration. Two scenarios apply:
+    // 
+    // - Match all incoming requests: Set the value to true.
+    // 
+    // - Match specific requests: Set the value to a custom expression, such as: (http.host eq "video.example.com")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Value range:
+    // Rule switch. Do not set this parameter when adding a global configuration. Valid values:
+    // 
     // - on: Enable.
+    // 
     // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // Rule name. Do not set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
+    // Rule execution order. Rules with smaller values take precedence.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // Site ID. Get this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Zstd compression. Value range:
+    // Zstd compression. Valid values:
+    // 
     // - on: Enable.
+    // 
     // - off: Disable.
     shared_ptr<string> zstd_ {};
   };

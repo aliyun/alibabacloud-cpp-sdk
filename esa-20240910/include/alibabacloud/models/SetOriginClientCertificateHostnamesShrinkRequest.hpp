@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The domain names to associate.
+    // The hostnames to associate with the certificate.
     // 
     // This parameter is required.
     shared_ptr<string> hostnamesShrink_ {};
-    // The certificate ID.
+    // The ID of the certificate.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the site.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

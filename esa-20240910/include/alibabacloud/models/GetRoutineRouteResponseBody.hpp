@@ -149,44 +149,49 @@ namespace Models
 
 
   protected:
-    // Bypass mode. Valid values:
+    // The bypass mode. Valid values:
     // 
-    // *   on
-    // *   off
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> bypass_ {};
     // The configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The configuration type to query. Valid values:
+    // The configuration type. Valid values:
     // 
-    // *   global: global configurations.
-    // *   rule: queries rule configurations.
+    // - `global`: Queries the global configuration.
+    // 
+    // - `rule`: Queries the rule configuration.
     shared_ptr<string> configType_ {};
-    // The exception origin fetch switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent back to the origin. Valid values:
+    // Specifies whether to enable fallback to origin. If this feature is enabled, requests are sent to the origin server when the function encounters an exception, such as exceeding its CPU limit. Valid values:
     // 
-    // *   on
-    // *   off
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> fallback_ {};
-    // The configuration mode. Valid values: Valid values:
+    // The configuration mode. Valid values:
     // 
-    // *   simple
-    // *   custom
+    // - `simple`: simple mode.
+    // 
+    // - `custom`: custom mode.
     shared_ptr<string> mode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The routing switch. Valid values:
+    // The route status. Valid values:
     // 
-    // *   on
-    // *   off
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> routeEnable_ {};
     // The route name.
     shared_ptr<string> routeName_ {};
-    // The function name.
+    // The name of the edge function routine.
     shared_ptr<string> routineName_ {};
-    // The rule content.
+    // The rule expression.
     shared_ptr<string> rule_ {};
-    // The order in which the rule is executed.
+    // The rule execution order.
     shared_ptr<int32_t> sequence_ {};
-    // The version number of the website.
+    // The version number of the site.
     shared_ptr<int32_t> siteVersion_ {};
     shared_ptr<string> timeout_ {};
   };

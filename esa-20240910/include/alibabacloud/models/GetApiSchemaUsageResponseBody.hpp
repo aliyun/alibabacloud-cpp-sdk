@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // The website ID.
+      // The site ID.
       shared_ptr<int64_t> id_ {};
-      // The website name.
+      // The site name.
       shared_ptr<string> name_ {};
-      // The number of files uploaded for the website.
+      // The number of API schema files uploaded for this site.
       shared_ptr<int32_t> usage_ {};
     };
 
@@ -124,13 +124,13 @@ namespace Models
 
 
   protected:
-    // The plan ID.
+    // The plan\\"s instance ID.
     shared_ptr<string> instanceId_ {};
-    // The number of files uploaded for schema verification in the plan instance of the website.
+    // The total count of API schema files uploaded to the plan instance.
     shared_ptr<int32_t> instanceUsage_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Usage details for websites.
+    // The usage details for each site.
     shared_ptr<vector<GetApiSchemaUsageResponseBody::Usages>> usages_ {};
   };
 

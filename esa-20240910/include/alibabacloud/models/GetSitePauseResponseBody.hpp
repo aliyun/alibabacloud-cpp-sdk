@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether ESA is paused on the website. Valid values:
+    // Indicates whether site acceleration is paused. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The site\\"s acceleration is paused.
+    // 
+    // - false: The site is accelerating normally.
     shared_ptr<bool> paused_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

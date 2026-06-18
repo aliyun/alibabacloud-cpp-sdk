@@ -170,39 +170,49 @@ namespace Models
 
 
     protected:
-      // The bypass mode. Valid values:
+      // Whether bypass mode is enabled. Valid values:
       // 
-      // *   on
-      // *   off
+      // - on: Enabled.
+      // 
+      // - off: Disabled.
       shared_ptr<string> bypass_ {};
       // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // The configuration type to query. Valid values:
+      // The configuration type. Valid values:
       // 
-      // *   global: global configurations.
-      // *   rule: queries rule configurations.
+      // - global: Global configuration.
+      // 
+      // - rule: Rule-based configuration.
       shared_ptr<string> configType_ {};
+      // Whether CDN fallback is enabled. Valid values:
+      // 
+      // - on: Enabled.
+      // 
+      // - off: Disabled.
       shared_ptr<string> fallback_ {};
-      // The configuration mode. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+      // The configuration mode. Valid values:
       // 
-      // *   simple: Simple Mode
-      // *   custom: Custom Mode
+      // - simple: Simple mode.
+      // 
+      // - custom: Custom mode.
       shared_ptr<string> mode_ {};
-      // The route switch. Valid values:
+      // Whether the route is enabled. Valid values:
       // 
-      // *   on
-      // *   off
+      // - on: Enabled.
+      // 
+      // - off: Disabled.
       shared_ptr<string> routeEnable_ {};
       // The route name.
       shared_ptr<string> routeName_ {};
-      // The function name.
+      // The routine name.
       shared_ptr<string> routineName_ {};
       // The rule content.
       shared_ptr<string> rule_ {};
-      // The order in which the rule is executed.
+      // The rule execution sequence.
       shared_ptr<int32_t> sequence_ {};
-      // The version number of the website.
+      // The site version.
       shared_ptr<int32_t> siteVersion_ {};
+      // The ER timeout.
       shared_ptr<string> timeout_ {};
     };
 
@@ -253,17 +263,17 @@ namespace Models
 
 
   protected:
-    // The returned configurations.
+    // The list of returned configs.
     shared_ptr<vector<ListSiteRoutesResponseBody::Configs>> configs_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

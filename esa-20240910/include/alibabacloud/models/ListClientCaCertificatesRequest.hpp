@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The page number. Valid values: 1 to 500.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 100.
+    // The number of entries to return per page. Valid values: 1 to 100. The default value is 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+    // The site ID. Call the [ListSites](~~ListSites~~) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

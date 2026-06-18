@@ -153,16 +153,25 @@ namespace Models
 
 
     protected:
+      // The CA certificate used to verify the server certificate of the keyless server. This parameter applies only when `Verify` is set to `true`.
       shared_ptr<string> caCertificate_ {};
+      // The client certificate. This parameter must be provided with `ClientPrivateKey`.
       shared_ptr<string> clientCertificate_ {};
+      // The client private key. This parameter must be provided with `ClientCertificate`.
       shared_ptr<string> clientPrivateKey_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The keyless server host name.
       shared_ptr<string> host_ {};
-      // Keyless server ID。
+      // The keyless server ID.
       shared_ptr<string> id_ {};
+      // The keyless server name.
       shared_ptr<string> name_ {};
+      // The keyless server port. Valid values: 1 to 65535.
       shared_ptr<int64_t> port_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
+      // Specifies whether to verify the server certificate of the keyless server. Defaults to false.
       shared_ptr<bool> verify_ {};
     };
 
@@ -221,12 +230,19 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of keyless server configurations.
     shared_ptr<vector<ListKeylessServersResponseBody::Result>> result_ {};
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
+    // The site name.
     shared_ptr<string> siteName_ {};
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

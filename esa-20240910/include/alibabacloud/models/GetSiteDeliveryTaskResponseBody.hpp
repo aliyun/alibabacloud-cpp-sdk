@@ -160,32 +160,41 @@ namespace Models
 
 
   protected:
-    // The log category. Valid values:
+    // The type of real-time log for Dynamic Route for CDN (DCDN). Valid values:
     // 
-    // *   dcdn_log_access_l1 (default): access logs.
-    // *   dcdn_log_er: Edge Routine logs.
-    // *   dcdn_log_waf: firewall logs.
-    // *   dcdn_log_ipa: TCP/UDP proxy logs.
+    // - **dcdn_log_access_l1** (default): access log.
+    // 
+    // - **dcdn_log_er**: edge function log.
+    // 
+    // - **dcdn_log_waf**: WAF log.
+    // 
+    // - **dcdn_log_ipa**: layer 4 acceleration log.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
     // 
-    // 1.  cn: the Chinese mainland.
-    // 2.  sg: outside the Chinese mainland.
-    shared_ptr<string> dataCenter_ {};
-    // The destination of the delivery. Valid values:
+    // - **cn**: Chinese mainland.
     // 
-    // 1.  sls: Alibaba Cloud Simple Log Service (SLS).
-    // 2.  http: HTTP server.
-    // 3.  aws3: Amazon Simple Storage Service (S3).
-    // 4.  oss: Alibaba Cloud Object Storage Service (OSS).
-    // 5.  kafka: Kafka.
-    // 6.  aws3cmpt: S3-compatible storage service.
+    // - **sg**: Global (excluding Chinese mainland). Note that the value for this region is "sg".
+    shared_ptr<string> dataCenter_ {};
+    // The delivery type. Valid values:
+    // 
+    // - **sls**: Log Service.
+    // 
+    // - **http**: HTTP service.
+    // 
+    // - **aws3**: Amazon S3.
+    // 
+    // - **oss**: Object Storage Service.
+    // 
+    // - **kafka**: Kafka service.
+    // 
+    // - **aws3cmpt**: Amazon S3-compatible service.
     shared_ptr<string> deliveryType_ {};
     // The discard rate.
     shared_ptr<float> discardRate_ {};
-    // The log fields.
+    // A comma-separated list of log fields to deliver.
     shared_ptr<string> fieldList_ {};
-    // The filtering rules.
+    // The filter rules.
     shared_ptr<string> filterRules_ {};
     shared_ptr<string> filterVer_ {};
     shared_ptr<string> rawRule_ {};
@@ -193,16 +202,17 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The delivery configuration.
     Darabonba::Json sinkConfig_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
+    // The site name.
     shared_ptr<string> siteName_ {};
-    // The status of the delivery task.
+    // The status of the task. Valid values:
     // 
-    // *   **online**
-    // *   **offline**
+    // - **online**: The task is delivering logs.
+    // 
+    // - **offline**: The task is paused.
     shared_ptr<string> status_ {};
-    // The name of the delivery task.
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

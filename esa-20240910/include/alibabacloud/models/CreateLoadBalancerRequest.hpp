@@ -146,13 +146,13 @@ namespace Models
 
 
       protected:
-        // Content-Type field in the HTTP Header.
+        // The value of the `Content-Type` field in the HTTP response header.
         shared_ptr<string> contentType_ {};
-        // Location field in the HTTP response.
+        // The value of the `Location` field in the HTTP response header, typically used for redirects.
         shared_ptr<string> location_ {};
-        // Response body value.
+        // The content of the response body.
         shared_ptr<string> messageBody_ {};
-        // Response status code.
+        // The HTTP status code of the response.
         shared_ptr<int32_t> statusCode_ {};
       };
 
@@ -213,26 +213,31 @@ namespace Models
 
 
     protected:
-      // Execute a specified response after matching the rule.
+      // Specifies a fixed response to return when a request matches the rule.
       shared_ptr<Rules::FixedResponse> fixedResponse_ {};
-      // Modify the corresponding load balancing configuration after matching the rule. The fields in the configuration will override the corresponding fields in the load balancer configuration.
+      // The Server Load Balancer settings to override when a request matches the rule. The fields specified here replace the corresponding fields in the main Server Load Balancer configuration.
       Darabonba::Json overrides_ {};
-      // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding global configurations. There are two usage scenarios:
-      // - Match all incoming requests: Set the value to true
-      // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
-      shared_ptr<string> rule_ {};
-      // Rule switch. This parameter does not need to be set when adding global configurations. Value range:
-      // - on: Enable.
-      // - off: Disable.
-      shared_ptr<string> ruleEnable_ {};
-      // The name of the rule. This parameter does not need to be set when adding global configurations.
-      shared_ptr<string> ruleName_ {};
-      // The execution order of the rule. It can be left blank, in which case the rules will be executed in the order they appear in the list. If specified, it must be a positive integer, with higher values indicating higher priority.
-      shared_ptr<int32_t> sequence_ {};
-      // Whether to terminate the execution of subsequent rules.
+      // A conditional expression that matches incoming requests.
       // 
-      // - true: Yes.
-      // - false: No, default value.
+      // - To match all incoming requests, set the value to `true`.
+      // 
+      // - To match specific requests, provide a custom expression, such as `(http.host eq "video.example.com")`.
+      shared_ptr<string> rule_ {};
+      // Specifies whether the rule is enabled. This parameter is not required when adding a global configuration. Valid values:
+      // 
+      // - `on`: The rule is enabled.
+      // 
+      // - `off`: The rule is disabled.
+      shared_ptr<string> ruleEnable_ {};
+      // The name of the rule. This parameter is not required when adding a global configuration.
+      shared_ptr<string> ruleName_ {};
+      // The execution order of the rule. If you do not specify a value, the system executes rules in the order they appear in the list. If specified, the value must be an integer greater than 0. The system executes rules with a higher value first.
+      shared_ptr<int32_t> sequence_ {};
+      // Specifies whether to stop processing subsequent rules after a match.
+      // 
+      // - `true`: Yes.
+      // 
+      // - `false`: No. (Default)
       shared_ptr<bool> terminates_ {};
     };
 
@@ -276,9 +281,9 @@ namespace Models
 
 
     protected:
-      // Default weight for all pools that do not have individual weights specified. The value range is an integer between 0 and 100.
+      // The default weight for the weighted round-robin policy. This weight applies to all address pools without a specifically assigned weight. Valid values: 0–100.
       shared_ptr<int32_t> defaultWeight_ {};
-      // Weight configuration for each backend server pool, with the key being the pool ID and the value being the weight coefficient. The weight coefficient represents the proportion of relative traffic distribution.
+      // A map of weights for each address pool, where the key is the pool ID and the value is its weight. The weight determines the proportion of traffic that the pool receives.
       shared_ptr<map<string, int32_t>> poolWeights_ {};
     };
 
@@ -414,38 +419,52 @@ namespace Models
 
 
     protected:
-      // Number of consecutive failed probes required to consider the target unhealthy, such as `5`.
+      // The number of consecutive failed health checks required to mark an origin server as unhealthy. For example, `5`.
       shared_ptr<int32_t> consecutiveDown_ {};
-      // Number of consecutive successful probes required to consider the target healthy, such as `3`.
+      // The number of consecutive successful health checks required to mark an origin server as healthy. For example, `3`.
       shared_ptr<int32_t> consecutiveUp_ {};
-      // Expected status codes, such as `200,202`, which are successful HTTP responses.
+      // The expected HTTP status codes that indicate a successful health check. Separate multiple codes with commas. For example, `200,202`.
       shared_ptr<string> expectedCodes_ {};
-      // Whether to follow redirects.
+      // Specifies whether the health check monitor follows HTTP redirects.
       // 
-      // - true: Yes.
-      // - false: No.
+      // - `true`: Yes.
+      // 
+      // - `false`: No.
       shared_ptr<bool> followRedirects_ {};
-      // Header information included in the probe, which is an HTTP header.
+      // The HTTP headers to include in the health check request.
       Darabonba::Json header_ {};
-      // Monitoring interval, such as `60` seconds, which is the frequency of checks.
+      // The interval in seconds between consecutive health checks. For example, `60`.
       shared_ptr<int32_t> interval_ {};
-      // Monitor request method, such as `GET`, which is a method in the HTTP protocol.
+      // The HTTP method for the health check. For example, `GET`.
       shared_ptr<string> method_ {};
+      // The regions from which the monitor initiates health check probes. Default: `Global`. Valid values:
+      // 
+      // - `Global`: Worldwide.
+      // 
+      // - `ChineseMainland`: Chinese mainland.
+      // 
+      // - `OutsideChineseMainland`: Regions outside the Chinese mainland.
       shared_ptr<string> monitoringRegion_ {};
-      // Monitor check path, such as `/healthcheck`, which is an HTTP request path.
+      // The request path for the HTTP health check. For example, `/healthcheck`.
       shared_ptr<string> path_ {};
-      // Origin server port.
+      // The port on the origin server to check.
       shared_ptr<int32_t> port_ {};
-      // Application health check timeout, in seconds, with a value range of 1-10.
+      // The timeout for the health check, in seconds. The value must be between 1 and 10.
       shared_ptr<int32_t> timeout_ {};
-      // Monitor protocol type, such as HTTP, used for health checks. When set to `off`, no check is performed.
+      // The protocol for the health check. Setting this to `off` disables health checks. Valid values:
       // 
       // - TCP
+      // 
       // - UDP
+      // 
       // - SMTP
+      // 
       // - HTTPS
+      // 
       // - HTTP
+      // 
       // - ICMP Ping
+      // 
       // - off
       shared_ptr<string> type_ {};
     };
@@ -488,10 +507,11 @@ namespace Models
 
 
     protected:
-      // Whether to failover across pools.
+      // Indicates whether to fail over across address pools.
       // 
-      // - true: Yes.
-      // - false: No.
+      // - `true`: Yes.
+      // 
+      // - `false`: No.
       shared_ptr<bool> failoverAcrossPools_ {};
       shared_ptr<bool> originLevelRetry_ {};
     };
@@ -620,57 +640,63 @@ namespace Models
 
 
   protected:
-    // Configuration for failover across pools.
+    // The configuration for failover across address pools.
     shared_ptr<CreateLoadBalancerRequest::AdaptiveRouting> adaptiveRouting_ {};
-    // List of default pools.
+    // A list of default address pool IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> defaultPools_ {};
-    // Detailed description of the load balancer, for easier management and identification.
+    // A description of the Server Load Balancer.
     shared_ptr<string> description_ {};
-    // Whether the load balancer is enabled.
+    // Specifies whether to enable the Server Load Balancer.
     // 
-    // - true: Enabled.
-    // - false: Not enabled.
+    // - `true`: Enabled.
+    // 
+    // - `false`: Disabled.
     shared_ptr<bool> enabled_ {};
-    // Fallback pool ID, where traffic will be directed when all other pools are unavailable.
+    // The ID of the fallback pool. The system directs traffic to this pool when all other pools are unavailable.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fallbackPool_ {};
-    // Monitor configuration, used for health checks.
+    // The monitor configuration for health checks.
     // 
     // This parameter is required.
     shared_ptr<CreateLoadBalancerRequest::Monitor> monitor_ {};
-    // The name of the load balancer, which must meet the domain name format validation and be a subdomain under the site.
+    // The name of the Server Load Balancer. It must be a valid domain name and a subdomain of the site.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Weighted round-robin configuration, used to control the traffic distribution weights among different pools.
+    // The configuration for weighted round-robin steering. This setting controls how the system distributes traffic across different address pools based on their weights.
     shared_ptr<CreateLoadBalancerRequest::RandomSteering> randomSteering_ {};
-    // Address pools corresponding to primary regions.
+    // The mapping of primary regions to address pools.
     Darabonba::Json regionPools_ {};
-    // Rule information.
+    // A list of rules to override the default traffic steering policy for specific requests.
     shared_ptr<vector<CreateLoadBalancerRequest::Rules>> rules_ {};
-    // Session persistence, with possible values:
-    // - off: Not enabled.
-    // - ip: Session persistence by IP.
-    // - cookie: Session persistence by cookie.
+    // Specifies the session affinity policy, which consistently routes requests from the same client to the same origin server. Valid values:
+    // 
+    // - `off`: Disables session affinity.
+    // 
+    // - `ip`: Routes requests based on the client\\"s IP address.
+    // 
+    // - `cookie`: Uses a cookie to maintain session affinity.
     shared_ptr<string> sessionAffinity_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The site ID. Call the [ListSites](~~ListSites~~) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Load balancing strategy.
+    // The traffic steering policy, which determines how the system distributes traffic among the address pools. Valid values:
     // 
-    // - geo: Geographical strategy.
-    // - random: Weighted round-robin.
-    // - order: Primary and backup method.
+    // - `geo`: Geographic routing.
+    // 
+    // - `random`: Weighted round-robin.
+    // 
+    // - `order`: Primary/standby.
     // 
     // This parameter is required.
     shared_ptr<string> steeringPolicy_ {};
-    // Address pools corresponding to secondary regions. When multiple secondary regions share the same set of address pools, the keys can be concatenated with commas.
+    // The mapping of secondary regions to address pools. To map multiple secondary regions to the same address pools, combine their region codes with commas to form the key.
     Darabonba::Json subRegionPools_ {};
-    // TTL value, the time-to-live for DNS records, with a default of 30 seconds. The value range is 10-600.
+    // The time to live (TTL) for the DNS record, in seconds. The default value is 30. The value must be between 10 and 600.
     shared_ptr<int32_t> ttl_ {};
   };
 

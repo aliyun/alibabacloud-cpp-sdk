@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Configuration ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
+    // Site ID. For more information, see [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CommitRoutineStagingCodeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CodeDescription, codeDescription_);
+      DARABONBA_PTR_TO_JSON(DeployEnv, deployEnv_);
       DARABONBA_PTR_TO_JSON(Name, name_);
     };
     friend void from_json(const Darabonba::Json& j, CommitRoutineStagingCodeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CodeDescription, codeDescription_);
+      DARABONBA_PTR_FROM_JSON(DeployEnv, deployEnv_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
     };
     CommitRoutineStagingCodeRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeDescription_ == nullptr
-        && this->name_ == nullptr; };
+        && this->deployEnv_ == nullptr && this->name_ == nullptr; };
     // codeDescription Field Functions 
     bool hasCodeDescription() const { return this->codeDescription_ != nullptr;};
     void deleteCodeDescription() { this->codeDescription_ = nullptr;};
     inline string getCodeDescription() const { DARABONBA_PTR_GET_DEFAULT(codeDescription_, "") };
     inline CommitRoutineStagingCodeRequest& setCodeDescription(string codeDescription) { DARABONBA_PTR_SET_VALUE(codeDescription_, codeDescription) };
+
+
+    // deployEnv Field Functions 
+    bool hasDeployEnv() const { return this->deployEnv_ != nullptr;};
+    void deleteDeployEnv() { this->deployEnv_ = nullptr;};
+    inline string getDeployEnv() const { DARABONBA_PTR_GET_DEFAULT(deployEnv_, "") };
+    inline CommitRoutineStagingCodeRequest& setDeployEnv(string deployEnv) { DARABONBA_PTR_SET_VALUE(deployEnv_, deployEnv) };
 
 
     // name Field Functions 
@@ -50,7 +59,8 @@ namespace Models
   protected:
     // The description of the code version.
     shared_ptr<string> codeDescription_ {};
-    // The routine name.
+    shared_ptr<string> deployEnv_ {};
+    // The name of the edge function (Routine).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

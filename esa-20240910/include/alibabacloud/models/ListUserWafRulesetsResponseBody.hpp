@@ -114,11 +114,33 @@ namespace Models
 
 
     protected:
+      // The WAF ruleset description.
       shared_ptr<string> description_ {};
+      // The WAF ruleset ID.
       shared_ptr<int64_t> id_ {};
+      // The WAF ruleset name.
       shared_ptr<string> name_ {};
+      // The WAF rule execution phase. Possible values:
+      // 
+      // - `http_whitelist`: Whitelist rule
+      // 
+      // - `http_custom`: Custom rule
+      // 
+      // - `http_managed`: Managed rule
+      // 
+      // - `http_anti_scan`: Scan protection rule
+      // 
+      // - `http_ratelimit`: Rate limit rule
+      // 
+      // - `ip_access_rule`: IP access rule
+      // 
+      // - `http_bot`: Bot rule
+      // 
+      // - `http_security_level_rule`: Security rule
       shared_ptr<string> phase_ {};
+      // The WAF ruleset position.
       shared_ptr<int64_t> position_ {};
+      // The WAF ruleset status.
       shared_ptr<string> status_ {};
     };
 
@@ -169,12 +191,17 @@ namespace Models
 
 
   protected:
+    // The instance usage.
     shared_ptr<int64_t> instanceUsage_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of WAF ruleset objects.
     shared_ptr<vector<ListUserWafRulesetsResponseBody::Rulesets>> rulesets_ {};
+    // The total number of records after filtering.
     shared_ptr<int64_t> totalCount_ {};
   };
 

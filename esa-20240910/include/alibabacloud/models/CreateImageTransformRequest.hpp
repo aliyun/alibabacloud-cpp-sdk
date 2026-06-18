@@ -112,28 +112,35 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable adaptive AVIF. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> autoAvif_ {};
+    // Specifies whether to enable adaptive WebP. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> autoWebp_ {};
-    // Indicates whether image transformation is enabled. Possible values:
+    // Specifies whether to enable image transformation. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> enable_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - To match all incoming requests: Set the value to true
-    // - To match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
+    // The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
+    // Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The rule name. This parameter is not required when you add a global configuration.
     shared_ptr<string> ruleName_ {};
+    // The execution order of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+    // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

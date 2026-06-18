@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The client IP address.
     shared_ptr<string> clientIp_ {};
+    // The diagnose ID.
     shared_ptr<string> diagnoseId_ {};
+    // The domain name to diagnose.
     shared_ptr<string> domainName_ {};
+    // The end time. Time zone: UTC/GMT.
     shared_ptr<string> endTime_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size. Valid values: any integer from 1 to 1000.
     shared_ptr<int64_t> pageSize_ {};
+    // The start time. Time zone: UTC/GMT.
     shared_ptr<string> startTime_ {};
+    // The diagnostic task ID.
     shared_ptr<string> taskId_ {};
+    // The diagnostic trace ID.
     shared_ptr<string> traceId_ {};
   };
 

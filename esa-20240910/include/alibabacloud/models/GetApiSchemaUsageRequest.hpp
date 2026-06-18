@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+    // The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
-    // The version of the website.
+    // The site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

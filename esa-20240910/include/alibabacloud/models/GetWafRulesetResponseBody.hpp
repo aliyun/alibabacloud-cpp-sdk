@@ -110,25 +110,41 @@ namespace Models
 
 
   protected:
-    // Ruleset ID.
+    // The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
     shared_ptr<int64_t> id_ {};
-    // Ruleset name.
+    // The ruleset name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The WAF operation phase applicable to the ruleset.
+    // The execution phase of the WAF ruleset. Valid values:
+    // 
+    // - `http_whitelist`: A whitelist rule
+    // 
+    // - `http_custom`: A custom rule
+    // 
+    // - `http_managed`: A managed rule
+    // 
+    // - `http_anti_scan`: A scan protection rule
+    // 
+    // - `http_ratelimit`: A rate limit rule
+    // 
+    // - `ip_access_rule`: An IP access rule
+    // 
+    // - `http_bot`: A bot rule
+    // 
+    // - `http_security_level_rule`: A security rule
     // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of rule configurations in the ruleset.
+    // The list of rule configurations in the ruleset.
     shared_ptr<vector<WafRuleConfig>> rules_ {};
-    // Shared configurations for the rules in the ruleset.
+    // The shared configuration for rules within the ruleset.
     shared_ptr<WafBatchRuleShared> shared_ {};
-    // Ruleset status.
+    // The ruleset status.
     shared_ptr<string> status_ {};
-    // The last modified time of the ruleset.
+    // The time when the ruleset was last updated.
     shared_ptr<string> updateTime_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the origin pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) interface.
+    // The origin pool ID. To get it, call [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The ID of the site, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The site ID. To get it, call [ListSites](https://help.aliyun.com/document_detail/2850189.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

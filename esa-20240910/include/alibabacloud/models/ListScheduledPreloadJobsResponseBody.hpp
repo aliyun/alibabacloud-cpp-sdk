@@ -191,34 +191,35 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
-      // The time when the task was created.
+      // Job creation time.
       shared_ptr<string> createdAt_ {};
-      // The domain names to be prefetched.
+      // List of domains to prefetch.
       shared_ptr<string> domains_ {};
-      // The error message that is returned.
+      // Error message.
       shared_ptr<string> errorInfo_ {};
+      // Number of prefetch schedules.
       shared_ptr<int32_t> executionCount_ {};
-      // The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+      // The OSS address of the failed file.
       shared_ptr<string> failedFileOss_ {};
-      // The ID of the URL list file, which can be used during downloads.
+      // URL list file ID (used for downloading).
       shared_ptr<string> fileId_ {};
-      // The ID of the prefetch task.
+      // Job ID.
       shared_ptr<string> id_ {};
-      // The method to submit the URLs to be prefetched.
+      // URL insertion method.
       shared_ptr<string> insertWay_ {};
-      // The task name.
+      // Job name.
       shared_ptr<string> name_ {};
-      // The website ID.
+      // Site ID
       shared_ptr<int64_t> siteId_ {};
-      // The number of submitted prefetch tasks.
+      // Number of URLs submitted to the system for prefetching.
       shared_ptr<int32_t> taskSubmitted_ {};
-      // The task type. Valid values: refresh and preload.
+      // Task type (refresh or prefetch).
       shared_ptr<string> taskType_ {};
-      // The total number of URLs.
+      // Total number of URLs.
       shared_ptr<int32_t> urlCount_ {};
-      // The number of submitted URLs.
+      // Number of URLs submitted.
       shared_ptr<int32_t> urlSubmitted_ {};
     };
 
@@ -248,11 +249,11 @@ namespace Models
 
 
   protected:
-    // The list of the prefetch tasks.
+    // List of prefetch job details.
     shared_ptr<vector<ListScheduledPreloadJobsResponseBody::Jobs>> jobs_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of tasks returned.
+    // Total number of records after filtering.
     shared_ptr<string> totalCount_ {};
   };
 

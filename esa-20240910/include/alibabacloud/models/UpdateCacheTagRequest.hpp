@@ -68,8 +68,9 @@ namespace Models
   protected:
     // Specifies whether to ignore case sensitivity. Valid values:
     // 
-    // *   on
-    // *   off
+    // - on
+    // 
+    // - off
     shared_ptr<string> caseInsensitive_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 

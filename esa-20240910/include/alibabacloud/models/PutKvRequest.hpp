@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether the content of the key is Base64-encoded. Set this parameter to true if you want to store the key content in binary format. When this parameter is set to true, the Value parameter must be Base64-encoded.
+    // Indicates whether the Value parameter uses Base64 encoding. Set this to true when storing a binary value. If this parameter is true, Value must be a valid Base64-encoded string.
     shared_ptr<bool> base64_ {};
-    // The time when the key-value pair expires, which cannot be earlier than the current time. The value is a timestamp in seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+    // The expiration time for the key-value pair, as a Unix timestamp in seconds. This value cannot be earlier than the current time. If you specify both Expiration and ExpirationTtl, ExpirationTtl takes precedence.
     shared_ptr<int64_t> expiration_ {};
-    // The relative expiration time. Unit: seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+    // The time-to-live (TTL) for the key-value pair, in seconds. If you specify both Expiration and ExpirationTtl, ExpirationTtl takes precedence.
     shared_ptr<int64_t> expirationTtl_ {};
-    // The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
+    // The key can be up to 512 bytes long and cannot contain spaces or forward slashes (/).
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+    // The name of the namespace. You specify this name when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The content of the key, which can be up to 2 MB (2 × 1000 × 1000). If the content is larger than 2 MB, call [PutKvWithHighCapacity](https://help.aliyun.com/document_detail/2850486.html).
+    // The value to associate with the key. The maximum size is 2 MB (2,000,000 bytes). For values that exceed this limit, use the [PutKvWithHighCapacity](https://help.aliyun.com/document_detail/2850486.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> value_ {};

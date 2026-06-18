@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Diagnostic task ID.
     shared_ptr<string> taskId_ {};
+    // Diagnostic trace ID.
     shared_ptr<string> traceId_ {};
   };
 

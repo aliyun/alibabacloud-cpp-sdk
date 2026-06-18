@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The rule type.
     shared_ptr<string> ruleType_ {};
+    // The site ID. To obtain the site ID, call the [ListSites](~~ListSites~~) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

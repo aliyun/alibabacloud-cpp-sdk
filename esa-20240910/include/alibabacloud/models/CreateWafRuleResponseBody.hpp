@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) API.
+    // The ID of the newly created WAF rule.
     shared_ptr<int64_t> id_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+    // The ID of the ruleset to which the new rule belongs.
     shared_ptr<int64_t> rulesetId_ {};
   };
 

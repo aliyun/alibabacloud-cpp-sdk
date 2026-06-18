@@ -103,13 +103,37 @@ namespace Models
 
 
   protected:
+    // Specifies whether to return only instances that have remaining site quota. Valid values:
+    // 
+    // - `true`: Returns only instances with remaining site quota.
+    // 
+    // - `false`: Returns all instances, regardless of site quota.
     shared_ptr<string> checkRemainingSiteQuota_ {};
+    // The ID of the instance to query.
     shared_ptr<string> instanceId_ {};
+    // The page number. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. The maximum value is 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The field to sort the results by. Valid value:
+    // 
+    // - `CreateTime`: Sorts by creation time.
     shared_ptr<string> sortBy_ {};
+    // The sort order. Valid values:
+    // 
+    // - `asc`: ascending
+    // 
+    // - `desc`: descending
     shared_ptr<string> sortOrder_ {};
+    // The instance status. Valid values:
+    // 
+    // - `online`: The instance is running.
+    // 
+    // - `overdue`: The payment for the instance is overdue.
+    // 
+    // - `disable`: The instance is released.
     shared_ptr<string> status_ {};
+    // The type of add-on service to filter by, such as `bot` or `ddos`.
     shared_ptr<string> unrelatedType_ {};
   };
 

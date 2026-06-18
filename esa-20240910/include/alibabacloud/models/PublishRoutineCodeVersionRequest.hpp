@@ -57,14 +57,9 @@ namespace Models
 
 
   protected:
-    // The code version to be released.
     shared_ptr<string> codeVersion_ {};
-    // The environment name.
-    // 
     // This parameter is required.
     shared_ptr<string> env_ {};
-    // The routine name.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

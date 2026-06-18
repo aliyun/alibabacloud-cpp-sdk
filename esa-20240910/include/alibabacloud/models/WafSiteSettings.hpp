@@ -72,16 +72,7 @@ namespace Models
 
 
     protected:
-      // The security level value.
-      // 
-      // Enumerated values:
-      // 
-      // *   high: high.
-      // *   low: low.
-      // *   under_attack: I am under attack.
-      // *   medium: medium.
-      // *   essentially_off: essentially off.
-      // *   off: completely off.
+      // The security level.
       shared_ptr<string> value_ {};
     };
 
@@ -132,8 +123,11 @@ namespace Models
 
 
     protected:
+      // The action to perform when the request body size exceeds the limit.
       shared_ptr<string> action_ {};
+      // The rule ID for request body inspection.
       shared_ptr<int64_t> id_ {};
+      // The size limit, in bytes, for inspecting the request body.
       shared_ptr<string> sizeLimit_ {};
     };
 
@@ -165,6 +159,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether to disable the security module. Set to `on` to disable.
       shared_ptr<string> status_ {};
     };
 
@@ -208,14 +203,9 @@ namespace Models
 
 
     protected:
-      // Specify headers.
+      // An array of headers to check for the client IP address.
       shared_ptr<vector<string>> headers_ {};
-      // Identifies the mode.
-      // 
-      // Enumerated values:
-      // 
-      // *   headers: specifies the headers.
-      // *   connection_ip: the IP address for establishing a connection.
+      // The identification mode.
       shared_ptr<string> mode_ {};
     };
 
@@ -284,7 +274,7 @@ namespace Models
 
 
       protected:
-        // The action that you want to perform on requests that match the rule.
+        // The action to perform.
         shared_ptr<string> action_ {};
         // The rule ID.
         shared_ptr<int64_t> id_ {};
@@ -328,7 +318,7 @@ namespace Models
 
 
       protected:
-        // The action that you want to perform on requests that match the rule.
+        // The action to perform.
         shared_ptr<string> action_ {};
         // The rule ID.
         shared_ptr<int64_t> id_ {};
@@ -362,7 +352,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the parameter is enabled.
+        // Specifies whether to enable JavaScript detection.
         shared_ptr<bool> enable_ {};
       };
 
@@ -394,7 +384,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the parameter is enabled.
+        // Specifies whether to apply bot management to static resource requests.
         shared_ptr<bool> enable_ {};
       };
 
@@ -436,7 +426,7 @@ namespace Models
 
 
       protected:
-        // The action that you want to perform on requests that match the rule.
+        // The action to perform.
         shared_ptr<string> action_ {};
         // The rule ID.
         shared_ptr<int64_t> id_ {};
@@ -490,15 +480,15 @@ namespace Models
 
 
     protected:
-      // Definite Bots
+      // Configuration for traffic identified as a definite bot.
       shared_ptr<BotManagement::DefiniteBots> definiteBots_ {};
-      // Takes effect on static resource requests.
+      // Configuration to apply bot management to static resource requests.
       shared_ptr<BotManagement::EffectOnStatic> effectOnStatic_ {};
-      // JavaScript detection.
+      // The JavaScript detection settings.
       shared_ptr<BotManagement::JSDetection> JSDetection_ {};
-      // Likely Bots
+      // Configuration for traffic identified as a likely bot.
       shared_ptr<BotManagement::LikelyBots> likelyBots_ {};
-      // Verified Bots
+      // Configuration for traffic identified as a verified bot.
       shared_ptr<BotManagement::VerifiedBots> verifiedBots_ {};
     };
 
@@ -549,8 +539,11 @@ namespace Models
 
 
     protected:
+      // The action to perform for the bandwidth abuse protection rule.
       shared_ptr<string> action_ {};
+      // The rule ID for bandwidth abuse protection.
       shared_ptr<int64_t> id_ {};
+      // The status of the bandwidth abuse protection rule. Valid values: `on` and `off`.
       shared_ptr<string> status_ {};
     };
 
@@ -582,7 +575,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the parameter is enabled.
+      // Specifies whether to add security headers.
       shared_ptr<bool> enable_ {};
     };
 
@@ -614,7 +607,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the parameter is enabled.
+      // Specifies whether to add bot protection headers.
       shared_ptr<bool> enable_ {};
     };
 
@@ -694,18 +687,21 @@ namespace Models
 
 
   protected:
-    // Adds a bot protection header.
+    // Configuration for adding bot protection headers.
     shared_ptr<WafSiteSettings::AddBotProtectionHeaders> addBotProtectionHeaders_ {};
-    // Adds security request header.
+    // Configuration for adding security headers.
     shared_ptr<WafSiteSettings::AddSecurityHeaders> addSecurityHeaders_ {};
+    // The bandwidth abuse protection settings.
     shared_ptr<WafSiteSettings::BandwidthAbuseProtection> bandwidthAbuseProtection_ {};
-    // Bot management.
+    // The bot management settings.
     shared_ptr<WafSiteSettings::BotManagement> botManagement_ {};
-    // Identifies the IP address of the client.
+    // Configuration for client IP identification.
     shared_ptr<WafSiteSettings::ClientIpIdentifier> clientIpIdentifier_ {};
+    // Configuration for disabling the security module.
     shared_ptr<WafSiteSettings::DisableSecurityModule> disableSecurityModule_ {};
+    // Configuration for request body inspection.
     shared_ptr<WafSiteSettings::RequestBodyInspection> requestBodyInspection_ {};
-    // The security level.
+    // The security level settings.
     shared_ptr<WafSiteSettings::SecurityLevel> securityLevel_ {};
   };
 

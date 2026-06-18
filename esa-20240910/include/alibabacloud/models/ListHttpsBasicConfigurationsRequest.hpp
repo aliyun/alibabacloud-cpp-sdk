@@ -87,7 +87,9 @@ namespace Models
     // Configuration ID.
     shared_ptr<int64_t> configId_ {};
     // Configuration type, which can be used to query global or rule configurations. Value range:
+    // 
     // - global: Query global configuration.
+    // 
     // - rule: Query rule configuration.
     // 
     // This parameter is optional. If not provided, it does not distinguish between global and rule configurations.

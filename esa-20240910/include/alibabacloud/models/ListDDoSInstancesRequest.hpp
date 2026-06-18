@@ -94,12 +94,25 @@ namespace Models
 
 
   protected:
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Page number. Default: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page. Default: 20. Maximum: 500. Valid values: integers from 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
+    // Associated site package instance ID.
     shared_ptr<string> siteInstanceId_ {};
+    // Sort field. Default: CreateTime.
+    // 
+    // - **CreateTime**: Time when the instance was purchased.
     shared_ptr<string> sortBy_ {};
+    // Sort order:
+    // 
+    // - asc: ascending.
+    // 
+    // - desc: descending.
     shared_ptr<string> sortOrder_ {};
+    // Instance status.
     shared_ptr<string> status_ {};
   };
 

@@ -271,60 +271,95 @@ namespace Models
 
 
     protected:
-      // Configuration ID.
+      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // Configuration type, which can be used to query global or rule configurations. Value range:
-      // - global: Query global configuration.
-      // - rule: Query rule configuration.
+      // The configuration type. You can use this parameter to query for global or rule-specific configurations. Valid values:
+      // 
+      // - `global`: The global configuration.
+      // 
+      // - `rule`: A rule-specific configuration.
       shared_ptr<string> configType_ {};
-      // Rewrite the DNS resolution record for the origin request.
+      // Overrides the DNS record for the origin request.
       shared_ptr<string> dnsRecord_ {};
+      // Specifies whether to follow 302 redirects from the origin. Valid values:
+      // 
+      // - `on`: Enabled.
+      // 
+      // - `off`: Disabled.
       shared_ptr<string> follow302Enable_ {};
+      // The maximum number of 302 redirects to follow. Valid range: 1 to 5.
       shared_ptr<string> follow302MaxTries_ {};
+      // Specifies whether to retain the original request parameters when following a redirect. Valid values:
+      // 
+      // - `on`: Enabled.
+      // 
+      // - `off`: Disabled.
       shared_ptr<string> follow302RetainArgs_ {};
+      // Specifies whether to retain the original request header when following a redirect. Valid values:
+      // 
+      // - `on`: Enabled.
+      // 
+      // - `off`: Disabled.
       shared_ptr<string> follow302RetainHeader_ {};
+      // The host to use for the origin request after following a 302 redirect.
       shared_ptr<string> follow302TargetHost_ {};
-      // HOST carried in the origin request.
+      // The `Host` header carried in the origin request.
       shared_ptr<string> originHost_ {};
-      // The port of the origin server to access when using the HTTP protocol for origin requests.
+      // The origin server port used for origin requests over HTTP.
       shared_ptr<string> originHttpPort_ {};
-      // The port of the origin server to access when using the HTTPS protocol for origin requests.
+      // The origin server port used for origin requests over HTTPS.
       shared_ptr<string> originHttpsPort_ {};
-      // mTLS switch. Value range:
-      // - on: Enable.
-      // - off: Disable.
+      // Specifies whether mTLS is enabled. Valid values:
+      // 
+      // - `on`: Enabled.
+      // 
+      // - `off`: Disabled.
       shared_ptr<string> originMtls_ {};
+      // The read timeout, in seconds, for the origin server.
       shared_ptr<string> originReadTimeout_ {};
-      // Protocol used for the origin request. Value range:
-      // - http: Use HTTP protocol for origin.
-      // - https: Use HTTPS protocol for origin.
-      // - follow: Follow the client\\"s protocol for origin.
+      // The protocol used for origin requests. Valid values:
+      // 
+      // - `http`: Use the HTTP protocol for origin requests.
+      // 
+      // - `https`: Use the HTTPS protocol for origin requests.
+      // 
+      // - `follow`: Use the same protocol as the client request.
       shared_ptr<string> originScheme_ {};
-      // SNI carried in the back-to-origin request.
+      // The SNI carried in the origin request.
       shared_ptr<string> originSni_ {};
-      // Origin certificate verification switch. Value range:
-      // - on: Enable.
-      // - off: Disable.
+      // Specifies whether to verify the origin server certificate. Valid values:
+      // 
+      // - `on`: Enabled.
+      // 
+      // - `off`: Disabled.
       shared_ptr<string> originVerify_ {};
-      // Use range slicing to download files from the origin. Value range:
-      // - on: Enable
-      // - off: Disable
-      // - force: Force
+      // Specifies whether to use range-based requests to retrieve files from the origin. Valid values:
+      // 
+      // - `on`: Enables range requests.
+      // 
+      // - `off`: Disables range requests.
+      // 
+      // - `force`: Forces range requests.
       shared_ptr<string> range_ {};
+      // The size of each chunk for range requests.
       shared_ptr<string> rangeChunkSize_ {};
-      // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-      // - Match all incoming requests: Set the value to true
-      // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+      // The rule content, which uses a conditional expression to match user requests. This parameter is not required for global configurations. It supports two use cases:
+      // 
+      // - To match all incoming requests, set the value to `true`.
+      // 
+      // - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
       shared_ptr<string> rule_ {};
-      // Rule switch. This parameter is not required when adding a global configuration. Value range:
-      // - on: Enabled.
-      // - off: Disabled.
+      // Specifies whether the rule is enabled. This parameter is not required for global configurations. Valid values:
+      // 
+      // - `on`: Enabled.
+      // 
+      // - `off`: Disabled.
       shared_ptr<string> ruleEnable_ {};
-      // Rule name. This parameter is not required when adding a global configuration.
+      // The rule name. This parameter is not required for global configurations.
       shared_ptr<string> ruleName_ {};
-      // Rule execution order. The smaller the value, the higher the priority.
+      // The rule execution order. Lower values indicate higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // Version number of the site configuration. For sites with version management enabled, this parameter can specify the version of the site for which the configuration is effective, defaulting to version 0.
+      // The site configuration version. If versioning is enabled for the site, this parameter specifies which version to use. The default is 0.
       shared_ptr<int32_t> siteVersion_ {};
     };
 
@@ -375,17 +410,17 @@ namespace Models
 
 
   protected:
-    // Response body configuration.
+    // A list of configurations.
     shared_ptr<vector<ListOriginRulesResponseBody::Configs>> configs_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

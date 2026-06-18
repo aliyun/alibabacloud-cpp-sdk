@@ -94,29 +94,31 @@ namespace Models
 
 
   protected:
-    // The configurations of modifying request headers. You can add, delete, or modify a request header.
+    // An array of objects, where each object defines a modification to a request header.
     // 
     // This parameter is required.
     shared_ptr<string> requestHeaderModificationShrink_ {};
-    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // The conditional expression that the Rule uses to match incoming requests. This parameter is not required for a Global configuration. There are two use cases:
     // 
-    // *   true: Match all incoming requests.
-    // *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, use a custom expression. For example: `(http.host eq "video.example.com")`
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // Specifies whether the Rule is enabled. This parameter is not required for a Global configuration. Valid values:
     // 
-    // *   on
-    // *   off
+    // - `on`: The Rule is enabled.
+    // 
+    // - `off`: The Rule is disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. You do not need to set this parameter when you add global configuration.
+    // The name of the Rule. This parameter is not required for a Global configuration.
     shared_ptr<string> ruleName_ {};
-    // The order in which the rule is executed. A smaller value gives priority to the rule.
+    // The execution order of the Rule. A lower value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the Site. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+    // The Version of the Site configuration. For Sites with configuration versioning enabled, this parameter specifies the Version to which the Rule applies. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

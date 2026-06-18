@@ -221,52 +221,69 @@ namespace Models
 
 
     protected:
-      // The DNS setup option for the website. Valid values:
+      // The access type of the site. Valid values:
       // 
-      // *   **NS**
-      // *   **CNAME**
+      // - **NS**: Access via NS.
+      // 
+      // - **CNAME**: Access via CNAME.
       shared_ptr<string> accessType_ {};
-      // The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+      // For sites onboarded via CNAME, use this suffix to configure the CNAME record.
       shared_ptr<string> cnameZone_ {};
-      // The service location. Valid values:
+      // The acceleration region. Valid values:
       // 
-      // *   **domestic**: the Chinese mainland.
-      // *   **global**: global.
-      // *   **overseas**: outside the Chinese mainland.
+      // - **domestic**: Chinese mainland only
+      // 
+      // - **global**: Global
+      // 
+      // - **overseas**: Global (excluding the Chinese mainland)
       shared_ptr<string> coverage_ {};
-      // The time when the WEBsite was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+      // The time (in UTC) when the site was created, formatted in ISO 8601 (`yyyy-MM-ddTHH:mm:ssZ`).
       shared_ptr<string> createTime_ {};
-      // The plan ID.
+      // The ID of the plan instance.
       shared_ptr<string> instanceId_ {};
-      // The nameservers assigned to the website domain. They are separated by commas (,).
+      // A comma-separated list of name servers assigned to the site.
       shared_ptr<string> nameServerList_ {};
-      shared_ptr<string> offlineReason_ {};
-      // The plan name.
-      shared_ptr<string> planName_ {};
-      // The specification of the plan associated with the website.
-      shared_ptr<string> planSpecName_ {};
-      // The ID of your Alibaba Cloud resource group.
-      shared_ptr<string> resourceGroupId_ {};
-      // The website ID.
-      shared_ptr<int64_t> siteId_ {};
-      // The website name.
-      shared_ptr<string> siteName_ {};
-      // The website status. Valid values:
+      // The reason the site is offline. This parameter appears only when `Status` is `offline`. Valid values:
       // 
-      // *   **pending**: The website is to be configured.
-      // *   **active**: The website is active.
-      // *   **offline**: The website is suspended.
-      // *   **moved**: The website has been added and verified by another Alibaba Cloud account.
+      // - **expiration_arrears**: The subscription plan has expired or the account has overdue payments.
+      // 
+      // - **internally_disabled**: The site was disabled by the system.
+      // 
+      // - **missing_icp**: The domain is missing an ICP license.
+      // 
+      // - **content_violation**: The site violated content policies.
+      // 
+      // - **proactively_disabled**: The site was disabled either by you or by a usage limit that you configured.
+      shared_ptr<string> offlineReason_ {};
+      // The name of the plan.
+      shared_ptr<string> planName_ {};
+      // The name of the plan specification.
+      shared_ptr<string> planSpecName_ {};
+      // The ID of the resource group.
+      shared_ptr<string> resourceGroupId_ {};
+      // The ID of the site.
+      shared_ptr<int64_t> siteId_ {};
+      // The name of the site.
+      shared_ptr<string> siteName_ {};
+      // The status of the site. Valid values:
+      // 
+      // - **pending**: The site is pending configuration.
+      // 
+      // - **active**: The site is active.
+      // 
+      // - **offline**: The site is offline.
+      // 
+      // - **moved**: The site has been superseded.
       shared_ptr<string> status_ {};
-      // The tags of the website.
+      // The tags of the site.
       Darabonba::Json tags_ {};
-      // The time when the WEBsite was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+      // The time (in UTC) when the site was last updated, formatted in ISO 8601 (`yyyy-MM-ddTHH:mm:ssZ`).
       shared_ptr<string> updateTime_ {};
-      // The information about custom nameservers of the website domain. The key is a custom nameserver name, and the value is the IP address of the custom nameserver. Multiple IP addresses are separated by commas (,).
+      // Each key is a custom name server, and its value is a comma-separated list of the server\\"s IP addresses.
       shared_ptr<map<string, string>> vanityNSList_ {};
-      // The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
+      // For sites onboarded via CNAME, you must configure this code as a TXT record.
       shared_ptr<string> verifyCode_ {};
-      // The status of version management. If true is returned, version management is enabled for the website.
+      // If `true`, version management is enabled for the site.
       shared_ptr<bool> versionManagement_ {};
     };
 
@@ -291,7 +308,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried website information.
+    // The details of the site.
     shared_ptr<GetSiteResponseBody::SiteModel> siteModel_ {};
   };
 

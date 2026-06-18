@@ -135,25 +135,29 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account.
       shared_ptr<string> aliUid_ {};
-      // The end time of the prefetch plans.
+      // The end time of the scheduled prefetch plan.
       shared_ptr<string> endTime_ {};
       // The ID of the prefetch plan.
       shared_ptr<string> id_ {};
-      // The time interval between each batch execution. Unit: seconds.
+      // The interval at which batches of a scheduled prefetch plan are executed. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
       // The ID of the prefetch task.
       shared_ptr<string> jobId_ {};
-      // The number of URLs prefetched in each batch.
+      // The number of URLs to prefetch in each batch.
       shared_ptr<int32_t> sliceLen_ {};
-      // The start time of the prefetch plans.
+      // The start time of the scheduled prefetch plan.
       shared_ptr<string> startTime_ {};
-      // The status of the prefetch plan. Valid values:
+      // The status of the scheduled prefetch plan. Valid values:
       // 
-      // *   **waiting**
-      // *   **running**
-      // *   **finished**
-      // *   **failed**
-      // *   **stopped**
+      // - **waiting**: The plan is waiting to be executed.
+      // 
+      // - **running**: The plan is being executed.
+      // 
+      // - **finished**: The plan is executed.
+      // 
+      // - **failed**: The plan failed to be executed.
+      // 
+      // - **stopped**: The execution of the plan is paused.
       shared_ptr<string> status_ {};
     };
 
@@ -252,25 +256,29 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account.
       shared_ptr<string> aliUid_ {};
-      // The end time of the prefetch plans.
+      // The end time of the scheduled prefetch plan.
       shared_ptr<string> endTime_ {};
       // The ID of the prefetch plan.
       shared_ptr<string> id_ {};
-      // The time interval between each batch execution. Unit: seconds.
+      // The interval at which batches of a scheduled prefetch plan are executed. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
       // The ID of the prefetch task.
       shared_ptr<string> jobId_ {};
-      // The number of URLs prefetched in each batch.
+      // The number of URLs to prefetch in each batch.
       shared_ptr<int32_t> sliceLen_ {};
-      // The start time of the prefetch plans.
+      // The start time of the scheduled prefetch plan.
       shared_ptr<string> startTime_ {};
-      // The status of the prefetch plan. Valid values:
+      // The status of the scheduled prefetch plan. Valid values:
       // 
-      // *   **waiting**
-      // *   **running**
-      // *   **finished**
-      // *   **failed**
-      // *   **stopped**
+      // - **waiting**: The plan is waiting to be executed.
+      // 
+      // - **running**: The plan is being executed.
+      // 
+      // - **finished**: The plan is executed.
+      // 
+      // - **failed**: The plan failed to be executed.
+      // 
+      // - **stopped**: The execution of the plan is paused.
       shared_ptr<string> status_ {};
     };
 
@@ -325,17 +333,17 @@ namespace Models
 
 
   protected:
-    // The information about prefetch plans that failed to be created.
+    // The information about the prefetch plans that failed to be added.
     shared_ptr<vector<CreateScheduledPreloadExecutionsResponseBody::FailedExecutions>> failedExecutions_ {};
-    // The information about plan failures.
+    // The list of error messages for the plans that failed to be added.
     shared_ptr<vector<string>> failedMessages_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of prefetch plans that are created.
+    // The number of prefetch plans that were successfully added.
     shared_ptr<int32_t> successCount_ {};
-    // The information about created prefetch plans.
+    // The information about the prefetch plans that were successfully added.
     shared_ptr<vector<CreateScheduledPreloadExecutionsResponseBody::SuccessExecutions>> successExecutions_ {};
-    // The total number of new plans requested.
+    // The total number of plans that you requested to add.
     shared_ptr<int32_t> totalCount_ {};
   };
 

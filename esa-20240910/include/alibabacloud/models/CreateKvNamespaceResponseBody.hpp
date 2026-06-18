@@ -75,20 +75,23 @@ namespace Models
 
 
   protected:
-    // The description of the namespace.
+    // The description of the KV namespace.
     shared_ptr<string> description_ {};
-    // The name of the namespace.
+    // The name of the KV namespace.
     shared_ptr<string> namespace_ {};
-    // The ID of the namespace.
+    // The ID of the KV namespace.
     shared_ptr<string> namespaceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the namespace. Valid values:
+    // The status of the KV namespace. Valid values:
     // 
-    // *   **online**: working as expected.
-    // *   **delete**: pending deletion.
-    // *   **deleting**: being deleted.
-    // *   **deleted**: deleted.
+    // - **online**: The namespace is available.
+    // 
+    // - **delete**: The namespace is pending deletion.
+    // 
+    // - **deleting**: The namespace is being deleted.
+    // 
+    // - **deleted**: The namespace is deleted.
     shared_ptr<string> status_ {};
   };
 

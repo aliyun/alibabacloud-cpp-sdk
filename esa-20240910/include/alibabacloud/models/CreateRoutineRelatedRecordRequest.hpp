@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The routine name.
+    // The name of the edge function Routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // The website ID.
+    // The site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

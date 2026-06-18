@@ -204,63 +204,97 @@ namespace Models
 
 
   protected:
-    // Alt-Svc feature switch, default is disabled. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable the Alt-Svc header. Disabled by default. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> altSvc_ {};
-    // Whether the Alt-Svc header includes the clear parameter, default is disabled. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to include the `clear` parameter in the Alt-Svc header. Disabled by default. Valid values:
+    // 
+    // - `on`: The parameter is included.
+    // 
+    // - `off`: The parameter is not included.
     shared_ptr<string> altSvcClear_ {};
-    // Alt-Svc validity period in seconds, default is 86400 seconds.
+    // The Max Age for the Alt-Svc header, in seconds. The default is 86400.
     shared_ptr<string> altSvcMa_ {};
-    // Whether the Alt-Svc header includes the persist parameter, default is disabled. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to include the `persist` parameter in the Alt-Svc header. Disabled by default. Valid values:
+    // 
+    // - `on`: The parameter is included.
+    // 
+    // - `off`: The parameter is not included.
     shared_ptr<string> altSvcPersist_ {};
-    // Whether to enable HSTS, default is disabled. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable HTTP Strict Transport Security (HSTS). Disabled by default. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> hsts_ {};
-    // Whether to include subdomains in HSTS, default is disabled. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to include the `includeSubDomains` directive in the HSTS header. Disabled by default. Valid values:
+    // 
+    // - `on`: The directive is included.
+    // 
+    // - `off`: The directive is not included.
     shared_ptr<string> hstsIncludeSubdomains_ {};
-    // HSTS expiration time in seconds.
+    // The value of the `max-age` directive for the HSTS header, in seconds.
     shared_ptr<string> hstsMaxAge_ {};
-    // Whether to enable HSTS preload, default is disabled. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable HSTS Preload by including the `preload` directive in the HSTS header. Disabled by default. Valid values:
+    // 
+    // - `on`: The directive is included.
+    // 
+    // - `off`: The directive is not included.
     shared_ptr<string> hstsPreload_ {};
-    // Whether to enable forced HTTPS, default is disabled. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable Force HTTPS. Disabled by default. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> httpsForce_ {};
-    // Forced HTTPS redirect status code. Possible values:
-    // - 301
-    // - 302
-    // - 307
-    // - 308
+    // The Redirection Status Code to use when Force HTTPS is enabled. Valid values:
+    // 
+    // - `301`
+    // 
+    // - `302`
+    // 
+    // - `307`
+    // 
+    // - `308`
     shared_ptr<string> httpsForceCode_ {};
+    // Specifies whether to reject TLS Handshake Requests that do not include an SNI. Disabled by default. Valid values:
+    // 
+    // - `on`: Rejects requests without an SNI.
+    // 
+    // - `off`: Allows requests without an SNI.
     shared_ptr<string> httpsNoSniDeny_ {};
+    // Specifies whether to enable Server Name Indication (SNI) verification. Disabled by default. Valid values:
+    // 
+    // - `on`: Enabled.
+    // 
+    // - `off`: Disabled.
     shared_ptr<string> httpsSniVerify_ {};
+    // Specifies the allowlist of SNI values. Separate multiple values with a space.
     shared_ptr<string> httpsSniWhitelist_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The content of the Rule, which is a Conditional Expression that matches user Requests. This parameter is optional when adding a Global Configuration. Supported use cases include:
+    // 
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, use a custom expression. For example: `(http.host eq "video.example.com")`.
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
+    // Specifies whether to enable the rule. This parameter is optional when adding a Global Configuration. Valid values:
+    // 
+    // - `on`: The rule is enabled.
+    // 
+    // - `off`: The rule is disabled.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The name of the Rule. This parameter is optional when adding a Global Configuration.
     shared_ptr<string> ruleName_ {};
+    // The execution order of the rule. A lower value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The ID of the Site. You can get this ID by calling the [ListSites](~~ListSites~~) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
+    // The Site\\"s configuration Version. For Sites with version management enabled, this parameter specifies the Version to which the configuration applies. The default is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

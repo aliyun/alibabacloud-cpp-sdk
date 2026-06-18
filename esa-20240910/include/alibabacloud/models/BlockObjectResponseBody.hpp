@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The blocking task ID.
+    // The ID of the task. A task ID is returned when you create a block task.
     shared_ptr<string> taskId_ {};
   };
 

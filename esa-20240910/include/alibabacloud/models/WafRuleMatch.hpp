@@ -100,12 +100,19 @@ namespace Models
 
 
   protected:
+    // 值大小写不敏感。
     shared_ptr<bool> convertToLower_ {};
+    // 逻辑列表。
     shared_ptr<vector<WafRuleMatch>> criteria_ {};
+    // 逻辑关系。
     shared_ptr<string> logic_ {};
+    // 匹配符。
     shared_ptr<string> matchOperator_ {};
+    // 匹配域。
     shared_ptr<string> matchType_ {};
+    // 匹配值。
     Darabonba::Json matchValue_ {};
+    // 匹配结果取反。
     shared_ptr<bool> negate_ {};
   };
 

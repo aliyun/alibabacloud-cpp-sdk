@@ -185,7 +185,7 @@ namespace Models
         shared_ptr<string> logName_ {};
         // The log path.
         // 
-        // >  Take note of the Expires field (expiration timestamp) in this parameter. If the log download URL expires, you must reobtain the URL.
+        // > Take note of the Expires field (expiration timestamp) in this parameter. If the log download URL expires, you must reobtain the URL.
         shared_ptr<string> logPath_ {};
         // The size of the log file. Unit: bytes.
         shared_ptr<int32_t> logSize_ {};

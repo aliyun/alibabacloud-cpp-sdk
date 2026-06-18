@@ -139,13 +139,21 @@ namespace Models
 
 
     protected:
+      // The CPU usage as a percentage of the limit.
       shared_ptr<double> containerCpuUsageSecondsQuotaRate_ {};
+      // The number of CPU cores.
       shared_ptr<double> containerCpuUsageSecondsTotal_ {};
+      // The read IO.
       shared_ptr<double> containerFsReadsBytesAvg_ {};
+      // The write IO.
       shared_ptr<double> containerFsWritesBytesAvg_ {};
+      // The memory usage.
       shared_ptr<double> containerMemoryRss_ {};
+      // The memory usage as a percentage of the limit.
       shared_ptr<double> containerMemoryRssQuotaRate_ {};
+      // The pod ready rate.
       shared_ptr<double> podReadyRate_ {};
+      // The time of the data point. The format is yyyy-MM-ddTHH:mm:ssZ in UTC.
       shared_ptr<string> time_ {};
     };
 
@@ -218,20 +226,21 @@ namespace Models
 
 
   protected:
-    // Average CPU limit ratio
+    // The average CPU usage as a percentage of the limit.
     shared_ptr<double> cpuUsageSecondsQuotaRateAvg_ {};
-    // Average number of CPU cores
+    // Average CPU core usage, in seconds.
     shared_ptr<double> cpuUsageSecondsTotalAvg_ {};
-    // Average read IO
+    // The average read IO.
     shared_ptr<double> fsReadsBytesAvgAvg_ {};
-    // Average write IO
+    // The average write IO.
     shared_ptr<double> fsWritesBytesAvgAvg_ {};
-    // Average memory usage
+    // The average memory usage.
     shared_ptr<double> memoryRssAvg_ {};
-    // Average memory limit proportion
+    // The average memory usage as a percentage of the limit.
     shared_ptr<double> memoryRssQuotaRateAvg_ {};
-    // Average PodReady rate
+    // The average pod ready rate.
     shared_ptr<double> podReadyRateAvg_ {};
+    // The time and value of each data point for the chart.
     shared_ptr<vector<DescribeEdgeContainerAppStatsResponseBody::Points>> points_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

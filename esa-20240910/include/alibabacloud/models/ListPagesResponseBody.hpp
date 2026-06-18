@@ -124,23 +124,23 @@ namespace Models
 
 
     protected:
-      // The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+      // The Base64-encoded content of the custom response page.
       // 
       // This parameter is required.
       shared_ptr<string> content_ {};
-      // The Content-Type field in the HTTP header.
+      // The value of the Content-Type header in the HTTP response.
       // 
       // This parameter is required.
       shared_ptr<string> contentType_ {};
-      // The description of the custom error page.
+      // A custom description for the response page.
       shared_ptr<string> description_ {};
-      // The ID of the custom error page.[](~~2850223~~)
+      // The ID of the custom response page.[](~~2850223~~)
       shared_ptr<int64_t> id_ {};
-      // The type of the custom error page.
+      // The type of the custom response page.
       shared_ptr<string> kind_ {};
-      // The name of the custom error page.
+      // The name of the custom response page.
       shared_ptr<string> name_ {};
-      // The time when the custom error page was last modified.
+      // The time the custom response page was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -191,17 +191,17 @@ namespace Models
 
 
   protected:
-    // The page number returned.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The custom error pages. Each element in the array contains error page-specific information.
+    // A list of custom response pages.
     shared_ptr<vector<ListPagesResponseBody::Pages>> pages_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of custom error pages after filtering.
+    // The total number of custom response pages that match the filter criteria.
     shared_ptr<int32_t> totalCount_ {};
-    // The number of custom error pages that you created.
+    // The number of custom response pages that you have created.
     shared_ptr<int64_t> usage_ {};
   };
 

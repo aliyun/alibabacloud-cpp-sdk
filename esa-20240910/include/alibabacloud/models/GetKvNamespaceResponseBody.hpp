@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The available capacity of the namespace. Unit: bytes.
+    // The available capacity of the namespace, in bytes.
     shared_ptr<int64_t> capacity_ {};
-    // The available capacity of the namespace.
+    // The available capacity of the namespace, formatted as a human-readable string.
     shared_ptr<string> capacityString_ {};
-    // The used capacity of the namespace. Unit: bytes.
+    // The used capacity of the namespace, in bytes.
     shared_ptr<int64_t> capacityUsed_ {};
-    // The used capacity of the namespace.
+    // The used capacity of the namespace, formatted as a human-readable string.
     shared_ptr<string> capacityUsedString_ {};
     // The description of the namespace.
     shared_ptr<string> description_ {};
@@ -126,14 +126,17 @@ namespace Models
     shared_ptr<string> namespace_ {};
     // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The status of the namespace. Valid values:
     // 
-    // *   **online**: working as expected.
-    // *   **delete**: pending deletion.
-    // *   **deleting**: being deleted.
-    // *   **deleted**: deleted.
+    // - **online**: The namespace is active.
+    // 
+    // - **delete**: The namespace is marked for deletion.
+    // 
+    // - **deleting**: The namespace is being deleted.
+    // 
+    // - **deleted**: The namespace has been deleted.
     shared_ptr<string> status_ {};
   };
 

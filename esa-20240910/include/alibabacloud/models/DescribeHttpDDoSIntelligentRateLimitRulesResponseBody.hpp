@@ -140,14 +140,23 @@ namespace Models
 
 
     protected:
+      // The action to perform.
       shared_ptr<string> action_ {};
+      // The conditions that trigger the rule.
       shared_ptr<string> condition_ {};
+      // The ID of the protection rule for log records.
       shared_ptr<int64_t> logRuleId_ {};
+      // The duration of the penalty in seconds.
       shared_ptr<int64_t> punishTime_ {};
+      // The frequency information.
       shared_ptr<string> rateLimit_ {};
+      // The name of the record.
       shared_ptr<string> recordName_ {};
+      // The ID of the rule.
       shared_ptr<int64_t> ruleId_ {};
+      // The name of the rule.
       shared_ptr<string> ruleName_ {};
+      // The statistics.
       shared_ptr<string> statistics_ {};
     };
 
@@ -191,11 +200,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of rules.
     shared_ptr<vector<DescribeHttpDDoSIntelligentRateLimitRulesResponseBody::RuleInfos>> ruleInfos_ {};
+    // The total number of rules.
     shared_ptr<int64_t> totalCount_ {};
   };
 

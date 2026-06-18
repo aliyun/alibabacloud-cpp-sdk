@@ -94,26 +94,31 @@ namespace Models
 
 
   protected:
-    // Modify request headers, supporting add, delete, and modify operations.
+    // An array of objects that define Request Header modifications. Supported operations include add, del, and modify.
     // 
     // This parameter is required.
     shared_ptr<string> requestHeaderModificationShrink_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - To match all incoming requests: Set the value to true
-    // - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The content of the Rule, which uses a Conditional Expression to match user requests. This parameter is not required when you add a global configuration. Supports two Use Cases:
+    // 
+    // - To match all incoming requests, set the value to true.
+    // 
+    // - To match specific requests, set the value to a custom expression, for example, (http.host eq "video.example.com").
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-    // - on: Enable.
-    // - off: Disable.
+    // Specifies whether to enable the Rule. This parameter is not required when you add a global configuration. Valid values are:
+    // 
+    // - on: Enables the Rule.
+    // 
+    // - off: Disables the Rule.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The name of the Rule. This parameter is not required when you add a global configuration.
     shared_ptr<string> ruleName_ {};
+    // The execution order of the Rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The ID of the Site. You can get this ID by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
+    // The Version of the Site configuration. For a Site with configuration versioning enabled, this parameter specifies the configuration\\"s target Version. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

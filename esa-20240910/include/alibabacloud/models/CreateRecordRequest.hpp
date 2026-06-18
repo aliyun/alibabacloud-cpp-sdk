@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Comment, comment_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(HostPolicy, hostPolicy_);
+      DARABONBA_PTR_TO_JSON(HttpPorts, httpPorts_);
+      DARABONBA_PTR_TO_JSON(HttpsPorts, httpsPorts_);
       DARABONBA_PTR_TO_JSON(Proxied, proxied_);
       DARABONBA_PTR_TO_JSON(RecordName, recordName_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
@@ -31,6 +33,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(HostPolicy, hostPolicy_);
+      DARABONBA_PTR_FROM_JSON(HttpPorts, httpPorts_);
+      DARABONBA_PTR_FROM_JSON(HttpsPorts, httpsPorts_);
       DARABONBA_PTR_FROM_JSON(Proxied, proxied_);
       DARABONBA_PTR_FROM_JSON(RecordName, recordName_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
@@ -328,8 +332,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->authConf_ == nullptr
-        && this->bizName_ == nullptr && this->comment_ == nullptr && this->data_ == nullptr && this->hostPolicy_ == nullptr && this->proxied_ == nullptr
-        && this->recordName_ == nullptr && this->siteId_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr && this->type_ == nullptr; };
+        && this->bizName_ == nullptr && this->comment_ == nullptr && this->data_ == nullptr && this->hostPolicy_ == nullptr && this->httpPorts_ == nullptr
+        && this->httpsPorts_ == nullptr && this->proxied_ == nullptr && this->recordName_ == nullptr && this->siteId_ == nullptr && this->sourceType_ == nullptr
+        && this->ttl_ == nullptr && this->type_ == nullptr; };
     // authConf Field Functions 
     bool hasAuthConf() const { return this->authConf_ != nullptr;};
     void deleteAuthConf() { this->authConf_ = nullptr;};
@@ -367,6 +372,20 @@ namespace Models
     void deleteHostPolicy() { this->hostPolicy_ = nullptr;};
     inline string getHostPolicy() const { DARABONBA_PTR_GET_DEFAULT(hostPolicy_, "") };
     inline CreateRecordRequest& setHostPolicy(string hostPolicy) { DARABONBA_PTR_SET_VALUE(hostPolicy_, hostPolicy) };
+
+
+    // httpPorts Field Functions 
+    bool hasHttpPorts() const { return this->httpPorts_ != nullptr;};
+    void deleteHttpPorts() { this->httpPorts_ = nullptr;};
+    inline string getHttpPorts() const { DARABONBA_PTR_GET_DEFAULT(httpPorts_, "") };
+    inline CreateRecordRequest& setHttpPorts(string httpPorts) { DARABONBA_PTR_SET_VALUE(httpPorts_, httpPorts) };
+
+
+    // httpsPorts Field Functions 
+    bool hasHttpsPorts() const { return this->httpsPorts_ != nullptr;};
+    void deleteHttpsPorts() { this->httpsPorts_ = nullptr;};
+    inline string getHttpsPorts() const { DARABONBA_PTR_GET_DEFAULT(httpsPorts_, "") };
+    inline CreateRecordRequest& setHttpsPorts(string httpsPorts) { DARABONBA_PTR_SET_VALUE(httpsPorts_, httpsPorts) };
 
 
     // proxied Field Functions 
@@ -431,6 +450,8 @@ namespace Models
     // *   follow_hostname: Follow the host record.
     // *   follow_origin_domain: match the origin\\"s domain name.
     shared_ptr<string> hostPolicy_ {};
+    shared_ptr<string> httpPorts_ {};
+    shared_ptr<string> httpsPorts_ {};
     // Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
     // 
     // *   **true**

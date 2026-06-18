@@ -57,15 +57,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable IPv6. Valid values:
+    // Whether to enable IPv6. Valid values:
     // 
-    // *   **on**
-    // *   **off**
+    // - **on**: Enables IPv6.
+    // 
+    // - **off**: Disables IPv6.
     // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
+    // The region in which to enable IPv6. The default value is x.x.
+    // 
+    // - x.x: global
+    // 
+    // - cn.cn: Chinese mainland
     shared_ptr<string> region_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can get this ID by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

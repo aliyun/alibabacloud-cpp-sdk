@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
+    // The ID of the WAF rule.
     shared_ptr<int64_t> id_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

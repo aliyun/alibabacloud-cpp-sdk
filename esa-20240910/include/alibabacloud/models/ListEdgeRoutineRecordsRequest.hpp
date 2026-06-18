@@ -81,10 +81,13 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The match mode to filter the record names.
     // 
-    // *   **fuzzy**: fuzzy match.
-    // *   **prefix**: match by prefix.
-    // *   **suffix**: match by suffix.
-    // *   **exact** (default): exact match .
+    // - **fuzzy**: fuzzy match.
+    // 
+    // - **prefix**: match by prefix.
+    // 
+    // - **suffix**: match by suffix.
+    // 
+    // - **exact** (default): exact match .
     shared_ptr<string> recordMatchType_ {};
     // The record name.
     shared_ptr<string> recordName_ {};

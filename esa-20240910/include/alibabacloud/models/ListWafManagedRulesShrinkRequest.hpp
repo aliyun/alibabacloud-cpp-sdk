@@ -121,37 +121,48 @@ namespace Models
 
 
   protected:
-    // Attack type of the vulnerability protection event. Values:
+    // The attack type to filter the results by. Valid values:
+    // 
     // - SQL injection
-    // - Cross-site scripting
-    // - Code execution
+    // 
+    // - cross-site scripting
+    // 
+    // - code execution
+    // 
     // - CRLF
-    // - Local file inclusion
-    // - Remote file inclusion
-    // - Webshell
-    // - Cross-site request forgery
+    // 
+    // - local file inclusion
+    // 
+    // - remote file inclusion
+    // 
+    // - webshell
+    // 
+    // - cross-site request forgery
+    // 
     // - Other
+    // 
     // - SEMA
     // 
     // This parameter is required.
     shared_ptr<int32_t> attackType_ {};
-    // ID of the WAF rule.
+    // The ID of the WAF rule.
     shared_ptr<int64_t> id_ {};
     shared_ptr<string> instanceId_ {};
-    // Language type, which will be used to return the response. Value range:
+    // The response language. Valid values:
     // 
     // - **en**: English.
+    // 
     // - **zh**: Chinese.
     shared_ptr<string> language_ {};
     shared_ptr<string> managedRulesetShrink_ {};
-    // Query page number.
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // Query page size.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int32_t> protectionLevel_ {};
-    // Query conditions.
+    // The query conditions.
     shared_ptr<string> queryArgsShrink_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

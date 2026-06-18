@@ -94,13 +94,29 @@ namespace Models
 
 
   protected:
+    // The SaaS domain name.
     shared_ptr<string> hostname_ {};
+    // The search match mode for the SaaS domain name. Default value: exact. Valid values:
+    // - **prefix**: prefix match.
+    // - **suffix**: suffix match.
+    // - **exact**: exact match.
+    // - **fuzzy**: fuzzy match.
     shared_ptr<string> nameMatchType_ {};
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 100. Maximum value: 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The associated record ID. You can call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to obtain the record ID.
     shared_ptr<int64_t> recordId_ {};
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The SaaS domain name status. Valid values:
+    // - **pending**: pending verification.
+    // - **active**: activated.
+    // - **conflicted**: occupied.
+    // - **offline**: offline.
     shared_ptr<string> status_ {};
   };
 

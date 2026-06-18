@@ -79,7 +79,7 @@ namespace Models
     // 
     // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     // 
-    // >  The end time must be later than the start time.
+    // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
     // The page number. Pages start from page 1.
     shared_ptr<int64_t> pageNumber_ {};

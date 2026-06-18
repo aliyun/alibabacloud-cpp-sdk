@@ -94,27 +94,29 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration. You can call the ListHttpIncomingResponseHeaderModificationRules operation to query the ID.
+    // The configuration ID. You can obtain this ID by calling the `ListHttpIncomingResponseHeaderModificationRules` operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Modifies a response header. You can add, delete, or modify a request header.
+    // A list of objects specifying modifications to response headers. Supported operations include `add`, `del`, and `modify`.
     shared_ptr<string> responseHeaderModificationShrink_ {};
-    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // The condition expression used to match incoming requests. This parameter is not required for a global configuration. You can use this parameter in two ways:
     // 
-    // *   true: Match all incoming requests.
-    // *   Set the value to a custom expression, for example, (http.host eq "video.example.com"): Match the specified request.
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // The status of the rule. This parameter is not required for a global configuration. Valid values:
     // 
-    // *   on
-    // *   off
+    // - `on`: Enables the rule.
+    // 
+    // - `off`: Disables the rule.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. You do not need to set this parameter when you add global configuration.
+    // The name of the rule. This parameter is not required for a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The order in which the rule is executed. A smaller value gives priority to the rule.
+    // The priority of the rule. Rules with a lower value are executed first.
     shared_ptr<int32_t> sequence_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can obtain this ID by calling the `ListSites` operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

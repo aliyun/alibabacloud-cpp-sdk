@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The Site ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

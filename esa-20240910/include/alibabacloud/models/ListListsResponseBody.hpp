@@ -116,17 +116,17 @@ namespace Models
 
 
     protected:
-      // The list description.
+      // The description of the list.
       shared_ptr<string> description_ {};
-      // The ID of the custom list.[](~~2850217~~)
+      // The ID of the custom list. To get this ID, call the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
       shared_ptr<int64_t> id_ {};
-      // The list type.
+      // The kind of the list.
       shared_ptr<string> kind_ {};
-      // The length of the list information array, which indicates how many items the list contains.
+      // The number of items in the list.
       shared_ptr<int64_t> length_ {};
-      // The list name.
+      // The name of the list.
       shared_ptr<string> name_ {};
-      // The time when the list was last modified.
+      // The time when the list was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -185,18 +185,19 @@ namespace Models
 
 
   protected:
+    // The total number of items across all lists.
     shared_ptr<int64_t> itemsUsage_ {};
-    // The array that contains list information, including list data after paging.
+    // A paginated array of lists.
     shared_ptr<vector<ListListsResponseBody::Lists>> lists_ {};
-    // The page number returned.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of filtered lists.
+    // The total number of filtered records.
     shared_ptr<int32_t> totalCount_ {};
-    // The number of created lists.
+    // The number of lists used by the account.
     shared_ptr<int64_t> usage_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful.
+    // The result of the operation. A value of `OK` indicates the request succeeded.
     shared_ptr<string> status_ {};
   };
 

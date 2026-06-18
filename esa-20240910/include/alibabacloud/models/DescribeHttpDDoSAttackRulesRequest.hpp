@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The current page number. Default value: 1. Valid values: **1** to **65535**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The tag key. This parameter specifies a filter condition for the query.
+      // The tag key, used to filter query results.
       shared_ptr<string> key_ {};
-      // The tag value. This parameter specifies a filter condition for the query.
+      // The tag value, used to filter query results.
       shared_ptr<string> value_ {};
     };
 
@@ -187,48 +187,59 @@ namespace Models
 
 
   protected:
-    // The DNS setup. Valid values:
+    // The access type. Valid values:
     // 
-    // *   **NS**
-    // *   **CNAME**
+    // - **NS**: NS access.
+    // 
+    // - **CNAME**: CNAME access.
     shared_ptr<string> accessType_ {};
-    // The service location. Valid values:
+    // The acceleration region. Valid values:
     // 
-    // *   **domestic**: the Chinese mainland
-    // *   **global**: global
-    // *   **overseas**: outside the Chinese mainland
+    // - **domestic**: Chinese mainland only.
+    // 
+    // - **global**: Global.
+    // 
+    // - **overseas**: Global (excluding the Chinese mainland).
     shared_ptr<string> coverage_ {};
-    // Specifies whether to query only websites on Enterprise plans. Valid values: **true and false**.
+    // Specifies whether to return only sites that use the Enterprise Edition.
     shared_ptr<bool> onlyEnterprise_ {};
-    // Sorting field. By default, it sorts by creation time, supporting the following options:
-    // - gmtCreate: website creation time
-    // - visitTime: website visit time
+    // The field to sort the results by. By default, results are sorted by creation time (gmtCreate). Supported values:
+    // 
+    // - `gmtCreate`: site creation time
+    // 
+    // - `visitTime`: site access time
     shared_ptr<string> orderBy_ {};
-    // The page number. Default value: **1**.
+    // The number of the page to return. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **500**.
+    // The number of entries to return on each page. The default value is **500**.
     shared_ptr<int32_t> pageSize_ {};
-    // The plan type. Valid values:
+    // The subscription plan type. Valid values:
     // 
-    // *   **basicplan**: Entrance
-    // *   **standardplan**: Pro
-    // *   **advancedplan**: Premium
-    // *   **enterpriseplan**: Enterprise
+    // - **basicplan**: Basic Edition.
+    // 
+    // - **standardplan**: Standard Edition.
+    // 
+    // - **advancedplan**: Advanced Edition.
+    // 
+    // - **enterpriseplan**: Enterprise Edition.
     shared_ptr<string> planSubscribeType_ {};
-    // The ID of the resource group. This parameter specifies a filter condition for the query.
+    // The resource group ID, used to filter query results.
     shared_ptr<string> resourceGroupId_ {};
-    // The website name. This parameter specifies a filter condition for the query.
+    // The site name, used to filter query results.
     shared_ptr<string> siteName_ {};
-    // The match mode to search for the website name. Default value: exact. Valid values:
+    // The match mode for the `SiteName` parameter. The default value is `exact`. Valid values:
     // 
-    // *   **prefix**: match by prefix.
-    // *   **suffix**: match by suffix.
-    // *   **exact**: exact match.
-    // *   **fuzzy**: fuzzy match.
+    // - **prefix**: prefix match.
+    // 
+    // - **suffix**: suffix match.
+    // 
+    // - **exact**: exact match.
+    // 
+    // - **fuzzy**: fuzzy match.
     shared_ptr<string> siteSearchType_ {};
-    // The website status. This parameter specifies a filter condition for the query.
+    // The site status, used to filter query results.
     shared_ptr<string> status_ {};
-    // The tag filtering rule.
+    // A list of tags to use for filtering sites.
     shared_ptr<vector<ListSitesRequest::TagFilter>> tagFilter_ {};
   };
 

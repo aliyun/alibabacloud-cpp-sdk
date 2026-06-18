@@ -46,7 +46,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CodeVersion, codeVersion_);
         DARABONBA_PTR_TO_JSON(ConfOptions, confOptions_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(DeployEnv, deployEnv_);
         DARABONBA_PTR_TO_JSON(ExtraInfo, extraInfo_);
+        DARABONBA_PTR_TO_JSON(HasEnvVars, hasEnvVars_);
         DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, CodeVersions& obj) { 
@@ -55,7 +57,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CodeVersion, codeVersion_);
         DARABONBA_PTR_FROM_JSON(ConfOptions, confOptions_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(DeployEnv, deployEnv_);
         DARABONBA_PTR_FROM_JSON(ExtraInfo, extraInfo_);
+        DARABONBA_PTR_FROM_JSON(HasEnvVars, hasEnvVars_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
       };
       CodeVersions() = default ;
@@ -97,13 +101,13 @@ namespace Models
 
 
       protected:
-        // Code version configuration items NotFoundStrategy.
+        // The NotFoundStrategy configuration item of the code version.
         shared_ptr<string> notFoundStrategy_ {};
       };
 
       virtual bool empty() const override { return this->buildId_ == nullptr
-        && this->codeDescription_ == nullptr && this->codeVersion_ == nullptr && this->confOptions_ == nullptr && this->createTime_ == nullptr && this->extraInfo_ == nullptr
-        && this->status_ == nullptr; };
+        && this->codeDescription_ == nullptr && this->codeVersion_ == nullptr && this->confOptions_ == nullptr && this->createTime_ == nullptr && this->deployEnv_ == nullptr
+        && this->extraInfo_ == nullptr && this->hasEnvVars_ == nullptr && this->status_ == nullptr; };
       // buildId Field Functions 
       bool hasBuildId() const { return this->buildId_ != nullptr;};
       void deleteBuildId() { this->buildId_ = nullptr;};
@@ -141,11 +145,25 @@ namespace Models
       inline CodeVersions& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+      // deployEnv Field Functions 
+      bool hasDeployEnv() const { return this->deployEnv_ != nullptr;};
+      void deleteDeployEnv() { this->deployEnv_ = nullptr;};
+      inline string getDeployEnv() const { DARABONBA_PTR_GET_DEFAULT(deployEnv_, "") };
+      inline CodeVersions& setDeployEnv(string deployEnv) { DARABONBA_PTR_SET_VALUE(deployEnv_, deployEnv) };
+
+
       // extraInfo Field Functions 
       bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
       void deleteExtraInfo() { this->extraInfo_ = nullptr;};
       inline string getExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
       inline CodeVersions& setExtraInfo(string extraInfo) { DARABONBA_PTR_SET_VALUE(extraInfo_, extraInfo) };
+
+
+      // hasEnvVars Field Functions 
+      bool hasHasEnvVars() const { return this->hasEnvVars_ != nullptr;};
+      void deleteHasEnvVars() { this->hasEnvVars_ = nullptr;};
+      inline bool getHasEnvVars() const { DARABONBA_PTR_GET_DEFAULT(hasEnvVars_, false) };
+      inline CodeVersions& setHasEnvVars(bool hasEnvVars) { DARABONBA_PTR_SET_VALUE(hasEnvVars_, hasEnvVars) };
 
 
       // status Field Functions 
@@ -156,18 +174,24 @@ namespace Models
 
 
     protected:
-      // The ID of the code version build.
+      // The build ID of the code version.
       shared_ptr<int64_t> buildId_ {};
       // The description of the code version.
       shared_ptr<string> codeDescription_ {};
-      // The version of the code.
+      // The code version number.
       shared_ptr<string> codeVersion_ {};
-      // Code version configuration items.
+      // The configuration items of the code version.
       shared_ptr<CodeVersions::ConfOptions> confOptions_ {};
       // The time when the code version was created.
       shared_ptr<string> createTime_ {};
-      // Additional information about the code version.
+      // The deployment environment. Valid values:
+      // - **staging**: staging environment.
+      // - **production**: production environment.
+      shared_ptr<string> deployEnv_ {};
+      // The additional information about the code version.
       shared_ptr<string> extraInfo_ {};
+      // Indicates whether environment variables exist.
+      shared_ptr<bool> hasEnvVars_ {};
       // The status of the code version.
       shared_ptr<string> status_ {};
     };
@@ -212,15 +236,15 @@ namespace Models
 
 
   protected:
-    // The code versions of the routine.
+    // The list of Edge Routine code versions.
     shared_ptr<vector<ListRoutineCodeVersionsResponseBody::CodeVersions>> codeVersions_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of code versions returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

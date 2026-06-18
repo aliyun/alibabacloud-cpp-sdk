@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Content of the expression.
+      // The content of the expression.
       shared_ptr<string> expression_ {};
-      // The sequence number of the expression.
+      // The ID of the expression. This ID is used to associate an expression in the request with its corresponding result in the response.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -131,14 +131,14 @@ namespace Models
 
 
   protected:
-    // List of expressions.
+    // A list of expression objects to process.
     shared_ptr<vector<BatchGetExpressionFieldsRequest::Expressions>> expressions_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> kind_ {};
-    // WAF Phase
+    // The WAF phase.
     shared_ptr<string> phase_ {};
     shared_ptr<string> planNameEn_ {};
-    // Site ID
+    // The ID of the site.
     shared_ptr<int64_t> siteId_ {};
   };
 

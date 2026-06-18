@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The time when the policy expires.
+    // The policy end time.
     // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time must be in UTC and in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -94,18 +94,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
-    shared_ptr<string> objects_ {};
-    shared_ptr<string> siteIds_ {};
-    // The time when the policy takes effect.
+    // The IDs of the sites to associate with the policy. Separate multiple site IDs with commas.
     // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // > This parameter is deprecated. Use `SiteIds` instead. If `SiteIds` is specified, the value of this parameter is ignored. To prevent ambiguity, specify a value for either `SiteIds` or `Objects`.
+    shared_ptr<string> objects_ {};
+    // The IDs of the sites to associate with the policy. Separate multiple site IDs with commas.
+    shared_ptr<string> siteIds_ {};
+    // The policy start time.
+    // 
+    // The time must be in UTC and in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the policy template. Valid value:
+    // The template name. Valid value:
     // 
-    // *   **promotion**: major events.
+    // - **promotion**: a policy for major events.
     // 
     // This parameter is required.
     shared_ptr<string> template_ {};

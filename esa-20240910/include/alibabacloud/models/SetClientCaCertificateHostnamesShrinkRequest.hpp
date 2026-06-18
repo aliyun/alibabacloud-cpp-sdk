@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // A list of hostnames.
+    // 
     // This parameter is required.
     shared_ptr<string> hostnamesShrink_ {};
+    // The client CA certificate ID.
     shared_ptr<string> id_ {};
+    // The site ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

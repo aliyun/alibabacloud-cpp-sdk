@@ -108,7 +108,7 @@ namespace Models
 
 
         protected:
-          // The matching type.
+          // The field to match.
           shared_ptr<string> matchType_ {};
         };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
       protected:
-        // The details of logical databases.
+        // A list of match criteria.
         shared_ptr<vector<CriteriaItem::Criteria>> criteria_ {};
-        // The logical judgment.
+        // The logical relationship between the criteria.
         shared_ptr<string> logic_ {};
-        // The matching type.
+        // The field to match.
         shared_ptr<string> matchType_ {};
       };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
     protected:
-      // The details of logical databases.
+      // A list of match criteria.
       shared_ptr<vector<Criteria::CriteriaItem>> criteria_ {};
-      // The logical judgment.
+      // The logical relationship between the criteria.
       shared_ptr<string> logic_ {};
-      // The matching type.
+      // The field to match.
       shared_ptr<string> matchType_ {};
     };
 
@@ -206,11 +206,11 @@ namespace Models
 
 
   protected:
-    // The details of logical databases.
+    // A list of match criteria.
     shared_ptr<vector<WafRatelimitCharacteristics::Criteria>> criteria_ {};
-    // The logical judgment.
+    // The logical relationship between the criteria.
     shared_ptr<string> logic_ {};
-    // The matching type.
+    // The field to match.
     shared_ptr<string> matchType_ {};
   };
 

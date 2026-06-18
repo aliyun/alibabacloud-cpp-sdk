@@ -84,16 +84,46 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto payment.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
+    // The billing type. Valid values:
+    // - PREPAY: Subscription.
+    // - POSTPAY: Pay-as-you-go.
     shared_ptr<string> chargeType_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The specification update type. Valid values:
-    // 
-    // *   DOWNGRADE
-    // *   UPGRADE
+    // The type of specification change. Valid values:
+    // - UPGRADE: Upgrade.
     shared_ptr<string> orderType_ {};
+    // The code of the target plan.
+    // 
+    // Alibaba Cloud China Website (www.aliyun.com)
+    // 
+    // - Free Edition: entranceplan
+    // - Basic Edition: basicplan
+    // - Standard Edition: standardplan
+    // - Premium Edition: advancedplan
+    // 
+    // Alibaba Cloud International Website (www.alibabacloud.com)
+    // 
+    // - Entrance: entranceplan
+    // - Pro: standardplan
+    // - Premium: advancedpla.
     shared_ptr<string> targetPlanCode_ {};
+    // The name of the target plan.
+    // 
+    // Alibaba Cloud China Website (www.aliyun.com)
+    // 
+    // - Free Edition: entranceplan
+    // - Basic Edition: basic
+    // - Standard Edition: medium
+    // - Premium Edition: high
+    // 
+    // Alibaba Cloud International Website (www.alibabacloud.com)
+    // 
+    // - Entrance: entranceplan_intl
+    // - Pro: basicplan_intl
+    // - Premium: vipplan_intl.
     shared_ptr<string> targetPlanName_ {};
   };
 

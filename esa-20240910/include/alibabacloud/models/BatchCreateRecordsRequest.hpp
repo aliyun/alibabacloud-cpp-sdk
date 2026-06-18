@@ -38,6 +38,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AuthConf, authConf_);
         DARABONBA_PTR_TO_JSON(BizName, bizName_);
         DARABONBA_PTR_TO_JSON(Data, data_);
+        DARABONBA_PTR_TO_JSON(HttpPorts, httpPorts_);
+        DARABONBA_PTR_TO_JSON(HttpsPorts, httpsPorts_);
         DARABONBA_PTR_TO_JSON(Proxied, proxied_);
         DARABONBA_PTR_TO_JSON(RecordName, recordName_);
         DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
@@ -48,6 +50,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AuthConf, authConf_);
         DARABONBA_PTR_FROM_JSON(BizName, bizName_);
         DARABONBA_PTR_FROM_JSON(Data, data_);
+        DARABONBA_PTR_FROM_JSON(HttpPorts, httpPorts_);
+        DARABONBA_PTR_FROM_JSON(HttpsPorts, httpsPorts_);
         DARABONBA_PTR_FROM_JSON(Proxied, proxied_);
         DARABONBA_PTR_FROM_JSON(RecordName, recordName_);
         DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
@@ -213,33 +217,47 @@ namespace Models
 
 
       protected:
-        // The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+        // The algorithm identifier for the record. Valid values range from **0-255**. This parameter applies to CERT and SSHFP records.
         shared_ptr<int32_t> algorithm_ {};
-        // The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+        // The certificate or public key data for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
         shared_ptr<string> certificate_ {};
-        // The public key fingerprint of the record. Applicable to SSHFP records.
+        // The public key fingerprint for the record. This parameter applies to SSHFP records.
         shared_ptr<string> fingerprint_ {};
-        // The Flag for a CAA record indicates its priority and how it is processed. Valid values: 0 to 255.
+        // The flag for the CAA record, which specifies how a Certificate Authority must handle the record. Valid values range from **0-255**.
         shared_ptr<int32_t> flag_ {};
-        // The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+        // The public key identifier for the record. Valid values range from **0-65535**. This parameter applies to CERT records.
         shared_ptr<int32_t> keyTag_ {};
-        // The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA, and TLSA records.
+        // The algorithm policy used to match or validate a certificate. Valid values range from **0-255**. This parameter applies to SMIMEA and TLSA records.
         shared_ptr<int32_t> matchingType_ {};
-        // The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+        // The port number for the record. Valid values range from **0-65535**. This parameter applies only to SRV records.
         shared_ptr<int32_t> port_ {};
-        // The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+        // The priority of the record. Valid values range from **0-65535**. A lower value indicates a higher priority. This parameter is required for MX, SRV, or URI records.
         shared_ptr<int32_t> priority_ {};
-        // The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+        // The type of certificate or public key used by the record. Valid values range from **0-255**. This parameter applies to SMIMEA and TLSA records.
         shared_ptr<int32_t> selector_ {};
-        // The tag of a CAA record, which indicates its specific type and purpose, such as issue, issuewild, and iodef.
+        // The tag for the CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
         shared_ptr<string> tag_ {};
-        // The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+        // The certificate type for a CERT record or the public key type for an SSHFP record.
         shared_ptr<int32_t> type_ {};
-        // The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+        // The usage identifier for the record. Valid values range from **0-255**. This parameter applies to SMIMEA and TLSA records.
         shared_ptr<int32_t> usage_ {};
-        // The record value or part of the record content. A/AAAA: the IP address being pointed to. CNAME: the target domain name being pointed to. MX: valid target mail server domain name. TXT: valid text string. CAA: valid certificate authority domain name. SRV: valid target host domain name. URI: valid URI string.
+        // The record value. The format depends on the record type.
+        // 
+        // - **A/AAAA**: An IP address.
+        // 
+        // - **CNAME**: The target domain name.
+        // 
+        // - **MX**: The domain name of the target mail server.
+        // 
+        // - **TXT**: A text string.
+        // 
+        // - **CAA**: The domain name of a Certificate Authority.
+        // 
+        // - **SRV**: The domain name of the target host.
+        // 
+        // - **URI**: A URI string.
         shared_ptr<string> value_ {};
-        // The weight of the record. Valid values: 0 to 65,535. Applicable to SRV and URI records.
+        // The weight of the record. Valid values range from **0-65535**. This parameter applies to SRV and URI records.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -308,16 +326,35 @@ namespace Models
 
 
       protected:
+        // The access key ID of the account that owns the origin. This parameter is required when the origin type is `OSS` and the authentication type is `private_cross_account`, or when the origin type is `S3` and the authentication type is `private`.
         shared_ptr<string> accessKey_ {};
+        // The type of origin authentication. Supported authentication types depend on the origin type, which is specified by the `SourceType` parameter. This parameter is required when the origin type is `OSS` or `S3`. Valid values:
+        // 
+        // - **public**: For OSS or S3 origins with public read access.
+        // 
+        // - **private**: For S3 origins with private read access.
+        // 
+        // - **private_same_account**: For OSS origins with private read access within the same Alibaba Cloud account.
+        // 
+        // - **private_cross_account**: For OSS origins with private read access from a different Alibaba Cloud account.
         shared_ptr<string> authType_ {};
+        // The region where the S3 origin is located. This parameter is required when the origin type is `S3`. For a list of valid region IDs, refer to the official S3 documentation.
         shared_ptr<string> region_ {};
+        // The secret key associated with the specified AccessKey. This parameter is required when the origin type is `OSS` and the authentication type is `private_cross_account`, or when the origin type is `S3` and the authentication type is `private`.
         shared_ptr<string> secretKey_ {};
+        // The signature algorithm version. This parameter is applicable when the origin type is `S3` and the authentication type is `private`. Supported versions:
+        // 
+        // - **v2**
+        // 
+        // - **v4**
+        // 
+        // If omitted, the default version is `v4`.
         shared_ptr<string> version_ {};
       };
 
       virtual bool empty() const override { return this->authConf_ == nullptr
-        && this->bizName_ == nullptr && this->data_ == nullptr && this->proxied_ == nullptr && this->recordName_ == nullptr && this->sourceType_ == nullptr
-        && this->ttl_ == nullptr && this->type_ == nullptr; };
+        && this->bizName_ == nullptr && this->data_ == nullptr && this->httpPorts_ == nullptr && this->httpsPorts_ == nullptr && this->proxied_ == nullptr
+        && this->recordName_ == nullptr && this->sourceType_ == nullptr && this->ttl_ == nullptr && this->type_ == nullptr; };
       // authConf Field Functions 
       bool hasAuthConf() const { return this->authConf_ != nullptr;};
       void deleteAuthConf() { this->authConf_ = nullptr;};
@@ -341,6 +378,20 @@ namespace Models
       inline RecordList::Data getData() { DARABONBA_PTR_GET(data_, RecordList::Data) };
       inline RecordList& setData(const RecordList::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
       inline RecordList& setData(RecordList::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+      // httpPorts Field Functions 
+      bool hasHttpPorts() const { return this->httpPorts_ != nullptr;};
+      void deleteHttpPorts() { this->httpPorts_ = nullptr;};
+      inline string getHttpPorts() const { DARABONBA_PTR_GET_DEFAULT(httpPorts_, "") };
+      inline RecordList& setHttpPorts(string httpPorts) { DARABONBA_PTR_SET_VALUE(httpPorts_, httpPorts) };
+
+
+      // httpsPorts Field Functions 
+      bool hasHttpsPorts() const { return this->httpsPorts_ != nullptr;};
+      void deleteHttpsPorts() { this->httpsPorts_ = nullptr;};
+      inline string getHttpsPorts() const { DARABONBA_PTR_GET_DEFAULT(httpsPorts_, "") };
+      inline RecordList& setHttpsPorts(string httpsPorts) { DARABONBA_PTR_SET_VALUE(httpsPorts_, httpsPorts) };
 
 
       // proxied Field Functions 
@@ -379,43 +430,53 @@ namespace Models
 
 
     protected:
+      // The origin authentication information for the CNAME record.
       shared_ptr<RecordList::AuthConf> authConf_ {};
-      // The business scenario of the record for acceleration. Valid values:
+      // The use case for proxy acceleration. Valid values:
       // 
-      // *   **image_video**
-      // *   **api**
-      // *   **web**
+      // - **image_video**: Images and videos.
+      // 
+      // - **api**: APIs.
+      // 
+      // - **web**: Web pages.
       shared_ptr<string> bizName_ {};
-      // The DNS information of the record. Enter fields based on the record type.
+      // The content of the DNS record. The required fields depend on the record type.
       // 
       // This parameter is required.
       shared_ptr<RecordList::Data> data_ {};
-      // Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+      shared_ptr<string> httpPorts_ {};
+      shared_ptr<string> httpsPorts_ {};
+      // Specifies whether to enable proxy acceleration for the record. Only CNAME and A/AAAA records support proxy acceleration. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enables proxy acceleration.
+      // 
+      // - **false**: Disables proxy acceleration.
       // 
       // This parameter is required.
       shared_ptr<bool> proxied_ {};
-      // The record name.
+      // The name of the record.
       // 
       // This parameter is required.
       shared_ptr<string> recordName_ {};
       // The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
       // 
-      // *   **OSS**: OSS bucket.
-      // *   **S3**: S3 bucket.
-      // *   **LB**: load balancer.
-      // *   **OP**: origin pool.
-      // *   **Domain**: domain name.
+      // - **OSS**: An OSS origin.
       // 
-      // If you do not pass this parameter or if you leave its value empty, Domain is used by default.
+      // - **S3**: An S3 origin.
+      // 
+      // - **LB**: A load balancer origin.
+      // 
+      // - **OP**: An origin pool origin.
+      // 
+      // - **Domain**: A domain name origin.
+      // 
+      // If omitted or left empty, this parameter defaults to `Domain`.
       shared_ptr<string> sourceType_ {};
-      // The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+      // The Time to Live (TTL) for the record, in seconds. A value of `1` indicates an automatic TTL.
       // 
       // This parameter is required.
       shared_ptr<int32_t> ttl_ {};
-      // The DNS type of the record.
+      // The type of the DNS record.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -440,11 +501,11 @@ namespace Models
 
 
   protected:
-    // The list of DNS records to be created.
+    // The list of DNS records to create.
     // 
     // This parameter is required.
     shared_ptr<vector<BatchCreateRecordsRequest::RecordList>> recordList_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the site. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

@@ -107,7 +107,7 @@ namespace Models
     shared_ptr<string> content_ {};
     // The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
-    // >  The end time must be later than the start time.
+    // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
     // The page number. Valid values: 1 to 100000.
     shared_ptr<int32_t> pageNumber_ {};
@@ -119,18 +119,25 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The task status. Valid values:
     // 
-    // *   **Complete**: The task is complete.
-    // *   **Refreshing**: The task is in progress.
-    // *   **Failed**: The task failed.
+    // - **Complete**: The task is complete.
+    // 
+    // - **Refreshing**: The task is in progress.
+    // 
+    // - **Failed**: The task failed.
     shared_ptr<string> status_ {};
     // The task type. Valid values:
     // 
-    // *   **file** (default): purges the cache by file.
-    // *   **cachetag**: purges the cache by cache tag.
-    // *   **directory**: purges the cache by directory.
-    // *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
-    // *   **hostname**: purges the cache by hostname.
-    // *   **purgeall**: purges all cache.
+    // - **file** (default): purges the cache by file.
+    // 
+    // - **cachetag**: purges the cache by cache tag.
+    // 
+    // - **directory**: purges the cache by directory.
+    // 
+    // - **ignoreParams**: purges the cache by URL with specified parameters ignored.
+    // 
+    // - **hostname**: purges the cache by hostname.
+    // 
+    // - **purgeall**: purges all cache.
     shared_ptr<string> type_ {};
   };
 

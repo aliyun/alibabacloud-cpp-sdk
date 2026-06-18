@@ -111,25 +111,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> returnCode_ {};
-    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // Rule content. Use a conditional expression to match user requests. Do not set this parameter when adding a global configuration. There are two scenarios:
     // 
-    // *   true: Match all incoming requests.
-    // *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request.
+    // - Match all incoming requests: Set the value to true.
+    // 
+    // - Match specific requests: Set the value to a custom expression, such as: (http.host eq "video.example.com").
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // Rule switch. Do not set this parameter when adding a global configuration. Valid values:
     // 
-    // *   on
-    // *   off
+    // - on: Enable.
+    // 
+    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. You do not need to set this parameter when you add global configuration.
+    // Rule name. Do not set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The order in which the rule is executed. A smaller value gives priority to the rule.
+    // Rule execution order. A smaller value indicates higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // Site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to get it.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+    // Site configuration version number. For sites with version management enabled, use this parameter to specify the site version where the configuration takes effect. The default is version 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

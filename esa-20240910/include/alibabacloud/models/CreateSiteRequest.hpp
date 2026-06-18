@@ -75,28 +75,31 @@ namespace Models
 
 
   protected:
-    // The DNS setup. Valid values:
+    // The access type for the site. Valid values:
     // 
-    // *   **NS**
-    // *   **CNAME**
+    // - **NS**: NS-based access.
+    // 
+    // - **CNAME**: CNAME-based access.
     // 
     // This parameter is required.
     shared_ptr<string> accessType_ {};
-    // The service location. Valid values:
+    // The acceleration region. Valid values are:
     // 
-    // *   **domestic**: the Chinese mainland
-    // *   **global**: global
-    // *   **overseas**: outside the Chinese mainland
+    // - **domestic**: Chinese mainland only.
+    // 
+    // - **global**: Global.
+    // 
+    // - **overseas**: Global (excluding the Chinese mainland).
     // 
     // This parameter is required.
     shared_ptr<string> coverage_ {};
-    // The instance ID, which can be obtained by calling the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation. Specify at least one of the instance ID and website ID. If you specify both of them, the instance ID is used.
+    // The ID of the instance. You can obtain the instance ID by calling the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation. You must specify either the instance ID or the site ID. If you specify both, the instance ID takes precedence.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the resource group. If you leave this parameter empty, the system uses the default resource group ID.
+    // The ID of the resource group. If you do not specify this parameter, the system automatically uses the ID of the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The website name.
+    // The name of the site.
     // 
     // This parameter is required.
     shared_ptr<string> siteName_ {};

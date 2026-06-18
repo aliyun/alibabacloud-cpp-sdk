@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The description of the namespace.
+    // An optional description for the KV namespace.
     shared_ptr<string> description_ {};
-    // The name of the namespace.
+    // The name of the KV namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};

@@ -103,29 +103,31 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration.
+    // The configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Response page.
+    // The response page.
     shared_ptr<string> pageId_ {};
     // The response code.
     shared_ptr<string> returnCode_ {};
-    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configurations. Use cases:
+    // The rule content. Use a conditional expression to match user requests. Do not set this parameter when adding a global configuration. There are two scenarios:
     // 
-    // *   true: Match all incoming requests.
-    // *   Set the value to a custom expression, for example, (http.host eq "video.example.com"): Match the specified request.
+    // - Match all incoming requests: Set the value to \\`true\\`.
+    // 
+    // - Match specific requests: Set the value to a custom expression, such as: \\`(http.host eq "video.example.com")\\`.
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configurations. Valid values:
+    // The rule switch. Do not set this parameter when adding a global configuration. Valid values:
     // 
-    // *   on
-    // *   off
+    // - on: Enable the rule.
+    // 
+    // - off: Disable the rule.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. You do not need to set this parameter when you add global configurations.
+    // The rule name. Do not set this parameter when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The order in which the rule is executed. A smaller value gives priority to the rule.
+    // The rule execution order. A smaller value indicates higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. Get it by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

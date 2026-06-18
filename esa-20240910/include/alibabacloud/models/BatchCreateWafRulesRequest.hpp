@@ -91,22 +91,35 @@ namespace Models
 
 
   protected:
-    // A list of configurations for each rule, specifying detailed configurations for each rule.
+    // An array of rule configurations. Each object defines the settings for a single rule.
     shared_ptr<vector<WafRuleConfig>> configs_ {};
-    // WAF rule type, with values:
+    // The WAF phase in which the rules are executed.
     // 
-    // - **http_anti_scan**: Scan protection.
-    // - **http_bot**: Bots.
+    // - `http_whitelist`: whitelist rule
+    // 
+    // - `http_custom`: custom rule
+    // 
+    // - `http_managed`: managed rule
+    // 
+    // - `http_anti_scan`: scan protection rule
+    // 
+    // - `http_ratelimit`: rate limit rule
+    // 
+    // - `ip_access_rule`: IP access rule
+    // 
+    // - `http_bot`: bot control rule
+    // 
+    // - `http_security_level_rule`: security rule
     shared_ptr<string> phase_ {};
-    // Ruleset ID.
+    // The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain this ID.
     shared_ptr<int64_t> rulesetId_ {};
-    // Shared configuration for multiple rules, specifying common attributes of multiple rules.
+    // The shared configuration object that specifies common properties for all rules created in the batch.
     shared_ptr<WafBatchRuleShared> shared_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
+    // For sites with version management enabled, use this parameter to specify which site version the configuration applies to. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

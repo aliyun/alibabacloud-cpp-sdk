@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether Edge KV is activated for the Alibaba Cloud account.
+    // Account status.
     // 
-    // *   **online**
-    // *   **offline**
+    // - **online**: Enabled.
+    // 
+    // - **offline**: Disabled.
     shared_ptr<string> status_ {};
   };
 

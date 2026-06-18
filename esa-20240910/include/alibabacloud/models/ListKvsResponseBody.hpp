@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The key name.
+      // The name of the key.
       shared_ptr<string> name_ {};
       // The time when the key was last updated.
       shared_ptr<string> updateTime_ {};
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // The key-value pairs.
+    // The list of key-value pairs returned by this traversal.
     shared_ptr<vector<ListKvsResponseBody::Keys>> keys_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the custom error page.[](~~2850223~~)
+    // The ID of the custom error page. Obtain this ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) API.
     shared_ptr<int64_t> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

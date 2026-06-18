@@ -149,19 +149,31 @@ namespace Models
 
 
   protected:
+    // The CA certificate used to verify the server certificate of the keyless server. This parameter applies only when Verify is set to true.
     shared_ptr<string> caCertificate_ {};
+    // The client certificate. Must be provided as a pair with the client private key.
     shared_ptr<string> clientCertificate_ {};
+    // The client private key. Must be provided as a pair with the client certificate.
     shared_ptr<string> clientPrivateKey_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The hostname of the keyless server.
     shared_ptr<string> host_ {};
-    // Keyless server ID。
+    // The keyless server ID.
     shared_ptr<string> id_ {};
+    // The keyless server name.
     shared_ptr<string> name_ {};
+    // The port of the keyless server. Valid values: **1** to **65535**.
     shared_ptr<int64_t> port_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
+    // The site name.
     shared_ptr<string> siteName_ {};
+    // The update time.
     shared_ptr<string> updateTime_ {};
+    // Indicates whether to verify the server certificate of the keyless server. The default value is false.
     shared_ptr<bool> verify_ {};
   };
 

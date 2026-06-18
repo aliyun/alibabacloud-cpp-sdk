@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+    // The ID of the WAF ruleset. Call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) API to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to obtain this ID.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
+    // If version management is enabled for the site, use this parameter to specify the version to modify. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

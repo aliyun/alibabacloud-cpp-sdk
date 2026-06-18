@@ -84,28 +84,33 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size. Range: **1~500**, default is **500**.
+    // The number of entries per page. Valid values: **1 to 500**. The default value is **500**.
     shared_ptr<int32_t> pageSize_ {};
-    // The criterion by which you want to sort the queried instances. Valid values:
+    // The field to sort the results by. Valid values:
     // 
-    // *   **ExpireTime**
-    // *   **CreateTime**
+    // - **ExpireTime**: Expiration time.
+    // 
+    // - **CreateTime**: Creation time.
     shared_ptr<string> sortBy_ {};
-    // The order by which you want to sort the queried instances. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   **asc**
-    // *   **desc**
+    // - **asc**: Ascending order.
+    // 
+    // - **desc**: Descending order.
     shared_ptr<string> sortOrder_ {};
     // The status of the cache reserve instance. Valid values:
     // 
-    // *   **online**: The instance is in service.
-    // *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
-    // *   **disable**: The instance has been released.
-    // *   **overdue**: The instance has been stopped due to overdue payments.
+    // - **online**: The instance is running normally.
+    // 
+    // - **offline**: The instance has expired and is unavailable but remains within the grace period.
+    // 
+    // - **disable**: The instance is disabled.
+    // 
+    // - **overdue**: The instance is suspended due to an overdue payment.
     shared_ptr<string> status_ {};
   };
 

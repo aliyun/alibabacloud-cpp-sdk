@@ -186,19 +186,42 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliuid_ {};
+      // The IP address of the local DNS server.
       shared_ptr<string> clientAddr_ {};
+      // The client IP address.
       shared_ptr<string> clientIp_ {};
+      // The time when the report was created. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
       shared_ptr<string> createTime_ {};
+      // The diagnose ID.
       shared_ptr<string> diagnoseId_ {};
+      // The diagnostic URL.
       shared_ptr<string> diagnoseUrl_ {};
+      // The domain name to diagnose.
       shared_ptr<string> domain_ {};
+      // The expiration time. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> expireTime_ {};
+      // The remaining number of available diagnostic attempts.
       shared_ptr<int64_t> remainDiagnoseTimes_ {};
+      // The report generation status. Valid values:
+      // 
+      // - 0: Succeeded.
+      // - 1: Failed.
+      // - 2: Timed out.
+      // - 3: Running.
+      // - 4: Waiting.
       shared_ptr<string> state_ {};
+      // The status of the diagnostic URL. Valid values:
+      // 
+      // - 1: active
+      // - 0: expired.
       shared_ptr<int64_t> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The time consumed to generate the report.
       shared_ptr<int64_t> timeConsuming_ {};
+      // The diagnostic trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -242,10 +265,15 @@ namespace Models
 
 
   protected:
+    // The number of pages.
     shared_ptr<int64_t> count_ {};
+    // The returned list information.
     shared_ptr<vector<ListTraceTasksResponseBody::List>> list_ {};
+    // The page number, starting from 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size. Valid values: any integer from 1 to 1000.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

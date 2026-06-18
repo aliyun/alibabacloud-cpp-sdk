@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The end time of the prefetch plan.
+    // The end time of the scheduled preload plan.
     shared_ptr<string> endTime_ {};
-    // The ID of the prefetch plan.
+    // The ID of the preload plan.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The time interval between each batch execution. Unit: seconds.
+    // The execution interval for each batch in the scheduled preload plan, in seconds.
     shared_ptr<int32_t> interval_ {};
-    // The number of URLs prefetched in each batch.
+    // The number of URLs in each scheduled preload batch.
     shared_ptr<int32_t> sliceLen_ {};
-    // The start time of the prefetch plan.
+    // The start time of the scheduled preload plan.
     shared_ptr<string> startTime_ {};
   };
 

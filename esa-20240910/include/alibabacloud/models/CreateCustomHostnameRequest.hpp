@@ -112,29 +112,43 @@ namespace Models
 
 
   protected:
-    // 云盾证书ID，使用云盾证书时必填
+    // The ID of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
     shared_ptr<int64_t> casId_ {};
-    // 云盾证书所在地域，使用云盾证书时必填
+    // The region of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
+    // 
+    // - For accounts on the China site, set this parameter to `cn-hangzhou`.
+    // 
+    // - For accounts on the International site, set this parameter to `ap-southeast-1`.
     shared_ptr<string> casRegion_ {};
-    // 证书类型，SSL 开启时必填
+    // The certificate type. This parameter is required if `SslFlag` is set to `on`. Valid values:
+    // 
+    // - **free**: A free certificate.
+    // 
+    // - **upload**: A user-uploaded certificate.
+    // 
+    // - **cas**: A CAS certificate.
     shared_ptr<string> certType_ {};
-    // 证书公钥，使用上传证书时必填
+    // The content of the certificate. This parameter is required if `CertType` is set to `upload`.
     shared_ptr<string> certificate_ {};
-    // 自定义主机名
+    // The custom hostname.
     // 
     // This parameter is required.
     shared_ptr<string> hostname_ {};
-    // 证书私钥，使用上传证书时必填
+    // The private key of the certificate. This parameter is required if `CertType` is set to `upload`.
     shared_ptr<string> privateKey_ {};
-    // 绑定的源站记录ID
+    // The ID of the record to bind. Call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to get this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> recordId_ {};
-    // 关联站点ID
+    // The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // SSL开关
+    // Specifies whether to enable SSL. Valid values:
+    // 
+    // - **on**: Enable SSL.
+    // 
+    // - **off**: Disable SSL.
     // 
     // This parameter is required.
     shared_ptr<string> sslFlag_ {};

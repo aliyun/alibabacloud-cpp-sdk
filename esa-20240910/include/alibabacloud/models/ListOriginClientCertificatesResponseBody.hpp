@@ -210,25 +210,25 @@ namespace Models
 
 
     protected:
-      // The Common Name of the certificate.
+      // The common name of the certificate.
       shared_ptr<string> commonName_ {};
       // The time when the certificate was created.
       shared_ptr<string> createTime_ {};
       // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
-      // The domain names to associate.
+      // The hostnames bound to the certificate.
       shared_ptr<vector<string>> hostnames_ {};
-      // The certificate ID.
+      // The ID of the certificate.
       shared_ptr<string> id_ {};
-      // The certificate authority (CA) that issued the certificate.
+      // The issuer of the certificate.
       shared_ptr<string> issuer_ {};
-      // The certificate name.
+      // The name of the certificate.
       shared_ptr<string> name_ {};
-      // The time when the certificate expires.
+      // The expiration date and time of the certificate.
       shared_ptr<string> notAfter_ {};
-      // The time when the certificate takes effect.
+      // The beginning of the certificate\\"s validity period.
       shared_ptr<string> notBefore_ {};
-      // The public-key algorithm of the certificate.
+      // The public key algorithm of the certificate.
       shared_ptr<string> pubkeyAlgorithm_ {};
       // The Subject Alternative Name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
@@ -236,12 +236,11 @@ namespace Models
       shared_ptr<string> serialNumber_ {};
       // The signature algorithm of the certificate.
       shared_ptr<string> signatureAlgorithm_ {};
-      // The certificate status.
+      // The status of the certificate.
       shared_ptr<string> status_ {};
-      // The certificate type.
-      // *   upload: custom certificate that you upload
+      // The type of the certificate.
       shared_ptr<string> type_ {};
-      // The time when the certificate was updated.
+      // The time when the certificate was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -300,17 +299,17 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number. The default value is **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The certificate information.
+    // The list of certificate information.
     shared_ptr<vector<ListOriginClientCertificatesResponseBody::Result>> result_ {};
-    // The website ID.
+    // The ID of the site.
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
+    // The name of the site.
     shared_ptr<string> siteName_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

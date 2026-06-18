@@ -232,57 +232,99 @@ namespace Models
 
 
   protected:
-    // Rewrite the DNS resolution record for the origin request.
+    // Overrides the DNS Record for Origin requests.
     shared_ptr<string> dnsRecord_ {};
+    // Specifies whether to follow 302 redirects from the Origin. Valid values:
+    // 
+    // - `on`: Enables following redirects.
+    // 
+    // - `off`: Disables following redirects.
     shared_ptr<string> follow302Enable_ {};
+    // The maximum number of 302 redirects to follow. Valid range: 1 to 5.
     shared_ptr<string> follow302MaxTries_ {};
+    // Specifies whether to retain the original request parameters when following a 302 redirect. Valid values:
+    // 
+    // - `on`: Retains the request parameters.
+    // 
+    // - `off`: Does not retain the request parameters.
     shared_ptr<string> follow302RetainArgs_ {};
+    // Specifies whether to retain the original request header when following a 302 redirect. Valid values:
+    // 
+    // - `on`: Retains the request header.
+    // 
+    // - `off`: Does not retain the request header.
     shared_ptr<string> follow302RetainHeader_ {};
+    // The Origin `Host` header to use after a 302 redirect.
     shared_ptr<string> follow302TargetHost_ {};
-    // The HOST carried in the origin request.
+    // The `Host` header to use in Origin requests.
     shared_ptr<string> originHost_ {};
-    // Port of the origin server when using the HTTP protocol for origin requests.
+    // The Origin Port to use for HTTP Origin requests.
     shared_ptr<string> originHttpPort_ {};
-    // Port of the origin server when using the HTTPS protocol for origin requests.
+    // The Origin Port to use for HTTPS Origin requests.
     shared_ptr<string> originHttpsPort_ {};
-    // mTLS switch. Possible values:
-    // - on: Enable.
-    // - off: Disable.
+    // Specifies whether to enable mutual Transport Layer Security (mTLS) for Origin connections. Valid values:
+    // 
+    // - `on`: Enables mTLS.
+    // 
+    // - `off`: Disables mTLS.
     shared_ptr<string> originMtls_ {};
+    // The Origin read timeout in seconds.
     shared_ptr<string> originReadTimeout_ {};
-    // Protocol used for the origin request. Possible values:
-    // - http: Use HTTP protocol for origin requests.
-    // - https: Use HTTPS protocol for origin requests.
-    // - follow: Follow the client\\"s protocol for origin requests.
+    // The protocol for Origin requests. Valid values:
+    // 
+    // - `http`: Uses the HTTP protocol.
+    // 
+    // - `https`: Uses the HTTPS protocol.
+    // 
+    // - `follow`: Uses the same protocol as the client request.
     shared_ptr<string> originScheme_ {};
-    // SNI carried in the origin request.
+    // The Server Name Indication (SNI) to use in Origin requests.
     shared_ptr<string> originSni_ {};
-    // Origin certificate verification switch. Possible values:
-    // - on: Enable.
-    // - off: Disable.
+    // Specifies whether to enable Origin Certificate Verification. Valid values:
+    // 
+    // - `on`: Enables verification.
+    // 
+    // - `off`: Disables verification.
     shared_ptr<string> originVerify_ {};
-    // Use range chunking for origin downloads. Possible values:
-    // - on: Enable
-    // - off: Disable
-    // - force: Force
+    // Specifies whether to use range requests to download files from the Origin. Valid values:
+    // 
+    // - `on`: Enables range requests.
+    // 
+    // - `off`: Disables range requests.
+    // 
+    // - `force`: Forces range requests.
     shared_ptr<string> range_ {};
+    // The size of each chunk for range requests. Valid values:
+    // 
+    // - `512KB`
+    // 
+    // - `1MB`
+    // 
+    // - `2MB`
+    // 
+    // - `4MB`
     shared_ptr<string> rangeChunkSize_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+    // The content of the rule, a Conditional Expression that matches user requests. Not required when creating a Global Configuration. There are two scenarios:
+    // 
+    // - To match all incoming requests, set the value to `true`.
+    // 
+    // - To match specific requests, set the value to a custom expression. Example: `(http.host eq "video.example.com")`.
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding global configurations. Possible values:
-    // - on: Enable.
-    // - off: Disable.
+    // Specifies whether to enable the rule. Not required when creating a Global Configuration. Valid values:
+    // 
+    // - `on`: Enables the rule.
+    // 
+    // - `off`: Disables the rule.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding global configurations.
+    // The rule name. Not required when creating a Global Configuration.
     shared_ptr<string> ruleName_ {};
+    // The priority of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The ID of the site. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site where the configuration takes effect. The default is version 0.
+    // For sites with version management enabled, this specifies the version to which the configuration applies. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

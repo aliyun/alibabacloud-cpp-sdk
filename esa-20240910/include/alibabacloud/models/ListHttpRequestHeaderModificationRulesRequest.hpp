@@ -94,23 +94,25 @@ namespace Models
 
 
   protected:
-    // Configuration ID, which can be obtained by calling the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) API.
+    // The configuration ID. You can get this ID by calling the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) operation.
     shared_ptr<int64_t> configId_ {};
-    // Configuration type, which can be used to query global or rule configurations. Possible values:
-    // - global: Query global configuration;
-    // - rule: Query rule configuration;
+    // The type of configuration to query. Valid values:
+    // 
+    // - `global`: The global configuration.
+    // 
+    // - `rule`: A rule configuration.
     shared_ptr<string> configType_ {};
-    // Page number, defaulting to 1 if not provided.
+    // The page number. If you do not set this parameter, 1 is used.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items per page, with a maximum of 500. Defaults to 500 if not provided.
+    // The number of entries per page. Maximum value: 500. If you do not set this parameter, 500 is used.
     shared_ptr<int32_t> pageSize_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
+    // The rule name. You do not need to set this parameter when you add a global configuration.
     shared_ptr<string> ruleName_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can get this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
+    // The version number of the site configuration. For sites that have configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

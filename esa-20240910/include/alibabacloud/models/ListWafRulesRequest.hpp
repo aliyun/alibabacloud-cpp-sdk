@@ -125,19 +125,19 @@ namespace Models
 
 
     protected:
-      // Fuzzy search for values in IP access control.
+      // Performs a partial-match search for a value in an IP access control rule.
       shared_ptr<string> configValueLike_ {};
-      // Whether to reverse the sorting result.
+      // Specifies whether to sort the results in descending order.
       shared_ptr<bool> desc_ {};
-      // Exact query for WAF rule ID.
+      // Filters results by the exact WAF rule ID.
       shared_ptr<int64_t> id_ {};
-      // Fuzzy query for WAF rule ID or name.
+      // Performs a partial-match search on the WAF rule ID or name.
       shared_ptr<string> idNameLike_ {};
-      // Fuzzy query for WAF rule name.
+      // Performs a partial-match search on the WAF rule name.
       shared_ptr<string> nameLike_ {};
-      // Sort the returned list by the specified column.
+      // Sorts the results by the specified field.
       shared_ptr<string> orderBy_ {};
-      // Exact query for WAF rule status.
+      // Filters results by the exact WAF rule status.
       shared_ptr<string> status_ {};
     };
 
@@ -196,25 +196,39 @@ namespace Models
 
 
   protected:
-    // Query page number, used for pagination.
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // Query page size, used for pagination.
+    // The number of items to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // WAF rule type. Values:
+    // The WAF rule execution phase. Valid values are:
     // 
-    // - http_anti_scan: Scan protection
-    // - http_bot: Bots
+    // - `http_whitelist`: whitelist rule
+    // 
+    // - `http_custom`: custom rule
+    // 
+    // - `http_managed`: managed rule
+    // 
+    // - `http_anti_scan`: scan protection rule
+    // 
+    // - `http_ratelimit`: rate limiting rule
+    // 
+    // - `ip_access_rule`: IP access rule
+    // 
+    // - `http_bot`: Advanced bots
+    // 
+    // - `http_security_level_rule`: security rule
     // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // Query filter conditions.
+    // Query filters.
     shared_ptr<ListWafRulesRequest::QueryArgs> queryArgs_ {};
+    // The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
     shared_ptr<int64_t> rulesetId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
+    // The site configuration version. For sites with configuration version management enabled, this parameter specifies the version to use. Defaults to 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 
