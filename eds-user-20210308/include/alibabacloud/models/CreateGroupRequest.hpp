@@ -84,10 +84,13 @@ namespace Models
 
 
   protected:
+    // > This parameter is not publicly available for use.
     shared_ptr<string> bizType_ {};
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The description of the user group.
     shared_ptr<string> description_ {};
+    // The group name.
     shared_ptr<string> groupName_ {};
     // > This parameter is not publicly available.
     shared_ptr<string> parentGroupId_ {};

@@ -100,7 +100,7 @@ namespace Models
 
 
       protected:
-        // The ID of the convenience user that failed to be locked.
+        // The username of the convenience account that failed to lock.
         shared_ptr<string> endUserId_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
@@ -129,9 +129,9 @@ namespace Models
 
 
     protected:
-      // The convenience users that failed to be locked.
+      // A list of convenience accounts that failed to lock.
       shared_ptr<vector<LockUsersResult::FailedUsers>> failedUsers_ {};
-      // The convenience users that were locked.
+      // A list of successfully locked convenience accounts.
       shared_ptr<vector<string>> lockedUsers_ {};
     };
 
@@ -154,9 +154,9 @@ namespace Models
 
 
   protected:
-    // The result of the locking the convenience user.
+    // The result of the LockUsers operation.
     shared_ptr<LockUsersResponseBody::LockUsersResult> lockUsersResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

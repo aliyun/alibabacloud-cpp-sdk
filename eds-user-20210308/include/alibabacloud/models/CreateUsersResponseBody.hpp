@@ -120,15 +120,15 @@ namespace Models
 
 
       protected:
-        // The email address of the end user.
+        // The email address.
         shared_ptr<string> email_ {};
-        // The name of the end user.
+        // The user name.
         shared_ptr<string> endUserId_ {};
-        // The error code returned if the request failed.
+        // The error code.
         shared_ptr<string> errorCode_ {};
-        // The error message returned.
+        // The error message.
         shared_ptr<string> errorMessage_ {};
-        // The mobile number of the end user.
+        // The phone number.
         shared_ptr<string> phone_ {};
       };
 
@@ -197,15 +197,15 @@ namespace Models
 
 
       protected:
-        // The email address of the end user.
+        // The email address.
         shared_ptr<string> email_ {};
-        // The name of the end user.
+        // The user name.
         shared_ptr<string> endUserId_ {};
-        // The mobile number of the end user.
+        // The phone number.
         shared_ptr<string> phone_ {};
-        // The display name of the end user.
+        // The display name.
         shared_ptr<string> realNickName_ {};
-        // The remarks of the end user.
+        // The user\\"s remark.
         shared_ptr<string> remark_ {};
       };
 
@@ -230,9 +230,9 @@ namespace Models
 
 
     protected:
-      // Details of the created convenience users.
+      // The convenience accounts that were successfully created.
       shared_ptr<vector<CreateResult::CreatedUsers>> createdUsers_ {};
-      // Details of the convenience users that failed to be created.
+      // The convenience accounts that failed to be created.
       shared_ptr<vector<CreateResult::FailedUsers>> failedUsers_ {};
     };
 
@@ -263,9 +263,9 @@ namespace Models
 
   protected:
     shared_ptr<bool> allSucceed_ {};
-    // The result of user creation.
+    // The result of creating convenience accounts.
     shared_ptr<CreateUsersResponseBody::CreateResult> createResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

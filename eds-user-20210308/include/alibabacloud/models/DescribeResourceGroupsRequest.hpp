@@ -117,20 +117,22 @@ namespace Models
 
 
   protected:
+    // A list of Aliyun resource group IDs.
     shared_ptr<vector<string>> aliyunResourceGroupIds_ {};
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
-    // >  This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<int64_t> needContainResourceGroupWithOfficeSite_ {};
-    // The page number. Pages start from page 1.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // >  Set the value to AliyunConsole.
-    // 
-    // *   This parameter is not publicly available on other platforms.
+    // > The cloud platform.
+    // >
+    // > - For Elastic Desktop Service (EDS) Enterprise Edition, this parameter must be set to AliyunConsole.
     shared_ptr<string> platform_ {};
     shared_ptr<string> resourceClassification_ {};
-    // The IDs of the resource groups that you want to query.
+    // A list of resource group IDs.
     shared_ptr<vector<string>> resourceGroupIds_ {};
     // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};

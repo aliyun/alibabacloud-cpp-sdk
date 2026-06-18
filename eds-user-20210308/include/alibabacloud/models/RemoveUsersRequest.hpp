@@ -51,6 +51,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The usernames of the convenience users that you want to remove.
     // 

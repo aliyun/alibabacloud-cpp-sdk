@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Business type.
     shared_ptr<string> businessChannel_ {};
+    // Username.
     shared_ptr<string> endUserId_ {};
+    // List of attributes to query.
     shared_ptr<vector<string>> requireExtraAttributes_ {};
   };
 

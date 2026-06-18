@@ -127,6 +127,12 @@
 #include <alibabacloud/models/SetUserPropertyValueResponse.hpp>
 #include <alibabacloud/models/SyncAllEduInfoResponseBody.hpp>
 #include <alibabacloud/models/SyncAllEduInfoResponse.hpp>
+#include <alibabacloud/models/TransferResourcesIntoGroupRequest.hpp>
+#include <alibabacloud/models/TransferResourcesIntoGroupResponseBody.hpp>
+#include <alibabacloud/models/TransferResourcesIntoGroupResponse.hpp>
+#include <alibabacloud/models/TransferResourcesOutofGroupRequest.hpp>
+#include <alibabacloud/models/TransferResourcesOutofGroupResponseBody.hpp>
+#include <alibabacloud/models/TransferResourcesOutofGroupResponse.hpp>
 #include <alibabacloud/models/UnlockMfaDeviceRequest.hpp>
 #include <alibabacloud/models/UnlockMfaDeviceResponseBody.hpp>
 #include <alibabacloud/models/UnlockMfaDeviceResponse.hpp>

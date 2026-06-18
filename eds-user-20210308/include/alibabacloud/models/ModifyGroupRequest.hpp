@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The new description of the user group.
     shared_ptr<string> description_ {};

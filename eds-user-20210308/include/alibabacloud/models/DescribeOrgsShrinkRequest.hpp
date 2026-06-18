@@ -97,14 +97,15 @@ namespace Models
 
 
   protected:
+    // The channel.
     shared_ptr<string> businessChannel_ {};
     shared_ptr<vector<string>> includeOrgIds_ {};
-    // The maximum number of entries to return. Valid values: 1 to 100.\\
-    // Default value: 100.
+    // The maximum number of entries to return. Valid values: 1 to 100.<br>
+    // Default value: 100.<br>
     shared_ptr<int64_t> maxResults_ {};
-    // The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the DescribeOrgs operation was called.
+    // The pagination token. To retrieve the next page of results, set this parameter to the `NextToken` value that was returned from a previous request.
     shared_ptr<string> nextToken_ {};
-    // The name of the organization.
+    // The organization name.
     shared_ptr<string> orgName_ {};
     // The parent organization ID.
     shared_ptr<string> parentOrgId_ {};

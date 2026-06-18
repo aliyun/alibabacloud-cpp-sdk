@@ -105,9 +105,9 @@ namespace Models
 
 
     protected:
-      // The property name.
+      // The property key.
       shared_ptr<string> propertyKey_ {};
-      // The property values.
+      // The property value.
       shared_ptr<string> propertyValues_ {};
     };
 
@@ -149,9 +149,9 @@ namespace Models
 
 
     protected:
-      // The ID of the property.
+      // The property ID.
       shared_ptr<int64_t> propertyId_ {};
-      // The IDs of the property values.
+      // The property value ID.
       shared_ptr<string> propertyValueIds_ {};
     };
 
@@ -193,20 +193,9 @@ namespace Models
 
 
     protected:
-      // The field that you want to sort by.
-      // 
-      // Valid values:
-      // 
-      // *   EndUserId: the username.
-      // *   id: the ID of the primary key.
-      // *   gmt_created: the creation time.
+      // The field by which to sort the results.
       shared_ptr<string> orderField_ {};
-      // The direction of the sort.
-      // 
-      // Valid values:
-      // 
-      // *   ASC: the ascending order.
-      // *   DESC (default): the descending order.
+      // The sort order.
       shared_ptr<string> orderType_ {};
     };
 
@@ -363,80 +352,40 @@ namespace Models
 
 
   protected:
+    // The channel.
     shared_ptr<string> businessChannel_ {};
-    // The list of usernames to be precisely excluded.
+    // The usernames (`EndUserId`) to exclude by exact match.
     shared_ptr<vector<string>> excludeEndUserIds_ {};
-    // The string that is used for fuzzy search. You can use usernames and email addresses to perform fuzzy search. Wildcard characters (\\*) are supported for this parameter. For example, if you set this parameter to a\\*m, the usernames or an email addresses that start with a or end with m are returned.
+    // The string for a fuzzy search on the username (`EndUserId`) and email address (`Email`). The wildcard character (`*`) is supported. For example, if you set this parameter to `a*m`, the query returns all results where the username or email address starts with `a` and ends with `m`.
     shared_ptr<string> filter_ {};
     shared_ptr<map<string, string>> filterMap_ {};
-    // Specifies whether to return the number of cloud desktops that are assigned to the convenience user.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Specifies whether to return the number of cloud desktops that are assigned to the user.
     shared_ptr<bool> includeDesktopCount_ {};
-    // Specifies whether to return the number of cloud desktop pools that are assigned to the convenience user.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Specifies whether to return the number of desktop groups that are assigned to the user.
     shared_ptr<bool> includeDesktopGroupCount_ {};
     shared_ptr<vector<string>> includeEndUserIds_ {};
-    // Specifies whether to return the organization information.
+    // Specifies whether to include organization information in the response.
     shared_ptr<bool> includeOrgInfo_ {};
-    // Specifies whether to return the supported logon types.
+    // Specifies whether to include the supported logon types in the response.
     shared_ptr<bool> includeSupportIdps_ {};
     // Specifies whether to query all sub-organizations.
     shared_ptr<bool> isQueryAllSubOrgs_ {};
-    // The number of entries per page. If you set this parameter to a value greater than 100, the system resets the value to 100.
+    // The number of entries per page. If you specify a value greater than 100, the system automatically sets this parameter to 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the returned NextToken value to start the next query.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If the number of results exceeds the value of the `MaxResults` parameter, a `NextToken` is returned. You can use the `NextToken` to query the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The parameter that might affect the sorting logic.
+    // The sorting parameters.
     shared_ptr<FilterUsersRequest::OrderParam> orderParam_ {};
-    // The ID of the organization.
+    // The organization ID.
     shared_ptr<string> orgId_ {};
-    // The activation type of the convenience account.
-    // 
-    // Valid values:
-    // 
-    // *   CreateFromManager: administrator-activated.
-    // *   Normal: user-activated.
+    // The account activation type.
     shared_ptr<string> ownerType_ {};
-    // The list of properties for fuzzy search.
+    // The user properties for a fuzzy search.
     shared_ptr<vector<FilterUsersRequest::PropertyFilterParam>> propertyFilterParam_ {};
-    // The list of property names and property values.
+    // The information about property keys and property values.
     shared_ptr<vector<FilterUsersRequest::PropertyKeyValueFilterParam>> propertyKeyValueFilterParam_ {};
     shared_ptr<map<string, string>> showExtras_ {};
-    // The status.
+    // The user status by which to filter the results.
     shared_ptr<int32_t> status_ {};
   };
 

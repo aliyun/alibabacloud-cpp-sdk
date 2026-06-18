@@ -60,6 +60,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The method to notify the user after the password is reset.
     // 

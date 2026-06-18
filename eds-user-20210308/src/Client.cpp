@@ -18,6 +18,10 @@ namespace EdsUser20210308
 
 AlibabaCloud::EdsUser20210308::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shanghai" , "eds-user.cn-shanghai.aliyuncs.com"},
+    {"ap-southeast-1" , "eds-user.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eds-user", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,9 +40,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+ * @summary Add or remove local administrator permissions on a cloud computer for a convenience account.
  *
- * @description Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
+ * @description A convenience account with local administrator permissions can install software or modify certain system settings on the cloud computer.
  *
  * @param request BatchSetDesktopManagerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -77,9 +81,9 @@ BatchSetDesktopManagerResponse Client::batchSetDesktopManagerWithOptions(const B
 }
 
 /**
- * @summary Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+ * @summary Add or remove local administrator permissions on a cloud computer for a convenience account.
  *
- * @description Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
+ * @description A convenience account with local administrator permissions can install software or modify certain system settings on the cloud computer.
  *
  * @param request BatchSetDesktopManagerRequest
  * @return BatchSetDesktopManagerResponse
@@ -90,7 +94,7 @@ BatchSetDesktopManagerResponse Client::batchSetDesktopManager(const BatchSetDesk
 }
 
 /**
- * @summary If the user is in administrator-activated mode, you can change the user logon password through this operation.
+ * @summary When the administrator activates the mode, you can use this API to modify the user logon password.
  *
  * @param request ChangeUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -129,7 +133,7 @@ ChangeUserPasswordResponse Client::changeUserPasswordWithOptions(const ChangeUse
 }
 
 /**
- * @summary If the user is in administrator-activated mode, you can change the user logon password through this operation.
+ * @summary When the administrator activates the mode, you can use this API to modify the user logon password.
  *
  * @param request ChangeUserPasswordRequest
  * @return ChangeUserPasswordResponse
@@ -140,7 +144,7 @@ ChangeUserPasswordResponse Client::changeUserPassword(const ChangeUserPasswordRe
 }
 
 /**
- * @summary Queries whether a property is associated with one or more convenience users.
+ * @summary Query the number of convenience accounts associated with a specified custom property.
  *
  * @param request CheckUsedPropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -175,7 +179,7 @@ CheckUsedPropertyResponse Client::checkUsedPropertyWithOptions(const CheckUsedPr
 }
 
 /**
- * @summary Queries whether a property is associated with one or more convenience users.
+ * @summary Query the number of convenience accounts associated with a specified custom property.
  *
  * @param request CheckUsedPropertyRequest
  * @return CheckUsedPropertyResponse
@@ -186,9 +190,7 @@ CheckUsedPropertyResponse Client::checkUsedProperty(const CheckUsedPropertyReque
 }
 
 /**
- * @summary Queries the number of convenience accounts that are associated with the specified custom property value.
- *
- * @description Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
+ * @summary Query the number of convenience accounts associated with a specified custom attribute value.
  *
  * @param request CheckUsedPropertyValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -227,9 +229,7 @@ CheckUsedPropertyValueResponse Client::checkUsedPropertyValueWithOptions(const C
 }
 
 /**
- * @summary Queries the number of convenience accounts that are associated with the specified custom property value.
- *
- * @description Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
+ * @summary Query the number of convenience accounts associated with a specified custom attribute value.
  *
  * @param request CheckUsedPropertyValueRequest
  * @return CheckUsedPropertyValueResponse
@@ -240,7 +240,7 @@ CheckUsedPropertyValueResponse Client::checkUsedPropertyValue(const CheckUsedPro
 }
 
 /**
- * @summary Creates a user group.
+ * @summary Create a group.
  *
  * @param request CreateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -291,7 +291,7 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 }
 
 /**
- * @summary Creates a user group.
+ * @summary Create a group.
  *
  * @param request CreateGroupRequest
  * @return CreateGroupResponse
@@ -302,7 +302,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary Creates an organization.
+ * @summary Create an organization.
  *
  * @param request CreateOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -341,7 +341,7 @@ CreateOrgResponse Client::createOrgWithOptions(const CreateOrgRequest &request, 
 }
 
 /**
- * @summary Creates an organization.
+ * @summary Create an organization.
  *
  * @param request CreateOrgRequest
  * @return CreateOrgResponse
@@ -352,7 +352,10 @@ CreateOrgResponse Client::createOrg(const CreateOrgRequest &request) {
 }
 
 /**
- * @summary Creates a user property.
+ * @summary Create a user attribute.
+ *
+ * @description - You can create up to 10 different properties under one Alibaba Cloud account. Each property includes a property name (PropertyKey) and multiple attribute values (PropertyValue).  
+ * - You can add up to 50 different attribute values to a single property.
  *
  * @param request CreatePropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +394,10 @@ CreatePropertyResponse Client::createPropertyWithOptions(const CreatePropertyReq
 }
 
 /**
- * @summary Creates a user property.
+ * @summary Create a user attribute.
+ *
+ * @description - You can create up to 10 different properties under one Alibaba Cloud account. Each property includes a property name (PropertyKey) and multiple attribute values (PropertyValue).  
+ * - You can add up to 50 different attribute values to a single property.
  *
  * @param request CreatePropertyRequest
  * @return CreatePropertyResponse
@@ -464,9 +470,12 @@ CreateResourceGroupResponse Client::createResourceGroup(const CreateResourceGrou
 }
 
 /**
- * @summary Creates a convenience user.
+ * @summary Easily create accounts for your end users.
  *
- * @description Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
+ * @description <props="china">
+ * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require a username, and either an email or a phone number.
+ * <props="intl">
+ * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require both a username and an email.
  *
  * @param request CreateUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -519,9 +528,12 @@ CreateUsersResponse Client::createUsersWithOptions(const CreateUsersRequest &req
 }
 
 /**
- * @summary Creates a convenience user.
+ * @summary Easily create accounts for your end users.
  *
- * @description Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
+ * @description <props="china">
+ * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require a username, and either an email or a phone number.
+ * <props="intl">
+ * A convenience account is a dedicated account system in Wuying Workspace for simple use cases that do not require enterprise AD integration. Accounts require both a username and an email.
  *
  * @param request CreateUsersRequest
  * @return CreateUsersResponse
@@ -532,7 +544,7 @@ CreateUsersResponse Client::createUsers(const CreateUsersRequest &request) {
 }
 
 /**
- * @summary Deletes a resource group.
+ * @summary Delete a resource group.
  *
  * @param request DeleteResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -571,7 +583,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const DeleteR
 }
 
 /**
- * @summary Deletes a resource group.
+ * @summary Delete a resource group.
  *
  * @param request DeleteResourceGroupRequest
  * @return DeleteResourceGroupResponse
@@ -582,9 +594,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroup(const DeleteResourceGrou
 }
 
 /**
- * @summary Dissociates a user property from a user.
- *
- * @description Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
+ * @summary Detach a user from a user attribute.
  *
  * @param request DeleteUserPropertyValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -627,9 +637,7 @@ DeleteUserPropertyValueResponse Client::deleteUserPropertyValueWithOptions(const
 }
 
 /**
- * @summary Dissociates a user property from a user.
- *
- * @description Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
+ * @summary Detach a user from a user attribute.
  *
  * @param request DeleteUserPropertyValueRequest
  * @return DeleteUserPropertyValueResponse
@@ -640,7 +648,7 @@ DeleteUserPropertyValueResponse Client::deleteUserPropertyValue(const DeleteUser
 }
 
 /**
- * @summary Queries the members of a user group.
+ * @summary Query group members.
  *
  * @param request DescribeGroupUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +703,7 @@ DescribeGroupUserResponse Client::describeGroupUserWithOptions(const DescribeGro
 }
 
 /**
- * @summary Queries the members of a user group.
+ * @summary Query group members.
  *
  * @param request DescribeGroupUserRequest
  * @return DescribeGroupUserResponse
@@ -706,7 +714,7 @@ DescribeGroupUserResponse Client::describeGroupUser(const DescribeGroupUserReque
 }
 
 /**
- * @summary Queries user groups.
+ * @summary Query user groups.
  *
  * @param request DescribeGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -777,7 +785,7 @@ DescribeGroupsResponse Client::describeGroupsWithOptions(const DescribeGroupsReq
 }
 
 /**
- * @summary Queries user groups.
+ * @summary Query user groups.
  *
  * @param request DescribeGroupsRequest
  * @return DescribeGroupsResponse
@@ -788,7 +796,7 @@ DescribeGroupsResponse Client::describeGroups(const DescribeGroupsRequest &reque
 }
 
 /**
- * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
+ * @summary Lists virtual MFA devices bound to directory accounts.
  *
  * @param request DescribeMfaDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -843,7 +851,7 @@ DescribeMfaDevicesResponse Client::describeMfaDevicesWithOptions(const DescribeM
 }
 
 /**
- * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
+ * @summary Lists virtual MFA devices bound to directory accounts.
  *
  * @param request DescribeMfaDevicesRequest
  * @return DescribeMfaDevicesResponse
@@ -854,7 +862,7 @@ DescribeMfaDevicesResponse Client::describeMfaDevices(const DescribeMfaDevicesRe
 }
 
 /**
- * @summary Queries subordinate organizations.
+ * @summary Find subordinate organizations.
  *
  * @param request DescribeOrgByLayerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -893,7 +901,7 @@ DescribeOrgByLayerResponse Client::describeOrgByLayerWithOptions(const DescribeO
 }
 
 /**
- * @summary Queries subordinate organizations.
+ * @summary Find subordinate organizations.
  *
  * @param request DescribeOrgByLayerRequest
  * @return DescribeOrgByLayerResponse
@@ -904,9 +912,9 @@ DescribeOrgByLayerResponse Client::describeOrgByLayer(const DescribeOrgByLayerRe
 }
 
 /**
- * @summary Queries organizations.
+ * @summary Queries a list of organizations.
  *
- * @description An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
+ * @description Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
  *
  * @param tmpReq DescribeOrgsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -967,9 +975,9 @@ DescribeOrgsResponse Client::describeOrgsWithOptions(const DescribeOrgsRequest &
 }
 
 /**
- * @summary Queries organizations.
+ * @summary Queries a list of organizations.
  *
- * @description An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
+ * @description Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
  *
  * @param request DescribeOrgsRequest
  * @return DescribeOrgsResponse
@@ -980,7 +988,7 @@ DescribeOrgsResponse Client::describeOrgs(const DescribeOrgsRequest &request) {
 }
 
 /**
- * @summary Queries resource groups.
+ * @summary View resource groups.
  *
  * @param request DescribeResourceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1043,7 +1051,7 @@ DescribeResourceGroupsResponse Client::describeResourceGroupsWithOptions(const D
 }
 
 /**
- * @summary Queries resource groups.
+ * @summary View resource groups.
  *
  * @param request DescribeResourceGroupsRequest
  * @return DescribeResourceGroupsResponse
@@ -1054,7 +1062,7 @@ DescribeResourceGroupsResponse Client::describeResourceGroups(const DescribeReso
 }
 
 /**
- * @summary Query basic user information
+ * @summary Query user basic information
  *
  * @param request DescribeUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1093,7 +1101,7 @@ DescribeUserResponse Client::describeUserWithOptions(const DescribeUserRequest &
 }
 
 /**
- * @summary Query basic user information
+ * @summary Query user basic information
  *
  * @param request DescribeUserRequest
  * @return DescribeUserResponse
@@ -1104,7 +1112,7 @@ DescribeUserResponse Client::describeUser(const DescribeUserRequest &request) {
 }
 
 /**
- * @summary Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
+ * @summary Retrieves directory account information, including the username, email address, and display name.
  *
  * @param tmpReq DescribeUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1219,7 +1227,7 @@ DescribeUsersResponse Client::describeUsersWithOptions(const DescribeUsersReques
 }
 
 /**
- * @summary Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
+ * @summary Retrieves directory account information, including the username, email address, and display name.
  *
  * @param request DescribeUsersRequest
  * @return DescribeUsersResponse
@@ -1230,7 +1238,7 @@ DescribeUsersResponse Client::describeUsers(const DescribeUsersRequest &request)
 }
 
 /**
- * @summary Filters convenience accounts by property.
+ * @summary Filter account information by user attribute.
  *
  * @param tmpReq FilterUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1343,7 +1351,7 @@ FilterUsersResponse Client::filterUsersWithOptions(const FilterUsersRequest &tmp
 }
 
 /**
- * @summary Filters convenience accounts by property.
+ * @summary Filter account information by user attribute.
  *
  * @param request FilterUsersRequest
  * @return FilterUsersResponse
@@ -1396,7 +1404,7 @@ GetManagerInfoByAuthCodeResponse Client::getManagerInfoByAuthCode(const GetManag
 }
 
 /**
- * @summary Initializes an organization ID.
+ * @summary Initialize the organization ID.
  *
  * @param request InitTenantAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1427,7 +1435,7 @@ InitTenantAliasResponse Client::initTenantAliasWithOptions(const InitTenantAlias
 }
 
 /**
- * @summary Initializes an organization ID.
+ * @summary Initialize the organization ID.
  *
  * @param request InitTenantAliasRequest
  * @return InitTenantAliasResponse
@@ -1438,7 +1446,7 @@ InitTenantAliasResponse Client::initTenantAlias(const InitTenantAliasRequest &re
 }
 
 /**
- * @summary Queries all user properties within an Alibaba Cloud account.
+ * @summary Query the list of existing user attributes under the current account.
  *
  * @param request ListPropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1469,7 +1477,7 @@ ListPropertyResponse Client::listPropertyWithOptions(const ListPropertyRequest &
 }
 
 /**
- * @summary Queries all user properties within an Alibaba Cloud account.
+ * @summary Query the list of existing user attributes under the current account.
  *
  * @param request ListPropertyRequest
  * @return ListPropertyResponse
@@ -1480,7 +1488,7 @@ ListPropertyResponse Client::listProperty(const ListPropertyRequest &request) {
 }
 
 /**
- * @summary Queries property values of a user property.
+ * @summary Query the list of attribute values for a specific user attribute.
  *
  * @param request ListPropertyValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1515,7 +1523,7 @@ ListPropertyValueResponse Client::listPropertyValueWithOptions(const ListPropert
 }
 
 /**
- * @summary Queries property values of a user property.
+ * @summary Query the list of attribute values for a specific user attribute.
  *
  * @param request ListPropertyValueRequest
  * @return ListPropertyValueResponse
@@ -1526,9 +1534,9 @@ ListPropertyValueResponse Client::listPropertyValue(const ListPropertyValueReque
 }
 
 /**
- * @summary Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+ * @summary Lock the virtual MFA device attached to a convenience account.
  *
- * @description After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
+ * @description After locking, the status of the virtual MFA device changes to LOCKED. When the associated convenience account attempts to log on to a WUYING Terminal through an office network with MFA enabled, authentication will fail due to the locked MFA device, preventing successful logon. You can invoke [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock it.
  *
  * @param request LockMfaDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1567,9 +1575,9 @@ LockMfaDeviceResponse Client::lockMfaDeviceWithOptions(const LockMfaDeviceReques
 }
 
 /**
- * @summary Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+ * @summary Lock the virtual MFA device attached to a convenience account.
  *
- * @description After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
+ * @description After locking, the status of the virtual MFA device changes to LOCKED. When the associated convenience account attempts to log on to a WUYING Terminal through an office network with MFA enabled, authentication will fail due to the locked MFA device, preventing successful logon. You can invoke [UnlockMfaDevice](~~UnlockMfaDevice~~) to unlock it.
  *
  * @param request LockMfaDeviceRequest
  * @return LockMfaDeviceResponse
@@ -1580,7 +1588,10 @@ LockMfaDeviceResponse Client::lockMfaDevice(const LockMfaDeviceRequest &request)
 }
 
 /**
- * @summary Locks one or more convenience users.
+ * @summary Locks one or more convenience accounts. Locked convenience accounts cannot be used to sign in to Wuying clients.
+ *
+ * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot sign in to Wuying clients, and therefore cannot access any Wuying cloud resources.
+ * > Call the [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) operation to check the lock status of convenience accounts. The `Status` value in the response is 0 for unlocked accounts and 9 for locked accounts.
  *
  * @param request LockUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1621,7 +1632,10 @@ LockUsersResponse Client::lockUsersWithOptions(const LockUsersRequest &request, 
 }
 
 /**
- * @summary Locks one or more convenience users.
+ * @summary Locks one or more convenience accounts. Locked convenience accounts cannot be used to sign in to Wuying clients.
+ *
+ * @description For security purposes, you can lock convenience accounts. Locked convenience users cannot sign in to Wuying clients, and therefore cannot access any Wuying cloud resources.
+ * > Call the [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) operation to check the lock status of convenience accounts. The `Status` value in the response is 0 for unlocked accounts and 9 for locked accounts.
  *
  * @param request LockUsersRequest
  * @return LockUsersResponse
@@ -1632,7 +1646,7 @@ LockUsersResponse Client::lockUsers(const LockUsersRequest &request) {
 }
 
 /**
- * @summary Modifies the name and description of a user group.
+ * @summary Modify the name and description of a group.
  *
  * @param request ModifyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1675,7 +1689,7 @@ ModifyGroupResponse Client::modifyGroupWithOptions(const ModifyGroupRequest &req
 }
 
 /**
- * @summary Modifies the name and description of a user group.
+ * @summary Modify the name and description of a group.
  *
  * @param request ModifyGroupRequest
  * @return ModifyGroupResponse
@@ -1686,7 +1700,7 @@ ModifyGroupResponse Client::modifyGroup(const ModifyGroupRequest &request) {
 }
 
 /**
- * @summary Modifies an organization.
+ * @summary Modify an organization.
  *
  * @param request ModifyOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1725,7 +1739,7 @@ ModifyOrgResponse Client::modifyOrgWithOptions(const ModifyOrgRequest &request, 
 }
 
 /**
- * @summary Modifies an organization.
+ * @summary Modify an organization.
  *
  * @param request ModifyOrgRequest
  * @return ModifyOrgResponse
@@ -1736,7 +1750,7 @@ ModifyOrgResponse Client::modifyOrg(const ModifyOrgRequest &request) {
 }
 
 /**
- * @summary Modifies user information.
+ * @summary Modify the contact information of a convenience account.
  *
  * @param request ModifyUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1779,7 +1793,7 @@ ModifyUserResponse Client::modifyUserWithOptions(const ModifyUserRequest &reques
 }
 
 /**
- * @summary Modifies user information.
+ * @summary Modify the contact information of a convenience account.
  *
  * @param request ModifyUserRequest
  * @return ModifyUserResponse
@@ -1790,7 +1804,7 @@ ModifyUserResponse Client::modifyUser(const ModifyUserRequest &request) {
 }
 
 /**
- * @summary Moves an organization.
+ * @summary Shift organization.
  *
  * @param request MoveOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1829,7 +1843,7 @@ MoveOrgResponse Client::moveOrgWithOptions(const MoveOrgRequest &request, const 
 }
 
 /**
- * @summary Moves an organization.
+ * @summary Shift organization.
  *
  * @param request MoveOrgRequest
  * @return MoveOrgResponse
@@ -1840,7 +1854,7 @@ MoveOrgResponse Client::moveOrg(const MoveOrgRequest &request) {
 }
 
 /**
- * @summary Moves users to a specific organization.
+ * @summary Shift users to the target organization architecture.
  *
  * @param request MoveUserOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1879,7 +1893,7 @@ MoveUserOrgResponse Client::moveUserOrgWithOptions(const MoveUserOrgRequest &req
 }
 
 /**
- * @summary Moves users to a specific organization.
+ * @summary Shift users to the target organization architecture.
  *
  * @param request MoveUserOrgRequest
  * @return MoveUserOrgResponse
@@ -1890,7 +1904,7 @@ MoveUserOrgResponse Client::moveUserOrg(const MoveUserOrgRequest &request) {
 }
 
 /**
- * @summary Queries user synchronization status.
+ * @summary Query the user synchronization status.
  *
  * @param request QuerySyncStatusByAliUidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1921,7 +1935,7 @@ QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUidWithOptions(const
 }
 
 /**
- * @summary Queries user synchronization status.
+ * @summary Query the user synchronization status.
  *
  * @param request QuerySyncStatusByAliUidRequest
  * @return QuerySyncStatusByAliUidResponse
@@ -1932,7 +1946,7 @@ QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUid(const QuerySyncS
 }
 
 /**
- * @summary Deletes a single user group or multiple user groups at a time.
+ * @summary Delete a group. Supports batch operations.
  *
  * @param request RemoveGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1971,7 +1985,7 @@ RemoveGroupResponse Client::removeGroupWithOptions(const RemoveGroupRequest &req
 }
 
 /**
- * @summary Deletes a single user group or multiple user groups at a time.
+ * @summary Delete a group. Supports batch operations.
  *
  * @param request RemoveGroupRequest
  * @return RemoveGroupResponse
@@ -1982,9 +1996,9 @@ RemoveGroupResponse Client::removeGroup(const RemoveGroupRequest &request) {
 }
 
 /**
- * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
+ * @summary Delete the virtual MFA device attached to a convenience account.
  *
- * @description If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
+ * @description Deleting the virtual MFA device attached to a convenience account unbinds the MFA device, which is equivalent to resetting or disabling it. The corresponding convenience account must reattach a new virtual MFA device when logging on to a WUYING Terminal.
  *
  * @param request RemoveMfaDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2023,9 +2037,9 @@ RemoveMfaDeviceResponse Client::removeMfaDeviceWithOptions(const RemoveMfaDevice
 }
 
 /**
- * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
+ * @summary Delete the virtual MFA device attached to a convenience account.
  *
- * @description If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
+ * @description Deleting the virtual MFA device attached to a convenience account unbinds the MFA device, which is equivalent to resetting or disabling it. The corresponding convenience account must reattach a new virtual MFA device when logging on to a WUYING Terminal.
  *
  * @param request RemoveMfaDeviceRequest
  * @return RemoveMfaDeviceResponse
@@ -2036,7 +2050,7 @@ RemoveMfaDeviceResponse Client::removeMfaDevice(const RemoveMfaDeviceRequest &re
 }
 
 /**
- * @summary Removes an organization.
+ * @summary Remove an organization.
  *
  * @param request RemoveOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2071,7 +2085,7 @@ RemoveOrgResponse Client::removeOrgWithOptions(const RemoveOrgRequest &request, 
 }
 
 /**
- * @summary Removes an organization.
+ * @summary Remove an organization.
  *
  * @param request RemoveOrgRequest
  * @return RemoveOrgResponse
@@ -2082,7 +2096,7 @@ RemoveOrgResponse Client::removeOrg(const RemoveOrgRequest &request) {
 }
 
 /**
- * @summary Deletes a user property.
+ * @summary Delete a set of user attributes.
  *
  * @param request RemovePropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2119,7 +2133,7 @@ RemovePropertyResponse Client::removePropertyWithOptions(const RemovePropertyReq
 }
 
 /**
- * @summary Deletes a user property.
+ * @summary Delete a set of user attributes.
  *
  * @param request RemovePropertyRequest
  * @return RemovePropertyResponse
@@ -2130,7 +2144,7 @@ RemovePropertyResponse Client::removeProperty(const RemovePropertyRequest &reque
 }
 
 /**
- * @summary Removes one or more convenience users.
+ * @summary Delete one or more convenience accounts.
  *
  * @param request RemoveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2165,7 +2179,7 @@ RemoveUsersResponse Client::removeUsersWithOptions(const RemoveUsersRequest &req
 }
 
 /**
- * @summary Removes one or more convenience users.
+ * @summary Delete one or more convenience accounts.
  *
  * @param request RemoveUsersRequest
  * @return RemoveUsersResponse
@@ -2176,7 +2190,7 @@ RemoveUsersResponse Client::removeUsers(const RemoveUsersRequest &request) {
 }
 
 /**
- * @summary Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
+ * @summary Reset the password of a convenience account, including generating a password reset token and sending a password reset email to the mailbox of the convenience account.
  *
  * @param request ResetUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2215,7 +2229,7 @@ ResetUserPasswordResponse Client::resetUserPasswordWithOptions(const ResetUserPa
 }
 
 /**
- * @summary Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
+ * @summary Reset the password of a convenience account, including generating a password reset token and sending a password reset email to the mailbox of the convenience account.
  *
  * @param request ResetUserPasswordRequest
  * @return ResetUserPasswordResponse
@@ -2226,7 +2240,7 @@ ResetUserPasswordResponse Client::resetUserPassword(const ResetUserPasswordReque
 }
 
 /**
- * @summary Associates a user property with a convenience user.
+ * @summary Associate a user attribute with a specific user.
  *
  * @param request SetUserPropertyValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2273,7 +2287,7 @@ SetUserPropertyValueResponse Client::setUserPropertyValueWithOptions(const SetUs
 }
 
 /**
- * @summary Associates a user property with a convenience user.
+ * @summary Associate a user attribute with a specific user.
  *
  * @param request SetUserPropertyValueRequest
  * @return SetUserPropertyValueResponse
@@ -2284,7 +2298,7 @@ SetUserPropertyValueResponse Client::setUserPropertyValue(const SetUserPropertyV
 }
 
 /**
- * @summary Synchronizes all education information.
+ * @summary Synchronize all education information.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return SyncAllEduInfoResponse
@@ -2306,7 +2320,7 @@ SyncAllEduInfoResponse Client::syncAllEduInfoWithOptions(const Darabonba::Runtim
 }
 
 /**
- * @summary Synchronizes all education information.
+ * @summary Synchronize all education information.
  *
  * @return SyncAllEduInfoResponse
  */
@@ -2316,7 +2330,119 @@ SyncAllEduInfoResponse Client::syncAllEduInfo() {
 }
 
 /**
- * @summary Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+ * @summary 将资源转移到资源组中
+ *
+ * @param request TransferResourcesIntoGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TransferResourcesIntoGroupResponse
+ */
+TransferResourcesIntoGroupResponse Client::transferResourcesIntoGroupWithOptions(const TransferResourcesIntoGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResources()) {
+    query["Resources"] = request.getResources();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TransferResourcesIntoGroup"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TransferResourcesIntoGroupResponse>();
+}
+
+/**
+ * @summary 将资源转移到资源组中
+ *
+ * @param request TransferResourcesIntoGroupRequest
+ * @return TransferResourcesIntoGroupResponse
+ */
+TransferResourcesIntoGroupResponse Client::transferResourcesIntoGroup(const TransferResourcesIntoGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return transferResourcesIntoGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将资源从资源组中转出
+ *
+ * @param request TransferResourcesOutofGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TransferResourcesOutofGroupResponse
+ */
+TransferResourcesOutofGroupResponse Client::transferResourcesOutofGroupWithOptions(const TransferResourcesOutofGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResources()) {
+    query["Resources"] = request.getResources();
+  }
+
+  if (!!request.hasTargetResourceGroupId()) {
+    query["TargetResourceGroupId"] = request.getTargetResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TransferResourcesOutofGroup"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TransferResourcesOutofGroupResponse>();
+}
+
+/**
+ * @summary 将资源从资源组中转出
+ *
+ * @param request TransferResourcesOutofGroupRequest
+ * @return TransferResourcesOutofGroupResponse
+ */
+TransferResourcesOutofGroupResponse Client::transferResourcesOutofGroup(const TransferResourcesOutofGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return transferResourcesOutofGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Unlock the virtual MFA device attached to a convenience account.
  *
  * @param request UnlockMfaDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2355,7 +2481,7 @@ UnlockMfaDeviceResponse Client::unlockMfaDeviceWithOptions(const UnlockMfaDevice
 }
 
 /**
- * @summary Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+ * @summary Unlock the virtual MFA device attached to a convenience account.
  *
  * @param request UnlockMfaDeviceRequest
  * @return UnlockMfaDeviceResponse
@@ -2366,7 +2492,10 @@ UnlockMfaDeviceResponse Client::unlockMfaDevice(const UnlockMfaDeviceRequest &re
 }
 
 /**
- * @summary Unlocks one or more convenience users.
+ * @summary Unlock one or more convenience accounts. After being unlocked, the convenience accounts can log on to WUYING Terminal.
+ *
+ * @description Locked convenience accounts cannot log on to WUYING Terminal and therefore cannot access any WUYING cloud resources. To allow a convenience account to log on to WUYING Terminal, you must first unlock it.  
+ * > You can invoke [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the value of `Status` in the returned data is 0, the convenience account is not locked. If the value of `Status` is 9, the convenience account is locked.
  *
  * @param request UnlockUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2407,7 +2536,10 @@ UnlockUsersResponse Client::unlockUsersWithOptions(const UnlockUsersRequest &req
 }
 
 /**
- * @summary Unlocks one or more convenience users.
+ * @summary Unlock one or more convenience accounts. After being unlocked, the convenience accounts can log on to WUYING Terminal.
+ *
+ * @description Locked convenience accounts cannot log on to WUYING Terminal and therefore cannot access any WUYING cloud resources. To allow a convenience account to log on to WUYING Terminal, you must first unlock it.  
+ * > You can invoke [DescribeUsers](https://help.aliyun.com/document_detail/283609.html) to query convenience account information. If the value of `Status` in the returned data is 0, the convenience account is not locked. If the value of `Status` is 9, the convenience account is locked.
  *
  * @param request UnlockUsersRequest
  * @return UnlockUsersResponse
@@ -2418,7 +2550,7 @@ UnlockUsersResponse Client::unlockUsers(const UnlockUsersRequest &request) {
 }
 
 /**
- * @summary Modifies a user property.
+ * @summary Modify User Attributes.
  *
  * @param request UpdatePropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2463,7 +2595,7 @@ UpdatePropertyResponse Client::updatePropertyWithOptions(const UpdatePropertyReq
 }
 
 /**
- * @summary Modifies a user property.
+ * @summary Modify User Attributes.
  *
  * @param request UpdatePropertyRequest
  * @return UpdatePropertyResponse
@@ -2474,7 +2606,7 @@ UpdatePropertyResponse Client::updateProperty(const UpdatePropertyRequest &reque
 }
 
 /**
- * @summary Add multiple users to a user group at a time.
+ * @summary Add users to a group in batch.
  *
  * @param request UserBatchJoinGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2513,7 +2645,7 @@ UserBatchJoinGroupResponse Client::userBatchJoinGroupWithOptions(const UserBatch
 }
 
 /**
- * @summary Add multiple users to a user group at a time.
+ * @summary Add users to a group in batch.
  *
  * @param request UserBatchJoinGroupRequest
  * @return UserBatchJoinGroupResponse
@@ -2524,7 +2656,7 @@ UserBatchJoinGroupResponse Client::userBatchJoinGroup(const UserBatchJoinGroupRe
 }
 
 /**
- * @summary Removes multiple users from a user group at a time.
+ * @summary Remove users from a group in batch.
  *
  * @param request UserBatchQuitGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2563,7 +2695,7 @@ UserBatchQuitGroupResponse Client::userBatchQuitGroupWithOptions(const UserBatch
 }
 
 /**
- * @summary Removes multiple users from a user group at a time.
+ * @summary Remove users from a group in batch.
  *
  * @param request UserBatchQuitGroupRequest
  * @return UserBatchQuitGroupResponse

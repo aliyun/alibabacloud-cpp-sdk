@@ -130,25 +130,25 @@ namespace Models
 
 
   protected:
-    // > This parameter is not publicly available.
+    // > This parameter is for internal use only.
     shared_ptr<string> bizType_ {};
     shared_ptr<string> businessChannel_ {};
-    // 是否排除已关联登录策略的用户组。
+    // Specifies whether to exclude user groups that are already associated with a logon policy.
     shared_ptr<bool> excludeAttachedLoginPolicyGroups_ {};
     // The ID of the user group.
     shared_ptr<string> groupId_ {};
     // The name of the user group.
     shared_ptr<string> groupName_ {};
     shared_ptr<string> idpId_ {};
-    // 指定关联的登录策略筛选。
+    // The ID of a logon policy. If you specify this parameter, the call returns only user groups associated with the policy.
     shared_ptr<string> loginPolicyId_ {};
-    // The number of the page to return.
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is for internal use only.
     shared_ptr<string> solutionId_ {};
-    // Indicates whether the file approval feature is enabled.
+    // Specifies whether file approval is enabled.
     shared_ptr<bool> transferFileNeedApproval_ {};
   };
 

@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The name of the organization.
     shared_ptr<string> orgName_ {};

@@ -145,7 +145,7 @@ namespace Models
     protected:
       // The organization ID.
       shared_ptr<string> orgId_ {};
-      // The name of the organizational unit.
+      // The organization name.
       shared_ptr<string> orgName_ {};
       shared_ptr<string> orgNamePath_ {};
       // The parent organization ID.
@@ -179,9 +179,9 @@ namespace Models
 
 
   protected:
-    // The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the DescribeOrgs operation was called.
+    // The token used to retrieve the next page of results. If this parameter is not empty, more results are available. To retrieve the next page, pass this value in the `NextToken` parameter of a subsequent request.
     shared_ptr<string> nextToken_ {};
-    // The organizations.
+    // The organization list.
     shared_ptr<vector<DescribeOrgsResponseBody::Orgs>> orgs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

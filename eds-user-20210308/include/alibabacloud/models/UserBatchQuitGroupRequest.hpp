@@ -60,6 +60,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The user IDs.
     shared_ptr<vector<string>> endUserIds_ {};

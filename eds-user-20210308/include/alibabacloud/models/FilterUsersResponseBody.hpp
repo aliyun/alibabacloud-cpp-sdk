@@ -213,17 +213,17 @@ namespace Models
 
 
       protected:
-        // The property ID.
+        // The ID of the user property.
         shared_ptr<int64_t> propertyId_ {};
-        // The property name.
+        // The name of the user property.
         shared_ptr<string> propertyKey_ {};
-        // The property type.
+        // The type of the user property.
         shared_ptr<int32_t> propertyType_ {};
         // The property values.
         shared_ptr<vector<UserSetPropertiesModels::PropertyValues>> propertyValues_ {};
-        // The ID of the convenience user that is bound to the property.
+        // The ID of the user associated with the property.
         shared_ptr<int64_t> userId_ {};
-        // The username of the convenience user that is bound to the property.
+        // The user name associated with the property.
         shared_ptr<string> userName_ {};
       };
 
@@ -265,9 +265,9 @@ namespace Models
 
 
       protected:
-        // The enterprise identity provider ID.
+        // The ID of the identity provider (IdP).
         shared_ptr<string> idpId_ {};
-        // The enterprise identity provider name.
+        // The name of the identity provider (IdP).
         shared_ptr<string> idpName_ {};
       };
 
@@ -448,9 +448,9 @@ namespace Models
 
 
       protected:
-        // The account that is associated with the convenience user.
+        // The name of the mapped external account.
         shared_ptr<string> externalName_ {};
-        // The account, student ID, or employee ID that is associated with the convenience user.
+        // The ID of the external account, such as a student ID or an employee ID.
         shared_ptr<string> jobNumber_ {};
       };
 
@@ -619,93 +619,47 @@ namespace Models
 
 
     protected:
-      // The date when a convenience account is automatically locked.
+      // The date the account will be automatically locked.
       shared_ptr<string> autoLockTime_ {};
-      // The number of cloud desktops that are assigned to the convenience user.
+      // The number of cloud desktops assigned to the user.
       shared_ptr<int64_t> desktopCount_ {};
-      // The number of cloud desktop pools that are assigned to the convenience user. This value is returned if you set `IncludeDesktopGroupCount` to `true`.
+      // The number of desktop groups the user can access. This parameter is returned only when `IncludeDesktopGroupCount` is set to `true`.
       shared_ptr<int64_t> desktopGroupCount_ {};
-      // The email address of the convenience user.
+      // The email address.
       shared_ptr<string> email_ {};
-      // Indicates whether the convenience user is a local administrator.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   false
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // Indicates whether the user has local administrator permissions.
       shared_ptr<bool> enableAdminAccess_ {};
-      // The username of the convenience user.
+      // The user name.
       shared_ptr<string> endUserId_ {};
-      // The additional information about the convenience user.
+      // External user information.
       shared_ptr<Users::ExternalInfo> externalInfo_ {};
       shared_ptr<vector<Users::Groups>> groups_ {};
-      // The ID of the convenience user.
+      // The user ID.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the convenience user is a tenant administrator.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   false
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // Indicates whether the user is a tenant administrator.
       shared_ptr<bool> isTenantManager_ {};
-      // The organizations to which the user belongs.
+      // A list of organizations the user belongs to.
       shared_ptr<vector<Users::OrgList>> orgList_ {};
-      // The type of the account ownership.
-      // 
-      // Valid values:
-      // 
-      // *   CreateFromManager: administrator-activated
-      // *   Normal: user-activated
+      // The account ownership type.
       shared_ptr<string> ownerType_ {};
-      // By default, user account passwords do not expire. However, you can set a validity period between 30 and 365 days. Once the period expires, end users must change their password before they can log on to terminals.
+      // The password validity period in days. By default, passwords do not expire. Set this to a value from 30 to 365 to enforce an expiration policy. When a password expires, the user must change it before logging on again.
       // 
-      // >  The feature is in invitational preview. If you want to use this feature, submit a ticket.
+      // > This feature is in preview and available by invitation only. To use this feature, submit a ticket.
       shared_ptr<int32_t> passwordExpireDays_ {};
-      // The number of days remaining until the account password expires.
+      // The number of days until the password expires.
       shared_ptr<int32_t> passwordExpireRestDays_ {};
-      // The mobile number of the convenience user.
+      // The phone number.
       shared_ptr<string> phone_ {};
-      // The nickname of the convenience user.
+      // The user\\"s nickname.
       shared_ptr<string> realNickName_ {};
-      // The remarks on the convenience user.
+      // The remark about the user.
       shared_ptr<string> remark_ {};
       shared_ptr<vector<Users::ResourcePolicyList>> resourcePolicyList_ {};
-      // The remarks on the convenience account.
-      // 
-      // Valid values:
-      // 
-      // *   0: The convenience account is normal.
-      // *   9: The convenience account is locked.
+      // The status of the convenience account.
       shared_ptr<int64_t> status_ {};
-      // The supported identity provider logon methods.
+      // A list of identity providers (IdPs) that the user can use to log on.
       shared_ptr<vector<Users::SupportLoginIdps>> supportLoginIdps_ {};
-      // The information about the properties.
+      // A list of user properties.
       shared_ptr<vector<Users::UserSetPropertiesModels>> userSetPropertiesModels_ {};
     };
 
@@ -735,11 +689,11 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results. If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the returned NextToken value to start the next query.
+    // The token for paginated results. If the response is truncated, this parameter is returned. To retrieve the next page of results, include this value in a subsequent request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the convenience accounts.
+    // A list of convenience accounts.
     shared_ptr<vector<FilterUsersResponseBody::Users>> users_ {};
   };
 

@@ -126,9 +126,9 @@ namespace Models
 
       protected:
         shared_ptr<string> bindStatus_ {};
-        // The ID of the scheduled task.
+        // The scheduled task ID.
         shared_ptr<string> id_ {};
-        // The name of the scheduled task.
+        // The scheduled task name.
         shared_ptr<string> name_ {};
         shared_ptr<string> timerStatus_ {};
       };
@@ -182,7 +182,7 @@ namespace Models
       protected:
         // The policy ID.
         shared_ptr<string> id_ {};
-        // Specifies whether to use the default policy.
+        // Specifies whether this is the default policy.
         shared_ptr<bool> isDefault_ {};
         // The policy name.
         shared_ptr<string> name_ {};
@@ -313,27 +313,28 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud resource group ID.
       shared_ptr<string> aliyunResourceGroupId_ {};
       shared_ptr<vector<ResourceGroup::AppRules>> appRules_ {};
-      // The number of administrators that are authorized to access the resource group.
+      // The number of administrators authorized for the resource group.
       shared_ptr<string> authCount_ {};
-      // The time when the resource group was created.
+      // The time the resource group was created.
       shared_ptr<string> createTime_ {};
-      // >  The policy that is associated with the resource group.
-      // 
-      // *   The policy applies to cloud computers in the resource group. If multiple policies exist, they are enforced in order of priority.
-      // 
-      // *   If any of these cloud computers are already associated with other policies, the resource group\\"s policy takes precedence.
+      // > The policies associated with the resource group.
+      // >
+      // > - These policies apply to the cloud computers in the resource group. If multiple policies are associated, they are applied in order of priority.
+      // >
+      // > - Policies associated with the resource group take precedence over policies assigned to individual cloud computers.
       shared_ptr<vector<ResourceGroup::Policies>> policies_ {};
       // The number of resources in the resource group.
       shared_ptr<string> resourceCount_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The name of the resource group.
       shared_ptr<string> resourceGroupName_ {};
-      // >  The associated scheduled task.
-      // 
-      // *   The scheduled task applies to all cloud computers in the resource group. If any of these cloud computers are already associated with other scheduled tasks, the resource group\\"s scheduled task takes precedence.
+      // > The scheduled tasks associated with the resource group.
+      // >
+      // > - These scheduled tasks apply to cloud computers in the resource group and take precedence over any tasks associated with individual cloud computers.
       shared_ptr<vector<ResourceGroup::Timers>> timers_ {};
     };
 
@@ -365,7 +366,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource groups.
+    // A list of resource groups.
     shared_ptr<vector<DescribeResourceGroupsResponseBody::ResourceGroup>> resourceGroup_ {};
     // The total number of resource groups.
     shared_ptr<string> totalCount_ {};

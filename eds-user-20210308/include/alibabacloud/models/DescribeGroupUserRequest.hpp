@@ -96,6 +96,7 @@ namespace Models
   protected:
     // >  This parameter is not available for public use.
     shared_ptr<string> bizType_ {};
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The fuzzy search string that matches the username (EndUserId) and email address (Email) of the regular user.
     shared_ptr<string> filter_ {};

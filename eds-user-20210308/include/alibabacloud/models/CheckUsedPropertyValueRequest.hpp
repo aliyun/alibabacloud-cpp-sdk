@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query property ID.
     // 

@@ -60,6 +60,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // Whether the convenience account has the local administrator permissions on cloud computers.
     // 

@@ -60,9 +60,10 @@ namespace Models
 
 
   protected:
+    // The channel.
     shared_ptr<string> businessChannel_ {};
     shared_ptr<bool> logoutSession_ {};
-    // The usernames of the convenience users that you want to lock.
+    // The usernames of the convenience accounts to lock.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> users_ {};

@@ -114,7 +114,9 @@ namespace Models
 
 
       protected:
+        // Attribute key.
         shared_ptr<string> key_ {};
+        // Attribute value.
         shared_ptr<string> value_ {};
       };
 
@@ -174,9 +176,13 @@ namespace Models
 
 
       protected:
+        // External User ID.
         shared_ptr<string> externalId_ {};
+        // External information name.
         shared_ptr<string> externalName_ {};
+        // Employee ID.
         shared_ptr<string> jobNumber_ {};
+        // SSO logon type.
         shared_ptr<string> ssoType_ {};
       };
 
@@ -286,18 +292,30 @@ namespace Models
 
 
     protected:
+      // Mailbox.
       shared_ptr<string> email_ {};
+      // Username.
       shared_ptr<string> endUserId_ {};
+      // Associated external user information.
       shared_ptr<User::ExternalInfo> externalInfo_ {};
+      // Extension information.
       shared_ptr<map<string, string>> extras_ {};
+      // Creation Time.
       shared_ptr<int64_t> gmtCreate_ {};
       shared_ptr<string> nickName_ {};
+      // List of organization IDs.
       shared_ptr<vector<string>> orgIds_ {};
+      // List of organizations.
       shared_ptr<vector<string>> orgPaths_ {};
+      // Phone number.
       shared_ptr<string> phone_ {};
+      // User attributes.
       shared_ptr<vector<User::Properties>> properties_ {};
+      // Remarks.
       shared_ptr<string> remark_ {};
+      // User status.
       shared_ptr<int32_t> status_ {};
+      // Unique ID of the Wuying user.
       shared_ptr<string> wyId_ {};
     };
 
@@ -320,7 +338,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // User information.
     shared_ptr<DescribeUserResponseBody::User> user_ {};
   };
 

@@ -62,6 +62,7 @@ namespace Models
   protected:
     // The date on which the convenience users are automatically locked.
     shared_ptr<string> autoLockTime_ {};
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The usernames of the convenience users that you want to unlock.
     // 

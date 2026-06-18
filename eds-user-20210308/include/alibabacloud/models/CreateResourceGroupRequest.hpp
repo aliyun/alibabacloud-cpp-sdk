@@ -84,13 +84,12 @@ namespace Models
 
 
   protected:
+    // The business channel.
     shared_ptr<string> businessChannel_ {};
     shared_ptr<bool> enableAliyunResourceGroup_ {};
-    // >  This parameter is not publicly available.
+    // > This parameter is for internal use only.
     shared_ptr<int64_t> isResourceGroupWithOfficeSite_ {};
-    // >  Set the value to AliyunConsole.
-    // 
-    // *   This parameter is not publicly available in other platforms.
+    // Set this parameter to `AliyunConsole` for Wuying Workspace Enterprise Edition.
     shared_ptr<string> platform_ {};
     shared_ptr<string> resourceClassification_ {};
     // The name of the resource group.

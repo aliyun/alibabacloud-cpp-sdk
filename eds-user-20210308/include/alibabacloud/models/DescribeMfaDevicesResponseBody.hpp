@@ -210,49 +210,23 @@ namespace Models
 
     protected:
       shared_ptr<MfaDevices::AdUser> adUser_ {};
-      // The number of consecutive failures to bind the virtual MFA device, or the number of authentication failures based on the virtual MFA device.
+      // The number of consecutive failed attempts to bind or authenticate the virtual MFA device.
       shared_ptr<int32_t> consecutiveFails_ {};
-      // The type of the virtual MFA device. The value can only be `TOTP_VIRTUAL`. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.
+      // The type of the virtual MFA device. Set the value to `TOTP_VIRTUAL`, which indicates a virtual MFA device that complies with the Time-based One-time Password (TOTP) algorithm.
       shared_ptr<string> deviceType_ {};
-      // >  This parameter is not publicly available.
+      // > This parameter is not in use.
       shared_ptr<string> email_ {};
-      // The username of the convenience account that uses the virtual MFA device.
+      // The username of the convenience user who uses the virtual MFA device.
       shared_ptr<string> endUserId_ {};
-      // The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+      // The time when the virtual MFA device was enabled. The time is displayed in UTC and is formatted as `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> gmtEnabled_ {};
-      // The time when the locked virtual MFA device was automatically unlocked. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+      // The time when the locked virtual MFA device is automatically unlocked. The time is displayed in UTC and is formatted as `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> gmtUnlock_ {};
       // The ID of the virtual MFA device.
       shared_ptr<int64_t> id_ {};
       // The serial number of the virtual MFA device.
       shared_ptr<string> serialNumber_ {};
       // The status of the virtual MFA device.
-      // 
-      // Valid values:
-      // 
-      // *   LOCKED
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   UNBOUND
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   NORMAL
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> status_ {};
     };
 
@@ -282,9 +256,9 @@ namespace Models
 
 
   protected:
-    // The information about the virtual MFA devices.
+    // A list of virtual MFA devices.
     shared_ptr<vector<DescribeMfaDevicesResponseBody::MfaDevices>> mfaDevices_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

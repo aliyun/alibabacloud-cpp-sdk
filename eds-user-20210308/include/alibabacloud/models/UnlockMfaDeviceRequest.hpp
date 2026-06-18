@@ -59,6 +59,7 @@ namespace Models
   protected:
     // The domain of the Active Directory (AD) workspace.
     shared_ptr<string> adDomain_ {};
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // The serial number of the virtual MFA device. The serial number is unique for each device.
     // 

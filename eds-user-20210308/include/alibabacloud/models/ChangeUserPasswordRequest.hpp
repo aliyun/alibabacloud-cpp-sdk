@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
+    // The username of the convenience account whose password is to be modified.
     shared_ptr<string> endUserId_ {};
+    // The new password for the user.
     shared_ptr<string> newPassword_ {};
   };
 

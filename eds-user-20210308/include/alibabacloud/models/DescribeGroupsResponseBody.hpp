@@ -106,7 +106,9 @@ namespace Models
 
 
       protected:
+        // The name of the logon policy.
         shared_ptr<string> name_ {};
+        // The ID of the logon policy.
         shared_ptr<string> policyId_ {};
       };
 
@@ -174,19 +176,21 @@ namespace Models
 
 
     protected:
+      // The logon policy attached to the user group.
       shared_ptr<Groups::AttachedLoginPolicy> attachedLoginPolicy_ {};
-      // The type of the resource assigned to the user group.
+      // A list of authorized resources.
       shared_ptr<map<string, string>> authedResources_ {};
-      // The time when the user group is created.
+      // The time when the user group was created.
       shared_ptr<string> createTime_ {};
       // The description of the user group.
       shared_ptr<string> description_ {};
+      // The ID of the user group.
       shared_ptr<string> groupId_ {};
       // The name of the user group.
       shared_ptr<string> groupName_ {};
-      // Indicates whether the file approval feature is enabled.
+      // Indicates whether file transfer approval is enabled.
       shared_ptr<bool> transferFileNeedApproval_ {};
-      // The number of users in the user group.
+      // The number of members in the user group.
       shared_ptr<int32_t> userCount_ {};
     };
 
@@ -216,10 +220,11 @@ namespace Models
 
 
   protected:
-    // The number of the entries returned.
+    // The total number of entries returned.
     shared_ptr<int32_t> count_ {};
-    // The user groups.
+    // A list of user groups.
     shared_ptr<vector<DescribeGroupsResponseBody::Groups>> groups_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

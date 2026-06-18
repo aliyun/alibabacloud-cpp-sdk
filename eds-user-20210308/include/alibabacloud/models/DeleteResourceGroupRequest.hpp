@@ -60,6 +60,7 @@ namespace Models
 
 
   protected:
+    // Channel
     shared_ptr<string> businessChannel_ {};
     // >  The ID of the resource group that you want to delete.
     // 
