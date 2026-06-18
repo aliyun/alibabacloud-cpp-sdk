@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Page index, starting from the first page.
+    // The page number, starting from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // Number of entries returned per page. Maximum value supported is 100.
+    // The number of entries per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Tier-2 partner company name
+    // The company name of the secondary partner.
     shared_ptr<string> subPartnerCompanyName_ {};
-    // Tier-2 partner PID
+    // The PID of the secondary partner.
     shared_ptr<string> subPartnerPid_ {};
   };
 

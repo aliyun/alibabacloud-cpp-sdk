@@ -21,7 +21,7 @@ namespace Agency20250227
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Query bill export files.
+       * @summary Queries exported bill files.
        *
        * @param request GetBillDetailFileListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Agency20250227
       Models::GetBillDetailFileListResponse getBillDetailFileListWithOptions(const Models::GetBillDetailFileListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query bill export files.
+       * @summary Queries exported bill files.
        *
        * @param request GetBillDetailFileListRequest
        * @return GetBillDetailFileListResponse
@@ -38,7 +38,7 @@ namespace Agency20250227
       Models::GetBillDetailFileListResponse getBillDetailFileList(const Models::GetBillDetailFileListRequest &request);
 
       /**
-       * @summary Query partner commission details.
+       * @summary Queries the commission details of a partner.
        *
        * @param request GetCommissionDetailFileListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Agency20250227
       Models::GetCommissionDetailFileListResponse getCommissionDetailFileListWithOptions(const Models::GetCommissionDetailFileListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query partner commission details.
+       * @summary Queries the commission details of a partner.
        *
        * @param request GetCommissionDetailFileListRequest
        * @return GetCommissionDetailFileListResponse
@@ -55,7 +55,7 @@ namespace Agency20250227
       Models::GetCommissionDetailFileListResponse getCommissionDetailFileList(const Models::GetCommissionDetailFileListRequest &request);
 
       /**
-       * @summary Query partner customer acquisition orders.
+       * @summary Queries partner customer acquisition orders.
        *
        * @param tmpReq GetCustomerOrderListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Agency20250227
       Models::GetCustomerOrderListResponse getCustomerOrderListWithOptions(const Models::GetCustomerOrderListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query partner customer acquisition orders.
+       * @summary Queries partner customer acquisition orders.
        *
        * @param request GetCustomerOrderListRequest
        * @return GetCustomerOrderListResponse
@@ -72,7 +72,30 @@ namespace Agency20250227
       Models::GetCustomerOrderListResponse getCustomerOrderList(const Models::GetCustomerOrderListRequest &request);
 
       /**
-       * @summary Query partner renewal rate.
+       * @summary Downloads the commission details of an international partner.
+       *
+       * @description Make sure that the current caller identity is a T1 distribution partner. 
+       * <notice>Available only for international sites.</notice>.
+       *
+       * @param request GetIntlCommissionDetailFileListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIntlCommissionDetailFileListResponse
+       */
+      Models::GetIntlCommissionDetailFileListResponse getIntlCommissionDetailFileListWithOptions(const Models::GetIntlCommissionDetailFileListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Downloads the commission details of an international partner.
+       *
+       * @description Make sure that the current caller identity is a T1 distribution partner. 
+       * <notice>Available only for international sites.</notice>.
+       *
+       * @param request GetIntlCommissionDetailFileListRequest
+       * @return GetIntlCommissionDetailFileListResponse
+       */
+      Models::GetIntlCommissionDetailFileListResponse getIntlCommissionDetailFileList(const Models::GetIntlCommissionDetailFileListRequest &request);
+
+      /**
+       * @summary Queries the partner renewal rate.
        *
        * @param request GetRenewalRateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +104,7 @@ namespace Agency20250227
       Models::GetRenewalRateListResponse getRenewalRateListWithOptions(const Models::GetRenewalRateListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query partner renewal rate.
+       * @summary Queries the partner renewal rate.
        *
        * @param request GetRenewalRateListRequest
        * @return GetRenewalRateListResponse
@@ -89,7 +112,7 @@ namespace Agency20250227
       Models::GetRenewalRateListResponse getRenewalRateList(const Models::GetRenewalRateListRequest &request);
 
       /**
-       * @summary Query the list of second-tier distributors.
+       * @summary Queries the list of secondary distributors.
        *
        * @param request GetSubPartnerListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +121,7 @@ namespace Agency20250227
       Models::GetSubPartnerListResponse getSubPartnerListWithOptions(const Models::GetSubPartnerListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of second-tier distributors.
+       * @summary Queries the list of secondary distributors.
        *
        * @param request GetSubPartnerListRequest
        * @return GetSubPartnerListResponse
@@ -106,7 +129,7 @@ namespace Agency20250227
       Models::GetSubPartnerListResponse getSubPartnerList(const Models::GetSubPartnerListRequest &request);
 
       /**
-       * @summary Query channel expansion orders.
+       * @summary Queries channel expansion orders.
        *
        * @param tmpReq GetSubPartnerOrderListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +138,7 @@ namespace Agency20250227
       Models::GetSubPartnerOrderListResponse getSubPartnerOrderListWithOptions(const Models::GetSubPartnerOrderListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query channel expansion orders.
+       * @summary Queries channel expansion orders.
        *
        * @param request GetSubPartnerOrderListRequest
        * @return GetSubPartnerOrderListResponse

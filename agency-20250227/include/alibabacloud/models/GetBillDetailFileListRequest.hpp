@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // Month
+    // The billing month.
     // 
     // This parameter is required.
     shared_ptr<string> billMonth_ {};
-    // The AccessKeyID used to upload files to OSS.
+    // The AccessKey ID used to upload files to OSS.
     shared_ptr<string> ossAccessKeyId_ {};
-    // The AccessKeySecret used to upload files to OSS.
+    // The AccessKey secret used to upload files to OSS.
     shared_ptr<string> ossAccessKeySecret_ {};
-    // OSS bucket.
+    // The OSS bucket.
     shared_ptr<string> ossBucketName_ {};
-    // The Region of the edge zone where the OSS bucket corresponding to the file sharing is located.
+    // The endpoint of the region where the OSS bucket for file sharing is located.
     shared_ptr<string> ossEndpoint_ {};
-    // The Region to which the current OSS bucket belongs.
+    // The region where the OSS bucket is located.
     shared_ptr<string> ossRegion_ {};
-    // STS token used to upload files to OSS
+    // The STS token used to upload files to OSS.
     shared_ptr<string> ossSecurityToken_ {};
   };
 

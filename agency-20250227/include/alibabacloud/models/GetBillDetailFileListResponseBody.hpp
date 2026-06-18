@@ -105,15 +105,18 @@ namespace Models
 
 
     protected:
-      // Month
+      // The billing month.
       shared_ptr<string> billMonth_ {};
-      // File Name
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // File URL
+      // The file URL.
       shared_ptr<string> fileUrl_ {};
-      // OSS file push status. 1: Pending, 2: Processing, 3: Succeeded
+      // The OSS file push status. Valid values:
+      // - 1: pending
+      // - 2: processing
+      // - 3: completed.
       shared_ptr<string> status_ {};
-      // Type: customer acquisition, channel expansion
+      // The type. Valid values: customer acquisition or channel expansion.
       shared_ptr<string> type_ {};
     };
 
@@ -164,17 +167,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The returned data.
     shared_ptr<vector<GetBillDetailFileListResponseBody::Data>> data_ {};
-    // Prompt message
+    // The message.
     shared_ptr<string> message_ {};
-    // Same as message
+    // Same as Message.
     shared_ptr<string> msg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -12,6 +12,9 @@
 #include <alibabacloud/models/GetCustomerOrderListShrinkRequest.hpp>
 #include <alibabacloud/models/GetCustomerOrderListResponseBody.hpp>
 #include <alibabacloud/models/GetCustomerOrderListResponse.hpp>
+#include <alibabacloud/models/GetIntlCommissionDetailFileListRequest.hpp>
+#include <alibabacloud/models/GetIntlCommissionDetailFileListResponseBody.hpp>
+#include <alibabacloud/models/GetIntlCommissionDetailFileListResponse.hpp>
 #include <alibabacloud/models/GetRenewalRateListRequest.hpp>
 #include <alibabacloud/models/GetRenewalRateListResponseBody.hpp>
 #include <alibabacloud/models/GetRenewalRateListResponse.hpp>

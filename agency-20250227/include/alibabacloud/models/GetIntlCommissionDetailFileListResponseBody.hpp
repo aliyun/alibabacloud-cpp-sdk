@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETCOMMISSIONDETAILFILELISTRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_GETCOMMISSIONDETAILFILELISTRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETINTLCOMMISSIONDETAILFILELISTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETINTLCOMMISSIONDETAILFILELISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,29 +11,29 @@ namespace Agency20250227
 {
 namespace Models
 {
-  class GetCommissionDetailFileListResponseBody : public Darabonba::Model {
+  class GetIntlCommissionDetailFileListResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetCommissionDetailFileListResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetIntlCommissionDetailFileListResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, GetCommissionDetailFileListResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetIntlCommissionDetailFileListResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    GetCommissionDetailFileListResponseBody() = default ;
-    GetCommissionDetailFileListResponseBody(const GetCommissionDetailFileListResponseBody &) = default ;
-    GetCommissionDetailFileListResponseBody(GetCommissionDetailFileListResponseBody &&) = default ;
-    GetCommissionDetailFileListResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetCommissionDetailFileListResponseBody() = default ;
-    GetCommissionDetailFileListResponseBody& operator=(const GetCommissionDetailFileListResponseBody &) = default ;
-    GetCommissionDetailFileListResponseBody& operator=(GetCommissionDetailFileListResponseBody &&) = default ;
+    GetIntlCommissionDetailFileListResponseBody() = default ;
+    GetIntlCommissionDetailFileListResponseBody(const GetIntlCommissionDetailFileListResponseBody &) = default ;
+    GetIntlCommissionDetailFileListResponseBody(GetIntlCommissionDetailFileListResponseBody &&) = default ;
+    GetIntlCommissionDetailFileListResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetIntlCommissionDetailFileListResponseBody() = default ;
+    GetIntlCommissionDetailFileListResponseBody& operator=(const GetIntlCommissionDetailFileListResponseBody &) = default ;
+    GetIntlCommissionDetailFileListResponseBody& operator=(GetIntlCommissionDetailFileListResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -67,15 +67,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BucketSyncStatus, bucketSyncStatus_);
           DARABONBA_PTR_TO_JSON(CommissionPolicyName, commissionPolicyName_);
           DARABONBA_PTR_TO_JSON(FileName, fileName_);
-          DARABONBA_PTR_TO_JSON(FileType, fileType_);
-          DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
         };
         friend void from_json(const Darabonba::Json& j, FileList& obj) { 
           DARABONBA_PTR_FROM_JSON(BucketSyncStatus, bucketSyncStatus_);
           DARABONBA_PTR_FROM_JSON(CommissionPolicyName, commissionPolicyName_);
           DARABONBA_PTR_FROM_JSON(FileName, fileName_);
-          DARABONBA_PTR_FROM_JSON(FileType, fileType_);
-          DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
         };
         FileList() = default ;
         FileList(const FileList &) = default ;
@@ -89,7 +85,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->bucketSyncStatus_ == nullptr
-        && this->commissionPolicyName_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->fileUrl_ == nullptr; };
+        && this->commissionPolicyName_ == nullptr && this->fileName_ == nullptr; };
         // bucketSyncStatus Field Functions 
         bool hasBucketSyncStatus() const { return this->bucketSyncStatus_ != nullptr;};
         void deleteBucketSyncStatus() { this->bucketSyncStatus_ = nullptr;};
@@ -111,31 +107,17 @@ namespace Models
         inline FileList& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
-        // fileType Field Functions 
-        bool hasFileType() const { return this->fileType_ != nullptr;};
-        void deleteFileType() { this->fileType_ = nullptr;};
-        inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
-        inline FileList& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
-
-
-        // fileUrl Field Functions 
-        bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
-        void deleteFileUrl() { this->fileUrl_ = nullptr;};
-        inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
-        inline FileList& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
-
-
       protected:
-        // The push status of the OSS file. Valid values: Processing, Succeeded, or Failed.
+        // The push status of the OSS file. Valid values:
+        // - 初始化状态: initialization status
+        // - 处理中: processing
+        // - 处理成功: processing succeeded
+        // - 处理失败: processing failed.
         shared_ptr<string> bucketSyncStatus_ {};
-        // The policy name.
+        // The commission policy name.
         shared_ptr<string> commissionPolicyName_ {};
         // The file name.
         shared_ptr<string> fileName_ {};
-        // The file type.
-        shared_ptr<string> fileType_ {};
-        // The file URL.
-        shared_ptr<string> fileUrl_ {};
       };
 
       virtual bool empty() const override { return this->billMonth_ == nullptr
@@ -166,7 +148,7 @@ namespace Models
     protected:
       // The billing month.
       shared_ptr<string> billMonth_ {};
-      // The file list.
+      // The file list object.
       shared_ptr<vector<Data::FileList>> fileList_ {};
       // The UID of the partner.
       shared_ptr<string> partnerUid_ {};
@@ -178,47 +160,47 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline GetCommissionDetailFileListResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline GetIntlCommissionDetailFileListResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetCommissionDetailFileListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetCommissionDetailFileListResponseBody::Data) };
-    inline GetCommissionDetailFileListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetCommissionDetailFileListResponseBody::Data) };
-    inline GetCommissionDetailFileListResponseBody& setData(const GetCommissionDetailFileListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetCommissionDetailFileListResponseBody& setData(GetCommissionDetailFileListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetIntlCommissionDetailFileListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetIntlCommissionDetailFileListResponseBody::Data) };
+    inline GetIntlCommissionDetailFileListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetIntlCommissionDetailFileListResponseBody::Data) };
+    inline GetIntlCommissionDetailFileListResponseBody& setData(const GetIntlCommissionDetailFileListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetIntlCommissionDetailFileListResponseBody& setData(GetIntlCommissionDetailFileListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline GetCommissionDetailFileListResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline GetIntlCommissionDetailFileListResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline GetCommissionDetailFileListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline GetIntlCommissionDetailFileListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline GetCommissionDetailFileListResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline GetIntlCommissionDetailFileListResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // code
+    // The status code.
     shared_ptr<string> code_ {};
-    // The returned data.
-    shared_ptr<GetCommissionDetailFileListResponseBody::Data> data_ {};
-    // The message returned.
+    // The data.
+    shared_ptr<GetIntlCommissionDetailFileListResponseBody::Data> data_ {};
+    // The message information.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // RequestId
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};

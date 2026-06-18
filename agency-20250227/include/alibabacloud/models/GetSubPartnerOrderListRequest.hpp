@@ -189,53 +189,49 @@ namespace Models
 
 
   protected:
-    // The UNIX timestamp of the start time for order creation. The time range must not exceed six months.  
-    // The time range for order creation and the time range for order payment cannot both be empty.
+    // The start timestamp of the order creation time range. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderCreateAfter_ {};
-    // The UNIX timestamp of the end time for order creation. The time range must not exceed six months.  
-    // The time range for order creation and the time range for order payment cannot both be empty.
+    // The end timestamp of the order creation time range. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderCreateBefore_ {};
-    // Order ID
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
-    // The UNIX timestamp of the start time for order payment. The time range must not exceed six months.  
-    // The time range for order creation and the time range for order payment cannot both be empty.
+    // The start timestamp of the order payment time range. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderPayAfter_ {};
-    // UNIX timestamp of the order payment deadline. The time range cannot exceed six months.
-    // The time range for order creation and the time range for order payment cannot both be empty.
+    // The end timestamp of the order payment time range. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderPayBefore_ {};
-    // Order status. Valid values:
-    // 1: Unpaid
-    // 2: Paid
-    // 3: Canceled
+    // The order status. Valid values:
+    // - 1: unpaid
+    // - 2: paid
+    // - 3: voided.
     shared_ptr<int64_t> orderStatus_ {};
-    // List of order types.
-    // Valid order types include: BUY, UPGRADE, DOWNGRADE, RENEW, REFUND, OTHERS
+    // The list of order types.
+    // Valid values: BUY, UPGRADE, DOWNGRADE, RENEW, REFUND, and OTHERS.
     shared_ptr<vector<string>> orderTypeList_ {};
-    // Page number
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // Page size
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Minimum paid amount
+    // The minimum actual payment amount.
     shared_ptr<int64_t> payAmountAfter_ {};
-    // Maximum paid amount
+    // The maximum actual payment amount.
     shared_ptr<int64_t> payAmountBefore_ {};
-    // Payment Type:  
-    // 1: Non-agent payment  
-    // 2: Agent payment
+    // The payment type. Valid values:
+    // - 1: non-delegated payment
+    // - 2: delegated payment.
     shared_ptr<int64_t> payType_ {};
-    // Product code
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // Product Name
+    // The product name.
     shared_ptr<string> productName_ {};
-    // Opportunity ID
+    // The opportunity ID.
     shared_ptr<int64_t> projectId_ {};
-    // Sub-partner name
+    // The name of the secondary partner.
     shared_ptr<string> subPartnerName_ {};
-    // Sub-partner UID
+    // The UID of the secondary partner.
     shared_ptr<int64_t> subPartnerUid_ {};
   };
 

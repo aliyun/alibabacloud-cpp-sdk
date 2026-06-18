@@ -198,54 +198,50 @@ namespace Models
 
 
   protected:
-    // Customer Account
+    // The customer account.
     shared_ptr<string> customerAccount_ {};
-    // Customer UID
+    // The customer UID.
     shared_ptr<int64_t> customerUid_ {};
-    // The UNIX timestamp indicating the start time of order creation. The time range must not exceed six months.  
-    // The time range for order creation and the time range for order payment cannot both be empty.
+    // The start timestamp for order creation. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderCreateAfter_ {};
-    // The UNIX timestamp indicating the end time of order creation. The time range must not exceed six months.  
-    // The time range for order creation and the time range for order payment cannot both be empty.
+    // The end timestamp for order creation. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderCreateBefore_ {};
-    // Order ID
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
-    // Order payment start UNIX timestamp. The time range must not exceed six months.
-    // The order creation time range and the order payment time range cannot both be empty.
+    // The start timestamp for order payment. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderPayAfter_ {};
-    // Order payment end UNIX timestamp. The time range must not exceed six months.
-    // The order creation time range and the order payment time range cannot both be empty.
+    // The end timestamp for order payment. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
     shared_ptr<int64_t> orderPayBefore_ {};
-    // Order status:
-    // - 1 Unpaid
-    // - 2 Discarded
-    // - 3 Paid
+    // The order status. Valid values:
+    // - 1: unpaid
+    // - 2: canceled
+    // - 3: paid.
     shared_ptr<int32_t> orderStatus_ {};
-    // Order type List
+    // The list of order types.
     shared_ptr<vector<string>> orderTypeList_ {};
-    // Page number
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // Page size
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Minimum paid amount
+    // The minimum actual payment amount.
     shared_ptr<double> payAmountAfter_ {};
-    // Actual payment amount up to this point
+    // The maximum actual payment amount.
     shared_ptr<double> payAmountBefore_ {};
-    // Payment Type:
-    // 1: Non-agent payment;
-    // 2: Agent payment
+    // The payment type. Valid values:
+    // - 1: non-delegated payment
+    // - 2: delegated payment.
     shared_ptr<int32_t> payType_ {};
-    // Product code
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // Product Name
+    // The product name.
     shared_ptr<string> productName_ {};
-    // Opportunity ID
+    // The opportunity ID.
     shared_ptr<int64_t> projectId_ {};
-    // Customer follow-up staff
+    // The employee who follows up with the customer.
     shared_ptr<string> ramAccountForCustomerManager_ {};
   };
 

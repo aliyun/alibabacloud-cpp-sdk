@@ -74,7 +74,8 @@ AlibabaCloud::Agency20250227::Client::Client(Config &config): OpenApiClient(conf
     {"me-east-1" , "agency.aliyuncs.com"},
     {"rus-west-1-pop" , "agency.aliyuncs.com"},
     {"us-east-1" , "agency.aliyuncs.com"},
-    {"us-west-1" , "agency.aliyuncs.com"}
+    {"us-west-1" , "agency.aliyuncs.com"},
+    {"ap-southeast-1" , "agency.ap-southeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("agency", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -94,7 +95,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Query bill export files.
+ * @summary Queries exported bill files.
  *
  * @param request GetBillDetailFileListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +150,7 @@ GetBillDetailFileListResponse Client::getBillDetailFileListWithOptions(const Get
 }
 
 /**
- * @summary Query bill export files.
+ * @summary Queries exported bill files.
  *
  * @param request GetBillDetailFileListRequest
  * @return GetBillDetailFileListResponse
@@ -160,7 +161,7 @@ GetBillDetailFileListResponse Client::getBillDetailFileList(const GetBillDetailF
 }
 
 /**
- * @summary Query partner commission details.
+ * @summary Queries the commission details of a partner.
  *
  * @param request GetCommissionDetailFileListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -215,7 +216,7 @@ GetCommissionDetailFileListResponse Client::getCommissionDetailFileListWithOptio
 }
 
 /**
- * @summary Query partner commission details.
+ * @summary Queries the commission details of a partner.
  *
  * @param request GetCommissionDetailFileListRequest
  * @return GetCommissionDetailFileListResponse
@@ -226,7 +227,7 @@ GetCommissionDetailFileListResponse Client::getCommissionDetailFileList(const Ge
 }
 
 /**
- * @summary Query partner customer acquisition orders.
+ * @summary Queries partner customer acquisition orders.
  *
  * @param tmpReq GetCustomerOrderListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -331,7 +332,7 @@ GetCustomerOrderListResponse Client::getCustomerOrderListWithOptions(const GetCu
 }
 
 /**
- * @summary Query partner customer acquisition orders.
+ * @summary Queries partner customer acquisition orders.
  *
  * @param request GetCustomerOrderListRequest
  * @return GetCustomerOrderListResponse
@@ -342,7 +343,79 @@ GetCustomerOrderListResponse Client::getCustomerOrderList(const GetCustomerOrder
 }
 
 /**
- * @summary Query partner renewal rate.
+ * @summary Downloads the commission details of an international partner.
+ *
+ * @description Make sure that the current caller identity is a T1 distribution partner. 
+ * <notice>Available only for international sites.</notice>.
+ *
+ * @param request GetIntlCommissionDetailFileListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetIntlCommissionDetailFileListResponse
+ */
+GetIntlCommissionDetailFileListResponse Client::getIntlCommissionDetailFileListWithOptions(const GetIntlCommissionDetailFileListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBillMonth()) {
+    query["BillMonth"] = request.getBillMonth();
+  }
+
+  if (!!request.hasOssAccessKeyId()) {
+    query["OssAccessKeyId"] = request.getOssAccessKeyId();
+  }
+
+  if (!!request.hasOssAccessKeySecret()) {
+    query["OssAccessKeySecret"] = request.getOssAccessKeySecret();
+  }
+
+  if (!!request.hasOssBucketName()) {
+    query["OssBucketName"] = request.getOssBucketName();
+  }
+
+  if (!!request.hasOssEndpoint()) {
+    query["OssEndpoint"] = request.getOssEndpoint();
+  }
+
+  if (!!request.hasOssRegion()) {
+    query["OssRegion"] = request.getOssRegion();
+  }
+
+  if (!!request.hasOssSecurityToken()) {
+    query["OssSecurityToken"] = request.getOssSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetIntlCommissionDetailFileList"},
+    {"version" , "2025-02-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetIntlCommissionDetailFileListResponse>();
+}
+
+/**
+ * @summary Downloads the commission details of an international partner.
+ *
+ * @description Make sure that the current caller identity is a T1 distribution partner. 
+ * <notice>Available only for international sites.</notice>.
+ *
+ * @param request GetIntlCommissionDetailFileListRequest
+ * @return GetIntlCommissionDetailFileListResponse
+ */
+GetIntlCommissionDetailFileListResponse Client::getIntlCommissionDetailFileList(const GetIntlCommissionDetailFileListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getIntlCommissionDetailFileListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the partner renewal rate.
  *
  * @param request GetRenewalRateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -373,7 +446,7 @@ GetRenewalRateListResponse Client::getRenewalRateListWithOptions(const GetRenewa
 }
 
 /**
- * @summary Query partner renewal rate.
+ * @summary Queries the partner renewal rate.
  *
  * @param request GetRenewalRateListRequest
  * @return GetRenewalRateListResponse
@@ -384,7 +457,7 @@ GetRenewalRateListResponse Client::getRenewalRateList(const GetRenewalRateListRe
 }
 
 /**
- * @summary Query the list of second-tier distributors.
+ * @summary Queries the list of secondary distributors.
  *
  * @param request GetSubPartnerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -427,7 +500,7 @@ GetSubPartnerListResponse Client::getSubPartnerListWithOptions(const GetSubPartn
 }
 
 /**
- * @summary Query the list of second-tier distributors.
+ * @summary Queries the list of secondary distributors.
  *
  * @param request GetSubPartnerListRequest
  * @return GetSubPartnerListResponse
@@ -438,7 +511,7 @@ GetSubPartnerListResponse Client::getSubPartnerList(const GetSubPartnerListReque
 }
 
 /**
- * @summary Query channel expansion orders.
+ * @summary Queries channel expansion orders.
  *
  * @param tmpReq GetSubPartnerOrderListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -539,7 +612,7 @@ GetSubPartnerOrderListResponse Client::getSubPartnerOrderListWithOptions(const G
 }
 
 /**
- * @summary Query channel expansion orders.
+ * @summary Queries channel expansion orders.
  *
  * @param request GetSubPartnerOrderListRequest
  * @return GetSubPartnerOrderListResponse

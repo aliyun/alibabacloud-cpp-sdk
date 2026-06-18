@@ -220,50 +220,50 @@ namespace Models
 
 
     protected:
-      // Order discount
+      // The order discount.
       shared_ptr<double> amountDiscount_ {};
-      // Actual payment amount
+      // The actual payment amount.
       shared_ptr<double> amountDue_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Customer classification
+      // The customer classification.
       shared_ptr<string> customerClassification_ {};
-      // Coupon amount
+      // The coupon amount.
       shared_ptr<double> deductedAmountByCoupons_ {};
-      // Discounted price
+      // The discounted price.
       shared_ptr<double> discountedPrice_ {};
-      // Order ID
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
-      // Order status:  
-      // - 1 Unpaid  
-      // - 2 Abandoned  
-      // - 3 Paid
+      // The order status. Valid values:
+      // - 1: unpaid
+      // - 2: deprecated
+      // - 3: paid.
       shared_ptr<int32_t> orderStatus_ {};
-      // Order type:  
-      // - BUY: New purchase  
-      // - UPGRADE: Upgrade  
-      // - DOWNGRADE: Downgrade  
-      // - RENEW: Renewal  
-      // - REFUND: Refund  
-      // - OTHERS: Others
+      // The order type. Valid values:
+      // - BUY: new purchase
+      // - UPGRADE: upgrade
+      // - DOWNGRADE: downgrade
+      // - RENEW: renewal
+      // - REFUND: refund
+      // - OTHERS: other.
       shared_ptr<string> orderType_ {};
-      // Payment Time
+      // The payment time.
       shared_ptr<string> paidAt_ {};
-      // Payment type:  
-      // 1: Non-agent payment  
-      // 2: Agent payment
+      // The payment type. Valid values:
+      // - 1: non-delegated payment
+      // - 2: delegated payment.
       shared_ptr<int32_t> payType_ {};
-      // Original price/List price
+      // The original price or list price.
       shared_ptr<double> price_ {};
-      // Product code
+      // The product code.
       shared_ptr<string> productCode_ {};
-      // Product name.
+      // The product name.
       shared_ptr<string> productName_ {};
-      // Opportunity ID
+      // The opportunity ID.
       shared_ptr<int64_t> projectId_ {};
-      // Sub-partner Name
+      // The name of the secondary partner.
       shared_ptr<string> subPartnerName_ {};
-      // Secondary partner UID
+      // The UID of the secondary partner.
       shared_ptr<int64_t> subPartnerUid_ {};
     };
 
@@ -329,21 +329,21 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The returned data.
     shared_ptr<vector<GetSubPartnerOrderListResponseBody::Data>> data_ {};
-    // Message
+    // The message returned.
     shared_ptr<string> message_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // Paging size
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
-    // TotalCount indicates the total amount of data under the current request conditions. This parameter is optional and is not returned by default.
+    // The total number of entries that meet the query conditions. This is an optional parameter and is not returned by default.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -235,46 +235,46 @@ namespace Models
 
 
     protected:
-      // Order discount
+      // The order discount.
       shared_ptr<double> amountDiscount_ {};
-      // Actual payment amount
+      // The actual payment amount.
       shared_ptr<double> amountDue_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Customer Account
+      // The customer account.
       shared_ptr<string> customerAccount_ {};
-      // Customer categorization
+      // The customer classification.
       shared_ptr<string> customerClassification_ {};
-      // Customer UID
+      // The customer UID.
       shared_ptr<int64_t> customerUid_ {};
-      // Coupon amount
+      // The coupon amount.
       shared_ptr<double> deductedAmountByCoupons_ {};
-      // Discounted price
+      // The discounted price.
       shared_ptr<double> discountedPrice_ {};
-      // Order ID
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
-      // Order status. Values include:  
-      // 1: Unpaid  
-      // 2: Paid  
-      // 3: Voided
+      // The order status. Valid values:
+      // - 1: unpaid
+      // - 2: paid
+      // - 3: canceled.
       shared_ptr<int32_t> orderStatus_ {};
-      // Order type. Values include: BUY, UPGRADE, DOWNGRADE, RENEW, REFUND, OTHERS
+      // The order type. Valid values: BUY, UPGRADE, DOWNGRADE, RENEW, REFUND, OTHERS.
       shared_ptr<string> orderType_ {};
-      // Payment Time
+      // The payment time.
       shared_ptr<string> paidAt_ {};
-      // Payment type:  
-      // 1: Non-agent payment  
-      // 2: Agent payment
+      // The payment type. Valid values:
+      // - 1: non-delegated payment
+      // - 2: delegated payment.
       shared_ptr<int32_t> payType_ {};
-      // Original Price/List Price
+      // The original price or list price.
       shared_ptr<double> price_ {};
-      // Product code
+      // The product code.
       shared_ptr<string> productCode_ {};
-      // Product name
+      // The product name.
       shared_ptr<string> productName_ {};
-      // Opportunity ID
+      // The opportunity ID.
       shared_ptr<int64_t> projectId_ {};
-      // Customer-facing staff
+      // The employee who follows up with the customer.
       shared_ptr<vector<string>> ramAccountForCustomerManagers_ {};
     };
 
@@ -354,25 +354,25 @@ namespace Models
 
 
   protected:
-    // Access denied details
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Status Code
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The returned data.
     shared_ptr<vector<GetCustomerOrderListResponseBody::Data>> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Message
+    // The message.
     shared_ptr<string> message_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Total number of entries
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

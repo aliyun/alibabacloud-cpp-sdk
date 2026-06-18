@@ -172,29 +172,29 @@ namespace Models
 
 
     protected:
-      // Detailed address of registration
+      // The detailed registered address.
       shared_ptr<string> address_ {};
-      // Contract status encoding
+      // The agreement status code.
       shared_ptr<string> agreementStatus_ {};
-      // Agreement status description
+      // The description of the agreement status.
       shared_ptr<string> agreementStatusDesc_ {};
-      // City of registration
+      // The city of the registered address.
       shared_ptr<string> city_ {};
-      // Name of the second-tier distributor
+      // The name of the secondary distributor.
       shared_ptr<string> companyName_ {};
-      // Contact name
+      // The name of the contact.
       shared_ptr<string> contact_ {};
-      // District or county of registration
+      // The district or county of the registered address.
       shared_ptr<string> district_ {};
-      // Initial onboarding time
+      // The time when the secondary distributor first joined.
       shared_ptr<string> joinTime_ {};
-      // Master account name of the secondary distributor
+      // The name of the primary account of the secondary distributor.
       shared_ptr<string> masterAccount_ {};
-      // UID of the Master account of the second-tier distributor
+      // The UID of the primary account of the secondary distributor.
       shared_ptr<string> masterUid_ {};
-      // PID of the secondary distributor
+      // The PID of the secondary distributor.
       shared_ptr<string> pid_ {};
-      // Province of registration
+      // The province of the registered address.
       shared_ptr<string> province_ {};
     };
 
@@ -253,21 +253,21 @@ namespace Models
 
 
   protected:
-    // Message
+    // The message returned.
     shared_ptr<string> message_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<string> pageNo_ {};
-    // Number of second-tier distributors returned per page, up to 100
+    // The number of secondary distributors returned per page. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of second-tier distributors
+    // The list of secondary distributors.
     shared_ptr<vector<GetSubPartnerListResponseBody::SubPartnerList>> subPartnerList_ {};
-    // Indicates whether the invocation succeeded.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
-    // Total amount of data under the current request conditions
+    // The total number of entries that match the query conditions.
     shared_ptr<int32_t> total_ {};
   };
 

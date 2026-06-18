@@ -296,57 +296,57 @@ namespace Models
 
 
     protected:
-      // Adjusted amount due for Gold customer renewal
+      // The adjusted customer acquisition amount due for renewal.
       shared_ptr<double> customerAdjustedRenewalAmountDue_ {};
-      // Rewind amount for new customer acquisition upgrade
+      // The customer acquisition amount for new purchases, upgrades, and refunds.
       shared_ptr<double> customerOtherBillAmount_ {};
-      // Amount due for Gold customer renewal
+      // The customer acquisition amount due for renewal.
       shared_ptr<double> finalCustomerRenewalAmountDue_ {};
-      // Gold customer commission renewal rate
+      // The customer acquisition commission renewal rate.
       shared_ptr<double> finalCustomerRenewalRate_ {};
-      // Renewed amount from customer acquisition
+      // The customer acquisition renewed amount.
       shared_ptr<double> finalCustomerRenewedAmount_ {};
-      // Total rewind amount for new upgrades
+      // The total amount for new purchases, upgrades, and refunds.
       shared_ptr<double> finalOtherBillAmount_ {};
-      // Final amount due for renewal
+      // The final amount due for renewal.
       shared_ptr<double> finalRenewalAmountDue_ {};
-      // Final commission renewal rate
+      // The final commission renewal rate.
       shared_ptr<double> finalRenewalRate_ {};
-      // Final renewed amount
+      // The final renewed amount.
       shared_ptr<double> finalRenewedAmount_ {};
-      // Renewal amount due from channel partner acquisition
+      // The sub-partner acquisition amount due for renewal.
       shared_ptr<double> finalSubPartnerRenewalAmountDue_ {};
-      // Channel expansion commission renewal rate
+      // The sub-partner acquisition commission renewal rate.
       shared_ptr<double> finalSubPartnerRenewalRate_ {};
-      // Renewed amount from channel partner acquisition
+      // The sub-partner acquisition renewed amount.
       shared_ptr<double> finalSubPartnerRenewedAmount_ {};
-      // Fiscal year and quarter
+      // The fiscal year and quarter.
       shared_ptr<string> fiscalYearAndQuarter_ {};
-      // Partner PID
+      // The partner PID.
       shared_ptr<string> masterPid_ {};
-      // Partner PID name
+      // The partner PID name.
       shared_ptr<string> masterPidName_ {};
-      // Gold customer commission renewal rate including special approval
+      // The customer acquisition commission renewal rate including special approvals.
       shared_ptr<double> specialCustomerRenewRatio_ {};
-      // Renewal amount due including specially approved customer acquisition
+      // The customer acquisition amount due for renewal including special approvals.
       shared_ptr<double> specialCustomerRenewalAmountDue_ {};
-      // Renewed amount including specially approved customer acquisition
+      // The customer acquisition renewed amount including special approvals.
       shared_ptr<double> specialCustomerRenewedAmount_ {};
-      // Renewal rate including specially approved final quarter commission
+      // The final quarterly commission renewal rate including special approvals.
       shared_ptr<double> specialFinalRenewRatio_ {};
-      // Renewal amount due for final quarterly commission including special approvals
+      // The final quarterly commission amount due for renewal including special approvals.
       shared_ptr<double> specialFinalRenewalAmountDue_ {};
-      // Renewed amount including specially approved final quarter commission
+      // The final quarterly commission renewed amount including special approvals.
       shared_ptr<double> specialFinalRenewedAmount_ {};
-      // Channel expansion commission renewal rate including special approval
+      // The sub-partner acquisition commission renewal rate including special approvals.
       shared_ptr<double> specialSubPartnerRenewRatio_ {};
-      // Amount due for renewal including specially approved channel partner
+      // The sub-partner acquisition amount due for renewal including special approvals.
       shared_ptr<double> specialSubPartnerRenewalAmountDue_ {};
-      // Renewed amount including specially approved channel partner renewals
+      // The sub-partner acquisition renewed amount including special approvals.
       shared_ptr<double> specialSubPartnerRenewedAmount_ {};
-      // Adjusted amount due for channel partner renewal
+      // The adjusted sub-partner acquisition amount due for renewal.
       shared_ptr<double> subPartnerAdjustedRenewalAmountDue_ {};
-      // Channel partner new upgrade rewind amount
+      // The sub-partner acquisition amount for new purchases, upgrades, and refunds.
       shared_ptr<double> subPartnerOtherBillAmount_ {};
     };
 
@@ -390,15 +390,15 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The returned data.
     shared_ptr<vector<GetRenewalRateListResponseBody::Data>> data_ {};
-    // Message
+    // The prompt message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the invocation succeeded.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

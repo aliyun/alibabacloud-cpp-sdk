@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Fiscal year and quarter
+    // The fiscal year and quarter.
     // 
     // This parameter is required.
     shared_ptr<string> fiscalYearAndQuarter_ {};
