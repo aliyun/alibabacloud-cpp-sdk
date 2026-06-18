@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The description of the long-term memory. The description must be 1 to 50 characters in length and can contain letters, digits, and characters in the Unicode letter category (including Chinese characters). The description can also contain colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> description_ {};
   };
 

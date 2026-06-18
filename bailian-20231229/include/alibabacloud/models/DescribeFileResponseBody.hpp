@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
         DARABONBA_PTR_TO_JSON(FileType, fileType_);
+        DARABONBA_PTR_TO_JSON(ParseErrorMessage, parseErrorMessage_);
         DARABONBA_PTR_TO_JSON(ParseResultDownloadUrl, parseResultDownloadUrl_);
         DARABONBA_PTR_TO_JSON(Parser, parser_);
         DARABONBA_PTR_TO_JSON(SizeInBytes, sizeInBytes_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
         DARABONBA_PTR_FROM_JSON(FileType, fileType_);
+        DARABONBA_PTR_FROM_JSON(ParseErrorMessage, parseErrorMessage_);
         DARABONBA_PTR_FROM_JSON(ParseResultDownloadUrl, parseResultDownloadUrl_);
         DARABONBA_PTR_FROM_JSON(Parser, parser_);
         DARABONBA_PTR_FROM_JSON(SizeInBytes, sizeInBytes_);
@@ -78,8 +80,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->parseResultDownloadUrl_ == nullptr
-        && this->parser_ == nullptr && this->sizeInBytes_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->parseErrorMessage_ == nullptr
+        && this->parseResultDownloadUrl_ == nullptr && this->parser_ == nullptr && this->sizeInBytes_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
       // categoryId Field Functions 
       bool hasCategoryId() const { return this->categoryId_ != nullptr;};
       void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
       void deleteFileType() { this->fileType_ = nullptr;};
       inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
       inline Data& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
+
+
+      // parseErrorMessage Field Functions 
+      bool hasParseErrorMessage() const { return this->parseErrorMessage_ != nullptr;};
+      void deleteParseErrorMessage() { this->parseErrorMessage_ = nullptr;};
+      inline string getParseErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(parseErrorMessage_, "") };
+      inline Data& setParseErrorMessage(string parseErrorMessage) { DARABONBA_PTR_SET_VALUE(parseErrorMessage_, parseErrorMessage) };
 
 
       // parseResultDownloadUrl Field Functions 
@@ -153,31 +162,64 @@ namespace Models
 
 
     protected:
-      // The ID of the category to which the document belongs.
+      // The ID of the category to which the file belongs.
       shared_ptr<string> categoryId_ {};
-      // The timestamp when the document was uploaded to Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC + 8.
+      // The timestamp when the file was added to Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
       shared_ptr<string> createTime_ {};
-      // The primary key ID of the document.
+      // The file ID.
       shared_ptr<string> fileId_ {};
-      // The name of the document.
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // The file type of the document. The value is an extension. Valid values: pdf, docx, doc, txt, md, pptx, and ppt.
+      // The file type (extension). Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
       shared_ptr<string> fileType_ {};
+      shared_ptr<string> parseErrorMessage_ {};
       shared_ptr<string> parseResultDownloadUrl_ {};
-      // The parser that is used to parse the document. Valid value:
-      // 
-      // *   DASHSCOPE_DOCMIND: The default document parser.
+      // The parser type used to parse the file. Valid values:
+      // - DASHSCOPE_DOCMIND: the default document parser.
       shared_ptr<string> parser_ {};
-      // The size of the document. Unit: bytes.
+      // The file size, in bytes.
       shared_ptr<int64_t> sizeInBytes_ {};
-      // The status of the document. Valid values:
+      // <props="china">
       // 
-      // *   INIT: pending parsing.
-      // *   PARSING
-      // *   PARSE_SUCCESS
-      // *   PARSE_FAILED
+      // For files used in document-based knowledge bases (type: UNSTRUCTURED), valid values:
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // For files used in unstructured knowledge bases (type: UNSTRUCTURED), valid values:
+      // 
+      // 
+      // 
+      // 
+      // - INIT: pending parsing.
+      // - IN_PARSE_QUEUE: queued for parsing.
+      // - PARSING: being parsed.
+      // - PARSE_SUCCESS: parsing completed.
+      // <note>The document can be imported into a knowledge base only after the status changes to PARSE_SUCCESS.</note>
+      // - PARSE_FAILED: parsing failed.
+      // 
+      // <props="china">
+      // For files used in agent application [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) (type: SESSION_FILE), valid values:
+      // 
+      // - INIT: pending parsing.
+      // - IN_PARSE_QUEUE: queued for parsing.
+      // - PARSING: being parsed.
+      // - PARSE_SUCCESS: parsing completed.
+      // - PARSE_FAILED: parsing failed.
+      // - SAFE_CHECKING: security check in progress.
+      // - SAFE_CHECK_FAILED: security check failed.
+      // - INDEX_BUILDING: index being built.
+      // - INDEX_BUILD_SUCCESS: index built.
+      // - INDEX_BUILDING_FAILED: index building failed.
+      // - INDEX_DELETED: file index deleted.
+      // - FILE_IS_READY: file is ready.
+      // <note>Q&A can proceed only after the status changes to FILE_IS_READY.</note>
+      // - FILE_EXPIRED: file expired.
+      // <note>The file is valid only for the current user session. After the user closes the session, the file expires (maximum validity period: 7 days). Long-term retention is not supported.</note>
+      // .
       shared_ptr<string> status_ {};
-      // The tags that are associated with the document. A document can be associated with multiple tags.
+      // The list of tags associated with the file. A file can be associated with multiple tags.
       shared_ptr<vector<string>> tags_ {};
     };
 
@@ -228,20 +270,19 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The returned data fields.
+    // The data field of the operation.
     shared_ptr<DescribeFileResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

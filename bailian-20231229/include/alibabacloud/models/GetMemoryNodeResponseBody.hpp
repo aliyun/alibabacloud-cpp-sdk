@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The content of the memory fragment.
     shared_ptr<string> content_ {};
+    // The long-term memory ID.
     shared_ptr<string> memoryId_ {};
+    // The memory fragment ID.
     shared_ptr<string> memoryNodeId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

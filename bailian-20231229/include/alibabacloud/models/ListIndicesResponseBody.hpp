@@ -243,67 +243,98 @@ namespace Models
 
 
       protected:
-        // The estimated length of chunks. Valid values: [1-2048].
+        // The estimated chunk length. Valid values: 1 to 2048.
         shared_ptr<int32_t> chunkSize_ {};
+        // The configuration mode used by this knowledge base. Valid values:
+        // - recommend: recommended configuration.
+        // - user-defined: custom configuration.
         shared_ptr<string> confgModel_ {};
         // The description of the knowledge base.
         shared_ptr<string> description_ {};
-        // The list of the primary key IDs of the documents.
+        // The list of file IDs.
         shared_ptr<vector<string>> documentIds_ {};
         // The name of the embedding model. Valid values:
         // 
-        // *   text-embedding-v2
+        // <props="china">
+        // 
+        // - text-embedding-v4: the text-embedding-v4 model.
+        // - text-embedding-v3: the text-embedding-v3 model.
+        // - text-embedding-v2: the text-embedding-v2 model.
+        // 
+        // 
+        // 
+        // <props="intl">
+        // 
+        // - text-embedding-v2: the text-embedding-v2 model.
+        // 
+        // .
         shared_ptr<string> embeddingModelName_ {};
+        // Indicates whether <props="china">[multi-turn conversation rewriting](https://help.aliyun.com/model-studio/use-cases/rag-optimization#b7031e2ad6cji)<props="intl">[multi-turn conversation rewriting](https://www.alibabacloud.com/help/model-studio/use-cases/rag-optimization#b7031e2ad6cji) is enabled for this knowledge base. Valid values:
+        // - true: Enabled.
+        // - false: Disabled.
         shared_ptr<bool> enableRewrite_ {};
-        // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+        // The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
         shared_ptr<string> id_ {};
         // The name of the knowledge base.
         shared_ptr<string> name_ {};
-        // The overlap length. Valid values: [0-1024].
+        // The chunk overlap length. Valid values: 0 to 1024.
         shared_ptr<int32_t> overlapSize_ {};
-        // Similarity Threshold Valid values: [0.01-1.00].
+        // The similarity threshold. Valid values: 0.01 to 1.00.
         shared_ptr<string> rerankMinScore_ {};
-        // The name of the rank model. Valid values:
+        // The name of the rerank model. Valid values:
         // 
-        // *   gte-rerank-hybrid
-        // *   gte-rerank
+        // <props="china">
+        // 
+        // - qwen3-rerank-hybrid: qwen3-rerank (hybrid) reranking.
+        // - qwen3-rerank: qwen3-rerank reranking.
+        // - gte-rerank-hybrid: gte-rerank (hybrid) reranking.
+        // - gte-rerank: gte-rerank reranking.
+        // 
+        // 
+        // 
+        // <props="intl">
+        // 
+        // - gte-rerank-hybrid: official reranking.
+        // - gte-rerank: gte-rerank reranking.
+        // 
+        // .
         shared_ptr<string> rerankModelName_ {};
-        // The clause identifier. Separate multiple clause identifiers with |. Valid values:
-        // 
-        // *   \\n: line break
-        // *   ，: Chinese comma
-        // *   ,: English comma
-        // *   。 : Chinese full stop
-        // *   .: English full stop
-        // *   ！ : Chinese exclamation point
-        // *   ! : English exclamation point
-        // *   ；: Chinese semicolon
-        // *   ;: English semicolon
-        // *   ？ : Chinese question mark
-        // *   ?: English question mark
+        // The sentence separator. If multiple separators are used, they are separated by |. Valid values:
+        // - \\
+        // : line break
+        // - ，: Chinese comma
+        // - ,: English comma
+        // - 。: Chinese period
+        // - .: English period
+        // - ！: Chinese exclamation mark
+        // - !: English exclamation mark
+        // - ；: Chinese semicolon
+        // - ;: English semicolon
+        // - ？: Chinese question mark
+        // - ?: English question mark.
         shared_ptr<string> separator_ {};
-        // The ID of the vector storage instance.
+        // The instance ID of the vector storage for the knowledge base.
         shared_ptr<string> sinkInstanceId_ {};
-        // The region of the vector storage instance.
+        // The region of the vector storage instance for the knowledge base.
         shared_ptr<string> sinkRegion_ {};
         // The vector storage type of the knowledge base. Valid values:
-        // 
-        // *   ES: Built-in vector database.
-        // *   BUILT_IN: Built-in vector database.
-        // *   ADB: AnalyticDB for PostgreSQL database.
+        // - ES: built-in vector database.
+        // - BUILT_IN: built-in vector database.
+        // - ADB: AnalyticDB for PostgreSQL database.
         shared_ptr<string> sinkType_ {};
-        // The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For unstructured knowledge base, possible values:
+        // The data type of Alibaba Cloud Model Studio <props="china">[application data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[application data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center).
         // 
-        // *   DATA_CENTER_CATEGORY: The category type.
-        // *   DATA_CENTER_FILE: The document type.
         // 
-        // For structured knowledge base, possible values:
+        // For document search<props="china">/audio and video search knowledge bases, valid values:
+        // - DATA_CENTER_CATEGORY: category type.
+        // - DATA_CENTER_FILE: file type.
         // 
-        // *   DATA_CENTER_STRUCTURED_TABLE: The data table type.
+        // For data query/image Q&A knowledge bases, valid values:
+        // - DATA_CENTER_STRUCTURED_TABLE: data table type.
         shared_ptr<string> sourceType_ {};
-        // The vector storage type of the knowledge base. Valid values:
+        // The type of the knowledge base. Valid values:
         // 
-        // *   UNSTRUCTURED
+        // - UNSTRUCTURED: document search.
         shared_ptr<string> structureType_ {};
       };
 
@@ -342,11 +373,11 @@ namespace Models
     protected:
       // The list of knowledge bases.
       shared_ptr<vector<Data::Indices>> indices_ {};
-      // The specified page number.
+      // The page number returned.
       shared_ptr<int32_t> pageNumber_ {};
-      // The specified number of documents on each page.
+      // The number of entries per page returned.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of knowledge bases returned.
+      // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -397,7 +428,7 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ListIndicesResponseBody::Data> data_ {};
@@ -405,12 +436,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

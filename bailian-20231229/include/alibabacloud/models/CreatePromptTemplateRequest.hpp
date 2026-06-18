@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Prompt template content.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // Template name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

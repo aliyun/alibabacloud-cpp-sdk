@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // Name of the OSS bucket. For details, see [bucket](https://help.aliyun.com/document_detail/177682.html).
+    // 
     // This parameter is required.
     shared_ptr<string> ossBucket_ {};
+    // Object key of the file in the OSS bucket. For details, see [object naming](https://help.aliyun.com/document_detail/273129.html).
+    // 
     // This parameter is required.
     shared_ptr<string> ossKey_ {};
+    // Region ID of the OSS bucket. For details, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+    // 
     // This parameter is required.
     shared_ptr<string> ossRegionId_ {};
+    // Update mode. Valid values: APPEND and OVERWRITE.
+    // 
     // This parameter is required.
     shared_ptr<string> updateMode_ {};
   };

@@ -110,11 +110,32 @@ namespace Models
 
 
       protected:
-        // The metadata map of the chunk.
+        // <props="china">
+        // 
+        // The metadata map of the text chunk.
+        // 
+        // > The `file_path` field in the metadata map of document search knowledge bases is meaningless. Do not use it in your business code.
+        // 
+        // > When retrieving a document search knowledge base, if a chunk contains an image, the image is returned through the `image_url` field in the metadata map, along with an expiration time.
+        // 
+        // > When retrieving an audio/video search knowledge base, if a chunk contains audio, the audio is returned through the `audio_url` field in the metadata map, along with an expiration time.
+        // 
+        // > When retrieving an audio/video search knowledge base, if a chunk contains video, the video is returned through the `video_url` field in the metadata map, along with an expiration time.
+        // 
+        // 
+        // <props="intl">
+        // 
+        // The metadata map of the text chunk.
+        // 
+        // > The `file_path` field in the metadata map of document search knowledge bases is meaningless. Do not use it in your business code.
+        // 
+        // > When retrieving a document search knowledge base, if a chunk contains an image, the image is returned through the `image_url` field in the metadata map, along with an expiration time.
+        // 
+        // .
         Darabonba::Json metadata_ {};
-        // The similarity score of the chunk.
+        // The similarity score of the text chunk.
         shared_ptr<double> score_ {};
-        // The text of the chunk.
+        // The content of the text chunk.
         shared_ptr<string> text_ {};
       };
 
@@ -137,9 +158,9 @@ namespace Models
 
 
     protected:
-      // The list of chunks.
+      // The list of text chunks.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
-      // The total number of chunks returned.
+      // The total number of returned results.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -190,20 +211,19 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The business data returned by the operation.
     shared_ptr<ListChunksResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

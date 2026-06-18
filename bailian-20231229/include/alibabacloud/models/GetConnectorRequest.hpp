@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the connector. You can find this ID in the [Model Studio console](https://bailian.console.aliyun.com/cn-beijing/?tab=app#/connector/list).
     shared_ptr<string> connectorId_ {};
+    // The name of the connector to query. An exact match is required.
     shared_ptr<string> connectorName_ {};
   };
 

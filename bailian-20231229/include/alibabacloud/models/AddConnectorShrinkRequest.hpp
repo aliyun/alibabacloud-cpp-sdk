@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The name of the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorName_ {};
+    // The type of the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorType_ {};
+    // The description for the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The parameters for the file connector.
     shared_ptr<string> fileConnectorConfigShrink_ {};
   };
 

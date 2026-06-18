@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The ID of the deleted category.
       shared_ptr<string> categoryId_ {};
     };
 
@@ -117,13 +118,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
-    // data
+    // The data field returned by the operation.
     shared_ptr<DeleteCategoryResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

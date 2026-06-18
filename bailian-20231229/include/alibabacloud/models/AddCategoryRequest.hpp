@@ -66,11 +66,19 @@ namespace Models
 
 
   protected:
+    // The name of the category. The name must be 1 to 20 characters long. It can contain Unicode letters, such as English letters and Chinese characters, along with digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // 
     // This parameter is required.
     shared_ptr<string> categoryName_ {};
+    // The type of the category. Valid value:
+    // 
+    // - UNSTRUCTURED: A category.
+    // 
     // This parameter is required.
     shared_ptr<string> categoryType_ {};
+    // The ID of the connector instance. You can obtain the ID from the Alibaba Cloud Model Studio console.
     shared_ptr<string> connectorId_ {};
+    // The ID of the parent category under which the new category is created. If you leave this parameter empty, a top-level category is created.
     shared_ptr<string> parentCategoryId_ {};
   };
 

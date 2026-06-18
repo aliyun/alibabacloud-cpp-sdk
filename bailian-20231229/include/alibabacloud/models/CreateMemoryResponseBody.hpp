@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The long-term memory ID.
+    // > Store this value properly. It is required for all subsequent API operations related to this long-term memory.
+    // >.
     shared_ptr<string> memoryId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

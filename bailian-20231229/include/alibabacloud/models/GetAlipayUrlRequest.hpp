@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the Bailian application.
     shared_ptr<string> appId_ {};
+    // The ID of the Bailian workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

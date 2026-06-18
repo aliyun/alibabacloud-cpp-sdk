@@ -137,21 +137,20 @@ namespace Models
 
 
       protected:
-        // HTTP status code
+        // The error code.
         shared_ptr<string> code_ {};
-        // The primary key ID of the document.
+        // The file ID.
         shared_ptr<string> docId_ {};
-        // The name of the document.
+        // The file name.
         shared_ptr<string> docName_ {};
         shared_ptr<int64_t> gmtModified_ {};
         // The error message.
         shared_ptr<string> message_ {};
-        // The import status of the document. Valid values:
-        // 
-        // *   INSERT_ERROR
-        // *   RUNNING
-        // *   DELETED
-        // *   FINISH
+        // The file import status. Valid values:
+        // - INSERT_ERROR: The file import failed.
+        // - RUNNING: The file is being imported.
+        // - DELETED: The file has been deleted.
+        // - FINISH: The file was imported.
         shared_ptr<string> status_ {};
       };
 
@@ -181,16 +180,15 @@ namespace Models
 
 
     protected:
-      // The list of imported documents.
+      // The list of files imported in this job.
       shared_ptr<vector<Data::Documents>> documents_ {};
-      // The ID of the job.
+      // The job ID.
       shared_ptr<string> jobId_ {};
-      // The status of the knowledge base job. Valid values:
-      // 
-      // *   COMPLETED
-      // *   FAILED
-      // *   RUNNING
-      // *   PENDING
+      // The current status of the knowledge base job. Valid values:
+      // - COMPLETED: The job succeeded.
+      // - FAILED: The job failed.
+      // - RUNNING: The job is running.
+      // - PENDING: The job is pending execution.
       shared_ptr<string> status_ {};
     };
 
@@ -241,20 +239,19 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data field returned by the operation.
     shared_ptr<GetIndexJobStatusResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned.
+    // The HTTP status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values:
+    // - true: The operation was successful.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

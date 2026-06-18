@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The ID of the connector.
       shared_ptr<string> connectorId_ {};
     };
 
@@ -117,12 +118,21 @@ namespace Models
 
 
   protected:
+    // The error code. A value of `Success` indicates that the request succeeded.
     shared_ptr<string> code_ {};
+    // The data returned by the operation.
     shared_ptr<AddConnectorResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The HTTP status code.
     shared_ptr<string> status_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

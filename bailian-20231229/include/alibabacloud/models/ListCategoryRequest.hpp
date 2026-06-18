@@ -84,12 +84,33 @@ namespace Models
 
 
   protected:
+    // Filters the results to include only the category with this exact name. If this parameter is omitted, no filtering is applied.
     shared_ptr<string> categoryName_ {};
+    // The type of category to query. Valid value:
+    // 
+    // - `UNSTRUCTURED`: A category for unstructured data.
+    // 
+    // <props="china">
+    // 
+    // > This API does not support querying structured data tables.
+    // 
+    // 
+    // 
+    // <props="intl">
+    // 
+    // > This API does not support querying structured data tables.
+    // 
     // This parameter is required.
     shared_ptr<string> categoryType_ {};
+    // The ID of the connector.
     shared_ptr<string> connectorId_ {};
+    // The maximum number of categories to return per page. The valid range is 1 to 200.
+    // 
+    // Default value: 20. If this parameter is not specified or is set to a value less than 1, the default value is used. If a value greater than 200 is specified, the maximum value of 200 is used.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. To retrieve the next page of results, pass the `NextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
+    // The ID of the parent category.
     shared_ptr<string> parentCategoryId_ {};
   };
 

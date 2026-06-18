@@ -215,19 +215,41 @@ namespace Models
 
 
       protected:
+        // The custom chunking method.
         shared_ptr<string> chunkMode_ {};
+        // The length of a chunk, in characters.
         shared_ptr<string> chunkSize_ {};
+        // The error code that is returned if the document fails to be imported.
         shared_ptr<string> code_ {};
+        // The format of the document. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
         shared_ptr<string> documentType_ {};
+        // Indicates whether the table headers of Excel files in an unstructured knowledge base are concatenated.
         shared_ptr<string> enableHeaders_ {};
+        // The time when the document was imported. This value is a Unix timestamp.
         shared_ptr<int64_t> gmtModified_ {};
+        // The document ID.
         shared_ptr<string> id_ {};
+        // The error message that is returned if the document fails to be imported.
         shared_ptr<string> message_ {};
+        // The name of the document.
         shared_ptr<string> name_ {};
+        // The overlap length of chunks.
         shared_ptr<string> overlapSize_ {};
+        // The size of the document, in bytes.
         shared_ptr<int32_t> size_ {};
+        // The category ID.
         shared_ptr<string> sourceId_ {};
+        // The import status of the document. Valid values:
+        // 
+        // - INSERT_ERROR: The document failed to be imported.
+        // 
+        // - RUNNING: The document is being imported.
+        // 
+        // - DELETED: The document has been deleted.
+        // 
+        // - FINISH: The document was imported successfully.
         shared_ptr<string> status_ {};
+        // The sentence separator.
         shared_ptr<string> separator_ {};
       };
 
@@ -271,10 +293,15 @@ namespace Models
 
 
     protected:
+      // A list of documents in the knowledge base. The documents are sorted by import time in descending order. This order is the same as the order in the console.
       shared_ptr<vector<Data::Documents>> documents_ {};
+      // The knowledge base ID.
       shared_ptr<string> indexId_ {};
+      // The returned page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned on each page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -325,12 +352,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ListIndexFileDetailsResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The HTTP status code.
     shared_ptr<string> status_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

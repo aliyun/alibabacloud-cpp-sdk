@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The tipping code returned by the Alipay tipping link request.
     shared_ptr<string> code_ {};
+    // The Bailian workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

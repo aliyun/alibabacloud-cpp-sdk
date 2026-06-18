@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The memory fragment content.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
   };

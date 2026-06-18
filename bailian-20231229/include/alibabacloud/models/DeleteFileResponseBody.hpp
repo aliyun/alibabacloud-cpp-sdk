@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The file ID.
       shared_ptr<string> fileId_ {};
     };
 
@@ -117,12 +118,21 @@ namespace Models
 
 
   protected:
+    // The error status code.
     shared_ptr<string> code_ {};
+    // The business data field of the API response.
     shared_ptr<DeleteFileResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The status code returned by the API.
     shared_ptr<string> status_ {};
+    // Indicates whether the API call succeeded. Valid values:
+    // 
+    // - true: Succeeded.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

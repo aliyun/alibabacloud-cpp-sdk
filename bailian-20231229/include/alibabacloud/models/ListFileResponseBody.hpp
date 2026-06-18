@@ -75,6 +75,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FileId, fileId_);
           DARABONBA_PTR_TO_JSON(FileName, fileName_);
           DARABONBA_PTR_TO_JSON(FileType, fileType_);
+          DARABONBA_PTR_TO_JSON(ParseErrorMessage, parseErrorMessage_);
           DARABONBA_PTR_TO_JSON(Parser, parser_);
           DARABONBA_PTR_TO_JSON(SizeInBytes, sizeInBytes_);
           DARABONBA_PTR_TO_JSON(Status, status_);
@@ -86,6 +87,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(FileId, fileId_);
           DARABONBA_PTR_FROM_JSON(FileName, fileName_);
           DARABONBA_PTR_FROM_JSON(FileType, fileType_);
+          DARABONBA_PTR_FROM_JSON(ParseErrorMessage, parseErrorMessage_);
           DARABONBA_PTR_FROM_JSON(Parser, parser_);
           DARABONBA_PTR_FROM_JSON(SizeInBytes, sizeInBytes_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -103,8 +105,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->parser_ == nullptr
-        && this->sizeInBytes_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->parseErrorMessage_ == nullptr
+        && this->parser_ == nullptr && this->sizeInBytes_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
         // categoryId Field Functions 
         bool hasCategoryId() const { return this->categoryId_ != nullptr;};
         void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -140,6 +142,13 @@ namespace Models
         inline FileList& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
+        // parseErrorMessage Field Functions 
+        bool hasParseErrorMessage() const { return this->parseErrorMessage_ != nullptr;};
+        void deleteParseErrorMessage() { this->parseErrorMessage_ = nullptr;};
+        inline string getParseErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(parseErrorMessage_, "") };
+        inline FileList& setParseErrorMessage(string parseErrorMessage) { DARABONBA_PTR_SET_VALUE(parseErrorMessage_, parseErrorMessage) };
+
+
         // parser Field Functions 
         bool hasParser() const { return this->parser_ != nullptr;};
         void deleteParser() { this->parser_ = nullptr;};
@@ -171,15 +180,29 @@ namespace Models
 
 
       protected:
+        // The ID of the category to which the file belongs.
         shared_ptr<string> categoryId_ {};
+        // The timestamp when the file was added to Alibaba Cloud Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
         shared_ptr<string> createTime_ {};
-        // The document ID, which is the `FileId` parameter returned by the [AddFile](~~AddFile~~) operation. To view the ID, click the icon next to the file name on the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page.
+        // The file ID, which is the `FileId` returned by the **AddFile** operation. You can also obtain it on the <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page by clicking the icon next to the file name.
         shared_ptr<string> fileId_ {};
+        // The file name.
         shared_ptr<string> fileName_ {};
+        // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
         shared_ptr<string> fileType_ {};
+        shared_ptr<string> parseErrorMessage_ {};
+        // The document parser. Valid values:
+        // - DASHSCOPE_DOCMIND: Alibaba Cloud intelligent document parsing.
         shared_ptr<string> parser_ {};
+        // The file size in bytes.
         shared_ptr<int64_t> sizeInBytes_ {};
+        // The file parsing status. Valid values:
+        // - INIT: Initialization state, waiting to be scheduled.
+        // - PARSING: Parsing in progress.
+        // - PARSE_SUCCESS: Parsing completed.
+        // - PARSE_FAILED: Parsing failed.
         shared_ptr<string> status_ {};
+        // The list of tags associated with the file. A document can be associated with multiple tags.
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -223,11 +246,17 @@ namespace Models
 
 
     protected:
-      // The list of documents in the category.
+      // The list of files in the category.
       shared_ptr<vector<Data::FileList>> fileList_ {};
+      // Indicates whether there is a next page of category data that matches the query conditions. Valid values:
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> hasNext_ {};
+      // The number of entries per page for paging.
       shared_ptr<int32_t> maxResults_ {};
+      // The pagination token returned by this call.
       shared_ptr<string> nextToken_ {};
+      // The total number of entries in the returned results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -278,13 +307,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data field returned by the operation.
     shared_ptr<ListFileResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // - true: Successful. 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

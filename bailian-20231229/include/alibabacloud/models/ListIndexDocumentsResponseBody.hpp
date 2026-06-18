@@ -169,29 +169,44 @@ namespace Models
 
 
       protected:
-        // The error status code of document import.
+        // The error status code for the file import.
         shared_ptr<string> code_ {};
-        // The format of the document. Valid values: pdf, docx, doc, txt, md, pptx, ppt, and EXCEL.
+        // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
         shared_ptr<string> documentType_ {};
+        // The time when the file was imported to the knowledge base, in UNIX timestamp format.
         shared_ptr<int64_t> gmtModified_ {};
-        // The primary key ID of the document.
+        // The file ID.
         shared_ptr<string> id_ {};
-        // The error message of document import.
+        // The error message for the file import.
         shared_ptr<string> message_ {};
-        // The name of the document.
+        // The file name.
         shared_ptr<string> name_ {};
-        // The size of the document. Unit: bytes.
+        // The file size, in bytes.
         shared_ptr<int32_t> size_ {};
-        // For unstructured knowledge base, this parameter is the category ID. To view the category ID, you can click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+        // <props="china">
         // 
-        // For structured knowledge base, this parameter is the data table ID. To view the table ID, you can click the ID icon next to the table name on the Structured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+        // For document search or audio/video search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+        // 
+        // 
+        // For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+        // 
+        // 
+        // 
+        // 
+        // <props="intl">
+        // 
+        // For document search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+        // 
+        // 
+        // For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page.
+        // 
+        // .
         shared_ptr<string> sourceId_ {};
-        // The import status of the document. Valid values:
-        // 
-        // *   INSERT_ERROR
-        // *   RUNNING
-        // *   DELETED
-        // *   FINISH
+        // The file import status. Valid values:
+        // - INSERT_ERROR: The file failed to be imported.
+        // - RUNNING: The file is being imported.
+        // - DELETED: The file has been deleted.
+        // - FINISH: The file was imported.
         shared_ptr<string> status_ {};
       };
 
@@ -235,15 +250,15 @@ namespace Models
 
 
     protected:
-      // The list of documents in the knowledge base.
+      // The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
       shared_ptr<vector<Data::Documents>> documents_ {};
-      // The primary key ID of the knowledge base.
+      // The knowledge base ID.
       shared_ptr<string> indexId_ {};
-      // The specified page number.
+      // The returned page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The specified number of documents on each page.
+      // The returned number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of documents returned.
+      // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -294,20 +309,19 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data field returned by the operation.
     shared_ptr<ListIndexDocumentsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values:
+    // - true: The operation was successful.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

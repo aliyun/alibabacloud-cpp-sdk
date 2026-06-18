@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The table ID.
       shared_ptr<string> tableId_ {};
     };
 
@@ -117,12 +118,20 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<AddTableResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - true: Succeeded.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

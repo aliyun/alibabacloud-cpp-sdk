@@ -170,18 +170,39 @@ namespace Models
 
 
     protected:
+      // The sub-account ID (ignored by the API).
       shared_ptr<string> accountId_ {};
+      // The payment details (ignored by the API).
       shared_ptr<string> alipayOrderDetail_ {};
+      // The Alipay order ID.
       shared_ptr<string> alipayOrderId_ {};
+      // The code associated with the tipping.
       shared_ptr<string> code_ {};
+      // The creator (ignored by the API).
       shared_ptr<string> creator_ {};
+      // The primary account ID (ignored by the API).
       shared_ptr<string> mainAccountId_ {};
+      // The modifier (ignored by the API).
       shared_ptr<string> modifier_ {};
+      // The tipping link (ignored by the API).
       shared_ptr<string> qrURL_ {};
+      // The ownership status of the tipping application.
       shared_ptr<string> scope_ {};
+      // The tipping status. Valid values:
+      // - 1: Succeeded.
+      // - 0: Deleted.
+      // - 2: Pending tipping.
+      // - 3: Canceled.
+      // - 4: Refunded.
+      // - 5: Closed.
+      // - 6: Failed.
+      // - 7: Disputed or abnormal.
       shared_ptr<int64_t> status_ {};
+      // The transfer title.
       shared_ptr<string> title_ {};
+      // The total order amount. Unit: CNY.
       shared_ptr<string> transAmount_ {};
+      // The Alipay product wallet code.
       shared_ptr<string> walletItemCode_ {};
     };
 
@@ -204,7 +225,9 @@ namespace Models
 
 
   protected:
+    // The tipping result data.
     shared_ptr<GetAlipayTransferStatusResponseBody::Data> data_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

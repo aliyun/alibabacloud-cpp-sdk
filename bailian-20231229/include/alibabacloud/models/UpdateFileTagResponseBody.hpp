@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The ID of the file.
       shared_ptr<string> fileId_ {};
     };
 
@@ -117,12 +118,21 @@ namespace Models
 
 
   protected:
+    // The result code. A value of `Success` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<UpdateFileTagResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status code.
     shared_ptr<string> status_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

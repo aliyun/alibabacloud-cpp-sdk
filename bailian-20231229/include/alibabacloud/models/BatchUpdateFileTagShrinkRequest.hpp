@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // A list of files to update.
+    // 
     // This parameter is required.
     shared_ptr<string> fileInfosShrink_ {};
+    // The update mode. Valid values are APPEND and OVERWRITE.
     shared_ptr<string> updateMode_ {};
   };
 

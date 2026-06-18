@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The description of the long-term memory.
     shared_ptr<string> description_ {};
+    // The ID of the long-term memory.
     shared_ptr<string> memoryId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the workspace to which the long-term memory belongs.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The primary key ID of the job, which is the `JobId` parameter of the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+      // The task ID, which is the `JobId` required when calling the **GetIndexJobStatus** operation.
       shared_ptr<string> id_ {};
-      // The primary key ID of the knowledge base.
+      // The knowledge base ID.
       shared_ptr<string> indexId_ {};
     };
 
@@ -130,20 +130,19 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The business data returned by the operation.
     shared_ptr<SubmitIndexJobResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

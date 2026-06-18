@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The description of the long-term memory.
       shared_ptr<string> description_ {};
+      // The long-term memory ID.
       shared_ptr<string> memoryId_ {};
     };
 
@@ -129,11 +131,17 @@ namespace Models
 
 
   protected:
+    // The number of long-term memory entities per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
+    // The long-term memory entity list.
     shared_ptr<vector<ListMemoriesResponseBody::Memories>> memories_ {};
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
+    // The ID of the workspace to which the long-term memory entity list belongs.
     shared_ptr<string> workspaceId_ {};
   };
 

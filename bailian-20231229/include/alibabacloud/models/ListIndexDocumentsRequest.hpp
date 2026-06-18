@@ -84,25 +84,30 @@ namespace Models
 
 
   protected:
-    // The names of the queried documents. The default value is null, which means the names are not used to filter the results.
+    // Filters the returned file list by file name (without the file extension). Default value: empty, which means the results are not filtered by file name.
     shared_ptr<string> documentName_ {};
-    // The import status of the documents to be queried. Valid values:
+    // Filters the returned file list by file import status. Valid values:
+    // - INSERT_ERROR: The file failed to be imported.
+    // - RUNNING: The file is being imported.
+    // - DELETED: The file has been deleted.
+    // - FINISH: The file was imported.
     // 
-    // *   INSERT_ERROR
-    // *   RUNNING
-    // *   DELETED
-    // *   FINISH
-    // 
-    // The default value is null, which means the import status is not used to filter the results.
+    // Default value: empty, which means the results are not filtered by file import status.
     shared_ptr<string> documentStatus_ {};
+    // Specifies whether to enable fuzzy matching for file names. This parameter is used together with the `DocumentName` parameter. Valid values:
+    // - true: Fuzzy matching is used to filter the returned file list by file name.
+    // - false: Exact matching is used to filter the returned file list by file name.
+    // 
+    // Default value: false.
     shared_ptr<string> enableNameLike_ {};
-    // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+    // The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
     // 
     // This parameter is required.
     shared_ptr<string> indexId_ {};
-    // The page numbers of the pages to return. Pages start from page 1. Default value: 1.
+    // The page number. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of documents displayed on each page. No maximum value. Default value: 10.
+    // The number of files to display per page in a paging query. No maximum limit.
+    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

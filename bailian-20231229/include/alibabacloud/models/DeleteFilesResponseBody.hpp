@@ -97,7 +97,13 @@ namespace Models
 
 
       protected:
+        // The file ID.
         shared_ptr<string> fileId_ {};
+        // The file deletion status. Valid values:
+        // 
+        // - DELETED: The file is deleted.
+        // - FAILED: The file fails to be deleted.
+        // - NOT_FOUND: The file is not found.
         shared_ptr<string> status_ {};
       };
 
@@ -112,6 +118,7 @@ namespace Models
 
 
     protected:
+      // The deletion results.
       shared_ptr<vector<Data::DeleteFileResultList>> deleteFileResultList_ {};
     };
 
@@ -162,12 +169,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<DeleteFilesResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The status code returned by the API.
     shared_ptr<string> status_ {};
+    // Indicates whether the API call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The content of the memory node.
       shared_ptr<string> content_ {};
+      // The memory node ID.
       shared_ptr<string> memoryNodeId_ {};
     };
 
@@ -120,10 +122,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The array of memory nodes.
     shared_ptr<vector<ListMemoryNodesResponseBody::MemoryNodes>> memoryNodes_ {};
+    // The token used for token-based pagination.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of memory nodes.
     shared_ptr<int32_t> totalCount_ {};
   };
 

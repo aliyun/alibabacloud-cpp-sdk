@@ -78,13 +78,30 @@ namespace Models
 
 
   protected:
-    // The category ID, which is the `CategoryId` returned by the [AddCategory](~~AddCategory~~) operation. To view the category ID, click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page.
+    // <props="china">
+    // 
+    // The category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain it on the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) - Files tab by clicking the ID icon next to the category name.
+    // 
+    // 
+    // 
+    // <props="intl">
+    // 
+    // The category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain it on the [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) - Files tab by clicking the ID icon next to the category name.
+    // 
+    // .
     // 
     // This parameter is required.
     shared_ptr<string> categoryId_ {};
+    // The list of file IDs to query. A maximum of 20 files can be queried per request.
     shared_ptr<vector<string>> fileIds_ {};
+    // The file name (without extension). Only exact match is supported. Fuzzy search is not supported.
     shared_ptr<string> fileName_ {};
+    // The number of entries per page for paging. Valid values: 1 to 200.
+    // 
+    // Default value:
+    // If the value is not set or is less than 1, the default value is 20. If the value is greater than 200, the default value is 200.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Set this to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

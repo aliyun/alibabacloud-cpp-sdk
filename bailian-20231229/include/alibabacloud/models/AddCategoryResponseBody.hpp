@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The ID of the category. Save this ID for future API calls that use this category.
       shared_ptr<string> categoryId_ {};
+      // The name of the category.
       shared_ptr<string> categoryName_ {};
     };
 
@@ -128,12 +130,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<AddCategoryResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The HTTP status code returned.
     shared_ptr<string> status_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The list of primary key IDs of documents that are deleted.
+      // The list of successfully deleted file IDs.
       shared_ptr<vector<string>> deletedDocument_ {};
     };
 
@@ -121,20 +121,19 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error code.
     shared_ptr<string> code_ {};
-    // The parameters returned by the operation.
+    // The business data field returned by the operation.
     shared_ptr<DeleteIndexDocumentResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values:
+    // - true: The operation was successful.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

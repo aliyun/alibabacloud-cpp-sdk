@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The knowledge base ID.
       shared_ptr<string> id_ {};
     };
 
@@ -117,11 +118,21 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<UpdateIndexResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status code returned by the API.
     shared_ptr<string> status_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // true: The request was successful.
+    // 
+    // false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

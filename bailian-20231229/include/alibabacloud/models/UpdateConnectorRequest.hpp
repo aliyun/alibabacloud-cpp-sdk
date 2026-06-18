@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The name of the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorName_ {};
+    // A description of the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
   };

@@ -69,7 +69,9 @@ namespace Models
 
 
     protected:
+      // The tipping code used to query the tipping status.
       shared_ptr<string> code_ {};
+      // The generated tipping URL.
       shared_ptr<string> qrUrl_ {};
     };
 
@@ -92,7 +94,9 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<GetAlipayUrlResponseBody::Data> data_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

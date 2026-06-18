@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The end time can be a maximum of 30 days after the start time. This is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTimestamp_ {};
+    // The unique ID of the target knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> indexId_ {};
+    // The start of the time range to query. This is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTimestamp_ {};
   };

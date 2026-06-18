@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The primary key ID of the task, `JobId`.
+      // The job ID, also known as `JobId`.
       shared_ptr<string> id_ {};
     };
 
@@ -118,20 +118,21 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error code returned on failure.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The business data.
     shared_ptr<SubmitIndexAddDocumentsJobResponseBody::Data> data_ {};
-    // The error message.
+    // The error message returned on failure.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned.
+    // The response status code.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,18 +75,17 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error code.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indications whether the API call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

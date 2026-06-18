@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The number of entries per page in a paged query. Valid values: 1 to 50.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

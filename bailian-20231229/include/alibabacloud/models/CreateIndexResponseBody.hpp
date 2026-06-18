@@ -67,9 +67,9 @@ namespace Models
 
 
     protected:
-      // The knowledge base ID, or `IndexId`, is a unique identifier for the knowledge base created.
+      // The ID of the knowledge base, also known as \\`IndexId\\`. This is the unique identifier of the created knowledge base.
       // 
-      // > Keep this ID. It is required for all subsequent API operations related to this knowledge base.
+      // > Keep this value safe. It will be used for all subsequent API operations related to this knowledge base.
       shared_ptr<string> id_ {};
     };
 
@@ -120,20 +120,21 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // Error status code
     shared_ptr<string> code_ {};
-    // The data returned if the request is successful.
+    // The business data returned when the request is successful.
     shared_ptr<CreateIndexResponseBody::Data> data_ {};
-    // The error message.
+    // Error message
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The status code.
+    // The status code returned by the interface.
     shared_ptr<string> status_ {};
-    // Indications whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Possible values:
     // 
-    // *   true
-    // *   false
+    // - true: Successful
+    // 
+    // - false: Failed
     shared_ptr<bool> success_ {};
   };
 

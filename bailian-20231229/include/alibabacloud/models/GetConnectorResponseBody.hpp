@@ -95,9 +95,13 @@ namespace Models
 
 
     protected:
+      // The ID of the connector.
       shared_ptr<string> connectorId_ {};
+      // The name of the connector.
       shared_ptr<string> connectorName_ {};
+      // The type of the connector.
       shared_ptr<string> connectorType_ {};
+      // The description of the connector.
       shared_ptr<string> description_ {};
     };
 
@@ -148,12 +152,21 @@ namespace Models
 
 
   protected:
+    // The result code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetConnectorResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status code of the response.
     shared_ptr<string> status_ {};
+    // Indicates whether the request was successful. The valid values are:
+    // 
+    // - `true`: The call was successful.
+    // 
+    // - `false`: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // - The list of tags to associate with the file. You can specify a maximum of 100 tags. The combined length of all tag values cannot exceed 700 characters.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> tags_ {};
   };

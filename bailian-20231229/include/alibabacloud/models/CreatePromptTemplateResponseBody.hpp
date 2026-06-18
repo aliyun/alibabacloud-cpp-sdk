@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Prompt template ID.
     shared_ptr<string> promptTemplateId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

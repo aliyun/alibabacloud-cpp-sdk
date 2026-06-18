@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // Current table status. After upload, the status usually changes to TO_IMPORT. This means the system has accepted the uploaded file and is waiting to schedule it into the data table.
       shared_ptr<string> status_ {};
+      // Same as the input TableId parameter.
       shared_ptr<string> tableId_ {};
     };
 
@@ -128,12 +130,17 @@ namespace Models
 
 
   protected:
+    // Error status code.
     shared_ptr<string> code_ {};
+    // Data field of the response.
     shared_ptr<UpdateTableFromAuthorizedOssResponseBody::Data> data_ {};
+    // Error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Status code returned by the operation.
     shared_ptr<string> status_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
   };
 

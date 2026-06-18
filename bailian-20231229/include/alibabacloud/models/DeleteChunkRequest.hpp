@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The list of text chunks to be deleted. You can specify up to 10 chunk IDs at a time.
+    // The list of text chunks to delete. A maximum of 10 text chunk IDs can be specified in a single request.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> chunkIds_ {};
-    // The knowledge base ID, which is the `Data.Id` parameter returned by **CreateIndex**.
+    // The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
     // 
     // This parameter is required.
     shared_ptr<string> pipelineId_ {};

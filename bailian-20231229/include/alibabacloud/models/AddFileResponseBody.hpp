@@ -77,11 +77,11 @@ namespace Models
 
 
     protected:
-      // The primary key ID of the document. We recommend that you store the ID because it is required for all subsequent API operations related to this document.
+      // The ID of the file. Save this ID for use in subsequent API calls involving this file.
       shared_ptr<string> fileId_ {};
-      // The parser that is used to parse the document. Valid value:
+      // The parser that was used for the file. A possible value is:
       // 
-      // *   DASHSCOPE_DOCMIND: Intelligent document parsing by Alibaba Cloud.
+      // - `DASHSCOPE_DOCMIND`: Alibaba Cloud Document Intelligence
       shared_ptr<string> parser_ {};
     };
 
@@ -132,20 +132,21 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The returned data fields.
+    // The data returned for the request.
     shared_ptr<AddFileResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code.
+    // The status code of the request.
     shared_ptr<string> status_ {};
-    // Indications whether the call is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - `true`: The call was successful.
+    // 
+    // - `false`: The call failed.
     shared_ptr<string> success_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The memory node ID.
     shared_ptr<string> memoryNodeId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
