@@ -373,6 +373,27 @@ namespace Gpdb20160503
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
+       * @summary Creates a Supabase project branch.
+       *
+       * @description Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+       *
+       * @param request CreateBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBranchResponse
+       */
+      Models::CreateBranchResponse createBranchWithOptions(const Models::CreateBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a Supabase project branch.
+       *
+       * @description Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+       *
+       * @param request CreateBranchRequest
+       * @return CreateBranchResponse
+       */
+      Models::CreateBranchResponse createBranch(const Models::CreateBranchRequest &request);
+
+      /**
        * @summary Create a vector dataset.
        *
        * @param tmpReq CreateCollectionRequest
@@ -724,6 +745,27 @@ namespace Gpdb20160503
       Models::CreateServiceLinkedRoleResponse createServiceLinkedRole(const Models::CreateServiceLinkedRoleRequest &request);
 
       /**
+       * @summary Creates a snapshot for a Supabase project.
+       *
+       * @description Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+       *
+       * @param request CreateSnapshotRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSnapshotResponse
+       */
+      Models::CreateSnapshotResponse createSnapshotWithOptions(const Models::CreateSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a snapshot for a Supabase project.
+       *
+       * @description Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+       *
+       * @param request CreateSnapshotRequest
+       * @return CreateSnapshotResponse
+       */
+      Models::CreateSnapshotResponse createSnapshot(const Models::CreateSnapshotRequest &request);
+
+      /**
        * @summary Create External Data Source Configuration
        *
        * @param request CreateStreamingDataServiceRequest
@@ -777,7 +819,7 @@ namespace Gpdb20160503
       /**
        * @summary Creates a Supabase project.
        *
-       * @description - This operation is used to create a Supabase instance.
+       * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
        *
        * @param request CreateSupabaseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -788,7 +830,7 @@ namespace Gpdb20160503
       /**
        * @summary Creates a Supabase project.
        *
-       * @description - This operation is used to create a Supabase instance.
+       * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
        *
        * @param request CreateSupabaseProjectRequest
        * @return CreateSupabaseProjectResponse
@@ -906,6 +948,27 @@ namespace Gpdb20160503
        * @return DeleteBackupResponse
        */
       Models::DeleteBackupResponse deleteBackup(const Models::DeleteBackupRequest &request);
+
+      /**
+       * @summary Deletes a Supabase branch.
+       *
+       * @description Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+       *
+       * @param request DeleteBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBranchResponse
+       */
+      Models::DeleteBranchResponse deleteBranchWithOptions(const Models::DeleteBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a Supabase branch.
+       *
+       * @description Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+       *
+       * @param request DeleteBranchRequest
+       * @return DeleteBranchResponse
+       */
+      Models::DeleteBranchResponse deleteBranch(const Models::DeleteBranchRequest &request);
 
       /**
        * @summary Deletes chunks from a document collection.
@@ -1291,6 +1354,27 @@ namespace Gpdb20160503
       Models::DeleteSecretResponse deleteSecret(const Models::DeleteSecretRequest &request);
 
       /**
+       * @summary 删除恢复点
+       *
+       * @description 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+       *
+       * @param request DeleteSnapshotRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSnapshotResponse
+       */
+      Models::DeleteSnapshotResponse deleteSnapshotWithOptions(const Models::DeleteSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除恢复点
+       *
+       * @description 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+       *
+       * @param request DeleteSnapshotRequest
+       * @return DeleteSnapshotResponse
+       */
+      Models::DeleteSnapshotResponse deleteSnapshot(const Models::DeleteSnapshotRequest &request);
+
+      /**
        * @summary Delete a real-time data service.
        *
        * @param request DeleteStreamingDataServiceRequest
@@ -1544,6 +1628,27 @@ namespace Gpdb20160503
        * @return DescribeBackupPolicyResponse
        */
       Models::DescribeBackupPolicyResponse describeBackupPolicy(const Models::DescribeBackupPolicyRequest &request);
+
+      /**
+       * @summary Queries the details of a Supabase branch.
+       *
+       * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+       *
+       * @param request DescribeBranchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBranchResponse
+       */
+      Models::DescribeBranchResponse describeBranchWithOptions(const Models::DescribeBranchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a Supabase branch.
+       *
+       * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+       *
+       * @param request DescribeBranchRequest
+       * @return DescribeBranchResponse
+       */
+      Models::DescribeBranchResponse describeBranch(const Models::DescribeBranchRequest &request);
 
       /**
        * @summary Queries the information about a vector collection.
@@ -3050,6 +3155,27 @@ namespace Gpdb20160503
       Models::GetAccountResponse getAccount(const Models::GetAccountRequest &request);
 
       /**
+       * @summary Retrieves the database schema of a Supabase branch.
+       *
+       * @description Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+       *
+       * @param request GetBranchSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBranchSchemaResponse
+       */
+      Models::GetBranchSchemaResponse getBranchSchemaWithOptions(const Models::GetBranchSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the database schema of a Supabase branch.
+       *
+       * @description Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+       *
+       * @param request GetBranchSchemaRequest
+       * @return GetBranchSchemaResponse
+       */
+      Models::GetBranchSchemaResponse getBranchSchema(const Models::GetBranchSchemaRequest &request);
+
+      /**
        * @summary Retrieves a task to build a knowledge graph.
        *
        * @param request GetGraphRAGJobRequest
@@ -3364,6 +3490,27 @@ namespace Gpdb20160503
        * @return ListBackupJobsResponse
        */
       Models::ListBackupJobsResponse listBackupJobs(const Models::ListBackupJobsRequest &request);
+
+      /**
+       * @summary Query the branch list of a Supabase project.
+       *
+       * @description This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+       *
+       * @param request ListBranchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBranchesResponse
+       */
+      Models::ListBranchesResponse listBranchesWithOptions(const Models::ListBranchesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the branch list of a Supabase project.
+       *
+       * @description This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+       *
+       * @param request ListBranchesRequest
+       * @return ListBranchesResponse
+       */
+      Models::ListBranchesResponse listBranches(const Models::ListBranchesRequest &request);
 
       /**
        * @summary Get document chunk details
@@ -4692,6 +4839,48 @@ namespace Gpdb20160503
        * @return RestartDBInstanceResponse
        */
       Models::RestartDBInstanceResponse restartDBInstance(const Models::RestartDBInstanceRequest &request);
+
+      /**
+       * @summary Restarts a Supabase project.
+       *
+       * @description Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+       *
+       * @param request RestartSupabaseProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartSupabaseProjectResponse
+       */
+      Models::RestartSupabaseProjectResponse restartSupabaseProjectWithOptions(const Models::RestartSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Restarts a Supabase project.
+       *
+       * @description Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+       *
+       * @param request RestartSupabaseProjectRequest
+       * @return RestartSupabaseProjectResponse
+       */
+      Models::RestartSupabaseProjectResponse restartSupabaseProject(const Models::RestartSupabaseProjectRequest &request);
+
+      /**
+       * @summary Restores a Supabase project from a snapshot.
+       *
+       * @description Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+       *
+       * @param request RestoreSnapshotRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestoreSnapshotResponse
+       */
+      Models::RestoreSnapshotResponse restoreSnapshotWithOptions(const Models::RestoreSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Restores a Supabase project from a snapshot.
+       *
+       * @description Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+       *
+       * @param request RestoreSnapshotRequest
+       * @return RestoreSnapshotResponse
+       */
+      Models::RestoreSnapshotResponse restoreSnapshot(const Models::RestoreSnapshotRequest &request);
 
       /**
        * @summary Resumes data redistribution.

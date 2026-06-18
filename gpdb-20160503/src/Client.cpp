@@ -1185,6 +1185,96 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
+ * @summary Creates a Supabase project branch.
+ *
+ * @description Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+ *
+ * @param request CreateBranchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBranchResponse
+ */
+CreateBranchResponse Client::createBranchWithOptions(const CreateBranchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchName()) {
+    query["BranchName"] = request.getBranchName();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpiresAt()) {
+    query["ExpiresAt"] = request.getExpiresAt();
+  }
+
+  if (!!request.hasInitSource()) {
+    query["InitSource"] = request.getInitSource();
+  }
+
+  if (!!request.hasParentBranchId()) {
+    query["ParentBranchId"] = request.getParentBranchId();
+  }
+
+  if (!!request.hasParentLsn()) {
+    query["ParentLsn"] = request.getParentLsn();
+  }
+
+  if (!!request.hasParentTimestamp()) {
+    query["ParentTimestamp"] = request.getParentTimestamp();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasProtected()) {
+    query["Protected"] = request.getProtected();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateBranch"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBranchResponse>();
+}
+
+/**
+ * @summary Creates a Supabase project branch.
+ *
+ * @description Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+ *
+ * @param request CreateBranchRequest
+ * @return CreateBranchResponse
+ */
+CreateBranchResponse Client::createBranch(const CreateBranchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBranchWithOptions(request, runtime);
+}
+
+/**
  * @summary Create a vector dataset.
  *
  * @param tmpReq CreateCollectionRequest
@@ -2821,6 +2911,68 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRole(const CreateServ
 }
 
 /**
+ * @summary Creates a snapshot for a Supabase project.
+ *
+ * @description Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+ *
+ * @param request CreateSnapshotRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSnapshotResponse
+ */
+CreateSnapshotResponse Client::createSnapshotWithOptions(const CreateSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasLsn()) {
+    query["Lsn"] = request.getLsn();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSnapshotTimestamp()) {
+    query["SnapshotTimestamp"] = request.getSnapshotTimestamp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSnapshot"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSnapshotResponse>();
+}
+
+/**
+ * @summary Creates a snapshot for a Supabase project.
+ *
+ * @description Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+ *
+ * @param request CreateSnapshotRequest
+ * @return CreateSnapshotResponse
+ */
+CreateSnapshotResponse Client::createSnapshot(const CreateSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSnapshotWithOptions(request, runtime);
+}
+
+/**
  * @summary Create External Data Source Configuration
  *
  * @param request CreateStreamingDataServiceRequest
@@ -3091,7 +3243,7 @@ CreateStreamingJobResponse Client::createStreamingJob(const CreateStreamingJobRe
 /**
  * @summary Creates a Supabase project.
  *
- * @description - This operation is used to create a Supabase instance.
+ * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
  *
  * @param request CreateSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3184,7 +3336,7 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 /**
  * @summary Creates a Supabase project.
  *
- * @description - This operation is used to create a Supabase instance.
+ * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
  *
  * @param request CreateSupabaseProjectRequest
  * @return CreateSupabaseProjectResponse
@@ -3550,6 +3702,56 @@ DeleteBackupResponse Client::deleteBackupWithOptions(const DeleteBackupRequest &
 DeleteBackupResponse Client::deleteBackup(const DeleteBackupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteBackupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a Supabase branch.
+ *
+ * @description Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+ *
+ * @param request DeleteBranchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBranchResponse
+ */
+DeleteBranchResponse Client::deleteBranchWithOptions(const DeleteBranchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteBranch"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBranchResponse>();
+}
+
+/**
+ * @summary Deletes a Supabase branch.
+ *
+ * @description Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+ *
+ * @param request DeleteBranchRequest
+ * @return DeleteBranchResponse
+ */
+DeleteBranchResponse Client::deleteBranch(const DeleteBranchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteBranchWithOptions(request, runtime);
 }
 
 /**
@@ -4747,6 +4949,60 @@ DeleteSecretResponse Client::deleteSecret(const DeleteSecretRequest &request) {
 }
 
 /**
+ * @summary 删除恢复点
+ *
+ * @description 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+ *
+ * @param request DeleteSnapshotRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSnapshotResponse
+ */
+DeleteSnapshotResponse Client::deleteSnapshotWithOptions(const DeleteSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLsn()) {
+    query["Lsn"] = request.getLsn();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSnapshot"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSnapshotResponse>();
+}
+
+/**
+ * @summary 删除恢复点
+ *
+ * @description 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+ *
+ * @param request DeleteSnapshotRequest
+ * @return DeleteSnapshotResponse
+ */
+DeleteSnapshotResponse Client::deleteSnapshot(const DeleteSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSnapshotWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete a real-time data service.
  *
  * @param request DeleteStreamingDataServiceRequest
@@ -5452,6 +5708,56 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeBackupPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a Supabase branch.
+ *
+ * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+ *
+ * @param request DescribeBranchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBranchResponse
+ */
+DescribeBranchResponse Client::describeBranchWithOptions(const DescribeBranchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBranch"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBranchResponse>();
+}
+
+/**
+ * @summary Queries the details of a Supabase branch.
+ *
+ * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+ *
+ * @param request DescribeBranchRequest
+ * @return DescribeBranchResponse
+ */
+DescribeBranchResponse Client::describeBranch(const DescribeBranchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBranchWithOptions(request, runtime);
 }
 
 /**
@@ -10081,6 +10387,64 @@ GetAccountResponse Client::getAccount(const GetAccountRequest &request) {
 }
 
 /**
+ * @summary Retrieves the database schema of a Supabase branch.
+ *
+ * @description Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+ *
+ * @param request GetBranchSchemaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBranchSchemaResponse
+ */
+GetBranchSchemaResponse Client::getBranchSchemaWithOptions(const GetBranchSchemaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.getDBName();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBranchSchema"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBranchSchemaResponse>();
+}
+
+/**
+ * @summary Retrieves the database schema of a Supabase branch.
+ *
+ * @description Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+ *
+ * @param request GetBranchSchemaRequest
+ * @return GetBranchSchemaResponse
+ */
+GetBranchSchemaResponse Client::getBranchSchema(const GetBranchSchemaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBranchSchemaWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves a task to build a knowledge graph.
  *
  * @param request GetGraphRAGJobRequest
@@ -11014,6 +11378,84 @@ ListBackupJobsResponse Client::listBackupJobsWithOptions(const ListBackupJobsReq
 ListBackupJobsResponse Client::listBackupJobs(const ListBackupJobsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listBackupJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the branch list of a Supabase project.
+ *
+ * @description This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+ *
+ * @param request ListBranchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBranchesResponse
+ */
+ListBranchesResponse Client::listBranchesWithOptions(const ListBranchesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasParentBranchId()) {
+    query["ParentBranchId"] = request.getParentBranchId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearch()) {
+    query["Search"] = request.getSearch();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBranches"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBranchesResponse>();
+}
+
+/**
+ * @summary Query the branch list of a Supabase project.
+ *
+ * @description This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+ *
+ * @param request ListBranchesRequest
+ * @return ListBranchesResponse
+ */
+ListBranchesResponse Client::listBranches(const ListBranchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBranchesWithOptions(request, runtime);
 }
 
 /**
@@ -15598,6 +16040,126 @@ RestartDBInstanceResponse Client::restartDBInstanceWithOptions(const RestartDBIn
 RestartDBInstanceResponse Client::restartDBInstance(const RestartDBInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartDBInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Restarts a Supabase project.
+ *
+ * @description Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+ *
+ * @param request RestartSupabaseProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartSupabaseProjectResponse
+ */
+RestartSupabaseProjectResponse Client::restartSupabaseProjectWithOptions(const RestartSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartSupabaseProject"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartSupabaseProjectResponse>();
+}
+
+/**
+ * @summary Restarts a Supabase project.
+ *
+ * @description Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+ *
+ * @param request RestartSupabaseProjectRequest
+ * @return RestartSupabaseProjectResponse
+ */
+RestartSupabaseProjectResponse Client::restartSupabaseProject(const RestartSupabaseProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartSupabaseProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Restores a Supabase project from a snapshot.
+ *
+ * @description Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+ *
+ * @param request RestoreSnapshotRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestoreSnapshotResponse
+ */
+RestoreSnapshotResponse Client::restoreSnapshotWithOptions(const RestoreSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasFinalizeRestore()) {
+    query["FinalizeRestore"] = request.getFinalizeRestore();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRestoredBranchName()) {
+    query["RestoredBranchName"] = request.getRestoredBranchName();
+  }
+
+  if (!!request.hasRestoredLsn()) {
+    query["RestoredLsn"] = request.getRestoredLsn();
+  }
+
+  if (!!request.hasTargetBranchId()) {
+    query["TargetBranchId"] = request.getTargetBranchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestoreSnapshot"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestoreSnapshotResponse>();
+}
+
+/**
+ * @summary Restores a Supabase project from a snapshot.
+ *
+ * @description Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+ *
+ * @param request RestoreSnapshotRequest
+ * @return RestoreSnapshotResponse
+ */
+RestoreSnapshotResponse Client::restoreSnapshot(const RestoreSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restoreSnapshotWithOptions(request, runtime);
 }
 
 /**

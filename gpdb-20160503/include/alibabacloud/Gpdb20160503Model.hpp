@@ -56,6 +56,9 @@
 #include <alibabacloud/models/CreateBackupRequest.hpp>
 #include <alibabacloud/models/CreateBackupResponseBody.hpp>
 #include <alibabacloud/models/CreateBackupResponse.hpp>
+#include <alibabacloud/models/CreateBranchRequest.hpp>
+#include <alibabacloud/models/CreateBranchResponseBody.hpp>
+#include <alibabacloud/models/CreateBranchResponse.hpp>
 #include <alibabacloud/models/CreateCollectionRequest.hpp>
 #include <alibabacloud/models/CreateCollectionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCollectionResponseBody.hpp>
@@ -117,6 +120,9 @@
 #include <alibabacloud/models/CreateServiceLinkedRoleRequest.hpp>
 #include <alibabacloud/models/CreateServiceLinkedRoleResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceLinkedRoleResponse.hpp>
+#include <alibabacloud/models/CreateSnapshotRequest.hpp>
+#include <alibabacloud/models/CreateSnapshotResponseBody.hpp>
+#include <alibabacloud/models/CreateSnapshotResponse.hpp>
 #include <alibabacloud/models/CreateStreamingDataServiceRequest.hpp>
 #include <alibabacloud/models/CreateStreamingDataServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateStreamingDataServiceResponse.hpp>
@@ -148,6 +154,9 @@
 #include <alibabacloud/models/DeleteBackupRequest.hpp>
 #include <alibabacloud/models/DeleteBackupResponseBody.hpp>
 #include <alibabacloud/models/DeleteBackupResponse.hpp>
+#include <alibabacloud/models/DeleteBranchRequest.hpp>
+#include <alibabacloud/models/DeleteBranchResponseBody.hpp>
+#include <alibabacloud/models/DeleteBranchResponse.hpp>
 #include <alibabacloud/models/DeleteChunksRequest.hpp>
 #include <alibabacloud/models/DeleteChunksShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteChunksResponseBody.hpp>
@@ -212,6 +221,9 @@
 #include <alibabacloud/models/DeleteSecretRequest.hpp>
 #include <alibabacloud/models/DeleteSecretResponseBody.hpp>
 #include <alibabacloud/models/DeleteSecretResponse.hpp>
+#include <alibabacloud/models/DeleteSnapshotRequest.hpp>
+#include <alibabacloud/models/DeleteSnapshotResponseBody.hpp>
+#include <alibabacloud/models/DeleteSnapshotResponse.hpp>
 #include <alibabacloud/models/DeleteStreamingDataServiceRequest.hpp>
 #include <alibabacloud/models/DeleteStreamingDataServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteStreamingDataServiceResponse.hpp>
@@ -251,6 +263,9 @@
 #include <alibabacloud/models/DescribeBackupPolicyRequest.hpp>
 #include <alibabacloud/models/DescribeBackupPolicyResponseBody.hpp>
 #include <alibabacloud/models/DescribeBackupPolicyResponse.hpp>
+#include <alibabacloud/models/DescribeBranchRequest.hpp>
+#include <alibabacloud/models/DescribeBranchResponseBody.hpp>
+#include <alibabacloud/models/DescribeBranchResponse.hpp>
 #include <alibabacloud/models/DescribeCollectionRequest.hpp>
 #include <alibabacloud/models/DescribeCollectionResponseBody.hpp>
 #include <alibabacloud/models/DescribeCollectionResponse.hpp>
@@ -476,6 +491,9 @@
 #include <alibabacloud/models/GetAccountRequest.hpp>
 #include <alibabacloud/models/GetAccountResponseBody.hpp>
 #include <alibabacloud/models/GetAccountResponse.hpp>
+#include <alibabacloud/models/GetBranchSchemaRequest.hpp>
+#include <alibabacloud/models/GetBranchSchemaResponseBody.hpp>
+#include <alibabacloud/models/GetBranchSchemaResponse.hpp>
 #include <alibabacloud/models/GetGraphRAGJobRequest.hpp>
 #include <alibabacloud/models/GetGraphRAGJobResponseBody.hpp>
 #include <alibabacloud/models/GetGraphRAGJobResponse.hpp>
@@ -524,6 +542,9 @@
 #include <alibabacloud/models/ListBackupJobsRequest.hpp>
 #include <alibabacloud/models/ListBackupJobsResponseBody.hpp>
 #include <alibabacloud/models/ListBackupJobsResponse.hpp>
+#include <alibabacloud/models/ListBranchesRequest.hpp>
+#include <alibabacloud/models/ListBranchesResponseBody.hpp>
+#include <alibabacloud/models/ListBranchesResponse.hpp>
 #include <alibabacloud/models/ListChunksRequest.hpp>
 #include <alibabacloud/models/ListChunksResponseBody.hpp>
 #include <alibabacloud/models/ListChunksResponse.hpp>
@@ -741,6 +762,12 @@
 #include <alibabacloud/models/RestartDBInstanceRequest.hpp>
 #include <alibabacloud/models/RestartDBInstanceResponseBody.hpp>
 #include <alibabacloud/models/RestartDBInstanceResponse.hpp>
+#include <alibabacloud/models/RestartSupabaseProjectRequest.hpp>
+#include <alibabacloud/models/RestartSupabaseProjectResponseBody.hpp>
+#include <alibabacloud/models/RestartSupabaseProjectResponse.hpp>
+#include <alibabacloud/models/RestoreSnapshotRequest.hpp>
+#include <alibabacloud/models/RestoreSnapshotResponseBody.hpp>
+#include <alibabacloud/models/RestoreSnapshotResponse.hpp>
 #include <alibabacloud/models/ResumeDataRedistributeRequest.hpp>
 #include <alibabacloud/models/ResumeDataRedistributeResponseBody.hpp>
 #include <alibabacloud/models/ResumeDataRedistributeResponse.hpp>
