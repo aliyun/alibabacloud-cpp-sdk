@@ -72,7 +72,15 @@ namespace Models
 
 
     protected:
+      // The IP access whitelist.
+      // 
+      // > 
+      // > - When you set custom permissions and do not specify the IP access whitelist, the server sets the whitelist to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
       shared_ptr<vector<string>> accessIps_ {};
+      // Valid values:
+      // 
+      // - All: all permissions.
+      // - Custom: custom permissions.
       shared_ptr<string> type_ {};
     };
 
@@ -95,7 +103,9 @@ namespace Models
 
 
   protected:
+    // The API key permission settings.
     shared_ptr<UpdateApiKeyRequest::Auth> auth_ {};
+    // The description.
     shared_ptr<string> description_ {};
   };
 

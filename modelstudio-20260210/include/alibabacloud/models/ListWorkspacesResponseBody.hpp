@@ -122,10 +122,15 @@ namespace Models
     protected:
       // API Host。
       shared_ptr<string> apiHost_ {};
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The region ID.
       shared_ptr<string> region_ {};
+      // The service deployment scope. For more information, see [documentation](https://www.alibabacloud.com/help/zh/model-studio/regions/).
       shared_ptr<string> serviceSite_ {};
+      // The business workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The business workspace name.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -198,15 +203,26 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token used to retrieve more results. You do not need to specify this parameter for the first request. For subsequent requests, use the token returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful. Valid values:
+    // 
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of business workspaces.
     shared_ptr<vector<ListWorkspacesResponseBody::Workspaces>> workspaces_ {};
   };
 

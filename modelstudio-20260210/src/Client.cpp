@@ -18,7 +18,13 @@ namespace ModelStudio20260210
 {
 
 AlibabaCloud::ModelStudio20260210::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"eu-central-1" , "modelstudio.eu-central-1.aliyuncs.com"},
+    {"cn-hongkong" , "modelstudio.cn-hongkong.aliyuncs.com"},
+    {"cn-beijing" , "modelstudio.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-1" , "modelstudio.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("modelstudio", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +43,141 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建ApiKey
+ * @summary Creates an account and directly adds it as a member.
+ *
+ * @param request AddOrganizationMemberRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddOrganizationMemberResponse
+ */
+AddOrganizationMemberResponse Client::addOrganizationMemberWithOptions(const AddOrganizationMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasCallerUacAccountId()) {
+    query["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.getNamespaceId();
+  }
+
+  if (!!request.hasOrgId()) {
+    query["OrgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasOrgRoleCode()) {
+    query["OrgRoleCode"] = request.getOrgRoleCode();
+  }
+
+  if (!!request.hasSpecType()) {
+    query["SpecType"] = request.getSpecType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddOrganizationMember"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/organization/member-additions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddOrganizationMemberResponse>();
+}
+
+/**
+ * @summary Creates an account and directly adds it as a member.
+ *
+ * @param request AddOrganizationMemberRequest
+ * @return AddOrganizationMemberResponse
+ */
+AddOrganizationMemberResponse Client::addOrganizationMember(const AddOrganizationMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addOrganizationMemberWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Assigns seats in bulk to the member level.
+ *
+ * @param request BatchAssignSeatsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchAssignSeatsResponse
+ */
+BatchAssignSeatsResponse Client::batchAssignSeatsWithOptions(const BatchAssignSeatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountIds()) {
+    query["AccountIds"] = request.getAccountIds();
+  }
+
+  if (!!request.hasAccountIdsStr()) {
+    query["AccountIdsStr"] = request.getAccountIdsStr();
+  }
+
+  if (!!request.hasCallerUacAccountId()) {
+    query["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
+  if (!!request.hasLocale()) {
+    query["Locale"] = request.getLocale();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.getNamespaceId();
+  }
+
+  if (!!request.hasSeatType()) {
+    query["SeatType"] = request.getSeatType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchAssignSeats"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/subscription/seat-assignments")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchAssignSeatsResponse>();
+}
+
+/**
+ * @summary Assigns seats in bulk to the member level.
+ *
+ * @param request BatchAssignSeatsRequest
+ * @return BatchAssignSeatsResponse
+ */
+BatchAssignSeatsResponse Client::batchAssignSeats(const BatchAssignSeatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchAssignSeatsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
  *
  * @param request CreateApiKeyRequest
  * @param headers map
@@ -80,7 +220,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 }
 
 /**
- * @summary 创建ApiKey
+ * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
  *
  * @param request CreateApiKeyRequest
  * @return CreateApiKeyResponse
@@ -92,7 +232,68 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
- * @summary 创建业务空间
+ * @summary Creates a UAC API key.
+ *
+ * @param request CreateTokenPlanKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTokenPlanKeyResponse
+ */
+CreateTokenPlanKeyResponse Client::createTokenPlanKeyWithOptions(const CreateTokenPlanKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountId()) {
+    query["AccountId"] = request.getAccountId();
+  }
+
+  if (!!request.hasCallerUacAccountId()) {
+    query["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.getNamespaceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTokenPlanKey"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/api-keys")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTokenPlanKeyResponse>();
+}
+
+/**
+ * @summary Creates a UAC API key.
+ *
+ * @param request CreateTokenPlanKeyRequest
+ * @return CreateTokenPlanKeyResponse
+ */
+CreateTokenPlanKeyResponse Client::createTokenPlanKey(const CreateTokenPlanKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTokenPlanKeyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a business workspace.
  *
  * @param request CreateWorkspaceRequest
  * @param headers map
@@ -129,7 +330,7 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
 }
 
 /**
- * @summary 创建业务空间
+ * @summary Creates a business workspace.
  *
  * @param request CreateWorkspaceRequest
  * @return CreateWorkspaceResponse
@@ -141,7 +342,7 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
- * @summary 删除apiKey
+ * @summary Deletes an authentication credential API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +367,7 @@ DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const string &apiKeyId, con
 }
 
 /**
- * @summary 删除apiKey
+ * @summary Deletes an authentication credential API key.
  *
  * @return DeleteApiKeyResponse
  */
@@ -177,7 +378,13 @@ DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyId) {
 }
 
 /**
- * @summary 删除业务空间
+ * @summary Deletes a workspace.
+ *
+ * @description A workspace can be deleted only if the following conditional requirements are met:
+ * 1. The workspace is not the default workspace.
+ * 2. The workspace is not used to purchase other products, such as AMB.
+ * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+ * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
  *
  * @param request DeleteWorkspaceRequest
  * @param headers map
@@ -204,7 +411,13 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspa
 }
 
 /**
- * @summary 删除业务空间
+ * @summary Deletes a workspace.
+ *
+ * @description A workspace can be deleted only if the following conditional requirements are met:
+ * 1. The workspace is not the default workspace.
+ * 2. The workspace is not used to purchase other products, such as AMB.
+ * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+ * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
  *
  * @param request DeleteWorkspaceRequest
  * @return DeleteWorkspaceResponse
@@ -216,7 +429,9 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId, const
 }
 
 /**
- * @summary 禁用API Key
+ * @summary Disables an API key.
+ *
+ * @description An API key cannot be disabled if it is already disabled.
  *
  * @param request DisableApiKeyRequest
  * @param headers map
@@ -243,7 +458,9 @@ DisableApiKeyResponse Client::disableApiKeyWithOptions(const string &apiKeyId, c
 }
 
 /**
- * @summary 禁用API Key
+ * @summary Disables an API key.
+ *
+ * @description An API key cannot be disabled if it is already disabled.
  *
  * @param request DisableApiKeyRequest
  * @return DisableApiKeyResponse
@@ -255,7 +472,9 @@ DisableApiKeyResponse Client::disableApiKey(const string &apiKeyId, const Disabl
 }
 
 /**
- * @summary 启用API Key
+ * @summary Enables an API key.
+ *
+ * @description An API key that is already enabled cannot be enabled again.
  *
  * @param request EnableApiKeyRequest
  * @param headers map
@@ -282,7 +501,9 @@ EnableApiKeyResponse Client::enableApiKeyWithOptions(const string &apiKeyId, con
 }
 
 /**
- * @summary 启用API Key
+ * @summary Enables an API key.
+ *
+ * @description An API key that is already enabled cannot be enabled again.
  *
  * @param request EnableApiKeyRequest
  * @return EnableApiKeyResponse
@@ -294,7 +515,7 @@ EnableApiKeyResponse Client::enableApiKey(const string &apiKeyId, const EnableAp
 }
 
 /**
- * @summary 查询ApiKey详情
+ * @summary Retrieves the information of a specified authentication credential API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +540,7 @@ GetApiKeyResponse Client::getApiKeyWithOptions(const string &apiKeyId, const map
 }
 
 /**
- * @summary 查询ApiKey详情
+ * @summary Retrieves the information of a specified authentication credential API key.
  *
  * @return GetApiKeyResponse
  */
@@ -330,7 +551,84 @@ GetApiKeyResponse Client::getApiKey(const string &apiKeyId) {
 }
 
 /**
- * @summary 获取ApiKey列表
+ * @summary Queries seat details by paging.
+ *
+ * @param request GetSubscriptionSeatDetailsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSubscriptionSeatDetailsResponse
+ */
+GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetailsWithOptions(const GetSubscriptionSeatDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallerUacAccountId()) {
+    query["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.getNamespaceId();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQueryAssigned()) {
+    query["QueryAssigned"] = request.getQueryAssigned();
+  }
+
+  if (!!request.hasSeatId()) {
+    query["SeatId"] = request.getSeatId();
+  }
+
+  if (!!request.hasSeatType()) {
+    query["SeatType"] = request.getSeatType();
+  }
+
+  if (!!request.hasStatusList()) {
+    query["StatusList"] = request.getStatusList();
+  }
+
+  if (!!request.hasStatusListStr()) {
+    query["StatusListStr"] = request.getStatusListStr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSubscriptionSeatDetails"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tokenplan/subscription/seat-detail")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSubscriptionSeatDetailsResponse>();
+}
+
+/**
+ * @summary Queries seat details by paging.
+ *
+ * @param request GetSubscriptionSeatDetailsRequest
+ * @return GetSubscriptionSeatDetailsResponse
+ */
+GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetails(const GetSubscriptionSeatDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSubscriptionSeatDetailsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Obtain the list of authentication credential API Key information.
  *
  * @param request ListApiKeysRequest
  * @param headers map
@@ -379,7 +677,7 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary 获取ApiKey列表
+ * @summary Obtain the list of authentication credential API Key information.
  *
  * @param request ListApiKeysRequest
  * @return ListApiKeysResponse
@@ -391,7 +689,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary 业务空间列表
+ * @summary Retrieves the list of business workspaces.
  *
  * @param request ListWorkspacesRequest
  * @param headers map
@@ -436,7 +734,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary 业务空间列表
+ * @summary Retrieves the list of business workspaces.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -448,7 +746,9 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
- * @summary 重置API Key
+ * @summary Resets an API key.
+ *
+ * @description Only the API key value changes. The API key ID remains unchanged.
  *
  * @param request ResetApiKeyRequest
  * @param headers map
@@ -475,7 +775,9 @@ ResetApiKeyResponse Client::resetApiKeyWithOptions(const string &apiKeyId, const
 }
 
 /**
- * @summary 重置API Key
+ * @summary Resets an API key.
+ *
+ * @description Only the API key value changes. The API key ID remains unchanged.
  *
  * @param request ResetApiKeyRequest
  * @return ResetApiKeyResponse
@@ -487,7 +789,7 @@ ResetApiKeyResponse Client::resetApiKey(const string &apiKeyId, const ResetApiKe
 }
 
 /**
- * @summary 编辑apiKey的描述
+ * @summary Edits the information of an authentication credential API key.
  *
  * @param request UpdateApiKeyRequest
  * @param headers map
@@ -526,7 +828,7 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyId, con
 }
 
 /**
- * @summary 编辑apiKey的描述
+ * @summary Edits the information of an authentication credential API key.
  *
  * @param request UpdateApiKeyRequest
  * @return UpdateApiKeyResponse

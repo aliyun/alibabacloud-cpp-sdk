@@ -115,10 +115,15 @@ namespace Models
     protected:
       // API Host。
       shared_ptr<string> apiHost_ {};
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The region ID.
       shared_ptr<string> region_ {};
+      // The service deployment scope. For more information, see [documentation](https://www.alibabacloud.com/help/zh/model-studio/regions/).
       shared_ptr<string> serviceSite_ {};
+      // The business workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The name of the business workspace.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -169,12 +174,19 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // The business workspace information.
     shared_ptr<CreateWorkspaceResponseBody::Workspace> workspace_ {};
   };
 

@@ -49,6 +49,8 @@ namespace Models
 
   protected:
     shared_ptr<string> serviceSite_ {};
+    // The name of the business workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceName_ {};
   };

@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The specific reason.
       shared_ptr<string> reason_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -139,13 +141,26 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The list of failure reasons.
     shared_ptr<vector<DeleteWorkspaceResponseBody::FailReasons>> failReasons_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Indicates whether the workspace is successfully deleted. Valid values:
+    // 
+    // - true: Succeeded.
+    // 
+    // - false: Failed.
     shared_ptr<bool> isDeleted_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call is successful. Valid values:
+    // 
+    // - true: Succeeded.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

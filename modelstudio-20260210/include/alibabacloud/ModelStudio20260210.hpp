@@ -21,7 +21,43 @@ namespace ModelStudio20260210
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建ApiKey
+       * @summary Creates an account and directly adds it as a member.
+       *
+       * @param request AddOrganizationMemberRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddOrganizationMemberResponse
+       */
+      Models::AddOrganizationMemberResponse addOrganizationMemberWithOptions(const Models::AddOrganizationMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an account and directly adds it as a member.
+       *
+       * @param request AddOrganizationMemberRequest
+       * @return AddOrganizationMemberResponse
+       */
+      Models::AddOrganizationMemberResponse addOrganizationMember(const Models::AddOrganizationMemberRequest &request);
+
+      /**
+       * @summary Assigns seats in bulk to the member level.
+       *
+       * @param request BatchAssignSeatsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchAssignSeatsResponse
+       */
+      Models::BatchAssignSeatsResponse batchAssignSeatsWithOptions(const Models::BatchAssignSeatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Assigns seats in bulk to the member level.
+       *
+       * @param request BatchAssignSeatsRequest
+       * @return BatchAssignSeatsResponse
+       */
+      Models::BatchAssignSeatsResponse batchAssignSeats(const Models::BatchAssignSeatsRequest &request);
+
+      /**
+       * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
        *
        * @param request CreateApiKeyRequest
        * @param headers map
@@ -31,7 +67,7 @@ namespace ModelStudio20260210
       Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建ApiKey
+       * @summary Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
        *
        * @param request CreateApiKeyRequest
        * @return CreateApiKeyResponse
@@ -39,7 +75,25 @@ namespace ModelStudio20260210
       Models::CreateApiKeyResponse createApiKey(const Models::CreateApiKeyRequest &request);
 
       /**
-       * @summary 创建业务空间
+       * @summary Creates a UAC API key.
+       *
+       * @param request CreateTokenPlanKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTokenPlanKeyResponse
+       */
+      Models::CreateTokenPlanKeyResponse createTokenPlanKeyWithOptions(const Models::CreateTokenPlanKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a UAC API key.
+       *
+       * @param request CreateTokenPlanKeyRequest
+       * @return CreateTokenPlanKeyResponse
+       */
+      Models::CreateTokenPlanKeyResponse createTokenPlanKey(const Models::CreateTokenPlanKeyRequest &request);
+
+      /**
+       * @summary Creates a business workspace.
        *
        * @param request CreateWorkspaceRequest
        * @param headers map
@@ -49,7 +103,7 @@ namespace ModelStudio20260210
       Models::CreateWorkspaceResponse createWorkspaceWithOptions(const Models::CreateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建业务空间
+       * @summary Creates a business workspace.
        *
        * @param request CreateWorkspaceRequest
        * @return CreateWorkspaceResponse
@@ -57,7 +111,7 @@ namespace ModelStudio20260210
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
-       * @summary 删除apiKey
+       * @summary Deletes an authentication credential API key.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,14 +120,20 @@ namespace ModelStudio20260210
       Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除apiKey
+       * @summary Deletes an authentication credential API key.
        *
        * @return DeleteApiKeyResponse
        */
       Models::DeleteApiKeyResponse deleteApiKey(const string &apiKeyId);
 
       /**
-       * @summary 删除业务空间
+       * @summary Deletes a workspace.
+       *
+       * @description A workspace can be deleted only if the following conditional requirements are met:
+       * 1. The workspace is not the default workspace.
+       * 2. The workspace is not used to purchase other products, such as AMB.
+       * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+       * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
        *
        * @param request DeleteWorkspaceRequest
        * @param headers map
@@ -83,7 +143,13 @@ namespace ModelStudio20260210
       Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const Models::DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除业务空间
+       * @summary Deletes a workspace.
+       *
+       * @description A workspace can be deleted only if the following conditional requirements are met:
+       * 1. The workspace is not the default workspace.
+       * 2. The workspace is not used to purchase other products, such as AMB.
+       * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+       * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
        *
        * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
@@ -91,7 +157,9 @@ namespace ModelStudio20260210
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId, const Models::DeleteWorkspaceRequest &request);
 
       /**
-       * @summary 禁用API Key
+       * @summary Disables an API key.
+       *
+       * @description An API key cannot be disabled if it is already disabled.
        *
        * @param request DisableApiKeyRequest
        * @param headers map
@@ -101,7 +169,9 @@ namespace ModelStudio20260210
       Models::DisableApiKeyResponse disableApiKeyWithOptions(const string &apiKeyId, const Models::DisableApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用API Key
+       * @summary Disables an API key.
+       *
+       * @description An API key cannot be disabled if it is already disabled.
        *
        * @param request DisableApiKeyRequest
        * @return DisableApiKeyResponse
@@ -109,7 +179,9 @@ namespace ModelStudio20260210
       Models::DisableApiKeyResponse disableApiKey(const string &apiKeyId, const Models::DisableApiKeyRequest &request);
 
       /**
-       * @summary 启用API Key
+       * @summary Enables an API key.
+       *
+       * @description An API key that is already enabled cannot be enabled again.
        *
        * @param request EnableApiKeyRequest
        * @param headers map
@@ -119,7 +191,9 @@ namespace ModelStudio20260210
       Models::EnableApiKeyResponse enableApiKeyWithOptions(const string &apiKeyId, const Models::EnableApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用API Key
+       * @summary Enables an API key.
+       *
+       * @description An API key that is already enabled cannot be enabled again.
        *
        * @param request EnableApiKeyRequest
        * @return EnableApiKeyResponse
@@ -127,7 +201,7 @@ namespace ModelStudio20260210
       Models::EnableApiKeyResponse enableApiKey(const string &apiKeyId, const Models::EnableApiKeyRequest &request);
 
       /**
-       * @summary 查询ApiKey详情
+       * @summary Retrieves the information of a specified authentication credential API key.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,14 +210,32 @@ namespace ModelStudio20260210
       Models::GetApiKeyResponse getApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询ApiKey详情
+       * @summary Retrieves the information of a specified authentication credential API key.
        *
        * @return GetApiKeyResponse
        */
       Models::GetApiKeyResponse getApiKey(const string &apiKeyId);
 
       /**
-       * @summary 获取ApiKey列表
+       * @summary Queries seat details by paging.
+       *
+       * @param request GetSubscriptionSeatDetailsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSubscriptionSeatDetailsResponse
+       */
+      Models::GetSubscriptionSeatDetailsResponse getSubscriptionSeatDetailsWithOptions(const Models::GetSubscriptionSeatDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries seat details by paging.
+       *
+       * @param request GetSubscriptionSeatDetailsRequest
+       * @return GetSubscriptionSeatDetailsResponse
+       */
+      Models::GetSubscriptionSeatDetailsResponse getSubscriptionSeatDetails(const Models::GetSubscriptionSeatDetailsRequest &request);
+
+      /**
+       * @summary Obtain the list of authentication credential API Key information.
        *
        * @param request ListApiKeysRequest
        * @param headers map
@@ -153,7 +245,7 @@ namespace ModelStudio20260210
       Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取ApiKey列表
+       * @summary Obtain the list of authentication credential API Key information.
        *
        * @param request ListApiKeysRequest
        * @return ListApiKeysResponse
@@ -161,7 +253,7 @@ namespace ModelStudio20260210
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary 业务空间列表
+       * @summary Retrieves the list of business workspaces.
        *
        * @param request ListWorkspacesRequest
        * @param headers map
@@ -171,7 +263,7 @@ namespace ModelStudio20260210
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 业务空间列表
+       * @summary Retrieves the list of business workspaces.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -179,7 +271,9 @@ namespace ModelStudio20260210
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
 
       /**
-       * @summary 重置API Key
+       * @summary Resets an API key.
+       *
+       * @description Only the API key value changes. The API key ID remains unchanged.
        *
        * @param request ResetApiKeyRequest
        * @param headers map
@@ -189,7 +283,9 @@ namespace ModelStudio20260210
       Models::ResetApiKeyResponse resetApiKeyWithOptions(const string &apiKeyId, const Models::ResetApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置API Key
+       * @summary Resets an API key.
+       *
+       * @description Only the API key value changes. The API key ID remains unchanged.
        *
        * @param request ResetApiKeyRequest
        * @return ResetApiKeyResponse
@@ -197,7 +293,7 @@ namespace ModelStudio20260210
       Models::ResetApiKeyResponse resetApiKey(const string &apiKeyId, const Models::ResetApiKeyRequest &request);
 
       /**
-       * @summary 编辑apiKey的描述
+       * @summary Edits the information of an authentication credential API key.
        *
        * @param request UpdateApiKeyRequest
        * @param headers map
@@ -207,7 +303,7 @@ namespace ModelStudio20260210
       Models::UpdateApiKeyResponse updateApiKeyWithOptions(const string &apiKeyId, const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑apiKey的描述
+       * @summary Edits the information of an authentication credential API key.
        *
        * @param request UpdateApiKeyRequest
        * @return UpdateApiKeyResponse

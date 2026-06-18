@@ -88,7 +88,9 @@ namespace Models
     protected:
       // API Key ID。
       shared_ptr<int64_t> apiKeyId_ {};
+      // The value of the API key.
       shared_ptr<string> apiKeyValue_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -139,12 +141,19 @@ namespace Models
 
 
   protected:
+    // The API key information.
     shared_ptr<ResetApiKeyResponseBody::ApiKey> apiKey_ {};
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

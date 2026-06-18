@@ -119,7 +119,9 @@ namespace Models
 
 
       protected:
+        // IP access whitelist.
         shared_ptr<vector<string>> accessIps_ {};
+        // All: All permissions; Custom: Custom permissions.
         shared_ptr<string> type_ {};
       };
 
@@ -185,14 +187,24 @@ namespace Models
 
 
     protected:
-      // API Key ID。
+      // API Key ID.
       shared_ptr<int64_t> apiKeyId_ {};
+      // Value of the API Key.
       shared_ptr<string> apiKeyValue_ {};
+      // Permission settings.
       shared_ptr<ApiKeys::Auth> auth_ {};
+      // Creator.
       shared_ptr<string> createdBy_ {};
+      // Description.
       shared_ptr<string> description_ {};
+      // Whether the API Key is disabled.
+      // 
+      // - **0**: Active.
+      // - **1**: Disabled.
       shared_ptr<int32_t> disabled_ {};
+      // Creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // Workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -265,15 +277,26 @@ namespace Models
 
 
   protected:
+    // List of API Keys.
     shared_ptr<vector<ListApiKeysResponseBody::ApiKeys>> apiKeys_ {};
+    // Response status code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Page size.
     shared_ptr<int32_t> maxResults_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Used to return more results. This parameter is not required for the first query. The token required for subsequent queries can be obtained from the returned results.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether the API call is successful:
+    // 
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

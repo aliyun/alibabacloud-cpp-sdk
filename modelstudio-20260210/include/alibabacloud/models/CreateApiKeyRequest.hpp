@@ -74,7 +74,14 @@ namespace Models
 
 
     protected:
+      // The IP address whitelist.
+      // 
+      // > 
+      // > - When you use custom permissions, if you do not specify the IP address whitelist, the server sets it to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
       shared_ptr<vector<string>> accessIps_ {};
+      // Valid values:
+      // - All: all permissions.
+      // - Custom: custom permissions.
       shared_ptr<string> type_ {};
     };
 
@@ -104,8 +111,13 @@ namespace Models
 
 
   protected:
+    // The API key permission settings.
     shared_ptr<CreateApiKeyRequest::Auth> auth_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The workspace ID.
+    // > 
+    // > - If you leave this parameter empty, the created API key is automatically assigned to the default workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

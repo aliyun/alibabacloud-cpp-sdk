@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Exact search by API Key ID.
     shared_ptr<int64_t> apiKeyId_ {};
+    // Fuzzy search by description keyword.
     shared_ptr<string> description_ {};
+    // Page size.
     shared_ptr<int32_t> maxResults_ {};
+    // Used to return more results. This parameter is not required for the first query. The token required for subsequent queries can be obtained from the returned results.
     shared_ptr<string> nextToken_ {};
+    // Exact search by workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 
