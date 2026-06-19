@@ -113,26 +113,22 @@ namespace Models
 
   protected:
     // The ID of the automatic snapshot policy.
-    // 
     // - You can specify only one of AutoSnapshotPolicyId and DiskId.
     shared_ptr<string> autoSnapshotPolicyId_ {};
-    // The ID of the disk.
-    // 
+    // The cloud disk ID.
     // - You can specify only one of AutoSnapshotPolicyId and DiskId.
     shared_ptr<string> diskId_ {};
-    // The number of entries to return on each page. Maximum value: 100.
+    // The maximum number of entries per page for paging queries. Maximum value: 100.
     // 
     // Default value:
-    // 
-    // - If you do not specify this parameter or if you set this parameter to a value that is smaller than 10, the default value is 10.
-    // 
-    // - If you set a value greater than 100, the default value is 100.
+    // - If this parameter is not set or is set to a value less than 10, the default value is 10.
+    // - If the value is set to a value greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the automatic snapshot policy. You can call the [DescribeRegions](https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeregions?spm=a2c4g.11186623.0.i11) operation to view the latest list of Alibaba Cloud regions.
+    // The region ID of the automatic snapshot policy. You can call [DescribeRegions](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-describeregions) to query the most recent list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

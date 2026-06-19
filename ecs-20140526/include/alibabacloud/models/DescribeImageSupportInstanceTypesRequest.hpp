@@ -80,9 +80,14 @@ namespace Models
 
 
     protected:
-      // Filter N used to filter instance types.
+      // The filter condition key. Currently, only filtering by image ID is supported. Valid values:
+      // - imageId: filters by image ID.
+      // - filter: filters by image ID.
+      // 
+      // > This parameter is not effective and will be deprecated soon.
       shared_ptr<string> key_ {};
-      // The ID of the image.
+      // The filter condition value.
+      // > This parameter is not effective and will be deprecated soon.
       shared_ptr<string> value_ {};
     };
 
@@ -143,16 +148,15 @@ namespace Models
   protected:
     // The scenario in which the image is used. Valid values:
     // 
-    // - CreateEcs (default): instance creation
-    // 
-    // - ChangeOS: replacement of the system disk or operating system
+    // - CreateEcs (default): instance creation.
+    // - ChangeOS: replacement of the system disk or operating system.
     shared_ptr<string> actionType_ {};
-    // The number of vCPUs of the instance type.
+    // The list of filter conditions for querying resources.
     shared_ptr<vector<DescribeImageSupportInstanceTypesRequest::Filter>> filter_ {};
-    // The region ID of the image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The image ID.
     shared_ptr<string> imageId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Details about the instance types that are supported by the image.
+    // The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

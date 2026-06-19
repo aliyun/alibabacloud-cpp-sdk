@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the launch template. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
     shared_ptr<string> launchTemplateId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

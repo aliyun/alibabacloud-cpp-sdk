@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The new description of the security group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // The description of the security group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     // 
-    // By default, the parameter is empty, which indicates that the description remains unchanged.
+    // Default value: null. The description is not modified.
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -119,9 +119,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
-    // The new name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the security group. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters that are categorized as letters in Unicode, including Chinese characters, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
     // 
-    // By default, the parameter is empty, which indicates that the name remains unchanged.
+    // Default value: null. The name is not modified.
     shared_ptr<string> securityGroupName_ {};
   };
 

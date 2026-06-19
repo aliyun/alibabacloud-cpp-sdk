@@ -103,24 +103,24 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the maintenance window. If this parameter is not specified, the enabled status remains unchanged.
+    // Specifies whether to enable or disable the O&M window. Leave this parameter empty if no modification is needed.
     shared_ptr<bool> enable_ {};
     shared_ptr<int32_t> minMaintenanceInterval_ {};
-    // The ID of the maintenance window to modify.
+    // The ID of the O&M window to modify. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> planWindowId_ {};
-    // The new name of the maintenance window. If this parameter is not specified, the name remains unchanged.
+    // The name of the O&M window. Leave this parameter empty if no modification is needed.
     shared_ptr<string> planWindowName_ {};
-    // The ID of the region where the instance is located. You can call the DescribeRegions operation to query the most recent list of Alibaba Cloud regions.
+    // The region ID of the instance. You can call DescribeRegions to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The maintenance action for the maintenance window. If this parameter is not specified, the action remains unchanged.
+    // The supported O&M actions. Leave this parameter empty if no modification is needed.
     shared_ptr<string> supportMaintenanceAction_ {};
-    // The resources to which the maintenance window applies. If this parameter is not specified, the target resources remain unchanged.
+    // The resource to which the O&M window applies. Leave this parameter empty if no modification is needed.
     shared_ptr<string> targetResourceShrink_ {};
-    // The recurrence schedule for the maintenance window. If this parameter is not specified, the schedule remains unchanged.
+    // The recurring cycle of the O&M window. Leave this parameter empty if no modification is needed.
     shared_ptr<string> timePeriodShrink_ {};
   };
 

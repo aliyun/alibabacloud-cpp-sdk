@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the key pair. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+      // The key of tag N of the key pair. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the key pair. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http\\:// or https\\://. The tag value cannot start with acs:.
+      // The value of tag N of the key pair. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with acs:. The tag value cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -141,20 +141,20 @@ namespace Models
 
 
   protected:
-    // The name of the key pair. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // The name of the key pair. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
     // 
     // This parameter is required.
     shared_ptr<string> keyPairName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region in which to create the key pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the key pair. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which to add the key pair.
+    // The ID of the resource group to which the SSH key pair belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags of the key pair.
+    // The tags.
     shared_ptr<vector<CreateKeyPairRequest::Tag>> tag_ {};
   };
 

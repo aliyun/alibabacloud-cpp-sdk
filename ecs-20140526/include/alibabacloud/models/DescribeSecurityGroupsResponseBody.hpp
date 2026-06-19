@@ -371,22 +371,22 @@ namespace Models
 
 
   protected:
-    // A pagination token. If the return value of this parameter is empty when MaxResults and NextToken are used for a paged query, no next page exists.
+    // The query token returned in this call. When you use the MaxResults and NextToken method for paged queries and this return value is empty, no more data is available.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number.
     // 
-    // > This parameter will be deprecated in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged queries.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
-    // > This parameter will be deprecated in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged queries.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the security group.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSecurityGroupsResponseBody::SecurityGroups> securityGroups_ {};
-    // The total number of security groups returned. If `MaxResults` and `NextToken` are specified in the request, the value of this parameter is not returned.
+    // The total number of security groups. This parameter value is not returned when you use the `MaxResults` and `NextToken` parameters for queries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

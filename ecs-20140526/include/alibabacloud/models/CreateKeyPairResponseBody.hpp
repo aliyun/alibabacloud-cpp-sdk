@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The fingerprint of the key pair. The message-digest algorithm 5 (MD5) is used based on the public key fingerprint format defined in RFC 4716. For more information, see [RFC 4716](https://tools.ietf.org/html/rfc4716).
+    // The fingerprint of the key pair. The public key fingerprint format is defined by RFC 4716 and uses the MD5 message digest algorithm. For more information, see [RFC 4716](https://tools.ietf.org/html/rfc4716).
     shared_ptr<string> keyPairFingerPrint_ {};
-    // The ID of the key pair.
+    // The ID of the SSH key pair.
     shared_ptr<string> keyPairId_ {};
     // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
-    // The private key of the key pair. The private key is encoded with PEM in the PKCS#8 format.
+    // The private key of the key pair. The private key is PEM-encoded in PKCS#8 format.
     shared_ptr<string> privateKeyBody_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

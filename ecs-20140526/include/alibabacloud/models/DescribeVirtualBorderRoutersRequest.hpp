@@ -82,9 +82,7 @@ namespace Models
 
 
     protected:
-      // The filter key. Set the value to `VbrId`.
       shared_ptr<string> key_ {};
-      // The filter value. The value must be an array of VBR IDs.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -143,15 +141,10 @@ namespace Models
 
 
   protected:
-    // The filter conditions.
     shared_ptr<vector<DescribeVirtualBorderRoutersRequest::Filter>> filter_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages are numbered starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the Virtual Border Router (VBR) is located. You can call the `DescribeRegions` operation to obtain the most recent list of regions.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

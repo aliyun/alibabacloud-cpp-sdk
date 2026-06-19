@@ -106,17 +106,17 @@ namespace Models
 
 
   protected:
-    // The version numbers of the launch template.
+    // The version numbers of the launch template to delete.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> deleteVersion_ {};
-    // The ID of the launch template. For more information, call the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation.
+    // The ID of the launch template to delete. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
     shared_ptr<string> launchTemplateId_ {};
     // The name of the launch template.
     shared_ptr<string> launchTemplateName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the launch template. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list of Alibaba Cloud.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

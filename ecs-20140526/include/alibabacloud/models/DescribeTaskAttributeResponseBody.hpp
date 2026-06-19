@@ -331,25 +331,24 @@ namespace Models
     // The time when the task was completed.
     shared_ptr<string> finishedTime_ {};
     shared_ptr<DescribeTaskAttributeResponseBody::OperationProgressSet> operationProgressSet_ {};
-    // The region ID of the task.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of completed tasks.
+    // The number of successful tasks.
     shared_ptr<int32_t> successCount_ {};
-    // Indicates whether the task can be canceled by calling the [CancelTask](https://help.aliyun.com/document_detail/25624.html) operation. Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // Indicates whether the task can be canceled ([CancelTask](https://help.aliyun.com/document_detail/25624.html)). Valid values: 
+    //          
+    // - true: The task can be canceled. 
+    // - false: The task cannot be canceled.
     shared_ptr<string> supportCancel_ {};
-    // The name of the operation that generated the task.
+    // The name of the API operation associated with the task.
     shared_ptr<string> taskAction_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // The progress of the task.
+    // The task progress.
     shared_ptr<string> taskProcess_ {};
-    // The status of the task.
+    // The task status.
     shared_ptr<string> taskStatus_ {};
     // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};

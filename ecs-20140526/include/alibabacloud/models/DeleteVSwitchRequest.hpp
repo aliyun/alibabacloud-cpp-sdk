@@ -86,12 +86,9 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the VSwitch. You can call the ~~DescribeRegions~~ operation to query the most recent list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the VSwitch that you want to delete.
-    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
   };

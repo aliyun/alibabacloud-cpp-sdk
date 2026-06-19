@@ -123,45 +123,40 @@ namespace Models
   protected:
     // The billing method of the instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
     // 
-    // - PrePaid: subscription
-    // 
-    // - PostPaid: pay-as-you-go
+    // - PrePaid: subscription.
+    // - PostPaid: pay-as-you-go.
     // 
     // Default value: PostPaid.
     shared_ptr<string> instanceChargeType_ {};
-    // The instance type. For information about the values, see [Overview of ECS instance families](https://help.aliyun.com/document_detail/25378.html).
+    // The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // Specifies the operation for which to query the maximum public bandwidth. Valid values:
+    // The operation type for querying public bandwidth limits. Valid values:
     // 
     // - Upgrade: upgrades the public bandwidth.
-    // 
     // - Downgrade: downgrades the public bandwidth.
-    // 
     // - Create: creates an ECS instance.
     // 
     // Default value: Create.
     shared_ptr<string> operationType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The ID of the target region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource ID.
     // 
-    // > This parameter is required when the OperationType parameter is set to Upgrade or Downgrade.
+    // > When you set the OperationType parameter to Upgrade or Downgrade, the ResourceId parameter is required.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The bidding policy for the pay-as-you-go instance. Valid values:
+    // The bidding strategy for pay-as-you-go instances. Valid values:
     // 
-    // - NoSpot: The instance is a pay-as-you-go instance.
-    // 
-    // - SpotWithPriceLimit: The instance is a spot instance for which you can specify the maximum hourly price.
-    // 
-    // - SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+    // - NoSpot: a regular pay-as-you-go instance.
+    // - SpotWithPriceLimit: a preemptible instance with a user-defined maximum hourly price.
+    // - SpotAsPriceGo: a preemptible instance priced at the market price at the time of purchase.
     // 
     // Default value: NoSpot.
     // 

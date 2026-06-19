@@ -214,15 +214,10 @@ namespace Models
 
 
   protected:
-    // Contains details about the access points.
     shared_ptr<DescribeAccessPointsResponseBody::AccessPointSet> accessPointSet_ {};
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of access points.
     shared_ptr<int32_t> totalCount_ {};
   };
 

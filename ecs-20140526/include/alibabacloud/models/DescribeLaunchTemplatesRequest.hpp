@@ -88,11 +88,11 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the launch template. Valid values of N: 1 to 20.
+      // The tag key of the launch template. Valid values of N: 1 to 20.
       // 
-      // If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // If you use a single tag to filter resources, the number of resources with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the number of resources that are bound with all the specified tags cannot exceed 1000. If the number of resources exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query them.
       shared_ptr<string> key_ {};
-      // The value of tag N of the launch template. Valid values of N: 1 to 20.
+      // The tag value of the launch template. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -183,41 +183,40 @@ namespace Models
 
 
   protected:
-    // The IDs of launch templates.
+    // An array of one or more launch template IDs.
     // 
-    // - You can query up to 100 launch templates.
+    // - You can query up to 100 launch templates at a time.
     // 
-    // - You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
+    // - You must specify LaunchTemplateId or LaunchTemplateName to determine the templates.
     shared_ptr<vector<string>> launchTemplateId_ {};
-    // The names of launch templates.
+    // An array of one or more launch template names.
     // 
-    // - You can query up to 100 launch templates.
+    // - You can query up to 100 launch templates at a time.
     // 
-    // - You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
+    // - You must specify LaunchTemplateId or LaunchTemplateName to determine the templates.
     shared_ptr<vector<string>> launchTemplateName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Page starts from page 1.
+    // The page number of the launch template list. Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paginated query.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the resource group to which the launch template belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
+    // The ID of the resource group to which the launch template belongs. When you use this parameter to filter resources, the number of resources cannot exceed 1000.
     // 
-    // > The default resource group is not supported.
+    // > Filtering by the default resource group is not supported.
     shared_ptr<string> templateResourceGroupId_ {};
-    // The tags of the launch template.
-    // 
-    // > You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
+    // The list of tag key-value pairs of the launch template.
+    // > Currently, you can create and query launch template tags only by calling API operations. The console does not support creating or viewing launch template tags.
     shared_ptr<vector<DescribeLaunchTemplatesRequest::TemplateTag>> templateTag_ {};
   };
 

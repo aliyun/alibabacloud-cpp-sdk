@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Indicates whether the maintenance window is enabled.
+    // Specifies whether the window is enabled or disabled.
     shared_ptr<bool> enable_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the last query as the value of NextToken.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the maintenance window.
+    // The ID of the O&M window.
     shared_ptr<string> planWindowId_ {};
-    // The name of the maintenance window.
+    // The name of the O&M window.
     shared_ptr<string> planWindowName_ {};
-    // The ID of the region where the ECS instance is located. You can call the DescribeRegions operation to query the latest list of Alibaba Cloud regions.
+    // The region ID of the instance. You can call DescribeRegions to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the maintenance window applies.
+    // The ID of the resource group to which the O&M window applies.
     shared_ptr<string> targetResourceGroupId_ {};
-    // The tags of the resources to which the maintenance window applies.
+    // The tags to which the O&M window applies.
     shared_ptr<string> targetResourceTagsShrink_ {};
   };
 

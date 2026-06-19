@@ -173,14 +173,14 @@ namespace Models
 
 
   protected:
-    // The number of instances from which the SSH key pair failed to be unbound.
+    // The number of instances from which the key pair failed to be unbound.
     shared_ptr<string> failCount_ {};
     // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DetachKeyPairResponseBody::Results> results_ {};
-    // The total number of instances from which you want to unbind the SSH key pair.
+    // The total number of instances from which the key pair is unbound.
     shared_ptr<string> totalCount_ {};
   };
 

@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the redeployment task.
     // 
-    // You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the redeployment result.
+    // You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the migration result.
     shared_ptr<string> taskId_ {};
   };
 

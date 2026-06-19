@@ -84,12 +84,7 @@ namespace Models
 
 
     protected:
-      // The filter key. Valid values:
-      // 
-      // - `AccessPointId`: Filter by access point ID.
-      // - `AccessPointName`: Filter by access point name.
       shared_ptr<string> key_ {};
-      // The filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -155,26 +150,14 @@ namespace Models
 
 
   protected:
-    // The filters to apply to the query results.
     shared_ptr<vector<DescribeAccessPointsRequest::Filter>> filter_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
-    // 
-    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page.
-    // 
-    // Valid values: 1 to 100.
-    // 
-    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the access points are located. Call the `DescribeRegions` operation to query the latest list of regions.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the access point. Set the value to `ecs`.
     shared_ptr<string> type_ {};
   };
 

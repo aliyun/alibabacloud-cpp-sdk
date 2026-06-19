@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the deployment set that you want to delete.
+    // The ID of the deployment set to delete.
     // 
     // This parameter is required.
     shared_ptr<string> deploymentSetId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the deployment set. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent Alibaba Cloud region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

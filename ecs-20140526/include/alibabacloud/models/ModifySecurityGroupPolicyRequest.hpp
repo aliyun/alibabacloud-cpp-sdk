@@ -103,21 +103,20 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The internal access control policy of the security group. Valid values:
+    // The internal connectivity policy between ECS instances in the security group. Valid values:
     // 
-    // - Accept: the internal interconnectivity policy
+    // - Accept: intra-group connectivity
+    // - Drop: internal isolation
     // 
-    // - Drop: the internal isolation policy
-    // 
-    // > The value of this parameter is case-insensitive.
+    // >The value is case-insensitive.
     // 
     // This parameter is required.
     shared_ptr<string> innerAccessPolicy_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the security group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

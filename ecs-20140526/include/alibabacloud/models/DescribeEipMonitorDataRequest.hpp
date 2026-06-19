@@ -112,24 +112,16 @@ namespace Models
 
 
   protected:
-    // The allocation ID of the EIP.
-    // 
     // This parameter is required.
     shared_ptr<string> allocationId_ {};
-    // The end of the query time range, in UTC. Specify the time in the ISO 8601 format: `YYYY-MM-DDThh:mm:ssZ`. The end time must be later than `StartTime`.
-    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The aggregation period for monitoring data, in seconds. Valid values: 60, 300, and 900.
     shared_ptr<int32_t> period_ {};
-    // The region ID of the Elastic IP Address (EIP). You can call the `DescribeRegions` operation to get the latest list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start of the query time range, in UTC. Specify the time in the ISO 8601 format: `YYYY-MM-DDThh:mm:ssZ`. The start time must be within the past 30 days and earlier than `EndTime`.
-    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

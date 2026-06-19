@@ -101,21 +101,16 @@ namespace Models
 
 
       protected:
-        // The end time of the maintenance window.
+        // The end time of the O&M window.
         // 
-        // - If `PeriodUnit` is set to `Weekly`, use the format `Day,HH:mm`. Valid values for `Day` are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
-        // 
-        // - If `PeriodUnit` is set to `Daily`, use the format `HH:mm`.
-        // 
-        // - The time is in `HH:mm` format, where `HH` is the hour (00-23) and `mm` is the minute. Only `00` is supported for the minute.
+        // - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+        // - If PeriodUnit is set to Daily, the format is 22:00.
+        // - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute, which currently supports only 00.
         shared_ptr<string> endTime_ {};
-        // The start time of the maintenance window.
-        // 
-        // - If `PeriodUnit` is set to `Weekly`, use the format `Day,HH:mm`. Valid values for `Day` are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
-        // 
-        // - If `PeriodUnit` is set to `Daily`, use the format `HH:mm`.
-        // 
-        // - The time is in `HH:mm` format, where `HH` is the hour (00-23) and `mm` is the minute. Only `00` is supported for the minute.
+        // The start time of the O&M window.
+        // - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+        // - If PeriodUnit is set to Daily, the format is 22:00.
+        // - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute, which currently supports only 00.
         shared_ptr<string> startTime_ {};
       };
 
@@ -138,11 +133,11 @@ namespace Models
 
 
     protected:
-      // Specifies how often the maintenance window recurs.
+      // The cycle type. Valid values: Daily and Weekly.
       // 
       // This parameter is required.
       shared_ptr<string> periodUnit_ {};
-      // The time ranges of the recurring maintenance window. All times are in UTC.
+      // The time ranges of the recurring cycle of the O&M window (in UTC).
       // 
       // This parameter is required.
       shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
@@ -209,9 +204,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of the tag on which the O&M window takes effect.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of the tag on which the O&M window takes effect.
         shared_ptr<string> value_ {};
       };
 
@@ -241,13 +236,13 @@ namespace Models
 
 
     protected:
-      // The ID of the resource group. This parameter is required if `Scope` is set to `ResourceGroup`.
+      // The ID of the resource group. This parameter is required when Scope is set to ResourceGroup.
       shared_ptr<string> resourceGroupId_ {};
-      // The scope of resources to which the maintenance window applies.
+      // The type of resources for which the O&M window is configured.
       // 
       // This parameter is required.
       shared_ptr<string> scope_ {};
-      // The tags of the resources to which the maintenance window applies. This parameter is required if `Scope` is set to `Tag`.
+      // The tags on which the O&M window takes effect. This parameter is required when Scope is set to Tag.
       shared_ptr<vector<TargetResource::Tags>> tags_ {};
     };
 
@@ -308,32 +303,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the maintenance window.
+    // Specifies whether to enable or disable the O&M window.
     // 
-    // - **true**: Enables the maintenance window.
-    // 
-    // - **false**: Disables the maintenance window.
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
     shared_ptr<int32_t> minMaintenanceInterval_ {};
-    // The name of the maintenance window. The name can be up to 200 characters long.
+    // The name of the O&M window. You can specify a custom name. The name can be up to 200 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> planWindowName_ {};
-    // The ID of the region. You can call the DescribeRegions operation to query the latest list of Alibaba Cloud regions.
+    // The region ID. You can call DescribeRegions to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The maintenance operation supported by the maintenance window.
+    // The O&M operations supported by the O&M window.
     // 
     // This parameter is required.
     shared_ptr<string> supportMaintenanceAction_ {};
-    // The resources to which the maintenance window applies.
+    // The resources on which the O&M window takes effect.
     // 
     // This parameter is required.
     shared_ptr<CreatePlanMaintenanceWindowRequest::TargetResource> targetResource_ {};
-    // The recurring schedule for the maintenance window.
+    // The recurring cycle of the O&M window.
     // 
     // This parameter is required.
     shared_ptr<CreatePlanMaintenanceWindowRequest::TimePeriod> timePeriod_ {};

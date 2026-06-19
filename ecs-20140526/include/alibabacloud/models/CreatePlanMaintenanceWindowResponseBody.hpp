@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the maintenance window.
+    // The ID of the created O&M window.
     shared_ptr<string> planWindowId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

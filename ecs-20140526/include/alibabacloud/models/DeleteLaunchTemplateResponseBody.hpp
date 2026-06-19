@@ -95,7 +95,7 @@ namespace Models
   protected:
     // The ID of the launch template. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
     // 
-    // You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+    // When you use a launch template to create an instance, you must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the launch template.
     shared_ptr<string> launchTemplateId_ {};
     shared_ptr<DeleteLaunchTemplateResponseBody::LaunchTemplateVersionNumbers> launchTemplateVersionNumbers_ {};
     // The request ID.

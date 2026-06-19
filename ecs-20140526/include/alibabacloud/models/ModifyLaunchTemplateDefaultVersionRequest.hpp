@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The default version number of the instance launch template.
+    // The version number of the launch template to be set as the default version.
     // 
     // This parameter is required.
     shared_ptr<int64_t> defaultVersionNumber_ {};
-    // The ID of the launch template. You must specify the LaunchTemplateId or LaunchTemplateName parameter to determine an instance launch template.
+    // The ID of the launch template. You must specify LaunchTemplateId or LaunchTemplateName to determine the template.
     shared_ptr<string> launchTemplateId_ {};
-    // The name of the instance launch template. You must specify the LaunchTemplateId or LaunchTemplateName parameter to determine an instance launch template.
+    // The name of the launch template. You must specify LaunchTemplateId or LaunchTemplateName to determine the template.
     shared_ptr<string> launchTemplateName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

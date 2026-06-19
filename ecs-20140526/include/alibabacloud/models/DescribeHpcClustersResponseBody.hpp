@@ -166,7 +166,7 @@ namespace Models
     shared_ptr<DescribeHpcClustersResponseBody::HpcClusters> hpcClusters_ {};
     // The page number of the HPC cluster list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page that was set when the request was made.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

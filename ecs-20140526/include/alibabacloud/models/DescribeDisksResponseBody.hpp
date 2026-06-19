@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
           DARABONBA_PTR_TO_JSON(Category, category_);
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_TO_JSON(DataSource, dataSource_);
           DARABONBA_PTR_TO_JSON(DeleteAutoSnapshot, deleteAutoSnapshot_);
           DARABONBA_PTR_TO_JSON(DeleteWithInstance, deleteWithInstance_);
           DARABONBA_PTR_TO_JSON(Description, description_);
@@ -121,6 +122,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
           DARABONBA_PTR_FROM_JSON(Category, category_);
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_FROM_JSON(DataSource, dataSource_);
           DARABONBA_PTR_FROM_JSON(DeleteAutoSnapshot, deleteAutoSnapshot_);
           DARABONBA_PTR_FROM_JSON(DeleteWithInstance, deleteWithInstance_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -431,6 +433,48 @@ namespace Models
           shared_ptr<vector<MountInstances::MountInstance>> mountInstance_ {};
         };
 
+        class DataSource : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DataSource& obj) { 
+            DARABONBA_PTR_TO_JSON(Id, id_);
+            DARABONBA_PTR_TO_JSON(Type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, DataSource& obj) { 
+            DARABONBA_PTR_FROM_JSON(Id, id_);
+            DARABONBA_PTR_FROM_JSON(Type, type_);
+          };
+          DataSource() = default ;
+          DataSource(const DataSource &) = default ;
+          DataSource(DataSource &&) = default ;
+          DataSource(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DataSource() = default ;
+          DataSource& operator=(const DataSource &) = default ;
+          DataSource& operator=(DataSource &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->id_ == nullptr
+        && this->type_ == nullptr; };
+          // id Field Functions 
+          bool hasId() const { return this->id_ != nullptr;};
+          void deleteId() { this->id_ = nullptr;};
+          inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+          inline DataSource& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline DataSource& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          shared_ptr<string> id_ {};
+          shared_ptr<string> type_ {};
+        };
+
         class Attachments : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Attachments& obj) { 
@@ -518,15 +562,15 @@ namespace Models
 
         virtual bool empty() const override { return this->attachedTime_ == nullptr
         && this->attachments_ == nullptr && this->autoSnapshotPolicyId_ == nullptr && this->bdfId_ == nullptr && this->burstingEnabled_ == nullptr && this->category_ == nullptr
-        && this->creationTime_ == nullptr && this->deleteAutoSnapshot_ == nullptr && this->deleteWithInstance_ == nullptr && this->description_ == nullptr && this->detachedTime_ == nullptr
-        && this->device_ == nullptr && this->diskChargeType_ == nullptr && this->diskId_ == nullptr && this->diskName_ == nullptr && this->enableAutoSnapshot_ == nullptr
-        && this->enableAutomatedSnapshotPolicy_ == nullptr && this->encrypted_ == nullptr && this->expiredTime_ == nullptr && this->IOPS_ == nullptr && this->IOPSRead_ == nullptr
-        && this->IOPSWrite_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr && this->KMSKeyId_ == nullptr && this->mountInstanceNum_ == nullptr
-        && this->mountInstances_ == nullptr && this->multiAttach_ == nullptr && this->operationLocks_ == nullptr && this->performanceLevel_ == nullptr && this->placement_ == nullptr
-        && this->portable_ == nullptr && this->productCode_ == nullptr && this->provisionedIops_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->serialNumber_ == nullptr && this->size_ == nullptr && this->sourceDiskId_ == nullptr && this->sourceSnapshotId_ == nullptr && this->status_ == nullptr
-        && this->storageClusterId_ == nullptr && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr && this->tags_ == nullptr && this->throughput_ == nullptr
-        && this->throughputRead_ == nullptr && this->throughputWrite_ == nullptr && this->type_ == nullptr && this->zoneId_ == nullptr; };
+        && this->creationTime_ == nullptr && this->dataSource_ == nullptr && this->deleteAutoSnapshot_ == nullptr && this->deleteWithInstance_ == nullptr && this->description_ == nullptr
+        && this->detachedTime_ == nullptr && this->device_ == nullptr && this->diskChargeType_ == nullptr && this->diskId_ == nullptr && this->diskName_ == nullptr
+        && this->enableAutoSnapshot_ == nullptr && this->enableAutomatedSnapshotPolicy_ == nullptr && this->encrypted_ == nullptr && this->expiredTime_ == nullptr && this->IOPS_ == nullptr
+        && this->IOPSRead_ == nullptr && this->IOPSWrite_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr && this->KMSKeyId_ == nullptr
+        && this->mountInstanceNum_ == nullptr && this->mountInstances_ == nullptr && this->multiAttach_ == nullptr && this->operationLocks_ == nullptr && this->performanceLevel_ == nullptr
+        && this->placement_ == nullptr && this->portable_ == nullptr && this->productCode_ == nullptr && this->provisionedIops_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->serialNumber_ == nullptr && this->size_ == nullptr && this->sourceDiskId_ == nullptr && this->sourceSnapshotId_ == nullptr
+        && this->status_ == nullptr && this->storageClusterId_ == nullptr && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr && this->tags_ == nullptr
+        && this->throughput_ == nullptr && this->throughputRead_ == nullptr && this->throughputWrite_ == nullptr && this->type_ == nullptr && this->zoneId_ == nullptr; };
         // attachedTime Field Functions 
         bool hasAttachedTime() const { return this->attachedTime_ != nullptr;};
         void deleteAttachedTime() { this->attachedTime_ = nullptr;};
@@ -576,6 +620,15 @@ namespace Models
         void deleteCreationTime() { this->creationTime_ = nullptr;};
         inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
         inline Disk& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+        // dataSource Field Functions 
+        bool hasDataSource() const { return this->dataSource_ != nullptr;};
+        void deleteDataSource() { this->dataSource_ = nullptr;};
+        inline const Disk::DataSource & getDataSource() const { DARABONBA_PTR_GET_CONST(dataSource_, Disk::DataSource) };
+        inline Disk::DataSource getDataSource() { DARABONBA_PTR_GET(dataSource_, Disk::DataSource) };
+        inline Disk& setDataSource(const Disk::DataSource & dataSource) { DARABONBA_PTR_SET_VALUE(dataSource_, dataSource) };
+        inline Disk& setDataSource(Disk::DataSource && dataSource) { DARABONBA_PTR_SET_RVALUE(dataSource_, dataSource) };
 
 
         // deleteAutoSnapshot Field Functions 
@@ -895,6 +948,7 @@ namespace Models
         shared_ptr<bool> burstingEnabled_ {};
         shared_ptr<string> category_ {};
         shared_ptr<string> creationTime_ {};
+        shared_ptr<Disk::DataSource> dataSource_ {};
         shared_ptr<bool> deleteAutoSnapshot_ {};
         shared_ptr<bool> deleteWithInstance_ {};
         shared_ptr<string> description_ {};
@@ -1002,17 +1056,16 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDisksResponseBody::Disks> disks_ {};
-    // The token returned to retrieve the next page of results.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // > This parameter is deprecated. We recommend that you use the `NextToken `and `MaxResults `parameters for pagination.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter is deprecated. We recommend that you use the `NextToken `and `MaxResults `parameters for pagination.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    // 
-    // > When you use the`MaxResults` and`NextToken` parameters for pagination, the value of `TotalCount` is invalid.
+    // > When you use MaxResults and NextToken parameters for paging query, the returned TotalCount parameter value is invalid.
     shared_ptr<int32_t> totalCount_ {};
   };
 

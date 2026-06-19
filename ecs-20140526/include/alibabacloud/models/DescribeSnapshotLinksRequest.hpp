@@ -140,35 +140,34 @@ namespace Models
 
 
   protected:
-    // The disk IDs. You can specify a JSON array that contains a maximum of 100 disk IDs. Separate the disk IDs with commas (,).
+    // The IDs of disks. You can specify up to 100 disk IDs at a time. The DiskIds parameter is a JSON array. Separate multiple IDs with commas (,).
     shared_ptr<string> diskIds_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page. Maximum value: 100. Default value:
-    // 
-    // - If you do not specify this parameter or if you set a value smaller than 10, the default value is 10.
-    // 
-    // - If you set a value greater than 100, the default value is 100.
+    // The maximum number of entries per page for a paged query. Maximum value: 100.
+    // Default value:
+    // - If this parameter is not specified or is set to a value less than 10, the default value is 10.
+    // - If this parameter is set to a value greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1.
+    // The page number of the disk status list. Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of entries per page for a paged query. Valid values: 1 to 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the disk. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The snapshot chain IDs. You can specify a JSON array that contains a maximum of 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
+    // The IDs of snapshot chains. You can specify up to 100 snapshot chain IDs at a time. The SnapshotLinkIds parameter is a JSON array. Separate multiple IDs with commas (,).
     shared_ptr<string> snapshotLinkIds_ {};
   };
 

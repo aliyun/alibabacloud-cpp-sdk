@@ -219,7 +219,7 @@ namespace Models
     shared_ptr<DescribeDiskMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of monitoring data entries returned.
+    // The number of entries returned for disk usage information, which is the number of periods.
     shared_ptr<int32_t> totalCount_ {};
   };
 

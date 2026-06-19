@@ -214,15 +214,10 @@ namespace Models
 
 
   protected:
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // A collection of Virtual Border Routers (VBRs).
     shared_ptr<DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody::VirtualBorderRouterForPhysicalConnectionSet> virtualBorderRouterForPhysicalConnectionSet_ {};
   };
 

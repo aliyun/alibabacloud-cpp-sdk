@@ -103,27 +103,16 @@ namespace Models
 
 
   protected:
-    // A client token that ensures the request is idempotent.
-    // 
-    // Your client generates this token, which must be unique for each request. The token can contain only ASCII characters and must not exceed 64 characters in length.
-    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the physical connection.
-    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
-    // The ID of the region where the physical connection is located.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the latest list of regions.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IPv4 CIDR block of the gateway device in your data center.
     shared_ptr<string> userCidr_ {};
   };
 

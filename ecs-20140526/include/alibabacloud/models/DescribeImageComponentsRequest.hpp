@@ -96,9 +96,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N. Valid values of N: 1 to 20.
+      // The tag key. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The value of tag N. Valid values of N: 1 to 20.
+      // The tag value. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -216,55 +216,49 @@ namespace Models
 
 
   protected:
-    // The type of the image component.
+    // The component type.
     // 
     // Valid values:
-    // 
     // - Build
-    // 
-    // - Test
+    // - Test.
     shared_ptr<string> componentType_ {};
-    // The version number of the image component in the \\<major>.\\<minor>.\\<patch> format. You can set \\<major>, \\<minor>, and \\<patch> to non-negative integers, or set one of \\<major>, \\<minor>, and \\<patch> to the wildcard (\\*) and the other two to non-negative integers.
-    // 
-    // > This parameter takes effect only if you specify Name.
+    // The component version number in the format of major.minor.patch. All values are non-negative integers. You can also use the wildcard character (*) to replace one of the values for fuzzy matching.
+    // >This parameter takes effect only when Name is specified.
     shared_ptr<string> componentVersion_ {};
-    // The IDs of image components. Valid values of N: 1 to 20.
+    // The ID of the image component to query. Valid values of N: 1 to 20.
     shared_ptr<vector<string>> imageComponentId_ {};
-    // The maximum number of entries per page. Valid values: 1 to 500.
+    // The maximum number of entries per page for paging. Valid values: 1 to 500.
     // 
     // Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the image component. You must specify an exact name to search for the image component.
+    // The image component name. Only exact match is supported.
     shared_ptr<string> name_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
-    // The type of the image component. Valid values:
+    // The image component type. Valid values:
     // 
-    // - SELF: the custom component that you created.
-    // 
-    // - ALIYUN: the system component provided by Alibaba Cloud.
+    // - SELF: custom image components that you created.
+    // - ALIYUN: system components provided by Alibaba Cloud.
     shared_ptr<string> owner_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the image component. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+    // The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1000.
     // 
-    // > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+    // >Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the operating system supported by the image component.
+    // The operating system supported by the component.
     // 
     // Valid values:
-    // 
     // - Linux
-    // 
-    // - Windows
+    // - Windows.
     shared_ptr<string> systemType_ {};
-    // The tags of the image component.
+    // The tags.
     shared_ptr<vector<DescribeImageComponentsRequest::Tag>> tag_ {};
   };
 

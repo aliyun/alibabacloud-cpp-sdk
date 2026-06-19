@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the HaVip.
     shared_ptr<string> haVipId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -103,23 +103,15 @@ namespace Models
 
 
   protected:
-    // A client-generated, case-sensitive token used to ensure request idempotency. You must ensure that the token is unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the router interface is located.
-    // 
-    // You can call the [DescribeRegions](~~DescribeRegions~~) operation to get the latest list of regions.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the router interface that you want to delete.
-    // 
     // This parameter is required.
     shared_ptr<string> routerInterfaceId_ {};
-    // This parameter is used for auditing and is required in specific scenarios, such as when deleting a router interface for a peer-to-peer connection.
     shared_ptr<string> userCidr_ {};
   };
 

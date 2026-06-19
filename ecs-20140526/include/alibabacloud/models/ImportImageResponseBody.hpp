@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The image import task ID.
+    // The ID of the image import task.
     shared_ptr<string> taskId_ {};
   };
 

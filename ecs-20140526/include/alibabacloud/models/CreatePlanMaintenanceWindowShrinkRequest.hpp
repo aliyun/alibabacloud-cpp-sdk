@@ -94,32 +94,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the maintenance window.
+    // Specifies whether to enable or disable the O&M window.
     // 
-    // - **true**: Enables the maintenance window.
-    // 
-    // - **false**: Disables the maintenance window.
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
     shared_ptr<int32_t> minMaintenanceInterval_ {};
-    // The name of the maintenance window. The name can be up to 200 characters long.
+    // The name of the O&M window. You can specify a custom name. The name can be up to 200 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> planWindowName_ {};
-    // The ID of the region. You can call the DescribeRegions operation to query the latest list of Alibaba Cloud regions.
+    // The region ID. You can call DescribeRegions to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The maintenance operation supported by the maintenance window.
+    // The O&M operations supported by the O&M window.
     // 
     // This parameter is required.
     shared_ptr<string> supportMaintenanceAction_ {};
-    // The resources to which the maintenance window applies.
+    // The resources on which the O&M window takes effect.
     // 
     // This parameter is required.
     shared_ptr<string> targetResourceShrink_ {};
-    // The recurring schedule for the maintenance window.
+    // The recurring cycle of the O&M window.
     // 
     // This parameter is required.
     shared_ptr<string> timePeriodShrink_ {};

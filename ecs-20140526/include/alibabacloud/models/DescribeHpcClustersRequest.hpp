@@ -112,26 +112,25 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The IDs of HPC clusters.
-    // The value can be a JSON array that consists of multiple HPC cluster IDs. You can specify up to 100 IDs. Separate the IDs with commas (,).
+    // The IDs of HPC clusters. The value can be a JSON array that consists of up to 100 HPC cluster IDs. Separate the IDs with commas (,).
     shared_ptr<string> hpcClusterIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number of the HPC cluster list.
     // 
-    // Start value: 1
+    // Minimum value: 1.
     // 
-    // Default value: 1
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page set for paginated queries.
+    // The number of entries per page for a paged query.
     // 
-    // Maximum value: 100
+    // Maximum value: 100.
     // 
-    // Default value: 10
+    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

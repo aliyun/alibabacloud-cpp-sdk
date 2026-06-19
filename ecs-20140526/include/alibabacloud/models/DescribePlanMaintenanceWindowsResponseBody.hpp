@@ -132,9 +132,9 @@ namespace Models
 
 
         protected:
-          // The end time of the time range.
+          // The end time of the maintenance time window.
           shared_ptr<string> endTime_ {};
-          // The start time of the time range.
+          // The start time of the maintenance time window.
           shared_ptr<string> startTime_ {};
         };
 
@@ -157,9 +157,11 @@ namespace Models
 
 
       protected:
-        // The recurrence frequency. Valid values: Daily and Weekly.
+        // The type of the recurrence cycle. Valid values:
+        // - Daily: daily recurrence.
+        // - Weekly: weekly recurrence.
         shared_ptr<string> periodUnit_ {};
-        // The recurring UTC time ranges for the maintenance window.
+        // The time ranges within the recurrence cycle of the O&M window (in UTC).
         shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
       };
 
@@ -256,11 +258,11 @@ namespace Models
 
 
       protected:
-        // The ID of the target resource group.
+        // The ID of the resource group to which the O&M window applies.
         shared_ptr<string> resourceGroupId_ {};
-        // The scope of the target resources. Valid values: Tag, ResourceGroup, Instance, and AliUid.
+        // The type of resources for which the O&M window is configured.
         shared_ptr<string> scope_ {};
-        // The target tags.
+        // The tags to which the O&M window applies.
         shared_ptr<vector<TargetResource::Tags>> tags_ {};
       };
 
@@ -335,26 +337,26 @@ namespace Models
 
 
     protected:
-      // The creation time of the maintenance window.
+      // The time when the O&M window was created.
       // 
-      // The time is in UTC and follows the ISO 8601 standard, formatted as yyyy-MM-ddTHH:mm:ssZ.
+      // The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the maintenance window is enabled.
+      // Indicates whether the O&M window is enabled.
       shared_ptr<bool> enable_ {};
       shared_ptr<int32_t> minMaintenanceInterval_ {};
-      // The modification time of the maintenance window.
+      // The time when the O&M window was last modified.
       // 
-      // The time is in UTC and follows the ISO 8601 standard, formatted as yyyy-MM-ddTHH:mm:ssZ.
+      // The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifiedTime_ {};
-      // The ID of the maintenance window.
+      // The ID of the O&M window.
       shared_ptr<string> planWindowId_ {};
-      // The name of the maintenance window.
+      // The name of the O&M window.
       shared_ptr<string> planWindowName_ {};
-      // The supported maintenance action.
+      // The supported maintenance actions.
       shared_ptr<string> supportMaintenanceAction_ {};
-      // The resources targeted by the maintenance window.
+      // The resources to which the O&M window applies.
       shared_ptr<PlanMaintenanceWindowList::TargetResource> targetResource_ {};
-      // The recurrence schedule of the maintenance window.
+      // The recurrence cycle of the window.
       shared_ptr<PlanMaintenanceWindowList::TimePeriod> timePeriod_ {};
     };
 
@@ -398,15 +400,15 @@ namespace Models
 
 
   protected:
-    // The number of entries to return per page. The default value is 10, and the maximum value is 100. If you omit this parameter or specify a value less than 10, the default value is used. If you specify a value greater than 100, the maximum value is used.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The query token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // A list of maintenance windows.
+    // The creation time.
     shared_ptr<vector<DescribePlanMaintenanceWindowsResponseBody::PlanMaintenanceWindowList>> planMaintenanceWindowList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the query. This parameter is optional and not returned by default.
+    // The total number of entries returned under the current query conditions. This parameter is optional and may not be returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 
