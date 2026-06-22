@@ -21,22 +21,22 @@ namespace AgentLoop20260520
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 给记忆库中增加数据
+       * @summary 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
        *
-       * @param request AddMem0MemoriesRequest
+       * @param request AddDatasetDataRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
-       * @return AddMem0MemoriesResponse
+       * @return AddDatasetDataResponse
        */
-      Models::AddMem0MemoriesResponse addMem0MemoriesWithOptions(const Models::AddMem0MemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::AddDatasetDataResponse addDatasetDataWithOptions(const string &agentSpace, const string &datasetName, const Models::AddDatasetDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 给记忆库中增加数据
+       * @summary 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
        *
-       * @param request AddMem0MemoriesRequest
-       * @return AddMem0MemoriesResponse
+       * @param request AddDatasetDataRequest
+       * @return AddDatasetDataResponse
        */
-      Models::AddMem0MemoriesResponse addMem0Memories(const Models::AddMem0MemoriesRequest &request);
+      Models::AddDatasetDataResponse addDatasetData(const string &agentSpace, const string &datasetName, const Models::AddDatasetDataRequest &request);
 
       /**
        * @summary 创建AgentSpace
@@ -183,42 +183,6 @@ namespace AgentLoop20260520
       Models::DeleteDatasetResponse deleteDataset(const string &agentSpace, const string &datasetName, const Models::DeleteDatasetRequest &request);
 
       /**
-       * @summary 批量删除记忆
-       *
-       * @param tmpReq DeleteMem0MemoriesRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteMem0MemoriesResponse
-       */
-      Models::DeleteMem0MemoriesResponse deleteMem0MemoriesWithOptions(const Models::DeleteMem0MemoriesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 批量删除记忆
-       *
-       * @param request DeleteMem0MemoriesRequest
-       * @return DeleteMem0MemoriesResponse
-       */
-      Models::DeleteMem0MemoriesResponse deleteMem0Memories(const Models::DeleteMem0MemoriesRequest &request);
-
-      /**
-       * @summary 删除记忆
-       *
-       * @param request DeleteMem0MemoryRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteMem0MemoryResponse
-       */
-      Models::DeleteMem0MemoryResponse deleteMem0MemoryWithOptions(const string &memoryId, const Models::DeleteMem0MemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 删除记忆
-       *
-       * @param request DeleteMem0MemoryRequest
-       * @return DeleteMem0MemoryResponse
-       */
-      Models::DeleteMem0MemoryResponse deleteMem0Memory(const string &memoryId, const Models::DeleteMem0MemoryRequest &request);
-
-      /**
        * @summary 删除流水线
        *
        * @param request DeletePipelineRequest
@@ -343,42 +307,6 @@ namespace AgentLoop20260520
        * @return GetDatasetResponse
        */
       Models::GetDatasetResponse getDataset(const string &agentSpace, const string &datasetName, const Models::GetDatasetRequest &request);
-
-      /**
-       * @summary 查询记忆库数据
-       *
-       * @param request GetMem0MemoriesRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMem0MemoriesResponse
-       */
-      Models::GetMem0MemoriesResponse getMem0MemoriesWithOptions(const Models::GetMem0MemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询记忆库数据
-       *
-       * @param request GetMem0MemoriesRequest
-       * @return GetMem0MemoriesResponse
-       */
-      Models::GetMem0MemoriesResponse getMem0Memories(const Models::GetMem0MemoriesRequest &request);
-
-      /**
-       * @summary 查询记忆
-       *
-       * @param request GetMem0MemoryRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetMem0MemoryResponse
-       */
-      Models::GetMem0MemoryResponse getMem0MemoryWithOptions(const string &memoryId, const Models::GetMem0MemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询记忆
-       *
-       * @param request GetMem0MemoryRequest
-       * @return GetMem0MemoryResponse
-       */
-      Models::GetMem0MemoryResponse getMem0Memory(const string &memoryId, const Models::GetMem0MemoryRequest &request);
 
       /**
        * @summary 查询流水线
@@ -507,24 +435,6 @@ namespace AgentLoop20260520
       Models::SearchContextResponse searchContext(const string &agentSpace, const string &contextStoreName, const Models::SearchContextRequest &request);
 
       /**
-       * @summary 查询记忆库内容
-       *
-       * @param request SearchMem0MemoriesRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SearchMem0MemoriesResponse
-       */
-      Models::SearchMem0MemoriesResponse searchMem0MemoriesWithOptions(const Models::SearchMem0MemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询记忆库内容
-       *
-       * @param request SearchMem0MemoriesRequest
-       * @return SearchMem0MemoriesResponse
-       */
-      Models::SearchMem0MemoriesResponse searchMem0Memories(const Models::SearchMem0MemoriesRequest &request);
-
-      /**
        * @summary 更新AgentSpace
        *
        * @param request UpdateAgentSpaceRequest
@@ -579,24 +489,6 @@ namespace AgentLoop20260520
       Models::UpdateDatasetResponse updateDataset(const string &agentSpace, const string &datasetName, const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary 修改记忆
-       *
-       * @param request UpdateMem0MemoryRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateMem0MemoryResponse
-       */
-      Models::UpdateMem0MemoryResponse updateMem0MemoryWithOptions(const string &memoryId, const Models::UpdateMem0MemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 修改记忆
-       *
-       * @param request UpdateMem0MemoryRequest
-       * @return UpdateMem0MemoryResponse
-       */
-      Models::UpdateMem0MemoryResponse updateMem0Memory(const string &memoryId, const Models::UpdateMem0MemoryRequest &request);
-
-      /**
        * @summary 更新流水线
        *
        * @param request UpdatePipelineRequest
@@ -613,24 +505,6 @@ namespace AgentLoop20260520
        * @return UpdatePipelineResponse
        */
       Models::UpdatePipelineResponse updatePipeline(const string &agentSpace, const string &pipelineName, const Models::UpdatePipelineRequest &request);
-
-      /**
-       * @summary 校验 Mem0 / ContextStore API Key
-       *
-       * @param request ValidateMem0APIKeyRequest
-       * @param headers map
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ValidateMem0APIKeyResponse
-       */
-      Models::ValidateMem0APIKeyResponse validateMem0APIKeyWithOptions(const Models::ValidateMem0APIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 校验 Mem0 / ContextStore API Key
-       *
-       * @param request ValidateMem0APIKeyRequest
-       * @return ValidateMem0APIKeyResponse
-       */
-      Models::ValidateMem0APIKeyResponse validateMem0APIKey(const Models::ValidateMem0APIKeyRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AgentLoop20260520

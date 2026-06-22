@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SEARCHMEM0MEMORIESRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_SEARCHMEM0MEMORIESRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_ADDDATASETDATARESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_ADDDATASETDATARESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <vector>
+#include <alibabacloud/models/AddDatasetDataResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace AgentLoop20260520
 {
 namespace Models
 {
-  class SearchMem0MemoriesResponse : public Darabonba::Model {
+  class AddDatasetDataResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SearchMem0MemoriesResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const AddDatasetDataResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, SearchMem0MemoriesResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, AddDatasetDataResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    SearchMem0MemoriesResponse() = default ;
-    SearchMem0MemoriesResponse(const SearchMem0MemoriesResponse &) = default ;
-    SearchMem0MemoriesResponse(SearchMem0MemoriesResponse &&) = default ;
-    SearchMem0MemoriesResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SearchMem0MemoriesResponse() = default ;
-    SearchMem0MemoriesResponse& operator=(const SearchMem0MemoriesResponse &) = default ;
-    SearchMem0MemoriesResponse& operator=(SearchMem0MemoriesResponse &&) = default ;
+    AddDatasetDataResponse() = default ;
+    AddDatasetDataResponse(const AddDatasetDataResponse &) = default ;
+    AddDatasetDataResponse(AddDatasetDataResponse &&) = default ;
+    AddDatasetDataResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~AddDatasetDataResponse() = default ;
+    AddDatasetDataResponse& operator=(const AddDatasetDataResponse &) = default ;
+    AddDatasetDataResponse& operator=(AddDatasetDataResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline SearchMem0MemoriesResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline SearchMem0MemoriesResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline AddDatasetDataResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline AddDatasetDataResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline SearchMem0MemoriesResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline AddDatasetDataResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const vector<Darabonba::Json> & getBody() const { DARABONBA_PTR_GET_CONST(body_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> getBody() { DARABONBA_PTR_GET(body_, vector<Darabonba::Json>) };
-    inline SearchMem0MemoriesResponse& setBody(const vector<Darabonba::Json> & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline SearchMem0MemoriesResponse& setBody(vector<Darabonba::Json> && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const AddDatasetDataResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, AddDatasetDataResponseBody) };
+    inline AddDatasetDataResponseBody getBody() { DARABONBA_PTR_GET(body_, AddDatasetDataResponseBody) };
+    inline AddDatasetDataResponse& setBody(const AddDatasetDataResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline AddDatasetDataResponse& setBody(AddDatasetDataResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     shared_ptr<map<string, string>> headers_ {};
     shared_ptr<int32_t> statusCode_ {};
-    shared_ptr<vector<Darabonba::Json>> body_ {};
+    shared_ptr<AddDatasetDataResponseBody> body_ {};
   };
 
   } // namespace Models

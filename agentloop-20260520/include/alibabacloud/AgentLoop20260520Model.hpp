@@ -15,8 +15,9 @@
 #include <alibabacloud/models/IndexJsonKey.hpp>
 #include <alibabacloud/models/IndexKey.hpp>
 #include <alibabacloud/models/RunStrategies.hpp>
-#include <alibabacloud/models/AddMem0MemoriesRequest.hpp>
-#include <alibabacloud/models/AddMem0MemoriesResponse.hpp>
+#include <alibabacloud/models/AddDatasetDataRequest.hpp>
+#include <alibabacloud/models/AddDatasetDataResponseBody.hpp>
+#include <alibabacloud/models/AddDatasetDataResponse.hpp>
 #include <alibabacloud/models/CreateAgentSpaceRequest.hpp>
 #include <alibabacloud/models/CreateAgentSpaceResponseBody.hpp>
 #include <alibabacloud/models/CreateAgentSpaceResponse.hpp>
@@ -41,11 +42,6 @@
 #include <alibabacloud/models/DeleteDatasetRequest.hpp>
 #include <alibabacloud/models/DeleteDatasetResponseBody.hpp>
 #include <alibabacloud/models/DeleteDatasetResponse.hpp>
-#include <alibabacloud/models/DeleteMem0MemoriesRequest.hpp>
-#include <alibabacloud/models/DeleteMem0MemoriesShrinkRequest.hpp>
-#include <alibabacloud/models/DeleteMem0MemoriesResponse.hpp>
-#include <alibabacloud/models/DeleteMem0MemoryRequest.hpp>
-#include <alibabacloud/models/DeleteMem0MemoryResponse.hpp>
 #include <alibabacloud/models/DeletePipelineRequest.hpp>
 #include <alibabacloud/models/DeletePipelineResponseBody.hpp>
 #include <alibabacloud/models/DeletePipelineResponse.hpp>
@@ -67,10 +63,6 @@
 #include <alibabacloud/models/GetDatasetRequest.hpp>
 #include <alibabacloud/models/GetDatasetResponseBody.hpp>
 #include <alibabacloud/models/GetDatasetResponse.hpp>
-#include <alibabacloud/models/GetMem0MemoriesRequest.hpp>
-#include <alibabacloud/models/GetMem0MemoriesResponse.hpp>
-#include <alibabacloud/models/GetMem0MemoryRequest.hpp>
-#include <alibabacloud/models/GetMem0MemoryResponse.hpp>
 #include <alibabacloud/models/GetPipelineRequest.hpp>
 #include <alibabacloud/models/GetPipelineResponseBody.hpp>
 #include <alibabacloud/models/GetPipelineResponse.hpp>
@@ -92,8 +84,6 @@
 #include <alibabacloud/models/SearchContextRequest.hpp>
 #include <alibabacloud/models/SearchContextResponseBody.hpp>
 #include <alibabacloud/models/SearchContextResponse.hpp>
-#include <alibabacloud/models/SearchMem0MemoriesRequest.hpp>
-#include <alibabacloud/models/SearchMem0MemoriesResponse.hpp>
 #include <alibabacloud/models/UpdateAgentSpaceRequest.hpp>
 #include <alibabacloud/models/UpdateAgentSpaceResponseBody.hpp>
 #include <alibabacloud/models/UpdateAgentSpaceResponse.hpp>
@@ -103,12 +93,8 @@
 #include <alibabacloud/models/UpdateDatasetRequest.hpp>
 #include <alibabacloud/models/UpdateDatasetResponseBody.hpp>
 #include <alibabacloud/models/UpdateDatasetResponse.hpp>
-#include <alibabacloud/models/UpdateMem0MemoryRequest.hpp>
-#include <alibabacloud/models/UpdateMem0MemoryResponse.hpp>
 #include <alibabacloud/models/UpdatePipelineRequest.hpp>
 #include <alibabacloud/models/UpdatePipelineResponseBody.hpp>
 #include <alibabacloud/models/UpdatePipelineResponse.hpp>
-#include <alibabacloud/models/ValidateMem0APIKeyRequest.hpp>
-#include <alibabacloud/models/ValidateMem0APIKeyResponse.hpp>
 
 #endif
