@@ -43,27 +43,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionFailStrategy_ == nullptr
-        && return this->executionMoment_ == nullptr && return this->nodeSelect_ == nullptr && return this->priority_ == nullptr && return this->scriptArgs_ == nullptr && return this->scriptName_ == nullptr
-        && return this->scriptPath_ == nullptr; };
+        && this->executionMoment_ == nullptr && this->nodeSelect_ == nullptr && this->priority_ == nullptr && this->scriptArgs_ == nullptr && this->scriptName_ == nullptr
+        && this->scriptPath_ == nullptr; };
     // executionFailStrategy Field Functions 
     bool hasExecutionFailStrategy() const { return this->executionFailStrategy_ != nullptr;};
     void deleteExecutionFailStrategy() { this->executionFailStrategy_ = nullptr;};
-    inline string executionFailStrategy() const { DARABONBA_PTR_GET_DEFAULT(executionFailStrategy_, "") };
+    inline string getExecutionFailStrategy() const { DARABONBA_PTR_GET_DEFAULT(executionFailStrategy_, "") };
     inline ClusterScript& setExecutionFailStrategy(string executionFailStrategy) { DARABONBA_PTR_SET_VALUE(executionFailStrategy_, executionFailStrategy) };
 
 
     // executionMoment Field Functions 
     bool hasExecutionMoment() const { return this->executionMoment_ != nullptr;};
     void deleteExecutionMoment() { this->executionMoment_ = nullptr;};
-    inline string executionMoment() const { DARABONBA_PTR_GET_DEFAULT(executionMoment_, "") };
+    inline string getExecutionMoment() const { DARABONBA_PTR_GET_DEFAULT(executionMoment_, "") };
     inline ClusterScript& setExecutionMoment(string executionMoment) { DARABONBA_PTR_SET_VALUE(executionMoment_, executionMoment) };
 
 
     // nodeSelect Field Functions 
     bool hasNodeSelect() const { return this->nodeSelect_ != nullptr;};
     void deleteNodeSelect() { this->nodeSelect_ = nullptr;};
-    inline const NodeSelector & nodeSelect() const { DARABONBA_PTR_GET_CONST(nodeSelect_, NodeSelector) };
-    inline NodeSelector nodeSelect() { DARABONBA_PTR_GET(nodeSelect_, NodeSelector) };
+    inline const NodeSelector & getNodeSelect() const { DARABONBA_PTR_GET_CONST(nodeSelect_, NodeSelector) };
+    inline NodeSelector getNodeSelect() { DARABONBA_PTR_GET(nodeSelect_, NodeSelector) };
     inline ClusterScript& setNodeSelect(const NodeSelector & nodeSelect) { DARABONBA_PTR_SET_VALUE(nodeSelect_, nodeSelect) };
     inline ClusterScript& setNodeSelect(NodeSelector && nodeSelect) { DARABONBA_PTR_SET_RVALUE(nodeSelect_, nodeSelect) };
 
@@ -71,39 +71,39 @@ namespace Models
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline ClusterScript& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // scriptArgs Field Functions 
     bool hasScriptArgs() const { return this->scriptArgs_ != nullptr;};
     void deleteScriptArgs() { this->scriptArgs_ = nullptr;};
-    inline string scriptArgs() const { DARABONBA_PTR_GET_DEFAULT(scriptArgs_, "") };
+    inline string getScriptArgs() const { DARABONBA_PTR_GET_DEFAULT(scriptArgs_, "") };
     inline ClusterScript& setScriptArgs(string scriptArgs) { DARABONBA_PTR_SET_VALUE(scriptArgs_, scriptArgs) };
 
 
     // scriptName Field Functions 
     bool hasScriptName() const { return this->scriptName_ != nullptr;};
     void deleteScriptName() { this->scriptName_ = nullptr;};
-    inline string scriptName() const { DARABONBA_PTR_GET_DEFAULT(scriptName_, "") };
+    inline string getScriptName() const { DARABONBA_PTR_GET_DEFAULT(scriptName_, "") };
     inline ClusterScript& setScriptName(string scriptName) { DARABONBA_PTR_SET_VALUE(scriptName_, scriptName) };
 
 
     // scriptPath Field Functions 
     bool hasScriptPath() const { return this->scriptPath_ != nullptr;};
     void deleteScriptPath() { this->scriptPath_ = nullptr;};
-    inline string scriptPath() const { DARABONBA_PTR_GET_DEFAULT(scriptPath_, "") };
+    inline string getScriptPath() const { DARABONBA_PTR_GET_DEFAULT(scriptPath_, "") };
     inline ClusterScript& setScriptPath(string scriptPath) { DARABONBA_PTR_SET_VALUE(scriptPath_, scriptPath) };
 
 
   protected:
-    std::shared_ptr<string> executionFailStrategy_ = nullptr;
-    std::shared_ptr<string> executionMoment_ = nullptr;
-    std::shared_ptr<NodeSelector> nodeSelect_ = nullptr;
-    std::shared_ptr<int32_t> priority_ = nullptr;
-    std::shared_ptr<string> scriptArgs_ = nullptr;
-    std::shared_ptr<string> scriptName_ = nullptr;
-    std::shared_ptr<string> scriptPath_ = nullptr;
+    shared_ptr<string> executionFailStrategy_ {};
+    shared_ptr<string> executionMoment_ {};
+    shared_ptr<NodeSelector> nodeSelect_ {};
+    shared_ptr<int32_t> priority_ {};
+    shared_ptr<string> scriptArgs_ {};
+    shared_ptr<string> scriptName_ {};
+    shared_ptr<string> scriptPath_ {};
   };
 
   } // namespace Models

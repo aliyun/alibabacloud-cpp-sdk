@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbPassword_ == nullptr
-        && return this->dbUrl_ == nullptr && return this->dbUserName_ == nullptr; };
+        && this->dbUrl_ == nullptr && this->dbUserName_ == nullptr; };
     // dbPassword Field Functions 
     bool hasDbPassword() const { return this->dbPassword_ != nullptr;};
     void deleteDbPassword() { this->dbPassword_ = nullptr;};
-    inline string dbPassword() const { DARABONBA_PTR_GET_DEFAULT(dbPassword_, "") };
+    inline string getDbPassword() const { DARABONBA_PTR_GET_DEFAULT(dbPassword_, "") };
     inline MetaStoreConf& setDbPassword(string dbPassword) { DARABONBA_PTR_SET_VALUE(dbPassword_, dbPassword) };
 
 
     // dbUrl Field Functions 
     bool hasDbUrl() const { return this->dbUrl_ != nullptr;};
     void deleteDbUrl() { this->dbUrl_ = nullptr;};
-    inline string dbUrl() const { DARABONBA_PTR_GET_DEFAULT(dbUrl_, "") };
+    inline string getDbUrl() const { DARABONBA_PTR_GET_DEFAULT(dbUrl_, "") };
     inline MetaStoreConf& setDbUrl(string dbUrl) { DARABONBA_PTR_SET_VALUE(dbUrl_, dbUrl) };
 
 
     // dbUserName Field Functions 
     bool hasDbUserName() const { return this->dbUserName_ != nullptr;};
     void deleteDbUserName() { this->dbUserName_ = nullptr;};
-    inline string dbUserName() const { DARABONBA_PTR_GET_DEFAULT(dbUserName_, "") };
+    inline string getDbUserName() const { DARABONBA_PTR_GET_DEFAULT(dbUserName_, "") };
     inline MetaStoreConf& setDbUserName(string dbUserName) { DARABONBA_PTR_SET_VALUE(dbUserName_, dbUserName) };
 
 
   protected:
-    std::shared_ptr<string> dbPassword_ = nullptr;
-    std::shared_ptr<string> dbUrl_ = nullptr;
-    std::shared_ptr<string> dbUserName_ = nullptr;
+    shared_ptr<string> dbPassword_ {};
+    shared_ptr<string> dbUrl_ {};
+    shared_ptr<string> dbUserName_ {};
   };
 
   } // namespace Models

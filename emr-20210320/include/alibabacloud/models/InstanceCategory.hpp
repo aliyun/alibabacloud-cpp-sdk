@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultValue_ == nullptr
-        && return this->keys_ == nullptr && return this->values_ == nullptr; };
+        && this->keys_ == nullptr && this->values_ == nullptr; };
     // defaultValue Field Functions 
     bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
     void deleteDefaultValue() { this->defaultValue_ = nullptr;};
-    inline string defaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+    inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
     inline InstanceCategory& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
 
 
     // keys Field Functions 
     bool hasKeys() const { return this->keys_ != nullptr;};
     void deleteKeys() { this->keys_ = nullptr;};
-    inline const vector<string> & keys() const { DARABONBA_PTR_GET_CONST(keys_, vector<string>) };
-    inline vector<string> keys() { DARABONBA_PTR_GET(keys_, vector<string>) };
+    inline const vector<string> & getKeys() const { DARABONBA_PTR_GET_CONST(keys_, vector<string>) };
+    inline vector<string> getKeys() { DARABONBA_PTR_GET(keys_, vector<string>) };
     inline InstanceCategory& setKeys(const vector<string> & keys) { DARABONBA_PTR_SET_VALUE(keys_, keys) };
     inline InstanceCategory& setKeys(vector<string> && keys) { DARABONBA_PTR_SET_RVALUE(keys_, keys) };
 
@@ -55,17 +55,17 @@ namespace Models
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline const vector<string> & values() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
-    inline vector<string> values() { DARABONBA_PTR_GET(values_, vector<string>) };
+    inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+    inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
     inline InstanceCategory& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
     inline InstanceCategory& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
 
 
   protected:
     // 默认值。
-    std::shared_ptr<string> defaultValue_ = nullptr;
-    std::shared_ptr<vector<string>> keys_ = nullptr;
-    std::shared_ptr<vector<string>> values_ = nullptr;
+    shared_ptr<string> defaultValue_ {};
+    shared_ptr<vector<string>> keys_ {};
+    shared_ptr<vector<string>> values_ {};
   };
 
   } // namespace Models

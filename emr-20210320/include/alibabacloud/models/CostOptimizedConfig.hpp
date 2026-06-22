@@ -34,41 +34,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->onDemandBaseCapacity_ == nullptr
-        && return this->onDemandPercentageAboveBaseCapacity_ == nullptr && return this->spotInstancePools_ == nullptr; };
+        && this->onDemandPercentageAboveBaseCapacity_ == nullptr && this->spotInstancePools_ == nullptr; };
     // onDemandBaseCapacity Field Functions 
     bool hasOnDemandBaseCapacity() const { return this->onDemandBaseCapacity_ != nullptr;};
     void deleteOnDemandBaseCapacity() { this->onDemandBaseCapacity_ = nullptr;};
-    inline int32_t onDemandBaseCapacity() const { DARABONBA_PTR_GET_DEFAULT(onDemandBaseCapacity_, 0) };
+    inline int32_t getOnDemandBaseCapacity() const { DARABONBA_PTR_GET_DEFAULT(onDemandBaseCapacity_, 0) };
     inline CostOptimizedConfig& setOnDemandBaseCapacity(int32_t onDemandBaseCapacity) { DARABONBA_PTR_SET_VALUE(onDemandBaseCapacity_, onDemandBaseCapacity) };
 
 
     // onDemandPercentageAboveBaseCapacity Field Functions 
     bool hasOnDemandPercentageAboveBaseCapacity() const { return this->onDemandPercentageAboveBaseCapacity_ != nullptr;};
     void deleteOnDemandPercentageAboveBaseCapacity() { this->onDemandPercentageAboveBaseCapacity_ = nullptr;};
-    inline int32_t onDemandPercentageAboveBaseCapacity() const { DARABONBA_PTR_GET_DEFAULT(onDemandPercentageAboveBaseCapacity_, 0) };
+    inline int32_t getOnDemandPercentageAboveBaseCapacity() const { DARABONBA_PTR_GET_DEFAULT(onDemandPercentageAboveBaseCapacity_, 0) };
     inline CostOptimizedConfig& setOnDemandPercentageAboveBaseCapacity(int32_t onDemandPercentageAboveBaseCapacity) { DARABONBA_PTR_SET_VALUE(onDemandPercentageAboveBaseCapacity_, onDemandPercentageAboveBaseCapacity) };
 
 
     // spotInstancePools Field Functions 
     bool hasSpotInstancePools() const { return this->spotInstancePools_ != nullptr;};
     void deleteSpotInstancePools() { this->spotInstancePools_ = nullptr;};
-    inline int32_t spotInstancePools() const { DARABONBA_PTR_GET_DEFAULT(spotInstancePools_, 0) };
+    inline int32_t getSpotInstancePools() const { DARABONBA_PTR_GET_DEFAULT(spotInstancePools_, 0) };
     inline CostOptimizedConfig& setSpotInstancePools(int32_t spotInstancePools) { DARABONBA_PTR_SET_VALUE(spotInstancePools_, spotInstancePools) };
 
 
   protected:
-    // 按量实例个数的最小值。节点组所需要按量实例个数的最小值，取值范围：0~1000。当按量实例个数少于该值时，将优先创建按量实例。
+    // The minimum number of pay-as-you-go instances that are required for the node group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, pay-as-you-go instances are preferentially created.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> onDemandBaseCapacity_ = nullptr;
-    // 节点组满足最小按量实例OnDemandBaseCapacity要求后，超出的实例中按量实例应占的比例，取值范围：0～100。
+    shared_ptr<int32_t> onDemandBaseCapacity_ {};
+    // The percentage of pay-as-you-go instances among the instances that exceed the number specified by the OnDemandBaseCapacity parameter for the node group. Valid values: 0 to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> onDemandPercentageAboveBaseCapacity_ = nullptr;
-    // 指定可用实例规格的个数，伸缩组将按成本最低的多个规格均衡创建抢占式实例。取值范围：0~10。
+    shared_ptr<int32_t> onDemandPercentageAboveBaseCapacity_ {};
+    // The number of instance types that are specified. Preemptible instances of multiple instance types that are provided at the lowest price are evenly created in the scaling group. Valid values: 0 to 10.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> spotInstancePools_ = nullptr;
+    shared_ptr<int32_t> spotInstancePools_ {};
   };
 
   } // namespace Models

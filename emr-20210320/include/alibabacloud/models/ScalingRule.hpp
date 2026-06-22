@@ -44,27 +44,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activityType_ == nullptr
-        && return this->adjustmentValue_ == nullptr && return this->metricsTrigger_ == nullptr && return this->minAdjustmentValue_ == nullptr && return this->ruleName_ == nullptr && return this->timeTrigger_ == nullptr
-        && return this->triggerType_ == nullptr; };
+        && this->adjustmentValue_ == nullptr && this->metricsTrigger_ == nullptr && this->minAdjustmentValue_ == nullptr && this->ruleName_ == nullptr && this->timeTrigger_ == nullptr
+        && this->triggerType_ == nullptr; };
     // activityType Field Functions 
     bool hasActivityType() const { return this->activityType_ != nullptr;};
     void deleteActivityType() { this->activityType_ = nullptr;};
-    inline string activityType() const { DARABONBA_PTR_GET_DEFAULT(activityType_, "") };
+    inline string getActivityType() const { DARABONBA_PTR_GET_DEFAULT(activityType_, "") };
     inline ScalingRule& setActivityType(string activityType) { DARABONBA_PTR_SET_VALUE(activityType_, activityType) };
 
 
     // adjustmentValue Field Functions 
     bool hasAdjustmentValue() const { return this->adjustmentValue_ != nullptr;};
     void deleteAdjustmentValue() { this->adjustmentValue_ = nullptr;};
-    inline int32_t adjustmentValue() const { DARABONBA_PTR_GET_DEFAULT(adjustmentValue_, 0) };
+    inline int32_t getAdjustmentValue() const { DARABONBA_PTR_GET_DEFAULT(adjustmentValue_, 0) };
     inline ScalingRule& setAdjustmentValue(int32_t adjustmentValue) { DARABONBA_PTR_SET_VALUE(adjustmentValue_, adjustmentValue) };
 
 
     // metricsTrigger Field Functions 
     bool hasMetricsTrigger() const { return this->metricsTrigger_ != nullptr;};
     void deleteMetricsTrigger() { this->metricsTrigger_ = nullptr;};
-    inline const MetricsTrigger & metricsTrigger() const { DARABONBA_PTR_GET_CONST(metricsTrigger_, MetricsTrigger) };
-    inline MetricsTrigger metricsTrigger() { DARABONBA_PTR_GET(metricsTrigger_, MetricsTrigger) };
+    inline const MetricsTrigger & getMetricsTrigger() const { DARABONBA_PTR_GET_CONST(metricsTrigger_, MetricsTrigger) };
+    inline MetricsTrigger getMetricsTrigger() { DARABONBA_PTR_GET(metricsTrigger_, MetricsTrigger) };
     inline ScalingRule& setMetricsTrigger(const MetricsTrigger & metricsTrigger) { DARABONBA_PTR_SET_VALUE(metricsTrigger_, metricsTrigger) };
     inline ScalingRule& setMetricsTrigger(MetricsTrigger && metricsTrigger) { DARABONBA_PTR_SET_RVALUE(metricsTrigger_, metricsTrigger) };
 
@@ -72,22 +72,22 @@ namespace Models
     // minAdjustmentValue Field Functions 
     bool hasMinAdjustmentValue() const { return this->minAdjustmentValue_ != nullptr;};
     void deleteMinAdjustmentValue() { this->minAdjustmentValue_ = nullptr;};
-    inline int32_t minAdjustmentValue() const { DARABONBA_PTR_GET_DEFAULT(minAdjustmentValue_, 0) };
+    inline int32_t getMinAdjustmentValue() const { DARABONBA_PTR_GET_DEFAULT(minAdjustmentValue_, 0) };
     inline ScalingRule& setMinAdjustmentValue(int32_t minAdjustmentValue) { DARABONBA_PTR_SET_VALUE(minAdjustmentValue_, minAdjustmentValue) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ScalingRule& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // timeTrigger Field Functions 
     bool hasTimeTrigger() const { return this->timeTrigger_ != nullptr;};
     void deleteTimeTrigger() { this->timeTrigger_ = nullptr;};
-    inline const TimeTrigger & timeTrigger() const { DARABONBA_PTR_GET_CONST(timeTrigger_, TimeTrigger) };
-    inline TimeTrigger timeTrigger() { DARABONBA_PTR_GET(timeTrigger_, TimeTrigger) };
+    inline const TimeTrigger & getTimeTrigger() const { DARABONBA_PTR_GET_CONST(timeTrigger_, TimeTrigger) };
+    inline TimeTrigger getTimeTrigger() { DARABONBA_PTR_GET(timeTrigger_, TimeTrigger) };
     inline ScalingRule& setTimeTrigger(const TimeTrigger & timeTrigger) { DARABONBA_PTR_SET_VALUE(timeTrigger_, timeTrigger) };
     inline ScalingRule& setTimeTrigger(TimeTrigger && timeTrigger) { DARABONBA_PTR_SET_RVALUE(timeTrigger_, timeTrigger) };
 
@@ -95,38 +95,41 @@ namespace Models
     // triggerType Field Functions 
     bool hasTriggerType() const { return this->triggerType_ != nullptr;};
     void deleteTriggerType() { this->triggerType_ = nullptr;};
-    inline string triggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
+    inline string getTriggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
     inline ScalingRule& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
   protected:
-    // 伸缩活动类型。取值范围：
-    // - SCALE_OUT：扩容。
-    // - SCALE_IN：缩容。
+    // The type of the scaling activity. This parameter is required. Valid values:
+    // 
+    // - SCALE_OUT: scale-out.
+    // 
+    // - SCALE_IN: scale-in.
     // 
     // This parameter is required.
-    std::shared_ptr<string> activityType_ = nullptr;
-    // 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+    shared_ptr<string> activityType_ {};
+    // The adjustment value. This parameter is required and must be a positive integer. It specifies the number of instances to add for a scale-out activity or remove for a scale-in activity.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> adjustmentValue_ = nullptr;
-    // 按照负载伸缩描述。
-    // <p>
-    std::shared_ptr<MetricsTrigger> metricsTrigger_ = nullptr;
-    std::shared_ptr<int32_t> minAdjustmentValue_ = nullptr;
-    // 规则名称。
+    shared_ptr<int32_t> adjustmentValue_ {};
+    // The configurations for load-based scaling.
+    shared_ptr<MetricsTrigger> metricsTrigger_ {};
+    // The minimum number of instances to add during a scale-out activity.
+    shared_ptr<int32_t> minAdjustmentValue_ {};
+    // The name of the rule. This parameter is required and cannot be an empty string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
-    // 按照时间伸缩描述。
-    // <p>
-    std::shared_ptr<TimeTrigger> timeTrigger_ = nullptr;
-    // 伸缩规则类型。 取值范围：
-    // - TIME_TRIGGER: 按时间伸缩。
-    // - METRICS_TRIGGER: 按负载伸缩。
+    shared_ptr<string> ruleName_ {};
+    // The configurations for time-based scaling.
+    shared_ptr<TimeTrigger> timeTrigger_ {};
+    // The type of the scaling rule. This parameter is required. Valid values:
+    // 
+    // - TIME_TRIGGER: time-based scaling.
+    // 
+    // - METRICS_TRIGGER: load-based scaling.
     // 
     // This parameter is required.
-    std::shared_ptr<string> triggerType_ = nullptr;
+    shared_ptr<string> triggerType_ {};
   };
 
   } // namespace Models

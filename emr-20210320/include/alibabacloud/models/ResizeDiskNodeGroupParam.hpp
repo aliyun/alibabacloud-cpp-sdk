@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataDiskCapacity_ == nullptr
-        && return this->nodeGroupId_ == nullptr && return this->rollingRestart_ == nullptr; };
+        && this->nodeGroupId_ == nullptr && this->rollingRestart_ == nullptr; };
     // dataDiskCapacity Field Functions 
     bool hasDataDiskCapacity() const { return this->dataDiskCapacity_ != nullptr;};
     void deleteDataDiskCapacity() { this->dataDiskCapacity_ = nullptr;};
-    inline int64_t dataDiskCapacity() const { DARABONBA_PTR_GET_DEFAULT(dataDiskCapacity_, 0L) };
+    inline int64_t getDataDiskCapacity() const { DARABONBA_PTR_GET_DEFAULT(dataDiskCapacity_, 0L) };
     inline ResizeDiskNodeGroupParam& setDataDiskCapacity(int64_t dataDiskCapacity) { DARABONBA_PTR_SET_VALUE(dataDiskCapacity_, dataDiskCapacity) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline ResizeDiskNodeGroupParam& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // rollingRestart Field Functions 
     bool hasRollingRestart() const { return this->rollingRestart_ != nullptr;};
     void deleteRollingRestart() { this->rollingRestart_ = nullptr;};
-    inline bool rollingRestart() const { DARABONBA_PTR_GET_DEFAULT(rollingRestart_, false) };
+    inline bool getRollingRestart() const { DARABONBA_PTR_GET_DEFAULT(rollingRestart_, false) };
     inline ResizeDiskNodeGroupParam& setRollingRestart(bool rollingRestart) { DARABONBA_PTR_SET_VALUE(rollingRestart_, rollingRestart) };
 
 
   protected:
-    std::shared_ptr<int64_t> dataDiskCapacity_ = nullptr;
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
-    std::shared_ptr<bool> rollingRestart_ = nullptr;
+    shared_ptr<int64_t> dataDiskCapacity_ {};
+    shared_ptr<string> nodeGroupId_ {};
+    shared_ptr<bool> rollingRestart_ {};
   };
 
   } // namespace Models

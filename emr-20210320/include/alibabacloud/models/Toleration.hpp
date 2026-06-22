@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->effect_ == nullptr
-        && return this->key_ == nullptr && return this->operator_ == nullptr && return this->value_ == nullptr; };
+        && this->key_ == nullptr && this->operator_ == nullptr && this->value_ == nullptr; };
     // effect Field Functions 
     bool hasEffect() const { return this->effect_ != nullptr;};
     void deleteEffect() { this->effect_ = nullptr;};
-    inline string effect() const { DARABONBA_PTR_GET_DEFAULT(effect_, "") };
+    inline string getEffect() const { DARABONBA_PTR_GET_DEFAULT(effect_, "") };
     inline Toleration& setEffect(string effect) { DARABONBA_PTR_SET_VALUE(effect_, effect) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline Toleration& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};
-    inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline Toleration& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline Toleration& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> effect_ = nullptr;
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<string> operator_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> effect_ {};
+    shared_ptr<string> key_ {};
+    shared_ptr<string> operator_ {};
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->regionId_ == nullptr && return this->userNamesShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->userNamesShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DeleteUsersShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteUsersShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // userNamesShrink Field Functions 
     bool hasUserNamesShrink() const { return this->userNamesShrink_ != nullptr;};
     void deleteUserNamesShrink() { this->userNamesShrink_ = nullptr;};
-    inline string userNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(userNamesShrink_, "") };
+    inline string getUserNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(userNamesShrink_, "") };
     inline DeleteUsersShrinkRequest& setUserNamesShrink(string userNamesShrink) { DARABONBA_PTR_SET_VALUE(userNamesShrink_, userNamesShrink) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The usernames. Number of elements in the array: 0 to 10.
-    std::shared_ptr<string> userNamesShrink_ = nullptr;
+    shared_ptr<string> userNamesShrink_ {};
   };
 
   } // namespace Models

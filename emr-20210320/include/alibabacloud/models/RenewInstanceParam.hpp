@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->renewDuration_ == nullptr && return this->renewDurationUnit_ == nullptr; };
+        && this->renewDuration_ == nullptr && this->renewDurationUnit_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RenewInstanceParam& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // renewDuration Field Functions 
     bool hasRenewDuration() const { return this->renewDuration_ != nullptr;};
     void deleteRenewDuration() { this->renewDuration_ = nullptr;};
-    inline int64_t renewDuration() const { DARABONBA_PTR_GET_DEFAULT(renewDuration_, 0L) };
+    inline int64_t getRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(renewDuration_, 0L) };
     inline RenewInstanceParam& setRenewDuration(int64_t renewDuration) { DARABONBA_PTR_SET_VALUE(renewDuration_, renewDuration) };
 
 
     // renewDurationUnit Field Functions 
     bool hasRenewDurationUnit() const { return this->renewDurationUnit_ != nullptr;};
     void deleteRenewDurationUnit() { this->renewDurationUnit_ = nullptr;};
-    inline string renewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(renewDurationUnit_, "") };
+    inline string getRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(renewDurationUnit_, "") };
     inline RenewInstanceParam& setRenewDurationUnit(string renewDurationUnit) { DARABONBA_PTR_SET_VALUE(renewDurationUnit_, renewDurationUnit) };
 
 
   protected:
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int64_t> renewDuration_ = nullptr;
-    std::shared_ptr<string> renewDurationUnit_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int64_t> renewDuration_ {};
+    shared_ptr<string> renewDurationUnit_ {};
   };
 
   } // namespace Models

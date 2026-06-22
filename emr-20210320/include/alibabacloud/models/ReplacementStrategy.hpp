@@ -35,14 +35,14 @@ namespace Models
     // instanceCategories Field Functions 
     bool hasInstanceCategories() const { return this->instanceCategories_ != nullptr;};
     void deleteInstanceCategories() { this->instanceCategories_ = nullptr;};
-    inline const vector<InstanceCategory> & instanceCategories() const { DARABONBA_PTR_GET_CONST(instanceCategories_, vector<InstanceCategory>) };
-    inline vector<InstanceCategory> instanceCategories() { DARABONBA_PTR_GET(instanceCategories_, vector<InstanceCategory>) };
+    inline const vector<InstanceCategory> & getInstanceCategories() const { DARABONBA_PTR_GET_CONST(instanceCategories_, vector<InstanceCategory>) };
+    inline vector<InstanceCategory> getInstanceCategories() { DARABONBA_PTR_GET(instanceCategories_, vector<InstanceCategory>) };
     inline ReplacementStrategy& setInstanceCategories(const vector<InstanceCategory> & instanceCategories) { DARABONBA_PTR_SET_VALUE(instanceCategories_, instanceCategories) };
     inline ReplacementStrategy& setInstanceCategories(vector<InstanceCategory> && instanceCategories) { DARABONBA_PTR_SET_RVALUE(instanceCategories_, instanceCategories) };
 
 
   protected:
-    std::shared_ptr<vector<InstanceCategory>> instanceCategories_ = nullptr;
+    shared_ptr<vector<InstanceCategory>> instanceCategories_ {};
   };
 
   } // namespace Models

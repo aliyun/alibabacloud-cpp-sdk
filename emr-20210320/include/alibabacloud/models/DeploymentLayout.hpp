@@ -35,34 +35,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationName_ == nullptr
-        && return this->componentName_ == nullptr && return this->nodeSelector_ == nullptr; };
+        && this->componentName_ == nullptr && this->nodeSelector_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline DeploymentLayout& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // componentName Field Functions 
     bool hasComponentName() const { return this->componentName_ != nullptr;};
     void deleteComponentName() { this->componentName_ = nullptr;};
-    inline string componentName() const { DARABONBA_PTR_GET_DEFAULT(componentName_, "") };
+    inline string getComponentName() const { DARABONBA_PTR_GET_DEFAULT(componentName_, "") };
     inline DeploymentLayout& setComponentName(string componentName) { DARABONBA_PTR_SET_VALUE(componentName_, componentName) };
 
 
     // nodeSelector Field Functions 
     bool hasNodeSelector() const { return this->nodeSelector_ != nullptr;};
     void deleteNodeSelector() { this->nodeSelector_ = nullptr;};
-    inline const NodeSelector & nodeSelector() const { DARABONBA_PTR_GET_CONST(nodeSelector_, NodeSelector) };
-    inline NodeSelector nodeSelector() { DARABONBA_PTR_GET(nodeSelector_, NodeSelector) };
+    inline const NodeSelector & getNodeSelector() const { DARABONBA_PTR_GET_CONST(nodeSelector_, NodeSelector) };
+    inline NodeSelector getNodeSelector() { DARABONBA_PTR_GET(nodeSelector_, NodeSelector) };
     inline DeploymentLayout& setNodeSelector(const NodeSelector & nodeSelector) { DARABONBA_PTR_SET_VALUE(nodeSelector_, nodeSelector) };
     inline DeploymentLayout& setNodeSelector(NodeSelector && nodeSelector) { DARABONBA_PTR_SET_RVALUE(nodeSelector_, nodeSelector) };
 
 
   protected:
-    std::shared_ptr<string> applicationName_ = nullptr;
-    std::shared_ptr<string> componentName_ = nullptr;
-    std::shared_ptr<NodeSelector> nodeSelector_ = nullptr;
+    shared_ptr<string> applicationName_ {};
+    shared_ptr<string> componentName_ {};
+    shared_ptr<NodeSelector> nodeSelector_ {};
   };
 
   } // namespace Models

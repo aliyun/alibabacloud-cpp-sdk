@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configAction_ == nullptr
-        && return this->configFileName_ == nullptr && return this->configItemDescription_ == nullptr && return this->configItemKey_ == nullptr && return this->configItemValue_ == nullptr && return this->configScope_ == nullptr
-        && return this->effectiveActions_ == nullptr && return this->effectiveType_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeId_ == nullptr; };
+        && this->configFileName_ == nullptr && this->configItemDescription_ == nullptr && this->configItemKey_ == nullptr && this->configItemValue_ == nullptr && this->configScope_ == nullptr
+        && this->effectiveActions_ == nullptr && this->effectiveType_ == nullptr && this->nodeGroupId_ == nullptr && this->nodeId_ == nullptr; };
     // configAction Field Functions 
     bool hasConfigAction() const { return this->configAction_ != nullptr;};
     void deleteConfigAction() { this->configAction_ = nullptr;};
-    inline string configAction() const { DARABONBA_PTR_GET_DEFAULT(configAction_, "") };
+    inline string getConfigAction() const { DARABONBA_PTR_GET_DEFAULT(configAction_, "") };
     inline ApplicationConfigParam& setConfigAction(string configAction) { DARABONBA_PTR_SET_VALUE(configAction_, configAction) };
 
 
     // configFileName Field Functions 
     bool hasConfigFileName() const { return this->configFileName_ != nullptr;};
     void deleteConfigFileName() { this->configFileName_ = nullptr;};
-    inline string configFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
+    inline string getConfigFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
     inline ApplicationConfigParam& setConfigFileName(string configFileName) { DARABONBA_PTR_SET_VALUE(configFileName_, configFileName) };
 
 
     // configItemDescription Field Functions 
     bool hasConfigItemDescription() const { return this->configItemDescription_ != nullptr;};
     void deleteConfigItemDescription() { this->configItemDescription_ = nullptr;};
-    inline string configItemDescription() const { DARABONBA_PTR_GET_DEFAULT(configItemDescription_, "") };
+    inline string getConfigItemDescription() const { DARABONBA_PTR_GET_DEFAULT(configItemDescription_, "") };
     inline ApplicationConfigParam& setConfigItemDescription(string configItemDescription) { DARABONBA_PTR_SET_VALUE(configItemDescription_, configItemDescription) };
 
 
     // configItemKey Field Functions 
     bool hasConfigItemKey() const { return this->configItemKey_ != nullptr;};
     void deleteConfigItemKey() { this->configItemKey_ = nullptr;};
-    inline string configItemKey() const { DARABONBA_PTR_GET_DEFAULT(configItemKey_, "") };
+    inline string getConfigItemKey() const { DARABONBA_PTR_GET_DEFAULT(configItemKey_, "") };
     inline ApplicationConfigParam& setConfigItemKey(string configItemKey) { DARABONBA_PTR_SET_VALUE(configItemKey_, configItemKey) };
 
 
     // configItemValue Field Functions 
     bool hasConfigItemValue() const { return this->configItemValue_ != nullptr;};
     void deleteConfigItemValue() { this->configItemValue_ = nullptr;};
-    inline string configItemValue() const { DARABONBA_PTR_GET_DEFAULT(configItemValue_, "") };
+    inline string getConfigItemValue() const { DARABONBA_PTR_GET_DEFAULT(configItemValue_, "") };
     inline ApplicationConfigParam& setConfigItemValue(string configItemValue) { DARABONBA_PTR_SET_VALUE(configItemValue_, configItemValue) };
 
 
     // configScope Field Functions 
     bool hasConfigScope() const { return this->configScope_ != nullptr;};
     void deleteConfigScope() { this->configScope_ = nullptr;};
-    inline string configScope() const { DARABONBA_PTR_GET_DEFAULT(configScope_, "") };
+    inline string getConfigScope() const { DARABONBA_PTR_GET_DEFAULT(configScope_, "") };
     inline ApplicationConfigParam& setConfigScope(string configScope) { DARABONBA_PTR_SET_VALUE(configScope_, configScope) };
 
 
     // effectiveActions Field Functions 
     bool hasEffectiveActions() const { return this->effectiveActions_ != nullptr;};
     void deleteEffectiveActions() { this->effectiveActions_ = nullptr;};
-    inline string effectiveActions() const { DARABONBA_PTR_GET_DEFAULT(effectiveActions_, "") };
+    inline string getEffectiveActions() const { DARABONBA_PTR_GET_DEFAULT(effectiveActions_, "") };
     inline ApplicationConfigParam& setEffectiveActions(string effectiveActions) { DARABONBA_PTR_SET_VALUE(effectiveActions_, effectiveActions) };
 
 
     // effectiveType Field Functions 
     bool hasEffectiveType() const { return this->effectiveType_ != nullptr;};
     void deleteEffectiveType() { this->effectiveType_ = nullptr;};
-    inline string effectiveType() const { DARABONBA_PTR_GET_DEFAULT(effectiveType_, "") };
+    inline string getEffectiveType() const { DARABONBA_PTR_GET_DEFAULT(effectiveType_, "") };
     inline ApplicationConfigParam& setEffectiveType(string effectiveType) { DARABONBA_PTR_SET_VALUE(effectiveType_, effectiveType) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline ApplicationConfigParam& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline ApplicationConfigParam& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
   protected:
-    std::shared_ptr<string> configAction_ = nullptr;
-    std::shared_ptr<string> configFileName_ = nullptr;
-    std::shared_ptr<string> configItemDescription_ = nullptr;
-    std::shared_ptr<string> configItemKey_ = nullptr;
-    std::shared_ptr<string> configItemValue_ = nullptr;
-    std::shared_ptr<string> configScope_ = nullptr;
-    std::shared_ptr<string> effectiveActions_ = nullptr;
-    std::shared_ptr<string> effectiveType_ = nullptr;
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> configAction_ {};
+    shared_ptr<string> configFileName_ {};
+    shared_ptr<string> configItemDescription_ {};
+    shared_ptr<string> configItemKey_ {};
+    shared_ptr<string> configItemValue_ {};
+    shared_ptr<string> configScope_ {};
+    shared_ptr<string> effectiveActions_ {};
+    shared_ptr<string> effectiveType_ {};
+    shared_ptr<string> nodeGroupId_ {};
+    shared_ptr<string> nodeId_ {};
   };
 
   } // namespace Models

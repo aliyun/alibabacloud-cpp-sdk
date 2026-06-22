@@ -40,69 +40,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->launchExpirationTime_ == nullptr && return this->launchTime_ == nullptr && return this->recurrenceType_ == nullptr && return this->recurrenceValue_ == nullptr && return this->startTime_ == nullptr; };
+        && this->launchExpirationTime_ == nullptr && this->launchTime_ == nullptr && this->recurrenceType_ == nullptr && this->recurrenceValue_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline TimeTrigger& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // launchExpirationTime Field Functions 
     bool hasLaunchExpirationTime() const { return this->launchExpirationTime_ != nullptr;};
     void deleteLaunchExpirationTime() { this->launchExpirationTime_ = nullptr;};
-    inline int32_t launchExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(launchExpirationTime_, 0) };
+    inline int32_t getLaunchExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(launchExpirationTime_, 0) };
     inline TimeTrigger& setLaunchExpirationTime(int32_t launchExpirationTime) { DARABONBA_PTR_SET_VALUE(launchExpirationTime_, launchExpirationTime) };
 
 
     // launchTime Field Functions 
     bool hasLaunchTime() const { return this->launchTime_ != nullptr;};
     void deleteLaunchTime() { this->launchTime_ = nullptr;};
-    inline string launchTime() const { DARABONBA_PTR_GET_DEFAULT(launchTime_, "") };
+    inline string getLaunchTime() const { DARABONBA_PTR_GET_DEFAULT(launchTime_, "") };
     inline TimeTrigger& setLaunchTime(string launchTime) { DARABONBA_PTR_SET_VALUE(launchTime_, launchTime) };
 
 
     // recurrenceType Field Functions 
     bool hasRecurrenceType() const { return this->recurrenceType_ != nullptr;};
     void deleteRecurrenceType() { this->recurrenceType_ = nullptr;};
-    inline string recurrenceType() const { DARABONBA_PTR_GET_DEFAULT(recurrenceType_, "") };
+    inline string getRecurrenceType() const { DARABONBA_PTR_GET_DEFAULT(recurrenceType_, "") };
     inline TimeTrigger& setRecurrenceType(string recurrenceType) { DARABONBA_PTR_SET_VALUE(recurrenceType_, recurrenceType) };
 
 
     // recurrenceValue Field Functions 
     bool hasRecurrenceValue() const { return this->recurrenceValue_ != nullptr;};
     void deleteRecurrenceValue() { this->recurrenceValue_ = nullptr;};
-    inline string recurrenceValue() const { DARABONBA_PTR_GET_DEFAULT(recurrenceValue_, "") };
+    inline string getRecurrenceValue() const { DARABONBA_PTR_GET_DEFAULT(recurrenceValue_, "") };
     inline TimeTrigger& setRecurrenceValue(string recurrenceValue) { DARABONBA_PTR_SET_VALUE(recurrenceValue_, recurrenceValue) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline TimeTrigger& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
-    // 结束时间戳。单位为毫秒。
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    // 定时任务触发操作失败后，在此时间内重试。单位为秒，取值范围：0~3600。
-    std::shared_ptr<int32_t> launchExpirationTime_ = nullptr;
-    // 启动时间。
+    // The timestamp that specifies the end time. Unit: milliseconds.
+    shared_ptr<int64_t> endTime_ {};
+    // The time period during which a scheduled task can be retried after it fails. Unit: seconds. Valid values: 0 to 3600.
+    shared_ptr<int32_t> launchExpirationTime_ {};
+    // The execution time of the scaling rule. This parameter is required. The value is a string in the HH:MM format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> launchTime_ = nullptr;
-    // 指定时间规则的执行类型。
-    std::shared_ptr<string> recurrenceType_ = nullptr;
-    // 重复执行定时任务的数值。具体取值取决于 recurrenceType 设置。
-    // - recurrenceType 取 MINUTELY 时，只能填一个数值，取值范围：1~1440。
-    // - recurrenceType 取 HOURLY 时，只能填一个数值，取值范围：1~24。
-    // - recurrenceType 取 DAILY 时，只能填一个数值，取值范围：1~31。
-    // - recurrenceType 取 WEEKLY 时，可以填入多个值，填多个值时使用英文逗号（,）分隔。周一到周天分别用MON，TUE，WED，THU，FRI，SAT，SUN代替。 比如 MON,FRI,SUN 代表周一、周五、周天。
-    // - recurrenceType 取 MONTHLY 时，格式为A-B或者A,B。A、B的取值范围为1~31，如果使用A-B时B必须大于A。
-    std::shared_ptr<string> recurrenceValue_ = nullptr;
-    // 开始时间戳。单位为毫秒。
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<string> launchTime_ {};
+    // The frequency of executing the specified rule whose trigger mode is scaling by time. Valid values:
+    // 
+    // *   DAILY
+    // *   WEEKLY
+    // *   MONTHLY
+    shared_ptr<string> recurrenceType_ {};
+    // The number of recurrences of the scheduled task. The value of this parameter depends on the value of RecurrenceType.
+    // 
+    // *   If the RecurrenceType parameter is set to DAILY, you can specify only one value for this parameter. Valid values: 1 to 31.
+    // *   If the RecurrenceType parameter is set to WEEKLY, you can specify multiple values for this parameter and separate them with commas (,). The values MON, TUE, WED, THU, FRI, SAT, and SUN indicate the days from Monday to Sunday. For example, the value MON,FRI,SUN stands for Monday, Friday, and Sunday.
+    // *   If the RecurrenceType parameter is set to MONTHLY, the value of this parameter is in the A-B or A,B format. The values of A and B are both in the range of 1 to 31. If you use the A-B format, the value of B must be greater than the value of A.
+    shared_ptr<string> recurrenceValue_ {};
+    // The timestamp that specifies the start time. This parameter is required. Unit: milliseconds.
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

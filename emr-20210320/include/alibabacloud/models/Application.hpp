@@ -33,15 +33,15 @@ namespace Models
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline Application& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
   protected:
-    // 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
+    // The application name. You can find the list of application names for each EMR distribution on the cluster creation page in the EMR console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationName_ = nullptr;
+    shared_ptr<string> applicationName_ {};
   };
 
   } // namespace Models

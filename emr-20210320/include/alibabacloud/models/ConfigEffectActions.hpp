@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configEffectAction_ == nullptr
-        && return this->configFiles_ == nullptr; };
+        && this->configFiles_ == nullptr; };
     // configEffectAction Field Functions 
     bool hasConfigEffectAction() const { return this->configEffectAction_ != nullptr;};
     void deleteConfigEffectAction() { this->configEffectAction_ = nullptr;};
-    inline string configEffectAction() const { DARABONBA_PTR_GET_DEFAULT(configEffectAction_, "") };
+    inline string getConfigEffectAction() const { DARABONBA_PTR_GET_DEFAULT(configEffectAction_, "") };
     inline ConfigEffectActions& setConfigEffectAction(string configEffectAction) { DARABONBA_PTR_SET_VALUE(configEffectAction_, configEffectAction) };
 
 
     // configFiles Field Functions 
     bool hasConfigFiles() const { return this->configFiles_ != nullptr;};
     void deleteConfigFiles() { this->configFiles_ = nullptr;};
-    inline const vector<string> & configFiles() const { DARABONBA_PTR_GET_CONST(configFiles_, vector<string>) };
-    inline vector<string> configFiles() { DARABONBA_PTR_GET(configFiles_, vector<string>) };
+    inline const vector<string> & getConfigFiles() const { DARABONBA_PTR_GET_CONST(configFiles_, vector<string>) };
+    inline vector<string> getConfigFiles() { DARABONBA_PTR_GET(configFiles_, vector<string>) };
     inline ConfigEffectActions& setConfigFiles(const vector<string> & configFiles) { DARABONBA_PTR_SET_VALUE(configFiles_, configFiles) };
     inline ConfigEffectActions& setConfigFiles(vector<string> && configFiles) { DARABONBA_PTR_SET_RVALUE(configFiles_, configFiles) };
 
 
   protected:
     // 配置生效动作。
-    std::shared_ptr<string> configEffectAction_ = nullptr;
+    shared_ptr<string> configEffectAction_ {};
     // 配置生效配置文件。
-    std::shared_ptr<vector<string>> configFiles_ = nullptr;
+    shared_ptr<vector<string>> configFiles_ {};
   };
 
   } // namespace Models

@@ -45,62 +45,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->dateTime_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->orderBy_ == nullptr && return this->orderType_ == nullptr
-        && return this->regionId_ == nullptr && return this->regionServerHosts_ == nullptr; };
+        && this->dateTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr
+        && this->regionId_ == nullptr && this->regionServerHosts_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListDoctorHBaseRegionServersRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dateTime Field Functions 
     bool hasDateTime() const { return this->dateTime_ != nullptr;};
     void deleteDateTime() { this->dateTime_ = nullptr;};
-    inline string dateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
+    inline string getDateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
     inline ListDoctorHBaseRegionServersRequest& setDateTime(string dateTime) { DARABONBA_PTR_SET_VALUE(dateTime_, dateTime) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListDoctorHBaseRegionServersRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDoctorHBaseRegionServersRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListDoctorHBaseRegionServersRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline ListDoctorHBaseRegionServersRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListDoctorHBaseRegionServersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // regionServerHosts Field Functions 
     bool hasRegionServerHosts() const { return this->regionServerHosts_ != nullptr;};
     void deleteRegionServerHosts() { this->regionServerHosts_ = nullptr;};
-    inline const vector<string> & regionServerHosts() const { DARABONBA_PTR_GET_CONST(regionServerHosts_, vector<string>) };
-    inline vector<string> regionServerHosts() { DARABONBA_PTR_GET(regionServerHosts_, vector<string>) };
+    inline const vector<string> & getRegionServerHosts() const { DARABONBA_PTR_GET_CONST(regionServerHosts_, vector<string>) };
+    inline vector<string> getRegionServerHosts() { DARABONBA_PTR_GET(regionServerHosts_, vector<string>) };
     inline ListDoctorHBaseRegionServersRequest& setRegionServerHosts(const vector<string> & regionServerHosts) { DARABONBA_PTR_SET_VALUE(regionServerHosts_, regionServerHosts) };
     inline ListDoctorHBaseRegionServersRequest& setRegionServerHosts(vector<string> && regionServerHosts) { DARABONBA_PTR_SET_RVALUE(regionServerHosts_, regionServerHosts) };
 
@@ -109,30 +109,30 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The query date.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dateTime_ = nullptr;
+    shared_ptr<string> dateTime_ {};
     // The maximum number of entries to return on each page.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The field that you use to sort the query results. Valid value:
     // 
     // *   regionCount: the number of regions.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The order in which you want to sort the query results. Valid value:
     // 
     // *   ASC: in ascending order
     // *   DESC: in descending order
-    std::shared_ptr<string> orderType_ = nullptr;
+    shared_ptr<string> orderType_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The RegionServer hosts.
-    std::shared_ptr<vector<string>> regionServerHosts_ = nullptr;
+    shared_ptr<vector<string>> regionServerHosts_ {};
   };
 
   } // namespace Models

@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->modifyType_ == nullptr
-        && return this->newInstanceType_ == nullptr && return this->nodeGroupId_ == nullptr; };
+        && this->newInstanceType_ == nullptr && this->nodeGroupId_ == nullptr; };
     // modifyType Field Functions 
     bool hasModifyType() const { return this->modifyType_ != nullptr;};
     void deleteModifyType() { this->modifyType_ = nullptr;};
-    inline string modifyType() const { DARABONBA_PTR_GET_DEFAULT(modifyType_, "") };
+    inline string getModifyType() const { DARABONBA_PTR_GET_DEFAULT(modifyType_, "") };
     inline UpdateSpecNodeGroup& setModifyType(string modifyType) { DARABONBA_PTR_SET_VALUE(modifyType_, modifyType) };
 
 
     // newInstanceType Field Functions 
     bool hasNewInstanceType() const { return this->newInstanceType_ != nullptr;};
     void deleteNewInstanceType() { this->newInstanceType_ = nullptr;};
-    inline string newInstanceType() const { DARABONBA_PTR_GET_DEFAULT(newInstanceType_, "") };
+    inline string getNewInstanceType() const { DARABONBA_PTR_GET_DEFAULT(newInstanceType_, "") };
     inline UpdateSpecNodeGroup& setNewInstanceType(string newInstanceType) { DARABONBA_PTR_SET_VALUE(newInstanceType_, newInstanceType) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline UpdateSpecNodeGroup& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
   protected:
-    std::shared_ptr<string> modifyType_ = nullptr;
+    shared_ptr<string> modifyType_ {};
     // 新实例类型。
     // 
     // This parameter is required.
-    std::shared_ptr<string> newInstanceType_ = nullptr;
+    shared_ptr<string> newInstanceType_ {};
     // 节点组ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
+    shared_ptr<string> nodeGroupId_ {};
   };
 
   } // namespace Models

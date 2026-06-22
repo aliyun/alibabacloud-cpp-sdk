@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->constraints_ == nullptr && return this->nodeGroupId_ == nullptr && return this->regionId_ == nullptr && return this->scalingRules_ == nullptr; };
+        && this->constraints_ == nullptr && this->nodeGroupId_ == nullptr && this->regionId_ == nullptr && this->scalingRules_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline PutAutoScalingPolicyRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // constraints Field Functions 
     bool hasConstraints() const { return this->constraints_ != nullptr;};
     void deleteConstraints() { this->constraints_ = nullptr;};
-    inline const ScalingConstraints & constraints() const { DARABONBA_PTR_GET_CONST(constraints_, ScalingConstraints) };
-    inline ScalingConstraints constraints() { DARABONBA_PTR_GET(constraints_, ScalingConstraints) };
+    inline const ScalingConstraints & getConstraints() const { DARABONBA_PTR_GET_CONST(constraints_, ScalingConstraints) };
+    inline ScalingConstraints getConstraints() { DARABONBA_PTR_GET(constraints_, ScalingConstraints) };
     inline PutAutoScalingPolicyRequest& setConstraints(const ScalingConstraints & constraints) { DARABONBA_PTR_SET_VALUE(constraints_, constraints) };
     inline PutAutoScalingPolicyRequest& setConstraints(ScalingConstraints && constraints) { DARABONBA_PTR_SET_RVALUE(constraints_, constraints) };
 
@@ -61,22 +61,22 @@ namespace Models
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline PutAutoScalingPolicyRequest& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PutAutoScalingPolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scalingRules Field Functions 
     bool hasScalingRules() const { return this->scalingRules_ != nullptr;};
     void deleteScalingRules() { this->scalingRules_ = nullptr;};
-    inline const vector<ScalingRule> & scalingRules() const { DARABONBA_PTR_GET_CONST(scalingRules_, vector<ScalingRule>) };
-    inline vector<ScalingRule> scalingRules() { DARABONBA_PTR_GET(scalingRules_, vector<ScalingRule>) };
+    inline const vector<ScalingRule> & getScalingRules() const { DARABONBA_PTR_GET_CONST(scalingRules_, vector<ScalingRule>) };
+    inline vector<ScalingRule> getScalingRules() { DARABONBA_PTR_GET(scalingRules_, vector<ScalingRule>) };
     inline PutAutoScalingPolicyRequest& setScalingRules(const vector<ScalingRule> & scalingRules) { DARABONBA_PTR_SET_VALUE(scalingRules_, scalingRules) };
     inline PutAutoScalingPolicyRequest& setScalingRules(vector<ScalingRule> && scalingRules) { DARABONBA_PTR_SET_RVALUE(scalingRules_, scalingRules) };
 
@@ -85,19 +85,19 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    // The constraints on the maximum and minimum numbers of nodes in a node group.
-    std::shared_ptr<ScalingConstraints> constraints_ = nullptr;
-    // The ID of the node group.
+    shared_ptr<string> clusterId_ {};
+    // The maximum and minimum size constraints for the node group.
+    shared_ptr<ScalingConstraints> constraints_ {};
+    // The node group ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
+    shared_ptr<string> nodeGroupId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    // The description list of auto scaling rules. Number of elements in the array: 0 to 100.
-    std::shared_ptr<vector<ScalingRule>> scalingRules_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    // The scaling rules. The number of elements in the array can be from 0 to 100.
+    shared_ptr<vector<ScalingRule>> scalingRules_ {};
   };
 
   } // namespace Models

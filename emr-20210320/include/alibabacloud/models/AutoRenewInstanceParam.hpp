@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && return this->autoRenewDuration_ == nullptr && return this->autoRenewDurationUnit_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->autoRenewDuration_ == nullptr && this->autoRenewDurationUnit_ == nullptr && this->instanceId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline string autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, "") };
+    inline string getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, "") };
     inline AutoRenewInstanceParam& setAutoRenew(string autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // autoRenewDuration Field Functions 
     bool hasAutoRenewDuration() const { return this->autoRenewDuration_ != nullptr;};
     void deleteAutoRenewDuration() { this->autoRenewDuration_ = nullptr;};
-    inline string autoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, "") };
+    inline string getAutoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, "") };
     inline AutoRenewInstanceParam& setAutoRenewDuration(string autoRenewDuration) { DARABONBA_PTR_SET_VALUE(autoRenewDuration_, autoRenewDuration) };
 
 
     // autoRenewDurationUnit Field Functions 
     bool hasAutoRenewDurationUnit() const { return this->autoRenewDurationUnit_ != nullptr;};
     void deleteAutoRenewDurationUnit() { this->autoRenewDurationUnit_ = nullptr;};
-    inline string autoRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDurationUnit_, "") };
+    inline string getAutoRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDurationUnit_, "") };
     inline AutoRenewInstanceParam& setAutoRenewDurationUnit(string autoRenewDurationUnit) { DARABONBA_PTR_SET_VALUE(autoRenewDurationUnit_, autoRenewDurationUnit) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AutoRenewInstanceParam& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<string> autoRenew_ = nullptr;
-    std::shared_ptr<string> autoRenewDuration_ = nullptr;
-    std::shared_ptr<string> autoRenewDurationUnit_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> autoRenew_ {};
+    shared_ptr<string> autoRenewDuration_ {};
+    shared_ptr<string> autoRenewDurationUnit_ {};
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

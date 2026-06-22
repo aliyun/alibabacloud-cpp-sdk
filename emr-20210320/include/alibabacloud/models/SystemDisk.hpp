@@ -36,54 +36,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->count_ == nullptr && return this->performanceLevel_ == nullptr && return this->size_ == nullptr; };
+        && this->count_ == nullptr && this->performanceLevel_ == nullptr && this->size_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline SystemDisk& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline SystemDisk& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // performanceLevel Field Functions 
     bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
     void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
-    inline string performanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+    inline string getPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
     inline SystemDisk& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline SystemDisk& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
   protected:
-    // 磁盘类型。
+    // The type of the system disk. Valid values:
+    // 
+    // - `cloud_efficiency`: Ultra Disk.
+    // 
+    // - `cloud_ssd`: SSD Cloud Disk.
+    // 
+    // - `cloud_essd`: ESSD.
+    // 
+    // - `cloud`: Basic Disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> category_ = nullptr;
-    // 每个节点系统盘数量，默认值为1。
-    std::shared_ptr<int32_t> count_ = nullptr;
-    // 创建ESSD云盘作为系统盘使用时，设置云盘的性能等级。取值范围：
-    // - PL0：单盘最高随机读写IOPS 1万。
-    // - PL1（默认）：单盘最高随机读写IOPS 5万。
-    // - PL2：单盘最高随机读写IOPS 10万。
-    // - PL3：单盘最高随机读写IOPS 100万。
+    shared_ptr<string> category_ {};
+    // Specifies the number of system disks on each node. Default value: 1.
+    shared_ptr<int32_t> count_ {};
+    // The performance level of the ESSD. This parameter is valid only when `Category` is set to `cloud_essd`. Valid values:
     // 
-    // 默认值：PL1。
-    std::shared_ptr<string> performanceLevel_ = nullptr;
-    // 单位GB。
+    // - `PL0`: Up to 10,000 random read/write IOPS per disk.
+    // 
+    // - `PL1` (default): Up to 50,000 random read/write IOPS per disk.
+    // 
+    // - `PL2`: Up to 100,000 random read/write IOPS per disk.
+    // 
+    // - `PL3`: Up to 1,000,000 random read/write IOPS per disk.
+    shared_ptr<string> performanceLevel_ {};
+    // The size of the system disk, in GB.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> size_ = nullptr;
+    shared_ptr<int32_t> size_ {};
   };
 
   } // namespace Models

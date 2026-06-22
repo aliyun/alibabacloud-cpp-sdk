@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->regionId_ == nullptr && return this->userNames_ == nullptr; };
+        && this->regionId_ == nullptr && this->userNames_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DeleteUsersRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteUsersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // userNames Field Functions 
     bool hasUserNames() const { return this->userNames_ != nullptr;};
     void deleteUserNames() { this->userNames_ = nullptr;};
-    inline const vector<string> & userNames() const { DARABONBA_PTR_GET_CONST(userNames_, vector<string>) };
-    inline vector<string> userNames() { DARABONBA_PTR_GET(userNames_, vector<string>) };
+    inline const vector<string> & getUserNames() const { DARABONBA_PTR_GET_CONST(userNames_, vector<string>) };
+    inline vector<string> getUserNames() { DARABONBA_PTR_GET(userNames_, vector<string>) };
     inline DeleteUsersRequest& setUserNames(const vector<string> & userNames) { DARABONBA_PTR_SET_VALUE(userNames_, userNames) };
     inline DeleteUsersRequest& setUserNames(vector<string> && userNames) { DARABONBA_PTR_SET_RVALUE(userNames_, userNames) };
 
@@ -63,13 +63,13 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The usernames. Number of elements in the array: 0 to 10.
-    std::shared_ptr<vector<string>> userNames_ = nullptr;
+    shared_ptr<vector<string>> userNames_ {};
   };
 
   } // namespace Models

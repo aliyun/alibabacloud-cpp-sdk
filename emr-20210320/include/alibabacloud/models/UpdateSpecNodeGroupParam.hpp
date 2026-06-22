@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->newInstanceType_ == nullptr
-        && return this->nodeGroupId_ == nullptr; };
+        && this->nodeGroupId_ == nullptr; };
     // newInstanceType Field Functions 
     bool hasNewInstanceType() const { return this->newInstanceType_ != nullptr;};
     void deleteNewInstanceType() { this->newInstanceType_ = nullptr;};
-    inline string newInstanceType() const { DARABONBA_PTR_GET_DEFAULT(newInstanceType_, "") };
+    inline string getNewInstanceType() const { DARABONBA_PTR_GET_DEFAULT(newInstanceType_, "") };
     inline UpdateSpecNodeGroupParam& setNewInstanceType(string newInstanceType) { DARABONBA_PTR_SET_VALUE(newInstanceType_, newInstanceType) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline UpdateSpecNodeGroupParam& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
   protected:
-    std::shared_ptr<string> newInstanceType_ = nullptr;
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
+    shared_ptr<string> newInstanceType_ {};
+    shared_ptr<string> nodeGroupId_ {};
   };
 
   } // namespace Models

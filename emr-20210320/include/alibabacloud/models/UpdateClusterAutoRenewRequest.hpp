@@ -44,13 +44,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenewInstances_ == nullptr
-        && return this->clusterAutoRenew_ == nullptr && return this->clusterAutoRenewDuration_ == nullptr && return this->clusterAutoRenewDurationUnit_ == nullptr && return this->clusterId_ == nullptr && return this->regionId_ == nullptr
-        && return this->renewAllInstances_ == nullptr; };
+        && this->clusterAutoRenew_ == nullptr && this->clusterAutoRenewDuration_ == nullptr && this->clusterAutoRenewDurationUnit_ == nullptr && this->clusterId_ == nullptr && this->regionId_ == nullptr
+        && this->renewAllInstances_ == nullptr; };
     // autoRenewInstances Field Functions 
     bool hasAutoRenewInstances() const { return this->autoRenewInstances_ != nullptr;};
     void deleteAutoRenewInstances() { this->autoRenewInstances_ = nullptr;};
-    inline const vector<AutoRenewInstance> & autoRenewInstances() const { DARABONBA_PTR_GET_CONST(autoRenewInstances_, vector<AutoRenewInstance>) };
-    inline vector<AutoRenewInstance> autoRenewInstances() { DARABONBA_PTR_GET(autoRenewInstances_, vector<AutoRenewInstance>) };
+    inline const vector<AutoRenewInstance> & getAutoRenewInstances() const { DARABONBA_PTR_GET_CONST(autoRenewInstances_, vector<AutoRenewInstance>) };
+    inline vector<AutoRenewInstance> getAutoRenewInstances() { DARABONBA_PTR_GET(autoRenewInstances_, vector<AutoRenewInstance>) };
     inline UpdateClusterAutoRenewRequest& setAutoRenewInstances(const vector<AutoRenewInstance> & autoRenewInstances) { DARABONBA_PTR_SET_VALUE(autoRenewInstances_, autoRenewInstances) };
     inline UpdateClusterAutoRenewRequest& setAutoRenewInstances(vector<AutoRenewInstance> && autoRenewInstances) { DARABONBA_PTR_SET_RVALUE(autoRenewInstances_, autoRenewInstances) };
 
@@ -58,64 +58,83 @@ namespace Models
     // clusterAutoRenew Field Functions 
     bool hasClusterAutoRenew() const { return this->clusterAutoRenew_ != nullptr;};
     void deleteClusterAutoRenew() { this->clusterAutoRenew_ = nullptr;};
-    inline bool clusterAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(clusterAutoRenew_, false) };
+    inline bool getClusterAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(clusterAutoRenew_, false) };
     inline UpdateClusterAutoRenewRequest& setClusterAutoRenew(bool clusterAutoRenew) { DARABONBA_PTR_SET_VALUE(clusterAutoRenew_, clusterAutoRenew) };
 
 
     // clusterAutoRenewDuration Field Functions 
     bool hasClusterAutoRenewDuration() const { return this->clusterAutoRenewDuration_ != nullptr;};
     void deleteClusterAutoRenewDuration() { this->clusterAutoRenewDuration_ = nullptr;};
-    inline int32_t clusterAutoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(clusterAutoRenewDuration_, 0) };
+    inline int32_t getClusterAutoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(clusterAutoRenewDuration_, 0) };
     inline UpdateClusterAutoRenewRequest& setClusterAutoRenewDuration(int32_t clusterAutoRenewDuration) { DARABONBA_PTR_SET_VALUE(clusterAutoRenewDuration_, clusterAutoRenewDuration) };
 
 
     // clusterAutoRenewDurationUnit Field Functions 
     bool hasClusterAutoRenewDurationUnit() const { return this->clusterAutoRenewDurationUnit_ != nullptr;};
     void deleteClusterAutoRenewDurationUnit() { this->clusterAutoRenewDurationUnit_ = nullptr;};
-    inline string clusterAutoRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(clusterAutoRenewDurationUnit_, "") };
+    inline string getClusterAutoRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(clusterAutoRenewDurationUnit_, "") };
     inline UpdateClusterAutoRenewRequest& setClusterAutoRenewDurationUnit(string clusterAutoRenewDurationUnit) { DARABONBA_PTR_SET_VALUE(clusterAutoRenewDurationUnit_, clusterAutoRenewDurationUnit) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateClusterAutoRenewRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateClusterAutoRenewRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // renewAllInstances Field Functions 
     bool hasRenewAllInstances() const { return this->renewAllInstances_ != nullptr;};
     void deleteRenewAllInstances() { this->renewAllInstances_ = nullptr;};
-    inline bool renewAllInstances() const { DARABONBA_PTR_GET_DEFAULT(renewAllInstances_, false) };
+    inline bool getRenewAllInstances() const { DARABONBA_PTR_GET_DEFAULT(renewAllInstances_, false) };
     inline UpdateClusterAutoRenewRequest& setRenewAllInstances(bool renewAllInstances) { DARABONBA_PTR_SET_VALUE(renewAllInstances_, renewAllInstances) };
 
 
   protected:
-    // 自动续费ECS实例列表。
-    std::shared_ptr<vector<AutoRenewInstance>> autoRenewInstances_ = nullptr;
-    // 集群是否自动续费。
-    std::shared_ptr<bool> clusterAutoRenew_ = nullptr;
-    // 集群自动续费时长。
-    std::shared_ptr<int32_t> clusterAutoRenewDuration_ = nullptr;
-    // 集群续费时长单位。
-    std::shared_ptr<string> clusterAutoRenewDurationUnit_ = nullptr;
-    // 集群ID。
+    // The list of ECS instances for which to enable auto-renewal. This parameter takes effect only when RenewAllInstances is not set to true.
+    shared_ptr<vector<AutoRenewInstance>> autoRenewInstances_ {};
+    // Specifies whether to enable auto-renewal for the cluster. Valid values:
+    // 
+    // - true: Enables auto-renewal.
+    // 
+    // - false: Disables auto-renewal.
+    // 
+    // Default value: false.
+    shared_ptr<bool> clusterAutoRenew_ {};
+    // The auto-renewal duration for the cluster. This parameter takes effect only when ClusterAutoRenew is set to true.
+    // If ClusterAutoRenewDurationUnit is set to Month, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, and 36. If ClusterAutoRenewDurationUnit is set to Year, the valid values are 1, 2, and 3.
+    shared_ptr<int32_t> clusterAutoRenewDuration_ {};
+    // The unit of the auto-renewal duration. Valid values:
+    // 
+    // - Month
+    // 
+    // - Year
+    // 
+    // Default value: Month.
+    shared_ptr<string> clusterAutoRenewDurationUnit_ {};
+    // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    // 区域ID。
+    shared_ptr<string> clusterId_ {};
+    // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    // 续费所有ECS实例。
-    std::shared_ptr<bool> renewAllInstances_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    // Specifies whether to enable auto-renewal for all ECS instances in the cluster. Valid values:
+    // 
+    // - true: Enables auto-renewal for all ECS instances in the cluster. The default auto-renewal duration is one month.
+    // 
+    // - false: Does not enable auto-renewal for all ECS instances in the cluster. You can specify the ECS instances for which to enable auto-renewal in the AutoRenewInstances parameter.
+    // 
+    // Default value: false.
+    shared_ptr<bool> renewAllInstances_ {};
   };
 
   } // namespace Models

@@ -76,7 +76,7 @@ namespace Emr20210320
       Models::CreateNodeGroupResponse createNodeGroup(const Models::CreateNodeGroupRequest &request);
 
       /**
-       * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+       * @summary Creates a bootstrap script or a regular cluster script.
        *
        * @param request CreateScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -85,7 +85,7 @@ namespace Emr20210320
       Models::CreateScriptResponse createScriptWithOptions(const Models::CreateScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+       * @summary Creates a bootstrap script or a regular cluster script.
        *
        * @param request CreateScriptRequest
        * @return CreateScriptResponse
@@ -93,9 +93,9 @@ namespace Emr20210320
       Models::CreateScriptResponse createScript(const Models::CreateScriptRequest &request);
 
       /**
-       * @summary Creates multiple users at a time.
+       * @summary Creates users in a batch.
        *
-       * @description You can call this operation to create multiple users at a time.
+       * @description Creates users in a batch.
        *
        * @param request CreateUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -104,9 +104,9 @@ namespace Emr20210320
       Models::CreateUsersResponse createUsersWithOptions(const Models::CreateUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates multiple users at a time.
+       * @summary Creates users in a batch.
        *
-       * @description You can call this operation to create multiple users at a time.
+       * @description Creates users in a batch.
        *
        * @param request CreateUsersRequest
        * @return CreateUsersResponse
@@ -114,7 +114,7 @@ namespace Emr20210320
       Models::CreateUsersResponse createUsers(const Models::CreateUsersRequest &request);
 
       /**
-       * @summary Performs a scale-out operation on the target node group.
+       * @summary Scales in a target node group.
        *
        * @param request DecreaseNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -123,7 +123,7 @@ namespace Emr20210320
       Models::DecreaseNodesResponse decreaseNodesWithOptions(const Models::DecreaseNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a scale-out operation on the target node group.
+       * @summary Scales in a target node group.
        *
        * @param request DecreaseNodesRequest
        * @return DecreaseNodesResponse
@@ -148,6 +148,8 @@ namespace Emr20210320
       Models::DeleteApiTemplateResponse deleteApiTemplate(const Models::DeleteApiTemplateRequest &request);
 
       /**
+       * @summary Deletes a pay-as-you-go cluster.
+       *
        * @param request DeleteClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteClusterResponse
@@ -155,10 +157,29 @@ namespace Emr20210320
       Models::DeleteClusterResponse deleteClusterWithOptions(const Models::DeleteClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a pay-as-you-go cluster.
+       *
        * @param request DeleteClusterRequest
        * @return DeleteClusterResponse
        */
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
+
+      /**
+       * @summary Deletes a created cluster node group.
+       *
+       * @param request DeleteNodeGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteNodeGroupResponse
+       */
+      Models::DeleteNodeGroupResponse deleteNodeGroupWithOptions(const Models::DeleteNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a created cluster node group.
+       *
+       * @param request DeleteNodeGroupRequest
+       * @return DeleteNodeGroupResponse
+       */
+      Models::DeleteNodeGroupResponse deleteNodeGroup(const Models::DeleteNodeGroupRequest &request);
 
       /**
        * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
@@ -199,7 +220,7 @@ namespace Emr20210320
       Models::DeleteUsersResponse deleteUsers(const Models::DeleteUsersRequest &request);
 
       /**
-       * @summary 导出应用服务配置
+       * @summary Exports the configurations of a specified service in a cluster.
        *
        * @param request ExportApplicationConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -208,7 +229,7 @@ namespace Emr20210320
       Models::ExportApplicationConfigsResponse exportApplicationConfigsWithOptions(const Models::ExportApplicationConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出应用服务配置
+       * @summary Exports the configurations of a specified service in a cluster.
        *
        * @param request ExportApplicationConfigsRequest
        * @return ExportApplicationConfigsResponse
@@ -235,7 +256,7 @@ namespace Emr20210320
       /**
        * @summary Retrieves the details of an application.
        *
-       * @description 查询应用详情。
+       * @description Queries the details of an application.
        *
        * @param request GetApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -246,7 +267,7 @@ namespace Emr20210320
       /**
        * @summary Retrieves the details of an application.
        *
-       * @description 查询应用详情。
+       * @description Queries the details of an application.
        *
        * @param request GetApplicationRequest
        * @return GetApplicationResponse
@@ -254,7 +275,7 @@ namespace Emr20210320
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
-       * @summary Queries the information about an auto scaling activity.
+       * @summary Retrieves the details of an Auto Scaling activity.
        *
        * @param request GetAutoScalingActivityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +284,7 @@ namespace Emr20210320
       Models::GetAutoScalingActivityResponse getAutoScalingActivityWithOptions(const Models::GetAutoScalingActivityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an auto scaling activity.
+       * @summary Retrieves the details of an Auto Scaling activity.
        *
        * @param request GetAutoScalingActivityRequest
        * @return GetAutoScalingActivityResponse
@@ -271,7 +292,7 @@ namespace Emr20210320
       Models::GetAutoScalingActivityResponse getAutoScalingActivity(const Models::GetAutoScalingActivityRequest &request);
 
       /**
-       * @summary Queries custom auto scaling rules.
+       * @summary Retrieves the details of a custom Auto Scaling policy.
        *
        * @param request GetAutoScalingPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -280,7 +301,7 @@ namespace Emr20210320
       Models::GetAutoScalingPolicyResponse getAutoScalingPolicyWithOptions(const Models::GetAutoScalingPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries custom auto scaling rules.
+       * @summary Retrieves the details of a custom Auto Scaling policy.
        *
        * @param request GetAutoScalingPolicyRequest
        * @return GetAutoScalingPolicyResponse
@@ -305,7 +326,7 @@ namespace Emr20210320
       Models::GetClusterResponse getCluster(const Models::GetClusterRequest &request);
 
       /**
-       * @summary Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+       * @summary Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
        *
        * @param request GetClusterCloneMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -314,7 +335,7 @@ namespace Emr20210320
       Models::GetClusterCloneMetaResponse getClusterCloneMetaWithOptions(const Models::GetClusterCloneMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+       * @summary Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
        *
        * @param request GetClusterCloneMetaRequest
        * @return GetClusterCloneMetaResponse
@@ -595,6 +616,8 @@ namespace Emr20210320
       Models::GetDoctorReportComponentSummaryResponse getDoctorReportComponentSummary(const Models::GetDoctorReportComponentSummaryRequest &request);
 
       /**
+       * @summary Retrieves the details of a managed scaling policy.
+       *
        * @param request GetManagedScalingPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetManagedScalingPolicyResponse
@@ -602,15 +625,17 @@ namespace Emr20210320
       Models::GetManagedScalingPolicyResponse getManagedScalingPolicyWithOptions(const Models::GetManagedScalingPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the details of a managed scaling policy.
+       *
        * @param request GetManagedScalingPolicyRequest
        * @return GetManagedScalingPolicyResponse
        */
       Models::GetManagedScalingPolicyResponse getManagedScalingPolicy(const Models::GetManagedScalingPolicyRequest &request);
 
       /**
-       * @summary You can call this operation to obtain the details of a node group.
+       * @summary Queries the details of a node group.
        *
-       * @description 获取节点组详情。
+       * @description Queries the details of a node group.
        *
        * @param request GetNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -619,9 +644,9 @@ namespace Emr20210320
       Models::GetNodeGroupResponse getNodeGroupWithOptions(const Models::GetNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to obtain the details of a node group.
+       * @summary Queries the details of a node group.
        *
-       * @description 获取节点组详情。
+       * @description Queries the details of a node group.
        *
        * @param request GetNodeGroupRequest
        * @return GetNodeGroupResponse
@@ -646,7 +671,7 @@ namespace Emr20210320
       Models::GetOperationResponse getOperation(const Models::GetOperationRequest &request);
 
       /**
-       * @summary Scales out the node group.
+       * @summary Scales out a target node group.
        *
        * @param request IncreaseNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -655,7 +680,7 @@ namespace Emr20210320
       Models::IncreaseNodesResponse increaseNodesWithOptions(const Models::IncreaseNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scales out the node group.
+       * @summary Scales out a target node group.
        *
        * @param request IncreaseNodesRequest
        * @return IncreaseNodesResponse
@@ -680,7 +705,7 @@ namespace Emr20210320
       Models::JoinResourceGroupResponse joinResourceGroup(const Models::JoinResourceGroupRequest &request);
 
       /**
-       * @summary 查询API模板
+       * @summary Lists API templates.
        *
        * @param request ListApiTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -689,7 +714,7 @@ namespace Emr20210320
       Models::ListApiTemplatesResponse listApiTemplatesWithOptions(const Models::ListApiTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询API模板
+       * @summary Lists API templates.
        *
        * @param request ListApiTemplatesRequest
        * @return ListApiTemplatesResponse
@@ -699,7 +724,7 @@ namespace Emr20210320
       /**
        * @summary Queries the configurations of the application.
        *
-       * @description 查询应用配置。
+       * @description Queries application configurations.
        *
        * @param request ListApplicationConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,7 +735,7 @@ namespace Emr20210320
       /**
        * @summary Queries the configurations of the application.
        *
-       * @description 查询应用配置。
+       * @description Queries application configurations.
        *
        * @param request ListApplicationConfigsRequest
        * @return ListApplicationConfigsResponse
@@ -735,7 +760,7 @@ namespace Emr20210320
       Models::ListApplicationsResponse listApplications(const Models::ListApplicationsRequest &request);
 
       /**
-       * @summary Queries a list of auto scaling activities.
+       * @summary Lists Auto Scaling activities.
        *
        * @param request ListAutoScalingActivitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +769,7 @@ namespace Emr20210320
       Models::ListAutoScalingActivitiesResponse listAutoScalingActivitiesWithOptions(const Models::ListAutoScalingActivitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of auto scaling activities.
+       * @summary Lists Auto Scaling activities.
        *
        * @param request ListAutoScalingActivitiesRequest
        * @return ListAutoScalingActivitiesResponse
@@ -752,7 +777,7 @@ namespace Emr20210320
       Models::ListAutoScalingActivitiesResponse listAutoScalingActivities(const Models::ListAutoScalingActivitiesRequest &request);
 
       /**
-       * @summary Queries E-MapReduce (EMR) clusters.
+       * @summary Lists EMR clusters.
        *
        * @param request ListClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +786,7 @@ namespace Emr20210320
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries E-MapReduce (EMR) clusters.
+       * @summary Lists EMR clusters.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -887,7 +912,9 @@ namespace Emr20210320
       Models::ListDoctorHBaseTablesResponse listDoctorHBaseTables(const Models::ListDoctorHBaseTablesRequest &request);
 
       /**
-       * @description list Doctor HDFSNodes
+       * @summary Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+       *
+       * @description Queries the analysis results for HDFS directories.
        *
        * @param request ListDoctorHDFSDirectoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -896,7 +923,9 @@ namespace Emr20210320
       Models::ListDoctorHDFSDirectoriesResponse listDoctorHDFSDirectoriesWithOptions(const Models::ListDoctorHDFSDirectoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @description list Doctor HDFSNodes
+       * @summary Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+       *
+       * @description Queries the analysis results for HDFS directories.
        *
        * @param request ListDoctorHDFSDirectoriesRequest
        * @return ListDoctorHDFSDirectoriesResponse
@@ -1030,7 +1059,7 @@ namespace Emr20210320
       Models::ListDoctorReportsResponse listDoctorReports(const Models::ListDoctorReportsRequest &request);
 
       /**
-       * @summary Lists instance types.
+       * @summary Retrieves a list of EMR instance types.
        *
        * @param request ListInstanceTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1039,7 +1068,7 @@ namespace Emr20210320
       Models::ListInstanceTypesResponse listInstanceTypesWithOptions(const Models::ListInstanceTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists instance types.
+       * @summary Retrieves a list of EMR instance types.
        *
        * @param request ListInstanceTypesRequest
        * @return ListInstanceTypesResponse
@@ -1047,7 +1076,7 @@ namespace Emr20210320
       Models::ListInstanceTypesResponse listInstanceTypes(const Models::ListInstanceTypesRequest &request);
 
       /**
-       * @summary Queries the list of node groups in an EMR cluster.
+       * @summary Queries the node groups in an EMR cluster.
        *
        * @param request ListNodeGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1056,7 +1085,7 @@ namespace Emr20210320
       Models::ListNodeGroupsResponse listNodeGroupsWithOptions(const Models::ListNodeGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of node groups in an EMR cluster.
+       * @summary Queries the node groups in an EMR cluster.
        *
        * @param request ListNodeGroupsRequest
        * @return ListNodeGroupsResponse
@@ -1083,7 +1112,7 @@ namespace Emr20210320
       /**
        * @summary Queries the major E-MapReduce (EMR) versions.
        *
-       * @description 查询主版本。
+       * @description Queries release versions.
        *
        * @param request ListReleaseVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1094,7 +1123,7 @@ namespace Emr20210320
       /**
        * @summary Queries the major E-MapReduce (EMR) versions.
        *
-       * @description 查询主版本。
+       * @description Queries release versions.
        *
        * @param request ListReleaseVersionsRequest
        * @return ListReleaseVersionsResponse
@@ -1102,7 +1131,7 @@ namespace Emr20210320
       Models::ListReleaseVersionsResponse listReleaseVersions(const Models::ListReleaseVersionsRequest &request);
 
       /**
-       * @summary Query EMR cluster bootstrap scripts or regular scripts.
+       * @summary Queries the bootstrap or normal scripts of an EMR cluster.
        *
        * @param request ListScriptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1111,7 +1140,7 @@ namespace Emr20210320
       Models::ListScriptsResponse listScriptsWithOptions(const Models::ListScriptsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query EMR cluster bootstrap scripts or regular scripts.
+       * @summary Queries the bootstrap or normal scripts of an EMR cluster.
        *
        * @param request ListScriptsRequest
        * @return ListScriptsResponse
@@ -1119,7 +1148,7 @@ namespace Emr20210320
       Models::ListScriptsResponse listScripts(const Models::ListScriptsRequest &request);
 
       /**
-       * @summary Queries the tags that are bound to an EMR cluster.
+       * @summary Queries the tags attached to E-MapReduce (EMR) clusters.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1128,7 +1157,7 @@ namespace Emr20210320
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are bound to an EMR cluster.
+       * @summary Queries the tags attached to E-MapReduce (EMR) clusters.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1157,9 +1186,9 @@ namespace Emr20210320
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
-       * @summary Adds a custom auto scaling rule.
+       * @summary Creates a custom Auto Scaling policy.
        *
-       * @description You can call this operation to configure auto scaling policies.
+       * @description Configures an Auto Scaling policy.
        *
        * @param request PutAutoScalingPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1168,9 +1197,9 @@ namespace Emr20210320
       Models::PutAutoScalingPolicyResponse putAutoScalingPolicyWithOptions(const Models::PutAutoScalingPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a custom auto scaling rule.
+       * @summary Creates a custom Auto Scaling policy.
        *
-       * @description You can call this operation to configure auto scaling policies.
+       * @description Configures an Auto Scaling policy.
        *
        * @param request PutAutoScalingPolicyRequest
        * @return PutAutoScalingPolicyResponse
@@ -1208,6 +1237,8 @@ namespace Emr20210320
       Models::RemoveAutoScalingPolicyResponse removeAutoScalingPolicy(const Models::RemoveAutoScalingPolicyRequest &request);
 
       /**
+       * @summary Runs an API template.
+       *
        * @param request RunApiTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunApiTemplateResponse
@@ -1215,6 +1246,8 @@ namespace Emr20210320
       Models::RunApiTemplateResponse runApiTemplateWithOptions(const Models::RunApiTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Runs an API template.
+       *
        * @param request RunApiTemplateRequest
        * @return RunApiTemplateResponse
        */
@@ -1238,9 +1271,9 @@ namespace Emr20210320
       Models::RunApplicationActionResponse runApplicationAction(const Models::RunApplicationActionRequest &request);
 
       /**
-       * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+       * @summary Creates a pay-as-you-go or subscription cluster.
        *
-       * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+       * @description RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
        *
        * @param tmpReq RunClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1249,9 +1282,9 @@ namespace Emr20210320
       Models::RunClusterResponse runClusterWithOptions(const Models::RunClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+       * @summary Creates a pay-as-you-go or subscription cluster.
        *
-       * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+       * @description RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
        *
        * @param request RunClusterRequest
        * @return RunClusterResponse
@@ -1295,7 +1328,7 @@ namespace Emr20210320
       /**
        * @summary Updates an API operation template.
        *
-       * @description 修改集群模板
+       * @description Modifies a cluster template.
        *
        * @param request UpdateApiTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1306,7 +1339,7 @@ namespace Emr20210320
       /**
        * @summary Updates an API operation template.
        *
-       * @description 修改集群模板
+       * @description Modifies a cluster template.
        *
        * @param request UpdateApiTemplateRequest
        * @return UpdateApiTemplateResponse
@@ -1314,7 +1347,7 @@ namespace Emr20210320
       Models::UpdateApiTemplateResponse updateApiTemplate(const Models::UpdateApiTemplateRequest &request);
 
       /**
-       * @summary Updates the application configurations.
+       * @summary Updates the configurations of an application.
        *
        * @param request UpdateApplicationConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1323,7 +1356,7 @@ namespace Emr20210320
       Models::UpdateApplicationConfigsResponse updateApplicationConfigsWithOptions(const Models::UpdateApplicationConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the application configurations.
+       * @summary Updates the configurations of an application.
        *
        * @param request UpdateApplicationConfigsRequest
        * @return UpdateApplicationConfigsResponse
@@ -1348,6 +1381,10 @@ namespace Emr20210320
       Models::UpdateClusterAttributeResponse updateClusterAttribute(const Models::UpdateClusterAttributeRequest &request);
 
       /**
+       * @summary Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+       *
+       * @description Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+       *
        * @param request UpdateClusterAutoRenewRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateClusterAutoRenewResponse
@@ -1355,10 +1392,35 @@ namespace Emr20210320
       Models::UpdateClusterAutoRenewResponse updateClusterAutoRenewWithOptions(const Models::UpdateClusterAutoRenewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+       *
+       * @description Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+       *
        * @param request UpdateClusterAutoRenewRequest
        * @return UpdateClusterAutoRenewResponse
        */
       Models::UpdateClusterAutoRenewResponse updateClusterAutoRenew(const Models::UpdateClusterAutoRenewRequest &request);
+
+      /**
+       * @summary Updates the attributes of a node group.
+       *
+       * @description 更新节点组基本属性。
+       *
+       * @param request UpdateNodeGroupAttributesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNodeGroupAttributesResponse
+       */
+      Models::UpdateNodeGroupAttributesResponse updateNodeGroupAttributesWithOptions(const Models::UpdateNodeGroupAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the attributes of a node group.
+       *
+       * @description 更新节点组基本属性。
+       *
+       * @param request UpdateNodeGroupAttributesRequest
+       * @return UpdateNodeGroupAttributesResponse
+       */
+      Models::UpdateNodeGroupAttributesResponse updateNodeGroupAttributes(const Models::UpdateNodeGroupAttributesRequest &request);
 
       /**
        * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.

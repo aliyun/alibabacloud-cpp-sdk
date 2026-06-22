@@ -52,34 +52,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->nodeGroupIds_ == nullptr && return this->nodeIds_ == nullptr && return this->nodeNames_ == nullptr
-        && return this->nodeStates_ == nullptr && return this->privateIps_ == nullptr && return this->publicIps_ == nullptr && return this->regionId_ == nullptr && return this->tags_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->nodeGroupIds_ == nullptr && this->nodeIds_ == nullptr && this->nodeNames_ == nullptr
+        && this->nodeStates_ == nullptr && this->privateIps_ == nullptr && this->publicIps_ == nullptr && this->regionId_ == nullptr && this->tags_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListNodesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListNodesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListNodesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // nodeGroupIds Field Functions 
     bool hasNodeGroupIds() const { return this->nodeGroupIds_ != nullptr;};
     void deleteNodeGroupIds() { this->nodeGroupIds_ = nullptr;};
-    inline const vector<string> & nodeGroupIds() const { DARABONBA_PTR_GET_CONST(nodeGroupIds_, vector<string>) };
-    inline vector<string> nodeGroupIds() { DARABONBA_PTR_GET(nodeGroupIds_, vector<string>) };
+    inline const vector<string> & getNodeGroupIds() const { DARABONBA_PTR_GET_CONST(nodeGroupIds_, vector<string>) };
+    inline vector<string> getNodeGroupIds() { DARABONBA_PTR_GET(nodeGroupIds_, vector<string>) };
     inline ListNodesRequest& setNodeGroupIds(const vector<string> & nodeGroupIds) { DARABONBA_PTR_SET_VALUE(nodeGroupIds_, nodeGroupIds) };
     inline ListNodesRequest& setNodeGroupIds(vector<string> && nodeGroupIds) { DARABONBA_PTR_SET_RVALUE(nodeGroupIds_, nodeGroupIds) };
 
@@ -87,8 +87,8 @@ namespace Models
     // nodeIds Field Functions 
     bool hasNodeIds() const { return this->nodeIds_ != nullptr;};
     void deleteNodeIds() { this->nodeIds_ = nullptr;};
-    inline const vector<string> & nodeIds() const { DARABONBA_PTR_GET_CONST(nodeIds_, vector<string>) };
-    inline vector<string> nodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
+    inline const vector<string> & getNodeIds() const { DARABONBA_PTR_GET_CONST(nodeIds_, vector<string>) };
+    inline vector<string> getNodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
     inline ListNodesRequest& setNodeIds(const vector<string> & nodeIds) { DARABONBA_PTR_SET_VALUE(nodeIds_, nodeIds) };
     inline ListNodesRequest& setNodeIds(vector<string> && nodeIds) { DARABONBA_PTR_SET_RVALUE(nodeIds_, nodeIds) };
 
@@ -96,8 +96,8 @@ namespace Models
     // nodeNames Field Functions 
     bool hasNodeNames() const { return this->nodeNames_ != nullptr;};
     void deleteNodeNames() { this->nodeNames_ = nullptr;};
-    inline const vector<string> & nodeNames() const { DARABONBA_PTR_GET_CONST(nodeNames_, vector<string>) };
-    inline vector<string> nodeNames() { DARABONBA_PTR_GET(nodeNames_, vector<string>) };
+    inline const vector<string> & getNodeNames() const { DARABONBA_PTR_GET_CONST(nodeNames_, vector<string>) };
+    inline vector<string> getNodeNames() { DARABONBA_PTR_GET(nodeNames_, vector<string>) };
     inline ListNodesRequest& setNodeNames(const vector<string> & nodeNames) { DARABONBA_PTR_SET_VALUE(nodeNames_, nodeNames) };
     inline ListNodesRequest& setNodeNames(vector<string> && nodeNames) { DARABONBA_PTR_SET_RVALUE(nodeNames_, nodeNames) };
 
@@ -105,8 +105,8 @@ namespace Models
     // nodeStates Field Functions 
     bool hasNodeStates() const { return this->nodeStates_ != nullptr;};
     void deleteNodeStates() { this->nodeStates_ = nullptr;};
-    inline const vector<string> & nodeStates() const { DARABONBA_PTR_GET_CONST(nodeStates_, vector<string>) };
-    inline vector<string> nodeStates() { DARABONBA_PTR_GET(nodeStates_, vector<string>) };
+    inline const vector<string> & getNodeStates() const { DARABONBA_PTR_GET_CONST(nodeStates_, vector<string>) };
+    inline vector<string> getNodeStates() { DARABONBA_PTR_GET(nodeStates_, vector<string>) };
     inline ListNodesRequest& setNodeStates(const vector<string> & nodeStates) { DARABONBA_PTR_SET_VALUE(nodeStates_, nodeStates) };
     inline ListNodesRequest& setNodeStates(vector<string> && nodeStates) { DARABONBA_PTR_SET_RVALUE(nodeStates_, nodeStates) };
 
@@ -114,8 +114,8 @@ namespace Models
     // privateIps Field Functions 
     bool hasPrivateIps() const { return this->privateIps_ != nullptr;};
     void deletePrivateIps() { this->privateIps_ = nullptr;};
-    inline const vector<string> & privateIps() const { DARABONBA_PTR_GET_CONST(privateIps_, vector<string>) };
-    inline vector<string> privateIps() { DARABONBA_PTR_GET(privateIps_, vector<string>) };
+    inline const vector<string> & getPrivateIps() const { DARABONBA_PTR_GET_CONST(privateIps_, vector<string>) };
+    inline vector<string> getPrivateIps() { DARABONBA_PTR_GET(privateIps_, vector<string>) };
     inline ListNodesRequest& setPrivateIps(const vector<string> & privateIps) { DARABONBA_PTR_SET_VALUE(privateIps_, privateIps) };
     inline ListNodesRequest& setPrivateIps(vector<string> && privateIps) { DARABONBA_PTR_SET_RVALUE(privateIps_, privateIps) };
 
@@ -123,8 +123,8 @@ namespace Models
     // publicIps Field Functions 
     bool hasPublicIps() const { return this->publicIps_ != nullptr;};
     void deletePublicIps() { this->publicIps_ = nullptr;};
-    inline const vector<string> & publicIps() const { DARABONBA_PTR_GET_CONST(publicIps_, vector<string>) };
-    inline vector<string> publicIps() { DARABONBA_PTR_GET(publicIps_, vector<string>) };
+    inline const vector<string> & getPublicIps() const { DARABONBA_PTR_GET_CONST(publicIps_, vector<string>) };
+    inline vector<string> getPublicIps() { DARABONBA_PTR_GET(publicIps_, vector<string>) };
     inline ListNodesRequest& setPublicIps(const vector<string> & publicIps) { DARABONBA_PTR_SET_VALUE(publicIps_, publicIps) };
     inline ListNodesRequest& setPublicIps(vector<string> && publicIps) { DARABONBA_PTR_SET_RVALUE(publicIps_, publicIps) };
 
@@ -132,15 +132,15 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListNodesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<Tag> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Tag>) };
-    inline vector<Tag> tags() { DARABONBA_PTR_GET(tags_, vector<Tag>) };
+    inline const vector<Tag> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Tag>) };
+    inline vector<Tag> getTags() { DARABONBA_PTR_GET(tags_, vector<Tag>) };
     inline ListNodesRequest& setTags(const vector<Tag> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline ListNodesRequest& setTags(vector<Tag> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
@@ -149,29 +149,29 @@ namespace Models
     // The ID of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The IDs of node groups.
-    std::shared_ptr<vector<string>> nodeGroupIds_ = nullptr;
+    shared_ptr<vector<string>> nodeGroupIds_ {};
     // An array that consists of information about the ID of the node.
-    std::shared_ptr<vector<string>> nodeIds_ = nullptr;
+    shared_ptr<vector<string>> nodeIds_ {};
     // The names of the nodes.
-    std::shared_ptr<vector<string>> nodeNames_ = nullptr;
+    shared_ptr<vector<string>> nodeNames_ {};
     // The status of the node.
-    std::shared_ptr<vector<string>> nodeStates_ = nullptr;
+    shared_ptr<vector<string>> nodeStates_ {};
     // The private IP address.
-    std::shared_ptr<vector<string>> privateIps_ = nullptr;
+    shared_ptr<vector<string>> privateIps_ {};
     // The public IP address.
-    std::shared_ptr<vector<string>> publicIps_ = nullptr;
+    shared_ptr<vector<string>> publicIps_ {};
     // The ID of the region in which you want to create the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The tags.
-    std::shared_ptr<vector<Tag>> tags_ = nullptr;
+    shared_ptr<vector<Tag>> tags_ {};
   };
 
   } // namespace Models

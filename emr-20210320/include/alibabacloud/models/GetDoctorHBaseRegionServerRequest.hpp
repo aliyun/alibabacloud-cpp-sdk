@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->dateTime_ == nullptr && return this->regionId_ == nullptr && return this->regionServerHost_ == nullptr; };
+        && this->dateTime_ == nullptr && this->regionId_ == nullptr && this->regionServerHost_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetDoctorHBaseRegionServerRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dateTime Field Functions 
     bool hasDateTime() const { return this->dateTime_ != nullptr;};
     void deleteDateTime() { this->dateTime_ = nullptr;};
-    inline string dateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
+    inline string getDateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
     inline GetDoctorHBaseRegionServerRequest& setDateTime(string dateTime) { DARABONBA_PTR_SET_VALUE(dateTime_, dateTime) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetDoctorHBaseRegionServerRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // regionServerHost Field Functions 
     bool hasRegionServerHost() const { return this->regionServerHost_ != nullptr;};
     void deleteRegionServerHost() { this->regionServerHost_ = nullptr;};
-    inline string regionServerHost() const { DARABONBA_PTR_GET_DEFAULT(regionServerHost_, "") };
+    inline string getRegionServerHost() const { DARABONBA_PTR_GET_DEFAULT(regionServerHost_, "") };
     inline GetDoctorHBaseRegionServerRequest& setRegionServerHost(string regionServerHost) { DARABONBA_PTR_SET_VALUE(regionServerHost_, regionServerHost) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The date.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dateTime_ = nullptr;
+    shared_ptr<string> dateTime_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The host of the region server.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionServerHost_ = nullptr;
+    shared_ptr<string> regionServerHost_ {};
   };
 
   } // namespace Models

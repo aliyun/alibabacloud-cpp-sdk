@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->operationId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->operationId_ == nullptr && this->regionId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetOperationRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // operationId Field Functions 
     bool hasOperationId() const { return this->operationId_ != nullptr;};
     void deleteOperationId() { this->operationId_ = nullptr;};
-    inline string operationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+    inline string getOperationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
     inline GetOperationRequest& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetOperationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The ID of the cluster that you want to query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The operation ID.
     // 
     // References:
@@ -69,11 +69,11 @@ namespace Models
     // *   [IncreaseNodes](https://help.aliyun.com/document_detail/454397.html)
     // 
     // This parameter is required.
-    std::shared_ptr<string> operationId_ = nullptr;
+    shared_ptr<string> operationId_ {};
     // The district ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

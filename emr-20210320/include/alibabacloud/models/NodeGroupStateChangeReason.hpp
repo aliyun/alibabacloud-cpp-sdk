@@ -32,26 +32,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr; };
+        && this->message_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline NodeGroupStateChangeReason& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline NodeGroupStateChangeReason& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
   protected:
-    // 状态码。
-    std::shared_ptr<string> code_ = nullptr;
-    // 描述信息。
-    std::shared_ptr<string> message_ = nullptr;
+    // The status code for the state change. Valid values include:
+    // 
+    // - `UserRequest`: A user request triggered the change.
+    // 
+    // - `OutOfStock`: The requested ECS instance type is out of stock.
+    // 
+    // - `NotAuthorized`: The request lacks the required permissions.
+    // 
+    // - `QuotaExceeded`: The request exceeds the resource quota.
+    // 
+    // - `OperationDenied`: The system denied the operation.
+    // 
+    // - `AccountException`: An account exception occurred.
+    // 
+    // - `NodeFailure`: An ECS node failed.
+    // 
+    // - `BootstrapFailure`: The bootstrap process failed.
+    // 
+    // - `ValidationFail`: The request parameters failed validation.
+    // 
+    // - `ServiceFailure`: A dependent service failed.
+    // 
+    // - `InternalError`: An unexpected internal error occurred.
+    shared_ptr<string> code_ {};
+    // A human-readable message that provides details about the state change.
+    shared_ptr<string> message_ {};
   };
 
   } // namespace Models

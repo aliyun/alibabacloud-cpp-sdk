@@ -38,26 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultValue_ == nullptr
-        && return this->enableState_ == nullptr && return this->replacementStrategy_ == nullptr && return this->values_ == nullptr; };
+        && this->enableState_ == nullptr && this->replacementStrategy_ == nullptr && this->values_ == nullptr; };
     // defaultValue Field Functions 
     bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
     void deleteDefaultValue() { this->defaultValue_ = nullptr;};
-    inline string defaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+    inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
     inline DeploymentSetConstraints& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
 
 
     // enableState Field Functions 
     bool hasEnableState() const { return this->enableState_ != nullptr;};
     void deleteEnableState() { this->enableState_ = nullptr;};
-    inline string enableState() const { DARABONBA_PTR_GET_DEFAULT(enableState_, "") };
+    inline string getEnableState() const { DARABONBA_PTR_GET_DEFAULT(enableState_, "") };
     inline DeploymentSetConstraints& setEnableState(string enableState) { DARABONBA_PTR_SET_VALUE(enableState_, enableState) };
 
 
     // replacementStrategy Field Functions 
     bool hasReplacementStrategy() const { return this->replacementStrategy_ != nullptr;};
     void deleteReplacementStrategy() { this->replacementStrategy_ = nullptr;};
-    inline const ReplacementStrategy & replacementStrategy() const { DARABONBA_PTR_GET_CONST(replacementStrategy_, ReplacementStrategy) };
-    inline ReplacementStrategy replacementStrategy() { DARABONBA_PTR_GET(replacementStrategy_, ReplacementStrategy) };
+    inline const ReplacementStrategy & getReplacementStrategy() const { DARABONBA_PTR_GET_CONST(replacementStrategy_, ReplacementStrategy) };
+    inline ReplacementStrategy getReplacementStrategy() { DARABONBA_PTR_GET(replacementStrategy_, ReplacementStrategy) };
     inline DeploymentSetConstraints& setReplacementStrategy(const ReplacementStrategy & replacementStrategy) { DARABONBA_PTR_SET_VALUE(replacementStrategy_, replacementStrategy) };
     inline DeploymentSetConstraints& setReplacementStrategy(ReplacementStrategy && replacementStrategy) { DARABONBA_PTR_SET_RVALUE(replacementStrategy_, replacementStrategy) };
 
@@ -65,20 +65,20 @@ namespace Models
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline const vector<string> & values() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
-    inline vector<string> values() { DARABONBA_PTR_GET(values_, vector<string>) };
+    inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+    inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
     inline DeploymentSetConstraints& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
     inline DeploymentSetConstraints& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
 
 
   protected:
     // 默认值。
-    std::shared_ptr<string> defaultValue_ = nullptr;
-    std::shared_ptr<string> enableState_ = nullptr;
+    shared_ptr<string> defaultValue_ {};
+    shared_ptr<string> enableState_ {};
     // 替换策略。
-    std::shared_ptr<ReplacementStrategy> replacementStrategy_ = nullptr;
+    shared_ptr<ReplacementStrategy> replacementStrategy_ {};
     // 枚举值。
-    std::shared_ptr<vector<string>> values_ = nullptr;
+    shared_ptr<vector<string>> values_ {};
   };
 
   } // namespace Models

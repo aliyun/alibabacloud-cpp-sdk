@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpu_ == nullptr
-        && return this->memory_ == nullptr; };
+        && this->memory_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
-    inline string cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
+    inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
     inline OnKubeClusterResource& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
 
 
     // memory Field Functions 
     bool hasMemory() const { return this->memory_ != nullptr;};
     void deleteMemory() { this->memory_ = nullptr;};
-    inline string memory() const { DARABONBA_PTR_GET_DEFAULT(memory_, "") };
+    inline string getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, "") };
     inline OnKubeClusterResource& setMemory(string memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
   protected:
-    std::shared_ptr<string> cpu_ = nullptr;
-    std::shared_ptr<string> memory_ = nullptr;
+    shared_ptr<string> cpu_ {};
+    shared_ptr<string> memory_ {};
   };
 
   } // namespace Models

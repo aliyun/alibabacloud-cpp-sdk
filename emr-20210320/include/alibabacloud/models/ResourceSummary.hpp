@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inefficientTaskRate_ == nullptr
-        && return this->memoryUtilizationRate_ == nullptr && return this->originalTotalVcore_ == nullptr && return this->vcoreUtilizationRate_ == nullptr; };
+        && this->memoryUtilizationRate_ == nullptr && this->originalTotalVcore_ == nullptr && this->vcoreUtilizationRate_ == nullptr; };
     // inefficientTaskRate Field Functions 
     bool hasInefficientTaskRate() const { return this->inefficientTaskRate_ != nullptr;};
     void deleteInefficientTaskRate() { this->inefficientTaskRate_ = nullptr;};
-    inline const DoubleMetric & inefficientTaskRate() const { DARABONBA_PTR_GET_CONST(inefficientTaskRate_, DoubleMetric) };
-    inline DoubleMetric inefficientTaskRate() { DARABONBA_PTR_GET(inefficientTaskRate_, DoubleMetric) };
+    inline const DoubleMetric & getInefficientTaskRate() const { DARABONBA_PTR_GET_CONST(inefficientTaskRate_, DoubleMetric) };
+    inline DoubleMetric getInefficientTaskRate() { DARABONBA_PTR_GET(inefficientTaskRate_, DoubleMetric) };
     inline ResourceSummary& setInefficientTaskRate(const DoubleMetric & inefficientTaskRate) { DARABONBA_PTR_SET_VALUE(inefficientTaskRate_, inefficientTaskRate) };
     inline ResourceSummary& setInefficientTaskRate(DoubleMetric && inefficientTaskRate) { DARABONBA_PTR_SET_RVALUE(inefficientTaskRate_, inefficientTaskRate) };
 
@@ -51,8 +51,8 @@ namespace Models
     // memoryUtilizationRate Field Functions 
     bool hasMemoryUtilizationRate() const { return this->memoryUtilizationRate_ != nullptr;};
     void deleteMemoryUtilizationRate() { this->memoryUtilizationRate_ = nullptr;};
-    inline const DoubleMetric & memoryUtilizationRate() const { DARABONBA_PTR_GET_CONST(memoryUtilizationRate_, DoubleMetric) };
-    inline DoubleMetric memoryUtilizationRate() { DARABONBA_PTR_GET(memoryUtilizationRate_, DoubleMetric) };
+    inline const DoubleMetric & getMemoryUtilizationRate() const { DARABONBA_PTR_GET_CONST(memoryUtilizationRate_, DoubleMetric) };
+    inline DoubleMetric getMemoryUtilizationRate() { DARABONBA_PTR_GET(memoryUtilizationRate_, DoubleMetric) };
     inline ResourceSummary& setMemoryUtilizationRate(const DoubleMetric & memoryUtilizationRate) { DARABONBA_PTR_SET_VALUE(memoryUtilizationRate_, memoryUtilizationRate) };
     inline ResourceSummary& setMemoryUtilizationRate(DoubleMetric && memoryUtilizationRate) { DARABONBA_PTR_SET_RVALUE(memoryUtilizationRate_, memoryUtilizationRate) };
 
@@ -60,8 +60,8 @@ namespace Models
     // originalTotalVcore Field Functions 
     bool hasOriginalTotalVcore() const { return this->originalTotalVcore_ != nullptr;};
     void deleteOriginalTotalVcore() { this->originalTotalVcore_ = nullptr;};
-    inline const IntegerMetric & originalTotalVcore() const { DARABONBA_PTR_GET_CONST(originalTotalVcore_, IntegerMetric) };
-    inline IntegerMetric originalTotalVcore() { DARABONBA_PTR_GET(originalTotalVcore_, IntegerMetric) };
+    inline const IntegerMetric & getOriginalTotalVcore() const { DARABONBA_PTR_GET_CONST(originalTotalVcore_, IntegerMetric) };
+    inline IntegerMetric getOriginalTotalVcore() { DARABONBA_PTR_GET(originalTotalVcore_, IntegerMetric) };
     inline ResourceSummary& setOriginalTotalVcore(const IntegerMetric & originalTotalVcore) { DARABONBA_PTR_SET_VALUE(originalTotalVcore_, originalTotalVcore) };
     inline ResourceSummary& setOriginalTotalVcore(IntegerMetric && originalTotalVcore) { DARABONBA_PTR_SET_RVALUE(originalTotalVcore_, originalTotalVcore) };
 
@@ -69,17 +69,17 @@ namespace Models
     // vcoreUtilizationRate Field Functions 
     bool hasVcoreUtilizationRate() const { return this->vcoreUtilizationRate_ != nullptr;};
     void deleteVcoreUtilizationRate() { this->vcoreUtilizationRate_ = nullptr;};
-    inline const DoubleMetric & vcoreUtilizationRate() const { DARABONBA_PTR_GET_CONST(vcoreUtilizationRate_, DoubleMetric) };
-    inline DoubleMetric vcoreUtilizationRate() { DARABONBA_PTR_GET(vcoreUtilizationRate_, DoubleMetric) };
+    inline const DoubleMetric & getVcoreUtilizationRate() const { DARABONBA_PTR_GET_CONST(vcoreUtilizationRate_, DoubleMetric) };
+    inline DoubleMetric getVcoreUtilizationRate() { DARABONBA_PTR_GET(vcoreUtilizationRate_, DoubleMetric) };
     inline ResourceSummary& setVcoreUtilizationRate(const DoubleMetric & vcoreUtilizationRate) { DARABONBA_PTR_SET_VALUE(vcoreUtilizationRate_, vcoreUtilizationRate) };
     inline ResourceSummary& setVcoreUtilizationRate(DoubleMetric && vcoreUtilizationRate) { DARABONBA_PTR_SET_RVALUE(vcoreUtilizationRate_, vcoreUtilizationRate) };
 
 
   protected:
-    std::shared_ptr<DoubleMetric> inefficientTaskRate_ = nullptr;
-    std::shared_ptr<DoubleMetric> memoryUtilizationRate_ = nullptr;
-    std::shared_ptr<IntegerMetric> originalTotalVcore_ = nullptr;
-    std::shared_ptr<DoubleMetric> vcoreUtilizationRate_ = nullptr;
+    shared_ptr<DoubleMetric> inefficientTaskRate_ {};
+    shared_ptr<DoubleMetric> memoryUtilizationRate_ {};
+    shared_ptr<IntegerMetric> originalTotalVcore_ {};
+    shared_ptr<DoubleMetric> vcoreUtilizationRate_ {};
   };
 
   } // namespace Models

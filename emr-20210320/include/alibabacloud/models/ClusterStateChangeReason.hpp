@@ -32,37 +32,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr; };
+        && this->message_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ClusterStateChangeReason& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ClusterStateChangeReason& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
   protected:
-    // 状态码。取值范围：
-    // - UserRequest：用户请求。
-    // - OutOfStock：请求的ECS实例类型无库存。
-    // - NotAuthorized：无权限。
-    // - QuotaExceeded：Quota超出。
-    // - OperationDenied：操作被拒绝。
-    // - AccountException：账号异常。
-    // - NodeFailure：ECS节点异常。
-    // - BootstrapFailure：引导失败。
-    // - ValidationFail：业务逻辑校验失败。
-    // - ServiceFailure：依赖的其他服务失败。
-    // - InternalError：内部错误。
-    std::shared_ptr<string> code_ = nullptr;
-    // 状态变化信息。
-    std::shared_ptr<string> message_ = nullptr;
+    // The status code for the state change. Valid values:
+    // 
+    // - UserRequest: A user request triggered the state change.
+    // 
+    // - OutOfStock: The requested ECS instance type is out of stock.
+    // 
+    // - NotAuthorized: The operation was denied due to insufficient permission.
+    // 
+    // - QuotaExceeded: The request exceeded a service quota.
+    // 
+    // - OperationDenied: The operation was denied.
+    // 
+    // - AccountException: An account-related exception occurred.
+    // 
+    // - NodeFailure: An ECS node failed.
+    // 
+    // - BootstrapFailure: A bootstrap action failed.
+    // 
+    // - ValidationFail: The request failed business logic validation.
+    // 
+    // - ServiceFailure: A dependent service failed.
+    // 
+    // - InternalError: An internal error occurred.
+    shared_ptr<string> code_ {};
+    // A human-readable message detailing the cluster state change.
+    shared_ptr<string> message_ {};
   };
 
   } // namespace Models

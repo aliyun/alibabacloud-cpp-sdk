@@ -56,122 +56,122 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cause_ == nullptr
-        && return this->description_ == nullptr && return this->endTime_ == nullptr && return this->essScalingRuleId_ == nullptr && return this->expectNum_ == nullptr && return this->hostGroupName_ == nullptr
-        && return this->id_ == nullptr && return this->instanceIds_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scalingRuleName_ == nullptr && return this->startTime_ == nullptr
-        && return this->status_ == nullptr && return this->totalCapacity_ == nullptr && return this->transition_ == nullptr; };
+        && this->description_ == nullptr && this->endTime_ == nullptr && this->essScalingRuleId_ == nullptr && this->expectNum_ == nullptr && this->hostGroupName_ == nullptr
+        && this->id_ == nullptr && this->instanceIds_ == nullptr && this->scalingGroupId_ == nullptr && this->scalingRuleName_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->totalCapacity_ == nullptr && this->transition_ == nullptr; };
     // cause Field Functions 
     bool hasCause() const { return this->cause_ != nullptr;};
     void deleteCause() { this->cause_ = nullptr;};
-    inline string cause() const { DARABONBA_PTR_GET_DEFAULT(cause_, "") };
+    inline string getCause() const { DARABONBA_PTR_GET_DEFAULT(cause_, "") };
     inline ScalingActivity& setCause(string cause) { DARABONBA_PTR_SET_VALUE(cause_, cause) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ScalingActivity& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline ScalingActivity& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // essScalingRuleId Field Functions 
     bool hasEssScalingRuleId() const { return this->essScalingRuleId_ != nullptr;};
     void deleteEssScalingRuleId() { this->essScalingRuleId_ = nullptr;};
-    inline string essScalingRuleId() const { DARABONBA_PTR_GET_DEFAULT(essScalingRuleId_, "") };
+    inline string getEssScalingRuleId() const { DARABONBA_PTR_GET_DEFAULT(essScalingRuleId_, "") };
     inline ScalingActivity& setEssScalingRuleId(string essScalingRuleId) { DARABONBA_PTR_SET_VALUE(essScalingRuleId_, essScalingRuleId) };
 
 
     // expectNum Field Functions 
     bool hasExpectNum() const { return this->expectNum_ != nullptr;};
     void deleteExpectNum() { this->expectNum_ = nullptr;};
-    inline int32_t expectNum() const { DARABONBA_PTR_GET_DEFAULT(expectNum_, 0) };
+    inline int32_t getExpectNum() const { DARABONBA_PTR_GET_DEFAULT(expectNum_, 0) };
     inline ScalingActivity& setExpectNum(int32_t expectNum) { DARABONBA_PTR_SET_VALUE(expectNum_, expectNum) };
 
 
     // hostGroupName Field Functions 
     bool hasHostGroupName() const { return this->hostGroupName_ != nullptr;};
     void deleteHostGroupName() { this->hostGroupName_ = nullptr;};
-    inline string hostGroupName() const { DARABONBA_PTR_GET_DEFAULT(hostGroupName_, "") };
+    inline string getHostGroupName() const { DARABONBA_PTR_GET_DEFAULT(hostGroupName_, "") };
     inline ScalingActivity& setHostGroupName(string hostGroupName) { DARABONBA_PTR_SET_VALUE(hostGroupName_, hostGroupName) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline ScalingActivity& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline ScalingActivity& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // scalingGroupId Field Functions 
     bool hasScalingGroupId() const { return this->scalingGroupId_ != nullptr;};
     void deleteScalingGroupId() { this->scalingGroupId_ = nullptr;};
-    inline string scalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
+    inline string getScalingGroupId() const { DARABONBA_PTR_GET_DEFAULT(scalingGroupId_, "") };
     inline ScalingActivity& setScalingGroupId(string scalingGroupId) { DARABONBA_PTR_SET_VALUE(scalingGroupId_, scalingGroupId) };
 
 
     // scalingRuleName Field Functions 
     bool hasScalingRuleName() const { return this->scalingRuleName_ != nullptr;};
     void deleteScalingRuleName() { this->scalingRuleName_ = nullptr;};
-    inline string scalingRuleName() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleName_, "") };
+    inline string getScalingRuleName() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleName_, "") };
     inline ScalingActivity& setScalingRuleName(string scalingRuleName) { DARABONBA_PTR_SET_VALUE(scalingRuleName_, scalingRuleName) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline ScalingActivity& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ScalingActivity& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // totalCapacity Field Functions 
     bool hasTotalCapacity() const { return this->totalCapacity_ != nullptr;};
     void deleteTotalCapacity() { this->totalCapacity_ = nullptr;};
-    inline int32_t totalCapacity() const { DARABONBA_PTR_GET_DEFAULT(totalCapacity_, 0) };
+    inline int32_t getTotalCapacity() const { DARABONBA_PTR_GET_DEFAULT(totalCapacity_, 0) };
     inline ScalingActivity& setTotalCapacity(int32_t totalCapacity) { DARABONBA_PTR_SET_VALUE(totalCapacity_, totalCapacity) };
 
 
     // transition Field Functions 
     bool hasTransition() const { return this->transition_ != nullptr;};
     void deleteTransition() { this->transition_ = nullptr;};
-    inline string transition() const { DARABONBA_PTR_GET_DEFAULT(transition_, "") };
+    inline string getTransition() const { DARABONBA_PTR_GET_DEFAULT(transition_, "") };
     inline ScalingActivity& setTransition(string transition) { DARABONBA_PTR_SET_VALUE(transition_, transition) };
 
 
   protected:
-    std::shared_ptr<string> cause_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<string> essScalingRuleId_ = nullptr;
-    std::shared_ptr<int32_t> expectNum_ = nullptr;
-    std::shared_ptr<string> hostGroupName_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> instanceIds_ = nullptr;
-    std::shared_ptr<string> scalingGroupId_ = nullptr;
-    std::shared_ptr<string> scalingRuleName_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<int32_t> totalCapacity_ = nullptr;
-    std::shared_ptr<string> transition_ = nullptr;
+    shared_ptr<string> cause_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<string> essScalingRuleId_ {};
+    shared_ptr<int32_t> expectNum_ {};
+    shared_ptr<string> hostGroupName_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> instanceIds_ {};
+    shared_ptr<string> scalingGroupId_ {};
+    shared_ptr<string> scalingRuleName_ {};
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<int32_t> totalCapacity_ {};
+    shared_ptr<string> transition_ {};
   };
 
   } // namespace Models

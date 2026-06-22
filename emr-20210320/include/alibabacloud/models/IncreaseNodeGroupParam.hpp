@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeCount_ == nullptr
-        && return this->nodeGroupId_ == nullptr && return this->paymentDuration_ == nullptr && return this->paymentDurationUnit_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && this->nodeGroupId_ == nullptr && this->paymentDuration_ == nullptr && this->paymentDurationUnit_ == nullptr && this->vSwitchId_ == nullptr; };
     // nodeCount Field Functions 
     bool hasNodeCount() const { return this->nodeCount_ != nullptr;};
     void deleteNodeCount() { this->nodeCount_ = nullptr;};
-    inline int64_t nodeCount() const { DARABONBA_PTR_GET_DEFAULT(nodeCount_, 0L) };
+    inline int64_t getNodeCount() const { DARABONBA_PTR_GET_DEFAULT(nodeCount_, 0L) };
     inline IncreaseNodeGroupParam& setNodeCount(int64_t nodeCount) { DARABONBA_PTR_SET_VALUE(nodeCount_, nodeCount) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline IncreaseNodeGroupParam& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // paymentDuration Field Functions 
     bool hasPaymentDuration() const { return this->paymentDuration_ != nullptr;};
     void deletePaymentDuration() { this->paymentDuration_ = nullptr;};
-    inline int32_t paymentDuration() const { DARABONBA_PTR_GET_DEFAULT(paymentDuration_, 0) };
+    inline int32_t getPaymentDuration() const { DARABONBA_PTR_GET_DEFAULT(paymentDuration_, 0) };
     inline IncreaseNodeGroupParam& setPaymentDuration(int32_t paymentDuration) { DARABONBA_PTR_SET_VALUE(paymentDuration_, paymentDuration) };
 
 
     // paymentDurationUnit Field Functions 
     bool hasPaymentDurationUnit() const { return this->paymentDurationUnit_ != nullptr;};
     void deletePaymentDurationUnit() { this->paymentDurationUnit_ = nullptr;};
-    inline string paymentDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(paymentDurationUnit_, "") };
+    inline string getPaymentDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(paymentDurationUnit_, "") };
     inline IncreaseNodeGroupParam& setPaymentDurationUnit(string paymentDurationUnit) { DARABONBA_PTR_SET_VALUE(paymentDurationUnit_, paymentDurationUnit) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline IncreaseNodeGroupParam& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
   protected:
-    std::shared_ptr<int64_t> nodeCount_ = nullptr;
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
-    std::shared_ptr<int32_t> paymentDuration_ = nullptr;
-    std::shared_ptr<string> paymentDurationUnit_ = nullptr;
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<int64_t> nodeCount_ {};
+    shared_ptr<string> nodeGroupId_ {};
+    shared_ptr<int32_t> paymentDuration_ {};
+    shared_ptr<string> paymentDurationUnit_ {};
+    shared_ptr<string> vSwitchId_ {};
   };
 
   } // namespace Models

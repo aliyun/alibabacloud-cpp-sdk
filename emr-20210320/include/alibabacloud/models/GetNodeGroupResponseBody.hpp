@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeGroup_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // nodeGroup Field Functions 
     bool hasNodeGroup() const { return this->nodeGroup_ != nullptr;};
     void deleteNodeGroup() { this->nodeGroup_ = nullptr;};
-    inline const NodeGroup & nodeGroup() const { DARABONBA_PTR_GET_CONST(nodeGroup_, NodeGroup) };
-    inline NodeGroup nodeGroup() { DARABONBA_PTR_GET(nodeGroup_, NodeGroup) };
+    inline const NodeGroup & getNodeGroup() const { DARABONBA_PTR_GET_CONST(nodeGroup_, NodeGroup) };
+    inline NodeGroup getNodeGroup() { DARABONBA_PTR_GET(nodeGroup_, NodeGroup) };
     inline GetNodeGroupResponseBody& setNodeGroup(const NodeGroup & nodeGroup) { DARABONBA_PTR_SET_VALUE(nodeGroup_, nodeGroup) };
     inline GetNodeGroupResponseBody& setNodeGroup(NodeGroup && nodeGroup) { DARABONBA_PTR_SET_RVALUE(nodeGroup_, nodeGroup) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetNodeGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The node group.
-    std::shared_ptr<NodeGroup> nodeGroup_ = nullptr;
+    shared_ptr<NodeGroup> nodeGroup_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

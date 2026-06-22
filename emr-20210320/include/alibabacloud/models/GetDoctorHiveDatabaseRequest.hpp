@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->databaseName_ == nullptr && return this->dateTime_ == nullptr && return this->regionId_ == nullptr; };
+        && this->databaseName_ == nullptr && this->dateTime_ == nullptr && this->regionId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetDoctorHiveDatabaseRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline GetDoctorHiveDatabaseRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // dateTime Field Functions 
     bool hasDateTime() const { return this->dateTime_ != nullptr;};
     void deleteDateTime() { this->dateTime_ = nullptr;};
-    inline string dateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
+    inline string getDateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
     inline GetDoctorHiveDatabaseRequest& setDateTime(string dateTime) { DARABONBA_PTR_SET_VALUE(dateTime_, dateTime) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetDoctorHiveDatabaseRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The database name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> databaseName_ = nullptr;
+    shared_ptr<string> databaseName_ {};
     // The query date.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dateTime_ = nullptr;
+    shared_ptr<string> dateTime_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

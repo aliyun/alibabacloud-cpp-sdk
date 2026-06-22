@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->constraints_ == nullptr && return this->regionId_ == nullptr; };
+        && this->constraints_ == nullptr && this->regionId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline PutManagedScalingPolicyRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // constraints Field Functions 
     bool hasConstraints() const { return this->constraints_ != nullptr;};
     void deleteConstraints() { this->constraints_ = nullptr;};
-    inline const ManagedScalingConstraints & constraints() const { DARABONBA_PTR_GET_CONST(constraints_, ManagedScalingConstraints) };
-    inline ManagedScalingConstraints constraints() { DARABONBA_PTR_GET(constraints_, ManagedScalingConstraints) };
+    inline const ManagedScalingConstraints & getConstraints() const { DARABONBA_PTR_GET_CONST(constraints_, ManagedScalingConstraints) };
+    inline ManagedScalingConstraints getConstraints() { DARABONBA_PTR_GET(constraints_, ManagedScalingConstraints) };
     inline PutManagedScalingPolicyRequest& setConstraints(const ManagedScalingConstraints & constraints) { DARABONBA_PTR_SET_VALUE(constraints_, constraints) };
     inline PutManagedScalingPolicyRequest& setConstraints(ManagedScalingConstraints && constraints) { DARABONBA_PTR_SET_RVALUE(constraints_, constraints) };
 
@@ -55,7 +55,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PutManagedScalingPolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -63,13 +63,13 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    // The constrains on the maximum and minimum numbers of nodes in a node group.
-    std::shared_ptr<ManagedScalingConstraints> constraints_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    // The maximum and minimum value constraints for the cluster.
+    shared_ptr<ManagedScalingConstraints> constraints_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

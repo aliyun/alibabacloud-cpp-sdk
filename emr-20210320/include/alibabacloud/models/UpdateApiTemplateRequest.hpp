@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiName_ == nullptr
-        && return this->content_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->templateId_ == nullptr && return this->templateName_ == nullptr; };
+        && this->content_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr; };
     // apiName Field Functions 
     bool hasApiName() const { return this->apiName_ != nullptr;};
     void deleteApiName() { this->apiName_ = nullptr;};
-    inline string apiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
+    inline string getApiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
     inline UpdateApiTemplateRequest& setApiName(string apiName) { DARABONBA_PTR_SET_VALUE(apiName_, apiName) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateApiTemplateRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateApiTemplateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline UpdateApiTemplateRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline UpdateApiTemplateRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline UpdateApiTemplateRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
@@ -87,25 +87,25 @@ namespace Models
     // The name of the API operation. You can create only a cluster API operation template. Set the value to CreateCluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiName_ = nullptr;
+    shared_ptr<string> apiName_ {};
     // The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API operation for creating a cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Template ID (it is recommended to use the parameter TemplateId).
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The name of the template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
   };
 
   } // namespace Models

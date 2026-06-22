@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categories_ == nullptr
-        && return this->countConstraint_ == nullptr && return this->sizeConstraint_ == nullptr; };
+        && this->countConstraint_ == nullptr && this->sizeConstraint_ == nullptr; };
     // categories Field Functions 
     bool hasCategories() const { return this->categories_ != nullptr;};
     void deleteCategories() { this->categories_ = nullptr;};
-    inline const vector<string> & categories() const { DARABONBA_PTR_GET_CONST(categories_, vector<string>) };
-    inline vector<string> categories() { DARABONBA_PTR_GET(categories_, vector<string>) };
+    inline const vector<string> & getCategories() const { DARABONBA_PTR_GET_CONST(categories_, vector<string>) };
+    inline vector<string> getCategories() { DARABONBA_PTR_GET(categories_, vector<string>) };
     inline DiskConstraints& setCategories(const vector<string> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
     inline DiskConstraints& setCategories(vector<string> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
 
@@ -49,8 +49,8 @@ namespace Models
     // countConstraint Field Functions 
     bool hasCountConstraint() const { return this->countConstraint_ != nullptr;};
     void deleteCountConstraint() { this->countConstraint_ = nullptr;};
-    inline const ValueConstraints & countConstraint() const { DARABONBA_PTR_GET_CONST(countConstraint_, ValueConstraints) };
-    inline ValueConstraints countConstraint() { DARABONBA_PTR_GET(countConstraint_, ValueConstraints) };
+    inline const ValueConstraints & getCountConstraint() const { DARABONBA_PTR_GET_CONST(countConstraint_, ValueConstraints) };
+    inline ValueConstraints getCountConstraint() { DARABONBA_PTR_GET(countConstraint_, ValueConstraints) };
     inline DiskConstraints& setCountConstraint(const ValueConstraints & countConstraint) { DARABONBA_PTR_SET_VALUE(countConstraint_, countConstraint) };
     inline DiskConstraints& setCountConstraint(ValueConstraints && countConstraint) { DARABONBA_PTR_SET_RVALUE(countConstraint_, countConstraint) };
 
@@ -58,19 +58,19 @@ namespace Models
     // sizeConstraint Field Functions 
     bool hasSizeConstraint() const { return this->sizeConstraint_ != nullptr;};
     void deleteSizeConstraint() { this->sizeConstraint_ = nullptr;};
-    inline const ValueConstraints & sizeConstraint() const { DARABONBA_PTR_GET_CONST(sizeConstraint_, ValueConstraints) };
-    inline ValueConstraints sizeConstraint() { DARABONBA_PTR_GET(sizeConstraint_, ValueConstraints) };
+    inline const ValueConstraints & getSizeConstraint() const { DARABONBA_PTR_GET_CONST(sizeConstraint_, ValueConstraints) };
+    inline ValueConstraints getSizeConstraint() { DARABONBA_PTR_GET(sizeConstraint_, ValueConstraints) };
     inline DiskConstraints& setSizeConstraint(const ValueConstraints & sizeConstraint) { DARABONBA_PTR_SET_VALUE(sizeConstraint_, sizeConstraint) };
     inline DiskConstraints& setSizeConstraint(ValueConstraints && sizeConstraint) { DARABONBA_PTR_SET_RVALUE(sizeConstraint_, sizeConstraint) };
 
 
   protected:
     // 支持的磁盘类型。
-    std::shared_ptr<vector<string>> categories_ = nullptr;
+    shared_ptr<vector<string>> categories_ {};
     // 磁盘数量最小值。
-    std::shared_ptr<ValueConstraints> countConstraint_ = nullptr;
+    shared_ptr<ValueConstraints> countConstraint_ {};
     // 磁盘容量限制。
-    std::shared_ptr<ValueConstraints> sizeConstraint_ = nullptr;
+    shared_ptr<ValueConstraints> sizeConstraint_ {};
   };
 
   } // namespace Models

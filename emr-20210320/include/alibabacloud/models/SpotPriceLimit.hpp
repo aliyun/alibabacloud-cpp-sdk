@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceType_ == nullptr
-        && return this->priceLimit_ == nullptr; };
+        && this->priceLimit_ == nullptr; };
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline SpotPriceLimit& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // priceLimit Field Functions 
     bool hasPriceLimit() const { return this->priceLimit_ != nullptr;};
     void deletePriceLimit() { this->priceLimit_ = nullptr;};
-    inline double priceLimit() const { DARABONBA_PTR_GET_DEFAULT(priceLimit_, 0.0) };
+    inline double getPriceLimit() const { DARABONBA_PTR_GET_DEFAULT(priceLimit_, 0.0) };
     inline SpotPriceLimit& setPriceLimit(double priceLimit) { DARABONBA_PTR_SET_VALUE(priceLimit_, priceLimit) };
 
 
   protected:
-    std::shared_ptr<string> instanceType_ = nullptr;
-    std::shared_ptr<double> priceLimit_ = nullptr;
+    shared_ptr<string> instanceType_ {};
+    shared_ptr<double> priceLimit_ {};
   };
 
   } // namespace Models

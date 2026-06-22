@@ -44,13 +44,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceTypes_ == nullptr
-        && return this->maximalNodeCount_ == nullptr && return this->minimalNodeCount_ == nullptr && return this->nodeCount_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodeGroupType_ == nullptr
-        && return this->paymentType_ == nullptr; };
+        && this->maximalNodeCount_ == nullptr && this->minimalNodeCount_ == nullptr && this->nodeCount_ == nullptr && this->nodeGroupName_ == nullptr && this->nodeGroupType_ == nullptr
+        && this->paymentType_ == nullptr; };
     // instanceTypes Field Functions 
     bool hasInstanceTypes() const { return this->instanceTypes_ != nullptr;};
     void deleteInstanceTypes() { this->instanceTypes_ = nullptr;};
-    inline const vector<CostInstanceType> & instanceTypes() const { DARABONBA_PTR_GET_CONST(instanceTypes_, vector<CostInstanceType>) };
-    inline vector<CostInstanceType> instanceTypes() { DARABONBA_PTR_GET(instanceTypes_, vector<CostInstanceType>) };
+    inline const vector<CostInstanceType> & getInstanceTypes() const { DARABONBA_PTR_GET_CONST(instanceTypes_, vector<CostInstanceType>) };
+    inline vector<CostInstanceType> getInstanceTypes() { DARABONBA_PTR_GET(instanceTypes_, vector<CostInstanceType>) };
     inline CostNodeGroupConfig& setInstanceTypes(const vector<CostInstanceType> & instanceTypes) { DARABONBA_PTR_SET_VALUE(instanceTypes_, instanceTypes) };
     inline CostNodeGroupConfig& setInstanceTypes(vector<CostInstanceType> && instanceTypes) { DARABONBA_PTR_SET_RVALUE(instanceTypes_, instanceTypes) };
 
@@ -58,62 +58,62 @@ namespace Models
     // maximalNodeCount Field Functions 
     bool hasMaximalNodeCount() const { return this->maximalNodeCount_ != nullptr;};
     void deleteMaximalNodeCount() { this->maximalNodeCount_ = nullptr;};
-    inline int32_t maximalNodeCount() const { DARABONBA_PTR_GET_DEFAULT(maximalNodeCount_, 0) };
+    inline int32_t getMaximalNodeCount() const { DARABONBA_PTR_GET_DEFAULT(maximalNodeCount_, 0) };
     inline CostNodeGroupConfig& setMaximalNodeCount(int32_t maximalNodeCount) { DARABONBA_PTR_SET_VALUE(maximalNodeCount_, maximalNodeCount) };
 
 
     // minimalNodeCount Field Functions 
     bool hasMinimalNodeCount() const { return this->minimalNodeCount_ != nullptr;};
     void deleteMinimalNodeCount() { this->minimalNodeCount_ = nullptr;};
-    inline int32_t minimalNodeCount() const { DARABONBA_PTR_GET_DEFAULT(minimalNodeCount_, 0) };
+    inline int32_t getMinimalNodeCount() const { DARABONBA_PTR_GET_DEFAULT(minimalNodeCount_, 0) };
     inline CostNodeGroupConfig& setMinimalNodeCount(int32_t minimalNodeCount) { DARABONBA_PTR_SET_VALUE(minimalNodeCount_, minimalNodeCount) };
 
 
     // nodeCount Field Functions 
     bool hasNodeCount() const { return this->nodeCount_ != nullptr;};
     void deleteNodeCount() { this->nodeCount_ = nullptr;};
-    inline int32_t nodeCount() const { DARABONBA_PTR_GET_DEFAULT(nodeCount_, 0) };
+    inline int32_t getNodeCount() const { DARABONBA_PTR_GET_DEFAULT(nodeCount_, 0) };
     inline CostNodeGroupConfig& setNodeCount(int32_t nodeCount) { DARABONBA_PTR_SET_VALUE(nodeCount_, nodeCount) };
 
 
     // nodeGroupName Field Functions 
     bool hasNodeGroupName() const { return this->nodeGroupName_ != nullptr;};
     void deleteNodeGroupName() { this->nodeGroupName_ = nullptr;};
-    inline string nodeGroupName() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupName_, "") };
+    inline string getNodeGroupName() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupName_, "") };
     inline CostNodeGroupConfig& setNodeGroupName(string nodeGroupName) { DARABONBA_PTR_SET_VALUE(nodeGroupName_, nodeGroupName) };
 
 
     // nodeGroupType Field Functions 
     bool hasNodeGroupType() const { return this->nodeGroupType_ != nullptr;};
     void deleteNodeGroupType() { this->nodeGroupType_ = nullptr;};
-    inline string nodeGroupType() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupType_, "") };
+    inline string getNodeGroupType() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupType_, "") };
     inline CostNodeGroupConfig& setNodeGroupType(string nodeGroupType) { DARABONBA_PTR_SET_VALUE(nodeGroupType_, nodeGroupType) };
 
 
     // paymentType Field Functions 
     bool hasPaymentType() const { return this->paymentType_ != nullptr;};
     void deletePaymentType() { this->paymentType_ = nullptr;};
-    inline string paymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
+    inline string getPaymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
     inline CostNodeGroupConfig& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
 
 
   protected:
     // 实例类型列表。
-    std::shared_ptr<vector<CostInstanceType>> instanceTypes_ = nullptr;
+    shared_ptr<vector<CostInstanceType>> instanceTypes_ {};
     // 最大节点数限制。
-    std::shared_ptr<int32_t> maximalNodeCount_ = nullptr;
+    shared_ptr<int32_t> maximalNodeCount_ {};
     // 最小节点数限制。
-    std::shared_ptr<int32_t> minimalNodeCount_ = nullptr;
+    shared_ptr<int32_t> minimalNodeCount_ {};
     // 节点数。
-    std::shared_ptr<int32_t> nodeCount_ = nullptr;
-    std::shared_ptr<string> nodeGroupName_ = nullptr;
+    shared_ptr<int32_t> nodeCount_ {};
+    shared_ptr<string> nodeGroupName_ {};
     // 节点组类型。取值范围：
     // - MASTER：管理类型节点组。
     // - CORE：存储类型节点组。
     // - TASK：计算类型节点组。
-    std::shared_ptr<string> nodeGroupType_ = nullptr;
+    shared_ptr<string> nodeGroupType_ {};
     // 付费类型。
-    std::shared_ptr<string> paymentType_ = nullptr;
+    shared_ptr<string> paymentType_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxCapacity_ == nullptr
-        && return this->minCapacity_ == nullptr; };
+        && this->minCapacity_ == nullptr; };
     // maxCapacity Field Functions 
     bool hasMaxCapacity() const { return this->maxCapacity_ != nullptr;};
     void deleteMaxCapacity() { this->maxCapacity_ = nullptr;};
-    inline int32_t maxCapacity() const { DARABONBA_PTR_GET_DEFAULT(maxCapacity_, 0) };
+    inline int32_t getMaxCapacity() const { DARABONBA_PTR_GET_DEFAULT(maxCapacity_, 0) };
     inline ScalingConstraints& setMaxCapacity(int32_t maxCapacity) { DARABONBA_PTR_SET_VALUE(maxCapacity_, maxCapacity) };
 
 
     // minCapacity Field Functions 
     bool hasMinCapacity() const { return this->minCapacity_ != nullptr;};
     void deleteMinCapacity() { this->minCapacity_ = nullptr;};
-    inline int32_t minCapacity() const { DARABONBA_PTR_GET_DEFAULT(minCapacity_, 0) };
+    inline int32_t getMinCapacity() const { DARABONBA_PTR_GET_DEFAULT(minCapacity_, 0) };
     inline ScalingConstraints& setMinCapacity(int32_t minCapacity) { DARABONBA_PTR_SET_VALUE(minCapacity_, minCapacity) };
 
 
   protected:
-    // 最大值。
-    std::shared_ptr<int32_t> maxCapacity_ = nullptr;
-    // 最小值。
-    std::shared_ptr<int32_t> minCapacity_ = nullptr;
+    // The maximum number of nodes in the node group. Default value: 2000.
+    shared_ptr<int32_t> maxCapacity_ {};
+    // The minimum number of nodes in the node group. Default value: 0
+    shared_ptr<int32_t> minCapacity_ {};
   };
 
   } // namespace Models

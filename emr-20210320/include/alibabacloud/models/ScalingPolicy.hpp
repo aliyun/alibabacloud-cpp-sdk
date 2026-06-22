@@ -47,20 +47,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->constraints_ == nullptr && return this->disabled_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->scalingPolicyId_ == nullptr
-        && return this->scalingPolicyType_ == nullptr && return this->scalingRules_ == nullptr; };
+        && this->constraints_ == nullptr && this->disabled_ == nullptr && this->nodeGroupId_ == nullptr && this->nodeGroupName_ == nullptr && this->scalingPolicyId_ == nullptr
+        && this->scalingPolicyType_ == nullptr && this->scalingRules_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ScalingPolicy& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // constraints Field Functions 
     bool hasConstraints() const { return this->constraints_ != nullptr;};
     void deleteConstraints() { this->constraints_ = nullptr;};
-    inline const ManagedScalingConstraints & constraints() const { DARABONBA_PTR_GET_CONST(constraints_, ManagedScalingConstraints) };
-    inline ManagedScalingConstraints constraints() { DARABONBA_PTR_GET(constraints_, ManagedScalingConstraints) };
+    inline const ManagedScalingConstraints & getConstraints() const { DARABONBA_PTR_GET_CONST(constraints_, ManagedScalingConstraints) };
+    inline ManagedScalingConstraints getConstraints() { DARABONBA_PTR_GET(constraints_, ManagedScalingConstraints) };
     inline ScalingPolicy& setConstraints(const ManagedScalingConstraints & constraints) { DARABONBA_PTR_SET_VALUE(constraints_, constraints) };
     inline ScalingPolicy& setConstraints(ManagedScalingConstraints && constraints) { DARABONBA_PTR_SET_RVALUE(constraints_, constraints) };
 
@@ -68,56 +68,56 @@ namespace Models
     // disabled Field Functions 
     bool hasDisabled() const { return this->disabled_ != nullptr;};
     void deleteDisabled() { this->disabled_ = nullptr;};
-    inline bool disabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
+    inline bool getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
     inline ScalingPolicy& setDisabled(bool disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline ScalingPolicy& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // nodeGroupName Field Functions 
     bool hasNodeGroupName() const { return this->nodeGroupName_ != nullptr;};
     void deleteNodeGroupName() { this->nodeGroupName_ = nullptr;};
-    inline string nodeGroupName() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupName_, "") };
+    inline string getNodeGroupName() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupName_, "") };
     inline ScalingPolicy& setNodeGroupName(string nodeGroupName) { DARABONBA_PTR_SET_VALUE(nodeGroupName_, nodeGroupName) };
 
 
     // scalingPolicyId Field Functions 
     bool hasScalingPolicyId() const { return this->scalingPolicyId_ != nullptr;};
     void deleteScalingPolicyId() { this->scalingPolicyId_ = nullptr;};
-    inline string scalingPolicyId() const { DARABONBA_PTR_GET_DEFAULT(scalingPolicyId_, "") };
+    inline string getScalingPolicyId() const { DARABONBA_PTR_GET_DEFAULT(scalingPolicyId_, "") };
     inline ScalingPolicy& setScalingPolicyId(string scalingPolicyId) { DARABONBA_PTR_SET_VALUE(scalingPolicyId_, scalingPolicyId) };
 
 
     // scalingPolicyType Field Functions 
     bool hasScalingPolicyType() const { return this->scalingPolicyType_ != nullptr;};
     void deleteScalingPolicyType() { this->scalingPolicyType_ = nullptr;};
-    inline string scalingPolicyType() const { DARABONBA_PTR_GET_DEFAULT(scalingPolicyType_, "") };
+    inline string getScalingPolicyType() const { DARABONBA_PTR_GET_DEFAULT(scalingPolicyType_, "") };
     inline ScalingPolicy& setScalingPolicyType(string scalingPolicyType) { DARABONBA_PTR_SET_VALUE(scalingPolicyType_, scalingPolicyType) };
 
 
     // scalingRules Field Functions 
     bool hasScalingRules() const { return this->scalingRules_ != nullptr;};
     void deleteScalingRules() { this->scalingRules_ = nullptr;};
-    inline const vector<ScalingRule> & scalingRules() const { DARABONBA_PTR_GET_CONST(scalingRules_, vector<ScalingRule>) };
-    inline vector<ScalingRule> scalingRules() { DARABONBA_PTR_GET(scalingRules_, vector<ScalingRule>) };
+    inline const vector<ScalingRule> & getScalingRules() const { DARABONBA_PTR_GET_CONST(scalingRules_, vector<ScalingRule>) };
+    inline vector<ScalingRule> getScalingRules() { DARABONBA_PTR_GET(scalingRules_, vector<ScalingRule>) };
     inline ScalingPolicy& setScalingRules(const vector<ScalingRule> & scalingRules) { DARABONBA_PTR_SET_VALUE(scalingRules_, scalingRules) };
     inline ScalingPolicy& setScalingRules(vector<ScalingRule> && scalingRules) { DARABONBA_PTR_SET_RVALUE(scalingRules_, scalingRules) };
 
 
   protected:
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<ManagedScalingConstraints> constraints_ = nullptr;
-    std::shared_ptr<bool> disabled_ = nullptr;
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
-    std::shared_ptr<string> nodeGroupName_ = nullptr;
-    std::shared_ptr<string> scalingPolicyId_ = nullptr;
-    std::shared_ptr<string> scalingPolicyType_ = nullptr;
-    std::shared_ptr<vector<ScalingRule>> scalingRules_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<ManagedScalingConstraints> constraints_ {};
+    shared_ptr<bool> disabled_ {};
+    shared_ptr<string> nodeGroupId_ {};
+    shared_ptr<string> nodeGroupName_ {};
+    shared_ptr<string> scalingPolicyId_ {};
+    shared_ptr<string> scalingPolicyType_ {};
+    shared_ptr<vector<ScalingRule>> scalingRules_ {};
   };
 
   } // namespace Models

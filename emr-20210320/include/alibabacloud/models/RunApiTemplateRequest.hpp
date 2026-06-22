@@ -36,50 +36,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiName_ == nullptr
-        && return this->clientToken_ == nullptr && return this->regionId_ == nullptr && return this->templateId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->regionId_ == nullptr && this->templateId_ == nullptr; };
     // apiName Field Functions 
     bool hasApiName() const { return this->apiName_ != nullptr;};
     void deleteApiName() { this->apiName_ = nullptr;};
-    inline string apiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
+    inline string getApiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
     inline RunApiTemplateRequest& setApiName(string apiName) { DARABONBA_PTR_SET_VALUE(apiName_, apiName) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline RunApiTemplateRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline RunApiTemplateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline RunApiTemplateRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
-    // 接口名。
+    // The API name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apiName_ = nullptr;
-    // 幂等客户端TOKEN。
-    std::shared_ptr<string> clientToken_ = nullptr;
-    // 地域ID。
+    shared_ptr<string> apiName_ {};
+    // The client token that is used to ensure the idempotence of the request.
+    shared_ptr<string> clientToken_ {};
+    // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    // 集群模板id。
+    shared_ptr<string> regionId_ {};
+    // The cluster template ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

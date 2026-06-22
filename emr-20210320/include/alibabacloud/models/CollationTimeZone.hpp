@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentTimeOffset_ == nullptr
-        && return this->timeZone_ == nullptr; };
+        && this->timeZone_ == nullptr; };
     // currentTimeOffset Field Functions 
     bool hasCurrentTimeOffset() const { return this->currentTimeOffset_ != nullptr;};
     void deleteCurrentTimeOffset() { this->currentTimeOffset_ = nullptr;};
-    inline string currentTimeOffset() const { DARABONBA_PTR_GET_DEFAULT(currentTimeOffset_, "") };
+    inline string getCurrentTimeOffset() const { DARABONBA_PTR_GET_DEFAULT(currentTimeOffset_, "") };
     inline CollationTimeZone& setCurrentTimeOffset(string currentTimeOffset) { DARABONBA_PTR_SET_VALUE(currentTimeOffset_, currentTimeOffset) };
 
 
     // timeZone Field Functions 
     bool hasTimeZone() const { return this->timeZone_ != nullptr;};
     void deleteTimeZone() { this->timeZone_ = nullptr;};
-    inline string timeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+    inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
     inline CollationTimeZone& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
 
 
   protected:
-    std::shared_ptr<string> currentTimeOffset_ = nullptr;
-    std::shared_ptr<string> timeZone_ = nullptr;
+    shared_ptr<string> currentTimeOffset_ {};
+    shared_ptr<string> timeZone_ {};
   };
 
   } // namespace Models

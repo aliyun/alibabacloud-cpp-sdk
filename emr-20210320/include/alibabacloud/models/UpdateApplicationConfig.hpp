@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configDescription_ == nullptr
-        && return this->configFileName_ == nullptr && return this->configItemKey_ == nullptr && return this->configItemValue_ == nullptr; };
+        && this->configFileName_ == nullptr && this->configItemKey_ == nullptr && this->configItemValue_ == nullptr; };
     // configDescription Field Functions 
     bool hasConfigDescription() const { return this->configDescription_ != nullptr;};
     void deleteConfigDescription() { this->configDescription_ = nullptr;};
-    inline string configDescription() const { DARABONBA_PTR_GET_DEFAULT(configDescription_, "") };
+    inline string getConfigDescription() const { DARABONBA_PTR_GET_DEFAULT(configDescription_, "") };
     inline UpdateApplicationConfig& setConfigDescription(string configDescription) { DARABONBA_PTR_SET_VALUE(configDescription_, configDescription) };
 
 
     // configFileName Field Functions 
     bool hasConfigFileName() const { return this->configFileName_ != nullptr;};
     void deleteConfigFileName() { this->configFileName_ = nullptr;};
-    inline string configFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
+    inline string getConfigFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
     inline UpdateApplicationConfig& setConfigFileName(string configFileName) { DARABONBA_PTR_SET_VALUE(configFileName_, configFileName) };
 
 
     // configItemKey Field Functions 
     bool hasConfigItemKey() const { return this->configItemKey_ != nullptr;};
     void deleteConfigItemKey() { this->configItemKey_ = nullptr;};
-    inline string configItemKey() const { DARABONBA_PTR_GET_DEFAULT(configItemKey_, "") };
+    inline string getConfigItemKey() const { DARABONBA_PTR_GET_DEFAULT(configItemKey_, "") };
     inline UpdateApplicationConfig& setConfigItemKey(string configItemKey) { DARABONBA_PTR_SET_VALUE(configItemKey_, configItemKey) };
 
 
     // configItemValue Field Functions 
     bool hasConfigItemValue() const { return this->configItemValue_ != nullptr;};
     void deleteConfigItemValue() { this->configItemValue_ = nullptr;};
-    inline string configItemValue() const { DARABONBA_PTR_GET_DEFAULT(configItemValue_, "") };
+    inline string getConfigItemValue() const { DARABONBA_PTR_GET_DEFAULT(configItemValue_, "") };
     inline UpdateApplicationConfig& setConfigItemValue(string configItemValue) { DARABONBA_PTR_SET_VALUE(configItemValue_, configItemValue) };
 
 
   protected:
-    // 修改描述。
-    std::shared_ptr<string> configDescription_ = nullptr;
-    // 应用配置文件名。
-    std::shared_ptr<string> configFileName_ = nullptr;
-    // 配置项键。
-    std::shared_ptr<string> configItemKey_ = nullptr;
-    // 配置项值。
-    std::shared_ptr<string> configItemValue_ = nullptr;
+    // A description of the modification.
+    shared_ptr<string> configDescription_ {};
+    // The name of the application configuration file.
+    shared_ptr<string> configFileName_ {};
+    // The configuration item key.
+    shared_ptr<string> configItemKey_ {};
+    // The configuration item value.
+    shared_ptr<string> configItemValue_ {};
   };
 
   } // namespace Models

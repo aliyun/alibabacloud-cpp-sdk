@@ -37,43 +37,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->max_ == nullptr
-        && return this->min_ == nullptr && return this->type_ == nullptr && return this->values_ == nullptr; };
+        && this->min_ == nullptr && this->type_ == nullptr && this->values_ == nullptr; };
     // max Field Functions 
     bool hasMax() const { return this->max_ != nullptr;};
     void deleteMax() { this->max_ = nullptr;};
-    inline int32_t max() const { DARABONBA_PTR_GET_DEFAULT(max_, 0) };
+    inline int32_t getMax() const { DARABONBA_PTR_GET_DEFAULT(max_, 0) };
     inline NodeCountConstraint& setMax(int32_t max) { DARABONBA_PTR_SET_VALUE(max_, max) };
 
 
     // min Field Functions 
     bool hasMin() const { return this->min_ != nullptr;};
     void deleteMin() { this->min_ = nullptr;};
-    inline int32_t min() const { DARABONBA_PTR_GET_DEFAULT(min_, 0) };
+    inline int32_t getMin() const { DARABONBA_PTR_GET_DEFAULT(min_, 0) };
     inline NodeCountConstraint& setMin(int32_t min) { DARABONBA_PTR_SET_VALUE(min_, min) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline NodeCountConstraint& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline const vector<int32_t> & values() const { DARABONBA_PTR_GET_CONST(values_, vector<int32_t>) };
-    inline vector<int32_t> values() { DARABONBA_PTR_GET(values_, vector<int32_t>) };
+    inline const vector<int32_t> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<int32_t>) };
+    inline vector<int32_t> getValues() { DARABONBA_PTR_GET(values_, vector<int32_t>) };
     inline NodeCountConstraint& setValues(const vector<int32_t> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
     inline NodeCountConstraint& setValues(vector<int32_t> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
 
 
   protected:
-    std::shared_ptr<int32_t> max_ = nullptr;
-    std::shared_ptr<int32_t> min_ = nullptr;
+    shared_ptr<int32_t> max_ {};
+    shared_ptr<int32_t> min_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<vector<int32_t>> values_ = nullptr;
+    shared_ptr<string> type_ {};
+    shared_ptr<vector<int32_t>> values_ {};
   };
 
   } // namespace Models

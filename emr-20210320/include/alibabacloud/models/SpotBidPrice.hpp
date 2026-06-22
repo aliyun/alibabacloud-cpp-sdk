@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bidPrice_ == nullptr
-        && return this->instanceType_ == nullptr; };
+        && this->instanceType_ == nullptr; };
     // bidPrice Field Functions 
     bool hasBidPrice() const { return this->bidPrice_ != nullptr;};
     void deleteBidPrice() { this->bidPrice_ = nullptr;};
-    inline double bidPrice() const { DARABONBA_PTR_GET_DEFAULT(bidPrice_, 0.0) };
+    inline double getBidPrice() const { DARABONBA_PTR_GET_DEFAULT(bidPrice_, 0.0) };
     inline SpotBidPrice& setBidPrice(double bidPrice) { DARABONBA_PTR_SET_VALUE(bidPrice_, bidPrice) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline SpotBidPrice& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
   protected:
-    // 实例的每小时最高出价。支持最大3位小数，参数SpotStrategy=SpotWithPriceLimit时，该参数生效。
-    std::shared_ptr<double> bidPrice_ = nullptr;
-    // 实例类型。
-    std::shared_ptr<string> instanceType_ = nullptr;
+    // The maximum hourly bid price for the instance, with up to three decimal places. This parameter applies only when `SpotStrategy` is set to `SpotWithPriceLimit`.
+    shared_ptr<double> bidPrice_ {};
+    // The ECS instance type.
+    shared_ptr<string> instanceType_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationName_ == nullptr
-        && return this->configFileName_ == nullptr; };
+        && this->configFileName_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline ApplicationConfigFile& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // configFileName Field Functions 
     bool hasConfigFileName() const { return this->configFileName_ != nullptr;};
     void deleteConfigFileName() { this->configFileName_ = nullptr;};
-    inline string configFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
+    inline string getConfigFileName() const { DARABONBA_PTR_GET_DEFAULT(configFileName_, "") };
     inline ApplicationConfigFile& setConfigFileName(string configFileName) { DARABONBA_PTR_SET_VALUE(configFileName_, configFileName) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // 应用名称。
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationName_ = nullptr;
+    shared_ptr<string> applicationName_ {};
     // 配置文件名称。
-    std::shared_ptr<string> configFileName_ = nullptr;
+    shared_ptr<string> configFileName_ {};
   };
 
   } // namespace Models

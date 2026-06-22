@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeGroupId_ == nullptr
-        && return this->releaseInstanceIds_ == nullptr; };
+        && this->releaseInstanceIds_ == nullptr; };
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline DecreaseNodeGroupParam& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // releaseInstanceIds Field Functions 
     bool hasReleaseInstanceIds() const { return this->releaseInstanceIds_ != nullptr;};
     void deleteReleaseInstanceIds() { this->releaseInstanceIds_ = nullptr;};
-    inline const vector<string> & releaseInstanceIds() const { DARABONBA_PTR_GET_CONST(releaseInstanceIds_, vector<string>) };
-    inline vector<string> releaseInstanceIds() { DARABONBA_PTR_GET(releaseInstanceIds_, vector<string>) };
+    inline const vector<string> & getReleaseInstanceIds() const { DARABONBA_PTR_GET_CONST(releaseInstanceIds_, vector<string>) };
+    inline vector<string> getReleaseInstanceIds() { DARABONBA_PTR_GET(releaseInstanceIds_, vector<string>) };
     inline DecreaseNodeGroupParam& setReleaseInstanceIds(const vector<string> & releaseInstanceIds) { DARABONBA_PTR_SET_VALUE(releaseInstanceIds_, releaseInstanceIds) };
     inline DecreaseNodeGroupParam& setReleaseInstanceIds(vector<string> && releaseInstanceIds) { DARABONBA_PTR_SET_RVALUE(releaseInstanceIds_, releaseInstanceIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
+    shared_ptr<string> nodeGroupId_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> releaseInstanceIds_ = nullptr;
+    shared_ptr<vector<string>> releaseInstanceIds_ {};
   };
 
   } // namespace Models

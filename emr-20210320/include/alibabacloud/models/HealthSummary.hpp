@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->badCount_ == nullptr
-        && return this->goodCount_ == nullptr && return this->noneCount_ == nullptr && return this->stoppedCount_ == nullptr && return this->totalCount_ == nullptr && return this->unknownCount_ == nullptr
-        && return this->warningCount_ == nullptr; };
+        && this->goodCount_ == nullptr && this->noneCount_ == nullptr && this->stoppedCount_ == nullptr && this->totalCount_ == nullptr && this->unknownCount_ == nullptr
+        && this->warningCount_ == nullptr; };
     // badCount Field Functions 
     bool hasBadCount() const { return this->badCount_ != nullptr;};
     void deleteBadCount() { this->badCount_ = nullptr;};
-    inline int64_t badCount() const { DARABONBA_PTR_GET_DEFAULT(badCount_, 0L) };
+    inline int64_t getBadCount() const { DARABONBA_PTR_GET_DEFAULT(badCount_, 0L) };
     inline HealthSummary& setBadCount(int64_t badCount) { DARABONBA_PTR_SET_VALUE(badCount_, badCount) };
 
 
     // goodCount Field Functions 
     bool hasGoodCount() const { return this->goodCount_ != nullptr;};
     void deleteGoodCount() { this->goodCount_ = nullptr;};
-    inline int64_t goodCount() const { DARABONBA_PTR_GET_DEFAULT(goodCount_, 0L) };
+    inline int64_t getGoodCount() const { DARABONBA_PTR_GET_DEFAULT(goodCount_, 0L) };
     inline HealthSummary& setGoodCount(int64_t goodCount) { DARABONBA_PTR_SET_VALUE(goodCount_, goodCount) };
 
 
     // noneCount Field Functions 
     bool hasNoneCount() const { return this->noneCount_ != nullptr;};
     void deleteNoneCount() { this->noneCount_ = nullptr;};
-    inline int64_t noneCount() const { DARABONBA_PTR_GET_DEFAULT(noneCount_, 0L) };
+    inline int64_t getNoneCount() const { DARABONBA_PTR_GET_DEFAULT(noneCount_, 0L) };
     inline HealthSummary& setNoneCount(int64_t noneCount) { DARABONBA_PTR_SET_VALUE(noneCount_, noneCount) };
 
 
     // stoppedCount Field Functions 
     bool hasStoppedCount() const { return this->stoppedCount_ != nullptr;};
     void deleteStoppedCount() { this->stoppedCount_ = nullptr;};
-    inline int64_t stoppedCount() const { DARABONBA_PTR_GET_DEFAULT(stoppedCount_, 0L) };
+    inline int64_t getStoppedCount() const { DARABONBA_PTR_GET_DEFAULT(stoppedCount_, 0L) };
     inline HealthSummary& setStoppedCount(int64_t stoppedCount) { DARABONBA_PTR_SET_VALUE(stoppedCount_, stoppedCount) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline HealthSummary& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
     // unknownCount Field Functions 
     bool hasUnknownCount() const { return this->unknownCount_ != nullptr;};
     void deleteUnknownCount() { this->unknownCount_ = nullptr;};
-    inline int64_t unknownCount() const { DARABONBA_PTR_GET_DEFAULT(unknownCount_, 0L) };
+    inline int64_t getUnknownCount() const { DARABONBA_PTR_GET_DEFAULT(unknownCount_, 0L) };
     inline HealthSummary& setUnknownCount(int64_t unknownCount) { DARABONBA_PTR_SET_VALUE(unknownCount_, unknownCount) };
 
 
     // warningCount Field Functions 
     bool hasWarningCount() const { return this->warningCount_ != nullptr;};
     void deleteWarningCount() { this->warningCount_ = nullptr;};
-    inline int64_t warningCount() const { DARABONBA_PTR_GET_DEFAULT(warningCount_, 0L) };
+    inline int64_t getWarningCount() const { DARABONBA_PTR_GET_DEFAULT(warningCount_, 0L) };
     inline HealthSummary& setWarningCount(int64_t warningCount) { DARABONBA_PTR_SET_VALUE(warningCount_, warningCount) };
 
 
   protected:
-    std::shared_ptr<int64_t> badCount_ = nullptr;
-    std::shared_ptr<int64_t> goodCount_ = nullptr;
-    std::shared_ptr<int64_t> noneCount_ = nullptr;
-    std::shared_ptr<int64_t> stoppedCount_ = nullptr;
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
-    std::shared_ptr<int64_t> unknownCount_ = nullptr;
-    std::shared_ptr<int64_t> warningCount_ = nullptr;
+    shared_ptr<int64_t> badCount_ {};
+    shared_ptr<int64_t> goodCount_ {};
+    shared_ptr<int64_t> noneCount_ {};
+    shared_ptr<int64_t> stoppedCount_ {};
+    shared_ptr<int64_t> totalCount_ {};
+    shared_ptr<int64_t> unknownCount_ {};
+    shared_ptr<int64_t> warningCount_ {};
   };
 
   } // namespace Models

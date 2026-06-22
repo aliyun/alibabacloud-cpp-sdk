@@ -38,55 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->emrRenewDuration_ == nullptr
-        && return this->emrRenewDurationUnit_ == nullptr && return this->instanceId_ == nullptr && return this->renewDuration_ == nullptr && return this->renewDurationUnit_ == nullptr; };
+        && this->emrRenewDurationUnit_ == nullptr && this->instanceId_ == nullptr && this->renewDuration_ == nullptr && this->renewDurationUnit_ == nullptr; };
     // emrRenewDuration Field Functions 
     bool hasEmrRenewDuration() const { return this->emrRenewDuration_ != nullptr;};
     void deleteEmrRenewDuration() { this->emrRenewDuration_ = nullptr;};
-    inline int32_t emrRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(emrRenewDuration_, 0) };
+    inline int32_t getEmrRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(emrRenewDuration_, 0) };
     inline RenewInstance& setEmrRenewDuration(int32_t emrRenewDuration) { DARABONBA_PTR_SET_VALUE(emrRenewDuration_, emrRenewDuration) };
 
 
     // emrRenewDurationUnit Field Functions 
     bool hasEmrRenewDurationUnit() const { return this->emrRenewDurationUnit_ != nullptr;};
     void deleteEmrRenewDurationUnit() { this->emrRenewDurationUnit_ = nullptr;};
-    inline string emrRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(emrRenewDurationUnit_, "") };
+    inline string getEmrRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(emrRenewDurationUnit_, "") };
     inline RenewInstance& setEmrRenewDurationUnit(string emrRenewDurationUnit) { DARABONBA_PTR_SET_VALUE(emrRenewDurationUnit_, emrRenewDurationUnit) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RenewInstance& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // renewDuration Field Functions 
     bool hasRenewDuration() const { return this->renewDuration_ != nullptr;};
     void deleteRenewDuration() { this->renewDuration_ = nullptr;};
-    inline int32_t renewDuration() const { DARABONBA_PTR_GET_DEFAULT(renewDuration_, 0) };
+    inline int32_t getRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(renewDuration_, 0) };
     inline RenewInstance& setRenewDuration(int32_t renewDuration) { DARABONBA_PTR_SET_VALUE(renewDuration_, renewDuration) };
 
 
     // renewDurationUnit Field Functions 
     bool hasRenewDurationUnit() const { return this->renewDurationUnit_ != nullptr;};
     void deleteRenewDurationUnit() { this->renewDurationUnit_ = nullptr;};
-    inline string renewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(renewDurationUnit_, "") };
+    inline string getRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(renewDurationUnit_, "") };
     inline RenewInstance& setRenewDurationUnit(string renewDurationUnit) { DARABONBA_PTR_SET_VALUE(renewDurationUnit_, renewDurationUnit) };
 
 
   protected:
     // emr实例续费时长。
-    std::shared_ptr<int32_t> emrRenewDuration_ = nullptr;
+    shared_ptr<int32_t> emrRenewDuration_ {};
     // emr实例续费时长单位。
-    std::shared_ptr<string> emrRenewDurationUnit_ = nullptr;
+    shared_ptr<string> emrRenewDurationUnit_ {};
     // 节点ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // 续费时长。
-    std::shared_ptr<int32_t> renewDuration_ = nullptr;
+    shared_ptr<int32_t> renewDuration_ {};
     // 付费时长单位。
-    std::shared_ptr<string> renewDurationUnit_ = nullptr;
+    shared_ptr<string> renewDurationUnit_ {};
   };
 
   } // namespace Models

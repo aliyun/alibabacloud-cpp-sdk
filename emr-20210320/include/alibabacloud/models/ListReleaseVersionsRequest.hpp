@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
-        && return this->iaasType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->iaasType_ == nullptr && this->regionId_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
-    inline string clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+    inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline ListReleaseVersionsRequest& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
     // iaasType Field Functions 
     bool hasIaasType() const { return this->iaasType_ != nullptr;};
     void deleteIaasType() { this->iaasType_ = nullptr;};
-    inline string iaasType() const { DARABONBA_PTR_GET_DEFAULT(iaasType_, "") };
+    inline string getIaasType() const { DARABONBA_PTR_GET_DEFAULT(iaasType_, "") };
     inline ListReleaseVersionsRequest& setIaasType(string iaasType) { DARABONBA_PTR_SET_VALUE(iaasType_, iaasType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListReleaseVersionsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The type of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterType_ = nullptr;
+    shared_ptr<string> clusterType_ {};
     // The type of the IaaS resource.
-    std::shared_ptr<string> iaasType_ = nullptr;
+    shared_ptr<string> iaasType_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

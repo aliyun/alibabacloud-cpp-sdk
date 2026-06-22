@@ -45,20 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->componentTypes_ == nullptr && return this->dateTime_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->orderBy_ == nullptr
-        && return this->orderType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->componentTypes_ == nullptr && this->dateTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr
+        && this->orderType_ == nullptr && this->regionId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListDoctorComputeSummaryRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // componentTypes Field Functions 
     bool hasComponentTypes() const { return this->componentTypes_ != nullptr;};
     void deleteComponentTypes() { this->componentTypes_ = nullptr;};
-    inline const vector<string> & componentTypes() const { DARABONBA_PTR_GET_CONST(componentTypes_, vector<string>) };
-    inline vector<string> componentTypes() { DARABONBA_PTR_GET(componentTypes_, vector<string>) };
+    inline const vector<string> & getComponentTypes() const { DARABONBA_PTR_GET_CONST(componentTypes_, vector<string>) };
+    inline vector<string> getComponentTypes() { DARABONBA_PTR_GET(componentTypes_, vector<string>) };
     inline ListDoctorComputeSummaryRequest& setComponentTypes(const vector<string> & componentTypes) { DARABONBA_PTR_SET_VALUE(componentTypes_, componentTypes) };
     inline ListDoctorComputeSummaryRequest& setComponentTypes(vector<string> && componentTypes) { DARABONBA_PTR_SET_RVALUE(componentTypes_, componentTypes) };
 
@@ -66,42 +66,42 @@ namespace Models
     // dateTime Field Functions 
     bool hasDateTime() const { return this->dateTime_ != nullptr;};
     void deleteDateTime() { this->dateTime_ = nullptr;};
-    inline string dateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
+    inline string getDateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
     inline ListDoctorComputeSummaryRequest& setDateTime(string dateTime) { DARABONBA_PTR_SET_VALUE(dateTime_, dateTime) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListDoctorComputeSummaryRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDoctorComputeSummaryRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListDoctorComputeSummaryRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline ListDoctorComputeSummaryRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListDoctorComputeSummaryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -109,7 +109,7 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The resource types, which are used to filter query results. Valid values:
     // 
     // *   engine: filters results by engine.
@@ -117,15 +117,15 @@ namespace Models
     // *   cluster: displays the results at the cluster level.
     // 
     // If you do not specify this parameter, the information at the cluster level is displayed by default. Currently, only one resource type is supported. If you specify multiple resource types, the first resource type is used by default.
-    std::shared_ptr<vector<string>> componentTypes_ = nullptr;
+    shared_ptr<vector<string>> componentTypes_ {};
     // Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dateTime_ = nullptr;
+    shared_ptr<string> dateTime_ {};
     // The maximum number of entries to return on each page.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The basis on which you want to sort the query results. Valid values:
     // 
     // 1.  vcoreSeconds: the total CPU consumption over time in seconds.
@@ -142,16 +142,16 @@ namespace Models
     // 12. needAttentionJobCount: the total number of jobs that require attention.
     // 13. score: the score for jobs.
     // 14. scoreDayGrowthRatio: the day-to-day growth rate of the score for jobs.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The order in which you want to sort the query results. Valid values:
     // 
     // *   ASC: in ascending order.
     // *   DESC: in descending order.
-    std::shared_ptr<string> orderType_ = nullptr;
+    shared_ptr<string> orderType_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -51,13 +51,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIds_ == nullptr
-        && return this->clusterId_ == nullptr && return this->dateTime_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->orderBy_ == nullptr
-        && return this->orderType_ == nullptr && return this->queues_ == nullptr && return this->regionId_ == nullptr && return this->types_ == nullptr && return this->users_ == nullptr; };
+        && this->clusterId_ == nullptr && this->dateTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr
+        && this->orderType_ == nullptr && this->queues_ == nullptr && this->regionId_ == nullptr && this->types_ == nullptr && this->users_ == nullptr; };
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline const vector<string> & appIds() const { DARABONBA_PTR_GET_CONST(appIds_, vector<string>) };
-    inline vector<string> appIds() { DARABONBA_PTR_GET(appIds_, vector<string>) };
+    inline const vector<string> & getAppIds() const { DARABONBA_PTR_GET_CONST(appIds_, vector<string>) };
+    inline vector<string> getAppIds() { DARABONBA_PTR_GET(appIds_, vector<string>) };
     inline ListDoctorApplicationsRequest& setAppIds(const vector<string> & appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
     inline ListDoctorApplicationsRequest& setAppIds(vector<string> && appIds) { DARABONBA_PTR_SET_RVALUE(appIds_, appIds) };
 
@@ -65,50 +65,50 @@ namespace Models
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListDoctorApplicationsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dateTime Field Functions 
     bool hasDateTime() const { return this->dateTime_ != nullptr;};
     void deleteDateTime() { this->dateTime_ = nullptr;};
-    inline string dateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
+    inline string getDateTime() const { DARABONBA_PTR_GET_DEFAULT(dateTime_, "") };
     inline ListDoctorApplicationsRequest& setDateTime(string dateTime) { DARABONBA_PTR_SET_VALUE(dateTime_, dateTime) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListDoctorApplicationsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDoctorApplicationsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListDoctorApplicationsRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline ListDoctorApplicationsRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // queues Field Functions 
     bool hasQueues() const { return this->queues_ != nullptr;};
     void deleteQueues() { this->queues_ = nullptr;};
-    inline const vector<string> & queues() const { DARABONBA_PTR_GET_CONST(queues_, vector<string>) };
-    inline vector<string> queues() { DARABONBA_PTR_GET(queues_, vector<string>) };
+    inline const vector<string> & getQueues() const { DARABONBA_PTR_GET_CONST(queues_, vector<string>) };
+    inline vector<string> getQueues() { DARABONBA_PTR_GET(queues_, vector<string>) };
     inline ListDoctorApplicationsRequest& setQueues(const vector<string> & queues) { DARABONBA_PTR_SET_VALUE(queues_, queues) };
     inline ListDoctorApplicationsRequest& setQueues(vector<string> && queues) { DARABONBA_PTR_SET_RVALUE(queues_, queues) };
 
@@ -116,15 +116,15 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListDoctorApplicationsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
-    inline const vector<string> & types() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
-    inline vector<string> types() { DARABONBA_PTR_GET(types_, vector<string>) };
+    inline const vector<string> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
+    inline vector<string> getTypes() { DARABONBA_PTR_GET(types_, vector<string>) };
     inline ListDoctorApplicationsRequest& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
     inline ListDoctorApplicationsRequest& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
 
@@ -132,52 +132,59 @@ namespace Models
     // users Field Functions 
     bool hasUsers() const { return this->users_ != nullptr;};
     void deleteUsers() { this->users_ = nullptr;};
-    inline const vector<string> & users() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
-    inline vector<string> users() { DARABONBA_PTR_GET(users_, vector<string>) };
+    inline const vector<string> & getUsers() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
+    inline vector<string> getUsers() { DARABONBA_PTR_GET(users_, vector<string>) };
     inline ListDoctorApplicationsRequest& setUsers(const vector<string> & users) { DARABONBA_PTR_SET_VALUE(users_, users) };
     inline ListDoctorApplicationsRequest& setUsers(vector<string> && users) { DARABONBA_PTR_SET_RVALUE(users_, users) };
 
 
   protected:
     // The IDs of jobs that are submitted to YARN.
-    std::shared_ptr<vector<string>> appIds_ = nullptr;
+    shared_ptr<vector<string>> appIds_ {};
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dateTime_ = nullptr;
+    shared_ptr<string> dateTime_ {};
     // The maximum number of entries to return on each page.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The field that you use to sort the query results. Valid values:
     // 
-    // 1.  startTime: the time when the job starts
-    // 2.  endTime: the time when the job ends
-    // 3.  vcoreUtilization: the vCPU utilization of the job
-    // 4.  memUtilization: the memory usage of the job
-    // 5.  vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
-    // 6.  memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
-    // 7.  score: the score of the job
-    std::shared_ptr<string> orderBy_ = nullptr;
+    // 1. startTime: the time when the job starts
+    // 
+    // 2. endTime: the time when the job ends
+    // 
+    // 3. vcoreUtilization: the vCPU utilization of the job
+    // 
+    // 4. memUtilization: the memory usage of the job
+    // 
+    // 5. vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
+    // 
+    // 6. memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
+    // 
+    // 7. score: the score of the job
+    shared_ptr<string> orderBy_ {};
     // The order in which you want to sort the query results. Valid values:
     // 
-    // *   ASC: the ascending order
-    // *   DESC: the descending order
-    std::shared_ptr<string> orderType_ = nullptr;
+    // - ASC: the ascending order
+    // 
+    // - DESC: the descending order
+    shared_ptr<string> orderType_ {};
     // The YARN queues to which the jobs are submitted.
-    std::shared_ptr<vector<string>> queues_ = nullptr;
+    shared_ptr<vector<string>> queues_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The YARN engines to which the jobs are submitted.
-    std::shared_ptr<vector<string>> types_ = nullptr;
+    shared_ptr<vector<string>> types_ {};
     // The users who submit the jobs.
-    std::shared_ptr<vector<string>> users_ = nullptr;
+    shared_ptr<vector<string>> users_ {};
   };
 
   } // namespace Models

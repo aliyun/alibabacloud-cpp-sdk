@@ -38,61 +38,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && return this->autoRenewDuration_ == nullptr && return this->autoRenewDurationUnit_ == nullptr && return this->paymentDuration_ == nullptr && return this->paymentDurationUnit_ == nullptr; };
+        && this->autoRenewDuration_ == nullptr && this->autoRenewDurationUnit_ == nullptr && this->paymentDuration_ == nullptr && this->paymentDurationUnit_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline SubscriptionConfig& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // autoRenewDuration Field Functions 
     bool hasAutoRenewDuration() const { return this->autoRenewDuration_ != nullptr;};
     void deleteAutoRenewDuration() { this->autoRenewDuration_ = nullptr;};
-    inline int32_t autoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, 0) };
+    inline int32_t getAutoRenewDuration() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDuration_, 0) };
     inline SubscriptionConfig& setAutoRenewDuration(int32_t autoRenewDuration) { DARABONBA_PTR_SET_VALUE(autoRenewDuration_, autoRenewDuration) };
 
 
     // autoRenewDurationUnit Field Functions 
     bool hasAutoRenewDurationUnit() const { return this->autoRenewDurationUnit_ != nullptr;};
     void deleteAutoRenewDurationUnit() { this->autoRenewDurationUnit_ = nullptr;};
-    inline string autoRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDurationUnit_, "") };
+    inline string getAutoRenewDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(autoRenewDurationUnit_, "") };
     inline SubscriptionConfig& setAutoRenewDurationUnit(string autoRenewDurationUnit) { DARABONBA_PTR_SET_VALUE(autoRenewDurationUnit_, autoRenewDurationUnit) };
 
 
     // paymentDuration Field Functions 
     bool hasPaymentDuration() const { return this->paymentDuration_ != nullptr;};
     void deletePaymentDuration() { this->paymentDuration_ = nullptr;};
-    inline int32_t paymentDuration() const { DARABONBA_PTR_GET_DEFAULT(paymentDuration_, 0) };
+    inline int32_t getPaymentDuration() const { DARABONBA_PTR_GET_DEFAULT(paymentDuration_, 0) };
     inline SubscriptionConfig& setPaymentDuration(int32_t paymentDuration) { DARABONBA_PTR_SET_VALUE(paymentDuration_, paymentDuration) };
 
 
     // paymentDurationUnit Field Functions 
     bool hasPaymentDurationUnit() const { return this->paymentDurationUnit_ != nullptr;};
     void deletePaymentDurationUnit() { this->paymentDurationUnit_ = nullptr;};
-    inline string paymentDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(paymentDurationUnit_, "") };
+    inline string getPaymentDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(paymentDurationUnit_, "") };
     inline SubscriptionConfig& setPaymentDurationUnit(string paymentDurationUnit) { DARABONBA_PTR_SET_VALUE(paymentDurationUnit_, paymentDurationUnit) };
 
 
   protected:
-    // 自动续费。取值范围：
-    // - true：开启启动续费。
-    // - false：不开启自动续费。
-    // 默认值：false。
-    std::shared_ptr<bool> autoRenew_ = nullptr;
-    // 自动续费时长。当AutoRenew取值为true时生效。当AutoRenewDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
-    std::shared_ptr<int32_t> autoRenewDuration_ = nullptr;
-    // - Month：月。
-    std::shared_ptr<string> autoRenewDurationUnit_ = nullptr;
-    // 付费时长。PaymentDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
+    // Specifies whether auto-renewal is enabled. Valid values:
+    // 
+    // - true: Auto-renewal is enabled.
+    // 
+    // - false: Auto-renewal is disabled (default).
+    shared_ptr<bool> autoRenew_ {};
+    // The auto-renewal duration. This parameter takes effect only when AutoRenew is set to true. When AutoRenewDurationUnit is Month, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+    shared_ptr<int32_t> autoRenewDuration_ {};
+    // The auto-renewal duration unit. Valid value:
+    // 
+    // - Month
+    shared_ptr<string> autoRenewDurationUnit_ {};
+    // The payment duration. When PaymentDurationUnit is Month, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> paymentDuration_ = nullptr;
-    // 付费时长单位。取值范围：
-    // - Month：月。
+    shared_ptr<int32_t> paymentDuration_ {};
+    // The payment duration unit. Valid value:
+    // 
+    // - Month
     // 
     // This parameter is required.
-    std::shared_ptr<string> paymentDurationUnit_ = nullptr;
+    shared_ptr<string> paymentDurationUnit_ {};
   };
 
   } // namespace Models

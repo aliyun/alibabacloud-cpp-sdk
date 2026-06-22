@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->unit_ == nullptr
-        && return this->value_ == nullptr; };
+        && this->value_ == nullptr; };
     // unit Field Functions 
     bool hasUnit() const { return this->unit_ != nullptr;};
     void deleteUnit() { this->unit_ = nullptr;};
-    inline string unit() const { DARABONBA_PTR_GET_DEFAULT(unit_, "") };
+    inline string getUnit() const { DARABONBA_PTR_GET_DEFAULT(unit_, "") };
     inline DoubleMetric& setUnit(string unit) { DARABONBA_PTR_SET_VALUE(unit_, unit) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline double value() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
+    inline double getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, 0.0) };
     inline DoubleMetric& setValue(double value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> unit_ = nullptr;
-    std::shared_ptr<double> value_ = nullptr;
+    shared_ptr<string> unit_ {};
+    shared_ptr<double> value_ {};
   };
 
   } // namespace Models

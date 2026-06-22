@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->size_ == nullptr; };
+        && this->size_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline DiskSize& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline DiskSize& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // 磁盘类型。
     // 
     // This parameter is required.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // 单位GB。
-    std::shared_ptr<int32_t> size_ = nullptr;
+    shared_ptr<int32_t> size_ {};
   };
 
   } // namespace Models

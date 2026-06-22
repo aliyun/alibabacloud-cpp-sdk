@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricName_ == nullptr
-        && return this->metricUnit_ == nullptr; };
+        && this->metricUnit_ == nullptr; };
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline MetricUnitValue& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // metricUnit Field Functions 
     bool hasMetricUnit() const { return this->metricUnit_ != nullptr;};
     void deleteMetricUnit() { this->metricUnit_ = nullptr;};
-    inline string metricUnit() const { DARABONBA_PTR_GET_DEFAULT(metricUnit_, "") };
+    inline string getMetricUnit() const { DARABONBA_PTR_GET_DEFAULT(metricUnit_, "") };
     inline MetricUnitValue& setMetricUnit(string metricUnit) { DARABONBA_PTR_SET_VALUE(metricUnit_, metricUnit) };
 
 
   protected:
     // 指标名称。
-    std::shared_ptr<string> metricName_ = nullptr;
+    shared_ptr<string> metricName_ {};
     // 指标单位。
-    std::shared_ptr<string> metricUnit_ = nullptr;
+    shared_ptr<string> metricUnit_ {};
   };
 
   } // namespace Models

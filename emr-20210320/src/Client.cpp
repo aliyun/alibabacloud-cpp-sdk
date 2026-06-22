@@ -60,7 +60,22 @@ AlibabaCloud::Emr20210320::Client::Client(Config &config): OpenApiClient(config)
     {"cn-zhangjiakou-na62-a01" , "emr.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "emr.aliyuncs.com"},
     {"eu-west-1-oxs" , "emr.aliyuncs.com"},
-    {"rus-west-1-pop" , "emr.aliyuncs.com"}
+    {"rus-west-1-pop" , "emr.aliyuncs.com"},
+    {"us-east-1" , "emr.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "emr.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "emr.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "emr.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "emr.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "emr.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "emr.cn-wulanchabu.aliyuncs.com"},
+    {"cn-qingdao" , "emr.cn-qingdao.aliyuncs.com"},
+    {"cn-huhehaote" , "emr.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "emr.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "emr.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-chengdu" , "emr.cn-chengdu.aliyuncs.com"},
+    {"ap-southeast-5" , "emr.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "emr.ap-southeast-3.aliyuncs.com"},
+    {"ap-northeast-1" , "emr.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("emr", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -90,23 +105,23 @@ CreateApiTemplateResponse Client::createApiTemplateWithOptions(const CreateApiTe
   request.validate();
   json query = {};
   if (!!request.hasApiName()) {
-    query["ApiName"] = request.apiName();
+    query["ApiName"] = request.getApiName();
   }
 
   if (!!request.hasContent()) {
-    query["Content"] = request.content();
+    query["Content"] = request.getContent();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -148,75 +163,75 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
   request.validate();
   json query = {};
   if (!!request.hasApplicationConfigs()) {
-    query["ApplicationConfigs"] = request.applicationConfigs();
+    query["ApplicationConfigs"] = request.getApplicationConfigs();
   }
 
   if (!!request.hasApplications()) {
-    query["Applications"] = request.applications();
+    query["Applications"] = request.getApplications();
   }
 
   if (!!request.hasBootstrapScripts()) {
-    query["BootstrapScripts"] = request.bootstrapScripts();
+    query["BootstrapScripts"] = request.getBootstrapScripts();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasClusterName()) {
-    query["ClusterName"] = request.clusterName();
+    query["ClusterName"] = request.getClusterName();
   }
 
   if (!!request.hasClusterType()) {
-    query["ClusterType"] = request.clusterType();
+    query["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasDeletionProtection()) {
-    query["DeletionProtection"] = request.deletionProtection();
+    query["DeletionProtection"] = request.getDeletionProtection();
   }
 
   if (!!request.hasDeployMode()) {
-    query["DeployMode"] = request.deployMode();
+    query["DeployMode"] = request.getDeployMode();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasNodeAttributes()) {
-    query["NodeAttributes"] = request.nodeAttributes();
+    query["NodeAttributes"] = request.getNodeAttributes();
   }
 
   if (!!request.hasNodeGroups()) {
-    query["NodeGroups"] = request.nodeGroups();
+    query["NodeGroups"] = request.getNodeGroups();
   }
 
   if (!!request.hasPaymentType()) {
-    query["PaymentType"] = request.paymentType();
+    query["PaymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasReleaseVersion()) {
-    query["ReleaseVersion"] = request.releaseVersion();
+    query["ReleaseVersion"] = request.getReleaseVersion();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSecurityMode()) {
-    query["SecurityMode"] = request.securityMode();
+    query["SecurityMode"] = request.getSecurityMode();
   }
 
   if (!!request.hasSubscriptionConfig()) {
-    query["SubscriptionConfig"] = request.subscriptionConfig();
+    query["SubscriptionConfig"] = request.getSubscriptionConfig();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -260,15 +275,15 @@ CreateNodeGroupResponse Client::createNodeGroupWithOptions(const CreateNodeGroup
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasNodeGroup()) {
-    query["NodeGroup"] = request.nodeGroup();
+    query["NodeGroup"] = request.getNodeGroup();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -302,7 +317,7 @@ CreateNodeGroupResponse Client::createNodeGroup(const CreateNodeGroupRequest &re
 }
 
 /**
- * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+ * @summary Creates a bootstrap script or a regular cluster script.
  *
  * @param request CreateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -312,23 +327,23 @@ CreateScriptResponse Client::createScriptWithOptions(const CreateScriptRequest &
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScriptType()) {
-    query["ScriptType"] = request.scriptType();
+    query["ScriptType"] = request.getScriptType();
   }
 
   if (!!request.hasScripts()) {
-    query["Scripts"] = request.scripts();
+    query["Scripts"] = request.getScripts();
   }
 
   if (!!request.hasTimeoutSecs()) {
-    query["TimeoutSecs"] = request.timeoutSecs();
+    query["TimeoutSecs"] = request.getTimeoutSecs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -349,7 +364,7 @@ CreateScriptResponse Client::createScriptWithOptions(const CreateScriptRequest &
 }
 
 /**
- * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+ * @summary Creates a bootstrap script or a regular cluster script.
  *
  * @param request CreateScriptRequest
  * @return CreateScriptResponse
@@ -360,9 +375,9 @@ CreateScriptResponse Client::createScript(const CreateScriptRequest &request) {
 }
 
 /**
- * @summary Creates multiple users at a time.
+ * @summary Creates users in a batch.
  *
- * @description You can call this operation to create multiple users at a time.
+ * @description Creates users in a batch.
  *
  * @param request CreateUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -372,15 +387,15 @@ CreateUsersResponse Client::createUsersWithOptions(const CreateUsersRequest &req
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasUsers()) {
-    query["Users"] = request.users();
+    query["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -401,9 +416,9 @@ CreateUsersResponse Client::createUsersWithOptions(const CreateUsersRequest &req
 }
 
 /**
- * @summary Creates multiple users at a time.
+ * @summary Creates users in a batch.
  *
- * @description You can call this operation to create multiple users at a time.
+ * @description Creates users in a batch.
  *
  * @param request CreateUsersRequest
  * @return CreateUsersResponse
@@ -414,7 +429,7 @@ CreateUsersResponse Client::createUsers(const CreateUsersRequest &request) {
 }
 
 /**
- * @summary Performs a scale-out operation on the target node group.
+ * @summary Scales in a target node group.
  *
  * @param request DecreaseNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -424,31 +439,31 @@ DecreaseNodesResponse Client::decreaseNodesWithOptions(const DecreaseNodesReques
   request.validate();
   json query = {};
   if (!!request.hasBatchInterval()) {
-    query["BatchInterval"] = request.batchInterval();
+    query["BatchInterval"] = request.getBatchInterval();
   }
 
   if (!!request.hasBatchSize()) {
-    query["BatchSize"] = request.batchSize();
+    query["BatchSize"] = request.getBatchSize();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDecreaseNodeCount()) {
-    query["DecreaseNodeCount"] = request.decreaseNodeCount();
+    query["DecreaseNodeCount"] = request.getDecreaseNodeCount();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasNodeIds()) {
-    query["NodeIds"] = request.nodeIds();
+    query["NodeIds"] = request.getNodeIds();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -469,7 +484,7 @@ DecreaseNodesResponse Client::decreaseNodesWithOptions(const DecreaseNodesReques
 }
 
 /**
- * @summary Performs a scale-out operation on the target node group.
+ * @summary Scales in a target node group.
  *
  * @param request DecreaseNodesRequest
  * @return DecreaseNodesResponse
@@ -490,19 +505,19 @@ DeleteApiTemplateResponse Client::deleteApiTemplateWithOptions(const DeleteApiTe
   request.validate();
   json query = {};
   if (!!request.hasApiName()) {
-    query["ApiName"] = request.apiName();
+    query["ApiName"] = request.getApiName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -534,6 +549,8 @@ DeleteApiTemplateResponse Client::deleteApiTemplate(const DeleteApiTemplateReque
 }
 
 /**
+ * @summary Deletes a pay-as-you-go cluster.
+ *
  * @param request DeleteClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteClusterResponse
@@ -542,11 +559,11 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -567,12 +584,68 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
 }
 
 /**
+ * @summary Deletes a pay-as-you-go cluster.
+ *
  * @param request DeleteClusterRequest
  * @return DeleteClusterResponse
  */
 DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteClusterWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a created cluster node group.
+ *
+ * @param request DeleteNodeGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNodeGroupResponse
+ */
+DeleteNodeGroupResponse Client::deleteNodeGroupWithOptions(const DeleteNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    query["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteNodeGroup"},
+    {"version" , "2021-03-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNodeGroupResponse>();
+}
+
+/**
+ * @summary Deletes a created cluster node group.
+ *
+ * @param request DeleteNodeGroupRequest
+ * @return DeleteNodeGroupResponse
+ */
+DeleteNodeGroupResponse Client::deleteNodeGroup(const DeleteNodeGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteNodeGroupWithOptions(request, runtime);
 }
 
 /**
@@ -586,19 +659,19 @@ DeleteScriptResponse Client::deleteScriptWithOptions(const DeleteScriptRequest &
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScriptId()) {
-    query["ScriptId"] = request.scriptId();
+    query["ScriptId"] = request.getScriptId();
   }
 
   if (!!request.hasScriptType()) {
-    query["ScriptType"] = request.scriptType();
+    query["ScriptType"] = request.getScriptType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -643,21 +716,21 @@ DeleteUsersResponse Client::deleteUsersWithOptions(const DeleteUsersRequest &tmp
   DeleteUsersShrinkRequest request = DeleteUsersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserNames()) {
-    request.setUserNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userNames(), "UserNames", "json"));
+    request.setUserNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserNames(), "UserNames", "json"));
   }
 
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   json body = {};
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasUserNamesShrink()) {
-    body["UserNames"] = request.userNamesShrink();
+    body["UserNames"] = request.getUserNamesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -692,7 +765,7 @@ DeleteUsersResponse Client::deleteUsers(const DeleteUsersRequest &request) {
 }
 
 /**
- * @summary 导出应用服务配置
+ * @summary Exports the configurations of a specified service in a cluster.
  *
  * @param request ExportApplicationConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -702,35 +775,35 @@ ExportApplicationConfigsResponse Client::exportApplicationConfigsWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasApplicationConfigFiles()) {
-    query["ApplicationConfigFiles"] = request.applicationConfigFiles();
+    query["ApplicationConfigFiles"] = request.getApplicationConfigFiles();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasConfigScope()) {
-    query["ConfigScope"] = request.configScope();
+    query["ConfigScope"] = request.getConfigScope();
   }
 
   if (!!request.hasExportMode()) {
-    query["ExportMode"] = request.exportMode();
+    query["ExportMode"] = request.getExportMode();
   }
 
   if (!!request.hasFileFormat()) {
-    query["FileFormat"] = request.fileFormat();
+    query["FileFormat"] = request.getFileFormat();
   }
 
   if (!!request.hasNodeGroupIds()) {
-    query["NodeGroupIds"] = request.nodeGroupIds();
+    query["NodeGroupIds"] = request.getNodeGroupIds();
   }
 
   if (!!request.hasNodeIds()) {
-    query["NodeIds"] = request.nodeIds();
+    query["NodeIds"] = request.getNodeIds();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -751,7 +824,7 @@ ExportApplicationConfigsResponse Client::exportApplicationConfigsWithOptions(con
 }
 
 /**
- * @summary 导出应用服务配置
+ * @summary Exports the configurations of a specified service in a cluster.
  *
  * @param request ExportApplicationConfigsRequest
  * @return ExportApplicationConfigsResponse
@@ -772,11 +845,11 @@ GetApiTemplateResponse Client::getApiTemplateWithOptions(const GetApiTemplateReq
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -810,7 +883,7 @@ GetApiTemplateResponse Client::getApiTemplate(const GetApiTemplateRequest &reque
 /**
  * @summary Retrieves the details of an application.
  *
- * @description 查询应用详情。
+ * @description Queries the details of an application.
  *
  * @param request GetApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -820,15 +893,15 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
   request.validate();
   json query = {};
   if (!!request.hasApplicationName()) {
-    query["ApplicationName"] = request.applicationName();
+    query["ApplicationName"] = request.getApplicationName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -851,7 +924,7 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 /**
  * @summary Retrieves the details of an application.
  *
- * @description 查询应用详情。
+ * @description Queries the details of an application.
  *
  * @param request GetApplicationRequest
  * @return GetApplicationResponse
@@ -862,7 +935,7 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary Queries the information about an auto scaling activity.
+ * @summary Retrieves the details of an Auto Scaling activity.
  *
  * @param request GetAutoScalingActivityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -872,15 +945,15 @@ GetAutoScalingActivityResponse Client::getAutoScalingActivityWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScalingActivityId()) {
-    query["ScalingActivityId"] = request.scalingActivityId();
+    query["ScalingActivityId"] = request.getScalingActivityId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -901,7 +974,7 @@ GetAutoScalingActivityResponse Client::getAutoScalingActivityWithOptions(const G
 }
 
 /**
- * @summary Queries the information about an auto scaling activity.
+ * @summary Retrieves the details of an Auto Scaling activity.
  *
  * @param request GetAutoScalingActivityRequest
  * @return GetAutoScalingActivityResponse
@@ -912,7 +985,7 @@ GetAutoScalingActivityResponse Client::getAutoScalingActivity(const GetAutoScali
 }
 
 /**
- * @summary Queries custom auto scaling rules.
+ * @summary Retrieves the details of a custom Auto Scaling policy.
  *
  * @param request GetAutoScalingPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -922,15 +995,15 @@ GetAutoScalingPolicyResponse Client::getAutoScalingPolicyWithOptions(const GetAu
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -951,7 +1024,7 @@ GetAutoScalingPolicyResponse Client::getAutoScalingPolicyWithOptions(const GetAu
 }
 
 /**
- * @summary Queries custom auto scaling rules.
+ * @summary Retrieves the details of a custom Auto Scaling policy.
  *
  * @param request GetAutoScalingPolicyRequest
  * @return GetAutoScalingPolicyResponse
@@ -972,11 +1045,11 @@ GetClusterResponse Client::getClusterWithOptions(const GetClusterRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1008,7 +1081,7 @@ GetClusterResponse Client::getCluster(const GetClusterRequest &request) {
 }
 
 /**
- * @summary Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+ * @summary Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
  *
  * @param request GetClusterCloneMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1018,11 +1091,11 @@ GetClusterCloneMetaResponse Client::getClusterCloneMetaWithOptions(const GetClus
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1043,7 +1116,7 @@ GetClusterCloneMetaResponse Client::getClusterCloneMetaWithOptions(const GetClus
 }
 
 /**
- * @summary Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+ * @summary Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
  *
  * @param request GetClusterCloneMetaRequest
  * @return GetClusterCloneMetaResponse
@@ -1066,19 +1139,19 @@ GetDoctorApplicationResponse Client::getDoctorApplicationWithOptions(const GetDo
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1124,19 +1197,19 @@ GetDoctorComputeSummaryResponse Client::getDoctorComputeSummaryWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentInfo()) {
-    query["ComponentInfo"] = request.componentInfo();
+    query["ComponentInfo"] = request.getComponentInfo();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1182,15 +1255,15 @@ GetDoctorHBaseClusterResponse Client::getDoctorHBaseClusterWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1236,19 +1309,19 @@ GetDoctorHBaseRegionResponse Client::getDoctorHBaseRegionWithOptions(const GetDo
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasHbaseRegionId()) {
-    query["HbaseRegionId"] = request.hbaseRegionId();
+    query["HbaseRegionId"] = request.getHbaseRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1294,19 +1367,19 @@ GetDoctorHBaseRegionServerResponse Client::getDoctorHBaseRegionServerWithOptions
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionServerHost()) {
-    query["RegionServerHost"] = request.regionServerHost();
+    query["RegionServerHost"] = request.getRegionServerHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1352,19 +1425,19 @@ GetDoctorHBaseTableResponse Client::getDoctorHBaseTableWithOptions(const GetDoct
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1410,15 +1483,15 @@ GetDoctorHDFSClusterResponse Client::getDoctorHDFSClusterWithOptions(const GetDo
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1464,19 +1537,19 @@ GetDoctorHDFSDirectoryResponse Client::getDoctorHDFSDirectoryWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasDirPath()) {
-    query["DirPath"] = request.dirPath();
+    query["DirPath"] = request.getDirPath();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1522,15 +1595,15 @@ GetDoctorHiveClusterResponse Client::getDoctorHiveClusterWithOptions(const GetDo
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1576,19 +1649,19 @@ GetDoctorHiveDatabaseResponse Client::getDoctorHiveDatabaseWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDatabaseName()) {
-    query["DatabaseName"] = request.databaseName();
+    query["DatabaseName"] = request.getDatabaseName();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1634,19 +1707,19 @@ GetDoctorHiveTableResponse Client::getDoctorHiveTableWithOptions(const GetDoctor
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1692,15 +1765,15 @@ GetDoctorJobResponse Client::getDoctorJobWithOptions(const GetDoctorJobRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1746,19 +1819,19 @@ GetDoctorReportComponentSummaryResponse Client::getDoctorReportComponentSummaryW
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentType()) {
-    query["ComponentType"] = request.componentType();
+    query["ComponentType"] = request.getComponentType();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1792,6 +1865,8 @@ GetDoctorReportComponentSummaryResponse Client::getDoctorReportComponentSummary(
 }
 
 /**
+ * @summary Retrieves the details of a managed scaling policy.
+ *
  * @param request GetManagedScalingPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetManagedScalingPolicyResponse
@@ -1800,11 +1875,11 @@ GetManagedScalingPolicyResponse Client::getManagedScalingPolicyWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1825,6 +1900,8 @@ GetManagedScalingPolicyResponse Client::getManagedScalingPolicyWithOptions(const
 }
 
 /**
+ * @summary Retrieves the details of a managed scaling policy.
+ *
  * @param request GetManagedScalingPolicyRequest
  * @return GetManagedScalingPolicyResponse
  */
@@ -1834,9 +1911,9 @@ GetManagedScalingPolicyResponse Client::getManagedScalingPolicy(const GetManaged
 }
 
 /**
- * @summary You can call this operation to obtain the details of a node group.
+ * @summary Queries the details of a node group.
  *
- * @description 获取节点组详情。
+ * @description Queries the details of a node group.
  *
  * @param request GetNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1846,15 +1923,15 @@ GetNodeGroupResponse Client::getNodeGroupWithOptions(const GetNodeGroupRequest &
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1875,9 +1952,9 @@ GetNodeGroupResponse Client::getNodeGroupWithOptions(const GetNodeGroupRequest &
 }
 
 /**
- * @summary You can call this operation to obtain the details of a node group.
+ * @summary Queries the details of a node group.
  *
- * @description 获取节点组详情。
+ * @description Queries the details of a node group.
  *
  * @param request GetNodeGroupRequest
  * @return GetNodeGroupResponse
@@ -1898,15 +1975,15 @@ GetOperationResponse Client::getOperationWithOptions(const GetOperationRequest &
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasOperationId()) {
-    query["OperationId"] = request.operationId();
+    query["OperationId"] = request.getOperationId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1938,7 +2015,7 @@ GetOperationResponse Client::getOperation(const GetOperationRequest &request) {
 }
 
 /**
- * @summary Scales out the node group.
+ * @summary Scales out a target node group.
  *
  * @param request IncreaseNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1948,47 +2025,47 @@ IncreaseNodesResponse Client::increaseNodesWithOptions(const IncreaseNodesReques
   request.validate();
   json query = {};
   if (!!request.hasApplicationConfigs()) {
-    query["ApplicationConfigs"] = request.applicationConfigs();
+    query["ApplicationConfigs"] = request.getApplicationConfigs();
   }
 
   if (!!request.hasAutoPayOrder()) {
-    query["AutoPayOrder"] = request.autoPayOrder();
+    query["AutoPayOrder"] = request.getAutoPayOrder();
   }
 
   if (!!request.hasAutoRenew()) {
-    query["AutoRenew"] = request.autoRenew();
+    query["AutoRenew"] = request.getAutoRenew();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasIncreaseNodeCount()) {
-    query["IncreaseNodeCount"] = request.increaseNodeCount();
+    query["IncreaseNodeCount"] = request.getIncreaseNodeCount();
   }
 
   if (!!request.hasMinIncreaseNodeCount()) {
-    query["MinIncreaseNodeCount"] = request.minIncreaseNodeCount();
+    query["MinIncreaseNodeCount"] = request.getMinIncreaseNodeCount();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasPaymentDuration()) {
-    query["PaymentDuration"] = request.paymentDuration();
+    query["PaymentDuration"] = request.getPaymentDuration();
   }
 
   if (!!request.hasPaymentDurationUnit()) {
-    query["PaymentDurationUnit"] = request.paymentDurationUnit();
+    query["PaymentDurationUnit"] = request.getPaymentDurationUnit();
   }
 
   if (!!request.hasPromotions()) {
-    query["Promotions"] = request.promotions();
+    query["Promotions"] = request.getPromotions();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2009,7 +2086,7 @@ IncreaseNodesResponse Client::increaseNodesWithOptions(const IncreaseNodesReques
 }
 
 /**
- * @summary Scales out the node group.
+ * @summary Scales out a target node group.
  *
  * @param request IncreaseNodesRequest
  * @return IncreaseNodesResponse
@@ -2030,19 +2107,19 @@ JoinResourceGroupResponse Client::joinResourceGroupWithOptions(const JoinResourc
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2074,7 +2151,7 @@ JoinResourceGroupResponse Client::joinResourceGroup(const JoinResourceGroupReque
 }
 
 /**
- * @summary 查询API模板
+ * @summary Lists API templates.
  *
  * @param request ListApiTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2084,35 +2161,35 @@ ListApiTemplatesResponse Client::listApiTemplatesWithOptions(const ListApiTempla
   request.validate();
   json query = {};
   if (!!request.hasApiName()) {
-    query["ApiName"] = request.apiName();
+    query["ApiName"] = request.getApiName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateIds()) {
-    query["TemplateIds"] = request.templateIds();
+    query["TemplateIds"] = request.getTemplateIds();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2133,7 +2210,7 @@ ListApiTemplatesResponse Client::listApiTemplatesWithOptions(const ListApiTempla
 }
 
 /**
- * @summary 查询API模板
+ * @summary Lists API templates.
  *
  * @param request ListApiTemplatesRequest
  * @return ListApiTemplatesResponse
@@ -2146,7 +2223,7 @@ ListApiTemplatesResponse Client::listApiTemplates(const ListApiTemplatesRequest 
 /**
  * @summary Queries the configurations of the application.
  *
- * @description 查询应用配置。
+ * @description Queries application configurations.
  *
  * @param request ListApplicationConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2156,43 +2233,43 @@ ListApplicationConfigsResponse Client::listApplicationConfigsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasApplicationName()) {
-    query["ApplicationName"] = request.applicationName();
+    query["ApplicationName"] = request.getApplicationName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasConfigFileName()) {
-    query["ConfigFileName"] = request.configFileName();
+    query["ConfigFileName"] = request.getConfigFileName();
   }
 
   if (!!request.hasConfigItemKey()) {
-    query["ConfigItemKey"] = request.configItemKey();
+    query["ConfigItemKey"] = request.getConfigItemKey();
   }
 
   if (!!request.hasConfigItemValue()) {
-    query["ConfigItemValue"] = request.configItemValue();
+    query["ConfigItemValue"] = request.getConfigItemValue();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2215,7 +2292,7 @@ ListApplicationConfigsResponse Client::listApplicationConfigsWithOptions(const L
 /**
  * @summary Queries the configurations of the application.
  *
- * @description 查询应用配置。
+ * @description Queries application configurations.
  *
  * @param request ListApplicationConfigsRequest
  * @return ListApplicationConfigsResponse
@@ -2236,23 +2313,23 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
   request.validate();
   json query = {};
   if (!!request.hasApplicationNames()) {
-    query["ApplicationNames"] = request.applicationNames();
+    query["ApplicationNames"] = request.getApplicationNames();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2284,7 +2361,7 @@ ListApplicationsResponse Client::listApplications(const ListApplicationsRequest 
 }
 
 /**
- * @summary Queries a list of auto scaling activities.
+ * @summary Lists Auto Scaling activities.
  *
  * @param request ListAutoScalingActivitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2294,51 +2371,51 @@ ListAutoScalingActivitiesResponse Client::listAutoScalingActivitiesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInstanceChargeTypes()) {
-    query["InstanceChargeTypes"] = request.instanceChargeTypes();
+    query["InstanceChargeTypes"] = request.getInstanceChargeTypes();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScalingActivityStates()) {
-    query["ScalingActivityStates"] = request.scalingActivityStates();
+    query["ScalingActivityStates"] = request.getScalingActivityStates();
   }
 
   if (!!request.hasScalingActivityType()) {
-    query["ScalingActivityType"] = request.scalingActivityType();
+    query["ScalingActivityType"] = request.getScalingActivityType();
   }
 
   if (!!request.hasScalingPolicyType()) {
-    query["ScalingPolicyType"] = request.scalingPolicyType();
+    query["ScalingPolicyType"] = request.getScalingPolicyType();
   }
 
   if (!!request.hasScalingRuleName()) {
-    query["ScalingRuleName"] = request.scalingRuleName();
+    query["ScalingRuleName"] = request.getScalingRuleName();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2359,7 +2436,7 @@ ListAutoScalingActivitiesResponse Client::listAutoScalingActivitiesWithOptions(c
 }
 
 /**
- * @summary Queries a list of auto scaling activities.
+ * @summary Lists Auto Scaling activities.
  *
  * @param request ListAutoScalingActivitiesRequest
  * @return ListAutoScalingActivitiesResponse
@@ -2370,7 +2447,7 @@ ListAutoScalingActivitiesResponse Client::listAutoScalingActivities(const ListAu
 }
 
 /**
- * @summary Queries E-MapReduce (EMR) clusters.
+ * @summary Lists EMR clusters.
  *
  * @param request ListClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2380,43 +2457,43 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
   request.validate();
   json query = {};
   if (!!request.hasClusterIds()) {
-    query["ClusterIds"] = request.clusterIds();
+    query["ClusterIds"] = request.getClusterIds();
   }
 
   if (!!request.hasClusterName()) {
-    query["ClusterName"] = request.clusterName();
+    query["ClusterName"] = request.getClusterName();
   }
 
   if (!!request.hasClusterStates()) {
-    query["ClusterStates"] = request.clusterStates();
+    query["ClusterStates"] = request.getClusterStates();
   }
 
   if (!!request.hasClusterTypes()) {
-    query["ClusterTypes"] = request.clusterTypes();
+    query["ClusterTypes"] = request.getClusterTypes();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPaymentTypes()) {
-    query["PaymentTypes"] = request.paymentTypes();
+    query["PaymentTypes"] = request.getPaymentTypes();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2437,7 +2514,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary Queries E-MapReduce (EMR) clusters.
+ * @summary Lists EMR clusters.
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -2458,43 +2535,43 @@ ListComponentInstancesResponse Client::listComponentInstancesWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasApplicationNames()) {
-    query["ApplicationNames"] = request.applicationNames();
+    query["ApplicationNames"] = request.getApplicationNames();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentNames()) {
-    query["ComponentNames"] = request.componentNames();
+    query["ComponentNames"] = request.getComponentNames();
   }
 
   if (!!request.hasComponentStates()) {
-    query["ComponentStates"] = request.componentStates();
+    query["ComponentStates"] = request.getComponentStates();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasNodeIds()) {
-    query["NodeIds"] = request.nodeIds();
+    query["NodeIds"] = request.getNodeIds();
   }
 
   if (!!request.hasNodeNames()) {
-    query["NodeNames"] = request.nodeNames();
+    query["NodeNames"] = request.getNodeNames();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2536,31 +2613,31 @@ ListComponentsResponse Client::listComponentsWithOptions(const ListComponentsReq
   request.validate();
   json query = {};
   if (!!request.hasApplicationNames()) {
-    query["ApplicationNames"] = request.applicationNames();
+    query["ApplicationNames"] = request.getApplicationNames();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentNames()) {
-    query["ComponentNames"] = request.componentNames();
+    query["ComponentNames"] = request.getComponentNames();
   }
 
   if (!!request.hasComponentStates()) {
-    query["ComponentStates"] = request.componentStates();
+    query["ComponentStates"] = request.getComponentStates();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2604,47 +2681,47 @@ ListDoctorApplicationsResponse Client::listDoctorApplicationsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasAppIds()) {
-    query["AppIds"] = request.appIds();
+    query["AppIds"] = request.getAppIds();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasQueues()) {
-    query["Queues"] = request.queues();
+    query["Queues"] = request.getQueues();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTypes()) {
-    query["Types"] = request.types();
+    query["Types"] = request.getTypes();
   }
 
   if (!!request.hasUsers()) {
-    query["Users"] = request.users();
+    query["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2690,35 +2767,35 @@ ListDoctorComputeSummaryResponse Client::listDoctorComputeSummaryWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentTypes()) {
-    query["ComponentTypes"] = request.componentTypes();
+    query["ComponentTypes"] = request.getComponentTypes();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2764,35 +2841,35 @@ ListDoctorHBaseRegionServersResponse Client::listDoctorHBaseRegionServersWithOpt
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionServerHosts()) {
-    query["RegionServerHosts"] = request.regionServerHosts();
+    query["RegionServerHosts"] = request.getRegionServerHosts();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2838,35 +2915,35 @@ ListDoctorHBaseTablesResponse Client::listDoctorHBaseTablesWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTableNames()) {
-    query["TableNames"] = request.tableNames();
+    query["TableNames"] = request.getTableNames();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2900,7 +2977,9 @@ ListDoctorHBaseTablesResponse Client::listDoctorHBaseTables(const ListDoctorHBas
 }
 
 /**
- * @description list Doctor HDFSNodes
+ * @summary Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+ *
+ * @description Queries the analysis results for HDFS directories.
  *
  * @param request ListDoctorHDFSDirectoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2910,35 +2989,35 @@ ListDoctorHDFSDirectoriesResponse Client::listDoctorHDFSDirectoriesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasDirPath()) {
-    query["DirPath"] = request.dirPath();
+    query["DirPath"] = request.getDirPath();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2959,7 +3038,9 @@ ListDoctorHDFSDirectoriesResponse Client::listDoctorHDFSDirectoriesWithOptions(c
 }
 
 /**
- * @description list Doctor HDFSNodes
+ * @summary Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+ *
+ * @description Queries the analysis results for HDFS directories.
  *
  * @param request ListDoctorHDFSDirectoriesRequest
  * @return ListDoctorHDFSDirectoriesResponse
@@ -2982,35 +3063,35 @@ ListDoctorHDFSUGIResponse Client::listDoctorHDFSUGIWithOptions(const ListDoctorH
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3056,35 +3137,35 @@ ListDoctorHiveDatabasesResponse Client::listDoctorHiveDatabasesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDatabaseNames()) {
-    query["DatabaseNames"] = request.databaseNames();
+    query["DatabaseNames"] = request.getDatabaseNames();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3130,35 +3211,35 @@ ListDoctorHiveTablesResponse Client::listDoctorHiveTablesWithOptions(const ListD
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDateTime()) {
-    query["DateTime"] = request.dateTime();
+    query["DateTime"] = request.getDateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTableNames()) {
-    query["TableNames"] = request.tableNames();
+    query["TableNames"] = request.getTableNames();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3204,51 +3285,51 @@ ListDoctorJobsResponse Client::listDoctorJobsWithOptions(const ListDoctorJobsReq
   request.validate();
   json query = {};
   if (!!request.hasAppIds()) {
-    query["AppIds"] = request.appIds();
+    query["AppIds"] = request.getAppIds();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEndRange()) {
-    query["EndRange"] = request.endRange();
+    query["EndRange"] = request.getEndRange();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasQueues()) {
-    query["Queues"] = request.queues();
+    query["Queues"] = request.getQueues();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasStartRange()) {
-    query["StartRange"] = request.startRange();
+    query["StartRange"] = request.getStartRange();
   }
 
   if (!!request.hasTypes()) {
-    query["Types"] = request.types();
+    query["Types"] = request.getTypes();
   }
 
   if (!!request.hasUsers()) {
-    query["Users"] = request.users();
+    query["Users"] = request.getUsers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3294,39 +3375,39 @@ ListDoctorJobsStatsResponse Client::listDoctorJobsStatsWithOptions(const ListDoc
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEndRange()) {
-    query["EndRange"] = request.endRange();
+    query["EndRange"] = request.getEndRange();
   }
 
   if (!!request.hasGroupBy()) {
-    query["GroupBy"] = request.groupBy();
+    query["GroupBy"] = request.getGroupBy();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasStartRange()) {
-    query["StartRange"] = request.startRange();
+    query["StartRange"] = request.getStartRange();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3372,19 +3453,19 @@ ListDoctorReportsResponse Client::listDoctorReportsWithOptions(const ListDoctorR
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3418,7 +3499,7 @@ ListDoctorReportsResponse Client::listDoctorReports(const ListDoctorReportsReque
 }
 
 /**
- * @summary Lists instance types.
+ * @summary Retrieves a list of EMR instance types.
  *
  * @param request ListInstanceTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3428,47 +3509,47 @@ ListInstanceTypesResponse Client::listInstanceTypesWithOptions(const ListInstanc
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasClusterType()) {
-    query["ClusterType"] = request.clusterType();
+    query["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasDeployMode()) {
-    query["DeployMode"] = request.deployMode();
+    query["DeployMode"] = request.getDeployMode();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasIsModification()) {
-    query["IsModification"] = request.isModification();
+    query["IsModification"] = request.getIsModification();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasNodeGroupType()) {
-    query["NodeGroupType"] = request.nodeGroupType();
+    query["NodeGroupType"] = request.getNodeGroupType();
   }
 
   if (!!request.hasPaymentType()) {
-    query["PaymentType"] = request.paymentType();
+    query["PaymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasReleaseVersion()) {
-    query["ReleaseVersion"] = request.releaseVersion();
+    query["ReleaseVersion"] = request.getReleaseVersion();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3489,7 +3570,7 @@ ListInstanceTypesResponse Client::listInstanceTypesWithOptions(const ListInstanc
 }
 
 /**
- * @summary Lists instance types.
+ * @summary Retrieves a list of EMR instance types.
  *
  * @param request ListInstanceTypesRequest
  * @return ListInstanceTypesResponse
@@ -3500,7 +3581,7 @@ ListInstanceTypesResponse Client::listInstanceTypes(const ListInstanceTypesReque
 }
 
 /**
- * @summary Queries the list of node groups in an EMR cluster.
+ * @summary Queries the node groups in an EMR cluster.
  *
  * @param request ListNodeGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3510,39 +3591,39 @@ ListNodeGroupsResponse Client::listNodeGroupsWithOptions(const ListNodeGroupsReq
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasNodeGroupIds()) {
-    query["NodeGroupIds"] = request.nodeGroupIds();
+    query["NodeGroupIds"] = request.getNodeGroupIds();
   }
 
   if (!!request.hasNodeGroupNames()) {
-    query["NodeGroupNames"] = request.nodeGroupNames();
+    query["NodeGroupNames"] = request.getNodeGroupNames();
   }
 
   if (!!request.hasNodeGroupStates()) {
-    query["NodeGroupStates"] = request.nodeGroupStates();
+    query["NodeGroupStates"] = request.getNodeGroupStates();
   }
 
   if (!!request.hasNodeGroupTypes()) {
-    query["NodeGroupTypes"] = request.nodeGroupTypes();
+    query["NodeGroupTypes"] = request.getNodeGroupTypes();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3563,7 +3644,7 @@ ListNodeGroupsResponse Client::listNodeGroupsWithOptions(const ListNodeGroupsReq
 }
 
 /**
- * @summary Queries the list of node groups in an EMR cluster.
+ * @summary Queries the node groups in an EMR cluster.
  *
  * @param request ListNodeGroupsRequest
  * @return ListNodeGroupsResponse
@@ -3584,47 +3665,47 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasNodeGroupIds()) {
-    query["NodeGroupIds"] = request.nodeGroupIds();
+    query["NodeGroupIds"] = request.getNodeGroupIds();
   }
 
   if (!!request.hasNodeIds()) {
-    query["NodeIds"] = request.nodeIds();
+    query["NodeIds"] = request.getNodeIds();
   }
 
   if (!!request.hasNodeNames()) {
-    query["NodeNames"] = request.nodeNames();
+    query["NodeNames"] = request.getNodeNames();
   }
 
   if (!!request.hasNodeStates()) {
-    query["NodeStates"] = request.nodeStates();
+    query["NodeStates"] = request.getNodeStates();
   }
 
   if (!!request.hasPrivateIps()) {
-    query["PrivateIps"] = request.privateIps();
+    query["PrivateIps"] = request.getPrivateIps();
   }
 
   if (!!request.hasPublicIps()) {
-    query["PublicIps"] = request.publicIps();
+    query["PublicIps"] = request.getPublicIps();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3658,7 +3739,7 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 /**
  * @summary Queries the major E-MapReduce (EMR) versions.
  *
- * @description 查询主版本。
+ * @description Queries release versions.
  *
  * @param request ListReleaseVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3668,15 +3749,15 @@ ListReleaseVersionsResponse Client::listReleaseVersionsWithOptions(const ListRel
   request.validate();
   json query = {};
   if (!!request.hasClusterType()) {
-    query["ClusterType"] = request.clusterType();
+    query["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasIaasType()) {
-    query["IaasType"] = request.iaasType();
+    query["IaasType"] = request.getIaasType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3699,7 +3780,7 @@ ListReleaseVersionsResponse Client::listReleaseVersionsWithOptions(const ListRel
 /**
  * @summary Queries the major E-MapReduce (EMR) versions.
  *
- * @description 查询主版本。
+ * @description Queries release versions.
  *
  * @param request ListReleaseVersionsRequest
  * @return ListReleaseVersionsResponse
@@ -3710,7 +3791,7 @@ ListReleaseVersionsResponse Client::listReleaseVersions(const ListReleaseVersion
 }
 
 /**
- * @summary Query EMR cluster bootstrap scripts or regular scripts.
+ * @summary Queries the bootstrap or normal scripts of an EMR cluster.
  *
  * @param request ListScriptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3720,35 +3801,35 @@ ListScriptsResponse Client::listScriptsWithOptions(const ListScriptsRequest &req
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScriptId()) {
-    query["ScriptId"] = request.scriptId();
+    query["ScriptId"] = request.getScriptId();
   }
 
   if (!!request.hasScriptName()) {
-    query["ScriptName"] = request.scriptName();
+    query["ScriptName"] = request.getScriptName();
   }
 
   if (!!request.hasScriptType()) {
-    query["ScriptType"] = request.scriptType();
+    query["ScriptType"] = request.getScriptType();
   }
 
   if (!!request.hasStatuses()) {
-    query["Statuses"] = request.statuses();
+    query["Statuses"] = request.getStatuses();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3769,7 +3850,7 @@ ListScriptsResponse Client::listScriptsWithOptions(const ListScriptsRequest &req
 }
 
 /**
- * @summary Query EMR cluster bootstrap scripts or regular scripts.
+ * @summary Queries the bootstrap or normal scripts of an EMR cluster.
  *
  * @param request ListScriptsRequest
  * @return ListScriptsResponse
@@ -3780,7 +3861,7 @@ ListScriptsResponse Client::listScripts(const ListScriptsRequest &request) {
 }
 
 /**
- * @summary Queries the tags that are bound to an EMR cluster.
+ * @summary Queries the tags attached to E-MapReduce (EMR) clusters.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3790,27 +3871,27 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3831,7 +3912,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are bound to an EMR cluster.
+ * @summary Queries the tags attached to E-MapReduce (EMR) clusters.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -3854,27 +3935,27 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasUserName()) {
-    query["UserName"] = request.userName();
+    query["UserName"] = request.getUserName();
   }
 
   if (!!request.hasUserNames()) {
-    query["UserNames"] = request.userNames();
+    query["UserNames"] = request.getUserNames();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3908,9 +3989,9 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Adds a custom auto scaling rule.
+ * @summary Creates a custom Auto Scaling policy.
  *
- * @description You can call this operation to configure auto scaling policies.
+ * @description Configures an Auto Scaling policy.
  *
  * @param request PutAutoScalingPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3920,23 +4001,23 @@ PutAutoScalingPolicyResponse Client::putAutoScalingPolicyWithOptions(const PutAu
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasConstraints()) {
-    query["Constraints"] = request.constraints();
+    query["Constraints"] = request.getConstraints();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScalingRules()) {
-    query["ScalingRules"] = request.scalingRules();
+    query["ScalingRules"] = request.getScalingRules();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3957,9 +4038,9 @@ PutAutoScalingPolicyResponse Client::putAutoScalingPolicyWithOptions(const PutAu
 }
 
 /**
- * @summary Adds a custom auto scaling rule.
+ * @summary Creates a custom Auto Scaling policy.
  *
- * @description You can call this operation to configure auto scaling policies.
+ * @description Configures an Auto Scaling policy.
  *
  * @param request PutAutoScalingPolicyRequest
  * @return PutAutoScalingPolicyResponse
@@ -3978,15 +4059,15 @@ PutManagedScalingPolicyResponse Client::putManagedScalingPolicyWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasConstraints()) {
-    query["Constraints"] = request.constraints();
+    query["Constraints"] = request.getConstraints();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4026,15 +4107,15 @@ RemoveAutoScalingPolicyResponse Client::removeAutoScalingPolicyWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4066,6 +4147,8 @@ RemoveAutoScalingPolicyResponse Client::removeAutoScalingPolicy(const RemoveAuto
 }
 
 /**
+ * @summary Runs an API template.
+ *
  * @param request RunApiTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunApiTemplateResponse
@@ -4074,19 +4157,19 @@ RunApiTemplateResponse Client::runApiTemplateWithOptions(const RunApiTemplateReq
   request.validate();
   json query = {};
   if (!!request.hasApiName()) {
-    query["ApiName"] = request.apiName();
+    query["ApiName"] = request.getApiName();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4107,6 +4190,8 @@ RunApiTemplateResponse Client::runApiTemplateWithOptions(const RunApiTemplateReq
 }
 
 /**
+ * @summary Runs an API template.
+ *
  * @param request RunApiTemplateRequest
  * @return RunApiTemplateResponse
  */
@@ -4126,39 +4211,39 @@ RunApplicationActionResponse Client::runApplicationActionWithOptions(const RunAp
   request.validate();
   json query = {};
   if (!!request.hasActionName()) {
-    query["ActionName"] = request.actionName();
+    query["ActionName"] = request.getActionName();
   }
 
   if (!!request.hasBatchSize()) {
-    query["BatchSize"] = request.batchSize();
+    query["BatchSize"] = request.getBatchSize();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentInstanceSelector()) {
-    query["ComponentInstanceSelector"] = request.componentInstanceSelector();
+    query["ComponentInstanceSelector"] = request.getComponentInstanceSelector();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasExecuteStrategy()) {
-    query["ExecuteStrategy"] = request.executeStrategy();
+    query["ExecuteStrategy"] = request.getExecuteStrategy();
   }
 
   if (!!request.hasInterval()) {
-    query["Interval"] = request.interval();
+    query["Interval"] = request.getInterval();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRollingExecute()) {
-    query["RollingExecute"] = request.rollingExecute();
+    query["RollingExecute"] = request.getRollingExecute();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4190,9 +4275,9 @@ RunApplicationActionResponse Client::runApplicationAction(const RunApplicationAc
 }
 
 /**
- * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+ * @summary Creates a pay-as-you-go or subscription cluster.
  *
- * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+ * @description RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
  *
  * @param tmpReq RunClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4203,113 +4288,113 @@ RunClusterResponse Client::runClusterWithOptions(const RunClusterRequest &tmpReq
   RunClusterShrinkRequest request = RunClusterShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApplicationConfigs()) {
-    request.setApplicationConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applicationConfigs(), "ApplicationConfigs", "json"));
+    request.setApplicationConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplicationConfigs(), "ApplicationConfigs", "json"));
   }
 
   if (!!tmpReq.hasApplications()) {
-    request.setApplicationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applications(), "Applications", "json"));
+    request.setApplicationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplications(), "Applications", "json"));
   }
 
   if (!!tmpReq.hasBootstrapScripts()) {
-    request.setBootstrapScriptsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bootstrapScripts(), "BootstrapScripts", "json"));
+    request.setBootstrapScriptsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBootstrapScripts(), "BootstrapScripts", "json"));
   }
 
   if (!!tmpReq.hasNodeAttributes()) {
-    request.setNodeAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.nodeAttributes(), "NodeAttributes", "json"));
+    request.setNodeAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodeAttributes(), "NodeAttributes", "json"));
   }
 
   if (!!tmpReq.hasNodeGroups()) {
-    request.setNodeGroupsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.nodeGroups(), "NodeGroups", "json"));
+    request.setNodeGroupsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodeGroups(), "NodeGroups", "json"));
   }
 
   if (!!tmpReq.hasPromotions()) {
-    request.setPromotionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.promotions(), "Promotions", "json"));
+    request.setPromotionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPromotions(), "Promotions", "json"));
   }
 
   if (!!tmpReq.hasSubscriptionConfig()) {
-    request.setSubscriptionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.subscriptionConfig(), "SubscriptionConfig", "json"));
+    request.setSubscriptionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubscriptionConfig(), "SubscriptionConfig", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   json query = {};
   if (!!request.hasPromotionsShrink()) {
-    query["Promotions"] = request.promotionsShrink();
+    query["Promotions"] = request.getPromotionsShrink();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   json body = {};
   if (!!request.hasApplicationConfigsShrink()) {
-    body["ApplicationConfigs"] = request.applicationConfigsShrink();
+    body["ApplicationConfigs"] = request.getApplicationConfigsShrink();
   }
 
   if (!!request.hasApplicationsShrink()) {
-    body["Applications"] = request.applicationsShrink();
+    body["Applications"] = request.getApplicationsShrink();
   }
 
   if (!!request.hasBootstrapScriptsShrink()) {
-    body["BootstrapScripts"] = request.bootstrapScriptsShrink();
+    body["BootstrapScripts"] = request.getBootstrapScriptsShrink();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasClusterName()) {
-    body["ClusterName"] = request.clusterName();
+    body["ClusterName"] = request.getClusterName();
   }
 
   if (!!request.hasClusterType()) {
-    body["ClusterType"] = request.clusterType();
+    body["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasDeletionProtection()) {
-    body["DeletionProtection"] = request.deletionProtection();
+    body["DeletionProtection"] = request.getDeletionProtection();
   }
 
   if (!!request.hasDeployMode()) {
-    body["DeployMode"] = request.deployMode();
+    body["DeployMode"] = request.getDeployMode();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasNodeAttributesShrink()) {
-    body["NodeAttributes"] = request.nodeAttributesShrink();
+    body["NodeAttributes"] = request.getNodeAttributesShrink();
   }
 
   if (!!request.hasNodeGroupsShrink()) {
-    body["NodeGroups"] = request.nodeGroupsShrink();
+    body["NodeGroups"] = request.getNodeGroupsShrink();
   }
 
   if (!!request.hasPaymentType()) {
-    body["PaymentType"] = request.paymentType();
+    body["PaymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasReleaseVersion()) {
-    body["ReleaseVersion"] = request.releaseVersion();
+    body["ReleaseVersion"] = request.getReleaseVersion();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSecurityMode()) {
-    body["SecurityMode"] = request.securityMode();
+    body["SecurityMode"] = request.getSecurityMode();
   }
 
   if (!!request.hasSubscriptionConfigShrink()) {
-    body["SubscriptionConfig"] = request.subscriptionConfigShrink();
+    body["SubscriptionConfig"] = request.getSubscriptionConfigShrink();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["Tags"] = request.tagsShrink();
+    body["Tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4331,9 +4416,9 @@ RunClusterResponse Client::runClusterWithOptions(const RunClusterRequest &tmpReq
 }
 
 /**
- * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+ * @summary Creates a pay-as-you-go or subscription cluster.
  *
- * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+ * @description RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
  *
  * @param request RunClusterRequest
  * @return RunClusterResponse
@@ -4354,19 +4439,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4408,23 +4493,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKeys()) {
-    query["TagKeys"] = request.tagKeys();
+    query["TagKeys"] = request.getTagKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4458,7 +4543,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 /**
  * @summary Updates an API operation template.
  *
- * @description 修改集群模板
+ * @description Modifies a cluster template.
  *
  * @param request UpdateApiTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4468,27 +4553,27 @@ UpdateApiTemplateResponse Client::updateApiTemplateWithOptions(const UpdateApiTe
   request.validate();
   json query = {};
   if (!!request.hasApiName()) {
-    query["ApiName"] = request.apiName();
+    query["ApiName"] = request.getApiName();
   }
 
   if (!!request.hasContent()) {
-    query["Content"] = request.content();
+    query["Content"] = request.getContent();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4511,7 +4596,7 @@ UpdateApiTemplateResponse Client::updateApiTemplateWithOptions(const UpdateApiTe
 /**
  * @summary Updates an API operation template.
  *
- * @description 修改集群模板
+ * @description Modifies a cluster template.
  *
  * @param request UpdateApiTemplateRequest
  * @return UpdateApiTemplateResponse
@@ -4522,7 +4607,7 @@ UpdateApiTemplateResponse Client::updateApiTemplate(const UpdateApiTemplateReque
 }
 
 /**
- * @summary Updates the application configurations.
+ * @summary Updates the configurations of an application.
  *
  * @param request UpdateApplicationConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4532,45 +4617,45 @@ UpdateApplicationConfigsResponse Client::updateApplicationConfigsWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasApplicationName()) {
-    query["ApplicationName"] = request.applicationName();
+    query["ApplicationName"] = request.getApplicationName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasConfigAction()) {
-    query["ConfigAction"] = request.configAction();
+    query["ConfigAction"] = request.getConfigAction();
   }
 
   if (!!request.hasConfigScope()) {
-    query["ConfigScope"] = request.configScope();
+    query["ConfigScope"] = request.getConfigScope();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasNodeGroupId()) {
-    query["NodeGroupId"] = request.nodeGroupId();
+    query["NodeGroupId"] = request.getNodeGroupId();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasRefreshConfig()) {
-    query["RefreshConfig"] = request.refreshConfig();
+    query["RefreshConfig"] = request.getRefreshConfig();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   json body = {};
   json bodyFlat = {};
   if (!!request.hasApplicationConfigs()) {
-    bodyFlat["ApplicationConfigs"] = request.applicationConfigs();
+    bodyFlat["ApplicationConfigs"] = request.getApplicationConfigs();
   }
 
   body = Darabonba::Core::merge(body,
@@ -4595,7 +4680,7 @@ UpdateApplicationConfigsResponse Client::updateApplicationConfigsWithOptions(con
 }
 
 /**
- * @summary Updates the application configurations.
+ * @summary Updates the configurations of an application.
  *
  * @param request UpdateApplicationConfigsRequest
  * @return UpdateApplicationConfigsResponse
@@ -4616,23 +4701,23 @@ UpdateClusterAttributeResponse Client::updateClusterAttributeWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasClusterName()) {
-    query["ClusterName"] = request.clusterName();
+    query["ClusterName"] = request.getClusterName();
   }
 
   if (!!request.hasDeletionProtection()) {
-    query["DeletionProtection"] = request.deletionProtection();
+    query["DeletionProtection"] = request.getDeletionProtection();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4664,6 +4749,10 @@ UpdateClusterAttributeResponse Client::updateClusterAttribute(const UpdateCluste
 }
 
 /**
+ * @summary Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+ *
+ * @description Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+ *
  * @param request UpdateClusterAutoRenewRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateClusterAutoRenewResponse
@@ -4672,31 +4761,31 @@ UpdateClusterAutoRenewResponse Client::updateClusterAutoRenewWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasAutoRenewInstances()) {
-    query["AutoRenewInstances"] = request.autoRenewInstances();
+    query["AutoRenewInstances"] = request.getAutoRenewInstances();
   }
 
   if (!!request.hasClusterAutoRenew()) {
-    query["ClusterAutoRenew"] = request.clusterAutoRenew();
+    query["ClusterAutoRenew"] = request.getClusterAutoRenew();
   }
 
   if (!!request.hasClusterAutoRenewDuration()) {
-    query["ClusterAutoRenewDuration"] = request.clusterAutoRenewDuration();
+    query["ClusterAutoRenewDuration"] = request.getClusterAutoRenewDuration();
   }
 
   if (!!request.hasClusterAutoRenewDurationUnit()) {
-    query["ClusterAutoRenewDurationUnit"] = request.clusterAutoRenewDurationUnit();
+    query["ClusterAutoRenewDurationUnit"] = request.getClusterAutoRenewDurationUnit();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRenewAllInstances()) {
-    query["RenewAllInstances"] = request.renewAllInstances();
+    query["RenewAllInstances"] = request.getRenewAllInstances();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4717,12 +4806,138 @@ UpdateClusterAutoRenewResponse Client::updateClusterAutoRenewWithOptions(const U
 }
 
 /**
+ * @summary Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+ *
+ * @description Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+ *
  * @param request UpdateClusterAutoRenewRequest
  * @return UpdateClusterAutoRenewResponse
  */
 UpdateClusterAutoRenewResponse Client::updateClusterAutoRenew(const UpdateClusterAutoRenewRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateClusterAutoRenewWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the attributes of a node group.
+ *
+ * @description 更新节点组基本属性。
+ *
+ * @param request UpdateNodeGroupAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNodeGroupAttributesResponse
+ */
+UpdateNodeGroupAttributesResponse Client::updateNodeGroupAttributesWithOptions(const UpdateNodeGroupAttributesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAckConfig()) {
+    query["AckConfig"] = request.getAckConfig();
+  }
+
+  if (!!request.hasAdditionalSecurityGroupIds()) {
+    query["AdditionalSecurityGroupIds"] = request.getAdditionalSecurityGroupIds();
+  }
+
+  if (!!request.hasAutoCompensateState()) {
+    query["AutoCompensateState"] = request.getAutoCompensateState();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasCostOptimizedConfig()) {
+    query["CostOptimizedConfig"] = request.getCostOptimizedConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEcsSpotStrategy()) {
+    query["EcsSpotStrategy"] = request.getEcsSpotStrategy();
+  }
+
+  if (!!request.hasEnableGracefulDecommission()) {
+    query["EnableGracefulDecommission"] = request.getEnableGracefulDecommission();
+  }
+
+  if (!!request.hasInstanceTypeList()) {
+    query["InstanceTypeList"] = request.getInstanceTypeList();
+  }
+
+  if (!!request.hasKeyPairName()) {
+    query["KeyPairName"] = request.getKeyPairName();
+  }
+
+  if (!!request.hasMaxSize()) {
+    query["MaxSize"] = request.getMaxSize();
+  }
+
+  if (!!request.hasMinSize()) {
+    query["MinSize"] = request.getMinSize();
+  }
+
+  if (!!request.hasNodeCount()) {
+    query["NodeCount"] = request.getNodeCount();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    query["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  if (!!request.hasNodeGroupName()) {
+    query["NodeGroupName"] = request.getNodeGroupName();
+  }
+
+  if (!!request.hasNodeResizeStrategy()) {
+    query["NodeResizeStrategy"] = request.getNodeResizeStrategy();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSpotBidPrices()) {
+    query["SpotBidPrices"] = request.getSpotBidPrices();
+  }
+
+  if (!!request.hasSpotInstanceRemedy()) {
+    query["SpotInstanceRemedy"] = request.getSpotInstanceRemedy();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateNodeGroupAttributes"},
+    {"version" , "2021-03-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNodeGroupAttributesResponse>();
+}
+
+/**
+ * @summary Updates the attributes of a node group.
+ *
+ * @description 更新节点组基本属性。
+ *
+ * @param request UpdateNodeGroupAttributesRequest
+ * @return UpdateNodeGroupAttributesResponse
+ */
+UpdateNodeGroupAttributesResponse Client::updateNodeGroupAttributes(const UpdateNodeGroupAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateNodeGroupAttributesWithOptions(request, runtime);
 }
 
 /**
@@ -4737,28 +4952,28 @@ UpdateScriptResponse Client::updateScriptWithOptions(const UpdateScriptRequest &
   UpdateScriptShrinkRequest request = UpdateScriptShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasScript()) {
-    request.setScriptShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.script(), "Script", "json"));
+    request.setScriptShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScript(), "Script", "json"));
   }
 
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScriptShrink()) {
-    query["Script"] = request.scriptShrink();
+    query["Script"] = request.getScriptShrink();
   }
 
   if (!!request.hasScriptId()) {
-    query["ScriptId"] = request.scriptId();
+    query["ScriptId"] = request.getScriptId();
   }
 
   if (!!request.hasScriptType()) {
-    query["ScriptType"] = request.scriptType();
+    query["ScriptType"] = request.getScriptType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4802,27 +5017,27 @@ UpdateUserAttributeResponse Client::updateUserAttributeWithOptions(const UpdateU
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasPassword()) {
-    query["Password"] = request.password();
+    query["Password"] = request.getPassword();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    query["UserName"] = request.userName();
+    query["UserName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

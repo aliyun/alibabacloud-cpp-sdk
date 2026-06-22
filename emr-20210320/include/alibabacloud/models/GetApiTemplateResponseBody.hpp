@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ApiTemplate & data() const { DARABONBA_PTR_GET_CONST(data_, ApiTemplate) };
-    inline ApiTemplate data() { DARABONBA_PTR_GET(data_, ApiTemplate) };
+    inline const ApiTemplate & getData() const { DARABONBA_PTR_GET_CONST(data_, ApiTemplate) };
+    inline ApiTemplate getData() { DARABONBA_PTR_GET(data_, ApiTemplate) };
     inline GetApiTemplateResponseBody& setData(const ApiTemplate & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline GetApiTemplateResponseBody& setData(ApiTemplate && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetApiTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The content of the API operation template.
-    std::shared_ptr<ApiTemplate> data_ = nullptr;
+    shared_ptr<ApiTemplate> data_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
