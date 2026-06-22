@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // The Meta ad account ID.
+    // 
     // This parameter is required.
     shared_ptr<string> adAccountId_ {};
+    // The campaign ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The space ID of an Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The Page ID of Messenger.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

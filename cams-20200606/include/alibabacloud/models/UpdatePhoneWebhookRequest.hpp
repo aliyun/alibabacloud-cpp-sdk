@@ -117,8 +117,10 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     // Whether to use HTTP to receive receipts. Value:
-    // *   Y: Yes.
-    // *   N: No.
+    // 
+    // - Y: Yes.
+    // 
+    // - N: No.
     shared_ptr<string> httpFlag_ {};
     shared_ptr<int64_t> ownerId_ {};
     // phone number.
@@ -126,8 +128,10 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
     // Whether to use queue method to receive receipts. Value:
-    // *   Y: Yes.
-    // *   N: No.
+    // 
+    // - Y: Yes.
+    // 
+    // - N: No.
     shared_ptr<string> queueFlag_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

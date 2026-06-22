@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // The Meta ad account ID.
+    // 
     // This parameter is required.
     shared_ptr<string> adAccountId_ {};
+    // The ID of the campaign.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The Space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of the direct customers. This is the channel ID. You can find the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The Page ID.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

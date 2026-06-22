@@ -75,7 +75,7 @@ namespace Models
     protected:
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
-      // The ID of the phone number.
+      // The phone number ID.
       shared_ptr<string> phoneNumberId_ {};
     };
 
@@ -112,10 +112,11 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The request status code.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+    // - A value of OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://www.alibabacloud.com/help/en/cams/latest/api-error-codes).
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetPreValidatePhoneIdResponseBody::Data> data_ {};

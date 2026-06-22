@@ -130,19 +130,44 @@ namespace Models
 
 
   protected:
+    // The business number.
+    // 
     // This parameter is required.
     shared_ptr<string> businessNumber_ {};
+    // The channel type. Valid value: **WHATSAPP**.
+    // 
+    // > Only the WhatsApp channel is supported.
     shared_ptr<string> channelType_ {};
+    // The instance ID (or SpaceId) of an ISV sub-customer, which also serves as the channel ID. You can find it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The Telegram group link.
     shared_ptr<string> groupLink_ {};
+    // The group status. Valid values:
+    // 
+    // - ACTIVE: In use.
+    // 
+    // - INACTIVE: Not activated.
+    // 
+    // - SUSPENDED: Suspended.
+    // 
+    // - CREATING: Being created.
+    // 
+    // - DELETING: Being deleted.
+    // 
+    // - UPDATING: Being updated.
     shared_ptr<string> groupStatus_ {};
+    // The Telegram group type.
     shared_ptr<string> groupType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The paging information.
+    // 
     // This parameter is required.
     shared_ptr<string> pageShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The group title.
     shared_ptr<string> subject_ {};
   };
 

@@ -86,18 +86,19 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The message ID.
+    // The app ID.
     shared_ptr<string> appId_ {};
-    // The HTTP status code returned.
+    // The status code of the request.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates that the request was successful.
+    // 
+    // - For information about other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // The ID of the configuration item.
+    // The configuration ID.
     shared_ptr<string> configId_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

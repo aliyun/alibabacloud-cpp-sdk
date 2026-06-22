@@ -151,15 +151,25 @@ namespace Models
 
 
     protected:
+      // The start time.
       shared_ptr<string> dateStart_ {};
+      // The end time.
       shared_ptr<string> dateStop_ {};
+      // The average cost per delivered message.
       shared_ptr<string> marketingMessagesCostPerDelivered_ {};
+      // The average cost per message link click. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
       shared_ptr<string> marketingMessagesCostPerLinkBtnClick_ {};
+      // The number of messages that are sent by the business and successfully delivered to users. Some messages may fail to deliver if a user\\"s device is unavailable. This metric excludes messages delivered to Europe and Japan. In some cases, this metric is an estimate. The value may differ from the data on your bill due to minor discrepancies during data processing.
       shared_ptr<string> marketingMessagesDelivered_ {};
+      // The message delivery rate.
       shared_ptr<string> marketingMessagesDeliveryRate_ {};
+      // The number of times users click or tap a marketing message that take users to an on-Meta or off-Meta destination, as specified by the advertiser. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
       shared_ptr<string> marketingMessagesLinkBtnClick_ {};
+      // The percentage of delivered messages that received a link click. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
       shared_ptr<string> marketingMessagesLinkBtnClickRate_ {};
+      // The number of read messages divided by the number of delivered messages. The read status of some messages may not be captured if a customer disables read receipts. This metric excludes messages sent to Europe and Japan.
       shared_ptr<string> marketingMessagesReadRate_ {};
+      // The total amount spent on a campaign, message group, or message during over its lifetime.
       shared_ptr<string> marketingMessagesSpend_ {};
     };
 
@@ -210,11 +220,25 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. Valid values:
+    // 
+    // - OK: The request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<GetMessageCampaignInsightsResponseBody::Data>> data_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: successful.
+    // 
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -111,17 +111,17 @@ namespace Models
 
 
     protected:
-      // Deep link address.
+      // The deep link URL.
       shared_ptr<string> deepLinkUrl_ {};
-      // Generate image types.
+      // The type of the generated image.
       shared_ptr<string> generateQrImage_ {};
-      // Number.
+      // The phone number.
       shared_ptr<string> phoneNumber_ {};
-      // Message content.
+      // The message content.
       shared_ptr<string> prefilledMessage_ {};
-      // QR code address.
+      // The URL of the QR code.
       shared_ptr<string> qrImageUrl_ {};
-      // QR code encoding.
+      // The code.
       shared_ptr<string> qrdlCode_ {};
     };
 
@@ -166,11 +166,11 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // The result returns OK as normal.
+    // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<UpdatePhoneMessageQrdlResponseBody::Data> data_ {};
-    // Error description information.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

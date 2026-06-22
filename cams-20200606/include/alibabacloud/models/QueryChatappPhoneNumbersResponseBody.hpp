@@ -482,67 +482,29 @@ namespace Models
     protected:
       shared_ptr<PhoneNumbers::CallingConfigure> callingConfigure_ {};
       // The verification status of the phone number.
-      // 
-      // Valid values:
-      // 
-      // *   REVOKED: The review application is revoked.
-      // *   MORE_INFORMATION_REQUESTED: More information needs to be provided.
-      // *   VERIFIED: The phone number passes the verification.
-      // *   REJECTED: The phone number fails to pass the verification.
       shared_ptr<string> codeVerificationStatus_ {};
-      // Indicates whether it is a WhatsApp Official Business Account (OBA).
       shared_ptr<string> isOfficial_ {};
-      // The number of phone numbers to which messages can be sent in a day.
-      // 
-      // Valid values:
-      // 
-      // *   TIER_100K: 100,000
-      // *   TIER_UNLIMITED: unlimited
-      // *   TIER_250: 250
-      // *   TIER_1K: 1,000
-      // *   TIER_50: 50
-      // *   TIER_10K: 10,000
+      // The messaging limit tier of the phone number.
       shared_ptr<string> messagingLimitTier_ {};
-      // The review status of the name.
+      // The status of the name.
       shared_ptr<string> nameStatus_ {};
-      // The review status of the new display name of the enterprise.
+      // The review status of the new name.
       shared_ptr<string> newNameStatus_ {};
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
       // The quality rating of the phone number.
-      // 
-      // Valid values:
-      // 
-      // *   RED: low
-      // *   YELLOW: medium
-      // *   UNKNOWN: unknown
-      // *   GREEN: high
       shared_ptr<string> qualityRating_ {};
-      // The state of the phone number.
-      // 
-      // Valid values:
-      // 
-      // *   MIGRATED
-      // *   FLAGGED
-      // *   DISCONNECTED
-      // *   UNVERIFIED
-      // *   BANNED
-      // *   RATE_LIMITED
-      // *   PENDING
-      // *   CONNECTED
-      // *   UNKNOWN
-      // *   DELETED
-      // *   RESTRICTED
+      // The status of the phone number.
       shared_ptr<string> status_ {};
-      // The URL that receives the status reports.
+      // The callback URL for delivery receipts.
       shared_ptr<string> statusCallbackUrl_ {};
-      // The status report queue.
+      // The queue for delivery receipts of mobile terminated messages.
       shared_ptr<string> statusQueue_ {};
-      // The URL that receives the MO messages.
+      // The callback URL for mobile originated messages.
       shared_ptr<string> upCallbackUrl_ {};
-      // The mobile originated (MO) message queue.
+      // The queue for mobile originated messages.
       shared_ptr<string> upQueue_ {};
-      // The display name of the enterprise to which the phone number belongs.
+      // The name used for the request.
       shared_ptr<string> verifiedName_ {};
     };
 
@@ -601,24 +563,21 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The HTTP status code returned.
+    // The request status code.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     shared_ptr<string> data_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The phone numbers.
+    // The list of phone numbers.
     shared_ptr<vector<QueryChatappPhoneNumbersResponseBody::PhoneNumbers>> phoneNumbers_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

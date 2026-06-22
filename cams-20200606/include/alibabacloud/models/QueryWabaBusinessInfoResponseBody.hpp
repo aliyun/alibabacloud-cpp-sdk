@@ -156,8 +156,9 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // The HTTP status code returned.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates that the call is successful.
+    // 
+    // - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The business information about the WABA.
     shared_ptr<QueryWabaBusinessInfoResponseBody::Data> data_ {};
@@ -167,8 +168,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

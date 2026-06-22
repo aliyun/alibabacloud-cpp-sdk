@@ -162,18 +162,27 @@ namespace Models
 
 
     protected:
+      // The time when the security token was created.
       shared_ptr<int64_t> creationTimestamp_ {};
+      // The custom audience ID.
       shared_ptr<string> customAudienceId_ {};
+      // The time when the application can send the next marketing message to the recipient.
       shared_ptr<int64_t> nextEligibleTime_ {};
+      // The re-subscription status.
       shared_ptr<string> notificationMessagesReoptin_ {};
+      // The customer\\"s time zone.
       shared_ptr<string> notificationMessagesTimezone_ {};
+      // The page-scoped ID of the customer.
       shared_ptr<string> notificationMessagesToken_ {};
+      // The page ID for Messenger.
       shared_ptr<string> pageId_ {};
       // The customer\\"s Page-scoped ID (PSID)
       shared_ptr<string> recipientId_ {};
+      // The expiration time of the security token.
       shared_ptr<int64_t> tokenExpiryTimestamp_ {};
       // The message\\"s title
       shared_ptr<string> topicTitle_ {};
+      // The status of the security token.
       shared_ptr<string> userTokenStatus_ {};
     };
 
@@ -232,12 +241,27 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - A return value of OK indicates that the request was successful.
+    // 
+    // - For a list of other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListMessengerSubscriptionTokenResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The identifier for the next page. Pass this value to query the next page.
     shared_ptr<string> nextPage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: successful.
+    // 
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

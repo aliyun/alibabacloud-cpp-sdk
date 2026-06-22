@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The Flow ID.
+      // The flow ID.
       shared_ptr<string> flowId_ {};
     };
 
@@ -110,11 +110,11 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // The result returns OK as normal.
+    // The response code. A value of OK indicates a successful request.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<UpdateFlowJSONAssetResponseBody::Data> data_ {};
-    // Error description information.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

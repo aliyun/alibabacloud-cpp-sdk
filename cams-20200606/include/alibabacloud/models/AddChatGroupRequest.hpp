@@ -112,16 +112,28 @@ namespace Models
 
 
   protected:
+    // The phone number associated with the business account.
+    // 
     // This parameter is required.
     shared_ptr<string> businessNumber_ {};
+    // The channel type. Valid value:
+    // 
+    // - **WHATSAPP**
+    // 
+    // > Currently, only the WhatsApp channel type is supported.
     shared_ptr<string> channelType_ {};
+    // The SpaceId or instance ID of the ISV sub-customer, which is the channel ID. Find it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The group description.
     shared_ptr<string> description_ {};
+    // The link to the WhatsApp group.
     shared_ptr<string> groupLink_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The group title.
     shared_ptr<string> subject_ {};
   };
 

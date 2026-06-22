@@ -190,19 +190,33 @@ namespace Models
 
 
     protected:
+      // The channel type.
       shared_ptr<string> channelType_ {};
+      // The contact email address.
       shared_ptr<string> contactMail_ {};
+      // The country ID.
       shared_ptr<string> countryId_ {};
+      // The customer space ID.
       shared_ptr<string> custSpaceId_ {};
+      // The ID of the associated Facebook Business Manager account.
       shared_ptr<string> facebookBmId_ {};
+      // The instance description.
       shared_ptr<string> instanceDescription_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The ISV terms.
       shared_ptr<string> isvTerms_ {};
+      // The office address.
       shared_ptr<string> officeAddress_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The ID of the region where the resource is located.
       shared_ptr<string> resourceRegionId_ {};
+      // The state of the instance.
       shared_ptr<string> state_ {};
+      // The time when the instance was submitted.
       shared_ptr<string> submitTime_ {};
     };
 
@@ -261,12 +275,27 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see the [Error Code List](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // An array of objects, each representing an instance.
     shared_ptr<vector<ListInstanceResponseBody::Data>> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
+    // 
+    // - **true**: The call succeeded.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
+    // The total number of entries that match the specified criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

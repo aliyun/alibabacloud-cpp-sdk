@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer.
     shared_ptr<string> custSpaceId_ {};
+    // This parameter is reserved for internal use.
     shared_ptr<string> hetuParams_ {};
   };
 

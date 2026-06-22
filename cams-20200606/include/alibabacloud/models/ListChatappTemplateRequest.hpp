@@ -201,12 +201,14 @@ namespace Models
   protected:
     // The review state of the template. Valid values:
     // 
-    // *   **pass**: The template is approved.
-    // *   **fail**: The template is rejected.
-    // *   **auditing**: The template is being reviewed.
-    // *   **unaudit**: The review is suspended.
+    // - **pass**: The template is approved.
+    // 
+    // - **fail**: The template is rejected.
+    // 
+    // - **auditing**: The template is being reviewed.
+    // 
+    // - **unaudit**: The review is suspended.
     shared_ptr<string> auditStatus_ {};
-    // The category of the message template.
     shared_ptr<string> category_ {};
     // The code of the message template.
     shared_ptr<string> code_ {};
@@ -214,7 +216,7 @@ namespace Models
     shared_ptr<string> custSpaceId_ {};
     // The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
     // 
-    // >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+    // > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
     // The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
     shared_ptr<string> isvCode_ {};
@@ -229,8 +231,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of the message template.
     // 
-    // *   **WHATSAPP**
-    // *   **VIBER**
+    // - **WHATSAPP**
+    // 
+    // - **VIBER**
     shared_ptr<string> templateType_ {};
   };
 

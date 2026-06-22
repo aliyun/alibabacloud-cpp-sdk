@@ -84,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The audit record.
     shared_ptr<string> auditRecordShrink_ {};
+    // The audit result.
     shared_ptr<string> auditResult_ {};
+    // The Space ID of the ISV sub-customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};

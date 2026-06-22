@@ -483,12 +483,14 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   REVOKED: The review application is revoked.
-      // *   MORE_INFORMATION_REQUESTED: More information needs to be provided.
-      // *   VERIFIED: The phone number passes the verification.
-      // *   REJECTED: The phone number fails to pass the verification.
+      // - REVOKED: The review application is revoked.
+      // 
+      // - MORE_INFORMATION_REQUESTED: More information needs to be provided.
+      // 
+      // - VERIFIED: The phone number passes the verification.
+      // 
+      // - REJECTED: The phone number fails to pass the verification.
       shared_ptr<string> codeVerificationStatus_ {};
-      // Indicates whether it is a WhatsApp Official Business Account (OBA).
       shared_ptr<string> isOfficial_ {};
       // The number of phone numbers to which messages can be sent in a day.
       shared_ptr<string> messagingLimitTier_ {};
@@ -502,25 +504,37 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   RED
-      // *   YELLOW
-      // *   GREEN
+      // - RED
+      // 
+      // - YELLOW
+      // 
+      // - GREEN
       shared_ptr<string> qualityRating_ {};
       // The state of the phone number.
       // 
       // Valid values:
       // 
-      // *   MIGRATED
-      // *   FLAGGED
-      // *   DISCONNECTED
-      // *   UNVERIFIED
-      // *   BANNED
-      // *   RATE_LIMITED
-      // *   PENDING
-      // *   CONNECTED
-      // *   UNKNOWN
-      // *   DELETED
-      // *   RESTRICTED
+      // - MIGRATED
+      // 
+      // - FLAGGED
+      // 
+      // - DISCONNECTED
+      // 
+      // - UNVERIFIED
+      // 
+      // - BANNED
+      // 
+      // - RATE_LIMITED
+      // 
+      // - PENDING
+      // 
+      // - CONNECTED
+      // 
+      // - UNKNOWN
+      // 
+      // - DELETED
+      // 
+      // - RESTRICTED
       shared_ptr<string> status_ {};
       // The callback URL to which status reports are sent by using HTTP callbacks.
       shared_ptr<string> statusCallbackUrl_ {};
@@ -585,8 +599,9 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // The HTTP status code returned.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates that the call is successful.
+    // 
+    // - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The error message returned.
     shared_ptr<string> message_ {};
@@ -596,8 +611,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**: The call was successful.
-    // *   **false**: The call failed.
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

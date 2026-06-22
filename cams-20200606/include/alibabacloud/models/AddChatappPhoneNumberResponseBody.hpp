@@ -75,15 +75,23 @@ namespace Models
 
 
   protected:
-    // com.alicom.access.oxs.client.channel.aliyun.flow.AyFlowExecuteService
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The phone number.
+    // The status code of the request.
+    // 
+    // - A value of OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // com.alicom.access.oxs.client.channel.aliyun.flow.dto.AyCommonApiRequest
+    // The error message.
     shared_ptr<string> message_ {};
-    // formData
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 13800000000
+    // Indicates whether the call was successful.
+    // 
+    // - **true**: successful.
+    // 
+    // - **false**: failed.
     shared_ptr<bool> success_ {};
   };
 

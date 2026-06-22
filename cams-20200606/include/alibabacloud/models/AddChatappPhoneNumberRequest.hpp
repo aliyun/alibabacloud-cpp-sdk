@@ -103,24 +103,26 @@ namespace Models
 
 
   protected:
-    // You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    // The country code.
     // 
     // This parameter is required.
     shared_ptr<string> cc_ {};
-    // Adds a phone number for a WhatsApp Business account (WABA).
+    // The Space ID of the Independent Software Vendor (ISV) sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // AddChatappPhoneNumber
+    // The phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
-    // cams:ChatappPhoneNumberRegister
+    // The pre-verified phone number.
+    // 
+    // > This parameter is deprecated.
     shared_ptr<string> preValidateId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Private
+    // The name of the phone number.
     // 
     // This parameter is required.
     shared_ptr<string> verifiedName_ {};

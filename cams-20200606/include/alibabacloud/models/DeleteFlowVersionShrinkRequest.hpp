@@ -94,13 +94,9 @@ namespace Models
 
 
   protected:
-    // Business tenant code, default is “ALICOM_OPAAS”.
     shared_ptr<string> bizCode_ {};
-    // Business extension information, default is “{}”.
     shared_ptr<string> bizExtendShrink_ {};
-    // Flow code.
     shared_ptr<string> flowCode_ {};
-    // Flow version
     shared_ptr<string> flowVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

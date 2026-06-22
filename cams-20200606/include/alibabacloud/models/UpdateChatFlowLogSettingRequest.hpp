@@ -84,17 +84,11 @@ namespace Models
 
 
   protected:
-    // Flow code.
     shared_ptr<string> flowCode_ {};
-    // Setting ID.
     shared_ptr<int64_t> id_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Log enable status, enum values:
-    // - ENABLED: Enabled, enables log writing
-    // - DISABLED: Create or retain related resources, but do not enable log writing
-    // - DELETED: Delete, and decide whether to delete related resources based on options
     shared_ptr<string> status_ {};
   };
 

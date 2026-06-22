@@ -84,17 +84,11 @@ namespace Models
 
 
   protected:
-    // Access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Status code.
     shared_ptr<string> code_ {};
-    // Error message.
     shared_ptr<string> message_ {};
-    // Request result data.
     shared_ptr<bool> model_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the operation was successful. Values: true: success; false: failure.
     shared_ptr<bool> success_ {};
   };
 

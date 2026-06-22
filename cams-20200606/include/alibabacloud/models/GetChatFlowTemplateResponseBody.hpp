@@ -69,7 +69,6 @@ namespace Models
 
 
     protected:
-      // Content of the returned data.
       Darabonba::Json response_ {};
     };
 
@@ -120,17 +119,11 @@ namespace Models
 
 
   protected:
-    // Access denied details, this field is returned only when RAM verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // System returned error code. For more details on error codes, please refer to the error code documentation.
     shared_ptr<string> code_ {};
-    // Returned data.
     shared_ptr<GetChatFlowTemplateResponseBody::Data> data_ {};
-    // Error message.
     shared_ptr<string> message_ {};
-    // Unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Values: true: success; false: failure.
     shared_ptr<bool> success_ {};
   };
 

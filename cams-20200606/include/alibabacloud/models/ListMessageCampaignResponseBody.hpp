@@ -135,13 +135,21 @@ namespace Models
 
 
     protected:
+      // The ID of the Meta ad account.
       shared_ptr<string> adAccountId_ {};
+      // The budget.
       shared_ptr<int64_t> budget_ {};
+      // The budget type.
       shared_ptr<string> budgetType_ {};
+      // The campaign ID.
       shared_ptr<string> campaignId_ {};
+      // The name of the campaign.
       shared_ptr<string> campaignName_ {};
+      // The time when the campaign was created.
       shared_ptr<int64_t> createTime_ {};
+      // The Page ID for Messenger.
       shared_ptr<string> pageId_ {};
+      // The status of the campaign.
       shared_ptr<string> status_ {};
     };
 
@@ -200,12 +208,27 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - A value of OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<vector<ListMessageCampaignResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: successful.
+    // 
+    // - false: failed.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

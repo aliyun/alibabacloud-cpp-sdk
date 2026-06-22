@@ -67,7 +67,7 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // If OK is returned, the request was successful.
+    // A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};

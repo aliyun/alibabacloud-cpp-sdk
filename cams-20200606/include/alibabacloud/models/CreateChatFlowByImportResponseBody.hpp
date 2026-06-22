@@ -86,17 +86,11 @@ namespace Models
 
 
   protected:
-    // Access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Request status code.
     shared_ptr<string> code_ {};
-    // Returned data object.
     Darabonba::Json data_ {};
-    // Error message.
     shared_ptr<string> message_ {};
-    // Request ID
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

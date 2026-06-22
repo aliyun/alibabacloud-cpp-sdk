@@ -86,11 +86,25 @@ namespace Models
 
 
   protected:
+    // Access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Request status code.
+    // 
+    // - OK indicates a successful request.
+    // 
+    // - For other error codes, see [Error Codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // Returns the RequestNo.
     Darabonba::Json data_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // The ID of this API call request. Alibaba Cloud generates this unique identifier for the request. Use it to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Values:
+    // 
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -103,26 +103,14 @@ namespace Models
 
 
   protected:
-    // Business tenant code, default is “ALICOM_OPAAS”.
-    // 
     // This parameter is required.
     shared_ptr<string> bizCode_ {};
-    // Search keyword.
     shared_ptr<string> keyword_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Page number
     shared_ptr<int64_t> pageNo_ {};
-    // Number of records per page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Trigger type, with the following enum values:
-    // 
-    // - TriggeredManually
-    // - TriggeredByWhatsApp
-    // - TriggeredByInstagram
-    // - TriggeredByViber
-    // - TriggeredByMessenger
     shared_ptr<string> triggerType_ {};
   };
 

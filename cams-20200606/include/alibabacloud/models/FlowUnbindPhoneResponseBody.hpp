@@ -84,16 +84,11 @@ namespace Models
 
 
   protected:
-    // Access denied details, this field is returned only when RAM verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Request status code.
     shared_ptr<string> code_ {};
-    // Error message.
     shared_ptr<string> message_ {};
-    // Request result data.
     shared_ptr<bool> model_ {};
     shared_ptr<string> requestId_ {};
-    // Whether the operation was successful. Values: true: success; false: failure.
     shared_ptr<bool> success_ {};
   };
 

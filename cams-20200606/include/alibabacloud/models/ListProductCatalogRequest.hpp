@@ -122,8 +122,7 @@ namespace Models
     shared_ptr<int64_t> businessId_ {};
     // The space ID of the user within the independent software vendor (ISV) account.
     shared_ptr<string> custSpaceId_ {};
-    // The fields. Separate multiple fields with commas (,).
-    // see  [catalog fields](https://help.aliyun.com/document_detail/2579419.html)
+    // The fields. Separate multiple fields with commas (,). see [catalog fields](https://help.aliyun.com/document_detail/2579419.html)
     shared_ptr<string> fields_ {};
     // The number of catalogs to be queried. Valid values: 1 to 1000.
     shared_ptr<int64_t> limit_ {};

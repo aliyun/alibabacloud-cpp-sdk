@@ -161,36 +161,34 @@ namespace Models
 
 
     protected:
-      // The review state of the WhatsApp Business account (WABA).
+      // The account review status. Valid values:
       // 
-      // >  Valid values:
+      // - `PENDING`: The account is under review.
       // 
-      // *   PENDING: The WABA is to be reviewed.
+      // - `APPROVED`: The account is approved.
       // 
-      // *   APPROVED: The WABA was approved.
+      // - `REJECTED`: The account is rejected.
       // 
-      // *   REJECTED: The WABA was rejected.
-      // 
-      // *   DISABLED: The WABA was forbidden.
+      // - `DISABLED`: The account is disabled.
       shared_ptr<string> accountReviewStatus_ {};
-      // WABA related information.
+      // Details about the WABA account.
       Darabonba::Json authInternationalRateEligibility_ {};
-      // The business ID.
+      // The Business platform ID.
       shared_ptr<string> businessId_ {};
-      // The business name.
+      // The Business platform name.
       shared_ptr<string> businessName_ {};
       // The currency.
       shared_ptr<string> currency_ {};
-      // The ID of the WhatsApp Business account.
+      // The WABA account ID.
       shared_ptr<string> id_ {};
       shared_ptr<string> isOnBizApp_ {};
-      // The Marketing Messaging Lite status.
+      // The MML status.
       shared_ptr<string> marketingMessageLiteStatus_ {};
-      // The namespace of the message template.
+      // The template namespace.
       shared_ptr<string> messageTemplateNamespace_ {};
-      // The name of the WhatsApp Business account.
+      // The WABA account name.
       shared_ptr<string> name_ {};
-      // The start time when the authentication-international rate applies.
+      // The international rate capability qualification.
       shared_ptr<string> primaryBusinessLocation_ {};
     };
 
@@ -241,23 +239,25 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The HTTP status code returned.
+    // The request status code.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of `OK` indicates the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<QueryChatappBindWabaResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful:
     // 
-    // *   **true**
-    // *   **false**
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

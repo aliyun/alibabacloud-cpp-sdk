@@ -67,10 +67,7 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
-    // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};

@@ -178,19 +178,33 @@ namespace Models
 
 
     protected:
+      // The channel type.
       shared_ptr<string> channelType_ {};
+      // The contact email address.
       shared_ptr<string> contactMail_ {};
+      // The country ID.
+      // 
+      // > For a list of country codes, see [Country codes](https://help.aliyun.com/document_detail/608210.html).
       shared_ptr<string> countryId_ {};
+      // The customer type.
       shared_ptr<string> custType_ {};
-      // FacebookBmId
+      // The Facebook Business Manager ID.
       shared_ptr<string> facebookBmId_ {};
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
+      // The ISV terms.
       shared_ptr<string> isvTerms_ {};
+      // The office address.
       shared_ptr<string> officeAddress_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The region ID of the resource.
       shared_ptr<string> resourceRegionId_ {};
+      // The submission time.
       shared_ptr<string> submitTime_ {};
     };
 
@@ -241,11 +255,25 @@ namespace Models
 
 
   protected:
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error code list](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The data object returned on a successful request.
     shared_ptr<QueryInstanceResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

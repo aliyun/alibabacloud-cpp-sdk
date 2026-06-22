@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The code of the country or region.
+    // The country code.
     // 
     // This parameter is required.
     shared_ptr<string> countryCode_ {};
-    // The space ID of the user within the ISV account.
+    // The Space ID of the Independent Software Vendor (ISV) sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
-    // The mobile number without the country code or region code.
+    // The phone number. Do not include the country code.
     // 
     // This parameter is required.
     shared_ptr<string> mobileNumber_ {};

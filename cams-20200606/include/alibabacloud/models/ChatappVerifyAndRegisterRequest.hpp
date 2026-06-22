@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The space ID of the RAM user within the ISV account.
+    // The space ID of the ISV sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};

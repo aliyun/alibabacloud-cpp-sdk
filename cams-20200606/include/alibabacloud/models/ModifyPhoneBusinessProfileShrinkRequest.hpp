@@ -163,7 +163,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The industry.
     // 
-    // >  Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
+    // > Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
     shared_ptr<string> vertical_ {};
     // The URLs of the websites.
     shared_ptr<string> websitesShrink_ {};

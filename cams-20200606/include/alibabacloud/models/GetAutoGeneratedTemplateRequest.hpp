@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The Space ID of an ISV sub-customer or the instance ID of a direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
   };
 

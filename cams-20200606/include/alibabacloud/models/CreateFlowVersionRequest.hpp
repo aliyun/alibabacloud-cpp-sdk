@@ -105,16 +105,11 @@ namespace Models
 
 
   protected:
-    // Business tenant code, default is “ALICOM_OPAAS”.
     shared_ptr<string> bizCode_ {};
-    // Business extension information, default is “{}”.
     Darabonba::Json bizExtend_ {};
-    // Flow code.
     shared_ptr<string> flowCode_ {};
-    // The flow version to be copied.
     shared_ptr<string> flowVersionCopyFrom_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Version remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

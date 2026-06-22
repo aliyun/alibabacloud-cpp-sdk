@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
-    // The verification code provided when you purchased the pre-registered phone number.
+    // The verification code provided when you purchased the pre-validated phone number.
     // 
     // This parameter is required.
     shared_ptr<string> verifyCode_ {};

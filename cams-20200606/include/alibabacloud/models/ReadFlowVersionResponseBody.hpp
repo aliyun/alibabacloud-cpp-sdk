@@ -86,17 +86,11 @@ namespace Models
 
 
   protected:
-    // Access denied details; this field is only returned when RAM verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Status code.
     shared_ptr<string> code_ {};
-    // Error message.
     shared_ptr<string> message_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Content of the returned data.
     Darabonba::Json response_ {};
-    // Indicates whether the operation was successful. Values: true: success; false: failure.
     shared_ptr<bool> success_ {};
   };
 

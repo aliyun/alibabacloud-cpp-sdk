@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Viber audit items.
+    // 
     // This parameter is required.
     shared_ptr<string> auditRecordShrink_ {};
+    // The audit result.
     shared_ptr<string> auditResult_ {};
+    // The Space ID of the ISV sub-customer or the instance ID. View it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The request number.
+    // 
     // This parameter is required.
     shared_ptr<string> requestNo_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

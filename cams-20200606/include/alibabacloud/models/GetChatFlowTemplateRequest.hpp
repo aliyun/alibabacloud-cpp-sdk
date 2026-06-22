@@ -75,11 +75,8 @@ namespace Models
 
 
   protected:
-    // Business tenant code, default is “ALICOM_OPAAS”.
-    // 
     // This parameter is required.
     shared_ptr<string> bizCode_ {};
-    // Template ID
     shared_ptr<int64_t> id_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

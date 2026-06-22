@@ -142,48 +142,22 @@ namespace Models
 
 
     protected:
-      // The categories of the Flow.
+      // The list of categories.
       shared_ptr<vector<string>> categories_ {};
-      // The version number of the API.
+      // The API version.
       shared_ptr<string> dataApiVersion_ {};
       shared_ptr<string> endpointUri_ {};
-      // The Flow ID.
+      // The flow ID.
       shared_ptr<string> flowId_ {};
-      // The Flow name.
+      // The flow name.
       shared_ptr<string> flowName_ {};
       // The JSON version.
       shared_ptr<string> JSONVersion_ {};
       // The temporary preview URL.
       shared_ptr<string> previewUrl_ {};
-      // The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The expiration time of the preview URL.
       shared_ptr<int64_t> previewUrlExpires_ {};
-      // The state of the Flow.
-      // 
-      // Valid values:
-      // 
-      // *   PUBLISHED
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   DRAFT
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   DEPRECATED
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The status of the flow.
       shared_ptr<string> status_ {};
     };
 
@@ -228,7 +202,7 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // If OK is returned, the request was successful.
+    // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetFlowResponseBody::Data> data_ {};

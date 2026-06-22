@@ -70,8 +70,9 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // The HTTP status code returned.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates that the call is successful.
+    // 
+    // - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The error message returned.
     shared_ptr<string> message_ {};

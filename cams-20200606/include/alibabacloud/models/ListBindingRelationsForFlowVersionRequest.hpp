@@ -75,18 +75,8 @@ namespace Models
 
 
   protected:
-    // Channel type. Values:
-    // - INSTAGRAM
-    // - WHATSAPP
-    // - MESSENGER
-    // 
-    // 
-    // <props="intl">- VIBER
-    // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
-    // Process code. View the process code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
-    // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
     shared_ptr<int64_t> ownerId_ {};

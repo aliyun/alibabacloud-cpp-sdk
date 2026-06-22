@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<string> custSpaceId_ {};
     // The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
     // 
-    // >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+    // > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
     // The independent software vendor (ISV) verification code. This parameter is used to verify whether the user is authorized by the ISV account.
     shared_ptr<string> isvCode_ {};
@@ -112,9 +112,11 @@ namespace Models
     shared_ptr<string> templateName_ {};
     // The type of the message template. Valid values:
     // 
-    // *   **WHATSAPP**
-    // *   **VIBER**
-    // *   LINE (developing)
+    // - **WHATSAPP**
+    // 
+    // - **VIBER**
+    // 
+    // - LINE (developing)
     shared_ptr<string> templateType_ {};
   };
 

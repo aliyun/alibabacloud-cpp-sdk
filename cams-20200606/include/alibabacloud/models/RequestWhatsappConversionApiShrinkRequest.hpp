@@ -84,11 +84,16 @@ namespace Models
 
 
   protected:
+    // The space ID or instance ID of the customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The PageId of Meta.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
+    // The request data.
     shared_ptr<string> requestDataShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

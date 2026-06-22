@@ -97,16 +97,11 @@ namespace Models
 
 
   protected:
-    // Message channel type
     shared_ptr<string> channelType_ {};
-    // Flow code.
-    // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
-    // Flow version
     shared_ptr<string> flowVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Phone numbers or PageIds under the channel instance, etc.
     shared_ptr<vector<string>> phoneNumbers_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

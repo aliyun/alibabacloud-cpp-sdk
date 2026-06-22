@@ -75,9 +75,9 @@ namespace Models
 
 
     protected:
-      // The code of the message template.
+      // The template code.
       shared_ptr<string> templateCode_ {};
-      // The name of the message template.
+      // The template name.
       shared_ptr<string> templateName_ {};
     };
 
@@ -121,18 +121,19 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The HTTP status code returned.
+    // The request status code.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates a successful request.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<ModifyChatappTemplateResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

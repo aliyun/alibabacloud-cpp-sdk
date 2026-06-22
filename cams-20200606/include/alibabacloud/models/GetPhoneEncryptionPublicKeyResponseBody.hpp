@@ -86,10 +86,11 @@ namespace Models
     protected:
       // The public key.
       shared_ptr<string> encryptionPublicKey_ {};
-      // The validity state of the public key. Valid values:
+      // The status of the public key. Valid values:
       // 
-      // *   MISMATCH: The public key is invalid.
-      // *   VALID: The public key is valid.
+      // - MISMATCH: The public key is invalid.
+      // 
+      // - VALID: The public key is valid.
       shared_ptr<string> encryptionPublicKeyStatus_ {};
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
@@ -136,14 +137,11 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
-    // 
-    // *   The value OK indicates that the request was successful.
-    // *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetPhoneEncryptionPublicKeyResponseBody::Data> data_ {};
-    // Error description information.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

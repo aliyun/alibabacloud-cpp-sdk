@@ -112,17 +112,29 @@ namespace Models
 
 
   protected:
+    // The contact email address.
     shared_ptr<string> contactMail_ {};
+    // The country code.
+    // 
+    // > For a list of country codes, see [Country Codes](https://help.aliyun.com/document_detail/608210.html).
     shared_ptr<string> countryId_ {};
-    // fb bmId
+    // The Facebook Business Manager ID.
     shared_ptr<string> facebookBmId_ {};
+    // The description of the instance.
     shared_ptr<string> instanceDescription_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // Specifies whether to enable automatic audit confirmation.
     shared_ptr<string> isConfirmAudit_ {};
+    // The URL of the Independent Software Vendor (ISV) agreement file.
     shared_ptr<string> isvTerms_ {};
+    // The company address.
     shared_ptr<string> officeAddress_ {};
   };
 

@@ -122,9 +122,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   template: message template
-    // *   phone: phone number
-    // *   waba: WhatsApp Business Account (WABA)
+    // - template: message template
+    // 
+    // - phone: phone number
+    // 
+    // - waba: WhatsApp Business Account (WABA)
     // 
     // This parameter is required.
     shared_ptr<string> nodeType_ {};

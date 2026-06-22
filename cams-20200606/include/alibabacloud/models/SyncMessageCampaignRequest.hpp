@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The ID of the Meta ad account.
+    // 
     // This parameter is required.
     shared_ptr<string> adAccountId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the Messenger page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

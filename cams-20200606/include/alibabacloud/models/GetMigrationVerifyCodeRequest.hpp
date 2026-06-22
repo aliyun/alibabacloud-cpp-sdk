@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The space ID of the user under the independent software vendor (ISV) account.
+    // The Space ID of the Independent Software Vendor (ISV) sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
@@ -102,12 +102,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> locale_ {};
-    // The method to obtain the verification code. Valid values: SMS and VOICE.
+    // The verification method.
     // 
     // This parameter is required.
     shared_ptr<string> method_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Phone number.
+    // The phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};

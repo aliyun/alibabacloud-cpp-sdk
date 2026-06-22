@@ -112,16 +112,25 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer or the instance ID. View the ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The custom audience ID.
     shared_ptr<string> customAudienceId_ {};
+    // The number of entries to return. Valid values: 1 to 1000.
     shared_ptr<int64_t> limit_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page ID for Messenger.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
+    // The pagination key.
     shared_ptr<string> pageKey_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The token type.
+    // 
     // This parameter is required.
     shared_ptr<string> tokenType_ {};
   };

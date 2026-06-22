@@ -205,8 +205,9 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // The response code.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - The value OK indicates that the request was successful.
+    // 
+    // - For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetConversationalAutomationResponseBody::Data> data_ {};
@@ -216,8 +217,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

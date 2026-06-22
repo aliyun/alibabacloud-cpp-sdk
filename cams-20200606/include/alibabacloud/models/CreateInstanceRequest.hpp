@@ -121,18 +121,29 @@ namespace Models
 
 
   protected:
+    // The channel type.
+    // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
+    // The contact email address.
     shared_ptr<string> contactMail_ {};
+    // The country code.
     shared_ptr<string> countryId_ {};
-    // FacebookBmId
+    // The ID of the Facebook Business Manager (BM).
     shared_ptr<string> facebookBmId_ {};
+    // The description of the instance.
     shared_ptr<string> instanceDescription_ {};
+    // The name of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // Specifies whether to confirm the audit.
     shared_ptr<string> isConfirmAudit_ {};
+    // The URL of the ISV terms file.
     shared_ptr<string> isvTerms_ {};
+    // The office address of the business.
     shared_ptr<string> officeAddress_ {};
+    // The ID of the resource group that contains the instance.
     shared_ptr<string> resourceGroupId_ {};
   };
 

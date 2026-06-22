@@ -130,40 +130,38 @@ namespace Models
 
 
   protected:
-    // The space ID of the RAM user within the ISV account.
+    // The Space ID or instance ID of the ISV sub-customer. This is the channel ID. View the channel ID on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
     shared_ptr<string> custSpaceId_ {};
-    // The end of the time range to query.
+    // The end of the time range to query. This is a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> end_ {};
-    // The granularity of the metric.
+    // The metric granularity. Valid values:
     // 
-    // Valid values:
+    // - DAILY: Metrics are collected by day.
     // 
-    // *   DAILY
-    // *   HALF_HOUR
+    // - HALF_HOUR: Metrics are collected every half an hour.
     shared_ptr<string> granularity_ {};
-    // The independent software vendor (ISV) verification code, which is used to verify whether the RAM user is authorized by the ISV account.
+    // The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The template language.
+    // The language of the template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     shared_ptr<string> language_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query.
+    // The start of the time range to query. This is a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> start_ {};
-    // The template code.
+    // The template code. View the template code on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Template Design** page.
     // 
     // This parameter is required.
     shared_ptr<string> templateCode_ {};
-    // The template type. If you do not specify this parameter, the default value WHATSAPP is used.
+    // The template type. Valid value:
     // 
-    // Valid values:
+    // - WHATSAPP
     // 
-    // *   VIBER
-    // *   WHATSAPP
+    // > If you do not pass this parameter, the default value WHATSAPP is used.
     shared_ptr<string> templateType_ {};
   };
 

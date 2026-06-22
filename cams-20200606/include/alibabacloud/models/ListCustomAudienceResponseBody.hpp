@@ -162,16 +162,27 @@ namespace Models
 
 
     protected:
+      // The Meta ad account ID.
       shared_ptr<string> adAccountId_ {};
+      // The time when the audience was created.
       shared_ptr<int64_t> createTime_ {};
+      // The ID of the custom audience.
       shared_ptr<string> customAudienceId_ {};
+      // The name of the custom audience.
       shared_ptr<string> customAudienceName_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The Page ID for Messenger.
       shared_ptr<string> pageId_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The number of tokens.
       shared_ptr<int64_t> tokenTotal_ {};
+      // The token type.
       shared_ptr<string> tokenType_ {};
+      // The time when the audience was last updated.
       shared_ptr<int64_t> updateTime_ {};
+      // The upload type.
       shared_ptr<string> uploadType_ {};
     };
 
@@ -230,12 +241,27 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - A value of OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListCustomAudienceResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
+    // 
+    // - **true**: successful.
+    // 
+    // - **false**: failed.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

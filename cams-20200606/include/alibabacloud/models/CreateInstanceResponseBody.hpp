@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // The channel type.
       shared_ptr<string> channelType_ {};
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The name of the instance.
       shared_ptr<int64_t> instanceName_ {};
+      // The ID of the region where the resource is located.
       shared_ptr<string> resourceRegionId_ {};
+      // The time when the request was submitted.
       shared_ptr<string> submitTime_ {};
     };
 
@@ -168,11 +174,17 @@ namespace Models
 
 
   protected:
+    // Details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response code. A value of `OK` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<CreateInstanceResponseBody::Data> data_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of `true` indicates success and `false` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

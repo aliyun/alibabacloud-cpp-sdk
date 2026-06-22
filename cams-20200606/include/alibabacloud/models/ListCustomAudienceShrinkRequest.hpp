@@ -121,18 +121,28 @@ namespace Models
 
 
   protected:
+    // The Meta ad account ID.
     shared_ptr<string> adAccountId_ {};
+    // The Space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of the direct customers. This is the channel ID. Find the ID on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The ID of the custom audience.
     shared_ptr<string> customAudienceId_ {};
+    // The name of the custom audience.
     shared_ptr<string> customAudienceName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The pagination settings.
+    // 
     // This parameter is required.
     shared_ptr<string> pageShrink_ {};
+    // The Page ID for Messenger.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The token type.
     shared_ptr<string> tokenType_ {};
   };
 

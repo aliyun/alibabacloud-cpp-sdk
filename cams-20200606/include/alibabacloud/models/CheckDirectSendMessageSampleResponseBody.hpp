@@ -77,7 +77,17 @@ namespace Models
 
 
     protected:
+      // The category of the WhatsApp template. Valid values:
+      // 
+      // - **UTILITY**: A template related to a specific, agreed-upon transaction.
+      // 
+      // - **MARKETING**: A template for promotional or marketing purposes.
       shared_ptr<string> category_ {};
+      // Whether the validation was successful. Valid values:
+      // 
+      // - true: The validation succeeded.
+      // 
+      // - false: The validation failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -128,11 +138,25 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CheckDirectSendMessageSampleResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID. Use this ID to trace logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -89,6 +89,7 @@ namespace Models
 
 
       protected:
+        // The phone number of the group member.
         shared_ptr<string> participantNumber_ {};
       };
 
@@ -111,7 +112,9 @@ namespace Models
 
 
     protected:
+      // The list of group members.
       shared_ptr<vector<Data::List>> list_ {};
+      // The total number of participants.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -162,11 +165,25 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. Valid values:
+    // 
+    // - OK: The request was successful.
+    // 
+    // - For other values, see the [error code list](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListChatGroupParticipantsResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

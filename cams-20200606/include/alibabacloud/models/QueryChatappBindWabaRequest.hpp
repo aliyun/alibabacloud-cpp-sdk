@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The space ID of the user under the ISV account.
+    // The space ID of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
-    // The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+    // The ISV verification code, used to verify that the sub-account is authorized.
     shared_ptr<string> isvCode_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

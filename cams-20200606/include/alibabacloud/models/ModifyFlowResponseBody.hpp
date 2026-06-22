@@ -96,12 +96,12 @@ namespace Models
 
 
     protected:
-      // The categories of the Flow.
+      // The flow categories.
       shared_ptr<vector<string>> categories_ {};
       shared_ptr<string> endpointUri_ {};
-      // The Flow ID.
+      // The flow ID.
       shared_ptr<string> flowId_ {};
-      // The Flow name.
+      // The flow name.
       shared_ptr<string> flowName_ {};
     };
 
@@ -146,7 +146,7 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // If OK is returned, the request was successful.
+    // A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ModifyFlowResponseBody::Data> data_ {};

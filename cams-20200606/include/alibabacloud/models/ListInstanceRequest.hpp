@@ -103,13 +103,31 @@ namespace Models
 
 
   protected:
+    // The channel type. Valid values:
+    // 
+    // - **whatsapp**
+    // 
+    // - **messenger**
+    // 
+    // - **instagram**
+    // 
+    // <props="intl">
+    // 
+    // - **viber**
     shared_ptr<string> channelType_ {};
+    // The filter string for the query.
     shared_ptr<string> filterStr_ {};
+    // The instance ID. Use this parameter for non-Alibaba Cloud hosts only.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The page number to return.
     shared_ptr<int64_t> pageIndex_ {};
+    // The number of items to return per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the resource group that contains the instance.
     shared_ptr<string> resourceGroupId_ {};
+    // The submission time, in `YYYY-MM-DD HH:MM:SS` format.
     shared_ptr<string> submitTime_ {};
   };
 

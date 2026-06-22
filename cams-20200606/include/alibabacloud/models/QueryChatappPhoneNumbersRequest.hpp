@@ -84,14 +84,14 @@ namespace Models
 
 
   protected:
-    // The space ID of the RAM user within the ISV account.
+    // The Space ID of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
-    // The independent software vendor (ISV) verification code, which is used to verify whether the RAM user is authorized by the ISV account.
+    // The verification code of the Independent Software Vendor (ISV). This code is used to verify if the user is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The state of the phone number.
+    // The status of the phone number.
     shared_ptr<string> status_ {};
   };
 

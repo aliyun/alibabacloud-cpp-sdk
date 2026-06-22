@@ -206,7 +206,9 @@ namespace Models
 
 
         protected:
+          // The company telephone number.
           shared_ptr<string> companyTelNumber_ {};
+          // The title for the telephone number.
           shared_ptr<string> companyTelTitle_ {};
         };
 
@@ -248,7 +250,9 @@ namespace Models
 
 
         protected:
+          // The company address.
           shared_ptr<string> companyAddress_ {};
+          // The title of the company address.
           shared_ptr<string> companyAddressTitle_ {};
         };
 
@@ -502,39 +506,71 @@ namespace Models
 
 
       protected:
+        // The age restriction.
         shared_ptr<string> ageLimit_ {};
+        // The reason for the application.
         shared_ptr<string> applyReason_ {};
+        // The name of the business account.
         shared_ptr<string> businessAccountName_ {};
+        // The business license registration number.
         shared_ptr<string> businessLicenseRegistrationNumber_ {};
+        // The company addresses.
         shared_ptr<vector<AuditRecord::CompanyAddress>> companyAddress_ {};
+        // The English name of the company.
         shared_ptr<string> companyEnglishName_ {};
+        // The legal name of the company.
         shared_ptr<string> companyLegalName_ {};
+        // The name of the company\\"s legal representative.
         shared_ptr<string> companyLegalPerson_ {};
+        // The company profile.
         shared_ptr<string> companyProfile_ {};
+        // The country or region where the company is registered.
         shared_ptr<string> companyRegisteredCountry_ {};
+        // The company telephone numbers.
         shared_ptr<vector<AuditRecord::CompanyTel>> companyTel_ {};
+        // The complete address of the company\\"s headquarters.
         shared_ptr<string> completeAddressOfHeadquarters_ {};
+        // The contact person\\"s email address.
         shared_ptr<string> contactEmail_ {};
+        // The contact email address.
         shared_ptr<string> contactMail_ {};
+        // The contact person\\"s name.
         shared_ptr<string> contactName_ {};
+        // The contact person\\"s phone number.
         shared_ptr<string> contactPhone_ {};
+        // The contact person\\"s position.
         shared_ptr<string> contactPosition_ {};
+        // Indicates whether auto-reply is enabled.
         shared_ptr<string> enableAutoReply_ {};
+        // A description of the industry.
         shared_ptr<string> industryDescription_ {};
+        // The company\\"s industry.
         shared_ptr<string> industryInvolved_ {};
+        // The URL of the letter of guarantee.
         shared_ptr<string> letterGuarantee_ {};
+        // The logo URLs.
         shared_ptr<vector<string>> logo_ {};
+        // The local destination countries or regions.
         shared_ptr<vector<string>> messageDestinationCountry_ {};
+        // The international destination countries or regions.
         shared_ptr<vector<string>> messageDestinationInternationalCountry_ {};
+        // A brief introduction to the business messaging conversation.
         shared_ptr<string> messageDialogueIntroduction_ {};
+        // The date business messaging is enabled.
         shared_ptr<string> messageEnableDate_ {};
+        // The name of the business messaging conversation.
         shared_ptr<string> messageSessionName_ {};
+        // The recovery status.
         shared_ptr<string> nowRecovery_ {};
+        // The URL for supplementary information.
         shared_ptr<string> otherLetterGuarantee_ {};
+        // The date of recovery.
         shared_ptr<string> recoveryDate_ {};
+        // The content of the auto-reply message.
         shared_ptr<string> replyContent_ {};
-        // SuspensionDate
+        // The suspension date.
         shared_ptr<string> suspensionDate_ {};
+        // The company website.
         shared_ptr<string> webAddress_ {};
       };
 
@@ -643,20 +679,33 @@ namespace Models
 
 
     protected:
+      // The audit record details.
       shared_ptr<Data::AuditRecord> auditRecord_ {};
+      // The audit result.
       shared_ptr<string> auditResult_ {};
+      // The audit time.
       shared_ptr<string> auditTime_ {};
+      // The creator of the resource.
       shared_ptr<string> creator_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The modification time.
       shared_ptr<string> gmtModifier_ {};
-      // ID。
+      // The ID of the resource.
       shared_ptr<string> id_ {};
+      // The Viber service ID.
       shared_ptr<string> maapServiceNo_ {};
+      // The user who last modified the resource.
       shared_ptr<string> modifier_ {};
+      // The audit comment.
       shared_ptr<string> reason_ {};
+      // The unique number for the application request.
       shared_ptr<string> requestNo_ {};
+      // The type of the request.
       shared_ptr<string> requestType_ {};
+      // The status of the request.
       shared_ptr<string> state_ {};
+      // The subscriber code.
       shared_ptr<string> subscriberCode_ {};
     };
 
@@ -707,11 +756,25 @@ namespace Models
 
 
   protected:
+    // Access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - `OK`: The request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetViberByRequestNoResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The unique ID for the request. You can use this Aliyun-generated ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

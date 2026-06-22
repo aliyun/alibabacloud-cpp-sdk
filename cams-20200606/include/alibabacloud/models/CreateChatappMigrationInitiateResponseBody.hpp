@@ -84,11 +84,12 @@ namespace Models
 
 
     protected:
-      // The ID of the mobile number.
+      // The ID of the phone number.
       shared_ptr<string> id_ {};
-      // The mobile number.
+      // The phone number.
       shared_ptr<string> phoneNumber_ {};
-      // The state of the mobile number. Only MIGRATING may be returned, which indicates that the mobile number is being migrated.
+      // The status of the phone number.
+      // Valid value: MIGRATING: The phone number is being migrated.
       shared_ptr<string> status_ {};
     };
 
@@ -132,18 +133,19 @@ namespace Models
 
 
   protected:
-    // The information about the request denial..
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
+    // The status code of the request.
     // 
-    // *   A value of OK indicates that the request was successful.
-    // *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned data.
     shared_ptr<CreateChatappMigrationInitiateResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

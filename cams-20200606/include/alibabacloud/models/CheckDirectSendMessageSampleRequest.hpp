@@ -70,10 +70,20 @@ namespace Models
 
 
   protected:
+    // The SpaceId of an ISV sub-customer or the instance ID of a direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The body of an interactive message.
     Darabonba::Json interactive_ {};
+    // The body of a text message.
     Darabonba::Json text_ {};
+    // The type of the direct message content. Valid values:
+    // 
+    // - interactive
+    // 
+    // - text
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

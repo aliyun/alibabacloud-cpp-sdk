@@ -121,24 +121,24 @@ namespace Models
 
 
   protected:
-    // The space ID of the RAM user within the ISV account.
+    // The Space ID of the ISV sub-customer or the instance ID of the direct customer.
     shared_ptr<string> custSpaceId_ {};
-    // The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+    // The WhatsApp Business Account (WABA) ID of the Independent Software Vendor (ISV) customer.
     // 
-    // >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+    // > This parameter is deprecated. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
-    // The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
+    // The ISV verification code, which is used to verify whether the user is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The template language.
+    // The language.
     shared_ptr<string> language_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The template code.
+    // The code of the template.
     shared_ptr<string> templateCode_ {};
-    // The template name.
+    // The name of the template.
     shared_ptr<string> templateName_ {};
-    // The template type. This parameter is required if you delete a template in a language.
+    // The type of the template. This parameter is required when you delete a template for a specific language.
     shared_ptr<string> templateType_ {};
   };
 

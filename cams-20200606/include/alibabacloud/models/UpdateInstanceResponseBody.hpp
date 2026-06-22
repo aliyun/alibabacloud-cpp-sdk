@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The channel type.
       shared_ptr<string> channelType_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The instance description.
       shared_ptr<string> instanceDescription_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
+      // The ID of the region where the instance is located.
       shared_ptr<string> resourceRegionId_ {};
+      // The time when the instance information was submitted.
       shared_ptr<string> submitTime_ {};
     };
 
@@ -179,11 +186,25 @@ namespace Models
 
 
   protected:
+    // Details about why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the response.
+    // 
+    // - `OK` indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<UpdateInstanceResponseBody::Data> data_ {};
+    // The response message. If the request fails, this field contains error details.
     shared_ptr<string> message_ {};
+    // The request ID. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -211,22 +211,25 @@ namespace Models
           protected:
             // The phone number.
             shared_ptr<string> phoneNumber_ {};
-            // The text of the button.
+            // The button text.
             shared_ptr<string> text_ {};
-            // The button type. Valid values:
+            // The button type.
             // 
-            // *   **PHONE_NUMBER**: phone call button
-            // *   **URL**: URL button
-            // *   **QUICK_REPLY**: quick reply button
+            // - **PHONE_NUMBER**: Call button
+            // 
+            // - **URL**: URL button
+            // 
+            // - **QUICK_REPLY**: Quick reply button
             // 
             // This parameter is required.
             shared_ptr<string> type_ {};
-            // The URL to which you are redirected when you click the URL button.
+            // The URL to visit when the button is clicked.
             shared_ptr<string> url_ {};
-            // The URL type. Valid values:
+            // The URL type.
             // 
-            // *   **static**
-            // *   **dynamic**
+            // - **static**
+            // 
+            // - **dynamic**
             shared_ptr<string> urlType_ {};
           };
 
@@ -270,24 +273,27 @@ namespace Models
 
 
         protected:
-          // The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
+          // A list of buttons. This applies only to the BUTTONS component. Each Carousel card can have a maximum of two buttons.
           shared_ptr<vector<CardComponents::Buttons>> buttons_ {};
-          // The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
+          // The media resource type. This is valid when Type is HEADER.
           // 
-          // *   **IMAGE**
-          // *   **VIDEO**
+          // - **IMAGE**
+          // 
+          // - **VIDEO**
           shared_ptr<string> format_ {};
-          // The body content of the carousel card.
+          // The content of the BODY in the Carousel card.
           shared_ptr<string> text_ {};
           // The component type. Valid values:
           // 
-          // *   **BODY**
-          // *   **HEADER**
-          // *   **BUTTONS**
+          // - **BODY**
+          // 
+          // - **HEADER**
+          // 
+          // - **BUTTONS**
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
-          // The URL of the media resource.
+          // The URL of the media asset.
           shared_ptr<string> url_ {};
         };
 
@@ -302,7 +308,7 @@ namespace Models
 
 
       protected:
-        // The components of the carousel card.
+        // A list of controls in the Carousel card.
         // 
         // This parameter is required.
         shared_ptr<vector<Cards::CardComponents>> cardComponents_ {};
@@ -391,9 +397,9 @@ namespace Models
 
 
         protected:
-          // The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+          // Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. This is the package name of the application launched by WhatsApp.
           shared_ptr<string> packageName_ {};
-          // The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+          // Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. This is the signature hash of the application launched by WhatsApp.
           shared_ptr<string> signatureHash_ {};
         };
 
@@ -502,55 +508,63 @@ namespace Models
 
 
       protected:
-        // The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+        // Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. This is the button text for the WhatsApp Autofill action.
         shared_ptr<string> autofillText_ {};
-        // The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
+        // The coupon code. It supports only letters and numbers. You can pass a variable, such as \\`$(couponCode)\\`, and provide the actual coupon code at the time of sending.
         shared_ptr<string> couponCode_ {};
-        // The Flow action.
+        // The Flow data event type. Valid values:
         // 
-        // Valid values:
+        // - DATA_EXCHANGE: Data exchange.
         // 
-        // *   DATA_EXCHANGE
-        // *   NAVIGATE
+        // - NAVIGATE: Navigation.
         shared_ptr<string> flowAction_ {};
         // The Flow ID.
         shared_ptr<string> flowId_ {};
-        // The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
+        // For WhatsApp templates, this is valid when Category is Marketing and Button type is QUICK_REPLY. It indicates that the button is a marketing opt-out button. If a customer clicks this button and a sending control action is configured in ChatApp, subsequent marketing messages are not sent to the customer.
         shared_ptr<bool> isOptOut_ {};
-        // The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
+        // The screen to navigate to. This is required when FlowAction is NAVIGATE.
         shared_ptr<string> navigateScreen_ {};
-        // The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+        // Use the properties under SupportedApps.
         shared_ptr<string> packageName_ {};
         // The phone number.
         shared_ptr<string> phoneNumber_ {};
-        // The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+        // Use the properties under SupportedApps.
         shared_ptr<string> signatureHash_ {};
-        // List of supported apps.
+        // A list of supported apps.
         shared_ptr<vector<Buttons::SupportedApps>> supportedApps_ {};
-        // The text of the button.
+        // The button text.
         shared_ptr<string> text_ {};
-        // The button type. Valid values:
+        // The button type.
         // 
-        // *   **PHONE_NUMBER**: phone call button
-        // *   **URL**: URL button
-        // *   **QUICK_REPLY**: quick reply button
-        // *   **COPY_CODE**: copy code button
-        // *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
+        // - **PHONE_NUMBER**: Call button
         // 
-        // > 
+        // - **URL**: URL button
         // 
-        // *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
+        // - **QUICK_REPLY**: Quick reply button
         // 
-        // *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
+        // - **COPY_CODE**: Copy verification code or coupon code
+        // 
+        // - **ONE_TAP**: Backfill button for AUTHENTICATION templates
+        // 
+        // - **ZERO_TAP**: Backfill button for AUTHENTICATION templates
+        // 
+        // - **MPM**: Multi-product message
+        // 
+        // - **CATALOG**: Catalog
+        // 
+        // - **FLOW**: Open WhatsApp flow
+        // 
+        // > * For WhatsApp templates where Category is AUTHENTICATION, only one button is allowed, and its type must be COPY_CODE or ONE_TAP. If the type is COPY_CODE, Text is required. If the type is ONE_TAP, the Text (the name of the copy code button, displayed when the target application is not installed), SignatureHash, PackageName, and AutofillText properties are required.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
-        // The URL to which you are redirected when you click the URL button.
+        // The URL to visit when the button is clicked.
         shared_ptr<string> url_ {};
-        // The URL type. Valid values:
+        // The URL type.
         // 
-        // *   **static**
-        // *   **dynamic**
+        // - **static**
+        // 
+        // - **dynamic**
         shared_ptr<string> urlType_ {};
       };
 
@@ -661,71 +675,73 @@ namespace Models
 
 
     protected:
-      // The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
+      // For WhatsApp templates, this is valid when Category is AUTHENTICATION and Component Type is Body. It indicates that a message is displayed above the body, advising users not to share the verification code.
       shared_ptr<bool> addSecretRecommendation_ {};
-      // The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
+      // A list of buttons. This applies only to the `BUTTONS` component.
       // 
-      // >  ####
-      // 
-      // *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
-      // 
-      // *   A WhatsApp message template can contain only one phone call button.
-      // 
-      // *   A WhatsApp message template can contain up to two URL buttons.
-      // 
-      // *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
+      // > Number of buttons for WhatsApp:
+      // >
+      // > - For MARKETING or UTILITY templates, WhatsApp allows a maximum of 10 buttons.
+      // >
+      // > - Only one button of the PHONE_NUMBER type is allowed.
+      // >
+      // > - A maximum of two buttons of the URL type are allowed.
+      // >
+      // > - QUICK_REPLY buttons cannot be mixed with PHONE_NUMBER or URL buttons.
       shared_ptr<vector<Components::Buttons>> buttons_ {};
-      // The description of the media resource.
+      // The description.
       // 
-      // >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify this parameter.
+      // > You can add a description when Type is HEADER and Format is IMAGE, `DOCUMENT`, or `VIDEO`.
       shared_ptr<string> caption_ {};
-      // The carousel cards of the carousel template.
+      // A list of cards for the Carousel template.
       shared_ptr<vector<Components::Cards>> cards_ {};
-      // The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER. The validity period of the verification code is displayed in the footer.
+      // The validity period of the verification code for a WhatsApp AUTHENTICATION template, in minutes. This is valid only for WhatsApp messages when Category is AUTHENTICATION and Component Type is Footer. This information is displayed in the footer.
       shared_ptr<int32_t> codeExpirationMinutes_ {};
-      // The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
+      // This field is invalid.
       shared_ptr<int32_t> duration_ {};
-      // The name of the document.
+      // The file name.
       // 
-      // >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify this parameter.
+      // > Specify the file name when Type is HEADER and `Format` is `DOCUMENT`.
       shared_ptr<string> fileName_ {};
-      // The type of the document attached in the Viber message template.
+      // This field is invalid.
       shared_ptr<string> fileType_ {};
-      // The type of the media resource. Valid values:
+      // The media resource type.
       // 
-      // *   **TEXT**
-      // *   **IMAGE**
-      // *   **DOCUMENT**
-      // *   **VIDEO**
+      // - **TEXT**: Text
+      // 
+      // - **IMAGE**: Image
+      // 
+      // - **DOCUMENT**: Document
+      // 
+      // - **VIDEO**: Video
       shared_ptr<string> format_ {};
-      // Specifies whether the coupon code has an expiration time. Specify this parameter if the Type sub-parameter of the Components parameter is set to LIMITED_TIME_OFFER.
+      // Indicates whether the coupon code has an expiration time. Used when type is LIMITED_TIME_OFFER.
       shared_ptr<bool> hasExpiration_ {};
-      // The text of the message that you want to send.
+      // The text of the message.
       // 
-      // >  If Category is set to AUTHENTICATION, do not specify the Text sub-parameter of the Components parameter.
+      // > If Category is AUTHENTICATION, this property is empty.
       shared_ptr<string> text_ {};
-      // The thumbnail URL of the video in the Viber message template.
+      // This field is invalid.
       shared_ptr<string> thumbUrl_ {};
-      // The component type. Valid values:
+      // The component type:
       // 
-      // *   **BODY**
-      // *   **HEADER**
-      // *   **FOOTER**
-      // *   **BUTTONS**
-      // *   **CAROUSEL**
-      // *   **LIMITED_TIME_OFFER**
+      // - **BODY**
       // 
-      // > 
+      // - **HEADER**
       // 
-      // *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+      // - **FOOTER**
       // 
-      // *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
+      // - **BUTTONS**
       // 
-      // *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
+      // - **CAROUSEL**
+      // 
+      // - **LIMITED_TIME_OFFER**
+      // 
+      // > * For WhatsApp templates, the `BODY` component cannot exceed 1,024 characters. The `HEADER` and `FOOTER` components cannot exceed 60 characters.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The URL of the media resource.
+      // The URL of the media asset.
       shared_ptr<string> url_ {};
     };
 
@@ -822,54 +838,42 @@ namespace Models
 
 
   protected:
-    // The category of the Viber message template. Valid values:
-    // 
-    // *   **text**: the template that contains only text
-    // *   **image**: the template that contains only images
-    // *   **text_image_button**: the template that contains text, images, and buttons
-    // *   **text_button**: the template that contains text and buttons
-    // *   **document**: the template that contains only documents
-    // *   **video**: the template that contains only videos
-    // *   **text_video**: the template that contains text and videos
-    // *   **text_video_button**: the template that contains text, videos, and buttons
-    // *   **text_image**: the template that contains text and images
-    // 
-    // > This parameter applies only to Viber message templates.
+    // The templatetype is immutable.
     shared_ptr<string> category_ {};
     shared_ptr<bool> categoryChangePaused_ {};
-    // The components of the message template.
+    // A list of message template components.
     // 
-    // >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, you do not need to set the Text sub-parameter of the Components parameter because the value is automatically generated.
+    // > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. If Type is BODY or FOOTER, the Text content is empty and is automatically generated.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyChatappTemplateRequest::Components>> components_ {};
-    // The space ID of the user within the ISV account.
+    // The Space ID of the ISV sub-customer, or the instance ID of a direct customer.
     shared_ptr<string> custSpaceId_ {};
-    // The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+    // The WhatsApp Business Account (WABA) ID of the independent software vendor (ISV) customer.
     // 
-    // > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+    // > This parameter is deprecated. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
-    // The examples of variables that are used when you create the message template.
+    // The template example.
     shared_ptr<map<string, string>> example_ {};
-    // The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+    // The ISV verification code. This code is used to verify that the RAM user is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // The template language. For a list of language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};
-    // Validity period of authentication template message sending in WhatsApp
+    // The time-to-live (TTL) of the template message in seconds.
     // 
-    // >This attribute requires providing waba in advance to Alibaba operators to open the whitelist, otherwise it will result in template submission failure
+    // - For AUTHENTICATION templates, the value ranges from 30 to 900.
+    // 
+    // - For UTILITY templates, the value ranges from 30 to 43,200.
     shared_ptr<int32_t> messageSendTtlSeconds_ {};
     // The message template code.
     shared_ptr<string> templateCode_ {};
-    // Template name.
+    // The template name.
     shared_ptr<string> templateName_ {};
-    // The type of the message template.
+    // The template type.
     // 
-    // *   **WHATSAPP**
-    // *   **VIBER**
-    // *   LINE: the Line message template. This type of message template will be released later.
+    // - **WHATSAPP**
     shared_ptr<string> templateType_ {};
   };
 

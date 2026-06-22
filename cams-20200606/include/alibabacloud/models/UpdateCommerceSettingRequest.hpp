@@ -94,21 +94,23 @@ namespace Models
 
 
   protected:
-    // Specifies whether to display the shopping cart button. Valid values:
+    // Specifies whether to enable the shopping cart. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enable the shopping cart.
+    // 
+    // - false: Disable the shopping cart.
     // 
     // This parameter is required.
     shared_ptr<bool> cartEnable_ {};
-    // Specifies whether to display the catalog button. Valid values:
+    // Specifies whether to enable the product catalog. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enable the product catalog.
+    // 
+    // - false: Disable the product catalog.
     // 
     // This parameter is required.
     shared_ptr<bool> catalogVisible_ {};
-    // The space ID of the user within the independent software vendor (ISV) account.
+    // The Space ID of the Independent Software Vendor (ISV) sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};

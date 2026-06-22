@@ -161,7 +161,9 @@ namespace Models
 
 
       protected:
+        // Company phone number.
         shared_ptr<string> companyTelNumber_ {};
+        // Phone number title.
         shared_ptr<string> companyTelTitle_ {};
       };
 
@@ -203,7 +205,9 @@ namespace Models
 
 
       protected:
+        // Company address.
         shared_ptr<string> companyAddress_ {};
+        // Company address title.
         shared_ptr<string> companyAddressTitle_ {};
       };
 
@@ -450,38 +454,69 @@ namespace Models
 
 
     protected:
+      // Age limit.
       shared_ptr<string> ageLimit_ {};
+      // Application reason.
       shared_ptr<string> applyReason_ {};
+      // Business account name.
       shared_ptr<string> businessAccountName_ {};
+      // Business license registration number.
       shared_ptr<string> businessLicenseRegistrationNumber_ {};
+      // Company addresses.
       shared_ptr<vector<AuditRecord::CompanyAddress>> companyAddress_ {};
+      // Company English name.
       shared_ptr<string> companyEnglishName_ {};
+      // Company legal name.
       shared_ptr<string> companyLegalName_ {};
+      // Company legal person name.
       shared_ptr<string> companyLegalPerson_ {};
+      // Company profile.
       shared_ptr<string> companyProfile_ {};
+      // Company registered country or region.
       shared_ptr<string> companyRegisteredCountry_ {};
+      // Company phone numbers.
       shared_ptr<vector<AuditRecord::CompanyTel>> companyTel_ {};
+      // Complete address of headquarters.
       shared_ptr<string> completeAddressOfHeadquarters_ {};
+      // Contact mailbox.
       shared_ptr<string> contactEmail_ {};
+      // Contact mailbox.
       shared_ptr<string> contactMail_ {};
+      // Contact name.
       shared_ptr<string> contactName_ {};
+      // Contact phone number.
       shared_ptr<string> contactPhone_ {};
+      // Contact position.
       shared_ptr<string> contactPosition_ {};
+      // Enable auto-reply (this field is deprecated).
       shared_ptr<string> enableAutoReply_ {};
+      // Industry description.
       shared_ptr<string> industryDescription_ {};
+      // Industry involved.
       shared_ptr<string> industryInvolved_ {};
+      // Letter of guarantee (download address).
       shared_ptr<string> letterGuarantee_ {};
-      // logo
+      // Logo
       shared_ptr<vector<string>> logo_ {};
+      // Local destination countries or regions.
       shared_ptr<vector<string>> messageDestinationCountry_ {};
+      // International destination countries and regions.
       shared_ptr<vector<string>> messageDestinationInternationalCountry_ {};
+      // Commercial message dialogue introduction.
       shared_ptr<string> messageDialogueIntroduction_ {};
+      // Commercial message enable date (GMT).
       shared_ptr<string> messageEnableDate_ {};
+      // Commercial message dialogue name.
       shared_ptr<string> messageSessionName_ {};
+      // Supplementary material address.
       shared_ptr<string> otherLetterGuarantee_ {};
+      // Recovery date.
       shared_ptr<string> recoveryDate_ {};
+      // Reply content (deprecated).
       shared_ptr<string> replyContent_ {};
+      // Deprecated.
       shared_ptr<string> suspensionDate_ {};
+      // Company website.
       shared_ptr<string> webAddress_ {};
     };
 
@@ -540,12 +575,19 @@ namespace Models
 
 
   protected:
+    // Viber audit items.
+    // 
     // This parameter is required.
     shared_ptr<UpdateAuditRequestRequest::AuditRecord> auditRecord_ {};
+    // The audit result.
     shared_ptr<string> auditResult_ {};
+    // The Space ID of the ISV sub-customer or the instance ID. View it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The request number.
+    // 
     // This parameter is required.
     shared_ptr<string> requestNo_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

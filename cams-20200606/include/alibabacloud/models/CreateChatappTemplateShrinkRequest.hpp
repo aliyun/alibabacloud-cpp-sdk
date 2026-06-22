@@ -140,62 +140,63 @@ namespace Models
 
 
   protected:
-    // Specifies whether to allow Facebook to automatically change the directory of the template. If you set this parameter to true, the review success rate of the template is improved. This parameter is valid only when TemplateType is set to WHATSAPP.
+    // Indicates whether to allow Facebook to automatically change the category of the template. This can increase the approval rate of the template. This parameter is valid only when TemplateType is set to WHATSAPP.
+    // >Notice: This property is deprecated. WhatsApp no longer supports this property.
     shared_ptr<bool> allowCategoryChange_ {};
-    // The category of the template if TemplateType is set to WHATSAPP. Valid values:
+    // WhatsApp template categories:
     // 
-    // *   **UTILITY**: the transaction template
-    // *   **MARKETING**: the marketing template
-    // *   **AUTHENTICATION**: the authentication template
+    // - **UTILITY**: Transactional.
     // 
-    // The category of the template if TemplateType is set to VIBER. Valid values:
+    // - **MARKETING**: Marketing.
     // 
-    // *   **text**: the template that contains only text
-    // *   **image**: the template that contains only images
-    // *   **text_image_button**: the template that contains text, images, and buttons
-    // *   **text_button**: the template that contains text and buttons
-    // *   **document**: the template that contains only documents
-    // *   **video**: the template that contains only videos
-    // *   **text_video**: the template that contains text and videos
-    // *   **text_video_button**: the template that contains text, videos, and buttons
-    // *   **text_image**: the template that contains text and images
+    // - **AUTHENTICATION**: Authentication.
+    // 
+    // Viber template categories:
+    // 
+    // - **UTILITY**: Transactional.
+    // 
+    // - **MARKETING**: Marketing.
+    // 
+    // - **AUTHENTICATION**: Authentication.
     // 
     // This parameter is required.
     shared_ptr<string> category_ {};
     shared_ptr<bool> categoryChangePaused_ {};
-    // The components of the message template.
+    // The list of message template components.
     // 
-    // >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter must be empty.
+    // > When Category is set to AUTHENTICATION, the Components array cannot contain a component of the HEADER type. If the component type is BODY or FOOTER, the Text parameter must be empty.
     // 
     // This parameter is required.
     shared_ptr<string> componentsShrink_ {};
-    // The space ID of the user within the ISV account.
+    // The Space ID of the ISV sub-customer or the instance ID of the direct customer.
     shared_ptr<string> custSpaceId_ {};
-    // The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+    // The WhatsApp Business Account (WABA) ID of the independent software vendor (ISV) customer.
     // 
-    // > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+    // > This parameter is deprecated. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
-    // The examples of variables that are used when you create the message template.
+    // An example of how to create a template.
     shared_ptr<string> exampleShrink_ {};
-    // The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
+    // The ISV verification code, used to verify whether the RAM user is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // The template language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};
-    // Validity period of authentication template message sending in WhatsApp
+    // The time-to-live (TTL) of the template message in WhatsApp.
     // 
-    // > This attribute requires providing waba in advance to Alibaba operators to open the whitelist, otherwise it will result in template submission failure
+    // - For AUTHENTICATION templates, the value ranges from 30 to 900.
+    // 
+    // - For UTILITY templates, the value ranges from 30 to 43200.
     shared_ptr<int32_t> messageSendTtlSeconds_ {};
-    // The name of the message template.
+    // The template name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The type of the message template.
+    // The template type.
     // 
-    // *   **WHATSAPP**
-    // *   **VIBER**
-    // *   LINE: the Line message template. This type of message template will be released later.
+    // - **WHATSAPP**
+    // 
+    // - **VIBER**
     // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};

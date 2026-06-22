@@ -112,9 +112,9 @@ namespace Models
 
 
     protected:
-      // The URL of the deep link.
+      // The deep link URL.
       shared_ptr<string> deepLinkUrl_ {};
-      // The format of the generated image.
+      // The type of the generated image.
       shared_ptr<string> generateQrImage_ {};
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
@@ -122,7 +122,7 @@ namespace Models
       shared_ptr<string> prefilledMessage_ {};
       // The URL of the QR code.
       shared_ptr<string> qrImageUrl_ {};
-      // The mode of the quick-response (QR) code.
+      // The code.
       shared_ptr<string> qrdlCode_ {};
     };
 
@@ -167,11 +167,11 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
-    // If OK is returned, the request was successful.
+    // A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned data object.
     shared_ptr<vector<ListPhoneMessageQrdlResponseBody::Data>> data_ {};
-    // Error description information.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

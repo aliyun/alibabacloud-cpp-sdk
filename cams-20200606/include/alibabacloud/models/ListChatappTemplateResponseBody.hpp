@@ -137,28 +137,41 @@ namespace Models
     protected:
       // The review state of the template. Valid values:
       // 
-      // *   **pass**: The template is approved.
-      // *   **fail**: The template is rejected.
-      // *   **auditing**: The template is being reviewed.
-      // *   **unaudit**: The review is suspended.
+      // - **pass**: The template is approved.
+      // 
+      // - **fail**: The template is rejected.
+      // 
+      // - **auditing**: The template is being reviewed.
+      // 
+      // - **unaudit**: The review is suspended.
       shared_ptr<string> auditStatus_ {};
       // The category of the WhatsApp message template. Valid values:
       // 
-      // *   **UTILITY**
-      // *   **MARKETING**
-      // *   **AUTHENTICATION**
+      // - **UTILITY**
+      // 
+      // - **MARKETING**
+      // 
+      // - **AUTHENTICATION**
       // 
       // The category of the Viber template. Valid values:
       // 
-      // *   **text**: template that contains only text
-      // *   **image**: template that contains only images
-      // *   **text_image_button**: template that contains text, images, and buttons
-      // *   **text_button**: template that contains text and buttons
-      // *   **document**: template that contains only documents
-      // *   **video**: template that contains only videos
-      // *   **text_video**: template that contains text and videos
-      // *   **text_video_button**: template that contains text, videos, and buttons
-      // *   **text_image**: template that contains text and images
+      // - **text**: template that contains only text
+      // 
+      // - **image**: template that contains only images
+      // 
+      // - **text_image_button**: template that contains text, images, and buttons
+      // 
+      // - **text_button**: template that contains text and buttons
+      // 
+      // - **document**: template that contains only documents
+      // 
+      // - **video**: template that contains only videos
+      // 
+      // - **text_video**: template that contains text and videos
+      // 
+      // - **text_video_button**: template that contains text, videos, and buttons
+      // 
+      // - **text_image**: template that contains text and images
       shared_ptr<string> category_ {};
       // The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
       shared_ptr<string> language_ {};
@@ -233,8 +246,9 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // The HTTP status code returned.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - A value of OK indicates that the call is successful.
+    // 
+    // - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The message templates.
     shared_ptr<vector<ListChatappTemplateResponseBody::ListTemplate>> listTemplate_ {};
@@ -242,10 +256,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
     // The total number of returned entries.
     shared_ptr<int32_t> total_ {};

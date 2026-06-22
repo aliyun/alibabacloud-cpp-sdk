@@ -121,26 +121,25 @@ namespace Models
 
 
   protected:
-    // The cursor that points to the end of the page of the returned data.
+    // The cursor that points to the start of the next page of results.
     shared_ptr<string> after_ {};
-    // The cursor that points to the beginning of the page of the returned data.
+    // The cursor that points to the end of the previous page of results.
     shared_ptr<string> before_ {};
-    // The catalog ID.
+    // The catalog ID. You can get it from the Meta platform.
     // 
     // This parameter is required.
     shared_ptr<string> catalogId_ {};
-    // The space ID of the user within the independent software vendor (ISV) account.
+    // The Space ID of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
-    // The fields. Separate multiple fields with commas (,).
-    // 
-    //  see [product fields](https://help.aliyun.com/document_detail/2579419.html)
+    // A list of fields to return. Separate multiple fields with a comma (,).
+    // For more information, see [Product fields](https://help.aliyun.com/document_detail/2579419.html).
     shared_ptr<string> fields_ {};
-    // The number of products to be queried. Valid values: 1 to 1000.
+    // The number of items to return. Valid values: 1 to 1000.
     shared_ptr<int64_t> limit_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the WhatsApp Business account (WABA).
+    // The WhatsApp Business Account (WABA) ID.
     // 
     // This parameter is required.
     shared_ptr<string> wabaId_ {};

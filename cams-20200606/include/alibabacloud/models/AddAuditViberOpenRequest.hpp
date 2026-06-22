@@ -153,7 +153,9 @@ namespace Models
 
 
       protected:
+        // The company phone number.
         shared_ptr<string> companyTelNumber_ {};
+        // The title of the company phone number.
         shared_ptr<string> companyTelTitle_ {};
       };
 
@@ -195,7 +197,9 @@ namespace Models
 
 
       protected:
+        // The company address.
         shared_ptr<string> companyAddress_ {};
+        // The title of the company address.
         shared_ptr<string> companyAddressTitle_ {};
       };
 
@@ -420,34 +424,63 @@ namespace Models
 
 
     protected:
+      // The age limit.
       shared_ptr<string> ageLimit_ {};
+      // The name of the business account.
       shared_ptr<string> businessAccountName_ {};
+      // The registration number of the business license.
       shared_ptr<string> businessLicenseRegistrationNumber_ {};
+      // A list of company addresses.
       shared_ptr<vector<AuditRecord::CompanyAddress>> companyAddress_ {};
+      // The English name of the company.
       shared_ptr<string> companyEnglishName_ {};
+      // The legal name of the company.
       shared_ptr<string> companyLegalName_ {};
+      // The legal representative of the company.
       shared_ptr<string> companyLegalPerson_ {};
+      // The company profile.
       shared_ptr<string> companyProfile_ {};
+      // The country where the company is registered.
       shared_ptr<string> companyRegisteredCountry_ {};
+      // A list of company phone number objects.
       shared_ptr<vector<AuditRecord::CompanyTel>> companyTel_ {};
+      // The complete address of the headquarters.
       shared_ptr<string> completeAddressOfHeadquarters_ {};
+      // The email address of the contact person.
       shared_ptr<string> contactEmail_ {};
+      // The email address.
       shared_ptr<string> contactMail_ {};
+      // The name of the contact person.
       shared_ptr<string> contactName_ {};
+      // The phone number of the contact person.
       shared_ptr<string> contactPhone_ {};
+      // The position of the contact person.
       shared_ptr<string> contactPosition_ {};
+      // Specifies whether to enable auto-reply.
       shared_ptr<string> enableAutoReply_ {};
+      // A description of the industry.
       shared_ptr<string> industryDescription_ {};
+      // The industry involved.
       shared_ptr<string> industryInvolved_ {};
+      // The letter of guarantee.
       shared_ptr<string> letterGuarantee_ {};
+      // A list of logos.
       shared_ptr<vector<string>> logo_ {};
+      // A list of destination countries/regions for messages.
       shared_ptr<vector<string>> messageDestinationCountry_ {};
+      // A list of destination countries/regions for international messages.
       shared_ptr<vector<string>> messageDestinationInternationalCountry_ {};
+      // The introduction in the message dialog box.
       shared_ptr<string> messageDialogueIntroduction_ {};
+      // The date when messaging is enabled.
       shared_ptr<string> messageEnableDate_ {};
+      // The name of the message session.
       shared_ptr<string> messageSessionName_ {};
+      // Other letters of guarantee.
       shared_ptr<string> otherLetterGuarantee_ {};
+      // The content of the reply.
       shared_ptr<string> replyContent_ {};
+      // The website address.
       shared_ptr<string> webAddress_ {};
     };
 
@@ -498,8 +531,12 @@ namespace Models
 
 
   protected:
+    // The audit record.
     shared_ptr<AddAuditViberOpenRequest::AuditRecord> auditRecord_ {};
+    // The audit result.
     shared_ptr<string> auditResult_ {};
+    // The Space ID of the ISV sub-customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};

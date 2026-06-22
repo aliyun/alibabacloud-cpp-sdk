@@ -463,7 +463,6 @@ namespace Models
         shared_ptr<string> nowRecovery_ {};
         shared_ptr<string> recoveryDate_ {};
         shared_ptr<string> replyContent_ {};
-        // SuspensionDate
         shared_ptr<string> suspensionDate_ {};
         shared_ptr<string> webAddress_ {};
       };
@@ -580,7 +579,6 @@ namespace Models
       shared_ptr<string> creator_ {};
       shared_ptr<string> gmtCreate_ {};
       shared_ptr<string> gmtModifier_ {};
-      // ID
       shared_ptr<string> id_ {};
       shared_ptr<string> maapServiceNo_ {};
       shared_ptr<string> modifier_ {};

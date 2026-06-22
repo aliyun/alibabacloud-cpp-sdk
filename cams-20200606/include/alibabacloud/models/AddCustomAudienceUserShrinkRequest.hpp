@@ -121,19 +121,31 @@ namespace Models
 
 
   protected:
+    // The ID of the Meta ad account.
+    // 
     // This parameter is required.
     shared_ptr<string> adAccountId_ {};
+    // Indicates whether this is the last batch of data.
     shared_ptr<bool> batchLastFlag_ {};
+    // The space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The ID of the custom audience.
+    // 
     // This parameter is required.
     shared_ptr<string> customAudienceId_ {};
+    // The estimated total number of users.
     shared_ptr<int64_t> estimatedNumTotal_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The Page ID for Messenger.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // A list of users.
+    // 
     // This parameter is required.
     shared_ptr<string> usersShrink_ {};
   };

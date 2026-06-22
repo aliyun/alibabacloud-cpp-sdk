@@ -115,27 +115,17 @@ namespace Models
 
 
   protected:
-    // Message channel code
-    // 
     // This parameter is required.
     shared_ptr<string> channelCode_ {};
-    // Message channel type
-    // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
-    // Flow code.
-    // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
-    // Flow version
     shared_ptr<string> flowVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Phone numbers or PageIds under the channel instance, etc.
     shared_ptr<vector<string>> phoneNumbers_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // WABA account ID, or PageId for other channel types, etc.
-    // 
     // This parameter is required.
     shared_ptr<string> wabaId_ {};
   };

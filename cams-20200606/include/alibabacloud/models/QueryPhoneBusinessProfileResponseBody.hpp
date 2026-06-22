@@ -126,7 +126,7 @@ namespace Models
 
 
     protected:
-      // Regarding.
+      // The business profile.
       shared_ptr<string> about_ {};
       // The address.
       shared_ptr<string> address_ {};
@@ -138,7 +138,7 @@ namespace Models
       shared_ptr<string> profilePictureUrl_ {};
       // The industry.
       shared_ptr<string> vertical_ {};
-      // The website.
+      // The websites.
       shared_ptr<vector<string>> websites_ {};
     };
 
@@ -191,21 +191,23 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The HTTP status code returned.
+    // The status code of the request.
     // 
-    // *   A value of OK indicates that the call is successful.
-    // *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - OK indicates that the request is successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data returned.
     shared_ptr<QueryPhoneBusinessProfileResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call is successful.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: successful.
+    // 
+    // - **false**: failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -132,29 +132,16 @@ namespace Models
 
 
   protected:
-    // Business tenant code, default is “ALICOM_OPAAS”.
     shared_ptr<string> bizCode_ {};
-    // Business extension information, default is “{}”.
     Darabonba::Json bizExtend_ {};
-    // Flow trigger type, enum values:
-    // - TriggeredManually
-    // - TriggeredByWhatsApp
-    // - TriggeredByInstagram
-    // - TriggeredByViber
-    // - TriggeredByMessenger
     shared_ptr<string> flowTriggerType_ {};
-    // Search keyword.
     shared_ptr<string> keyword_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Page number
     shared_ptr<int64_t> pageNo_ {};
-    // Page size.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Whether to return the online status
     shared_ptr<bool> returnWithOnlineVersion_ {};
-    // Flow status
     shared_ptr<string> status_ {};
   };
 
