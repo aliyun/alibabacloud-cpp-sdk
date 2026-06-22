@@ -78,9 +78,13 @@ namespace Models
 
 
   protected:
+    // Document parsing keyword extraction options
     shared_ptr<DocumentParseKeywordOption> keyword_ {};
+    // Document parsing guidance options
     shared_ptr<DocumentParseNarratorOption> narrator_ {};
+    // Document parsing question generation options
     shared_ptr<DocumentParseQuestionOption> question_ {};
+    // Document parsing summary options
     shared_ptr<DocumentParseSummaryOption> summary_ {};
   };
 

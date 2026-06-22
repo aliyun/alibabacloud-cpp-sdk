@@ -145,11 +145,11 @@ namespace Models
 
 
         protected:
-          // The label of the violation.
+          // The violation label.
           shared_ptr<string> label_ {};
           // The offset of the frame.
           shared_ptr<int32_t> offset_ {};
-          // The confidence level of the violation.
+          // The confidence score of the violation.
           shared_ptr<double> rate_ {};
         };
 
@@ -172,9 +172,9 @@ namespace Models
 
 
       protected:
-        // The information about violated frames.
+        // The frames that contain violations.
         shared_ptr<vector<Frames::BlockFrames>> blockFrames_ {};
-        // The total number of detected frames.
+        // The total number of frames inspected.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -215,15 +215,15 @@ namespace Models
     protected:
       // The category list.
       shared_ptr<vector<string>> categories_ {};
-      // The information about video and motion detection frames.
+      // The frame-related information for video and animated image moderation.
       shared_ptr<ModerationResult::Frames> frames_ {};
-      // The recommended operation. Valid values:
+      // The moderation result suggestion. Valid values:
       // 
-      // *   pass: The image has passed the check. No action is required.
-      // *   review: The image contains suspected violations and requires human review.
-      // *   block: The image contains violations. Further actions, such as deleting or blocking the image, are recommended.
+      // - **block**: Violation detected.
+      // - **review**: Suspected violation.
+      // - **pass**: Passed.
       shared_ptr<string> suggestion_ {};
-      // The OSS URI of the file. The URI follows the oss://${bucketname}/${objectname} format. bucketname indicates the name of an OSS bucket that is in the same region as the current project, and objectname is the file path.
+      // The file URI. The storage address of the OSS file. The address follows the format `oss://${bucketname}/${objectname}`, where `bucketname` is the name of an OSS bucket in the same region as the current project, and `objectname` is the file path.
       shared_ptr<string> URI_ {};
     };
 
@@ -318,33 +318,33 @@ namespace Models
 
 
   protected:
-    // The error code of the task.
+    // The task error code.
     shared_ptr<string> code_ {};
-    // The end time of the task.
+    // The time when the task ended. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> endTime_ {};
     // The event ID.
     shared_ptr<string> eventId_ {};
-    // The error message of the task.
+    // The task error message.
     shared_ptr<string> message_ {};
-    // The result of the image compliance detection task.
+    // The content moderation details.
     shared_ptr<GetVideoModerationResultResponseBody::ModerationResult> moderationResult_ {};
     // The project name.
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the task.
+    // The time when the task started. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> startTime_ {};
     // The task status. Valid values:
     // 
-    // *   Running: The task is running.
-    // *   Succeeded: The task is successful.
-    // *   Failed: The task failed.
+    // - Running: The task is running.
+    // - Succeeded: The task succeeded.
+    // - Failed: The task failed.
     shared_ptr<string> status_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The type of the task.
+    // The task type.
     shared_ptr<string> taskType_ {};
-    // The user-defined data.
+    // The custom user data.
     shared_ptr<string> userData_ {};
   };
 

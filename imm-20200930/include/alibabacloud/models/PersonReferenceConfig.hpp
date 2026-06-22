@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable person referencing. Set to `true` to enable this feature. The default value is `false`.
     shared_ptr<bool> enable_ {};
   };
 

@@ -127,13 +127,13 @@ namespace Models
     // The content of the query that you input.
     shared_ptr<string> query_ {};
     // > Either this parameter or the Query parameter must be specified. This parameter is valid only for image searches on datasets configured with a search-by-image workflow.
-    // >
+    // 
     // URI of the source data for retrieval.
-    // The URI must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+    // The URI must be in the oss\\://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
     // 
     // Contact us if you need to configure a workflow template.
     shared_ptr<string> sourceURI_ {};
-    // >  Either this parameter or the SourceURI parameter must be specified.
+    // > Either this parameter or the SourceURI parameter must be specified.
     // 
     // The content of the query that you input.
     shared_ptr<vector<string>> withFields_ {};

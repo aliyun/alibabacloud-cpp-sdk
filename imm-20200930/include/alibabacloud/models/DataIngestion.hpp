@@ -105,11 +105,11 @@ namespace Models
 
 
     protected:
-      // The number of files that are skipped.
+      // The number of skipped files.
       shared_ptr<int64_t> skipFiles_ {};
-      // The number of files that fail to be submitted.
+      // The number of failed submissions.
       shared_ptr<int64_t> submitFailure_ {};
-      // The number of files that are submitted.
+      // The number of successful submissions.
       shared_ptr<int64_t> submitSuccess_ {};
     };
 
@@ -173,13 +173,13 @@ namespace Models
 
 
     protected:
-      // The Simple Message Queue (SMQ) endpoint.
+      // The MNS Endpoint.
       shared_ptr<string> endpoint_ {};
       // MNS
       shared_ptr<MNS> MNS_ {};
       // RocketMQ
       shared_ptr<RocketMQ> rocketMQ_ {};
-      // The SMQ topic.
+      // The MNS topic.
       shared_ptr<string> topic_ {};
     };
 
@@ -234,9 +234,9 @@ namespace Models
 
 
     protected:
-      // The on-error policy that is used to quickly troubleshoot an error.
+      // The configuration of the fast-fail policy for data processing.
       shared_ptr<FastFailPolicy> fastFailPolicy_ {};
-      // The name of the template.
+      // The template name.
       shared_ptr<string> name_ {};
       // The template parameters.
       shared_ptr<vector<string>> parameters_ {};
@@ -348,7 +348,7 @@ namespace Models
 
 
   protected:
-    // The templates.
+    // A list of processing templates.
     shared_ptr<vector<DataIngestion::Actions>> actions_ {};
     // The time when the task was created.
     shared_ptr<string> createTime_ {};
@@ -356,29 +356,33 @@ namespace Models
     shared_ptr<string> error_ {};
     // The unique ID of the data ingestion.
     shared_ptr<string> id_ {};
-    // The information about the data source.
+    // The data source information.
     shared_ptr<Input> input_ {};
-    // The task execution location.
+    // The task execution position.
     shared_ptr<string> marker_ {};
     // The notification for task completion.
     shared_ptr<DataIngestion::Notification> notification_ {};
     // The scanning phase.
     shared_ptr<string> phase_ {};
-    // The service-linked role.
+    // The service authorization role.
     shared_ptr<string> serviceRole_ {};
-    // The status of the batch processing task.
+    // The state of the batch processing task:
     // 
-    // *   Ready: The task is created.
-    // *   Running: The task is running.
-    // *   Failed: The task fails and cannot be automatically recovered.
-    // *   Suspended: The task is suspended.
-    // *   Succeeded: The task is successful.
+    // - Ready: The task is ready. A newly created task is in the Ready state.
+    // 
+    // - Running: The task is running. This is the state of a task that is executing normally.
+    // 
+    // - Failed: The task failed. An error occurred during task execution, and the task cannot be automatically recovered.
+    // 
+    // - Suspended: The task is paused.
+    // 
+    // - Succeeded: The task is complete.
     shared_ptr<string> state_ {};
-    // The statistical information.
+    // The statistics information.
     shared_ptr<DataIngestion::Statistic> statistic_ {};
     // The task tags.
     Darabonba::Json tags_ {};
-    // The time when the task was updated.
+    // The time when the task was last updated.
     shared_ptr<string> updateTime_ {};
   };
 

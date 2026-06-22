@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The time when the dataset was created.
+    // The time when the dataset was created. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> createTime_ {};
-    // The description of the dataset.
+    // The dataset description.
     shared_ptr<string> description_ {};
-    // The name of the project.
+    // The name of the bound project.
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the dataset was last updated.
+    // The time when the dataset was last updated. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> updateTime_ {};
   };
 

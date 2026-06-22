@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the ApsaraMQ for RocketMQ instance. If you want to use ApsaraMQ for RocketMQ for notifications, you must specify this parameter.
+    // The RocketMQ instance ID. Required for RocketMQ message notifications.
     shared_ptr<string> instanceId_ {};
-    // The name of the topic in ApsaraMQ for RocketMQ. If you want to use ApsaraMQ for RocketMQ for notifications, you must specify this parameter.
+    // The name of the RocketMQ topic. Required for RocketMQ message notifications.
     shared_ptr<string> topicName_ {};
   };
 

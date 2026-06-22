@@ -144,29 +144,29 @@ namespace Models
 
 
   protected:
-    // The error code of the task.
+    // The task error code.
     shared_ptr<string> code_ {};
-    // The end time of the task.
+    // The time when the task ended. The time is in the ISO 8601 UTC timestamp format with millisecond-level precision.
     shared_ptr<string> endTime_ {};
     // The event ID.
     shared_ptr<string> eventId_ {};
-    // The labels.
+    // The list of labels.
     shared_ptr<vector<Label>> labels_ {};
-    // The error message of the task.
+    // The task error message.
     shared_ptr<string> message_ {};
     // The project name.
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the task.
+    // The time when the task started. The time is in the ISO 8601 UTC timestamp format with millisecond-level precision.
     shared_ptr<string> startTime_ {};
     // The task status.
     shared_ptr<string> status_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The type of the task.
+    // The task type.
     shared_ptr<string> taskType_ {};
-    // The custom information.
+    // The user-defined information.
     shared_ptr<string> userData_ {};
   };
 

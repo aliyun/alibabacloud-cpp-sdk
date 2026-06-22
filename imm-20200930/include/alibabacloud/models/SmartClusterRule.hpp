@@ -72,10 +72,10 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> baseURIs_ {};
-    // Keywords
+    // An array of keywords for clustering.
     shared_ptr<vector<string>> keywords_ {};
     shared_ptr<string> ruleType_ {};
-    // Sensitivity
+    // The sensitivity for clustering, ranging from 0.0 to 1.0.
     shared_ptr<float> sensitivity_ {};
   };
 

@@ -112,28 +112,29 @@ namespace Models
 
 
   protected:
-    // When performing media concatenation, the index of the primary media file (which provides the default transcoding parameters for `Video` and `Audio`, including resolution, frame rate, etc.) in the concatenation list. The default value is 0 (aligning with the first media file in the concatenation list).
+    // When concatenating media files, this specifies the index of the primary file in the Sources list. The default transcoding parameters (such as resolution and frame rate from the `Video` and `Audio` objects) are taken from this primary file. The default index is 0.
     shared_ptr<int32_t> alignmentIndex_ {};
-    // **If there are no special requirements, please leave this blank.**
+    // **You can leave this parameter empty if you do not have special requirements.**
     // 
-    // Chain authorization configuration. For more information, see [Using Chain Authorization to Access Other Entity Resources](https://help.aliyun.com/document_detail/465340.html).
+    // The chained authorization configuration. For more information, see [Use chained authorization to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
     shared_ptr<string> credentialConfigShrink_ {};
-    // Notification configuration. For details, click Notification. The format of asynchronous notification messages can be found in [Asynchronous Notification Message Format](https://help.aliyun.com/document_detail/2743997.html).
+    // The message notification settings. For more information, click Notification. For information about the format of asynchronous notifications, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
     shared_ptr<string> notificationShrink_ {};
-    // The name of the project. For how to obtain it, see [Creating a Project](https://help.aliyun.com/document_detail/478153.html).
+    // The name of the project. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // A list of media files. If the list contains more than one element, it indicates that the Concat (concatenation) function is enabled. The Concat order follows the sequence of the input video file URIs.
+    // A list of media files. If you provide more than one file, they are concatenated in the order of their URIs.
     // 
     // This parameter is required.
     shared_ptr<string> sourcesShrink_ {};
-    // Custom tags used for searching and filtering asynchronous tasks.
+    // Custom tags for searching and filtering asynchronous tasks.
     shared_ptr<string> tagsShrink_ {};
+    // A list of media packaging tasks to convert and package the input media into HLS outputs. Each TargetGroup corresponds to one HLS master playlist.
     shared_ptr<string> targetGroupsShrink_ {};
-    // List of media processing tasks, supporting multiple task configurations.
+    // A list of media processing tasks.
     shared_ptr<string> targetsShrink_ {};
-    // User-defined information that will be returned in asynchronous message notifications, used for convenient association and processing within your system. The maximum length is 2048 bytes.
+    // The custom user data. This data is returned in the asynchronous notification, allowing you to associate the notification with your internal system. The maximum length is 2,048 bytes.
     shared_ptr<string> userData_ {};
   };
 

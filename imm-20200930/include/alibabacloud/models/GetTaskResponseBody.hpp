@@ -162,37 +162,40 @@ namespace Models
   protected:
     // The error code of the task.
     shared_ptr<string> code_ {};
-    // The end time of the task.
+    // The time when the task ended. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> endTime_ {};
     // The event ID.
     shared_ptr<string> eventId_ {};
     // The error message of the task.
     shared_ptr<string> message_ {};
-    // The task progress. Valid values: 0 to 100. Unit: %.
+    // The task progress. Valid values: 0 to 100. Unit: percent (%).
     // 
-    // >  This parameter is valid only if the task is in the `Running` state.``
+    // > -  The GetTask operation does not support this parameter.
+    // > -  This parameter is meaningful only when the task status `State` is `Running`.
     shared_ptr<int32_t> progress_ {};
     // The project name.
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the task.
+    // The time when the task started. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> startTime_ {};
-    // The status of the task. Valid values:
+    // The running status of the task. Valid values:
     // 
-    // *   RUNNING: The task is running.
-    // *   Succeeded: The task is successful.
-    // *   Failed: The task failed.
+    // - Running: The task is running.
+    // 
+    // - Succeeded: The task is completed.
+    // 
+    // - Failed: The task failed.
     shared_ptr<string> status_ {};
-    // The tags. This parameter is returned only if you specified Tags when you created the task.
+    // The task tags. These are the tags that the user passed in when creating the task.
     Darabonba::Json tags_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The initial request parameters used to create the task.
+    // The original request parameters used to create the task.
     shared_ptr<string> taskRequestDefinition_ {};
-    // The type of the task. For more information, see [Task types](https://help.aliyun.com/document_detail/2743993.html).
+    // The type of the task. For valid values, see [Task type list](https://help.aliyun.com/document_detail/2743993.html).
     shared_ptr<string> taskType_ {};
-    // The user data of the task.
+    // The custom information specified by the user.
     shared_ptr<string> userData_ {};
   };
 

@@ -204,8 +204,9 @@ namespace Models
     shared_ptr<string> objectId_ {};
     // The sort order. Valid values:
     // 
-    // *   asc: in ascending order.
-    // *   desc: in descending order.
+    // - asc: in ascending order.
+    // 
+    // - desc: in descending order.
     shared_ptr<string> order_ {};
     // The name of the project.[](~~478153~~)
     // 
@@ -213,10 +214,13 @@ namespace Models
     shared_ptr<string> projectName_ {};
     // The sort field. Valid values:
     // 
-    // *   CreateTime: sorts by story creation time.
-    // *   StoryName: sorts by story name.
-    // *   StoryStartTime: sorts by story start time.
-    // *   StoryEndTime: sorts by story end time.
+    // - CreateTime: sorts by story creation time.
+    // 
+    // - StoryName: sorts by story name.
+    // 
+    // - StoryStartTime: sorts by story start time.
+    // 
+    // - StoryEndTime: sorts by story end time.
     shared_ptr<string> sort_ {};
     // The time range for the creation time of the last photo or video in the story.
     shared_ptr<TimeRange> storyEndTimeRange_ {};
@@ -230,8 +234,9 @@ namespace Models
     shared_ptr<string> storyType_ {};
     // Specifies whether to return empty stories. Valid values:
     // 
-    // *   true (The default value)
-    // *   false
+    // - true (The default value)
+    // 
+    // - false
     shared_ptr<bool> withEmptyStories_ {};
   };
 

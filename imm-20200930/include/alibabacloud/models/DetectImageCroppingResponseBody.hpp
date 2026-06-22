@@ -63,8 +63,9 @@ namespace Models
 
 
   protected:
-    // The image cropping suggestions.
+    // The array of image cropping information.
     shared_ptr<vector<CroppingSuggestion>> croppings_ {};
+    // The list of objects included in the cropping region, corresponding to the InclusionHints input parameter. This field is empty if no objects are included.
     shared_ptr<vector<string>> matchedInclusionHints_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -101,8 +101,14 @@ namespace Models
 
 
     protected:
+      // The duration of the media clip. Unit: seconds. Default value: 0, which indicates the end of the video.
+      // This parameter takes effect only when Type is set to Concat.
       shared_ptr<double> duration_ {};
+      // The start time of the media resource. Valid values: [0, video duration].
+      // This parameter takes effect only when Type is set to Concat.
       shared_ptr<double> startTime_ {};
+      // The URI of the media resource (OSS URI). Only videos are supported.
+      // 
       // This parameter is required.
       shared_ptr<string> URI_ {};
     };
@@ -185,8 +191,15 @@ namespace Models
 
 
       protected:
+        // The segment duration. Unit: seconds.
         shared_ptr<double> duration_ {};
+        // The media segmentation format. Valid values:
+        // 
+        // - hls
+        // 
+        // - dash.
         shared_ptr<string> format_ {};
+        // The start number. Only hls is supported. Default value: 0.
         shared_ptr<int64_t> startNumber_ {};
       };
 
@@ -249,13 +262,29 @@ namespace Models
 
 
     protected:
+      // The audio processing parameter settings.
+      // >Notice: If Audio is empty, the first audio stream (if any) is directly copied to the output file.
       shared_ptr<TargetAudio> audio_ {};
+      // The media container type. This parameter is required when Type is set to Concat or Compose. Valid values:
+      // 
+      // - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv
+      // 
+      // >Notice: Container and URI must be specified together..
       shared_ptr<string> container_ {};
+      // The maximum duration of the clipped video. Unit: seconds.
       shared_ptr<double> maxDuration_ {};
+      // The media segmentation settings. By default, no segmentation is performed.
       shared_ptr<Output::Segment> segment_ {};
+      // The playback speed of the media. Valid values: [0.5, 1.0]. Default value: 1.0.
+      // 
+      // > This value is the ratio of the default playback speed of the transcoded media file to that of the source media file. This is not speed-adjusted transcoding.
       shared_ptr<double> speed_ {};
+      // The URI of the output file.
+      // 
       // This parameter is required.
       shared_ptr<string> URI_ {};
+      // The video processing parameter settings.
+      // >Notice: If Video is empty, the first video stream (if any) is directly copied to the output file.
       shared_ptr<TargetVideo> video_ {};
     };
 
@@ -287,6 +316,18 @@ namespace Models
 
 
     protected:
+      // The highlight content. Valid values:
+      // 
+      // - Pets
+      // 
+      // - People
+      // 
+      // - Sports
+      // 
+      // - Meetings
+      // 
+      // The value cannot exceed 100 characters.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
     };
@@ -360,8 +401,12 @@ namespace Models
 
 
       protected:
+        // The visual effect. For more information, see [Effects](https://www.alibabacloud.com/help/en/imm/developer-reference/effects).
+        // 
         // This parameter is required.
         shared_ptr<string> vfxEffect_ {};
+        // The effect weight. Valid values: [1, 100]. Default value: 50.
+        // This parameter takes effect when VfxEffectMode is set to Random.
         shared_ptr<int64_t> weight_ {};
       };
 
@@ -412,9 +457,15 @@ namespace Models
 
 
       protected:
+        // The transition duration. Unit: seconds. If the transition duration is greater than the clip duration minus 1, the transition effect on that clip does not take effect.
+        // Valid values: [0, 5].
         shared_ptr<double> duration_ {};
+        // The transition effect. For more information, see [Transition effects](https://www.alibabacloud.com/help/en/imm/developer-reference/transition-effect).
+        // 
         // This parameter is required.
         shared_ptr<string> transition_ {};
+        // The transition weight. Valid values: [1, 100]. Default value: 50.
+        // This parameter takes effect when TransitionMode is set to Random.
         shared_ptr<int64_t> weight_ {};
       };
 
@@ -456,8 +507,11 @@ namespace Models
 
 
       protected:
+        // The URI of the background music (OSS URI). Only audio files are supported.
+        // 
         // This parameter is required.
         shared_ptr<string> URI_ {};
+        // The volume intensity of the background music. Valid values: [0, 10]. Default value: 0.2. A value of 1 indicates the original volume.
         shared_ptr<double> volume_ {};
       };
 
@@ -520,13 +574,49 @@ namespace Models
 
 
     protected:
+      // The background music mode. Default value: Closed. Valid values:
+      // 
+      // - Random: custom background music, randomly selected based on weight.
+      // 
+      // - Sequential: custom background music, applied in order.
+      // 
+      // - Closed: no background music.
       shared_ptr<string> backgroundMusicMode_ {};
+      // The background music tracks. This parameter takes effect when BackgroundMusicMode is set to Random or Sequential.
+      // **The maximum number is 1.**.
       shared_ptr<vector<Edit::BackgroundMusics>> backgroundMusics_ {};
+      // The editing mode. Valid values:
+      // 
+      // - Sequential: sequential mode.
+      // 
       // This parameter is required.
       shared_ptr<string> mode_ {};
+      // The transition mode. Default value: Closed. Valid values:
+      // 
+      // - Auto: automatic transition.
+      // 
+      // - Random: custom transition, randomly selected based on weight.
+      // 
+      // - Sequential: custom transition, applied in order.
+      // 
+      // - Closed: no transition.
       shared_ptr<string> transitionMode_ {};
+      // The transition effects.
+      // This parameter takes effect when TransitionMode is set to Random or Sequential.
+      // A maximum of 10 transitions are supported.
       shared_ptr<vector<Edit::Transitions>> transitions_ {};
+      // The effect mode. Default value: Closed. Valid values:
+      // 
+      // - Auto: automatic effect.
+      // 
+      // - Random: custom effect, randomly selected based on weight.
+      // 
+      // - Sequential: custom effect, applied in order.
+      // 
+      // - Closed: no effect.
       shared_ptr<string> vfxEffectMode_ {};
+      // The visual effects. This parameter takes effect when VfxEffectMode is set to Random or Sequential.
+      // A maximum of 10 effects are supported.
       shared_ptr<vector<Edit::VfxEffects>> vfxEffects_ {};
     };
 
@@ -625,20 +715,46 @@ namespace Models
 
 
   protected:
+    // The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**.
     shared_ptr<CredentialConfig> credentialConfig_ {};
+    // The editing configuration.
     shared_ptr<CreateHighlightTaskRequest::Edit> edit_ {};
+    // The highlight configuration.
     shared_ptr<CreateHighlightTaskRequest::Highlight> highlight_ {};
+    // The highlight recognition mode. Valid values:
+    // 
+    // - Scene: scene and frame recognition.
+    // 
+    // - Average (default): average slice recognition.
     shared_ptr<string> mode_ {};
+    // The message notification configuration. For more information, click Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://www.alibabacloud.com/help/en/imm/developer-reference/asynchronous-notification-message-examples).
     shared_ptr<Notification> notification_ {};
+    // The output configuration.
+    // 
     // This parameter is required.
     shared_ptr<CreateHighlightTaskRequest::Output> output_ {};
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The list of media resources to process.
+    // A maximum of 10 videos are supported.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateHighlightTaskRequest::Sources>> sources_ {};
+    // The custom tags used to search for and filter asynchronous tasks.
     Darabonba::Json tags_ {};
+    // The processing type. Valid values:
+    // 
+    // - Retrieval: highlight extraction.
+    // 
+    // - Concat: video composition.
+    // 
+    // - Compose: one-click video creation.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The custom user data, which is returned in asynchronous message notifications.
     shared_ptr<string> userData_ {};
   };
 

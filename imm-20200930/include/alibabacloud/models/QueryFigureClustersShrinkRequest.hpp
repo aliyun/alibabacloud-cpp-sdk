@@ -137,8 +137,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   asc: ascending order.
-    // *   desc: descending order.
+    // - asc: ascending order.
+    // 
+    // - desc: descending order.
     shared_ptr<string> order_ {};
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
@@ -148,15 +149,23 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   ImageCount: the number of images.
-    // *   VideoCount: the number of videos.
-    // *   ProjectName: the name of the project.
-    // *   DatasetName: the name of the dataset.
-    // *   CreateTime: the point in time when the group is created.
-    // *   UpdateTime: the most recent point in time when the group is updated.
-    // *   Gender: the gender.
-    // *   FaceCount: the number of faces.
-    // *   GroupName: the name of the group.
+    // - ImageCount: the number of images.
+    // 
+    // - VideoCount: the number of videos.
+    // 
+    // - ProjectName: the name of the project.
+    // 
+    // - DatasetName: the name of the dataset.
+    // 
+    // - CreateTime: the point in time when the group is created.
+    // 
+    // - UpdateTime: the most recent point in time when the group is updated.
+    // 
+    // - Gender: the gender.
+    // 
+    // - FaceCount: the number of faces.
+    // 
+    // - GroupName: the name of the group.
     shared_ptr<string> sort_ {};
     // The time range within which the face group was last updated.
     shared_ptr<string> updateTimeRangeShrink_ {};

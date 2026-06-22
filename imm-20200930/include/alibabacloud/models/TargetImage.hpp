@@ -182,49 +182,33 @@ namespace Models
 
 
     protected:
-      // The format of the sprite. Valid values:
-      // 
-      // *   jpg
-      // *   png
+      // Image format
       // 
       // This parameter is required.
       shared_ptr<string> format_ {};
-      // The time interval of frame capturing in seconds.
+      // Time interval between sprites, in seconds
       shared_ptr<double> interval_ {};
-      // The margin between the small images and the edges of the sprite. Default value: 2.
+      // Margin around the sprite grid, in pixels
       shared_ptr<int32_t> margin_ {};
       shared_ptr<string> mode_ {};
-      // The number of small images in the sprite. The default value is 0, which indicates that frames are captured until the end of the video.
+      // Total number of sprites to generate
       shared_ptr<int32_t> number_ {};
-      // The padding between small images. Default value: 2.
+      // Padding between sprite tiles, in pixels
       shared_ptr<int32_t> pad_ {};
-      // The height of individual small images. The default value is 1. The value can be an integer or a decimal.
-      // 
-      // *   An integer: the number of pixels. Valid values: (1,4096).
-      // *   A decimal: the ratio relative to the height of the target video resolution. Valid values: (0,1].
+      // Output height after scaling, in pixels
       shared_ptr<float> scaleHeight_ {};
-      // The resizing mode. Valid values:
-      // 
-      // *   stretch: stretches the image to fill the entire space. This is the default value.
-      // *   crop: resizes and crops the image.
-      // *   fill: resizes the image and keeps the black border.
-      // *   fit: resizes the image and removes the black border.
+      // Scaling method
       shared_ptr<string> scaleType_ {};
-      // The width of individual small images. The default value is 1. The value can be an integer or a decimal.
-      // 
-      // *   An integer: the number of pixels. Valid values: (1,4096).
-      // *   A decimal: the ratio relative to the width of the target video resolution. Valid values: (0,1].
+      // Output width after scaling, in pixels
       shared_ptr<float> scaleWidth_ {};
-      // The time in seconds at which frame capturing starts. The default value is 0, which indicates that frame capturing starts at the beginning of the video.
+      // StartTime
       shared_ptr<double> startTime_ {};
       shared_ptr<int32_t> threshold_ {};
-      // The number of small images in each column. Default value: 6.
+      // Height of each sprite tile, in pixels
       shared_ptr<int32_t> tileHeight_ {};
-      // The number of small images in each row. Default value: 6.
+      // Width of each sprite tile, in pixels
       shared_ptr<int32_t> tileWidth_ {};
-      // The URI of the sprite in Object Storage Service (OSS).
-      // 
-      // The OSS URI follows the oss://bucket/object format, where bucket is the name of the bucket in the same region as the current project and object is the path of the object with the extension included.
+      // URI
       // 
       // This parameter is required.
       shared_ptr<string> URI_ {};
@@ -341,43 +325,27 @@ namespace Models
 
 
     protected:
-      // The format of the frame. Valid values:
-      // 
-      // *   jpg
-      // *   png
+      // Image format
       // 
       // This parameter is required.
       shared_ptr<string> format_ {};
-      // The height of the frame image. By default, the image has the same height as the source video. The value of the parameter can be an integer or a decimal.
-      // 
-      // *   An integer: the number of pixels. Valid values: [1,4096].
-      // *   A decimal: the ratio relative to the height of the target image resolution. Valid values: (0,1).
+      // Output height, in pixels
       shared_ptr<double> height_ {};
-      // The time interval of frame capturing in seconds.
+      // Time interval between snapshots, in seconds
       shared_ptr<double> interval_ {};
       shared_ptr<string> mode_ {};
-      // The number of frames. The default value is 0, which indicates that frames are captured until the end of the video.
+      // The sequence number of the snapshot.
       shared_ptr<int32_t> number_ {};
-      // The resizing mode. Valid values:
-      // 
-      // *   stretch: stretches the image to fill the entire space. This is the default value.
-      // *   crop: resizes and crops the image.
-      // *   fill: resizes the image and keeps the black border.
-      // *   fit: resizes the image and removes the black border.
+      // Scaling method
       shared_ptr<string> scaleType_ {};
-      // The time in seconds at which frame capturing starts. The default value is 0, which indicates that frame capturing starts at the beginning of the video.
+      // The start time of the snapshot.
       shared_ptr<double> startTime_ {};
       shared_ptr<int32_t> threshold_ {};
-      // The OSS URI of the frame.
-      // 
-      // The OSS URI follows the oss://bucket/object format, where bucket is the name of the bucket in the same region as the current project and object is the path of the object with the extension included.
+      // OSS URI where snapshots are stored
       // 
       // This parameter is required.
       shared_ptr<string> URI_ {};
-      // The width of the frame image. By default, the image has the same width as the source video. The value of the parameter can be an integer or a decimal.
-      // 
-      // *   An integer: the number of pixels. Valid values: [1,4096].
-      // *   A decimal: the ratio relative to the width of the target image resolution. Valid values: (0,1).
+      // The width of the snapshot.
       shared_ptr<double> width_ {};
     };
 
@@ -483,43 +451,27 @@ namespace Models
 
 
     protected:
-      // The format of the animated image. Valid values:
-      // 
-      // *   gif
-      // *   webp
+      // Format
       // 
       // This parameter is required.
       shared_ptr<string> format_ {};
-      // The frame rate of the animated image. You can use this parameter together with the Interval parameter to slow down the animation.
+      // Animation frame rate, in frames per second
       shared_ptr<double> frameRate_ {};
-      // The height of the animated image. By default, the animated image has the same height as the source video. The value of the parameter can be an integer or a decimal.
-      // 
-      // *   An integer: the number of pixels. Valid values: [1,4096].
-      // *   A decimal: the ratio relative to the height of the target image resolution. Valid values: (0,1).
+      // Height
       shared_ptr<double> height_ {};
-      // The time interval for extracting frames. Unit: seconds.
+      // Time interval between animation frames, in seconds
       shared_ptr<double> interval_ {};
-      // The number of extracted frames. The default value is 0, which indicates that frames are extracted until the end of the video.
+      // Total number of animation frames to generate
       shared_ptr<int32_t> number_ {};
-      // The resizing mode. Valid values:
-      // 
-      // *   stretch: stretches the image to fill the entire space. This is the default value.
-      // *   crop: resizes and crops the image.
-      // *   fill: resizes the image and keeps the black border.
-      // *   fit: resizes the image and removes the black border.
+      // Scaling method
       shared_ptr<string> scaleType_ {};
-      // The start time for extracting frames. Unit: seconds. Default value: 0.
+      // StartTime
       shared_ptr<double> startTime_ {};
-      // The URI of the animated image.
-      // 
-      // The OSS URI follows the oss://bucket/object format, where bucket is the name of the bucket in the same region as the current project and object is the path of the object with the extension included.
+      // The URI of the animation.
       // 
       // This parameter is required.
       shared_ptr<string> URI_ {};
-      // The width of the animated image. By default, the animated image has the same width as the source video. The value of the parameter can be an integer or a decimal.
-      // 
-      // *   An integer: the number of pixels. Valid values: [1,4096].
-      // *   A decimal: the ratio relative to the width of the target image resolution. Valid values: (0,1).
+      // Output width, in pixels
       shared_ptr<double> width_ {};
     };
 
@@ -553,11 +505,11 @@ namespace Models
 
 
   protected:
-    // The animated images.
+    // Animations
     shared_ptr<vector<TargetImage::Animations>> animations_ {};
-    // The frames.
+    // Snapshots
     shared_ptr<vector<TargetImage::Snapshots>> snapshots_ {};
-    // The sprites.
+    // Sprites
     shared_ptr<vector<TargetImage::Sprites>> sprites_ {};
   };
 

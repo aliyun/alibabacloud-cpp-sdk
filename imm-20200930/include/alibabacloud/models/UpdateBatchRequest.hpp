@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The name of the template.
+      // The template name.
       shared_ptr<string> name_ {};
-      // The template parameters.
+      // A list of template parameters.
       shared_ptr<vector<string>> parameters_ {};
     };
 
@@ -129,19 +129,19 @@ namespace Models
 
 
   protected:
-    // The processing templates.
+    // A list of data processing templates.
     shared_ptr<vector<UpdateBatchRequest::Actions>> actions_ {};
-    // The ID of the batch processing task. You can obtain the ID of the batch processing task from the response of the [CreateBatch](https://help.aliyun.com/document_detail/606694.html) operation.
+    // The ID of the batch processing task. For more information, see [Create a batch processing task](https://help.aliyun.com/document_detail/606694.html).
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The input data source.
+    // The data source configuration.
     shared_ptr<Input> input_ {};
-    // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+    // The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The custom tags. You can search for or filter asynchronous tasks by custom tag.
+    // Custom tags used to search for and filter asynchronous tasks.
     Darabonba::Json tags_ {};
   };
 

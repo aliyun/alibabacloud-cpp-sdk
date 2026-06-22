@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Whether to automatically group similar figures into clusters.
     shared_ptr<bool> autoClustering_ {};
+    // Whether to automatically generate metadata for each cluster, such as a representative cover image.
     shared_ptr<bool> autoGenerate_ {};
+    // An array of strings specifying the clustering strategies to use.
     shared_ptr<vector<string>> enabledFeatures_ {};
+    // The minimum number of figures required to form a cluster.
     shared_ptr<int64_t> minEntityCount_ {};
   };
 

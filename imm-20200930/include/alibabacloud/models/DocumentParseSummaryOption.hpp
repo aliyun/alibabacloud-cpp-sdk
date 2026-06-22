@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Document chapter summary
     shared_ptr<bool> chapterSummarize_ {};
+    // Article summary
     shared_ptr<bool> summarize_ {};
   };
 

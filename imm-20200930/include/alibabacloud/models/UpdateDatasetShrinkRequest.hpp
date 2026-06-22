@@ -130,32 +130,35 @@ namespace Models
 
 
   protected:
+    // The dataset configuration.
     shared_ptr<string> datasetConfigShrink_ {};
-    // The maximum number of bindings per dataset. The value range is from 1 to 10.
+    // The maximum number of bindings for the dataset. Valid values: 1 to 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
-    // The maximum number of metadata entities (including data files, file relationships, clustering groups, etc.) per dataset, with a maximum value of 2^63-1.
-    // >Reserved parameter, no actual restriction in use.
+    // The maximum number of metadata entities, such as data files, file relationships, and cluster groups, in the dataset. The maximum value is 2^63 - 1.
+    // 
+    // > This parameter is reserved and not enforced in practice.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
-    // The maximum number of files per dataset. The value range is from 1 to 100000000.
+    // The maximum number of files in the dataset. Valid values: 1 to 100000000.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships per dataset, with a maximum value of 2^63-1.
-    // >Reserved parameter, no actual restriction in use.
+    // The maximum number of metadata relationships in the dataset. The maximum value is 2^63 - 1.
+    // 
+    // > This parameter is reserved and not enforced in practice.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum total size of files in each dataset. Once the limit is exceeded, no more indexes can be added. The maximum value is 2^63-1, measured in bytes.
+    // The maximum total size of all files in the dataset, in bytes. If this limit is exceeded, you can no longer add new index entries. The maximum value is 2^63 - 1.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
-    // Dataset name, for how to obtain it, please refer to [Create Dataset](https://help.aliyun.com/document_detail/478160.html).
+    // The dataset name. For information about how to obtain the dataset name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // Description of the dataset.
+    // The dataset description.
     shared_ptr<string> description_ {};
-    // Project name, for how to obtain it, please refer to [Create Project](https://help.aliyun.com/document_detail/478153.html).
+    // The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // Workflow template ID. For more information, please refer to [Workflow Templates and Operators](https://help.aliyun.com/document_detail/466304.html).
+    // The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
     shared_ptr<string> templateId_ {};
-    // Invalid parameter.
+    // This parameter is invalid.
     shared_ptr<string> workflowParametersShrink_ {};
   };
 

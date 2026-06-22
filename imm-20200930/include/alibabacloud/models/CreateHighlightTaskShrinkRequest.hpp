@@ -130,20 +130,46 @@ namespace Models
 
 
   protected:
+    // The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**.
     shared_ptr<string> credentialConfigShrink_ {};
+    // The editing configuration.
     shared_ptr<string> editShrink_ {};
+    // The highlight configuration.
     shared_ptr<string> highlightShrink_ {};
+    // The highlight recognition mode. Valid values:
+    // 
+    // - Scene: scene and frame recognition.
+    // 
+    // - Average (default): average slice recognition.
     shared_ptr<string> mode_ {};
+    // The message notification configuration. For more information, click Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://www.alibabacloud.com/help/en/imm/developer-reference/asynchronous-notification-message-examples).
     shared_ptr<string> notificationShrink_ {};
+    // The output configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> outputShrink_ {};
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The list of media resources to process.
+    // A maximum of 10 videos are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> sourcesShrink_ {};
+    // The custom tags used to search for and filter asynchronous tasks.
     shared_ptr<string> tagsShrink_ {};
+    // The processing type. Valid values:
+    // 
+    // - Retrieval: highlight extraction.
+    // 
+    // - Concat: video composition.
+    // 
+    // - Compose: one-click video creation.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The custom user data, which is returned in asynchronous message notifications.
     shared_ptr<string> userData_ {};
   };
 

@@ -103,35 +103,41 @@ namespace Models
 
 
   protected:
-    // The RFC3339Nano timestamp when the OSS bucket was bound to the dataset.
+    // The timestamp when the binding between the dataset and the OSS bucket was created. The format is RFC3339Nano.
     shared_ptr<string> createTime_ {};
     // The name of the dataset.
     shared_ptr<string> datasetName_ {};
-    // The type of the scan. Valid values:
+    // The scan type. Valid values:
     // 
-    // *   FullScanning
-    // *   IncrementalScanning
+    // - FullScanning: A full scan is in progress.
+    // 
+    // - IncrementalScanning: An incremental scan is in progress.
     shared_ptr<string> phase_ {};
     // The name of the project.
     shared_ptr<string> projectName_ {};
     // Reason
     shared_ptr<string> reason_ {};
-    // The status of the binding between the dataset and the OSS bucket. Valid values:
+    // The state of the binding between the dataset and the OSS bucket. Valid values:
     // 
-    // *   Ready: IMM is ready to create the binding.
-    // *   Stopped: The binding creation is suspended.
-    // *   Running: The binding is running.
-    // *   Retrying: IMM is retrying the binding.
-    // *   Failed: The binding failed.
-    // *   Deleted: The binding is deleted.
+    // - Ready: The binding is being prepared after it is created.
+    // 
+    // - Stopped: The binding is paused.
+    // 
+    // - Running: The binding is running.
+    // 
+    // - Retrying: The binding is being retried after it is created.
+    // 
+    // - Failed: The binding failed to be created.
+    // 
+    // - Deleted: The binding is deleted.
     shared_ptr<string> state_ {};
-    // The URI of the OSS bucket to which the dataset is bound.
+    // The URI of the Object Storage Service (OSS) bucket attached to the dataset.
     // 
-    // The URI is in the `oss://${bucketname}` format, where `bucketname` is the name of the OSS bucket.
+    // The format of an OSS bucket URI is `oss://${bucketname}`. The `bucketname` is the name of an OSS bucket that is in the same region as the current project.
     shared_ptr<string> URI_ {};
-    // The RFC3339Nano timestamp when the binding was modified.
+    // The timestamp when the binding between the dataset and the OSS bucket was last modified. The format is RFC3339Nano.
     // 
-    // >  If you never suspend or retry the binding between the dataset and the OSS bucket after you complete the binding, the value of UpdateTime is the same as that of CreateTime.
+    // > After a binding is created, if the binding has not been paused or restarted, this timestamp is the same as the creation timestamp.
     shared_ptr<string> updateTime_ {};
   };
 

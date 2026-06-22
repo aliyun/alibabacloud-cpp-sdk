@@ -118,30 +118,23 @@ namespace Models
   protected:
     // The Multipurpose Internet Mail Extensions (MIME) type of the file.
     shared_ptr<string> contentType_ {};
-    // Name of the dataset
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
-    // Elements
+    // Elements.
     shared_ptr<vector<Element>> elements_ {};
-    // Media type of the current file
-    // 
-    // Valid values:
-    // 
-    // *   image
-    // *   other
-    // *   document
-    // *   archive
-    // *   audio
-    // *   video
+    // The media type of the file.
     shared_ptr<string> mediaType_ {};
-    // The URI of the OSS object. This parameter is available only if the value of the URI parameter is the URI of a file in Photo and Drive Service.
+    // The URI path of the OSS file. This parameter is used only when the URI is a PDS address.
     shared_ptr<string> OSSURI_ {};
-    // The identifier of the corresponding file that exists in the dataset.
+    // The identifier of the file in the dataset.
     shared_ptr<string> objectId_ {};
-    // User ID
+    // The user ID.
     shared_ptr<string> ownerId_ {};
-    // Name of the project
+    // The project name.
     shared_ptr<string> projectName_ {};
-    // URI of the file. Specify the OSS URI in the oss://${bucketname}/${objectname} format, where ${bucketname} is the name of the bucket in the same region as the current project and ${objectname} is the path of the object. The URI of a file in Photo and Drive Service follows the pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision} format.
+    // The URI of the file.
+    // The format of an OSS URI is oss\\://${bucketname}/${objectname}. ${bucketname} is the name of an OSS bucket in the same region as the current project. ${objectname} is the file path.
+    // The format of a PDS URI is pds\\://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision}.
     shared_ptr<string> URI_ {};
   };
 

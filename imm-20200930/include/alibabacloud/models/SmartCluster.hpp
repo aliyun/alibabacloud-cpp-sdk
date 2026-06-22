@@ -165,29 +165,29 @@ namespace Models
 
   protected:
     shared_ptr<string> clusterType_ {};
-    // The time when the cluster was created.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // The name of the dataset.
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
-    // The description of the cluster.
+    // The group description.
     shared_ptr<string> description_ {};
-    // The name of the cluster.
+    // The group name.
     shared_ptr<string> name_ {};
-    // The ID of the cluster.
+    // The smart cluster ID.
     shared_ptr<string> objectId_ {};
-    // The status of the cluster.
+    // The group status. Valid values are `Succeeded`, `Failed`, and `Running`.
     shared_ptr<string> objectStatus_ {};
-    // The type of the cluster.
+    // The group type. The value is always `smart-cluster`.
     shared_ptr<string> objectType_ {};
     // The user ID.
     shared_ptr<string> ownerId_ {};
-    // The name of the project.
+    // The project name.
     shared_ptr<string> projectName_ {};
     shared_ptr<string> reason_ {};
     // The clustering rule.
     shared_ptr<SmartClusterRule> rule_ {};
     shared_ptr<vector<SmartClusterRule>> rules_ {};
-    // The time when the cluster was updated.
+    // The update time.
     shared_ptr<string> updateTime_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The time range of the event clip
     shared_ptr<vector<int64_t>> timeRange_ {};
   };
 

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The input data source from Object Storage Service (OSS).
+    // The OSS data source.
     shared_ptr<InputOSS> OSS_ {};
   };
 

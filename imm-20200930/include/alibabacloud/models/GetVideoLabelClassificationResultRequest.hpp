@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+    // The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The task ID, which is obtained from response parameters of [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
+    // The task ID. For information about how to obtain the task ID, see the response parameters of [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The type of the task. Valid values:
+    // The task type.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

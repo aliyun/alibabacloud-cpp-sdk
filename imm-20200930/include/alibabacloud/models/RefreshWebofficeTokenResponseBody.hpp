@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Weboffice access token.
+    // The Weboffice access token.
     shared_ptr<string> accessToken_ {};
-    // Expiration time of the access token. The expiration period is 30 minutes.
+    // The expiration time of the access token. The access token expires in 30 minutes. Format: ISO 8601 UTC timestamp with millisecond precision.
     shared_ptr<string> accessTokenExpiredTime_ {};
-    // Weboffice refresh token.
+    // The Weboffice refresh token.
     shared_ptr<string> refreshToken_ {};
-    // Expiration time of the refresh token. The expiration period is 1 day.
+    // The expiration time of the refresh token. The refresh token expires in 1 day. Format: ISO 8601 UTC timestamp with millisecond precision.
     shared_ptr<string> refreshTokenExpiredTime_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

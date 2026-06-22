@@ -75,17 +75,18 @@ namespace Models
 
 
   protected:
-    // The name of the dataset.[](~~478160~~)
+    // The dataset name. For information about how to obtain the dataset name, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
     shared_ptr<string> datasetName_ {};
-    // *   The maximum number of bindings to return. Valid values: 0 to 200.
-    // *   If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
+    // - The maximum number of bindings to return. Valid values: 0 to 200.
+    // - If this parameter is not set or is set to 0, the default value 100 is used.
     shared_ptr<int64_t> maxResults_ {};
+    // The name of the binding task.
     shared_ptr<string> name_ {};
-    // *   The pagination token that is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
-    // *   The next call to the operation returns results lexicographically after the NextToken parameter value.
-    // *   You do not need to specify this parameter in your initial request.
+    // - The pagination token that is used when the total number of bindings exceeds the MaxResults value.
+    // - Binding information is returned in alphabetical order starting from the NextToken value.
+    // - Leave this parameter empty for the first request.
     shared_ptr<string> nextToken_ {};
-    // The name of the project.[](~~478153~~)
+    // The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

@@ -107,19 +107,21 @@ namespace Models
 
 
   protected:
-    // The central value of the label. This value indicates the confidence that the label is the majority component of the image. Valid values: 0 to 1. A higher value indicates greater confidence.
+    // The centric score of the tag. This indicates whether the tag is the main subject in the image. The value ranges from 0 to 1. A higher value indicates higher confidence that the tag is the main subject of the image.
     shared_ptr<float> centricScore_ {};
+    // Event clips.
     shared_ptr<vector<Clip>> clips_ {};
+    // The tag alias.
     shared_ptr<string> labelAlias_ {};
-    // The confidence level of the label. Valid values: 0 to 1. A higher value indicates greater confidence.
+    // The tag confidence level. The value ranges from 0 (lowest confidence) to 1 (highest confidence).
     shared_ptr<float> labelConfidence_ {};
-    // The label level. Valid values: 1, 2, and 3.
+    // The tag level. Valid values are 1, 2, and 3, representing first-level, second-level, and third-level tags, respectively.
     shared_ptr<int64_t> labelLevel_ {};
-    // The label name.
+    // The tag name.
     shared_ptr<string> labelName_ {};
-    // The label language, which is represented as a BCP 47 language tag.
+    // The tag language, in BCP 47 format.
     shared_ptr<string> language_ {};
-    // The name of the parent label.
+    // The parent tag name.
     shared_ptr<string> parentLabelName_ {};
   };
 

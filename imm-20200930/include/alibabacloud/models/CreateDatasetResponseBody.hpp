@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // Dataset information.
+    // The dataset information.
     shared_ptr<Dataset> dataset_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

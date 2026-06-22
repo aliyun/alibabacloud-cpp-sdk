@@ -102,11 +102,11 @@ namespace Models
       shared_ptr<string> frameRate_ {};
       // The video resolution.
       shared_ptr<string> resolution_ {};
-      // The token of the video media playlist. You can use this parameter to generate the path of a TS file.
+      // The token generated for the video Media Playlist. You can use this parameter to construct the URI of the generated TS file.
       // 
-      // >  You can generate the path of a transcoded TS file based on the value of this parameter. The path must be in the oss://${Bucket}/${Object}-${Token}-${Index}.ts format. oss://${Bucket}/${Object} specifies the URI specified by input parameters for output files. ${Token} specifies the returned token, and ${Index} specifies the serial number of a TS file.
+      // > You can use the returned token value to construct the URI of the transcoded TS file. The format is oss\\://${Bucket}/${Object}-${Token}-${Index}.ts. oss\\://${Bucket}/${Object} is the target URI specified in the request parameters. ${Token} is the returned parameter. ${Index} is the sequence number of the TS file.
       shared_ptr<string> token_ {};
-      // The OSS path of the video media playlist.
+      // The OSS URI of the video Media Playlist.
       shared_ptr<string> URI_ {};
     };
 
@@ -166,17 +166,17 @@ namespace Models
 
 
     protected:
-      // The serial number of the subtitle stream. The value starts from 0.
+      // The sequence number of the subtitle stream, starting from 0.
       shared_ptr<int32_t> index_ {};
       // The language of the subtitle stream.
       // 
-      // >  The language is derived from the subtitle stream information in the OSS path specified by the SourceURI parameter for a source video. If no language information exists in the source video, null is returned.
+      // > The language is obtained from the subtitle stream information of the source video specified by SourceURI. If the source video does not contain language information, this parameter is empty.
       shared_ptr<string> language_ {};
-      // The token of the subtitle media playlist. You can use this parameter to generate the path of a subtitle file.
+      // The token generated for the subtitle Media Playlist. You can use this parameter to construct the URI of the generated subtitle file.
       // 
-      // >  You can generate the path of a transcoded subtitle file based on the returned token value. The path must be in the oss://${Bucket}/${Object}-${Token}_${Index}.ts format. oss://${Bucket}/${Object} specifies the URI specified by input parameters for output files. ${Token} specifies the returned token value, and ${Index} specifies the serial number of a subtitle file.
+      // > You can use the returned token value to construct the URI of the transcoded subtitle file. The format is oss\\://${Bucket}/${Object}-${Token}_${Index}.ts. oss\\://${Bucket}/${Object} is the subtitle URI specified in the request parameters. ${Token} is the returned parameter. ${Index} is the sequence number of the subtitle.
       shared_ptr<string> token_ {};
-      // The OSS path of the subtitle media playlist.
+      // The OSS URI of the subtitle Media Playlist.
       shared_ptr<string> URI_ {};
     };
 
@@ -229,9 +229,9 @@ namespace Models
     protected:
       // The number of audio channels.
       shared_ptr<int32_t> channels_ {};
-      // The token of the audio media playlist. You can use this parameter to generate the path of a TS file.
+      // The token generated for the audio Media Playlist. You can use this parameter to construct the URI of the generated TS file.
       shared_ptr<string> token_ {};
-      // The OSS path of the audio media playlist.
+      // The OSS URI of the audio Media Playlist.
       shared_ptr<string> URI_ {};
     };
 
@@ -294,19 +294,19 @@ namespace Models
 
 
   protected:
-    // The audio media playlist files.
+    // The list of audio Media Playlist files.
     shared_ptr<vector<GenerateVideoPlaylistResponseBody::AudioPlaylist>> audioPlaylist_ {};
-    // The total duration of the generated video.
+    // The total duration of the output video.
     shared_ptr<float> duration_ {};
-    // The OSS path of the master playlist.
+    // The OSS URI of the Master Playlist.
     shared_ptr<string> masterURI_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The subtitle media playlist files.
+    // The list of subtitle Media Playlist files.
     shared_ptr<vector<GenerateVideoPlaylistResponseBody::SubtitlePlaylist>> subtitlePlaylist_ {};
-    // The token of the master playlist.
+    // The token of the Master Playlist.
     shared_ptr<string> token_ {};
-    // The video media playlist files.
+    // The list of video Media Playlist files.
     shared_ptr<vector<GenerateVideoPlaylistResponseBody::VideoPlaylist>> videoPlaylist_ {};
   };
 

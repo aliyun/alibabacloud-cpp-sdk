@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the trigger.
+    // The data ingestion ID.
     shared_ptr<string> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

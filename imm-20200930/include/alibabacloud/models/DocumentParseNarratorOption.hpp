@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The summary of the document.
     shared_ptr<bool> narrate_ {};
   };
 

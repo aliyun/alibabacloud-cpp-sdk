@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The OSS URI of the image.
       // 
-      // Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+      // The OSS URI must follow the format oss\\://${Bucket}/${Object}. `${Bucket}` is the name of the OSS bucket in the same region as the current project. `${Object}` is the full path of the file, including the file name extension.
       shared_ptr<string> URI_ {};
     };
 
@@ -124,21 +124,21 @@ namespace Models
 
 
   protected:
-    // The name of the dataset.[](~~478160~~)
+    // The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // The number of the most similar faces that you want to return. Valid values: 1 to 100. Default value: 5.
+    // The number of most similar faces to return. Valid values: 0 to 100. Default value: 5.
     shared_ptr<int64_t> maxResult_ {};
-    // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+    // The notification configuration. For more information about the format of asynchronous notification messages, see [Asynchronous notification message format](https://help.aliyun.com/document_detail/2743997.html).
     shared_ptr<Notification> notification_ {};
-    // The name of the project.[](~~478153~~)
+    // The name of the project. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The images.
+    // A list of images.
     shared_ptr<vector<CreateFacesSearchingTaskRequest::Sources>> sources_ {};
-    // The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+    // Custom user information. This information is returned in the asynchronous notification message to help you associate the message with your system. The maximum length is 2048 bytes.
     shared_ptr<string> userData_ {};
   };
 

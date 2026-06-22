@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The event ID.
+    // The ID of the event.
     shared_ptr<string> eventId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
   };
 

@@ -172,9 +172,9 @@ namespace Models
 
 
       protected:
-        // The violated frames.
+        // The frames that violate content policies.
         shared_ptr<vector<Frames::BlockFrames>> blockFrames_ {};
-        // The total number of detected frames.
+        // The total number of frames that were moderated.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -213,17 +213,19 @@ namespace Models
 
 
     protected:
-      // List of categories.
+      // The list of categories.
       shared_ptr<vector<string>> categories_ {};
-      // The information about video and motion detection frames.
+      // The frame information for video or animated image moderation.
       shared_ptr<ModerationResult::Frames> frames_ {};
-      // The recommended operation. Valid values:
+      // The recommended action. Valid values:
       // 
-      // *   pass: The image has passed the check. No action is required.
-      // *   review: The image contains suspected violations and requires human review.
-      // *   block: The image contains violations. Further actions, such as deleting or blocking the image, are recommended.
+      // - pass: The image is normal. No further action is required.
+      // 
+      // - review: The moderation result is uncertain. Manual review is required.
+      // 
+      // - block: The image violates content policies. Further action is recommended, such as deleting or restricting the image.
       shared_ptr<string> suggestion_ {};
-      // The OSS URI of the file. The URI follows the oss://${bucketname}/${objectname} format. bucketname indicates the name of an OSS bucket that is in the same region as the current project, and objectname is the file path.
+      // The storage location of the OSS file. The address follows the format oss://${bucketname}/${objectname}, where bucketname is the name of an OSS bucket in the same region as the current project, and objectname is the file path.
       shared_ptr<string> URI_ {};
     };
 
@@ -320,31 +322,31 @@ namespace Models
   protected:
     // The error code of the task.
     shared_ptr<string> code_ {};
-    // The end time of the task.
+    // The end time of the task. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> endTime_ {};
     // The event ID.
     shared_ptr<string> eventId_ {};
     // The error message of the task.
     shared_ptr<string> message_ {};
-    // The result of the image compliance detection task.
+    // The content moderation result.
     shared_ptr<GetImageModerationResultResponseBody::ModerationResult> moderationResult_ {};
-    // The name of the project.
+    // The project name.
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the task.
+    // The start time of the task. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
     shared_ptr<string> startTime_ {};
-    // The task status. Valid values:
+    // The running status of the task. Valid values:
     // 
-    // *   Running
-    // *   Succeeded
-    // *   Failed
+    // - Running: The task is running.
+    // - Succeeded: The task is completed successfully.
+    // - Failed: The task failed.
     shared_ptr<string> status_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The type of the task.
+    // The task type.
     shared_ptr<string> taskType_ {};
-    // The custom information.
+    // The custom user data.
     shared_ptr<string> userData_ {};
   };
 

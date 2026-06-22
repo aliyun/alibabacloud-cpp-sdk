@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The name of the project.
+    // The project name.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The type of the task.
+    // The task type.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<string> projectName_ {};
     // The URI of the OSS bucket to which you bind the dataset.
     // 
-    // Specify the value in the oss://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
+    // Specify the value in the oss\\://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
     shared_ptr<string> URI_ {};
   };
 

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DATASETCONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/InsightsConfig.hpp>
+#include <alibabacloud/models/ReverseImageConfig.hpp>
 #include <alibabacloud/models/SmartClusterConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -16,10 +17,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DatasetConfig& obj) { 
       DARABONBA_PTR_TO_JSON(Insights, insights_);
+      DARABONBA_PTR_TO_JSON(ReverseImage, reverseImage_);
       DARABONBA_PTR_TO_JSON(SmartCluster, smartCluster_);
     };
     friend void from_json(const Darabonba::Json& j, DatasetConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(Insights, insights_);
+      DARABONBA_PTR_FROM_JSON(ReverseImage, reverseImage_);
       DARABONBA_PTR_FROM_JSON(SmartCluster, smartCluster_);
     };
     DatasetConfig() = default ;
@@ -34,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->insights_ == nullptr
-        && this->smartCluster_ == nullptr; };
+        && this->reverseImage_ == nullptr && this->smartCluster_ == nullptr; };
     // insights Field Functions 
     bool hasInsights() const { return this->insights_ != nullptr;};
     void deleteInsights() { this->insights_ = nullptr;};
@@ -42,6 +45,15 @@ namespace Models
     inline InsightsConfig getInsights() { DARABONBA_PTR_GET(insights_, InsightsConfig) };
     inline DatasetConfig& setInsights(const InsightsConfig & insights) { DARABONBA_PTR_SET_VALUE(insights_, insights) };
     inline DatasetConfig& setInsights(InsightsConfig && insights) { DARABONBA_PTR_SET_RVALUE(insights_, insights) };
+
+
+    // reverseImage Field Functions 
+    bool hasReverseImage() const { return this->reverseImage_ != nullptr;};
+    void deleteReverseImage() { this->reverseImage_ = nullptr;};
+    inline const ReverseImageConfig & getReverseImage() const { DARABONBA_PTR_GET_CONST(reverseImage_, ReverseImageConfig) };
+    inline ReverseImageConfig getReverseImage() { DARABONBA_PTR_GET(reverseImage_, ReverseImageConfig) };
+    inline DatasetConfig& setReverseImage(const ReverseImageConfig & reverseImage) { DARABONBA_PTR_SET_VALUE(reverseImage_, reverseImage) };
+    inline DatasetConfig& setReverseImage(ReverseImageConfig && reverseImage) { DARABONBA_PTR_SET_RVALUE(reverseImage_, reverseImage) };
 
 
     // smartCluster Field Functions 
@@ -54,7 +66,10 @@ namespace Models
 
 
   protected:
+    // The content awareness configuration.
     shared_ptr<InsightsConfig> insights_ {};
+    shared_ptr<ReverseImageConfig> reverseImage_ {};
+    // The intelligent clustering configuration.
     shared_ptr<SmartClusterConfig> smartCluster_ {};
   };
 

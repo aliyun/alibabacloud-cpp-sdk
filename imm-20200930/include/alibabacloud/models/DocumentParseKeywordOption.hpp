@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of keywords to extract. The value must be an integer from 0 to 10.
     shared_ptr<int32_t> count_ {};
+    // Specifies whether to extract keywords.
     shared_ptr<bool> extract_ {};
   };
 

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_PROJECT_HPP_
 #define ALIBABACLOUD_MODELS_PROJECT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DatasetConfig.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const Project& obj) { 
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_TO_JSON(DatasetCount, datasetCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
@@ -35,6 +37,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, Project& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_FROM_JSON(DatasetCount, datasetCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
@@ -102,22 +105,31 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // 标签键。
       shared_ptr<string> tagKey_ {};
-      // The tag value.
+      // 标签值。
       shared_ptr<string> tagValue_ {};
     };
 
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->datasetCount_ == nullptr && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr
-        && this->datasetMaxTotalFileSize_ == nullptr && this->description_ == nullptr && this->engineConcurrency_ == nullptr && this->fileCount_ == nullptr && this->projectMaxDatasetCount_ == nullptr
-        && this->projectName_ == nullptr && this->projectQueriesPerSecond_ == nullptr && this->serviceRole_ == nullptr && this->tags_ == nullptr && this->templateId_ == nullptr
-        && this->totalFileSize_ == nullptr && this->updateTime_ == nullptr; };
+        && this->datasetConfig_ == nullptr && this->datasetCount_ == nullptr && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr
+        && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->description_ == nullptr && this->engineConcurrency_ == nullptr && this->fileCount_ == nullptr
+        && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->projectQueriesPerSecond_ == nullptr && this->serviceRole_ == nullptr && this->tags_ == nullptr
+        && this->templateId_ == nullptr && this->totalFileSize_ == nullptr && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline Project& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // datasetConfig Field Functions 
+    bool hasDatasetConfig() const { return this->datasetConfig_ != nullptr;};
+    void deleteDatasetConfig() { this->datasetConfig_ = nullptr;};
+    inline const DatasetConfig & getDatasetConfig() const { DARABONBA_PTR_GET_CONST(datasetConfig_, DatasetConfig) };
+    inline DatasetConfig getDatasetConfig() { DARABONBA_PTR_GET(datasetConfig_, DatasetConfig) };
+    inline Project& setDatasetConfig(const DatasetConfig & datasetConfig) { DARABONBA_PTR_SET_VALUE(datasetConfig_, datasetConfig) };
+    inline Project& setDatasetConfig(DatasetConfig && datasetConfig) { DARABONBA_PTR_SET_RVALUE(datasetConfig_, datasetConfig) };
 
 
     // datasetCount Field Functions 
@@ -242,50 +254,52 @@ namespace Models
 
 
   protected:
-    // The timestamp when the project was created. The timestamp is in the RFC3339Nano format.
+    // The timestamp when the project was created, in RFC3339Nano format.
     shared_ptr<string> createTime_ {};
+    shared_ptr<DatasetConfig> datasetConfig_ {};
     // The current number of datasets in the project.
     shared_ptr<int64_t> datasetCount_ {};
-    // The maximum number of bindings that a dataset can have. Valid values: 1 to 10. Default value: 10.
+    // The maximum number of bindings per dataset. Valid values: 1 to 10. Default value: 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
-    // The maximum number of metadata entities in a dataset. Default value: 10000000000.
+    // The maximum number of metadata entities per dataset. Default value: 10000000000.
     // 
-    // >  This parameter is reserved and does not actually apply a limit.
+    // > This field is reserved for future use and is not enforced.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
-    // The maximum number of files in a dataset. Valid values: 1 to 100000000. Default value: 100000000.
+    // The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 100000000.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships in a dataset. Default value: 100000000000.
+    // The maximum number of metadata relationships per dataset. Default value: 100000000000.
     // 
-    // >  This parameter is reserved and does not actually apply a limit.
+    // > This field is reserved for future use and is not enforced.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum total file size for a dataset. If the total file size exceeds this limit, indexes can no longer be added. Default value: 90000000000000000. Unit: bytes.
+    // The maximum total file size per dataset, in bytes. After this limit is exceeded, no more indexes can be added. Default value: 90000000000000000.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
     // The project description.
     shared_ptr<string> description_ {};
-    // The maximum number of tasks that the project can process per second. This corresponds to the maximum number of operators that can run in parallel in the project. Default value: 100.
+    // The maximum number of tasks that the project can process per second. This specifies the maximum number of operators that can run in parallel at the same time across the project. Default value: 100.
     // 
-    // *   If the number of synchronous tasks that run in parallel exceeds this limit, the task execution time will be extended until a timeout occurs.
-    // *   If the number of asynchronous tasks that run in parallel exceeds this limit, the tasks will be queued. This causes delayed task completion. If a task remains in the queue for longer than the specified time limit (usually dozens of seconds), the task will fail.
+    // - Synchronous tasks: if the number of concurrent tasks exceeds this limit, task execution time increases until a timeout occurs.
+    // 
+    // - Asynchronous tasks: if the number of concurrent tasks exceeds this limit, tasks are queued for a period of time, which delays task completion. If the queuing time also exceeds the limit (typically tens of minutes), the task returns a failure.
     shared_ptr<int64_t> engineConcurrency_ {};
     // The current number of files in the project.
     shared_ptr<int64_t> fileCount_ {};
-    // The maximum number of datasets that a project can contain. Valid values: 1 to 1000000000. Default value: 1000000000.
+    // The maximum number of datasets in the project. Valid values: 1 to 1000000000. Default value: 1000000000.
     shared_ptr<int64_t> projectMaxDatasetCount_ {};
-    // The name of the project.
+    // The project name.
     shared_ptr<string> projectName_ {};
-    // The maximum number of requests that can be processed by the project per second. This corresponds to the maximum number of API operations that can be called in the project per second. Default value: 100.
+    // The maximum number of requests that the project can process per second. This specifies the maximum number of API calls allowed per second for all APIs in the project. Default value: 100.
     shared_ptr<int64_t> projectQueriesPerSecond_ {};
     // The service role.
     shared_ptr<string> serviceRole_ {};
-    // The tag list.
+    // The list of tags.
     shared_ptr<vector<Project::Tags>> tags_ {};
-    // The ID of the workflow template.
+    // The workflow template ID.
     shared_ptr<string> templateId_ {};
-    // The current total size of files in the project. Unit: bytes.
+    // The current total file size in the project, in bytes.
     shared_ptr<int64_t> totalFileSize_ {};
-    // The timestamp when the project was last modified. The timestamp is in the RFC3339Nano format.
+    // The timestamp when the project was last modified, in RFC3339Nano format.
     // 
-    // >  If a project is not modified after it is created, the timestamp when the project was created is the same as the timestamp when the project was last modified.
+    // > If the project has not been updated since creation, this timestamp is the same as the creation timestamp.
     shared_ptr<string> updateTime_ {};
   };
 

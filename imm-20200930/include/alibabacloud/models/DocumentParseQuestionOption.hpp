@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Number of questions (range: 0 to 10)
     shared_ptr<int32_t> count_ {};
+    // Whether to extract
     shared_ptr<bool> extract_ {};
   };
 

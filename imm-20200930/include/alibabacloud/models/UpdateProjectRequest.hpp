@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEPROJECTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEPROJECTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DatasetConfig.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -14,6 +15,7 @@ namespace Models
   class UpdateProjectRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateProjectRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_TO_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_TO_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -27,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateProjectRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxBindCount, datasetMaxBindCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxEntityCount, datasetMaxEntityCount_);
       DARABONBA_PTR_FROM_JSON(DatasetMaxFileCount, datasetMaxFileCount_);
@@ -94,9 +97,19 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
-        && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr && this->description_ == nullptr
-        && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tag_ == nullptr && this->templateId_ == nullptr; };
+    virtual bool empty() const override { return this->datasetConfig_ == nullptr
+        && this->datasetMaxBindCount_ == nullptr && this->datasetMaxEntityCount_ == nullptr && this->datasetMaxFileCount_ == nullptr && this->datasetMaxRelationCount_ == nullptr && this->datasetMaxTotalFileSize_ == nullptr
+        && this->description_ == nullptr && this->projectMaxDatasetCount_ == nullptr && this->projectName_ == nullptr && this->serviceRole_ == nullptr && this->tag_ == nullptr
+        && this->templateId_ == nullptr; };
+    // datasetConfig Field Functions 
+    bool hasDatasetConfig() const { return this->datasetConfig_ != nullptr;};
+    void deleteDatasetConfig() { this->datasetConfig_ = nullptr;};
+    inline const DatasetConfig & getDatasetConfig() const { DARABONBA_PTR_GET_CONST(datasetConfig_, DatasetConfig) };
+    inline DatasetConfig getDatasetConfig() { DARABONBA_PTR_GET(datasetConfig_, DatasetConfig) };
+    inline UpdateProjectRequest& setDatasetConfig(const DatasetConfig & datasetConfig) { DARABONBA_PTR_SET_VALUE(datasetConfig_, datasetConfig) };
+    inline UpdateProjectRequest& setDatasetConfig(DatasetConfig && datasetConfig) { DARABONBA_PTR_SET_RVALUE(datasetConfig_, datasetConfig) };
+
+
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};
@@ -177,35 +190,34 @@ namespace Models
 
 
   protected:
+    shared_ptr<DatasetConfig> datasetConfig_ {};
     // The maximum number of bindings for each dataset. Valid values: 1 to 10.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
     // The maximum number of metadata entities in each dataset.
-    // 
-    // >  This is a precautionary setting that does not impose practical limitations.
+    // >This is a reserved parameter and is not enforced during use.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
     // The maximum number of files in each dataset. Valid values: 1 to 100000000.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships in a dataset.
-    // 
-    // >  This is a precautionary setting that does not impose practical limitations.
+    // The maximum number of metadata relationships in each dataset.
+    // >This is a reserved parameter and is not enforced during use.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum size of files in each dataset. If the maximum size is exceeded, indexes can no longer be added. Unit: bytes.
+    // The maximum total file size in each dataset. After the limit is exceeded, no more indexes can be added. Unit: bytes.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
-    // The description of the project. The description must be 1 to 256 characters in length.
+    // The project description. The description must be 1 to 256 characters in length.
     shared_ptr<string> description_ {};
     // The maximum number of datasets in the project. Valid values: 1 to 1000000000.
     shared_ptr<int64_t> projectMaxDatasetCount_ {};
-    // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+    // The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The name of the Resource Access Management (RAM) role. You must grant the RAM role to Intelligent Media Management (IMM) before IMM can access other cloud resources such as Object Storage Service (OSS).
+    // The service role that grants Intelligent Media Management (IMM) permissions to access other cloud resources such as Object Storage Service (OSS).
     // 
-    // You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+    // To customize a service role, create a regular service role in the Resource Access Management (RAM) console and grant permissions to the role. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
     shared_ptr<string> serviceRole_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<UpdateProjectRequest::Tag>> tag_ {};
-    // The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+    // The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
     shared_ptr<string> templateId_ {};
   };
 

@@ -183,38 +183,39 @@ namespace Models
 
 
   protected:
-    // The current number of OSS buckets that are bound to the dataset.
+    // Number of OSS buckets currently attached to the dataset.
     shared_ptr<int64_t> bindCount_ {};
-    // The timestamp when the dataset was created. The timestamp must be in the RFC3339Nano format.
+    // Timestamp of dataset creation in RFC3339Nano format.
     shared_ptr<string> createTime_ {};
+    // Dataset configuration.
     shared_ptr<DatasetConfig> datasetConfig_ {};
-    // The maximum number of bindings for the dataset.
+    // Maximum number of bindings per dataset.
     shared_ptr<int64_t> datasetMaxBindCount_ {};
-    // The maximum number of metadata entities for the dataset.
+    // Maximum number of metadata entities in the dataset.
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
-    // The maximum number of files for the dataset.
+    // Maximum number of files in the dataset.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships for the dataset.
+    // Maximum number of metadata relations in the dataset.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum total size of files in the dataset. Unit: bytes.
+    // Maximum total file size in the dataset, in bytes.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
-    // The name of the dataset.
+    // Dataset name.
     shared_ptr<string> datasetName_ {};
-    // The dataset description.
+    // Dataset description.
     shared_ptr<string> description_ {};
-    // The current number of files in the dataset.
+    // Current number of files in the dataset.
     shared_ptr<int64_t> fileCount_ {};
-    // The name of the project.
+    // Project name.
     shared_ptr<string> projectName_ {};
-    // The ID of the workflow template.
+    // Workflow template ID.
     shared_ptr<string> templateId_ {};
-    // The total size of files in the dataset. Unit: bytes.
+    // Total file size in the dataset, in bytes.
     shared_ptr<int64_t> totalFileSize_ {};
-    // The timestamp when the dataset was last modified. The timestamp must be in the RFC3339Nano format.
+    // Timestamp of the last dataset update in RFC3339Nano format.
     // 
-    // >  If a dataset has never been modified after it was created, the timestamp when the dataset was last modified is the same as the timestamp when the dataset was created.
+    // > If the dataset has never been updated since creation, the update timestamp equals the creation timestamp.
     shared_ptr<string> updateTime_ {};
-    // 自定义参数
+    // Custom parameters.
     shared_ptr<vector<WorkflowParameter>> workflowParameters_ {};
   };
 

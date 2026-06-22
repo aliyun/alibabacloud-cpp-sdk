@@ -850,224 +850,215 @@ namespace Models
 
 
   protected:
-    // The origin allowed in cross-origin requests.
+    // The allowed origins for cross-origin requests.
     shared_ptr<string> accessControlAllowOrigin_ {};
-    // The method to be used in the actual cross-origin request.
+    // The allowed methods for the cross-origin request.
     shared_ptr<string> accessControlRequestMethod_ {};
-    // The addresses.
+    // The address information.
     shared_ptr<vector<Address>> addresses_ {};
     // The album.
     shared_ptr<string> album_ {};
-    // The singer.
+    // The album artist.
     shared_ptr<string> albumArtist_ {};
     // The artist.
     shared_ptr<string> artist_ {};
-    // The audio covers.
+    // The cover images for the audio.
     shared_ptr<vector<Image>> audioCovers_ {};
-    // The list of audio streams.
+    // A list of audio streams.
     shared_ptr<vector<AudioStream>> audioStreams_ {};
-    // The bitrate. Unit: bit/s.
+    // The bitrate, in bit/s.
     shared_ptr<int64_t> bitrate_ {};
-    // The caching behavior of the web page when the object is downloaded.
+    // The web cache behavior that the browser should use when the object is downloaded.
     // 
-    // This parameter corresponds to the Cache-Control HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+    // This parameter is returned only if the Cache-Control HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
     shared_ptr<string> cacheControl_ {};
     // The composer.
     shared_ptr<string> composer_ {};
-    // The name of the object during the download.
+    // The name of the object when it is downloaded.
     // 
-    // This parameter corresponds to the Content-Disposition HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+    // This parameter is returned only if the Content-Disposition HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
     shared_ptr<string> contentDisposition_ {};
-    // The content encoding format of the object when the object is downloaded.
+    // The content encoding format of the object when it is downloaded.
     // 
-    // This parameter corresponds to the Content-Encoding HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+    // This parameter is returned only if the Content-Encoding HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
     shared_ptr<string> contentEncoding_ {};
     // The language of the object content.
     // 
-    // This parameter corresponds to the Content-Language HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+    // This parameter is returned only if the Content-Language HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
     shared_ptr<string> contentLanguage_ {};
-    // The MD5 value.
+    // The MD5 hash of the object content.
     shared_ptr<string> contentMd5_ {};
-    // The Multipurpose Internet Mail Extensions (MIME) type of the file.
+    // The content type of the file (MIME type).
     shared_ptr<string> contentType_ {};
-    // The RFC3339Nano timestamp when the metadata was created.
+    // The time when the metadata was created. The time is in the RFC3339Nano format.
     shared_ptr<string> createTime_ {};
     // The cropping suggestions for the image.
     // 
-    // > Not supported.
+    // > This feature is not supported.
     shared_ptr<vector<CroppingSuggestion>> croppingSuggestions_ {};
-    // The custom ID of the file. When the cluster is indexed into the dataset, the custom ID is stored as the data attribute. You can map the custom ID to other data in your business system. Configure this parameter based on your business requirements. For example, you can associate a URI with an ID in your system. We recommend that you set this parameter to a globally unique value.
+    // The custom ID of the file, which you can use to associate the file with an ID in your business system. When the file is indexed into a dataset, this ID is stored as a metadata attribute. We recommend using a globally unique value.
     shared_ptr<string> customId_ {};
-    // The custom labels of the file. This parameter is optional. The parameter stores custom key-value labels, which can be used to filter data.
+    // Custom key-value labels for the file. This parameter is optional and can be used to store business-specific data and to filter queries.
     Darabonba::Json customLabels_ {};
-    // The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+    // The dataset name. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
     shared_ptr<string> datasetName_ {};
-    // The total duration of the video. Unit: seconds.
+    // The total duration of the video, in seconds.
     shared_ptr<double> duration_ {};
-    // The ETag of the object. ETags are used to identify the content of objects.
+    // An ETag is generated when an object is created. The ETag identifies the content of an object.
     shared_ptr<string> ETag_ {};
-    // The original EXIF information about the image. The EXIF information is stored in the serialized JSON format. For more information, see [Query image information](https://help.aliyun.com/document_detail/44975.html).
+    // The original EXIF information of the image, stored as a serialized JSON object. For more information, see [Obtain image information](https://help.aliyun.com/document_detail/44975.html).
     shared_ptr<string> EXIF_ {};
-    // The document elements that match the current query content when you call the SemanticQuery operation for semantic search.
+    // A list of document fragments that match the current search content when you use the SemanticQuery API to perform a semantic search.
     shared_ptr<vector<Element>> elements_ {};
-    // The number of persons.
+    // The number of figures.
     shared_ptr<int64_t> figureCount_ {};
-    // The list of persons. The persons are detected via AI models.
+    // A list of figures detected by the AI model.
     shared_ptr<vector<Figure>> figures_ {};
-    // The RFC3339Nano timestamp when the file was accessed.
+    // The time when the file was last accessed. The time is in the RFC3339Nano format.
     shared_ptr<string> fileAccessTime_ {};
-    // The RFC3339Nano timestamp when the file was created.
+    // The time when the file was created. The time is in the RFC3339Nano format.
     shared_ptr<string> fileCreateTime_ {};
-    // The hash value of the file.
+    // The hash of the file.
     shared_ptr<string> fileHash_ {};
-    // The RFC3339Nano timestamp when the file was last modified.
+    // The time when the file was last modified. The time is in the RFC3339Nano format.
     shared_ptr<string> fileModifiedTime_ {};
-    // The name of the object. For an OSS object, the value of this parameter is the object name.
+    // The name of the file. For an OSS object, this parameter is the ObjectKey.
     shared_ptr<string> filename_ {};
     // The full name of the media format.
     shared_ptr<string> formatLongName_ {};
     // The name of the media format.
     shared_ptr<string> formatName_ {};
-    // The height of the image. Unit: pixels.
+    // The height of the image, in pixels (px).
     shared_ptr<int64_t> imageHeight_ {};
-    // The score of the image. The score is calculated by using AI models.
+    // The image score information, detected by an AI model.
     shared_ptr<ImageScore> imageScore_ {};
-    // The width of the image. Unit: pixels.
+    // The width of the image, in pixels (px).
     shared_ptr<int64_t> imageWidth_ {};
     // Summary and description of the file.
     // 
-    // > Not supported.
+    // > Currently not supported
     shared_ptr<Insights> insights_ {};
-    // The labels of the file. The labels are detected via AI models.
+    // A list of AI-detected labels for the file.
     shared_ptr<vector<Label>> labels_ {};
-    // The language specified by using a BCP 47 language tag.
+    // The language in BCP 47 format.
     shared_ptr<string> language_ {};
-    // The latitude and longitude.
+    // The GPS latitude and longitude.
     shared_ptr<string> latLong_ {};
     // The media type of the file.
-    // 
-    // Valid values:
-    // 
-    // *   image
-    // *   other
-    // *   document
-    // *   archive
-    // *   audio
-    // *   video
     shared_ptr<string> mediaType_ {};
-    // The Optical Character Recognition (OCR) results.
+    // The OCR results.
     // 
-    // > Not supported.
+    // > This feature is not supported.
     shared_ptr<vector<OCRContents>> OCRContents_ {};
     // The text detected in the image.
     shared_ptr<string> OCRTexts_ {};
-    // The CRC64 value.
+    // The CRC-64 value of the object.
     shared_ptr<string> OSSCRC64_ {};
-    // The delete marker of the object.
+    // The OSS delete marker.
     shared_ptr<string> OSSDeleteMarker_ {};
     // The expiration time of the OSS object.
     // 
-    // This parameter corresponds to the Expires HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+    // This parameter is returned only if the Expires HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
     shared_ptr<string> OSSExpiration_ {};
-    // The type of the OSS object. Set the value to `Normal`.
+    // The type of the OSS object. A common value is `Normal`.
     shared_ptr<string> OSSObjectType_ {};
-    // The storage class of the OSS bucket.
+    // The storage class of the OSS object.
     shared_ptr<string> OSSStorageClass_ {};
-    // The tag of the object.
+    // The tags of the OSS object.
     // 
-    // For more information, see [Add tags to an object](https://help.aliyun.com/document_detail/106678.html).
+    // For more information, see [Object tagging](https://help.aliyun.com/document_detail/106678.html).
     Darabonba::Json OSSTagging_ {};
-    // The number of OSS object tags.
+    // The number of tags on the OSS object.
     // 
-    // This parameter is available only if tags are added to the corresponding OSS object. For more information, see [Add tags to an object](https://help.aliyun.com/document_detail/106678.html).
+    // This parameter is returned only if tags are set for the OSS object. For more information, see [Object tagging](https://help.aliyun.com/document_detail/106678.html).
     shared_ptr<int64_t> OSSTaggingCount_ {};
-    // The URI of the OSS object. This parameter is available only if the value of the URI parameter is the URI of a file in Photo and Drive Service.
+    // The URI of the OSS file. This parameter is returned only if the URI is a PDS address.
     shared_ptr<string> OSSURI_ {};
-    // The user metadata of the OSS object.
+    // The user-defined metadata of the OSS object.
     // 
-    // This parameter is available only if user metadata is configured for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+    // This parameter is returned only if user-defined metadata is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
     Darabonba::Json OSSUserMeta_ {};
-    // The version of the object.
+    // The version ID of the OSS object.
     // 
-    // This parameter is available only if versioning is enabled for the bucket. For more information, see [Overview](https://help.aliyun.com/document_detail/109695.html).
+    // This parameter is returned only if versioning is enabled for the bucket. For more information, see [Overview of versioning](https://help.aliyun.com/document_detail/109695.html).
     shared_ptr<string> OSSVersionId_ {};
     // The access control list (ACL) of the OSS object.
     shared_ptr<string> objectACL_ {};
     // The unique ID of the object.
     shared_ptr<string> objectId_ {};
-    // The status of the object.
+    // File index status.
     shared_ptr<string> objectStatus_ {};
-    // The type of the object. Set the value to **file**.
+    // The type of the object. The value is always **file**.
     shared_ptr<string> objectType_ {};
-    // The image rotation angle. You can obtain the value from the exchangeable image file format (EXIF).
+    // The rotation value of the image, read from its EXIF data.
     // 
-    // If the EXIF metadata does not contain the image rotation angle, this parameter is not included in the response.
+    // This parameter is returned only if this value is available in the EXIF data.
     shared_ptr<int64_t> orientation_ {};
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> ownerId_ {};
     // The number of pages.
     // 
-    // > Not supported.
+    // > This feature is not supported.
     shared_ptr<int64_t> pageCount_ {};
     // The performer.
     shared_ptr<string> performer_ {};
-    // The time when the image was taken.
+    // The time when the photo was taken.
     shared_ptr<string> produceTime_ {};
     // The number of programs in the media container.
     shared_ptr<int64_t> programCount_ {};
-    // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+    // The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     shared_ptr<string> projectName_ {};
-    // The reason why the file failed to run the index.
+    // The reason the file failed to be indexed.
     shared_ptr<string> reason_ {};
-    // The elements in the video segment, which are scene elements that you can extract from the video by using an AI model.
+    // A list of scene elements extracted from the video by the AI model during analysis.
     shared_ptr<vector<SceneElement>> sceneElements_ {};
-    // The reasons for which the current file is included in the search results when you call the SemanticQuery operation for semantic search.
+    // Indicates why this file was returned when you use the SemanticQuery API to perform a semantic search.
     shared_ptr<vector<string>> semanticTypes_ {};
-    // The encryption method of the object.
+    // The encryption algorithm of the object.
     // 
-    // This parameter is available only if server encryption is configured for the OSS bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+    // This parameter is returned only if server-side encryption is enabled for the bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
     shared_ptr<string> serverSideDataEncryption_ {};
-    // The encryption method on the server side.
+    // The server-side encryption method.
     // 
-    // This parameter is available only if server encryption is configured for the OSS bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+    // This parameter is returned only if server-side encryption is enabled for the bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
     shared_ptr<string> serverSideEncryption_ {};
-    // The algorithm that is used to encrypt the file on the server side.
+    // The encryption algorithm used for server-side encryption with customer-provided keys.
     shared_ptr<string> serverSideEncryptionCustomerAlgorithm_ {};
-    // The ID of the customer master key (CMK) managed by Key Management Service (KMS).
+    // The ID of the customer master key (CMK) that is managed by KMS.
     // 
-    // This parameter is available only if server encryption is configured for the OSS bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+    // This parameter is returned only if server-side encryption is enabled for the bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
     shared_ptr<string> serverSideEncryptionKeyId_ {};
-    // The size of the object. Unit: bytes.
+    // The size of the file, in bytes.
     shared_ptr<int64_t> size_ {};
-    // The time of the first frame. Unit: seconds.
+    // The start time of the first frame, in seconds.
     shared_ptr<double> startTime_ {};
     // The number of media streams in the media container.
     shared_ptr<int64_t> streamCount_ {};
-    // The list of subtitle streams.
+    // A list of subtitle streams.
     shared_ptr<vector<SubtitleStream>> subtitles_ {};
-    // The time zone.
+    // The timezone.
     // 
-    // >  Not supported.
+    // > This feature is not supported.
     shared_ptr<string> timezone_ {};
     // The title of the file.
     shared_ptr<string> title_ {};
     // A reserved parameter.
     // 
-    // > Not supported.
+    // > This feature is not supported.
     shared_ptr<string> travelClusterId_ {};
-    // The URI of the file.
+    // The address of the file.
     // 
-    // The URI of an OSS object follows the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+    // An OSS URI must be in the `oss://${Bucket}/${Object}` format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the full path to the object, including the file extension.
     // 
-    // The URI of a file in Photo and Drive Service follows the pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision} format.
+    // A PDS URI must be in the `pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision}` format.
     shared_ptr<string> URI_ {};
-    // The RFC3339Nano timestamp when the metadata was modified.
+    // The time when the metadata was last updated. The time is in the RFC3339Nano format.
     shared_ptr<string> updateTime_ {};
-    // The height of the video. Unit: pixels.
+    // The height of the video, in pixels (px).
     shared_ptr<int64_t> videoHeight_ {};
-    // The list of video streams.
+    // A list of video streams.
     shared_ptr<vector<VideoStream>> videoStreams_ {};
-    // The width of the video. Unit: pixels.
+    // The width of the video, in pixels (px).
     shared_ptr<int64_t> videoWidth_ {};
   };
 
