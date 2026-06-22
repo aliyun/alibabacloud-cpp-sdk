@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID of the returned result.
     shared_ptr<string> requestId_ {};
-    // The ID of the routing policy for the VPC firewall.
+    // The firewall routing policy ID.
     shared_ptr<string> trFirewallRoutePolicyId_ {};
   };
 

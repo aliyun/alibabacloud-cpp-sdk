@@ -84,25 +84,18 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a timestamp in seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<string> endTime_ {};
-    // The type of the firewall. Valid values:
-    // 
-    // - **internet** (default): internet firewall
-    // 
-    // - **vpc**: VPC firewall
-    // 
-    // - **nat**: NAT firewall
+    // The type of the firewall border. Valid values:
+    // - **internet** (default): Internet Border firewall, which detects and controls traffic between your assets and the Internet.
+    // - **vpc**: virtual private cloud (VPC) firewalls, which detect and control traffic between VPCs.
+    // - **nat**: NAT firewalls, which detect and control traffic from internal-facing assets to the Internet.
     shared_ptr<string> firewallType_ {};
-    // The time granularity for aggregating trend data, in seconds. Valid values:
-    // 
-    // - **60**: 1 minute
-    // 
-    // - **1800**: 30 minutes
-    // 
-    // - **3600**: 1 hour
-    // 
-    // - **86400** (default): 1 day
+    // The time aggregation granularity for trend data. Unit: seconds. Valid values:
+    // - **60**: 1-minute granularity (uses the minute-level detail table).
+    // - **1800**: 30-minute granularity.
+    // - **3600**: 1-hour granularity.
+    // - **86400** (default): 1-day granularity.
     shared_ptr<int64_t> interval_ {};
     // The language of the request and response. Valid values:
     // 
@@ -112,7 +105,7 @@ namespace Models
     shared_ptr<string> lang_ {};
     // This parameter is deprecated.
     shared_ptr<string> sourceIp_ {};
-    // The beginning of the time range to query. The value is a timestamp in seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
   };
 

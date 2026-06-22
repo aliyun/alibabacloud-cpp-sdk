@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The unique ID of the access control policy for the Internet firewall.
+    // The unique identity ID of the access control policy for the Internet Border firewall.
     shared_ptr<string> aclUuid_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

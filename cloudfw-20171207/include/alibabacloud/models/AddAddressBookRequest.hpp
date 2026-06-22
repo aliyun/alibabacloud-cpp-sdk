@@ -235,29 +235,27 @@ namespace Models
 
 
   protected:
-    // The ID of the ACK cluster connector. You can obtain this value from the following operation:
-    // 
-    // - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries a list of ACK cluster connectors.
+    // The ACK cluster connector ID. You can obtain the value from:
+    // - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): queries a list of ACK cluster connectors.
     shared_ptr<string> ackClusterConnectorId_ {};
     // The list of ACK cluster pod labels.
     // 
-    // > You can specify a maximum of 10 labels.
+    // > A maximum of 10 labels are supported.
     shared_ptr<vector<AddAddressBookRequest::AckLabels>> ackLabels_ {};
     // The list of ACK cluster pod namespaces.
-    // 
-    // > You can specify a maximum of 10 namespaces.
+    // > A maximum of 10 namespaces are supported.
     shared_ptr<vector<string>> ackNamespaces_ {};
-    // The list of addresses in the address book. Separate multiple addresses with commas (,). For each address, separate the address and its description with a space.
+    // The address list of the address book. Multiple addresses are separated by commas, and within each address element, the address and its description are separated by a space.
     // 
     // > This parameter is required when GroupType is set to `ip`, `port`, or `domain`.
     // 
-    // - If you set GroupType to `ip`, enter IP addresses in the list. Example: 192.0.XX.XX/32 development segment,10.0.0.X/24,192.0.XX.XX/24 test segment.
+    // - When GroupType is set to `ip`, enter IP addresses in the address list. Example: 192.0.XX.XX/32 development network segment, 10.0.0.X/24,192.0.XX.XX/24 test network segment.
     // 
-    // - If you set GroupType to `port`, enter ports or port ranges in the list. Example: 80 HTTP port,100/200,3306 database port.
+    // - When GroupType is set to `port`, enter ports or port ranges in the address list. Example: 80 HTTP port, 100/200,3306 database port.
     // 
-    // - If you set GroupType to `domain`, enter domain names in the list. Example: example.com test domain name,aliyundoc.com,www\\.aliyun.com Alibaba Cloud official website.
+    // - When GroupType is set to `domain`, enter domain names in the address list. Example: example.com test domain, aliyundoc.com,www.aliyun.com Alibaba Cloud official website.
     shared_ptr<string> addressList_ {};
-    // Specifies whether to automatically add the public IP addresses of ECS instances that match the specified tags to the address book.
+    // Specifies whether to automatically add the public IP addresses of ECS instances that match new tags to the address book.
     shared_ptr<string> autoAddTagEcs_ {};
     // The description of the address book.
     // 
@@ -271,13 +269,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
-    // The language of the address book description.
+    // The language type of the address book description.
     shared_ptr<string> lang_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
     // The list of ECS tags.
     shared_ptr<vector<AddAddressBookRequest::TagList>> tagList_ {};
-    // The logical relationship between multiple ECS tags.
+    // The logical relationship among multiple ECS tags to be matched.
     shared_ptr<string> tagRelation_ {};
   };
 

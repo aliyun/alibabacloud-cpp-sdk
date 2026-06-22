@@ -406,11 +406,11 @@ namespace Models
 
 
   protected:
-    // The ID of the pre-matched ACL rule.
+    // The ACL pre-match rule ID.
     shared_ptr<string> aclPreRuleId_ {};
-    // The pre-matching status of the ACL.
+    // The ACL pre-match status.
     shared_ptr<string> aclPreState_ {};
-    // The status of deep packet inspection.
+    // The application identification status.
     shared_ptr<string> appDpiState_ {};
     // The application ID.
     shared_ptr<string> appId_ {};
@@ -420,11 +420,11 @@ namespace Models
     shared_ptr<string> attackType_ {};
     // The page number of the query.
     shared_ptr<string> currentPage_ {};
-    // The direction.
+    // The traffic direction.
     shared_ptr<string> direction_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The URL in the flow log.
+    // The URL of the flow log.
     shared_ptr<string> domainUrl_ {};
     // The destination IP address.
     shared_ptr<string> dstIP_ {};
@@ -434,7 +434,7 @@ namespace Models
     shared_ptr<string> dstVpcId_ {};
     // The region of the destination VPC asset.
     shared_ptr<string> dstVpcRegionNo_ {};
-    // The end time. This value is a UNIX timestamp. Unit: seconds.
+    // The end time. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -446,37 +446,35 @@ namespace Models
     shared_ptr<string> ipProtocol_ {};
     // The IP version.
     shared_ptr<string> ipVersion_ {};
-    // The Internet Service Provider (ISP).
+    // The Internet service provider (ISP).
     shared_ptr<string> isp_ {};
-    // The language of the response. Valid values:
-    // 
+    // The language type of the received message. Valid values:
     // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The region of the source or destination IP address.
     shared_ptr<string> location_ {};
-    // The UID of the member account.
+    // The UID of the member accounts.
     shared_ptr<int64_t> memberUid_ {};
-    // The ID of the NAT firewall.
+    // The NAT firewall ID.
     shared_ptr<string> natFirewallId_ {};
-    // The ID of the NAT Gateway.
+    // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
-    // The page number to query. The maximum value is 20.
+    // The number of entries per page. Maximum value: 20.
     shared_ptr<string> pageSize_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The action of the rule.
+    // The rule action result. Valid values:
     shared_ptr<string> ruleResult_ {};
-    // The source of the rule.
+    // The rule source.
     shared_ptr<string> ruleSource_ {};
-    // The module that takes effect in the end.
+    // The final effective module.
     shared_ptr<string> ruleSourceFinal_ {};
-    // The traceability code.
+    // The tracing watermark.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
     // The source IP address.
     shared_ptr<string> srcIP_ {};
@@ -488,13 +486,13 @@ namespace Models
     shared_ptr<string> srcVpcId_ {};
     // The region of the source VPC asset.
     shared_ptr<string> srcVpcRegionNo_ {};
-    // The start time. This value is a UNIX timestamp. Unit: seconds. You can query data within the last 7 days. The time range for a single query cannot exceed one day.
+    // The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. We recommend that a single query does not exceed one day.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The ID of the TLS inspection scope.
+    // The TLS inspection scope ID.
     shared_ptr<string> tlsScopeId_ {};
-    // The instance ID of the VPC border firewall.
+    // The instance ID of the virtual private cloud (VPC) firewall.
     shared_ptr<string> vpcFirewallId_ {};
     // The vulnerability level.
     shared_ptr<string> vulLevel_ {};

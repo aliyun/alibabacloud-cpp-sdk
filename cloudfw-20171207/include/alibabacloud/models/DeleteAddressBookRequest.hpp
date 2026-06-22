@@ -59,11 +59,14 @@ namespace Models
   protected:
     // The unique ID of the address book.
     // 
-    // > To obtain this ID, call the [DescribeAddressBook](~~DescribeAddressBook~~) operation.
+    // > You can call the [DescribeAddressBook](~~DescribeAddressBook~~) operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupUuid_ {};
-    // The language of the content within the request and response.
+    // The language type. Valid values:
+    // 
+    // - **en**: English
+    // - **zh**: Chinese (default).
     shared_ptr<string> lang_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};

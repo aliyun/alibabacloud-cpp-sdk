@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The ID of the member account.
+      // The ID of the member accounts.
       shared_ptr<string> accountId_ {};
-      // The display name of the member.
+      // The name of the member account.
       shared_ptr<string> displayName_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The information about the accounts.
+    // The account information.
     shared_ptr<vector<DescribeInstanceRdAccountsResponseBody::Accounts>> accounts_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

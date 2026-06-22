@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // The total number of sessions that trigger the alert action in access control policies at the specified point in time.
+      // The total number of sessions that matched an ACL policy and triggered the monitor (alert) action at this point in time.
       shared_ptr<int32_t> alertCnt_ {};
-      // The total number of sessions that are allowed by access control policies at the specified point in time.
+      // The total number of sessions that matched an ACL policy and were allowed at this point in time.
       shared_ptr<int32_t> passCnt_ {};
-      // The number of sessions blocked by access control policies for internet traffic on the current day.
+      // The number of Internet access control interceptions on the day.
       shared_ptr<int32_t> protectCnt_ {};
-      // The timestamp that indicates the start of the query time range. Unit: seconds.
+      // The timestamp of 00:00 on each day. Unit: seconds. Indicates the date.
       shared_ptr<int64_t> time_ {};
     };
 
@@ -181,23 +181,23 @@ namespace Models
 
 
   protected:
-    // The number of inbound sessions blocked by access control policies for internet traffic.
+    // The number of inbound interceptions by Internet access control.
     shared_ptr<int64_t> inProtectCnt_ {};
     // This parameter is deprecated.
     shared_ptr<int64_t> interVPCProtectCnt_ {};
-    // The interval between data points. Unit: seconds.
+    // The interval at which data is returned. Unit: seconds. A result is returned at each interval.
     shared_ptr<int32_t> interval_ {};
-    // The number of outbound sessions blocked by access control policies for internet traffic.
+    // The number of outbound interceptions by Internet access control.
     shared_ptr<int64_t> outProtectCnt_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of sessions that trigger the alert action in access control policies in the query time range.
+    // The cumulative total of AlertCnt across all time points within the query time range. This value indicates the total number of sessions that matched an ACL policy and triggered the monitor (alert) action during the entire time period.
     shared_ptr<int64_t> totalAlertCnt_ {};
-    // The total number of sessions that are allowed by access control policies in the query time range.
+    // The cumulative total of PassCnt across all time points within the query time range. This value indicates the total number of sessions that matched an ACL policy and were allowed during the entire time period.
     shared_ptr<int64_t> totalPassCnt_ {};
-    // The total number of sessions blocked by access control policies for internet traffic.
+    // The total number of Internet access control interceptions.
     shared_ptr<int64_t> totalProtectCnt_ {};
-    // The trend of sessions blocked by access control policies for internet traffic.
+    // The list of Internet access control intercept trend data.
     shared_ptr<vector<DescribeACLProtectTrendResponseBody::TrendList>> trendList_ {};
   };
 

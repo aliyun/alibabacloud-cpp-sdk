@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page.
     shared_ptr<string> currentPage_ {};
-    // The language of the request and response.
+    // The language type for the request and response messages.
     shared_ptr<string> lang_ {};
-    // The description of the member account.
+    // The remarks of the Cloud Firewall member accounts.
     shared_ptr<string> memberDesc_ {};
-    // The display name of the member account.
+    // The name of the Cloud Firewall member accounts.
     shared_ptr<string> memberDisplayName_ {};
-    // The UID of the member account.
+    // The UID of the member accounts.
     shared_ptr<string> memberUid_ {};
-    // The number of the page to return.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The source IP address of the request.
+    // The IP address of the requester.
     shared_ptr<string> sourceIp_ {};
   };
 

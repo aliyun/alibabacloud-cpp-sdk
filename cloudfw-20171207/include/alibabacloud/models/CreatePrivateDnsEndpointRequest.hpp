@@ -165,36 +165,29 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accessInstanceName_ {};
-    // The type of the Cloud Firewall. Valid values:
-    // 
+    // The type of cloud firewall. Valid values:
     // - **internet**
-    // 
     // - **vpc**
-    // 
     // - **nat**
     // 
     // This parameter is required.
     shared_ptr<vector<string>> firewallType_ {};
     // The IP protocol. Valid values:
-    // 
     // - **TCP**
-    // 
     // - **UDP**
     shared_ptr<string> ipProtocol_ {};
-    // The UID of the member account.
+    // The UID of the Alibaba Cloud member account.
     shared_ptr<int64_t> memberUid_ {};
     // The port number.
     shared_ptr<int32_t> port_ {};
-    // The primary DNS server.
+    // The primary DNS.
     shared_ptr<string> primaryDns_ {};
     // The ID of the primary vSwitch.
     shared_ptr<string> primaryVSwitchId_ {};
     // The IP address of the primary vSwitch.
     shared_ptr<string> primaryVSwitchIp_ {};
-    // The type of the private DNS. Valid values:
-    // 
+    // The type of private DNS. Valid values:
     // - **PrivateZone**
-    // 
     // - **Custom** (default)
     // 
     // This parameter is required.
@@ -203,13 +196,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The standby DNS server.
+    // The standby DNS.
     shared_ptr<string> standbyDns_ {};
     // The ID of the standby vSwitch.
     shared_ptr<string> standbyVSwitchId_ {};
     // The IP address of the standby vSwitch.
     shared_ptr<string> standbyVSwitchIp_ {};
-    // The ID of the VPC instance.
+    // The VPC instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

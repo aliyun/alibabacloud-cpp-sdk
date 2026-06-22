@@ -54,7 +54,7 @@ namespace Models
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the file download task.
+    // The task ID of the file download task.
     shared_ptr<string> taskId_ {};
   };
 

@@ -186,13 +186,13 @@ namespace Models
     protected:
       // The IPv4 CIDR block of the VPC.
       shared_ptr<string> cidrBlock_ {};
-      // The details of the exception.
+      // The error details.
       shared_ptr<string> detail_ {};
-      // The UID of the Cloud Firewall member account.
+      // The UID of the Cloud Firewall member accounts.
       shared_ptr<string> memberUid_ {};
-      // The ID of the NAT Gateway.
+      // The ID of the NAT gateway.
       shared_ptr<string> natGatewayId_ {};
-      // The name of the NAT Gateway.
+      // The name of the NAT gateway.
       shared_ptr<string> natGatewayName_ {};
       // The ID of the NAT firewall.
       shared_ptr<string> proxyId_ {};
@@ -202,29 +202,24 @@ namespace Models
       shared_ptr<string> regionNo_ {};
       // The list of SNAT IP addresses.
       shared_ptr<vector<string>> snatIpList_ {};
-      // The status of the Cloud Firewall. Valid values:
-      // 
-      // - **configuring**: The firewall is being created.
-      // 
-      // - **deleting**: The firewall is being deleted.
-      // 
-      // - **normal**: The firewall is running.
-      // 
-      // - **abnormal**: The firewall is not running as expected.
-      // 
-      // - **opening**: The firewall is being enabled.
-      // 
-      // - **closing**: The firewall is being disabled.
-      // 
-      // - **closed**: The firewall is disabled.
+      // The status of Cloud Firewall. Valid values:
+      // - **configuring**: Being created.
+      // - **deleting**: Being deleted.
+      // - **normal**: Normal.
+      // - **abnormal**: Abnormal.
+      // - **opening**: Being enabled.
+      // - **closing**: Being disabled.
+      // - **closed**: Disabled.
       shared_ptr<string> status_ {};
-      // Indicates whether the strict mode is enabled. 1: The strict mode is enabled. 0: The strict mode is disabled.
+      // Indicates whether strict mode is enabled. Valid values:
+      // - 1: Strict mode is enabled.
+      // - 0: Strict mode is disabled.
       shared_ptr<int32_t> strictMode_ {};
-      // The ID of the vSwitch to which the Cloud Firewall instance belongs.
+      // The ID of the vSwitch to which the Cloud Firewall interface belongs.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC instance.
+      // The VPC-connected instance ID.
       shared_ptr<string> vpcId_ {};
-      // The instance name of the VPC.
+      // The name of the VPC instance.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -256,7 +251,7 @@ namespace Models
   protected:
     // The list of NAT firewalls.
     shared_ptr<vector<DescribeSecurityProxyResponseBody::ProxyList>> proxyList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

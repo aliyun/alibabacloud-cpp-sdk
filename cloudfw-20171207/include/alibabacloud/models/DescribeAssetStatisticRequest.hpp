@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Language for the request and response messages. Valid values:- **zh**: Chinese- **en**: English
+    // The language of the request and response. Valid values:- **zh**: Chinese- **en**: English.
     shared_ptr<string> lang_ {};
-    // Source IP address of the requester.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

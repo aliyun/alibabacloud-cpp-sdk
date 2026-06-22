@@ -145,31 +145,30 @@ namespace Models
 
 
     protected:
-      // The inbound network throughput, in bytes.
+      // The inbound network throughput (total bytes). Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
       // The ID of the asset instance.
       shared_ptr<string> instanceId_ {};
-      // The asset type. This value is valid only for the Internet border.
+      // The asset type. This value takes effect only for Internet border traffic.
       shared_ptr<string> instanceType_ {};
-      // The outbound network throughput, in bytes.
+      // The outbound network throughput (total bytes). Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The protection duration, in hours.
+      // The protection duration. Unit: hours.
       shared_ptr<int64_t> protectionDuration_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionNo_ {};
-      // The ID of the resource. For Internet border traffic, this is the public IP address of the asset. For NAT border traffic, this is the instance ID of the firewall.
+      // The resource ID. For Internet border traffic, this is the public IP address of the asset. For NAT border traffic, this is the firewall instance ID of the asset.
       shared_ptr<string> resourceId_ {};
-      // The total network throughput for both inbound and outbound traffic, in bytes.
+      // The total network throughput in both inbound and outbound directions (total bytes sent and received). Unit: bytes.
       shared_ptr<int64_t> totalBytes_ {};
       // The date of the traffic statistics.
       shared_ptr<string> trafficDay_ {};
-      // The type of the firewall border for which traffic is queried. Valid values:
-      // 
-      // - **EIP_TRAFFIC**: traffic on the Internet border.
-      // 
-      // - **NatGateway_TRAFFIC**: traffic on the NAT border.
-      // 
-      // - **VPC_TRAFFIC**: traffic on the VPC border.
+      // The type of traffic boundary for statistics. Valid values:
+      //           
+      // - **EIP_TRAFFIC**: Internet border traffic.
+      //   
+      // - **NatGateway_TRAFFIC**: NAT border traffic.
+      // - **VPC_TRAFFIC**: VPC border traffic.
       shared_ptr<string> trafficType_ {};
     };
 
@@ -199,11 +198,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of traffic statistics entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of traffic statistics.
+    // The traffic statistics list.
     shared_ptr<vector<DescribePostpayTrafficDetailResponseBody::TrafficList>> trafficList_ {};
   };
 

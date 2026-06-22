@@ -75,17 +75,22 @@ namespace Models
 
 
   protected:
-    // The language.
+    // The language type. Valid values:
+    // - **en**: English.
+    // - **zh**: Chinese.
     shared_ptr<string> lang_ {};
-    // The page name.
+    // The page name. Valid values:
+    // - **overview**: overview page
+    // - **access**: access control page
+    // - **switch**: firewall page.
     // 
     // This parameter is required.
     shared_ptr<string> pageName_ {};
-    // The tracing code for the source.
+    // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
     // The name of the protected object in the access control policy.
     // 

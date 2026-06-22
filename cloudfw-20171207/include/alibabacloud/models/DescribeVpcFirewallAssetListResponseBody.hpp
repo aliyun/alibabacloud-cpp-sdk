@@ -174,7 +174,7 @@ namespace Models
       shared_ptr<string> assetInstanceName_ {};
       // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // The number of intrusion prevention system (IPS) hits.
+      // The number of IPS hits.
       shared_ptr<int64_t> ipsHitCnt_ {};
       // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
@@ -182,9 +182,9 @@ namespace Models
       shared_ptr<vector<string>> portList_ {};
       // The region.
       shared_ptr<string> regionNo_ {};
-      // The threat level.
+      // The risk level.
       shared_ptr<int32_t> riskLevel_ {};
-      // The reason for the threat.
+      // The risk reason.
       shared_ptr<string> riskReason_ {};
       // The total number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
@@ -218,11 +218,11 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The data list.
     shared_ptr<vector<DescribeVpcFirewallAssetListResponseBody::DataList>> dataList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

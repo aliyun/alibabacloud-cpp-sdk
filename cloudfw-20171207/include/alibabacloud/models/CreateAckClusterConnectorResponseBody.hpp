@@ -225,11 +225,10 @@ namespace Models
 
 
     protected:
-      // The IP address used by the ACK cluster connector to access the ACK cluster over the internal network.
+      // The entry point IP address used by the ACK cluster connector to access the ACK cluster over the internal network.
       shared_ptr<string> ackClientHostIp_ {};
-      // The ID of the ACK cluster.
-      // 
-      // - Call the [DescribeAckClusters](~~DescribeAckClusters~~) operation to query the list of ACK clusters.
+      // The ACK cluster ID. You can call the following operation to obtain the value:
+      // - [DescribeAckClusters](~~DescribeAckClusters~~): Lists ACK clusters.
       shared_ptr<string> clusterId_ {};
       // The name of the ACK cluster.
       shared_ptr<string> clusterName_ {};
@@ -237,45 +236,40 @@ namespace Models
       shared_ptr<string> connectorHealthCheckStatus_ {};
       // The unique ID of the ACK cluster connector.
       shared_ptr<string> connectorId_ {};
-      // The name of the ACK cluster connector. The name is 1 to 64 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
+      // The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), and hyphens (-).
       shared_ptr<string> connectorName_ {};
       // The instance status of the ACK cluster connector.
       shared_ptr<string> connectorStatus_ {};
-      // The timestamp when the ACK cluster connector was created. This value is a UNIX timestamp. Unit: seconds.
+      // The timestamp when the ACK cluster connector was created. Unit: seconds.
       shared_ptr<string> createTime_ {};
-      // The Alibaba Cloud UID of the account to which the ACK cluster belongs.
+      // The Alibaba Cloud UID of the account to which the ACK cluster resource belongs.
       shared_ptr<string> memberUid_ {};
-      // The ID of the primary vSwitch for the ACK cluster connector.
-      // 
-      // - Call the [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~) operation to query the list of vSwitches for synchronization nodes.
+      // The primary vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
+      // - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
       shared_ptr<string> primaryVswitchId_ {};
-      // The IP address of the primary vSwitch for the ACK cluster connector.
+      // The IP address of the primary vSwitch of the ACK cluster connector.
       shared_ptr<string> primaryVswitchIp_ {};
-      // The zone ID of the primary vSwitch for the ACK cluster connector.
-      // 
-      // - Call the [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~) operation to query the list of zones for synchronization nodes.
+      // The zone of the primary vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
+      // - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists the zones of vSwitches for synchronization nodes.
       shared_ptr<string> primaryVswitchZoneId_ {};
-      // The region ID of the ACK cluster connector.
+      // The region ID of the ACK cluster connector. You can call the following operation to obtain the value:
+      // - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Lists the regions of synchronization nodes.
       // 
-      // - Call the [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~) operation to query the list of regions for synchronization nodes.
-      // 
-      // > For more information about the regions that Cloud Firewall supports for ACK cluster connectors, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
+      // > For more information about the regions supported by ACK cluster connectors in Cloud Firewall, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
       shared_ptr<string> regionNo_ {};
-      // The ID of the standby vSwitch for the ACK cluster connector.
-      // 
-      // - Call the [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~) operation to query the list of vSwitches for synchronization nodes.
+      // The standby vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
+      // - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
       shared_ptr<string> standbyVswitchId_ {};
-      // The IP address of the standby vSwitch for the ACK cluster connector.
+      // The IP address of the standby vSwitch of the ACK cluster connector.
       shared_ptr<string> standbyVswitchIp_ {};
-      // The zone ID of the standby vSwitch for the ACK cluster connector.
-      // 
-      // - Call the [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~) operation to query the list of zones for synchronization nodes.
+      // The zone of the standby vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
+      // - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists the zones of vSwitches for synchronization nodes.
       shared_ptr<string> standbyVswitchZoneId_ {};
-      // The unique ID of the task to create the ACK cluster connector.
+      // The unique ID of the task for creating the ACK cluster connector.
       shared_ptr<string> taskId_ {};
-      // The synchronization interval for the ACK cluster connector. Valid values: 2 to 60. Unit: seconds.
+      // The synchronization interval of the ACK cluster connector. Valid values: 2 to 60. Unit: seconds.
       shared_ptr<int32_t> ttl_ {};
-      // The ID of the VPC to which the ACK cluster belongs.
+      // The instance ID of the VPC-connected instance to which the ACK cluster belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -298,7 +292,7 @@ namespace Models
 
 
   protected:
-    // The details of the ACK cluster connector.
+    // The ACK cluster connector information.
     shared_ptr<CreateAckClusterConnectorResponseBody::AckClusterConnector> ackClusterConnector_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

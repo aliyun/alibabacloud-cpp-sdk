@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The automatic traffic redirection settings for asset types in the region.
+    // The traffic redirection switch for asset types in the region.
     shared_ptr<map<string, Darabonba::Json>> regionResourceAutoEnable_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

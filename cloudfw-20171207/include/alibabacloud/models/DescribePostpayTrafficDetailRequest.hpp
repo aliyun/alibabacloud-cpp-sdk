@@ -112,42 +112,39 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return.
+    // The page number in a paged query.
     // Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
-    // Set the end time for the query. Use the YYYYMMDD date format.
+    // The end time of the query. Specify the value in the YYYYMMDD format.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The field to use for sorting. Valid values:
+    // The field by which to sort the results. Valid values:
     // 
     // - **resourceId**: resource ID.
-    // 
     // - **trafficDay**: date.
     shared_ptr<string> order_ {};
-    // The number of entries to return on each page. Default value: 10. Maximum value: 50.
+    // The number of entries per page in a paged query. Default value: 10. Maximum value: 50.
     shared_ptr<int64_t> pageSize_ {};
     // The region information.
     shared_ptr<string> regionNo_ {};
     // The IP address or instance ID of the asset.
     shared_ptr<string> searchItem_ {};
-    // Set the start time for the query. Use the YYYYMMDD date format.
+    // The start time of the query. Specify the value in the YYYYMMDD format.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The type of the firewall border for which to query traffic. This parameter is required. Valid values:
-    // 
-    // - **EIP_TRAFFIC**: traffic on the Internet border.
-    // 
-    // - **NatGateway_TRAFFIC**: traffic on the NAT border.
-    // 
-    // - **VPC_TRAFFIC**: traffic on the VPC border.
+    // The type of traffic boundary for statistics. This parameter is required. Valid values:
+    //           
+    // - **EIP_TRAFFIC**: Internet border traffic.
+    //   
+    // - **NatGateway_TRAFFIC**: NAT border traffic.
+    // - **VPC_TRAFFIC**: VPC border traffic.
     // 
     // This parameter is required.
     shared_ptr<string> trafficType_ {};

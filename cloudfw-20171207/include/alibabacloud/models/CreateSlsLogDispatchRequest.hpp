@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The region ID of the Simple Log Service project.
+    // The SLS region ID.
     shared_ptr<string> slsRegionId_ {};
-    // The log retention period. Unit: days.
+    // The storage duration of logs. Unit: days.
     shared_ptr<int64_t> ttl_ {};
   };
 

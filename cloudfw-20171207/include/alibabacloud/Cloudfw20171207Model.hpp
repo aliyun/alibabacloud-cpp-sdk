@@ -430,6 +430,9 @@
 #include <alibabacloud/models/DescribePolicyPriorUsedRequest.hpp>
 #include <alibabacloud/models/DescribePolicyPriorUsedResponseBody.hpp>
 #include <alibabacloud/models/DescribePolicyPriorUsedResponse.hpp>
+#include <alibabacloud/models/DescribePostpayBillRequest.hpp>
+#include <alibabacloud/models/DescribePostpayBillResponseBody.hpp>
+#include <alibabacloud/models/DescribePostpayBillResponse.hpp>
 #include <alibabacloud/models/DescribePostpayEnabledProtectionRequest.hpp>
 #include <alibabacloud/models/DescribePostpayEnabledProtectionResponseBody.hpp>
 #include <alibabacloud/models/DescribePostpayEnabledProtectionResponse.hpp>
@@ -451,6 +454,9 @@
 #include <alibabacloud/models/DescribePrefixListsRequest.hpp>
 #include <alibabacloud/models/DescribePrefixListsResponseBody.hpp>
 #include <alibabacloud/models/DescribePrefixListsResponse.hpp>
+#include <alibabacloud/models/DescribePrepayBillTotalRequest.hpp>
+#include <alibabacloud/models/DescribePrepayBillTotalResponseBody.hpp>
+#include <alibabacloud/models/DescribePrepayBillTotalResponse.hpp>
 #include <alibabacloud/models/DescribePrivateDnsDomainNameListRequest.hpp>
 #include <alibabacloud/models/DescribePrivateDnsDomainNameListResponseBody.hpp>
 #include <alibabacloud/models/DescribePrivateDnsDomainNameListResponse.hpp>

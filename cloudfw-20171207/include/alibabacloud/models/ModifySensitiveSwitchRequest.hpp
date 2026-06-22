@@ -57,19 +57,15 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
-    // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // The language type. Valid values:
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of sensitive data.
+    // The type.
     shared_ptr<string> sensitiveCategory_ {};
-    // The status of the switch. Valid values:
-    // 
-    // - **1**: on.
-    // 
-    // - **0**: off.
+    // The status. Valid values:
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<string> switchStatus_ {};
   };
 

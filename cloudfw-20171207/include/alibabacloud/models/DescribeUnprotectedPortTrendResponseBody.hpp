@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The number of blocks.
+      // The number of blocked requests.
       shared_ptr<int32_t> count_ {};
       // The timestamp.
       shared_ptr<int64_t> time_ {};
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // The list of data.
+    // The data list.
     shared_ptr<vector<DescribeUnprotectedPortTrendResponseBody::DataList>> dataList_ {};
     // The time interval.
     shared_ptr<int32_t> interval_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

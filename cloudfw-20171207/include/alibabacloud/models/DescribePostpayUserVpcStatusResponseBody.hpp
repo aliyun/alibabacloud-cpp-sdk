@@ -59,15 +59,13 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The status of the VPC border firewall for Cloud Firewall. Valid values:
+    // The status of the Cloud Firewall VPC firewall switch module. Valid values:
     // 
-    // - **open**: The firewall is enabled.
-    // 
-    // - **init**: The firewall is being enabled.
-    // 
-    // - **closed**: The firewall is disabled.
+    // - **open**: The module is enabled.
+    // - **init**: The module is being enabled.
+    // - **closed**: The module is not enabled.
     shared_ptr<string> status_ {};
-    // The number of days that protection was disabled. This parameter is valid only when the firewall is enabled.
+    // The number of days during which protection is not enabled. This parameter is valid only when the module is enabled.
     shared_ptr<int64_t> unprotectedDate_ {};
   };
 

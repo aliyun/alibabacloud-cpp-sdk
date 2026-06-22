@@ -81,9 +81,9 @@ namespace Models
     shared_ptr<string> accessInstanceId_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The page number.
+    // The page number of the current page.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of the page to return.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 

@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateSecurityProxyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FirewallSwitch, firewallSwitch_);
+      DARABONBA_PTR_TO_JSON(FwVswitchZoneId, fwVswitchZoneId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(NatRouteEntryList, natRouteEntryList_);
@@ -28,6 +29,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateSecurityProxyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FirewallSwitch, firewallSwitch_);
+      DARABONBA_PTR_FROM_JSON(FwVswitchZoneId, fwVswitchZoneId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(NatRouteEntryList, natRouteEntryList_);
@@ -110,28 +112,36 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> destinationCidr_ {};
-      // The next hop of the original NAT Gateway.
+      // The next hop address of the original NAT gateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopId_ {};
-      // The network type of the next hop. Set the value to NatGateway.
+      // The network type of the next hop. Valid values: NatGateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopType_ {};
-      // The route table that contains the default route of the NAT Gateway.
+      // The route table that contains the default route of the NAT gateway.
       // 
       // This parameter is required.
       shared_ptr<string> routeTableId_ {};
     };
 
     virtual bool empty() const override { return this->firewallSwitch_ == nullptr
-        && this->lang_ == nullptr && this->natGatewayId_ == nullptr && this->natRouteEntryList_ == nullptr && this->proxyName_ == nullptr && this->regionNo_ == nullptr
-        && this->strictMode_ == nullptr && this->vpcId_ == nullptr && this->vswitchAuto_ == nullptr && this->vswitchCidr_ == nullptr && this->vswitchId_ == nullptr; };
+        && this->fwVswitchZoneId_ == nullptr && this->lang_ == nullptr && this->natGatewayId_ == nullptr && this->natRouteEntryList_ == nullptr && this->proxyName_ == nullptr
+        && this->regionNo_ == nullptr && this->strictMode_ == nullptr && this->vpcId_ == nullptr && this->vswitchAuto_ == nullptr && this->vswitchCidr_ == nullptr
+        && this->vswitchId_ == nullptr; };
     // firewallSwitch Field Functions 
     bool hasFirewallSwitch() const { return this->firewallSwitch_ != nullptr;};
     void deleteFirewallSwitch() { this->firewallSwitch_ = nullptr;};
     inline string getFirewallSwitch() const { DARABONBA_PTR_GET_DEFAULT(firewallSwitch_, "") };
     inline CreateSecurityProxyRequest& setFirewallSwitch(string firewallSwitch) { DARABONBA_PTR_SET_VALUE(firewallSwitch_, firewallSwitch) };
+
+
+    // fwVswitchZoneId Field Functions 
+    bool hasFwVswitchZoneId() const { return this->fwVswitchZoneId_ != nullptr;};
+    void deleteFwVswitchZoneId() { this->fwVswitchZoneId_ = nullptr;};
+    inline string getFwVswitchZoneId() const { DARABONBA_PTR_GET_DEFAULT(fwVswitchZoneId_, "") };
+    inline CreateSecurityProxyRequest& setFwVswitchZoneId(string fwVswitchZoneId) { DARABONBA_PTR_SET_VALUE(fwVswitchZoneId_, fwVswitchZoneId) };
 
 
     // lang Field Functions 
@@ -208,54 +218,50 @@ namespace Models
 
   protected:
     // The security protection switch. Valid values:
-    // 
-    // - **open**: on
-    // 
-    // - **close**: off
+    // - **open**: enabled
+    // - **close**: disabled.
     shared_ptr<string> firewallSwitch_ {};
-    // The language of the response. Valid values:
+    // The zone of the firewall vSwitch.
+    shared_ptr<string> fwVswitchZoneId_ {};
+    // The language of the content within the response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the NAT Gateway.
+    // The ID of the NAT gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The list of routes of the NAT Gateway that you want to switch.
+    // The list of routes to be switched for the NAT gateway.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateSecurityProxyRequest::NatRouteEntryList>> natRouteEntryList_ {};
-    // The name of the NAT firewall. The name must be 4 to 50 characters in length. It can contain letters, digits, Chinese characters, and underscores (_). The name cannot start with an underscore (_).
+    // The name of the NAT firewall. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
     // 
     // This parameter is required.
     shared_ptr<string> proxyName_ {};
     // The region ID of the VPC.
     // 
-    // > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+    // > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
     // Specifies whether to enable strict mode.
     // 
-    // - 1: enables strict mode
-    // 
-    // - 0: disables strict mode
+    // - 1: Enable strict mode.
+    // - 0: Disable strict mode.
     shared_ptr<int32_t> strictMode_ {};
-    // The ID of the VPC instance.
+    // The instance ID of the VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // Specifies whether to use the automatic vSwitch selection feature. Valid values:
-    // 
+    // Specifies whether to use the automatic vSwitch mode. Valid values:
     // - **true**: automatic mode
-    // 
-    // - **false**: manual mode
+    // - **false**: manual mode.
     shared_ptr<string> vswitchAuto_ {};
-    // The CIDR block of the vSwitch. This parameter is required if you use the automatic vSwitch selection feature.
+    // The CIDR block of the vSwitch. This parameter is required when the vSwitch is in automatic mode.
     shared_ptr<string> vswitchCidr_ {};
-    // The ID of the vSwitch. This parameter is required if you use the manual vSwitch selection feature.
+    // The vSwitch ID. This parameter is required when the vSwitch is in manual mode.
     shared_ptr<string> vswitchId_ {};
   };
 

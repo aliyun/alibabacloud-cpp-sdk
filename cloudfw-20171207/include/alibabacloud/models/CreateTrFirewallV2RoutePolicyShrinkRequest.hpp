@@ -94,29 +94,28 @@ namespace Models
 
 
   protected:
-    // The list of destination network instances.
+    // The list of secondary traffic redirection instances.
     shared_ptr<string> destCandidateListShrink_ {};
-    // The ID of the VPC firewall instance.
+    // The VPC border firewall instance ID.
     shared_ptr<string> firewallId_ {};
-    // The language of the response. Valid values:
+    // The language type for receiving messages. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The description of the routing policy.
+    // The traffic redirection description.
     shared_ptr<string> policyDescription_ {};
-    // The name of the routing policy.
+    // The traffic redirection name.
     shared_ptr<string> policyName_ {};
-    // The traffic redirection scenario of the Enterprise Edition transit router. Valid values:
+    // The traffic redirection scenario type for the VPC border firewall with Cloud Enterprise Network Enterprise Edition. Valid values:
     // 
-    // - **fullmesh**: full-mesh
+    // - **fullmesh**: Multi-point interconnection
     // 
-    // - **one_to_one**: point-to-point
+    // - **one_to_one**: Point-to-point
     // 
-    // - **end_to_end**: point-to-multipoint
+    // - **end_to_end**: Point-to-multipoint
     shared_ptr<string> policyType_ {};
-    // The list of source network instances.
+    // The list of primary traffic redirection instances.
     shared_ptr<string> srcCandidateListShrink_ {};
   };
 

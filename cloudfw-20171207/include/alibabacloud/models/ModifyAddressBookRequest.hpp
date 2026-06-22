@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the ECS instance.
+      // The key of the ECS tag.
       shared_ptr<string> tagKey_ {};
-      // The tag value of the ECS instance.
+      // The value of the ECS tag.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -235,23 +235,22 @@ namespace Models
 
 
   protected:
-    // A list of ACK cluster pod labels.
+    // The list of ACK cluster pod labels.
     // 
-    // > Up to 10 labels are allowed.
+    // > Maximum of 10 entries.
     shared_ptr<vector<ModifyAddressBookRequest::AckLabels>> ackLabels_ {};
-    // A list of ACK cluster pod namespaces.
-    // 
-    // > Up to 10 namespaces are allowed.
+    // The list of ACK cluster pod namespaces.
+    // > Maximum of 10 entries.
     shared_ptr<vector<string>> ackNamespaces_ {};
-    // A list of addresses in the address book. Separate multiple addresses with commas. Within each address element, separate the address and its description with a space. You must specify this parameter when GroupType is **ip**, **port**, or **domain**.
+    // The list of addresses in the address book. Multiple addresses are separated by commas, and each address element uses a space to separate the address from its description. You must configure this parameter when GroupType is **ip**, **port**, or **domain**.
     // 
-    // - When GroupType is **ip**, specify IP addresses. Example: 1.2.XX.XX/32 development CIDR block, 10.0.0.X/24,1.2.XX.XX/24 test CIDR block.
+    // - When GroupType is **ip**, enter IP addresses in the address list. Example: 1.2.XX.XX/32 Development network segment, 10.0.0.X/24,1.2.XX.XX/24 Test network segment.
     // 
-    // - When GroupType is **port**, specify ports or port ranges. Example: 80/80 HTTP port, 100/200,3306 database port.
+    // - When GroupType is **port**, enter ports or port ranges in the address list. Example: 80/80 HTTP port, 100/200,3306 Database port.
     // 
-    // - When GroupType is **domain**, specify domain names. Example: demo1.aliyun.com test domain, demo2.aliyun.com,www\\.aliyun.com Alibaba Cloud official website.
+    // - When GroupType is **domain**, enter domain names in the address list. Example: demo1.aliyun.com Test domain, demo2.aliyun.com,www.aliyun.com Alibaba Cloud official website.
     shared_ptr<string> addressList_ {};
-    // Specifies whether to automatically add public IP addresses of new ECS instances that match the specified tags to the address book.
+    // Specifies whether to automatically add the public IP addresses of ECS instances that match new tags to the address book.
     shared_ptr<string> autoAddTagEcs_ {};
     // The description of the address book.
     // 
@@ -263,22 +262,22 @@ namespace Models
     shared_ptr<string> groupName_ {};
     // The unique ID of the address book.
     // 
-    // > Obtain this value from [DescribeAddressBook](~~DescribeAddressBook~~).
+    // >Value source: [Query Address Book List](~~DescribeAddressBook~~).
     // 
     // This parameter is required.
     shared_ptr<string> groupUuid_ {};
     // The language type.
     shared_ptr<string> lang_ {};
-    // The modification mode.
+    // The modification method.
     // 
-    // > When GroupType is **ip**, **ipv6**, **port**, or **domain**, the default mode is **Cover** if this parameter is not specified.
-    // > >Notice: When GroupType is **tag**, this parameter must be empty.
+    // >When GroupType is **ip**, **ipv6**, **port**, or **domain**, and this parameter is not configured, the address book is modified using the **Cover** method by default.
+    // >Notice: When GroupType is **tag**, this parameter must be empty.
     shared_ptr<string> modifyMode_ {};
     // The source IP address of the requester.
     shared_ptr<string> sourceIp_ {};
-    // A list of ECS tags.
+    // The list of ECS tags.
     shared_ptr<vector<ModifyAddressBookRequest::TagList>> tagList_ {};
-    // The relationship between multiple ECS tags.
+    // The logical relationship among multiple ECS tags.
     shared_ptr<string> tagRelation_ {};
   };
 

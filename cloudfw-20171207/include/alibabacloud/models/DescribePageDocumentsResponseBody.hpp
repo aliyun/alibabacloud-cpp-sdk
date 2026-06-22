@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The title.
       shared_ptr<string> title_ {};
-      // The URL of the document.
+      // The document path.
       shared_ptr<string> url_ {};
     };
 
@@ -122,7 +122,7 @@ namespace Models
     protected:
       // The title.
       shared_ptr<string> title_ {};
-      // The URL of the document.
+      // The document path.
       shared_ptr<string> url_ {};
     };
 
@@ -168,13 +168,13 @@ namespace Models
 
 
   protected:
-    // The list of documents.
+    // The document list.
     shared_ptr<vector<DescribePageDocumentsResponseBody::Docs>> docs_ {};
-    // The URL of the image.
+    // The image URL.
     shared_ptr<string> imageUrl_ {};
     // The application module.
     shared_ptr<string> module_ {};
-    // Additional information.
+    // The list of additional resources.
     shared_ptr<DescribePageDocumentsResponseBody::More> more_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

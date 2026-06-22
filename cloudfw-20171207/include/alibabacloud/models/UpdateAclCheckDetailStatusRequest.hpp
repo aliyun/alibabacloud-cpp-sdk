@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language.
     shared_ptr<string> lang_ {};
-    // The new status of the ACL policy. Valid values:
+    // The modified status.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The ID of the ACL check task.
+    // The ACL check task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The unique ID of the ACL policy whose status you want to update.
+    // The unique identifier ID of the ACL policy in the ACL check details.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

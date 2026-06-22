@@ -66,19 +66,18 @@ namespace Models
 
 
   protected:
-    // The language of the response message.
+    // The language of the received messages.
     // 
     // Valid values:
     // 
-    // - **zh**: Chinese (default)
-    // 
-    // - **en**: English
+    // - **zh**: (default) Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The query conditions for the download task.
     shared_ptr<string> taskData_ {};
-    // The type of the task. For a list of valid values, see the API for querying file download task types.
+    // The task type. For valid values, call the API operation that queries file download task types.
     shared_ptr<string> taskType_ {};
-    // The time zone of the time information in the downloaded file. The value is an IANA time zone identifier. The default value is Asia/Shanghai, which corresponds to UTC+8.
+    // The time zone for time information in the downloaded file. The value is an IANA time zone identifier. Default value: Asia/Shanghai (UTC+8).
     shared_ptr<string> timeZone_ {};
   };
 

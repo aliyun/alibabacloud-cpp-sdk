@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The UID of the member account.
+    // The UID of the member accounts.
     shared_ptr<string> memberUid_ {};
-    // The instance ID of the VPC border firewall.
+    // The instance ID of the virtual private cloud (VPC) firewall.
     shared_ptr<string> vpcFirewallId_ {};
   };
 

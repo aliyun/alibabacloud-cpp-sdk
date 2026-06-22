@@ -60,14 +60,13 @@ namespace Models
     // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source tracking code.
+    // The tracing code.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

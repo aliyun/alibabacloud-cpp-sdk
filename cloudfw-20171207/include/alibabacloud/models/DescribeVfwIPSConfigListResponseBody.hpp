@@ -133,21 +133,21 @@ namespace Models
 
 
     protected:
-      // The status of the basic policies.
+      // The status of the Basic Policies switch.
       shared_ptr<int32_t> basicRules_ {};
-      // The UID of the member account.
+      // The UID of the member accounts.
       shared_ptr<string> memberUid_ {};
-      // The status of the virtual patching policies.
+      // The status of the virtual patches switch.
       shared_ptr<int32_t> patchRules_ {};
-      // The policy for the block mode.
+      // The rule class for Block Mode.
       shared_ptr<int32_t> ruleClass_ {};
-      // The protection mode.
+      // The defense mode.
       shared_ptr<int32_t> runMode_ {};
-      // The instance ID of the VPC firewall.
+      // The instance ID of the virtual private cloud (VPC) firewall.
       shared_ptr<string> vpcFirewallId_ {};
-      // The list of instance IDs of the VPC firewalls.
+      // The list of instance IDs of virtual private cloud (VPC) firewalls.
       shared_ptr<vector<string>> vpcFirewallIdList_ {};
-      // The instance name of the VPC firewall.
+      // The instance name of the virtual private cloud (VPC) firewall.
       shared_ptr<string> vpcFirewallName_ {};
     };
 
@@ -191,15 +191,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of configurations.
+    // The configuration list.
     shared_ptr<vector<DescribeVfwIPSConfigListResponseBody::VfwIpsSwitchConfigList>> vfwIpsSwitchConfigList_ {};
   };
 

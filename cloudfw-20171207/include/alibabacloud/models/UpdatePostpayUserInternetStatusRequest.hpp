@@ -59,15 +59,14 @@ namespace Models
   protected:
     // The ID of the Cloud Firewall instance.
     shared_ptr<string> instanceId_ {};
-    // The language of the response messages. Valid values:
+    // The language of the response message. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of operation. Currently, only the \\`open\\` operation is supported.
+    // The operation type. Currently, only the activation operation is supported.
     // 
-    // - open: enables the firewall.
+    // - open: activation.
     shared_ptr<string> operate_ {};
   };
 

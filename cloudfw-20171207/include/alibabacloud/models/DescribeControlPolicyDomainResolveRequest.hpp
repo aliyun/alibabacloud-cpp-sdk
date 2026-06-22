@@ -77,11 +77,13 @@ namespace Models
   protected:
     // The domain name.
     shared_ptr<string> domain_ {};
-    // The type of the Cloud Firewall instance.
+    // The Cloud Firewall type.
     shared_ptr<string> firewallType_ {};
-    // The supported ip version.
+    // The supported IP address version.
     shared_ptr<int32_t> ipVersion_ {};
-    // The language of the request and response.
+    // The language type. Valid values:
+    // - **en**: English
+    // - **zh**: Chinese.
     shared_ptr<string> lang_ {};
     // The region ID.
     shared_ptr<string> regionNo_ {};

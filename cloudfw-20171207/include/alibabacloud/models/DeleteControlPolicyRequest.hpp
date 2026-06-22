@@ -68,16 +68,15 @@ namespace Models
   protected:
     // The unique ID of the access control policy.
     // 
-    // To delete an access control policy, you must provide its ID. Call the [DescribeControlPolicy](https://help.aliyun.com/document_detail/138866.html) operation to obtain the ID.
+    // To delete an access control policy, you must provide the unique ID of the policy. You can call the [DescribeControlPolicy](https://help.aliyun.com/document_detail/138866.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
-    // The traffic direction that the access control policy controls.
+    // The traffic direction controlled by the access control policy.
     // 
     // Valid values:
     // 
     // - **in**: inbound traffic.
-    // 
     // - **out**: outbound traffic.
     shared_ptr<string> direction_ {};
     // The language of the request and response.
@@ -85,8 +84,7 @@ namespace Models
     // Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The source IP address of the traffic.
     shared_ptr<string> sourceIp_ {};

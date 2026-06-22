@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The name of the region.
+      // The region name.
       shared_ptr<string> regionName_ {};
     };
 
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // The list of data.
+    // The data list.
     shared_ptr<vector<DescribeRegionInfoResponseBody::DataList>> dataList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 
