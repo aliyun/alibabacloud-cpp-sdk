@@ -48,10 +48,10 @@ namespace Models
 
 
   protected:
-    // Indicates whether Security Center is authorized to scan for urgent vulnerabilities. Valid values:
+    // Indicates whether the emergency vulnerability scan is authorized. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: Authorized.
+    // - **false**: Not authorized.
     shared_ptr<bool> auth_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

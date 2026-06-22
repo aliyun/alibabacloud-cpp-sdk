@@ -108,10 +108,13 @@ namespace Models
     // Specifies the page number to display when performing a paginated query. The starting value is **1**, and the default value is **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The language type for requests and responses. The default value is **zh**. Values:
+    // 
     // - **zh**: Chinese
+    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
     // Specifies the maximum number of data entries to display per page when performing a paginated query. The default number of data entries displayed per page is 20, and if the PageSize parameter is empty, it will default to returning 20 data entries.
+    // 
     // > It is recommended that the PageSize value is not left empty.
     shared_ptr<int32_t> pageSize_ {};
     // The status of the check item.

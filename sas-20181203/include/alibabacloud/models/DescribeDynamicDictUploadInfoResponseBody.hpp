@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The AccessKey ID that is used to access OSS.
+    // The AccessKey ID of OSS.
     shared_ptr<string> accessid_ {};
-    // The validity period of the signature. The value is a UNIX timestamp.
+    // The expiration time of the OSS authorization, in timestamp format.
     shared_ptr<string> expire_ {};
-    // The OSS endpoint.
+    // The OSS domain name.
     shared_ptr<string> host_ {};
-    // The name of the OSS object.
+    // The key of the OSS file name.
     shared_ptr<string> key_ {};
     // The OSS security policy.
     shared_ptr<string> policy_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The signature that is calculated based on **AccessKeySecret** and **Policy**. When you call an OSS API operation, OSS uses the signature information to check the validity of the POST request.
+    // The signature information calculated based on **AccessKeySecret** and **Policy**. When you call an OSS API operation, OSS verifies this signature information to confirm the validity of the POST request.
     shared_ptr<string> signature_ {};
   };
 

@@ -74,8 +74,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<int32_t> availableProbeNum_ {};
     // The ID of the management node.
-    // 
-    // > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+    // >You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
@@ -83,7 +82,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> nodeName_ {};
-    // The CIDR blocks that are allowed to access the management node.
+    // The collection of allowed CIDR blocks.
     shared_ptr<vector<string>> securityGroupProbeIpList_ {};
   };
 

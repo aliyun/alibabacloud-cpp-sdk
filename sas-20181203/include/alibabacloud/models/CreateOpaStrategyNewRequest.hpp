@@ -120,12 +120,13 @@ namespace Models
       shared_ptr<string> ackPolicyInstanceId_ {};
       // Specifies whether to include all namespaces. Valid values:
       // 
-      // *   **1**: includes all namespaces.
-      // *   **0**: does not include all namespaces.
+      // - **1**: includes all namespaces.
+      // 
+      // - **0**: does not include all namespaces.
       shared_ptr<int32_t> allNamespace_ {};
       // The ID of the cluster that is specified in the rule.
       // 
-      // >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
+      // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
       shared_ptr<string> clusterId_ {};
       // The namespaces.
       // 
@@ -223,13 +224,15 @@ namespace Models
         protected:
           // The ID of the vulnerability types. Valid values:
           // 
-          // *   **cve**: system vulnerability
-          // *   **app**: application vulnerability
+          // - **cve**: system vulnerability
+          // 
+          // - **app**: application vulnerability
           shared_ptr<string> id_ {};
           // The name of the vulnerability. Valid values:
           // 
-          // *   **system vulnerability**
-          // *   **application vulnerability**
+          // - **system vulnerability**
+          // 
+          // - **application vulnerability**
           shared_ptr<string> name_ {};
         };
 
@@ -273,11 +276,11 @@ namespace Models
         protected:
           // The ID of the vulnerability.
           // 
-          // >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
+          // > You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
           shared_ptr<string> id_ {};
           // The name of the vulnerability.
           // 
-          // >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
+          // > You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
           shared_ptr<string> name_ {};
         };
 
@@ -380,11 +383,11 @@ namespace Models
         protected:
           // The ID of the sensitive files.
           // 
-          // >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+          // > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
           shared_ptr<string> id_ {};
           // The name of the sensitive files.
           // 
-          // >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+          // > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
           shared_ptr<string> name_ {};
         };
 
@@ -476,11 +479,11 @@ namespace Models
         protected:
           // The ID of the malicious sample.
           // 
-          // >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID.
+          // > You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID.
           shared_ptr<string> id_ {};
           // The name of the malicious sample.
           // 
-          // >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name.
+          // > You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name.
           shared_ptr<string> name_ {};
         };
 
@@ -572,11 +575,11 @@ namespace Models
         protected:
           // The ID of the image build risk.
           // 
-          // >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+          // > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
           shared_ptr<string> id_ {};
           // The name of the image build risk.
           // 
-          // >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+          // > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
           shared_ptr<string> name_ {};
         };
 
@@ -668,11 +671,11 @@ namespace Models
         protected:
           // The ID of the baseline check item.
           // 
-          // >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID.
+          // > You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID.
           shared_ptr<string> id_ {};
           // The name of the baseline check item.
           // 
-          // >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name.
+          // > You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name.
           shared_ptr<string> name_ {};
         };
 
@@ -894,20 +897,23 @@ namespace Models
     shared_ptr<vector<string>> label_ {};
     // Specifies whether the rule supports malicious Internet images. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> maliciousImage_ {};
     // The action that is performed when the rule is hit. Valid values:
     // 
-    // *   **1**: trigger alerts
-    // *   **2**: block
-    // *   **3**: allow
+    // - **1**: trigger alerts
+    // 
+    // - **2**: block
+    // 
+    // - **3**: allow
     shared_ptr<int32_t> ruleAction_ {};
     // The application scope of the rule.
     shared_ptr<vector<CreateOpaStrategyNewRequest::Scopes>> scopes_ {};
     // The rule ID.
     // 
-    // >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+    // > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
     // 
     // > This parameter is invalid when you create a rule.
     shared_ptr<int64_t> strategyId_ {};
@@ -915,12 +921,13 @@ namespace Models
     shared_ptr<string> strategyName_ {};
     // The ID of the rule template.
     // 
-    // >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+    // > You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
     shared_ptr<int64_t> strategyTemplateId_ {};
     // Specifies whether the rule supports unscanned images. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> unScanedImage_ {};
     // The whitelist.
     shared_ptr<vector<string>> whiteList_ {};

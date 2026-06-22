@@ -100,9 +100,11 @@ namespace Models
     shared_ptr<string> vulNameLike_ {};
     // The type of the vulnerabilities. Valid values:
     // 
-    // *   **cve**: Linux software vulnerability.
-    // *   **sys**: Windows system vulnerability.
-    // *   **app**: Application vulnerability that is detected by using web scanner.
+    // - **cve**: Linux software vulnerability.
+    // 
+    // - **sys**: Windows system vulnerability.
+    // 
+    // - **app**: Application vulnerability that is detected by using web scanner.
     shared_ptr<string> vulType_ {};
   };
 

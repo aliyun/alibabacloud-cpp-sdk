@@ -162,36 +162,34 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
       // Indicates whether the container firewall plug-in is installed.
       shared_ptr<bool> installed_ {};
-      // The ID of the server.
+      // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
       // The public IP address of the associated instance.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the associated instance.
       shared_ptr<string> intranetIp_ {};
-      // The cause why the plug-in is invalid. Valid values:
-      // 
-      // *   **PLUGIN_OFFLINE**: The plug-in is offline.
-      // *   **PLUGIN_NOT_INSTALLED**: The plug-in is not installed.
-      // *   **PLUGIN_INVALID_VERSION**: The version of the plug-in is invalid.
+      // The invalid type of the plug-in. Valid values:
+      // - **PLUGIN_OFFLINE**: offline
+      // - **PLUGIN_NOT_INSTALLED**: not installed
+      // - **PLUGIN_INVALID_VERSION**: invalid version.
       shared_ptr<string> invalidType_ {};
       // The name of the server.
       shared_ptr<string> machineName_ {};
-      // The machine type of the instance. The value is fixed as **ecs**.
+      // The type of the instance. The value is fixed as **ecs**.
       shared_ptr<int32_t> machineType_ {};
-      // The name of the plug-in. The value is fixed as **alinet**.
+      // The name of the plug-in type. The value is fixed as **alinet**.
       shared_ptr<string> pluginName_ {};
       // The version of the plug-in.
       shared_ptr<string> pluginVersion_ {};
       // The online status of the plug-in. Valid values:
-      // 
-      // *   **false**: The plug-in is offline.
-      // *   **true**: The plug-in is online.
+      // - **false**: offline
+      // - **true**: online.
       shared_ptr<string> status_ {};
-      // The UUID of the asset.
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -214,9 +212,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of the protection status of the container firewall.
+    // The list of container firewall statuses.
     shared_ptr<vector<ListClusterCnnfStatusDetailResponseBody::Data>> data_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

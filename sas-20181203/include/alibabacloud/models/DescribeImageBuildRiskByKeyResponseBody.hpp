@@ -106,11 +106,10 @@ namespace Models
 
 
       protected:
-        // The page number. Default value: **1**.
+        // The page number of the current page in a paged query. Default value: **1**.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-        // 
-        // >  We recommend that you do not leave this parameter empty.
+        // The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+        // > Do not leave PageSize empty.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of entries returned.
         shared_ptr<int32_t> totalCount_ {};
@@ -227,29 +226,28 @@ namespace Models
 
 
       protected:
-        // The suggestion on how to handle the risk.
+        // The remediation suggestion.
         shared_ptr<string> advice_ {};
-        // The description of the suggestion on how to handle the risk.
+        // The description of the build risk remediation suggestion.
         shared_ptr<string> description_ {};
-        // The image build command.
+        // The build command of the image layer.
         shared_ptr<string> layerCmd_ {};
-        // The digest of the image.
+        // The digest of the image layer.
         shared_ptr<string> layerDigest_ {};
-        // The prompt message on the risk.
+        // The risk prompt.
         shared_ptr<string> promt_ {};
-        // The type key of the risk rule.
+        // The category key of the build risk rule.
         shared_ptr<string> riskClass_ {};
-        // The type name of the risk rule.
+        // The category name of the build risk rule.
         shared_ptr<string> riskClassName_ {};
-        // The key of the risk rule.
+        // The key of the build risk rule.
         shared_ptr<string> riskKey_ {};
-        // The name of the risk rule.
+        // The name of the build risk rule.
         shared_ptr<string> riskKeyName_ {};
         // The risk level. Valid values:
-        // 
-        // *   **high**
-        // *   **medium**
-        // *   **low**
+        // - **high**: high.
+        // - **medium**: medium.
+        // - **low**: low.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -274,9 +272,9 @@ namespace Models
 
 
     protected:
-      // The risks.
+      // The list of build risks.
       shared_ptr<vector<Data::List>> list_ {};
-      // The pagination information.
+      // The paging query parameters.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -320,18 +318,17 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code of the API call.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeImageBuildRiskByKeyResponseBody::Data> data_ {};
-    // The returned message.
+    // The detailed information about the error code.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

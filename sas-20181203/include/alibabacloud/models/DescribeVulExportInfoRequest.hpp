@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the task.
+    // The ID of the vulnerability export task.
     // 
     // This parameter is required.
     shared_ptr<int64_t> exportId_ {};

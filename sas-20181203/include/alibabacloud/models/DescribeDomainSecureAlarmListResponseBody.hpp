@@ -317,75 +317,72 @@ namespace Models
       shared_ptr<string> alarmEventNameOriginal_ {};
       // The type of the alert event.
       shared_ptr<string> alarmEventType_ {};
-      // The unique ID of the alert event.
+      // The unique identifier of the alert event.
       shared_ptr<string> alarmUniqueInfo_ {};
       // Indicates whether automatic defense is enabled.
       shared_ptr<bool> autoBreaking_ {};
-      // Indicates whether the alert event can be handled online, such as quarantining the source file of the malicious process, adding the alert event to the whitelist, and ignoring the alert event. Valid values:
+      // Indicates whether the alert event can be handled online, such as blocking, adding to a whitelist, or ignoring. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Can be handled online.
+      // - **false**: Cannot be handled online.
       shared_ptr<bool> canBeDealOnLine_ {};
-      // Indicates whether you can cancel marking the alert event as a false positive. Valid values:
+      // Indicates whether the alert event can be unmarked as a false positive. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Can be unmarked.
+      // - **false**: Cannot be unmarked.
       shared_ptr<bool> canCancelFault_ {};
-      // Indicates whether the safeguard mode for major activities is supported.
+      // Indicates whether the alert event contains the critical event protection mode.
       shared_ptr<bool> containHwMode_ {};
       // The data source of the alert event.
       shared_ptr<string> dataSource_ {};
-      // Indicates whether the alert event is handled. Valid values:
-      // 
-      // *   **N**: unhandled
-      // *   **Y**: handled
+      // Indicates whether the alert event has been handled. Valid values:
+      // - **N**: Pending.
+      // - **Y**: Handled.
       shared_ptr<bool> dealed_ {};
       // The description of the alert event.
       shared_ptr<string> description_ {};
-      // The timestamp generated when the alert event was last detected. Unit: milliseconds.
+      // The timestamp of the most recent occurrence of the alert event. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The time of the last modification.
+      // The time when the alert event was last modified.
       shared_ptr<int64_t> gmtModified_ {};
       // Indicates whether the alert event has tracing information. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Has tracing information.
+      // - **false**: Does not have tracing information.
       shared_ptr<bool> hasTraceInfo_ {};
-      // The instance ID of the affected asset.
+      // The ID of the asset instance affected by the alert event.
       shared_ptr<string> instanceId_ {};
-      // The instance name of the affected asset.
+      // The name of the asset instance affected by the alert event.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
-      // The private IP address of the affected instance.
+      // The private IP address of the asset instance affected by the alert event.
       shared_ptr<string> intranetIp_ {};
       // The risk level of the alert event. Valid values:
-      // 
-      // *   **serious**
-      // *   **suspicious**
-      // *   **remind**
+      // - **serious**: Critical.
+      // - **suspicious**: Suspicious.
+      // - **remind**: Reminder.
       shared_ptr<string> level_ {};
-      // The handling result code of the alert event.
+      // The result code of the alert event handling.
       shared_ptr<string> operateErrorCode_ {};
-      // The timestamp generated when the alert event was handled. Unit: milliseconds.
+      // The timestamp when the alert event was handled. Unit: milliseconds.
       shared_ptr<int64_t> operateTime_ {};
-      // The edition of Security Center in which the alert event can be detected. Valid values:
-      // 
-      // *   **0**: Basic edition.
-      // *   **1**: Advanced edition.
-      // *   **2**: Enterprise edition.
+      // The edition of Security Center that supports the detection of the alert event. Valid values:
+      // - **0**: Basic edition.
+      // - **1**: Advanced edition.
+      // - **2**: Enterprise edition.
       shared_ptr<string> saleVersion_ {};
-      // The ID of the associated alert event.
+      // The IDs of the alert events associated with the alert event.
       shared_ptr<string> securityEventIds_ {};
-      // The solution to the alert event.
+      // The solution for the alert event.
       shared_ptr<string> solution_ {};
-      // The stage at which the attack or intrusion is detected.
+      // The stage of the attack or intrusion.
       shared_ptr<string> stages_ {};
-      // The timestamp generated when the alert event was first detected. Unit: milliseconds.
+      // The start timestamp of the alert event. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The total number of security alerts in your website assets.
+      // The total number of security alerts for your website assets.
       shared_ptr<int32_t> suspiciousEventCount_ {};
-      // The unique ID of the associated instance.
+      // The unique identifier of the instance associated with the alert event.
       shared_ptr<string> uuid_ {};
     };
 
@@ -415,9 +412,9 @@ namespace Models
 
 
   protected:
-    // The security alerts in your website assets.
+    // The list of security alerts for website assets.
     shared_ptr<vector<DescribeDomainSecureAlarmListResponseBody::AlarmList>> alarmList_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

@@ -58,18 +58,15 @@ namespace Models
 
   protected:
     // Specifies whether to allow the honeypot to access the Internet. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Allowed.
+    // - **false**: Not allowed.
     shared_ptr<bool> allowHoneypotAccessInternet_ {};
-    // The language of the content within the request and response.
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the management node that you want to upgrade.
-    // 
-    // >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
+    // The ID of the management node to upgrade.
+    // >You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this parameter.
     shared_ptr<string> nodeId_ {};
   };
 

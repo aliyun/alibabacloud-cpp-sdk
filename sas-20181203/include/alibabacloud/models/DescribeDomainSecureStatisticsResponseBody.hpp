@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The number of domain names that trigger security alerts.
+    // The number of domain names that have security alerts.
     shared_ptr<int32_t> alarmCount_ {};
-    // The number of the websites for which no certificates are installed.
+    // The number of websites without certificates.
     shared_ptr<int32_t> noSslCount_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of the domain names that have security risks.
+    // The number of domain names that have security risks.
     shared_ptr<int32_t> riskCount_ {};
     // The total number of domain names.
     shared_ptr<int32_t> totalDomainCount_ {};
-    // The number of the domain names that have vulnerabilities.
+    // The number of domain names that have vulnerabilities.
     shared_ptr<int32_t> vulCount_ {};
   };
 

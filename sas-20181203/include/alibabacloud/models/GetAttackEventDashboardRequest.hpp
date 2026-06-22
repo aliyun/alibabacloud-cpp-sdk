@@ -57,14 +57,14 @@ namespace Models
 
 
   protected:
-    // Timestamp of the end time.
+    // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
-    // Language type for request and response messages. Default value is **zh**. Values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Timestamp of the start time.
+    // The timestamp of the start time.
     shared_ptr<int64_t> startTime_ {};
   };
 

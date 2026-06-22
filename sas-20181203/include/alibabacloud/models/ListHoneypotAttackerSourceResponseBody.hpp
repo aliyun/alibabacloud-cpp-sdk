@@ -192,9 +192,11 @@ namespace Models
       shared_ptr<int64_t> lastTime_ {};
       // The risk level. Valid values:
       // 
-      // *   **2**: low
-      // *   **3**: medium
-      // *   **4**: high
+      // - **2**: low
+      // 
+      // - **3**: medium
+      // 
+      // - **4**: high
       shared_ptr<string> riskLevel_ {};
       // The source IP address of the attack.
       shared_ptr<string> srcIp_ {};
@@ -271,8 +273,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

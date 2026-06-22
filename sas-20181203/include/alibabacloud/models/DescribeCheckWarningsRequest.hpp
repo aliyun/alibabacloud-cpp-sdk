@@ -134,47 +134,46 @@ namespace Models
     shared_ptr<int64_t> checkId_ {};
     // The type of the check item. Valid values:
     // 
-    // *   **hc.check.type.identity_auth**: identity authentication
-    // *   **hc.check.type.access_control**: access control
-    // *   **hc.check.type.network_service**: network and service
-    // *   **hc.check.type.service_conf**: service configuration
-    // *   **hc.check.type.file_rights**: file permission
-    // *   **hc.check.type.security_audit**: security audit
-    // *   **hc.check.type.attack_defense**: intrusion prevention
-    // *   **hc.check.type.others**: others
+    // - **hc.check.type.identity_auth**: identity authentication
+    // - **hc.check.type.access_control**: access control
+    // - **hc.check.type.network_service**: network and service
+    // - **hc.check.type.service_conf**: service configuration
+    // - **hc.check.type.file_rights**: file permission
+    // - **hc.check.type.security_audit**: security audit
+    // - **hc.check.type.attack_defense**: intrusion prevention
+    // - **hc.check.type.others**: others.
     shared_ptr<string> checkType_ {};
-    // The name of the container.
+    // The container name.
     shared_ptr<string> containerName_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The number of check items to display on each page in a paged query. Default value: **20**, which indicates that 20 check items are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  To obtain the Alibaba Cloud account ID, call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation.
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The ID of the risk item. This parameter is required.
+    // The risk item ID. This parameter is required.
     // 
-    // >  To query the information about the risk items and check items of a server, you must specify the IDs of the risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
+    // > To query check item information for a specified risk item and a specified server, you must provide the risk item ID. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to obtain this ID.
     shared_ptr<int64_t> riskId_ {};
-    // The status of the check item. Valid values:
+    // The risk detection status. Valid values:
     // 
-    // *   **1**: failed
-    // *   **2**: verifying
-    // *   **3**: passed
-    // *   **5**: expired
-    // *   **6**: ignored
+    // - **1**: failed
+    // - **2**: verifying
+    // - **3**: passed
+    // - **5**: expired
+    // - **6**: ignored.
     shared_ptr<int32_t> riskStatus_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The UUID of the server on which the baseline check is performed.
+    // The ID of the server on which the baseline check is performed.
     // 
-    // > To query specified risk items and the check items of a specified server, you must provide the ID of the server on which the baseline check is performed. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the IDs of servers.
+    // > To query check item information for a specified risk item and a specified server, you must provide the ID of the server on which the baseline check is performed. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

@@ -94,27 +94,27 @@ namespace Models
 
 
   protected:
-    // Cluster information.
+    // The cluster information.
     // 
     // This parameter is required.
     shared_ptr<string> clusters_ {};
-    // Policy name.
+    // The policy name.
     shared_ptr<string> name_ {};
-    // Policy content. JSON format, Key values:
-    // - **policyMode**: Type of policy, default is requireAttestor.
-    // - **requiredAttestors**: Required attestors.
+    // The policy content in JSON format. Valid keys:
+    // - **policyMode**: The policy type. Default value: requireAttestor.
+    // - **requiredAttestors**: The required attestors.
     // 
     // This parameter is required.
     shared_ptr<string> policy_ {};
-    // Remark.
+    // The remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // Set to enable or disable the policy. Values:
+    // Settings to enable or disable the policy. Valid values:
     // 
-    // - **enabled**: Enable the protection policy.
-    // - **disabled**: Disable the protection policy.
+    // - **enabled**: Enables the mitigation policies.
+    // - **disabled**: Disables the mitigation policies.
     shared_ptr<string> status_ {};
   };
 

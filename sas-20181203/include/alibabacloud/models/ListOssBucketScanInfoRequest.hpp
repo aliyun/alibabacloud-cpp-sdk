@@ -94,34 +94,33 @@ namespace Models
 
 
   protected:
-    // The name of the bucket.
+    // The bucket name.
     shared_ptr<string> bucketName_ {};
-    // The page number.
+    // The page number of the current page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the bucket that is used for fuzzy match.
+    // The bucket name for fuzzy match.
     shared_ptr<string> fuzzBucketName_ {};
-    // Specifies whether at-risk objects are detected. Valid values:
+    // Specifies whether risky files are detected. Valid values:
     // 
-    // *   **0**: No at-risk objects are detected.
-    // *   **1**: At-risk objects are detected.
+    // - **0**: No risks detected.
+    // - **1**: Risky files exist.
     shared_ptr<int32_t> hasRisk_ {};
-    // The language of the content in the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return on each page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The check status of the bucket. Valid values:
+    // The detection status. Valid values:
     // 
-    // *   **1**: The bucket is not checked.
-    // *   **2**: All objects in the bucket are being checked.
-    // *   **3**: Only new objects in the bucket are being checked.
-    // *   **4**: The bucket is checked.
+    // - **1**: Not scanned.
+    // - **2**: Full scan in progress.
+    // - **3**: Incremental scan in progress.
+    // - **4**: Scanned.
     shared_ptr<int32_t> status_ {};
   };
 

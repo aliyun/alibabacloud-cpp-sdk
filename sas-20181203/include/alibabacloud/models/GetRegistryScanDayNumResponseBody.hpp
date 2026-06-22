@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The selectable day options.
+      // The list of available day options.
       shared_ptr<string> dayNumList_ {};
-      // The scan period. Unit: days.
+      // The scan time range. Unit: days.
       shared_ptr<int32_t> scanDayNum_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID. China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The configuration of the scan period.
+    // The scan day configuration.
     shared_ptr<GetRegistryScanDayNumResponseBody::ScanDayNumConfig> scanDayNumConfig_ {};
   };
 

@@ -95,16 +95,15 @@ namespace Models
 
 
       protected:
-        // The statistical values of the trend data.
+        // The list of statistical values for the trend data.
         shared_ptr<vector<int64_t>> countList_ {};
-        // The type of the security data. Valid values:
-        // 
-        // *   **HC_NEW**: the number of new baseline risks.
-        // *   **HC_OPERATE**: the number of handled baseline risks.
-        // *   **VUL_NEW**: the number of new vulnerabilities.
-        // *   **VUL_OPERATE**: the number of handled vulnerabilities.
-        // *   **SUSP_NEW**: the number of new alerts.
-        // *   **SUSP_OPERATE**: the number of handled alerts.
+        // The type of security data. Valid values:
+        // - **HC_NEW**: number of new baseline risks
+        // - **HC_OPERATE**: number of handled baseline risks
+        // - **VUL_NEW**: number of new vulnerability risks
+        // - **VUL_OPERATE**: number of handled vulnerability risks
+        // - **SUSP_NEW**: number of new alert risks
+        // - **SUSP_OPERATE**: number of handled alert risks.
         shared_ptr<string> keyName_ {};
       };
 
@@ -138,11 +137,11 @@ namespace Models
 
 
     protected:
-      // The statistical timestamps of the trend data.
+      // The list of statistical timestamps for the trend data.
       shared_ptr<vector<int32_t>> dateList_ {};
-      // The statistical dates and time for the trend data.
+      // The list of statistical date strings for the trend data.
       shared_ptr<vector<string>> dateStrList_ {};
-      // The returned data.
+      // The list of returned data.
       shared_ptr<vector<Data::ItemList>> itemList_ {};
     };
 
@@ -165,9 +164,9 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<GetDataTrendResponseBody::Data> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

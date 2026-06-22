@@ -58,21 +58,18 @@ namespace Models
 
   protected:
     // The ID of the cluster that you want to query.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The dimension from which you want to configure the feature. Valid values:
-    // 
-    // *   **Cluster**: the ID of the cluster
+    // The operation dimension of the target switch configuration. Valid values:
+    // - **Cluster**: cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};
-    // The type of the feature. Valid values:
-    // 
-    // *   **containerNetwork**: container network topology
-    // *   **interceptionSwitch**: cluster microsegmentation
+    // The configuration type. Valid values:
+    // - **containerNetwork**: container network topology switch
+    // - **interceptionSwitch**: cluster microsegmentation switch.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -66,27 +66,23 @@ namespace Models
 
 
   protected:
-    // The instance ID of the image.
-    // 
-    // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of instances.
+    // The image instance ID.
+    // > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> imageInstanceId_ {};
     // The region ID of the image.
-    // 
-    // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of regions.
+    // > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> imageRegionId_ {};
-    // The ID of the image repository.
-    // 
-    // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of image repositories.
+    // The image repository ID.
+    // > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> imageRepoId_ {};
-    // The tag that is added to the image.
-    // 
-    // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query tags.
+    // The image tag.
+    // > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> imageTag_ {};

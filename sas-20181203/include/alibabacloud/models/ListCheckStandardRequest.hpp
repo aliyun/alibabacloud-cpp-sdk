@@ -103,18 +103,23 @@ namespace Models
     shared_ptr<vector<string>> instanceTypes_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // List of task sources.
     shared_ptr<vector<string>> taskSources_ {};
     // The cloud service providers. Valid values:
     // 
-    // *   **ALIYUN**: Alibaba Cloud.
-    // *   **TENCENT**: Tencent Cloud.
-    // *   **HUAWEICLOUD**: Huawei Cloud.
-    // *   **MICROSOFT**: Microsoft Azure.
-    // *   **AWS**: Amazon Web Services (AWS).
+    // - **ALIYUN**: Alibaba Cloud.
+    // 
+    // - **TENCENT**: Tencent Cloud.
+    // 
+    // - **HUAWEICLOUD**: Huawei Cloud.
+    // 
+    // - **MICROSOFT**: Microsoft Azure.
+    // 
+    // - **AWS**: Amazon Web Services (AWS).
     shared_ptr<vector<string>> vendors_ {};
   };
 

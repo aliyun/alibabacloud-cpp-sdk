@@ -262,113 +262,103 @@ namespace Models
 
 
   protected:
-    // The alias of the vulnerability that is specified in Common Vulnerabilities and Exposures (CVE).
+    // The alias in the vulnerability advisory.
     shared_ptr<string> aliasName_ {};
-    // The cluster ID.
-    // 
-    // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+    // The ID of the container cluster.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The name of the cluster.
+    // The name of the container cluster.
     shared_ptr<string> clusterName_ {};
     // The container ID.
     shared_ptr<string> containerId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the current page in a paging query. The value starts from 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // Specifies whether the vulnerability is handled. Valid values:
     // 
-    // **y**: The vulnerability is handled. **n**: The vulnerability is not handled.
+    // **y**: Handled.
+    // **n**: Not handled.
     shared_ptr<string> dealed_ {};
-    // The unique identifier of the image.
+    // The unique identifier of the container image.
     shared_ptr<string> digest_ {};
-    // The name of the image.
+    // The name of the container image.
     shared_ptr<string> image_ {};
-    // The ID of the container image.
-    // 
-    // >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+    // The container image instance ID.
+    // > Invoke the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the container image instance ID from the **InstanceId** response parameter.
     shared_ptr<string> instanceId_ {};
     // The name of the vulnerability.
     shared_ptr<string> name_ {};
-    // The namespace of the cluster.
-    // 
-    // >  You can call the [GetOpaClusterNamespaceList](~~GetOpaClusterNamespaceList~~) operation to query the namespaces of clusters.
+    // The cluster namespace.
+    // > You can call the [GetOpaClusterNamespaceList](~~GetOpaClusterNamespaceList~~) operation to query this value.
     shared_ptr<string> namespace_ {};
-    // The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
+    // The priority levels of vulnerabilities to query. Separate multiple levels with commas (,). Valid values:
     // 
-    // *   **asap**: high
-    // *   **later**: medium
-    // *   **nntf**: low
+    // - **asap**: high
+    // - **later**: medium
+    // - **nntf**: low.
     shared_ptr<string> necessity_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries per page in a paging query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the container group.
+    // The name of the pod.
     shared_ptr<string> pod_ {};
     // The region ID of the image repository. Valid values:
-    // 
-    // *   **cn-beijing**: China (Beijing)
-    // *   **cn-zhangjiakou**: China (Zhangjiakou)
-    // *   **cn-hangzhou**: China (Hangzhou)
-    // *   **cn-shanghai**: China (Shanghai)
-    // *   **cn-shenzhen**: China (Shenzhen)
-    // *   **cn-hongkong**: China (Hong Kong)
-    // *   **ap-southeast-1**: Singapore
-    // *   **ap-southeast-5**: Indonesia (Jakarta)
-    // *   **us-east-1**: US (Virginia)
-    // *   **us-west-1**: US (Silicon Valley)
-    // *   **eu-central-1**: Germany (Frankfurt)
-    // *   **eu-west-1**: UK (London)
+    // - **cn-beijing**: China (Beijing)
+    // - **cn-zhangjiakou**: China (Zhangjiakou)
+    // - **cn-hangzhou**: China (Hangzhou)
+    // - **cn-shanghai**: China (Shanghai)
+    // - **cn-shenzhen**: China (Shenzhen)
+    // - **cn-hongkong**: Hong Kong (China)
+    // - **ap-southeast-1**: Singapore
+    // - **ap-southeast-5**: Indonesia (Jakarta)
+    // - **us-east-1**: US (Virginia)
+    // - **us-west-1**: US (Silicon Valley)
+    // - **eu-central-1**: Germany (Frankfurt)
+    // - **eu-west-1**: UK (London).
     shared_ptr<string> regionId_ {};
     // The ID of the image repository.
-    // 
-    // >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry and obtain the ID of the image repository from **RepoId** in the response.
+    // > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry and obtain the value of the **RepoId** response parameter.
     shared_ptr<string> repoId_ {};
-    // The ID of the container image.
-    // 
-    // >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+    // The container image instance ID.
+    // > Invoke the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the container image instance ID from the **InstanceId** response parameter.
     shared_ptr<string> repoInstanceId_ {};
     // The name of the image repository.
-    // 
-    // >  Fuzzy match is supported.
+    // > Fuzzy match is supported.
     shared_ptr<string> repoName_ {};
-    // The namespace to which the image repository belongs.
-    // 
-    // >  Fuzzy match is supported.
+    // The namespace of the image repository.
+    // > Fuzzy match is supported.
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the image repository. Valid values:
-    // 
-    // *   **cn-beijing**: China (Beijing)
-    // *   **cn-zhangjiakou**: China (Zhangjiakou)
-    // *   **cn-hangzhou**: China (Hangzhou)
-    // *   **cn-shanghai**: China (Shanghai)
-    // *   **cn-shenzhen**: China (Shenzhen)
-    // *   **cn-hongkong**: China (Hong Kong)
-    // *   **ap-southeast-1**: Singapore
-    // *   **ap-southeast-5**: Indonesia (Jakarta)
-    // *   **us-east-1**: US (Virginia)
-    // *   **us-west-1**: US (Silicon Valley)
-    // *   **eu-central-1**: Germany (Frankfurt)
-    // *   **eu-west-1**: UK (London)
+    // - **cn-beijing**: China (Beijing)
+    // - **cn-zhangjiakou**: China (Zhangjiakou)
+    // - **cn-hangzhou**: China (Hangzhou)
+    // - **cn-shanghai**: China (Shanghai)
+    // - **cn-shenzhen**: China (Shenzhen)
+    // - **cn-hongkong**: Hong Kong (China)
+    // - **ap-southeast-1**: Singapore
+    // - **ap-southeast-5**: Indonesia (Jakarta)
+    // - **us-east-1**: US (Virginia)
+    // - **us-west-1**: US (Silicon Valley)
+    // - **eu-central-1**: Germany (Frankfurt)
+    // - **eu-west-1**: UK (London).
     shared_ptr<string> repoRegionId_ {};
-    // The type of the asset that you want to scan. Valid values:
+    // The scan scope. Valid values:
     // 
-    // *   **image**
-    // *   **container**
+    // - **image**: Image.
+    // - **container**: Container.
     shared_ptr<vector<string>> scanRange_ {};
-    // The status of the vulnerability. Valid values:
-    // 
-    // *   **1**: The vulnerability is unfixed.
-    // *   **4**: The vulnerability is being fixed.
-    // *   **7**:The vulnerability is fixed.
+    // The fix status of the vulnerability. Valid values:
+    // - **1**: Unfixed.
+    // - **4**: Being fixed.
+    // - **7**: Fixed.
     shared_ptr<string> statusList_ {};
-    // The tag to add to the image.
+    // The tag of the container image.
     shared_ptr<string> tag_ {};
-    // The type of the vulnerability. Valid values:
-    // 
-    // *   **cve**: system vulnerability
-    // *   **sca**: application vulnerability
+    // The vulnerability type. Valid values:
+    // - **cve**: system vulnerability
+    // - **sca**: application vulnerability.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUID of the image. Separate multiple UUIDs with commas (,).
+    // The UUIDs of images. Separate multiple UUIDs with commas (,).
     shared_ptr<string> uuids_ {};
   };
 

@@ -302,21 +302,31 @@ namespace Models
 
       protected:
         // Authorization type consumed during binding, with values:
-        // - **ASSET**：Consumes the number of authorized instances
-        // - **CORE**：Consumes the number of authorized cores
-        // - **ASSET_AND_CORE**：Consumes both the number of authorized instances and cores.
+        // 
+        // - **ASSET**:Consumes the number of authorized instances
+        // 
+        // - **CORE**:Consumes the number of authorized cores
+        // 
+        // - **ASSET_AND_CORE**:Consumes both the number of authorized instances and cores.
         shared_ptr<string> authBindType_ {};
         // Usage of core authorization for the member account.
         shared_ptr<VersionSummary::CoreCount> coreCount_ {};
         // Usage details of ECS authorizations for the member account.
         shared_ptr<VersionSummary::EcsCount> ecsCount_ {};
-        // Version of the Cloud Security Center for the member account. Values:  
-        // - **1**: Free Edition 
+        // Version of the Cloud Security Center for the member account. Values:
+        // 
+        // - **1**: Free Edition
+        // 
         // - **3**: Enterprise Edition
+        // 
         // - **5**: Advanced Edition
-        // - **6**: Anti-Virus Edition    
-        // - **7**: Flagship Edition   
-        // - **8**: Multiple Versions   
+        // 
+        // - **6**: Anti-Virus Edition
+        // 
+        // - **7**: Flagship Edition
+        // 
+        // - **8**: Multiple Versions
+        // 
         // - **10**: Value-Added Services Only
         shared_ptr<int32_t> version_ {};
       };
@@ -876,8 +886,10 @@ namespace Models
       shared_ptr<SaleInstanceList::ImageScanCapacity> imageScanCapacity_ {};
       // Cloud Security Center instance ID purchased by the member account.
       shared_ptr<string> instanceId_ {};
-      // Instance purchase type. Values: 
+      // Instance purchase type. Values:
+      // 
       // - **0**: Self-purchased.
+      // 
       // - **1**: Allocated.
       shared_ptr<int32_t> instancePurchaseType_ {};
       // Member account RASP (Runtime Application Self-Protection) usage.
@@ -886,8 +898,10 @@ namespace Models
       shared_ptr<SaleInstanceList::SdkCapacity> sdkCapacity_ {};
       // Log storage capacity usage of the member account.
       shared_ptr<SaleInstanceList::SlsCapacity> slsCapacity_ {};
-      // Status of the member account instance. Values: 
+      // Status of the member account instance. Values:
+      // 
       // - **1**: Active.
+      // 
       // - **2**: Inactive.
       shared_ptr<int32_t> status_ {};
       // Member account threat analysis capacity usage.
@@ -895,16 +909,25 @@ namespace Models
       // Member account threat analysis and response log ingestion traffic usage.
       shared_ptr<SaleInstanceList::ThreatAnalysisFlow> threatAnalysisFlow_ {};
       // User type. Values:
-      // * **Administrator User**：1
-      // * **Regular User**：2
+      // 
+      // - **Administrator User**:1
+      // 
+      // - **Regular User**:2
       shared_ptr<int32_t> userType_ {};
-      // Version of the Cloud Security Center for the member account. Values:  
-      // - **1**: Free Edition 
+      // Version of the Cloud Security Center for the member account. Values:
+      // 
+      // - **1**: Free Edition
+      // 
       // - **3**: Enterprise Edition
+      // 
       // - **5**: Advanced Edition
-      // - **6**: Anti-Virus Edition    
-      // - **7**: Flagship Edition   
-      // - **8**: Multiple Versions   
+      // 
+      // - **6**: Anti-Virus Edition
+      // 
+      // - **7**: Flagship Edition
+      // 
+      // - **8**: Multiple Versions
+      // 
       // - **10**: Only Purchased Value-Added Services
       shared_ptr<int32_t> version_ {};
       // Authorization usage statistics for the member account.
@@ -1266,22 +1289,32 @@ namespace Models
 
 
       protected:
-        // The type of authorization consumed during binding. Values: 
+        // The type of authorization consumed during binding. Values:
+        // 
         // - ASSET: consumes the number of authorized instances
+        // 
         // - CORE: consumes the number of authorized cores
+        // 
         // - ASSET_AND_CORE: consumes both the number of authorized instances and cores
         shared_ptr<string> authBindType_ {};
         // Usage and allocation details of the core licenses for the administrator account.
         shared_ptr<VersionSummary::CoreCount> coreCount_ {};
         // Usage and allocation details of the ECS instance licenses for the administrator account.
         shared_ptr<VersionSummary::EcsCount> ecsCount_ {};
-        // Purchased version of Cloud Security Center. Values:  
-        // - **1**: Free Edition 
+        // Purchased version of Cloud Security Center. Values:
+        // 
+        // - **1**: Free Edition
+        // 
         // - **3**: Enterprise Edition
+        // 
         // - **5**: Advanced Edition
-        // - **6**: Antivirus Edition    
-        // - **7**: Flagship Edition   
-        // - **8**: Multiple Editions   
+        // 
+        // - **6**: Antivirus Edition
+        // 
+        // - **7**: Flagship Edition
+        // 
+        // - **8**: Multiple Editions
+        // 
         // - **10**: Only Value-Added Services Purchased
         shared_ptr<int32_t> version_ {};
       };
@@ -1941,8 +1974,10 @@ namespace Models
       // Cloud Security Center instance ID purchased by the administrator account.
       shared_ptr<string> instanceId_ {};
       // Instance purchase type. Values:
-      // - **0**：Self-purchased.
-      // - **1**：Allocated.
+      // 
+      // - **0**:Self-purchased.
+      // 
+      // - **1**:Allocated.
       shared_ptr<int32_t> instancePurchaseType_ {};
       // Usage and allocation of administrator account RASP (Runtime Application Self-Protection) capacity.
       shared_ptr<DaInstance::RaspCapacity> raspCapacity_ {};
@@ -1950,26 +1985,37 @@ namespace Models
       shared_ptr<DaInstance::SdkCapacity> sdkCapacity_ {};
       // Usage and allocation of administrator account log storage capacity.
       shared_ptr<DaInstance::SlsCapacity> slsCapacity_ {};
-      // Administrator account instance status. Values: 
+      // Administrator account instance status. Values:
+      // 
       // - **1**: Active.
+      // 
       // - **2**: Inactive.
       shared_ptr<int32_t> status_ {};
       // Usage and allocation of administrator account threat analysis capacity.
       shared_ptr<DaInstance::ThreatAnalysisCapacity> threatAnalysisCapacity_ {};
       // Usage and allocation of threat analysis and response log inbound traffic for the administrator account.
       shared_ptr<DaInstance::ThreatAnalysisFlow> threatAnalysisFlow_ {};
-      // User type. Values: 
-      // * **Administrator User**: 1
-      // * **Regular User**: 2
+      // User type. Values:
+      // 
+      // - **Administrator User**: 1
+      // 
+      // - **Regular User**: 2
       shared_ptr<int32_t> userType_ {};
-      // Purchased version of Cloud Security Center. Values:  
-      // - **1**：Free Edition 
-      // - **3**：Enterprise Edition
-      // - **5**：Advanced Edition
-      // - **6**：Anti-Virus Edition    
-      // - **7**：Flagship Edition   
-      // - **8**：Multiple Editions   
-      // - **10**：Value-Added Services Only
+      // Purchased version of Cloud Security Center. Values:
+      // 
+      // - **1**:Free Edition
+      // 
+      // - **3**:Enterprise Edition
+      // 
+      // - **5**:Advanced Edition
+      // 
+      // - **6**:Anti-Virus Edition
+      // 
+      // - **7**:Flagship Edition
+      // 
+      // - **8**:Multiple Editions
+      // 
+      // - **10**:Value-Added Services Only
       shared_ptr<int32_t> version_ {};
       // Authorization usage statistics for the administrator account.
       shared_ptr<vector<DaInstance::VersionSummary>> versionSummary_ {};

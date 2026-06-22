@@ -245,10 +245,13 @@ namespace Models
     protected:
       // The severity of alerts. Valid values:
       // 
-      // *   0: does not generate alerts
-      // *   1: sends notifications
-      // *   2: suspicious
-      // *   3: high-risk
+      // - 0: does not generate alerts
+      // 
+      // - 1: sends notifications
+      // 
+      // - 2: suspicious
+      // 
+      // - 3: high-risk
       shared_ptr<int32_t> alertLevel_ {};
       // The event command line.
       shared_ptr<string> cmdLine_ {};
@@ -274,8 +277,9 @@ namespace Models
       shared_ptr<string> operation_ {};
       // The type of the operating system. Valid values:
       // 
-      // *   **windows**: Windows
-      // *   **linux**: Linux
+      // - **windows**: Windows
+      // 
+      // - **linux**: Linux
       shared_ptr<string> platform_ {};
       // The path to the process.
       shared_ptr<string> procPath_ {};
@@ -287,9 +291,11 @@ namespace Models
       shared_ptr<string> ruleName_ {};
       // The status of the event. Valid values:
       // 
-      // *   0: not handled
-      // *   1: handled
-      // *   2: added to the whitelist
+      // - 0: not handled
+      // 
+      // - 1: handled
+      // 
+      // - 2: added to the whitelist
       shared_ptr<int32_t> status_ {};
       // User ID of the user who started the current process.
       shared_ptr<string> userId_ {};

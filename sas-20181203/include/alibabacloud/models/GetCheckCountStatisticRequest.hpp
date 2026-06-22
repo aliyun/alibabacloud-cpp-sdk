@@ -71,14 +71,17 @@ namespace Models
 
 
   protected:
-    // 语言参数
+    // Language parameter
     shared_ptr<string> lang_ {};
     // The type of the statistics. Valid values:
     // 
-    // *   **user**: the top five users that are granted excessive permissions.
-    // *   **role**: the top five roles that are granted excessive permissions.
-    // *   **instance**: the top five cloud services on which risks are detected.
-    // *   **host**: the top five servers on which baseline risks are detected.
+    // - **user**: the top five users that are granted excessive permissions.
+    // 
+    // - **role**: the top five roles that are granted excessive permissions.
+    // 
+    // - **instance**: the top five cloud services on which risks are detected.
+    // 
+    // - **host**: the top five servers on which baseline risks are detected.
     shared_ptr<string> statisticType_ {};
     // Task source.
     shared_ptr<vector<string>> taskSources_ {};

@@ -95,11 +95,10 @@ namespace Models
       protected:
         // The number of vulnerabilities.
         shared_ptr<int64_t> count_ {};
-        // The risk level of the vulnerability. Valid values:
-        // 
-        // *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-        // *   **nntf**: medium. You can fix the vulnerability based on your business requirements.
-        // *   **later**: low. You can ignore the vulnerability.
+        // The warning level. Valid values:
+        // - **asap**: high. Fix the vulnerability at the earliest opportunity.
+        // - **nntf**: medium. The vulnerability can be temporarily left unfixed.
+        // - **later**: low. The vulnerability can be left unfixed.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -143,11 +142,10 @@ namespace Models
       protected:
         // The number of baselines.
         shared_ptr<int64_t> count_ {};
-        // The risk level of the baseline. Valid values:
-        // 
-        // *   **high**
-        // *   **medium**
-        // *   **low**
+        // The baseline risk level. Valid values:
+        // - **high**: high risk.
+        // - **medium**: medium risk.
+        // - **low**: low risk.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -191,11 +189,10 @@ namespace Models
       protected:
         // The number of alerts.
         shared_ptr<int64_t> count_ {};
-        // The alert level. Valid values:
-        // 
-        // *   **serious**
-        // *   **suspicious**
-        // *   **remind**
+        // The warning level. Valid values:
+        // - **serious**: urgent.
+        // - **suspicious**: suspicious.
+        // - **remind**: reminder.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -229,11 +226,11 @@ namespace Models
 
 
     protected:
-      // The alert details of the host.
+      // The host alert details.
       shared_ptr<vector<ClusterHostEvent::AlarmEvent>> alarmEvent_ {};
-      // The baseline details of the host.
+      // The host baseline details.
       shared_ptr<vector<ClusterHostEvent::BaselineEvent>> baselineEvent_ {};
-      // The vulnerability details of the host.
+      // The host vulnerability details.
       shared_ptr<vector<ClusterHostEvent::VulEvent>> vulEvent_ {};
     };
 
@@ -256,7 +253,7 @@ namespace Models
 
 
   protected:
-    // The alert details of the hosts.
+    // The host alert details.
     shared_ptr<DescribeClusterHostSecuritySummaryResponseBody::ClusterHostEvent> clusterHostEvent_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

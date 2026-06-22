@@ -84,22 +84,22 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the current page to return. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the alert.
-    // 
-    // *   Set the value to ALL, which indicates all alert types.
+    // The alerting name. Valid values:
+    // - ALL: all Alarm Metric values.
     shared_ptr<string> eventName_ {};
-    // Event ID. <notice>Field is deprecated.</notice>
-    shared_ptr<int64_t> idList_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The event ID.
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // >Notice: This field is deprecated..
+    shared_ptr<int64_t> idList_ {};
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries to return per page in a paging query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The feature to which this operation belongs. If you leave this parameter empty, the default value agentless is used.
+    // The business source. This parameter can be left empty. Default value: agentless.
     shared_ptr<string> source_ {};
   };
 

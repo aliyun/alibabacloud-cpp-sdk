@@ -59,14 +59,13 @@ namespace Models
   protected:
     // The name of the container application.
     shared_ptr<string> appNames_ {};
-    // The cluster ID.
-    // 
-    // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+    // The ID of the container cluster.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

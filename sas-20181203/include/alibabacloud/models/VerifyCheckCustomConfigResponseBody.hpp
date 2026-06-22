@@ -112,13 +112,13 @@ namespace Models
 
 
       protected:
-        // Name of the check item\\"s configuration, unique within the same check item.
+        // The name of the check item configuration. The name is unique within the check item.
         shared_ptr<string> name_ {};
-        // Display name of the user\\"s check configuration.
+        // The display name of the user check configuration.
         shared_ptr<string> showName_ {};
-        // The type of the parameter that caused the error:
-        // - repair: Repair parameter
-        // - custom: Custom configuration parameter
+        // The type of the parameter that has an error. Valid values:
+        // - repair: repair parameter
+        // - custom: custom configuration parameter.
         shared_ptr<string> type_ {};
       };
 
@@ -169,18 +169,18 @@ namespace Models
 
 
     protected:
-      // Error code.
+      // The error code.
       shared_ptr<string> errorCode_ {};
-      // Error message.
+      // The error message.
       shared_ptr<string> errorMsg_ {};
-      // Related configurations causing this error.
+      // The related configurations that caused this error.
       shared_ptr<vector<ErrorRepairConfigs::LinkErrorConfigs>> linkErrorConfigs_ {};
-      // Name of the check item\\"s repair configuration, unique within the same check item.
+      // The name of the repair configuration item for the check item. The name is unique within the check item.
       shared_ptr<string> name_ {};
-      // The type of the parameter that caused the error:
-      // - repair: Repair parameter
+      // The type of the parameter that has an error. Valid values:
+      // - repair: repair parameter.
       shared_ptr<string> type_ {};
-      // Name of the check item\\"s repair parameter, unique within the same check item.
+      // The name of the repair parameter for the check item. The name is unique within the check item.
       shared_ptr<string> value_ {};
     };
 
@@ -222,11 +222,11 @@ namespace Models
 
 
     protected:
-      // Error code when failed. This parameter is not returned upon success. 
-      // - **CspmVerifyCheckCustomItemNoPass**: The asset did not pass the set custom rules. 
-      // - **CspmVerifyCheckCustomItemError**: Verification error, there is an issue with the input rule.
+      // The error code returned upon failure. This parameter is not returned upon success. Valid values:
+      // - **CspmVerifyCheckCustomItemNoPass**: The asset did not pass the custom rule that was configured.
+      // - **CspmVerifyCheckCustomItemError**: A validation error occurred because the input rule has issues.
       shared_ptr<string> errorCode_ {};
-      // Error message
+      // The exception information.
       shared_ptr<string> errorMsg_ {};
     };
 
@@ -306,13 +306,13 @@ namespace Models
 
 
       protected:
-        // Name of the check item configuration, unique within the same check item.
+        // The name of the check item configuration. The name is unique within the check item.
         shared_ptr<string> name_ {};
-        // Display name of the user\\"s check configuration.
+        // The display name of the user check configuration.
         shared_ptr<string> showName_ {};
-        // The type of the parameter that caused the error:
-        // - repair: Repair parameter
-        // - custom: Custom configuration parameter
+        // The type of the parameter that has an error. Valid values:
+        // - repair: repair parameter
+        // - custom: custom configuration parameter.
         shared_ptr<string> type_ {};
       };
 
@@ -363,18 +363,18 @@ namespace Models
 
 
     protected:
-      // Error code.
+      // The error code.
       shared_ptr<string> errorCode_ {};
-      // Error message.
+      // The error message.
       shared_ptr<string> errorMsg_ {};
-      // Related configurations causing this error.
+      // The related configurations that caused this error.
       shared_ptr<vector<ErrorCheckConfigs::LinkErrorConfigs>> linkErrorConfigs_ {};
-      // Name of the custom configuration item for the check item, unique within the same check item.
+      // The name of the custom configuration item for the check item. The name is unique within the check item.
       shared_ptr<string> name_ {};
-      // Type of the erroneous parameter:
-      // - custom: Custom configuration parameter
+      // The type of the parameter that has an error. Valid values:
+      // - custom: custom configuration parameter.
       shared_ptr<string> type_ {};
-      // User-configured value string for the custom configuration item of the check item.
+      // The user-configured value string of the custom configuration item for the check item.
       shared_ptr<string> value_ {};
     };
 
@@ -415,13 +415,13 @@ namespace Models
 
 
   protected:
-    // List of check parameters with configuration errors.
+    // The list of check parameters that have configuration check errors.
     shared_ptr<vector<VerifyCheckCustomConfigResponseBody::ErrorCheckConfigs>> errorCheckConfigs_ {};
-    // Check the error code returned by the custom check item.
+    // The error code returned for the custom check item validation.
     shared_ptr<VerifyCheckCustomConfigResponseBody::ErrorCheckCustomConfig> errorCheckCustomConfig_ {};
-    // List of repair parameters with configuration check errors.
+    // The list of repair parameters that have configuration check errors.
     shared_ptr<vector<VerifyCheckCustomConfigResponseBody::ErrorRepairConfigs>> errorRepairConfigs_ {};
-    // The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used for troubleshooting and problem localization.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

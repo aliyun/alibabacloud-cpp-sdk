@@ -136,26 +136,26 @@ namespace Models
 
 
     protected:
-      // Specifies whether to bind a port. Valid values:
+      // Specifies whether to bind the port. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> bindPort_ {};
-      // The end port on which the probe monitors.
+      // The end port that the probe listens on.
       shared_ptr<int32_t> endPort_ {};
       // Specifies whether the port is fixed. Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes
+      // - **0**: No.
+      // - **1**: Yes.
       shared_ptr<bool> fixed_ {};
-      // The UUID of the port.
+      // The unique identifier of the bound port.
       shared_ptr<int64_t> id_ {};
-      // The type of the protocol. Valid values:
+      // The protocol type. Valid values:
       // 
-      // *   **tcp**
-      // *   **udp**
+      // - **tcp**
+      // - **udp**.
       shared_ptr<string> proto_ {};
-      // The start port on which the probe monitors.
+      // The start port that the probe listens on.
       shared_ptr<int32_t> startPort_ {};
       // The destination port.
       shared_ptr<int32_t> targetPort_ {};
@@ -254,41 +254,37 @@ namespace Models
 
 
   protected:
-    // The unique ID of the honeypot to which the probe is bound.
+    // The unique ID of the bound service.
     shared_ptr<string> bindId_ {};
-    // The ports that are bound to the probe.
+    // The list of bound ports.
     shared_ptr<vector<UpdateHoneypotProbeBindRequest::BindPortList>> bindPortList_ {};
-    // The operation that the probe performs. Valid values:
+    // The service binding type. Valid values:
     // 
-    // *   **forward_honey**: forward traffic to a honeypot
-    // *   **scan_port**: monitor and scan
+    // - **forward_honey**: forward to honeypot
+    // - **scan_port**: listen for scans.
     shared_ptr<string> bindType_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number of the page to return. Minimum value: **1**. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The honeypot ID.
-    // 
-    // >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain the IDs of honeypots.
+    // > You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain this value.
     shared_ptr<string> honeypotId_ {};
-    // The port ID of the probe service.
+    // The probe service port ID.
     shared_ptr<int64_t> id_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to return on each page when using paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by paging.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The ports that are monitored.
+    // The listening port range.
     shared_ptr<string> ports_ {};
     // The probe ID.
-    // 
-    // >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+    // >You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to obtain this parameter.
     shared_ptr<string> probeId_ {};
-    // The IP addresses that are monitored.
+    // The list of listening IP addresses.
     shared_ptr<vector<string>> serviceIpList_ {};
-    // The status of the port.
+    // The listening port status setting.
     shared_ptr<int32_t> setStatus_ {};
   };
 

@@ -117,33 +117,31 @@ namespace Models
 
 
   protected:
-    // The key of the baseline type.
+    // The key of the baseline category.
     shared_ptr<string> baselineClassKey_ {};
     // The key of the baseline name.
     shared_ptr<string> baselineNameKey_ {};
-    // The number of the page to return.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The UUID of the image.
     // 
     // This parameter is required.
     shared_ptr<string> imageUuid_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The types of the assets that are scanned.
+    // The scan scope collection.
     shared_ptr<vector<string>> scanRange_ {};
-    // The status of the baseline risk item. Valid values:
-    // 
-    // *   **0**: unfixed
-    // *   **1**: fixed
-    // *   **2**: pending verification
-    // *   **3**: fixing failed
+    // The fix status of the baseline risk. Valid values:
+    // - **0**: unfixed
+    // - **1**: fixed
+    // - **2**: pending verification
+    // - **3**: fix failed.
     shared_ptr<string> status_ {};
-    // The UUIDs of images.
+    // The list of image UUIDs.
     shared_ptr<vector<string>> uuids_ {};
   };
 

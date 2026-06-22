@@ -154,37 +154,37 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. Unit: milliseconds.
+      // The creation time of the task. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Number of completed subtasks
+      // The number of completed subtasks.
       shared_ptr<int32_t> detailTaskReadyCount_ {};
-      // Total number of subtasks.
+      // The total number of subtasks.
       shared_ptr<int32_t> detailTaskTotalCount_ {};
       // The end time of the task. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The number of tasks that are complete.
+      // The number of completed items.
       shared_ptr<int32_t> finishCount_ {};
       // The start time of the task. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The task status code. Valid values:
+      // The check task status code. Valid values:
       // 
-      // *   0: not started.
-      // *   1: running.
-      // *   2: complete.
-      // *   3: times out.
+      // - 0: not started.
+      // - 1: checking.
+      // - 2: check completed.
+      // - 3: timed out.
       shared_ptr<int32_t> statusCode_ {};
       // The ID of the operation task.
       shared_ptr<string> taskId_ {};
-      // Task source. Values: 
-      // - **YAO_CHI**: YaoChi.
+      // The task source. Valid values:
+      // 
+      // - **YAO_CHI**: ApsaraDB.
       shared_ptr<string> taskSource_ {};
       // The task type. Valid values:
-      // 
-      // *   CHECK_ALL: full check.
-      // *   CHECK_POLICY: policy-based check for which check items are configured.
-      // *   CHECK_SCHEDULE: scheduled check.
-      // *   CHECK_ITEM: specific check item-based check.
-      // *   CHECK_INSTANCE: specific check item-based check on specific instances.
+      // - CHECK_ALL: full check.
+      // - CHECK_POLICY: check performed based on check items in the configured policy.
+      // - CHECK_SCHEDULE: scheduled check.
+      // - CHECK_ITEM: check performed based on specified check items.
+      // - CHECK_INSTANCE: check performed based on specified check items and instances.
       shared_ptr<string> taskType_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -246,9 +246,9 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page to display in a paged query. This parameter is used for paging.
       shared_ptr<int32_t> currentPage_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -286,9 +286,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListOperationProcessResponseBody::PageInfo> pageInfo_ {};
-    // The information about the operation tasks.
+    // The list of operation task information.
     shared_ptr<vector<ListOperationProcessResponseBody::Processes>> processes_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

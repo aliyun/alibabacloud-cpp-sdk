@@ -78,15 +78,14 @@ namespace Models
 
 
     protected:
-      // The configurations of the usage for the Security Center agent.
+      // The resource configuration information used by the client.
       shared_ptr<string> config_ {};
-      // The tag that is added to the configuration.
+      // The policy tag.
       shared_ptr<string> strategyTag_ {};
-      // The value of the tag. Valid values:
-      // 
-      // *   major
-      // *   advanced
-      // *   basic
+      // The policy value. Valid values:
+      // - major
+      // - advanced
+      // - basic.
       shared_ptr<string> strategyTagValue_ {};
     };
 
@@ -109,9 +108,9 @@ namespace Models
 
 
   protected:
-    // The configurations of the Security Center agent.
+    // The resource configuration information of the client.
     shared_ptr<DescribeClientConfSetupResponseBody::ClientConf> clientConf_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

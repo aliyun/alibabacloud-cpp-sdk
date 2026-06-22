@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The condition type. Valid values:
+      // The condition type. The following type is supported:
       // 
-      // *   **ruleName**: the rule name
+      // - **ruleName**: rule name.
       shared_ptr<string> type_ {};
-      // The rule content.
+      // The condition content.
       shared_ptr<string> value_ {};
     };
 
@@ -133,27 +133,22 @@ namespace Models
 
 
   protected:
-    // The details of the condition.
+    // The list of conditions.
     shared_ptr<vector<ListContainerDefenseRuleRequest::Conditions>> conditions_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether to query system rules.
-    // 
-    // >  This parameter is deprecated.
+    // Specifies whether the rule is a system default rule.>Notice: This parameter is deprecated..
     shared_ptr<int32_t> isDefaultRule_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
     // The rule type. Valid values:
-    // 
-    // *   1: system rule
-    // *   2: user-defined rule
+    // - 1: system rule
+    // - 2: user rule.
     shared_ptr<int32_t> ruleType_ {};
   };
 

@@ -62,14 +62,12 @@ namespace Models
   protected:
     // The alias of the vulnerability.
     shared_ptr<string> aliasName_ {};
-    // The IDs of the configurations.
-    // 
-    // >  You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the IDs.
+    // The list of configuration IDs to delete.
+    // > You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to obtain configuration IDs.
     shared_ptr<vector<int64_t>> configIdList_ {};
-    // The type of the vulnerability. Valid values:
-    // 
-    // *   cve: Linux software vulnerability
-    // *   sys: Windows system vulnerability
+    // The type of the vulnerability. Valid values: 
+    // - cve: Linux software vulnerability 
+    // - sys: Windows system vulnerability.
     shared_ptr<string> type_ {};
   };
 

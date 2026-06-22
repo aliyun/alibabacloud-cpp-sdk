@@ -153,8 +153,9 @@ namespace Models
         shared_ptr<string> ackPolicyInstanceId_ {};
         // Indicates whether all namespaces are included. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: yes
+        // 
+        // - **0**: no
         shared_ptr<int32_t> allNamespace_ {};
         // The cluster ID.
         shared_ptr<string> clusterId_ {};
@@ -252,13 +253,15 @@ namespace Models
           protected:
             // The ID of the vulnerability types. Valid values:
             // 
-            // *   **cve**: system vulnerability
-            // *   **app**: application vulnerability
+            // - **cve**: system vulnerability
+            // 
+            // - **app**: application vulnerability
             shared_ptr<string> id_ {};
             // The name of the vulnerability. Valid values:
             // 
-            // *   **system vulnerability**
-            // *   **application vulnerability**
+            // - **system vulnerability**
+            // 
+            // - **application vulnerability**
             shared_ptr<string> name_ {};
           };
 
@@ -405,11 +408,11 @@ namespace Models
           protected:
             // The ID of the sensitive files.
             // 
-            // >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+            // > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
             shared_ptr<string> id_ {};
             // The name of the sensitive files.
             // 
-            // >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+            // > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
             shared_ptr<string> name_ {};
           };
 
@@ -593,11 +596,11 @@ namespace Models
           protected:
             // The ID of the image build risk.
             // 
-            // >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+            // > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
             shared_ptr<string> id_ {};
             // The name of the image build risk.
             // 
-            // >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+            // > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
             shared_ptr<string> name_ {};
           };
 
@@ -931,21 +934,25 @@ namespace Models
       shared_ptr<vector<string>> label_ {};
       // The language of the content within the request and response. Default value: **zh**. Valid values:
       // 
-      // *   **zh**: Chinese
-      // *   **en**: English
+      // - **zh**: Chinese
+      // 
+      // - **en**: English
       shared_ptr<string> lang_ {};
       // Indicates whether the rule supports malicious Internet images. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> maliciousImage_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The action that is performed when the rule is hit. Valid values:
       // 
-      // *   **1**: trigger alerts
-      // *   **2**: block
-      // *   **3**: allow
+      // - **1**: trigger alerts
+      // 
+      // - **2**: block
+      // 
+      // - **3**: allow
       shared_ptr<int32_t> ruleAction_ {};
       // The application scope.
       shared_ptr<vector<Data::Scopes>> scopes_ {};
@@ -957,8 +964,9 @@ namespace Models
       shared_ptr<int64_t> strategyTemplateId_ {};
       // Indicates whether the rule supports unscanned images. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> unScanedImage_ {};
       // The image tags that are added to the whitelist.
       shared_ptr<vector<string>> whiteList_ {};
@@ -1023,8 +1031,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

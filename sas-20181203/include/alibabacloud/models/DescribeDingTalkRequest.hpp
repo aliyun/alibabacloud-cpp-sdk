@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.Default value: 1.
+    // The page number of the current page to display in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page.Default value: 20.
+    // The maximum number of notifications to display per page in a paged query. Default value: **20**, which indicates that up to 20 entries are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the notification.
+    // The notification name.
     shared_ptr<string> ruleActionName_ {};
   };
 

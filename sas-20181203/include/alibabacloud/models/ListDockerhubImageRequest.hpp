@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The query condition for images. You can query images in the `[namespace/]repoName[:version]` format. Conditions in `[]` are optional.
+    // The image query condition. The format is `[namespace/]repoName[:version]`. The query conditions in `[]` are optional.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};

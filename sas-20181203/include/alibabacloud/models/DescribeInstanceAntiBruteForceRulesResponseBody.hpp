@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The ID of the defense rule.
+      // The ID of the brute-force attacks defense rule.
       shared_ptr<int64_t> id_ {};
-      // The name of the defense rule.
+      // The name of the brute-force attacks defense rule.
       shared_ptr<string> name_ {};
-      // The UUID of the server to which the defense rule is applied.
+      // The UUID of the server on which the brute-force attacks defense rule takes effect.
       shared_ptr<string> uuid_ {};
     };
 
@@ -145,13 +145,13 @@ namespace Models
 
 
     protected:
-      // The number of servers returned on the current page.
+      // The number of servers on which brute-force attacks defense rules take effect on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of servers returned.
+      // The total number of servers on which brute-force attacks defense rules take effect.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -185,9 +185,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeInstanceAntiBruteForceRulesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // An array consisting of the servers to which a defense rule is applied.
+    // The list of servers on which brute-force attacks defense rules take effect.
     shared_ptr<vector<DescribeInstanceAntiBruteForceRulesResponseBody::Rules>> rules_ {};
   };
 

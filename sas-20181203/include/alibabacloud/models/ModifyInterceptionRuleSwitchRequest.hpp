@@ -57,18 +57,16 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+    // The ID of the cluster that you want to modify.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The IDs of the rules whose status you want to change. Separate multiple IDs with commas (,).
-    // 
-    // > You can call the [ListInterceptionRulePage](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of rules.
+    // The list of rule IDs to operate on. Separate multiple IDs with commas (,).
+    // > You can call the [ListInterceptionRulePage](~~ListInterceptionRulePage~~) operation to obtain this parameter.
     shared_ptr<string> ruleIds_ {};
-    // Specifies whether the rule is enabled. Valid values:
+    // The switch status of the rule. Valid values:
     // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<int32_t> ruleSwitch_ {};
   };
 

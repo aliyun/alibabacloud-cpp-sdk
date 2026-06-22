@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -193,29 +193,27 @@ namespace Models
 
 
     protected:
-      // The alias of the baseline type.
+      // The alias of the baseline category.
       shared_ptr<string> baselineClassAlias_ {};
-      // The key of the baseline type.
+      // The key of the baseline category.
       shared_ptr<string> baselineClassKey_ {};
-      // The alias of the baseline check item.
+      // The alias of the baseline sub-item.
       shared_ptr<string> baselineItemAlias_ {};
-      // The key of the baseline check item.
+      // The key of the baseline sub-item.
       shared_ptr<string> baselineItemKey_ {};
-      // The alias of the baseline.
+      // The alias of the baseline name.
       shared_ptr<string> baselineNameAlias_ {};
       // The key of the baseline name.
       shared_ptr<string> baselineNameKey_ {};
-      // The status of the baseline risks. Valid values:
-      // 
-      // *   **0**: unfixed
-      // *   **1**: fixed
-      // *   **2**: pending verification
-      // *   **3**: fixing failed
+      // The fix status of the baseline risk. Valid values:
+      // - **0**: unfixed
+      // - **1**: fixed
+      // - **2**: pending verification
+      // - **3**: fix failed.
       shared_ptr<int32_t> status_ {};
-      // Indicates whether the baseline check item is added to the whitelist. Valid values:
-      // 
-      // *   **0**: The baseline check item is not added to the whitelist.
-      // *   **1**: The baseline check item is added to the whitelist.
+      // The whitelist status of the baseline check item. Valid values:
+      // - **0**: not whitelisted
+      // - **1**: whitelisted.
       shared_ptr<int32_t> whiteList_ {};
     };
 
@@ -247,9 +245,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of baseline check items.
+    // The list of image baseline data.
     shared_ptr<vector<DescribeImageBaselineItemListResponseBody::BaselineItemInfos>> baselineItemInfos_ {};
-    // The pagination information.
+    // The pagination information of the query results.
     shared_ptr<DescribeImageBaselineItemListResponseBody::PageInfo> pageInfo_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

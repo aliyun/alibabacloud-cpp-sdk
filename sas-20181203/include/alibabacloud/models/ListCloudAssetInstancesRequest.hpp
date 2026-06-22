@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CloudAssetTypes, cloudAssetTypes_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(IsSaleData, isSaleData_);
       DARABONBA_PTR_TO_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CloudAssetTypes, cloudAssetTypes_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(IsSaleData, isSaleData_);
       DARABONBA_PTR_FROM_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -89,21 +91,21 @@ namespace Models
 
 
     protected:
-      // The subtype of the cloud asset.
+      // The subtype of the cloud service.
       // 
-      // You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the subtype of the cloud asset.
+      // > For details, refer to AssetSubType in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
       shared_ptr<int32_t> assetSubType_ {};
       // The type of the cloud asset.
       // 
-      // You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the cloud asset type.
+      // > For details, refer to AssetType in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
       shared_ptr<int32_t> assetType_ {};
-      // The server type. Valid values:
+      // The server vendor. Valid values:
       // 
-      // *   **0**: a cloud asset provided by Alibaba Cloud
-      // *   **1**: a cloud asset outside Alibaba Cloud
-      // *   **2**: a cloud asset in a data center
-      // *   **3**, **4**, **5**, and **7**: a cloud asset provided by a third-party service provider
-      // *   **8**: a lightweight cloud asset
+      // - **0**: Alibaba Cloud asset
+      // - **1**: Off-cloud asset
+      // - **2**: IDC asset
+      // - **3**, **4**, **5**, **7**: Other cloud assets
+      // - **8**: Lightweight asset
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -145,15 +147,15 @@ namespace Models
 
 
     protected:
-      // Query content.
+      // The query content.
       shared_ptr<string> data_ {};
-      // Query operator, currently only supports: INCLUDE.
+      // The query operator. Currently, only INCLUDE is supported.
       shared_ptr<string> operator_ {};
     };
 
     virtual bool empty() const override { return this->cloudAssetQueryData_ == nullptr
-        && this->cloudAssetTypes_ == nullptr && this->criteria_ == nullptr && this->currentPage_ == nullptr && this->logicalExp_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->cloudAssetTypes_ == nullptr && this->criteria_ == nullptr && this->currentPage_ == nullptr && this->isSaleData_ == nullptr && this->logicalExp_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
     // cloudAssetQueryData Field Functions 
     bool hasCloudAssetQueryData() const { return this->cloudAssetQueryData_ != nullptr;};
     void deleteCloudAssetQueryData() { this->cloudAssetQueryData_ = nullptr;};
@@ -186,6 +188,13 @@ namespace Models
     inline ListCloudAssetInstancesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
+    // isSaleData Field Functions 
+    bool hasIsSaleData() const { return this->isSaleData_ != nullptr;};
+    void deleteIsSaleData() { this->isSaleData_ = nullptr;};
+    inline bool getIsSaleData() const { DARABONBA_PTR_GET_DEFAULT(isSaleData_, false) };
+    inline ListCloudAssetInstancesRequest& setIsSaleData(bool isSaleData) { DARABONBA_PTR_SET_VALUE(isSaleData_, isSaleData) };
+
+
     // logicalExp Field Functions 
     bool hasLogicalExp() const { return this->logicalExp_ != nullptr;};
     void deleteLogicalExp() { this->logicalExp_ = nullptr;};
@@ -208,33 +217,29 @@ namespace Models
 
 
   protected:
-    // Query data list based on keywords.
+    // The data list queried by keyword.
     shared_ptr<vector<ListCloudAssetInstancesRequest::CloudAssetQueryData>> cloudAssetQueryData_ {};
-    // The details of the cloud asset.
+    // The list of assets of the cloud asset instance.
     shared_ptr<vector<ListCloudAssetInstancesRequest::CloudAssetTypes>> cloudAssetTypes_ {};
-    // The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
-    // 
-    // *   **name**: the name of the search condition.
-    // 
-    // *   **value**: the value of the search condition.
-    // 
-    // *   **logicalExp**: the logical relation for multiple search conditions. Valid values:
-    // 
-    //     *   **OR**: The search conditions use a logical **OR**.
-    //     *   **AND**: The search conditions use a logical **AND**.
-    // 
-    // > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query supported search conditions.
+    // The conditions used to search for assets. This parameter is in JSON format and contains the following fields:
+    // - **name**: the search item.
+    // - **value**: the value of the search item.
+    // - **logicalExp**: the logical relationship between multiple search item values. Valid values:
+    //     - **OR**: indicates that multiple search item values have an **OR** relationship.
+    //     - **AND**: indicates that multiple search item values have an **AND** relationship.
+    // > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // The number of the page to return.
+    // The number of the current page to return in paginated queries.
     shared_ptr<int32_t> currentPage_ {};
-    // The logical relation for multiple search conditions. Valid values:
+    shared_ptr<bool> isSaleData_ {};
+    // The logical relationship between multiple search conditions. Valid values:
     // 
-    // *   **OR**: The search conditions use a logical **OR**.
-    // *   **AND**: The search conditions use a logical **AND**.
+    // - **OR**: indicates that multiple search conditions have an **OR** relationship.
+    // - **AND**: indicates that multiple search conditions have an **AND** relationship.
     shared_ptr<string> logicalExp_ {};
-    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
+    // The maximum number of rows that can be displayed per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance.
+    // The ID of the region where the instance resides.
     shared_ptr<string> regionId_ {};
   };
 

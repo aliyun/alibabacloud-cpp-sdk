@@ -121,13 +121,13 @@ namespace Models
 
 
       protected:
-        // Key to detect content.
+        // The key of the check content.
         shared_ptr<string> key_ {};
-        // The detection content key corresponds to the display name.
+        // The display name that corresponds to the key of the check content.
         shared_ptr<string> showName_ {};
-        // Display type. Value:
-        // - **grid**: Detection grid
-        // - **text**: text
+        // The display type. Valid values:
+        // - **grid**: grid
+        // - **text**: text.
         shared_ptr<string> type_ {};
       };
 
@@ -164,15 +164,15 @@ namespace Models
 
 
     protected:
-      // Detection content list.
+      // The list of check content.
       shared_ptr<vector<CheckDetailColumns::Grids>> grids_ {};
-      // Key to detect content.
+      // The key of the check content.
       shared_ptr<string> key_ {};
-      // The detection content key corresponds to the display name.
+      // The display name that corresponds to the key of the check content.
       shared_ptr<string> showName_ {};
-      // Display type. Value:
-      // - **grid**: Detection grid
-      // - **text**: text
+      // The display type. Valid values:
+      // - **grid**: grid
+      // - **text**: text.
       shared_ptr<string> type_ {};
     };
 
@@ -254,37 +254,32 @@ namespace Models
 
 
   protected:
-    // The suggestion for the management of the risk item.
+    // The hardening suggestion for the baseline check risk item.
     shared_ptr<string> advice_ {};
-    // List of asset details to check.
+    // The list of checked asset details.
     shared_ptr<vector<map<string, string>>> checkDetailAssetInfo_ {};
-    // Detection content details.
+    // The details of the check content.
     shared_ptr<vector<DescribeCheckWarningDetailResponseBody::CheckDetailColumns>> checkDetailColumns_ {};
     // The ID of the check item.
     shared_ptr<int64_t> checkId_ {};
-    // The additional information about the risk item.
+    // The supplementary description of the baseline check risk item.
     shared_ptr<string> description_ {};
     // The name of the check item.
     shared_ptr<string> item_ {};
     // The risk level of the check item. Valid values:
     // 
-    // *   **high**: The item is a high-risk item and is highlighted in red.
-    // *   **medium**: The item is a medium-risk item and is highlighted in orange.
-    // *   **low**: The item is a low-risk item and is highlighted in gray.
-    shared_ptr<string> level_ {};
-    // The prompt for the risk item.
-    shared_ptr<string> prompt_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
-    shared_ptr<string> requestId_ {};
-    // The type of the check item. Valid values:
+    // - **high**: High risk, highlighted in red.
     // 
-    // *   **hc_exploit**: unauthorized access
-    // *   **hc_djbh**: classified protection compliance
-    // *   **hc_best_secruity**: best security practice
-    // *   **hc_container**: container security
-    // *   **hc_custom**: custom baseline
-    // *   **cis**: Center for Internet Security (CIS) compliance
-    // *   **weak_password**: weak password
+    // - **medium**: Medium risk, highlighted in orange.
+    // 
+    // - **low**: Low risk, highlighted in gray.
+    shared_ptr<string> level_ {};
+    // The check prompt for the baseline check risk item.
+    shared_ptr<string> prompt_ {};
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+    shared_ptr<string> requestId_ {};
+    // The type of the baseline check item.
+    // > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to view all baseline types.
     shared_ptr<string> type_ {};
   };
 

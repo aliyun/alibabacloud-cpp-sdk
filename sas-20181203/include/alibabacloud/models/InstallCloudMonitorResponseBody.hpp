@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request fails.
+    // The error code returned when the operation failed.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned.
+    // The detailed information about the error code.
     shared_ptr<string> message_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The operation was successful.
+    // - **false**: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

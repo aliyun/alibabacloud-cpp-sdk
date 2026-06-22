@@ -149,15 +149,15 @@ namespace Models
       shared_ptr<int32_t> hcCount_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The size of the image. Unit: bytes.
+      // The image size, in bytes.
       shared_ptr<int64_t> imageSize_ {};
-      // The name of the image repository.
+      // The image repository name.
       shared_ptr<string> repoName_ {};
-      // The namespace to which the image repository belongs.
+      // The image namespace.
       shared_ptr<string> repoNamespace_ {};
       // The risk details of the image.
       shared_ptr<string> riskLevelDetail_ {};
-      // The tag of the image.
+      // The image tag.
       shared_ptr<string> tag_ {};
       // The UUID of the image.
       shared_ptr<string> uuid_ {};
@@ -184,9 +184,9 @@ namespace Models
 
 
   protected:
-    // The information about the images.
+    // The list of image information.
     shared_ptr<vector<ListDockerhubImageResponseBody::ImageList>> imageList_ {};
-    // The request ID.
+    // The unique identifier that Alibaba Cloud generates for the request.
     shared_ptr<string> requestId_ {};
   };
 

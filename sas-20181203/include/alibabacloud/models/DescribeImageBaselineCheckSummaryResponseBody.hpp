@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The current page number in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **20**.
+      // The number of image baseline check results per page in a paged query. Default value: **20**, which indicates that 20 image baseline check results are displayed per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of query results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -220,36 +220,37 @@ namespace Models
 
 
     protected:
-      // The category of the baseline.
+      // The baseline category.
       shared_ptr<string> baselineClassAlias_ {};
       // The keyword of the baseline category.
       shared_ptr<string> baselineClassKey_ {};
-      // The name of the baseline.
+      // The baseline name.
       shared_ptr<string> baselineNameAlias_ {};
       // The keyword of the baseline name.
       shared_ptr<string> baselineNameKey_ {};
-      // The severity of the image baseline. Valid values:
+      // The risk level of the baseline. Valid values:
       // 
-      // *   **high**
-      // *   **medium**
-      // *   **low**
+      // - **high**: high risk
+      // 
+      // - **medium**: medium risk
+      // 
+      // - **low**: low risk.
       shared_ptr<string> baselineNameLevel_ {};
-      // The timestamp generated when the first scan was performed. Unit: milliseconds.
+      // The timestamp of the first scan, in milliseconds.
       shared_ptr<int64_t> firstScanTime_ {};
-      // The number of images on which **high** baseline risks are detected.
+      // The number of images with a **high** risk level that have baseline risk issues.
       shared_ptr<int32_t> highRiskImage_ {};
-      // The timestamp generated when the last scan was performed. Unit: milliseconds.
+      // The timestamp of the most recent scan, in milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
-      // The number of images on which **low** baseline risks are detected.
+      // The number of images with a **low** risk level that have baseline risk issues.
       shared_ptr<int32_t> lowRiskImage_ {};
-      // The number of images on which **medium** baseline risks are detected.
+      // The number of images with a **medium** risk level that have baseline risk issues.
       shared_ptr<int32_t> middleRiskImage_ {};
-      // The status of the baseline risks. Valid values:
-      // 
-      // *   **0**: unfixed
-      // *   **1**: fixed
-      // *   **2**: pending verification
-      // *   **3**: fixing failed
+      // The fix status of the baseline risk. Valid values:
+      // - **0**: Unfixed.
+      // - **1**: Fixed.
+      // - **2**: Pending verification.
+      // - **3**: Fix failed.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -281,11 +282,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the check results of image baselines.
+    // The details of the image baseline check list.
     shared_ptr<vector<DescribeImageBaselineCheckSummaryResponseBody::BaselineResultSummary>> baselineResultSummary_ {};
-    // The pagination information.
+    // The paging information displayed on the page in a paged query.
     shared_ptr<DescribeImageBaselineCheckSummaryResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

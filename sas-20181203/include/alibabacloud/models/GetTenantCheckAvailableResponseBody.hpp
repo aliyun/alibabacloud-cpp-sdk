@@ -69,13 +69,15 @@ namespace Models
 
 
     protected:
-      // The timestamp when you can submit a quick scan task.
+      // The timestamp of the next time when a one-click scan can be submitted.
       shared_ptr<int64_t> nextScanTime_ {};
-      // The status of the quick scan task. Enumerated values:
+      // The current status of the one-click scan. Valid values:
       // 
-      // *   0: You can submit a quick scan task.
-      // *   1: The current task is not complete. You cannot submit a quick scan task.
-      // *   2: The free quota for this week is exhausted. You must wait for the next free scan period.
+      // - 0: The one-click scan can be submitted.
+      // 
+      // - 1: The current task is not complete. The scan cannot be submitted.
+      // 
+      // - 2: The free scan quota for this week has been used. Wait until the next free scan time.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -98,9 +100,9 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<GetTenantCheckAvailableResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,14 +78,14 @@ namespace Models
 
 
     protected:
-      // The status of the service trail. Valid values:
+      // The enabling status of the service trail. Valid values:
       // 
-      // *   **on:**
-      // *   **off:**
+      // - **on**: Enabled.
+      // - **off**: Shutdown.
       shared_ptr<string> config_ {};
-      // The timestamp generated when the service trail was created. Unit: milliseconds.
+      // The timestamp when the service trail was created. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The timestamp generated when the service trail was last updated. Unit: milliseconds.
+      // The timestamp when the service trail was last updated. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -108,9 +108,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. The system generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The configurations of the service trail.
+    // The service trail configuration.
     shared_ptr<GetServiceTrailResponseBody::ServiceTrail> serviceTrail_ {};
   };
 

@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The ID of the asset.
+      // The asset ID. When selecting by machine, the value is the UUID of the machine. When selecting by group, the value is the group ID. When selecting by VPC, the value is the VPC ID.
       shared_ptr<string> targetId_ {};
-      // The name of the asset.
+      // The asset name.
       shared_ptr<string> targetName_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The data details.
     shared_ptr<vector<ListAssetSelectionSelectedTargetResponseBody::Data>> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

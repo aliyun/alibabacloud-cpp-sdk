@@ -48,9 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the IP address blocking policy.
-    // 
-    // > You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to query the ID.
+    // The ID of the record to delete.
+    // > Call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

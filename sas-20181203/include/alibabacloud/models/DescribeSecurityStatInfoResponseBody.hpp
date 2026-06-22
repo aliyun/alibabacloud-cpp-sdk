@@ -174,27 +174,27 @@ namespace Models
 
 
     protected:
-      // The number of **high-risk** unfixed vulnerabilities on the current day.
+      // The number of unfixed vulnerabilities with **high** priority on the current day.
       shared_ptr<int32_t> asapCount_ {};
-      // The numbers of high-risk unfixed vulnerabilities at all points in time.
+      // The collection of high-priority unfixed vulnerability counts at each statistical time point.
       shared_ptr<vector<string>> asapList_ {};
-      // The points in time when data of unfixed vulnerabilities is collected in the trend chart.
+      // The collection of statistical time points in the unfixed vulnerability trend chart.
       shared_ptr<vector<string>> dateArray_ {};
-      // The number of **medium-risk** unfixed vulnerabilities on the current day.
+      // The number of unfixed vulnerabilities with **medium** priority on the current day.
       shared_ptr<int32_t> laterCount_ {};
-      // The numbers of medium-risk unfixed vulnerabilities at all points in time.
+      // The collection of medium-priority unfixed vulnerability counts at each statistical time point.
       shared_ptr<vector<string>> laterList_ {};
-      // The risk levels of unfixed vulnerabilities.
+      // The collection of vulnerability priority levels included in the statistics for unfixed vulnerabilities.
       shared_ptr<vector<string>> levelsOn_ {};
-      // The number of **low-risk** unfixed vulnerabilities on the current day.
+      // The number of unfixed vulnerabilities with **low** priority on the current day.
       shared_ptr<int32_t> nntfCount_ {};
-      // The numbers of low-risk unfixed vulnerabilities at all points in time.
+      // The collection of low-priority unfixed vulnerability counts at each statistical time point.
       shared_ptr<vector<string>> nntfList_ {};
-      // The time periods during which data of unfixed vulnerabilities is collected.
+      // The collection of statistical time periods for unfixed vulnerabilities.
       shared_ptr<vector<string>> timeArray_ {};
-      // The total number of unfixed vulnerabilities on the current day.
+      // The number of unfixed vulnerabilities on the current day.
       shared_ptr<int32_t> totalCount_ {};
-      // The numbers of unfixed vulnerabilities at all points in time.
+      // The collection of unfixed vulnerability counts at each statistical time point.
       shared_ptr<vector<string>> valueArray_ {};
     };
 
@@ -332,27 +332,27 @@ namespace Models
 
 
     protected:
-      // The points in time when data of unhandled alerts is collected in the trend chart.
+      // The collection of statistical time points in the pending alert trend chart.
       shared_ptr<vector<string>> dateArray_ {};
-      // The risk levels of unhandled alerts.
+      // The collection of alert severity levels included in the statistics for pending alerts.
       shared_ptr<vector<string>> levelsOn_ {};
-      // The number of **remind** alerts on the current day.
+      // The number of alerts with the **Reminder** severity level detected on the current day.
       shared_ptr<int32_t> remindCount_ {};
-      // The numbers of remind alerts at all points in time.
+      // The collection of Reminder-level alert counts at each statistical time point.
       shared_ptr<vector<string>> remindList_ {};
-      // The number of **serious** alerts on the current day.
+      // The number of alerts with the **Urgent** severity level on the current day.
       shared_ptr<int32_t> seriousCount_ {};
-      // The numbers of serious alerts at all points in time.
+      // The collection of Urgent-level alert counts at each statistical time point.
       shared_ptr<vector<string>> seriousList_ {};
-      // The number of **suspicious** alerts on the current day.
+      // The number of alerts with the **Suspicious** severity level on the current day.
       shared_ptr<int32_t> suspiciousCount_ {};
-      // The numbers of suspicious alerts at all points in time.
+      // The collection of Suspicious-level alert counts at each statistical time point.
       shared_ptr<vector<string>> suspiciousList_ {};
-      // The time periods during which data of the same alert is collected.
+      // The collection of statistical time periods for alerts.
       shared_ptr<vector<string>> timeArray_ {};
-      // The total number of unhandled alerts on the current day.
+      // The total number of pending alerts on the current day.
       shared_ptr<int32_t> totalCount_ {};
-      // The numbers of unhandled alerts at all points in time.
+      // The collection of pending alert counts at each statistical time point.
       shared_ptr<vector<string>> valueArray_ {};
     };
 
@@ -490,27 +490,27 @@ namespace Models
 
 
     protected:
-      // The points in time when data of baseline risk items is collected in the trend chart.
+      // The collection of statistical time points in the baseline issue trend chart.
       shared_ptr<vector<string>> dateArray_ {};
-      // The number of baseline risk items that have the high-risk level on the current day.
+      // The number of high-risk baseline issues on the current day.
       shared_ptr<int32_t> highCount_ {};
-      // The numbers of baseline risk items that have the high-risk level at all points in time.
+      // The collection of high-risk baseline counts at each statistical time point.
       shared_ptr<vector<string>> highList_ {};
-      // The risk levels of baseline risk items.
+      // The collection of baseline risk levels included in the statistics.
       shared_ptr<vector<string>> levelsOn_ {};
-      // The number of baseline risk items that have the low-risk level on the current day.
+      // The number of low-risk baseline issues on the current day.
       shared_ptr<int32_t> lowCount_ {};
-      // The numbers of baseline risk items that have the low-risk level at all points in time.
+      // The collection of low-risk baseline issue counts at each statistical time point.
       shared_ptr<vector<string>> lowList_ {};
-      // The number of baseline risk items that have the medium-risk level on the current day.
+      // The number of medium-risk baseline issues on the current day.
       shared_ptr<int32_t> mediumCount_ {};
-      // The numbers of baseline risk items that have the medium-risk level at all points in time.
+      // The collection of medium-risk baseline issue counts at each statistical time point.
       shared_ptr<vector<string>> mediumList_ {};
-      // The time periods during which data of baseline risk items is collected.
+      // The collection of statistical time periods for baselines.
       shared_ptr<vector<string>> timeArray_ {};
-      // The total number of baseline risk items on the current day.
+      // The total number of baseline issues on the current day.
       shared_ptr<int32_t> totalCount_ {};
-      // The total number of baseline risk items at all points in time.
+      // The collection of total baseline counts at each statistical time point.
       shared_ptr<vector<string>> valueArray_ {};
     };
 
@@ -565,11 +565,11 @@ namespace Models
 
 
     protected:
-      // The points in time when the number of attacks is collected in the trend chart.
+      // The collection of statistical time points in the attack count trend chart.
       shared_ptr<vector<string>> dateArray_ {};
-      // The total number of attacks on the current day.
+      // The number of attacks on the current day.
       shared_ptr<int32_t> totalCount_ {};
-      // The numbers of attacks at all points in time.
+      // The collection of attack counts at each statistical time point.
       shared_ptr<vector<string>> valueArray_ {};
     };
 
@@ -626,20 +626,19 @@ namespace Models
 
 
   protected:
-    // The detailed statistics of attacks.
+    // The statistics of attack events.
     shared_ptr<DescribeSecurityStatInfoResponseBody::AttackEvent> attackEvent_ {};
-    // The detailed statistics of baseline risk items.
+    // The statistics of baseline issues.
     shared_ptr<DescribeSecurityStatInfoResponseBody::HealthCheck> healthCheck_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The detailed statistics of unhandled alerts.
+    // The statistics of pending security alerts.
     shared_ptr<DescribeSecurityStatInfoResponseBody::SecurityEvent> securityEvent_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // Indicates whether the query is successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
-    // The detailed statistics of unfixed vulnerabilities.
+    // The statistics information of unfixed vulnerabilities.
     shared_ptr<DescribeSecurityStatInfoResponseBody::Vulnerability> vulnerability_ {};
   };
 

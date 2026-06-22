@@ -48,16 +48,15 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Valid values:
-    // 
-    // *   **1**: adds the scan result to the whitelist.
-    // *   **2**: ignores the scan result.
+    // The action to perform. Valid values:
+    // - **1**: whitelist
+    // - **2**: ignore.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ignoreAction_ {};
-    // The ID of the scan result. Separate multiple IDs with commas (,).
+    // The IDs of scan results. Separate multiple IDs with commas (,).
     // 
-    // >  You can call the [DescribeIdcProbeScanResultList](~~DescribeIdcProbeScanResultList~~) operation to query the ID.
+    // > Call the [DescribeIdcProbeScanResultList](~~DescribeIdcProbeScanResultList~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> scanResultIds_ {};

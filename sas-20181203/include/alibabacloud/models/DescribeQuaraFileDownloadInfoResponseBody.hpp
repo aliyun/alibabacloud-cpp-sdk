@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The URL that is used to download the file. The URL is valid for five minutes.
+    // The download URL. The URL is valid for 5 minutes.
     shared_ptr<string> downloadUrl_ {};
-    // The MD5 hash value of the quarantined file.
+    // The MD5 hash of the file.
     shared_ptr<string> md5_ {};
     // The file path.
     shared_ptr<string> path_ {};
     // The ID of the quarantined file.
     shared_ptr<int32_t> quaraFileId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tag that is added to the related alert.
+    // The tag of the alert record.
     shared_ptr<string> tag_ {};
-    // The UUID of the server.
+    // The unique identifier of the asset.
     shared_ptr<string> uuid_ {};
   };
 

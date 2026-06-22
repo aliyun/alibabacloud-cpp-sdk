@@ -51,12 +51,12 @@ namespace Models
 
 
   protected:
-    // The IDs of the rules.
+    // The IDs of the rules that you want to modify.
     shared_ptr<vector<int64_t>> ruleIds_ {};
-    // The status of the rule. Valid values:
+    // The switch status of the rule. Valid values:
     // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<int32_t> ruleSwitch_ {};
   };
 

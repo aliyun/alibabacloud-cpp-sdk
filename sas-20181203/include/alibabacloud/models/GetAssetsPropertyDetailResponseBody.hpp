@@ -412,29 +412,29 @@ namespace Models
 
 
     protected:
-      // Agent
+      // The agent.
       shared_ptr<string> agent_ {};
-      // Container name.
+      // The container name.
       shared_ptr<string> containerName_ {};
-      // The timestamp of the latest asset fingerprint scan, in milliseconds.
+      // The timestamp of the latest Asset Fingerprints scan, in milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Asset description.
+      // The asset description.
       shared_ptr<string> description_ {};
-      // Web site domain. 
-      // > Only returned when **Biz** is **web_server**.
+      // The domain name of the web site.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> domain_ {};
-      // Large model service request interface address.
+      // The endpoint address of the large language model service.
       shared_ptr<string> endPoint_ {};
-      // File path for requesting the large model service.
+      // The file path for requesting the large language model service.
       shared_ptr<string> file_ {};
-      // Kernel module file path.
-      // > Returned only when **Biz** is **lkm**.
+      // The file path of the kernel module.
+      // > This parameter is returned only when **Biz** is set to **lkm**.
       shared_ptr<string> filepath_ {};
-      // 镜像Digest
+      // The digest of the image.
       shared_ptr<string> imageDigest_ {};
-      // Image name.
+      // The image name.
       shared_ptr<string> imageName_ {};
-      // AI tool installation path
+      // The installation path of the AI tool.
       shared_ptr<string> installationPath_ {};
       // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
@@ -446,64 +446,64 @@ namespace Models
       shared_ptr<string> intranetIp_ {};
       // The IP address of the server.
       shared_ptr<string> ip_ {};
-      // Web site process listening protocol. 
-      // >Only returned when **Biz** is **web_server**.
+      // The listening protocol of the web site process.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> listenProtocol_ {};
-      // MCP name.
+      // The MCP name.
       shared_ptr<string> mcpName_ {};
-      // AI tool name
+      // The name of the AI tool.
       shared_ptr<string> middlewareName_ {};
-      // AI tool version.
+      // The version of the AI tool.
       shared_ptr<string> middlewareVersion_ {};
-      // Name of the large model vendor
+      // The name of the large language model provider.
       shared_ptr<string> modelName_ {};
-      // Module name.
-      // > Returned only when **Biz** is **lkm**.
+      // The module name.
+      // > This parameter is returned only when **Biz** is set to **lkm**.
       shared_ptr<string> moduleName_ {};
-      // The meaning varies based on the value of **Biz**:
-      // - When **Biz** is **web_server**, it represents the Web root path
-      // - When **Biz** is **autorun**, it represents the startup item path
+      // The meaning of this parameter varies based on the value of **Biz**:
+      // - When **Biz** is set to **web_server**, this parameter indicates the web root path.
+      // - When **Biz** is set to **autorun**, this parameter indicates the startup item path.
       shared_ptr<string> path_ {};
-      // Web site directory permissions. 
-      // > Only returned when **Biz** is **web_server**.
+      // The directory permissions of the web site.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> pathMode_ {};
-      // Web site process Pid. 
-      // > Only returned when **Biz** is **web_server**.
+      // The PID of the web site process.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> pid_ {};
-      // Web site port.
-      // > Returned only when **Biz** is **web_server**.
+      // The port of the web site.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> port_ {};
-      // Timestamp of the web site process startup, in milliseconds.  
-      // > Only returned when **Biz** is **web_server**.
+      // The timestamp when the web site process started, in milliseconds.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<int64_t> processStarted_ {};
-      // The ID of the region where the instance is located.
+      // The region ID of the instance.
       shared_ptr<string> regionId_ {};
-      // 镜像的RepoName
+      // The RepoName of the image.
       shared_ptr<string> repoName_ {};
-      // 镜像Repo命名空间
+      // The repo namespace of the image.
       shared_ptr<string> repoNamespace_ {};
-      // Web site type.
-      // > Returned only when **Biz** is **web_server**.
+      // The type of the web site.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> serverType_ {};
-      // Kernel module size.
-      // > Returned only when **Biz** is **lkm**.
+      // The size of the kernel module.
+      // > This parameter is returned only when **Biz** is set to **lkm**.
       shared_ptr<int32_t> size_ {};
-      // Skill name
+      // The skill name.
       shared_ptr<string> skillsName_ {};
-      // 标签
+      // The tag.
       shared_ptr<string> tag_ {};
-      // Transmission name.
+      // The transport name.
       shared_ptr<string> transportName_ {};
-      // Number of dependencies for the kernel module.
-      // > Returned only when **Biz** is **lkm**.
+      // The number of dependencies on the kernel module.
+      // > This parameter is returned only when **Biz** is set to **lkm**.
       shared_ptr<int32_t> usedByCount_ {};
-      // Web site user. 
-      // > Only returned when **Biz** is **web_server**.
+      // The user of the web site.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> user_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
-      // Web site web path. 
-      // > Only returned when **Biz** is **web_server**.
+      // The web path of the web site.
+      // > This parameter is returned only when **Biz** is set to **web_server**.
       shared_ptr<string> webPath_ {};
     };
 
@@ -572,15 +572,15 @@ namespace Models
 
 
     protected:
-      // The number of asset fingerprint details displayed on the current page.
+      // The number of Asset Fingerprints detail entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page when performing a paginated query.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The NextToken value returned when using the NextToken method.
+      // The NextToken value returned when the NextToken method is used.
       shared_ptr<string> nextToken_ {};
-      // The number of asset fingerprint details displayed per page when performing a paginated query.
+      // The number of Asset Fingerprints details displayed per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of detailed asset fingerprint information queried.
+      // The total number of Asset Fingerprints detail entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -612,11 +612,11 @@ namespace Models
 
 
   protected:
-    // Information displayed on the page when performing a paginated query.
+    // The paging information displayed on the page.
     shared_ptr<GetAssetsPropertyDetailResponseBody::PageInfo> pageInfo_ {};
-    // Collection of asset fingerprint details.
+    // The collection of Asset Fingerprints details.
     shared_ptr<vector<GetAssetsPropertyDetailResponseBody::Propertys>> propertys_ {};
-    // The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used to troubleshoot and locate issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

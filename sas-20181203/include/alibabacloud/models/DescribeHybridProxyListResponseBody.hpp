@@ -136,26 +136,26 @@ namespace Models
 
 
     protected:
-      // The number of servers that are connected to the proxy instance.
+      // The number of Security Center agents connected to the proxy instance.
       shared_ptr<int32_t> clientCount_ {};
       // The version of the proxy instance.
       shared_ptr<string> currentVersion_ {};
-      // The instance ID.
+      // The instance ID of the asset.
       shared_ptr<string> instanceId_ {};
-      // The instance name.
+      // The name of the asset instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The UUID of the proxy node.
+      // The unique key that identifies the proxy node.
       shared_ptr<string> proxyUuid_ {};
-      // The status of the proxy server. Valid values:
+      // The running status of the proxy machine. Valid values:
       // 
-      // *   **online**
-      // *   **offline**
+      // - **online**: online
+      // - **offline**: offline.
       shared_ptr<string> status_ {};
-      // The UUID of the server that is connected to the proxy instance.
+      // The UUID of the Security Center agent deployed on the proxy instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -215,11 +215,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page.
+      // The number of entries returned on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The number of the page to return in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries returned on each page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -255,9 +255,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeHybridProxyListResponseBody::PageInfo> pageInfo_ {};
-    // The information about the proxy clusters.
+    // The proxy cluster list.
     shared_ptr<vector<DescribeHybridProxyListResponseBody::ProxyList>> proxyList_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the management node to which the honeypot is deployed.
+    // The ID of the honeypot management node.
     shared_ptr<string> nodeId_ {};
   };
 

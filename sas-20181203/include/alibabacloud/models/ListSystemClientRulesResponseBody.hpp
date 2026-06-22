@@ -197,9 +197,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The type of the OS. Valid values:
       // 
-      // *   **windows**: Windows
-      // *   **linux**: Linux
-      // *   **all**: all types
+      // - **windows**: Windows
+      // 
+      // - **linux**: Linux
+      // 
+      // - **all**: all types
       shared_ptr<string> platform_ {};
       // An array that consists of policies.
       shared_ptr<vector<RuleList::Policies>> policies_ {};
@@ -209,18 +211,21 @@ namespace Models
       shared_ptr<string> ruleName_ {};
       // The type of the system defense rule. Valid values:
       // 
-      // *   **1**: alihips, process-specific defense
-      // *   **2**: alinet, network-specific defense
+      // - **1**: alihips, process-specific defense
+      // 
+      // - **2**: alinet, network-specific defense
       shared_ptr<int32_t> ruleType_ {};
       // The status of the system defense rule. Valid values:
       // 
-      // *   **online**: enabled
-      // *   **offline**: disabled
+      // - **online**: enabled
+      // 
+      // - **offline**: disabled
       shared_ptr<int32_t> status_ {};
       // Whether the current rule switch takes effect. Valid values:
       // 
-      // *   **true**: enabled
-      // *   **false**: disabled
+      // - **true**: enabled
+      // 
+      // - **false**: disabled
       shared_ptr<bool> switchEnable_ {};
       // The switch ID of the system defense rule.
       shared_ptr<string> switchId_ {};

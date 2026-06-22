@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The ID of the virus scan task.
-    // 
-    // >  You can call the [StartVirusScanTask](~~StartVirusScanTask~~) operation to query the IDs of virus scan tasks.
+    // The ID of the virus scan task that you want to query.
+    // > You can call the [StartVirusScanTask](~~StartVirusScanTask~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};

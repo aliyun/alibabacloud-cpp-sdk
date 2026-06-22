@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page in a paged query. Paging is used to display results.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page in a paged query. Paging is used to display results.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the alert configuration. Valid values:
+    // The alert configuration type. Valid values:
     // 
-    // *   **web_path**
+    // - **web_path**.
     shared_ptr<string> type_ {};
   };
 

@@ -118,18 +118,17 @@ namespace Models
     protected:
       // The ID of the asset group.
       shared_ptr<int32_t> groupId_ {};
-      // The name of the server.
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
-      // The public IP address of the server.
+      // The public IP address.
       shared_ptr<string> internetIp_ {};
-      // The private IP address of the server.
+      // The private IP address.
       shared_ptr<string> intranetIp_ {};
       // The IP address of the server.
       shared_ptr<string> ip_ {};
       // The operating system of the server. Valid values:
-      // 
-      // *   **linux**
-      // *   **windows**
+      // - **linux**
+      // - **windows**.
       shared_ptr<string> os_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
@@ -154,9 +153,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of servers.
+    // The list of instances.
     shared_ptr<vector<DescribeAllEntityResponseBody::EntityList>> entityList_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

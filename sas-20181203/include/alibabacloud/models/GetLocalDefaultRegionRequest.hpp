@@ -38,12 +38,12 @@ namespace Models
 
 
   protected:
-    // The cloud service provider. Valid values:
+    // The cloud asset vendor. Valid values:
     // 
-    // *   **Tencent**: Tencent Cloud.
-    // *   **HUAWEICLOUD**: Huawei Cloud.
-    // *   **Azure**: Microsoft Azure.
-    // *   **AWS**: Amazon Web Services (AWS).
+    // - **Tencent**: Tencent Cloud
+    // - **HUAWEICLOUD**: Huawei Cloud
+    // - **Azure**: Azure
+    // - **AWS**: AWS.
     shared_ptr<string> vendor_ {};
   };
 

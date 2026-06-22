@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request source. Set the value to **sas**.
+    // The request source identifier. Set this parameter to **sas**.
     shared_ptr<string> from_ {};
   };
 

@@ -79,20 +79,22 @@ namespace Models
 
 
     protected:
-      // The name of the search condition.
-      // - **tag**: the tag of the image
-      // - **digest**: the digest of the image
-      // - **vulStatus**: the status of the vulnerability
-      // - **alarmStatus**: the status of the alert
-      // - **riskStatus**: the status of the risk
-      // - **registryType**: the type of the image repository
+      // The name of the query criterion.
+      // 
+      // - **tag**: image tag.
+      // - **digest**: image digest.
+      // - **vulStatus**: vulnerability status.
+      // - **alarmStatus**: security alert status.
+      // - **riskStatus**: risk status.
+      // - **registryType**: image repository type.
       shared_ptr<string> name_ {};
-      // The type of the search condition. Valid values:
-      // - **input**: The search condition needs to be specified.
-      // - **select**: The search condition is an option that can be selected from the drop-down list.
+      // The type of the query criterion. Valid values:
+      // 
+      // - **input**: requires manual input of the query field.
+      // - **select**: requires selecting a subtype from a drop-down list.
       shared_ptr<string> type_ {};
-      // The values of the search condition. This parameter is returned only if the value of Type is select.
-      // > If the value of **Type** is **input**, the value of this parameter is an empty string.
+      // The available option values when **Type** (the type of the query criterion) is **select**.
+      // > When **Type** (the type of the query criterion) is **input**, this parameter returns an empty value.
       shared_ptr<string> values_ {};
     };
 
@@ -115,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The list of the search conditions.
+    // The list of image query criteria.
     shared_ptr<vector<DescribeImageCriteriaResponseBody::CriteriaList>> criteriaList_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

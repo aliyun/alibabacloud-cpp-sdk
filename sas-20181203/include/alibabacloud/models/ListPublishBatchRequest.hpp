@@ -68,15 +68,15 @@ namespace Models
   protected:
     // The name of the release batch.
     shared_ptr<string> batchName_ {};
-    // The page number.
+    // The page number of the current page when paging is used.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page when paging is used.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The destination version of the Security Center agent.
+    // The target version to upgrade to.
     // 
     // This parameter is required.
     shared_ptr<string> upgradeVersion_ {};

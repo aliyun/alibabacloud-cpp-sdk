@@ -84,19 +84,18 @@ namespace Models
 
 
   protected:
-    // The name of the dedicated Logstore that is used to store full logs of Security Center. The value is fixed as **sas-log**.
+    // The name of the dedicated Logstore in which full logs of Security Center are stored. The value is fixed as **sas-log**.
     shared_ptr<string> logstore_ {};
-    // The purchased log storage capacity, in GB.
+    // The purchased log analysis storage capacity. Unit: GB.
     shared_ptr<int64_t> preserve_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of days during which logs can be retained. The value is fixed as **180**, which indicates that logs can be retained for 180 days.
-    // 
-    // >  You are not allowed to change the value of this parameter.
+    // The number of days for which logs are retained. The value is fixed as **180**, which indicates that logs can be retained for 180 days.
+    // > Security Center does not support adjusting the log retention period.
     shared_ptr<int32_t> ttl_ {};
-    // The used log storage capacity, in GB.
+    // The used log analysis storage capacity. Unit: GB.
     shared_ptr<int64_t> used_ {};
-    // The name of the dedicated Project that is used to store full logs of Security Center.
+    // The name of the dedicated Project in which full logs of Security Center are stored.
     shared_ptr<string> userProject_ {};
   };
 

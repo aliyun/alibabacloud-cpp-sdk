@@ -38,11 +38,13 @@ namespace Models
 
 
   protected:
-    // The number of days after which a detected vulnerability is automatically deleted. Unit: days. Valid values:
+    // The automatic deletion time for expired vulnerabilities. Valid values:
     // 
-    // *   7
-    // *   30
-    // *   90
+    // - 7
+    // - 30
+    // - 90
+    // 
+    // Unit: days.
     shared_ptr<int32_t> days_ {};
   };
 

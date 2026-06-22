@@ -75,22 +75,21 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**. Pages start from page 1.
+    // The page number of the page to return. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 data entries are returned per page.
+    // The maximum number of entries per page for a paged query. Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 entries are returned.
     // 
-    // >  We recommend that you do not leave this parameter empty.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains this value.
     shared_ptr<string> sourceIp_ {};
-    // The ID of the policy.
-    // 
-    // >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+    // The policy ID.
+    // >You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain this parameter.
     shared_ptr<string> strategyIds_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The unique identifier ID for the alert event.
+    // The unique ID of the alert event.
     shared_ptr<string> id_ {};
-    // The language type for requesting and receiving messages. Values:
+    // The language of the request and response. Valid values:
     // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};

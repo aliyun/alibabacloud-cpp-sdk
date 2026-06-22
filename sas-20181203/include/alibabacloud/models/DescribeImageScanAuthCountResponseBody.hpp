@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The quota for container image scan.
+      // The total number of authorization quotas.
       shared_ptr<int64_t> imageScanCapacity_ {};
-      // The instance ID of Security Center.
+      // The instance ID of the purchased Security Center instance.
       shared_ptr<string> instanceId_ {};
-      // The consumed quota for container image scan.
+      // The number of used authorization quotas.
       shared_ptr<int64_t> scanCount_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The details about the quota for container image scan.
+    // The authorization details of image security scanning.
     shared_ptr<DescribeImageScanAuthCountResponseBody::ImageScan> imageScan_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The China Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

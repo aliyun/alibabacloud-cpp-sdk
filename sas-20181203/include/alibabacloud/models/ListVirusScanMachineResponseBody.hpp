@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries returned per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -163,17 +163,17 @@ namespace Models
 
 
     protected:
-      // The number of times that the alert is triggered.
+      // The number of security alert occurrences.
       shared_ptr<int32_t> eventCount_ {};
       // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
-      // The name of the server.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
-      // The public IP address of the associated server.
+      // The public IP address of the associated instance.
       shared_ptr<string> internetIp_ {};
-      // The private IP address of the associated server.
+      // The private IP address of the associated instance.
       shared_ptr<string> intranetIp_ {};
-      // The UUID of the server.
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -205,11 +205,11 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The data details.
     shared_ptr<vector<ListVirusScanMachineResponseBody::Data>> data_ {};
     // The pagination information.
     shared_ptr<ListVirusScanMachineResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

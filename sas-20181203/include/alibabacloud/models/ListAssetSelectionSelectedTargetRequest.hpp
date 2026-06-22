@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The unique ID of the asset.
+    // The unique identifier of the asset selection.
     // 
     // This parameter is required.
     shared_ptr<string> selectionKey_ {};
-    // The details of queries.
+    // The query list.
     shared_ptr<vector<string>> targetList_ {};
   };
 

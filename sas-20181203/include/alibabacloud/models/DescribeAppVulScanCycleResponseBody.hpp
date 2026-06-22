@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The scan cycle for application vulnerabilities.
+    // The application vulnerability scanning epoch. Valid values:
     // 
-    // *   1week
-    // *   2weeks
-    // *   3days
+    // - 1week
+    // - 2weeks
+    // - 3days
     shared_ptr<string> cycle_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

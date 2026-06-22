@@ -59,10 +59,10 @@ namespace Models
 
 
     protected:
-      // The language specified for log analysis. Valid values:
+      // The language configured for log analysis. Valid values:
       // 
-      // *   zh: Chinese
-      // *   en: English
+      // - zh: Chinese
+      // - en: English.
       shared_ptr<string> lang_ {};
     };
 
@@ -85,9 +85,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The language settings.
+    // The language settings data.
     shared_ptr<GetUserLangResponseBody::SasUserLang> sasUserLang_ {};
   };
 

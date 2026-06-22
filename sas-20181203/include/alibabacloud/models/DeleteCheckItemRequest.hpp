@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // List of check item IDs.
+    // The list of check item IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> checkIds_ {};

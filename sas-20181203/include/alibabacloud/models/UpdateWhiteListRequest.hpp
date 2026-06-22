@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the image repository.
-    // 
-    // >  You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain the ID.
+    // The image repository ID.
+    // >You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> registryId_ {};
-    // The IP address whitelist. Separate multiple IP addresses with commas (,).
+    // The whitelist. Separate multiple whitelisted addresses with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> whiteList_ {};

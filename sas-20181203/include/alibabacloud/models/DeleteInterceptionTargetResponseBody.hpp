@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the network objects are removed. Valid values:
-    // 
-    // *   **true**: The network objects are removed.
-    // *   **false**: The network objects fail to be removed.
+    // Indicates whether the network objects were deleted. Valid values:
+    // - **true**: The network objects were deleted.
+    // - **false**: The network objects failed to be deleted.
     shared_ptr<bool> result_ {};
   };
 

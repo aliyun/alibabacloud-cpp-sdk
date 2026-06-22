@@ -115,32 +115,31 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The end timestamp of the sub-task.
+    // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
-    // The number of entries to return on each page. Default value: 20
+    // The maximum number of entries per page in a paged query. Default value: 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether extension information is associated.
+    // Specifies whether to associate extended information.
     // 
     // This parameter is required.
     shared_ptr<bool> relateInfo_ {};
-    // The source of the request.
+    // The request source.
     shared_ptr<string> source_ {};
-    // The start timestamp of the sub-task.
+    // The timestamp of the start time.
     shared_ptr<int64_t> startTime_ {};
-    // The status information.
+    // The list of statuses.
     shared_ptr<vector<string>> statusList_ {};
-    // The ID of the sub-task.
+    // The ID of the task to retrieve.
     shared_ptr<string> taskId_ {};
-    // The type of the sub-task. Valid values:
-    // 
-    // *   **IMAGE_SCAN**: image scan task
-    // *   **IMAGE_REGISTRY_PULL**: image asset synchronization task
+    // The task type. Valid values:
+    // - **IMAGE_SCAN**: image scanning
+    // - **IMAGE_REGISTRY_PULL**: image asset synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

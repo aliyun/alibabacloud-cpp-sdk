@@ -170,47 +170,45 @@ namespace Models
     protected:
       // The alias of the vulnerability.
       shared_ptr<string> aliasName_ {};
-      // The number of vulnerabilities that have the high priority.
+      // The number of high-risk vulnerabilities.
       shared_ptr<int32_t> asapCount_ {};
-      // Indicates whether the vulnerability can be fixed in the Security Center console. Valid values:
-      // 
-      // *   **yes**
-      // *   **no**
+      // Indicates whether the vulnerability can be fixed. Valid values:
+      // - **yes**: The vulnerability can be fixed.
+      // - **no**: The vulnerability cannot be fixed.
       shared_ptr<string> canFix_ {};
-      // The timestamp when the first scan was performed. Unit: milliseconds.
+      // The timestamp of the first scan, in milliseconds.
       shared_ptr<int64_t> gmtLast_ {};
-      // The timestamp when the last scan was performed. Unit: milliseconds.
+      // The timestamp of the latest scan, in milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
-      // The number of vulnerabilities that have the medium priority.
+      // The number of medium-risk vulnerabilities.
       shared_ptr<int32_t> laterCount_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
-      // The number of vulnerabilities that have the low priority.
+      // The number of low-risk vulnerabilities.
       shared_ptr<int32_t> nntfCount_ {};
-      // The tag of this vulnerability. Valid values:
+      // The vulnerability tag. Valid values:
       // 
-      // *   **AI**: AI-related components.
+      //  - **AI**: vulnerabilities related to AI components.
       shared_ptr<string> ruleTag_ {};
-      // The status of the vulnerability. Valid values:
+      // The processing status of the vulnerability. Valid values:
       // 
-      // *   **0**: unhandled
-      // *   **1**: handled
-      // *   **2**: verifying
-      // *   **3**: added to the whitelist
+      // - **0**: Unhandled.
+      // - **1**: Handled.
+      // - **2**: Verifying.
+      // - **3**: Added to the whitelist.
       shared_ptr<int32_t> status_ {};
-      // The tag of the vulnerability. Valid values:
+      // The label of the vulnerability. Valid values:
       // 
-      // *   Restart required
-      // *   Remote exploitation
-      // *   Exploit exists
-      // *   Exploitable
-      // *   Privilege escalation
-      // *   Code execution
+      // - Restart required
+      // - Remote utilization
+      // - EXP exists
+      // - Available
+      // - Privilege escalation
+      // - Code execution
       shared_ptr<string> tags_ {};
-      // The type of the vulnerability. Valid values:
-      // 
-      // *   **cve**: image system vulnerability
-      // *   **sca**: image application vulnerability
+      // The type of vulnerability to query. Valid values:
+      // - **cve**: image system vulnerability
+      // - **sca**: image application vulnerability.
       shared_ptr<string> type_ {};
     };
 
@@ -254,13 +252,13 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the current page in the paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // An array that consists of the image vulnerabilities.
+    // The list of image vulnerabilities.
     shared_ptr<vector<DescribeImageGroupedVulListResponseBody::GroupedVulItems>> groupedVulItems_ {};
-    // The number of entries returned per page. Default value: **20**.
+    // The number of image vulnerabilities returned on each page in the paging query. Default value: **20**, which indicates that 20 image vulnerability records are returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of image system vulnerabilities.
     shared_ptr<int32_t> totalCount_ {};

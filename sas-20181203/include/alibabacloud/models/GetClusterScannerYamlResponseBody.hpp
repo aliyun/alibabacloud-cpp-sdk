@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Base64 encoded CA certificate.
+    // The CA certificate in Base64 encoding.
     shared_ptr<string> caCertBase64_ {};
-    // Cluster environment information.
+    // The cluster environment context.
     shared_ptr<string> clusterEnvInfo_ {};
-    // The ID of the cluster that you want to scan.
+    // The ID of the container cluster.
     shared_ptr<string> clusterId_ {};
-    // The name of the image.
+    // The container image information.
     shared_ptr<string> image_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Base64 encoded webhook certificate.
+    // The webhook certificate in Base64 encoding.
     shared_ptr<string> tlsCertBase64_ {};
-    // Base64 encoded webhook private key.
+    // The webhook private key in Base64 encoding.
     shared_ptr<string> tlsKeyBase64_ {};
-    // Indicates whether the incremental scan switch is enabled. Values:
-    // - **0**: Not enabled
-    // - **1**: Enabled
+    // Indicates whether incremental scanning is enabled. Valid values:
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> webhookOpen_ {};
   };
 

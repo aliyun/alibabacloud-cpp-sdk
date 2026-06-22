@@ -204,25 +204,52 @@ namespace Models
 
 
   protected:
+    // The list of alert notification levels.
     shared_ptr<vector<int32_t>> alertLevels_ {};
+    // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
+    // The list of excluded event IDs.
     shared_ptr<vector<int64_t>> excludeIdList_ {};
+    // The file path.
     shared_ptr<string> filePath_ {};
+    // The list of event IDs.
     shared_ptr<vector<int64_t>> idList_ {};
+    // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
+    // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
+    // The public IP address.
     shared_ptr<string> internetIp_ {};
+    // The internal IP address.
     shared_ptr<string> intranetIp_ {};
+    // The new status. Valid values:
+    // 
+    // - **0**: Unhandled.
+    // - **1**: Handled.
+    // - **2**: Whitelisted.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> newStatus_ {};
+    // The type of the operation.
     shared_ptr<string> operation_ {};
+    // The process path.
     shared_ptr<string> procPath_ {};
+    // The remarks.
     shared_ptr<vector<string>> remark_ {};
+    // The rule name.
     shared_ptr<string> ruleName_ {};
+    // Specifies whether to select all.
+    // 
     // This parameter is required.
     shared_ptr<bool> selectAll_ {};
+    // The start time.
     shared_ptr<int64_t> startTime_ {};
+    // The event status. Valid values:
+    // - **0**: Unhandled.
+    // - **1**: Handled.
+    // - **2**: Whitelisted.
     shared_ptr<string> status_ {};
+    // The UUID of the protected server.
     shared_ptr<string> uuid_ {};
   };
 

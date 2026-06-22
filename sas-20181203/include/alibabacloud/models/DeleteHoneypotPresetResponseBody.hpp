@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned.
+    // The HTTP status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

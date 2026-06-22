@@ -83,9 +83,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of the error logs.
+    // The list of error logs.
     shared_ptr<vector<DescribeTaskErrorLogResponseBody::Logs>> logs_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

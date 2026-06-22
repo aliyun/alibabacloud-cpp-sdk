@@ -166,7 +166,7 @@ namespace Models
       protected:
         // The digest value of the image.
         shared_ptr<string> digest_ {};
-        // The number of risks detected on the image repository.
+        // The number of risks in the image repository.
         shared_ptr<int32_t> hcCount_ {};
         // The image ID.
         shared_ptr<string> imageId_ {};
@@ -174,13 +174,13 @@ namespace Models
         shared_ptr<int64_t> imageSize_ {};
         // The name of the image repository.
         shared_ptr<string> repoName_ {};
-        // The namespace to which the image repository belongs.
+        // The namespace of the image repository.
         shared_ptr<string> repoNamespace_ {};
-        // The risk statistics of all hosts, images, and containers.
+        // The risk statistics information for all hosts, images, and containers.
         shared_ptr<string> riskLevelDetail_ {};
         // The tag of the image.
         shared_ptr<string> tag_ {};
-        // The UUID of the record.
+        // The unique identifier of the record.
         shared_ptr<string> uuid_ {};
         // The number of vulnerabilities.
         shared_ptr<int32_t> vulCount_ {};
@@ -299,21 +299,21 @@ namespace Models
       protected:
         // The digest value of the image.
         shared_ptr<string> digest_ {};
-        // The number of baseline risks detected on the image repository.
+        // The number of baseline risks in the image repository.
         shared_ptr<int32_t> hcCount_ {};
         // The ID of the image.
         shared_ptr<string> imageId_ {};
         // The image size.
         shared_ptr<int64_t> imageSize_ {};
-        // The name of the Container Registry repository.
+        // The name of the container image repository.
         shared_ptr<string> repoName_ {};
-        // The namespace to which the repository belongs.
+        // The repository namespace.
         shared_ptr<string> repoNamespace_ {};
-        // The risk statistics of all hosts, images, and containers.
+        // The risk statistics information for all hosts, images, and containers.
         shared_ptr<string> riskLevelDetail_ {};
-        // The tag of the image.
+        // The image tag.
         shared_ptr<string> tag_ {};
-        // The UUID of the record.
+        // The unique identifier of the record.
         shared_ptr<string> uuid_ {};
         // The number of detected vulnerabilities.
         shared_ptr<int32_t> vulCount_ {};
@@ -340,9 +340,9 @@ namespace Models
 
 
     protected:
-      // The baseline risks.
+      // The baseline risk information.
       shared_ptr<vector<RiskRankInfo::Baseline>> baseline_ {};
-      // The risk information of high-risk vulnerabilities.
+      // The risk information about high-priority vulnerabilities.
       shared_ptr<vector<RiskRankInfo::VulAsap>> vulAsap_ {};
     };
 
@@ -365,7 +365,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The risk information.
     shared_ptr<GetDockerhubImageRiskRankInfoResponseBody::RiskRankInfo> riskRankInfo_ {};

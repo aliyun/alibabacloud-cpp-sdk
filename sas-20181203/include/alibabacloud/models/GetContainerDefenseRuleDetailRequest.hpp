@@ -50,12 +50,11 @@ namespace Models
   protected:
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The rule ID.
-    // 
-    // >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the rule ID.
+    // > You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to obtain this parameter.
     shared_ptr<int64_t> ruleId_ {};
   };
 

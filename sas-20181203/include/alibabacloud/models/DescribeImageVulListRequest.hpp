@@ -281,77 +281,73 @@ namespace Models
 
 
   protected:
-    // The alias of the vulnerability.
+    // The alias of the vulnerability to query.
     shared_ptr<string> aliasName_ {};
-    // The ID of the cluster to which the container belongs.
+    // The ID of the container cluster.
     shared_ptr<string> clusterId_ {};
     // The name of the cluster.
     shared_ptr<string> clusterName_ {};
     // The ID of the container.
     shared_ptr<string> containerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether the vulnerability is handled. Valid values:
-    // 
-    // *   **y**: yes
-    // *   **n**: no
+    // Specifies whether the vulnerability has been handled. Valid values:
+    // - **y**: handled
+    // - **n**: not handled.
     shared_ptr<string> dealed_ {};
-    // The digest of the image.
+    // The unique identifier of the container image.
     shared_ptr<string> digest_ {};
-    // The name of the image.
+    // The name of the container image.
     shared_ptr<string> image_ {};
-    // The instance ID of the asset.
+    // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type of the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The name of the vulnerability.
+    // The name of the vulnerability to query.
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The priority to fix the vulnerability. Valid values:
-    // 
-    // *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-    // *   **later**: medium. You can fix the vulnerability based on your business requirements.
-    // *   **nntf**: low. You can ignore the vulnerability.
+    // The priority level of vulnerability fixing. Valid values:
+    // - **asap**: high-priority vulnerability
+    // - **later**: medium-priority vulnerability
+    // - **nntf**: low-priority vulnerability.
     shared_ptr<string> necessity_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // Settings for the number of vulnerabilities to display on each page in a paged query. Default value: **10**, which indicates that 10 vulnerabilities are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The pod.
     shared_ptr<string> pod_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The ID of the image repository.
+    // The ID of the container image repository.
     shared_ptr<string> repoId_ {};
-    // The instance ID of the image repository.
+    // The instance ID of the container image repository.
     shared_ptr<string> repoInstanceId_ {};
-    // The name of the image.
+    // The name of the container image repository.
     shared_ptr<string> repoName_ {};
-    // The namespace to which the image repository belongs.
+    // The namespace of the container image repository.
     shared_ptr<string> repoNamespace_ {};
-    // The region ID of the image repository.
+    // The region ID of the container image repository.
     shared_ptr<string> repoRegionId_ {};
-    // The tag of this vulnerability. Valid values:
+    // The vulnerability tag. Valid values:
     // 
-    // *   **AI**: AI-related components.
+    // - **AI**: vulnerability related to AI components.
     shared_ptr<string> ruleTag_ {};
-    // The types of the assets that you want to scan.
+    // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
-    // The status of the vulnerability. Valid values:
-    // 
-    // *   **1**: unfixed
-    // *   **4**: being fixed
-    // *   **7**: fixed
+    // The fix status of the vulnerability. Valid values:
+    // - **1**: unfixed
+    // - **4**: being fixed
+    // - **7**: fixed.
     shared_ptr<string> statusList_ {};
-    // The tag that is added to the image vulnerability.
+    // The tag of the container image.
     shared_ptr<string> tag_ {};
-    // The type of the vulnerability. Set the value to **cve**, which indicates image vulnerabilities.
+    // The type of vulnerability to query. Set the value to **cve**, which indicates container image vulnerabilities.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUIDs of the assets. Separate multiple UUIDs with commas (,).
+    // The UUIDs of asset instances. Separate multiple UUIDs with commas (,).
     shared_ptr<string> uuids_ {};
   };
 

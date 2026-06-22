@@ -268,7 +268,7 @@ namespace Models
 
 
               protected:
-                // The options that can be selected for the rule parameter if the value of ParamType is set to 2.
+                // The options for the rule parameter when the parameter type is selection.
                 shared_ptr<string> enumValue_ {};
                 // The maximum value of the rule parameter.
                 shared_ptr<int32_t> maxValue_ {};
@@ -282,8 +282,8 @@ namespace Models
                 shared_ptr<string> paramName_ {};
                 // The type of the rule parameter. Valid values:
                 // 
-                // *   **1**: input
-                // *   **2**: selection
+                // - **1**: input
+                // - **2**: selection.
                 shared_ptr<int32_t> paramType_ {};
                 // The configured value of the rule parameter.
                 shared_ptr<string> value_ {};
@@ -331,16 +331,16 @@ namespace Models
             protected:
               // The default value of the rule.
               shared_ptr<int32_t> defaultValue_ {};
-              // Indicates whether the rule can be selected. Valid values:
+              // Indicates whether the rule is optional. Valid values:
               // 
-              // *   **1**: yes
-              // *   **0**: no
+              // - **1**: Optional.
+              // - **0**: Not optional.
               shared_ptr<int32_t> optional_ {};
-              // The rule parameters.
+              // The list of rule parameters.
               shared_ptr<vector<Rules::ParamList>> paramList_ {};
               // The description of the rule.
               shared_ptr<string> ruleDesc_ {};
-              // The rule ID.
+              // The ID of the rule.
               shared_ptr<string> ruleId_ {};
             };
 
@@ -383,7 +383,7 @@ namespace Models
             shared_ptr<int64_t> checkId_ {};
             // The check item.
             shared_ptr<string> checkItem_ {};
-            // The details of rules.
+            // The list of rule information.
             shared_ptr<vector<CheckDetails::Rules>> rules_ {};
           };
 
@@ -429,18 +429,19 @@ namespace Models
         protected:
           // The alias of the check item.
           shared_ptr<string> alias_ {};
-          // The details of custom check items.
+          // The list of custom check item details.
           shared_ptr<vector<SubTypes::CheckDetails>> checkDetails_ {};
-          // Indicates whether the sub-check item is selected. Valid values:
+          // Indicates whether the sub-risk item is selected. Valid values:
           // 
-          // *   **true**
-          // *   **false**
+          // - **true**: Selected.
+          // - **false**: Not selected.
           shared_ptr<bool> on_ {};
-          // The operating system type of the server. Valid values:
-          // *   **windows**
-          // *   **linux**
+          // The supported operating system. Valid values:
+          // 
+          // - **windows**
+          // - **linux**.
           shared_ptr<string> supportedOs_ {};
-          // The type of the sub-check item.
+          // The type name of the sub-check item.
           shared_ptr<string> typeName_ {};
         };
 
@@ -479,14 +480,14 @@ namespace Models
       protected:
         // The alias of the check item.
         shared_ptr<string> alias_ {};
-        // Indicates whether the check item is selected. Valid values:
+        // Indicates whether the risk item is selected. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Selected.
+        // - **false**: Not selected.
         shared_ptr<bool> on_ {};
-        // The information about sub-check items.
+        // The list of sub-risk items.
         shared_ptr<vector<RiskTypeWhiteListQueryResultList::SubTypes>> subTypes_ {};
-        // The name of the check item.
+        // The check item.
         shared_ptr<string> typeName_ {};
       };
 
@@ -573,43 +574,41 @@ namespace Models
 
 
     protected:
-      // The type of the baseline check policy that you want to query. Valid values:
+      // The type of the policy. Valid values:
       // 
-      // *   **common**: standard baseline check policy
-      // *   **custom**: custom baseline check policy
+      // - **common**: Standard policy.
+      // - **custom**: Custom policy.
       shared_ptr<string> customType_ {};
-      // The check interval of the policy.
+      // The detection cycle of the policy.
       shared_ptr<int32_t> cycleDays_ {};
-      // The time period during which the check starts. Valid values:
+      // The detection cycle of the policy. Valid values:
       // 
-      // *   **0**: 00:00 to 06:00
-      // *   **6**: 06:00 to 12:00
-      // *   **12**: 12:00 to 18:00
-      // *   **18**: 18:00 to 24:00
+      // - **0**: 00:00 to 06:00
+      // - **6**: 06:00 to 12:00
+      // - **12**: 12:00 to 18:00
+      // - **18**: 18:00 to 24:00.
       shared_ptr<int32_t> cycleStartTime_ {};
-      // The end time of the check. Specify the time in the HH:mm:ss format.
+      // The end time of the baseline check policy execution.
       shared_ptr<string> endTime_ {};
-      // The ID of the baseline check policy.
+      // The ID of the policy.
       shared_ptr<int32_t> id_ {};
-      // The name of the baseline check policy.
+      // The Policy Name.
       shared_ptr<string> name_ {};
-      // The subtype of the baselines. 
-      // 
-      // > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
+      // The subtype of the baseline check item.
       shared_ptr<string> riskSubTypeName_ {};
-      // The information about the whitelist of risk items.
+      // The list of risk item whitelists.
       shared_ptr<vector<Strategy::RiskTypeWhiteListQueryResultList>> riskTypeWhiteListQueryResultList_ {};
-      // The start time of the check. Specify the time in the HH:mm:ss format.
+      // The start time of the baseline check policy.
       shared_ptr<string> startTime_ {};
-      // The method that is used to apply the baseline check policy. Valid values:
+      // The method used to add assets to the policy. Valid values:
       // 
-      // *   **groupId**: asset groups
-      // *   **uuid**: assets
+      // - **groupId**: Assets are added by asset group.
+      // - **uuid**: Assets are added individually.
       shared_ptr<string> targetType_ {};
-      // The type of the baseline check policy. Valid values:
+      // The type of the policy. Valid values:
       // 
-      // *   **1**: standard policies
-      // *   **2**: custom policies
+      // - **1**: system-added policy. The policy name is the default policy.
+      // - **2**: user-added policy.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -632,9 +631,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The information about the baseline check policy.
+    // The information about the policy.
     shared_ptr<DescribeStrategyDetailResponseBody::Strategy> strategy_ {};
   };
 

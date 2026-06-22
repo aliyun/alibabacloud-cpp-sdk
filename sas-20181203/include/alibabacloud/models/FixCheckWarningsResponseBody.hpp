@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the baseline risk item that has been fixed by using the Batch Repair feature.
+    // The ID of the batch fix task for risk items.
     shared_ptr<int64_t> batchId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

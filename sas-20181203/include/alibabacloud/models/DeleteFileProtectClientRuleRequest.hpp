@@ -99,12 +99,35 @@ namespace Models
 
 
   protected:
+    // The alert notification level. Valid values:
+    // 
+    // - 0: no alert
+    // 
+    // - 1: reminder
+    // 
+    // - 2: suspicious
+    // 
+    // - 3: high-risk.
     shared_ptr<int32_t> alertLevel_ {};
+    // The list of excluded policy IDs.
     shared_ptr<vector<int64_t>> excludeIdList_ {};
+    // The list of policy IDs.
     shared_ptr<vector<int64_t>> idList_ {};
+    // The type of the operating system. Valid values:
+    // 
+    // - **windows**: Windows
+    // - **linux**: Linux.
     shared_ptr<string> platform_ {};
+    // The action to take when the rule is triggered. Valid values:
+    // 
+    // - **monitor**: Alert.
+    // - **block**: Block.
+    // - **pass**: Allow.
     shared_ptr<string> ruleAction_ {};
+    // The name of the rule.
     shared_ptr<string> ruleName_ {};
+    // Specifies whether to select all rules.
+    // 
     // This parameter is required.
     shared_ptr<bool> selectAll_ {};
   };

@@ -176,57 +176,57 @@ namespace Models
 
 
   protected:
-    // Application query condition.
+    // The application query conditions.
     shared_ptr<string> appCriteria_ {};
-    // Instance type. Values:
-    // - **SERVERLESS**: Serverless asset
+    // The instance type. Valid values:
+    // - **SERVERLESS**: Serverless asset.
     shared_ptr<string> authItem_ {};
-    // Enable auto-binding. Values:
+    // Specifies whether to enable automatic binding. Valid values:
     // 
-    // - **0**: Off
-    // - **1**: On
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
-    // Whether to bind all. Default is **false**. Values:
+    // Specifies whether to bind all assets. Default value: **false**. Valid values:
     // 
-    // - **true**: Yes
-    // - **false**: No
+    // - **true**: Bind all assets.
+    // - **false**: Do not bind all assets.
     shared_ptr<bool> bindAll_ {};
-    // List of application IDs to be bound.
+    // The list of application IDs to bind.
     // 
-    // > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
+    // > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
     shared_ptr<vector<string>> bindAppList_ {};
-    // Type of asset to operate on. Values:
-    // - **INSTANCE**: Instance
-    // - **APP**: Application
+    // The Asset Type for the operation. Valid values:
+    // - **INSTANCE**: instance.
+    // - **APP**: application.
     shared_ptr<string> bindAssetType_ {};
-    // List of asset UUIDs to be bound.
+    // The list of asset UUIDs to bind.
     shared_ptr<vector<string>> bindUuidList_ {};
-    // Set the conditions for searching assets. This parameter is in JSON format, and case sensitivity should be noted when entering parameters.
-    // > Supports searching assets using instance ID, instance name, VPC ID, region, public IP address, etc. You can call the [DescribeCriteria](~~DescribeCriteria~~) interface to query supported search conditions.
+    // The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when specifying this parameter.
+    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query supported search conditions.
     shared_ptr<string> criteria_ {};
-    // Set the logical relationship between multiple search conditions. Values:
-    // - **OR**: Indicates an **or** relationship between multiple conditions.
-    // - **AND**: Indicates an **and** relationship between multiple conditions.
+    // The logical relationship among multiple search conditions. Valid values:
+    // - **OR**: The search conditions are evaluated with a logical OR.
+    // - **AND**: The search conditions are evaluated with a logical AND.
     shared_ptr<string> logicalExp_ {};
-    // NTM version code, used for pre-binding.
+    // The NTM version code for pre-binding.
     shared_ptr<string> ntmVersion_ {};
-    // Whether it is a pre-bind operation. Values:
+    // Specifies whether to perform a pre-binding operation. Valid values:
     // 
-    // - **0**: No
-    // - **1**: Yes
+    // - **0**: No.
+    // - **1**: Yes.
     // 
     // 
-    // > After enabling pre-binding, the specified server will automatically bind the corresponding version\\"s authorization count after the purchase is completed.
+    // > After pre-binding is enabled, the corresponding edition authorization quota is automatically bound to the specified servers after the purchase is completed.
     shared_ptr<int32_t> preBind_ {};
-    // Pre-bind order ID.
+    // The pre-binding order ID.
     shared_ptr<int64_t> preBindOrderId_ {};
-    // UID of the associated resource directory.
+    // The UID of the resource directory.
     shared_ptr<int64_t> resourceDirectoryUid_ {};
-    // List of application IDs to be unbound.
+    // The list of application IDs to unbind.
     // 
-    // > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
+    // > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
     shared_ptr<vector<string>> unBindAppList_ {};
-    // List of asset UUIDs to be unbound.
+    // The list of asset UUIDs to unbind.
     shared_ptr<vector<string>> unBindUuidList_ {};
   };
 

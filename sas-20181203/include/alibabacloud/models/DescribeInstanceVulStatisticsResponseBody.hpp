@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The number of high-risk vulnerabilities.
+      // The number of high-priority vulnerabilities.
       shared_ptr<string> asapCount_ {};
-      // The number of medium-risk vulnerabilities.
+      // The number of medium-priority vulnerabilities.
       shared_ptr<string> laterCount_ {};
-      // The number of low-risk vulnerabilities.
+      // The number of low-priority vulnerabilities.
       shared_ptr<string> nntfCount_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The statistics of the vulnerabilities.
+    // The vulnerability statistics information.
     shared_ptr<DescribeInstanceVulStatisticsResponseBody::VulStat> vulStat_ {};
   };
 

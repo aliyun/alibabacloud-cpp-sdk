@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The UUID of the server for which you want to disable web tamper proofing.
-    // 
-    // > You can call the [DescribeWebLockBindList](~~DescribeWebLockBindList~~) operation to query the UUIDs of servers.
+    // The UUID of the server from which you want to remove the protection directories.
+    // > Call [DescribeWebLockBindList](~~DescribeWebLockBindList~~) to obtain the UUID of the server.
     shared_ptr<string> uuid_ {};
   };
 

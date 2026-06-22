@@ -99,27 +99,22 @@ namespace Models
 
 
   protected:
-    // The name of the application.
-    // 
-    // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+    // The application name.
+    // >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
     shared_ptr<string> appName_ {};
-    // An array that consists of images.
-    // 
-    // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+    // The list of images.
+    // >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
     shared_ptr<vector<string>> imageList_ {};
     // The namespace.
-    // 
-    // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+    // >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // An array that consists of tags.
-    // 
-    // > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+    // The list of labels.
+    // >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
     shared_ptr<vector<string>> tagList_ {};
     // The ID of the network object.
-    // 
-    // > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain the value of this parameter.
+    // >You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> targetId_ {};
@@ -127,9 +122,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetName_ {};
-    // The object type. Valid values:
-    // 
-    // *   **IMAGE**
+    // The target type. Valid values:
+    // - **IMAGE**: image.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

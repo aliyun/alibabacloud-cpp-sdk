@@ -116,13 +116,15 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // Specifies whether to query only container images. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: no
+    // 
+    // - **1**: yes
     shared_ptr<int32_t> isContainer_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The number of entries to return on each page.
     // 
@@ -134,9 +136,11 @@ namespace Models
     shared_ptr<vector<int32_t>> ruleTypes_ {};
     // The type of the OS. Valid values:
     // 
-    // *   **2**: Windows
-    // *   **1**: Linux
-    // *   **0**: all types
+    // - **2**: Windows
+    // 
+    // - **1**: Linux
+    // 
+    // - **0**: all types
     shared_ptr<int32_t> systemType_ {};
   };
 

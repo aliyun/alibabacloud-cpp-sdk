@@ -124,35 +124,33 @@ namespace Models
 
 
   protected:
-    // The name of the container field. Valid values:
+    // The container field. Valid values:
     // 
-    // *   **clusterId**: the ID of the cluster
+    // - **clusterId**: cluster ID.
     shared_ptr<string> containerFieldName_ {};
     // The value of the container field.
     shared_ptr<string> containerFieldValue_ {};
-    // The ID of the request source. Set the value to **sas**, which indicates that the request is sent from Security Center.
+    // The source of the request. Set the value to **sas**, which indicates that the request is sent from Security Center.
     shared_ptr<string> from_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of the accounts that you want to query. Default value: **0**. Valid values:
-    // 
-    // *   **0**: the current account.
-    // *   **1**: all accounts.
+    // The multi-account query type. Default value: **0**. Valid values:
+    // - **0**: queries data of the current account.
+    // - **1**: queries data of all accounts.
     shared_ptr<int32_t> multiAccountActionType_ {};
-    // The name of the alert type.
+    // The name of the security alerting Alarm Metric.
     shared_ptr<string> name_ {};
     // The name of the server.
     shared_ptr<string> remark_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // List of supported alarm operation types.
+    // The list of operation types supported by the alert.
     shared_ptr<vector<string>> supportOperateCodeList_ {};
-    // The UUIDs of servers. Separate multiple UUIDs with commas (,).
-    // 
-    // > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+    // The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+    // > Call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to obtain this parameter.
     shared_ptr<string> uuids_ {};
   };
 

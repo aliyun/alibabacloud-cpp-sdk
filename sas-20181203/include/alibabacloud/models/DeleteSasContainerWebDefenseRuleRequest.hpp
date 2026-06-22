@@ -39,8 +39,7 @@ namespace Models
 
   protected:
     // The rule ID.
-    // 
-    // >  You can call the ListContainerWebDefenseRule operation to query the rule ID.
+    // > You can call the ListContainerWebDefenseRule operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};

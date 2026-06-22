@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The asset selection type.
     shared_ptr<string> assetSelectionType_ {};
+    // The duration of the initial learning period, in days.
     shared_ptr<int32_t> durationDaysAfterInit_ {};
+    // The number of consecutive days without detecting new processes before the learning process stops.
     shared_ptr<int32_t> durationDaysAfterStop_ {};
+    // The strategy name.
     shared_ptr<string> name_ {};
+    // The whitelist mode. Valid values:
+    // 
+    // - **hash**: The process hash.
+    // 
+    // - **path**: The process path.
     shared_ptr<string> studyMode_ {};
   };
 

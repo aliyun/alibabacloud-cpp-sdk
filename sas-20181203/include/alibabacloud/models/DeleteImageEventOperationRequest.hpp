@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The primary key of the alert handling rule.
+    // The primary key of the alert disposal rule.
     shared_ptr<int64_t> id_ {};
   };
 

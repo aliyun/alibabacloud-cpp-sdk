@@ -161,48 +161,45 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number of the results to return. Default value: **1**, which indicates that results start from page 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The timestamp when the virus scan task ended. Unit: milliseconds.
+    // The timestamp of the task end time to query, in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The public IP address of the server.
+    // The public IP address.
     shared_ptr<string> internetIp_ {};
-    // The private IP address of the server.
+    // The private IP address.
     shared_ptr<string> intranetIp_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The name of the server.
     shared_ptr<string> machineName_ {};
-    // The number of entries per page. Default value: **20**.
+    // The number of tasks per page in a paged query. Default value: **20**, which indicates that each page contains 20 tasks.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether the virus scan task is the root task.
+    // Specifies whether the task is the root task of the virus scan.
     shared_ptr<bool> rootTask_ {};
-    // The ID of the root task.
-    // 
-    // >  You can call the [GetVirusScanLatestTaskStatistic](~~GetVirusScanLatestTaskStatistic~~) operation to query the ID.
+    // The root task ID.
+    // > Call [GetVirusScanLatestTaskStatistic](~~GetVirusScanLatestTaskStatistic~~) to obtain this parameter.
     shared_ptr<string> rootTaskId_ {};
-    // The type of the virus scan task. Valid values:
+    // The scan type of the virus scan task to query. Valid values:
     // 
-    // *   **system**: automatic scan task
-    // *   **user**: custom scan task
+    // - **system**: automatic system scan
+    // - **user**: custom user scan.
     shared_ptr<string> scanType_ {};
-    // The timestamp when the virus scan task started. Unit: milliseconds.
+    // The timestamp of the task start time to query, in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the virus scan task. Valid values:
-    // 
-    // *   **1**: running
-    // *   **2**: complete
-    // *   **3**: failed
-    // *   **4**: timed out
+    // The execution status of the virus scan task. Valid values:
+    // - **1**: Scanning.
+    // - **2**: Completed.
+    // - **3**: Failed.
+    // - **4**: Timed out.
     shared_ptr<int32_t> status_ {};
-    // The statuses of virus scan tasks.
+    // The list of statuses used to filter tasks by multiple statuses.
     shared_ptr<vector<int32_t>> statusList_ {};
-    // The ID of the virus scan task.
-    // 
-    // >  You can call the [ListVirusScanTask](~~ListVirusScanTask~~) operation to query the ID.
+    // The ID of the virus scan task to query.
+    // > Call [ListVirusScanTask](~~ListVirusScanTask~~) to obtain this parameter.
     shared_ptr<string> taskId_ {};
   };
 

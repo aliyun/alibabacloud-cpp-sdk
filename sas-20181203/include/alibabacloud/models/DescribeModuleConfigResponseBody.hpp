@@ -137,9 +137,9 @@ namespace Models
       protected:
         // The ID of the server group.
         shared_ptr<int32_t> groupId_ {};
-        // The ID of the server.
+        // The ID of the server instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the server.
+        // The name of the server instance.
         shared_ptr<string> instanceName_ {};
         // The IP address of the server.
         shared_ptr<string> ip_ {};
@@ -175,11 +175,11 @@ namespace Models
 
 
     protected:
-      // The name of the configuration.
+      // The configuration name.
       shared_ptr<string> configName_ {};
-      // An array that consists of the configuration items.
+      // The list of configuration items.
       shared_ptr<vector<ModuleConfigList::Items>> items_ {};
-      // The name of the module.
+      // The module name.
       shared_ptr<string> moduleName_ {};
     };
 
@@ -223,18 +223,18 @@ namespace Models
 
 
   protected:
-    // The number of configurations for the module.
+    // The number of module settings.
     shared_ptr<int32_t> count_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // An array that consists of the configurations of the module.
+    // The list of module settings.
     shared_ptr<vector<DescribeModuleConfigResponseBody::ModuleConfigList>> moduleConfigList_ {};
-    // The request ID.
+    // The request ID. It is a unique identifier that Alibaba Cloud generates for the request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

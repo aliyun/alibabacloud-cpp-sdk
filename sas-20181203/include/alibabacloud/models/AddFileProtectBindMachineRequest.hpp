@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // The list of servers for which the alert protection level is enabled.
     shared_ptr<vector<string>> alertUuids_ {};
+    // The list of servers for which tamper-proofing is enabled.
     shared_ptr<vector<string>> blockUuids_ {};
+    // The list of servers for which file protection is disabled.
     shared_ptr<vector<string>> noneUuids_ {};
   };
 

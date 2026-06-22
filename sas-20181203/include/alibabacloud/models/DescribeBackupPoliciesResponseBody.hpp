@@ -238,95 +238,89 @@ namespace Models
 
 
     protected:
-      // The number of the servers on which the anti-ransomware agent is in an abnormal state.
+      // The number of errors reported by the anti-ransomware client.
       shared_ptr<int32_t> clientErrorCount_ {};
-      // The UUIDs of the servers on which the anti-ransomware agent is in an **abnormal** state.
+      // The UUID list of clients in the **abnormal** state.
       shared_ptr<vector<string>> clientErrorUuidList_ {};
-      // The status of the anti-ransomware agent. Valid values:
+      // The status of the anti-ransomware client. Valid values:
       // 
-      // *   **running**: normal
-      // *   **exception**: abnormal
+      // - **running**: Normal.
+      // 
+      // - **exception**: Abnormal.
       shared_ptr<string> clientStatus_ {};
-      // The number of the servers on which the anti-ransomware agent is in a normal state.
+      // The number of clients in the normal state.
       shared_ptr<int32_t> healthClientCount_ {};
-      // The UUIDs of the servers on which the anti-ransomware agent is in a **normal** state.
+      // The UUID list of clients in the **healthy** state.
       shared_ptr<vector<string>> healthClientUuidList_ {};
-      // The ID of the anti-ransomware policy.
+      // The ID of the anti-ransomware protection policy.
       shared_ptr<int64_t> id_ {};
-      // The time when the anti-ransomware policy was last updated. Unit: milliseconds.
+      // The latest update time of the anti-ransomware protection policy status, in milliseconds.
       shared_ptr<int64_t> lastStatusSyncTime_ {};
-      // The name of the anti-ransomware policy.
+      // The name of the anti-ransomware protection policy.
       shared_ptr<string> name_ {};
-      // The configurations of the anti-ransomware policy. The value of this parameter is in the JSON format and contains the following fields:
+      // The content of the anti-ransomware protection policy. This parameter is in JSON format. The following section describes the fields:
       // 
-      // *   **IsDefault**: the type of the anti-ransomware policy. Valid values:
+      // - **IsDefault**: The type of the protection policy. Valid values:
+      //     - **1**: Recommended policy.
+      //     - **0**: Custom policy.
+      // - **Include**: The file types to protect. To protect all file types, set this parameter to [].
+      // - **Source**: The server directories to protect. To protect all directories, set this parameter to [].
+      // - **ExcludeSystemPath**: Specifies whether to exclude specified directories. Set this parameter to **true** to exclude directories. If you do not want to exclude directories, you do not need to set this parameter.
+      // - **Exclude**: The specified protection directory addresses. If no specific protection directory address is set, set this parameter to [].
+      // - **Schedule**: The execution time and interval of the data backup task. We recommend that you specify a non-peak hour at a non-round time. The following provides setting examples:
+      //     - Example 1: I|1583216092|P21D indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy is executed at an interval of 3 weeks.
+      //     - Example 2: I|1583216092|PT24H indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy is executed at an interval of 24 hours.
+      // - **Retention**: The retention period of the backup data, in days. 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
+      // -  **SpeedLimiter**: The backup network bandwidth limit. For example, 0:24:30720 indicates that the backup network bandwidth limit from 0:00 to 24:00 is 30 MByte/s.
+      // - **UseVss**: Specifies whether to enable the VSS (Windows) feature. Valid values:
+      //     -  **true**: Enable.
+      //     -  **false**: Disable.
       // 
-      //     *   **1**: recommended policy
-      //     *   **0**: custom policy
-      // 
-      // *   **Include**: the format of the files that are protected. If the value of this field is [], all formats of files are protected.
-      // 
-      // *   **Source**: the directory that is protected. If the value of this field is [], all directories are protected.
-      // 
-      // *   **ExcludeSystemPath**: indicates whether a specified directory is excluded from the anti-ransomware policy. If the value of this field is **true**, a directory is excluded. If this field is left empty, no directories are excluded.
-      // 
-      // *   **Exclude**: the directory that is excluded from the anti-ransomware policy. If the value of this field is [], no directories are excluded.
-      // 
-      // *   **Schedule**: the start time and interval of a data backup task. We recommend that you specify a start time that begins during off-peak hours but does not start on the hour. Examples:
-      // 
-      //     *   If the value of this field is I|1583216092|P21D, the data backup task starts from 2020-03-03 14:14:52, and the task is run at an interval of three weeks.
-      //     *   If the value of this field is I|1583216092|PT24H, the data backup task starts from 2020-03-03 14:14:52, and the task is run at an interval of 24 hours.
-      // 
-      // *   **Retention**: the period during which backup data is retained. Unit: days. If the value of this field is 7, backup data is retained for a week. If the value of this field is 365, backup data is retained for a year. If the value of this field is -1, backup data is permanently retained.
-      // 
-      // *   **SpeedLimiter**: the limit on the network bandwidth for data backup tasks. If the value of this field is 0:24:30720, the maximum bandwidth for a data backup task is 30 MB/s from 00:00 to 24:00.
-      // 
-      // *   **UseVss**: indicates whether the VSS feature is enabled. The feature is available only for Windows servers. Valid values:
-      // 
-      //     *   **true**
-      //     *   **false**
-      // 
-      // >  The VSS feature is available only if you create the anti-ransomware policy for Windows servers. After you enable the feature, the number of backup failures due to running processes is significantly reduced. We recommend that you enable the VSS feature. After you enable the feature, the data of disks that are in the exFAT and FAT32 formats cannot be backed up.
+      // > The VSS (Windows) feature is only available for Windows systems. After it is enabled, it can effectively reduce the issue of individual file backup failures caused by process occupation. We recommend that you enable this feature. After this feature is enabled, file backup for exFAT and FAT32 disk formats will not be supported.
       shared_ptr<string> policy_ {};
-      // The ID of the region that you specified for data backup when you installed the anti-ransomware agent for the server not deployed on Alibaba Cloud.
+      // The region ID of the backup service selected when installing the anti-ransomware client on non-Alibaba Cloud servers.
       shared_ptr<string> policyRegionId_ {};
-      // The version of the anti-ransomware policy. Valid values:
+      // The version of the protection policy. Valid values:
       // 
-      // *   1.0.0
-      // *   2.0.0
+      // - 1.0.0.
+      // - 2.0.0.
       shared_ptr<string> policyVersion_ {};
-      // The previous status of the anti-ransomware policy. Valid values:
+      // The previous status of the anti-ransomware protection policy.
       // 
-      // *   **enabled**: The anti-ransomware policy is manually enabled.
-      // *   **disabled**: The anti-ransomware policy is manually disabled. After an anti-ransomware policy is disabled, the data backup task that is running based on the policy stops.
-      // *   **closed**: The anti-ransomware policy automatically stops because the anti-ransomware capacity is insufficient.
+      // - **enabled**: The policy is manually enabled.
+      // 
+      // - **disabled**: The policy is manually disabled. After the policy is disabled, running backup tasks will stop.
+      // 
+      // - **closed**: The anti-ransomware capacity is exceeded, and the system disables the policy.
       shared_ptr<string> preStatus_ {};
-      // The UUIDs that are returned based on the value of the MachineRemark request parameter.
+      // The UUID list of servers returned after retrieval by the MachineRemark request parameter.
       shared_ptr<vector<string>> remarkedUuidList_ {};
-      // The type of the server. Valid values:
+      // The server type. Valid values:
       // 
-      // *   **OUT_CLOUD**: server not deployed on Alibaba Cloud
-      // *   **ALIYUN**: Elastic Compute Service (ECS) instance
-      // *   **TRIPARTITE**: simple application server
+      // - **OUT_CLOUD**: Non-Alibaba Cloud server.
+      // - **ALIYUN**: Alibaba Cloud server.
+      // - **TRIPARTITE**: Simple Application Server.
       shared_ptr<string> serverType_ {};
-      // The number of servers on which data backup is exceptional.
+      // The number of servers with data backup exceptions.
       shared_ptr<int32_t> serviceErrorCount_ {};
-      // The UUIDs of the servers on which data backup is exceptional.
+      // The UUID list of servers with data backup exceptions.
       shared_ptr<vector<string>> serviceErrorUuidList_ {};
-      // The status of the anti-ransomware policy. Valid values:
+      // The status of the anti-ransomware protection policy.
       // 
-      // *   **enabled**: The anti-ransomware policy is manually enabled.
-      // *   **disabled**: The anti-ransomware policy is manually disabled. After an anti-ransomware policy is disabled, the data backup task that is running based on the policy stops.
-      // *   **closed**: The anti-ransomware policy automatically stops because the anti-ransomware capacity is insufficient.
+      // - **enabled**: The policy is manually enabled.
+      // 
+      // - **disabled**: The policy is manually disabled. After the policy is disabled, running backup tasks will stop.
+      // 
+      // - **closed**: The anti-ransomware capacity is exceeded, and the system disables the policy.
       shared_ptr<string> status_ {};
-      // The upgrade status of the anti-ransomware policy. Valid values:
+      // The upgrade status of the policy. Valid values:
       // 
-      // *   **NotUpgraded**
-      // *   **Upgrading**
-      // *   **UpgradeFailed**
-      // *   **UpgradeSuccess**
+      // - **NotUpgraded**: Not upgraded.
+      // - **Upgrading**: Upgrading.
+      // - **UpgradeFailed**: Upgrade failed.
+      // - **UpgradeSuccess**: Upgrade succeeded.
       shared_ptr<string> upgradeStatus_ {};
-      // The UUIDs of the servers to which the anti-ransomware policy is applied.
+      // The UUID list of servers protected by the anti-ransomware protection policy.
       shared_ptr<vector<string>> uuidList_ {};
     };
 
@@ -386,13 +380,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries displayed on the current page during paginated queries.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in the returned data.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: 10.
+      // The number of backup policies on each page during paginated queries. Default value: 10, which indicates that each page contains 10 backup policies.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of anti-ransomware policies returned.
+      // The total number of backup policies in the returned data.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -426,9 +420,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeBackupPoliciesResponseBody::PageInfo> pageInfo_ {};
-    // The details of the anti-ransomware policy.
+    // The details of protection policies.
     shared_ptr<vector<DescribeBackupPoliciesResponseBody::Policies>> policies_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. It can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

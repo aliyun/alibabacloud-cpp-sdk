@@ -48,10 +48,10 @@ namespace Models
 
 
   protected:
-    // ID of the created attack path sensitive asset setting.
+    // The ID of the attack path sensitive asset configuration.
     shared_ptr<string> attackPathSensitiveAssetConfigId_ {};
-    // Configuration type. Possible values:
-    // - asset_instance: Asset.
+    // The configuration type. Valid values:
+    // - asset_instance: asset.
     // 
     // This parameter is required.
     shared_ptr<string> configType_ {};

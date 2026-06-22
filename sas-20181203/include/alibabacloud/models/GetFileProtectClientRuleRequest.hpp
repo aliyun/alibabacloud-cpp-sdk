@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The policy ID.
     shared_ptr<int64_t> id_ {};
   };
 

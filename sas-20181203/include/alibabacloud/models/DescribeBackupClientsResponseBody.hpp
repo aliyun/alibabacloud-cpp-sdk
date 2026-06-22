@@ -97,24 +97,29 @@ namespace Models
 
 
     protected:
-      // The ID of the anti-ransomware agent.
+      // The anti-ransomware client ID.
       shared_ptr<string> clientId_ {};
-      // The status of the anti-ransomware agent.
+      // The status of the anti-ransomware client.
       // 
       // Valid values:
       // 
-      // *   **INSTALLING**: The agent is being installed.
-      // *   **ONLINE**: The agent is online.
-      // *   **UNINSTALLING**: The agent is being uninstalled.
-      // *   **NOT_INSTALLED**: The agent is not installed.
-      // *   **ACTIVATED**: The agent is enabled.
-      // *   **CLIENT_CONNECTION_ERROR**: A connection error occurs on the agent.
+      // - **INSTALLING**: The client is being installed.
+      // 
+      // - **ONLINE**: The client is online.
+      // 
+      // - **UNINSTALLING**: The client is being uninstalled.
+      // 
+      // - **NOT_INSTALLED**: The client is not installed.
+      // 
+      // - **ACTIVATED**: The client is activated.
+      // 
+      // - **CLIENT_CONNECTION_ERROR**: A client connection error occurred.
       shared_ptr<string> clientStatus_ {};
-      // The version of the anti-ransomware agent.
+      // The version number of the anti-ransomware client.
       shared_ptr<string> clientVersion_ {};
-      // The ID of the ECS instance on which the anti-ransomware agent is installed.
+      // The instance ID of the ECS instance that has the anti-ransomware client installed.
       shared_ptr<string> instanceId_ {};
-      // The UUID of the Elastic Compute Service (ECS) instance on which the anti-ransomware agent is installed.
+      // The UUID of the ECS instance that has the anti-ransomware client installed.
       shared_ptr<string> uuid_ {};
     };
 
@@ -137,9 +142,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of the information about the anti-ransomware agent.
+    // The anti-ransomware client information.
     shared_ptr<vector<DescribeBackupClientsResponseBody::Clients>> clients_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

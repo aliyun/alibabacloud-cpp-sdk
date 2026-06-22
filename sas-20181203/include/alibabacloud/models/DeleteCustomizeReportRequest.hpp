@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The ID of the report.
-    // 
-    // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+    // The report ID.
+    // >Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> reportId_ {};

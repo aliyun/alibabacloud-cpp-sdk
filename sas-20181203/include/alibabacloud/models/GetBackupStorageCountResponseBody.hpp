@@ -96,18 +96,18 @@ namespace Models
 
 
     protected:
-      // The anti-ransomware capacity that you purchased. Unit: bytes.
+      // The purchased anti-ransomware capacity. Unit: bytes.
       shared_ptr<int64_t> buyStorageByte_ {};
-      // The storage capacity that is occupied by the backup data of your servers. Unit: bytes.
+      // The storage capacity occupied by server backups in the backup data. Unit: bytes.
       shared_ptr<int64_t> ecsUsageStorageByte_ {};
-      // Indicates whether the anti-ransomware capacity that is used exceeds the anti-ransomware capacity that you purchased. Valid values:
+      // Indicates whether the anti-ransomware usage exceeds the purchased capacity. Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes
+      // - **0**: not exceeded
+      // - **1**: exceeded.
       shared_ptr<int32_t> overflow_ {};
-      // The storage capacity that is occupied by the backup data of your databases. Unit: bytes.
+      // The storage capacity occupied by database backups in the backup data. Unit: bytes.
       shared_ptr<int64_t> uniUsageStorageByte_ {};
-      // The total anti-ransomware capacity that is used. Unit: bytes.
+      // The total used anti-ransomware storage capacity. Unit: bytes.
       shared_ptr<int64_t> usageStorageByte_ {};
     };
 
@@ -130,9 +130,9 @@ namespace Models
 
 
   protected:
-    // The details about the anti-ransomware capacity.
+    // The details of the anti-ransomware storage capacity.
     shared_ptr<GetBackupStorageCountResponseBody::BackupStorageCount> backupStorageCount_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

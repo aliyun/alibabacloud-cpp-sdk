@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The number of servers that use the port.
+      // The number of servers associated with the port.
       shared_ptr<int32_t> count_ {};
-      // The number of the listening port.
+      // The listening port number.
       shared_ptr<string> port_ {};
-      // The network protocol of the port.
+      // The network protocol associated with the port.
       shared_ptr<string> proto_ {};
     };
 
@@ -145,13 +145,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page to display in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries to display on each page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -185,9 +185,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribePropertyPortItemResponseBody::PageInfo> pageInfo_ {};
-    // An array that consists of the ports returned.
+    // The port information.
     shared_ptr<vector<DescribePropertyPortItemResponseBody::PropertyItems>> propertyItems_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

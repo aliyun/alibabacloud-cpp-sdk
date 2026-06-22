@@ -75,25 +75,23 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the event.
+    // The event ID.
     shared_ptr<int64_t> eventId_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The scenarios of batch handling. Valid values:
-    // 
-    // *   same_file_md5: the same MD5 hash value.
-    // *   default: the same alert type. This is the default value.
+    // The scenario for batch processing. Valid values:
+    // - same_file_md5: same file MD5.
+    // - default (default value): same alerting type.
     shared_ptr<string> scenario_ {};
   };
 

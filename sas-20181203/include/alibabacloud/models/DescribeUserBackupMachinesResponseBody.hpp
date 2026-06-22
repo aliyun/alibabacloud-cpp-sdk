@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The ID of the anti-ransomware policy that is applied to the server.
+      // The ID of the policy enabled on the server.
       shared_ptr<int64_t> id_ {};
-      // The name of the anti-ransomware policy that is applied to the server.
+      // The name of the policy enabled on the server.
       shared_ptr<string> policyName_ {};
-      // The UUID of the server to which the anti-ransomware policy is applied.
+      // The UUID of the server that has a backup policy enabled.
       shared_ptr<string> uuid_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // An array consisting of the servers to which the anti-ransomware policy is applied.
+    // The information about servers that have backup policies enabled.
     shared_ptr<vector<DescribeUserBackupMachinesResponseBody::Machines>> machines_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

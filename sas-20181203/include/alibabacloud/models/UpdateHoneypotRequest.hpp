@@ -66,22 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the honeypot.
-    // 
-    // >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+    // The honeypot ID.
+    // > You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain this value.
     // 
     // This parameter is required.
     shared_ptr<string> honeypotId_ {};
     // The custom name of the honeypot.
     shared_ptr<string> honeypotName_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the content in the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The custom configuration of the honeypot.
-    // 
-    // > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the configurations of honeypots from the **Template** response parameter.
+    // >The value of this parameter is obtained from the **Template** field returned by the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation.
     shared_ptr<string> meta_ {};
   };
 

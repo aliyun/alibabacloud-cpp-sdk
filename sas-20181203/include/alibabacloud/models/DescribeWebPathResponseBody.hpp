@@ -101,11 +101,11 @@ namespace Models
 
 
       protected:
-        // The object.
+        // The target object.
         shared_ptr<string> target_ {};
-        // The object type. Valid values:
+        // The target type. Valid values:
         // 
-        // *   **uuid**
+        // - **uuid**.
         shared_ptr<string> targetType_ {};
       };
 
@@ -135,14 +135,14 @@ namespace Models
 
 
     protected:
-      // An array consisting of the servers on which the web directories are scanned.
+      // The list of servers on which the web directory takes effect.
       shared_ptr<vector<ConfigList::TargetList>> targetList_ {};
-      // The path to the web directory.
+      // The web directory.
       shared_ptr<string> webPath_ {};
-      // The path type of the web directory. Valid values:
+      // The type of the web path. Valid values:
       // 
-      // *   **def**: automatically identified
-      // *   **customize**: manually added
+      // - **def**: automatically identified by the system.
+      // - **customize**: manually added.
       shared_ptr<string> webPathType_ {};
     };
 
@@ -193,15 +193,15 @@ namespace Models
 
 
   protected:
-    // An array that consists of the paths to the web directories.
+    // The list of web paths.
     shared_ptr<vector<DescribeWebPathResponseBody::ConfigList>> configList_ {};
-    // The number of entries returned on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> count_ {};
-    // The page number of the returned page.
+    // The page number of the current page in a paged query. Paging is used to display results.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries per page in a paged query. Paging is used to display results.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The China Chinese Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

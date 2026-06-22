@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of vulnerabilities that are fixed by the vulnerability fixing feature.
+    // The number of vulnerability fixes used.
     shared_ptr<int32_t> usedCount_ {};
-    // The number of vulnerabilities that are fixed by the vulnerability fixing feature in China.
+    // The number of vulnerability fixes used in regions in the Chinese mainland.
     shared_ptr<int32_t> usedCountCn_ {};
-    // The number of vulnerabilities that are fixed by the vulnerability fixing feature outside China.
+    // The number of vulnerability fixes used in regions outside the Chinese mainland.
     shared_ptr<int32_t> usedCountSg_ {};
   };
 

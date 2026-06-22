@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The unique ID of the alert event.
     shared_ptr<int64_t> id_ {};
   };
 

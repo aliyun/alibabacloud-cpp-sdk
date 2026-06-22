@@ -81,14 +81,14 @@ namespace Models
 
 
     protected:
-      // The flag that is added to the server. This parameter can be empty.
+      // The flag. This parameter can be empty.
       shared_ptr<string> flag_ {};
-      // The UUID of the server or the ID of the server group.
+      // The target. The value is a machine UUID or a machine group ID.
       shared_ptr<string> target_ {};
-      // The type of the object. Valid values:
+      // The target type. Valid values:
       // 
-      // *   **uuid**: a server
-      // *   **groupId**: a server group
+      // - **uuid**: added by individual asset
+      // - **groupId**: added by server group.
       shared_ptr<string> targetType_ {};
     };
 
@@ -118,11 +118,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the server.
+    // The machine settings for the vulnerability type.
     shared_ptr<vector<DescribeTargetResponseBody::Targets>> targets_ {};
-    // The total number of entries returned.
+    // The total number of machine configuration entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

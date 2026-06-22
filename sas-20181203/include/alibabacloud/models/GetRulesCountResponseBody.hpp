@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The China Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of system defense rules.
     shared_ptr<int64_t> totalSystemClientRuleCount_ {};
-    // The total number of custom defense rules.
+    // The total number of user-defined rules.
     shared_ptr<int64_t> totalUserDefineRuleCount_ {};
   };
 

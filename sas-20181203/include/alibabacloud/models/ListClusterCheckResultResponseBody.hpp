@@ -349,27 +349,44 @@ namespace Models
       // Name of the check item.
       shared_ptr<string> checkShowName_ {};
       // Source type of the security check item:
-      //  - **CUSTOM**：User-defined
-      //  - **SYSTEM**：Predefined by the Security Platform
+      // 
+      // - **CUSTOM**:User-defined
+      // 
+      // - **SYSTEM**:Predefined by the Security Platform
       shared_ptr<string> checkType_ {};
       // Subtype of the cloud product asset. Values:
       // 
       // - When **InstanceType** is **ECS**, this parameter can take the following values:
-      //     - **INSTANCE**
-      //     - **DISK**
-      //     - **SECURITY_GROUP**
+      // 
+      //   - **INSTANCE**
+      // 
+      //   - **DISK**
+      // 
+      //   - **SECURITY_GROUP**
+      // 
       // - When **InstanceType** is **ACR**, this parameter can take the following values:
-      //     - **REPOSITORY_ENTERPRISE**
-      //     - **REPOSITORY_PERSON**
+      // 
+      //   - **REPOSITORY_ENTERPRISE**
+      // 
+      //   - **REPOSITORY_PERSON**
+      // 
       // - When **InstanceType** is **RAM**, this parameter can take the following values:
-      //     - **ALIAS**
-      //     - **USER**
-      //     - **POLICY**
-      //     - **GROUP**
+      // 
+      //   - **ALIAS**
+      // 
+      //   - **USER**
+      // 
+      //   - **POLICY**
+      // 
+      //   - **GROUP**
+      // 
       // - When **InstanceType** is **WAF**, this parameter can take the following values:
-      //     - **DOMAIN**
+      // 
+      //   - **DOMAIN**
+      // 
       // - For other **InstanceType** values, this parameter can take the following value:
-      //     - **INSTANCE**
+      // 
+      //   - **INSTANCE**
       shared_ptr<string> instanceSubType_ {};
       // Asset type of the cloud product.
       shared_ptr<string> instanceType_ {};
@@ -377,31 +394,35 @@ namespace Models
       shared_ptr<int64_t> lastCheckTime_ {};
       // Risk level of the check item. Possible values:
       // 
-      // - **HIGH**：High
-      // - **MEDIUM**：Medium
-      // - **LOW**：Low
+      // - **HIGH**:High
+      // 
+      // - **MEDIUM**:Medium
+      // 
+      // - **LOW**:Low
       shared_ptr<string> riskLevel_ {};
       // Status of the check item. Values:
       // 
       // - **PASS**: Passed
+      // 
       // - **NOT_PASS**: Not passed
+      // 
       // - **CHECKING**: Checking
+      // 
       // - **NOT_CHECK**: Not checked
+      // 
       // - **WHITELIST**: Whitelisted
       shared_ptr<string> status_ {};
       // Whether the check depends on TRIAL permissions.
       shared_ptr<bool> trialPermission_ {};
       // Whether the check item requires enabling data delivery of operation audit for more than 30 days to build a behavior baseline.
-      // - **1**：Required
-      // - **0**：Not Required
+      // 
+      // - **1**:Required
+      // 
+      // - **0**:Not Required
       shared_ptr<int32_t> trialPermissionType_ {};
       // Vendor of the asset. Values:
       // 
-      // 0: Alibaba Cloud
-      // 3: Other cloud
-      // 4: Other cloud
-      // 5: Other cloud
-      // 7: Other cloud
+      // 0: Alibaba Cloud 3: Other cloud 4: Other cloud 5: Other cloud 7: Other cloud
       shared_ptr<string> vendor_ {};
     };
 

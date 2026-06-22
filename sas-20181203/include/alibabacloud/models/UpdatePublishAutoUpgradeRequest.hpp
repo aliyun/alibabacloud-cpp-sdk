@@ -40,8 +40,8 @@ namespace Models
   protected:
     // Specifies whether to enable automatic upgrade. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: enabled
+    // - **0**: disabled.
     shared_ptr<int32_t> autoUpgrade_ {};
   };
 

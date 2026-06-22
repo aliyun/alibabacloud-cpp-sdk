@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The total quota.
+    // The total number of authorizations.
     shared_ptr<int64_t> honeyPotAuthCount_ {};
-    // The quota that is consumed.
+    // The number of consumed authorizations.
     shared_ptr<int32_t> honeyPotCount_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // The process name.
         shared_ptr<string> key_ {};
+        // The number of events.
         shared_ptr<int64_t> num_ {};
       };
 
@@ -141,7 +143,9 @@ namespace Models
 
 
       protected:
+        // The file type name.
         shared_ptr<string> key_ {};
+        // The count.
         shared_ptr<int64_t> num_ {};
       };
 
@@ -183,7 +187,9 @@ namespace Models
 
 
       protected:
+        // The file path.
         shared_ptr<string> key_ {};
+        // The total number of events.
         shared_ptr<int64_t> num_ {};
       };
 
@@ -238,11 +244,17 @@ namespace Models
 
 
     protected:
+      // The tamper-proofing event statistics grouped by file path.
       shared_ptr<vector<Data::FilePathStats>> filePathStats_ {};
+      // The event statistics grouped by file type.
       shared_ptr<vector<Data::FileTypeStats>> fileTypeStats_ {};
+      // The number of file tamper-proofing events for today.
       shared_ptr<int32_t> oneDayFileChangeCount_ {};
+      // The event statistics grouped by process name.
       shared_ptr<vector<Data::ProcessNameStats>> processNameStats_ {};
+      // The number of file tamper-proofing events in the last 15 days.
       shared_ptr<int32_t> recentFileChangeCount_ {};
+      // The number of affected servers.
       shared_ptr<int32_t> serverCount_ {};
     };
 
@@ -265,6 +277,7 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetFileProtectClientEventDashboardResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

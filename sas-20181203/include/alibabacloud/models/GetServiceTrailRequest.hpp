@@ -38,10 +38,10 @@ namespace Models
 
 
   protected:
-    // The ID of the region in which the instance resides. Valid value:
+    // The ID of the region in which the instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: center.
-    // *   **ap-southeast-1**: Singapore.
+    // - **cn-hangzhou**: China (Hangzhou)
+    // - **ap-southeast-1**: Singapore.
     shared_ptr<string> regionId_ {};
   };
 

@@ -40,10 +40,13 @@ namespace Models
   protected:
     // The type of the image repository. Valid values:
     // 
-    // *   **acr**: Container Registry
-    // *   **harbor**: Harbor
-    // *   **quay**: Quay
-    // *   **CI/CD**: Jenkins
+    // - **acr**: ACR
+    // 
+    // - **harbor**: Harbor
+    // 
+    // - **quay**: Quay
+    // 
+    // - **CI/CD**: Jenkins
     shared_ptr<string> registryType_ {};
   };
 

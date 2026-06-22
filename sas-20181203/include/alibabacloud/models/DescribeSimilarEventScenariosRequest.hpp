@@ -59,12 +59,11 @@ namespace Models
   protected:
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the alert event.
-    // 
-    // >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the ID of the alert event.
+    // >You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> securityEventId_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

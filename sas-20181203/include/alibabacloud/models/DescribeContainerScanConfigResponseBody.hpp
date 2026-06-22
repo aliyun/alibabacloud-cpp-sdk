@@ -98,15 +98,15 @@ namespace Models
 
 
     protected:
-      // The total number of container applications in the cluster.
+      // The total number of applications in the cluster.
       shared_ptr<int32_t> allCount_ {};
-      // The names of the container applications.
+      // The container application name.
       shared_ptr<string> appNames_ {};
-      // The number of selected container applications.
+      // The number of selected applications.
       shared_ptr<int32_t> chooseCount_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
     };
 
@@ -136,7 +136,7 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<DescribeContainerScanConfigResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

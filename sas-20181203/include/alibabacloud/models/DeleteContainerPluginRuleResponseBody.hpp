@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the container plug-in is manually deleted. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the container escape prevention rule is deleted. Valid values:
+    // - **true**: The rule is deleted.
+    // - **false**: The rule failed to be deleted.
     shared_ptr<bool> data_ {};
-    // The request ID.
+    // The unique identifier that Alibaba Cloud generates for the request.
     shared_ptr<string> requestId_ {};
   };
 

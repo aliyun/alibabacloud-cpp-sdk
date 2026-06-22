@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The number of alerts whose Emergency level is Reminder.
+      // The number of alerts with the reminder severity level.
       shared_ptr<int32_t> remind_ {};
-      // The number of alerts whose Emergency level is Urgent.
+      // The number of alerts with the urgent severity level.
       shared_ptr<int32_t> serious_ {};
-      // The number of alerts whose Emergency level is Suspicious.
+      // The number of alerts with the suspicious severity level.
       shared_ptr<int32_t> suspicious_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of alerts by risk level.
+    // The number of alerts by severity level.
     shared_ptr<GetClusterSuspEventStatisticsResponseBody::SuspStatistics> suspStatistics_ {};
   };
 

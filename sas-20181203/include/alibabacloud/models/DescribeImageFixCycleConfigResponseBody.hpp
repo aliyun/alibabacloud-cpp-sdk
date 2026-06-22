@@ -87,19 +87,19 @@ namespace Models
 
 
     protected:
-      // The cycle of the scheduled fix. Unit: day.
+      // The scheduled fix cycle. Unit: days.
       shared_ptr<int32_t> imageFixCycle_ {};
-      // Indicates whether the scheduled fix of image risks is enabled.
+      // The scheduled image fix switch. Valid values:
       // 
-      // *   **on**: enabled
-      // *   **off**: disabled
+      // - **on**: Enabled.
+      // - **off**: Disabled.
       shared_ptr<string> imageFixSwitch_ {};
-      // The range of the scheduled fix. The value of this parameter is in the JSON format and contains the following fields:
+      // The scope of the scheduled image fix. This parameter is in JSON format and contains the following fields:
       // 
-      // *   **type**: The type of the image risk. The value is fixed to repo.
-      // *   **target**: The content of the image risk. The value is in the format of Namespace/Image repository.
+      // - **type**: The target type. The value is fixed as repo.
+      // - **target**: The target content. Format: namespace/image repository.
       shared_ptr<string> imageFixTarget_ {};
-      // The time range during which the image was modified. Unit: day.
+      // The time range during which the image was modified. Unit: days.
       shared_ptr<int32_t> imageTimeRange_ {};
     };
 
@@ -122,7 +122,7 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The response data.
     shared_ptr<DescribeImageFixCycleConfigResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -227,44 +227,43 @@ namespace Models
 
 
     protected:
-      // Indicates whether the prefixes of all objects are matched.
+      // Indicates whether all prefixes are matched.
       shared_ptr<bool> allKeyPrefix_ {};
       // The number of buckets.
       shared_ptr<int32_t> bucketCount_ {};
-      // The name of the bucket.
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The names of the buckets.
+      // The list of bucket names.
       shared_ptr<vector<string>> bucketNameList_ {};
-      // The maximum number of objects that can be extracted during decompression. Valid values: 1 to 1000. If the maximum number of objects that can be extracted is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+      // The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. If the number of files exceeds this value, the decompression operation stops. Files that have already been decompressed are still scanned.
       shared_ptr<int32_t> decompressMaxFileCount_ {};
-      // The maximum number of decompression levels when multi-level packages are decompressed. Valid values: 1 to 5. If the maximum number of decompression levels is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+      // The maximum number of decompression layers for nested compressed files. Minimum value: 1. Maximum value: 5. If the number of layers exceeds this value, the decompression operation stops. Files that have already been decompressed are still scanned.
       shared_ptr<int32_t> decompressMaxLayer_ {};
-      // The decryption methods.
+      // The list of decryption types.
       shared_ptr<vector<string>> decryptionList_ {};
-      // Indicates whether the check policy is enabled. Valid values:
-      // 
-      // *   **1**: enabled.
-      // *   **0**: disabled.
+      // Indicates whether the policy is enabled. Valid values:
+      // - **1**: enabled
+      // - **0**: disabled.
       shared_ptr<int32_t> enable_ {};
-      // The end time of the check. The time is in the HH:mm:ss format.
+      // The scan end time in the HH:mm:ss format.
       shared_ptr<string> endTime_ {};
       // The policy ID.
       shared_ptr<string> id_ {};
-      // The prefixes of the objects.
+      // The file prefix list.
       shared_ptr<vector<string>> keyPrefixList_ {};
-      // The suffixes of the objects that are checked.
+      // The list of file suffixes to scan.
       shared_ptr<vector<string>> keySuffixList_ {};
-      // The timestamp when the object was last modified. The time must be later than the timestamp that you specify. Unit: milliseconds.
+      // Scans files whose last modification time is after the specified timestamp. Unit: milliseconds.
       shared_ptr<int64_t> lastModifiedStartTime_ {};
-      // The timestamp when the configuration was last modified.
+      // The timestamp of the last update.
       shared_ptr<int64_t> lastUpdateTime_ {};
       // The policy name.
       shared_ptr<string> name_ {};
-      // Whether to enable real-time incremental detection. When this parameter is set to true, the parameters ScanDayList, StartTime, and EndTime are not effective.
+      // Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
       shared_ptr<bool> realTimeIncr_ {};
-      // The days when the check is performed. The value indicates the days of the week.
+      // The scan days. Each number represents a day of the week.
       shared_ptr<vector<int32_t>> scanDayList_ {};
-      // The start time of the check. The time is in the HH:mm:ss format.
+      // The scan start time in the HH:mm:ss format.
       shared_ptr<string> startTime_ {};
     };
 
@@ -287,9 +286,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The data details.
     shared_ptr<GetOssScanConfigResponseBody::Data> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -40,8 +40,9 @@ namespace Models
   protected:
     // Specifies whether to enable the canary release feature. Valid values:
     // 
-    // *   **1**: enabled.
-    // *   **0**: disabled.
+    // - **1**: enabled.
+    // 
+    // - **0**: disabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> graySwitchStatus_ {};

@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -230,35 +230,34 @@ namespace Models
 
 
     protected:
-      // The status of the client of the instance on which the probe is installed. Valid values:
+      // The online status of the probe instance client. Valid values:
       // 
-      // *   **online**: The Security Center agent on the asset is **enabled**.
-      // *   **offline**: The Security Center agent on the asset is **disabled**.
+      // - **online**: The Agent client on the asset is enabled.
+      // - **offline**: The Agent client on the asset is disabled.
       shared_ptr<string> clientStatus_ {};
-      // The name of the IDC.
+      // The name of the IDC server room.
       shared_ptr<string> idcName_ {};
-      // The CIDR blocks.
+      // The IP segment list.
       shared_ptr<string> ipSegment_ {};
-      // The timestamp when the last scan was performed. Unit: milliseconds.
+      // The timestamp of the latest scan, in milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
       // The operating system type of the asset. Valid values:
-      // 
-      // *   **windows**
-      // *   **linux**
+      // - **windows**
+      // - **linux**.
       shared_ptr<string> os_ {};
-      // The private IP address of the associated instance.
+      // The public IP address of the associated machine instance.
       shared_ptr<string> probeInternetIp_ {};
-      // The private IP address of the associated instance.
+      // The private IP address of the associated machine instance.
       shared_ptr<string> probeIntranetIp_ {};
-      // The name of the associated instance.
+      // The name of the associated machine instance.
       shared_ptr<string> probeMachineName_ {};
-      // The UUID of the associated instance.
+      // The UUID of the associated machine instance.
       shared_ptr<string> probeUuid_ {};
-      // The ID of the scan result.
+      // The scan result ID.
       shared_ptr<int64_t> scanResultId_ {};
-      // The IP address that is scanned.
+      // The scanned IP address.
       shared_ptr<string> scannedIp_ {};
-      // The port that is scanned.
+      // The scanned port.
       shared_ptr<string> validPort_ {};
     };
 
@@ -290,11 +289,11 @@ namespace Models
 
 
   protected:
-    // The instances.
+    // The list of instances.
     shared_ptr<vector<DescribeIdcProbeScanResultListResponseBody::Instances>> instances_ {};
     // The pagination information.
     shared_ptr<DescribeIdcProbeScanResultListResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

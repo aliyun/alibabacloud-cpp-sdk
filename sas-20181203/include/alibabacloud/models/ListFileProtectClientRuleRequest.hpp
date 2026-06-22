@@ -84,11 +84,34 @@ namespace Models
 
 
   protected:
+    // The alert notification level. Valid values:
+    // 
+    // - 0: no alert
+    // 
+    // - 1: reminder
+    // 
+    // - 2: suspicious
+    // 
+    // - 3: high-risk.
     shared_ptr<int32_t> alertLevel_ {};
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
+    // The operating system type. Valid values:
+    // 
+    // - **windows**: Windows
+    // - **linux**: Linux.
     shared_ptr<string> platform_ {};
+    // The rule action. Valid values:
+    // 
+    // - **block**: blocks the request.
+    // 
+    // - **monitor**: monitors the request.
+    // 
+    // - **pass**: allows the request.
     shared_ptr<string> ruleAction_ {};
+    // The rule name.
     shared_ptr<string> ruleName_ {};
   };
 

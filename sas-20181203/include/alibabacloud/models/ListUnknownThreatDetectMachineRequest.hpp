@@ -103,13 +103,33 @@ namespace Models
 
 
   protected:
+    // The page number to return.
     shared_ptr<int32_t> currentPage_ {};
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The server name or IP address.
     shared_ptr<string> remark_ {};
+    // The status of the machine. Valid values:
+    // 
+    // - **monitoring**: Monitoring
+    // 
+    // - **blocking**: Blocking
+    // 
+    // - **studying**: Learning
+    // 
+    // - **study_finish**: Learning complete
     shared_ptr<string> status_ {};
+    // The whitelist mode. Valid values:
+    // 
+    // - **hash**: process hash
+    // 
+    // - **path**: process path
     shared_ptr<string> studyMode_ {};
+    // The end of the time range for model creation, specified as a timestamp in milliseconds.
     shared_ptr<int64_t> studyTimeEnd_ {};
+    // The start of the time range for model creation, specified as a timestamp in milliseconds.
     shared_ptr<int64_t> studyTimeStart_ {};
+    // The UUID of the server.
     shared_ptr<string> uuid_ {};
   };
 

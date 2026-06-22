@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // Application region ID.
+    // The region ID of the application.
     shared_ptr<string> appRegionId_ {};
-    // Server type: 
+    // The server type. Valid values:
     // - **RunD**
-    // - **ECI**
+    // - **ECI**.
     shared_ptr<string> machineType_ {};
-    // Cloud product: 
+    // The cloud service to which the resource belongs. Valid values:
     // - **ASK**
     // - **SAE**
-    // - **ACS**
+    // - **ACS**.
     shared_ptr<string> vendorType_ {};
   };
 

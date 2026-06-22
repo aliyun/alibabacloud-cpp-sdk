@@ -82,7 +82,7 @@ namespace Models
     protected:
       // The number of database instances that are automatically scanned.
       shared_ptr<string> automaticCount_ {};
-      // The ID of the region in which the database instance resides.
+      // The region ID of the database instance.
       shared_ptr<string> regionId_ {};
     };
 
@@ -143,15 +143,15 @@ namespace Models
   protected:
     // The number of protected database instances.
     shared_ptr<int32_t> protectedDatabaseCount_ {};
-    // The regions of the database instances.
+    // The list of regions in which database instances can be configured.
     shared_ptr<vector<DescribeUniBackupStatisticsResponseBody::RegionCountList>> regionCountList_ {};
-    // The request ID.
+    // The ID of the request. The China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of the restoration tasks that are running.
+    // The number of tasks that are being restored.
     shared_ptr<int32_t> restoringTaskCount_ {};
-    // The total number of database instances that can be restored.
+    // The number of recoverable database instances.
     shared_ptr<int32_t> totalRecoverableCount_ {};
-    // The total number of the restoration tasks.
+    // The total number of restoration records.
     shared_ptr<int32_t> totalRestoreTaskCount_ {};
     // The number of unprotected database instances.
     shared_ptr<int32_t> unprotectedDatabaseCount_ {};

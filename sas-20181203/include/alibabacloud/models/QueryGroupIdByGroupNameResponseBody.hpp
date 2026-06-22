@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the asset group.
+    // The ID of the group.
     shared_ptr<int64_t> groupId_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

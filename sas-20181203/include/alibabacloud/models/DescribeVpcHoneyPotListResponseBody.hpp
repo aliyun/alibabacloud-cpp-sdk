@@ -223,47 +223,42 @@ namespace Models
     protected:
       // The CIDR block of the VPC.
       shared_ptr<string> cidrBlock_ {};
-      // The time at which the VPC was created. Unit: milliseconds.
+      // The time when the VPC was created. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The status of the server on which the honeypot is deployed. Valid values:
-      // 
-      // *   **Pending**: The server is being created.
-      // *   **Running**: The server is running.
-      // *   **Starting**: The server is being started.
-      // *   **Stopping**: The server is being stopped.
-      // *   **Stopped**: The server is stopped.
+      // The status of the Elastic Compute Service (ECS) instance that corresponds to the cloud honeypot instance. Valid values:
+      // - **Pending**: being created
+      // - **Running**: running
+      // - **Starting**: starting
+      // - **Stopping**: stopping
+      // - **Stopped**: stopped
       shared_ptr<string> honeyPotEcsInstanceStatus_ {};
-      // The ID of the elastic network interface (ENI) used by the honeypot in the VPC.
+      // The ID of the elastic network interface (ENI) that the cloud honeypot created in the VPC.
       shared_ptr<string> honeyPotEniInstanceId_ {};
-      // Indicates whether the cloud honeypot feature is enabled for the VPC. Valid values:
-      // 
-      // *   **true**: yes
-      // *   **false**: no
+      // Indicates whether the VPC has cloud honeypot enabled. Valid values:
+      // - **true**: enabled
+      // - **false**: disabled
       shared_ptr<bool> honeyPotExistence_ {};
-      // The status of the honeypot. Valid values:
-      // 
-      // *   **pending**: The honeypot is being created.
-      // *   **deleting**: The honeypot is being deleted.
-      // *   **off**: The honeypot is disabled.
-      // *   **suspending**: The honeypot is suspended.
-      // *   **on**: The honeypot is enabled.
+      // The status of the cloud honeypot instance. Valid values:
+      // - **pending**: being created
+      // - **deleting**: being deleted
+      // - **off**: disabled
+      // - **suspending**: being suspended
+      // - **on**: enabled
       shared_ptr<string> honeyPotInstanceStatus_ {};
-      // The ID of the vSwitch to which the ENI used by the honeypot is connected.
+      // The ID of the vSwitch to which the ENI used by the cloud honeypot belongs.
       shared_ptr<string> honeyPotVpcSwitchId_ {};
-      // The ID of the VPC.
+      // The ID of the VPC in which the cloud honeypot instance resides.
       shared_ptr<string> vpcId_ {};
-      // The name of the VPC.
+      // The name of the VPC in which the cloud honeypot instance resides.
       shared_ptr<string> vpcName_ {};
-      // The region ID of the VPC.
-      // 
-      // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+      // The region ID of the VPC in which the cloud honeypot instance resides.
+      // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
       shared_ptr<string> vpcRegionId_ {};
       // The status of the VPC. Valid values:
-      // 
-      // *   **Available**: The VPC is normal and available.
-      // *   **Pending**: The VPC is being configured.
+      // - **Available**: normal
+      // - **Pending**: being configured
       shared_ptr<string> vpcStatus_ {};
-      // An array that consists of the vSwitches in the VPC.
+      // The information about vSwitches in the VPC.
       shared_ptr<vector<VpcHoneyPotDTOList::VpcSwitchIdList>> vpcSwitchIdList_ {};
     };
 
@@ -323,13 +318,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -363,9 +358,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeVpcHoneyPotListResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the honeypots.
+    // The information about cloud honeypot instances.
     shared_ptr<vector<DescribeVpcHoneyPotListResponseBody::VpcHoneyPotDTOList>> vpcHoneyPotDTOList_ {};
   };
 

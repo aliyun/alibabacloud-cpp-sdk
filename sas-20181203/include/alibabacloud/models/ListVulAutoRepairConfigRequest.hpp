@@ -77,19 +77,18 @@ namespace Models
   protected:
     // The alias of the vulnerability.
     shared_ptr<string> aliasName_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries per page in a paged query. Default value: **10**, which indicates that 10 auto-fix vulnerability configurations are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     // The type of the vulnerability. Valid values:
     // 
-    // *   **cve**: Linux software vulnerability
-    // *   **sys**: Windows system vulnerability
+    // - **cve**: Linux software vulnerability
+    // - **sys**: Windows system vulnerability.
     shared_ptr<string> type_ {};
   };
 

@@ -48,15 +48,15 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // 
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source of the check rules. Valid values:
-    // 
-    // *   **image**: image.
-    // *   **agentless**: agentless detection.
+    // The source of the sensitive file check item. Valid values:
+    // - **image**: image
+    // - **agentless**: agentless.
     shared_ptr<string> source_ {};
   };
 

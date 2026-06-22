@@ -102,15 +102,15 @@ namespace Models
 
 
       protected:
-        // The value of the policy configurations.
+        // The specific value of the policy configuration.
         shared_ptr<string> config_ {};
-        // The name of the file. After you configure a blocking policy, the blocked data is written to the file.
+        // The file to which the data intercepted by the proxy cluster policy is written.
         shared_ptr<string> fileName_ {};
-        // The type of the policy that you configured. Valid values:
+        // The configured policy type. Valid values:
         // 
-        // *   **file**
-        // *   **net**
-        // *   **process**
+        // - **file**: file data collection
+        // - **net**: network data collection
+        // - **process**: process data collection.
         shared_ptr<string> type_ {};
       };
 
@@ -133,12 +133,12 @@ namespace Models
 
 
     protected:
-      // The information about the policy.
+      // The policy information.
       shared_ptr<vector<PolicyList::Info>> info_ {};
-      // The type of the policy. Valid values:
+      // The policy type. Valid values:
       // 
-      // *   **limitFrequency**
-      // *   **limitBandWidth**
+      // - **limitFrequency**: collection frequency control
+      // - **limitBandWidth**: collection bandwidth control.
       shared_ptr<string> policyType_ {};
     };
 
@@ -168,11 +168,11 @@ namespace Models
 
 
   protected:
-    // The number of entries on the current page.
+    // The number of entries returned on the current page in a paged query.
     shared_ptr<int32_t> count_ {};
-    // The data collection configurations of the proxy cluster.
+    // The list of data collection configurations for the proxy cluster.
     shared_ptr<vector<DescribeHybridProxyPolicyResponseBody::PolicyList>> policyList_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

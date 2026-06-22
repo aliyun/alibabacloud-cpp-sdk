@@ -96,22 +96,23 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code returned.
     shared_ptr<string> code_ {};
-    // N/A
+    // The data returned. This parameter is not used.
     Darabonba::Json data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
-    // The execution duration.
+    // The time consumed to call the API.
     shared_ptr<int64_t> timeCost_ {};
   };
 

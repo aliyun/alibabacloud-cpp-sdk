@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The domain names.
+    // The list of domain names.
     shared_ptr<vector<string>> domainList_ {};
-    // The company name.
+    // The company names.
     shared_ptr<string> names_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

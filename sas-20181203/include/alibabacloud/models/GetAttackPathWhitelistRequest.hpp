@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // Attack path whitelist ID.
-    // > You can call [ListAttackPathWhitelist](~~ListAttackPathWhitelist~~) to query the attack path whitelist ID.
+    // The attack path whitelist ID.
+    // > You can call [ListAttackPathWhitelist](~~ListAttackPathWhitelist~~) to query attack path whitelist IDs.
     // 
     // This parameter is required.
     shared_ptr<string> attackPathWhitelistId_ {};

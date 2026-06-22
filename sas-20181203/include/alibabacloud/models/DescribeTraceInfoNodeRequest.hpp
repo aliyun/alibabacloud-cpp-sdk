@@ -103,32 +103,31 @@ namespace Models
 
 
   protected:
-    // The name of the alert event.
+    // The event name.
     // 
-    // > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the names of alerts events.
+    // >For more information, call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this parameter.
     shared_ptr<string> eventName_ {};
-    // The ID of the request source. Set the value to sas.
+    // The source identifier of the request. Set the value to sas.
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The time when the alert event was first detected.
+    // The time when the event was first detected.
     shared_ptr<int64_t> incidentTime_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request. The value of this parameter is specified by the system.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
     shared_ptr<string> sourceIp_ {};
-    // The type of the vertex. You can call the [DescribeTraceInfoDetail](~~DescribeTraceInfoDetail~~) operation to query the types of vertexes.
+    // The vertex type. You can call the [DescribeTraceInfoDetail](~~DescribeTraceInfoDetail~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUID of the server. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the UUIDs of servers.
+    // The UUID of the server to query. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};
-    // The ID of the vertex.
+    // The vertex ID.
     // 
     // This parameter is required.
     shared_ptr<string> vertexId_ {};

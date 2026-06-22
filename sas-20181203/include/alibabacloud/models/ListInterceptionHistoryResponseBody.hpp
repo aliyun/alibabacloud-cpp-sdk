@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of records on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page for a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -379,49 +379,49 @@ namespace Models
     protected:
       // The ID of the container cluster.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The name of the destination application.
+      // The destination application name configured in the rule.
       shared_ptr<string> dstAppName_ {};
-      // The destination namespace.
+      // The destination namespace configured in the rule.
       shared_ptr<string> dstNamespace_ {};
-      // The destination port range configured for the defense rule.
+      // The destination port number configured in the rule.
       shared_ptr<int64_t> dstPort_ {};
-      // The name of the destination network object.
+      // The destination target object name of the rule.
       shared_ptr<string> dstRuleTargetName_ {};
-      // The timestamp when the alert was first generated on the current day.
+      // The timestamp of the first occurrence on the current day.
       shared_ptr<int64_t> firstTime_ {};
       // The ID of the alert.
       shared_ptr<int64_t> id_ {};
-      // The name of the alert.
+      // The alert name.
       shared_ptr<int64_t> interceptionName_ {};
-      // The handling type. Valid values:
+      // The processing type. Valid values:
       // 
-      // *   **0**: monitor
-      // *   **1**: intercept
-      // *   **2**: generate alert
-      // *   **3**: allow
+      // - **0**: observe
+      // - **1**: block
+      // - **2**: alert
+      // - **3**: allow.
       shared_ptr<int32_t> interceptionType_ {};
-      // The timestamp when the alert was last generated on the current day.
+      // The timestamp of the latest occurrence on the current day.
       shared_ptr<int64_t> lastTime_ {};
-      // The name of the destination application.
+      // The destination application name.
       shared_ptr<string> realDstAppName_ {};
-      // The name of the destination image.
+      // The destination image name.
       shared_ptr<string> realDstImageName_ {};
       // The destination namespace.
       shared_ptr<string> realDstNamespace_ {};
       // The destination pod.
       shared_ptr<string> realDstPodName_ {};
-      // The handling type of actual hits. Valid values:
+      // The actual processing type that was matched. Valid values:
       // 
-      // *   **0**: monitor
-      // *   **1**: intercept
-      // *   **2**: generate alert
-      // *   **3**: allow
+      // - **0**: observe
+      // - **1**: block
+      // - **2**: alert
+      // - **3**: allow.
       shared_ptr<int32_t> realInterceptionType_ {};
-      // The name of the source application.
+      // The source application name.
       shared_ptr<string> realSrcAppName_ {};
-      // The name of the source image.
+      // The source image name.
       shared_ptr<string> realSrcImageName_ {};
       // The source namespace.
       shared_ptr<string> realSrcNamespace_ {};
@@ -429,28 +429,28 @@ namespace Models
       shared_ptr<string> realSrcPodName_ {};
       // The risk level. Valid values:
       // 
-      // *   **-1**: unknown
-      // *   **0**: none
-      // *   **1**: low
-      // *   **2**: medium
-      // *   **3**: high
+      // - **-1**: unknown
+      // - **0**: none
+      // - **1**: low
+      // - **2**: medium
+      // - **3**: high.
       shared_ptr<int64_t> riskLevel_ {};
-      // The ID of the defense rule based on which the alert was generated.
+      // The ID of the corresponding rule.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the defense rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The name of the source application.
+      // The source application name configured in the rule.
       shared_ptr<string> srcAppName_ {};
-      // The source namespace.
+      // The namespace of the source instance.
       shared_ptr<string> srcNamespace_ {};
-      // The name of the source network object.
+      // The source target object name of the rule.
       shared_ptr<string> srcRuleTargetName_ {};
-      // The handling status. Valid values:
+      // The processing status. Valid values:
       // 
-      // *   **0**: unhandled
-      // *   **1**: handled
-      // *   **2**: manually handled
-      // *   **3**: ignored
+      // - **0**: unprocessed
+      // - **1**: processed
+      // - **2**: manually processed
+      // - **3**: ignored.
       shared_ptr<int64_t> status_ {};
       // The number of attempts.
       shared_ptr<int32_t> tryCount_ {};
@@ -484,11 +484,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the alerts generated by defense rules.
+    // The container firewall interception records.
     shared_ptr<vector<ListInterceptionHistoryResponseBody::InterceptionHistoryList>> interceptionHistoryList_ {};
     // The pagination information.
     shared_ptr<ListInterceptionHistoryResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -106,10 +106,15 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> blockEventMachineCount_ {};
+      // The number of servers under control.
       shared_ptr<int32_t> blockMachineCount_ {};
+      // The total number of servers.
       shared_ptr<int32_t> machineCount_ {};
+      // The number of servers in warning status.
       shared_ptr<int32_t> monitorMachineCount_ {};
+      // The number of servers with the service enabled.
       shared_ptr<int32_t> openMachineCount_ {};
+      // The number of servers in learning status.
       shared_ptr<int32_t> studyingMachineCount_ {};
     };
 
@@ -132,6 +137,7 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetUnknownThreatDetectStatisticResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

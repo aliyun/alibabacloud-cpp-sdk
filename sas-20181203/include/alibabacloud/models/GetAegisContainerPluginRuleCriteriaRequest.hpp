@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for requesting and receiving messages. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The value of the search condition.
+    // The matching condition value of the plugin.
     shared_ptr<string> value_ {};
   };
 

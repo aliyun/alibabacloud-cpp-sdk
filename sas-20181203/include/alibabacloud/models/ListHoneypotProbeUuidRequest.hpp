@@ -58,18 +58,18 @@ namespace Models
 
   protected:
     // The ID of the management node.
-    // 
-    // >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
+    // > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this value.
     shared_ptr<string> controlNodeId_ {};
-    // The language of the content within the request and the response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of the probe. Valid values:
+    // The probe type. Valid values:
     // 
-    // *   **host_probe**: host probe
-    // *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+    // - **host_probe**: host probe
+    // 
+    // - **vpc_black_hole_probe**: VPC blackhole probe.
     shared_ptr<string> probeType_ {};
   };
 

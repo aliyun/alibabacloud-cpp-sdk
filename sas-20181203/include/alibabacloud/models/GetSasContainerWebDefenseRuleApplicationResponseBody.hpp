@@ -119,18 +119,17 @@ namespace Models
       // The user ID.
       shared_ptr<int64_t> aliUid_ {};
       // The ID of the container cluster.
-      // 
-      // >  The IDs of clusters can be obtained by using the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation.
+      // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
       shared_ptr<string> clusterId_ {};
-      // The time when the application was created. Unit: milliseconds.
+      // The creation time of the application, in milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The last modification time. Unit: milliseconds.
+      // The most recent modification time, in milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The ID of the node.
+      // The ID of the current node.
       shared_ptr<int64_t> id_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
-      // The value of the application label.
+      // The application tag value.
       shared_ptr<string> tag_ {};
     };
 
@@ -153,9 +152,9 @@ namespace Models
 
 
   protected:
-    // The applications.
+    // The application list.
     shared_ptr<vector<GetSasContainerWebDefenseRuleApplicationResponseBody::ContainerWebDefenseAppList>> containerWebDefenseAppList_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

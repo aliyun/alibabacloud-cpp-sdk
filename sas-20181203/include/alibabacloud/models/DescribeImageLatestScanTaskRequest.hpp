@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The digest value of the image.
+    // The digest of the image.
     // 
     // This parameter is required.
     shared_ptr<string> digest_ {};

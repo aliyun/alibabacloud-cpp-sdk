@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The switch ID.
+      // The corresponding switch ID.
       shared_ptr<string> switchId_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The defense rule against container escapes.
+    // The list of container escape prevention rules.
     shared_ptr<ModifyContainerPluginRuleResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

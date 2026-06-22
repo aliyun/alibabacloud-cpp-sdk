@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The page number of the current page when paging is used in a paged query.
       shared_ptr<int32_t> currentPage_ {};
+      // The maximum number of entries per page when paging is used in a paged query.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -298,26 +301,72 @@ namespace Models
 
 
     protected:
+      // The alert notification level. Valid values:
+      // 
+      // - 0: no alert
+      // 
+      // - 1: reminder
+      // 
+      // - 2: suspicious
+      // 
+      // - 3: high-risk.
       shared_ptr<int32_t> alertLevel_ {};
+      // The command line of the event.
       shared_ptr<string> cmdLine_ {};
+      // The number of times the event occurred.
       shared_ptr<int32_t> count_ {};
+      // The file path.
       shared_ptr<string> filePath_ {};
+      // The timestamp when the event was first detected. Unit: milliseconds.
       shared_ptr<int64_t> firstTime_ {};
+      // The time when the event was handled.
       shared_ptr<int64_t> handleTime_ {};
+      // The event ID.
       shared_ptr<int64_t> id_ {};
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
+      // The public IP address of the instance.
       shared_ptr<string> internetIp_ {};
+      // The private IP address of the instance.
       shared_ptr<string> intranetIp_ {};
+      // The most recent time the event occurred.
       shared_ptr<int64_t> latestTime_ {};
+      // The type of operation performed on the file. Valid values:
+      // 
+      // - **DELETE**: deletes the file.
+      // - **WRITE**: writes to the file.
+      // - **READ**: reads the file.
+      // - **RENAME**: renames the file.
+      // - **CHOWN**: changes the file owner and associated group.
       shared_ptr<string> operation_ {};
+      // The operating system type. Valid values:
+      // 
+      // - **windows**: Windows
+      // - **linux**: Linux.
       shared_ptr<string> platform_ {};
+      // The process path.
       shared_ptr<string> procPath_ {};
+      // The process permission.
       shared_ptr<string> procPermission_ {};
+      // The process ID of the event.
       shared_ptr<string> processId_ {};
+      // The remarks.
       shared_ptr<string> remark_ {};
+      // The rule action. Valid values:
+      // 
+      // - **block**: Block.
+      // 
+      // - **monitor**: Monitor.
       shared_ptr<string> ruleAction_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The event status. Valid values:
+      // 
+      // - 0: unhandled 
+      // - 1: handled
+      // - 2: whitelisted.
       shared_ptr<int32_t> status_ {};
+      // The UUID of the server.
       shared_ptr<string> uuid_ {};
     };
 
@@ -349,7 +398,9 @@ namespace Models
 
 
   protected:
+    // The file monitoring events.
     shared_ptr<vector<ListFileProtectClientEventResponseBody::EventList>> eventList_ {};
+    // The pagination information of the query result.
     shared_ptr<ListFileProtectClientEventResponseBody::PageInfo> pageInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

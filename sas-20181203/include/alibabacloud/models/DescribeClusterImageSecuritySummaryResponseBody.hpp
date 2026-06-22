@@ -95,13 +95,13 @@ namespace Models
 
 
       protected:
-        // The number of image application vulnerabilities.
+        // The number of application vulnerabilities.
         shared_ptr<int64_t> count_ {};
-        // The alert level. Valid values:
+        // The warning level. Valid values:
         // 
-        // *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-        // *   **nntf**: medium. You can fix the vulnerability based on your business requirements.
-        // *   **later**: low. You can ignore the vulnerability.
+        // - **asap**: High. Fix the vulnerability at the earliest opportunity.
+        // - **nntf**: Medium. The vulnerability can be temporarily left unfixed.
+        // - **later**: Low. The vulnerability can be left unfixed.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -147,9 +147,9 @@ namespace Models
         shared_ptr<int64_t> count_ {};
         // The risk level. Valid values:
         // 
-        // *   **high**
-        // *   **medium**
-        // *   **low**
+        // - **high**: High.
+        // - **medium**: Medium.
+        // - **low**: Low.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -193,11 +193,11 @@ namespace Models
       protected:
         // The number of vulnerabilities.
         shared_ptr<int64_t> count_ {};
-        // The alert level. Valid values:
+        // The warning level. Valid values:
         // 
-        // *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-        // *   **nntf**: medium. You can fix the vulnerability based on your business requirements.
-        // *   **later**: low. You can ignore the vulnerability.
+        // - **asap**: High. Fix the vulnerability at the earliest opportunity.
+        // - **nntf**: Medium. The vulnerability can be temporarily left unfixed.
+        // - **later**: Low. The vulnerability can be left unfixed.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -243,9 +243,9 @@ namespace Models
         shared_ptr<int64_t> count_ {};
         // The risk level. Valid values:
         // 
-        // *   **high**
-        // *   **medium**
-        // *   **low**
+        // - **high**: High.
+        // - **medium**: Medium.
+        // - **low**: Low.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -288,13 +288,13 @@ namespace Models
 
 
     protected:
-      // The information about image baseline risks.
+      // The image baseline check information.
       shared_ptr<vector<ClusterImageEvent::ImageBaseline>> imageBaseline_ {};
-      // The information about image system vulnerabilities.
+      // The image system vulnerability information.
       shared_ptr<vector<ClusterImageEvent::ImageCveVul>> imageCveVul_ {};
-      // The information about malicious image samples.
+      // The image malicious sample information.
       shared_ptr<vector<ClusterImageEvent::ImageMaliciousFile>> imageMaliciousFile_ {};
-      // The information about image application vulnerabilities.
+      // The image application vulnerability information.
       shared_ptr<vector<ClusterImageEvent::ImageScaVul>> imageScaVul_ {};
     };
 
@@ -317,7 +317,7 @@ namespace Models
 
 
   protected:
-    // The information about the image-related security events.
+    // The image security event information.
     shared_ptr<DescribeClusterImageSecuritySummaryResponseBody::ClusterImageEvent> clusterImageEvent_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

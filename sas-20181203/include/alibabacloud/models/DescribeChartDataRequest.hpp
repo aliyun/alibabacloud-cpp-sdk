@@ -84,26 +84,26 @@ namespace Models
 
 
   protected:
-    // The ID of the chart.
+    // The chart ID.
     // 
-    // >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 1.0.0.
+    // > Call the [DescribeChartList](~~DescribeChartList~~) operation to obtain this parameter. This parameter is required if the report version is 1.0.0.
     shared_ptr<string> charId_ {};
-    // The ID of the chart.
+    // The chart ID.
     // 
-    // >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 2.0.0.
+    // > Call the [DescribeChartList](~~DescribeChartList~~) operation to obtain this parameter. This parameter is required if the report version is 2.0.0.
     shared_ptr<string> chartId_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the security report.
+    // The report ID.
     // 
-    // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+    // > Call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
     shared_ptr<int64_t> reportId_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The end timestamp for statistics. Unit: milliseconds.
     shared_ptr<int64_t> timeEnd_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The start timestamp for statistics. Unit: milliseconds.
     shared_ptr<int64_t> timeStart_ {};
   };
 

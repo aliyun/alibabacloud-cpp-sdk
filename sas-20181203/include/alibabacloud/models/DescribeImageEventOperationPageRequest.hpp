@@ -103,29 +103,27 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The number of the page to return in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The keyword of the alert item.
+    // The keyword of the alert metric.
     shared_ptr<string> eventKey_ {};
-    // The name of the alert item.
+    // The name of the alert metric.
     shared_ptr<string> eventName_ {};
-    // The alert type.
-    // 
-    // *   Set the value to **sensitiveFile**.
+    // The alerting type. Valid values:
+    // - **sensitiveFile**: sensitive file tampering.
     shared_ptr<string> eventType_ {};
     // The ID of the alert handling rule.
     shared_ptr<int64_t> id_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the content in the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return on each page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The source of the alert handling rule. Valid values:
-    // 
-    // *   **default**: image.
-    // *   **agentless**: agentless detection.
+    // - **default**: image
+    // - **agentless**: agentless detection.
     shared_ptr<string> source_ {};
   };
 

@@ -121,33 +121,33 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page when using paging.
     shared_ptr<int32_t> currentPage_ {};
-    // The instance ID of the asset.
+    // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
-    // The instance name of the asset.
+    // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
-    // The public IP address of the asset that you want to query.
+    // The public IP address of the asset to query.
     shared_ptr<string> internetIp_ {};
-    // The private IP address of the asset that you want to query.
+    // The private IP address of the asset to query.
     shared_ptr<string> intranetIp_ {};
-    // The name of the instance.
+    // The instance name.
     shared_ptr<string> machineName_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page when using paging.
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether risks exist. Valid values:
     // 
-    // *   **true**: Risks exist.
-    // *   **false**: Risks do not exist.
+    // - **true**: Risks exist.
+    // - **false**: Risks do not exist.
     shared_ptr<bool> risk_ {};
-    // The name of the detection object.
+    // The name of the detection target.
     shared_ptr<string> targetName_ {};
-    // Specifies the type of the object being inspected. Valid values:
+    // The object type of the detection target. Valid values:
     // 
-    // *   **1**: Host Snapshot.
-    // *   **2**: Host Image.
-    // *   **3**: User Snapshot.
-    // *   **4**: User Image.
+    // - **1**: host snapshot
+    // - **2**: host image
+    // - **3**: user snapshot
+    // - **4**: user custom image
     shared_ptr<int32_t> targetType_ {};
   };
 

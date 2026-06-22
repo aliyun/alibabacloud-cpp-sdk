@@ -112,11 +112,11 @@ namespace Models
 
 
       protected:
-        // The key of the baseline type.
+        // The classification key of the baseline main item.
         shared_ptr<string> classKey_ {};
-        // The key of the baseline check item.
+        // The key of the baseline subitem.
         shared_ptr<string> itemKey_ {};
-        // The key of the name for the baseline.
+        // The name key of the baseline main item.
         shared_ptr<string> nameKey_ {};
       };
 
@@ -182,24 +182,25 @@ namespace Models
 
 
     protected:
-      // The baseline check policy for agentless detection.
+      // The agentless baseline check policy.
       shared_ptr<string> baselineItem_ {};
-      // An array that contains the baselines.
+      // The list of baseline items.
       shared_ptr<vector<Strategy::BaselineItemList>> baselineItemList_ {};
+      // The retention period of baseline risks. Unit: days.
       shared_ptr<int32_t> imageVulClean_ {};
       // The number of selected baseline check items.
       shared_ptr<int32_t> selectedItemCount_ {};
       // The ID of the baseline check policy.
       shared_ptr<int64_t> strategyId_ {};
-      // The name of the baseline check policy.
+      // The Policy Name.
       shared_ptr<string> strategyName_ {};
       // The total number of baseline check items.
       shared_ptr<int32_t> totalItemCount_ {};
       // The type of the baseline check policy. Valid values:
       // 
-      // *   **default**: the default policy
-      // *   **full**: a policy that uses all baselines
-      // *   **normal**: a policy that uses general baselines
+      // - **default**: default policy
+      // - **full**: full baseline item policy
+      // - **normal**: common baseline item policy.
       shared_ptr<string> type_ {};
     };
 
@@ -224,7 +225,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the baseline check policy.
+    // The baseline check policy information.
     shared_ptr<DescribeImageBaselineStrategyResponseBody::Strategy> strategy_ {};
   };
 

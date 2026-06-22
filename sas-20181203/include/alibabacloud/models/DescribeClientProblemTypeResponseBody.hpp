@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The description of the issue type.
+      // The description of the diagnostic issue category.
       shared_ptr<string> problemDetail_ {};
-      // The ID of the issue type.
+      // The ID of the diagnostic issue category.
       shared_ptr<string> problemId_ {};
-      // The name of the issue type.
+      // The name of the diagnostic issue category.
       shared_ptr<string> problemType_ {};
     };
 
@@ -142,17 +142,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> count_ {};
-    // The page number.
+    // The current page number displayed in the returned results.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page. Default value: **20**.
+    // The maximum number of entries per page in a paged query. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The issue types.
+    // The list of diagnostic types.
     shared_ptr<vector<DescribeClientProblemTypeResponseBody::ProblemTypes>> problemTypes_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the client issue list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

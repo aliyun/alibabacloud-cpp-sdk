@@ -75,18 +75,17 @@ namespace Models
 
 
   protected:
-    // The IP address that you want to block by using the defense rule.
+    // The IP address to be blocked for brute-force attacks prevention.
     shared_ptr<string> blockIp_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // Settings for paged query. The number of records to return on each page during paging. Default value: **20**, which indicates that 20 records are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the defense rule. Valid values:
-    // 
-    // *   **0**: invalid
-    // *   **1**: enabled
-    // *   **2**: failed
+    // The status of the brute-force attacks defense rule. Valid values:
+    // - **0**: Invalid.
+    // - **1**: Enabled.
+    // - **2**: Failed.
     shared_ptr<int32_t> status_ {};
   };
 

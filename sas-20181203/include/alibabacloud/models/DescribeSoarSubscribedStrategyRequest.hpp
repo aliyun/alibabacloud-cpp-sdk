@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

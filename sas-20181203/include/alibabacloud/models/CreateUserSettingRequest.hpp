@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The severities of alerts.
+    // The list of alert notification levels.
     shared_ptr<string> alertLevels_ {};
-    // The number of days during which you want to retain invalid alerts.
+    // The number of days to retain false positive alerts.
     shared_ptr<int32_t> invalidWarningKeepDays_ {};
-    // The source IP address.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

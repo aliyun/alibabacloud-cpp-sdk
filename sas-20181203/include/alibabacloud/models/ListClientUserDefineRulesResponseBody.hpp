@@ -110,8 +110,9 @@ namespace Models
     protected:
       // The action of the rule. Valid values:
       // 
-      // *   **0**: allow
-      // *   **1**: block
+      // - **0**: allow
+      // 
+      // - **1**: block
       shared_ptr<int32_t> actionType_ {};
       // The ID of the rule.
       shared_ptr<int64_t> id_ {};
@@ -119,21 +120,29 @@ namespace Models
       shared_ptr<string> name_ {};
       // The type of the operating system. Valid values:
       // 
-      // *   **windows**: Windows
-      // *   **linux**: Linux
-      // *   **all**: all types
+      // - **windows**: Windows
+      // 
+      // - **linux**: Linux
+      // 
+      // - **all**: all types
       shared_ptr<string> platform_ {};
       // The switch ID of the rule.
       shared_ptr<string> switchId_ {};
       // The type of the rule. Valid values:
       // 
-      // *   **1**: Process hash
-      // *   **2**: Command line
-      // *   **3**: Process Network
-      // *   **4**: File Read and Write
-      // *   **5**: Operation on Registry
-      // *   **6**: Dynamic-link Library Loading
-      // *   **7**: File Renaming
+      // - **1**: Process hash
+      // 
+      // - **2**: Command line
+      // 
+      // - **3**: Process Network
+      // 
+      // - **4**: File Read and Write
+      // 
+      // - **5**: Operation on Registry
+      // 
+      // - **6**: Dynamic-link Library Loading
+      // 
+      // - **7**: File Renaming
       shared_ptr<int32_t> type_ {};
     };
 

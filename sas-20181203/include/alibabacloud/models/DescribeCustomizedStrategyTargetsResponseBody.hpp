@@ -89,16 +89,14 @@ namespace Models
 
     protected:
       // The ID of the server group.
-      // 
-      // >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+      // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query server group IDs.
       shared_ptr<int64_t> groupId_ {};
       // The ID of the baseline check policy.
       shared_ptr<int64_t> strategyId_ {};
       // The name of the baseline check policy.
       shared_ptr<string> strategyName_ {};
-      // The UUID of the server.
-      // 
-      // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+      // The UUID of the asset.
+      // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
       shared_ptr<string> uuid_ {};
     };
 
@@ -121,9 +119,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The information about the servers to which custom policies are applied.
+    // The list of target information for the custom policy.
     shared_ptr<vector<DescribeCustomizedStrategyTargetsResponseBody::StartegyTargets>> startegyTargets_ {};
   };
 

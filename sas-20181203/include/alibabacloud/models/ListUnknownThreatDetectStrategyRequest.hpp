@@ -75,12 +75,23 @@ namespace Models
 
 
   protected:
+    // The page number for a paginated query.
+    // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
+    // The strategy ID.
     shared_ptr<string> id_ {};
+    // The strategy name.
     shared_ptr<string> name_ {};
+    // The number of entries to return per page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The whitelist mode. Valid values:
+    // 
+    // - **hash**: process hash
+    // 
+    // - **path**: process path
     shared_ptr<string> studyMode_ {};
   };
 

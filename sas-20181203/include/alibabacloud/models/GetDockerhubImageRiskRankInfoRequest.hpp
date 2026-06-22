@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The dimension types.
+    // The image dimension types to query.
     shared_ptr<vector<string>> types_ {};
   };
 

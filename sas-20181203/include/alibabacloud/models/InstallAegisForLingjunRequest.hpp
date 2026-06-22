@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // List of unique UUIDs for Lingjun bare metal.
+    // The list of unique UUIDs for Lingjun bare metal servers.
     shared_ptr<vector<string>> uuids_ {};
   };
 

@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -217,15 +221,33 @@ namespace Models
 
     protected:
       shared_ptr<int64_t> effectDays_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The public IP address.
       shared_ptr<string> internetIp_ {};
+      // The private IP address.
       shared_ptr<string> intranetIp_ {};
       shared_ptr<string> pluginStatus_ {};
+      // The process count.
       shared_ptr<int32_t> processCount_ {};
+      // The instance status. Valid values:
+      // 
+      // - **monitoring**: The instance is being monitored for threats.
+      // 
+      // - **blocking**: The instance is blocking unauthorized processes.
+      // 
+      // - **studying**: The instance is in a learning phase.
       shared_ptr<string> status_ {};
+      // The whitelist mode. Valid values:
+      // 
+      // - **hash**: process hash
+      // 
+      // - **path**: process path
       shared_ptr<string> studyMode_ {};
       shared_ptr<int64_t> studyRemainDays_ {};
+      // The timestamp when the learning phase started. Unit: seconds.
       shared_ptr<int64_t> studyStartTime_ {};
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -257,9 +279,11 @@ namespace Models
 
 
   protected:
+    // An array of instance details.
     shared_ptr<vector<ListUnknownThreatDetectMachineResponseBody::Data>> data_ {};
+    // The pagination information.
     shared_ptr<ListUnknownThreatDetectMachineResponseBody::PageInfo> pageInfo_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of domain names displayed on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **10**.
+      // The number of domain names displayed on each page in a paged query. Default value: **10**, which indicates that 10 domain names are displayed on each page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of domain names returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
     protected:
-      // The name of the domain or website.
+      // The domain name or website name.
       shared_ptr<string> domain_ {};
-      // The IP addresses of the domain name.
+      // The IP address information associated with the domain name.
       shared_ptr<string> ipList_ {};
     };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the information about domain names.
+    // The list of domain name asset information.
     shared_ptr<vector<DescribeDomainListResponseBody::DomainListResponseList>> domainListResponseList_ {};
-    // The pagination information.
+    // The pagination information of the query result.
     shared_ptr<DescribeDomainListResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

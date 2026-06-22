@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Sets the language type for requests and received messages, default is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};

@@ -108,36 +108,34 @@ namespace Models
 
   protected:
     // The ID of the container cluster.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
+    // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The destination objects of the rule. The following parameters are included:
+    // The destination object. The metric description is as follows:
     // 
-    // *   targetId: the ID of the destination object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
-    // *   ports: the destination port ranges.
+    // - targetId: the ID of the destination object. You can invoke the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain this parameter.
+    // - ports: the list of destination port ranges.
     Darabonba::Json dstTarget_ {};
     // The interception mode. Valid values:
-    // 
-    // *   **1**: block
-    // *   **2**: alert
-    // *   **3**: allow
+    // - **1**: Block Mode
+    // - **2**: Alert mode
+    // - **3**: Allow mode.
     shared_ptr<int32_t> interceptType_ {};
-    // The priority of the rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
+    // The priority of the rule. The priority ranges from 1 to 1000. A smaller number indicates a higher priority.
     shared_ptr<int64_t> orderIndex_ {};
-    // The ID of the rule.
+    // The rule ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // The name of the rule.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
-    // Specifies whether the rule is enabled. Valid values:
+    // The switch status of the rule. Valid values:
     // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // - **1**: enabled
+    // - **0**: disabled.
     shared_ptr<int32_t> ruleSwitch_ {};
-    // The source object of the rule. The following parameters are included:
+    // The source rule object. The metric description is as follows:
     // 
-    // *   targetId: the ID of the source object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
+    // - targetId: the ID of the source object. You can invoke the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain this parameter.
     Darabonba::Json srcTarget_ {};
   };
 

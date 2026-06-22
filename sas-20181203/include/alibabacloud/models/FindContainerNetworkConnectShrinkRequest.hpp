@@ -94,23 +94,22 @@ namespace Models
 
 
   protected:
-    // The type of the information that you want to query. Valid values:
+    // The query type of the element to query. Valid values:
     // 
-    // *   **EDGE**: connection information
+    // - **EDGE**: connection information.
     shared_ptr<string> criteriaType_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int64_t> currentPage_ {};
-    // The information about the destination node.
+    // The destination node information, which is used to filter destination nodes.
     shared_ptr<string> dstNodeShrink_ {};
-    // The end time of the network connection.
+    // The end time of the network connectivity.
     shared_ptr<int64_t> endTime_ {};
-    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page in a paged query. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+    // > Do not leave PageSize empty.
     shared_ptr<int64_t> pageSize_ {};
-    // The information about the source node.
+    // The source node information, which is used to filter source nodes.
     shared_ptr<string> srcNodeShrink_ {};
-    // The start time of the network connection.
+    // The start time of the network connectivity.
     shared_ptr<int64_t> startTime_ {};
   };
 

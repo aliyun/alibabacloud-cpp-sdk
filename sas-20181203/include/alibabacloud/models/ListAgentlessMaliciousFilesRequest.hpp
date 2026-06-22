@@ -143,57 +143,55 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether the vulnerability is handled. Valid values:
+    // Specifies whether the alert has been handled. Valid values:
     // 
-    // *   Y: The vulnerability is handled.
-    // *   N: The vulnerability is not handled.
+    // - Y: handled
+    // - N: not handled.
     shared_ptr<string> dealed_ {};
     // The event ID.
     shared_ptr<int64_t> eventId_ {};
-    // The name of the malicious file that you want to query.
-    // 
+    // The name of the malicious file to query.
     // > Fuzzy match is supported.
     shared_ptr<string> fuzzyMaliciousName_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // The language type for the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The severities of the malicious files. Separate multiple values with commas (,). Valid values:
+    // The severity levels. Separate multiple values with commas (,). Valid values:
     // 
-    // *   serious
-    // *   suspicious
-    // *   remind
+    // - serious: urgent
+    // - suspicious: suspicious
+    // - remind: reminder.
     shared_ptr<string> levels_ {};
-    // The MD5 hash value of the malicious file.
+    // The MD5 hash of the malicious file.
     shared_ptr<string> maliciousMd5_ {};
     // The alert type.
     // 
-    // Valid values when Lang is set to zh:
+    // If Lang is set to zh, valid values:
     // 
-    // *   WebShell
-    // *   Malicious Software
-    // *   Malicious Script
+    // - WebShell: WebShell
+    // - 恶意软件: malware
+    // - 恶意脚本: malicious script
     // 
-    // Valid values when Lang is set to en:
+    // If Lang is set to en, valid values:
     // 
-    // *   WebShell
-    // *   Malicious Software
-    // *   Malicious Script
+    // - WebShell: WebShell
+    // - Malicious Software: malware
+    // - Malicious Script: malicious script.
     shared_ptr<string> maliciousType_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return per page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The remarks for the asset affected by the vulnerability. The value can be the private IP address, public IP address, or name of the asset. Fuzzy match is supported.
+    // The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
-    // The source of the malicious file.
+    // The file source.
     shared_ptr<vector<string>> scanRange_ {};
-    // The UUID of the asset.
+    // The unique identifier of the asset.
     shared_ptr<string> uuid_ {};
   };
 

@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // ID of the repair process during the repair.
+      // The ID of the repair flow that corresponds to the repair operation.
       shared_ptr<string> flowId_ {};
-      // Name of the repair parameter for the check item, unique within the same check item.
+      // The name of the repair parameter for the check item. The name is unique within the check item.
       shared_ptr<string> name_ {};
-      // Operation type for the custom configuration item of the check item. Only pass DELETE when deleting; no need to pass for creation or update.
+      // The operation type of the custom configuration item for the check item. Set this parameter to DELETE only for deletion operations. You do not need to specify this parameter for creation or update operations.
       shared_ptr<string> operation_ {};
-      // User-configured value string for the repair parameter of the check item.
+      // The user-configured value string of the repair configuration item for the check item.
       shared_ptr<string> value_ {};
     };
 
@@ -151,11 +151,11 @@ namespace Models
 
 
     protected:
-      // Name of the custom configuration item for the check item, unique within the same check item.
+      // The name of the custom configuration item for the check item. The name is unique within the check item.
       shared_ptr<string> name_ {};
-      // Operation type for the custom configuration item of the check item. Only pass DELETE when deleting; no need to pass for creation or update.
+      // The operation type of the custom configuration item for the check item. Set this parameter to DELETE only for deletion operations. You do not need to specify this parameter for creation or update operations.
       shared_ptr<string> operation_ {};
-      // User-configured value string for the custom configuration item of the check item.
+      // The user-configured value string of the custom configuration item for the check item.
       shared_ptr<string> value_ {};
     };
 
@@ -224,7 +224,7 @@ namespace Models
 
 
       protected:
-        // Instance ID of the asset.
+        // The instance ID of the asset.
         shared_ptr<string> instanceId_ {};
         // The region ID of the instance.
         shared_ptr<string> regionId_ {};
@@ -270,42 +270,43 @@ namespace Models
 
 
     protected:
-      // Define rules for custom inspection items.
+      // The definition rule of the custom check item.
       shared_ptr<string> checkRule_ {};
-      // Asset instance that requires testing rules
+      // The asset instance on which you want to test the rule.
       shared_ptr<CustomCheckConfig::CloudAssetInstance> cloudAssetInstance_ {};
-      // Asset subtype of the cloud product
+      // The asset subtype of the cloud service.
       shared_ptr<string> instanceSubType_ {};
-      // Asset types of cloud products. Values:
-      // - **ECS**: Elastic Compute Service 
-      // - **SLB**: Server Load Balancer 
-      // - **RDS**: Relational Database Service 
-      // - **MONGODB**: MongoDB Database 
-      // - **KVSTORE**: Redis Database 
-      // - **ACR**: Container Registry 
-      // - **CSK**: CSK 
-      // - **VPC**: Virtual Private Cloud 
-      // - **ACTIONTRAIL**: Action Trail 
-      // - **CDN**: Content Delivery Network 
-      // - **CAS**: Digital Certificate Management Service [formerly SSL Certificates] 
-      // - **RDC**: DevOps 
-      // - **RAM**: Resource Access Management 
-      // - **DDOS**: Distributed Denial of Service 
-      // - **WAF**: Web Application Firewall 
-      // - **OSS**: Object Storage Service 
-      // - **POLARDB**: POLARDB 
-      // - **POSTGRESQL**: PostgreSQL 
-      // - **MSE**: MSE 
-      // - **NAS**: Network Attached Storage 
-      // - **SDDP**: Sensitive Data Discovery and Protection 
-      // - **EIP**: Elastic IP
+      // The asset type of the cloud service. Valid values:
+      // 
+      // - **ECS**: server
+      // - **SLB**: load balancing
+      // - **RDS**: ApsaraDB RDS database
+      // - **MONGODB**: ApsaraDB for MongoDB database
+      // - **KVSTORE**: ApsaraDB for Redis database
+      // - **ACR**: ACR
+      // - **CSK**: CSK
+      // - **VPC**: VPC
+      // - **ACTIONTRAIL**: ActionTrail
+      // - **CDN**: CDN
+      // - **CAS**: Certificate Management Service (formerly SSL Certificates Service)
+      // - **RDC**: Apsara Devops
+      // - **RAM**: RAM
+      // - **DDOS**: distributed deny of service
+      // - **WAF**: WAF
+      // - **OSS**: access control
+      // - **POLARDB**: POLARDB
+      // - **POSTGRESQL**: PostgreSQL
+      // - **MSE**: MSE
+      // - **NAS**: NAS
+      // - **SDDP**: SDDP
+      // - **EIP**: EIP.
       shared_ptr<string> instanceType_ {};
-      // Cloud asset vendor. Values: 
-      // - **ALIYUN**: Alibaba Cloud 
-      // - **Tencent**: Tencent Cloud 
-      // - **HUAWEICLOUD**: Huawei Cloud 
-      // - **Azure**: Microsoft 
-      // - **AWS**: Amazon Web Services (AWS)
+      // The cloud asset vendor. Valid values:
+      // - **ALIYUN**: Alibaba Cloud
+      // - **Tencent**: Tencent Cloud
+      // - **HUAWEICLOUD**: Huawei Cloud
+      // - **Azure**: Microsoft Azure
+      // - **AWS**: Amazon Web Services (AWS).
       shared_ptr<string> vendor_ {};
     };
 
@@ -353,17 +354,17 @@ namespace Models
 
 
   protected:
-    // Check item ID.
+    // The ID of the check item.
     shared_ptr<int64_t> checkId_ {};
-    // Custom check item to validate input parameters.
+    // The input parameters for custom check item validation.
     shared_ptr<VerifyCheckCustomConfigRequest::CustomCheckConfig> customCheckConfig_ {};
-    // List of custom configuration items for the check item.
+    // The list of custom parameter configuration items for the check item.
     shared_ptr<vector<VerifyCheckCustomConfigRequest::CustomConfigs>> customConfigs_ {};
-    // Repair parameters supported by the check item\\"s repair function.
+    // The repair parameters supported by the repair feature of the check item.
     shared_ptr<vector<VerifyCheckCustomConfigRequest::RepairConfigs>> repairConfigs_ {};
-    // Situation Awareness parameter validation types: 
-    // - **REPAIR_CONFIG**: Repair and custom parameter validation (default) 
-    // - **CHECK_ITEM_CONFIG**: Custom check item validation
+    // The validation type for Threat Detection Service parameters. Valid values:
+    // - **REPAIR_CONFIG**: repair and custom parameter validation (default).
+    // - **CHECK_ITEM_CONFIG**: custom check item validation.
     shared_ptr<string> type_ {};
   };
 

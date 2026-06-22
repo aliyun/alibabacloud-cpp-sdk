@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The ID of the rule.
-    // 
-    // >  You can call the ListSasContainerWebDefenseRule operation to query the IDs of rules.
+    // The rule ID.
+    // > You can call the ListSasContainerWebDefenseRule operation to obtain this parameter.
     shared_ptr<int64_t> ruleId_ {};
   };
 

@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The number of weak password rules that are added.
+    // The number of weak password rules that have been added.
     shared_ptr<int32_t> count_ {};
-    // The name of the OSS object that contains custom weak passwords.
+    // The name of the weak password file in OSS.
     shared_ptr<string> fileName_ {};
-    // The size of the OSS object. Unit: bytes.
+    // The file size, in bytes.
     shared_ptr<int64_t> fileSize_ {};
     // The maximum number of weak password rules that can be added.
     shared_ptr<int32_t> limit_ {};
-    // The IP address of the Object Storage Service (OSS) object.
+    // The OSS object URL.
     shared_ptr<string> ossUrl_ {};
-    // The request ID.
+    // The unique identifier that Alibaba Cloud generated for the request.
     shared_ptr<string> requestId_ {};
-    // The timestamp when the OSS object was uploaded. Unit: milliseconds.
+    // The upload timestamp, in milliseconds.
     shared_ptr<int64_t> uploadTime_ {};
   };
 

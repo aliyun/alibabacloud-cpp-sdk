@@ -112,29 +112,29 @@ namespace Models
 
 
   protected:
-    // The number of exported entries.
+    // The number of data entries that have been exported.
     shared_ptr<int32_t> currentCount_ {};
     // The status of the export task.
     // 
     // Valid values:
     // 
-    // *   **init**: The task is being initialized.
-    // *   **exporting**: The task is in progress.
-    // *   **success**: The task is complete.
+    // - **init**: export initialization
+    // - **exporting**: export in progress
+    // - **success**: export successful.
     shared_ptr<string> exportStatus_ {};
     // The name of the exported Excel file.
     shared_ptr<string> fileName_ {};
     // The ID of the export task.
     shared_ptr<int64_t> id_ {};
-    // The URL at which you can download the exported Excel file.
+    // The download URL of the exported Excel file.
     shared_ptr<string> link_ {};
-    // The message that shows the task result. The value is fixed as **success**, which indicates that the task is complete.
+    // The message returned for the export result. Fixed value: **success**. This value indicates that the export is successful.
     shared_ptr<string> message_ {};
-    // The progress percentage of the export task.
+    // The export progress percentage (%).
     shared_ptr<int32_t> progress_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the exported Excel file.
+    // The total number of data entries in the exported Excel file.
     shared_ptr<int32_t> totalCount_ {};
   };
 

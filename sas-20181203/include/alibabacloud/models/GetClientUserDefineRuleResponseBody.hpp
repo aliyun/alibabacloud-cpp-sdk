@@ -234,10 +234,10 @@ namespace Models
 
 
     protected:
-      // The action of the custom defense rule. Valid values:
+      // The action type. Valid values:
       // 
-      // *   **0**: allow
-      // *   **1**: block
+      // - **0**: added to the whitelist
+      // - **1**: added to the blacklist.
       shared_ptr<string> actionType_ {};
       // The command line.
       shared_ptr<string> cmdline_ {};
@@ -245,49 +245,49 @@ namespace Models
       shared_ptr<string> domain_ {};
       // The file path.
       shared_ptr<string> filePath_ {};
-      // The time when the custom defense rule was created.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The time when the custom defense rule was last modified.
+      // The most recent modification time.
       shared_ptr<int64_t> gmtModified_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
-      // The ID of the custom defense rule.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The hash values of processes.
+      // The list of process hashes.
       shared_ptr<string> md5List_ {};
-      // The name of the custom defense rule.
+      // The rule name.
       shared_ptr<string> name_ {};
       // The new file path after the file is renamed.
       shared_ptr<string> newFilePath_ {};
       // The parent command line.
       shared_ptr<string> parentCmdline_ {};
-      // The path to the parent process.
+      // The parent process path.
       shared_ptr<string> parentProcPath_ {};
-      // The type of the operating system. Valid values:
+      // The operating system type. Valid values:
       // 
-      // *   **linux**
-      // *   **windows**
-      // *   **all**
+      // - **linux**
+      // - **windows**
+      // - **all**.
       shared_ptr<string> platform_ {};
       // The port number.
       shared_ptr<int32_t> port_ {};
       // The port number. Valid values: 1 to 65535.
       shared_ptr<string> portStr_ {};
-      // The path to the process.
+      // The process path.
       shared_ptr<string> procPath_ {};
       // The registry value.
       shared_ptr<string> registryContent_ {};
       // The registry key.
       shared_ptr<string> registryKey_ {};
-      // The type of the custom defense rule. Valid values:
+      // The rule type. Valid values:
       // 
-      // *   **1**: Process hash
-      // *   **2**: Command line
-      // *   **3**: Process Network
-      // *   **4**: File Read and Write
-      // *   **5**: Operation on Registry
-      // *   **6**: Dynamic-link Library Loading
-      // *   **7**: File Renaming
+      // - **1**: process hash
+      // - **2**: command line
+      // - **3**: process network
+      // - **4**: file read/write
+      // - **5**: registry operation
+      // - **6**: dynamic-link library loading
+      // - **7**: file rename.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -310,9 +310,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The information about the custom defense rule.
+    // The rule details.
     shared_ptr<GetClientUserDefineRuleResponseBody::UserDefineRuleDetail> userDefineRuleDetail_ {};
   };
 

@@ -72,12 +72,12 @@ namespace Models
     protected:
       // The number of image repositories.
       shared_ptr<int64_t> count_ {};
-      // The name of the image repository type. Valid values:
+      // The type of the image repository. Valid values:
       // 
-      // *   **acr**: Container Registry
-      // *   **harbor**: Harbor
-      // *   **quay**: Quay
-      // *   **CI/CD**: Jenkins
+      // - **acr**: ACR.
+      // - **harbor**: Harbor.
+      // - **quay**: Quay.
+      // - **CI/CD**: Jenkins.
       shared_ptr<string> registryType_ {};
     };
 
@@ -100,9 +100,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of image repository types.
+    // The information about image repository types.
     shared_ptr<vector<ListPrivateRegistryTypeResponseBody::RegistryTypeInfos>> registryTypeInfos_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The China Chinese Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -185,7 +185,7 @@ namespace Models
       protected:
         // The type of the check item solution information. Values:
         // 
-        // - **text**：Text
+        // - **text**:Text
         shared_ptr<string> type_ {};
         // The content of the solution for the check item risk.
         shared_ptr<string> value_ {};
@@ -231,7 +231,7 @@ namespace Models
       protected:
         // The type of the check description attribute. Values:
         // 
-        // - **text**：Text
+        // - **text**:Text
         shared_ptr<string> type_ {};
         // The specific content of the description.
         shared_ptr<string> value_ {};
@@ -334,11 +334,16 @@ namespace Models
         // The display name of the standard for the check item.
         shared_ptr<string> standardShowName_ {};
         // The name of the associated policy category:
-        // - **AISPM**：AI Configuration Management (AI-SPM)
-        // - **KISPM**：Kubernetes Configuration Management (KSPM)
-        // - **IDENTITY_PERMISSION**：Identity and Permission Management (CIEM)
-        // - **RISK**：Security Risk
-        // - **COMPLIANCE**：Compliance Risk
+        // 
+        // - **AISPM**:AI Configuration Management (AI-SPM)
+        // 
+        // - **KISPM**:Kubernetes Configuration Management (KSPM)
+        // 
+        // - **IDENTITY_PERMISSION**:Identity and Permission Management (CIEM)
+        // 
+        // - **RISK**:Security Risk
+        // 
+        // - **COMPLIANCE**:Compliance Risk
         shared_ptr<string> type_ {};
       };
 
@@ -382,7 +387,7 @@ namespace Models
       protected:
         // The type of the help information for the check item risk. Values:
         // 
-        // - **text**：Text
+        // - **text**:Text
         shared_ptr<string> type_ {};
         // The content of the help information for the check item risk.
         shared_ptr<string> value_ {};
@@ -510,8 +515,10 @@ namespace Models
       // The name of the check item.
       shared_ptr<string> checkShowName_ {};
       // The source type of the Security Posture check item:
-      //  - **CUSTOM**: User-defined
-      //  - **SYSTEM**: Predefined by the Security Posture platform
+      // 
+      // - **CUSTOM**: User-defined
+      // 
+      // - **SYSTEM**: Predefined by the Security Posture platform
       shared_ptr<string> checkType_ {};
       // The description information of the check item.
       shared_ptr<CheckItems::Description> description_ {};
@@ -522,14 +529,19 @@ namespace Models
       // Remark information.
       shared_ptr<string> remark_ {};
       // The risk level of the check item. Values:
+      // 
       // - **HIGH**: High risk
+      // 
       // - **MEDIUM**: Medium risk
+      // 
       // - **LOW**: Low risk
       shared_ptr<string> riskLevel_ {};
       // The solution information for the check item.
       shared_ptr<CheckItems::Solution> solution_ {};
       // The status of the check item. Values:
+      // 
       // - **EDIT**: In editing
+      // 
       // - **RELEASE**: Released
       shared_ptr<string> status_ {};
       // The cloud asset vendor.

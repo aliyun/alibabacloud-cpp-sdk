@@ -210,65 +210,64 @@ namespace Models
 
 
     protected:
-      // The error message for the anti-ransomware agent.
+      // The error message of the client exception.
       shared_ptr<string> agentErrorMessage_ {};
-      // The status of the agent. Valid values:
-      // 
-      // *   **UNKNOWN**
-      // *   **INSTALLED**
-      // *   **INSTALL_FAILED**
-      // *   **UNINSTALL_FAILED**
+      // The status of the database client agent. Valid values:
+      // - **UNKNOWN**: Unknown.
+      // - **INSTALLED**: Installed.
+      // - **INSTALL_FAILED**: Installation failed.
+      // - **UNINSTALL_FAILED**: Uninstallation failed.
       shared_ptr<string> agentStatus_ {};
       // The name of the database.
       shared_ptr<string> databaseName_ {};
       // The type of the database. Valid values:
       // 
-      // *   **MYSQL**
-      // *   **MSSQL**
-      // *   **Oracle**
+      // - **MYSQL**
+      // - **MSSQL**
+      // - **Oracle**
       shared_ptr<string> databaseType_ {};
-      // The error code returned when the backup task fails.
+      // The error code returned when the backup plan execution fails.
       shared_ptr<string> errorCode_ {};
-      // The error message for the anti-ransomware policy.
+      // The error message of the backup policy.
       shared_ptr<string> errorMessage_ {};
-      // The ID of the server.
+      // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
-      // The name of the server.
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
-      // The status of the Elastic Compute Service (ECS) instance. Valid values:
+      // The status of the ECS instance. Valid values:
       // 
-      // *   **Stopped**
-      // *   **Running**
+      // - **Stopped**: Stopped.
+      // - **Running**: Running.
       shared_ptr<string> instanceStatus_ {};
-      // The UUID of the agent that is used to back up the data of the database.
+      // The unique identifier of the server database backup client.
       shared_ptr<string> instanceUuid_ {};
-      // The execution result of the last backup task.
+      // The result of the latest backup plan execution.
       shared_ptr<string> latestBackResult_ {};
-      // The time when the last backup task was executed.
+      // The time when the latest backup plan was executed.
       shared_ptr<string> latestBackupTime_ {};
-      // The status of the backup task. Valid values:
+      // The status of the backup plan. Valid values:
       // 
-      // *   **init**
-      // *   **running**
-      // *   **completed**
-      // *   **restoring**
-      // *   **creating**
-      // *   **created**
+      // - **init**: Being initialized.
+      // - **running**: Running.
+      // - **completed**: Completed.
+      // - **restoring**: Being restored.
+      // - **creating**: Being created.
+      // - **created**: Created.
       shared_ptr<string> planStatus_ {};
-      // The ID of the anti-ransomware policy.
+      // The ID of the database anti-ransomware backup policy.
       shared_ptr<int64_t> policyId_ {};
-      // The name of the anti-ransomware policy.
+      // The name of the database anti-ransomware backup policy.
       shared_ptr<string> policyName_ {};
-      // The status of the anti-ransomware policy. Valid values:
+      // The status of the database anti-ransomware backup policy. Valid values:
       // 
-      // *   **initiating**
-      // *   **opening**
-      // *   **closing**
-      // *   **deleting**
-      // *   **enabled**
-      // *   **disabled**
+      // - **initiating**: Being initialized.
+      // - **opening**: Being enabled.
+      // - **closing**: Being disabled.
+      // - **deleting**: Being deleted.
+      // - **enabled**: Enabled.
+      // - **disabled**: Disabled.
       shared_ptr<string> policyStatus_ {};
-      // The region ID of the server that hosts the database.
+      // The region ID of the database server.
       shared_ptr<string> uniRegionId_ {};
     };
 
@@ -328,13 +327,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of database anti-ransomware policies displayed on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paginated query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The number of database anti-ransomware policies displayed per page in a paginated query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of database anti-ransomware policies.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -368,9 +367,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeUniBackupPoliciesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the anti-ransomware policies.
+    // The collection of database anti-ransomware backup policies.
     shared_ptr<vector<DescribeUniBackupPoliciesResponseBody::UniBackupPolicies>> uniBackupPolicies_ {};
   };
 

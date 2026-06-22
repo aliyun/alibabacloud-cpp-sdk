@@ -94,9 +94,11 @@ namespace Models
       shared_ptr<string> errorMessage_ {};
       // The Cloud Security Center instance ID purchased by the member account.
       shared_ptr<string> instanceId_ {};
-      // Update status. Values:  
-      // - **1**：Success 
-      // - **2**：Failure
+      // Update status. Values:
+      // 
+      // - **1**:Success
+      // 
+      // - **2**:Failure
       shared_ptr<string> updateStatus_ {};
     };
 

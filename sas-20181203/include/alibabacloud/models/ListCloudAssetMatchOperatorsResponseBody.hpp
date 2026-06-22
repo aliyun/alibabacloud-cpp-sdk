@@ -222,7 +222,8 @@ namespace Models
         // 7. LONG_LT: less than 
         // 8. LONG_LTE: less than or equal to<details>
         shared_ptr<string> name_ {};
-        // Operator display name. Values: - For LIST type: 
+        // Operator display name. Values: 
+        // - For LIST type: 
         // 1. Contains: includes 
         // 2. SizeGreaterThan: size greater than 
         // 3. SizeLessThan: size less than 
@@ -242,8 +243,8 @@ namespace Models
         // 2. Equals: equals 
         // 3. In: in the list 
         // 4. NotEquals: does not equal 
-        // 5. >: greater than 
-        // 6. >=: greater than or equal to 
+        // 5. `>`: greater than 
+        // 6. `>=`: greater than or equal to 
         // 7. <: less than 
         // 8. <=: less than or equal to
         // - For DOUBLE type: 
@@ -251,8 +252,8 @@ namespace Models
         // 2. Equals: equals 
         // 3. In: in the list 
         // 4. NotEquals: does not equal 
-        // 5. >: greater than 
-        // 6. >=: greater than or equal to 
+        // 5. `>`: greater than 
+        // 6. `>=`: greater than or equal to 
         // 7. <: less than 
         // 8. <=: less than or equal to (Note: There seems to be a repetition here, likely meant to be \\"<=\\" for \\"less than or equal to\\")
         // - For INTEGER type: 
@@ -260,8 +261,8 @@ namespace Models
         // 2. Equals: equals 
         // 3. In: in the list 
         // 4. NotEquals: does not equal 
-        // 5. >: greater than 
-        // 6. >=: greater than or equal to 
+        // 5. `>`: greater than 
+        // 6. `>=`: greater than or equal to 
         // 7. <: less than 
         // 8. <=: less than or equal to
         // - For LONG type: 
@@ -278,8 +279,8 @@ namespace Models
         // 2. Equals: equals 
         // 3. In: in the list 
         // 4. NotEquals: does not equal 
-        // 5. >: greater than 
-        // 6. >=: greater than or equal to 
+        // 5. `>`: greater than 
+        // 6. `>=`: greater than or equal to 
         // 7. <: less than 
         // 8. <=: less than or equal to
         shared_ptr<string> showName_ {};
@@ -356,7 +357,7 @@ namespace Models
 
 
     protected:
-      // List of operators
+      // The list of operators.
       shared_ptr<vector<MatchTypeOperators::MatchOperators>> matchOperators_ {};
       // The type used by the operator. Values:
       // - LIST 
@@ -396,7 +397,7 @@ namespace Models
 
 
   protected:
-    // List of operator types
+    // The operator type.
     shared_ptr<vector<ListCloudAssetMatchOperatorsResponseBody::MatchTypeOperators>> matchTypeOperators_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

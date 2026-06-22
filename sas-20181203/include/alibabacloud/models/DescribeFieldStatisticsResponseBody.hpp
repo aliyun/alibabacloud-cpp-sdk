@@ -400,75 +400,79 @@ namespace Models
 
 
     protected:
-      // The number of assets that are deployed on Alibaba Cloud.
+      // The number of assets that belong to Alibaba Cloud server groups.
       shared_ptr<int32_t> aliYunInstanceCount_ {};
-      // The number of servers.
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> awsInstanceCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> azureInstanceCount_ {};
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> baiduInstanceCount_ {};
-      // The number of cores of exposed assets.
+      // The number of compute cores of exposed assets.
       shared_ptr<int64_t> exposedInstanceCoreCount_ {};
-      // The number of exposed servers.
+      // The number of exposed assets.
       shared_ptr<int32_t> exposedInstanceCount_ {};
-      // The number of assets whose importance is common.
+      // The number of general assets.
       shared_ptr<int32_t> generalAssetCount_ {};
-      // The number of instances that are provisioned by third-party providers.
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> googleInstanceCount_ {};
       // The number of server groups.
       shared_ptr<int32_t> groupCount_ {};
-      // The number of instances that are provisioned by third-party providers.
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> huaweiInstanceCount_ {};
-      // The number of assets that can be protected by Security Center.
+      // The number of assets that Security Center can detect.
       shared_ptr<int32_t> idcInstanceCount_ {};
-      // The number of assets whose importance is important.
+      // The number of important assets.
       shared_ptr<int32_t> importantAssetCount_ {};
-      // The number of cores of assets in the specified asset type. If the asset type is not specified, the value of this parameter indicates the total number of cores of servers and Alibaba Cloud services within your account.
+      // The total number of compute cores of all assets under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of compute cores of all servers and cloud products in your assets.
       shared_ptr<int64_t> instanceCoreCount_ {};
-      // The total number of assets of the specified type. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
+      // The total number of assets under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of all servers and cloud products in your assets.
       shared_ptr<int32_t> instanceCount_ {};
-      // The total number of tasks for the specified type of assets. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
+      // The number of tasks under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of all servers and cloud products in your assets.
       shared_ptr<int32_t> instanceSyncTaskCount_ {};
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> kingsoftInstanceCount_ {};
-      // The number of cores of new servers.
+      // The number of compute cores of newly added servers.
       shared_ptr<int64_t> newInstanceCoreCount_ {};
       // The number of newly added servers.
       shared_ptr<int32_t> newInstanceCount_ {};
-      // The number of servers on which no risks are detected.
+      // The number of assets without risky asset issues.
       shared_ptr<int32_t> noRiskInstanceCount_ {};
-      // The number of assets that are not added to Security Center of the specified asset type.
+      // The number of asset types without bound authorization under the asset type that you specified in the query.
       shared_ptr<int32_t> notBindMachineInstanceCount_ {};
-      // The number of cores of servers that are not started.
+      // The number of compute cores of servers that are not started (powered off).
       shared_ptr<int64_t> notRunningStatusCoreCount_ {};
-      // The number of servers that are shut down.
+      // The number of servers that are not started (powered off).
       shared_ptr<int32_t> notRunningStatusCount_ {};
-      // The number of servers whose Security Center agent status is Offline.
+      // The number of offline servers.
       shared_ptr<int32_t> offlineInstanceCount_ {};
-      // The number of servers outside the cloud.
+      // The number of instances outside the cloud.
       shared_ptr<int32_t> outMachineInstanceCount_ {};
-      // The number of servers for which the Security Center agent suspends protection.
+      // The number of paused servers.
       shared_ptr<int32_t> pauseInstanceCount_ {};
       // The number of regions to which the servers belong.
       shared_ptr<int32_t> regionCount_ {};
-      // The number of cores of vulnerable assets.
+      // The number of compute cores of assets at risk.
       shared_ptr<int64_t> riskInstanceCoreCount_ {};
-      // The number of assets that are at risk.
+      // The number of assets at risk.
       shared_ptr<int32_t> riskInstanceCount_ {};
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> stateCloudInstanceCount_ {};
-      // The total number of cloud services that are protected by Security Center.
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> tencentInstanceCount_ {};
-      // The number of assets whose importance is test.
+      // The number of test assets.
       shared_ptr<int32_t> testAssetCount_ {};
       // The number of simple application servers.
       shared_ptr<int32_t> tripartiteInstanceCount_ {};
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> ucloudInstanceCount_ {};
-      // The number of servers that are in the Unknown state.
+      // The number of assets with an unknown enabling status.
       shared_ptr<int32_t> unKnowStatusInstanceCount_ {};
-      // The number of cores of unprotected assets.
+      // The number of compute cores of unprotected assets.
       shared_ptr<int64_t> unprotectedInstanceCoreCount_ {};
       // The number of unprotected assets.
       shared_ptr<int32_t> unprotectedInstanceCount_ {};
-      // The number of instances that are provisioned by third-party providers.
+      // The number of third-party cloud servers.
       shared_ptr<int32_t> volcengineInstanceCount_ {};
       // The number of virtual private clouds (VPCs).
       shared_ptr<int32_t> vpcCount_ {};
@@ -493,9 +497,9 @@ namespace Models
 
 
   protected:
-    // The information about servers that are returned.
+    // The statistics of server assets.
     shared_ptr<DescribeFieldStatisticsResponseBody::GroupedFields> groupedFields_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

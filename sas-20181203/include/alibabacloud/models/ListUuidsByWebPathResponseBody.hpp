@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries displayed on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries displayed on each page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -194,11 +194,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the protected assets.
+    // The list of protected assets.
     shared_ptr<vector<ListUuidsByWebPathResponseBody::List>> list_ {};
     // The pagination information.
     shared_ptr<ListUuidsByWebPathResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

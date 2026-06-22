@@ -262,28 +262,60 @@ namespace Models
 
 
     protected:
+      // The alert notification level. Valid values:
+      // 
+      // - 0: no alert
+      // - 1: reminder
+      // - 2: suspicious
+      // - 3: high-risk.
       shared_ptr<int32_t> alertLevel_ {};
+      // The command line of the event.
       shared_ptr<string> cmdLine_ {};
+      // The number of times the alert occurred.
       shared_ptr<int32_t> count_ {};
+      // The file path.
       shared_ptr<string> filePath_ {};
+      // The process permissions.
       shared_ptr<string> filePermission_ {};
+      // The timestamp when the event first occurred.
       shared_ptr<int64_t> firstTime_ {};
+      // The time when the event was handled.
       shared_ptr<int64_t> handleTime_ {};
+      // The event ID.
       shared_ptr<int64_t> id_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The public IP address of the associated instance.
       shared_ptr<string> internetIp_ {};
+      // The private IP address of the associated instance.
       shared_ptr<string> intranetIp_ {};
+      // The time when the event most recently occurred.
       shared_ptr<int64_t> latestTime_ {};
+      // The operation that the process performed on the file.
       shared_ptr<string> operation_ {};
+      // The operating system type.
       shared_ptr<string> platform_ {};
+      // The process path.
       shared_ptr<string> procPath_ {};
+      // The process ID of the event.
       shared_ptr<string> processId_ {};
+      // The remarks.
       shared_ptr<string> remark_ {};
+      // The action of the blocking rule.
       shared_ptr<string> ruleAction_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The event status. Valid values:
+      // 
+      // - 0: unhandled 
+      // - 1: handled
+      // - 2: whitelisted.
       shared_ptr<int32_t> status_ {};
+      // The user ID of the event.
       shared_ptr<string> userId_ {};
+      // The username of the event.
       shared_ptr<string> userName_ {};
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -306,6 +338,7 @@ namespace Models
 
 
   protected:
+    // The data details.
     shared_ptr<GetFileProtectClientEventResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The subfolder.
+      // The child folders.
       shared_ptr<vector<Darabonba::Json>> children_ {};
       // The ID of the folder in the resource directory.
       shared_ptr<string> folderId_ {};
-      // The name of the folder.
+      // The folder name.
       shared_ptr<string> folderName_ {};
     };
 
@@ -110,7 +110,7 @@ namespace Models
   protected:
     // The processing result.
     shared_ptr<GetRdTreeResponseBody::Data> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

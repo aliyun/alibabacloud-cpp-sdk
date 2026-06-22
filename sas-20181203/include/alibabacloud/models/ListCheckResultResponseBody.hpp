@@ -397,22 +397,33 @@ namespace Models
       shared_ptr<int32_t> assetSubType_ {};
       // The type of the asset. Valid values:
       // 
-      // *   **0**: an ECS instance
-      // *   **1**: a SLB instance
-      // *   **2**: a NAT gateway
-      // *   **3**: an ApsaraDB RDS instance
-      // *   **4**: an ApsaraDB for MongoDB instance
-      // *   **5**: an ApsaraDB for Redis instance
-      // *   **6**: a container image
-      // *   **7**: a container
+      // - **0**: an ECS instance
+      // 
+      // - **1**: a SLB instance
+      // 
+      // - **2**: a NAT gateway
+      // 
+      // - **3**: an ApsaraDB RDS instance
+      // 
+      // - **4**: an ApsaraDB for MongoDB instance
+      // 
+      // - **5**: an ApsaraDB for Redis instance
+      // 
+      // - **6**: a container image
+      // 
+      // - **7**: a container
       shared_ptr<int32_t> assetType_ {};
       // The service provider of the asset. Valid values:
       // 
-      // *   **0**: Alibaba Cloud
-      // *   **3**: Huawei Cloud
-      // *   **4**: Microsoft Azure
-      // *   **5**: AWS
-      // *   **7**: Tencent Cloud
+      // - **0**: Alibaba Cloud
+      // 
+      // - **3**: Huawei Cloud
+      // 
+      // - **4**: Microsoft Azure
+      // 
+      // - **5**: AWS
+      // 
+      // - **7**: Tencent Cloud
       shared_ptr<int32_t> assetVendor_ {};
       // The ID of the check item.
       shared_ptr<int64_t> checkId_ {};
@@ -420,89 +431,127 @@ namespace Models
       shared_ptr<vector<Checks::CheckPolicies>> checkPolicies_ {};
       // The type of the check item. Valid values:
       // 
-      // *   **0**: paid
-      // *   **1**: free
+      // - **0**: paid
+      // 
+      // - **1**: free
       shared_ptr<int32_t> checkSaleType_ {};
       // The name of the check item.
       shared_ptr<string> checkShowName_ {};
-      // The source type of the situation awareness check item: 
-      // - **CUSTOM**: User-defined 
+      // The source type of the situation awareness check item:
+      // 
+      // - **CUSTOM**: User-defined
+      // 
       // - **SYSTEM**: Predefined by the situation awareness platform
       shared_ptr<string> checkType_ {};
       // The asset subtype of the cloud service. Valid values:
       // 
-      // *   If the **InstanceType** parameter is set to **ECS**, this parameter supports the following valid values:
+      // - If the **InstanceType** parameter is set to **ECS**, this parameter supports the following valid values:
       // 
-      //     *   **INSTANCE**
-      //     *   **DISK**
-      //     *   **SECURITY_GROUP**
+      //   - **INSTANCE**
       // 
-      // *   If the **InstanceType** parameter is set to **ACR**, this parameter supports the following valid values:
+      //   - **DISK**
       // 
-      //     *   **REPOSITORY_ENTERPRISE**
-      //     *   **REPOSITORY_PERSON**
+      //   - **SECURITY_GROUP**
       // 
-      // *   If the **InstanceType** parameter is set to **RAM**, this parameter supports the following valid values:
+      // - If the **InstanceType** parameter is set to **ACR**, this parameter supports the following valid values:
       // 
-      //     *   **ALIAS**
-      //     *   **USER**
-      //     *   **POLICY**
-      //     *   **GROUP**
+      //   - **REPOSITORY_ENTERPRISE**
       // 
-      // *   If the **InstanceType** parameter is set to **WAF**, this parameter supports the following valid values:
+      //   - **REPOSITORY_PERSON**
       // 
-      //     *   **DOMAIN**
+      // - If the **InstanceType** parameter is set to **RAM**, this parameter supports the following valid values:
       // 
-      // *   If the **InstanceType** parameter is set to other values, this parameter supports the following valid values:
+      //   - **ALIAS**
       // 
-      //     *   **INSTANCE**
+      //   - **USER**
+      // 
+      //   - **POLICY**
+      // 
+      //   - **GROUP**
+      // 
+      // - If the **InstanceType** parameter is set to **WAF**, this parameter supports the following valid values:
+      // 
+      //   - **DOMAIN**
+      // 
+      // - If the **InstanceType** parameter is set to other values, this parameter supports the following valid values:
+      // 
+      //   - **INSTANCE**
       shared_ptr<string> instanceSubType_ {};
       // The asset type of the cloud service. Valid values:
       // 
-      // *   **ECS**: ECS
-      // *   **SLB**: SLB
-      // *   **RDS**: ApsaraDB RDS
-      // *   **MONGODB**: MongoDB
-      // *   **KVSTORE**: Redis
-      // *   **ACR**: Container Registry
-      // *   **CSK**: ACK
-      // *   **VPC**: VPC
-      // *   **ACTIONTRAIL**: ActionTrail
-      // *   **CDN**: CDN
-      // *   **CAS**: Certificate Management Service (formerly SSL Certificates Service)
-      // *   **RDC**: Apsara Devops
-      // *   **RAM**: RAM
-      // *   **DDOS**: Anti-DDoS
-      // *   **WAF**: WAF
-      // *   **OSS**: OSS
-      // *   **POLARDB**: PolarDB
-      // *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
-      // *   **MSE**: MSE
-      // *   **NAS**: NAS
-      // *   **SDDP**: SDDP
-      // *   **EIP**: EIP
+      // - **ECS**: ECS
+      // 
+      // - **SLB**: SLB
+      // 
+      // - **RDS**: ApsaraDB RDS
+      // 
+      // - **MONGODB**: MongoDB
+      // 
+      // - **KVSTORE**: Redis
+      // 
+      // - **ACR**: Container Registry
+      // 
+      // - **CSK**: ACK
+      // 
+      // - **VPC**: VPC
+      // 
+      // - **ACTIONTRAIL**: ActionTrail
+      // 
+      // - **CDN**: CDN
+      // 
+      // - **CAS**: Certificate Management Service (formerly SSL Certificates Service)
+      // 
+      // - **RDC**: Apsara Devops
+      // 
+      // - **RAM**: RAM
+      // 
+      // - **DDOS**: Anti-DDoS
+      // 
+      // - **WAF**: WAF
+      // 
+      // - **OSS**: OSS
+      // 
+      // - **POLARDB**: PolarDB
+      // 
+      // - **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
+      // 
+      // - **MSE**: MSE
+      // 
+      // - **NAS**: NAS
+      // 
+      // - **SDDP**: SDDP
+      // 
+      // - **EIP**: EIP
       shared_ptr<string> instanceType_ {};
       // The timestamp when the last check was performed. Unit: milliseconds.
       shared_ptr<int64_t> lastCheckTime_ {};
       // Indicates whether fixing is supported. Valid values:
       // 
-      // *   **SUPPORT_REPAIR**
-      // *   **NOT_SUPPORT_REPAIR**
+      // - **SUPPORT_REPAIR**
+      // 
+      // - **NOT_SUPPORT_REPAIR**
       shared_ptr<string> operationType_ {};
       // The risk level of the check item. Valid values:
       // 
-      // *   **HIGH**
-      // *   **MEDIUM**
-      // *   **LOW**
+      // - **HIGH**
+      // 
+      // - **MEDIUM**
+      // 
+      // - **LOW**
       shared_ptr<string> riskLevel_ {};
       // The status of the check item. Valid values:
       // 
-      // *   **PASS**: passed
-      // *   **NOT_PASS**: failed
-      // *   **CHECKING**: being checked
-      // *   **NOT_CHECK**: not checked
-      // *   **WHITELIST**: added to the whitelist
-      // *   **FAILED**: failed
+      // - **PASS**: passed
+      // 
+      // - **NOT_PASS**: failed
+      // 
+      // - **CHECKING**: being checked
+      // 
+      // - **NOT_CHECK**: not checked
+      // 
+      // - **WHITELIST**: added to the whitelist
+      // 
+      // - **FAILED**: failed
       shared_ptr<string> status_ {};
       // The message returned if the status of the check item is abnormal.
       shared_ptr<string> statusMessage_ {};
@@ -511,8 +560,10 @@ namespace Models
       // Indicates whether the TRIAL permission is required.
       shared_ptr<bool> trialPermission_ {};
       // Check whether the data delivery period for ActionTrail is enabled for more than 30 days to establish a baseline of behaviour.
-      // *   **0**: REQUIRED
-      // *   **1**: NOT REQUIRED
+      // 
+      // - **0**: REQUIRED
+      // 
+      // - **1**: NOT REQUIRED
       shared_ptr<int32_t> trialPermissionType_ {};
       // The cloud service provider.
       shared_ptr<string> vendor_ {};

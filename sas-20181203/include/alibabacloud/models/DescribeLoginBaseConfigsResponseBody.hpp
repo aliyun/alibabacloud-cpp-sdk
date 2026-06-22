@@ -111,13 +111,13 @@ namespace Models
 
 
       protected:
-        // The UUID or group ID of the server.
+        // The UUID of the server or the ID of the server group on which the rule takes effect.
         shared_ptr<string> target_ {};
-        // The type of the server to which the configuration is applied. Valid values:
+        // The selection mode for the assets on which the rule takes effect. Valid values:
         // 
-        // *   **uuid**: a server
-        // *   **groupId**: a server group
-        // *   **global**: all servers
+        // - **uuid**: added by individual asset.
+        // - **groupId**: added by server group.
+        // - **global**: all assets are selected.
         shared_ptr<string> targetType_ {};
       };
 
@@ -198,15 +198,15 @@ namespace Models
       shared_ptr<string> ip_ {};
       // The common logon location.
       shared_ptr<string> location_ {};
-      // Corresponding configuration remark information.
+      // The remark information displayed for the corresponding configuration.
       shared_ptr<string> remark_ {};
       // The start time of the common logon time range.
       shared_ptr<string> startTime_ {};
-      // The details of the servers to which the configuration is applied.
+      // The list of details about the servers on which the rule takes effect.
       shared_ptr<vector<BaseConfigs::TargetList>> targetList_ {};
       // The total number of servers.
       shared_ptr<int32_t> totalCount_ {};
-      // The number of servers to which the configuration is applied.
+      // The number of servers on which the rule takes effect.
       shared_ptr<int32_t> uuidCount_ {};
     };
 
@@ -250,15 +250,15 @@ namespace Models
 
 
   protected:
-    // The description of the configuration.
+    // The list of logon configuration details.
     shared_ptr<vector<DescribeLoginBaseConfigsResponseBody::BaseConfigs>> baseConfigs_ {};
-    // The page number of the returned page.
+    // The current page number in the paging query result.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries returned per page. Default value: **20**.
+    // The number of logon configuration entries displayed on each page in the paging query result. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of logon configuration entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

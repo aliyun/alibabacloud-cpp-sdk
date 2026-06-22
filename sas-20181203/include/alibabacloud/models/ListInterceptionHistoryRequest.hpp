@@ -106,24 +106,24 @@ namespace Models
 
 
   protected:
-    // The ID of the container cluster.
+    // The ID of the container cluster to query.
     shared_ptr<string> clusterId_ {};
-    // The number of the page to return.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. The value is a UNIX timestamp.
+    // The end timestamp of the query.
     shared_ptr<int64_t> endTime_ {};
-    // The name of the alert.
+    // The alert name.
     shared_ptr<string> historyName_ {};
-    // The types of exceptions.
+    // The types of exception events.
     shared_ptr<vector<int32_t>> interceptionTypes_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The start of the time range to query. The value is a UNIX timestamp.
+    // The start timestamp of the query.
     shared_ptr<int64_t> startTime_ {};
   };
 

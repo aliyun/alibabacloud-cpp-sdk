@@ -57,13 +57,12 @@ namespace Models
 
 
   protected:
-    // The ID of the image repository.
-    // 
-    // > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
+    // The image repository ID.
+    // >You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
     shared_ptr<int64_t> registryId_ {};
-    // The name of the image repository.
+    // The image repository name.
     shared_ptr<string> registryName_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

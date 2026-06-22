@@ -48,14 +48,12 @@ namespace Models
 
 
   protected:
-    // The alert type.
-    // 
-    // *   Set the value to **sensitiveFile**.
+    // The alerting type.
+    // - **sensitiveFile**: sensitive file.
     shared_ptr<string> eventType_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

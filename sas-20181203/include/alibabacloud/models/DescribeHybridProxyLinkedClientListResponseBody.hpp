@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page.
+      // The number of entries on the current page when paging is used.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page when paging is used.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries per page when paging is used.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -251,15 +251,15 @@ namespace Models
       shared_ptr<string> intranetIp_ {};
       // The name of the operating system.
       shared_ptr<string> os_ {};
-      // The name of the operating system for your asset.
+      // The operating system name of the asset.
       shared_ptr<string> osName_ {};
-      // The ID of the region in which the server resides.
+      // The region ID of the server.
       shared_ptr<string> regionId_ {};
-      // The name of the region in which the server resides.
+      // The region name of the server.
       shared_ptr<string> regionName_ {};
-      // The status of the Security Center agent.
+      // The status of the client.
       shared_ptr<string> status_ {};
-      // The name of the tag added to the server.
+      // The tag name of the asset.
       shared_ptr<string> tag_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
@@ -295,11 +295,11 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned list.
     shared_ptr<vector<DescribeHybridProxyLinkedClientListResponseBody::List>> list_ {};
     // The pagination information.
     shared_ptr<DescribeHybridProxyLinkedClientListResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

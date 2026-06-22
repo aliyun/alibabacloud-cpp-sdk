@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The total quota that you purchase for web tamper proofing.
+    // The total number of purchased tamper-proofing authorizations.
     shared_ptr<int32_t> authCount_ {};
-    // The associated tamper proofing quota.
+    // The number of bound tamper-proofing authorizations.
     shared_ptr<int32_t> bindCount_ {};
     // The number of blocked processes.
     shared_ptr<int32_t> blockCount_ {};
     // The number of protected directories.
     shared_ptr<int32_t> dirCount_ {};
-    // The timestamp generated when the quota for tamper proofing expires. Unit: millisecond.
+    // The timestamp when the tamper-proofing authorization expires. Unit: milliseconds.
     shared_ptr<int64_t> expireTime_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The number of processes in the whitelist.
     shared_ptr<int32_t> whiteCount_ {};

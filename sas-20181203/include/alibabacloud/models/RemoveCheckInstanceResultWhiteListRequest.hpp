@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The ID of the check item.
     shared_ptr<int64_t> checkId_ {};
-    // The IDs of instances. Separate multiple IDs with commas (,).
+    // The instance ID to query. Separate multiple instance IDs with commas (,).
     shared_ptr<vector<string>> instanceIds_ {};
   };
 

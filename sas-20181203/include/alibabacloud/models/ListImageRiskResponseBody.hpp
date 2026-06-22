@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries returned on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -193,12 +193,11 @@ namespace Models
 
 
       protected:
-        // An array that consists the details of the domain name in the endpoint.
+        // The list of endpoint domain names.
         shared_ptr<vector<string>> domains_ {};
-        // The type of the domain name in the endpoint. Valid values:
-        // 
-        // *   **internet**: Internet
-        // *   **intranet**: internal network
+        // The type of the endpoint domain name. Valid values:
+        // - **internet**: public network
+        // - **intranet**: private network.
         shared_ptr<string> type_ {};
       };
 
@@ -338,53 +337,53 @@ namespace Models
     protected:
       // The digest value of the image.
       shared_ptr<string> digest_ {};
-      // An array that consists of the details of the endpoint.
+      // The list of endpoint information.
       shared_ptr<vector<ImageRiskList::EndPointList>> endPointList_ {};
-      // The endpoint of Container Registry.
+      // The list of endpoints for the image service.
       shared_ptr<string> endpoints_ {};
-      // The image of the container.
+      // The image.
       shared_ptr<string> image_ {};
       // The registration status of the image repository. Valid values:
       // 
-      // *   **IN_SAS**: The image repository is registered with Security Center.
-      // *   **NOT_IN_SAS**: The image repository is not registered with Security Center.
+      // - **IN_SAS**: The repository is registered in Security Center.
+      // - **NOT_IN_SAS**: The repository is not registered in Security Center.
       shared_ptr<string> imageAccessType_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // The public endpoint of the image repository.
+      // The public network access URL of the image repository.
       shared_ptr<string> internetURLs_ {};
-      // The region of the image repository.
+      // The region where the image repository resides.
       shared_ptr<string> regionId_ {};
-      // The type of the image repository. Valid values:
+      // The type of the image registry. Valid values:
       // 
-      // *   **acr**
-      // *   **harbor**
-      // *   **quay**
-      // *   **CI/CD**: Jenkins
+      // - **acr**: ACR
+      // - **harbor**: Harbor
+      // - **quay**: Quay
+      // - **CI/CD**: Jenkins.
       shared_ptr<string> registryType_ {};
       // The ID of the image repository.
       shared_ptr<string> repoId_ {};
       // The name of the image repository.
       shared_ptr<string> repoName_ {};
-      // The name of the namespace to which the repository belongs.
+      // The image namespace.
       shared_ptr<string> repoNamespace_ {};
-      // The type of the repository. Valid values:
+      // The repository type. Valid values:
       // 
-      // *   `PUBLIC`
-      // *   `PRIVATE`
+      // - `PUBLIC`: public
+      // 
+      // - `PRIVATE`: private.
       shared_ptr<string> repoType_ {};
-      // The statistics on a security event.
+      // The statistics of security events.
       shared_ptr<string> statistics_ {};
-      // The tag that is added to the image.
+      // The image tag.
       shared_ptr<string> tag_ {};
-      // Indicates whether the image version is immutable. If the image version is immutable, only the image of the latest version in the image repository can be overwritten. Valid values:
-      // 
-      // *   **0**: The image version is mutable.
-      // *   **1**: The image version is immutable.
+      // The tag immutability setting. If immutability is enabled, image versions other than latest cannot be used to overwrite existing versions in this repository. Valid values:
+      // - **0**: Mutable.
+      // - **1**: Immutable.
       shared_ptr<int32_t> tagImmutable_ {};
-      // The UUID of the image.
+      // The unique identifier of the image.
       shared_ptr<string> uuid_ {};
-      // The endpoint of the image repository in the VPC.
+      // The VPC access URL of the image repository.
       shared_ptr<string> vpcURLs_ {};
     };
 
@@ -416,11 +415,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of security information about the image.
+    // The list of image risk information.
     shared_ptr<vector<ListImageRiskResponseBody::ImageRiskList>> imageRiskList_ {};
     // The pagination information.
     shared_ptr<ListImageRiskResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

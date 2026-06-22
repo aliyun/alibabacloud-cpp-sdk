@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of images that have malicious image samples returned on the current page.
+      // The number of images with malicious samples returned on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page. Pages start from page **1**. Default value: **1**.
+      // The page number of the current page when using paging. Minimum value: **1**. Default value: **1**.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **20**.
+      // The maximum number of entries per page when using paging. Default value: **20**.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of images that have malicious image samples.
+      // The total number of images in which malicious samples are detected.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -410,71 +410,69 @@ namespace Models
       shared_ptr<string> clusterName_ {};
       // The ID of the container.
       shared_ptr<string> containerId_ {};
-      // The image digest.
+      // The digest of the image.
       shared_ptr<string> digest_ {};
-      // The URL to download the malicious image sample.
+      // The download URL of the malicious sample.
       shared_ptr<string> downloadUrl_ {};
-      // The path to the image file.
+      // The file path of the image.
       shared_ptr<string> filePath_ {};
       // The timestamp of the first scan.
       shared_ptr<int64_t> firstScanTimestamp_ {};
-      // The text that is highlighted.
+      // The highlighted text.
       shared_ptr<string> highLight_ {};
-      // The ID of alert event.
+      // The ID of the alert event.
       shared_ptr<int64_t> id_ {};
       // The name of the image.
       shared_ptr<string> image_ {};
       // The UUID of the image.
       shared_ptr<string> imageUuid_ {};
-      // The name of the ECS instance.
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp of the last scan.
+      // The timestamp of the latest scan.
       shared_ptr<int64_t> latestScanTimestamp_ {};
-      // The timestamp of the last verification.
+      // The timestamp of the latest verification.
       shared_ptr<int64_t> latestVerifyTimestamp_ {};
-      // The image layer.
+      // The layer of the image.
       shared_ptr<string> layer_ {};
-      // The severity of the malicious image sample. Valid values:
-      // 
-      // *   **serious**
-      // *   **suspicious**
-      // *   **remind**
+      // The severity level of the malicious image sample. Valid values:
+      // - **serious**: urgent
+      // - **suspicious**: suspicious
+      // - **remind**: reminder.
       shared_ptr<string> level_ {};
-      // The MD5 hash value of the malicious image sample.
+      // The MD5 hash of the malicious file.
       shared_ptr<string> maliciousMd5_ {};
-      // The namespace to which the image repository belongs.
+      // The namespace of the image repository.
       shared_ptr<string> namespace_ {};
       // The pod.
       shared_ptr<string> pod_ {};
       // The ID of the image repository.
       shared_ptr<string> repoId_ {};
-      // The ID of the container image.
+      // The instance ID of the container image.
       shared_ptr<string> repoInstanceId_ {};
       // The name of the image repository.
       shared_ptr<string> repoName_ {};
       // The region ID of the image repository.
       shared_ptr<string> repoRegionId_ {};
-      // The handling status of the malicious image sample. Valid values:
-      // 
-      // *   **0**: unhandled
-      // *   **1**: handled
-      // *   **2**: verifying
-      // *   **3**: added to the whitelist
+      // The processing status of the malicious image sample. Valid values:
+      // - **0**: unhandled
+      // - **1**: handled
+      // - **2**: verifying
+      // - **3**: added to whitelist.
       shared_ptr<int32_t> status_ {};
-      // The tag that is added to the image.
+      // The tag of the image.
       shared_ptr<string> tag_ {};
-      // The ID of the task object.
+      // The ID of the scan target.
       shared_ptr<string> targetId_ {};
-      // The name of the task object.
+      // The name of the scan target.
       shared_ptr<string> targetName_ {};
-      // The object type. Valid value:
+      // The object type of the scan target. Valid values:
       // 
-      // *   **ECS_IMAGE**
-      // *   **ECS_SNAPSHOT**
+      // - **ECS_IMAGE**: image.
+      // - **ECS_SNAPSHOT**: snapshot.
       shared_ptr<string> targetType_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
@@ -508,11 +506,11 @@ namespace Models
 
 
   protected:
-    // An array consisting of the images that have malicious image samples.
+    // The list of images in which malicious samples are detected.
     shared_ptr<vector<DescribeAffectedMaliciousFileImagesResponseBody::AffectedMaliciousFileImagesResponse>> affectedMaliciousFileImagesResponse_ {};
     // The pagination information.
     shared_ptr<DescribeAffectedMaliciousFileImagesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

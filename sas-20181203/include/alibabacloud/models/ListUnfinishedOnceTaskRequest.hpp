@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // The value of the object on which the task runs. If you set TaskType to IMAGE_SCAN, set this parameter to the UUID of the image that you want to scan. If you set TaskType to ASSETS_COLLECTION, set this parameter to the UUID of the server whose information you want to collect.
+    // The target object value. Valid values:
+    // - If the task type is **IMAGE_SCAN**, the target object value is the **Digest** of the image.
+    // - If the task type is **ASSETS_COLLECTION**, the target object value is the **Uuid** of the server.
     shared_ptr<string> target_ {};
-    // The type of the task. Valid values:
-    // 
-    // *   **ASSETS_COLLECTION**: asset information collection task
-    // *   **IMAGE_SCAN**: image scan task
+    // The task type. Valid values:
+    // - **ASSETS_COLLECTION**: asset information collection task
+    // - **IMAGE_SCAN**: image scan task.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

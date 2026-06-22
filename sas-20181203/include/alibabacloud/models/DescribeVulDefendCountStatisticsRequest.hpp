@@ -38,10 +38,10 @@ namespace Models
 
 
   protected:
-    // The type of the vulnerabilities. Valid values:
+    // The type of vulnerability to query. Valid values:
     // 
-    // *   app: application vulnerabilities
-    // *   emg: urgent vulnerabilities
+    // - app: application vulnerability
+    // - emg: emergency vulnerability.
     shared_ptr<string> vulType_ {};
   };
 

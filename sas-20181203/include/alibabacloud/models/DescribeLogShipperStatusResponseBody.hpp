@@ -124,44 +124,45 @@ namespace Models
 
 
     protected:
-      // Indicates whether Security Center is authorized to access Log Service. Valid values:
+      // The service authorization status of the log analysis feature. Valid values:
       // 
-      // *   **yes**
-      // *   **no**
+      // - **yes**: authorized
+      // - **no**: not authorized.
       shared_ptr<string> authStatus_ {};
-      // Indicates whether the log analysis feature is purchased. Valid values:
+      // The purchase status of the log analysis feature. Valid values:
       // 
-      // *   **yes**
-      // *   **no**
+      // - **yes**: purchased
+      // - **no**: not purchased.
       shared_ptr<string> buyStatus_ {};
-      // The version of the log analysis field. Valid values:
-      // - SAS_V1
-      // - SAS_V2
+      // The version of the log delivery fields for log analysis. Valid values:
+      // 
+      // - **SAS_V1**
+      // - **SAS_V2**.
       shared_ptr<string> etlMetaVersion_ {};
-      // The status of the log analysis feature. Valid values:
+      // The enabling status of log analysis. Valid values:
       // 
-      // *   **yes**: enabled
-      // *   **no**: disabled
+      // - **yes**: enabled
+      // - **no**: not enabled.
       shared_ptr<string> openStatus_ {};
-      // Indicates whether the pay-as-you-go billing method is used. Valid values:
+      // The pay-as-you-go activation status of the log analysis feature. Valid values:
       // 
-      // *   **yes**
-      // *   **no**
+      // - **yes**: activated
+      // - **no**: not activated.
       shared_ptr<string> postPaidOpenStatus_ {};
-      // Indicates whether the log analysis feature supports the pay-as-you-go billing method. Valid values:
+      // The pay-as-you-go support status of the log analysis feature. Valid values:
       // 
-      // *   **yes**
-      // *   **no**
+      // - **yes**: supported
+      // - **no**: not supported.
       shared_ptr<string> postPaidSupportStatus_ {};
-      // The status of the dedicated Log Service project. Valid values:
+      // The status of the log project used by the log analysis feature. Valid values:
       // 
-      // *   **Normal**: normal
-      // *   **Disable**: disabled
+      // - **Normal**: Normal.
+      // - **Disable**: Disabled.
       shared_ptr<string> slsProjectStatus_ {};
-      // Indicates whether Log Service is activated. Valid values:
+      // The activation status of Simple Log Service (SLS). Valid values:
       // 
-      // *   **yes**
-      // *   **no**
+      // - **yes**: activated
+      // - **no**: not activated.
       shared_ptr<string> slsServiceStatus_ {};
     };
 
@@ -184,9 +185,9 @@ namespace Models
 
 
   protected:
-    // The status information.
+    // The log delivery status collection.
     shared_ptr<DescribeLogShipperStatusResponseBody::LogShipperStatus> logShipperStatus_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,14 +66,14 @@ namespace Models
 
 
   protected:
-    // Condition parameters for task scheduling.
+    // The condition parameter for task scheduling.
     shared_ptr<string> condition_ {};
-    // The current page number during paginated queries.
+    // The page number of the current page for a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The maximum number of entries to display per page during paginated queries.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // Strategy task ID.
-    // > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+    // The ID of the policy task.
+    // >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
     shared_ptr<int64_t> strategyTaskId_ {};
   };
 

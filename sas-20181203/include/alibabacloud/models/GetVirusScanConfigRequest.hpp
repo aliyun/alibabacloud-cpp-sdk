@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The type of the task. Valid values:
-    // 
-    // *   **VIRUS_VUL_SCHEDULE_SCAN**: a virus scan task.
+    // The task type. Valid values:
+    // - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
     shared_ptr<string> taskType_ {};
   };
 

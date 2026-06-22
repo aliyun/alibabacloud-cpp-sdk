@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated.
+    // This parameter is deprecated and can be ignored.
     shared_ptr<string> aliyunYundunGatewayApiName_ {};
-    // This parameter is deprecated.
+    // This parameter is deprecated and can be ignored.
     shared_ptr<string> aliyunYundunGatewayPopName_ {};
-    // This parameter is deprecated.
+    // This parameter is deprecated and can be ignored.
     shared_ptr<string> aliyunYundunGatewayProjectName_ {};
-    // The ID generated when Kubernetes is connected. You can call the GenerateK8sAccessInfo operation to query the ID.
+    // The default value generated when accessing Kubernetes. You can obtain the ID by calling the [GenerateK8sAccessInfo](https://help.aliyun.com/document_detail/2623602.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

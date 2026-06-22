@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The ID of the cluster that you want to query.
     // 
-    // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
     shared_ptr<string> clusterId_ {};
     // The page number.
     shared_ptr<int32_t> currentPage_ {};

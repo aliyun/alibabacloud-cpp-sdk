@@ -57,10 +57,10 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request was successful. Valid values:
+    // The processing result.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

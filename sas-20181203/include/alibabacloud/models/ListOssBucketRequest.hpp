@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The name of the bucket.
+    // The bucket name.
     shared_ptr<string> bucketName_ {};
-    // The language of the content in the request and response. Default value: **zh**. Valid values:
+    // The language type for requests and responses. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

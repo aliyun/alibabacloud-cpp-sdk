@@ -84,28 +84,31 @@ namespace Models
 
 
   protected:
-    // The baseline check items.
+    // The baseline items.
     // 
-    // > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query baseline check items.
+    // > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) API to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> baselineItemList_ {};
+    // The baseline risk retention period, in days.
     shared_ptr<int32_t> imageVulClean_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The data source. If this parameter is left empty, the baseline check policy for images is queried. Valid values:
+    // The data source. If you do not specify this parameter, the operation queries image baseline strategies by default. Valid values:
     // 
-    // *   **default**: the baseline check policy for images
-    // *   **agentless**: agentless detection
+    // - **default**: image
+    // 
+    // - **agentless**: agentless
     shared_ptr<string> source_ {};
-    // The ID of the baseline check policy.
+    // The ID of the baseline check strategy.
     // 
-    // > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query the IDs of baseline check policies.
+    // > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) API to obtain the value of this parameter.
     shared_ptr<int64_t> strategyId_ {};
-    // The name of the baseline check policy.
+    // The name of the baseline check strategy.
     shared_ptr<string> strategyName_ {};
   };
 

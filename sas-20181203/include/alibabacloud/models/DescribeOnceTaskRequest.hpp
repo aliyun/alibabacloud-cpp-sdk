@@ -103,32 +103,29 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The timestamp when the root task ends. Unit: milliseconds.
     shared_ptr<int64_t> endTimeQuery_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The number of client tasks per page in a paged query. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the root task.
-    // 
-    // > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
+    // The root task ID.
+    // > **TaskType** and **RootTaskId** cannot both be empty.
     shared_ptr<string> rootTaskId_ {};
-    // The source of the task. Valid values include the following values:
-    // 
-    // *   **schedule**: automatic scheduling of Cloud Security Scanner.
-    // *   **console**: one-click detection in the Cloud Security Scanner console.
+    // The node source. Valid values include but are not limited to:
+    // - **schedule**: automatic scheduling of vulnerability scanning
+    // - **console**: one-click detection from the vulnerability scanning console
     shared_ptr<string> source_ {};
     // The timestamp when the root task starts. Unit: milliseconds.
     shared_ptr<int64_t> startTimeQuery_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // The type of the task. Valid values:
-    // 
-    // *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center agent
-    // *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
-    // *   **ASSET_SECURITY_CHECK**: a task of asset information collection
-    // 
-    // > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
+    // The node type. Valid values:
+    // - **VUL_CHECK_TASK**: vulnerability scanning node
+    // - **CLIENT_PROBLEM_CHECK**: client node
+    // - **CLIENT_DEV_OPS**: cloud O&M node
+    // - **ASSET_SECURITY_CHECK**: asset information collection node
+    // > **TaskType** and **RootTaskId** cannot both be empty.
     shared_ptr<string> taskType_ {};
   };
 

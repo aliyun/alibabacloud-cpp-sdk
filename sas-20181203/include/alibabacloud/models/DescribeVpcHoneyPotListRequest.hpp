@@ -84,28 +84,23 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number. Pages start from page 1.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether the cloud honeypot feature is enabled for the VPCs. Valid values:
-    // 
-    // *   **true**: yes
-    // *   **false**: no
+    // Specifies whether the VPCs to query have cloud honeypot enabled. Valid values:
+    // - **true**: enabled
+    // - **false**: disabled
     shared_ptr<bool> honeyPotExistence_ {};
-    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+    // > We recommend that you specify this parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the VPC on which the honeypot is deployed.
-    // 
-    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the IDs of VPCs.
+    // The ID of the VPC in which the honeypot instance that you want to query resides.
+    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to obtain the VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The name of the VPC.
-    // 
-    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the names of VPCs.
+    // The name of the VPC in which the honeypot instance that you want to query resides.
+    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to obtain the VPC name.
     shared_ptr<string> vpcName_ {};
-    // The region ID of the VPC.
-    // 
-    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the region IDs of VPCs.
+    // The region ID of the VPC in which the honeypot instance that you want to query resides.
+    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to obtain the region ID of the VPC.
     shared_ptr<string> vpcRegionId_ {};
   };
 

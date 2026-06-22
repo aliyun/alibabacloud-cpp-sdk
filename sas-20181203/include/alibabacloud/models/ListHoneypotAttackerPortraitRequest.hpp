@@ -90,12 +90,13 @@ namespace Models
     shared_ptr<int64_t> endTimeStamp_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
-    // >  We recommend that you do not leave this parameter empty.
+    // > We recommend that you do not leave this parameter empty.
     shared_ptr<int32_t> pageSize_ {};
     // The source IP address of the attack.
     shared_ptr<string> srcIp_ {};

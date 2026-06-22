@@ -172,17 +172,49 @@ namespace Models
 
 
     protected:
+      // The alert notification level. Valid values:
+      // 
+      // - 0: no alert
+      // 
+      // - 1: reminder
+      // 
+      // - 2: suspicious
+      // 
+      // - 3: high-risk.
       shared_ptr<int32_t> alertLevel_ {};
+      // The list of excluded users.
       shared_ptr<vector<string>> excludeUsers_ {};
+      // The operations performed on files.
       shared_ptr<vector<string>> fileOps_ {};
+      // The monitored file paths. Wildcards are supported.
       shared_ptr<vector<string>> filePaths_ {};
+      // The protected file types.
       shared_ptr<vector<string>> fileTypes_ {};
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
+      // The operating system type. Valid values:
+      // 
+      // - **windows**: Windows
+      // - **linux**: Linux.
       shared_ptr<string> platform_ {};
+      // The process paths. Wildcards are supported.
       shared_ptr<vector<string>> procPaths_ {};
+      // The action that the rule takes on the client. Valid values:
+      // 
+      // - monitor: alert
+      // 
+      // - block: block
+      // 
+      // - pass: allow.
       shared_ptr<string> ruleAction_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The rule status. Valid values:
+      // 
+      // - **0**: disabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> status_ {};
+      // The switch ID that corresponds to the rule.
       shared_ptr<string> switchId_ {};
     };
 
@@ -205,6 +237,7 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetFileProtectClientRuleResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

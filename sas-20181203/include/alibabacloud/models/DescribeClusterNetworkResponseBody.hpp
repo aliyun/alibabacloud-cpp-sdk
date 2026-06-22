@@ -139,35 +139,43 @@ namespace Models
       protected:
         // The status of the microsegmentation switch. Valid values:
         // 
-        // *   **0**: off.
-        // *   **1**: on.
+        // - **0**: off.
+        // 
+        // - **1**: on.
         shared_ptr<int32_t> cnnfSwitch_ {};
         // The ID of the node.
         shared_ptr<string> id_ {};
         // The network type. Valid values:
         // 
-        // *   **0**: classic network.
-        // *   **1**: virtual private cloud (VPC).
+        // - **0**: classic network.
+        // 
+        // - **1**: virtual private cloud (VPC).
         shared_ptr<int32_t> interceptionType_ {};
         // The name of the node.
         shared_ptr<string> name_ {};
         // The status of the network topology switch. Valid values:
         // 
-        // *   **ON**
-        // *   **OFF**
+        // - **ON**
+        // 
+        // - **OFF**
         shared_ptr<string> netTopoSwitch_ {};
         // The risk level. Valid values:
         // 
-        // *   **3**: high.
-        // *   **2**: medium.
-        // *   **1**: low.
-        // *   **0**: secure.
-        // *   **-1**: unknown.
+        // - **3**: high.
+        // 
+        // - **2**: medium.
+        // 
+        // - **1**: low.
+        // 
+        // - **0**: secure.
+        // 
+        // - **-1**: unknown.
         shared_ptr<string> riskLevel_ {};
         // The type of the node. Valid values:
         // 
-        // *   **cluster**: a cluster.
-        // *   **internet**: a network node outside the cluster.
+        // - **cluster**: a cluster.
+        // 
+        // - **internet**: a network node outside the cluster.
         shared_ptr<string> type_ {};
       };
 
@@ -249,7 +257,7 @@ namespace Models
         shared_ptr<string> dstNodeId_ {};
         // The type of the destination node. Valid values:
         // 
-        // *   Set the value to **cluster**.
+        // - Set the value to **cluster**.
         shared_ptr<string> dstNodeType_ {};
         // The ID of the topology edge.
         shared_ptr<string> id_ {};
@@ -259,8 +267,9 @@ namespace Models
         shared_ptr<string> srcNodeId_ {};
         // The type of the source node. Valid values:
         // 
-        // *   **cluster**: a cluster.
-        // *   **internet**: a network node outside the cluster
+        // - **cluster**: a cluster.
+        // 
+        // - **internet**: a network node outside the cluster
         shared_ptr<string> srcNodeType_ {};
       };
 

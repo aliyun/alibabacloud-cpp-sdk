@@ -110,17 +110,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether the configurations are applied to the server. Valid values:
+        // The type of configuration effect. Valid values:
         // 
-        // *   **add**: yes
-        // *   **del**: no
+        // - **add**: The configuration takes effect on the server.
+        // - **del**: The configuration does not take effect on the server.
         shared_ptr<string> flag_ {};
-        // The group ID or UUID of the server to which the configurations are applied.
+        // The group ID or UUID of the asset on which the configuration takes effect.
         shared_ptr<string> target_ {};
-        // The condition by which the configurations are applied to the server. Valid values:
+        // The target type. Valid values:
         // 
-        // *   **uuid**: the UUID of the server
-        // *   **groupId**: the ID of the server group
+        // - **uuid**: asset.
+        // - **groupId**: server group.
         shared_ptr<string> targetType_ {};
       };
 
@@ -157,18 +157,18 @@ namespace Models
 
 
     protected:
-      // An array that consists of available servers.
+      // The list of target servers for the assets.
       shared_ptr<vector<TargetStats::Targets>> targets_ {};
-      // The total number of servers.
+      // The total number of assets returned.
       shared_ptr<int32_t> totalCount_ {};
-      // The number of servers to which the configurations are applied.
+      // The number of servers on which the configuration takes effect.
       shared_ptr<int32_t> uuidCount_ {};
-      // The type of the vulnerability. Valid values:
+      // The type of vulnerability to query. Valid values:
       // 
-      // *   cve: Linux software vulnerabilities
-      // *   sys: Windows system vulnerabilities
-      // *   cms: Web-CMS vulnerabilities
-      // *   emg: urgent vulnerabilities
+      // - cve: Linux software vulnerability
+      // - sys: Windows system vulnerability
+      // - cms: Web-CMS vulnerability
+      // - emg: emergency vulnerability.
       shared_ptr<string> vulType_ {};
     };
 
@@ -212,13 +212,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page when paging is used in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page when paging is used in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the configurations of the vulnerability scan feature.
+    // The statistics of vulnerability configurations.
     shared_ptr<vector<DescribeVulTargetStatisticsResponseBody::TargetStats>> targetStats_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

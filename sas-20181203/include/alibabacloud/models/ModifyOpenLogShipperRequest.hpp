@@ -48,16 +48,15 @@ namespace Models
 
 
   protected:
-    // The ID of the request source. Default value: **aegis**. Valid values:
+    // The identifier of the request source. Default value: **aegis**. Valid values:
     // 
-    // *   **aegis**: Server Guard
-    // *   **sas**: Security Center
+    // - **aegis**: Server Guard edition.
+    // - **sas**: Security Center edition.
     // 
-    // >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
+    // > Server Guard users must use **aegis**, and Security Center users must use **sas**.
     shared_ptr<string> from_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    // The ID of the member accounts in the resource directory (Alibaba Cloud account).
+    // > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

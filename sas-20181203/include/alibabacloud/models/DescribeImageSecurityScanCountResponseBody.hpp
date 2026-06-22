@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The number of image baseline risks detected on the current asset.
+      // The number of image baseline risks in the current asset.
       shared_ptr<int32_t> imageBaselineCount_ {};
-      // The number of image system vulnerabilities returned on the current page.
+      // The number of image system vulnerabilities on the current page.
       shared_ptr<int32_t> imageCveVulCount_ {};
-      // The number of malicious image samples returned on the current page.
+      // The number of malicious image samples on the current page.
       shared_ptr<int32_t> imageMaliciousFileCount_ {};
-      // The number of image application vulnerabilities returned on the current page.
+      // The number of image application vulnerabilities displayed on the current page.
       shared_ptr<int32_t> imageScaVulCount_ {};
     };
 
@@ -116,9 +116,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeImageSecurityScanCountResponseBody::Data> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

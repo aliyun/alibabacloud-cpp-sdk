@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The email address of the recipient. Separate multiple email addresses with commas (,).
+    // The email addresses of the contacts. Separate multiple email addresses with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> recipients_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

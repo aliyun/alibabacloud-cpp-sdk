@@ -131,26 +131,25 @@ namespace Models
 
 
       protected:
-        // The list of the container IDs.
+        // The list of container IDs.
         shared_ptr<vector<string>> containerIds_ {};
-        // The ID of the node.
+        // The node ID.
         shared_ptr<string> id_ {};
-        // The name of the node.
+        // The node name.
         shared_ptr<string> name_ {};
-        // The ID of the namespace.
+        // The namespace ID.
         shared_ptr<string> namespaceId_ {};
         // The risk level. Valid values:
         // 
-        // *   **3**: high
-        // *   **2**: medium
-        // *   **1**: low
-        // *   **0**: warning
-        // *   **-1**: unknown
+        // - **3**: High.
+        // - **2**: Medium.
+        // - **1**: Low.
+        // - **0**: Safe.
+        // - **-1**: Unknown.
         shared_ptr<string> riskLevel_ {};
-        // The type of the node. Valid values:
-        // 
-        // *   **app**: an application
-        // *   **internet**: a network node in another cluster
+        // The node type. Valid values:
+        // - **app**: application
+        // - **internet**: external network node.
         shared_ptr<string> type_ {};
       };
 
@@ -192,9 +191,9 @@ namespace Models
 
 
       protected:
-        // The ID of the namespace.
+        // The namespace ID.
         shared_ptr<string> id_ {};
-        // The name of the custom namespace.
+        // The namespace name.
         shared_ptr<string> name_ {};
       };
 
@@ -272,23 +271,21 @@ namespace Models
 
 
       protected:
-        // The ID of the destination node.
+        // The destination node ID.
         shared_ptr<string> dstNodeId_ {};
-        // The type of the destination node. Valid values:
-        // 
-        // *   **app**: an application
-        // *   **internet**: a network node in another cluster
+        // The destination node type. Valid values:
+        // - **app**: application.
+        // - **internet**: external network node.
         shared_ptr<string> dstNodeType_ {};
-        // The ID of the edge.
+        // The edge ID.
         shared_ptr<string> id_ {};
-        // The number of the destination port.
+        // The destination port number.
         shared_ptr<string> port_ {};
-        // The ID of the source node.
+        // The source node ID.
         shared_ptr<string> srcNodeId_ {};
-        // The type of the source node. Valid values:
-        // 
-        // *   **app**: an application
-        // *   **internet**: a network node in another cluster
+        // The source node type. Valid values:
+        // - **app**: application.
+        // - **internet**: external network node.
         shared_ptr<string> srcNodeType_ {};
       };
 
@@ -322,11 +319,11 @@ namespace Models
 
 
     protected:
-      // The information about the topology edge.
+      // The topology edge information.
       shared_ptr<vector<AppNetwork::Edge>> edge_ {};
       // The namespace.
       shared_ptr<vector<AppNetwork::Namespace>> namespace_ {};
-      // The information about the application node.
+      // The application node information.
       shared_ptr<vector<AppNetwork::Node>> node_ {};
     };
 
@@ -349,9 +346,9 @@ namespace Models
 
 
   protected:
-    // The information about the application network topology.
+    // The application network topology information.
     shared_ptr<GetAppNetworkResponseBody::AppNetwork> appNetwork_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

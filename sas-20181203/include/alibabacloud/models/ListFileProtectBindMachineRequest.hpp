@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The page number of the current page for a paged query.
     shared_ptr<int32_t> currentPage_ {};
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
   };
 

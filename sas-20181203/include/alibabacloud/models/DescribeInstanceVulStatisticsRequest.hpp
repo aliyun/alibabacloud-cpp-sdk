@@ -48,16 +48,16 @@ namespace Models
 
 
   protected:
-    // The vulnerability type of the serverless instance. Valid values:
+    // The vulnerability type of the Serverless asset. Valid values:
     // 
-    // *   **sca**: middleware vulnerabilities
-    // *   **app**: application vulnerabilities detected by using a scanner
+    // - **sca**: middleware vulnerability
     // 
-    // >  Serverless instances allow you to detect only application vulnerabilities by using a scanner.
+    // - **app**: scanner vulnerability
+    // 
+    // >Serverless assets currently support only application vulnerability scanning.
     shared_ptr<string> types_ {};
-    // The UUID of the instance to query.
-    // 
-    // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID of the instance.
+    // The UUID of the asset instance to query.
+    // >You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

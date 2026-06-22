@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The name of the proxy cluster. You can query the name of the proxy cluster in the Security Center console.
+    // The name of the proxy cluster. You can view the proxy cluster name in the console.
     shared_ptr<string> clusterName_ {};
-    // The page number.
+    // The page number of the current page when paging is used.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page when paging is used.
     shared_ptr<int32_t> pageSize_ {};
-    // The UUID of the proxy node. You can call the DescribeHybridProxyList operation to query the UUID of the proxy node.
+    // The UUID of the proxy node. You can call the DescribeHybridProxyList operation to obtain this value.
     shared_ptr<string> proxyUuid_ {};
-    // The description of the proxy cluster.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // The UUID of the server on which the Security Center agent is installed. You can query the UUID by querying asset information.
+    // The unique key of the Security Center agent. You can call an asset query operation to obtain the UUID of the Security Center agent installed on the server.
     shared_ptr<string> uuid_ {};
   };
 

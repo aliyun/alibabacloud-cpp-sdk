@@ -195,27 +195,27 @@ namespace Models
       protected:
         // The number of unchecked check items.
         shared_ptr<int32_t> notCheckCount_ {};
-        // The number of unchecked high-risk check items.
+        // The number of unchecked check items with a high risk level.
         shared_ptr<int32_t> notCheckHighCount_ {};
-        // The number of unchecked low-risk check items.
+        // The number of unchecked check items with a low risk level.
         shared_ptr<int32_t> notCheckLowCount_ {};
-        // The number of unchecked medium-risk check items.
+        // The number of unchecked check items with a medium risk level.
         shared_ptr<int32_t> notCheckMediumCount_ {};
-        // The number of check items that failed to pass the check.
+        // The number of check items that failed.
         shared_ptr<int32_t> notPassCount_ {};
-        // The number of high-risk check items that failed to pass the check.
+        // The number of failed check items with a high risk level.
         shared_ptr<int32_t> notPassHighCount_ {};
-        // The number of low-risk check items that failed to pass the check.
+        // The number of failed check items with a low risk level.
         shared_ptr<int32_t> notPassLowCount_ {};
-        // The number of medium-risk check items that failed to pass the check.
+        // The number of failed check items with a medium risk level.
         shared_ptr<int32_t> notPassMediumCount_ {};
-        // The number of check items that pass the check.
+        // The number of check items that passed.
         shared_ptr<int32_t> passCount_ {};
-        // The number of high-risk check items that pass the check.
+        // The number of passed check items with a high risk level.
         shared_ptr<int32_t> passHighCount_ {};
-        // The number of low-risk check items that pass the check.
+        // The number of passed check items with a low risk level.
         shared_ptr<int32_t> passLowCount_ {};
-        // The number of medium-risk check items that pass the check.
+        // The number of passed check items with a medium risk level.
         shared_ptr<int32_t> passMediumCount_ {};
       };
 
@@ -384,27 +384,27 @@ namespace Models
         protected:
           // The number of unchecked check items.
           shared_ptr<int32_t> notCheckCount_ {};
-          // The number of unchecked high-risk check items.
+          // The number of unchecked check items with a high risk level.
           shared_ptr<int32_t> notCheckHighCount_ {};
-          // The number of unchecked low-risk check items.
+          // The number of unchecked check items with a low risk level.
           shared_ptr<int32_t> notCheckLowCount_ {};
-          // The number of unchecked medium-risk check items.
+          // The number of unchecked check items with a medium risk level.
           shared_ptr<int32_t> notCheckMediumCount_ {};
-          // The number of check items that failed to pass the check.
+          // The number of check items that failed.
           shared_ptr<int32_t> notPassCount_ {};
-          // The number of high-risk check items that failed to pass the check.
+          // The number of failed check items with a high risk level.
           shared_ptr<int32_t> notPassHighCount_ {};
-          // The number of low-risk check items that failed to pass the check.
+          // The number of failed check items with a low risk level.
           shared_ptr<int32_t> notPassLowCount_ {};
-          // The number of medium-risk check items that failed to pass the check.
+          // The number of failed check items with a medium risk level.
           shared_ptr<int32_t> notPassMediumCount_ {};
-          // The number of check items that pass the check.
+          // The number of check items that passed.
           shared_ptr<int32_t> passCount_ {};
-          // The number of high-risk check items that pass the check.
+          // The number of passed check items with a high risk level.
           shared_ptr<int32_t> passHighCount_ {};
-          // The number of low-risk check items that pass the check.
+          // The number of passed check items with a low risk level.
           shared_ptr<int32_t> passLowCount_ {};
-          // The number of medium-risk check items that pass the check.
+          // The number of passed check items with a medium risk level.
           shared_ptr<int32_t> passMediumCount_ {};
         };
 
@@ -470,21 +470,21 @@ namespace Models
 
 
       protected:
-        // The number of check items that failed to pass the check.
+        // The number of check items that failed.
         shared_ptr<int32_t> failCount_ {};
-        // The ID of the check item.
+        // The check item ID.
         shared_ptr<int64_t> id_ {};
-        // The number of check items that pass the check.
+        // The number of check items that passed.
         shared_ptr<int32_t> passCount_ {};
-        // The number of **high-risk** items.
+        // The number of check items with a **high** risk level.
         shared_ptr<int32_t> riskLevelHighCount_ {};
-        // The number of **low-risk** items.
+        // The number of check items with a **low** risk level.
         shared_ptr<int32_t> riskLevelLowCount_ {};
-        // The number of **medium-risk** items.
+        // The number of check items with a **medium** risk level.
         shared_ptr<int32_t> riskLevelMediumCount_ {};
-        // The name of the check item.
+        // The check item name.
         shared_ptr<string> showName_ {};
-        // The standard statistics of the check items.
+        // The risk statistics information for the standard.
         shared_ptr<Standards::StandardStatistic> standardStatistic_ {};
       };
 
@@ -530,19 +530,19 @@ namespace Models
 
 
     protected:
-      // The number of detected risk items.
+      // The number of risk items detected.
       shared_ptr<int32_t> failCount_ {};
-      // The number of check items that pass the check.
+      // The number of check items that passed the check.
       shared_ptr<int64_t> passCount_ {};
-      // The information about the check items.
+      // The standard output of check items.
       shared_ptr<vector<Summarys::Standards>> standards_ {};
-      // The type of the check item. Valid values:
+      // The check item type. Valid values:
       // 
-      // *   **COMPLIANCE**
-      // *   **RISK**
-      // *   **IDENTITY_PERMISSION**
+      // - **COMPLIANCE**: Compliance.
+      // - **RISK**: Security risk.
+      // - **IDENTITY_PERMISSION**: Identity and access management.
       shared_ptr<string> type_ {};
-      // The risk statistics by type.
+      // The risk statistics information for the risk category.
       shared_ptr<Summarys::TypeStatistic> typeStatistic_ {};
     };
 
@@ -678,27 +678,27 @@ namespace Models
     protected:
       // The number of unchecked check items.
       shared_ptr<int32_t> notCheckCount_ {};
-      // The number of unchecked high-risk check items.
+      // The number of unchecked check items with a high risk level.
       shared_ptr<int32_t> notCheckHighCount_ {};
-      // The number of unchecked low-risk check items.
+      // The number of unchecked check items with a low risk level.
       shared_ptr<int32_t> notCheckLowCount_ {};
-      // The number of unchecked medium-risk check items.
+      // The number of unchecked check items with a medium risk level.
       shared_ptr<int32_t> notCheckMediumCount_ {};
-      // The number of check items that failed to pass the check.
+      // The number of check items that failed.
       shared_ptr<int32_t> notPassCount_ {};
-      // The number of high-risk check items that failed to pass the check.
+      // The number of failed check items with a high risk level.
       shared_ptr<int32_t> notPassHighCount_ {};
-      // The number of low-risk check items that failed to pass the check.
+      // The number of failed check items with a low risk level.
       shared_ptr<int32_t> notPassLowCount_ {};
-      // The number of medium-risk check items that failed to pass the check.
+      // The number of failed check items with a medium risk level.
       shared_ptr<int32_t> notPassMediumCount_ {};
-      // The number of check items that pass the check.
+      // The number of check items that passed.
       shared_ptr<int32_t> passCount_ {};
-      // The number of high-risk check items that pass the check.
+      // The number of passed check items with a high risk level.
       shared_ptr<int32_t> passHighCount_ {};
-      // The number of low-risk check items that pass the check.
+      // The number of passed check items with a low risk level.
       shared_ptr<int32_t> passLowCount_ {};
-      // The number of medium-risk check items that pass the check.
+      // The number of passed check items with a medium risk level.
       shared_ptr<int32_t> passMediumCount_ {};
     };
 
@@ -740,9 +740,9 @@ namespace Models
 
 
     protected:
-      // The number of check items supported by the system.
+      // The number of check items published by the system.
       shared_ptr<int32_t> releaseCount_ {};
-      // The number of check items available to you.
+      // The number of check items currently owned by the user.
       shared_ptr<int32_t> resultCount_ {};
     };
 
@@ -783,13 +783,13 @@ namespace Models
 
 
   protected:
-    // The statistics about the number of check items.
+    // The statistics information related to the number of check items.
     shared_ptr<GetCheckSummaryResponseBody::OverallItemStatistic> overallItemStatistic_ {};
-    // The overall risk statistics.
+    // The overall risk statistics information.
     shared_ptr<GetCheckSummaryResponseBody::OverallStatistic> overallStatistic_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The summary information about the configuration checks on cloud services.
+    // The overview results.
     shared_ptr<vector<GetCheckSummaryResponseBody::Summarys>> summarys_ {};
   };
 

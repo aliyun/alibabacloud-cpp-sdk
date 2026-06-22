@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The information about the server that you want to query. The value can be the name or the IP address of the server.
+    // The asset information to query. You can set this parameter to an asset name or IP address.
     shared_ptr<string> remark_ {};
-    // The UUID of the server.
+    // The UUID of the asset instance.
     shared_ptr<string> uuid_ {};
   };
 

@@ -138,34 +138,44 @@ namespace Models
     protected:
       // The alias of the vulnerability.
       shared_ptr<string> aliasName_ {};
-      // The number of the vulnerabilities that have the **high** priority.
+      // The number of high-priority vulnerabilities.
       shared_ptr<int32_t> asapCount_ {};
-      // The timestamp when the vulnerability was last detected. Unit: milliseconds.
+      // The timestamp when the vulnerability was last detected, in milliseconds.
       shared_ptr<int64_t> gmtLast_ {};
       // The number of handled vulnerabilities.
       shared_ptr<int32_t> handledCount_ {};
-      // The number of the vulnerabilities that have the **medium** priority.
+      // The number of medium-priority vulnerabilities.
       shared_ptr<int32_t> laterCount_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
-      // The number of the vulnerabilities that have the **low** priority.
+      // The number of low-priority vulnerabilities.
       shared_ptr<int32_t> nntfCount_ {};
-      // The tag that is added to the vulnerability. Valid values:
+      // The label of the vulnerability. Valid values:
       // 
-      // *   Restart required
-      // *   Remote utilization
-      // *   EXP exists
-      // *   Available
-      // *   Elevation of Privilege
-      // *   Code Execution
+      // <props="china">
+      // - Restart required
+      // - Remote utilization
+      // - EXP exists
+      // - Available
+      // - Privilege escalation
+      // - Code execution
+      // 
+      // 
+      // <props="intl">
+      // - Restart required
+      // - Remote utilization
+      // - EXP exists
+      // - Available
+      // - Privilege escalation
+      // - Code execution
       shared_ptr<string> tags_ {};
-      // The type of the vulnerability. Default value: cve. Valid values:
+      // The type of the vulnerability to query. Default value: cve. Valid values:
       // 
-      // *   **cve**: Linux software vulnerability.
-      // *   **sys**: Windows system vulnerability.
-      // *   **cms**: Web-CMS vulnerability.
-      // *   **app**: application vulnerability that is detected by network scanning.
-      // *   **sca**: application vulnerability that is detected by using software component analysis.
+      // - **cve**: Linux software vulnerability
+      // - **sys**: Windows system vulnerability
+      // - **cms**: Web-CMS vulnerability
+      // - **app**: application vulnerability (network scan)
+      // - **sca**: application vulnerability (software constituency parsing)
       shared_ptr<string> type_ {};
     };
 
@@ -195,11 +205,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of vulnerabilities returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The domain name-related vulnerabilities.
+    // The list of vulnerabilities associated with the domain name.
     shared_ptr<vector<DescribeDomainSecureVulListResponseBody::VulList>> vulList_ {};
   };
 

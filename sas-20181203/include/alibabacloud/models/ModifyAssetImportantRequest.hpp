@@ -48,15 +48,14 @@ namespace Models
 
 
   protected:
-    // The importance of the asset. Valid values:
+    // The importance level. Valid values:
     // 
-    // *   **0**: test
-    // *   **1**: normal
-    // *   **2**: important
+    // - **0**: test
+    // - **1**: normal
+    // - **2**: important.
     shared_ptr<int32_t> importantCode_ {};
-    // The UUIDs of servers. Separate multiple UUIDs with commas (,).
-    // 
-    // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+    // The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     shared_ptr<string> uuidList_ {};
   };
 

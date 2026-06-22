@@ -75,36 +75,35 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster to which the container belongs.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+    // The ID of the container cluster that you want to query.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The key of the condition that is used to query on containers. Valid values:
+    // The container search field. Valid values:
     // 
-    // *   **instanceId**: the ID of the container instance
-    // *   **clusterId**: the ID of the cluster
-    // *   **regionId**: the region ID of the container
-    // *   **clusterName**: the name of the cluster
-    // *   **image**: the name of the image
-    // *   **imageRepoName**: the name of the image repository
-    // *   **imageRepoNamespace**: the namespace to which the image repository belongs
-    // *   **imageRepoTag**: the tag that is added to the image repository
-    // *   **imageDigest**: the digest of the image
-    // *   **ClusterType**: the type of the cluster
-    // *   **hostIp**: the public IP address
-    // *   **pod**: the pod
-    // *   **podIp**: the IP address of the pod
-    // *   **containerId**: the ID of the container
-    // *   **vulStatus**: whether vulnerabilities are detected on the container
-    // *   **alarmStatus**: whether alerts are generated for the container
-    // *   **riskStatus**: whether risks are detected on the container
-    // *   **riskLevel**: the risk level of the container
-    // *   **containerScope**: the type of the container
+    // - **instanceId**: container instance ID
+    // - **clusterId**: cluster ID
+    // - **regionId**: container region
+    // - **clusterName**: cluster name
+    // - **image**: image name
+    // - **imageRepoName**: image repository name
+    // - **imageRepoNamespace**: image repository namespace
+    // - **imageRepoTag**: image repository tag
+    // - **imageDigest**: image digest
+    // - **clusterType**: cluster type
+    // - **hostIp**: public IP address
+    // - **pod**: pod
+    // - **podIp**: pod IP address
+    // - **containerId**: container ID
+    // - **vulStatus**: whether the container has vulnerabilities
+    // - **alarmStatus**: whether the container has security alerts
+    // - **riskStatus**: whether the container has risks
+    // - **riskLevel**: container risk level
+    // - **containerScope**: container type.
     shared_ptr<string> containerFieldName_ {};
-    // The value of the condition that is used to query on containers.
+    // The value of the container search field.
     shared_ptr<string> containerFieldValue_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

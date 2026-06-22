@@ -48,16 +48,14 @@ namespace Models
 
 
   protected:
-    // The ID of the policy.
-    // 
-    // >  You can call the [DescribeSoarStrategies](~~DescribeSoarStrategies~~) operation to obtain the ID.
+    // The policy ID.
+    // >Call the [DescribeSoarStrategies](~~DescribeSoarStrategies~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> strategyId_ {};
-    // Specifies whether to create the policy template. Valid values:
-    // 
-    // *   true: creates the policy template
-    // *   false: deletes the policy template
+    // The add or remove status. Valid values:
+    // - true: adds the policy template to My Policies
+    // - false: removes the policy template from My Policies.
     // 
     // This parameter is required.
     shared_ptr<bool> subscribeStatus_ {};

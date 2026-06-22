@@ -191,31 +191,30 @@ namespace Models
 
 
     protected:
-      // The subtype of the asset associated with the operation subtask.
+      // The asset subtype associated with the operation subtask.
       shared_ptr<int32_t> assetSubType_ {};
-      // The type of the asset associated with the operation subtask.
+      // The asset type associated with the operation subtask.
       shared_ptr<int32_t> assetType_ {};
-      // The vendor of the asset associated with the operation subtask.
+      // The asset vendor associated with the operation subtask.
       shared_ptr<int32_t> assetVendor_ {};
-      // The check items associated with the operation subtask.
+      // The list of check items associated with the operation subtask.
       shared_ptr<vector<ProcessDetails::Checks>> checks_ {};
-      // The timestamp when the task was created. Unit: milliseconds.
+      // The timestamp when the task was created, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the operation subtask.
+      // The operation subtask ID.
       shared_ptr<string> detailTaskId_ {};
-      // The end timestamp of the operation subtask. Unit: milliseconds.
+      // The timestamp when the operation subtask ended, in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The start timestamp of the operation subtask. Unit: milliseconds.
+      // The timestamp when the operation subtask started, in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The subtask status code. Enumerated values:
-      // 
-      // *   0: not started.
-      // *   1: running.
-      // *   2: successful.
-      // *   3: times out.
-      // *   4: failed.
+      // The operation subtask status code. Valid values:
+      // - 0: not started.
+      // - 1: checking.
+      // - 2: succeeded.
+      // - 3: timed out.
+      // - 4: failed.
       shared_ptr<int32_t> statusCode_ {};
-      // The ID of the operation subtask.
+      // The operation subtask ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -275,11 +274,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -315,9 +314,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListOperationProcessDetailResponseBody::PageInfo> pageInfo_ {};
-    // The information about the operation subtasks.
+    // The list of operation subtask information.
     shared_ptr<vector<ListOperationProcessDetailResponseBody::ProcessDetails>> processDetails_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

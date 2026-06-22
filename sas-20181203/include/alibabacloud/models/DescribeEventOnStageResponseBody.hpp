@@ -61,11 +61,11 @@ namespace Models
 
 
     protected:
-      // The platform that is supported by the feature of container threat detection. Valid values:
+      // The platforms supported by threat detection.
       // 
-      // *   **container**
-      // *   **linux**
-      // *   **windows**
+      // - **container**: container
+      // - **linux**: linux
+      // - **windows**: windows.
       Darabonba::Json securityEventOnStag_ {};
     };
 
@@ -88,9 +88,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The unique identifier that Alibaba Cloud generated for the request.
     shared_ptr<string> requestId_ {};
-    // The platforms that are supported by the feature of container threat detection.
+    // The platforms supported by threat detection.
     shared_ptr<DescribeEventOnStageResponseBody::SecurityEventStageResponse> securityEventStageResponse_ {};
   };
 

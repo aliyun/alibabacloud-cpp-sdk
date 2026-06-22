@@ -151,23 +151,56 @@ namespace Models
 
 
   protected:
+    // The alert notification level. Valid values:
+    // 
+    // - 0: no alert
+    // - 1: reminder
+    // - 2: suspicious
+    // - 3: high-risk.
     shared_ptr<int32_t> alertLevel_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The list of excluded users.
     shared_ptr<vector<string>> excludeUsers_ {};
+    // The list of operations performed on files.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> fileOps_ {};
+    // The list of monitored file paths. Wildcards are supported.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> filePaths_ {};
+    // The list of monitored file types.
     shared_ptr<vector<string>> fileTypes_ {};
+    // The operating system type. Valid values:
+    // 
+    // - **windows**: Windows.
+    // - **linux**: Linux.
     shared_ptr<string> platform_ {};
+    // The list of process monitoring paths. Wildcards are supported.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> procPaths_ {};
+    // The action to take when the policy is hit. Valid values:
+    // 
+    // - **monitor**: Alert.
+    // - **block**: Block.
+    // - **pass**: Allow.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleAction_ {};
+    // The name of the rule.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
+    // The status of the rule. Valid values:
+    // 
+    // - **0**: Disabled.
+    // - **1**: Enabled.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
+    // The switch ID associated with the rule.
     shared_ptr<string> switchId_ {};
   };
 

@@ -241,80 +241,75 @@ namespace Models
 
 
   protected:
-    // The ID of the chart that is included in the report. Multiple IDs are separated by commas (,).
+    // The report chart configuration IDs, separated by commas.
     shared_ptr<string> chartIds_ {};
-    // The grouping type. Valid values:
-    // 
-    // *   **ALIYUN_RG**
-    // *   **SAS_GROUP**
+    // The group type. Valid values:
+    // - **ALIYUN_RG**: ALIYUN_RG.
+    // - **SAS_GROUP**: SAS_GROUP.
     shared_ptr<string> groupType_ {};
-    // Indicates whether the report is the default report. Valid values:
-    // 
-    // *   **0**: no.
-    // *   **1**: yes.
+    // Indicates whether the report is a default report. Valid values:
+    // - **0**: Not a default report.
+    // - **1**: A default report.
     shared_ptr<int32_t> isDefault_ {};
-    // Whether the new account is connected by default. Values:
-    // - **true**: Yes.
-    // - **false**: No.
-    // > Only supported in version 2.0.0.
+    // Specifies whether newly added accounts are included by default. Valid values:
+    // 
+    // - **true**: Included.
+    // - **false**: Not included.
+    // > Only version 2.0.0 supports this parameter.
     shared_ptr<bool> memberAccountSyncFlag_ {};
-    // The time when the report is pinned.
+    // The pinned time.
     shared_ptr<int64_t> pinnedTime_ {};
-    // The email address of the recipient. Multiple email addresses are separated by commas (,).
+    // The recipient email addresses, separated by commas.
     shared_ptr<string> recipients_ {};
-    // The most recent days for report statistics.
+    // The number of recent days covered by the report statistics.
     shared_ptr<int32_t> reportDays_ {};
-    // The end date on which the report is sent.
+    // The end date for report delivery.
     shared_ptr<string> reportEndDate_ {};
-    // The ID of the report.
+    // The report ID.
     shared_ptr<int64_t> reportId_ {};
-    // The language of the report. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> reportLang_ {};
-    // The time range in which the report is sent. Valid values:
-    // 
-    // *   **1**: 00:00 to 06:00.
-    // *   **2**: 06:00 to 12:00.
-    // *   **3**: 12:00 to 18:00.
-    // *   **4**: 18:00 to 24:00.
+    // The report delivery time range. Valid values:
+    // - **1**: 0:00 to 6:00.
+    // - **2**: 6:00 to 12:00.
+    // - **3**: 12:00 to 18:00.
+    // - **4**: 18:00 to 24:00.
     shared_ptr<string> reportSendType_ {};
-    // The start date on which the report is sent.
+    // The start date for report delivery.
     shared_ptr<string> reportStartDate_ {};
-    // The status of the report. Valid values:
-    // 
-    // *   **0**: disabled.
-    // *   **1**: enabled.
+    // The report status. Valid values:
+    //  - **0**: Disabled.
+    //  - **1**: Enabled.
     shared_ptr<string> reportStatus_ {};
-    // The type of the report. Valid values:
+    // The report type. Valid values:
     // 
-    // *   **0**: daily report.
-    // *   **1**: weekly report.
-    // *   **2**: monthly report.
-    // *   **3**: report whose statistics are collected in a custom time range.
+    // - **0**: Daily report.
+    // - **1**: Weekly report.
+    // - **2**: Monthly report.
+    // - **3**: Custom period.
     shared_ptr<string> reportType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The end time at which the report is sent. The value is in the HH:mm:ss format.
+    // The delivery end time, in the format of HH:mm:ss.
     shared_ptr<string> sendEndTime_ {};
-    // The exact day within the sending period.
+    // The specific execution dates within the delivery period.
     shared_ptr<int32_t> sendPeriodDays_ {};
-    // The interval at which the report is sent. Valid values:
-    // 
-    // *   **DAY**
-    // *   **WEEK**
-    // *   **MONTH**
+    // The delivery period type. Valid values:
+    // - **DAY**: day.
+    // - **WEEK**: week.
+    // - **MONTH**: month.
     shared_ptr<string> sendPeriodType_ {};
-    // The start time at which the report is sent. The value is in the HH:mm:ss format.
+    // The delivery start time, in the format of HH:mm:ss.
     shared_ptr<string> sendStartTime_ {};
-    // The time at which the report is sent. The value is in the HH:mm:ss format.
+    // The delivery time, in the format of HH:mm:ss.
     shared_ptr<string> sendTime_ {};
-    // The groups.
+    // The targets within the group.
     shared_ptr<string> targetGroups_ {};
-    // The ID of the Alibaba Cloud account. Multiple IDs are separated by commas (,).
+    // The list of target UIDs, separated by commas.
     shared_ptr<string> targetUids_ {};
-    // The title of the report.
+    // The title.
     shared_ptr<string> title_ {};
   };
 

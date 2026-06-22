@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of rules.
+    // The list of policy IDs.
     shared_ptr<vector<int64_t>> strategyIds_ {};
   };
 

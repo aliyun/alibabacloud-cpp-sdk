@@ -84,29 +84,25 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**.
+    // The page number of the current page in a paged query. Default value: **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page.\\
-    // Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page for a paged query. The maximum value of PageSize is 100. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+    // > Do not leave PageSize empty.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The AccessKey ID that you want to query. Only exact match is supported.
     shared_ptr<string> query_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+    // The ID of the member account in the resource directory (Alibaba Cloud account).
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The beginning of the time range to query. You can query all AccessKey pair leaks that are detected later than this time point. The value of this parameter is a UNIX timestamp. Unit: milliseconds.
+    // The discovery time of the leaked information that you want to query. All AccessKey leak information discovered after this point in time is returned. This parameter is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startTs_ {};
-    // Specifies whether an AccessKey pair leak is handled. Valid values:
-    // 
-    // *   **pending**: unhandled
-    // *   **dealed**: handled
+    // The processing status of the leaked AccessKey information that you want to query. Valid values:
+    // - **pending**: unprocessed
+    // - **dealed**: processed.
     shared_ptr<string> status_ {};
   };
 

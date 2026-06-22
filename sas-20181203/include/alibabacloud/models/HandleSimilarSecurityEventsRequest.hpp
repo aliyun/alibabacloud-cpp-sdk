@@ -94,41 +94,36 @@ namespace Models
 
 
   protected:
-    // The whitelist rule. For example, if you want to add a file that contains the string a to the whitelist based on the MD5 hash value, set this parameter to {"field":"md5","operate":"contains","fieldValue":"aa"}.
+    // The rule for adding items to the whitelist. For example, to add a whitelist rule based on file MD5 where the file contains the string "a", set this parameter to {"field":"md5","operate":"contains","fieldValue":"aa"}.
     shared_ptr<string> markMissParam_ {};
-    // The operation that you want to perform to handle the alert events.
-    // 
-    // >  You can call the [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) operation to query the operations.
+    // The type of operation for batch processing alert events of the same type.
+    // >Call the [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> operationCode_ {};
-    // The configuration of the operation that you want to perform to handle the alert events. The value of this parameter is in the JSON format.
+    // The configuration of the sub-operation for handling alerting events. The value is in JSON format.
     // 
-    // >  If you set **OperationCode** to **kill_and_quara**, **block_ip**, or **virus_quara**, you must specify OperationParams. If you set **OperationCode** to other values, you can leave OperationParams empty. If you set **OperationCode** to **block_ip**, the value of OperationParams must consist of the following fields:
+    // > This parameter is required when **OperationCode** is set to **kill_and_quara**, **block_ip**, or **virus_quara**. For other values of **OperationCode**, this parameter can be left empty.
     // 
-    // > *   **expireTime**: the end time of locking. Unit: milliseconds.
-    // 
-    // >  If you set **OperationCode** to **kill_and_quara**, the value of OperationParams must consist of the following fields:
-    // 
-    // > *   **subOperation**: the method of detection and removal. Valid values:
-    // 
-    // >     *   **killAndQuaraFileByMd5andPath**: terminates the process and quarantines the source file of the process.
-    // >     *   **killByMd5andPath**: terminates the running process.
-    // 
-    // >  If you set **OperationCode** to **virus_quara**, the value of OperationParams consists of the following fields:
-    // 
-    // > *   **subOperation**: the method of detection and removal. Valid values:
-    // 
-    // >     *   **quaraFileByMd5andPath**: quarantines the source file of the process.
+    // > When **OperationCode** is set to **block_ip**, the following field is included:
+    // > - **expireTime**: the lock expiration time. Unit: milliseconds.
+    // >
+    // > When **OperationCode** is set to **kill_and_quara**, the following field is included:
+    // > - **subOperation**: the method used to scan and remove threats. Valid values:
+    // >     - **killAndQuaraFileByMd5andPath**: terminates the process and moves the file to the quarantined file.
+    // >     - **killByMd5andPath**: terminates the running process.
+    // >
+    // > When **OperationCode** is set to **virus_quara**, the following field is included:
+    // > - **subOperation**: the method used to scan and remove threats. Valid values:
+    // >    - **quaraFileByMd5andPath**: moves the source file of the process to the quarantined file.
     shared_ptr<string> operationParams_ {};
-    // The remark of the operation.
+    // The remarks for the operation.
     shared_ptr<string> remark_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The ID of the task that handles the alert events at a time.
-    // 
-    // >  You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to query the IDs of tasks.
+    // The ID of the task that batch processes all alert events of the same type.
+    // >Call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};

@@ -38,10 +38,9 @@ namespace Models
 
 
   protected:
-    // The type of the container asset whose statistics you want to refresh. Valid values:
-    // 
-    // *   **IMAGE**
-    // *   **CONTAINER**
+    // The Asset Type of the container asset to refresh. Valid values:
+    // - **IMAGE**: container image.
+    // - **CONTAINER**: container.
     // 
     // This parameter is required.
     shared_ptr<string> assetType_ {};

@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The version to which you want to upgrade the client.
+    // The target version to which you want to upgrade.
     // 
     // This parameter is required.
     shared_ptr<string> upgradeVersion_ {};
-    // The UUIDs of the assets on which you want to run the detection task.
+    // The list of UUIDs of the assets to be checked.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> uuidList_ {};

@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The remarks.
+    // The remarks of the proxy cluster.
     // 
     // This parameter is required.
     shared_ptr<string> remark_ {};

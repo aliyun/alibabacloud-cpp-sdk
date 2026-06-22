@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The ID of the remarks.
-    // 
-    // >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID from the NoteId parameter.
+    // The ID of the note record.
+    // >Call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain this parameter from the NoteId field.
     shared_ptr<int64_t> noteId_ {};
   };
 

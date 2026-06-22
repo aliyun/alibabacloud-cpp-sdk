@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -303,56 +303,54 @@ namespace Models
 
 
     protected:
-      // The IP address blacklist.
+      // The blacklist.
       shared_ptr<string> blackList_ {};
-      // The domain name of the image repository.
+      // The domain name of the repository.
       shared_ptr<string> domainName_ {};
-      // The time when the image repository was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The creation time, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the image repository was updated. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The update time, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the image repository.
+      // The unique ID of the image repository.
       shared_ptr<int64_t> id_ {};
-      // The number of images that are stored in the image repository.
+      // The number of images in the repository.
       shared_ptr<int32_t> imageCount_ {};
-      // The information about the Jenkins environment.
+      // The Jenkins environment context.
       shared_ptr<string> jenkinsEnv_ {};
       // The network type. Valid values:
-      // 
-      // *   **1**: Internet.
-      // *   **2**: virtual private cloud (VPC).
+      // - **1**: public network
+      // - **2**: VPC.
       shared_ptr<int32_t> netType_ {};
       // The password.
       shared_ptr<string> password_ {};
-      // The number of days for which assets are retained.
+      // The number of days that assets are retained.
       shared_ptr<int32_t> persistenceDay_ {};
-      // The type of the protocol. Valid values:
-      // 
-      // *   **1**: HTTP.
-      // *   **2**: HTTPS.
+      // The protocol type. Valid values:
+      // - **1**: HTTP
+      // - **2**: HTTPS.
       shared_ptr<int32_t> protocolType_ {};
-      // The region ID of the image repository.
+      // The region ID of the repository.
       shared_ptr<string> regionId_ {};
-      // The IP address of the image repository.
+      // The IP address of the repository.
       shared_ptr<string> registryHostIp_ {};
       // The alias of the image repository.
       shared_ptr<string> registryName_ {};
-      // The type of the image repository. Valid values:
+      // The image repository type. Valid values:
       // 
-      // *   **acr**: Container Registry.
-      // *   **harbor**: Harbor.
-      // *   **quay**: Quay.
-      // *   **CI/CD**: Jenkins.
+      // - **acr**: ACR
+      // - **harbor**: Harbor
+      // - **quay**: Quay
+      // - **CI/CD**: Jenkins.
       shared_ptr<string> registryType_ {};
       // The authentication token of the user.
       shared_ptr<string> token_ {};
-      // The number of scan tasks that are performed per hour.
+      // The number of scan tasks per hour.
       shared_ptr<int32_t> transPerHour_ {};
       // The username.
       shared_ptr<string> userName_ {};
-      // The VPC ID.
+      // The instance ID of the VPC.
       shared_ptr<string> vpcId_ {};
-      // The IP address whitelist.
+      // The whitelist.
       shared_ptr<string> whiteList_ {};
     };
 
@@ -384,11 +382,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of image repositories.
+    // The image repository list data.
     shared_ptr<vector<PageImageRegistryResponseBody::List>> list_ {};
-    // The pagination information.
+    // The pagination information for the paged query.
     shared_ptr<PageImageRegistryResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

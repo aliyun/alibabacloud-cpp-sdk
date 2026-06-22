@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The MD5 hash of the process file.
       shared_ptr<string> md5_ {};
+      // The path to the process executable.
       shared_ptr<string> processPath_ {};
+      // A remark for the process.
       shared_ptr<string> remark_ {};
+      // The SHA-256 hash of the process file.
       shared_ptr<string> sha256_ {};
     };
 
@@ -126,8 +130,11 @@ namespace Models
 
 
   protected:
+    // A list of associated event IDs.
     shared_ptr<vector<int64_t>> eventIdList_ {};
+    // The list of processes to add.
     shared_ptr<vector<AddUnknownThreatDetectProcessRequest::ProcessList>> processList_ {};
+    // The UUIDs of assets on which the processes are located.
     shared_ptr<vector<string>> uuidList_ {};
   };
 

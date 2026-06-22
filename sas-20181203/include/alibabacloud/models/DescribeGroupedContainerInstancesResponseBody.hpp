@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of container assets returned on the current page.
+      // The number of container assets displayed on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **20**.
+      // The number of container assets displayed on each page in a paging query. Default value: **20**, which indicates that 20 container assets are displayed on each page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of container assets returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -368,33 +368,31 @@ namespace Models
 
 
     protected:
-      // The number of alerts that are detected for the current pod, application, namespace, or cluster.
+      // The number of alerts detected in the current pod, application, namespace, or cluster.
       shared_ptr<int32_t> alarmCount_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
       // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
       // The name of the cluster.
       shared_ptr<string> clusterName_ {};
       // The type of the cluster. Valid values:
-      // 
-      // *   **Kubernetes**: dedicated Kubernetes cluster.
-      // *   **ManagedKubernetes**: standard managed cluster (edge cluster).
-      // *   **Ask**: serverless Kubernetes (ASK) cluster.
+      // - **Kubernetes**: dedicated Kubernetes cluster
+      // - **ManagedKubernetes**: standard managed cluster (edge cluster)
+      // - **Ask**: standard serverless cluster.
       shared_ptr<string> clusterType_ {};
-      // The timestamp when the cluster was created. Unit: milliseconds.
+      // The timestamp when the cluster was created, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The status of the cluster. Valid values:
-      // 
-      // *   **running**: The cluster is running.
-      // *   **stopped**: The cluster is stopped.
-      // *   **deleted**: The cluster is deleted.
-      // *   **delete_failed**: The cluster failed to be deleted.
-      // *   **failed**: The cluster failed to be created.
+      // The running status of the cluster. Valid values:
+      // - **running**: The cluster is running.
+      // - **stopped**: The cluster is stopped.
+      // - **deleted**: The cluster is deleted.
+      // - **delete_failed**: The cluster failed to be deleted.
+      // - **failed**: The cluster failed to be created.
       shared_ptr<string> custerState_ {};
-      // The number of baseline risks that are detected for the current pod, application, namespace, or cluster.
+      // The total number of baseline checks detected in the current pod, application, namespace, or cluster.
       shared_ptr<int32_t> hcCount_ {};
-      // The IP address of the host in the container cluster.
+      // The host IP address of the container cluster.
       shared_ptr<string> hostIp_ {};
       // The container image.
       shared_ptr<string> image_ {};
@@ -404,46 +402,43 @@ namespace Models
       shared_ptr<string> imageRepoName_ {};
       // The namespace of the image repository.
       shared_ptr<string> imageRepoNamespace_ {};
-      // The tag that is added to the image repository.
+      // The tag of the image repository.
       shared_ptr<string> imageRepoTag_ {};
       // The UUID of the image.
       shared_ptr<string> imageUuid_ {};
-      // The number of pods, applications, clusters, or namespaces.
+      // The number of pods, applications, clusters, or namespaces returned.
       shared_ptr<int32_t> instanceCount_ {};
-      // The ID of the server.
+      // The ID of the server instance.
       shared_ptr<string> instanceId_ {};
       // The namespace of the cluster.
       shared_ptr<string> namespace_ {};
-      // The name of the pod.
+      // The pod name.
       shared_ptr<string> pod_ {};
       // The IP address of the pod.
       shared_ptr<string> podIp_ {};
-      // The region ID of the instance.
+      // The ID of the region in which the instance resides.
       shared_ptr<string> regionId_ {};
-      // The number of at-risk instances.
+      // The number of instances that are at risk.
       shared_ptr<int32_t> riskInstanceCount_ {};
       // The risk level. Valid values:
       // 
-      // *   **high**
-      // *   **medium**
-      // *   **low**
+      // - **high**: high
+      // - **medium**: medium
+      // - **low**: low.
       shared_ptr<string> riskLevel_ {};
-      // Indicates whether risks were detected. Valid values:
-      // 
-      // *   **NO**
-      // *   **YES**
+      // The risk status. Valid values:
+      // - **NO**: No risk.
+      // - **YES**: At risk.
       shared_ptr<string> riskStatus_ {};
-      // Indicates whether the synchronization of cluster audit logs is enabled. Valid values:
-      // 
-      // *   **0**: disabled.
-      // *   **1**: enabled.
+      // The log audit synchronization switch for the cluster. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled.
       shared_ptr<int32_t> syncOpen_ {};
-      // The status of the synchronization of cluster audit logs. Valid values:
-      // 
-      // *   **0**: The synchronization failed.
-      // *   **1**: The synchronization is successful.
+      // The log audit synchronization status for the cluster. Valid values:
+      // - **0**: synchronization failed
+      // - **1**: synchronization succeeded.
       shared_ptr<int32_t> syncStatus_ {};
-      // The number of vulnerabilities that are detected for the current pod, application, namespace, or cluster.
+      // The number of vulnerabilities detected in the current pod, application, namespace, or cluster.
       shared_ptr<int32_t> vulCount_ {};
     };
 
@@ -475,11 +470,11 @@ namespace Models
 
 
   protected:
-    // The information about the container.
+    // The list of container asset information returned.
     shared_ptr<vector<DescribeGroupedContainerInstancesResponseBody::GroupedContainerInstanceList>> groupedContainerInstanceList_ {};
     // The pagination information.
     shared_ptr<DescribeGroupedContainerInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

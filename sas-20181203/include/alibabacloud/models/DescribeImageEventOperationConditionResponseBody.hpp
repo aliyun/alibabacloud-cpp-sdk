@@ -133,14 +133,13 @@ namespace Models
 
 
         protected:
-          // The keyword of the condition. Valid values:
-          // 
-          // *   **MD5**
-          // *   **PATH**
+          // The condition key. Valid values:
+          // - **MD5**: MD5.
+          // - **PATH**: path.
           shared_ptr<string> conditionKey_ {};
-          // The name of the condition.
+          // The condition name.
           shared_ptr<string> conditionName_ {};
-          // The matching types.
+          // The match type.
           shared_ptr<vector<string>> supportedMisType_ {};
         };
 
@@ -172,11 +171,10 @@ namespace Models
       protected:
         // The rule conditions.
         shared_ptr<vector<Operations::Conditions>> conditions_ {};
-        // The operation code.
-        // 
-        // *   Only **whitelist** may be returned, which indicates that the alert event is added to the whitelist.
+        // The operation code. Valid values:
+        // - **whitelist**: whitelist.
         shared_ptr<string> operationCode_ {};
-        // The name of the operation.
+        // The operation name.
         shared_ptr<string> operationName_ {};
       };
 
@@ -208,13 +206,12 @@ namespace Models
 
 
     protected:
-      // The alert type.
-      // 
-      // *   Only **sensitiveFile** may be returned.
+      // The alerting type. Valid values:
+      // - **sensitiveFile**: sensitive file.
       shared_ptr<string> eventType_ {};
-      // The operations.
+      // The list of operations.
       shared_ptr<vector<Data::Operations>> operations_ {};
-      // The application scopes of the rules.
+      // The rule scope.
       shared_ptr<vector<string>> scenarios_ {};
     };
 
@@ -258,7 +255,7 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code of the call.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeImageEventOperationConditionResponseBody::Data> data_ {};
@@ -266,10 +263,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

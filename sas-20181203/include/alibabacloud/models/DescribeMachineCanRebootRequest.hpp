@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The type of the vulnerabilities. Valid values:
-    // 
-    // *   cve: Linux software vulnerabilities
-    // *   sys: Windows system vulnerabilities
+    // The type of vulnerability that requires a restart to fix. Valid values:
+    // - cve: Linux software vulnerability
+    // - sys: Windows system vulnerability.
     shared_ptr<string> type_ {};
-    // The UUID of the server.
+    // The UUID of the server to restart.
     shared_ptr<string> uuid_ {};
   };
 

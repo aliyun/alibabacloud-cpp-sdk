@@ -183,8 +183,9 @@ namespace Models
     protected:
       // Indicates whether a honeypot is allowed to access the Internet. Valid values:
       // 
-      // *   **true**: The honeypot is allowed to access the Internet.
-      // *   **false**: The honeypot is not allowed to access the Internet.
+      // - **true**: The honeypot is allowed to access the Internet.
+      // 
+      // - **false**: The honeypot is not allowed to access the Internet.
       shared_ptr<bool> allowHoneypotAccessInternet_ {};
       // The time when the management node was created.
       shared_ptr<string> createTime_ {};
@@ -208,16 +209,21 @@ namespace Models
       shared_ptr<vector<string>> securityGroupProbeIpList_ {};
       // The status of the management node. Valid values:
       // 
-      // *   **0**: preparing
-      // *   **1**: normal
-      // *   **2**: abnormal
-      // *   **4**: starting
-      // *   **5**: upgrading
+      // - **0**: preparing
+      // 
+      // - **1**: normal
+      // 
+      // - **2**: abnormal
+      // 
+      // - **4**: starting
+      // 
+      // - **5**: upgrading
       shared_ptr<int32_t> totalStatus_ {};
       // Indicates whether the management node can be upgraded. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes
+      // 
+      // - **false**: no
       shared_ptr<bool> upgradeAvailable_ {};
     };
 
@@ -280,8 +286,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

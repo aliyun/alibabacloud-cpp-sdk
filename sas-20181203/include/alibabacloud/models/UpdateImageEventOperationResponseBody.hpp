@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the alert handling rule, which is the same as the value of the Id request parameter.
+      // The ID of the alert handling rule, which is the same as the alert handling rule ID in the request parameters.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -109,18 +109,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code returned by the API request.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<UpdateImageEventOperationResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // The status of the request response. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

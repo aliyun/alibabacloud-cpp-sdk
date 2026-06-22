@@ -84,14 +84,14 @@ namespace Models
 
 
   protected:
-    // Set which page of the returned results to start displaying the query results. The default value is **1**, indicating that the display starts from the first page.
+    // The page number of the page to return. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the anti-brute force rule.
-    // > You can obtain this parameter by calling the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) interface.
+    // The ID of the brute-force attacks prevention rule.
+    // >You can invoke the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) operation to obtain this parameter.
     shared_ptr<int64_t> id_ {};
-    // The name of the brute force rule.
+    // The name of the brute-force attacks prevention rule.
     shared_ptr<string> name_ {};
-    // The maximum number of data entries displayed per page during a paginated query.
+    // The maximum number of entries to return on each page in a paged query. This parameter is used for paging.
     shared_ptr<string> pageSize_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The IP address of the access source.

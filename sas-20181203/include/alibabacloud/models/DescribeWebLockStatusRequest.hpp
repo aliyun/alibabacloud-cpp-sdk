@@ -57,14 +57,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request source. Set the value to sas.
+    // The identifier of the request source. Set this parameter to sas.
     shared_ptr<string> from_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

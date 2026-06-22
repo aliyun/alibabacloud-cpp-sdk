@@ -48,15 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the chart that is included in the report. Separate multiple IDs with commas (,).
-    // 
-    // >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID.
+    // The IDs of report chart configurations. Separate multiple IDs with commas (,).
+    // >Call [DescribeChartList](~~DescribeChartList~~) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> chartIds_ {};
-    // The ID of the report.
-    // 
-    // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+    // The report ID.
+    // >Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> reportId_ {};

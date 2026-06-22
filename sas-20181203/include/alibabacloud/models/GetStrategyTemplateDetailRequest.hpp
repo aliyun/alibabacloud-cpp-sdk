@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The ID of the template.
-    // 
-    // >  You can call the [GetOpaStrategyTemplateSummary](~~GetOpaStrategyTemplateSummary~~) operation to query the IDs of templates.
+    // The ID of the rule template.
+    // >You can call the [GetOpaStrategyTemplateSummary](~~GetOpaStrategyTemplateSummary~~) operation to obtain this parameter.
     shared_ptr<int64_t> strategyId_ {};
   };
 

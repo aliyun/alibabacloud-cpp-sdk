@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The number of high-risk items.
+      // The number of high-risk check items.
       shared_ptr<int32_t> highWarningCount_ {};
-      // The number of low-risk items.
+      // The number of low-risk check items.
       shared_ptr<int32_t> lowWarningCount_ {};
-      // The number of medium-risk items.
+      // The number of medium-risk check items.
       shared_ptr<int32_t> mediumWarningCount_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The statistics on risk items by risk level.
+    // The baseline check statistics grouped by risk level (high, medium, and low).
     shared_ptr<GetClusterCheckItemWarningStatisticsResponseBody::Data> data_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

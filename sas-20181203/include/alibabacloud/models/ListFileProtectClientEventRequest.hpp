@@ -170,20 +170,45 @@ namespace Models
 
 
   protected:
+    // The list of alert notification levels.
     shared_ptr<vector<int32_t>> alertLevels_ {};
+    // The page number of the current page when paging is used in a paged query.
     shared_ptr<int32_t> currentPage_ {};
+    // The end timestamp.
     shared_ptr<int64_t> endTime_ {};
+    // The file path.
     shared_ptr<string> filePath_ {};
+    // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
+    // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
+    // The public IP address.
     shared_ptr<string> internetIp_ {};
+    // The private IP address.
     shared_ptr<string> intranetIp_ {};
+    // The type of operation performed on the file. Valid values:
+    // 
+    // - **DELETE**: deletes the file.
+    // - **WRITE**: writes to the file.
+    // - **READ**: reads the file.
+    // - **RENAME**: renames the file.
+    // - **CHOWN**: changes the file owner and associated group.
     shared_ptr<string> operation_ {};
+    // The maximum number of entries per page when paging is used in a paged query.
     shared_ptr<int32_t> pageSize_ {};
+    // The process path.
     shared_ptr<string> procPath_ {};
+    // The name of the configuration rule.
     shared_ptr<string> ruleName_ {};
+    // The start time.
     shared_ptr<int64_t> startTime_ {};
+    // The event status. Valid values:
+    // - **0**: Unhandled.
+    // - **1**: Handled.
+    // - **2**: Whitelisted.
     shared_ptr<string> status_ {};
+    // The UUID of the server to query.
+    // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     shared_ptr<string> uuid_ {};
   };
 

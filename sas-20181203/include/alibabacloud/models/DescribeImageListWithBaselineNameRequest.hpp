@@ -189,39 +189,38 @@ namespace Models
 
 
   protected:
-    // The name of the image baseline.
+    // The name of the image baseline check result.
     // 
     // This parameter is required.
     shared_ptr<string> baselineNameKey_ {};
-    // The ID of the container cluster.
-    // 
-    // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+    // The ID of the container cluster to query.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The name of the cluster.
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The ID of the container.
+    // The container ID.
     shared_ptr<string> containerId_ {};
-    // The search condition for the image baseline.
+    // The query condition for the baseline.
     shared_ptr<string> criteria_ {};
-    // The type of the search condition. Valid values:
+    // The query type for the baseline. Valid values:
     // 
-    // *   **BaselineNameAlias**: baseline name
-    // *   **BaselineClassAlias**: baseline category
+    // - **BaselineNameAlias**: baseline name
+    // - **BaselineClassAlias**: baseline category.
     shared_ptr<string> criteriaType_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the image to which the container belongs.
+    // The container image name.
     shared_ptr<string> image_ {};
-    // The SHA-256 value of the image digest.
+    // The SHA256 value of the image digest.
     shared_ptr<string> imageDigest_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // Settings for paged query paging. The number of image baseline check result details to display per page. Default value: **10**, which indicates that 10 image baseline check result details are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     // The pod.
     shared_ptr<string> pod_ {};
@@ -229,9 +228,9 @@ namespace Models
     shared_ptr<string> repoInstanceId_ {};
     // The name of the image repository.
     shared_ptr<string> repoName_ {};
-    // The namespace to which the image repository belongs.
+    // The namespace of the image repository.
     shared_ptr<string> repoNamespace_ {};
-    // The types of the assets that you want to scan.
+    // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
   };
 

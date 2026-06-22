@@ -148,11 +148,11 @@ namespace Models
 
 
       protected:
-        // The type of the vulnerability.
+        // The classification of the vulnerability.
         shared_ptr<string> classify_ {};
-        // The URL of the demo video for the vulnerability.
+        // The URL of the vulnerability demo video.
         shared_ptr<string> demoVideoUrl_ {};
-        // The description of the vulnerability type.
+        // The description of the vulnerability classification.
         shared_ptr<string> description_ {};
       };
 
@@ -347,76 +347,71 @@ namespace Models
 
 
     protected:
-      // The type of the vulnerability.
+      // The classification of the vulnerability.
       shared_ptr<string> classify_ {};
-      // The vulnerability types.
+      // The list of vulnerability classifications.
       shared_ptr<vector<Cves::Classifys>> classifys_ {};
       // The China National Vulnerability Database (CNVD) ID.
       shared_ptr<string> cnvdId_ {};
-      // The difficulty level of exploiting the vulnerability. Valid values:
+      // The difficulty of exploiting the vulnerability. Valid values:
       // 
-      // *   **LOW**
-      // *   **MEDIUM**
-      // *   **HIGH**
+      // - **LOW**: low
+      // - **MEDIUM**: medium
+      // - **HIGH**: high.
       shared_ptr<string> complexity_ {};
-      // The CVE content.
+      // The content of the CVE.
       shared_ptr<string> content_ {};
-      // The Common Vulnerabilities and Exposures (CVE) ID.
+      // The CVE ID.
       shared_ptr<string> cveId_ {};
-      // The link to the CVE details.
+      // The link to the CVE vulnerability details.
       shared_ptr<string> cveLink_ {};
-      // The Common Vulnerability Scoring System (CVSS) score of the vulnerability in the Alibaba Cloud vulnerability library.
+      // The CVSS score of the vulnerability in the Alibaba Cloud vulnerability database.
       shared_ptr<string> cvssScore_ {};
-      // The vector that is used to calculate the CVSS score.
+      // The CVSS score vector.
       shared_ptr<string> cvssVector_ {};
-      // The name of the instance.
-      // 
-      // >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+      // The name of the server instance.
+      // > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
-      // 
-      // >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+      // > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
-      // 
-      // >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+      // > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
       shared_ptr<string> intranetIp_ {};
-      // The ID of the vulnerability.
+      // The vulnerability ID.
       shared_ptr<string> otherId_ {};
-      // The POC content.
+      // The content of the POC.
       shared_ptr<string> poc_ {};
-      // The UNIX timestamp when the proof of concept (POC) was created. Unit: milliseconds.
+      // The timestamp when the proof of concept (POC) was created. Unit: milliseconds.
       shared_ptr<int64_t> pocCreateTime_ {};
-      // The UNIX timestamp when the POC was disclosed. Unit: milliseconds.
+      // The timestamp when the POC was disclosed. Unit: milliseconds.
       shared_ptr<int64_t> pocDisclosureTime_ {};
-      // The service that is affected by the vulnerability.
+      // The product affected by the vulnerability.
       shared_ptr<string> product_ {};
-      // The reference of the vulnerability in the Alibaba Cloud vulnerability library. The value is a URL.
+      // The reference link for the vulnerability in the Alibaba Cloud vulnerability database.
       shared_ptr<string> reference_ {};
-      // The disclosure time that is displayed for the vulnerability in the Alibaba Cloud vulnerability library. The value is a UNIX timestamp. Unit: milliseconds.
+      // The timestamp when the vulnerability was disclosed in the Alibaba Cloud vulnerability database. Unit: milliseconds.
       shared_ptr<int64_t> releaseTime_ {};
-      // The fixing suggestions of the vulnerability.
+      // The remediation suggestion for the vulnerability.
       shared_ptr<string> solution_ {};
-      // The introduction to the vulnerability.
+      // The summary of the vulnerability.
       shared_ptr<string> summary_ {};
-      // The ID of the asset that is scanned.
-      // 
-      // >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+      // The ID of the scan target.
+      // > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
       shared_ptr<string> targetId_ {};
-      // The name of the asset that is scanned.
-      // 
-      // >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+      // The name of the scan target.
+      // > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
       shared_ptr<string> targetName_ {};
       // The title of the vulnerability announcement.
       shared_ptr<string> title_ {};
       // The vendor that disclosed the vulnerability.
       shared_ptr<string> vendor_ {};
-      // The severity of the vulnerability. Valid values:
+      // The severity level of the vulnerability. Valid values:
       // 
-      // *   **serious**
-      // *   **high**
-      // *   **medium**
-      // *   **low**
+      // - **serious**: critical
+      // - **high**: high
+      // - **medium**: medium
+      // - **low**: low.
       shared_ptr<string> vulLevel_ {};
     };
 
@@ -439,9 +434,9 @@ namespace Models
 
 
   protected:
-    // The details of the vulnerability.
+    // The list of vulnerability details.
     shared_ptr<vector<DescribeVulDetailsResponseBody::Cves>> cves_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -246,31 +246,29 @@ namespace Models
 
 
       protected:
-        // The backup paths.
+        // The backup path.
         shared_ptr<string> backupPath_ {};
-        // The prevention mode. Valid values:
-        // 
-        // *   **block**
-        // *   **audit**
+        // The action to take. Valid values:
+        // - **block**: Block.
+        // - **audit**: Alert.
         shared_ptr<string> defenseMode_ {};
-        // The protected path.
+        // The defense path.
         shared_ptr<string> defensePath_ {};
-        // The file that is excluded.
+        // The excluded file.
         shared_ptr<string> excludeFile_ {};
-        // The path to the file that is excluded.
+        // The excluded file path.
         shared_ptr<string> excludeFilePath_ {};
-        // The type of the file that is excluded.
+        // The excluded file type.
         shared_ptr<string> excludeFileType_ {};
-        // The protection mode. Valid values:
-        // 
-        // *   **0**: basic mode (whitelist)
-        // *   **1**: complex mode (blacklist)
+        // The defense mode. Valid values:
+        // - **0**: Basic pattern (whitelist).
+        // - **1**: Advanced pattern (blacklist).
         shared_ptr<int32_t> guardType_ {};
-        // The file that is included.
+        // The included file.
         shared_ptr<string> includeFile_ {};
-        // The type of the file that is included.
+        // The type of the included file.
         shared_ptr<string> includeFileType_ {};
-        // The processes that are added to the whitelist.
+        // The list of whitelisted processes.
         shared_ptr<vector<string>> processPathList_ {};
       };
 
@@ -338,22 +336,22 @@ namespace Models
     protected:
       // The user ID.
       shared_ptr<int64_t> aliUid_ {};
-      // The number of the applications.
+      // The number of configured applications.
       shared_ptr<int32_t> apptotalCount_ {};
       // The creation time. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
       // The timestamp when the alert event was last modified. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The paths that are protected.
+      // The list of rule defense paths.
       shared_ptr<vector<ContainerWebDefenseRuleList::PathConfDTOList>> pathConfDTOList_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The status of the rule. Valid values:
+      // The rule status. Valid values:
       // 
-      // *   **1**: enabled
-      // *   **0**: disabled
+      // - **1**: Enabled.
+      // - **0**: Disabled.
       shared_ptr<int32_t> ruleStatus_ {};
     };
 
@@ -385,11 +383,11 @@ namespace Models
 
 
   protected:
-    // The rules for container tamper-proofing.
+    // The list of container file defense rules.
     shared_ptr<vector<ListSasContainerWebDefenseRuleResponseBody::ContainerWebDefenseRuleList>> containerWebDefenseRuleList_ {};
-    // The pagination information.
+    // The pagination information of the query result.
     shared_ptr<ListSasContainerWebDefenseRuleResponseBody::PageInfo> pageInfo_ {};
-    // The request ID, which is used to query logs and troubleshoot issues.
+    // The request ID. It is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

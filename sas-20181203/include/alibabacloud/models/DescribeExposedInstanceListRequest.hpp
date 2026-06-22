@@ -158,53 +158,52 @@ namespace Models
 
 
   protected:
-    // The type of the asset. Valid values:
+    // The asset type. Valid values:
     // 
-    // *   **0**: an Elastic Compute Service (ECS) instance.
-    // *   **3**: an ApsaraDB RDS instance.
-    // *   **4**: an ApsaraDB for MongoDB instance.
-    // *   **5**: an ApsaraDB for Redis instance.
+    // - **0**: ECS
+    // 
+    // - **3**: RDS
+    // 
+    // - **4**: MONGODB
+    // 
+    // - **5**: RDS-Redis.
     shared_ptr<string> assetType_ {};
-    // Specifies whether the asset has Cloud Security Posture Management (CSPM) risks. Valid values:
+    // Specifies whether the asset that you want to query has Cloud Security Posture Management (CSPM) risks. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The asset has CSPM risks.
+    // - **false**: The asset does not have CSPM risks.
     shared_ptr<bool> cspmStatus_ {};
-    // The number of the page to return.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The server component that is exposed on the Internet.
+    // The name of the system component exposed on the Internet that you want to query.
     shared_ptr<string> exposureComponent_ {};
-    // Expose component type.
+    // The type of the exposed component.
     shared_ptr<string> exposureComponentBizType_ {};
-    // The public IP address of the server or the public endpoint of the database.
+    // The public IP address of the server type or the public network connection address of the database type that you want to query.
     shared_ptr<string> exposureIp_ {};
-    // The port that is exposed on the Internet.
+    // The exposed port that you want to query.
     shared_ptr<string> exposurePort_ {};
-    // The ID of the server group.
-    // 
-    // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+    // The ID of the server group that you want to query.
+    // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query server group IDs.
     shared_ptr<int64_t> groupId_ {};
-    // Specifies whether the asset has weak password risks. Valid values:
+    // Specifies whether the asset that you want to query has baseline weak password risks. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The asset has baseline weak password risks.
+    // - **false**: The asset does not have baseline weak password risks.
     shared_ptr<bool> healthStatus_ {};
-    // The instance ID of the asset.
+    // The instance ID of the asset that you want to query.
     shared_ptr<string> instanceId_ {};
-    // The name of the asset.
+    // The name of the asset that you want to query.
     shared_ptr<string> instanceName_ {};
-    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // Specifies whether the asset has vulnerabilities. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Specifies whether the asset that you want to query has vulnerabilities. Valid values:
+    // - **true**: The asset has vulnerabilities.
+    // - **false**: The asset does not have vulnerabilities.
     shared_ptr<bool> vulStatus_ {};
   };
 

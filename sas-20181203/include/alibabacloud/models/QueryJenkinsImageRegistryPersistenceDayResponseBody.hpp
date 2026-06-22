@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The retention period. Unit: days.
+    // The repository retention duration. Unit: days.
     shared_ptr<int32_t> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The time consumed. Unit: seconds.
+    // The time consumed for the execution. Unit: seconds.
     shared_ptr<int64_t> timeCost_ {};
   };
 

@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The total number of web tamper-proofing licenses.
       shared_ptr<string> authTotal_ {};
+      // The number of bound tamper-proofing licenses.
       shared_ptr<int32_t> bindCount_ {};
+      // The total number of web tamper-proofing rules.
       shared_ptr<int32_t> protectedDirectoriesCount_ {};
+      // The total number of online web tamper-proofing clients.
       shared_ptr<int32_t> protectedInstancesCount_ {};
     };
 
@@ -112,6 +116,7 @@ namespace Models
 
 
   protected:
+    // The data returned when the API call is successful.
     shared_ptr<GetFileProtectClientRuleDashboardResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

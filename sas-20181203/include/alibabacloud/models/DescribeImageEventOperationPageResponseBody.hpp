@@ -106,9 +106,9 @@ namespace Models
 
 
       protected:
-        // The page number.
+        // The number of the page to return in a paged query.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // The maximum number of entries to return on each page in a paged query.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of entries returned.
         shared_ptr<int32_t> totalCount_ {};
@@ -216,37 +216,32 @@ namespace Models
 
 
       protected:
-        // The rule conditions. The value is in the JSON format. Valid values of keys:
-        // 
-        // *   **condition**: the matching condition.
-        // *   **type**: the matching type.
-        // *   **value**: the matching value.
+        // The rule conditions in JSON format. Valid keys:
+        // - **condition**: the matching condition.
+        // - **type**: the matching type.
+        // - **value**: the matching value.
         shared_ptr<string> conditions_ {};
-        // The keyword of the alert item.
+        // The keyword of the alert metric.
         shared_ptr<string> eventKey_ {};
-        // The name of the alert item.
+        // The name of the alert metric.
         shared_ptr<string> eventName_ {};
-        // The alert type.
-        // 
-        // *   Only **sensitiveFile** may be returned.
+        // The alerting type. Valid values:
+        // - **sensitiveFile**: sensitive file tampering.
         shared_ptr<string> eventType_ {};
         // The primary key of the alert handling rule.
         shared_ptr<int64_t> id_ {};
         // The remarks.
         shared_ptr<string> note_ {};
-        // The operation code.
-        // 
-        // *   Only **whitelist** may be returned, which means that the alert item is added to the whitelist.
+        // The operation code. Valid values:
+        // - **whitelist**: whitelist.
         shared_ptr<string> operationCode_ {};
-        // The application scope of the rule. The value is in the JSON format. Valid values of keys:
-        // 
-        // *   **type**
-        // *   **value**
+        // The rule scope in JSON format. Valid keys:
+        // - **type**: the scope type.
+        // - **value**: the scope value.
         shared_ptr<string> scenarios_ {};
-        // The source of the whitelist. Valid values:
-        // 
-        // *   **image**: image.
-        // *   **agentless**: agentless detection.
+        // The source of the alert handling rule. Valid values:
+        // - **default**: image
+        // - **agentless**: agentless.
         shared_ptr<string> source_ {};
       };
 
@@ -271,9 +266,9 @@ namespace Models
 
 
     protected:
-      // The alert handling rules.
+      // The list of alert handling rules.
       shared_ptr<vector<Data::List>> list_ {};
-      // The pagination information.
+      // The paged query parameters.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -317,18 +312,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code returned.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeImageEventOperationPageResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The API call was successful.
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -82,15 +82,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The image names.
+    // The list of image names.
     shared_ptr<vector<string>> imageName_ {};
-    // The tags that are added to the container.
+    // The list of labels.
     shared_ptr<vector<string>> label_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The rule names.
+    // The policy name.
     shared_ptr<vector<string>> strategyName_ {};
   };
 

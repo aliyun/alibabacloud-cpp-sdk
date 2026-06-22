@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of tasks returned on the current page.
+      // The number of image repair tasks on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page. Default value: **1**
+      // The page number of the results returned. Default value: **1**, which indicates that the results start from page 1.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **20**
+      // The number of entries per page in a paginated query. Default value: **20**, which indicates that up to 20 entries are returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of tasks returned.
+      // The total number of image repair tasks.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -239,35 +239,35 @@ namespace Models
 
 
     protected:
-      // The ID of the task.
+      // The ID of the image repair task.
       shared_ptr<string> buildTaskId_ {};
-      // The timestamp when the task starts. Unit: milliseconds.
+      // The timestamp when the repair task started. Unit: milliseconds.
       shared_ptr<string> finishTime_ {};
-      // The timestamp when the task ends. Unit: milliseconds.
+      // The timestamp when the repair task ended. Unit: milliseconds.
       shared_ptr<string> fixTime_ {};
-      // The version of the image after image risks are fixed.
+      // The tag of the repaired image.
       shared_ptr<string> newTag_ {};
-      // The UUID of the image after image risks are fixed.
+      // The UUID of the repaired image.
       shared_ptr<string> newUuid_ {};
-      // The version of the image.
+      // The tag of the original image.
       shared_ptr<string> oldTag_ {};
-      // The UUID of the image.
+      // The UUID of the original image.
       shared_ptr<string> oldUuid_ {};
-      // The region of the image.
+      // The region ID of the image.
       shared_ptr<string> regionId_ {};
       // The name of the image repository.
       shared_ptr<string> repoName_ {};
       // The namespace of the image.
       shared_ptr<string> repoNamespace_ {};
-      // The status of the task. Valid values:
+      // The status of the image repair task. Valid values:
       // 
-      // *   **1**: The task is running.
-      // *   **2**: The task is successful.
-      // *   **3**: The task failed.
+      // - **1**: Repairing
+      // - **2**: Repaired
+      // - **3**: Repair failed
       shared_ptr<int32_t> status_ {};
-      // The type of the task. The value is fixed as IMAGE_REPAIR. The value indicates a task that fixes image risks.
+      // The type of the image repair task. The value is fixed as IMAGE_REPAIR, which indicates image repair.
       shared_ptr<string> taskType_ {};
-      // The alias of the fixed vulnerability.
+      // The name of the vulnerability that was repaired.
       shared_ptr<string> vulAlias_ {};
     };
 
@@ -299,11 +299,11 @@ namespace Models
 
 
   protected:
-    // The tasks returned.
+    // The details of the image repair tasks.
     shared_ptr<vector<DescribeImageFixTaskResponseBody::BuildTasks>> buildTasks_ {};
     // The pagination information.
     shared_ptr<DescribeImageFixTaskResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The request ID, which is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

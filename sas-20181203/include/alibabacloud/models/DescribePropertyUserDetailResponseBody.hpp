@@ -258,11 +258,11 @@ namespace Models
 
 
     protected:
-      // The expiration date of the account.
+      // The expiration time of the account.
       shared_ptr<string> accountsExpirationDate_ {};
-      // The timestamp of the latest scan of the asset fingerprint. The unit is milliseconds.
+      // The timestamp of the latest Asset Fingerprints scan. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Detailed information about the user groups of the queried account.
+      // The details of the user groups to which the account belongs.
       shared_ptr<vector<string>> groupNames_ {};
       // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
@@ -274,43 +274,47 @@ namespace Models
       shared_ptr<string> intranetIp_ {};
       // The list of IP addresses of the server.
       shared_ptr<string> ip_ {};
-      // Whether it is an interactive login account. Values:
-      // - **0**: No
-      //  - **1**: Yes
+      // Indicates whether the account is an interactive logon account. Valid values:
+      // 
+      // - **0**: No.
+      // - **1**: Yes.
       shared_ptr<int32_t> isCouldLogin_ {};
-      // Whether the password has expired. The values are:
+      // Indicates whether the password has expired. Valid values:
       // 
-      // - **0**: Expired
-      // - **1**: Not expired
+      // - **0**: Expired.
+      // - **1**: Not expired.
       shared_ptr<int32_t> isPasswdExpired_ {};
-      // Whether the password is locked. Values:
-      // - **0**: Locked 
-      // - **1**: Not locked
-      shared_ptr<int32_t> isPasswdLocked_ {};
-      // Whether the account has ROOT permissions. The values include:
+      // Indicates whether the password is locked. Valid values:
       // 
-      // - **0**: No
-      // - **1**: Yes
+      // - **0**: Locked.
+      // - **1**: Not locked.
+      shared_ptr<int32_t> isPasswdLocked_ {};
+      // Indicates whether the account has ROOT permissions. Valid values:
+      // 
+      // - **0**: No.
+      // - **1**: Yes.
       shared_ptr<string> isRoot_ {};
-      // Whether it is a sudo account. Values:
-      // - **0**: No 
-      // - **1**: Yes
+      // Indicates whether the account is a sudo account. Valid values:
+      // 
+      // - **0**: No.
+      // - **1**: Yes.
       shared_ptr<int32_t> isSudoer_ {};
-      // Whether the user has expired. Values:
-      // - **0**: Expired
-      //  - **1**: Not expired
+      // Indicates whether the user has expired. Valid values:
+      // 
+      // - **0**: Expired.
+      // - **1**: Not expired.
       shared_ptr<int32_t> isUserExpired_ {};
-      // The source IP from which the account last logged in.
+      // The source IP address of the last logon of the account.
       shared_ptr<string> lastLoginIp_ {};
-      // The last login time of the account.
+      // The time of the last logon of the account.
       shared_ptr<string> lastLoginTime_ {};
-      // The timestamp of the last login of the account. The unit is milliseconds.
+      // The timestamp of the last logon of the account. Unit: milliseconds.
       shared_ptr<int64_t> lastLoginTimeDt_ {};
-      // The timestamp of the last login of the account. The unit is milliseconds.
+      // The timestamp of the last logon of the account. Unit: milliseconds.
       shared_ptr<int64_t> lastLoginTimestamp_ {};
-      // The expiration date of the account password.
+      // The expiration time of the account password.
       shared_ptr<string> passwordExpirationDate_ {};
-      // This parameter is deprecated and should be ignored.
+      // This parameter is deprecated and can be ignored.
       shared_ptr<string> status_ {};
       // The name of the account.
       shared_ptr<string> user_ {};
@@ -383,15 +387,15 @@ namespace Models
 
 
     protected:
-      // The number of fingerprint information of account assets displayed on the current page.
+      // The number of account asset fingerprint entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page during pagination.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The NextToken value returned using the NextToken method.
+      // The NextToken value returned when the NextToken method is used.
       shared_ptr<string> nextToken_ {};
-      // The number of account asset fingerprint information items to display per page during pagination. The default value is **10**, indicating that 10 items of account asset fingerprint information are displayed per page.
+      // The number of account asset fingerprint entries per page in a paging query. Default value: **10**, which indicates 10 account asset fingerprint entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of account asset fingerprint information items queried.
+      // The total number of account asset fingerprint entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -423,11 +427,11 @@ namespace Models
 
 
   protected:
-    // Information displayed on the query result page.
+    // The pagination information of the query result.
     shared_ptr<DescribePropertyUserDetailResponseBody::PageInfo> pageInfo_ {};
-    // Details list of the queried account asset fingerprint information.
+    // The details of the account asset fingerprint entries returned.
     shared_ptr<vector<DescribePropertyUserDetailResponseBody::Propertys>> propertys_ {};
-    // The ID of the current request, which is a unique identifier generated by Alibaba Cloud for the request, and can be used for troubleshooting and problem localization.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

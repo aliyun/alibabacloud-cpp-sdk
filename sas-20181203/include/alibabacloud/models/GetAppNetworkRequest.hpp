@@ -57,17 +57,16 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster to which the container belongs.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+    // The ID of the container cluster to query.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The end timestamp of the query. Unit: milliseconds.
+    // The timestamp of the end time. Unit: milliseconds.
     // 
-    // > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
+    // > The difference between the start timestamp and the end timestamp cannot exceed **7** days.
     shared_ptr<int64_t> endTime_ {};
-    // The start timestamp of the query. Unit: milliseconds.
+    // The timestamp of the start time. Unit: milliseconds.
     // 
-    // > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
+    // > The difference between the start timestamp and the end timestamp cannot exceed **7** days.
     shared_ptr<int64_t> startTime_ {};
   };
 

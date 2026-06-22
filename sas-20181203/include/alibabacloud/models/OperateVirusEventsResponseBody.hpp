@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the task to handle multiple alert events at a time.
+    // The ID of the task for batch handling virus defense alert events.
     shared_ptr<int64_t> taskId_ {};
   };
 

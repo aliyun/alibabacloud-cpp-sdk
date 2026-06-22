@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of servers on which alerts are generated.
+      // The number of servers that have security alerts.
       shared_ptr<int32_t> machineCount_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The data details.
     shared_ptr<GetAlarmMachineCountResponseBody::Data> data_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -106,11 +106,10 @@ namespace Models
 
 
       protected:
-        // The page number. Default value: **1**.
+        // The page number of the current page in paging query. Default value: **1**.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-        // 
-        // >  We recommend that you do not leave this parameter empty.
+        // The maximum number of entries per page in paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+        // > Do not leave PageSize empty.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of entries returned.
         shared_ptr<int32_t> totalCount_ {};
@@ -238,29 +237,28 @@ namespace Models
       protected:
         // The digest value of the image.
         shared_ptr<string> digest_ {};
-        // The timestamp generated when the first scan was performed. Unit: milliseconds.
+        // The timestamp of the first scan. Unit: milliseconds.
         shared_ptr<int64_t> firstScanTime_ {};
         // The instance ID of the image repository.
         shared_ptr<string> instanceId_ {};
-        // The timestamp generated when the last scan was performed. Unit: milliseconds.
+        // The timestamp of the most recent scan. Unit: milliseconds.
         shared_ptr<int64_t> lastScanTime_ {};
-        // The ID of the region.
+        // The region ID.
         shared_ptr<string> regionId_ {};
         // The name of the image repository.
         shared_ptr<string> repoName_ {};
-        // The namespace to which the image repository belongs.
+        // The namespace of the image repository.
         shared_ptr<string> repoNamespace_ {};
         // The risk level. Valid values:
         // 
-        // *   **high**
-        // *   **medium**
-        // *   **low**
+        // - **high**
+        // - **medium**
+        // - **low**.
         shared_ptr<string> riskLevel_ {};
-        // The status of the alert event. Valid values:
-        // 
-        // *   **0**: unhandled.
-        // *   **1**: ignored.
-        // *   **2**: false positive.
+        // The status of the alert event to query. Valid values:
+        // - **0**: Unhandled.
+        // - **1**: Ignored.
+        // - **2**: False positive.
         shared_ptr<int32_t> status_ {};
         // The tag of the image.
         shared_ptr<string> tag_ {};
@@ -289,7 +287,7 @@ namespace Models
 
 
     protected:
-      // The images.
+      // The list of images.
       shared_ptr<vector<Data::List>> list_ {};
       // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
@@ -335,18 +333,17 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The HTTP status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeImageListByBuildRiskResponseBody::Data> data_ {};
-    // The returned message.
+    // The detailed information about the error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

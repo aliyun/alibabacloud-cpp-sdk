@@ -116,34 +116,30 @@ namespace Models
 
 
     protected:
-      // The ID of Cloud Assistant.
+      // The globally unique ID of Cloud Assistant.
       shared_ptr<string> aliyunAssistId_ {};
-      // The ID of the CloudMonitor agent.
+      // The globally unique ID of CloudMonitor.
       shared_ptr<string> aliyunMonitorId_ {};
-      // The installation result of Cloud Assistant. Valid values:
-      // 
-      // *   **0**: SUCCESS
-      // *   **1**: MISSING_PARAM
-      // *   **2**: UNKNOWN_SYSTEM
-      // *   **3**: DOWNLOAD_FAILED
-      // *   **4**: INSTALL_FAILED
+      // The installation execution result of Cloud Assistant. Valid values:
+      // - **0**: SUCCESS
+      // - **1**: MISSING_PARAM
+      // - **2**: UNKNOWN_SYSTEM
+      // - **3**: DOWNLOAD_FAILED
+      // - **4**: INSTALL_FAILED.
       shared_ptr<int32_t> assistInstallResult_ {};
-      // The status of Cloud Assistant. Valid values:
-      // 
-      // *   **0**: installing
-      // *   **1**: installed
-      // *   **2**: installation failed
-      // *   **3**: installation timed out
+      // The installation status of Cloud Assistant. Valid values:
+      // - **0**: Installing.
+      // - **1**: Installed.
+      // - **2**: Installation failed.
+      // - **3**: Installation timed out.
       shared_ptr<int32_t> assistInstallStatus_ {};
-      // The installation result of the CloudMonitor agent. Valid values:
-      // 
-      // *   **0**: failed
-      // *   **1**: successful
+      // The installation execution result of CloudMonitor. Valid values:
+      // - **0**: Failed.
+      // - **1**: Succeeded.
       shared_ptr<int32_t> monitorInstallResult_ {};
-      // The status of the CloudMonitor agent. Valid values:
-      // 
-      // *   **0**: installation failed
-      // *   **1**: installed
+      // The installation status of CloudMonitor. Valid values:
+      // - **0**: Failed.
+      // - **1**: Succeeded.
       shared_ptr<int32_t> monitorInstallStatus_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
@@ -168,9 +164,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the information about servers.
+    // The query result list.
     shared_ptr<vector<DescribeSasPmAgentListResponseBody::SasPmAgentList>> sasPmAgentList_ {};
   };
 

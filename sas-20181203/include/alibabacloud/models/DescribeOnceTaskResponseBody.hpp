@@ -164,58 +164,55 @@ namespace Models
 
 
     protected:
-      // The execution details of the task. The value of this parameter is in the JSON format.
+      // The task execution details. This parameter is in JSON format.
       // 
-      // *   **causeCode**: the returned code for the cause.
-      // *   **causeMsg**: the returned message for the cause.
-      // *   **resCode**: the returned code for troubleshooting.
-      // *   **resMsg**: the returned message for troubleshooting.
-      // *   **problemType**: the type of the issue.
-      // *   **dispatchType**: the task delivery method.
-      // *   **uuid**: the UUID of the server.
-      // *   **instanceId**: the instance ID of the server.
-      // *   **internetIp**: the public IP address of the server.
-      // *   **intranetIp**: the private IP address of the server.
-      // *   **instanceName**: the instance name of the server.
-      // *   **url**: the download URL of the troubleshooting log.
+      // - **causeCode**: the return code of the troubleshooting cause.
+      // - **causeMsg**: the return message of the troubleshooting cause.
+      // - **resCode**: the troubleshooting return code.
+      // - **resMsg**: the troubleshooting return message.
+      // - **problemType**: the problem type.
+      // - **dispatchType**: the task dispatch method.
+      // - **uuid**: the server UUID.
+      // - **instanceId**: the ID of the server instance.
+      // - **internetIp**: the public IP address of the server.
+      // - **intranetIp**: the private IP address of the server.
+      // - **instanceName**: the name of the server instance.
+      // - **url**: the download URL of the troubleshooting log.
       shared_ptr<string> detailData_ {};
-      // The number of tasks that fail to be executed.
+      // The number of tasks that failed to be executed.
       shared_ptr<int32_t> failCount_ {};
-      // The progress of the task. Unit: percent (%).
+      // The task progress, in percentage.
       shared_ptr<string> progress_ {};
-      // The execution result of the task.
+      // The task execution result.
       shared_ptr<string> resultInfo_ {};
-      // The number of tasks that are executed.
+      // The number of tasks that are executed successfully.
       shared_ptr<int32_t> successCount_ {};
-      // The timestamp that indicates the time when the task ends. Unit: milliseconds.
+      // The timestamp when the task actually ends. Unit: milliseconds.
       shared_ptr<int64_t> taskEndTime_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // The timestamp that indicates the time when the task starts. Unit: milliseconds.
+      // The timestamp when the task actually starts. Unit: milliseconds.
       shared_ptr<int64_t> taskStartTime_ {};
-      // The status of the task. Valid values:
-      // 
-      // *   **1**: The task is started.
-      // *   **2**: The task is complete.
-      // *   **3**: The task fails.
-      // *   **4**: The task times out.
+      // The task status. Valid values:
+      // - **1**: Started.
+      // - **2**: Completed.
+      // - **3**: Failed.
+      // - **4**: Timed out.
       shared_ptr<int32_t> taskStatus_ {};
-      // The text description of the status for the task. Valid values:
-      // 
-      // *   **INIT**: The task is pending start.
-      // *   **START**: The task is started.
-      // *   **DISPATCH**: The self-check command is issued.
-      // *   **SUCCESS**: The self-check is complete.
-      // *   **FAIL**: The task fails.
-      // *   **TIMEOUT**: The task times out.
+      // The text representation of the task status. Valid values:
+      // - **INIT**: Pending.
+      // - **START**: Started.
+      // - **DISPATCH**: Self-check command dispatched.
+      // - **SUCCESS**: Self-check completed.
+      // - **FAIL**: Execution failed.
+      // - **TIMEOUT**: Timed out.
       shared_ptr<string> taskStatusText_ {};
-      // The type of the task. Valid values:
-      // 
-      // *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center client
-      // *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
-      // *   **ASSET_SECURITY_CHECK**: a task for asset information collection
+      // The task type. Valid values:
+      // - **CLIENT_PROBLEM_CHECK**: client task
+      // - **CLIENT_DEV_OPS**: cloud O&M task
+      // - **ASSET_SECURITY_CHECK**: asset information collection task.
       shared_ptr<string> taskType_ {};
     };
 
@@ -275,13 +272,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of client tasks displayed on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **20**.
+      // The number of client tasks per page in a paged query. Default value: **20**.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of client tasks returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -315,9 +312,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeOnceTaskResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the tasks.
+    // The list of client task query results.
     shared_ptr<vector<DescribeOnceTaskResponseBody::TaskManageResponseList>> taskManageResponseList_ {};
   };
 

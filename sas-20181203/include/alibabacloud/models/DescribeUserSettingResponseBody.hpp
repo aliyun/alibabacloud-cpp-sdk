@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The severities of alerts. If this parameter is empty, no custom alerts are generated.
+    // The list of alert notification levels. If the list is empty, no alerts are generated for custom policies.
     shared_ptr<vector<string>> alertLevels_ {};
-    // The number of days during which you want to retain invalid alerts.
+    // The number of days to retain invalid alerts.
     shared_ptr<int32_t> invalidWarningKeepDays_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

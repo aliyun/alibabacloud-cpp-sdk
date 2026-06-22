@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The name of the proxy cluster.
     shared_ptr<string> clusterName_ {};
-    // The page number.
+    // The number of the page to return in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries to return on each page in a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

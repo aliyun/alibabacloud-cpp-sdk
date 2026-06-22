@@ -48,16 +48,15 @@ namespace Models
 
 
   protected:
-    // The filter condition. Valid values:
-    // 
-    // *   **pod**: pod
-    // *   **appName**: application name
-    // *   **clusterId**: cluster ID
-    // *   **namespace**: namespace
-    // *   **image**: image
-    // *   **containerScan**: container scan
+    // The search field. Valid values:
+    // - **pod**: pod.
+    // - **appName**: application name.
+    // - **clusterId**: cluster ID.
+    // - **namespace**: namespace.
+    // - **image**: image.
+    // - **containerScan**: container scan.
     shared_ptr<string> groupField_ {};
-    // The value of the filter condition. The value can be an application name, node name, namespace, cluster name, public IP address, pod address, region, pod, instance ID, cluster ID, or container ID. Fuzzy match is supported.
+    // The value of the search field. Fuzzy match is supported for application names, node names, namespaces, cluster names, public IP addresses, pod addresses, regions, pods, instance IDs, cluster IDs, and container IDs.
     shared_ptr<string> value_ {};
   };
 

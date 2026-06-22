@@ -75,20 +75,19 @@ namespace Models
 
 
   protected:
-    // The alias of the vulnerability that you want to query.
+    // The alias of the vulnerability to query.
     shared_ptr<string> aliasName_ {};
-    // The number of the page to return.
+    // The page number of the current page in a paged query. Paging is used to display results.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // The language type for the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries per page in a paged query. Paging is used to display results. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // The source of the whitelist. Valid values:
-    // - **image**
-    // - **agentless**
+    // - **image**: image
+    // - **agentless**: agentless.
     shared_ptr<string> source_ {};
   };
 

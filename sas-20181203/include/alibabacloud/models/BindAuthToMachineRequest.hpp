@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_TO_JSON(NtmVersion, ntmVersion_);
       DARABONBA_PTR_TO_JSON(PreBindOrderId, preBindOrderId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(UnBind, unBind_);
     };
     friend void from_json(const Darabonba::Json& j, BindAuthToMachineRequest& obj) { 
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_FROM_JSON(NtmVersion, ntmVersion_);
       DARABONBA_PTR_FROM_JSON(PreBindOrderId, preBindOrderId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(UnBind, unBind_);
     };
     BindAuthToMachineRequest() = default ;
@@ -50,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authVersion_ == nullptr
         && this->autoBind_ == nullptr && this->bind_ == nullptr && this->bindAll_ == nullptr && this->criteria_ == nullptr && this->isPreBind_ == nullptr
-        && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr && this->preBindOrderId_ == nullptr && this->unBind_ == nullptr; };
+        && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr && this->preBindOrderId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->unBind_ == nullptr; };
     // authVersion Field Functions 
     bool hasAuthVersion() const { return this->authVersion_ != nullptr;};
     void deleteAuthVersion() { this->authVersion_ = nullptr;};
@@ -116,6 +118,13 @@ namespace Models
     inline BindAuthToMachineRequest& setPreBindOrderId(int64_t preBindOrderId) { DARABONBA_PTR_SET_VALUE(preBindOrderId_, preBindOrderId) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline BindAuthToMachineRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // unBind Field Functions 
     bool hasUnBind() const { return this->unBind_ != nullptr;};
     void deleteUnBind() { this->unBind_ = nullptr;};
@@ -126,57 +135,57 @@ namespace Models
 
 
   protected:
-    // The edition of Security Center that is authorized to scan the asset. Valid values:
-    // 
-    // *   **6**: Anti-virus
-    // *   **5**: Advanced
-    // *   **3**: Enterprise
-    // *   **7**: Ultimate
-    // *   **10**: Value-added Plan
+    // The authorization version of the asset. Valid values:
+    // - **6**: Anti-virus Edition
+    // - **5**: Advanced Edition
+    // - **3**: Enterprise Edition
+    // - **7**: Ultimate Edition
+    // - **10**: Value-added Service Edition.
     shared_ptr<int32_t> authVersion_ {};
-    // Specifies whether to automatically bind servers to Security Center. Valid values:
+    // Specifies whether to enable automatic binding. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
-    // The UUIDs of the servers that you want to bind to Security Center.
+    // The UUIDs of the servers to bind.
     // 
-    // >  You must specify at least one of the **Bind** and **UnBind** parameters.
+    // > **Bind** and **UnBind** cannot both be empty.
     shared_ptr<vector<string>> bind_ {};
-    // Specifies whether to bind all servers to Security Center. Default value: **false**. Valid values:
+    // Specifies whether to bind all assets. Default value: **false**. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: Bind all assets.
+    // - **false**: Do not bind all assets.
     shared_ptr<bool> bindAll_ {};
-    // The search conditions that are used to filter servers. The value of this parameter is in the JSON format and is case-sensitive.
-    // 
-    // >  A search condition can be an instance ID, instance name, virtual private cloud (VPC) ID, region, or public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+    // The search conditions for assets. This parameter is in JSON format. Note that the parameter values are case-sensitive.
+    // > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // Specifies whether to specify servers for protection when you purchase Security Center. Valid values:
+    // Specifies whether this is a pre-binding operation. Valid values:
     // 
-    // *   **0**: no
-    // *   **1**: yes
+    // - **0**: No.
+    // - **1**: Yes.
     // 
-    // >  If you specify servers, the servers are automatically added to Security Center for protection after the purchase order is complete.
+    // 
+    // > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
     shared_ptr<int32_t> isPreBind_ {};
-    // The logical relationship that you want to use to evaluate multiple search conditions. Default value: **OR**. Valid values:
-    // 
-    // *   **OR**
-    // *   **AND**
+    // The logical relationship among multiple search conditions. Default value: **OR**. Valid values:
+    // - **OR**: The search conditions are evaluated with a logical OR.
+    // - **AND**: The search conditions are evaluated with a logical AND.
     shared_ptr<string> logicalExp_ {};
-    // The edition of Security Center that you purchase in the order. Valid values:
+    // The order version associated with the pre-binding. Valid values:
     // 
-    // *   **level7**: Anti-virus
-    // *   **level3**: Advanced
-    // *   **level2**: Enterprise
-    // *   **level8**: Ultimate
-    // *   **level10**: Value-added Plan
+    // - **level7**: Anti-virus Edition
+    // - **level3**: Advanced Edition
+    // - **level2**: Enterprise Edition
+    // - **level8**: Ultimate Edition
+    // - **level10**: Value-added service only.
     shared_ptr<string> ntmVersion_ {};
-    // The ID of the order in which Security Center is purchased and servers are specified for protection.
+    // The order ID associated with the pre-binding.
     shared_ptr<int64_t> preBindOrderId_ {};
-    // The UUIDs of the servers that you want to unbind from Security Center.
-    // 
-    // >  You must specify at least one of the **Bind** and **UnBind** parameters.
+    // The ID of the member accounts in the resource folder (Alibaba Cloud account).
+    // > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+    // The UUIDs of the servers to unbind.
+    // > **Bind** and **UnBind** cannot both be empty.
     shared_ptr<vector<string>> unBind_ {};
   };
 

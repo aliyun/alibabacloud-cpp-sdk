@@ -132,21 +132,55 @@ namespace Models
 
 
   protected:
+    // The alert notification level. Valid values:
+    // 
+    // - 0: no alert
+    // 
+    // - 1: reminder
+    // 
+    // - 2: suspicious
+    // 
+    // - 3: high-risk.
     shared_ptr<int32_t> alertLevel_ {};
+    // The list of users excluded from file protection.
     shared_ptr<vector<string>> excludeUsers_ {};
+    // The list of operations performed on the file.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> fileOps_ {};
+    // The list of monitored file paths. Wildcards are supported.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> filePaths_ {};
+    // The list of protected file types.
     shared_ptr<vector<string>> fileTypes_ {};
+    // The unique ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The list of process listening paths. Wildcards are supported.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> procPaths_ {};
+    // The action of the rule. Valid values:
+    // 
+    // - **block**: Block.
+    // 
+    // - **monitor**: Monitor.
+    // 
+    // - **pass**: Allow.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleAction_ {};
+    // The name of the rule.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
+    // The status of the rule. Valid values:
+    // 
+    // - **0**: disabled
+    // - **1**: enabled.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
   };

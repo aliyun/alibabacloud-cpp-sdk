@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The number of alerting events displayed on the current page in a paged query. This parameter is used for paging.
       shared_ptr<int32_t> count_ {};
+      // The page number of the current page in a paged query. This parameter is used for paging.
       shared_ptr<int32_t> currentPage_ {};
+      // The maximum number of entries displayed on each page in a paged query. This parameter is used for paging.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -105,6 +109,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Cmdline, cmdline_);
         DARABONBA_PTR_TO_JSON(Count, count_);
         DARABONBA_PTR_TO_JSON(FirstTime, firstTime_);
+        DARABONBA_PTR_TO_JSON(HandleType, handleType_);
         DARABONBA_PTR_TO_JSON(HashKey, hashKey_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -128,6 +133,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Cmdline, cmdline_);
         DARABONBA_PTR_FROM_JSON(Count, count_);
         DARABONBA_PTR_FROM_JSON(FirstTime, firstTime_);
+        DARABONBA_PTR_FROM_JSON(HandleType, handleType_);
         DARABONBA_PTR_FROM_JSON(HashKey, hashKey_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -157,9 +163,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->analyzeDesc_ == nullptr
         && this->analyzeResult_ == nullptr && this->cmdChain_ == nullptr && this->cmdline_ == nullptr && this->count_ == nullptr && this->firstTime_ == nullptr
-        && this->hashKey_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr
-        && this->lastTime_ == nullptr && this->md5_ == nullptr && this->parentCmdline_ == nullptr && this->parentPid_ == nullptr && this->parentProcessPath_ == nullptr
-        && this->pid_ == nullptr && this->processPath_ == nullptr && this->sha256_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
+        && this->handleType_ == nullptr && this->hashKey_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr
+        && this->intranetIp_ == nullptr && this->lastTime_ == nullptr && this->md5_ == nullptr && this->parentCmdline_ == nullptr && this->parentPid_ == nullptr
+        && this->parentProcessPath_ == nullptr && this->pid_ == nullptr && this->processPath_ == nullptr && this->sha256_ == nullptr && this->status_ == nullptr
+        && this->uuid_ == nullptr; };
       // analyzeDesc Field Functions 
       bool hasAnalyzeDesc() const { return this->analyzeDesc_ != nullptr;};
       void deleteAnalyzeDesc() { this->analyzeDesc_ = nullptr;};
@@ -200,6 +207,13 @@ namespace Models
       void deleteFirstTime() { this->firstTime_ = nullptr;};
       inline int64_t getFirstTime() const { DARABONBA_PTR_GET_DEFAULT(firstTime_, 0L) };
       inline Data& setFirstTime(int64_t firstTime) { DARABONBA_PTR_SET_VALUE(firstTime_, firstTime) };
+
+
+      // handleType Field Functions 
+      bool hasHandleType() const { return this->handleType_ != nullptr;};
+      void deleteHandleType() { this->handleType_ = nullptr;};
+      inline string getHandleType() const { DARABONBA_PTR_GET_DEFAULT(handleType_, "") };
+      inline Data& setHandleType(string handleType) { DARABONBA_PTR_SET_VALUE(handleType_, handleType) };
 
 
       // hashKey Field Functions 
@@ -310,24 +324,48 @@ namespace Models
     protected:
       shared_ptr<string> analyzeDesc_ {};
       shared_ptr<string> analyzeResult_ {};
+      // The process chain.
       shared_ptr<string> cmdChain_ {};
+      // The process command line.
       shared_ptr<string> cmdline_ {};
+      // The number of occurrences.
       shared_ptr<int32_t> count_ {};
+      // The timestamp of the first occurrence.
       shared_ptr<int64_t> firstTime_ {};
+      shared_ptr<string> handleType_ {};
+      // The unique identifier of the file.
       shared_ptr<string> hashKey_ {};
+      // The event ID.
       shared_ptr<string> id_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The public IP address.
       shared_ptr<string> internetIp_ {};
+      // The private IP address.
       shared_ptr<string> intranetIp_ {};
+      // The timestamp of the most recent occurrence.
       shared_ptr<int64_t> lastTime_ {};
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
+      // The parent command line.
       shared_ptr<string> parentCmdline_ {};
+      // The parent process ID.
       shared_ptr<string> parentPid_ {};
+      // The parent process path.
       shared_ptr<string> parentProcessPath_ {};
+      // The process ID.
       shared_ptr<string> pid_ {};
+      // The process path.
       shared_ptr<string> processPath_ {};
+      // The SHA-256 hash of the file.
       shared_ptr<string> sha256_ {};
+      // The event status. Valid values:
+      // 
+      // - **1**: Unhandled.
+      // - **2**: Blocked.
+      // - **3**: Ignored.
       shared_ptr<int32_t> status_ {};
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -359,7 +397,9 @@ namespace Models
 
 
   protected:
+    // The returned data details.
     shared_ptr<vector<ListUnknownThreatDetectEventResponseBody::Data>> data_ {};
+    // The pagination information.
     shared_ptr<ListUnknownThreatDetectEventResponseBody::PageInfo> pageInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -143,27 +143,25 @@ namespace Models
 
 
       protected:
-        // The error message of the module.
+        // The exception information of the module.
         shared_ptr<string> message_ {};
-        // The code of the module. Valid values:
-        // 
-        // *   **HOST**: host.
-        // *   **CSPM**: configuration assessment.
-        // *   **SIEM**: CTDR.
-        // *   **TRIAL**: log audit.
+        // The module code. Valid values:
+        // - **HOST**: host
+        // - **CSPM**: cloud product configuration check
+        // - **SIEM**: Cloud Threat Detection and Response (CTDR)
+        // - **TRIAL**: log audit.
         shared_ptr<string> module_ {};
-        // The type of the cloud asset that is associated with the module.
+        // The description of cloud assets associated with the module.
         shared_ptr<string> moduleAssetType_ {};
         // The display name of the module.
         shared_ptr<string> moduleDisp_ {};
-        // The service status of the module. Valid values:
-        // 
-        // *   **0**: being used.
-        // *   **1**: exception occurred.
-        // *   **2**: being validated.
-        // *   **3**: validation timed out.
+        // The module status. Valid values:
+        // - **0**: in use
+        // - **1**: abnormal
+        // - **2**: validity verification in progress
+        // - **3**: validity verification timed out.
         shared_ptr<int32_t> moduleServiceStatus_ {};
-        // The permission description of the module.
+        // The description of permissions associated with the module.
         shared_ptr<string> moduleStatement_ {};
       };
 
@@ -243,51 +241,46 @@ namespace Models
 
 
     protected:
-      // The type of the account to which the AccessKey pair belongs. Valid values:
+      // The type of the AccessKey account. Valid values:
       // 
-      // *   **primary**
-      // *   **sub**
+      // - **primary**: primary account
+      // - **sub**: RAM user.
       shared_ptr<string> akType_ {};
       // The unique ID of the AccessKey pair.
       shared_ptr<int64_t> authId_ {};
-      // The modules that are associated with the AccessKey pair.
+      // The list of modules associated with the AccessKey pair.
       shared_ptr<vector<Data::AuthModules>> authModules_ {};
-      // Account ID. 
-      // >The account ID of the cloud provider being connected.
+      // The account ID.
+      // >The account ID of the connected cloud vendor.
       shared_ptr<string> ctdrCloudUserId_ {};
-      // The error message of the AccessKey pair.
+      // The exception information of the AccessKey pair.
       shared_ptr<string> message_ {};
-      // The AccessKey ID.
-      // 
-      // >  If AkType is set to **primary**, the value of SecretId is AccessKey ID of the third-party master account. If AkType is set to **sub**, the value of SecretId is the AccessKey ID of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, this parameter value is the **app ID** that is used for authentication.
+      // The AccessKey parameter ID.
+      // > If AkType is set to **primary**, this value is the SecretID of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Access Key ID of the RAM user on the third-party cloud. For **Azure**, no distinction is made, and this value is the **appId** of the authentication information.
       shared_ptr<string> secretId_ {};
-      // The service status of the AccessKey pair. Valid values:
-      // 
-      // *   **0**: being used.
-      // *   **1**: exception occurred.
-      // *   **2**: being validated.
-      // *   **3**: validation timed out.
+      // The availability status of the AccessKey pair. Valid values:
+      // - **0**: in use
+      // - **1**: abnormal
+      // - **2**: validity verification in progress
+      // - **3**: validity verification timed out.
       shared_ptr<int32_t> serviceStatus_ {};
-      // The status of the AccessKey pair. Valid values:
-      // 
-      // *   **0**: enabled.
-      // *   **1**: disabled.
+      // The usage status of the AccessKey pair. Valid values:
+      // - **0**: enabled
+      // - **1**: disabled.
       shared_ptr<int32_t> status_ {};
-      // The type of the cloud asset. Valid values:
-      // 
-      // *   **Tencent**: Tencent Cloud.
-      // *   **HUAWEICLOUD**: Huawei Cloud.
-      // *   **Azure**: Microsoft Azure.
-      // *   **AWS**: Amazon Web Services (AWS).
-      // *  **VOLCENGINE**: Volcengine 
-      // *  **google**: Google Cloud 
-      // *  **CHAITIN**: Chaitin Tech 
-      // *  **FORTINET**: Fortinet 
-      // *  **THREATBOOK**: ThreatBook
+      // The cloud asset vendor. Valid values:
+      // - **Tencent**: Tencent Cloud
+      // - **HUAWEICLOUD**: Huawei Cloud
+      // - **Azure**: Azure
+      // - **AWS**: AWS
+      // - **VOLCENGINE**: Volcengine
+      // - **google**: Google Cloud
+      // - **CHAITIN**: Chaitin Tech
+      // - **FORTINET**: Fortinet
+      // - **THREATBOOK**: ThreatBook.
       shared_ptr<string> vendor_ {};
-      // The name of the AccessKey pair.
-      // 
-      // >  The account information of the third-party cloud servers.
+      // The name of the AccessKey account.
+      // >Used to identify the account to which third-party host assets belong.
       shared_ptr<string> vendorAuthAlias_ {};
     };
 
@@ -310,9 +303,9 @@ namespace Models
 
 
   protected:
-    // The information about the AccessKey pair that is added.
+    // The authorization and authentication information that is added.
     shared_ptr<ModifyCloudVendorAccountAKResponseBody::Data> data_ {};
-    // The request ID.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

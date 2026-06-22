@@ -75,22 +75,20 @@ namespace Models
 
 
   protected:
-    // The status of the container firewall feature. Valid values:
-    // 
-    // *   **-1**: unknown
-    // *   **0**: abnormal
-    // *   **1**: normal
-    // *   **2**: normal to be confirmed
+    // The container firewall status of the cluster. Valid values:
+    // - **-1**: unknown
+    // - **0**: abnormal
+    // - **1**: normal
+    // - **2**: normal pending confirmation.
     shared_ptr<int32_t> clusterCNNFStatus_ {};
-    // The ID of the cluster.
-    // 
-    // > You can call the [DescribeContainerInstances](~~DescribeContainerInstances~~) operation to query the IDs of clusters.
+    // The ID of the container cluster.
+    // >You can call the [DescribeContainerInstances](~~DescribeContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The name of the cluster.
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number of the page to return. Default value: 1, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The maximum number of entries per page in a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

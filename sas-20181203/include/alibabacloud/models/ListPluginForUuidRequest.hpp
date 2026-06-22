@@ -51,11 +51,10 @@ namespace Models
 
 
   protected:
-    // The plug-in types.
+    // The list of plugin types.
     shared_ptr<vector<string>> types_ {};
     // The UUID of the server.
-    // 
-    // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

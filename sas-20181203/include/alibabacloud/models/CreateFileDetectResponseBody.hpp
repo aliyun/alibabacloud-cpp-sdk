@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The identifier of the file.
+    // The unique identifier of the file.
     shared_ptr<string> hashKey_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

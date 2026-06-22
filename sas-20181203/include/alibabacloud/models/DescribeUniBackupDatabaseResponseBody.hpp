@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of databases on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The number of databases per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of databases.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -211,40 +211,38 @@ namespace Models
 
 
     protected:
-      // The status of the anti-ransomware agent. Valid values:
-      // 
-      // *   **UNKNOWN**: unknown
-      // *   **INSTALLED**: installed
-      // *   **INSTALL_FAILED**: installation failed
-      // *   **UNINSTALL_FAILED**: uninstallation failed
+      // The status of the database client agent. Valid values:
+      // - **UNKNOWN**: unknown.
+      // - **INSTALLED**: installed.
+      // - **INSTALL_FAILED**: installation failed.
+      // - **UNINSTALL_FAILED**: uninstallation failed.
       shared_ptr<string> agentStatus_ {};
-      // The service from which the database is created. Valid values:
-      // 
-      // *   **HBR**: HBR
-      // *   **AEGIS**: Security Center
+      // The method used to create the database. Valid values:
+      // - **HBR**: Cloud Backup.
+      // - **AEGIS**: Security Center.
       shared_ptr<string> createdByProduct_ {};
       // The name of the database.
       shared_ptr<string> databaseName_ {};
       // The type of the database. Valid values:
       // 
-      // *   **MYSQL**
-      // *   **MSSQL**
-      // *   **Oracle**
+      // - **MYSQL**
+      // - **MSSQL**
+      // - **Oracle**.
       shared_ptr<string> databaseType_ {};
-      // The version of the database engine.
+      // The version of the database.
       shared_ptr<string> databaseVersion_ {};
-      // The ID of the server.
+      // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
       // The name of the instance to which the database belongs.
       shared_ptr<string> instanceName_ {};
-      // The UUID of the Hybrid Backup Recovery (HBR) agent that is used to back up the data of the database.
+      // The unique identifier of the database backup client on the server.
       shared_ptr<string> instanceUuid_ {};
-      // The ID of the anti-ransomware policy.
+      // The ID of the anti-ransomware backup policy for the database.
       shared_ptr<int64_t> policyId_ {};
-      // The status of the ECS instance. Valid values:
+      // The instance status of the ECS instance. Valid values:
       // 
-      // *   **Stopped**
-      // *   **Running**
+      // - **Stopped**: stopped.
+      // - **Running**: running.
       shared_ptr<string> status_ {};
     };
 
@@ -276,11 +274,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the information about the databases.
+    // The list of database details.
     shared_ptr<vector<DescribeUniBackupDatabaseResponseBody::DatabaseList>> databaseList_ {};
     // The pagination information.
     shared_ptr<DescribeUniBackupDatabaseResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

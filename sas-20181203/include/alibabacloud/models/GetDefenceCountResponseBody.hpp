@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The number of handled alerts of the precise defense type in the last 15 days.
+    // The number of alerts handled by accurate access control in the last 15 days.
     shared_ptr<int32_t> defenceCount15Days_ {};
-    // The number of handled alerts of the precision defense type.
+    // The total number of alerts handled by accurate access control.
     shared_ptr<int32_t> defenceCountTotal_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of handled security alerts of Cloud Security Center.
+    // The number of security alerts that have been handled in Security Center.
     shared_ptr<int32_t> suspiciousDealtCount_ {};
-    // The number of handled alerts of the web tamper proofing type in the last 15 days.
+    // The number of alerting events handled by web tamper-proofing in the last 15 days.
     shared_ptr<int32_t> tamperProof15Days_ {};
-    // The number of handled alerts of the web tamper proofing type.
+    // The total number of alerting events handled by web tamper-proofing.
     shared_ptr<int32_t> tamperProofTotal_ {};
   };
 

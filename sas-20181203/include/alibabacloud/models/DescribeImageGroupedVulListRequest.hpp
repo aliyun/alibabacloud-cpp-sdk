@@ -246,43 +246,40 @@ namespace Models
   protected:
     // The alias of the vulnerability.
     shared_ptr<string> aliasName_ {};
-    // The ID of the container cluster.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+    // The ID of the container cluster to query.
+    // > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return in the query results. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
+    // The CVE ID of the vulnerability.
     shared_ptr<string> cveId_ {};
     // The ID of the asset group.
     shared_ptr<string> groupId_ {};
-    // The SHA-256 value of the image digest.
+    // The SHA256 value of the image digest.
     shared_ptr<string> imageDigest_ {};
     // The layer of the image.
     shared_ptr<string> imageLayer_ {};
     // The tag of the image.
     shared_ptr<string> imageTag_ {};
-    // Specifies whether to query the vulnerabilities in the latest images. If you do not specify this parameter, the vulnerabilities in all images are queried. Valid values:
+    // Specifies whether to query vulnerabilities of only the latest image. If this parameter is not set, vulnerabilities of all images are queried. Valid values:
     // 
-    // *   **0**: does not query the vulnerabilities in the latest images.
-    // *   **1**: queries the vulnerabilities in the latest images.
+    // - **0**: No.
+    // - **1**: Yes.
     shared_ptr<int32_t> isLatest_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The name of the vulnerability.
     shared_ptr<string> name_ {};
-    // The priority to fix the vulnerability. Valid values:
-    // 
-    // *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-    // *   **later**: medium. You can fix the vulnerability based on your business requirements.
-    // *   **nntf**: low. You can ignore the vulnerability.
+    // The priority level for fixing the vulnerability. Valid values:
+    // - **asap**: high-priority vulnerability (typically a high-risk vulnerability)
+    // - **later**: medium-priority vulnerability (typically a medium-risk vulnerability)
+    // - **nntf**: low-priority vulnerability (typically a low-risk vulnerability).
     shared_ptr<string> necessity_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The number of image vulnerabilities to display on each page during a paging query. Default value: **20**, which indicates that 20 image vulnerabilities are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the patch that is used to fix the vulnerability.
+    // The ID of the vulnerability patch.
     shared_ptr<int64_t> patchId_ {};
     // The ID of the image repository.
     shared_ptr<string> repoId_ {};
@@ -290,22 +287,21 @@ namespace Models
     shared_ptr<string> repoInstanceId_ {};
     // The name of the image repository.
     shared_ptr<string> repoName_ {};
-    // The namespace to which the image repository belongs.
+    // The namespace of the image repository.
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the image repository.
     shared_ptr<string> repoRegionId_ {};
-    // The tag of this vulnerability. Valid values:
+    // The vulnerability tag. Valid values:
     // 
-    // *   **AI**: AI-related components.
+    //  - **AI**: vulnerabilities related to AI components.
     shared_ptr<string> ruleTag_ {};
-    // An array consisting of the types of the assets that you want to scan.
+    // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
-    // The type of the vulnerability that you want to query. Valid values:
-    // 
-    // *   **cve**: image system vulnerability
-    // *   **sca**: image application vulnerability
+    // The type of vulnerability to query. Valid values:
+    // - **cve**: image system vulnerability
+    // - **sca**: image application vulnerability.
     shared_ptr<string> type_ {};
-    // The UUID of the asset. Separate multiple UUIDs with commas (,).
+    // The list of unique IDs of asset instances. Separate multiple IDs with commas (,).
     shared_ptr<string> uuids_ {};
   };
 

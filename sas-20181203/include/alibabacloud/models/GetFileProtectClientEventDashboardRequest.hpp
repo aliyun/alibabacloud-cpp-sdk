@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The page number of the current page to return.
     shared_ptr<string> currentPage_ {};
+    // The end timestamp of the query.
     shared_ptr<int64_t> endTime_ {};
+    // The maximum number of entries per page for a paged query.
     shared_ptr<string> pageSize_ {};
+    // The start timestamp of the query.
     shared_ptr<int64_t> startTime_ {};
   };
 

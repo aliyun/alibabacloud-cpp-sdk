@@ -176,11 +176,15 @@ namespace Models
     protected:
       // The cloud service provider that uses the standard. Valid values:
       // 
-      // *   **0**: Alibaba Cloud.
-      // *   **3**: Tencent Cloud.
-      // *   **4**: Huawei Cloud.
-      // *   **5**: Microsoft Azure.
-      // *   **7**: AWS.
+      // - **0**: Alibaba Cloud.
+      // 
+      // - **3**: Tencent Cloud.
+      // 
+      // - **4**: Huawei Cloud.
+      // 
+      // - **5**: Microsoft Azure.
+      // 
+      // - **7**: AWS.
       shared_ptr<int32_t> bindVendor_ {};
       // The ID of the standard.
       shared_ptr<int64_t> id_ {};

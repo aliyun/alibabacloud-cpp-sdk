@@ -57,19 +57,18 @@ namespace Models
 
 
   protected:
-    // The ID of the defense rule against container escapes.
-    // 
-    // >  You can call the [ListAegisContainerPluginRule](~~ListAegisContainerPluginRule~~) operation to obtain the ID.
+    // The ID of the container escape prevention rule.
+    // >You can call the [ListAegisContainerPluginRule](~~ListAegisContainerPluginRule~~) operation to query this parameter.
     shared_ptr<string> id_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for requests and responses. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // 
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The type of the rule. Valid values:
-    // 
-    // *   **0**: custom rule
-    // *   **1**: system rule
+    // The rule type. Valid values:
+    // - **0**: user-defined
+    // - **1**: system built-in
     shared_ptr<int32_t> ruleType_ {};
   };
 

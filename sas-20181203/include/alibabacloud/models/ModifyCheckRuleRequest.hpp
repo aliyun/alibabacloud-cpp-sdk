@@ -177,23 +177,23 @@ namespace Models
 
 
   protected:
-    // The list of instances to be added in this rule update. This parameter does not need to be passed if there are no instances to add.
+    // The list of instances to add in this rule update. If no instances need to be added, you do not need to specify this parameter.
     shared_ptr<vector<ModifyCheckRuleRequest::AddInstanceList>> addInstanceList_ {};
-    // The list of instances to be removed in this rule update. This parameter does not need to be passed if there are no instances to remove.
+    // The list of instances to delete in this rule update. If no instances need to be deleted, you do not need to specify this parameter.
     shared_ptr<vector<ModifyCheckRuleRequest::DeleteInstanceList>> deleteInstanceList_ {};
-    // Remarks.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // Rule ID.
-    // > You can obtain this parameter by calling the [ListCheckRule](https://help.aliyun.com/document_detail/2590599.html) API.
+    // The rule ID.
+    // > You can call the [ListCheckRule](https://help.aliyun.com/document_detail/2590599.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // Rule type. Default is **WHITE**. Values:
-    // - **WHITE**: Add to whitelist
+    // The rule type. Default value: **WHITE**. Valid values:
+    // - **WHITE**: whitelist.
     shared_ptr<string> ruleType_ {};
-    // The scope of effect for modifying the rule:
-    // - **INSTANCE**: Instance
-    // - **ITEM**: Check item
+    // The scope of the rule. Valid values:
+    // - **INSTNACE**: instance
+    // - **ITEM**: check item.
     shared_ptr<string> scopeType_ {};
   };
 

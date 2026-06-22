@@ -84,24 +84,24 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number of the current page in a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The status of the event. Valid values: y, n, and a. The value y indicates handled. The value n indicates unhandled. The value a indicates all.
+    // Specifies whether the event has been handled. Valid values:
+    // - **y**: Handled. 
+    // - **n**: Unhandled. 
+    // - **a**: All.
     shared_ptr<string> dealed_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to return per page in a paged query. Default value: 100. If the PageSize parameter is left empty, 100 entries are returned by default.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Invalid parameter.
     shared_ptr<string> requestId_ {};
-    // The ID of the alert event. The ID of the management account of the ListHoneypotEvents resource directory.
-    // 
-    // >  You can call the [ListHoneypotEvents](~~ListHoneypotEvents~~) operation to query the IDs of alert events.
+    // The ID of the alert event.
+    // >You can call the [ListHoneypotEvents](~~ListHoneypotEvents~~) operation to obtain this parameter.
     shared_ptr<int64_t> securityEventId_ {};
   };
 

@@ -130,16 +130,31 @@ namespace Models
 
 
   protected:
+    // The analysis result. Valid values:
+    // 
+    // - **black**: abnormal process
+    // 
+    // - **white**: normal process
     shared_ptr<string> analyzeResult_ {};
+    // The page number to return.
     shared_ptr<int32_t> currentPage_ {};
+    // The end of the time range for the first detection, in milliseconds.
     shared_ptr<int64_t> firstTimeEnd_ {};
+    // The start of the time range for the first detection, in milliseconds.
     shared_ptr<int64_t> firstTimeStart_ {};
+    // The MD5 value of the file.
     shared_ptr<string> md5_ {};
+    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The file path.
     shared_ptr<string> path_ {};
+    // The process path.
     shared_ptr<string> processPath_ {};
+    // The server name or IP address.
     shared_ptr<string> remark_ {};
+    // The SHA-256 value of the file.
     shared_ptr<string> sha256_ {};
+    // The UUID of the server to query.
     shared_ptr<string> uuid_ {};
   };
 

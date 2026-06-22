@@ -89,15 +89,15 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The maximum number of entries per page in a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the image repository. Fuzzy match is supported.
+    // The image repository name. Fuzzy match is supported.
     shared_ptr<string> registryNameLike_ {};
-    // The types of image repositories.
+    // The list of image repository types to include.
     shared_ptr<vector<string>> registryTypeInList_ {};
-    // The types of excluded image repositories.
+    // The list of image repository types to exclude.
     shared_ptr<vector<string>> registryTypeNotInList_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};

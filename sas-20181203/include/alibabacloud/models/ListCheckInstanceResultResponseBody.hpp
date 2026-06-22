@@ -186,8 +186,9 @@ namespace Models
         shared_ptr<string> showName_ {};
         // The format of the check result for the instance. Valid values:
         // 
-        // *   **text**
-        // *   **link**
+        // - **text**
+        // 
+        // - **link**
         shared_ptr<string> type_ {};
       };
 
@@ -244,8 +245,9 @@ namespace Models
       shared_ptr<string> key_ {};
       // Indicates whether the search condition is used. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> search_ {};
       // The search key.
       shared_ptr<string> searchKey_ {};
@@ -253,8 +255,9 @@ namespace Models
       shared_ptr<string> showName_ {};
       // The type of the check result for the instance. Valid values:
       // 
-      // *   **text**
-      // *   **link**
+      // - **text**
+      // 
+      // - **link**
       shared_ptr<string> type_ {};
     };
 
@@ -477,11 +480,15 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The states of check items. Multiple states are separated with commas (,). Valid values:
       // 
-      // *   **PASS**: passed
-      // *   **NOT_PASS**: failed
-      // *   **CHECKING**: being checked
-      // *   **NOT_CHECK**: not checked
-      // *   **WHITELIST**: added to the whitelist
+      // - **PASS**: passed
+      // 
+      // - **NOT_PASS**: failed
+      // 
+      // - **CHECKING**: being checked
+      // 
+      // - **NOT_CHECK**: not checked
+      // 
+      // - **WHITELIST**: added to the whitelist
       shared_ptr<string> status_ {};
       // The exception message of the check item.
       shared_ptr<string> statusMessage_ {};

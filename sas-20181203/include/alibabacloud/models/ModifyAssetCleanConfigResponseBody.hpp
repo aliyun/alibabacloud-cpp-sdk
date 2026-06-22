@@ -48,10 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // The processing result. Valid values:
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

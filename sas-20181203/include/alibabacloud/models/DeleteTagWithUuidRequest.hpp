@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // The name of the tag.
+    // The label name.
     // 
     // This parameter is required.
     shared_ptr<string> tagName_ {};
-    // The UUIDs of servers.
-    // 
-    // > If the UuidList parameter is specified, Security Center removes the tag only from the servers whose UUIDs are specified by UuidList. If the UuidList parameter is not specified, Security Center removes the tag from all servers.
+    // The list of server UUIDs.
+    // > If UuidList is specified, Security Center deletes the label only from the servers included in UuidList. If UuidList is empty, Security Center deletes the label from all servers.
     shared_ptr<string> uuidList_ {};
   };
 

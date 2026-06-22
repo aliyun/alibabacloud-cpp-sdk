@@ -50,10 +50,10 @@ namespace Models
   protected:
     // Indicates whether the server can be restarted. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: The server can be restarted.
+    // - **false**: The server cannot be restarted.
     shared_ptr<bool> canReboot_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The number of high-risk vulnerabilities.
+      // The number of high-severity vulnerabilities.
       shared_ptr<string> asapCount_ {};
-      // The number of medium-risk vulnerabilities.
+      // The number of medium-severity vulnerabilities.
       shared_ptr<string> laterCount_ {};
-      // The number of low-risk vulnerabilities.
+      // The number of low-severity vulnerabilities.
       shared_ptr<string> nntfCount_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics of the vulnerabilities.
+    // The vulnerability statistics.
     shared_ptr<DescribeClusterVulStatisticsResponseBody::VulStat> vulStat_ {};
   };
 

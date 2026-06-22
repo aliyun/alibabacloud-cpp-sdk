@@ -38,13 +38,13 @@ namespace Models
 
 
   protected:
-    // The type of the asset fingerprint. Valid value:
+    // The Asset Fingerprints type. Valid values:
     // 
-    // *   **port**: port
-    // *   **process**: process
-    // *   **software**: software
-    // *   **user**: account
-    // *   **sca**: middleware
+    // - **port**: port
+    // - **process**: process
+    // - **software**: software
+    // - **user**: account
+    // - **sca**: middleware.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

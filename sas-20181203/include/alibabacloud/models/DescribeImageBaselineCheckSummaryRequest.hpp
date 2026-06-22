@@ -106,33 +106,34 @@ namespace Models
 
 
   protected:
-    // The ID of the specified container cluster.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+    // The ID of the container cluster to query.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The search condition for the image baseline.
+    // The query condition of the baseline.
     shared_ptr<string> criteria_ {};
-    // The type of the search condition. Valid values:
+    // The query type of the baselines to query. Valid values:
     // 
-    // *   **BaselineNameAlias**: baseline name
-    // *   **BaselineClassAlias**: baseline category
+    // - **BaselineNameAlias**: baseline name
+    // 
+    // - **BaselineClassAlias**: baseline category.
     shared_ptr<string> criteriaType_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The page number to display from the returned results. Minimum value: **1**. Default value: **1**, which indicates that the first page is displayed.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for requests and responses. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The maximum number of entries per page in a paged query. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The severity of the image baseline that you want to query. Separate multiple severities with commas (,). Valid values:
+    // The risk level of the baselines to query. Separate multiple levels with commas (,). Valid values:
     // 
-    // *   **high**
-    // *   **medium**
-    // *   **low**
+    // - **high**: high risk
+    // 
+    // - **medium**: medium risk
+    // 
+    // - **low**: low risk.
     shared_ptr<string> riskLevel_ {};
-    // The types of the assets that you want to scan.
+    // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
   };
 

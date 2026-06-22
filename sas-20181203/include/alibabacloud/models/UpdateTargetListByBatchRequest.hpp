@@ -89,17 +89,15 @@ namespace Models
 
     protected:
       // The ID of the server group.
-      // 
-      // >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+      // > Call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the server group ID.
       shared_ptr<string> groupId_ {};
       // The operation type. Valid values:
       // 
-      // *   **add**: the add operation.
-      // *   **del**: the remove operation.
+      // - **add**: increase.
+      // - **del**: delete.
       shared_ptr<string> operation_ {};
       // The UUID of the server.
-      // 
-      // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+      // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
       shared_ptr<string> uuid_ {};
       // The ID of the VPC-connected instance.
       shared_ptr<string> vpcInstanceId_ {};
@@ -128,7 +126,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> batchId_ {};
-    // The operations on assets.
+    // The list of asset operations.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateTargetListByBatchRequest::OperationList>> operationList_ {};

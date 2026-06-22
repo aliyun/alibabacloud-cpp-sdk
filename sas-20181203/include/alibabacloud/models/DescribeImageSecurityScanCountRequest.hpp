@@ -126,31 +126,30 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster that you want to scan.
+    // The ID of the cluster for image security scanning.
     shared_ptr<string> clusterId_ {};
-    // The handling status. Valid values:
-    // 
-    // *   **Y**: handled.
-    // *   **N**: unhandled.
-    // *   **A**: all.
+    // Specifies whether the event is handled. Valid values:
+    // - **Y**: Handled. 
+    // - **N**: Not handled. 
+    // - **A**: All.
     shared_ptr<string> dealed_ {};
-    // The SHA-256 value of the image digest.
+    // The SHA256 value of the image digest.
     shared_ptr<string> imageDigest_ {};
-    // The tag of the image.
+    // The image tag.
     shared_ptr<string> imageTag_ {};
     // The UUID of the image.
     shared_ptr<string> imageUuid_ {};
-    // The ID of the Container Registry repository.
+    // The ID of the container image repository.
     shared_ptr<string> repoId_ {};
-    // The ID of the Container Registry instance.
+    // The instance ID of the container image.
     // 
-    // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain the ID.
+    // > Invoke the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
     shared_ptr<string> repoInstanceId_ {};
-    // The region ID of the Container Registry repository.
+    // The region ID of the container image repository.
     shared_ptr<string> repoRegionId_ {};
-    // The assets that you want to scan.
+    // The scan scope.
     shared_ptr<vector<string>> scanRange_ {};
-    // The IDs of the instances that you want to scan.
+    // The instance ID for image security scanning.
     shared_ptr<vector<string>> uuids_ {};
   };
 

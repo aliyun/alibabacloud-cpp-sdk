@@ -99,22 +99,21 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The page number in a paged query. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. Unit: milliseconds.
+    // The query end time based on the task completion time, in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The query start time based on the task creation time, in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The subtask status codes.
+    // The list of operation subtask status codes.
     shared_ptr<vector<int32_t>> statusCodes_ {};
-    // The IDs of operation tasks.
+    // The list of operation task IDs.
     shared_ptr<vector<string>> taskIds_ {};
   };
 

@@ -194,7 +194,7 @@ namespace Models
 
 
         protected:
-          // The options that can be selected for the rule parameter if the value of the ParamType parameter is 2.
+          // The options of the rule parameter when the parameter type is selection.
           shared_ptr<string> enumValue_ {};
           // The maximum value of the rule parameter.
           shared_ptr<int32_t> maxValue_ {};
@@ -208,12 +208,12 @@ namespace Models
           shared_ptr<string> paramName_ {};
           // The type of the rule parameter. Valid values:
           // 
-          // *   **1**: input
-          // *   **2**: selection
+          // - **1**: input
+          // - **2**: selection.
           shared_ptr<int32_t> paramType_ {};
-          // The ID of the rule.
+          // The rule ID.
           shared_ptr<string> ruleId_ {};
-          // The specified value of the rule parameter.
+          // The configured value of the rule parameter.
           shared_ptr<string> value_ {};
         };
 
@@ -279,24 +279,24 @@ namespace Models
 
 
       protected:
-        // The ID of the risk item.
+        // The ID of the check item.
         shared_ptr<int64_t> checkId_ {};
         // The default value of the rule.
         shared_ptr<int32_t> defaultValue_ {};
         // Indicates whether the rule is optional. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: yes
+        // - **0**: no.
         shared_ptr<int32_t> optional_ {};
-        // An array that consists of the rule parameters.
+        // The list of rule parameters.
         shared_ptr<vector<Rules::ParamList>> paramList_ {};
         // The description of the rule.
         shared_ptr<string> ruleDesc_ {};
-        // The ID of the rule.
+        // The rule ID.
         shared_ptr<string> ruleId_ {};
-        // The specified value of the rule parameter.
+        // The configured value of the rule parameter.
         shared_ptr<int32_t> value_ {};
-        // The name of the variable.
+        // The variable name.
         shared_ptr<string> varName_ {};
       };
 
@@ -333,13 +333,13 @@ namespace Models
 
 
     protected:
-      // The detailed description of the risk item.
+      // The detailed description of the check item.
       shared_ptr<string> checkDesc_ {};
-      // The ID of the risk item.
+      // The ID of the check item.
       shared_ptr<int64_t> checkId_ {};
-      // The description of the risk item.
+      // The description of the check item.
       shared_ptr<string> checkItem_ {};
-      // An array consisting of the rules that are supported by the risk item.
+      // The list of rules supported by the check item.
       shared_ptr<vector<CheckFixDetails::Rules>> rules_ {};
     };
 
@@ -369,11 +369,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the parameters.
+    // The list of check item fix parameters.
     shared_ptr<vector<DescribeCheckFixDetailsResponseBody::CheckFixDetails>> checkFixDetails_ {};
-    // The number of risk items that can be fixed.
+    // The number of check items that support fixing.
     shared_ptr<int32_t> count_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

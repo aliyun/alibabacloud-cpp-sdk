@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The number of entries on the current page for a paged query.
       shared_ptr<int64_t> count_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -104,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The list of servers. The UUID of each server is returned.
     shared_ptr<vector<string>> list_ {};
+    // The paging information for the paged query.
     shared_ptr<ListFileProtectBindMachineResponseBody::PageInfo> pageInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

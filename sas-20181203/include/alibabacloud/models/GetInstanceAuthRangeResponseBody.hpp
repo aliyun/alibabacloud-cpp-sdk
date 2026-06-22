@@ -200,79 +200,97 @@ namespace Models
       // Advanced version count. Values:
       // 
       // - **1-2000000000**: Range
+      // 
       // - **1**: Step
       shared_ptr<string> advancedCount_ {};
       // Anti-ransomware capacity. Values:
       // 
       // - **1-9000000000**: Range
+      // 
       // - **10**: Step
       shared_ptr<string> antiRansomwareCapacity_ {};
       // Anti-ransomware service. Values:
+      // 
       // - **0**: Not enabled
+      // 
       // - **1**: Enabled
       shared_ptr<int32_t> antiRansomwareService_ {};
       // Anti-virus core count. Values:
       // 
       // - **1-2000000000**: Range
+      // 
       // - **1**: Step
       shared_ptr<string> antiVirusCore_ {};
       // Flagship version core count. Values:
       // 
       // - **1-2000000000**: Range
+      // 
       // - **1**: Step
       shared_ptr<string> containerCore_ {};
       // Flagship version count. Values:
       // 
       // - **1-2000000000**: Range
+      // 
       // - **1**: Step
       shared_ptr<string> containerCount_ {};
       // Number of cloud platform configuration check scans. Value:
       // 
-      // - **15000-9999999999**：Range
-      // - **55000**：Step
+      // - **15000-9999999999**:Range
+      // 
+      // - **55000**:Step
       shared_ptr<string> cspmCapacity_ {};
       // Enterprise version count. Range:
+      // 
       // - **Value**: 1-2000000000
+      // 
       // - **Step**: 1
       shared_ptr<string> enterpriseCount_ {};
       // Number of authorized honeypots. Value:
       // 
-      // - **20-500**：Range
-      // - **1**：Step
+      // - **20-500**:Range
+      // 
+      // - **1**:Step
       shared_ptr<string> honeypotCapacity_ {};
       // Image scan authorization count. Values:
       // 
       // - **1-200000**: Range
+      // 
       // - **20**: Step
       shared_ptr<string> imageScanCapacity_ {};
       // Application protection count. Values:
       // 
       // - **1-100000000**: Range
+      // 
       // - **1**: Step
       shared_ptr<string> raspCapacity_ {};
       // Number of authorized malicious file detection SDKs. Value:
       // 
-      // - **10-9999999999**：Range
-      // - **10**：Step
+      // - **10-9999999999**:Range
+      // 
+      // - **10**:Step
       shared_ptr<string> sdkCapacity_ {};
       // Log storage capacity. Values:
       // 
       // - **1-600000000**: Range
+      // 
       // - **10**: Step
       shared_ptr<string> slsCapacity_ {};
       // Threat analysis capacity. Values:
       // 
       // - **1-9999999999**: Range
+      // 
       // - **1000**: Step
       shared_ptr<string> threatAnalysisCapacity_ {};
       // Threat analysis and response log access traffic. Values:
       // 
       // - **1-9999999999**: Range
+      // 
       // - **100**: Step
       shared_ptr<string> threatAnalysisFlow_ {};
       // Web tamper-proof authorization count. Values:
       // 
       // - **1-9999**: Range
+      // 
       // - **1**: Step
       shared_ptr<string> webLockCapacity_ {};
     };

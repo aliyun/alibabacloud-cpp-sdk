@@ -321,82 +321,88 @@ namespace Models
 
     protected:
       // The type of the middleware, database, or web service. Valid values:
-      // 
-      // *   **system_service**: system service
-      // *   **software_library**: software library
-      // *   **docker_component**: container component
-      // *   **database**: database
-      // *   **web_container**: web container
-      // *   **jar**: JAR package
-      // *   **web_framework**: web framework
+      // - **system_service**: system service
+      // - **software_library**: software library
+      // - **docker_component**: container component
+      // - **database**: database
+      // - **web_container**: web container
+      // - **jar**: JAR package
+      // - **web_framework**: web framework.
       shared_ptr<string> bizType_ {};
-      // The display name of the type of the middleware, database, or web service . Valid values:
+      // The display name of the middleware, database, or web service type. Valid values:
+      // <props="china">
+      // - 系统服务
+      // - 软件库
+      // - 容器组件
+      // - 数据库
+      // - Web容器
+      // - Jar包
+      // - Web框架
       // 
-      // *   System service
-      // *   Software library
-      // *   Container component
-      // *   Database
-      // *   Web container
-      // *   JAR package
-      // *   Web framework
+      // <props="intl">
+      // - System Service
+      // - Software Library
+      // - Docker Component
+      // - Database
+      // - Web Container
+      // - Jar
+      // - Web Framework
+      // .
       shared_ptr<string> bizTypeDispaly_ {};
       // The command line of the process.
       shared_ptr<string> cmdline_ {};
-      // The path to the configuration file.
+      // The path of the configuration file.
       shared_ptr<string> configPath_ {};
-      // The name of the container.
+      // The container name.
       shared_ptr<string> containerName_ {};
-      // The latest collection timestamp, which indicates the last timestamp when Security Center collected the information about the middleware, database, or web service. Unit: milliseconds.
+      // The timestamp of the latest scan, which is the most recent time when Security Center collected middleware, database, or web service information. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> imageName_ {};
-      // The ID of the server on which the middleware, database, or web service is run.
+      // The instance ID of the server on which the middleware, database, or web service is deployed.
       shared_ptr<string> instanceId_ {};
-      // The name of the server on which the middleware, database, or web service is run.
+      // The name of the server on which the middleware, database, or web service is deployed.
       shared_ptr<string> instanceName_ {};
-      // The public IP address of the server on which the middleware, database, or web service is run.
+      // The public IP address of the server on which the middleware, database, or web service is deployed.
       shared_ptr<string> internetIp_ {};
-      // The private IP address of the server on which the middleware, database, or web service is run.
+      // The private IP address of the server on which the middleware, database, or web service is deployed.
       shared_ptr<string> intranetIp_ {};
-      // The public IP address of the server on which the middleware, database, or web service is run.
+      // The public IP address of the server on which the middleware, database, or web service is deployed.
       shared_ptr<string> ip_ {};
-      // The IP address that the process monitors.
+      // The IP address on which the process listens.
       shared_ptr<string> listenIp_ {};
-      // The protocol of the traffic on which the process listens. Valid values:
-      // 
-      // *   **UDP**
-      // *   **TCP**
+      // The protocol on which the process listens. Valid values:
+      // - **UDP**
+      // - **TCP**.
       shared_ptr<string> listenProtocol_ {};
       // The listening status of the process. Valid values:
-      // 
-      // *   **NONE**: not listening
-      // *   **LISTEN**: listening
+      // - **NONE**: Not listening.
+      // - **LISTEN**: Listening.
       shared_ptr<string> listenStatus_ {};
       // The name of the middleware, database, or web service.
       shared_ptr<string> name_ {};
       // The path of the middleware, database, or web service.
       shared_ptr<string> path_ {};
-      // The PID.
+      // The process ID.
       shared_ptr<string> pid_ {};
-      // The name of the Kubernetes pod.
+      // The pod name.
       shared_ptr<string> podName_ {};
-      // The port of the middleware, database, or web service.
+      // The service port of the middleware, database, or web service.
       shared_ptr<string> port_ {};
-      // The ID of the parent process.
+      // The parent process ID.
       shared_ptr<string> ppid_ {};
-      // The timestamp when the process starts. Unit: milliseconds.
+      // The timestamp when the process started. Unit: seconds.
       shared_ptr<int64_t> processStarted_ {};
-      // The name of the user who runs the process.
+      // The username of the user that runs the process.
       shared_ptr<string> processUser_ {};
-      // The version verification information about the middleware, database, or web service.
+      // The version verification information of the middleware, database, or web service.
       shared_ptr<string> proof_ {};
-      // The version of the runtime environment.
-      // 
-      // >  The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
+      // The runtime environment version.
+      // > For example, the JDK version of the Java process runtime environment.
       shared_ptr<string> runtimeEnvVersion_ {};
       // The type of the middleware, database, or web service.
       shared_ptr<string> type_ {};
-      // The UUID of the server on which the middleware, database, or web service is run.
+      // The UUID of the server on which the middleware, database, or web service is deployed.
       shared_ptr<string> uuid_ {};
       // The version of the middleware, database, or web service.
       shared_ptr<string> version_ {};
@@ -469,15 +475,15 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The value of NextToken that is returned when the NextToken method is used.
+      // The NextToken value returned when the NextToken method is used.
       shared_ptr<string> nextToken_ {};
-      // The number of entries returned per page. Default value: **10**.
+      // The number of Asset Fingerprints entries per page in a paged query. Default value: **10**, which indicates that 10 Asset Fingerprints entries are displayed per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of Asset Fingerprints entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -511,9 +517,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribePropertyScaDetailResponseBody::PageInfo> pageInfo_ {};
-    // The details about the asset fingerprints returned.
+    // The details of the Asset Fingerprints list.
     shared_ptr<vector<DescribePropertyScaDetailResponseBody::Propertys>> propertys_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

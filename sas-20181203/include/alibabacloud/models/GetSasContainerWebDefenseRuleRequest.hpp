@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // Rule ID.
-    // > You can call the [ListSasContainerWebDefenseRule](~~ListSasContainerWebDefenseRule~~) API to get this parameter.
+    // The rule ID.
+    // > You can call the [ListSasContainerWebDefenseRule](~~ListSasContainerWebDefenseRule~~) operation to obtain this parameter.
     shared_ptr<int64_t> ruleId_ {};
   };
 

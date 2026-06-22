@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page to display in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether to forcefully refresh the data that you want to query.
+    // Specifies whether to forcibly refresh the data to be queried.
     shared_ptr<bool> forceFlush_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to display on each page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The port number.
     shared_ptr<string> port_ {};

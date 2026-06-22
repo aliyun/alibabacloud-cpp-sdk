@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the whitelist. Separate multiple IDs with commas (,).
+    // The vulnerability whitelist IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> ids_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

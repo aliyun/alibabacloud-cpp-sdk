@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of root domains.
+    // The number of root domains in the assets.
     shared_ptr<int32_t> rootDomainsCount_ {};
-    // The number of subdomains.
+    // The number of subdomains in the assets.
     shared_ptr<int32_t> subDomainsCount_ {};
-    // The total number of entries returned.
+    // The total number of domain name assets returned.
     shared_ptr<int32_t> totalDomainsCount_ {};
   };
 

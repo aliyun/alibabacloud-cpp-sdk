@@ -84,19 +84,18 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The ID of the container cluster.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
+    // The ID of the container cluster to query.
+    // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The number of the page to return.
+    // The page number of the current page when paging is used.
     shared_ptr<int64_t> currentPage_ {};
-    // The namespace of the Kubernetes cluster.
+    // The Kubernetes cluster namespace.
     shared_ptr<string> namespace_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The number of entries per page when paging is used. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The name of the pod.
+    // The pod name.
     shared_ptr<string> podName_ {};
   };
 

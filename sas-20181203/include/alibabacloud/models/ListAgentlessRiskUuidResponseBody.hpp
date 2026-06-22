@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number of the current page when using paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page when using paging.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -209,9 +209,9 @@ namespace Models
 
 
     protected:
-      // The number of baseline risks.
+      // The number of baseline risk items.
       shared_ptr<int32_t> baselineCount_ {};
-      // The instance ID of the asset.
+      // The ID of the asset instance.
       shared_ptr<string> instanceId_ {};
       // The instance name of the asset.
       shared_ptr<string> instanceName_ {};
@@ -221,11 +221,11 @@ namespace Models
       shared_ptr<string> intranetIp_ {};
       // The number of malicious samples.
       shared_ptr<int32_t> maliciousCount_ {};
-      // The timestamp of the detection. Unit: milliseconds.
+      // The timestamp of the scan. Unit: milliseconds.
       shared_ptr<int64_t> scanTime_ {};
-      // The ID of the asset that is detected.
+      // The ID of the scan target.
       shared_ptr<string> targetId_ {};
-      // The name of the asset that is detected.
+      // The name of the scan target.
       shared_ptr<string> targetName_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
@@ -261,11 +261,11 @@ namespace Models
 
 
   protected:
-    // The information about the hosts.
+    // The list of servers.
     shared_ptr<vector<ListAgentlessRiskUuidResponseBody::List>> list_ {};
-    // The pagination information.
+    // The paging information for the query.
     shared_ptr<ListAgentlessRiskUuidResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

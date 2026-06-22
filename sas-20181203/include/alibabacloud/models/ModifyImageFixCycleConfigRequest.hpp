@@ -70,13 +70,15 @@ namespace Models
     shared_ptr<int32_t> imageFixCycle_ {};
     // Specifies whether to enable the schedule image fix.
     // 
-    // *   **on**: enable
-    // *   **off**: disable
+    // - **on**: enable
+    // 
+    // - **off**: disable
     shared_ptr<string> imageFixSwitch_ {};
     // The range of the scheduled fix. The value of this parameter is in the JSON format and contains the following fields:
     // 
-    // *   **type**: The type of the image. The value is fixed to repo.
-    // *   **target**: The content of the image. The value is in the format of Namespace/Image repository.
+    // - **type**: The type of the image. The value is fixed to repo.
+    // 
+    // - **target**: The content of the image. The value is in the format of Namespace/Image repository.
     shared_ptr<string> imageFixTarget_ {};
     // The time range during which the image was modified. Unit: day.
     shared_ptr<int32_t> imageTimeRange_ {};

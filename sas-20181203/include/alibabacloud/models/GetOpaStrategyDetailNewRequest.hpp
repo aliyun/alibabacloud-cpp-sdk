@@ -40,7 +40,7 @@ namespace Models
   protected:
     // The rule ID.
     // 
-    // >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+    // > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
     shared_ptr<int64_t> strategyId_ {};
   };
 

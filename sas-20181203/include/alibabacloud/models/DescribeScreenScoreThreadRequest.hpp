@@ -57,15 +57,17 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+    // The end time as a timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // Source of security score, default is Cloud Security Center if left empty. Enum values: 
-    // - 0:Cloud Security Center. 
-    // - 1:Yaochi Console.
+    // The source of the security score. If left empty, the default value is Security Center. Valid values:
+    // 
+    // 0: Security Center.
+    // 
+    // 1: Alibaba Cloud ApsaraDB console.
     shared_ptr<int32_t> source_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+    // The start time as a timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

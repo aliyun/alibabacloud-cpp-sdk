@@ -50,11 +50,11 @@ namespace Models
   protected:
     // The ID of the container cluster.
     shared_ptr<string> clusterId_ {};
-    // The type of the vulnerabilities. Valid values:
+    // The type of vulnerability that you want to query. Valid values:
     // 
-    // *   **cve**: Linux software vulnerabilities
-    // *   **app**: application vulnerabilities
-    // *   **sca**: vulnerabilities that are detected based on software component analysis
+    // - **cve**: Linux software vulnerabilities
+    // - **app**: application vulnerabilities
+    // - **sca**: software composition analysis (SCA) vulnerabilities
     shared_ptr<string> types_ {};
   };
 

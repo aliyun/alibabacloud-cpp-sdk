@@ -48,14 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request source. Set the value to **sas**.
+    // The identifier of the request source. Set this parameter to **sas**.
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type of the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

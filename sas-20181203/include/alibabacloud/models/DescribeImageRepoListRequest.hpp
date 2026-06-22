@@ -121,46 +121,41 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the field that is used for the query. Valid values:
+    // The search field. Valid values:
     // 
-    // *   **repoName**: the name of the image repository
-    // *   **repoNamespace**: the namespace to which the image repository belongs
+    // - **repoName**: image repository name
+    // - **repoNamespace**: image repository namespace
     // 
-    // >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
+    // > This parameter takes effect only when **OperateType** is set to **other**.
     shared_ptr<string> fieldName_ {};
-    // The value of the field that is used for the query.
-    // 
-    // >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
+    // The value of the search field.
+    // > This parameter takes effect only when **OperateType** is set to **other**.
     shared_ptr<string> fieldValue_ {};
-    // The type of the operation. Valid values:
+    // The operation type. Valid values:
     // 
-    // *   **count**: counts statistics
-    // *   **other**: others
+    // - **count**: statistics
+    // - **other**: other.
     shared_ptr<string> operateType_ {};
-    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page during paging.
+    // > Set PageSize to a non-empty value.
     shared_ptr<int32_t> pageSize_ {};
     // The name of the image repository.
     shared_ptr<string> repoName_ {};
-    // The namespace to which the image repository belongs.
+    // The namespace of the container image repository.
     shared_ptr<string> repoNamespace_ {};
-    // Whether it is selected. Values:
-    // 
-    // *   **0**: NO
-    // *   **1**: YES
+    // Specifies whether the item is selected. Valid values:
+    // - **0**: No.
+    // - **1**: Yes.
     shared_ptr<int32_t> selected_ {};
-    // The condition by which the feature is applied. Valid values:
-    // 
-    // *   **image_repo**: the ID of the image repository
+    // The dimension of the defense switch configuration. Valid values:
+    // - **image_repo**: image repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};
-    // The type of the feature. Valid values:
-    // 
-    // *   **image_repo**: image repository protection
+    // The type of the defense switch. Valid values:
+    // - **image_repo**: image repository defense.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

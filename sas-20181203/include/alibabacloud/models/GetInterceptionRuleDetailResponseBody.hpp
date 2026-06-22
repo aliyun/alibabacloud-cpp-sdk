@@ -376,10 +376,13 @@ namespace Models
       shared_ptr<InterceptionRuleDetail::DstTarget> dstTarget_ {};
       // The interception mode. Valid values:
       // 
-      // *   **0**: monitor
-      // *   **1**: block
-      // *   **2**: alert
-      // *   **3**: allow
+      // - **0**: monitor
+      // 
+      // - **1**: block
+      // 
+      // - **2**: alert
+      // 
+      // - **3**: allow
       shared_ptr<int64_t> interceptType_ {};
       // The priority of the rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
       shared_ptr<int64_t> orderIndex_ {};
@@ -389,13 +392,15 @@ namespace Models
       shared_ptr<string> ruleName_ {};
       // The status of the defense rule. Valid values:
       // 
-      // *   **1**: The rule is enabled.
-      // *   **0**: The rule is disabled.
+      // - **1**: The rule is enabled.
+      // 
+      // - **0**: The rule is disabled.
       shared_ptr<int32_t> ruleSwitch_ {};
       // The type of the rule. Valid values:
       // 
-      // *   **suggest**: a suggestion rule
-      // *   **customize**: a custom rule
+      // - **suggest**: a suggestion rule
+      // 
+      // - **customize**: a custom rule
       shared_ptr<string> ruleType_ {};
       // The source network object.
       shared_ptr<InterceptionRuleDetail::SrcTarget> srcTarget_ {};

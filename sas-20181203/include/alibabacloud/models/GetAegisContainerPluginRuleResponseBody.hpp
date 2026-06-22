@@ -160,27 +160,26 @@ namespace Models
       shared_ptr<int64_t> gmtCreate_ {};
       // The timestamp when the rule was modified. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The action mode of the rule. Valid values:
-      // 
-      // *   **0**: allows escape behavior.
-      // *   **1**: triggers alerts.
-      // *   **2**: blocks escape behavior.
+      // The rule action mode. Valid values:
+      // - **0**: allow
+      // - **1**: alert
+      // - **2**: block
       shared_ptr<int32_t> mode_ {};
-      // The description of the rule.
+      // The rule description.
       shared_ptr<string> ruleDescription_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The template ID of the rule.
+      // The rule template ID.
       shared_ptr<string> ruleTemplateId_ {};
-      // The template name of the rule.
+      // The rule template name.
       shared_ptr<string> ruleTemplateName_ {};
-      // The rule items.
+      // The list of selected rule items.
       shared_ptr<vector<string>> selectedPolicy_ {};
-      // The ID of the switch.
+      // The ID of the corresponding switch.
       shared_ptr<string> switchId_ {};
-      // The images that are added to the whitelist.
+      // The list of whitelisted images.
       shared_ptr<vector<string>> whiteImages_ {};
     };
 
@@ -203,9 +202,9 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<GetAegisContainerPluginRuleResponseBody::Data> data_ {};
-    // The request ID.
+    // The request ID, which is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

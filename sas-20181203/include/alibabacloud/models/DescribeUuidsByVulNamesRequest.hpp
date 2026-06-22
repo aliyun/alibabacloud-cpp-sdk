@@ -170,62 +170,59 @@ namespace Models
 
 
   protected:
-    // Specifies whether the vulnerability is fixed. Valid values:
-    // 
-    // *   **y**: the vulnerability is fixed.
-    // *   **n**: the vulnerability is not fixed.
+    // Specifies whether the vulnerability has been handled. Valid values:
+    // - **y**: handled
+    // - **n**: not handled.
     shared_ptr<string> dealed_ {};
-    // The name of the search field that is used to query containers.
+    // The container search field name.
     shared_ptr<string> fieldName_ {};
-    // The value of the search field that is used to query containers.
+    // The container search field value.
     shared_ptr<string> fieldValue_ {};
     // The ID of the asset group.
     shared_ptr<int64_t> groupId_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The severity of the vulnerability. Separate multiple severities with commas (,). Valid values:
+    // The vulnerability level. Separate multiple levels with commas (,). Valid values:
     // 
-    // *   **high**
-    // *   **medium**
-    // *   **low**
+    // - **high**: high
+    // - **medium**: medium
+    // - **low**: low.
     shared_ptr<string> level_ {};
-    // The priority based on which the vulnerability is fixed. Separate multiple priorities with commas (,). Valid values:
+    // The priority level of vulnerability fixing. Separate multiple levels with commas (,). Valid values:
     // 
-    // *   **asap**: high
-    // *   **later**: medium
-    // *   **nntf**: low
+    // - **asap**: high
+    // - **later**: medium
+    // - **nntf**: low.
     shared_ptr<string> necessity_ {};
-    // The remarks for the asset affected by the vulnerability. The value can be the private IP address, public IP address, or name of the asset. Fuzzy match is supported.
+    // The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
-    // The tags that are used to search for the vulnerability.
+    // The tag for querying vulnerabilities.
     shared_ptr<string> searchTags_ {};
-    // The status of the vulnerability. Separate multiple states with commas (,). Valid values:
+    // The fix status of the vulnerability. Separate multiple statuses with commas (,). Valid values:
     // 
-    // *   **1**: unfixed
-    // *   **2**: fix failed
+    // - **1**: unfixed
+    // - **2**: fix failed.
     shared_ptr<string> statusList_ {};
-    // The tag of the vulnerability.
+    // The vulnerability tag.
     shared_ptr<string> tag_ {};
-    // The type of the query condition. Valid values:
+    // The query type. Valid values:
     // 
-    // *   **containerId**: the ID of the container
-    // *   **uuid**: the ID of the asset
+    // - **containerId**: container ID
+    // - **uuid**: asset ID.
     shared_ptr<string> targetType_ {};
-    // The type of the vulnerability. Valid values:
+    // The type of vulnerability to query. Valid values:
     // 
-    // *   **cve**: Linux software vulnerability
-    // *   **sys**: Windows system vulnerability
+    // - **cve**: Linux software vulnerability
+    // - **sys**: Windows system vulnerability.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The ID of the virtual private cloud (VPC) in which the vulnerability is detected. Separate multiple IDs with commas (,).
+    // The instance IDs of VPC-connected instances to query for vulnerabilities. Separate multiple instance IDs with commas (,).
     shared_ptr<string> vpcInstanceIds_ {};
-    // An array that consists of the names of vulnerabilities.
-    // 
-    // >  You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the names of vulnerabilities.
+    // The collection of vulnerability names.
+    // > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> vulNames_ {};

@@ -87,17 +87,17 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The IDs of the honeypots.
+    // The list of honeypot IDs.
     shared_ptr<vector<string>> honeypotIds_ {};
     // The name of the honeypot.
     shared_ptr<string> honeypotName_ {};
-    // The ID of the management node.
+    // The ID of the honeypot management node.
     shared_ptr<string> nodeId_ {};
-    // The name of the management node.
+    // The name of the honeypot management node.
     shared_ptr<string> nodeName_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
   };
 

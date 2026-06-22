@@ -167,62 +167,54 @@ namespace Models
 
 
   protected:
-    // The ID of the container cluster.
-    // 
-    // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+    // The ID of the container cluster to query.
+    // > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The name of the container field. Valid values:
+    // The container field. Valid values:
     // 
-    // *   **clusterId**: the ID of the cluster
-    // *   **image**: the name of the image
-    // *   **imageId**: the ID of the image
-    // *   **namespace**: the namespace
+    // - **clusterId**: cluster ID
+    // - **image**: image name
+    // - **imageId**: image ID
+    // - **namespace**: namespace.
     shared_ptr<string> containerFieldName_ {};
     // The value of the container field.
     shared_ptr<string> containerFieldValue_ {};
-    // The number of the page to return.
+    // The page number for a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the asset group.
-    // 
-    // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+    // The group ID of the server to query.
+    // > Call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain the group ID of the server.
     shared_ptr<int64_t> groupId_ {};
-    // The language of the content within the request and the response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the risk item.
+    // The name of the baseline check risk item.
     shared_ptr<string> riskName_ {};
     // The status of the baseline check. Valid values:
-    // 
-    // *   **1**: failed
-    // *   **3**: passed
+    // - **1**: failed 
+    // - **3**: passed.
     shared_ptr<int32_t> riskStatus_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
     // The status of the check item. Valid values:
-    // 
-    // *   **1**: failed
-    // *   **2**: verifying
-    // *   **3**: passed
-    // *   **5**: expired
-    // *   **6**: ignored
+    // - **1**: failed
+    // - **2**: verifying 
+    // - **3**: passed 
+    // - **5**: expired 
+    // - **6**: ignored.
     shared_ptr<string> status_ {};
     // The ID of the baseline check policy.
     shared_ptr<int64_t> strategyId_ {};
-    // The type of the query condition. Valid values:
-    // 
-    // *   **uuid**: the ID of an asset
+    // The query type. Valid values:
+    // - **uuid**: asset ID.
     shared_ptr<string> targetType_ {};
-    // The level-1 type of check items.
-    // 
-    // >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the level-1 types of check items.
+    // The level-1 type of the baseline.
+    // > Call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain this parameter.
     shared_ptr<string> typeName_ {};
     // The UUID of the asset.
-    // 
-    // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+    // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     shared_ptr<string> uuids_ {};
   };
 

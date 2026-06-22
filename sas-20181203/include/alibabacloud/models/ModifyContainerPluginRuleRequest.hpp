@@ -99,30 +99,28 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for requests and responses. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The action mode of the rule. Valid values:
-    // 
-    // *   **1**: alerts
-    // *   **2**: block
+    // - **1**: Alert.
+    // - **2**: Block.
     shared_ptr<int32_t> mode_ {};
-    // The ID of the rule.
+    // The rule ID.
+    // > You can call the [ListSasContainerWebDefenseRule](https://help.aliyun.com/document_detail/2623606.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ruleId_ {};
-    // The name of the rule.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
-    // The type of the rule. Valid values:
-    // 
-    // *   **0**: user-defined rule
-    // *   **1**: built-in rule
+    // The rule type. Valid values:
+    // - **0**: User-defined.
+    // - **1**: System built-in.
     shared_ptr<int32_t> ruleType_ {};
-    // The rule items.
+    // The list of rule items.
     shared_ptr<vector<string>> selectedPolicy_ {};
-    // The images that are added to the whitelist.
+    // The list of whitelisted images.
     shared_ptr<vector<string>> whiteImages_ {};
   };
 

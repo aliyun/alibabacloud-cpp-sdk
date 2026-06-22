@@ -112,26 +112,27 @@ namespace Models
 
 
   protected:
-    // The number of exported entries.
+    // The number of data entries that have been exported.
     shared_ptr<int32_t> currentCount_ {};
     // The name of the exported file.
     shared_ptr<string> fileName_ {};
-    // The time when the export task was created.
+    // The time when the task was created.
     shared_ptr<int64_t> gmtCreate_ {};
     // The ID of the export task.
     shared_ptr<int64_t> id_ {};
-    // The download URL for the exported file.
+    // The download link of the exported file.
     shared_ptr<string> link_ {};
-    // The progress percentage of the export task.
+    // The export progress in percentage (%).
     shared_ptr<int32_t> progress_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The status of the export task. Valid values:
     // 
-    // *   **exporting**: The task is in progress.
-    // *   **success**: The task is complete.
+    // - **exporting**: The export is in progress.
+    // 
+    // - **success**: The export is successful.
     shared_ptr<string> resultStatus_ {};
-    // The total number of exported entries.
+    // The total number of data entries to be exported.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -122,14 +122,26 @@ namespace Models
 
   protected:
     shared_ptr<string> analyzeResult_ {};
+    // The page number of the current page in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> currentPage_ {};
+    // The unique identifier of the file.
     shared_ptr<string> hashKey_ {};
     shared_ptr<string> lang_ {};
+    // The maximum number of entries to return on each page in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> pageSize_ {};
+    // The parent process path.
     shared_ptr<string> parentProcessPath_ {};
+    // The process path.
     shared_ptr<string> processPath_ {};
+    // The filter condition. You can filter by instance name or IP address.
     shared_ptr<string> remark_ {};
+    // The event status. Valid values:
+    // 
+    // - **1**: Unhandled.
+    // - **2**: Blocked.
+    // - **3**: Ignored.
     shared_ptr<int32_t> status_ {};
+    // The UUID of the server to query.
     shared_ptr<string> uuid_ {};
   };
 

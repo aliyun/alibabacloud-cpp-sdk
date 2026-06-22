@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paginated query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paginated query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -174,17 +174,17 @@ namespace Models
 
 
     protected:
-      // The ID of the server.
+      // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
-      // The name of the server.
+      // The instance name of the server.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The number of viruses detected on the server.
+      // The number of virus detection risks on the server.
       shared_ptr<int32_t> riskNum_ {};
-      // The UUID of the server.
+      // The unique identifier of the server.
       shared_ptr<string> uuid_ {};
     };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the affected servers.
+    // The queried server asset information.
     shared_ptr<vector<DescribeAffectedAssetsResponseBody::AssetList>> assetList_ {};
     // The pagination information.
     shared_ptr<DescribeAffectedAssetsResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

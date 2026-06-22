@@ -86,10 +86,9 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // Indicates whether the image vulnerability whitelist is deleted. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the operation is successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -97,10 +96,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the API call is successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

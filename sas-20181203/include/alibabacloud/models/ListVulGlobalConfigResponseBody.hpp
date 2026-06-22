@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The configurations.
     shared_ptr<vector<ListVulGlobalConfigResponseBody::VulGlobalConfigList>> vulGlobalConfigList_ {};

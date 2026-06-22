@@ -238,6 +238,10 @@ namespace Models
     shared_ptr<string> registryContent_ {};
     // The registry key.
     shared_ptr<string> registryKey_ {};
+    // Whether machines are automatically added to the rule. Default value: add. Valid values:  
+    // 
+    // - **add**: Added by default  
+    // - **del**: Not added by default
     shared_ptr<string> targetDefault_ {};
     // The type of the custom defense rule. Valid values:
     // 

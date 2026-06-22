@@ -155,13 +155,13 @@ namespace Models
 
 
           protected:
-            // The alias of the baseline check item.
+            // The alias of the baseline sub-item.
             shared_ptr<string> alias_ {};
-            // The key of the type for the baseline.
+            // The type key of the baseline main item.
             shared_ptr<string> classKey_ {};
-            // The key of the name for the baseline check item.
+            // The name key of the baseline sub-item.
             shared_ptr<string> itemKey_ {};
-            // The key of the name for the baseline.
+            // The name key of the baseline main item.
             shared_ptr<string> nameKey_ {};
           };
 
@@ -198,13 +198,13 @@ namespace Models
 
 
         protected:
-          // The alias of the baseline.
+          // The alias of the baseline main item.
           shared_ptr<string> alias_ {};
-          // The information about the baseline check item.
+          // The list of baseline sub-items.
           shared_ptr<vector<BaselineNameList::BaselineItemList>> baselineItemList_ {};
-          // The key of the type for the baseline.
+          // The type key of the baseline main item.
           shared_ptr<string> classKey_ {};
-          // The key of the name for the baseline.
+          // The name key of the baseline main item.
           shared_ptr<string> nameKey_ {};
         };
 
@@ -234,11 +234,11 @@ namespace Models
 
 
       protected:
-        // The alias of the baseline type.
+        // The alias of the baseline category.
         shared_ptr<string> alias_ {};
-        // The information about the baseline.
+        // The list of baseline main items.
         shared_ptr<vector<BaselineClassList::BaselineNameList>> baselineNameList_ {};
-        // The key of the baseline type.
+        // The type key of the baseline category.
         shared_ptr<string> classKey_ {};
       };
 
@@ -253,7 +253,7 @@ namespace Models
 
 
     protected:
-      // An array that consists of baseline types.
+      // The list of baseline categories.
       shared_ptr<vector<ImageBaselines::BaselineClassList>> baselineClassList_ {};
     };
 
@@ -276,9 +276,9 @@ namespace Models
 
 
   protected:
-    // The baselines that are used in image baseline checks.
+    // The details of the image baseline check list.
     shared_ptr<DescribeAllImageBaselineResponseBody::ImageBaselines> imageBaselines_ {};
-    // The ID of the request, which is used to query logs and troubleshoot issues.
+    // The ID of the request. The ID is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

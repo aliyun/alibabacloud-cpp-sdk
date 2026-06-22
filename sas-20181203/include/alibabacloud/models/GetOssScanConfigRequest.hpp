@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the bucket.
+    // The bucket name.
     shared_ptr<string> bucketName_ {};
     // The policy ID.
     shared_ptr<string> id_ {};

@@ -108,30 +108,29 @@ namespace Models
 
 
     protected:
-      // The identifier that indicates whether the configuration item is applied to the server. Valid values:
+      // The asset configuration flag. Valid values:
       // 
-      // *   **add**: applied
-      // *   **del**: not applied
+      // - **add**: The configuration takes effect on the asset.
+      // - **del**: The configuration does not take effect on the asset.
       shared_ptr<string> flag_ {};
-      // The default identifier.
+      // The default flag for asset configuration.
       shared_ptr<string> targetDefault_ {};
-      // An array that consists of the IDs of the server groups or the UUIDs of the servers.
-      // 
-      // >  If **uuid** is returned for the **TargetType** parameter, **UUIDs** of the servers are returned. If **groupId** is returned for the **TargetType** parameter, IDs of the server groups are returned.
+      // The group ID or asset UUID on which the configuration takes effect.
+      // > If **TargetType** returns **uuid**, this field indicates the **UUID** of the asset. If **TargetType** returns **groupId**, this field indicates the group ID.
       shared_ptr<vector<string>> targetList_ {};
-      // The type of the server to which the configuration item is applied. Valid values:
+      // The selection mode for the assets on which the configuration takes effect. Valid values:
       // 
-      // *   **uuid**: a server
-      // *   **groupId**: a server group
+      // - **uuid**: Added by individual asset.
+      // - **groupId**: Added by server group.
       shared_ptr<string> targetType_ {};
       // The total number of entries returned.
       shared_ptr<string> totalCount_ {};
-      // The type of the configuration item. Valid values:
+      // The configuration type. Valid values:
       // 
-      // *   **webshell_timescan**: webshell detection and removal
-      // *   **aliscriptengine**: in-depth detection engine
-      // *   **alidetect**: installation scope of local file detection
-      // *   **alidetect-scan-enable**: detection scope of local file detection
+      // - **webshell_timescan**: web shell scan.
+      // - **aliscriptengine**: deep detection engine.
+      // - **alidetect**: installation scope of the local file detection engine.
+      // - **alidetect-scan-enable**: detection scope of the local file detection engine.
       shared_ptr<string> type_ {};
     };
 
@@ -154,9 +153,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The information about the configuration item.
+    // The configuration information.
     shared_ptr<DescribeCommonTargetResultListResponseBody::TargetConfig> targetConfig_ {};
   };
 

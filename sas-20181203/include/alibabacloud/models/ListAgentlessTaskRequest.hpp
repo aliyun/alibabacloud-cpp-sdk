@@ -167,49 +167,49 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page in a paged query. Paging starts from page 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The end timestamp of the task.
+    // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
-    // The public IP address of the asset that you want to query.
+    // The public IP address of the asset to query.
     shared_ptr<string> internetIp_ {};
-    // The private IP address of the asset that you want to query.
+    // The private IP address of the asset to query.
     shared_ptr<string> intranetIp_ {};
-    // The language type. Valid values:
+    // The language type. Valid values:  
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The name of the instance.
     shared_ptr<string> machineName_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page in a paged query. Paging is performed based on this value.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to query main tasks. Valid values:
+    // Specifies whether to query the root task list. Valid values:
     // 
-    // *   **true**: queries main tasks.
-    // *   **false**: queries subtasks.
+    // - **true**: Root tasks.
+    // - **false**: Subtasks.
     shared_ptr<bool> rootTask_ {};
-    // The ID of the main task.
+    // The ID of the root task.
     shared_ptr<string> rootTaskId_ {};
-    // The start timestamp of the task.
+    // The timestamp of the start time.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the detection task.
+    // The detection status. Valid values:
     // 
-    // *   **1**: The detection task is in progress.
-    // *   **2**: The detection task is complete.
-    // *   **3**: The detection task fails.
-    // *   **4**: The detection task times out.
+    // - **1**: Detecting.
+    // - **2**: Completed.
+    // - **3**: Failed.
+    // - **4**: Timed out.
     shared_ptr<int32_t> status_ {};
-    // The name of the asset that you want to detect.
+    // The name of the detection target.
     shared_ptr<string> targetName_ {};
-    // The type of the asset that you want to detect. Valid values:
+    // The scan object type. Valid values:
     // 
-    // *   **1**: snapshot
-    // *   **2**: image
+    // - **1**: snapshot 
+    // - **2**: image.
     shared_ptr<int32_t> targetType_ {};
-    // The ID of the main task. If you want to query subtasks of a main task, you must specify this parameter.
+    // The ID of the root task. Specify this parameter to query the subtask list of a root task.
     shared_ptr<string> taskId_ {};
-    // The UUID of the server.
+    // The UUID of the server to query.
     shared_ptr<string> uuid_ {};
   };
 

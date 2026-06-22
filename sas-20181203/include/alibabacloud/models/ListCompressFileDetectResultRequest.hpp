@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The identifier of the file. Only MD5 hash values are supported.
+    // The unique identifier for the file.
     shared_ptr<string> hashKey_ {};
     // The number of entries per page. Default value: 20.
     // 

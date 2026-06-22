@@ -157,21 +157,21 @@ namespace Models
 
 
       protected:
-        // Subtype of the cloud product asset
+        // The subtype of the cloud service asset.
         shared_ptr<int32_t> assetSubType_ {};
-        // The type of the cloud product asset.
+        // The type of the cloud service asset.
         shared_ptr<int32_t> assetType_ {};
-        // The ID of the cloud product asset instance.
+        // The ID of the cloud service asset instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance.
+        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The ID of the region where the cloud product asset instance is located.
+        // The region ID of the cloud service asset instance.
         shared_ptr<string> regionId_ {};
-        // Sensitive asset flag. Values:
-        // - **0**: Non-sensitive asset.
-        // - **1**: Sensitive asset.
+        // The sensitive asset flag. Valid values:
+        // - **0**: Not a sensitive asset.
+        // - **1**: A sensitive asset.
         shared_ptr<int32_t> sensitiveAssetFlag_ {};
-        // The vendor of the cloud product asset.
+        // The vendor of the cloud service asset.
         shared_ptr<int32_t> vendor_ {};
       };
 
@@ -259,23 +259,23 @@ namespace Models
 
 
       protected:
-        // AI asset identifier. Values: 
-        // - **0**: Not an AI asset. 
-        // - **1**: AI asset.
+        // The AI asset flag. Valid values:
+        // - **0**: Not an AI asset.
+        // - **1**: An AI asset.
         shared_ptr<int32_t> aiAssetFlag_ {};
-        // Node element type.
+        // The element type of the node.
         shared_ptr<string> elementType_ {};
-        // Details of the node.
+        // The node details.
         shared_ptr<string> nodeDetail_ {};
-        // Name of the node.
+        // The node name.
         shared_ptr<string> nodeName_ {};
-        // Type of the node.
+        // The node type.
         shared_ptr<string> nodeType_ {};
-        // UUID of the node.
+        // The node UUID.
         shared_ptr<string> nodeUuid_ {};
-        // Sensitive asset flag. Values:
-        // - **0**: Non-sensitive asset.
-        // - **1**: Sensitive asset.
+        // The sensitive asset flag. Valid values:
+        // - **0**: Not a sensitive asset.
+        // - **1**: A sensitive asset.
         shared_ptr<int32_t> sensitiveAssetFlag_ {};
       };
 
@@ -353,17 +353,17 @@ namespace Models
 
 
       protected:
-        // Edge ID.
+        // The edge ID.
         shared_ptr<int64_t> edgeId_ {};
-        // Edge type.
+        // The edge type.
         shared_ptr<string> edgeType_ {};
-        // Edge element type.
+        // The element type of the edge.
         shared_ptr<string> elementType_ {};
-        // UUID of the end node of the edge.
+        // The UUID of the end node of the edge.
         shared_ptr<string> endNodeUuid_ {};
-        // Description of the repair suggestion.
+        // The description of the remediation suggestion.
         shared_ptr<string> repairSuggestionDisplay_ {};
-        // UUID of the start node of the edge.
+        // The UUID of the start node of the edge.
         shared_ptr<string> startNodeUuid_ {};
       };
 
@@ -451,21 +451,21 @@ namespace Models
 
 
       protected:
-        // Subtype of the cloud product asset.
+        // The subtype of the cloud service asset.
         shared_ptr<int32_t> assetSubType_ {};
-        // Type of the cloud product asset.
+        // The type of the cloud service asset.
         shared_ptr<int32_t> assetType_ {};
-        // ID of the cloud product asset instance.
+        // The ID of the cloud service asset instance.
         shared_ptr<string> instanceId_ {};
-        // Instance name.
+        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // ID of the region where the cloud product asset instance is located.
+        // The region ID of the cloud service asset instance.
         shared_ptr<string> regionId_ {};
-        // Sensitive asset flag. Values:
-        // - **0**: Non-sensitive asset.
-        // - **1**: Sensitive asset.
+        // The sensitive asset flag. Valid values:
+        // - **0**: Not a sensitive asset.
+        // - **1**: A sensitive asset.
         shared_ptr<int32_t> sensitiveAssetFlag_ {};
-        // Vendor of the cloud product asset.
+        // The vendor of the cloud service asset.
         shared_ptr<int32_t> vendor_ {};
       };
 
@@ -566,29 +566,29 @@ namespace Models
 
 
     protected:
-      // Destination asset.
+      // The destination asset.
       shared_ptr<AttackPathEvent::DstAsset> dstAsset_ {};
-      // Timestamp of the first occurrence, in milliseconds.
+      // The timestamp when the event first occurred. Unit: milliseconds.
       shared_ptr<int64_t> firstTime_ {};
-      // Timestamp of the latest discovery, in milliseconds.
+      // The timestamp when the event was last detected. Unit: milliseconds.
       shared_ptr<int64_t> lastTime_ {};
-      // Detailed description of the path.
+      // The description of the path details.
       shared_ptr<string> pathDetailDesc_ {};
-      // List of path event edges.
+      // The list of path event edges.
       shared_ptr<vector<AttackPathEvent::PathEventEdgeList>> pathEventEdgeList_ {};
-      // List of path nodes.
+      // The list of path nodes.
       shared_ptr<vector<AttackPathEvent::PathEventNodeList>> pathEventNodeList_ {};
-      // Name of the path.
+      // The path name.
       shared_ptr<string> pathName_ {};
-      // Description of the path name.
+      // The description of the path name.
       shared_ptr<string> pathNameDesc_ {};
-      // Type of the path.
+      // The path type.
       shared_ptr<string> pathType_ {};
-      // Description of the path type.
+      // The description of the path type.
       shared_ptr<string> pathTypeDesc_ {};
-      // Risk level.
+      // The risk level.
       shared_ptr<string> riskLevel_ {};
-      // Source asset.
+      // The source asset.
       shared_ptr<AttackPathEvent::SrcAsset> srcAsset_ {};
     };
 
@@ -611,9 +611,9 @@ namespace Models
 
 
   protected:
-    // Details of the attack path event.
+    // The details of the attack path event.
     shared_ptr<GetAttackPathEventDetailResponseBody::AttackPathEvent> attackPathEvent_ {};
-    // The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request, and can be used for troubleshooting and problem localization.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

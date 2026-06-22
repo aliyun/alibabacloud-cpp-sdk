@@ -50,8 +50,9 @@ namespace Models
   protected:
     // Indicates whether the configurations of the scheduled image fix are modified.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The list of policy IDs.
     shared_ptr<vector<int64_t>> idList_ {};
   };
 

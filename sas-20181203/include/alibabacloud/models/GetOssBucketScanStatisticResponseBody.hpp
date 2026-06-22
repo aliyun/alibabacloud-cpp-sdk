@@ -170,31 +170,31 @@ namespace Models
 
 
     protected:
-      // The expiration time of the purchased quota.
+      // The timestamp when the authorization expires.
       shared_ptr<int64_t> expireTime_ {};
-      // The number of high-risk objects.
+      // The number of high-risk files.
       shared_ptr<int64_t> highRisk_ {};
-      // The number of low-risk objects.
+      // The number of low-risk files.
       shared_ptr<int64_t> lowRisk_ {};
-      // The number of medium-risk objects.
+      // The number of medium-risk files.
       shared_ptr<int64_t> mediumRisk_ {};
-      // The number of buckets that are not checked.
+      // The number of buckets that have not been scanned.
       shared_ptr<int32_t> noScanBucket_ {};
-      // Postpaid usage count.
+      // The number of pay-as-you-go invocations used.
       shared_ptr<int64_t> postPayInvokeCount_ {};
-      // Prepaid authorized count.
+      // The number of prepaid authorization times.
       shared_ptr<int64_t> prePayAuthCount_ {};
-      // Prepaid usage count.
+      // The number of prepaid invocations used.
       shared_ptr<int64_t> prePayInvokeCount_ {};
-      // The remaining quota.
+      // The remaining number of authorizations.
       shared_ptr<int32_t> remainAuth_ {};
-      // The number of buckets in which at-risk objects exist.
+      // The number of buckets that contain risky files.
       shared_ptr<int32_t> riskBucket_ {};
-      // The number of objects that are checked.
+      // The number of scanned files.
       shared_ptr<int64_t> scanObject_ {};
       // The total number of buckets.
       shared_ptr<int32_t> totalBucket_ {};
-      // The total number of objects in the bucket.
+      // The total number of files in the buckets.
       shared_ptr<int64_t> totalObject_ {};
     };
 
@@ -217,9 +217,9 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<GetOssBucketScanStatisticResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request. The China Chinese system generates a unique identifier for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -79,16 +79,14 @@ namespace Models
 
 
     protected:
-      // The name of the search condition.
+      // The name of the query criterion.
       shared_ptr<string> name_ {};
-      // The type of the search condition. Valid values:
-      // 
-      // *   **input**: You must manually enter the search condition.
-      // *   **select**: You must select a search condition from the **Values** drop-down list.
+      // The type of the query criterion. Valid values:
+      // - **input**: Input type. You must manually enter the query content when using this query criterion.
+      // - **select**: Selection type. You must select a value from the options list (the **Values** field) when using this query criterion.
       shared_ptr<string> type_ {};
-      // The values of the search condition. This parameter is returned only if the value of **Type** is **select**.
-      // 
-      // >  If the value of **Type** is **input**, the value of this parameter is empty.
+      // The available options when **Type** (the type of the query criterion) is set to **select** (selection type).
+      // > When **Type** (the type of the query criterion) is set to **input** (input type), this parameter returns an empty value.
       shared_ptr<string> values_ {};
     };
 
@@ -111,7 +109,7 @@ namespace Models
 
 
   protected:
-    // The search conditions.
+    // The list of query criteria.
     shared_ptr<vector<GetSasContainerWebDefenseRuleCriteriaResponseBody::CriteriaList>> criteriaList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

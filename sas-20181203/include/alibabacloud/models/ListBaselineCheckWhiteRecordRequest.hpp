@@ -99,25 +99,23 @@ namespace Models
 
 
   protected:
-    // The IDs of check items.
+    // The list of check item IDs.
     shared_ptr<vector<int64_t>> checkIds_ {};
-    // The name of the check item. Fuzzy match is supported.
+    // The check item name for fuzzy match.
     shared_ptr<string> checkItemFuzzy_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the current page when using paging. The value starts from 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for requests and responses. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The number of entries per page when using paging.
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of the whitelist rules.
+    // The list of whitelist record IDs.
     shared_ptr<vector<int64_t>> recordIds_ {};
-    // The data source. If you leave this parameter empty, the default value is used. Valid values:
-    // 
-    // *   **default**: server
-    // *   **agentless**: agentless detection
+    // The data source. If this parameter is left empty, host data is queried by default. Valid values:
+    // - **default**: host
+    // - **agentless**: agentless.
     shared_ptr<string> source_ {};
   };
 

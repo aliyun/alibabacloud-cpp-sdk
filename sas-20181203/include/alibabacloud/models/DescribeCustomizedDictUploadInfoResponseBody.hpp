@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The AccessKey ID that is required to access the OSS object.
+    // The AccessKey ID required to access the file.
     shared_ptr<string> accessid_ {};
-    // The time when the OSS signature expires. This value is a UNIX timestamp.
+    // The expiration time of the authentication, in timestamp format.
     shared_ptr<string> expire_ {};
-    // The OSS endpoint.
+    // The OSS domain name.
     shared_ptr<string> host_ {};
-    // The key of the OSS object.
+    // The OSS file key.
     shared_ptr<string> key_ {};
-    // The policy of the OSS bucket.
+    // The bucket policy of the OSS bucket.
     shared_ptr<string> policy_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this identifier to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The security token.
+    // The Security Token Service (STS) token.
     shared_ptr<string> securityToken_ {};
     // The OSS signature.
     shared_ptr<string> signature_ {};

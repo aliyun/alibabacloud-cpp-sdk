@@ -51,12 +51,11 @@ namespace Models
 
 
   protected:
-    // The names of the buckets.
+    // The list of bucket names.
     shared_ptr<vector<string>> bucketNameList_ {};
     // The data source. Valid values:
-    // 
-    // *   **API**: API operations.
-    // *   **OSS**: Object Storage Service (OSS) file check.
+    // - **API**: API-based scan.
+    // - **OSS**: OSS-based scan.
     shared_ptr<string> source_ {};
   };
 

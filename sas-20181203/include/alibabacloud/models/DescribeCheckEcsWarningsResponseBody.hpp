@@ -66,22 +66,22 @@ namespace Models
 
 
   protected:
-    // Indicates whether you use the free trial of Security Center. Valid values:
-    // - **0**: no
-    // - **1**: yes
+    // Indicates whether the current Security Center edition is a trial version. Valid values:
+    // - **0**: not a trial version
+    // - **1**: a trial version.
     shared_ptr<string> canTry_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The edition of Security Center that you use. Valid values:
+    // The edition of Security Center that you purchased. Valid values:
     // 
-    // *   **1**: Basic edition
-    // *   **2** or **3**: Enterprise edition
-    // *   **5**: Advanced edition
-    // *   **6**: Anti-virus edition
+    // - **1**: Free Edition
+    // - **2** or **3**: Enterprise Edition  
+    // - **5**: Premium Edition  
+    // - **6**: Anti-virus Edition
     // 
-    // >  Both the value 2 and the value 3 indicate the Enterprise edition.
+    // > Both 2 and 3 correspond to Enterprise Edition. There is no difference between the two values.
     shared_ptr<string> sasVersion_ {};
-    // The number of weak passwords that can cause high risks to your assets.
+    // The number of high-risk weak password risks detected in your assets.
     shared_ptr<string> weakPasswordCount_ {};
   };
 

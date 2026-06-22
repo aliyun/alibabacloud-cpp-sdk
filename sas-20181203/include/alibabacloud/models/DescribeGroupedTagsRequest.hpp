@@ -38,10 +38,9 @@ namespace Models
 
 
   protected:
-    // The type of the asset to query. If you do not specify this parameter, the tags of all asset types are queried. Valid values:
-    // 
-    // *   **ecs**: server
-    // *   **cloud_product**: Alibaba Cloud service
+    // The type of asset to query. If you do not specify an asset type, tag information for all asset types is queried. Valid values:
+    // - **ecs**: server
+    // - **cloud_product**: cloud product.
     shared_ptr<string> machineTypes_ {};
   };
 

@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The number of attempts.
       shared_ptr<int32_t> count_ {};
-      // The file path.
+      // The path of the file.
       shared_ptr<string> file_ {};
     };
 
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // An array consisting of the files that are changed.
+    // The list of web tamper-proofing events.
     shared_ptr<vector<DescribeWebLockFileChangeStatisticsResponseBody::List>> list_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of files that are attempted to change.
+    // The total number of web tamper-proofing events.
     shared_ptr<int32_t> totalCount_ {};
   };
 

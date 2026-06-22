@@ -48,15 +48,14 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of the migration operation. Valid values:
+    // The service switchover type. Valid values:
     // 
-    // *   **sg_switch**: the migration of a server from a region in the Chinese mainland to the Singapore region.
-    // *   **sls_meta_version_switch_stage_1**: the upgrade of log dictionaries.
+    // - **sg_switch**: The server connection is migrated from China to Singapore.
+    // - **sls_meta_version_switch_stage_1**: The log analysis delivery field upgrade switchover.
     shared_ptr<string> type_ {};
   };
 

@@ -112,35 +112,30 @@ namespace Models
 
 
   protected:
-    // The ID of the whitelist rule. If you do not specify this parameter, a whitelist rule is created.
+    // The rule ID. This parameter is optional. If you do not specify this parameter, a whitelist rule is created.
     shared_ptr<int64_t> configId_ {};
-    // The name of the alert.
-    // 
-    // *   Set the value to ALL, which indicates all alert types.
+    // The alerting name. Valid values:
+    // - ALL: all Alarm Metric.
     shared_ptr<string> eventName_ {};
-    // The field that you want to use in the whitelist rule.
+    // The field to be whitelisted.
     shared_ptr<string> field_ {};
-    // The value of the field that you want to use in the whitelist rule.
+    // The value of the field to be whitelisted.
     shared_ptr<string> fieldValue_ {};
-    // The logical operator that you want to use in the whitelist rule.
-    // 
-    // *   Set the value to strEqual, which indicates the equality operator (=).
+    // The operator used for rule matching. Valid values:
+    // - strEqual: string equals.
     shared_ptr<string> operator_ {};
-    // Remark.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // The feature to which this operation belongs.
-    // 
-    // *   Set the value to agentless, which indicates the agentless detection feature.
+    // The business source. Valid values:
+    // - agentless: agentless detection.
     shared_ptr<string> source_ {};
-    // The type of the assets on which you want the whitelist rule to take effect. Valid values:
-    // 
-    // *   ALL: all assets
-    // *   SELECTION_KEY: selected assets
+    // The type of the target scope. Valid values:
+    // - ALL: all assets
+    // - SELECTION_KEY: assets selected by using the asset selection component.
     shared_ptr<string> targetType_ {};
-    // The assets on which you want the whitelist rule to take effect. Valid values:
-    // 
-    // *   ALL: all assets
-    // *   Others: selected assets
+    // The target scope. Valid values:
+    // - ALL: all assets
+    // - Other values: the key of the asset scope selected by using the asset selection component.
     shared_ptr<string> targetValue_ {};
   };
 

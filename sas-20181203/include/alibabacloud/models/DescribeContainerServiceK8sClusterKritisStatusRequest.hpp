@@ -57,10 +57,10 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

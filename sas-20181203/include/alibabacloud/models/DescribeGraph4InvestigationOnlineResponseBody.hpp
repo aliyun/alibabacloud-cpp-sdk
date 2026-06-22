@@ -139,11 +139,11 @@ namespace Models
 
 
         protected:
-          // Number of neighboring nodes.
+          // The number of adjacent nodes.
           shared_ptr<int32_t> count_ {};
-          // Indicates whether there are more neighboring vertices.
+          // Indicates whether more adjacent vertices exist.
           shared_ptr<bool> hasMore_ {};
-          // Neighbor node type.
+          // The type of the neighbor node.
           shared_ptr<string> type_ {};
         };
 
@@ -194,17 +194,17 @@ namespace Models
 
 
       protected:
-        // Vertex name.
+        // The name of the vertex.
         shared_ptr<string> name_ {};
-        // List of neighboring vertices of the current vertex.
+        // The list of vertices adjacent to the current vertex.
         shared_ptr<vector<VertexList::NeighborList>> neighborList_ {};
-        // Properties.
+        // The properties.
         shared_ptr<string> properties_ {};
-        // Time.
+        // The time.
         shared_ptr<string> time_ {};
-        // Vertex type.
+        // The type of the vertex.
         shared_ptr<string> type_ {};
-        // Asset UUID.
+        // The UUID of the asset.
         shared_ptr<string> uuid_ {};
       };
 
@@ -264,15 +264,15 @@ namespace Models
 
 
       protected:
-        // Direction of the edge. Possible values:
-        // - **1** ： Forward
-        // - **0**： Reverse
+        // The direction of the edge. Valid values:
+        // - **1**: forward
+        // - **0**: reverse.
         shared_ptr<int32_t> directed_ {};
-        // Render color of the edge.
+        // The rendering color of the edge.
         shared_ptr<string> displayColor_ {};
-        // Icon style of the edge
+        // The icon style of the edge.
         shared_ptr<string> displayIcon_ {};
-        // Name of the edge.
+        // The name of the edge.
         shared_ptr<string> name_ {};
       };
 
@@ -341,15 +341,15 @@ namespace Models
 
 
       protected:
-        // Vertex rendering color.
+        // The rendering color of the vertex.
         shared_ptr<string> displayColor_ {};
-        // Vertex icon.
+        // The icon of the vertex.
         shared_ptr<string> displayIcon_ {};
-        // Display order
+        // The display order.
         shared_ptr<int32_t> displayOrder_ {};
-        // Node type ID.
+        // The ID of the node type.
         shared_ptr<string> id_ {};
-        // Vertex name.
+        // The name of the vertex.
         shared_ptr<string> name_ {};
       };
 
@@ -437,27 +437,27 @@ namespace Models
 
 
       protected:
-        // ID of the end point of the edge.
+        // The ID of the end vertex of the edge.
         shared_ptr<string> endId_ {};
-        // The type of the end point of the current edge. Possible values include but are not limited to:
-        // - **process**: Process
-        // - **file**: File
-        // - **alert**: Alert
+        // The type of the end vertex of the edge. Valid values include but are not limited to:
+        // - **process**: process
+        // - **file**: file
+        // - **alert**: alert
         // - **ip**: IP address
-        // - **domain**: Domain
+        // - **domain**: domain name.
         shared_ptr<string> endType_ {};
-        // Edge name.
+        // The name of the edge.
         shared_ptr<string> name_ {};
-        // Start vertex id of edge.
+        // The ID of the start vertex of the edge.
         shared_ptr<string> startId_ {};
-        // The type of the starting point of the edge. Possible values include, but are not limited to:
-        // - **process**： Process
-        // - **file**： File
-        // - **alert**： Alert
-        // - **ip**： IP address
-        // - **domain**： Domain
+        // The type of the start vertex of the edge. Valid values include but are not limited to:
+        // - **process**: process
+        // - **file**: file
+        // - **alert**: alert
+        // - **ip**: IP address
+        // - **domain**: domain name.
         shared_ptr<string> startType_ {};
-        // The time when the edge was established.
+        // The time when the edge was created.
         shared_ptr<string> time_ {};
         // The type of the edge.
         shared_ptr<string> type_ {};
@@ -502,13 +502,13 @@ namespace Models
 
 
     protected:
-      // List of edges.
+      // The list of edges.
       shared_ptr<vector<Data::EdgeList>> edgeList_ {};
-      // List of vertex types.
+      // The list of vertex types.
       shared_ptr<vector<Data::EntityTypeList>> entityTypeList_ {};
-      // List of edge types.
+      // The list of edge types.
       shared_ptr<vector<Data::RelationTypeList>> relationTypeList_ {};
-      // List of vertices.
+      // The list of vertices.
       shared_ptr<vector<Data::VertexList>> vertexList_ {};
     };
 
@@ -552,17 +552,17 @@ namespace Models
 
 
   protected:
-    // Result code, where **200** indicates success. Any other value indicates failure, and the caller can use this field to determine the reason for the failure.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // Data
+    // The response data.
     shared_ptr<DescribeGraph4InvestigationOnlineResponseBody::Data> data_ {};
-    // The response message from the request.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // A unique identifier generated by Alibaba Cloud for this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result status of the API call. Values:
-    // - **true**: The API call was successful.
-    // - **false**: The API call failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -112,27 +112,26 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page to display in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range to query. Unit: milliseconds.
+    // The end time of the query based on the task completion time. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The start time of the query based on the task creation time. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The task status codes.
+    // The list of task status codes.
     shared_ptr<vector<int32_t>> statusCodes_ {};
-    // The task IDs.
+    // The list of task IDs.
     shared_ptr<vector<string>> taskIds_ {};
-    // List of task sources.
+    // The list of task sources.
     shared_ptr<vector<string>> taskSources_ {};
-    // The task types. Valid values:
-    // 
-    // *   CHECK_ALL: full check.
-    // *   CHECK_POLICY: policy-based check for which check items are configured.
-    // *   CHECK_SCHEDULE: scheduled check.
-    // *   CHECK_ITEM: specific check item-based check.
-    // *   CHECK_INSTANCE: specific check item-based check on specific instances.
+    // The task type. Valid values:
+    // - CHECK_ALL: full check.
+    // - CHECK_POLICY: check performed based on check items in the configured policy.
+    // - CHECK_SCHEDULE: scheduled check.
+    // - CHECK_ITEM: check performed based on specified check items.
+    // - CHECK_INSTANCE: check performed based on specified check items and instances.
     shared_ptr<vector<string>> taskTypes_ {};
   };
 

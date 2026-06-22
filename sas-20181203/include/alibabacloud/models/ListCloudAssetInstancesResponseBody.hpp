@@ -92,11 +92,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of data entries displayed on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in paginated queries.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of cloud assets.
       shared_ptr<int32_t> totalCount_ {};
@@ -110,12 +110,15 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AssetSubTypeName, assetSubTypeName_);
         DARABONBA_PTR_TO_JSON(AssetType, assetType_);
         DARABONBA_PTR_TO_JSON(AssetTypeName, assetTypeName_);
+        DARABONBA_PTR_TO_JSON(AssetUuid, assetUuid_);
         DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RiskStatus, riskStatus_);
+        DARABONBA_PTR_TO_JSON(SaleCspm, saleCspm_);
+        DARABONBA_PTR_TO_JSON(SaleType, saleType_);
         DARABONBA_PTR_TO_JSON(SecurityInfo, securityInfo_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(Vendor, vendor_);
@@ -128,12 +131,15 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AssetSubTypeName, assetSubTypeName_);
         DARABONBA_PTR_FROM_JSON(AssetType, assetType_);
         DARABONBA_PTR_FROM_JSON(AssetTypeName, assetTypeName_);
+        DARABONBA_PTR_FROM_JSON(AssetUuid, assetUuid_);
         DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RiskStatus, riskStatus_);
+        DARABONBA_PTR_FROM_JSON(SaleCspm, saleCspm_);
+        DARABONBA_PTR_FROM_JSON(SaleType, saleType_);
         DARABONBA_PTR_FROM_JSON(SecurityInfo, securityInfo_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
@@ -152,9 +158,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->alarmStatus_ == nullptr
-        && this->assetSubType_ == nullptr && this->assetSubTypeName_ == nullptr && this->assetType_ == nullptr && this->assetTypeName_ == nullptr && this->createdTime_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->regionId_ == nullptr && this->riskStatus_ == nullptr
-        && this->securityInfo_ == nullptr && this->tags_ == nullptr && this->vendor_ == nullptr && this->vendorUid_ == nullptr && this->vendorUserName_ == nullptr; };
+        && this->assetSubType_ == nullptr && this->assetSubTypeName_ == nullptr && this->assetType_ == nullptr && this->assetTypeName_ == nullptr && this->assetUuid_ == nullptr
+        && this->createdTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->regionId_ == nullptr
+        && this->riskStatus_ == nullptr && this->saleCspm_ == nullptr && this->saleType_ == nullptr && this->securityInfo_ == nullptr && this->tags_ == nullptr
+        && this->vendor_ == nullptr && this->vendorUid_ == nullptr && this->vendorUserName_ == nullptr; };
       // alarmStatus Field Functions 
       bool hasAlarmStatus() const { return this->alarmStatus_ != nullptr;};
       void deleteAlarmStatus() { this->alarmStatus_ = nullptr;};
@@ -188,6 +195,13 @@ namespace Models
       void deleteAssetTypeName() { this->assetTypeName_ = nullptr;};
       inline string getAssetTypeName() const { DARABONBA_PTR_GET_DEFAULT(assetTypeName_, "") };
       inline Instances& setAssetTypeName(string assetTypeName) { DARABONBA_PTR_SET_VALUE(assetTypeName_, assetTypeName) };
+
+
+      // assetUuid Field Functions 
+      bool hasAssetUuid() const { return this->assetUuid_ != nullptr;};
+      void deleteAssetUuid() { this->assetUuid_ = nullptr;};
+      inline string getAssetUuid() const { DARABONBA_PTR_GET_DEFAULT(assetUuid_, "") };
+      inline Instances& setAssetUuid(string assetUuid) { DARABONBA_PTR_SET_VALUE(assetUuid_, assetUuid) };
 
 
       // createdTime Field Functions 
@@ -232,6 +246,20 @@ namespace Models
       inline Instances& setRiskStatus(string riskStatus) { DARABONBA_PTR_SET_VALUE(riskStatus_, riskStatus) };
 
 
+      // saleCspm Field Functions 
+      bool hasSaleCspm() const { return this->saleCspm_ != nullptr;};
+      void deleteSaleCspm() { this->saleCspm_ = nullptr;};
+      inline int32_t getSaleCspm() const { DARABONBA_PTR_GET_DEFAULT(saleCspm_, 0) };
+      inline Instances& setSaleCspm(int32_t saleCspm) { DARABONBA_PTR_SET_VALUE(saleCspm_, saleCspm) };
+
+
+      // saleType Field Functions 
+      bool hasSaleType() const { return this->saleType_ != nullptr;};
+      void deleteSaleType() { this->saleType_ = nullptr;};
+      inline int32_t getSaleType() const { DARABONBA_PTR_GET_DEFAULT(saleType_, 0) };
+      inline Instances& setSaleType(int32_t saleType) { DARABONBA_PTR_SET_VALUE(saleType_, saleType) };
+
+
       // securityInfo Field Functions 
       bool hasSecurityInfo() const { return this->securityInfo_ != nullptr;};
       void deleteSecurityInfo() { this->securityInfo_ = nullptr;};
@@ -270,177 +298,133 @@ namespace Models
 
 
     protected:
-      // Indicates whether alerts are generated for the cloud asset. Valid values:
-      // 
-      // *   **YES**
-      // *   **NO**
+      // Indicates whether the cloud asset has security alerts. Valid values:
+      // - **YES**: Security alerts exist.
+      // - **NO**: No security alerts exist.
       shared_ptr<string> alarmStatus_ {};
-      // The subtype of the cloud service. The subtype of the cloud asset. Valid values:
+      // The subtype of the cloud service.
+      // The asset type-subtype. Valid values:
       // 
-      // *   **0**: ECS
+      // - **0**: Elastic Compute Service (ECS)
       // 
-      //     *   **0**: instance
-      //     *   **1**: disk (storage)
-      //     *   **2**: security group
-      // 
-      // *   **1**: SLB
-      // 
-      //     *   **0**: SLB
-      //     *   **1**: Application Load Balancer (ALB)
-      // 
-      // *   **3**: ApsaraDB RDS
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **4**: ApsaraDB for MongoDB
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **5**: ApsaraDB for Redis
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **6**: Container Registry
-      // 
-      //     *   **1**: Enterprise Edition
-      //     *   **2**: Personal Edition
-      // 
-      // *   **8**: ACK
-      // 
-      //     *   **0**: cluster
-      // 
-      // *   **9**: VPC
-      // 
-      //     *   **0**: NAT gateway
-      //     *   **1**: EIP
-      //     *   **2**: VPN
-      //     *   **3**: FLOW_LOG
-      // 
-      // *   **11**: ActionTrail
-      // 
-      //     *   **0**: trail
-      // 
-      // *   **12**: Alibaba Cloud CDN
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **13**: Certificate Management Service (formerly SSL Certificates Service)
-      // 
-      //     *   **0**: certificate
-      // 
-      // *   **14**: Apsara Devops
-      // 
-      //     *   **0**: organization
-      // 
-      // *   **16**: Anti-DDoS
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **17**: WAF
-      // 
-      //     *   **0**: domain name
-      // 
-      // *   **18**: OSS
-      // 
-      //     *   **0**: bucket
-      // 
-      // *   **19**: PolarDB
-      // 
-      //     *   **0**: cluster
-      // 
-      // *   **20**: ApsaraDB RDS for PostgreSQL
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **21**: MSE
-      // 
-      //     *   **0**: cluster
-      // 
-      // *   **22**: NAS
-      // 
-      //     *   **0**: file system
-      // 
-      // *   **23**: DSC
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **24**: EIP
-      // 
-      //     *   **0**: Anycast EIP
-      // 
-      // *   **25**: IDaaS EIAM
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **26**: PolarDB-X
-      // 
-      //     *   **0**: instance
-      // 
-      // *   **27**: Elasticsearch
-      // 
-      //     *   **0**: instance
+      //     * **0**: Instance
+      //     * **1**: Disk (storage)
+      //     * **2**: Security group
+      // - **1**: Server Load Balancer (SLB)
+      //     * **0**: Server Load Balancer
+      //     * **1**: Application Load Balancer
+      // - **3**: ApsaraDB RDS
+      //     * **0**: Instance
+      // - **4**: ApsaraDB for MongoDB
+      //     * **0**: Instance
+      // - **5**: ApsaraDB for Tair (compatible with Redis)
+      //     * **0**: Instance
+      // - **6**: Container Registry
+      //     * **1**: Enterprise Edition
+      //     * **2**: Personal Edition
+      // - **8**: Container Service for Kubernetes (ACK)
+      //     * **0**: Cluster
+      // - **9**: Virtual Private Cloud (VPC)
+      //     * **0**: NAT gateway
+      //     * **1**: EIP
+      //     * **2**: VPN
+      //     * **3**: FLOW_LOG
+      // - **11**: ActionTrail
+      //     * **0**: Trail
+      // - **12**: Alibaba Cloud CDN
+      //     * **0**: Instance
+      // - **13**: Certificate Management Service (formerly SSL Certificates Service)
+      //     * **0**: Certificate
+      // - **14**: Apsara Devops
+      //     * **0**: Organization
+      // - **16**: Anti-DDoS
+      //     * **0**: Instance
+      // - **17**: Web Application Firewall (WAF)
+      //      * **0**: Domain name
+      // - **18**: Object Storage Service (OSS)
+      //     * **0**: Bucket
+      // - **19**: PolarDB
+      //     * **0**: Cluster
+      // - **20**: ApsaraDB RDS for PostgreSQL
+      //     * **0**: Instance
+      // - **21**: Microservices Engine (MSE)
+      //     * **0**: Cluster
+      // - **22**: Apsara File Storage NAS
+      //     * **0**: File system
+      // - **23**: Data Security Center (DSC)
+      //     * **0**: Instance
+      // - **24**: Elastic IP Address (EIP)
+      //     * **0**: Anycast EIP
+      // - **25**: Identity as a Service - EIAM
+      //     * **0**: Instance
+      // - **26**: PolarDB-X
+      //     * **0**: Instance
+      // - **27**: Elasticsearch
+      //     * **0**: Instance
       shared_ptr<string> assetSubType_ {};
-      // The subtype name of the cloud asset.
+      // The name of the cloud asset subtype.
       shared_ptr<string> assetSubTypeName_ {};
-      // The type of the cloud asset. Valid values:
+      // The type of the asset. Valid values:
       // 
-      // *   **0**: Elastic Compute Service (ECS)
-      // *   **1**: Server Load Balancer (SLB)
-      // *   **3**: ApsaraDB RDS
-      // *   **4**: ApsaraDB for MongoDB
-      // *   **5**: ApsaraDB for Redis
-      // *   **6**: Container Registry
-      // *   **8**: Container Service for Kubernetes (ACK)
-      // *   **9**: Virtual Private Cloud (VPC)
-      // *   **11**: ActionTrail
-      // *   **12**: Alibaba Cloud CDN
-      // *   **13**: Certificate Management Service (formerly SSL Certificates Service)
-      // *   **14**: Apsara Devops
-      // *   **16**: Anti-DDoS
-      // *   **17**: Web Application Firewall (WAF)
-      // *   **18**: Object Storage Service (OSS)
-      // *   **19**: PolarDB
-      // *   **20**: ApsaraDB RDS for PostgreSQL
-      // *   **21**: Microservices Engine (MSE)
-      // *   **22**: File Storage NAS (NAS)
-      // *   **23**: Data Security Center (DSC)
-      // *   **24**: Elastic IP Address (EIP)
-      // *   **25**: Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM)
-      // *   **26**: PolarDB-X
-      // *   **27**: Elasticsearch
+      // - **0**: Elastic Compute Service (ECS)
+      // - **1**: Server Load Balancer (SLB)
+      // - **3**: ApsaraDB RDS
+      // - **4**: ApsaraDB for MongoDB
+      // - **5**: ApsaraDB for Tair (compatible with Redis)
+      // - **6**: Container Registry
+      // - **8**: Container Service for Kubernetes (ACK)
+      // - **9**: Virtual Private Cloud (VPC)
+      // - **11**: ActionTrail
+      // - **12**: Alibaba Cloud CDN
+      // - **13**: Certificate Management Service (formerly SSL Certificates Service)
+      // - **14**: Apsara Devops
+      // - **16**: Anti-DDoS
+      // - **17**: Web Application Firewall (WAF)
+      // - **18**: Object Storage Service (OSS)
+      // - **19**: PolarDB
+      // - **20**: ApsaraDB RDS for PostgreSQL
+      // - **21**: Microservices Engine (MSE)
+      // - **22**: Apsara File Storage NAS
+      // - **23**: Data Security Center (DSC)
+      // - **24**: Elastic IP Address (EIP)
+      // - **25**: Identity as a Service - EIAM
+      // - **26**: PolarDB-X
+      // - **27**: Elasticsearch
       shared_ptr<int32_t> assetType_ {};
-      // The type name of the cloud asset.
+      // The name of the cloud asset type.
       shared_ptr<string> assetTypeName_ {};
+      shared_ptr<string> assetUuid_ {};
       // The time when the instance was created.
       shared_ptr<int64_t> createdTime_ {};
-      // The instance ID of the cloud asset.
+      // The ID of the cloud asset instance.
       shared_ptr<string> instanceId_ {};
-      // The instance name of the cloud asset.
+      // The instance name of the asset.
       shared_ptr<string> instanceName_ {};
-      // The public IP address of the cloud asset.
+      // The public IP address of the instance.
       shared_ptr<string> internetIp_ {};
-      // The ID of the region to which the cloud asset belongs.
+      // The ID of the region to which the asset instance belongs.
       shared_ptr<string> regionId_ {};
-      // Indicates whether risks are detected on the cloud asset. Valid values:
-      // 
-      // *   **YES**
-      // *   **NO**
+      // Indicates whether the cloud asset has security risks. Valid values:
+      // - **YES**: Exists.
+      // - **NO**: Does not exist.
       shared_ptr<string> riskStatus_ {};
-      // The security information about the cloud asset.
+      shared_ptr<int32_t> saleCspm_ {};
+      shared_ptr<int32_t> saleType_ {};
+      // The security information of the cloud asset.
       shared_ptr<string> securityInfo_ {};
-      // Tag list.
+      // The tag list.
       shared_ptr<vector<string>> tags_ {};
-      // The service provider (SP) of the cloud asset. Valid values:
+      // The server vendor. Valid values:
       // 
-      // *   **0**: a cloud asset provided by Alibaba Cloud
-      // *   **1**: a third-party cloud asset
-      // *   **2**: a cloud asset in a data center
-      // *   **3**, **4**, **5**, and **7**: other cloud asset
-      // *   **8**: a lightweight cloud asset
+      // - **0**: Alibaba Cloud asset
+      // - **1**: Off-cloud asset
+      // - **2**: IDC asset
+      // - **3**, **4**, **5**, **7**: Other cloud assets
+      // - **8**: Lightweight asset
       shared_ptr<int32_t> vendor_ {};
       // The account ID of the multi-cloud instance.
       shared_ptr<string> vendorUid_ {};
-      // The user name of the multi-cloud instance.
+      // The username of the multi-cloud instance.
       shared_ptr<string> vendorUserName_ {};
     };
 
@@ -479,16 +463,16 @@ namespace Models
 
 
   protected:
-    // The details of the cloud assets.
+    // The list of detailed cloud asset information.
     shared_ptr<vector<ListCloudAssetInstancesResponseBody::Instances>> instances_ {};
     // The pagination information.
     shared_ptr<ListCloudAssetInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request. It can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The API call was successful.
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

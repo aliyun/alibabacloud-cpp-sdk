@@ -51,13 +51,13 @@ namespace Models
 
 
   protected:
-    // List of file IDs to be processed.
-    // > You can call [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) to get the IDs.
-    // > -
+    // The list of file IDs to process.
+    // > You can call [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) to obtain the IDs.
+    // > -.
     shared_ptr<vector<int64_t>> fileIdList_ {};
-    // Type of operation:
-    // - addWhitelist: Add to whitelist
-    // - offWhitelist: Remove from whitelist
+    // The type of operation. Valid values:
+    // - addWhitelist: adds to the whitelist.
+    // - offWhitelist: removes from the whitelist.
     shared_ptr<string> operation_ {};
   };
 

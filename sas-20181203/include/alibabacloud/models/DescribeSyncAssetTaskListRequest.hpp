@@ -75,17 +75,16 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1. Pages start from page 1.
+    // The page number of the page to return. Default value: 1, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The timestamp when the IDC scan task ends. Unit: milliseconds.
+    // The end timestamp of the IDC scan task to query. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page in a paged query. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The timestamp when the IDC scan task starts. Unit: milliseconds.
+    // The start timestamp of the IDC scan task to query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The name of the IDC scan task.
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // Total number of items that failed the check.
+      // The total number of check items that failed the check.
       shared_ptr<int32_t> notPassCount_ {};
-      // Number of high-risk inspection items that have not passed.
+      // The number of check items with a high-risk level that failed the check.
       shared_ptr<int32_t> notPassHighCount_ {};
-      // Number of low-risk inspection items that have not passed.
+      // The number of check items with a low-risk level that failed the check.
       shared_ptr<int32_t> notPassLowCount_ {};
-      // Number of medium-risk failed inspection items.
+      // The number of check items with a medium-risk level that failed the check.
       shared_ptr<int32_t> notPassMediumCount_ {};
     };
 
@@ -116,9 +116,9 @@ namespace Models
 
 
   protected:
-    // Return data.
+    // The returned data.
     shared_ptr<GetClusterCheckSummaryResponseBody::Data> data_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

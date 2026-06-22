@@ -106,11 +106,10 @@ namespace Models
 
 
       protected:
-        // The page number. Default value: **1**.
+        // The page number of the current page when paging is used. Default value: **1**.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-        // 
-        // >  We recommend that you do not leave this parameter empty.
+        // The maximum number of entries per page when paging is used. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+        // > Do not leave PageSize empty.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of entries returned.
         shared_ptr<int32_t> totalCount_ {};
@@ -220,23 +219,25 @@ namespace Models
       protected:
         // The number of affected images.
         shared_ptr<int32_t> count_ {};
-        // The timestamp generated when the first scan was performed. Unit: milliseconds.
+        // The timestamp of the first scan. Unit: milliseconds.
         shared_ptr<int64_t> firstScanTime_ {};
-        // The timestamp generated when the last scan was performed. Unit: milliseconds.
+        // The timestamp of the most recent scan. Unit: milliseconds.
         shared_ptr<int64_t> lastScanTime_ {};
-        // The type key of the risk.
+        // The key of the build risk rule category.
         shared_ptr<string> riskClass_ {};
-        // The type name of the risk.
+        // The category name of the build risk rule.
         shared_ptr<string> riskClassName_ {};
-        // The key of the risk. You can call the [DescribeImageBuildRiskList](~~~~) operation to obtain the value of **RiskKey**.
+        // The key of the build risk rule. You can call the [DescribeImageBuildRiskList](~~~~) operation to obtain the value of **RiskKey**.
         shared_ptr<string> riskKey_ {};
-        // The rule name of the risk.
+        // The name of the build risk rule.
         shared_ptr<string> riskKeyName_ {};
         // The risk level. Valid values:
         // 
-        // *   **high**
-        // *   **medium**
-        // *   **low**
+        // - **high**: High.
+        // 
+        // - **medium**: Medium.
+        // 
+        // - **low**: Low.
         shared_ptr<string> riskLevel_ {};
         // The number of unprocessed images.
         shared_ptr<int32_t> unprocessedNum_ {};
@@ -263,9 +264,9 @@ namespace Models
 
 
     protected:
-      // The risks.
+      // The summary list of build risks.
       shared_ptr<vector<Data::List>> list_ {};
-      // The pagination information.
+      // The paging parameters.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -309,18 +310,17 @@ namespace Models
 
 
   protected:
-    // The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeImageBuildRiskListResponseBody::Data> data_ {};
-    // The returned message.
+    // The detailed information about the error code.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

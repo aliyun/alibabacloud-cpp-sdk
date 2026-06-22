@@ -149,31 +149,31 @@ namespace Models
 
 
   protected:
-    // The number of application vulnerabilities that are detected on the asset by using the web scanner.
+    // The number of application vulnerability entries detected by the scanner on your assets.
     shared_ptr<int32_t> appCnt_ {};
-    // The number of application vulnerabilities that are detected on the asset by using the web scanner.
+    // The number of application vulnerabilities detected by the scanner on your assets.
     shared_ptr<int32_t> appNum_ {};
-    // The number of Web-CMS vulnerabilities that are handled.
+    // The total number of handled CMS vulnerabilities.
     shared_ptr<int32_t> cmsDealedTotalNum_ {};
-    // The number of Web-CMS vulnerabilities that are detected on the asset.
+    // The number of Web-CMS vulnerabilities on your assets.
     shared_ptr<int32_t> cmsNum_ {};
-    // The number of Linux software vulnerabilities that are detected on the asset.
+    // The number of Linux software vulnerabilities on your assets.
     shared_ptr<int32_t> cveNum_ {};
-    // The number of urgent vulnerabilities that are detected on the asset.
+    // The number of urgent vulnerabilities on your assets.
     shared_ptr<int32_t> emgNum_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of middleware vulnerabilities that are detected on the asset.
+    // The number of middleware vulnerabilities on your assets.
     shared_ptr<int32_t> scaNum_ {};
-    // The number of Windows system vulnerabilities that are detected on the asset.
+    // The number of Windows system vulnerabilities on your assets.
     shared_ptr<int32_t> sysNum_ {};
-    // The number of vulnerabilities that have the high priority.
+    // The number of vulnerabilities with a high fix priority.
     shared_ptr<int32_t> vulAsapSum_ {};
-    // The number of vulnerabilities that are handled.
+    // This field is deprecated.
     shared_ptr<int32_t> vulDealedTotalNum_ {};
-    // The number of vulnerabilities that have the medium priority.
+    // The number of vulnerabilities with a medium fix priority.
     shared_ptr<int32_t> vulLaterSum_ {};
-    // The number of vulnerabilities that have the low priority.
+    // The number of vulnerabilities with a low fix priority.
     shared_ptr<int32_t> vulNntfSum_ {};
   };
 

@@ -57,16 +57,14 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid value:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for the request and response messages. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The UUIDs of servers. Separate multiple UUIDs with commas (,).
-    // 
-    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+    // The UUIDs of the servers to query. Separate multiple UUIDs with commas (,).
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUIDs of servers.
     // 
     // This parameter is required.
     shared_ptr<string> uuids_ {};

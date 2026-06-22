@@ -57,17 +57,18 @@ namespace Models
 
 
   protected:
-    // Set the action for this execution, default is **exec**. Values:
-    // - **exec**: Execute. - **terminate**: Terminate.
-    shared_ptr<string> execAction_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The action to perform. Default value: **exec**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **exec**: exec.
+    // - **terminate**: stop.
+    shared_ptr<string> execAction_ {};
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The ID of the baseline check policy.
-    // 
-    // >  You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to query the IDs of baseline check policies.
+    // >You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to obtain this parameter.
     shared_ptr<int32_t> strategyId_ {};
   };
 

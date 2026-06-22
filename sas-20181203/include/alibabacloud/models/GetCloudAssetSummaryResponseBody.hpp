@@ -38,11 +38,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CloudAssetSummaryMetas, cloudAssetSummaryMetas_);
         DARABONBA_PTR_TO_JSON(InstanceCountTotal, instanceCountTotal_);
         DARABONBA_PTR_TO_JSON(InstanceRiskCountTotal, instanceRiskCountTotal_);
+        DARABONBA_PTR_TO_JSON(InstanceSaleCountTotal, instanceSaleCountTotal_);
       };
       friend void from_json(const Darabonba::Json& j, GroupedFields& obj) { 
         DARABONBA_PTR_FROM_JSON(CloudAssetSummaryMetas, cloudAssetSummaryMetas_);
         DARABONBA_PTR_FROM_JSON(InstanceCountTotal, instanceCountTotal_);
         DARABONBA_PTR_FROM_JSON(InstanceRiskCountTotal, instanceRiskCountTotal_);
+        DARABONBA_PTR_FROM_JSON(InstanceSaleCountTotal, instanceSaleCountTotal_);
       };
       GroupedFields() = default ;
       GroupedFields(const GroupedFields &) = default ;
@@ -62,6 +64,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AssetType, assetType_);
           DARABONBA_PTR_TO_JSON(InstanceCount, instanceCount_);
           DARABONBA_PTR_TO_JSON(InstanceRiskCount, instanceRiskCount_);
+          DARABONBA_PTR_TO_JSON(InstanceSaleCount, instanceSaleCount_);
+          DARABONBA_PTR_TO_JSON(IsInstanceSale, isInstanceSale_);
           DARABONBA_PTR_TO_JSON(Vendor, vendor_);
         };
         friend void from_json(const Darabonba::Json& j, CloudAssetSummaryMetas& obj) { 
@@ -69,6 +73,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AssetType, assetType_);
           DARABONBA_PTR_FROM_JSON(InstanceCount, instanceCount_);
           DARABONBA_PTR_FROM_JSON(InstanceRiskCount, instanceRiskCount_);
+          DARABONBA_PTR_FROM_JSON(InstanceSaleCount, instanceSaleCount_);
+          DARABONBA_PTR_FROM_JSON(IsInstanceSale, isInstanceSale_);
           DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
         };
         CloudAssetSummaryMetas() = default ;
@@ -83,7 +89,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->assetSubType_ == nullptr
-        && this->assetType_ == nullptr && this->instanceCount_ == nullptr && this->instanceRiskCount_ == nullptr && this->vendor_ == nullptr; };
+        && this->assetType_ == nullptr && this->instanceCount_ == nullptr && this->instanceRiskCount_ == nullptr && this->instanceSaleCount_ == nullptr && this->isInstanceSale_ == nullptr
+        && this->vendor_ == nullptr; };
         // assetSubType Field Functions 
         bool hasAssetSubType() const { return this->assetSubType_ != nullptr;};
         void deleteAssetSubType() { this->assetSubType_ = nullptr;};
@@ -112,6 +119,20 @@ namespace Models
         inline CloudAssetSummaryMetas& setInstanceRiskCount(int32_t instanceRiskCount) { DARABONBA_PTR_SET_VALUE(instanceRiskCount_, instanceRiskCount) };
 
 
+        // instanceSaleCount Field Functions 
+        bool hasInstanceSaleCount() const { return this->instanceSaleCount_ != nullptr;};
+        void deleteInstanceSaleCount() { this->instanceSaleCount_ = nullptr;};
+        inline int32_t getInstanceSaleCount() const { DARABONBA_PTR_GET_DEFAULT(instanceSaleCount_, 0) };
+        inline CloudAssetSummaryMetas& setInstanceSaleCount(int32_t instanceSaleCount) { DARABONBA_PTR_SET_VALUE(instanceSaleCount_, instanceSaleCount) };
+
+
+        // isInstanceSale Field Functions 
+        bool hasIsInstanceSale() const { return this->isInstanceSale_ != nullptr;};
+        void deleteIsInstanceSale() { this->isInstanceSale_ = nullptr;};
+        inline bool getIsInstanceSale() const { DARABONBA_PTR_GET_DEFAULT(isInstanceSale_, false) };
+        inline CloudAssetSummaryMetas& setIsInstanceSale(bool isInstanceSale) { DARABONBA_PTR_SET_VALUE(isInstanceSale_, isInstanceSale) };
+
+
         // vendor Field Functions 
         bool hasVendor() const { return this->vendor_ != nullptr;};
         void deleteVendor() { this->vendor_ = nullptr;};
@@ -120,50 +141,54 @@ namespace Models
 
 
       protected:
-        // Subtype of the cloud product
+        // The subtype of the cloud service.
         shared_ptr<int32_t> assetSubType_ {};
-        // The type of cloud product. Values:
-        // - **0**: Elastic Compute Service (ECS) 
-        // - **1**: Load Balancer 
-        // - **3**: ApsaraDB for RDS 
-        // - **4**: ApsaraDB for MongoDB 
-        // - **5**: ApsaraDB for Tair (compatible with Redis) 
-        // - **6**: Container Registry 
-        // - **8**: Container Service for Kubernetes 
-        // - **9**: Virtual Private Cloud (VPC) 
-        // - **11**: ActionTrail 
-        // - **12**: Content Delivery Network (CDN) 
-        // - **13**: SSL Certificates (now known as Certificate Management Service) 
-        // - **14**: DevOps
-        //  - **15**: Access Control 
-        // - **16**: DDoS Protection
-        //  - **17**: Web Application Firewall
-        //  - **18**: Object Storage Service (OSS)
-        //  - **19**: PolarDB 
-        // - **20**: ApsaraDB for PostgreSQL 
-        // - **21**: Microservices Engine 
-        // - **22**: NAS File Storage
-        //  - **23**: Data Security Center
-        //  - **24**: Elastic IP Address 
-        // - **25**: Cloud Identity Service - EIAM 
+        // The type of cloud service. Valid values:
+        // 
+        // - **0**: Elastic Compute Service (ECS)
+        // - **1**: Server Load Balancer (SLB)
+        // - **3**: ApsaraDB RDS
+        // - **4**: ApsaraDB for MongoDB
+        // - **5**: ApsaraDB for Tair (compatible with Redis)
+        // - **6**: Container Registry
+        // - **8**: Container Service for Kubernetes (ACK)
+        // - **9**: Virtual Private Cloud (VPC)
+        // - **11**: ActionTrail
+        // - **12**: Alibaba Cloud CDN
+        // - **13**: Certificate Management Service (formerly SSL Certificates Service)
+        // - **14**: Apsara Devops
+        // - **15**: Resource Access Management (RAM)
+        // - **16**: Anti-DDoS
+        // - **17**: Web Application Firewall (WAF)
+        // - **18**: Object Storage Service (OSS)
+        // - **19**: PolarDB
+        // - **20**: ApsaraDB RDS for PostgreSQL
+        // - **21**: Microservices Engine (MSE)
+        // - **22**: Apsara File Storage NAS
+        // - **23**: Data Security Center (DSC)
+        // - **24**: Elastic IP Address (EIP)
+        // - **25**: Identity as a Service - EIAM
         // - **26**: PolarDB-X
-        //  - **27**: Elasticsearch
+        // - **27**: Elasticsearch
         shared_ptr<int32_t> assetType_ {};
-        // Total number of this type of cloud product instances.
+        // The total number of instances of cloud services of this type.
         shared_ptr<int32_t> instanceCount_ {};
-        // Total number of risky instances for this type of cloud product.
+        // The total number of risky instances of cloud services of this type.
         shared_ptr<int32_t> instanceRiskCount_ {};
-        // Server vendor. Values:
-        // - **0**: Alibaba Cloud Asset 
-        // - **1**: Non-cloud Asset
-        //  - **2**: IDC Asset
-        //  - **3**, **4**, **5**, **7**: Other Cloud Assets 
-        // - **8**: Lightweight Asset
+        shared_ptr<int32_t> instanceSaleCount_ {};
+        shared_ptr<bool> isInstanceSale_ {};
+        // Server vendor. Valid values:
+        // 
+        // - **0**: Alibaba Cloud assets
+        // - **1**: Off-cloud assets
+        // - **2**: IDC assets
+        // - **3**, **4**, **5**, **7**: Other cloud assets
+        // - **8**: Lightweight assets
         shared_ptr<int32_t> vendor_ {};
       };
 
       virtual bool empty() const override { return this->cloudAssetSummaryMetas_ == nullptr
-        && this->instanceCountTotal_ == nullptr && this->instanceRiskCountTotal_ == nullptr; };
+        && this->instanceCountTotal_ == nullptr && this->instanceRiskCountTotal_ == nullptr && this->instanceSaleCountTotal_ == nullptr; };
       // cloudAssetSummaryMetas Field Functions 
       bool hasCloudAssetSummaryMetas() const { return this->cloudAssetSummaryMetas_ != nullptr;};
       void deleteCloudAssetSummaryMetas() { this->cloudAssetSummaryMetas_ = nullptr;};
@@ -187,13 +212,21 @@ namespace Models
       inline GroupedFields& setInstanceRiskCountTotal(int32_t instanceRiskCountTotal) { DARABONBA_PTR_SET_VALUE(instanceRiskCountTotal_, instanceRiskCountTotal) };
 
 
+      // instanceSaleCountTotal Field Functions 
+      bool hasInstanceSaleCountTotal() const { return this->instanceSaleCountTotal_ != nullptr;};
+      void deleteInstanceSaleCountTotal() { this->instanceSaleCountTotal_ = nullptr;};
+      inline int32_t getInstanceSaleCountTotal() const { DARABONBA_PTR_GET_DEFAULT(instanceSaleCountTotal_, 0) };
+      inline GroupedFields& setInstanceSaleCountTotal(int32_t instanceSaleCountTotal) { DARABONBA_PTR_SET_VALUE(instanceSaleCountTotal_, instanceSaleCountTotal) };
+
+
     protected:
-      // List of cloud product statistics
+      // The list of cloud service statistics.
       shared_ptr<vector<GroupedFields::CloudAssetSummaryMetas>> cloudAssetSummaryMetas_ {};
-      // Total number of cloud product instances.
+      // The total number of cloud service instances.
       shared_ptr<int32_t> instanceCountTotal_ {};
-      // Total number of cloud product instances at risk
+      // The total number of risky cloud service instances.
       shared_ptr<int32_t> instanceRiskCountTotal_ {};
+      shared_ptr<int32_t> instanceSaleCountTotal_ {};
     };
 
     virtual bool empty() const override { return this->groupedFields_ == nullptr
@@ -215,9 +248,9 @@ namespace Models
 
 
   protected:
-    // Summary information of cloud assets.
+    // The summary information of cloud assets.
     shared_ptr<GetCloudAssetSummaryResponseBody::GroupedFields> groupedFields_ {};
-    // The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used to troubleshoot and pinpoint issues.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and diagnose issues.
     shared_ptr<string> requestId_ {};
   };
 

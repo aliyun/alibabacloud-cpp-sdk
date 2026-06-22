@@ -87,24 +87,23 @@ namespace Models
 
 
   protected:
-    // Specifies whether address resolution protocol (ARP) is enabled for the check type.
+    // The ARP check type.
     shared_ptr<bool> arp_ {};
-    // The name of the probe.
+    // The probe name.
     shared_ptr<string> displayName_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Specifies whether ping is enabled for the check type.
+    // The ping detection type.
     shared_ptr<bool> ping_ {};
-    // The ID of the probe.
-    // 
-    // > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+    // The probe ID.
+    // >You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> probeId_ {};
-    // The IP addresses that are monitored.
+    // The list of listening IP addresses.
     shared_ptr<vector<string>> serviceIpList_ {};
   };
 

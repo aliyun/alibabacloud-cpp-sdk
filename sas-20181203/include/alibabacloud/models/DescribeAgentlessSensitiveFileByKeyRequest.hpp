@@ -106,26 +106,24 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The UUID of the asset that is scanned. You can query the UUID on the Host or Cloud Product page. If you scan a host, set this parameter to the UUID of the scanned host. If you scan a snapshot or a custom image, set this parameter to the ID of the scanned snapshot or image.
+    // The UUID of the asset to scan. You can obtain this value from the Host Assets and Cloud Products page. In host security detection scenarios, this parameter specifies the UUID of the host to scan. In snapshot security detection and custom image security detection scenarios, this parameter specifies the ID of the image or snapshot to scan.
     shared_ptr<string> imageUuid_ {};
-    // The instance ID of the asset that is scanned. To query the instance ID, go to the Task Management page, click Details of a task, and then view the value of Check On.
+    // The instance ID of the asset to query. You can obtain this value from Node Management > Details > Detection Objects.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The name or IP address of the asset.
+    // The asset name or IP address.
     shared_ptr<string> remark_ {};
-    // The types of the assets that are scanned.
+    // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
     // The type of the sensitive file.
     shared_ptr<string> sensitiveFileKey_ {};
-    // The status of the baseline risk. Valid values:
-    // 
-    // *   **0**: unfixed.
-    // *   **1**: fixed.
+    // The fix status of the baseline risk. Valid values:
+    // - **0**: unfixed
+    // - **1**: fixed.
     shared_ptr<string> status_ {};
   };
 

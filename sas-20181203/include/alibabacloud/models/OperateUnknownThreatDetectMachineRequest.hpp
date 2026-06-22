@@ -60,8 +60,21 @@ namespace Models
 
 
   protected:
+    // The operation type. Valid values:
+    // 
+    // - **restart_study**: Restarts the learning process.
+    // 
+    // - **increment_study**: Starts incremental learning.
+    // 
+    // - **change_status**: Changes the status.
     shared_ptr<string> operateType_ {};
+    // The target status. This parameter applies only when `OperateType` is set to `change_status`. Valid values:
+    // 
+    // - **monitoring**: Monitoring mode.
+    // 
+    // - **blocking**: Blocking mode.
     shared_ptr<string> status_ {};
+    // A list of server UUIDs.
     shared_ptr<vector<string>> uuidList_ {};
   };
 

@@ -84,19 +84,18 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The ID of the container cluster.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+    // The ID of the container cluster to query.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The number of the page to return.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the image.
+    // The image name.
     shared_ptr<string> imageName_ {};
-    // The name of the namespace to which the repository belongs.
+    // The image namespace.
     shared_ptr<string> namespace_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The maximum number of entries per page in a paging query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

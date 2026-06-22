@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

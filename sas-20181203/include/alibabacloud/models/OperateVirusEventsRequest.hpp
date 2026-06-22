@@ -57,23 +57,22 @@ namespace Models
 
 
   protected:
-    // Specifies whether to handle all alert events. Valid values:
-    // 
-    // *   **1**: yes
-    // *   **0**: no
+    // Specifies whether to handle all alerts. Valid values:
+    // - **1**: yes
+    // - **0**: no.
     // 
     // This parameter is required.
     shared_ptr<int32_t> operationAll_ {};
-    // The operation that you want to perform on the alert events. Valid values:
+    // The method to handle the alert event. Valid values:
     // 
-    // *   **default**: performs in-depth detection and removal
-    // *   **ignore**: ignores the alert event
-    // *   **advance_mark_mis_info**: adds the alert events to the whitelist
-    // *   **manual_handled**: marks the alert events as manually handled
+    // - **default**: deep scan and removal
+    // - **ignore**: ignore
+    // - **advance_mark_mis_info**: add to whitelist
+    // - **manual_handled**: manually handled.
     // 
     // This parameter is required.
     shared_ptr<string> operationCode_ {};
-    // The handling scope.
+    // The scope of the handling operation.
     shared_ptr<string> operationRange_ {};
   };
 

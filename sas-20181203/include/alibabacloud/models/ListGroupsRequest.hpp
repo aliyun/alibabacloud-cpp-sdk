@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the current page to return. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the return value of NextToken is empty, no next query is to be sent. If a value of NextToken is returned, the value indicates the token that is used for the next query.
+    // The token for the next query. If NextToken is empty, no additional results exist. If NextToken has a value, the value indicates the token to use for the next query.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page. Default value: 20. Maximum value: 2000.
+    // The maximum number of entries to return on each page in a paging query. Default value: 20. Maximum value: 2000.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to use NextToken to query vulnerabilities. If you set this parameter to true, TotalCount is not returned. Valid values:
+    // Specifies whether to use the NextToken method to retrieve the vulnerability list data. If this parameter is used, TotalCount is no longer returned. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Uses the NextToken method.
+    // - **false**: Does not use the NextToken method.
     shared_ptr<bool> useNextToken_ {};
   };
 

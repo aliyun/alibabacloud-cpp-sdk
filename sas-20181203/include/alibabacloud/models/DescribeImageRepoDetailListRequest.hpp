@@ -66,29 +66,22 @@ namespace Models
 
 
   protected:
-    // The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
-    // 
-    // *   **name**: the search condition.
-    // 
-    // *   **name**: the value of the search condition.
-    // 
-    // *   **logicalExp**: the logical relation for multiple search conditions. Valid values:
-    // 
-    //     *   **OR**: The search conditions use a logical **OR**.
-    //     *   **AND**: The search conditions use a logical **AND**.
-    // 
-    // > You can call the [DescribeImageRepoCriteria](~~DescribeImageRepoCriteria~~) operation to query the supported search conditions.
+    // The search conditions for assets. This parameter is in JSON format and contains the following fields:
+    // - **name**: the search item.
+    // - **value**: the value of the search item.
+    // - **logicalExp**: the logical relationship among multiple search item values. Valid values:
+    //     - **OR**: The search item values are evaluated by using a logical OR.
+    //     - **AND**: The search item values are evaluated by using a logical AND.
+    // > Call the [DescribeImageRepoCriteria](~~DescribeImageRepoCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the first page to return. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The logical relationship that you want to use to evaluate multiple search conditions. Valid values:
-    // 
-    // *   **OR**: Search conditions are evaluated by using a logical **OR**.
-    // *   **AND**: Search conditions are evaluated by using a logical **AND**.
+    // The logical relationship among multiple search conditions. Valid values:
+    // - **OR**: The conditions are evaluated by using a logical OR.
+    // - **AND**: The conditions are evaluated by using a logical AND.
     shared_ptr<string> logicalExp_ {};
-    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // > We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page when using paging. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
   };
 

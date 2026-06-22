@@ -51,7 +51,13 @@ namespace Models
 
 
   protected:
+    // The list of event IDs.
     shared_ptr<vector<string>> eventIdList_ {};
+    // The event handling status. Valid values:
+    // 
+    // - **1**: Unhandled.
+    // - **2**: Blocked.
+    // - **3**: Ignored.
     shared_ptr<int32_t> status_ {};
   };
 

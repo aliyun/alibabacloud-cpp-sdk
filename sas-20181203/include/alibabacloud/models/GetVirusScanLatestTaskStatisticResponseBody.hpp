@@ -182,53 +182,50 @@ namespace Models
 
 
     protected:
-      // The number of machines on which the virus scan task is complete.
+      // The number of servers that completed the scan.
       shared_ptr<int32_t> completeMachine_ {};
-      // The name of the machine.
+      // The name of the server.
       shared_ptr<string> machineName_ {};
-      // The progress of the virus scan task in percentage.
+      // The progress percentage of the scan task.
       shared_ptr<string> progress_ {};
-      // The highest risk level of the detected alerts. Valid values:
+      // The highest risk level of the alerts detected by the scan. Valid values:
       // 
-      // *   **high**
-      // *   **medium**
-      // *   **low**
+      // - **high**: high-risk.
+      // - **medium**: medium-risk.
+      // - **low**: low-risk.
       shared_ptr<string> riskLevel_ {};
-      // The number of safe machines that are detected.
+      // The number of servers on which no risks are detected.
       shared_ptr<int32_t> safeMachine_ {};
-      // The number of machines that are scanned.
+      // The number of servers scanned in this virus scan.
       shared_ptr<int32_t> scanMachine_ {};
-      // The paths of files that were scanned. This value is returned only when ScanType is set to user.
+      // The file paths specified for scanning when the scan type is user-defined.
       shared_ptr<vector<string>> scanPath_ {};
-      // The timestamp generated when the virus scan task was performed. Unit: milliseconds.
+      // The timestamp of the scan. Unit: milliseconds.
       shared_ptr<int64_t> scanTime_ {};
-      // The type of the virus scan. Valid values:
-      // 
-      // *   **system**: automatic scan.
-      // *   **user**: custom scan.
+      // The scan type of this virus scan. Valid values:
+      // - **system**: automatic system scan.
+      // - **user**: user-defined scan.
       shared_ptr<string> scanType_ {};
-      // The status of the virus scan task.
+      // The status of the scan task.
       // 
-      // **Valid values for a main task**:
+      // **Valid values for the main task:**
+      // - **0**: The task is pending.
+      // - **10**: The scan is in progress.
+      // - **100**: The scan is complete.
       // 
-      // *   **0**: The main task is to be started.
-      // *   **10**: The main task is running.
-      // *   **100**: The main task is complete.
-      // 
-      // **Valid values for a subtask**:
-      // 
-      // *   **0**: The subtask is to be started.
-      // *   **20**: The scan script is sent.
-      // *   **50**: The subtask is running.
-      // *   **100**: The subtask is complete.
+      // **Valid values for the subtask:**
+      // - **0**: The scan is pending.
+      // - **20**: The detection script is delivered.
+      // - **50**: The scan is running on the server.
+      // - **100**: The scan is complete.
       shared_ptr<int32_t> status_ {};
-      // The number of alerts that are detected.
+      // The number of security alerts detected by the scan.
       shared_ptr<int32_t> suspiciousCount_ {};
-      // The number of suspicious machines that are detected.
+      // The number of servers on which risks are detected.
       shared_ptr<int32_t> suspiciousMachine_ {};
-      // The ID of the virus scan task.
+      // The ID of the scan task.
       shared_ptr<string> taskId_ {};
-      // The number of machines on which the virus scan task was not complete or failed.
+      // The number of servers that have not completed the scan or failed the scan.
       shared_ptr<int32_t> unCompleteMachine_ {};
     };
 
@@ -251,9 +248,9 @@ namespace Models
 
 
   protected:
-    // The information about the virus scan task.
+    // The custom result data.
     shared_ptr<GetVirusScanLatestTaskStatisticResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

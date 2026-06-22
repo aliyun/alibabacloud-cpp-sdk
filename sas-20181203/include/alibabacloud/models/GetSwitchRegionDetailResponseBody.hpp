@@ -121,14 +121,13 @@ namespace Models
       protected:
         // The number of ECS instances.
         shared_ptr<int32_t> ecsCount_ {};
-        // The time when the migration is scheduled.
+        // The planned migration time.
         shared_ptr<int64_t> gmtPlanSwitchTime_ {};
-        // The region in which the server resides.
+        // The region where the server resides.
         shared_ptr<string> regionId_ {};
         // The migration status. Valid values:
-        // 
-        // *   **0**: pending
-        // *   **1**: successful
+        // - **0**: waiting for migration
+        // - **1**: switchover succeeded.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -187,19 +186,27 @@ namespace Models
 
 
     protected:
-      // The time when the permissions were modified.
+      // The time when the authorization operation was modified.
       shared_ptr<int64_t> gmtIsAgreeModified_ {};
       // The notification time.
       shared_ptr<int64_t> gmtNoticed_ {};
-      // Indicates whether the migration is approved.
+      // Indicates whether the migration is agreed to.
       shared_ptr<string> isAgree_ {};
-      // Indicates whether the notification is sent.
+      // Indicates whether the notification has been sent.
       shared_ptr<string> isNoticed_ {};
-      // Specifies whether to notify the account.
+      // Indicates whether a pop-up notification needs to be displayed to the user.
+      // 
+      // - **true**: A pop-up notification needs to be displayed.
+      // 
+      // - **false**: No pop-up notification needs to be displayed.
       shared_ptr<bool> needNotice_ {};
-      // Specifies whether to switch.
+      // Indicates whether a switchover to the new console is required.
+      // 
+      // - **true**: A switchover to the new console is required.
+      // 
+      // - **false**: The legacy console is still in use.
       shared_ptr<bool> needSwitch_ {};
-      // The status of the switching to the region.
+      // The switchover status of the region.
       shared_ptr<vector<Data::RegionStatus>> regionStatus_ {};
     };
 
@@ -222,9 +229,9 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The response data.
     shared_ptr<GetSwitchRegionDetailResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request. The China Chinese mainland generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
     shared_ptr<string> requestId_ {};
   };
 

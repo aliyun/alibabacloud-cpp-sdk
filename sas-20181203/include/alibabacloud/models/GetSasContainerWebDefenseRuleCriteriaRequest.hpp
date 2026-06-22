@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The value of the search condition. Fuzzy match is supported.
+    // The value of the query criterion. Fuzzy match is supported.
     shared_ptr<string> value_ {};
   };
 

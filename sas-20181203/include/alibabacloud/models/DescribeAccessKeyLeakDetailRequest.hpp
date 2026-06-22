@@ -48,15 +48,14 @@ namespace Models
 
 
   protected:
-    // The ID of the AccessKey pair leak event.
+    // The ID of the AccessKey pair leak event to query.
     // 
-    // > You can call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain the event ID.
+    // > Call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+    // The ID of the member account in the resource directory (Alibaba Cloud account).
+    // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

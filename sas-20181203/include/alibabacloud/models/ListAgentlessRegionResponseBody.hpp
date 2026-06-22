@@ -72,15 +72,15 @@ namespace Models
 
 
     protected:
-      // The region ID of the instance.
+      // The region in which the server resides.
       shared_ptr<string> regionId_ {};
-      // The type of the server. Valid values:
+      // The server vendor. Valid values:
       // 
-      // - **0**: Alibaba Cloud
-      // - **3**: Tencent Cloud
-      // - **4**: Huawei Cloud
-      // - **5**: Azure
-      // - **7**: AWS
+      // - **0**: Alibaba Cloud.
+      // - **3**: Tencent Cloud.
+      // - **4**: Huawei Cloud.
+      // - **5**: Azure.
+      // - **7**: AWS.
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -112,11 +112,11 @@ namespace Models
 
 
   protected:
-    // The information about the regions.
+    // The region list information.
     shared_ptr<vector<string>> regionList_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The information about the regions.
+    // The region list information.
     shared_ptr<vector<ListAgentlessRegionResponseBody::VendorRegionList>> vendorRegionList_ {};
   };
 

@@ -75,25 +75,35 @@ namespace Models
 
 
   protected:
-    // The query condition.
+    // The query conditions. The format is as follows:
+    // ```json
+    // [
+    //   {
+    //     "name": "ruleName",
+    //     "value": "test"
+    //   }
+    // ]
+    // ```
+    // **- name**: The condition name. The following conditions are supported:
+    // - **ruleName**: The rule name.
+    // 
+    // **- value**: The condition value.
     shared_ptr<string> criteria_ {};
-    // The page number.
+    // The page number of the current page in a paginated query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // Specifies the language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page in a paginated query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the rule. Valid values:
-    // 
-    // *   **0**: custom
-    // *   **1**: system
+    // The rule type. Valid values:
+    // - **0**: User-defined.
+    // - **1**: System built-in.
     shared_ptr<int32_t> ruleType_ {};
   };
 

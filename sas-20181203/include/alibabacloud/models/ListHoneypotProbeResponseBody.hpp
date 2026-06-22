@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of honeypot probes displayed on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The current page number returned in the paged query during paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **20**.
+      // The number of honeypot probes displayed per page in the paged query during paging. Default value: **20**.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of honeypot probes returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -194,11 +194,11 @@ namespace Models
 
 
       protected:
-        // The ID of the Elastic Compute Service (ECS) instance.
+        // The ECS instance ID.
         shared_ptr<string> ecsInstanceId_ {};
-        // The ID of the node.
+        // The node ID.
         shared_ptr<string> nodeId_ {};
-        // The name of the node.
+        // The node name.
         shared_ptr<string> nodeName_ {};
       };
 
@@ -285,44 +285,43 @@ namespace Models
 
 
     protected:
-      // The information about the management node.
+      // The management node data.
       shared_ptr<List::ControlNode> controlNode_ {};
-      // The time when the probe was deployed.
+      // The deployment time.
       shared_ptr<int64_t> deployTime_ {};
-      // The name of the probe.
+      // The probe name.
       shared_ptr<string> displayName_ {};
-      // The IP address of the server on which the probe is installed.
+      // The local IP address bound to the probe.
       shared_ptr<string> hostIp_ {};
-      // The operating system of the server on which the probe is deployed. Valid values:
+      // The operating system type of the probe instance. Valid values:
       // 
-      // *   windows
-      // *   linux
+      // - windows: Windows.
+      // - linux: Linux.
       shared_ptr<string> osType_ {};
-      // The ID of the probe.
+      // The probe ID.
       shared_ptr<string> probeId_ {};
-      // The type of the probe. Valid values:
+      // The probe type. Valid values:
       // 
-      // *   **host_probe**: host probe
-      // *   **vpc_black_hole_probe**: VPC probe
+      // - **host_probe**: host probe
+      // - **vpc_black_hole_probe**: VPC blackhole probe.
       shared_ptr<string> probeType_ {};
-      // The version of the probe.
+      // The probe version.
       shared_ptr<string> probeVersion_ {};
-      // The status of the probe. Valid values:
-      // 
-      // *   **installed**: installed
-      // *   **install_failed**: installation failed
-      // *   **online**: online
-      // *   **offline**: offline
-      // *   **unnormal**: abnormal
-      // *   **unprobe**: unauthorized
-      // *   **uninstalling**: being uninstalled
-      // *   **uninstalled**: uninstalled
-      // *   **uninstall_failed**: uninstallation failed
-      // *   **not_exist**: not installed
+      // The probe status. Valid values:
+      // - **installed**: Installation succeeded.
+      // - **install_failed**: Installation failed.
+      // - **online**: Normal.
+      // - **offline**: Offline.
+      // - **unnormal**: Service exception.
+      // - **unprobe**: Unauthorized.
+      // - **uninstalling**: Uninstalling.
+      // - **uninstalled**: Uninstallation succeeded.
+      // - **uninstall_failed**: Uninstallation failed.
+      // - **not_exist**: Not installed.
       shared_ptr<string> status_ {};
-      // The UUID of the server to which the host probe is deployed.
+      // The UUID of the asset instance where the host probe is deployed.
       shared_ptr<string> uuid_ {};
-      // The ID of the VPC in which the VPC probe is deployed.
+      // The ID of the VPC-connected instance where the VPC probe is deployed.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -383,22 +382,21 @@ namespace Models
 
 
   protected:
-    // The status code that is returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
     shared_ptr<string> code_ {};
-    // The HTTP status code that is returned.
+    // The HTTP status code of the response.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // An array that consists of the details about the probe.
+    // The list of honeypot probe data.
     shared_ptr<vector<ListHoneypotProbeResponseBody::List>> list_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The pagination information.
     shared_ptr<ListHoneypotProbeResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

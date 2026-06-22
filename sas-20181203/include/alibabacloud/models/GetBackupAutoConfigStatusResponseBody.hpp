@@ -59,10 +59,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the anti-ransomware policy for servers can be automatically configured by the managed anti-ransomware feature. Valid values:
-      // 
-      // *   **false**
-      // *   **true**
+      // Indicates whether the managed service supports configuring anti-ransomware backup policies. Valid values:
+      // - **false**: Not supported.
+      // - **true**: Supported.
       shared_ptr<bool> canConfigAuto_ {};
     };
 
@@ -85,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The response data.
     shared_ptr<GetBackupAutoConfigStatusResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

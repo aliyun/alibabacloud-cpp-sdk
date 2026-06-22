@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The name of the asset group.
+    // The name of the group to query.
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

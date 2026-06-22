@@ -135,13 +135,15 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // Indicates whether the vulnerability was detected based on version comparison. Valid values:
       // 
-      // *   1: The vulnerability was detected based on version comparison.
-      // *   0: The vulnerability was not detected based on version comparison.
+      // - 1: The vulnerability was detected based on version comparison.
+      // 
+      // - 0: The vulnerability was not detected based on version comparison.
       shared_ptr<int32_t> isAegis_ {};
       // Indicates whether the vulnerability was detected based on proof of concept (POC) verification. Valid values:
       // 
-      // *   1: The vulnerability was detected based on POC verification.
-      // *   0: The vulnerability was not detected based on POC verification.
+      // - 1: The vulnerability was detected based on POC verification.
+      // 
+      // - 0: The vulnerability was not detected based on POC verification.
       shared_ptr<int32_t> isSas_ {};
       // The ID of the vulnerability.
       shared_ptr<string> otherId_ {};

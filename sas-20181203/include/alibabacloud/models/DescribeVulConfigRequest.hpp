@@ -50,16 +50,15 @@ namespace Models
   protected:
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The type of configuration. By default, all types of configurations are queried. Valid values:
-    // 
-    // *   **cve**: Linux software vulnerability.
-    // *   **sys**: Windows system vulnerability.
-    // *   **cms**: Web-CMS vulnerability.
-    // *   **app**: application vulnerability that is detected by using web scanner.
-    // *   **emg**: urgent vulnerability.
-    // *   **scanMode**: displays easily exploitable vulnerability.
-    // *   **imageVulClean**: vulnerability retention duration.
-    // *   **yum**: preferentially uses YUM or APT sources of Alibaba Cloud to fix vulnerabilities.
+    // The type of vulnerability management configuration. By default, all types of configurations are queried. Valid values:
+    // -  **cve**: Linux software vulnerability
+    // -  **sys**: Windows system vulnerability
+    // -  **cms**: Web-CMS vulnerability
+    // -  **app**: application vulnerability (web scanner)
+    // -  **emg**: emergency vulnerability
+    // - **scanMode**: display real-risk vulnerabilities
+    // - **imageVulClean**: vulnerability retention period
+    // - **yum**: prioritize Alibaba Cloud sources for vulnerability fixing.
     shared_ptr<string> type_ {};
   };
 

@@ -57,20 +57,19 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for the request and response messages. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The code of the report. Valid value:
+    // The project code. Valid values:
     // 
-    // *   **customize_report**
+    // - **customize_report**: custom report.
     // 
     // This parameter is required.
     shared_ptr<string> projectCode_ {};
-    // The ID of the report.
+    // The report ID.
     // 
-    // >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+    // > Call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
     shared_ptr<string> reportId_ {};
   };
 

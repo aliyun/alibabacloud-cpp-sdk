@@ -77,16 +77,16 @@ namespace Models
 
 
     protected:
-      // The number of days before hosts whose provider cannot be identified are automatically cleaned after they enter the offline state. Valid value: an integer that ranges from 1 to 30.
+      // The number of offline days after which non-Alibaba Cloud hosts are automatically cleaned up. Valid values: integers from 1 to 30.
       shared_ptr<int32_t> cleanDays_ {};
-      // Specifies whether to enable the feature of cleaning the offline hosts whose provider cannot be identified. Valid values:
+      // Specifies whether to enable automatic cleanup of offline non-Alibaba Cloud hosts. Valid values:
       // 
-      // *   **0**: disables the feature.
-      // *   **1**: enables the feature.
+      // - **0**: Disabled.
+      // - **1**: Enabled.
       shared_ptr<int32_t> status_ {};
-      // The type of hosts that you want to clean.
+      // The type of host to clean up. Valid values:
       // 
-      // Set the value to **1**, which indicates hosts whose provider cannot be identified.
+      // - **1**: non-Alibaba Cloud host.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -101,7 +101,7 @@ namespace Models
 
 
   protected:
-    // The asset cleanup configurations.
+    // The list of asset cleanup configurations.
     shared_ptr<vector<ModifyAssetCleanConfigRequest::AssetCleanConfigs>> assetCleanConfigs_ {};
   };
 

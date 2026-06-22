@@ -79,14 +79,14 @@ namespace Models
 
 
     protected:
-      // The name of the search condition.
+      // The name of the corresponding search condition.
       shared_ptr<string> name_ {};
       // The type of the search condition. Valid values:
       // 
-      // *   **input**: The search condition needs to be specified.
-      // *   **select**: The search condition is an option that can be selected from the drop-down list.
+      // - **input**: You must manually enter the search field.
+      // - **select**: You must select a child class of the search condition from the drop-down list.
       shared_ptr<string> type_ {};
-      // The attribute values of the assets that match the keyword.
+      // The specific asset property values that correspond to the entered fuzzy match value.
       shared_ptr<string> values_ {};
     };
 
@@ -111,7 +111,7 @@ namespace Models
   protected:
     // The information about the asset search conditions.
     shared_ptr<vector<DescribeIdcAssetCriteriaResponseBody::CriteriaList>> criteriaList_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,10 +57,10 @@ namespace Models
 
 
   protected:
-    // The name of the witness.
+    // The name of the attestor.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

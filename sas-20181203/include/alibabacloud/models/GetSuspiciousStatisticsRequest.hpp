@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // The ID of the asset group. Separate multiple IDs with commas (,).
-    // 
-    // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+    // The IDs of the asset groups that you want to query. Separate multiple asset group IDs with commas (,).
+    // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> groupIdList_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

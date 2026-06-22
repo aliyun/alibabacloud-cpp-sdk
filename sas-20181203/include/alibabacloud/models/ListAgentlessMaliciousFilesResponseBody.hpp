@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of malicious files displayed on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The current page number in the returned results.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries returned per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of malicious files found.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -208,11 +208,11 @@ namespace Models
 
 
       protected:
-        // The remark.
+        // The remarks.
         shared_ptr<string> note_ {};
-        // The ID of the remark.
+        // The ID of the remark record.
         shared_ptr<string> noteId_ {};
-        // The time when the remark was created.
+        // The time of the remark record.
         shared_ptr<string> noteTime_ {};
       };
 
@@ -272,13 +272,13 @@ namespace Models
 
 
       protected:
-        // The name of the detailed item.
+        // The name of the alert event detail item.
         shared_ptr<string> name_ {};
-        // The name key of the detailed item.
+        // The name key of the alert event detail item.
         shared_ptr<string> nameKey_ {};
-        // The type of the detailed item.
+        // The type of the alert event detail item.
         shared_ptr<string> type_ {};
-        // The value of the detailed item.
+        // The value of the alert event detail item.
         shared_ptr<string> value_ {};
       };
 
@@ -447,55 +447,55 @@ namespace Models
 
 
     protected:
-      // The details of the alert event.
+      // The alert event details.
       shared_ptr<vector<List::Details>> details_ {};
-      // The URL to download the malicious image sample.
+      // The download URL of the malicious sample.
       shared_ptr<string> downloadUrl_ {};
       // The file path.
       shared_ptr<int64_t> filePath_ {};
-      // The timestamp generated when the first scan was performed. Unit: milliseconds.
+      // The timestamp of the first scan, in milliseconds.
       shared_ptr<int64_t> firstScanTimestamp_ {};
-      // The highlighted JSON string.
+      // The highlighted text, in JSON string format.
       shared_ptr<string> highLight_ {};
       // The event ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the asset.
+      // The name of the asset instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp generated when the last scan was performed. Unit: milliseconds.
+      // The timestamp of the latest scan, in milliseconds.
       shared_ptr<int64_t> latestScanTimestamp_ {};
-      // The severity of the malicious file. Valid values:
+      // The severity level. Valid values:
       // 
-      // *   serious
-      // *   suspicious
-      // *   remind
+      // - serious: urgent
+      // - suspicious: suspicious
+      // - remind: reminder.
       shared_ptr<string> level_ {};
-      // The MD5 hash value of the malicious file.
+      // The MD5 hash of the malicious file.
       shared_ptr<string> maliciousMd5_ {};
       // The name of the malicious file.
       shared_ptr<string> maliciousName_ {};
-      // The type of the virus.
+      // The virus type.
       shared_ptr<string> maliciousType_ {};
       // The remarks.
       shared_ptr<vector<List::Notes>> notes_ {};
-      // The handling result of the alert.
+      // The alert handling result.
       shared_ptr<string> operateResult_ {};
-      // The timestamp generated when the alert is handled. Unit: milliseconds.
+      // The timestamp when the alert was handled, in milliseconds.
       shared_ptr<string> operateTimestamp_ {};
-      // The partition of the disk.
+      // The disk partition.
       shared_ptr<string> partition_ {};
-      // The ID of the asset that is scanned.
+      // The ID of the scan target.
       shared_ptr<string> targetId_ {};
-      // The name of the asset that is scanned.
+      // The name of the scan target.
       shared_ptr<string> targetName_ {};
-      // The type of the asset that is scanned. Valid values:
+      // The object type of the scan target. Valid values:
       // 
-      // *   2: The scanned asset is an image.
+      // - 2: image.
       shared_ptr<string> targetType_ {};
-      // The UUID of the asset.
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -527,11 +527,11 @@ namespace Models
 
 
   protected:
-    // The malicious files.
+    // The list of malicious files.
     shared_ptr<vector<ListAgentlessMaliciousFilesResponseBody::List>> list_ {};
     // The pagination information.
     shared_ptr<ListAgentlessMaliciousFilesResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,16 +84,18 @@ namespace Models
     shared_ptr<vector<int64_t>> itemIds_ {};
     // The language of the content within the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
     // The type of the check task. Valid values:
     // 
-    // *   **check**
-    // *   **verify**
+    // - **check**
+    // 
+    // - **verify**
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

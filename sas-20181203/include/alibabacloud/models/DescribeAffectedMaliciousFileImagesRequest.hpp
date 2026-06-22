@@ -225,88 +225,78 @@ namespace Models
 
 
   protected:
-    // The ID of the container cluster.
-    // 
-    // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+    // The ID of the container cluster to query.
+    // > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
     // The name of the cluster.
     shared_ptr<string> clusterName_ {};
     // The ID of the container.
     shared_ptr<string> containerId_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The page number of the current page when using paging. Minimum value: **1**. Default value: **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
     // The name of the container image.
     shared_ptr<string> image_ {};
-    // The image digest.
+    // The digest of the image.
     shared_ptr<string> imageDigest_ {};
-    // The image layer.
+    // The layer of the image.
     shared_ptr<string> imageLayer_ {};
-    // The tag that is added to the image.
+    // The tag of the image.
     shared_ptr<string> imageTag_ {};
-    // The language of the content within the request and the response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type of the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The severity level of the malicious image sample. Separate multiple severity levels with commas (,). Valid values:
-    // 
-    // *   **serious**
-    // *   **suspicious**
-    // *   **remind**
+    // The severity levels. Separate multiple values with commas (,). Valid values:
+    // * **serious**: urgent
+    // * **suspicious**: suspicious
+    // * **remind**: reminder.
     shared_ptr<string> levels_ {};
-    // The MD5 hash value of the malicious image sample.
-    // 
-    // >  You can call the [DescribeGroupedMaliciousFiles](~~DescribeGroupedMaliciousFiles~~) operation to query the MD5 hash values of malicious image samples.
+    // The MD5 hash of the malicious file.
+    // > Call the [DescribeGroupedMaliciousFiles](~~DescribeGroupedMaliciousFiles~~) operation to obtain the MD5 hash of the malicious file.
     shared_ptr<string> maliciousMd5_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The maximum number of entries per page when using paging. Default value: **20**.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
     // The pod.
     shared_ptr<string> pod_ {};
     // The ID of the image repository.
-    // 
-    // >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
+    // > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry. You can obtain the image repository ID from the **RepoId** response parameter.
     shared_ptr<string> repoId_ {};
-    // The ID of the container image.
-    // 
-    // >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
+    // The ID of the container image instance.
+    // > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry. You can obtain the container image instance ID from the **InstanceId** response parameter.
     shared_ptr<string> repoInstanceId_ {};
     // The name of the image repository.
-    // 
-    // >  Fuzzy match is supported.
+    // > Fuzzy match is supported.
     shared_ptr<string> repoName_ {};
-    // The namespace to which the image repository belongs.
-    // 
-    // >  Fuzzy match is supported.
+    // The namespace of the image repository.
+    // > Fuzzy match is supported.
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the image repository. Valid values:
-    // 
-    // *   **cn-beijing**: China (Beijing)
-    // *   **cn-zhangjiakou**: China (Zhangjiakou)
-    // *   **cn-hangzhou**: China (Hangzhou)
-    // *   **cn-shanghai**: China (Shanghai)
-    // *   **cn-shenzhen**: China (Shenzhen)
-    // *   **cn-hongkong**: China (Hong Kong)
-    // *   **ap-southeast-1**: Singapore
-    // *   **ap-southeast-5**: Indonesia (Jakarta)
-    // *   **us-east-1**: US (Virginia)
-    // *   **us-west-1**: US (Silicon Valley)
-    // *   **eu-central-1**: Germany (Frankfurt)
-    // *   **eu-west-1**: UK (London)
+    // - **cn-beijing**: China (Beijing)
+    // - **cn-zhangjiakou**: China (Zhangjiakou)
+    // - **cn-hangzhou**: China (Hangzhou)
+    // - **cn-shanghai**: China (Shanghai)
+    // - **cn-shenzhen**: China (Shenzhen)
+    // - **cn-hongkong**: Hong Kong (China)
+    // - **ap-southeast-1**: Singapore
+    // - **ap-southeast-5**: Indonesia (Jakarta)
+    // - **us-east-1**: US (Virginia)
+    // - **us-west-1**: US (Silicon Valley)
+    // - **eu-central-1**: Germany (Frankfurt)
+    // - **eu-west-1**: UK (London).
     shared_ptr<string> repoRegionId_ {};
-    // The types of the assets that you want to scan.
+    // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
-    // The status of the malicious image sample. Valid values:
-    // 
-    // *   **0**: The malicious image sample is not handled.
-    // *   **1**: The malicious image sample is handled.
-    // *   **2**: The malicious image sample is being verified.
-    // *   **3**: The malicious image sample is added to the whitelist.
+    // The processing status of the malicious image sample. Valid values:
+    // - **0**: unhandled
+    // - **1**: handled
+    // - **2**: verifying
+    // - **3**: added to whitelist.
     shared_ptr<string> status_ {};
   };
 

@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated.
+    // This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayApiName_ {};
-    // This parameter is deprecated.
+    // This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayPopName_ {};
-    // This parameter is deprecated.
+    // This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayProjectName_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for requests and responses. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

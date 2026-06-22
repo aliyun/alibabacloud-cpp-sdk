@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the container cluster.
-    // 
-    // >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
+    // The ID of the container cluster that you want to query.
+    // > Call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The server UUID.
-    // 
-    // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the server UUID.
+    // The UUID of the server.
+    // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     shared_ptr<string> uuid_ {};
   };
 

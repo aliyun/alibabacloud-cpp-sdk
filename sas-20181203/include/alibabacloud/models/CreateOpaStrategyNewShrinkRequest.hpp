@@ -120,12 +120,13 @@ namespace Models
       shared_ptr<string> ackPolicyInstanceId_ {};
       // Specifies whether to include all namespaces. Valid values:
       // 
-      // *   **1**: includes all namespaces.
-      // *   **0**: does not include all namespaces.
+      // - **1**: includes all namespaces.
+      // 
+      // - **0**: does not include all namespaces.
       shared_ptr<int32_t> allNamespace_ {};
       // The ID of the cluster that is specified in the rule.
       // 
-      // >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
+      // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
       shared_ptr<string> clusterId_ {};
       // The namespaces.
       // 
@@ -262,20 +263,23 @@ namespace Models
     shared_ptr<vector<string>> label_ {};
     // Specifies whether the rule supports malicious Internet images. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> maliciousImage_ {};
     // The action that is performed when the rule is hit. Valid values:
     // 
-    // *   **1**: trigger alerts
-    // *   **2**: block
-    // *   **3**: allow
+    // - **1**: trigger alerts
+    // 
+    // - **2**: block
+    // 
+    // - **3**: allow
     shared_ptr<int32_t> ruleAction_ {};
     // The application scope of the rule.
     shared_ptr<vector<CreateOpaStrategyNewShrinkRequest::Scopes>> scopes_ {};
     // The rule ID.
     // 
-    // >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+    // > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
     // 
     // > This parameter is invalid when you create a rule.
     shared_ptr<int64_t> strategyId_ {};
@@ -283,12 +287,13 @@ namespace Models
     shared_ptr<string> strategyName_ {};
     // The ID of the rule template.
     // 
-    // >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+    // > You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
     shared_ptr<int64_t> strategyTemplateId_ {};
     // Specifies whether the rule supports unscanned images. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> unScanedImage_ {};
     // The whitelist.
     shared_ptr<vector<string>> whiteList_ {};

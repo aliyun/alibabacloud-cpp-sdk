@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The quantity.
+      // The count.
       shared_ptr<int32_t> count_ {};
-      // The statistical item.
+      // The statistics item.
       shared_ptr<string> name_ {};
     };
 
@@ -115,17 +115,17 @@ namespace Models
   protected:
     // The number of fingerprints.
     shared_ptr<int32_t> itemCount_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The statistical results.
+    // The collection of statistics results.
     shared_ptr<vector<DescribePropertyUsageTopResponseBody::TopStatisticItems>> topStatisticItems_ {};
-    // The type of the asset fingerprint. Valid value:
+    // The Asset Fingerprints type. Valid values:
     // 
-    // *   **port**: port
-    // *   **process**: process
-    // *   **software**: software
-    // *   **user**: account
-    // *   **sca**: middleware
+    // - **port**: port
+    // - **process**: process
+    // - **software**: software
+    // - **user**: account
+    // - **sca**: middleware.
     shared_ptr<string> type_ {};
   };
 

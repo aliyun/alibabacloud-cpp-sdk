@@ -109,9 +109,9 @@ namespace Models
     protected:
       // The number of entries returned on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results.
+      // The NextToken value returned when the NextToken method is used.
       shared_ptr<string> nextToken_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -166,14 +166,13 @@ namespace Models
 
 
     protected:
-      // The server group type. Valid values:
-      // 
-      // *   **0**: default group
-      // *   **1**: other group
+      // The type of the server group. Valid values:
+      // - **0**: default group
+      // - **1**: other group.
       shared_ptr<int32_t> groupFlag_ {};
-      // The server group ID.
+      // The ID of the server group.
       shared_ptr<int64_t> groupId_ {};
-      // The server group name.
+      // The name of the server group.
       shared_ptr<string> groupName_ {};
     };
 
@@ -234,22 +233,22 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The status code returned by the API request.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The groups.
+    // The list of server groups.
     shared_ptr<vector<ListGroupsResponseBody::List>> list_ {};
-    // The error message.
+    // The detailed information of the error code.
     shared_ptr<string> message_ {};
-    // The pagination information.
+    // The pagination information of the query results.
     shared_ptr<ListGroupsResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
     shared_ptr<string> requestId_ {};
-    // Indicates whether exceptions are handled. Valid values:
+    // Indicates whether the exception event was processed. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Processed.
+    // - **false**: Not processed.
     shared_ptr<bool> success_ {};
   };
 

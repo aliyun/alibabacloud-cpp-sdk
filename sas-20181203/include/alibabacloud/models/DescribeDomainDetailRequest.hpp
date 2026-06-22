@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The domain name or the name of website that you want to query.
+    // The name of the domain name or website to query.
     // 
-    // >  Fuzzy match is not supported. You must enter a complete domain name or a website.
+    // > Fuzzy match is not supported. Enter the complete domain name or website name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

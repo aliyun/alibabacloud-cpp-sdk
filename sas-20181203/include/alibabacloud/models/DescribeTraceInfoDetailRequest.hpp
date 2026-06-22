@@ -94,28 +94,27 @@ namespace Models
 
 
   protected:
-    // The ID of the request source. Set the value to **sas**.
+    // The identifier of the request source. Set the value to **sas**.
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The timestamp of the detection. Unit: milliseconds.
+    // The detection timestamp. Unit: milliseconds.
     shared_ptr<int64_t> incidentTime_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request. The value of this parameter is specified by the system.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
     shared_ptr<string> sourceIp_ {};
-    // The type of the vertex. Set the value to **SAS_INCIDENT**.
+    // The vertex type. Set the value to **SAS_INCIDENT** for security alerts.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUID of the server.
+    // The UUID of the server to query.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};
-    // Vertex ID, which can be obtained from the AlarmUniqueInfo in the response of the [DescribeSuspEvents](~~DescribeSuspEvents~~) interface.
+    // The vertex ID. You can obtain this value from the AlarmUniqueInfo parameter returned by the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> vertexId_ {};

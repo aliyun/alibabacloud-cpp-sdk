@@ -75,26 +75,25 @@ namespace Models
 
 
   protected:
-    // The rule conditions. Specify a value in the JSON format. You can specify the following keys:
-    // 
-    // *   **condition**: the matching condition.
-    // *   **type**: the matching type.
-    // *   **value**: the matching value.
+    // The rule conditions. The value is in JSON format. The following keys are supported:
+    // - **condition**: the matching condition.
+    // - **type**: the matching type.
+    // - **value**: the matching value.
     shared_ptr<string> conditions_ {};
-    // The ID of the alert handling rule. 
-    // > You can call the [DescribeImageEventOperationPage](~~DescribeImageEventOperationPage~~) operation to query the ID.
+    // The ID of the alert handling rule.
+    // > You can call [DescribeImageEventOperationPage](~~DescribeImageEventOperationPage~~) to obtain this parameter.
     shared_ptr<int64_t> id_ {};
-    // The remarks that you want to add.
+    // The remarks to add.
     shared_ptr<string> note_ {};
-    // The application scope of the rule. The value is in the JSON format. Valid values:
-    // 
-    // *   **type**
-    // *   **value**
+    // The rule scope. The value is in JSON format. The following keys are supported:
+    // - **type**: the scope type.
+    // - **value**: the scope value.
+    // > This parameter and Source cannot both be empty. If Source is set to agentless, this parameter does not take effect.
     shared_ptr<string> scenarios_ {};
-    // The source of the whitelist. Valid values:
-    // 
-    // *   **image**: image.
-    // *   **agentless**: agentless detection.
+    // The whitelist source. Valid values:
+    // - **image**: image.
+    // - **agentless**: agentless detection.
+    // > This parameter and Scenarios cannot both be empty. If this parameter is set to agentless, the Scenarios parameter does not take effect.
     shared_ptr<string> source_ {};
   };
 

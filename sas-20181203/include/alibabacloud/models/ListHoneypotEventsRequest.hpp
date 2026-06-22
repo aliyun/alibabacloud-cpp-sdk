@@ -137,32 +137,32 @@ namespace Models
 
 
   protected:
-    // The probe IDs.
+    // The list of probe IDs.
     shared_ptr<vector<string>> agentIdList_ {};
     // The ID of the alert.
     shared_ptr<int64_t> alarmEventId_ {};
-    // The page number.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The status of the event. Valid values:
+    // The event status. Valid values:
     // 
-    // *   **y**: handled
-    // *   **n**: unhandled
-    // *   **a**: all statuses
+    // - **y**: Handled.
+    // - **n**: Unhandled.
+    // - **a**: All.
     shared_ptr<string> dealed_ {};
-    // The honeypot IDs.
+    // The list of honeypot IDs.
     shared_ptr<vector<string>> honeypotIdList_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: **20**.
+    // The maximum number of entries per page in a paging query. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the attacker profile.
+    // The ID of the attacker portrait.
     shared_ptr<string> portraitId_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The risk levels.
+    // The list of risk levels.
     shared_ptr<vector<string>> riskLevelList_ {};
     // The source IP address of the attack.
     shared_ptr<string> srcIp_ {};

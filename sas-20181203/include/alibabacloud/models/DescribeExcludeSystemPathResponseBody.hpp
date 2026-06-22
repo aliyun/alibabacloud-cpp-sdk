@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of system excluded directories on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in the paged query when paging is used.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The number of system excluded folders returned per page in the paged query when paging is used.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of system excluded directories.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -139,11 +139,10 @@ namespace Models
 
     protected:
       // The operating system of the server. Valid values:
-      // 
-      // *   **linux**: Linux
-      // *   **windows**: Windows
+      // - **linux**: Linux.
+      // - **windows**: Windows.
       shared_ptr<string> os_ {};
-      // The absolute path to the directory.
+      // The absolute path of the directory.
       shared_ptr<string> path_ {};
     };
 
@@ -175,11 +174,11 @@ namespace Models
 
 
   protected:
-    // An array consisting of the directories that are excluded.
+    // The list of system excluded directories.
     shared_ptr<vector<DescribeExcludeSystemPathResponseBody::ExcludePaths>> excludePaths_ {};
     // The pagination information.
     shared_ptr<DescribeExcludeSystemPathResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

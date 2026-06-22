@@ -62,11 +62,13 @@ namespace Models
 
 
   protected:
-    // The IDs of the check items.
+    // The list of check item IDs.
     shared_ptr<vector<int64_t>> checkIds_ {};
-    // List of instance IDs for the check item assets.
+    // The list of instance IDs of the assets associated with the check items.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The source of task.
+    // The task source. Valid values:
+    // 
+    // - **YAO_CHI**: ApsaraDB console.
     shared_ptr<string> taskSource_ {};
   };
 

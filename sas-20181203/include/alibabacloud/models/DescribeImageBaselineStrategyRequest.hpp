@@ -57,15 +57,13 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The data source. Default value: default. Valid values:
-    // 
-    // *   **default**: queries the information about a baseline check policy for images.
-    // *   **agentless**: queries the information about a baseline check policy for agentless detection.
+    // The data source. If this parameter is left empty, the image baseline policy is queried by default. Valid values:
+    // - **default**: image
+    // - **agentless**: agentless.
     shared_ptr<string> source_ {};
     // The ID of the baseline check policy.
     shared_ptr<int64_t> strategyId_ {};

@@ -75,23 +75,22 @@ namespace Models
 
 
   protected:
-    // The IP address that you want to specify in the policy.
+    // The IP address blocked for brute-force attacks prevention.
     // 
     // This parameter is required.
     shared_ptr<string> blockIp_ {};
-    // The traffic direction that you want to specify in the policy. Valid values:
-    // 
-    // *   **in**: inbound
-    // *   **out**: outbound
+    // The direction in which the brute-force attacks blocking policy blocks the IP address on the server. Valid values:
+    // - **in**: inbound
+    // - **out**: outbound.
     // 
     // This parameter is required.
     shared_ptr<string> bound_ {};
-    // The expiration time of the policy.
+    // The expiration time of the blocking record.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireTime_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The UUIDs of servers.
+    // The list of servers.
     // 
     // This parameter is required.
     shared_ptr<string> uuids_ {};

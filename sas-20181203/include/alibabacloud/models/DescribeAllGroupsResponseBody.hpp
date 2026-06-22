@@ -82,9 +82,8 @@ namespace Models
 
     protected:
       // The type of the server group. Valid values:
-      // 
-      // *   **0**: default group
-      // *   **1**: other groups
+      // - **0**: default group
+      // - **1**: other group.
       shared_ptr<int32_t> groupFlag_ {};
       // The ID of the server group.
       shared_ptr<int32_t> groupId_ {};
@@ -120,9 +119,9 @@ namespace Models
   protected:
     // The total number of server groups.
     shared_ptr<int32_t> count_ {};
-    // The grouping information about the servers.
+    // The server group information.
     shared_ptr<vector<DescribeAllGroupsResponseBody::Groups>> groups_ {};
-    // The ID of the request.
+    // The unique identifier that Alibaba Cloud generated for the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -52,8 +52,7 @@ namespace Models
 
   protected:
     // The ID of the cluster that you want to query.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};

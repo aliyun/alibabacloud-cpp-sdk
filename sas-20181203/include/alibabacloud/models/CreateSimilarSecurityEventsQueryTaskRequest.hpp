@@ -69,15 +69,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the alert event.
     // 
-    // >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> securityEventId_ {};
-    // The codes of alert events that are triggered by the same rule or of the same alert type.
-    // 
-    // >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
+    // The code of the alerting event that has the same type or rule hits.
     shared_ptr<string> similarEventScenarioCode_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

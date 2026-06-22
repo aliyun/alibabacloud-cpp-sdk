@@ -66,21 +66,21 @@ namespace Models
 
 
   protected:
-    // Node type, with values:
-    // - **start**: Start point.
-    // - **end**: End point.
+    // The node type. Valid values:
+    // - **start**: start node.
+    // - **end**: end node.
     shared_ptr<string> nodeType_ {};
-    // Path name.
+    // The path name.
     // 
-    // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path names.
+    // > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path names.
     shared_ptr<string> pathName_ {};
-    // Path type.
-    // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path types.
+    // The path type.
+    // > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
     shared_ptr<string> pathType_ {};
-    // Support type, with values:
-    // - **event**: Attack path alert event.
-    // - **whitelist**: Attack path whitelist.
-    // - **sensitive**: Sensitive assets in the attack path.
+    // The support type. Valid values:
+    // - **event**: attack path alert event.
+    // - **whitelist**: attack path whitelist.
+    // - **sensitive**: attack path sensitive asset.
     // 
     // This parameter is required.
     shared_ptr<string> supportType_ {};

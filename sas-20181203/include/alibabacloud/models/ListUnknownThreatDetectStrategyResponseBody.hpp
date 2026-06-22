@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The number of entries returned on the current page.
       shared_ptr<int32_t> count_ {};
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of matching entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -180,12 +184,23 @@ namespace Models
 
 
     protected:
+      // The asset selection identifier.
       shared_ptr<string> assetSelectionType_ {};
+      // The duration, in days, of the learning phase after model creation.
       shared_ptr<int32_t> durationDaysAfterInit_ {};
+      // The number of consecutive days without new process detections before the learning phase automatically ends.
       shared_ptr<int32_t> durationDaysAfterStop_ {};
+      // The strategy ID.
       shared_ptr<int64_t> id_ {};
+      // The number of servers.
       shared_ptr<int32_t> machineCount_ {};
+      // The strategy name.
       shared_ptr<string> name_ {};
+      // The whitelist mode. Valid values:
+      // 
+      // - **hash**: process hash
+      // 
+      // - **path**: process path
       shared_ptr<string> studyMode_ {};
     };
 
@@ -217,9 +232,11 @@ namespace Models
 
 
   protected:
+    // An array of strategies.
     shared_ptr<vector<ListUnknownThreatDetectStrategyResponseBody::Data>> data_ {};
+    // The pagination information.
     shared_ptr<ListUnknownThreatDetectStrategyResponseBody::PageInfo> pageInfo_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -137,7 +137,7 @@ namespace Models
         protected:
           // The number of neighbor nodes.
           shared_ptr<int32_t> count_ {};
-          // Indicates whether one more page is returned.
+          // Indicates whether there is a next page.
           shared_ptr<bool> hasMore_ {};
           // The type of the neighbor node. The value is fixed as **alert**.
           shared_ptr<string> type_ {};
@@ -190,13 +190,13 @@ namespace Models
 
 
       protected:
-        // The number of times.
+        // The number of occurrences.
         shared_ptr<int32_t> count_ {};
-        // The ID of the vertex.
+        // The vertex ID.
         shared_ptr<string> id_ {};
         // The name of the entity represented by the vertex.
         shared_ptr<string> name_ {};
-        // An array that consists of the neighbor nodes.
+        // The information about neighbor nodes.
         shared_ptr<vector<VertexList::NeighborList>> neighborList_ {};
         // The point in time.
         shared_ptr<string> time_ {};
@@ -269,10 +269,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether the edge is a directional edge. Valid values:
+        // Indicates whether the edge is directed. Valid values:
         // 
-        // *   **1**: yes
-        // *   **0**: no
+        // - **1**: yes
+        // - **0**: no.
         shared_ptr<int32_t> directed_ {};
         // The rendering color of the edge.
         shared_ptr<string> displayColor_ {};
@@ -280,7 +280,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The ID of the edge type.
         shared_ptr<string> relationTypeId_ {};
-        // This parameter is deprecated.
+        // Deprecated.
         shared_ptr<string> showType_ {};
       };
 
@@ -404,27 +404,27 @@ namespace Models
 
 
       protected:
-        // This parameter is deprecated.
+        // Deprecated.
         shared_ptr<int32_t> dbId_ {};
         // The rendering color of the vertex.
         shared_ptr<string> displayColor_ {};
         // The icon style of the vertex.
         shared_ptr<string> displayIcon_ {};
-        // This parameter is deprecated.
+        // Deprecated.
         shared_ptr<string> displayTemplate_ {};
-        // The timestamp when the vertex was created.
+        // The creation time.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The time when the vertex was last modified.
+        // The last modification time.
         shared_ptr<int64_t> gmtModified_ {};
-        // The ID of the vertex type.
+        // The ID of the vertex type record.
         shared_ptr<string> id_ {};
-        // This parameter is deprecated.
+        // Deprecated.
         shared_ptr<int32_t> limit_ {};
         // The name of the vertex type.
         shared_ptr<string> name_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
-        // This parameter is deprecated.
+        // Deprecated.
         shared_ptr<int32_t> offset_ {};
       };
 
@@ -493,15 +493,15 @@ namespace Models
 
 
       protected:
-        // The number of times.
+        // The number of occurrences.
         shared_ptr<int32_t> count_ {};
-        // The ending vertex ID of the edge of the tracing diagram.
+        // The end vertex ID of the edge in the trace graph.
         shared_ptr<string> endId_ {};
-        // The starting vertex ID of the edge of the tracing diagram.
+        // The start vertex ID of the edge in the trace graph.
         shared_ptr<string> startId_ {};
         // The point in time.
         shared_ptr<string> time_ {};
-        // The type of the edge of the tracing diagram.
+        // The type of the edge in the trace graph.
         shared_ptr<string> type_ {};
       };
 
@@ -544,13 +544,13 @@ namespace Models
 
 
     protected:
-      // An array that consists of the edges of the tracing diagram.
+      // The edge information in the trace graph.
       shared_ptr<vector<TraceInfoDetail::EdgeList>> edgeList_ {};
-      // An array that consists of the metadata configurations of the vertex type.
+      // The metadata configuration of vertex types.
       shared_ptr<vector<TraceInfoDetail::EntityTypeList>> entityTypeList_ {};
-      // An array that consists of the metadata configurations of the edge type.
+      // The metadata configuration of edge types.
       shared_ptr<vector<TraceInfoDetail::RelationTypeList>> relationTypeList_ {};
-      // An array that consists of all vertexes of the tracing diagram.
+      // The information about all vertices in the trace graph.
       shared_ptr<vector<TraceInfoDetail::VertexList>> vertexList_ {};
     };
 
@@ -582,12 +582,11 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The details of the tracing diagram.
+    // The details of the trace graph.
     shared_ptr<DescribeTraceInfoDetailResponseBody::TraceInfoDetail> traceInfoDetail_ {};
   };
 

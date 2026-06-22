@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of images returned on the current page.
+      // The number of images displayed on the current page of the returned results.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in the paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The number of entries of image information displayed on each page in the paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of images.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -386,96 +386,91 @@ namespace Models
 
 
     protected:
-      // The number of alerts that are generated for the image.
+      // The number of security alerts for the image.
       shared_ptr<int32_t> alarmCount_ {};
-      // Indicates whether alerts are generated for the image. Valid values:
-      // 
-      // *   **YES**
-      // *   **NO**
+      // Indicates whether security alerts exist for the image. Valid values:
+      // - **YES**: security alerts exist.
+      // - **NO**: no security alerts exist.
       shared_ptr<string> alarmStatus_ {};
-      // Indicates whether the image was deployed. Valid values:
-      // 
-      // *   **0**: The image was not deployed.
-      // *   **1**: The image was deployed.
+      // Indicates whether the image has been deployed. Valid values:
+      // - **0**: not deployed.
+      // - **1**: deployed.
       shared_ptr<int32_t> deployed_ {};
       // The digest value of the image.
       shared_ptr<string> digest_ {};
-      // The address of the image.
+      // The endpoint addresses of the image resource.
       shared_ptr<string> endpoints_ {};
       // The number of baseline risks.
       shared_ptr<int32_t> hcCount_ {};
-      // Indicates whether baseline risks exist. Valid values:
+      // The baseline risk status. Valid values:
       // 
-      // *   **NO**
-      // *   **YES**
+      // - **NO**: no baseline risk exists.
+      // - **YES**: baseline risk exists.
       shared_ptr<string> hcStatus_ {};
-      // The timestamp generated when the image was created. Unit: milliseconds.
+      // The timestamp when the image was created. Unit: milliseconds.
       shared_ptr<string> imageCreate_ {};
       // The ID of the image.
       shared_ptr<string> imageId_ {};
       // The size of the image. Unit: MB.
       shared_ptr<string> imageSize_ {};
-      // The timestamp generated when the image was updated. Unit: milliseconds.
+      // The timestamp when the image was updated. Unit: milliseconds.
       shared_ptr<string> imageUpdate_ {};
-      // The instance ID of the image.
+      // The instance ID of the image asset.
       shared_ptr<string> instanceId_ {};
-      // The timestamp when the last scan was performed. Unit: milliseconds.
+      // The timestamp of the latest scan. Unit: milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
-      // The region ID of the image.
+      // The ID of the region where the image is located.
       shared_ptr<string> regionId_ {};
-      // The type of the image. Valid values:
-      // 
-      // *   **acr**
-      // *   **harbor**
-      // *   **quay**
-      // *   **CI/CD**
+      // The registry type of the image. Valid values:
+      // - **acr**: ACR.
+      // - **harbor**: Harbor.
+      // - **quay**: Quay.
+      // - **CI/CD**: CI/CD repository type.
       shared_ptr<string> registryType_ {};
       // The ID of the image repository.
       shared_ptr<string> repoId_ {};
       // The name of the image repository.
       shared_ptr<string> repoName_ {};
-      // The namespace to which the image repository belongs.
+      // The namespace of the image repository.
       shared_ptr<string> repoNamespace_ {};
-      // The type of the repository. Valid values:
+      // The repository type. Valid values:
       // 
-      // *   **private**
-      // *   **public**
+      // - **private**: private repository.
+      // - **public**: public repository.
       shared_ptr<string> repoType_ {};
-      // Indicates whether risks exist. Valid values:
+      // Indicates whether a risk exists. Valid values:
       // 
-      // *   **NO**
-      // *   **YES**
+      // - **NO**: no risk.
+      // - **YES**: risk exists.
       shared_ptr<string> riskStatus_ {};
-      // The scan progress of the image. Valid values: 0 to 100.
+      // The scan progress of the image. Value range: 0 to 100.
       shared_ptr<int32_t> scaProgress_ {};
       // The error code of the image scan result. Valid values:
       // 
-      // *   **TASK_NOT_EXISTS**: The image scan task does not exist.
-      // *   **TASK_NOT_SUPPORT_REGION**: The image scan task cannot be performed in the current region.
-      // *   **forbid_create_repeat_task**: The image scan task already exists.
+      // - **TASK_NOT_EXISTS**: the task does not exist.
+      // - **TASK_NOT_SUPPORT_REGION**: the task does not support the region.
+      // - **forbid_create_repeat_task**: repeated tasks are not allowed.
       shared_ptr<string> scaResult_ {};
-      // The scan status of the image. Valid values:
-      // 
-      // *   **INIT**: The image scan task is pending startup.
-      // *   **START**: The image scan task is started.
-      // *   **MESSAGE_SEND**: The message about the image scan task is sent.
-      // *   **START_RUN**: The image analysis task is started.
-      // *   **DOWNLOAD**: The image scan result is downloaded.
-      // *   **PRE_ANALYZER**: The image pre-analysis is started.
-      // *   **WEB_SHELL_ANALYZER**: The WebShell analysis of the image is complete.
-      // *   **CVE_ANALYZER**: The Common Vulnerabilities and Exposures (CVE) analysis of the image is complete.
-      // *   **BIN_ANALYZER**: The binary analysis of the image is complete.
-      // *   **OTHER_ANALYZER**: The extended analysis of the image is complete.
-      // *   **SUCCESS**: The image scan task is complete.
-      // *   **PRE_ANALYZER_SUCCESS**: The image pre-analysis is complete.
-      // *   **FAIL**: The image scan task failed.
-      // *   **TIMEOUT**: The image scan task timed out.
+      // The image scan status. Valid values:
+      // - **INIT**: image scan pending.
+      // - **START**: image scan started.
+      // - **MESSAGE_SEND**: image scan message sent.
+      // - **START_RUN**: image analysis task started.
+      // - **DOWNLOAD**: image scan downloaded.
+      // - **PRE_ANALYZER**: image pre-analysis started.
+      // - **WEB_SHELL_ANALYZER**: image WebShell analysis completed.
+      // - **CVE_ANALYZER**: image CVE analysis completed.
+      // - **BIN_ANALYZER**: image binary analysis completed.
+      // - **OTHER_ANALYZER**: image extended analysis completed.
+      // - **SUCCESS**: image scan completed.
+      // - **PRE_ANALYZER_SUCCESS**: image pre-analysis completed.
+      // - **FAIL**: image scan failed.
+      // - **TIMEOUT**: image scan timed out.
       shared_ptr<string> scaStatus_ {};
-      // The usage label of the image.
+      // The business tag of the image.
       shared_ptr<string> sourceBizTag_ {};
-      // The status of the image. Valid values:
-      // 
-      // *   **NORMAL**
+      // The image status. Valid values:
+      // - **NORMAL**: normal.
       shared_ptr<string> status_ {};
       // The tag of the image.
       shared_ptr<string> tag_ {};
@@ -484,9 +479,8 @@ namespace Models
       // The number of vulnerabilities in the image.
       shared_ptr<int32_t> vulCount_ {};
       // Indicates whether vulnerabilities exist in the image. Valid values:
-      // 
-      // *   **YES**
-      // *   **NO**
+      // - **YES**: vulnerabilities exist.
+      // - **NO**: no vulnerabilities exist.
       shared_ptr<string> vulStatus_ {};
     };
 
@@ -518,11 +512,11 @@ namespace Models
 
 
   protected:
-    // The information about the images.
+    // The list of image information.
     shared_ptr<vector<DescribeImageInstancesResponseBody::ImageInstanceList>> imageInstanceList_ {};
-    // The pagination information.
+    // The pagination information of the query result.
     shared_ptr<DescribeImageInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

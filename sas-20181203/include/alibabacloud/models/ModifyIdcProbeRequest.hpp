@@ -124,13 +124,15 @@ namespace Models
     shared_ptr<string> linuxPort_ {};
     // The unit of the scan interval. Valid values:
     // 
-    // *   **day**
-    // *   **hour**
+    // - **day**
+    // 
+    // - **hour**
     shared_ptr<string> periodUnit_ {};
     // The usage status. Valid values:
     // 
-    // *   **0**: enabled.
-    // *   **1**: disabled.
+    // - **0**: enabled.
+    // 
+    // - **1**: disabled.
     shared_ptr<int32_t> status_ {};
     // The UUID of the server. Separate multiple UUIDs with commas (,).
     // 

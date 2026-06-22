@@ -48,14 +48,14 @@ namespace Models
 
 
   protected:
-    // ID of the strategy task.
-    // > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+    // The ID of the policy task.
+    // >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> strategyTaskId_ {};
-    // Task action status. Values:
-    // - SCHEDULE: Schedule
-    // - PAUSE: Pause
+    // The action status of the task. Valid values:
+    // - SCHEDULE: scheduling
+    // - PAUSE: pause.
     // 
     // This parameter is required.
     shared_ptr<string> taskAction_ {};

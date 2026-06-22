@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: 1.
+    // The page number of the page to return. Default value: 1, which indicates that the first page is returned.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return on each page when paging is used for a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

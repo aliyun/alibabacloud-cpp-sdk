@@ -287,7 +287,9 @@ namespace Models
       // The error message.
       shared_ptr<string> errorMsg_ {};
       // Whether the instance is released:
+      // 
       // - true: Released
+      // 
       // - false: Not released
       shared_ptr<bool> instanceFreed_ {};
       // The ID of the server instance.
@@ -298,50 +300,78 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The type of repair supported by the check item:
       // 
-      // - **1**：Supports repair and rollback operations
-      // - **2**：Supports repair but not rollback
-      // - **3**：Redirect to a third-party platform for operation
+      // - **1**:Supports repair and rollback operations
+      // 
+      // - **2**:Supports repair but not rollback
+      // 
+      // - **3**:Redirect to a third-party platform for operation
       shared_ptr<int32_t> repairSupportType_ {};
       // The risk level of the detected alert. Values:
+      // 
       // - **high**: High risk.
-      //  - **medium**: Medium risk. 
+      // 
+      // - **medium**: Medium risk.
+      // 
       // - **low**: Low risk.
       shared_ptr<string> riskLevel_ {};
       // The ID of the main task.
       shared_ptr<string> rootTaskId_ {};
       // The status of the task. Possible values:
       // 
-      // - **INIT**：Initialization
-      // - **FAIL**：Processing failed
-      // - **THROTTLING**：Repairing concurrently
-      // - **IN_BACKUP**：Backing up
-      // - **BACKED_UP**：Backed up
-      // - **BACKUP_FAIL**：Backup failed
-      // - **REPAIRING**：Repairing
-      // - **REPAIR_SUCCESS**：Repair succeeded
-      // - **REPAIR_FAIL**：Repair failed
-      // - **REPAIR_SUCCESS_VERIFYING**：Verifying repair success
-      // - **REPAIR_SUCCESS_UNVERIFIED**：Verification of repair success failed
-      // - **REPAIR_SUCCESS_VERIFIED**：Verification of repair success succeeded
-      // - **REPAIR_RE_EXECUTE**：Re-executing repair
-      // - **ROLL_BACKING**：Rolling back
-      // - **ROLL_BACKED**：Rolled back
-      // - **ROLL_BACK_FAIL**：Rollback failed
-      // - **ROLL_BACK_INIT**：Initiating rollback
-      // - **ROLL_BACK_VERIFYING**：Verifying rollback success
-      // - **ROLL_BACK_UNVERIFIED**：Verification of rollback success failed
-      // - **ROLL_BACK_VERIFIED**：Verification of rollback success succeeded
+      // - **INIT**:Initialization
+      // 
+      // - **FAIL**:Processing failed
+      // 
+      // - **THROTTLING**:Repairing concurrently
+      // 
+      // - **IN_BACKUP**:Backing up
+      // 
+      // - **BACKED_UP**:Backed up
+      // 
+      // - **BACKUP_FAIL**:Backup failed
+      // 
+      // - **REPAIRING**:Repairing
+      // 
+      // - **REPAIR_SUCCESS**:Repair succeeded
+      // 
+      // - **REPAIR_FAIL**:Repair failed
+      // 
+      // - **REPAIR_SUCCESS_VERIFYING**:Verifying repair success
+      // 
+      // - **REPAIR_SUCCESS_UNVERIFIED**:Verification of repair success failed
+      // 
+      // - **REPAIR_SUCCESS_VERIFIED**:Verification of repair success succeeded
+      // 
+      // - **REPAIR_RE_EXECUTE**:Re-executing repair
+      // 
+      // - **ROLL_BACKING**:Rolling back
+      // 
+      // - **ROLL_BACKED**:Rolled back
+      // 
+      // - **ROLL_BACK_FAIL**:Rollback failed
+      // 
+      // - **ROLL_BACK_INIT**:Initiating rollback
+      // 
+      // - **ROLL_BACK_VERIFYING**:Verifying rollback success
+      // 
+      // - **ROLL_BACK_UNVERIFIED**:Verification of rollback success failed
+      // 
+      // - **ROLL_BACK_VERIFIED**:Verification of rollback success succeeded
       shared_ptr<string> status_ {};
       // The display status of the repair task.
       shared_ptr<string> statusShowName_ {};
       // Whether rollback is supported:
+      // 
       // - true: Supported
+      // 
       // - false: Not supported
       shared_ptr<bool> supportRollBack_ {};
       // The ID of the operation task.
       shared_ptr<string> taskId_ {};
       // The type of the operation task being queried:
+      // 
       // - REPAIR: Repair
+      // 
       // - ROLLBACK: Rollback
       shared_ptr<string> type_ {};
     };

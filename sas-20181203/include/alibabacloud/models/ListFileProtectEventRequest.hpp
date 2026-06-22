@@ -152,44 +152,43 @@ namespace Models
 
 
   protected:
-    // The severities of alerts.
+    // The list of alert notification levels.
     shared_ptr<vector<int32_t>> alertLevels_ {};
-    // The page number.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The end timestamp of the query.
+    // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
-    // The instance ID of the asset.
+    // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
-    // The name of the server.
+    // The name of the server to query.
     shared_ptr<string> instanceName_ {};
-    // The public IP address of the server.
+    // The public IP address of the asset to query.
     shared_ptr<string> internetIp_ {};
-    // The private IP address of the server.
+    // The private IP address of the asset to query.
     shared_ptr<string> intranetIp_ {};
-    // Type of operation on a file. eg:
+    // The type of operation performed on the file. Valid values:
     // 
-    // - **DELETE**: delete the file.
-    // - **WRITE**: write the file.
-    // - **READ**: read the file.
-    // - **RENAME**: rename the file.
-    // - **CHOWN**: set the file owner and file association group operations.
+    // - **DELETE**: deletes the file.
+    // - **WRITE**: writes to the file.
+    // - **READ**: reads the file.
+    // - **RENAME**: renames the file.
+    // - **CHOWN**: changes the file owner and associated group.
     shared_ptr<string> operation_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return on each page in a paging query.
     shared_ptr<string> pageSize_ {};
-    // The name of the rule.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
-    // The start timestamp of the query.
+    // The timestamp of the start time.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the event. Valid values:
+    // The event status. Valid values:
     // 
-    // *   0: unhandled
-    // *   1: handled
-    // *   2: added to the whitelist
-    // *   3: ignored
+    // - 0: Unhandled. 
+    // - 1: Manually handled.
+    // - 2: Whitelisted.
+    // - 3: Ignored.
     shared_ptr<string> status_ {};
-    // The UUID of the server.
-    // 
-    // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID of the server.
+    // The UUID of the server to query.
+    // >You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
     shared_ptr<string> uuid_ {};
   };
 

@@ -104,9 +104,9 @@ namespace Models
 
 
     protected:
-      // 组件名称
+      // The component name.
       shared_ptr<string> entityName_ {};
-      // 组件版本
+      // The component version.
       shared_ptr<string> entityVersion_ {};
     };
 
@@ -251,81 +251,112 @@ namespace Models
 
 
   protected:
-    // The name of the vulnerability.
+    // The vulnerability name.
     shared_ptr<string> aliasName_ {};
-    // The additional type of the vulnerabilities. You need to specify this parameter when you query application vulnerabilities. If you set the Type parameter to app, you must specify this parameter. Set the value to **sca**.
+    // An additional vulnerability type to export. This parameter is required and must be set to **sca** if the `Type` parameter is set to `app`.
     // 
-    // > If this parameter is set to **sca**, **application vulnerabilities** and the **vulnerabilities that are detected based on software component analysis** are queried. If you do not specify this parameter, only application vulnerabilities are queried.
+    // > If you set this parameter to **sca**, the query returns both application vulnerabilities (**app**) and software composition analysis (**sca**) vulnerabilities. If you do not set this parameter, only application vulnerabilities are returned.
     shared_ptr<string> attachTypes_ {};
-    // The name of the container that is affected by the vulnerability.
+    // The affected container name.
     shared_ptr<string> containerName_ {};
-    // The end time of the first scan.
+    // The end of the creation time range for the vulnerabilities to export.
     // 
-    // >  This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // > A Unix timestamp in milliseconds.
     shared_ptr<int64_t> createTsEnd_ {};
-    // The start time of the first scan.
+    // The start of the creation time range for the vulnerabilities to export.
     // 
-    // >  This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // > A Unix timestamp in milliseconds.
     shared_ptr<int64_t> createTsStart_ {};
-    // The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
+    // The CVE ID.
     shared_ptr<string> cveId_ {};
-    // Specifies whether the vulnerability is fixed. Valid values:
+    // Indicates whether the vulnerability is remediated. Valid values:
     // 
-    // *   **y**: The vulnerability is fixed.
-    // *   **n**: The vulnerability is not fixed.
+    // - **y**: Remediated
+    // 
+    // - **n**: Not remediated
     shared_ptr<string> dealed_ {};
-    // The server group ID of the server on which the vulnerabilities are detected.
+    // The ID of the asset group that contains the affected servers.
     // 
-    // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+    // > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain this parameter.
     shared_ptr<string> groupId_ {};
-    // The name of the image that is affected by the vulnerability.
+    // The affected image name.
     shared_ptr<string> imageName_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. The default value is **zh**. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
+    // The remediation priority of the vulnerabilities to export. Separate multiple priorities with commas. Valid values:
     // 
-    // *   **asap**: high
-    // *   **later**: medium
-    // *   **nntf**: low
+    // - **asap**: High
+    // 
+    // - **later**: Medium
+    // 
+    // - **nntf**: Low
     shared_ptr<string> necessity_ {};
-    // The path of the process that is affected by the vulnerability.
+    // The affected process path.
     shared_ptr<string> path_ {};
-    // Indicates whether the application protection feature is supported. Valid values:
+    // Specifies whether the vulnerability is protected by runtime application self-protection (RASP). Valid values:
     // 
-    // - **0**: no.
+    // - **0**: Not supported
     // 
-    // - **1**: yes.
+    // - **1**: Supported
     shared_ptr<int32_t> raspDefend_ {};
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The tag that is used to search for the vulnerabilities. Valid values:
+    // A tag for filtering vulnerabilities. Separate multiple tags with commas. Valid values:
     // 
-    // *   Restart required
-    // *   Remote exploitation
-    // *   Exploit exists
-    // *   Exploitable
-    // *   Privilege escalation
-    // *   Code execution
+    // <props="china">
+    // 
+    // - Restart required
+    // 
+    // - remote exploitation
+    // 
+    // - exploit exists
+    // 
+    // - exploitable
+    // 
+    // - Elevation of Privilege
+    // 
+    // - Code Execution
+    // 
+    // 
+    // 
+    // <props="intl">
+    // 
+    // - **Restart required**
+    // 
+    // - **remote exploitation**
+    // 
+    // - **exploit exists**
+    // 
+    // - **exploitable**
+    // 
+    // - **Elevation of Privilege**
+    // 
+    // - **Code Execution**
     shared_ptr<string> searchTags_ {};
-    // The type of the vulnerability that you want to export. Valid values:
+    // The type of vulnerabilities to export. Valid values:
     // 
-    // *   **cve**: Linux software vulnerability
-    // *   **sys**: Windows system vulnerability
-    // *   **cms**: Web-CMS vulnerability
-    // *   **app**: application vulnerability
-    // *   **emg**: urgent vulnerability
+    // - **cve**: Linux software vulnerability
+    // 
+    // - **sys**: Windows system vulnerability
+    // 
+    // - **cms**: Web-CMS vulnerability
+    // 
+    // - **app**: application vulnerability
+    // 
+    // - **emg**: emergency vulnerability
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUID of the server on which the vulnerabilities are detected. Separate multiple UUIDs with commas (,).
+    // The UUIDs of the servers for which to export vulnerabilities. Separate multiple UUIDs with commas.
     shared_ptr<string> uuids_ {};
-    // The ID of the virtual private cloud (VPC) in which the vulnerabilities are detected. Separate multiple IDs with commas (,).
+    // The IDs of the VPC instances for which to export vulnerabilities. Separate multiple IDs with commas.
     // 
-    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the IDs of VPCs.
+    // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to obtain this parameter.
     shared_ptr<string> vpcInstanceIds_ {};
-    // 漏洞组件信息列表
+    // A list of vulnerability component information.
     shared_ptr<vector<ExportVulRequest::VulEntityList>> vulEntityList_ {};
   };
 

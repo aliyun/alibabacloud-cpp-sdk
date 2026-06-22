@@ -108,17 +108,17 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The key of the last data entry.
+      // The key of the last entry.
       shared_ptr<string> lastRowKey_ {};
-      // The value of the NextToken parameter that is returned by using the NextToken method.
+      // The NextToken value returned when the NextToken-based pagination method is used.
       shared_ptr<string> nextToken_ {};
-      // The number of entries per page.
+      // The maximum number of entries per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -221,11 +221,11 @@ namespace Models
 
 
       protected:
-        // The supplementary information about the field.
+        // The supplementary information of the field.
         shared_ptr<string> fieldExtInfo_ {};
         // The key of the field.
         shared_ptr<string> fieldKey_ {};
-        // The type of the field.
+        // The field type.
         shared_ptr<string> fieldType_ {};
         // The value of the field key.
         shared_ptr<string> fieldValue_ {};
@@ -337,28 +337,28 @@ namespace Models
       shared_ptr<int64_t> alarmEventId_ {};
       // The destination IP address of the attack.
       shared_ptr<string> dstIp_ {};
-      // The timestamp at which the event was first detected.
+      // The timestamp of the first occurrence.
       shared_ptr<int64_t> firstTime_ {};
       // The name of the honeypot.
       shared_ptr<string> honeypotName_ {};
-      // The timestamp at which the event was last detected.
+      // The timestamp of the most recent occurrence.
       shared_ptr<int64_t> lastTime_ {};
       // The region.
       shared_ptr<string> location_ {};
-      // The extended values that correspond to the field key.
+      // The list of extended field key-value pairs.
       shared_ptr<vector<HoneypotEvents::MergeFieldList>> mergeFieldList_ {};
       // The protocol. Valid values:
       // 
-      // *   **tcp**
-      // *   **udp**
+      // - **tcp**.
+      // - **udp**.
       shared_ptr<string> protocol_ {};
       // The risk level. Valid values:
       // 
-      // *   **2**: low
-      // *   **3**: medium
-      // *   **4**: high
+      // - **2**: Low risk.
+      // - **3**: Medium risk.
+      // - **4**: High risk.
       shared_ptr<string> riskLevel_ {};
-      // The ID of the intrusion event.
+      // The unique ID of the attack event.
       shared_ptr<int64_t> securityEventId_ {};
       // The source IP address of the attack.
       shared_ptr<string> srcIp_ {};
@@ -392,11 +392,11 @@ namespace Models
 
 
   protected:
-    // The intrusion events.
+    // The list of honeypot attack events.
     shared_ptr<vector<ListHoneypotEventsResponseBody::HoneypotEvents>> honeypotEvents_ {};
-    // The pagination information.
+    // The paging information.
     shared_ptr<ListHoneypotEventsResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

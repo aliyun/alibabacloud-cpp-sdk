@@ -78,21 +78,21 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for requests and responses. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the asset. Valid values:
+    // The region where the asset resides. Valid values:
     // 
-    // *   cn-hangzhou: China.
-    // *   ap-southeast-1: outside China.
+    // - cn-hangzhou: China
+    // - ap-southeast-1: outside China.
     shared_ptr<string> regionId_ {};
-    // List of task sources.
+    // The list of task sources.
     shared_ptr<vector<string>> taskSources_ {};
   };
 

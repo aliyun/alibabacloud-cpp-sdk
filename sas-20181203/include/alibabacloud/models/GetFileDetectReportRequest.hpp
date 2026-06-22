@@ -81,23 +81,29 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   **ThreatTypes**: the type of the threat intelligence event
-    // *   **Intelligences**: the threat intelligence event
-    // *   **ThreatLevel**: the level of the threat intelligence event
-    // *   **Basic**: the basic information about the report (the scan result)
-    // *   **Sandbox**: the cloud sandbox check report
+    // - **ThreatTypes**: the type of the threat intelligence event
+    // 
+    // - **Intelligences**: the threat intelligence event
+    // 
+    // - **ThreatLevel**: the level of the threat intelligence event
+    // 
+    // - **Basic**: the basic information about the report (the scan result)
+    // 
+    // - **Sandbox**: the cloud sandbox check report
     shared_ptr<string> field_ {};
     // The hash value of the file to be detected.
     shared_ptr<string> fileHash_ {};
     // The language of the content within the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The data source type. Valid values:
     // 
-    // *   **machine**: host alerts
-    // *   **object_scan**: file detection alerts
+    // - **machine**: host alerts
+    // 
+    // - **object_scan**: file detection alerts
     shared_ptr<string> sourceType_ {};
   };
 

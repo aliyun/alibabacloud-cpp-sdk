@@ -75,23 +75,23 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**
+    // The page number of the results to return. Default value: **1**, which indicates that the results start from page 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The timestamp when the task ends. Unit: milliseconds.
+    // The end timestamp of the repair task that you want to query. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The number of entries to return on each page. Default value: **20**
+    // The number of entries per page in a paginated query. Default value: **20**, which indicates that up to 20 entries are returned per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The timestamp when the task starts. Unit: milliseconds.
+    // The start timestamp of the repair task that you want to query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the task. Valid values:
+    // The status of the image repair task that you want to query. Valid values:
     // 
-    // *   **1**: The task is running.
-    // *   **2**: The task is successful.
-    // *   **3**: The task failed.
+    // - **1**: Repairing
+    // - **2**: Repaired
+    // - **3**: Repair failed
     shared_ptr<string> status_ {};
   };
 

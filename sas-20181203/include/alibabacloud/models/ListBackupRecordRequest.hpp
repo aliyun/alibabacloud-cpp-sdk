@@ -87,23 +87,21 @@ namespace Models
 
 
   protected:
-    // The timestamp when the backup task ended. Unit: milliseconds.
+    // The backup end time. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> backupEndTime_ {};
-    // The timestamp when the backup task started. Unit: milliseconds.
+    // The backup start time. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> backupStartTime_ {};
-    // The page number. Default value: **1**. Pages start from page 1.
+    // The page number of the page to return. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
-    // The information that you want to use to identify the servers protected by the anti-ransomware policy. You can enter the IP address or ID of a server.
+    // The identification information of the server protected by the anti-ransomware policy that you want to query. You can enter the IP address or instance ID of the server.
     shared_ptr<string> machineRemark_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The backup task status. Valid values:
-    // 
-    // *   **BACKUP_COMPLETE**: The backup task is successful.
-    // *   **BACKUP_FAILED**: The backup task failed.
-    // *   **PARTIAL_COMPLETE**: The backup task is partially successful.
+    // The list of backup task statuses. Valid values:
+    // - **BACKUP_COMPLETE**: backup succeeded
+    // - **BACKUP_FAILED**: backup failed
+    // - **PARTIAL_COMPLETE**: partial backup succeeded.
     shared_ptr<vector<string>> statusList_ {};
   };
 

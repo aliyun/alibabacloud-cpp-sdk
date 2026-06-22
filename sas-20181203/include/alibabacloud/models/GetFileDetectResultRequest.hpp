@@ -60,20 +60,17 @@ namespace Models
 
 
   protected:
-    // The identifiers of files. Only MD5 hash values are supported.
+    // An array of up to 100 unique file identifiers.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> hashKeyList_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The type of the file. Valid values:
+    // The type of file to detect. Valid values:
     // 
-    // *   **0**: unknown file
-    // *   **1**: binary file
-    // *   **2**: webshell file
-    // *   **4**: script file
+    // - **0**: malicious file detection
     // 
-    // > If you do not know the type of the file, set this parameter to 0.
+    // - **6**: Skill compressed package detection
     // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};

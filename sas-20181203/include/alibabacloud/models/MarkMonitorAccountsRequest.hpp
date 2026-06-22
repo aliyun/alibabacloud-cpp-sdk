@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the members.
+    // The list of member account IDs.
     // 
     // This parameter is required.
     shared_ptr<string> accountIds_ {};

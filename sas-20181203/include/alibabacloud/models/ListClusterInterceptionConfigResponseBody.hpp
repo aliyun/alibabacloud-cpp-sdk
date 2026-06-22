@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of cluster interception rules on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currrentPage_ {};
-      // The number of entries returned per page.
+      // The number of cluster interception rules per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of cluster interception rules.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -193,35 +193,33 @@ namespace Models
 
 
     protected:
-      // The status of the container firewall feature. Valid values:
-      // 
-      // *   **-1**: unknown
-      // *   **0**: abnormal
-      // *   **1**: normal
-      // *   **2**: normal to be confirmed
+      // The container firewall status of the cluster. Valid values:
+      // - **-1**: unknown
+      // - **0**: abnormal
+      // - **1**: normal
+      // - **2**: normal pending confirmation.
       shared_ptr<int32_t> clusterCNNFStatus_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The type of the cluster. Valid values:
+      // The cluster type. Valid values:
       // 
-      // *   **ManagedKubernetes**: managed Kubernetes cluster
-      // *   **NotManagedKubernetes**: non-managed Kubernetes cluster
-      // *   **PrivateKubernetes**: private cluster
-      // *   **kubernetes**: dedicated Kubernetes cluster
-      // *   **ask**: dedicated serverless Kubernetes (ASK) cluster
+      // - **ManagedKubernetes**: managed Kubernetes
+      // - **NotManagedKubernetes**: non-managed Kubernetes
+      // - **PrivateKubernetes**: private cluster
+      // - **kubernetes**: dedicated Kubernetes
+      // - **ask**: dedicated ASK.
       shared_ptr<string> clusterType_ {};
-      // The status of the defense rule. Valid values:
-      // 
-      // *   **0**: disabled
-      // *   **1**: enabled
+      // The status of the rule interception switch. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled.
       shared_ptr<int32_t> interceptionSwitch_ {};
-      // The number of defense rules that are in effect.
+      // The number of active rules.
       shared_ptr<int64_t> openRuleCount_ {};
-      // Indicates whether the container firewall feature is supported.
+      // Indicates whether the container firewall is supported.
       shared_ptr<bool> supportCNNF_ {};
-      // The total number of defense rules.
+      // The total number of rules.
       shared_ptr<int64_t> totalRuleCount_ {};
     };
 
@@ -253,11 +251,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the configurations of the cluster.
+    // The list of cluster configuration information.
     shared_ptr<vector<ListClusterInterceptionConfigResponseBody::ClusterConfigList>> clusterConfigList_ {};
-    // The pagination information.
+    // The paging information for a paged query.
     shared_ptr<ListClusterInterceptionConfigResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

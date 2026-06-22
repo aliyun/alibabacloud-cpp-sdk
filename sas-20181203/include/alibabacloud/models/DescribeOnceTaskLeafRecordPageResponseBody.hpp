@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of records on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records in the query result.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -325,55 +325,53 @@ namespace Models
 
 
       protected:
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
-        // The ID of the cluster.
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
         // The cluster name.
         shared_ptr<string> clusterName_ {};
-        // The time consumed. The value is in the JSON format. The end time of each item is displayed.
-        // 
-        // *   **vul**: system vulnerabilities
-        // *   **scaVul**: application vulnerabilities
-        // *   **scaVul**: baseline
-        // *   **binary**: binary
-        // *   **forbiddenPackageInfo**: information about the prohibited package
-        // *   **identificationInfo**: identity authentication
-        // *   **script**: malicious scripts
-        // *   **sensitiveFile**: sensitive files
-        // *   **sensitiveInfo**: AccessKey pair leaks
-        // *   **webshell**: website scripts
+        // The time consumption statistics in JSON format, showing the end time of each item. Valid values:
+        // - **vul**: System vulnerability.
+        // - **scaVul**: Application vulnerability.
+        // - **baseline**: Baseline.
+        // - **binary**: Binary.
+        // - **forbiddenPackageInfo**: Forbidden installation.
+        // - **identificationInfo**: Identity authentication.
+        // - **script**: Malicious script.
+        // - **sensitiveFile**: Sensitive file.
+        // - **sensitiveInfo**: AK detection.
+        // - **webshell**: Web shell.
         shared_ptr<string> costTimeInfo_ {};
-        // The digest of the image.
+        // The image digest.
         shared_ptr<string> digest_ {};
-        // The image of the container.
+        // The container image.
         shared_ptr<string> image_ {};
-        // The instance ID of the node.
+        // The node instance ID.
         shared_ptr<string> nodeInstanceId_ {};
-        // The IP address of the node.
+        // The node IP address.
         shared_ptr<string> nodeIp_ {};
-        // The name of the node.
+        // The node name.
         shared_ptr<string> nodeName_ {};
-        // The pod of the image.
+        // The image pod information.
         shared_ptr<string> pod_ {};
-        // The region ID of the server image.
+        // The region where the server image is located.
         shared_ptr<string> regionId_ {};
         // The type of the image repository. Valid values:
-        // 
-        // *   **acr**
-        // *   **harbor**
-        // *   **quay**
-        // *   **CI/CD**
+        // - **acr**: acr.
+        // - **harbor**: harbor.
+        // - **quay**: quay.
+        // - **CI/CD**: CI/CD repository type.
         shared_ptr<string> registryType_ {};
-        // The ID of the image repository.
+        // The image repository ID.
         shared_ptr<string> repoId_ {};
-        // The name of the image repository.
+        // The image repository name.
         shared_ptr<string> repoName_ {};
-        // The name of the namespace to which the image repository belongs.
+        // The image namespace.
         shared_ptr<string> repoNamespace_ {};
         // The region ID of the image repository.
         shared_ptr<string> repoRegionId_ {};
-        // The tag that is added to the image.
+        // The image tag.
         shared_ptr<string> tag_ {};
       };
 
@@ -496,48 +494,45 @@ namespace Models
 
 
     protected:
-      // The time when the sub-task ends.
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
-      // Indicates whether the sub-task is complete.
-      // 
-      // *   **0**: no
-      // *   **1**: yes
+      // Indicates whether the task is completed. Valid values:
+      // - **0**: Not completed.
+      // - **1**: Completed.
       shared_ptr<int32_t> finish_ {};
-      // The number of the assets that are scanned.
+      // The number of completed records.
       shared_ptr<string> finishCount_ {};
-      // The progress percentage of the sub-task.
+      // The export progress percentage (%).
       shared_ptr<int64_t> progress_ {};
-      // The execution duration of the sub-task.
+      // The task execution time.
       shared_ptr<int64_t> realRunTime_ {};
       // The execution result.
       shared_ptr<string> resultInfo_ {};
-      // The time when the sub-task starts.
+      // The start execution time.
       shared_ptr<int64_t> startTime_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The sub-task status. Valid values:
-      // 
-      // *   **INIT**: The sub-task is not started.
-      // *   **START**: The sub-task is started.
-      // *   **SUCCESS**: The sub-task is complete.
-      // *   **TIMEOUT**: The sub-task timed out.
+      // The running status of the task. Valid values:
+      // - **INIT**: Pending.
+      // - **START**: Started.
+      // - **SUCCESS**: Completed.
+      // - **TIMEOUT**: Timed out.
       shared_ptr<string> statusText_ {};
-      // The objective of the sub-task.
+      // The task target.
       shared_ptr<string> target_ {};
-      // The type of the assets that are scanned. Valid values:
-      // 
-      // *   **IMAGE_REPO**: image repository
-      // *   **IMAGE**: image
+      // The scan object type. Valid values:
+      // - **IMAGE_REPO**: Image repository.
+      // - **IMAGE**: Image.
       shared_ptr<string> targetType_ {};
-      // The sub-task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The information about the image scan.
+      // The image scan-related information.
       shared_ptr<OnceTasks::TaskImageInfo> taskImageInfo_ {};
-      // The name of the sub-task.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // The type of the sub-task.
+      // The task type.
       shared_ptr<string> taskType_ {};
-      // The total number of entries returned.
+      // The total number of records. This parameter takes effect in a paged query with paging enabled.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -569,11 +564,11 @@ namespace Models
 
 
   protected:
-    // The details of tasks.
+    // The list of task details.
     shared_ptr<vector<DescribeOnceTaskLeafRecordPageResponseBody::OnceTasks>> onceTasks_ {};
     // The pagination information.
     shared_ptr<DescribeOnceTaskLeafRecordPageResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The request ID generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

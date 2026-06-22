@@ -70,13 +70,13 @@ namespace Models
     shared_ptr<int64_t> batchId_ {};
     // The name of the release batch.
     shared_ptr<string> batchName_ {};
-    // The interval between two release batches.
+    // The interval between release batches.
     shared_ptr<int32_t> interval_ {};
     // The asset selection dimension. Valid values:
     // 
-    // *   **0**: instance
-    // *   **1**: machine group
-    // *   **2**: VPC-based instance ID
+    // - **0**: machine instance
+    // - **1**: machine group
+    // - **2**: VPC-connected instance ID
     shared_ptr<int32_t> operationBase_ {};
   };
 

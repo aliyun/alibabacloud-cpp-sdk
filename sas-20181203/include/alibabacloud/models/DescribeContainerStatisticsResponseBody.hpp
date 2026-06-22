@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // The number of alerts whose risk level is **Reminder**.
+      // The number of alerts with the **Reminder** risk level.
       shared_ptr<int32_t> remindAlarmCount_ {};
-      // The number of alerts whose risk level is **Urgent**.
+      // The number of alerts with the **Urgent** risk level.
       shared_ptr<int32_t> seriousAlarmCount_ {};
-      // The number of alerts whose risk level is **Suspicious**.
+      // The number of alerts with the **Suspicious** risk level.
       shared_ptr<int32_t> suspiciousAlarmCount_ {};
-      // The total number of alerts that are generated in the current container cluster.
+      // The total number of security alerts in the container cluster.
       shared_ptr<int32_t> totalAlarmCount_ {};
-      // The total number of nodes in the current container cluster.
+      // The total number of nodes in the container cluster.
       shared_ptr<int32_t> totalNode_ {};
-      // The number of nodes on which alerts are generated in the current container cluster.
+      // The number of nodes that have alerts in the container cluster.
       shared_ptr<int32_t> hasRiskNode_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
   protected:
-    // The alert statistics of container assets.
+    // The detailed alert statistics of container assets.
     shared_ptr<DescribeContainerStatisticsResponseBody::Data> data_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
     shared_ptr<string> requestId_ {};
   };
 

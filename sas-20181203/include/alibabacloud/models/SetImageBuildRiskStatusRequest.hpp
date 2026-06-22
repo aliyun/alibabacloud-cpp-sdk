@@ -57,17 +57,15 @@ namespace Models
 
 
   protected:
-    // The UUIDs of images. Separate multiple UUIDs with commas (,).
-    // 
-    // >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the UUIDs of images.
+    // The image UUIDs. Separate multiple UUIDs with commas (,).
+    // >Call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
     shared_ptr<string> imageUuids_ {};
-    // The keyword of the image build command risk.
+    // The risk keyword.
     shared_ptr<string> riskKey_ {};
-    // The status of the image build command risk. Valid values:
-    // 
-    // *   **0**: unhandled.
-    // *   **1**: ignored.
-    // *   **2**: false positive.
+    // The status. Valid values:
+    // - **0**: Unhandled.
+    // - **1**: Ignored.
+    // - **2**: False positive.
     shared_ptr<int32_t> status_ {};
   };
 

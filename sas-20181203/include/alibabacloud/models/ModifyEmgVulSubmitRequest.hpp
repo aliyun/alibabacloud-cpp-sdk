@@ -66,23 +66,22 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The name of the vulnerability.
+    // The name of the vulnerability to query.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    // The ID of the member accounts in the resource folder (Alibaba Cloud account).
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // Specifies whether to scan for urgent vulnerabilities. Valid values:
+    // Specifies whether to perform vulnerability detection. Valid values:
     // 
-    // *   **yes**
-    // *   **no**
+    // - **yes**: Perform vulnerability detection.
+    // - **no**: Do not perform vulnerability detection.
     // 
     // This parameter is required.
     shared_ptr<string> userAgreement_ {};

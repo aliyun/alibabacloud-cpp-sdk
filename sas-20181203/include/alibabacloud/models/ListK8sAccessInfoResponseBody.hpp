@@ -171,31 +171,31 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud UID of the user.
       shared_ptr<int64_t> aliUid_ {};
-      // The Simple Log Service Logstore that is used to store the audit logs.
+      // The Simple Log Service Logstore for audit logs.
       shared_ptr<string> auditLogStore_ {};
-      // The Simple Log Service project that is used to store the audit logs.
+      // The Simple Log Service project for audit logs.
       shared_ptr<string> auditProject_ {};
-      // The ID of the region in which the server is deployed.
+      // The region ID of the server.
       shared_ptr<string> auditRegionId_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // CPU architecture, divided into ARM and x86 architectures.
+      // The CPU architecture. Valid values: ARM architecture and x86 architecture.
       shared_ptr<string> cpuArch_ {};
       // The expiration time.
       shared_ptr<int64_t> expireDate_ {};
-      // The ID of the server group.
+      // The server group ID.
       shared_ptr<string> groupId_ {};
-      // The name of the server group.
+      // The server group name.
       shared_ptr<string> groupName_ {};
-      // The UUID of the access information.
+      // The unique ID of the access information.
       shared_ptr<int64_t> id_ {};
-      // The installation key of the Kubernetes cluster.
+      // The K8s installation key.
       shared_ptr<string> installKey_ {};
-      // The service provider.
+      // The vendor.
       shared_ptr<string> vendor_ {};
     };
 
@@ -218,9 +218,9 @@ namespace Models
 
 
   protected:
-    // The information about the Kubernetes clusters.
+    // The list of K8s access information.
     shared_ptr<vector<ListK8sAccessInfoResponseBody::K8sAccessInfos>> k8sAccessInfos_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page.
+      // The number of entries displayed on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries displayed on each page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -211,25 +211,25 @@ namespace Models
 
 
     protected:
-      // The ID of the credential that is used for cluster authentication.
+      // The credential ID for cluster authentication.
       shared_ptr<string> authKey_ {};
-      // The key of the credential that is used for cluster authentication.
+      // The credential key for cluster authentication.
       shared_ptr<string> authKeySecret_ {};
-      // The number of servers that are connected to the proxy cluster.
+      // The number of Security Center clients connected to the current cluster.
       shared_ptr<int32_t> clientCount_ {};
       // The name of the proxy cluster.
       shared_ptr<string> clusterName_ {};
-      // The installation command for the node of the proxy cluster.
+      // The installation command for the current proxy cluster node.
       shared_ptr<string> installCommand_ {};
-      // The endpoint of the cluster. An IP address or a domain name is specified.
+      // The access address of the cluster, which can be an IP address or a domain name.
       shared_ptr<string> ip_ {};
-      // The timestamp when the cluster last sent a heartbeat message. Unit: milliseconds.
+      // The timestamp of the last heartbeat from the cluster. Unit: milliseconds.
       shared_ptr<int64_t> lastHeartTime_ {};
       // The number of proxy nodes.
       shared_ptr<int32_t> proxyCount_ {};
-      // The description of the proxy cluster.
+      // The remarks of the proxy cluster.
       shared_ptr<string> remark_ {};
-      // The status of the cluster.
+      // The running status of the cluster.
       shared_ptr<string> status_ {};
     };
 
@@ -261,11 +261,11 @@ namespace Models
 
 
   protected:
-    // The proxy clusters.
+    // The list of clusters.
     shared_ptr<vector<DescribeHybridProxyClusterListResponseBody::ClusterList>> clusterList_ {};
     // The pagination information.
     shared_ptr<DescribeHybridProxyClusterListResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

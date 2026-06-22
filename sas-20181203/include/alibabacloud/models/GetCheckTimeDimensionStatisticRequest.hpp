@@ -69,15 +69,15 @@ namespace Models
 
 
   protected:
-    // End time, in timestamp format.
+    // The end time in timestamp format.
     shared_ptr<int64_t> endTimeStamp_ {};
-    // Start time, in timestamp format.
+    // The start time in timestamp format.
     shared_ptr<int64_t> startTimeStamp_ {};
-    // Type of statistical data. Values:
+    // The type of data statistics. Valid values:
     // - **CheckPassRate**: Check item pass rate.
     // - **AssetPassRate**: Asset pass rate.
     shared_ptr<string> statisticType_ {};
-    // List of cloud vendors.
+    // The list of cloud service providers.
     shared_ptr<vector<string>> vendors_ {};
   };
 

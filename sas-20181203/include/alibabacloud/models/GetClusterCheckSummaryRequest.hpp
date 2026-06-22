@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // ID of the queried cluster
+    // The ID of the cluster to query.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};

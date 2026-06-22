@@ -48,16 +48,16 @@ namespace Models
 
 
   protected:
-    // The source IP address of the request.
+    // The IP address of the access source to query.
     shared_ptr<string> sourceIp_ {};
-    // The type of the configuration item. Valid values:
+    // The configuration rule type. Valid values:
     // 
-    // *   **webshell_timescan**: webshell detection and removal
-    // *   **aliscriptengine**: in-depth detection engine
-    // *   **alidetect**: installation scope of local file detection
-    // *   **alidetect-scan-enable**: detection scope of local file detection
+    // - **webshell_timescan**: web shell scan.
+    // - **aliscriptengine**: deep detection engine.
+    // - **alidetect**: installation scope of the local file detection engine.
+    // - **alidetect-scan-enable**: detection scope of the local file detection engine.
     // 
-    // >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) and [ListSystemClientRules](~~ListSystemClientRules~~) operations to obtain more types of custom and system configuration items.
+    // > You can call [ListClientUserDefineRules](~~ListClientUserDefineRules~~) and [ListSystemClientRules](~~ListSystemClientRules~~) to obtain more custom and system-configured rule types.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

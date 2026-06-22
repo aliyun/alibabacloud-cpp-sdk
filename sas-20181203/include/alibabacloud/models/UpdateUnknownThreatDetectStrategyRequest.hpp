@@ -75,11 +75,21 @@ namespace Models
 
 
   protected:
+    // The number of days the model learns for after its creation.
     shared_ptr<int32_t> durationDaysAfterInit_ {};
+    // The number of consecutive days without new processes before the model stops learning.
     shared_ptr<int32_t> durationDaysAfterStop_ {};
+    // The ID of the unknown threat detection strategy to update.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The name of the unknown threat detection strategy.
     shared_ptr<string> name_ {};
+    // The whitelist mode. Valid values are:
+    // 
+    // - **hash**: process hash
+    // 
+    // - **path**: process path
     shared_ptr<string> studyMode_ {};
   };
 

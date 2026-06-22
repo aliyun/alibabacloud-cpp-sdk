@@ -132,13 +132,20 @@ namespace Models
         shared_ptr<int64_t> coreCount_ {};
         // Number of authorizations allocated to the member.
         shared_ptr<int64_t> ecsCount_ {};
-        // Version of the Cloud Security Center for the member account. Values:  
-        // - **1**: Free Edition 
+        // Version of the Cloud Security Center for the member account. Values:
+        // 
+        // - **1**: Free Edition
+        // 
         // - **3**: Enterprise Edition
+        // 
         // - **5**: Advanced Edition
-        // - **6**: Antivirus Edition    
-        // - **7**: Flagship Edition   
-        // - **8**: Multiple Versions   
+        // 
+        // - **6**: Antivirus Edition
+        // 
+        // - **7**: Flagship Edition
+        // 
+        // - **8**: Multiple Versions
+        // 
         // - **10**: Only Purchase Value-Added Services
         shared_ptr<int32_t> version_ {};
       };
@@ -275,8 +282,10 @@ namespace Models
       // Anti-ransomware capacity allocated to the member, in GB.
       shared_ptr<int64_t> antiRansomwareCapacity_ {};
       // Charge type, values:
-      // * **PREPAID**: Prepaid.
-      // * **POSTPAID** (default): Postpaid.
+      // 
+      // - **PREPAID**: Prepaid.
+      // 
+      // - **POSTPAID** (default): Postpaid.
       shared_ptr<string> chargeType_ {};
       // Cloud platform configuration check scan count allocated to the member. Unit: times per month.
       shared_ptr<int64_t> cspmCapacity_ {};
@@ -286,9 +295,12 @@ namespace Models
       shared_ptr<int64_t> imageScanCapacity_ {};
       // The Cloud Security Center instance ID purchased by the member account.
       shared_ptr<string> instanceId_ {};
-      // Operation type. Values:  
-      // - **ADD**: Add 
+      // Operation type. Values:
+      // 
+      // - **ADD**: Add
+      // 
       // - **CHANGE**: Change
+      // 
       // - **DEL**: Delete
       shared_ptr<string> optType_ {};
       // Application protection count allocated to the member. Unit: per month.
@@ -297,19 +309,26 @@ namespace Models
       shared_ptr<int64_t> sdkCapacity_ {};
       // Log storage capacity allocated to the member, in GB.
       shared_ptr<int64_t> slsCapacity_ {};
-      // Status of the member account instance. Values: 
-      // - **1**: Valid. 
+      // Status of the member account instance. Values:
+      // 
+      // - **1**: Valid.
+      // 
       // - **2**: Invalid.
       shared_ptr<int32_t> status_ {};
       // Threat analysis capacity allocated to the member. Unit: GB.
       shared_ptr<int64_t> threatAnalysisCapacity_ {};
       // Threat analysis and response log access traffic allocated to the member. Unit: GB/day.
       shared_ptr<int64_t> threatAnalysisFlow_ {};
-      // The version of Cloud Security Center protection to be bound. Values:  
-      // - **1**: Free Edition 
+      // The version of Cloud Security Center protection to be bound. Values:
+      // 
+      // - **1**: Free Edition
+      // 
       // - **3**: Enterprise Edition
+      // 
       // - **5**: Advanced Edition
-      // - **6**: Antivirus Edition    
+      // 
+      // - **6**: Antivirus Edition
+      // 
       // - **7**: Flagship Edition
       shared_ptr<string> version_ {};
       // Member account authorization usage information.

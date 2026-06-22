@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number of the current page in a paged query. Paging starts from page 1.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paged query. Paging is performed based on this value.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -274,55 +274,54 @@ namespace Models
 
 
     protected:
-      // The end timestamp of the task. Unit: milliseconds.
+      // The end timestamp of the task, in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The instance ID of the asset.
       shared_ptr<string> instanceId_ {};
-      // The name of the asset.
+      // The name of the asset instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The amount of data detected. Unit: MB.
+      // The amount of detected data, in MB.
       shared_ptr<int64_t> measureSpace_ {};
-      // The progress of the task.
+      // The task progress.
       shared_ptr<int32_t> progress_ {};
-      // The execution progress of the check items.
+      // The execution progress of the check item.
       shared_ptr<string> progressByProject_ {};
       // The download URL of the report.
       shared_ptr<string> reportDownloadUrl_ {};
-      // The status of the report. Valid values:
-      // 
-      // *   **PREPARED**: preparing
-      // *   **RUNNING**: running
-      // *   **SUCCESS**: succeeded
-      // *   **TIMEOUT**: timed out
-      // *   **FAILED**: failed
+      // The report status. Valid values:
+      //  - **PREPARED**: Preparing.
+      //  - **RUNNING**: Running.
+      //  - **SUCCESS**: Succeeded.
+      //  - **TIMEOUT**: Timed out.
+      //  - **FAILED**: Failed.
       shared_ptr<string> reportStatus_ {};
-      // The result of the detection.
+      // The detection result.
       shared_ptr<string> result_ {};
-      // The start timestamp of the task. Unit: milliseconds.
+      // The start timestamp of the task, in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the detection task.
+      // The detection status. Valid values:
       // 
-      // *   **1**: The detection task is in progress.
-      // *   **2**: The detection task is complete.
-      // *   **3**: The detection task fails.
-      // *   **4**: The detection task times out.
+      // - **1**: Detecting.
+      // - **2**: Completed.
+      // - **3**: Failed.
+      // - **4**: Timed out.
       shared_ptr<int32_t> status_ {};
-      // The name of the asset that is detected.
+      // The name of the scan target.
       shared_ptr<string> targetName_ {};
-      // The type of the asset that is detected. Valid values:
+      // The object type. Valid values:
       // 
-      // *   **1**: snapshot
-      // *   **2**: image
+      // - **1**: snapshot
+      // - **2**: image.
       shared_ptr<int32_t> targetType_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
       // The name of the detection task.
       shared_ptr<string> taskName_ {};
-      // The UUID of the asset.
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -354,11 +353,11 @@ namespace Models
 
 
   protected:
-    // The tasks.
+    // The task list.
     shared_ptr<vector<ListAgentlessTaskResponseBody::List>> list_ {};
     // The pagination information.
     shared_ptr<ListAgentlessTaskResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

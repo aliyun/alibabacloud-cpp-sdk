@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The primary key of the alert handling rule.
+      // The primary key of the alert disposal rule.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -113,14 +113,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DeleteImageEventOperationResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

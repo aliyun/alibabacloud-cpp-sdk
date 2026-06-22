@@ -70,19 +70,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The time range of the data to query. Unit: days.
     // 
     // This parameter is required.
     shared_ptr<int32_t> statisticsDays_ {};
-    // The type of the asset to query. Valid values:
-    // 
-    // *   **vpcInstanceId**: VPC
-    // *   **uuid**: server
+    // The Asset Type to query. Valid values:
+    // - **vpcInstanceId**: VPC-connected instance
+    // - **uuid**: server
     // 
     // This parameter is required.
     shared_ptr<string> statisticsKeyType_ {};

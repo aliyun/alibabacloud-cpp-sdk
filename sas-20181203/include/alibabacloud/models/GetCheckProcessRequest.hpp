@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The ID of the task.
-    // 
-    // > You can call the [SubmitCheck](~~SubmitCheck~~) operation to query the ID.
+    // The ID of the cloud service configuration check task to query.
+    // > You can call the [SubmitCheck](~~SubmitCheck~~) operation to obtain this parameter.
     shared_ptr<string> taskId_ {};
   };
 

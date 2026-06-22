@@ -213,8 +213,9 @@ namespace Models
       shared_ptr<string> clientVersion_ {};
       // The returned code after you install the Security Center agent. Valid values:
       // 
-      // 1.  0: The installation is successful.
-      // 2.  \\-2: The kernel does not support the installation.
+      // 1. 0: The installation is successful.
+      // 
+      // 2. -2: The kernel does not support the installation.
       shared_ptr<string> installCode_ {};
       // The returned message after you install the Security Center agent.
       shared_ptr<string> installMessage_ {};
@@ -228,13 +229,15 @@ namespace Models
       shared_ptr<string> intranetIp_ {};
       // Indicates whether the Security Center agent is online. Valid value:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> online_ {};
       // The type of the operating system. Valid values:
       // 
-      // *   **windows**: Windows
-      // *   **linux**: Linux
+      // - **windows**: Windows
+      // 
+      // - **linux**: Linux
       shared_ptr<string> platform_ {};
       // Indicates whether the core file monitoring file is supported.
       shared_ptr<bool> supportFile_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Region.
+    // The region.
     // 
     // This parameter is required.
     shared_ptr<string> k8sRegionId_ {};

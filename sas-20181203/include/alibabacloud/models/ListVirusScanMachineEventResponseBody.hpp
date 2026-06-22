@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of alert events returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -178,20 +178,21 @@ namespace Models
 
 
       protected:
-        // The display type of the value for ValueDisplay. Valid value:
-        // 
-        // *   **download_url**, which indicates a download URL.
+        // The display type of valueDisplay.
+        // Valid values:
+        // - **download_url**: download link.
         shared_ptr<string> infoType_ {};
         // The display name of the alert event.
         shared_ptr<string> nameDisplay_ {};
-        // The format in which the details of the exception are displayed.
+        // The display format of the exception event details.
         // 
         // Valid values:
         // 
-        // *   **text**
-        // *   **html**
+        // - **text**: plain text
+        // - **html**: rich text.
         shared_ptr<string> type_ {};
-        // The attribute information about the exception. The information includes the logon time or location of an alert triggered by an unusual logon, and the trojan file path or trojan type of an alert.
+        // The additional attribute information of the exception event.
+        // For example, the logon time or logon location of an unusual logon alert, or the trojan file path or trojan type of an alert.
         shared_ptr<string> valueDisplay_ {};
       };
 
@@ -257,25 +258,24 @@ namespace Models
 
 
     protected:
-      // The details of the exception.
+      // The details of the exception event.
       shared_ptr<vector<Data::Details>> details_ {};
       // The ID of the alert event.
       shared_ptr<int64_t> eventId_ {};
-      // The name of the alert event. The value indicates a subtype.
+      // The name (subtype) of the alert event.
       shared_ptr<string> eventName_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
       // The public IP address.
       shared_ptr<string> internetIp_ {};
       // The private IP address.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp when the alert event was last generated. Unit: milliseconds.
+      // The timestamp of the last occurrence, in milliseconds.
       shared_ptr<int64_t> lastTimeStamp_ {};
       // The risk level of the alert event. Valid values:
-      // 
-      // *   **serious**
-      // *   **suspicious**
-      // *   **remind**
+      // - **serious**: Critical.
+      // - **suspicious**: Suspicious.
+      // - **remind**: Reminder.
       shared_ptr<string> level_ {};
     };
 
@@ -307,11 +307,11 @@ namespace Models
 
 
   protected:
-    // The details of the alert event.
+    // The details of the alert events.
     shared_ptr<vector<ListVirusScanMachineEventResponseBody::Data>> data_ {};
     // The pagination information.
     shared_ptr<ListVirusScanMachineEventResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -94,14 +94,17 @@ namespace Models
 
 
   protected:
+    // The domain name.
     shared_ptr<string> domainName_ {};
-    // The ID of the image repository. You can call the listImageRegistry operation to query the ID of the image repository.
+    // The image registry ID. Call the [ListImageRegistry](https://help.aliyun.com/document_detail/471986.html) operation to obtain this ID.
     shared_ptr<int64_t> id_ {};
     // The password.
     shared_ptr<string> password_ {};
+    // The port number.
     shared_ptr<int32_t> port_ {};
+    // The registry IP address.
     shared_ptr<string> registryHostIp_ {};
-    // The number of images that are scanned per hour.
+    // The number of images to scan per hour.
     shared_ptr<int32_t> transPerHour_ {};
     // The username.
     shared_ptr<string> userName_ {};

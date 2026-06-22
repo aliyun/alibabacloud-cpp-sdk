@@ -89,8 +89,22 @@ namespace Models
 
 
     protected:
+      // The whitelist field. Valid values:
+      // 
+      // - **ossKey**: file path
+      // - **bucketName**: bucket name
+      // - **md5**: file MD5
+      // - **sha256**: file SHA-256.
       shared_ptr<string> key_ {};
+      // The operator. Valid values:
+      // 
+      // - **contains**: Contains.
+      // - **not_contains**: Does not contain.
+      // - **str_equal**: Equals.
+      // - **str_not_equal**: Does not equal.
+      // - **regex**: Regular expression.
       shared_ptr<string> operate_ {};
+      // The value to match.
       shared_ptr<string> value_ {};
     };
 
@@ -151,12 +165,30 @@ namespace Models
 
 
   protected:
+    // Specifies the type for batch processing of similar alerts. Valid values:
+    // 
+    // - **sha256**: by file content
+    // - **eventName**: by alert name.
     shared_ptr<string> batchType_ {};
+    // The event ID.
     shared_ptr<string> eventId_ {};
+    // The list of event IDs.
     shared_ptr<vector<int64_t>> eventIdList_ {};
+    // The language of the content in the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
+    // The list of whitelist rules. This parameter takes effect only when the alert is whitelisted.
     shared_ptr<vector<HandleObjectScanEventRequest::RuleConditionList>> ruleConditionList_ {};
+    // The target status. Valid values:
+    // 
+    // - **0**: Unhandled.
+    // - **1**: Manually handled.
+    // - **2**: Whitelisted.
+    // - **3**: Ignored.
+    // - **4**: Access denied.
     shared_ptr<int32_t> status_ {};
   };
 

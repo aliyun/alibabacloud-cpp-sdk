@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<string>> data_ {};
-    // The request ID.
+    // The ID of the request. The system generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

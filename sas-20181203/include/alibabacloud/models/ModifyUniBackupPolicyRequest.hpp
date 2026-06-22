@@ -116,40 +116,37 @@ namespace Models
 
 
   protected:
-    // The name of the database account.
+    // The username of the database account.
     shared_ptr<string> accountName_ {};
     // The password of the database account.
     shared_ptr<string> accountPassword_ {};
-    // The policy for full backup. The value of this parameter is a JSON string that contains the following fields:
+    // The full backup policy. The value is in JSON format and contains the following fields:
     // 
-    // *   **start**: the start time of a backup task
-    // *   **interval**: the interval of backup tasks
-    // *   **type**: the unit of the interval
-    // *   **days**: the days of a week on which a backup task is performed
+    // - **start**: the backup start time.
+    // - **interval**: the interval.
+    // - **type**: the unit of the interval.
+    // - **days**: the days of the week on which the backup is performed.
     Darabonba::Json fullPlan_ {};
-    // The policy for incremental backup. The value of this parameter is a JSON string that contains the following fields:
-    // 
-    // *   **start**: the start time of a backup task
-    // *   **interval**: the interval of backup tasks
-    // *   **type**: the unit of the interval
-    // *   **days**: the days of a week on which a backup task is performed
+    // The incremental backup policy. The value is in JSON format and contains the following fields:
+    // - **start**: the backup start time.
+    // - **interval**: the interval.
+    // - **type**: the unit of the interval.
+    // - **days**: the days of the week on which the backup is performed.
     Darabonba::Json incPlan_ {};
-    // The ID of the anti-ransomware policy.
-    // 
-    // > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+    // The ID of the anti-ransomware backup policy for databases.
+    // >You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> policyId_ {};
-    // The name of the anti-ransomware policy.
+    // The name of the anti-ransomware backup policy for databases.
     shared_ptr<string> policyName_ {};
-    // The status of the anti-ransomware policy. Valid values:
-    // 
-    // *   **enabled**
-    // *   **disabled**
+    // The status of the policy. Valid values:
+    // - **enabled**: The policy is enabled.
+    // - **disabled**: The policy is disabled.
     shared_ptr<string> policyStatus_ {};
-    // The retention period of the backup snapshot.
+    // The number of days for which backup snapshots are retained.
     shared_ptr<int32_t> retention_ {};
-    // The maximum network bandwidth that is allowed during data backup. Unit: bytes.
+    // The network bandwidth throttling for backup network bandwidth. Unit: bytes.
     shared_ptr<int64_t> speedLimiter_ {};
   };
 

@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -406,38 +406,36 @@ namespace Models
     protected:
       // The number of alerts.
       shared_ptr<int32_t> alarmCount_ {};
-      // Indicates whether alerts are generated for the container. Valid values:
-      // 
-      // *   **YES**
-      // *   **NO**
+      // Indicates whether security alerts exist for the container. Valid values:
+      // - **YES**: Security alerts exist.
+      // - **NO**: No security alerts exist.
       shared_ptr<string> alarmStatus_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The ID of the container.
+      // The container ID.
       shared_ptr<string> containerId_ {};
-      // The timestamp when the cluster was created. Unit: milliseconds.
+      // The timestamp when the cluster was created, in milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
-      // Indicates whether the asset is exposed to the Internet.
-      // 
-      // *   **1**: exposed
-      // *   **0**: not exposed
+      // Indicates whether the container is exposed to the Internet. Valid values:
+      // - **1**: exposed.
+      // - **0**: not exposed.
       shared_ptr<int32_t> exposed_ {};
-      // The exposure details. The value is a JSON string.
+      // The exposure details in JSON format.
       shared_ptr<string> exposedDetail_ {};
       // The number of baseline risks.
       shared_ptr<int32_t> hcCount_ {};
-      // Indicates whether baseline risks are detected. Valid values:
+      // The baseline risk status. Valid values:
       // 
-      // *   **NO**
-      // *   **YES**
+      // - **NO**: No baseline risks exist. 
+      // - **YES**: Baseline risks exist.
       shared_ptr<string> hcStatus_ {};
-      // The IP address of the host.
+      // The host IP address.
       shared_ptr<string> hostIp_ {};
-      // The image of the container.
+      // The container image.
       shared_ptr<string> image_ {};
       // The digest value of the image.
       shared_ptr<string> imageDigest_ {};
@@ -447,21 +445,21 @@ namespace Models
       shared_ptr<string> imageRepoName_ {};
       // The namespace of the image repository.
       shared_ptr<string> imageRepoNamespace_ {};
-      // The tag that is added to the image.
+      // The tag of the image.
       shared_ptr<string> imageRepoTag_ {};
       // The UUID of the image.
       shared_ptr<string> imageUuid_ {};
-      // The instance ID of the asset.
+      // The asset instance ID.
       shared_ptr<string> instanceId_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
       // The node information.
       shared_ptr<string> nodeInfo_ {};
-      // The name of the node.
+      // The node name.
       shared_ptr<string> nodeName_ {};
-      // The pod.
+      // The pod name.
       shared_ptr<string> pod_ {};
-      // The IP address of the pod.
+      // The pod IP address.
       shared_ptr<string> podIp_ {};
       // The region ID of the container.
       shared_ptr<string> regionId_ {};
@@ -469,17 +467,16 @@ namespace Models
       shared_ptr<string> riskCount_ {};
       // Indicates whether risks exist. Valid values:
       // 
-      // *   **NO**
-      // *   **YES**
+      // - **NO**: No risks exist.
+      // - **YES**: Risks exist.
       shared_ptr<string> riskStatus_ {};
-      // The update identifier of the container.
+      // The update identifier of the container asset.
       shared_ptr<string> updateMark_ {};
-      // The number of vulnerabilities that are detected in the container cluster.
+      // The number of vulnerabilities in the container cluster.
       shared_ptr<int32_t> vulCount_ {};
-      // Indicates whether vulnerabilities are detected in the container. Valid values:
-      // 
-      // *   **YES**
-      // *   **NO**
+      // Indicates whether vulnerabilities exist in the container asset. Valid values:
+      // - **YES**: Vulnerabilities exist.
+      // - **NO**: No vulnerabilities exist.
       shared_ptr<string> vulStatus_ {};
     };
 
@@ -511,11 +508,11 @@ namespace Models
 
 
   protected:
-    // The details of the container asset.
+    // The list of container asset information.
     shared_ptr<vector<DescribeContainerInstancesResponseBody::ContainerInstanceList>> containerInstanceList_ {};
     // The pagination information.
     shared_ptr<DescribeContainerInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

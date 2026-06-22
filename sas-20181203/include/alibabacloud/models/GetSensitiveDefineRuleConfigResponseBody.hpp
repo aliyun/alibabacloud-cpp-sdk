@@ -135,14 +135,13 @@ namespace Models
 
 
         protected:
-          // The keyword of the check rule.
+          // The rule keyword.
           shared_ptr<string> ruleKey_ {};
-          // The name of the check rule.
+          // The rule name.
           shared_ptr<string> ruleName_ {};
-          // Indicates whether the check rule is selected. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the rule is selected. Valid values:
+          // - **true**: Selected.
+          // - **false**: Not selected.
           shared_ptr<bool> selected_ {};
         };
 
@@ -172,11 +171,11 @@ namespace Models
 
 
       protected:
-        // The category keyword of the check rule.
+        // The classification keyword of the check item.
         shared_ptr<string> classKey_ {};
-        // The category name of the check rule.
+        // The classification name of the check item.
         shared_ptr<string> className_ {};
-        // The list of check rules.
+        // The list of check item rules.
         shared_ptr<vector<RuleTree::RuleList>> ruleList_ {};
       };
 
@@ -220,18 +219,19 @@ namespace Models
 
 
     protected:
-      // Indicates whether the new rule is enabled for automatic check only on agentless detection. Valid values:
+      // Indicates whether automatic check is enabled for new rules. This parameter takes effect only for agentless checks. Valid values:
       // 
-      // *   **0**: disabled.
-      // *   **1**: enabled.
+      // - **0**: Disabled.
+      // 
+      // - **1**: Enabled.
       shared_ptr<int32_t> enableNewRule_ {};
       // The custom configuration ID.
       shared_ptr<int64_t> id_ {};
-      // The total number of check rules.
+      // The total number of check items.
       shared_ptr<int32_t> ruleCount_ {};
-      // The tree of the check rules.
+      // The check item rule tree.
       shared_ptr<vector<Data::RuleTree>> ruleTree_ {};
-      // The number of selected check rules.
+      // The number of selected check items.
       shared_ptr<int32_t> selectedCount_ {};
     };
 
@@ -275,18 +275,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code returned by the API request.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The returned data details.
     shared_ptr<GetSensitiveDefineRuleConfigResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the query was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The number of entries on the current page.
       shared_ptr<string> count_ {};
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // The number of entries to return on each page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -198,14 +202,27 @@ namespace Models
 
 
     protected:
+      // The analysis result. Valid values:
+      // 
+      // - **black**: A malicious process.
+      // 
+      // - **white**: A normal process.
+      // 
+      // - **abnormal**: An abnormal process.
       shared_ptr<string> analyzeResult_ {};
       shared_ptr<string> explanationEn_ {};
       shared_ptr<string> explanationZh_ {};
+      // The timestamp of the first occurrence.
       shared_ptr<int64_t> firstTime_ {};
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
+      // The process ID.
       shared_ptr<string> processId_ {};
+      // The process path.
       shared_ptr<string> processPath_ {};
+      // Remarks about the process.
       shared_ptr<string> remark_ {};
+      // The SHA-256 hash of the file.
       shared_ptr<string> sha256_ {};
     };
 
@@ -237,9 +254,11 @@ namespace Models
 
 
   protected:
+    // An array of process details.
     shared_ptr<vector<ListUnknownThreatDetectProcessResponseBody::Data>> data_ {};
+    // The pagination information.
     shared_ptr<ListUnknownThreatDetectProcessResponseBody::PageInfo> pageInfo_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

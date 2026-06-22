@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the ID of the cluster.
+    // The list of cluster IDs.
     shared_ptr<vector<string>> clusterIds_ {};
   };
 

@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the current page when paging is used.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries per page when paging is used.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -193,31 +193,30 @@ namespace Models
     protected:
       // The ID of the release batch.
       shared_ptr<int64_t> batchId_ {};
-      // The interval between two release batches. Unit: hours.
+      // The interval between the completion of the current batch and the start of the next batch. Unit: hours.
       shared_ptr<int32_t> batchInterval_ {};
       // The name of the release batch.
       shared_ptr<string> batchName_ {};
-      // The current batch number during a batch release.
+      // The number of the current batch in a phased release.
       shared_ptr<int32_t> batchNo_ {};
-      // The progress of the release batch. This parameter indicates the number of servers that are upgraded in the release batch.
+      // The release progress of the current batch, indicating the number of machines that have been released.
       shared_ptr<int32_t> batchProcess_ {};
-      // The total number of batches.
+      // The total number of batches in the release.
       shared_ptr<int32_t> batchTotal_ {};
-      // The asset selection dimension. Valid values:
+      // The dimension for asset selection. Valid values:
       // 
-      // *   **0**: instance.
-      // *   **1**: machine group.
-      // *   **2**: Virtual Private Cloud (VPC) ID.
+      // - **0**: machine instance
+      // - **1**: machine group
+      // - **2**: VPC-connected instance ID.
       shared_ptr<int32_t> operationBase_ {};
-      // The publish status of the Security Center agent. Valid values:
-      // 
-      // *   **0**: not started.
-      // *   **1**: publishing.
-      // *   **2**: published.
-      // *   **3**: publish suspended.
-      // *   **4**: forcibly upgrading.
+      // The release status of the client. Valid values:
+      // - **0**: not started
+      // - **1**: releasing
+      // - **2**: release completed
+      // - **3**: release paused
+      // - **4**: force upgrading.
       shared_ptr<int32_t> status_ {};
-      // The destination version of the Security Center agent.
+      // The target version to upgrade to.
       shared_ptr<string> version_ {};
     };
 
@@ -249,11 +248,11 @@ namespace Models
 
 
   protected:
-    // The information about the release batches.
+    // The details of the batch release tasks.
     shared_ptr<vector<ListPublishBatchResponseBody::BatchList>> batchList_ {};
-    // The page information.
+    // The pagination information.
     shared_ptr<ListPublishBatchResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The request ID. The China Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -156,39 +156,37 @@ namespace Models
 
 
     protected:
-      // The backup paths.
+      // The backup path.
       shared_ptr<string> backupPath_ {};
-      // The prevention mode. Valid values:
-      // 
-      // *   **block**
-      // *   **audit**
+      // The action to perform. Valid values:
+      // - **block**: Block.
+      // - **audit**: Alert.
       // 
       // This parameter is required.
       shared_ptr<string> defenseMode_ {};
-      // The path that is protected.
+      // The defense path.
       // 
       // This parameter is required.
       shared_ptr<string> defensePath_ {};
-      // The files that are excluded.
+      // The excluded file.
       shared_ptr<string> excludeFile_ {};
-      // The paths to the files that are excluded.
+      // The excluded file path.
       shared_ptr<string> excludeFilePath_ {};
-      // The types of the files that are excluded.
+      // The excluded file type.
       shared_ptr<string> excludeFileType_ {};
-      // The protection mode. Valid values:
-      // 
-      // *   **0**: basic mode (whitelist)
-      // *   **1**: complex mode (blacklist)
+      // The Defense mode. Valid values:
+      // - **0**: Basic pattern (whitelist). 
+      // - **1**: Complex pattern (blacklist).
       // 
       // This parameter is required.
       shared_ptr<int32_t> guardType_ {};
-      // The files that are included.
+      // The included file.
       shared_ptr<string> includeFile_ {};
-      // The type of the files that are included.
+      // The included file type.
       shared_ptr<string> includeFileType_ {};
       // The path ID.
       shared_ptr<int64_t> pathConfId_ {};
-      // The processes that are added to the whitelist.
+      // The list of whitelisted processes.
       shared_ptr<vector<string>> processPathList_ {};
     };
 
@@ -218,13 +216,13 @@ namespace Models
 
 
   protected:
-    // The paths that are protected.
+    // The list of defense paths for the rule.
     shared_ptr<vector<ModifySasContainerWebDefenseRuleRequest::PathConfDTOList>> pathConfDTOList_ {};
-    // The ID of the rule.
+    // The rule ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // The name of the rule.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
   };
 

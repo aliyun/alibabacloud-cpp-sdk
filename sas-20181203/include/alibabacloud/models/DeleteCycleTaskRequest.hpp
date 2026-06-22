@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The ID of the task configuration.
-    // 
-    // >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
+    // The ID of the configuration.
+    // >Call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> configId_ {};

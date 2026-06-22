@@ -69,10 +69,13 @@ namespace Models
     protected:
       // The status of the task. Valid values:
       // 
-      // *   **INIT**: The task is not started.
-      // *   **START**: The task is started.
-      // *   **SUCCESS**: The task is complete.
-      // *   **TIMEOUT**: The task times out.
+      // - **INIT**: The task is pending start.
+      // 
+      // - **START**: The task is running.
+      // 
+      // - **SUCCESS**: The task is completed.
+      // 
+      // - **TIMEOUT**: The task has timed out.
       shared_ptr<string> status_ {};
     };
 
@@ -123,15 +126,15 @@ namespace Models
 
 
   protected:
-    // The execution time of the task.
+    // The time when the task was executed.
     shared_ptr<int64_t> collectTime_ {};
-    // The number of tasks that were completed.
+    // The number of tasks that have been completed.
     shared_ptr<int32_t> finishCount_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. This uniquely identifies the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The ID of the scan task.
+    // The ID of the one-time task.
     shared_ptr<int64_t> taskId_ {};
-    // The information about the task.
+    // Details of the task.
     shared_ptr<GetOnceTaskResultInfoResponseBody::TaskInfo> taskInfo_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

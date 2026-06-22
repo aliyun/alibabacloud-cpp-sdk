@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The number of the restoration tasks that are in the **being restored** state.
+      // The number of tasks in the **Restoring** state.
       shared_ptr<int32_t> recovering_ {};
-      // The total number of the restoration tasks that you create.
+      // The total number of restoration tasks that have been created.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The statistics of restoration tasks.
+    // The statistics of anti-ransomware restoration tasks.
     shared_ptr<DescribeBackupRestoreCountResponseBody::BackupRestoreCount> backupRestoreCount_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

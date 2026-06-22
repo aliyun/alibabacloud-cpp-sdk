@@ -84,27 +84,24 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number of the current page in a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // The UUID of the image.
     shared_ptr<string> imageUuid_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the content in the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The key of the risk rule. 
-    // > You can call the [DescribeImageBuildRiskList](~~DescribeImageBuildRiskList~~) operation to obtain the value of **RiskKey**.
+    // The key of the build risk rule.
+    // >You can call the [DescribeImageBuildRiskList](~~DescribeImageBuildRiskList~~) operation to obtain this parameter.
     shared_ptr<string> riskKey_ {};
-    // The status of the alert event. Valid values:
-    // 
-    // *   **0**: unhandled.
-    // *   **1**: ignored.
-    // *   **2**: false positive.
+    // The status of the alert event to query. Valid values:
+    // - **0**: unhandled.
+    // - **1**: ignored.
+    // - **2**: false positive.
     shared_ptr<int32_t> status_ {};
   };
 

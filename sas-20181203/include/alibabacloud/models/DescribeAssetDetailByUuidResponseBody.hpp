@@ -361,56 +361,54 @@ namespace Models
 
 
     protected:
-      // The type of the asset. Valid values:
-      // 
-      // *   **0**: ECS instance
-      // *   **1**: Server Load Balancer (SLB) instance
-      // *   **2**: NAT gateway
-      // *   **3**: ApsaraDB RDS database
-      // *   **4**: ApsaraDB for MongoDB database
-      // *   **5**: ApsaraDB for Redis database
-      // *   **6**: image
-      // *   **7**: container
+      // The asset type. Valid values:  
+      // - **0**: Elastic Compute Service (ECS) server.
+      // - **1**: Server Load Balancer (SLB).
+      // - **2**: NAT gateway.
+      // - **3**: ApsaraDB RDS database.
+      // - **4**: MongoDB database.
+      // - **5**: Redis database.
+      // - **6**: container image.
+      // - **7**: container.
       shared_ptr<string> assetType_ {};
-      // The timestamp when Security Center is authorized to protect the asset. Unit: milliseconds.
+      // The timestamp when the asset authorization was bound, in milliseconds.
       shared_ptr<int64_t> authModifyTime_ {};
-      // The edition of Security Center that is authorized to protect the asset. Valid values:
+      // The authorization version of the asset. Valid values:
       // 
-      // *   **1**: Basic edition (Unauthorized)
-      // *   **6**: Anti-virus edition
-      // *   **5**: Advanced edition
-      // *   **3**: Enterprise edition
-      // *   **7**: Ultimate edition
+      // - **1**: Free Edition (unauthorized).
+      // - **6**: Anti-virus Edition.
+      // - **5**: Advanced Edition.
+      // - **3**: Enterprise Edition.
+      // - **7**: Ultimate Edition.
       shared_ptr<int32_t> authVersion_ {};
-      // Indicates whether Security Center is authorized to protect the asset. Valid values:
+      // Indicates whether the asset is bound to an authorization. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: The asset is bound to an authorization.
+      // - **false**: The asset is not bound to an authorization.
       shared_ptr<bool> bind_ {};
-      // The status of the Security Center agent. Valid values:
-      // 
-      // *   **pause**: The Security Center agent suspends protection for your server.
-      // *   **online**: The Security Center agent is protecting your server.
-      // *   **offline**: The Security Center agent does not protect your server.
+      // The status of the China China agent client. Valid values:  
+      // - **pause**: Protection paused.
+      // - **online**: Protected.
+      // - **offline**: Not protected.
       shared_ptr<string> clientStatus_ {};
-      // The version of the Security Center agent.
+      // The version of the agent client.
       shared_ptr<string> clientVersion_ {};
       // The number of CPU cores.
       shared_ptr<int32_t> cpu_ {};
-      // The details of the CPU.
+      // The CPU details.
       shared_ptr<string> cpuInfo_ {};
-      // The timestamp when Security Center records the details of the server. Unit: milliseconds.
+      // The timestamp when Security Center recorded the asset information, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // An array that consists of the information about the disk.
+      // The collection of disk information.
       shared_ptr<vector<string>> diskInfoList_ {};
-      // Indicates whether the asset is provided by Alibaba Cloud. Valid values:
+      // Indicates whether the asset is an Alibaba Cloud asset. Valid values:
       // 
-      // *   **0**: yes
-      // *   **1**: no
+      // - **0**: Alibaba Cloud asset.
+      // - **1**: Non-Alibaba Cloud asset.
       shared_ptr<int32_t> flag_ {};
-      // The group to which the server belongs. By default, the servers that are not grouped belong to the **Default** group.
+      // The group to which the server belongs. Servers that are not assigned to a group belong to the **Ungrouped** group by default.
       shared_ptr<string> groupTrace_ {};
-      // The name of the host.
+      // The hostname.
       shared_ptr<string> hostName_ {};
       // The ID of the server.
       shared_ptr<string> instanceId_ {};
@@ -420,37 +418,37 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The IP address that is assigned to the Elastic Compute Service (ECS) instance.
+      // The IP address assigned by ECS.
       shared_ptr<string> ip_ {};
-      // The IP addresses of the server.
+      // The list of IP addresses of the server.
       shared_ptr<vector<string>> ipList_ {};
       // The kernel version of the operating system.
       shared_ptr<string> kernel_ {};
-      // The media access control (MAC) addresses of the server.
+      // The MAC addresses.
       shared_ptr<vector<string>> macList_ {};
-      // The memory size of the server. Unit: GB.
+      // The memory size, in GB.
       shared_ptr<int32_t> mem_ {};
-      // The memory size of the server. Unit: MB.
+      // The memory size, in MB.
       shared_ptr<int64_t> memory_ {};
       // The operating system type of the server.
       shared_ptr<string> os_ {};
-      // The operating system version of the server.
+      // The operating system version and architecture of the server.
       shared_ptr<string> osDetail_ {};
-      // The name of the operating system.
+      // The operating system name of the server.
       shared_ptr<string> osName_ {};
-      // The region in which the server resides.
+      // The region where the server resides.
       shared_ptr<string> region_ {};
-      // The ID of the region in which the asset resides.
+      // The region ID of the asset.
       shared_ptr<string> regionId_ {};
-      // The name of the region in which the server resides.
+      // The name of the region where the server resides.
       shared_ptr<string> regionName_ {};
-      // The operating system information about the server.
+      // The operating system information of the server.
       shared_ptr<string> sysInfo_ {};
-      // The tag that is added to the server.
+      // The tag of the server.
       shared_ptr<string> tag_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
-      // The ID of the virtual private cloud (VPC) in which the server resides.
+      // The ID of the VPC instance where the server resides.
       shared_ptr<string> vpcInstanceId_ {};
     };
 
@@ -473,9 +471,9 @@ namespace Models
 
 
   protected:
-    // The details of the server.
+    // The asset details.
     shared_ptr<DescribeAssetDetailByUuidResponseBody::AssetDetail> assetDetail_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

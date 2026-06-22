@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the current page in the paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries displayed on each page in the paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -211,15 +211,15 @@ namespace Models
 
 
       protected:
-        // The name of the parameter in the file details.
+        // The name of the detail item.
         shared_ptr<string> name_ {};
-        // The display name of the alert.
+        // The display name of the alert event.
         shared_ptr<string> nameDisplay_ {};
-        // The value type of the parameter in the file details.
+        // The type of the detail information.
         shared_ptr<string> type_ {};
-        // The value of the parameter.
+        // The value of the detail item.
         shared_ptr<string> value_ {};
-        // The value of the parameter.
+        // The display value of the detail item.
         shared_ptr<string> valueDisplay_ {};
       };
 
@@ -371,63 +371,62 @@ namespace Models
 
 
     protected:
-      // The name of the OSS bucket.
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The details of the file.
+      // The detailed information of the check item.
       shared_ptr<vector<Data::Details>> details_ {};
-      // Indicates whether the file can be detected by cloud sandbox. Valid values:
+      // Indicates whether cloud sandbox detection is supported. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<string> displaySandboxResult_ {};
-      // Error message.
+      // The error message.
       shared_ptr<string> errorMsg_ {};
-      // The ID of the alert.
+      // The event ID.
       shared_ptr<int64_t> eventId_ {};
-      // The name of the alert.
+      // The alert name.
       shared_ptr<string> eventName_ {};
-      // The path to the file.
+      // The file path.
       shared_ptr<string> filePath_ {};
-      // The timestamp at which the alert was first detected.
+      // The timestamp when the alert first occurred.
       shared_ptr<int64_t> firstTime_ {};
-      // Indicates whether an alert is generated for the file extracted from the package. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether alerts exist for sub-files within a compressed archive. Valid values:
+      // - **true**: Yes. You can obtain the corresponding **EventId** value and call this operation again with the **EventId** value passed to **ParentEventId** to view the alert events for the sub-files within the compressed archive.
+      // - **false**: No.
       shared_ptr<bool> hasSubEvent_ {};
-      // The timestamp at which the alert was last detected.
+      // The timestamp when the alert was last detected.
       shared_ptr<int64_t> lastTime_ {};
-      // Information on whitelisting rule hits.
+      // The information about the matched whitelist rule.
       shared_ptr<string> matchedWhiteListRuleI18nStr_ {};
-      // The MD5 hash value of the file.
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // Alarm handling result
+      // The alert handling result.
       shared_ptr<string> operateResult_ {};
-      // The key of the file that is stored in the OSS bucket.
+      // The storage key of the file in the OSS bucket.
       shared_ptr<string> ossKey_ {};
-      // Remark.
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // The risk level of the alert. Valid values:
+      // The risk level of the scanned alert. Valid values:
       // 
-      // *   **high**
-      // *   **medium**
-      // *   **low**
+      // - **high**: high risk.
+      // - **medium**: medium risk.
+      // - **low**: low risk.
       shared_ptr<string> riskLevel_ {};
-      // The SHA-1 hash value of the file.
+      // The SHA-1 hash of the file.
       shared_ptr<string> sha1_ {};
-      // The SHA-256 hash value of the file.
+      // The SHA-256 hash of the file.
       shared_ptr<string> sha256_ {};
-      // The method that is used to detect the malicious file. Valid values:
-      // 
-      // *   **API**: uses API operations.
-      // *   **OSS**: uses OSS file check.
+      // The data source. Valid values:
+      // - **API**: API detection
+      // - **OSS**: OSS detection.
       shared_ptr<string> source_ {};
-      // Event status. Valid values::
-      // - **0**: Unprocessed 
-      // - **1**: Processed manually 
-      // - **2**: Whitelisted 
-      // - **3**: Ignored 
-      // - **4**: Access denied
+      // The event status. Valid values:
+      // 
+      // - 0: unhandled 
+      // - 1: manually handled
+      // - 2: whitelisted
+      // - 3: ignored
+      // - 4: access denied.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -459,11 +458,11 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The data details.
     shared_ptr<vector<ListObjectScanEventResponseBody::Data>> data_ {};
-    // The pagination information.
+    // The pagination information for the paged query.
     shared_ptr<ListObjectScanEventResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

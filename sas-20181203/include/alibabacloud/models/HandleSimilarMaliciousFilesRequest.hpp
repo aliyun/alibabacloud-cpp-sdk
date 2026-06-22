@@ -75,31 +75,31 @@ namespace Models
 
 
   protected:
-    // Target alert ID
+    // The ID of the target alert.
     // 
     // This parameter is required.
     shared_ptr<int64_t> eventId_ {};
-    // Language type for request and response messages. Values include:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Handling action:
-    // - addWhitelist: Add to whitelist;
-    // - offWhitelist: Remove from whitelist;
-    // - offline_handled: Handled offline;
-    // - mark_mis_info: Report as false positive;
-    // - ignore: Ignore.
+    // The handling action. Valid values:
+    // - addWhitelist: adds to the whitelist.
+    // - offWhitelist: removes from the whitelist.
+    // - offline_handled: handled offline.
+    // - mark_mis_info: submits as a false positive.
+    // - ignore: ignores the alert.
     // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
-    // File source. Values include:
-    // - agentless: Host detection;
-    // - ecs_snapshot: User snapshot detection;
-    // - ecs_image: User-defined image detection.
+    // The file source. Valid values:
+    // - agentless: host detection.
+    // - ecs_snapshot: user snapshot detection.
+    // - ecs_image: user custom image detection.
     shared_ptr<string> scanRange_ {};
-    // Batch processing scenario:
-    // - same_file_md5: Same file MD5;
-    // - default (default value): Same alert type.
+    // The batch processing scenario. Valid values:
+    // - same_file_md5: same file MD5.
+    // - default (default value): same alerting type.
     shared_ptr<string> scenario_ {};
   };
 

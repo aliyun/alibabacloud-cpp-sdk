@@ -130,39 +130,38 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated.
+    // This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayApiName_ {};
-    // This parameter is deprecated.
+    // This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayPopName_ {};
-    // This parameter is deprecated.
+    // This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayProjectName_ {};
-    // The Simple Log Service Logstore that is used to store the audit logs.
+    // The SLS Logstore of the audit log.
     shared_ptr<string> auditLogStore_ {};
-    // The Simple Log Service project that is used to store the audit logs.
+    // The SLS project of the audit log.
     shared_ptr<string> auditProject_ {};
-    // The ID of the region in which the audit logs are stored.
+    // The region of the audit log.
     shared_ptr<string> auditRegionId_ {};
     // The name of the Kubernetes cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // CPU architectures are divided into ARM architecture and x86 architecture.
+    // The CPU architecture, which can be ARM or x86.
     shared_ptr<string> cpuArch_ {};
-    // The time at which the container ends to be added.
+    // The expiration time for container access.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireDate_ {};
-    // The group ID.
+    // The queried group ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> groupId_ {};
-    // The service provider of the cloud asset. Valid values:
-    // 
-    // *   **Tencent**
-    // *   **HUAWEICLOUD**
-    // *   **Azure**
-    // *   **AWS**
-    // *   **Others**
+    // The cloud asset vendor. Valid values:
+    // - **Tencent**
+    // - **HUAWEICLOUD**
+    // - **Azure**
+    // - **AWS** 
+    // - **Other cloud assets**
     // 
     // This parameter is required.
     shared_ptr<string> vendor_ {};

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The IDs of the processes to delete.
     shared_ptr<vector<string>> processIdList_ {};
   };
 

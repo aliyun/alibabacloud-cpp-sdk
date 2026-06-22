@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The process ID.
     shared_ptr<string> processId_ {};
+    // The remark for the process.
     shared_ptr<string> remark_ {};
   };
 

@@ -66,14 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of the defense rule.
+    // The ID of the anti-brute-force attacks rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> newRuleId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The UUID of the server for which you want to modify the defense rule. You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+    // The UUID of the server for which you want to modify the anti-brute-force attacks rule.
+    // You can invoke the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUID of the server.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

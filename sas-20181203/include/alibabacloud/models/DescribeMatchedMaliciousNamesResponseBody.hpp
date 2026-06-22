@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The display name of the malicious image sample type.
+      // The display name of the malicious sample type.
       shared_ptr<string> displayName_ {};
-      // The key of the malicious image sample type.
+      // The key of the malicious sample type.
       shared_ptr<string> key_ {};
     };
 
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // The number of entries on the current page.
+    // The number of entries returned on the current page in a paged query. If paging is not used, this value indicates the total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The response parameters.
+    // The returned data.
     shared_ptr<vector<DescribeMatchedMaliciousNamesResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The QPS limit on the files uploaded from the client. Valid values: 100 to 10000.
+    // The QPS throttling threshold for file uploads from the client. Valid values: 100 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> limit_ {};

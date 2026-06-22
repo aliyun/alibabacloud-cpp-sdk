@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of defended vulnerabilities.
+    // The number of vulnerabilities that have been defended against.
     shared_ptr<int32_t> raspDefendedCount_ {};
-    // The number of supported vulnerabilities.
+    // The number of vulnerabilities that can be defended against.
     shared_ptr<int32_t> raspDefensibleCount_ {};
-    // The request ID.
+    // The request ID. China Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

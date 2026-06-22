@@ -99,7 +99,7 @@ namespace Models
     protected:
       // The hash values of the files that need to be added to the whitelist.
       // 
-      // >  This parameter is not supported.
+      // > This parameter is not supported.
       shared_ptr<vector<string>> hash_ {};
       // The images that need to be added to the whitelist.
       shared_ptr<vector<string>> image_ {};
@@ -158,12 +158,13 @@ namespace Models
     protected:
       // Specifies whether to include all namespaces. Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes
+      // - **0**: no
+      // 
+      // - **1**: yes
       shared_ptr<int32_t> allNamespace_ {};
       // The ID of the cluster on which the rule takes effect.
       // 
-      // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+      // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
       shared_ptr<string> clusterId_ {};
       // The namespaces.
       shared_ptr<vector<string>> namespaces_ {};
@@ -237,24 +238,27 @@ namespace Models
     shared_ptr<string> description_ {};
     // The action specified in the rule. Valid values:
     // 
-    // *   **1**: alert
-    // *   **2**: block
+    // - **1**: alert
+    // 
+    // - **2**: block
     shared_ptr<int32_t> ruleAction_ {};
     // The ID of the rule.
     // 
-    // >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
+    // > You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
     shared_ptr<int64_t> ruleId_ {};
     // The name of the rule.
     shared_ptr<string> ruleName_ {};
     // The status of the rule. Valid values:
     // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // - **1**: enabled
+    // 
+    // - **0**: disabled
     shared_ptr<int32_t> ruleSwitch_ {};
     // The type of the rule. Valid values:
     // 
-    // *   1: system rule
-    // *   2: custom rule
+    // - 1: system rule
+    // 
+    // - 2: custom rule
     shared_ptr<int32_t> ruleType_ {};
     // The effective scope of the rule.
     shared_ptr<vector<ModifyContainerDefenseRuleRequest::Scope>> scope_ {};

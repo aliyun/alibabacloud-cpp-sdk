@@ -66,20 +66,20 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the current page to display in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to display on each page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The path type of the web directory. Valid values:
+    // The type of the web path. Valid values:
     // 
-    // *   **def**: automatically identified
-    // *   **customize**: manually added
+    // - **def**: automatically identified by the system
+    // - **customize**: manually added.
     shared_ptr<string> type_ {};
-    // The path to the web directory.
+    // The web path.
     shared_ptr<string> webPath_ {};
   };
 

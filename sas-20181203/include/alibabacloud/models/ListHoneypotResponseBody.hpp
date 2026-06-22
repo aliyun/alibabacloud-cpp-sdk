@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries to return per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -212,9 +212,9 @@ namespace Models
 
 
     protected:
-      // The name of the management node.
+      // The name of the honeypot management node.
       shared_ptr<string> controlNodeName_ {};
-      // The ID of the honeypot.
+      // The honeypot ID.
       shared_ptr<string> honeypotId_ {};
       // The display name of the honeypot image.
       shared_ptr<string> honeypotImageDisplayName_ {};
@@ -226,9 +226,9 @@ namespace Models
       shared_ptr<string> honeypotName_ {};
       // The ID of the management node.
       shared_ptr<string> nodeId_ {};
-      // The ID of the custom configuration for the honeypot.
+      // The ID of the custom honeypot parameter.
       shared_ptr<string> presetId_ {};
-      // An array that consists of the status information about the honeypot.
+      // The status of the honeypot.
       shared_ptr<vector<string>> state_ {};
     };
 
@@ -289,22 +289,22 @@ namespace Models
 
 
   protected:
-    // The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // An array that consists of the information about the honeypots.
+    // The list of honeypot data.
     shared_ptr<vector<ListHoneypotResponseBody::List>> list_ {};
-    // The error message returned.
+    // The detailed information about the error code.
     shared_ptr<string> message_ {};
     // The pagination information.
     shared_ptr<ListHoneypotResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

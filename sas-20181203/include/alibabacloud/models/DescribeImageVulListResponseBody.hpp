@@ -241,21 +241,21 @@ namespace Models
 
 
         protected:
-          // The complete version number of the package.
+          // The full version number of the software package.
           shared_ptr<string> fullVersion_ {};
-          // The SHA-256 value of the digest of the image layer.
+          // The SHA256 value of the container image layer digest.
           shared_ptr<string> layer_ {};
-          // The reason why the vulnerability is detected.
+          // The details of the vulnerability match.
           shared_ptr<string> matchDetail_ {};
-          // The details of the rule that is used to detect the vulnerability.
+          // The list of matched rule details.
           shared_ptr<vector<string>> matchList_ {};
           // The name of the software package.
           shared_ptr<string> name_ {};
-          // The path of the software that has the vulnerability.
+          // The path of the software that contains the vulnerability.
           shared_ptr<string> path_ {};
-          // The command that is used to fix the vulnerability.
+          // The command to fix the vulnerability.
           shared_ptr<string> updateCmd_ {};
-          // The version number of the package.
+          // The version number of the software package.
           shared_ptr<string> version_ {};
         };
 
@@ -287,9 +287,9 @@ namespace Models
       protected:
         // The name of the operating system.
         shared_ptr<string> os_ {};
-        // The version of the operating system in the image.
+        // The release version of the operating system corresponding to the container image.
         shared_ptr<string> osRelease_ {};
-        // The details of the package of the software that has the vulnerability.
+        // The list of software packages that cause the vulnerability.
         shared_ptr<vector<ExtendContentJson::RpmEntityList>> rpmEntityList_ {};
       };
 
@@ -546,15 +546,15 @@ namespace Models
     protected:
       // The alias of the vulnerability.
       shared_ptr<string> aliasName_ {};
-      // Indicates whether the vulnerability can be fixed in the Security Center console. Valid values:
+      // Indicates whether the vulnerability can be fixed from the console. Valid values:
       // 
-      // *   **yes**: yes
-      // *   **no**: no
+      // - **yes**: can be fixed
+      // - **no**: cannot be fixed.
       shared_ptr<string> canFix_ {};
-      // Indicates whether the package of the software that has the vulnerability can be upgraded by using Security Center. Valid values:
+      // Indicates whether the software package that causes the vulnerability can be upgraded through Security Center. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> canUpdate_ {};
       // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
@@ -562,75 +562,73 @@ namespace Models
       shared_ptr<string> clusterName_ {};
       // The ID of the container.
       shared_ptr<string> containerId_ {};
-      // The extended information about the vulnerability.
+      // The extended content of the vulnerability information.
       shared_ptr<VulRecords::ExtendContentJson> extendContentJson_ {};
-      // The timestamp when the first scan was performed. Unit: milliseconds.
+      // The timestamp of the first scan. Unit: milliseconds.
       shared_ptr<int64_t> firstTs_ {};
       // The name of the image.
       shared_ptr<string> image_ {};
-      // The digest of the image.
+      // The unique identifier of the container image.
       shared_ptr<string> imageDigest_ {};
-      // The name of the asset.
+      // The name of the asset instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp when the last scan was performed. Unit: milliseconds.
+      // The timestamp of the latest scan. Unit: milliseconds.
       shared_ptr<int64_t> lastTs_ {};
-      // The image layers.
+      // The list of container image layers.
       shared_ptr<vector<string>> layers_ {};
       // The source of the malicious file. Valid values:
       // 
-      // *   **agentless**: agentless detection
-      // *   **image**: image
-      // *   **container**: container
+      // - **agentless**: agentless detection
+      // - **image**: image
+      // - **container**: container.
       shared_ptr<string> maliciousSource_ {};
-      // The timestamp when the information about the vulnerability was updated. Unit: milliseconds.
+      // The timestamp when the vulnerability record was last updated. Unit: milliseconds.
       shared_ptr<int64_t> modifyTs_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The priority to fix the vulnerability. Valid values:
-      // 
-      // *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-      // *   **later**: medium. You can fix the vulnerability based on your business requirements.
-      // *   **nntf**: low. You can ignore the vulnerability.
+      // The priority level of vulnerability fixing. Valid values:
+      // - **asap**: high-priority vulnerability
+      // - **later**: medium-priority vulnerability
+      // - **nntf**: low-priority vulnerability.
       shared_ptr<string> necessity_ {};
       // The pod.
       shared_ptr<string> pod_ {};
       // The ID of the vulnerability.
       shared_ptr<int64_t> primaryId_ {};
-      // The Common Vulnerabilities and Exposures (CVE) ID of the associated vulnerability.
+      // The details of the related vulnerability.
       shared_ptr<string> related_ {};
-      // The name of the image repository.
+      // The name of the container image repository.
       shared_ptr<string> repoName_ {};
-      // The namespace to which the image repository belongs.
+      // The namespace of the container image repository.
       shared_ptr<string> repoNamespace_ {};
-      // The tag of this vulnerability. Valid values:
+      // The vulnerability tag. Valid values:
       // 
-      // *   **AI**: AI-related components.
+      //  - **AI**: vulnerability related to AI components.
       shared_ptr<string> ruleTag_ {};
-      // The time at which the scan was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp of the scan. Unit: milliseconds.
       shared_ptr<int64_t> scanTime_ {};
-      // The status of the vulnerability. Valid values:
-      // 
-      // *   **1**: unfixed
-      // *   **7**: fixed
+      // The fix status of the vulnerability. Valid values:
+      // - **1**: unfixed
+      // - **7**: fixed.
       shared_ptr<int32_t> status_ {};
-      // The tag that is added to the image vulnerability.
+      // The tag of the container image vulnerability.
       shared_ptr<string> tag_ {};
-      // The ID of the asset on which the vulnerability is detected.
+      // The ID of the scan target.
       shared_ptr<string> targetId_ {};
-      // The name of the asset on which the vulnerability is detected.
+      // The name of the scan target.
       shared_ptr<string> targetName_ {};
-      // The type of the asset on which the vulnerability is detected. Valid values:
+      // The object type of the scan target. Valid values:
       // 
-      // *   **ECS_SNAPSHOT**: snapshot
-      // *   **ECS_IMAGE**: image
+      // - **ECS_IMAGE**: image.
+      // - **ECS_SNAPSHOT**: snapshot.
       shared_ptr<string> targetType_ {};
-      // The type of the vulnerability. The value is fixed as CVE, which indicates image vulnerabilities.
+      // The type of vulnerability queried. The value is fixed as cve, which indicates container image vulnerabilities.
       shared_ptr<string> type_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
@@ -676,15 +674,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries returned per page. Default value: **10**.
+    // The number of vulnerabilities displayed on each page in a paged query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of vulnerabilities returned.
     shared_ptr<int32_t> totalCount_ {};
-    // An array that consists of the vulnerabilities.
+    // The list of vulnerability information.
     shared_ptr<vector<DescribeImageVulListResponseBody::VulRecords>> vulRecords_ {};
   };
 

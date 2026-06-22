@@ -114,22 +114,20 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster node to which the rule is applied.
-      // 
-      // >  You can call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to query the ID of the cluster node to which the rule is applied.
+      // The policy instance ID in the cluster.
+      // > Call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to obtain this parameter.
       shared_ptr<string> ackPolicyInstanceId_ {};
       // Specifies whether all namespaces are included. Valid values:
       // 
-      // *   **0**: Not all namespaces are included.
-      // *   **1**: All namespaces are included.
+      // - **0**: No.
+      // - **1**: Yes.
       shared_ptr<int32_t> allNamespace_ {};
-      // The cluster ID.
-      // 
-      // >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the cluster ID.
+      // The ID of the container cluster.
+      // > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
       shared_ptr<string> clusterId_ {};
-      // The namespaces.
+      // The list of namespaces.
       // 
-      // > This parameter is valid only when the AllNamespace parameter is set to 0.
+      // >Notice: This parameter takes effect only when AllNamespace is set to 0..
       shared_ptr<vector<string>> namespaceList_ {};
     };
 
@@ -221,15 +219,13 @@ namespace Models
 
 
         protected:
-          // The ID of the vulnerability types. Valid values:
-          // 
-          // *   **cve**: system vulnerability
-          // *   **app**: application vulnerability
+          // The vulnerability type ID. Valid values:
+          // - **cve**: system vulnerability
+          // - **app**: application vulnerability.
           shared_ptr<string> id_ {};
-          // The name of the vulnerability. Valid values:
-          // 
-          // *   **system vulnerability**
-          // *   **application vulnerability**
+          // The vulnerability type name. Valid values:
+          // - **system vulnerability**
+          // - **application vulnerability**
           shared_ptr<string> name_ {};
         };
 
@@ -271,13 +267,11 @@ namespace Models
 
 
         protected:
-          // The ID of the vulnerability.
-          // 
-          // >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
+          // The vulnerability ID.
+          // > Call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query this value.
           shared_ptr<string> id_ {};
-          // The name of the vulnerability.
-          // 
-          // >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
+          // The vulnerability name.
+          // > Call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query this value.
           shared_ptr<string> name_ {};
         };
 
@@ -311,11 +305,11 @@ namespace Models
 
 
       protected:
-        // The vulnerabilities.
+        // The vulnerability list.
         shared_ptr<vector<Vul::Item>> item_ {};
-        // Risk type of vulnerability.
+        // The list of vulnerability types.
         shared_ptr<vector<Vul::RiskClass>> riskClass_ {};
-        // The risk levels.
+        // The list of risk levels.
         shared_ptr<vector<string>> riskLevel_ {};
       };
 
@@ -378,13 +372,11 @@ namespace Models
 
 
         protected:
-          // The ID of the sensitive files.
-          // 
-          // >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+          // The sensitive file type ID.
+          // > Call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query this value.
           shared_ptr<string> id_ {};
-          // The name of the sensitive files.
-          // 
-          // >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+          // The sensitive file type name.
+          // > Call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query this value.
           shared_ptr<string> name_ {};
         };
 
@@ -409,9 +401,9 @@ namespace Models
 
 
       protected:
-        // The configuration of sensitive file.
+        // The list of sensitive file check items.
         shared_ptr<vector<SensitiveFile::Item>> item_ {};
-        // The risk levels.
+        // The list of risk levels.
         shared_ptr<vector<string>> riskLevel_ {};
       };
 
@@ -474,13 +466,11 @@ namespace Models
 
 
         protected:
-          // The ID of the malicious sample.
-          // 
-          // >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID.
+          // The malicious sample ID.
+          // > Call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query this value.
           shared_ptr<string> id_ {};
-          // The name of the malicious sample.
-          // 
-          // >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name.
+          // The malicious sample name.
+          // > Call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query this value.
           shared_ptr<string> name_ {};
         };
 
@@ -505,9 +495,9 @@ namespace Models
 
 
       protected:
-        // The malicious samples.
+        // The malicious sample list.
         shared_ptr<vector<MaliciousFile::Item>> item_ {};
-        // The risk levels.
+        // The list of risk levels.
         shared_ptr<vector<string>> riskLevel_ {};
       };
 
@@ -570,13 +560,11 @@ namespace Models
 
 
         protected:
-          // The ID of the image build risk.
-          // 
-          // >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+          // The risky image build command type ID.
+          // > Call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query this value.
           shared_ptr<string> id_ {};
-          // The name of the image build risk.
-          // 
-          // >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+          // The risky image build command type name.
+          // > Call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query this value.
           shared_ptr<string> name_ {};
         };
 
@@ -601,9 +589,9 @@ namespace Models
 
 
       protected:
-        // The configuration of image build risk.
+        // The list of risk items.
         shared_ptr<vector<BuildRisk::Item>> item_ {};
-        // The risk levels.
+        // The list of risk levels.
         shared_ptr<vector<string>> riskLevel_ {};
       };
 
@@ -666,13 +654,11 @@ namespace Models
 
 
         protected:
-          // The ID of the baseline check item.
-          // 
-          // >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID.
+          // The baseline check item ID.
+          // > Call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query this value.
           shared_ptr<string> id_ {};
-          // The name of the baseline check item.
-          // 
-          // >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name.
+          // The baseline check item name.
+          // > Call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query this value.
           shared_ptr<string> name_ {};
         };
 
@@ -697,9 +683,9 @@ namespace Models
 
 
       protected:
-        // The baseline check items.
+        // The baseline item information.
         shared_ptr<vector<Baseline::Item>> item_ {};
-        // The risk levels.
+        // The list of risk levels.
         shared_ptr<vector<string>> riskLevel_ {};
       };
 
@@ -751,15 +737,15 @@ namespace Models
 
 
     protected:
-      // The baseline risks.
+      // The baseline risk information.
       shared_ptr<AlarmDetail::Baseline> baseline_ {};
-      // The configuration of image build risk.
+      // The risky image build command information.
       shared_ptr<AlarmDetail::BuildRisk> buildRisk_ {};
-      // The malicious sample risks.
+      // The malicious sample information.
       shared_ptr<AlarmDetail::MaliciousFile> maliciousFile_ {};
-      // The configuration of sensitive file.
+      // The sensitive file information.
       shared_ptr<AlarmDetail::SensitiveFile> sensitiveFile_ {};
-      // The vulnerability risks.
+      // The vulnerability item information.
       shared_ptr<AlarmDetail::Vul> vul_ {};
     };
 
@@ -876,51 +862,48 @@ namespace Models
 
 
   protected:
-    // The risks that you want to detect by using the rule.
+    // The alert content details included in the policy.
     shared_ptr<UpdateOpaStrategyNewRequest::AlarmDetail> alarmDetail_ {};
     // The cluster ID.
     // 
-    // > This parameter is deprecated. You can use the Scopes parameter to specify a scope in which cluster parameters take effect.
+    // >Notice: This parameter is deprecated. Use the Scopes parameter to specify the scope of clusters to which the policy applies..
     shared_ptr<string> clusterId_ {};
     // The cluster name.
-    // 
-    // > This parameter is deprecated.
+    // >Notice: This parameter is deprecated..
     shared_ptr<string> clusterName_ {};
-    // The rule description.
+    // The policy description.
     shared_ptr<string> description_ {};
-    // The image names.
+    // The list of image names included in the policy.
     shared_ptr<vector<string>> imageName_ {};
-    // The image tags.
+    // The list of image tags included in the policy.
     shared_ptr<vector<string>> label_ {};
-    // Specifies whether the rule supports malicious Internet images. Valid values:
+    // Specifies whether the policy supports Internet malicious images. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> maliciousImage_ {};
-    // The action that is performed when the rule is hit. Valid values:
+    // The action to take when the policy is hit. Valid values:
     // 
-    // *   **1**: alert
-    // *   **2**: block
-    // *   **3**: allow
+    // - **1**: Alert.
+    // - **2**: Block.
+    // - **3**: Allow.
     shared_ptr<int32_t> ruleAction_ {};
-    // The application scope.
+    // The scope of the policy.
     shared_ptr<vector<UpdateOpaStrategyNewRequest::Scopes>> scopes_ {};
-    // The ID of the rule.
-    // 
-    // >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the ID.
+    // The policy ID.
+    // >Call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
     shared_ptr<int64_t> strategyId_ {};
-    // The rule name.
+    // The policy name.
     shared_ptr<string> strategyName_ {};
-    // The ID of the rule template.
-    // 
-    // >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+    // The policy template ID.
+    // >Call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to obtain this parameter.
     shared_ptr<int64_t> strategyTemplateId_ {};
-    // Specifies whether the rule supports unscanned images. Valid values:
+    // Specifies whether the policy supports unscanned images. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> unScanedImage_ {};
-    // The whitelists.
+    // The whitelist.
     shared_ptr<vector<string>> whiteList_ {};
   };
 

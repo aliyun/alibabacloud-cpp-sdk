@@ -126,32 +126,31 @@ namespace Models
     protected:
       // The alias of the vulnerability.
       shared_ptr<string> aliasName_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<string> id_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
-      // The reason why the vulnerability is added to the whitelist.
+      // The reason for adding the vulnerability to the whitelist.
       shared_ptr<string> reason_ {};
-      // The application scope of the rule. The value is a JSON string that contains the following fields:
+      // The scope of the rule. The value is a JSON string that contains the following fields:
       // 
-      // *   **type**: the type of the assets to which the rule is applied. Valid values:
+      // - **type**: The applicable type. Valid values:
       // 
-      //     *   **Uuid**: server
-      //     *   **GroupId**: server group
+      //      - **Uuid**: host
+      //      - **GroupId**: group
       // 
-      // *   **groupIds**: the ID of the server group
+      // - **groupIds**: The IDs of the applicable asset groups.
+      // - **uuids**: The UUIDs of the applicable assets.
       // 
-      // *   **uuids**: the UUID of the server
-      // 
-      // > If this field is empty, the rule is applied to all assets.
+      // > If this value is empty, the rule applies to all assets.
       shared_ptr<string> targetInfo_ {};
-      // The type of the vulnerability.
+      // The vulnerability type.
       shared_ptr<string> type_ {};
-      // The information about the vulnerability. The value of this parameter is in the JSON format. Valid values:
+      // The vulnerability information. The value is in JSON format.
       // 
-      // *   **name**: the name of the vulnerability
-      // *   **type**: the type of the vulnerability.
-      // *   **aliasName**: the alias of the vulnerability
+      // - **name**: The name of the vulnerability.
+      // - **type**: The type of the vulnerability.
+      // - **aliasName**: The alias of the vulnerability.
       shared_ptr<string> whitelist_ {};
     };
 
@@ -202,17 +201,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned on the current page.
+    // The number of entries on the current page in paging.
     shared_ptr<int32_t> count_ {};
-    // The page number of the returned page.
+    // The page number of the current page in paging.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in paging.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // An array that consists of information about the whitelist of vulnerabilities.
+    // The list of whitelisted vulnerabilities.
     shared_ptr<vector<DescribeVulWhitelistResponseBody::VulWhitelists>> vulWhitelists_ {};
   };
 

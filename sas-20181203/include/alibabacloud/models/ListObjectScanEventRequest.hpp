@@ -167,56 +167,64 @@ namespace Models
 
 
   protected:
-    // Batch operation type. Valid values:
-    // - **sha256**: Same file content
-    // - **eventName**: Same alert type
+    // The batch operation type. Valid values:
+    // 
+    // - **sha256**: same file content
+    // 
+    // - **eventName**: same alerting type.
     shared_ptr<string> batchType_ {};
-    // The name of the OSS bucket.
+    // The bucket name.
     shared_ptr<string> bucketName_ {};
-    // The page number.
+    // The page number of the current page when you perform a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // Event ID.
+    // The event ID.
     shared_ptr<int64_t> eventId_ {};
-    // The name of the alert.
+    // The alert name.
     shared_ptr<string> eventName_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The MD5 hash value of the file.
+    // The MD5 hash of the file.
     shared_ptr<string> md5_ {};
-    // The key of the file that is stored in an OSS bucket.
+    // The storage key of the file in the OSS bucket.
     shared_ptr<string> ossKey_ {};
-    // The number of entries per page.
+    // The maximum number of entries to return on each page when you perform a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the alert that is generated for the package to which the subfile belongs.
+    // If the file is a sub-file within a compressed archive, **ParentEventId** specifies the event ID of the alert for the compressed archive itself.
+    // 
+    // To retrieve and query alert events for sub-files within a compressed archive:
+    // 
+    // 1. Call this operation and check the **HasSubEvent** response parameter. If the value is **true**, the corresponding **EventId** is the event ID of the alert for the compressed archive itself.
+    // 2. Call this operation again and pass the **EventId** value to **ParentEventId** to view the alert events for the sub-files within the compressed archive.
     shared_ptr<int64_t> parentEventId_ {};
-    // The risk level of the alert. Valid values:
+    // The risk level. Valid values:
     // 
-    // *   **high**
-    // *   **medium**
-    // *   **low**
+    // - **high**: high risk
+    // 
+    // - **medium**: medium risk
+    // 
+    // - **low**: low risk.
     shared_ptr<string> riskLevel_ {};
-    // The method that is used to detect the malicious file. Valid values:
-    // 
-    // *   **API**: uses API operations.
-    // *   **OSS**: uses Object Storage Service (OSS) file check.
+    // The data source. Valid values:
+    // - **API**: API detection
+    // - **OSS**: OSS detection.
     shared_ptr<string> source_ {};
-    // Event status. The values are as follows:
-    // - **0**: Unprocessed 
-    // - **1**: I have processed manually 
-    // - **2**: Whitelisted 
-    // - **3**: Ignored 
-    // - **4**: Access denied
+    // The event status. Valid values:
+    // 
+    // - 0: unhandled 
+    // - 1: manually handled
+    // - 2: whitelisted
+    // - 3: ignored
+    // - 4: access denied.
     shared_ptr<int32_t> status_ {};
-    // The end of the time range during which the exception is detected.
+    // The end time of the time range during which the exception event occurred.
     shared_ptr<int64_t> timeEnd_ {};
-    // The beginning of the time range during which the exception is detected.
+    // The start time of the time range during which the exception event occurred.
     shared_ptr<int64_t> timeStart_ {};
   };
 

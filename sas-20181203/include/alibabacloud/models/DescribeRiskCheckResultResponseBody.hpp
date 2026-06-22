@@ -131,10 +131,13 @@ namespace Models
         Darabonba::Json contentResource_ {};
         // The title in the details. Valid values:
         // 
-        // *   **bestPractice**: description
-        // *   **influence**: risk
-        // *   **suggestion**: solution
-        // *   **helpResource**: reference
+        // - **bestPractice**: description
+        // 
+        // - **influence**: risk
+        // 
+        // - **suggestion**: solution
+        // 
+        // - **helpResource**: reference
         shared_ptr<string> resourceName_ {};
       };
 
@@ -253,8 +256,9 @@ namespace Models
       shared_ptr<int32_t> remainingTime_ {};
       // Indicates whether the risks that are detected based on the check item can be fixed. Valid values:
       // 
-      // *   **enabled**: yes
-      // *   **disabled**: no
+      // - **enabled**: yes
+      // 
+      // - **disabled**: no
       shared_ptr<string> repairStatus_ {};
       // The type of the affected assets.
       shared_ptr<string> riskAssertType_ {};
@@ -262,25 +266,33 @@ namespace Models
       shared_ptr<vector<List::RiskItemResources>> riskItemResources_ {};
       // The risk level of the check item. Valid values:
       // 
-      // *   **high**
-      // *   **medium**
-      // *   **low**
+      // - **high**
+      // 
+      // - **medium**
+      // 
+      // - **low**
       shared_ptr<string> riskLevel_ {};
       // The sequence number in the check results. The check items are sorted based on the sequence number.
       shared_ptr<int32_t> sort_ {};
       // Indicates whether the check item is supported by the edition of Security Center that you purchase. Valid values:
       // 
-      // *   **enabled**: yes
-      // *   **disable**: no
+      // - **enabled**: yes
+      // 
+      // - **disable**: no
       shared_ptr<string> startStatus_ {};
       // The status of the check results. Valid values:
       // 
-      // *   **pass**
-      // *   **failed**
-      // *   **running**
-      // *   **waiting**
-      // *   **ignored**
-      // *   **falsePositive**
+      // - **pass**
+      // 
+      // - **failed**
+      // 
+      // - **running**
+      // 
+      // - **waiting**
+      // 
+      // - **ignored**
+      // 
+      // - **falsePositive**
       shared_ptr<string> status_ {};
       // The ID of the check task.
       shared_ptr<int64_t> taskId_ {};
@@ -288,12 +300,17 @@ namespace Models
       shared_ptr<string> title_ {};
       // The type of the check item. Valid values:
       // 
-      // *   Identity authentication and permissions
-      // *   Network access control
-      // *   Log audit
-      // *   Data security
-      // *   Monitoring and alerting
-      // *   Basic security protection
+      // - Identity authentication and permissions
+      // 
+      // - Network access control
+      // 
+      // - Log audit
+      // 
+      // - Data security
+      // 
+      // - Monitoring and alerting
+      // 
+      // - Basic security protection
       shared_ptr<string> type_ {};
     };
 

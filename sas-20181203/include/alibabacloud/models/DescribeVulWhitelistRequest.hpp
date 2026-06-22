@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Pages start from page 1. Default value: 1.
+    // The page number in paging. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: 10.
+    // The number of entries per page in paging. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

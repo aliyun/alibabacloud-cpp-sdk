@@ -78,25 +78,24 @@ namespace Models
 
 
   protected:
-    // The keys of baseline check items.
+    // The list of baseline sub-item keys.
     // 
     // This parameter is required.
     shared_ptr<string> baselineItemKeyList_ {};
-    // The UUID of the image.
+    // The image UUID.
     shared_ptr<string> imageUuid_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language type for the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The operation that you want to perform on the check items. Valid values:
+    // The operation type. Valid values:
     // 
-    // *   **add**: adds the check items to the whitelist
-    // *   **del**: removes the check items from the whitelist
+    // - **add**: increase.
+    // - **del**: delete.
     // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
-    // The types of the assets that you want to scan.
+    // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
   };
 

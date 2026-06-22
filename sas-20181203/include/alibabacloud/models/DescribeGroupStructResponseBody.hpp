@@ -118,23 +118,22 @@ namespace Models
     // The parent node of the group.
     shared_ptr<int32_t> groupFather_ {};
     // The type of the server group. Valid values:
-    // 
-    // *   **0**: the default group
-    // *   **1**: other groups
+    // - **0**: default group
+    // - **1**: other group.
     shared_ptr<int32_t> groupFlag_ {};
-    // The ID of the server group.
+    // The ID of the asset group.
     shared_ptr<int64_t> groupId_ {};
-    // The sequence number.
+    // The sort order number.
     shared_ptr<int32_t> groupIndex_ {};
     // The level of the application group.
     shared_ptr<int32_t> groupLevel_ {};
     // The name of the server group.
     shared_ptr<string> groupName_ {};
-    // An array that consists of child groups.
+    // The collection of child groups.
     shared_ptr<vector<string>> groups_ {};
-    // The number of servers in the group.
+    // The number of servers.
     shared_ptr<int32_t> machineNum_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

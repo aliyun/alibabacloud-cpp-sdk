@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of the images returned on the current page.
+      // The number of images that have baseline risks on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page. Default value: **1**.
+      // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page. Default value: **10**.
+      // Settings for paging in a paged query. The number of image baseline check results to display per page. Default value: **10**, which indicates that 10 image baseline check results are displayed per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of images on which baseline risks are detected.
+      // The total number of images that have baseline risks in the image baseline check.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -423,45 +423,45 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The ID of the container.
+      // The container ID.
       shared_ptr<string> containerId_ {};
-      // The SHA-256 value of the image digest.
+      // The SHA256 value of the image digest.
       shared_ptr<string> digest_ {};
-      // The timestamp generated when the first scan was performed. Unit: milliseconds.
+      // The timestamp of the first scan, in milliseconds.
       shared_ptr<int64_t> firstScanTime_ {};
-      // The number of images on which **high** baseline risks are detected.
+      // The number of images with a **high** risk level that have baseline risk issues.
       shared_ptr<int32_t> highRiskImage_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> image_ {};
-      // The timestamp when the image was created. Unit: milliseconds.
+      // The timestamp when the image was created, in milliseconds.
       shared_ptr<int64_t> imageCreate_ {};
       // The ID of the image.
       shared_ptr<string> imageId_ {};
       // The size of the image.
       shared_ptr<int32_t> imageSize_ {};
-      // The timestamp when the image was updated. Unit: milliseconds.
+      // The timestamp when the image was updated, in milliseconds.
       shared_ptr<int64_t> imageUpdate_ {};
       // The ID of the image instance.
       shared_ptr<string> instanceId_ {};
-      // The instance name of the server.
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the server.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp when the last baseline check was performed. Unit: milliseconds.
+      // The timestamp of the most recent scan, in milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
-      // The number of images on which **low** baseline risks are detected.
+      // The number of images with a **low** risk level that have baseline risk issues.
       shared_ptr<int32_t> lowRiskImage_ {};
-      // The number of images on which **medium** baseline risks are detected.
+      // The number of images with a **medium** risk level that have baseline risk issues.
       shared_ptr<int32_t> middleRiskImage_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The number of images that do not have baseline risks.
+      // The number of images that do not have baseline risk issues.
       shared_ptr<int32_t> noRiskImage_ {};
       // The pod.
       shared_ptr<string> pod_ {};
@@ -471,29 +471,29 @@ namespace Models
       shared_ptr<string> repoId_ {};
       // The name of the image repository.
       shared_ptr<string> repoName_ {};
-      // The namespace to which the image repository belongs.
+      // The namespace of the image repository.
       shared_ptr<string> repoNamespace_ {};
       // The type of the image repository.
       shared_ptr<string> repoType_ {};
-      // Indicates whether the image is at risk. Valid values:
+      // Indicates whether the image has security risks. Valid values:
       // 
-      // *   **YES**
-      // *   **NO**
+      // - **YES**: The image has risks.
+      // - **NO**: The image does not have risks.
       shared_ptr<string> riskStatus_ {};
       // The version of the image.
       shared_ptr<string> tag_ {};
-      // The ID of the asset on which the baseline check is performed.
+      // The ID of the scan target.
       shared_ptr<string> targetId_ {};
-      // The name of the asset on which the baseline check is performed.
+      // The name of the scan target.
       shared_ptr<string> targetName_ {};
-      // The type of the asset on which the baseline check is performed. Valid values:
+      // The object type of the scan target. Valid values:
       // 
-      // *   ECS_IMAGE
-      // *   ECS_SNAPSHOT
+      // - ** ECS_IMAGE**: image.
+      // - ** ECS_SNAPSHOT**: snapshot.
       shared_ptr<string> targetType_ {};
-      // The total number of risk items that are detected on the image by using the baseline.
+      // The total number of baseline risk items in the image.
       shared_ptr<int32_t> totalItemCount_ {};
-      // The UUID of the image.
+      // The unique identifier of the image.
       shared_ptr<string> uuid_ {};
     };
 
@@ -525,11 +525,11 @@ namespace Models
 
 
   protected:
-    // The information about the images.
+    // The list of image information.
     shared_ptr<vector<DescribeImageListWithBaselineNameResponseBody::ImageInfos>> imageInfos_ {};
-    // The pagination information.
+    // The paging information for the paged query results.
     shared_ptr<DescribeImageListWithBaselineNameResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

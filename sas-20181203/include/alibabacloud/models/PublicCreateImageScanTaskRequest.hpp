@@ -112,27 +112,27 @@ namespace Models
 
 
   protected:
-    // The SHA-256 value of the image digest. Separate multiple SHA-256 values with commas (,).
+    // The SHA256 digest values of the images. Separate multiple SHA256 values with commas (,).
     shared_ptr<string> digests_ {};
-    // The ID of the Container Registry instance in which the image repository is created. Separate multiple IDs with commas (,).
+    // The IDs of the Container Registry (ACR) instances. Separate multiple IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The region ID of the image. Separate multiple IDs with commas (,).
+    // The region IDs of the images. Separate multiple region IDs with commas (,).
     shared_ptr<string> regionIds_ {};
-    // The type of the image repository. Separate multiple types with commas (,). Valid values:
+    // The types of image registries. Separate multiple types with commas (,). Valid values:
     // 
-    // *   **acr**
-    // *   **harbor**
-    // *   **quay**
+    // - **acr**
+    // - **harbor**
+    // - **quay**.
     shared_ptr<string> registryTypes_ {};
-    // The ID of the image repository. Separate multiple IDs with commas (,).
+    // The IDs of the image registries. Separate multiple IDs with commas (,).
     shared_ptr<string> repoIds_ {};
-    // The name of the image repository. Separate multiple names with commas (,).
+    // The names of the image registries. Separate multiple names with commas (,).
     shared_ptr<string> repoNames_ {};
-    // The namespace to which the image repository belongs. Separate multiple namespaces with commas (,).
+    // The namespaces of the image registries. Separate multiple namespaces with commas (,).
     shared_ptr<string> repoNamespaces_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The tag that is added to the image. Separate multiple tags with commas (,).
+    // The tags of the images. Separate multiple tags with commas (,).
     shared_ptr<string> tags_ {};
   };
 
