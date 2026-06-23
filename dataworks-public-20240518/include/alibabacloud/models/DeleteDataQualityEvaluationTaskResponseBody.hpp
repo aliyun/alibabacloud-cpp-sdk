@@ -50,9 +50,9 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the deletion is successful.
-    // - true: Successful
-    // - false: Failed
+    // Indicates whether the deletion was successful. Valid values:
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

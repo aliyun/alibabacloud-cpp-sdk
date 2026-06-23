@@ -125,8 +125,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   ByManual: Manual trigger. This is the default setting.
-        // *   BySchedule: Triggered by a scheduled task instance.
+        // - ByManual: Manual trigger. This is the default setting.
+        // 
+        // - BySchedule: Triggered by a scheduled task instance.
         shared_ptr<string> type_ {};
       };
 
@@ -269,13 +270,13 @@ namespace Models
       protected:
         // The Hook trigger condition. The hook will run if the condition is met. Currently, only one type of expression syntax is supported:
         // 
-        // *   You can specify multiple combinations of rule severity levels and validation statuses using an expression such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This expression means the condition is met if any executed rule has a result of Fail with severity Normal, Error with severity High, or Warn with severity High. In the condition expression, the values of severity and status are predefined enums. The values of severity must match those defined in the Spec, and the values of status must match those in DataQualityResult.
+        // - You can specify multiple combinations of rule severity levels and validation statuses using an expression such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This expression means the condition is met if any executed rule has a result of Fail with severity Normal, Error with severity High, or Warn with severity High. In the condition expression, the values of severity and status are predefined enums. The values of severity must match those defined in the Spec, and the values of status must match those in DataQualityResult.
         shared_ptr<string> condition_ {};
         // The type of the Hook.
         // 
         // Valid values:
         // 
-        // *   BlockTaskInstance: BlockTaskInstance: Blocks the scheduling of the task instance.
+        // - BlockTaskInstance: BlockTaskInstance: Blocks the scheduling of the task instance.
         shared_ptr<string> type_ {};
       };
 
@@ -357,9 +358,11 @@ namespace Models
           // 
           // Valid values:
           // 
-          // *   Hive: Hive SQL
-          // *   Spark: Spark SQL
-          // *   Kyuubi
+          // - Hive: Hive SQL
+          // 
+          // - Spark: Spark SQL
+          // 
+          // - Kyuubi
           shared_ptr<string> engine_ {};
           // Additional Hive engine parameters. Currently, only the mapreduce.job.queuename parameter is supported.
           Darabonba::Json hiveConf_ {};
@@ -397,8 +400,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Prod: production environment .
-        // *   Dev: development environment.
+        // - Prod: production environment .
+        // 
+        // - Dev: development environment.
         shared_ptr<string> envType_ {};
         // The name of the compute engine, which is a unique identifier.
         shared_ptr<string> name_ {};

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate file.
+    // The unique identifier of the certificate file.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The ID of the workspace to which the certificate file belongs.
+    // The ID of the project to which the certificate file belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

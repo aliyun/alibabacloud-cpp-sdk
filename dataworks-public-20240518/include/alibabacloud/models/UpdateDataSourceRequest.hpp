@@ -77,8 +77,9 @@ namespace Models
   protected:
     // The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
     // 
-    // *   Dev: development environment
-    // *   Prod: production environment
+    // - Dev: development environment
+    // 
+    // - Prod: production environment
     // 
     // The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
     // 
@@ -86,8 +87,9 @@ namespace Models
     shared_ptr<string> connectionProperties_ {};
     // The mode in which the data source is added. The mode varies based on the data source type. Valid values:
     // 
-    // *   InstanceMode: instance mode
-    // *   UrlMode: connection string mode
+    // - InstanceMode: instance mode
+    // 
+    // - UrlMode: connection string mode
     shared_ptr<string> connectionPropertiesMode_ {};
     // The description of the data source. The description cannot exceed 3,000 characters in length.
     shared_ptr<string> description_ {};

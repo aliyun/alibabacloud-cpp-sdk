@@ -66,10 +66,17 @@ namespace Models
 
 
   protected:
+    // The parameter ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Specifies the page number of the results to return. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // Specifies the number of entries to return per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies the sort criterion in the format \\<sort field> \\<sort order>. You can omit Asc for ascending order. The only valid value for the sort field is:
+    // 
+    // - Version (Desc/Asc)
     shared_ptr<string> sortBy_ {};
   };
 

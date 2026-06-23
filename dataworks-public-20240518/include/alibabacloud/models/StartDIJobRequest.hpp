@@ -162,16 +162,19 @@ namespace Models
     shared_ptr<int64_t> DIJobId_ {};
     // Specifies whether to forcefully rerun all synchronization steps. If you do not configure this parameter, the system does not perform the forcible rerun operation.
     // 
-    // *   If the system does not perform the forcible rerun operation, only the steps that are not run start to run.
-    // *   If the system performs the forcible rerun operation, all steps start to rerun.
+    // - If the system does not perform the forcible rerun operation, only the steps that are not run start to run.
+    // 
+    // - If the system performs the forcible rerun operation, all steps start to rerun.
     shared_ptr<bool> forceToRerun_ {};
     // The ID of the synchronization task.
     shared_ptr<int64_t> id_ {};
     // The settings for starting real-time synchronization.
     // 
-    //     {
-    //       "StartTime":1663765058
-    //     }
+    // ```
+    // {
+    //   "StartTime":1663765058
+    // }
+    // ```
     shared_ptr<StartDIJobRequest::RealtimeStartSettings> realtimeStartSettings_ {};
   };
 

@@ -102,12 +102,17 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Math: mathematical operation function
-    // *   Aggregate: aggregate function
-    // *   String: string processing function
-    // *   Date: date function
-    // *   Analytic: window function
-    // *   Other: other functions
+    // - Math: mathematical operation function
+    // 
+    // - Aggregate: aggregate function
+    // 
+    // - String: string processing function
+    // 
+    // - Date: date function
+    // 
+    // - Analytic: window function
+    // 
+    // - Other: other functions
     shared_ptr<string> type_ {};
   };
 

@@ -214,12 +214,17 @@ namespace Models
     shared_ptr<string> projectIdentifier_ {};
     // The functional module to which the file belongs. Valid values:
     // 
-    // *   NORMAL: Data Studio
-    // *   MANUAL: Manually triggered node
-    // *   MANUAL_BIZ: Manually triggered workflow
-    // *   SKIP: Dry-run scheduling in Data Studio
-    // *   ADHOCQUERY: Ad hoc query
-    // *   COMPONENT: Component management
+    // - NORMAL: Data Studio
+    // 
+    // - MANUAL: Manually triggered node
+    // 
+    // - MANUAL_BIZ: Manually triggered workflow
+    // 
+    // - SKIP: Dry-run scheduling in Data Studio
+    // 
+    // - ADHOCQUERY: Ad hoc query
+    // 
+    // - COMPONENT: Component management
     shared_ptr<string> useType_ {};
   };
 

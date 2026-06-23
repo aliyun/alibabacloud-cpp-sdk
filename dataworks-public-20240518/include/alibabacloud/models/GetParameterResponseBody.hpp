@@ -113,7 +113,13 @@ namespace Models
 
 
       protected:
+        // The project environment. Valid values:
+        // 
+        // - `Prod`: production.
+        // 
+        // - `Dev`: development.
         shared_ptr<string> envType_ {};
+        // The value of the parameter.
         shared_ptr<string> value_ {};
       };
 
@@ -215,18 +221,37 @@ namespace Models
 
 
     protected:
+      // The time when the parameter was created.
       shared_ptr<int64_t> createTime_ {};
+      // The creator of the parameter.
       shared_ptr<string> createUser_ {};
+      // The description of the parameter.
       shared_ptr<string> description_ {};
+      // The ID of the parameter.
       shared_ptr<int64_t> id_ {};
+      // The time when the parameter was last modified.
       shared_ptr<int64_t> modifyTime_ {};
+      // The modifier of the parameter.
       shared_ptr<string> modifyUser_ {};
+      // The name of the parameter.
       shared_ptr<string> name_ {};
+      // The owner of the parameter.
       shared_ptr<string> owner_ {};
+      // The ID of the workspace.
       shared_ptr<int64_t> projectId_ {};
+      // The value configurations of the parameter.
       shared_ptr<vector<Parameter::Properties>> properties_ {};
+      // The scope of the parameter.
       shared_ptr<string> scope_ {};
+      // The type of the parameter. Valid values:
+      // 
+      // - `PlainConstant`: a constant in plaintext.
+      // 
+      // - `SecretConstant`: a constant in ciphertext.
+      // 
+      // - `Variable`: a variable.
       shared_ptr<string> type_ {};
+      // The version of the parameter.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -249,7 +274,9 @@ namespace Models
 
 
   protected:
+    // The details of the parameter.
     shared_ptr<GetParameterResponseBody::Parameter> parameter_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

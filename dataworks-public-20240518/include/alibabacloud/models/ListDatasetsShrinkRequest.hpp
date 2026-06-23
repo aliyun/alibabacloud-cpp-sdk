@@ -125,13 +125,19 @@ namespace Models
     shared_ptr<string> creatorId_ {};
     // The data type. Multiple selections are allowed. Valid values:
     // 
-    // *   COMMON
-    // *   PIC
-    // *   TEXT
-    // *   TABLE
-    // *   VIDEO
-    // *   AUDIO
-    // *   INDEX
+    // - COMMON
+    // 
+    // - PIC
+    // 
+    // - TEXT
+    // 
+    // - TABLE
+    // 
+    // - VIDEO
+    // 
+    // - AUDIO
+    // 
+    // - INDEX
     shared_ptr<string> dataTypeListShrink_ {};
     // The dataset name. Supports fuzzy search.
     shared_ptr<string> name_ {};
@@ -139,13 +145,15 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Asc: Ascending.
-    // *   Desc: Descending.
+    // - Asc: Ascending.
+    // 
+    // - Desc: Descending.
     shared_ptr<string> order_ {};
     // The dataset source. Valid values:
     // 
-    // *   DataWorks
-    // *   PAI
+    // - DataWorks
+    // 
+    // - PAI
     shared_ptr<string> origin_ {};
     // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -157,19 +165,27 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   ModifyTime: Modification time.
-    // *   CreateTime: Creation time.
-    // *   Name
+    // - ModifyTime: Modification time.
+    // 
+    // - CreateTime: Creation time.
+    // 
+    // - Name
     shared_ptr<string> sortBy_ {};
     // The storage type. Multiple selections are allowed. Supported values:
     // 
-    // *   OSS
-    // *   NAS: General-purpose NAS file systems
-    // *   EXTREMENAS: Extreme NAS file systems
-    // *   DLF_LANCE: Data Lake Formation
-    // *   CPFS: Cloud Parallel File Storage
-    // *   BMCPFS: CPFS for Lingjun
-    // *   MAXCOMPUTE: MaxCompute table
+    // - OSS
+    // 
+    // - NAS: General-purpose NAS file systems
+    // 
+    // - EXTREMENAS: Extreme NAS file systems
+    // 
+    // - DLF_LANCE: Data Lake Formation
+    // 
+    // - CPFS: Cloud Parallel File Storage
+    // 
+    // - BMCPFS: CPFS for Lingjun
+    // 
+    // - MAXCOMPUTE: MaxCompute table
     shared_ptr<string> storageTypeListShrink_ {};
   };
 

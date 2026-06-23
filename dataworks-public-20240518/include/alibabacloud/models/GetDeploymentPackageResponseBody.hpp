@@ -174,8 +174,9 @@ namespace Models
       protected:
         // The validation status of nodes in the deployment package. For packages deployed to the development environment (toEnviroment=1), you can only proceed to deploy to production if the package Status is 1 (succeeded) and CheckingStatus is empty (validation complete).
         // 
-        // *   7: Validation failed
-        // *   8: Validation in progress
+        // - 7: Validation failed
+        // 
+        // - 8: Validation in progress
         shared_ptr<int32_t> checkingStatus_ {};
         // The timestamp (in milliseconds) when the deployment package was created.
         shared_ptr<int64_t> createTime_ {};
@@ -248,13 +249,19 @@ namespace Models
         shared_ptr<int64_t> fileId_ {};
         // The file version.
         shared_ptr<int64_t> fileVersion_ {};
-        // *   UNPUBLISHED(0)
-        // *   SUCCESS(1)
-        // *   ERROR(2)
-        // *   CLONED(3)
-        // *   DEPLOY_ERROR(4)
-        // *   CLONING(5)
-        // *   REJECT(6)
+        // - UNPUBLISHED(0)
+        // 
+        // - SUCCESS(1)
+        // 
+        // - ERROR(2)
+        // 
+        // - CLONED(3)
+        // 
+        // - DEPLOY_ERROR(4)
+        // 
+        // - CLONING(5)
+        // 
+        // - REJECT(6)
         shared_ptr<int32_t> status_ {};
       };
 
@@ -344,8 +351,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call succeeded. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

@@ -247,19 +247,33 @@ namespace Models
 
 
       protected:
+        // The default value for Basic Edition.
         Darabonba::Json basicEditionDefaultValue_ {};
+        // The valid value interval for Basic Edition, in the format `[min, max]`.
         shared_ptr<vector<int32_t>> basicEditionIntervalValue_ {};
+        // The controller identifier. For valid values, see the list of controllers for each schema.
         shared_ptr<string> controller_ {};
+        // The value type. Valid values: `Boolean`, `Integer`, `Long`, and `String`.
         shared_ptr<string> controllerValueType_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The English display name.
         shared_ptr<string> displayNameEn_ {};
+        // Specifies whether to enable this controller.
         shared_ptr<bool> enable_ {};
+        // The default value for Enterprise Edition.
         Darabonba::Json enterpriseEditionDefaultValue_ {};
+        // The valid value interval for Enterprise Edition, in the format `[min, max]`.
         shared_ptr<vector<int32_t>> enterpriseEditionIntervalValue_ {};
+        // The default value for Professional Edition.
         Darabonba::Json professionalEditionDefaultValue_ {};
+        // The valid value interval for Professional Edition, in the format `[min, max]`.
         shared_ptr<vector<int32_t>> professionalEditionIntervalValue_ {};
+        // The default value for Standard Edition.
         Darabonba::Json standardEditionDefaultValue_ {};
+        // The valid value interval for Standard Edition, in the format `[min, max]`.
         shared_ptr<vector<int32_t>> standardEditionIntervalValue_ {};
+        // The user-configured value. The type of this value depends on the `ControllerValueType` parameter.
         Darabonba::Json userConfigValue_ {};
       };
 
@@ -332,16 +346,29 @@ namespace Models
 
 
     protected:
+      // The control scope. This corresponds to the `controlDwScope` property of the `SecurityStrategySchema` associated with the current strategy.
       shared_ptr<string> controlDwScope_ {};
+      // The control module. This corresponds to the `controlModule` property of the `SecurityStrategySchema` associated with the current strategy.
+      // 
       // This parameter is required.
       shared_ptr<string> controlModule_ {};
+      // The control submodule. This corresponds to the `controlSubModule` property of the `SecurityStrategySchema` associated with the current strategy.
       shared_ptr<string> controlSubModule_ {};
+      // A list of controllers.
+      // 
+      // **Note:** Valid controllers depend on the selected schema. For more information, see the controller definitions and the list of controllers for each schema.
       shared_ptr<vector<Content::Controllers>> controllers_ {};
+      // The `displayName` property of the `SecurityStrategySchema` associated with the current strategy.
       shared_ptr<string> displayName_ {};
+      // The `displayNameEn` property of the `SecurityStrategySchema` associated with the current strategy.
       shared_ptr<string> displayNameEn_ {};
+      // The `name` property of the `SecurityStrategySchema` associated with the current strategy.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The `systemPolicyDisplayName` property of the `SecurityStrategySchema` associated with the current strategy.
       shared_ptr<string> systemPolicyDisplayName_ {};
+      // The `systemPolicyName` property of the `SecurityStrategySchema` associated with the current strategy.
       shared_ptr<string> systemPolicyName_ {};
     };
 
@@ -416,19 +443,33 @@ namespace Models
 
 
   protected:
+    // A client-generated token that ensures request idempotency, preventing duplicate operations if you retry the request.
     shared_ptr<string> clientToken_ {};
+    // The content of the strategy. This value is constrained by the `SecurityStrategySchema`.
+    // 
     // This parameter is required.
     shared_ptr<CreateSecurityStrategyRequest::Content> content_ {};
+    // **The control scope. Valid values: Workspace and Tenant.**
+    // 
     // This parameter is required.
     shared_ptr<string> controlDwScope_ {};
+    // **Control module**
+    // 
     // This parameter is required.
     shared_ptr<string> controlModule_ {};
+    // **Control submodule**
     shared_ptr<string> controlSubModule_ {};
+    // **Strategy description**
     shared_ptr<string> description_ {};
+    // **Strategy name**
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // **Schema template name**
+    // 
     // This parameter is required.
     shared_ptr<string> schemaName_ {};
+    // A list of associated workspace IDs.
     shared_ptr<vector<int64_t>> workspaces_ {};
   };
 

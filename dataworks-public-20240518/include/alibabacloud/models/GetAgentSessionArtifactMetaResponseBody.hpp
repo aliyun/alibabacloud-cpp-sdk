@@ -101,8 +101,11 @@ namespace Models
 
 
       protected:
+        // The content of the artifact.
         shared_ptr<string> artifactContent_ {};
+        // The name of the artifact.
         shared_ptr<string> artifactName_ {};
+        // The path of the artifact.
         shared_ptr<string> artifactPath_ {};
       };
 
@@ -132,8 +135,11 @@ namespace Models
 
 
     protected:
+      // The ID from the original request.
       shared_ptr<string> id_ {};
+      // The JSON-RPC version. The value is `2.0`.
       shared_ptr<string> jsonrpc_ {};
+      // Contains the metadata and content of the artifact.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 
@@ -156,7 +162,9 @@ namespace Models
 
 
   protected:
+    // The JSON-RPC response object.
     shared_ptr<GetAgentSessionArtifactMetaResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
+    // The ID of the request. You can use it to trace the request in logs.
     shared_ptr<string> requestId_ {};
   };
 

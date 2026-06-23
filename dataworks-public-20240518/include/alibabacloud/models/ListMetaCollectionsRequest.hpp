@@ -131,8 +131,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The sort order. Valid values:
     // 
-    // *   Asc (default): Ascending order
-    // *   Desc
+    // - Asc (default): Ascending order
+    // 
+    // - Desc
     shared_ptr<string> order_ {};
     // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -142,17 +143,23 @@ namespace Models
     shared_ptr<string> parentId_ {};
     // The sort field. Valid values:
     // 
-    // *   Id (default)
-    // *   Name
-    // *   CreateUser: Creator ID
-    // *   CreateTime: Creation time
-    // *   ModifyTime: Modification time
+    // - Id (default)
+    // 
+    // - Name
+    // 
+    // - CreateUser: Creator ID
+    // 
+    // - CreateTime: Creation time
+    // 
+    // - ModifyTime: Modification time
     shared_ptr<string> sortBy_ {};
     // The collection type. Valid values:
     // 
-    // *   Category
-    // *   Album
-    // *   AlbumCategory: Album subcategory
+    // - Category
+    // 
+    // - Album
+    // 
+    // - AlbumCategory: Album subcategory
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -68,11 +68,13 @@ namespace Models
   protected:
     // The collection administrator IDs. This parameter is available only for data albums. The administrator must be an account within the same tenant.
     shared_ptr<string> administratorsShrink_ {};
+    // Updated collection description
     shared_ptr<string> description_ {};
     // The collection ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Updated collection name
     shared_ptr<string> name_ {};
   };
 

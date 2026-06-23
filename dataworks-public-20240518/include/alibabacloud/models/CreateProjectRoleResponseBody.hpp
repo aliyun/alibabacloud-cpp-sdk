@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the role.
     shared_ptr<string> code_ {};
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

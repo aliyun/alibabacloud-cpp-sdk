@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the custom attribute.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
   };

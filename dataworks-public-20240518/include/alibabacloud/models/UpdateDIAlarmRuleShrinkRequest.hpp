@@ -124,11 +124,15 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The metric type in the alert rule. Valid values:
     // 
-    // *   Heartbeat
-    // *   FailoverCount
-    // *   Delay
-    // *   DdlReport
-    // *   ResourceUtilization
+    // - Heartbeat
+    // 
+    // - FailoverCount
+    // 
+    // - Delay
+    // 
+    // - DdlReport
+    // 
+    // - ResourceUtilization
     shared_ptr<string> metricType_ {};
     // The name of the alert rule.
     shared_ptr<string> name_ {};

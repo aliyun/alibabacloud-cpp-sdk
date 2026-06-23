@@ -214,8 +214,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // The project environment.
     // 
-    // *   Prod
-    // *   Dev
+    // - Prod
+    // 
+    // - Dev
     shared_ptr<string> envType_ {};
     // The task ID.
     // 
@@ -225,8 +226,9 @@ namespace Models
     shared_ptr<string> inputsShrink_ {};
     // The instance generation mode.
     // 
-    // *   T+1: the next day
-    // *   Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
+    // - T+1: the next day
+    // 
+    // - Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
     shared_ptr<string> instanceMode_ {};
     // Name.
     shared_ptr<string> name_ {};
@@ -238,9 +240,11 @@ namespace Models
     shared_ptr<int32_t> rerunInterval_ {};
     // The rerun mode. Valid values:
     // 
-    // *   AllDenied: The task cannot be rerun.
-    // *   FailureAllowed: The task can be rerun only after it fails.
-    // *   AllAllowed: The task can always be rerun.
+    // - AllDenied: The task cannot be rerun.
+    // 
+    // - FailureAllowed: The task can be rerun only after it fails.
+    // 
+    // - AllAllowed: The task can always be rerun.
     shared_ptr<string> rerunMode_ {};
     // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
     shared_ptr<int32_t> rerunTimes_ {};

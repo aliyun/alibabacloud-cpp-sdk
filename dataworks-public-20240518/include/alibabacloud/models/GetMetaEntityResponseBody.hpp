@@ -60,9 +60,11 @@ namespace Models
 
 
   protected:
+    // The custom entity object.
     shared_ptr<MetaEntity> metaEntity_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

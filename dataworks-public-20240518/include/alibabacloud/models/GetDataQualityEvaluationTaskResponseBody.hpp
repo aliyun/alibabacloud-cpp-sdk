@@ -109,13 +109,13 @@ namespace Models
 
 
       protected:
-        // The IDs of scheduling tasks. This parameter is valid only if you set Type to ByScheduledTaskInstance.
+        // List of scheduled task IDs. Valid when Type is ByScheduledTaskInstance.
         shared_ptr<vector<int64_t>> taskIds_ {};
-        // The trigger type of the monitor. Valid values:
+        // Quality monitoring trigger type:
         // 
-        // *   ByManual: The monitor is manually triggered.
-        // *   ByScheduledTaskInstance: The monitor is triggered by associated scheduling tasks.
-        // *   ByQualityNode: The monitor is triggered by created data quality monitoring nodes.
+        // - ByManual: Manual trigger
+        // - ByScheduledTaskInstance: Scheduled task trigger
+        // - ByQualityNode: Quality node trigger
         shared_ptr<string> type_ {};
       };
 
@@ -175,22 +175,20 @@ namespace Models
 
 
       protected:
-        // The type of the database to which the table belongs. Valid values:
-        // 
-        // *   maxcompute
-        // *   hologres
-        // *   cdh
-        // *   analyticdb_for_mysql
-        // *   starrocks
-        // *   emr
-        // *   analyticdb_for_postgresql
+        // Database type to which the table belongs:
+        // - maxcompute
+        // - hologres
+        // - cdh
+        // - analyticdb_for_mysql
+        // - starrocks
+        // - emr
+        // - analyticdb_for_postgresql
         shared_ptr<string> databaseType_ {};
-        // Data quality monitoring partition range settings.
+        // Partition range setting for data quality monitoring.
         shared_ptr<string> partitionSpec_ {};
-        // The ID of the table in Data Map.
+        // Unique ID of the table in Data Map.
         shared_ptr<string> tableGuid_ {};
-        // The type of the monitoring object.
-        // 
+        // Monitoring object type.
         // - Table: Table.
         shared_ptr<string> type_ {};
       };
@@ -286,21 +284,13 @@ namespace Models
 
 
           protected:
-            // The extended information.
+            // Extended information.
             shared_ptr<string> extension_ {};
-            // The additional parameters that are required when alerts are sent. The parameters are JSON-formatted strings. The following keys are supported:
+            // Additional parameter settings when sending alerts. JSON format. Supported keys are as follows:
             // 
-            // *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
-            // 
-            // Valid values:
-            // 
-            // *   WebhookUrl
-            // *   FeishuUrl
-            // *   DingdingUrl
-            // *   WeixinUrl
-            // *   AliUid
+            // - atAll: Whether to @everyone in the group when sending DingTalk alerts. Takes effect when ReceiverType is DingdingUrl.
             shared_ptr<string> receiverType_ {};
-            // The alert recipients.
+            // Alert receiver.
             shared_ptr<vector<string>> receiverValues_ {};
           };
 
@@ -334,7 +324,7 @@ namespace Models
 
 
           protected:
-            // The alert notification methods.
+            // Notification method.
             shared_ptr<vector<string>> channels_ {};
           };
 
@@ -359,9 +349,9 @@ namespace Models
 
 
         protected:
-          // The alert notification methods.
+          // Notification method.
           shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
-          // The configurations of alert recipients.
+          // Alert receiver settings.
           shared_ptr<vector<NotificationsItem::NotificationReceivers>> notificationReceivers_ {};
         };
 
@@ -384,12 +374,12 @@ namespace Models
 
 
       protected:
-        // The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
+        // Notification trigger condition. When this condition is met, the message notification is triggered. Currently, only two types of conditional expressions are supported:
         // 
-        // *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-        // *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+        // - Specify a single group of rule severity type and rule validation status, e.g., `${severity} == "High" AND ${status} == "Critical"`, which means the condition is met if any executed rule with severity High has a validation result of Critical.
+        // - Specify multiple groups of rule severity types and rule validation statuses, e.g., `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`, which means the condition is met if any executed rule has severity High with validation result Critical, or severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the conditional expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
         shared_ptr<string> condition_ {};
-        // The configurations of alert notifications.
+        // Notification settings.
         shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
       };
 
@@ -431,14 +421,14 @@ namespace Models
 
 
       protected:
-        // The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
+        // Hook trigger condition. When this condition is met, the hook action is triggered. Currently, only two types of conditional expressions are supported:
         // 
-        // *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-        // *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+        // - Specify a single group of rule severity type and rule validation status, e.g., `${severity} == "High" AND ${status} == "Critical"`, which means the condition is met if any executed rule with severity High has a validation result of Critical.
+        // - Specify multiple groups of rule severity types and rule validation statuses, e.g., `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`, which means the condition is met if any executed rule has severity High with validation result Critical, or severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the conditional expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
         shared_ptr<string> condition_ {};
-        // The hook type. Only one hook type is supported.
+        // Hook type. Currently, only one type is supported:
         // 
-        // *   BlockTaskInstance: Blocks the running of scheduling tasks. A monitor is triggered by scheduling tasks. After a monitor finishes running, the monitor determines whether to block the running of scheduling tasks based on the hook condition.
+        // - BlockTaskInstance: Blocks the scheduled task from continuing to run. When data quality monitoring is triggered by a scheduled task, after the data quality monitoring completes, Hook.Condition is used to determine whether to block the scheduled task from continuing to run.
         shared_ptr<string> type_ {};
       };
 
@@ -524,32 +514,32 @@ namespace Models
 
 
     protected:
-      // The ID of the data source used for the monitor.
+      // Data source ID used by the quality monitoring task.
       shared_ptr<int64_t> dataSourceId_ {};
-      // The description of the monitor.
+      // Description of the quality monitoring task.
       shared_ptr<string> description_ {};
-      // The hook.
+      // Callback settings.
       shared_ptr<vector<DataQualityEvaluationTask::Hooks>> hooks_ {};
-      // The ID of the data quality monitor.
+      // Data quality monitoring ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the monitor.
+      // Name of the quality monitoring task.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The configurations of alert notifications.
+      // Notification subscription configuration.
       shared_ptr<DataQualityEvaluationTask::Notifications> notifications_ {};
-      // The workspace ID.
+      // Workspace ID.
       shared_ptr<int64_t> projectId_ {};
-      // Extended configuration, JSON-formatted string, takes effect only for EMR-type data quality monitoring.
+      // Extended configuration. A JSON-formatted string. Only takes effect for EMR-type data quality monitoring.
       // 
-      // - queue: the yarn queue used when performing EMR data quality verification. The default queue is the queue configured for this project.
-      // - sqlEngine: SQL engine used when performing EMR data verification
-      //     - HIVE_ SQL
-      //     - SPARK_ SQL
+      // - queue: The YARN queue used when executing EMR data quality validation. Defaults to the queue configured for the current project.
+      // - sqlEngine: The SQL engine used when executing EMR data validation.
+      //   + HIVE_SQL
+      //   + SPARK_SQL
       shared_ptr<string> runtimeConf_ {};
-      // The monitored object of the monitor.
+      // Data quality monitoring object.
       shared_ptr<DataQualityEvaluationTask::Target> target_ {};
-      // The trigger configuration of the monitor.
+      // Trigger configuration of the data quality validation task.
       shared_ptr<DataQualityEvaluationTask::Trigger> trigger_ {};
     };
 
@@ -572,7 +562,7 @@ namespace Models
 
 
   protected:
-    // The details of the monitor.
+    // Data quality monitoring details.
     shared_ptr<GetDataQualityEvaluationTaskResponseBody::DataQualityEvaluationTask> dataQualityEvaluationTask_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

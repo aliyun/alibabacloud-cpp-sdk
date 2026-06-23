@@ -343,8 +343,9 @@ namespace Models
     shared_ptr<bool> applyScheduleImmediately_ {};
     // Specifies whether to enable automatic parsing for the file. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // This parameter corresponds to the Analyze Code setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> autoParsing_ {};
@@ -362,18 +363,25 @@ namespace Models
     // 
     // Examples:
     // 
-    // *   Scheduled at 05:30 every day: `00 30 05 * * ?`
-    // *   Scheduled at the 15th minute of every hour: `00 15 * * * ?`
-    // *   Scheduled every 10 minutes: `00 00/10 * * * ?`
-    // *   Scheduled every 10 minutes between 08:00 and 23:00 every day: `00 00-59/10 8-23 * * * ?`
-    // *   Scheduled at 00:20 on the 1st day of every month: `00 20 00 1 * ?`
-    // *   Scheduled every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
-    // *   Scheduled at 00:05 on every Tuesday and Friday: `00 05 00 * * 2,5`
+    // - Scheduled at 05:30 every day: `00 30 05 * * ?`
+    // 
+    // - Scheduled at the 15th minute of every hour: `00 15 * * * ?`
+    // 
+    // - Scheduled every 10 minutes: `00 00/10 * * * ?`
+    // 
+    // - Scheduled every 10 minutes between 08:00 and 23:00 every day: `00 00-59/10 8-23 * * * ?`
+    // 
+    // - Scheduled at 00:20 on the 1st day of every month: `00 20 00 1 * ?`
+    // 
+    // - Scheduled every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
+    // 
+    // - Scheduled at 00:05 on every Tuesday and Friday: `00 05 00 * * 2,5`
     // 
     // Due to the rules of the DataWorks scheduling system, cron expressions have the following restrictions:
     // 
-    // *   The minimum scheduling interval is 5 minutes.
-    // *   The earliest scheduling time each day is 00:05.
+    // - The minimum scheduling interval is 5 minutes.
+    // 
+    // - The earliest scheduling time each day is 00:05.
     shared_ptr<string> cronExpress_ {};
     // The type of scheduling cycle. Valid values: NOT_DAY (minute, hour) and DAY (day, week, month).
     // 
@@ -385,10 +393,13 @@ namespace Models
     shared_ptr<string> dependentNodeIdList_ {};
     // The dependency mode on the previous cycle. Valid values:
     // 
-    // *   SELF: Depends on the current node.
-    // *   CHILD: Depends on the child nodes.
-    // *   USER_DEFINE: Depends on other nodes.
-    // *   NONE: No dependencies. Does not depend on the previous cycle.
+    // - SELF: Depends on the current node.
+    // 
+    // - CHILD: Depends on the child nodes.
+    // 
+    // - USER_DEFINE: Depends on other nodes.
+    // 
+    // - NONE: No dependencies. Does not depend on the previous cycle.
     shared_ptr<string> dependentType_ {};
     // The timestamp (in milliseconds) when automatic scheduling stops.
     // 
@@ -440,27 +451,35 @@ namespace Models
     shared_ptr<string> projectIdentifier_ {};
     // The rerun policy. Valid values:
     // 
-    // *   ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
-    // *   FAILURE_ALLOWED: Reruns are allowed only when the task fails.
-    // *   ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
+    // - ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
+    // 
+    // - FAILURE_ALLOWED: Reruns are allowed only when the task fails.
+    // 
+    // - ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
     // 
     // This parameter corresponds to the Support for Rerun setting in Scheduling > Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     // 
     // Valid values:
     // 
-    // *   ALL_ALLOWD
-    // *   FAILURE_ALLOWED
-    // *   ALL_DENIED
-    // *   ALL_ALLOWED
+    // - ALL_ALLOWD
+    // 
+    // - FAILURE_ALLOWED
+    // 
+    // - ALL_DENIED
+    // 
+    // - ALL_ALLOWED
     shared_ptr<string> rerunMode_ {};
     // The resource group for the task published from the file. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
     shared_ptr<string> resourceGroupIdentifier_ {};
     // The scheduling type. Valid values:
     // 
-    // *   NORMAL: Normal scheduled task.
-    // *   MANUAL: Manually triggered node. Not scheduled for daily execution. Corresponds to nodes in manually triggered workflows.
-    // *   PAUSE: Paused task.
-    // *   SKIP: Dry-run task. Scheduled for daily execution but is directly marked as successful when scheduling starts.
+    // - NORMAL: Normal scheduled task.
+    // 
+    // - MANUAL: Manually triggered node. Not scheduled for daily execution. Corresponds to nodes in manually triggered workflows.
+    // 
+    // - PAUSE: Paused task.
+    // 
+    // - SKIP: Dry-run task. Scheduled for daily execution but is directly marked as successful when scheduling starts.
     shared_ptr<string> schedulerType_ {};
     // The timestamp (in milliseconds) when automatic scheduling starts.
     // 
@@ -468,15 +487,17 @@ namespace Models
     shared_ptr<int64_t> startEffectDate_ {};
     // Specifies whether to start the task immediately after it is published. Valid values:
     // 
-    // *   true: Start the task immediately after it is published.
-    // *   false: Do not start the task immediately after it is published.
+    // - true: Start the task immediately after it is published.
+    // 
+    // - false: Do not start the task immediately after it is published.
     // 
     // This parameter corresponds to the Start Method setting in Configuration > Scheduling Policies in the right-side navigation pane on the editing page for EMR Spark Streaming and EMR Streaming SQL tasks in Data Studio in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> startImmediately_ {};
     // Specifies whether to skip execution. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // This parameter corresponds to the Skip Execution option in Properties > Schedule > Recurrence for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> stop_ {};

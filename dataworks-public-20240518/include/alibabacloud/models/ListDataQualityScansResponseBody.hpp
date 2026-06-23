@@ -146,8 +146,9 @@ namespace Models
           shared_ptr<vector<int64_t>> taskIds_ {};
           // The trigger mode of the data quality monitor. Valid values:
           // 
-          // *   ByManual: Manually triggered. Default setting.
-          // *   BySchedule: Triggered by a scheduled task instance.
+          // - ByManual: Manually triggered. Default setting.
+          // 
+          // - BySchedule: Triggered by a scheduled task instance.
           shared_ptr<string> type_ {};
         };
 
@@ -294,7 +295,7 @@ namespace Models
           shared_ptr<string> condition_ {};
           // The type of the hook. Valid values:
           // 
-          // *   BlockTaskInstance: Blocks the scheduling of the task instance.
+          // - BlockTaskInstance: Blocks the scheduling of the task instance.
           shared_ptr<string> type_ {};
         };
 
@@ -370,9 +371,11 @@ namespace Models
           protected:
             // The engine type. These settings are only supported for the EMR compute engine. Valid values:
             // 
-            // *   Hive: Hive SQL
-            // *   Spark: Spark SQL
-            // *   Kyuubi
+            // - Hive: Hive SQL
+            // 
+            // - Spark: Spark SQL
+            // 
+            // - Kyuubi
             shared_ptr<string> engine_ {};
             // Additional parameters for the Hive engine. Currently, only mapreduce.job.queuename is supported to set the queue.
             shared_ptr<string> hiveConf_ {};
@@ -408,8 +411,9 @@ namespace Models
         protected:
           // Workspace environment of the compute engine. Valid values:
           // 
-          // *   Prod
-          // *   Dev
+          // - Prod
+          // 
+          // - Dev
           shared_ptr<string> envType_ {};
           // The name of the computing engine. Uniquely identifies the engine.
           shared_ptr<string> name_ {};

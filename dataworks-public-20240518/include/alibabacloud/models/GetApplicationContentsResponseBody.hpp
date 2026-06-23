@@ -153,8 +153,11 @@ namespace Models
 
 
         protected:
+          // The name of the `ResourceSchema` that defines how to parse this resource.
           shared_ptr<string> defSchema_ {};
+          // The version of the `ResourceSchema` that defines how to parse this resource.
           shared_ptr<string> defVersion_ {};
+          // The resource metadata. The structure of the metadata is defined by the `ResourceSchema`.
           shared_ptr<string> metaData_ {};
         };
 
@@ -196,7 +199,21 @@ namespace Models
 
 
         protected:
+          // The ID of the principal. The format of the ID varies based on the `PrincipalType` value:
+          // 
+          // - If `PrincipalType` is `RamUser`, this parameter specifies the ID of a DataWorks user.
+          // 
+          // - If `PrincipalType` is `RamRole`, this parameter specifies the ID of a role in DataWorks. The ID must be prefixed with `ROLE_`.
+          // 
+          // - If `PrincipalType` is `DlfRole`, this parameter specifies the name of a DlfNext role.
           shared_ptr<string> principalId_ {};
+          // The principal type. Valid values:
+          // 
+          // - `RamUser`
+          // 
+          // - `RamRole`
+          // 
+          // - `DlfRole`
           shared_ptr<string> principalType_ {};
         };
 
@@ -311,19 +328,47 @@ namespace Models
 
 
       protected:
+        // A list of the permissions requested for the resource.
         shared_ptr<vector<string>> accessTypes_ {};
+        // The authorization method.
         shared_ptr<string> authMethod_ {};
+        // The time when the content item was created. This value is a millisecond-precision timestamp.
         shared_ptr<int64_t> createTime_ {};
+        // The resource type.
         shared_ptr<string> defSchema_ {};
+        // The time when the permissions expire. This value is a millisecond-precision timestamp.
         shared_ptr<int64_t> expirationTime_ {};
+        // A list of the permissions granted in the final approval.
         shared_ptr<vector<string>> finalAccessTypes_ {};
+        // The grantee.
         shared_ptr<Contents::Grantee> grantee_ {};
+        // The unique ID of the application content item.
         shared_ptr<string> id_ {};
+        // The ID of the approval process instance for the application.
         shared_ptr<string> processInstanceId_ {};
+        // The resource declaration.
         shared_ptr<Contents::Resource> resource_ {};
+        // The specific type of the resource, such as a table.
         shared_ptr<string> resourceName_ {};
+        // The approval status. Valid values:
+        // 
+        // - `WaitApproval`: The item is pending approval.
+        // 
+        // - `Confirmed`: The item is pending authorization.
+        // 
+        // - `RejectApproval`: The item was rejected.
+        // 
+        // - `AuthorizeSucceed`: Authorization was successful.
+        // 
+        // - `AuthorizeFailed`: Authorization failed.
+        // 
+        // - `Deleted`: The item was deleted during the approval process.
+        // 
+        // - `Canceled`: The item was canceled.
         shared_ptr<string> status_ {};
+        // The tenant ID.
         shared_ptr<string> tenantId_ {};
+        // The time when the content item was last updated. This value is a millisecond-precision timestamp.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -374,11 +419,31 @@ namespace Models
 
 
     protected:
+      // The time when the application was submitted. This value is a millisecond-precision timestamp.
       shared_ptr<int64_t> applicationTime_ {};
+      // A list of the application contents.
       shared_ptr<vector<Data::Contents>> contents_ {};
+      // The resource type.
       shared_ptr<string> defSchema_ {};
+      // The process instance ID.
       shared_ptr<string> processInstanceId_ {};
+      // The reason for the application.
       shared_ptr<string> reason_ {};
+      // The approval status. Valid values:
+      // 
+      // - `WaitApproval`: The application is pending approval.
+      // 
+      // - `Confirmed`: The application is pending authorization.
+      // 
+      // - `RejectApproval`: The application was rejected.
+      // 
+      // - `AuthorizeSucceed`: Authorization was successful.
+      // 
+      // - `AuthorizeFailed`: Authorization failed.
+      // 
+      // - `Deleted`: The application was deleted.
+      // 
+      // - `Canceled`: The application was canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -401,7 +466,9 @@ namespace Models
 
 
   protected:
+    // The process instance and its associated application contents.
     shared_ptr<GetApplicationContentsResponseBody::Data> data_ {};
+    // The request ID. Use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

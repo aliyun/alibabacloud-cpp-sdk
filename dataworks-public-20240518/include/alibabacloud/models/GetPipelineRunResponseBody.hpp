@@ -162,13 +162,13 @@ namespace Models
 
 
       protected:
-        // The code of the stage.
+        // The code that identifies the stage.
         shared_ptr<string> code_ {};
         // The description of the stage.
         shared_ptr<string> description_ {};
-        // The details of the stage.
+        // Detailed information about the stage.
         Darabonba::Json detail_ {};
-        // The error message returned for the stage.
+        // The exception message returned if the stage fails.
         shared_ptr<string> message_ {};
         // The name of the stage.
         shared_ptr<string> name_ {};
@@ -176,24 +176,33 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Init
-        // *   Running
-        // *   Success
-        // *   Fail
-        // *   Termination
-        // *   Cancel
+        // - `Init`: The stage is being initialized.
+        // 
+        // - `Running`: The stage is in progress.
+        // 
+        // - `Success`: The stage succeeded.
+        // 
+        // - `Fail`: The stage failed.
+        // 
+        // - `Terminated`: The stage was terminated.
+        // 
+        // - `Canceled`: The stage was canceled.
         shared_ptr<string> status_ {};
-        // The step number of the stage.
+        // The sequence number of the stage within the pipeline.
         shared_ptr<int32_t> step_ {};
         // The type of the stage.
         // 
         // Valid values:
         // 
-        // *   Deploy
-        // *   Check
-        // *   Offline
-        // *   Build
-        // *   Delete
+        // - `Deploy`: A deployment operation.
+        // 
+        // - `Check`: A check operation.
+        // 
+        // - `Offline`: An offline operation.
+        // 
+        // - `Build`: A build operation.
+        // 
+        // - `Delete`: A delete operation.
         shared_ptr<string> type_ {};
       };
 
@@ -266,31 +275,37 @@ namespace Models
 
 
     protected:
-      // The time when the process was created. This value is a UNIX timestamp.
+      // The time when the pipeline run was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> createTime_ {};
-      // The creator of the process.
+      // The ID of the user who created the pipeline run.
       shared_ptr<string> creator_ {};
+      // The description of the pipeline run.
       shared_ptr<string> description_ {};
-      // The process ID.
+      // The ID of the pipeline run.
       shared_ptr<string> id_ {};
-      // The error message returned when the process fails.
+      // The error message returned if the pipeline run fails.
       shared_ptr<string> message_ {};
-      // The time when the process was modified. This value is a UNIX timestamp.
+      // The time when the pipeline run was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> modifyTime_ {};
-      // The DataWorks workspace ID.
+      // The ID of the DataWorks workspace.
       shared_ptr<int64_t> projectId_ {};
-      // The information about stages in the process.
+      // The stages in the pipeline run.
       shared_ptr<vector<Pipeline::Stages>> stages_ {};
-      // The status of the process.
+      // The status of the pipeline run.
       // 
       // Valid values:
       // 
-      // *   Init
-      // *   Running
-      // *   Success
-      // *   Fail
-      // *   Termination
-      // *   Cancel
+      // - `Init`: The pipeline run is being initialized.
+      // 
+      // - `Running`: The pipeline run is in progress.
+      // 
+      // - `Success`: The pipeline run succeeded.
+      // 
+      // - `Fail`: The pipeline run failed.
+      // 
+      // - `Terminated`: The pipeline run was terminated.
+      // 
+      // - `Canceled`: The pipeline run was canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -313,9 +328,9 @@ namespace Models
 
 
   protected:
-    // The information about the process.
+    // The details of the pipeline run.
     shared_ptr<GetPipelineRunResponseBody::Pipeline> pipeline_ {};
-    // The request ID.
+    // The ID of the request. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

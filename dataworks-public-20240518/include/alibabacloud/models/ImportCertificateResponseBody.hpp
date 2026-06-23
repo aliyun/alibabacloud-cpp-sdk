@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate file, which is the unique identifier of the certificate file.
+    // The unique ID of the certificate file.
     shared_ptr<int64_t> id_ {};
-    // The request ID. Used to locate logs and troubleshoot issues.
+    // The ID of the request. This ID is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

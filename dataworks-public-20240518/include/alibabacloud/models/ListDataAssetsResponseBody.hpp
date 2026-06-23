@@ -170,8 +170,9 @@ namespace Models
           shared_ptr<string> key_ {};
           // The way in which the mapping between the data asset and the tag is created. Valid values:
           // 
-          // *   System
-          // *   UserDefined
+          // - System
+          // 
+          // - UserDefined
           shared_ptr<string> tagSource_ {};
           // The tag value.
           shared_ptr<string> value_ {};
@@ -228,8 +229,9 @@ namespace Models
         shared_ptr<vector<DataAssets::DataAssetTagMappings>> dataAssetTagMappings_ {};
         // The environment of the workspace to which the data asset belongs. Valid values:
         // 
-        // *   Dev: development environment
-        // *   Prod: production environment
+        // - Dev: development environment
+        // 
+        // - Prod: production environment
         shared_ptr<string> envType_ {};
         // The data asset ID.
         shared_ptr<string> id_ {};
@@ -239,8 +241,9 @@ namespace Models
         shared_ptr<int64_t> projectId_ {};
         // The type of the data asset. Valid values:
         // 
-        // *   ACS::DataWorks::Table
-        // *   ACS::DataWorks::Task
+        // - ACS::DataWorks::Table
+        // 
+        // - ACS::DataWorks::Task
         shared_ptr<string> type_ {};
       };
 

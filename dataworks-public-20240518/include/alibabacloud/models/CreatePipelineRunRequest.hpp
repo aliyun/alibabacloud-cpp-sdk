@@ -73,7 +73,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The IDs of entities to which you want to apply the process.
     // 
-    // >  A process can be applied to only a single entity and its child entities. If you specify multiple entities in the array, the process is applied only to the first entity in the array and its child entities. Make sure that the array in your request contains only one element. Extra elements will be ignored.
+    // > A process can be applied to only a single entity and its child entities. If you specify multiple entities in the array, the process is applied only to the first entity in the array and its child entities. Make sure that the array in your request contains only one element. Extra elements will be ignored.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> objectIds_ {};
@@ -83,8 +83,9 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // Specifies whether to deploy or undeploy the entity. Valid values:
     // 
-    // *   Online: deploys the entity.
-    // *   Offline: undeploys the entity.
+    // - Online: deploys the entity.
+    // 
+    // - Offline: undeploys the entity.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -168,21 +168,25 @@ namespace Models
 
 
       protected:
-        // The time when the data quality monitor starts running.
+        // The start time of the data quality scan run.
         shared_ptr<int64_t> createTime_ {};
-        // The time when the data quality monitor stops.
+        // The end time of the data quality scan run.
         shared_ptr<int64_t> finishTime_ {};
-        // The ID of the data quality monitor running record.
+        // The ID of the data quality scan run.
         shared_ptr<int64_t> id_ {};
-        // The parameters configured for the instance.
+        // The parameters used for the run.
         shared_ptr<vector<DataQualityScanRuns::Parameters>> parameters_ {};
-        // The status of the instance.
+        // The status of the data quality scan run. Valid values:
         // 
-        // *   Pass
-        // *   Running
-        // *   Error
-        // *   Warn
-        // *   Fail
+        // - Pass
+        // 
+        // - Running
+        // 
+        // - Error
+        // 
+        // - Warn
+        // 
+        // - Fail
         shared_ptr<string> status_ {};
       };
 
@@ -219,13 +223,13 @@ namespace Models
 
 
     protected:
-      // The list of data quality monitor run records.
+      // The list of data quality scan runs.
       shared_ptr<vector<PageInfo::DataQualityScanRuns>> dataQualityScanRuns_ {};
-      // The page number of the results. Default value: 1.
+      // The page number. The default value is 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page. Default value: 10.
+      // The number of entries per page. The default value is 10.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -248,7 +252,7 @@ namespace Models
 
 
   protected:
-    // The page information.
+    // The pagination information.
     shared_ptr<ListDataQualityScanRunsResponseBody::PageInfo> pageInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

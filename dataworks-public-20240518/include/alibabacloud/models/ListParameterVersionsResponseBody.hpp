@@ -138,7 +138,13 @@ namespace Models
 
 
         protected:
+          // The environment type. Valid values:
+          // 
+          // - `Prod`: production environment
+          // 
+          // - `Dev`: development environment
           shared_ptr<string> envType_ {};
+          // The parameter value.
           shared_ptr<string> value_ {};
         };
 
@@ -240,18 +246,37 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
+        // The ID of the creator.
         shared_ptr<string> createUser_ {};
+        // The parameter description.
         shared_ptr<string> description_ {};
+        // The parameter ID.
         shared_ptr<int64_t> id_ {};
+        // The modification time.
         shared_ptr<int64_t> modifyTime_ {};
+        // The ID of the modifier.
         shared_ptr<string> modifyUser_ {};
+        // The parameter name.
         shared_ptr<string> name_ {};
+        // The ID of the owner.
         shared_ptr<string> owner_ {};
+        // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
+        // The environment-specific configurations of the parameter value.
         shared_ptr<vector<ParameterVersion::Properties>> properties_ {};
+        // The scope of the parameter.
         shared_ptr<string> scope_ {};
+        // The type of the parameter. Valid values:
+        // 
+        // - `PlainConstant`: a plaintext constant.
+        // 
+        // - `SecretConstant`: a secret constant.
+        // 
+        // - `Variable`: a variable.
         shared_ptr<string> type_ {};
+        // The version number.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -288,9 +313,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The list of parameter versions.
       shared_ptr<vector<PagingInfo::ParameterVersion>> parameterVersion_ {};
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -313,7 +342,9 @@ namespace Models
 
 
   protected:
+    // The pagination information.
     shared_ptr<ListParameterVersionsResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -112,16 +112,27 @@ namespace Models
 
 
   protected:
+    // The access types.
     shared_ptr<string> accessTypesShrink_ {};
+    // The resource schema type.
+    // 
     // This parameter is required.
     shared_ptr<string> defSchema_ {};
+    // The end time of the query range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The grantee object used to filter results.
     shared_ptr<string> granteeShrink_ {};
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to return per page. Default: 10. Maximum: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The criteria to filter resources.
     shared_ptr<string> resourceShrink_ {};
+    // The resource type, which corresponds to a leaf node name. You can specify multiple values. A business context can map to multiple leaf node names.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceTypeShrink_ {};
+    // The start time of the query range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

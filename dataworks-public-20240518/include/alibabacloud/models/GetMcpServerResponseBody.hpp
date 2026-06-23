@@ -111,8 +111,11 @@ namespace Models
 
 
       protected:
+        // The custom headers.
         Darabonba::Json customHeaders_ {};
+        // The transport protocol.
         shared_ptr<string> transport_ {};
+        // The service address of the MCP Server.
         shared_ptr<string> url_ {};
       };
 
@@ -171,14 +174,23 @@ namespace Models
 
 
     protected:
+      // The connection configuration for the MCP Server.
       shared_ptr<McpServer::Config> config_ {};
+      // The creator ID.
       shared_ptr<string> creatorId_ {};
+      // The creation time, provided as a timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
+      // The modification time, provided as a timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // The modifier ID.
       shared_ptr<string> modifierId_ {};
+      // The MCP Server name.
       shared_ptr<string> name_ {};
+      // The visibility level. Valid values: TENANT (visible within the account), PROJECT (visible to specified projects), and USER (visible to specified users).
       shared_ptr<string> visibility_ {};
     };
 
@@ -201,7 +213,9 @@ namespace Models
 
 
   protected:
+    // The MCP Server configuration.
     shared_ptr<GetMcpServerResponseBody::McpServer> mcpServer_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

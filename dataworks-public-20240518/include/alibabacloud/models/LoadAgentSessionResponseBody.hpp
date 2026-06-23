@@ -109,14 +109,21 @@ namespace Models
 
 
   protected:
+    // The error object of the SSE frame. This field is present when an error occurs.
     Darabonba::Json error_ {};
+    // The client-generated request ID, returned from the request.
     shared_ptr<string> id_ {};
+    // The JSON-RPC version. The value is `2.0`.
     shared_ptr<string> jsonrpc_ {};
+    // The method of the SSE frame.
     shared_ptr<string> method_ {};
+    // The parameters of the SSE frame.
     Darabonba::Json params_ {};
-    // Id of the request
+    // The unique request ID generated for this request.
     shared_ptr<string> requestId_ {};
+    // The result object of the SSE frame. This field is present when the operation is successful.
     Darabonba::Json result_ {};
+    // The timestamp.
     shared_ptr<int64_t> timestamp_ {};
   };
 

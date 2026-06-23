@@ -93,8 +93,19 @@ namespace Models
 
 
     protected:
+      // The condition expression in the format of ((#type==\\"typeValue\\")). Example: ((#odpsProject==\\"PX_BEIJING_TEST\\")).
       shared_ptr<string> expression_ {};
+      // The stage at which the rule takes effect:
+      // - `Deployment`: used to determine whether the approval policy matches when a request is submitted.
+      // - `Running`: used to determine whether approval is exempted during the execution of the approval process. This value is supported only for the MaxCompute type.
       shared_ptr<string> scope_ {};
+      // The condition type. Valid values:
+      // 
+      // - `odpsProject`
+      // - `hologresInstanceId`
+      // - `sensibleLevel`
+      // - `tableGuid`
+      // - `projectId`
       shared_ptr<string> type_ {};
     };
 
@@ -145,8 +156,16 @@ namespace Models
 
 
     protected:
+      // The notification channel. Valid values:
+      // 
+      // - Mail
+      // - Sms
+      // - DingRobot
+      // - Weixin
       shared_ptr<string> channel_ {};
+      // The extension information in JSON format. Example: `{"atAll":"true"}`, which specifies whether to mention all members.
       shared_ptr<string> extension_ {};
+      // The WebhookUrl that must be specified when Channel is set to DingRobot or Weixin.
       shared_ptr<string> receiver_ {};
     };
 
@@ -210,9 +229,36 @@ namespace Models
 
 
     protected:
+      // The type of approver for the node:
+      // - DataWorksProjectRole: workspace role.
+      // - DataWorksProjectMember: workspace member.
+      // - TableAdministrator: table owner.
+      // - TableOrProjectAdministrator: table or workspace administrator.
+      // - AliyunResourceOwner: Alibaba Cloud account.
+      // - MaxComputeRole: MaxCompute administrator.
+      // - DLFAdmin: DLF Legacy administrator.
+      // - DLFNextAdmin: DLF Next administrator.
+      // - TenantRole: tenant role.
+      // - EmrAdministrator: EMR administrator.
+      // - LindormAdministrator: Lindorm administrator.
+      // - AliyunRamUser: RAM user.
       shared_ptr<string> accountType_ {};
+      // The semantics of this parameter varies based on the value of `AccountType`:
+      // - DataWorksProjectMember: the user ID of the workspace member.
+      // - DataWorksProjectRole: the code of the workspace role. If a custom workspace role is required, set this parameter to "custom-role" and further configure the role in ExtensionProperties.
+      // - MaxComputeRole: the MaxCompute role.
+      // - TenantRole: the code of the tenant role.
+      // - AliyunRamUser: the RAM user ID.
       shared_ptr<vector<string>> assignees_ {};
+      // The additional declarations required based on the value of `AccountType`:
+      // 
+      // - DataWorksProjectMember: specify different workspace member user IDs. The key is the workspace ID, and the value is the user ID of the workspace member. Separate multiple user IDs with commas (,).
+      // 
+      // - DataWorksProjectRole: specify different custom workspace role codes. The key is the workspace ID, and the value is the custom workspace role code. Separate multiple role codes with commas (,).
+      // 
+      // - MaxComputeRole: specify the roles under a MaxCompute project. The key is the MaxCompute project name, and the value is the role name in MaxCompute. Separate multiple role names with commas (,).
       Darabonba::Json extensionProperties_ {};
+      // The name of the node.
       shared_ptr<string> name_ {};
     };
 
@@ -289,18 +335,42 @@ namespace Models
 
 
   protected:
+    // The list of approval nodes.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateProcessDefinitionRequest::ApprovalNodes>> approvalNodes_ {};
+    // The idempotency token. We recommend that you use a UUID.
     shared_ptr<string> clientToken_ {};
+    // The description of the process definition.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable the process definition.
     shared_ptr<bool> enabled_ {};
+    // The name of the process definition.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The notification service declarations.
     shared_ptr<vector<CreateProcessDefinitionRequest::NotificationServices>> notificationServices_ {};
+    // The list of condition rules.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateProcessDefinitionRequest::RuleConditions>> ruleConditions_ {};
+    // The subtype. Valid values:
+    // 
+    // - Table
+    // - Column
+    // - Database
+    // - Schema
+    // - Default
     shared_ptr<string> subType_ {};
+    // The type of the process definition. Valid values:
+    // 
+    // 1. MaxCompute
+    // 2. DataService
+    // 3. Extension
+    // 4. Hologres
     shared_ptr<string> type_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // **The control module.**
     shared_ptr<string> controlModule_ {};
+    // **The control submodule.**
     shared_ptr<string> controlSubModule_ {};
+    // The page number. Starts from 1. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

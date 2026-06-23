@@ -112,19 +112,33 @@ namespace Models
 
 
   protected:
+    // A client-generated token that ensures request idempotency, preventing duplicate operations if you retry the request.
     shared_ptr<string> clientToken_ {};
+    // The content of the strategy. This value is constrained by the `SecurityStrategySchema`.
+    // 
     // This parameter is required.
     shared_ptr<string> contentShrink_ {};
+    // **The control scope. Valid values: Workspace and Tenant.**
+    // 
     // This parameter is required.
     shared_ptr<string> controlDwScope_ {};
+    // **Control module**
+    // 
     // This parameter is required.
     shared_ptr<string> controlModule_ {};
+    // **Control submodule**
     shared_ptr<string> controlSubModule_ {};
+    // **Strategy description**
     shared_ptr<string> description_ {};
+    // **Strategy name**
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // **Schema template name**
+    // 
     // This parameter is required.
     shared_ptr<string> schemaName_ {};
+    // A list of associated workspace IDs.
     shared_ptr<string> workspacesShrink_ {};
   };
 

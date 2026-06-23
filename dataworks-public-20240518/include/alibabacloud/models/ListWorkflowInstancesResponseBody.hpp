@@ -150,9 +150,9 @@ namespace Models
 
 
         protected:
-          // The key of a tag.
+          // The tag key.
           shared_ptr<string> key_ {};
-          // The value of a tag.
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -297,54 +297,69 @@ namespace Models
 
 
       protected:
+        // The business date.
         shared_ptr<int64_t> bizDate_ {};
         // The creation time.
         shared_ptr<int64_t> createTime_ {};
-        // The account ID of the creator.
+        // The account ID of the user who created the instance.
         shared_ptr<string> createUser_ {};
-        // The environment of the workspace. Valid values:
+        // The project environment.
         // 
-        // *   Prod
-        // *   Dev
+        // - Prod (production)
+        // 
+        // - Dev (development)
         shared_ptr<string> envType_ {};
         // The time when the instance finished running.
         shared_ptr<int64_t> finishedTime_ {};
-        // The workflow instance ID.
+        // The unique identifier of the workflow instance.
         shared_ptr<int64_t> id_ {};
         // The modification time.
         shared_ptr<int64_t> modifyTime_ {};
-        // The account ID of the modifier.
+        // The account ID of the user who last modified the instance.
         shared_ptr<string> modifyUser_ {};
-        // The name of the workflow instance.
+        // The name.
         shared_ptr<string> name_ {};
         // The account ID of the workflow owner.
         shared_ptr<string> owner_ {};
-        // The workspace ID.
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The time when the instance started to run.
+        // The time when the instance started running.
         shared_ptr<int64_t> startedTime_ {};
-        // The status of the workflow instance. Valid values:
+        // The running status of the workflow instance.
         // 
-        // *   NotRun: The instance is not run.
-        // *   Running: The instance is running.
-        // *   WaitTime: The instance is waiting for the scheduling time to arrive.
-        // *   CheckingCondition: Branch conditions are being checked for the instance.
-        // *   WaitResource: The instance is waiting for resources.
-        // *   Failure: The instance fails to be run.
-        // *   Success: The instance is successfully run.
-        // *   Checking: Data quality is being checked for the instance.
+        // - NotRun: Not run
+        // 
+        // - Running: Running
+        // 
+        // - WaitTime: Waiting for TriggerTime
+        // 
+        // - CheckingCondition: Checking branch conditions
+        // 
+        // - WaitResource: Waiting for resources
+        // 
+        // - Failure: Failed
+        // 
+        // - Success: Succeeded
+        // 
+        // - Checking: Submitted for Data Quality check
         shared_ptr<string> status_ {};
-        // The task tag.
+        // The task tags.
         shared_ptr<vector<WorkflowInstances::Tags>> tags_ {};
-        // The type of the workflow instance. Valid values:
+        // The type of the workflow instance.
         // 
-        // *   Normal: Scheduled execution
-        // *   Manual: Manually triggered node
-        // *   SmokeTest: Smoke test
-        // *   SupplementData: Data backfill
-        // *   ManualWorkflow: Manually triggered workflow
-        // *   TriggerWorkflow: Triggered Workflow
+        // - Normal: Periodic scheduling
+        // 
+        // - Manual: Manual task
+        // 
+        // - SmokeTest: Testing
+        // 
+        // - SupplementData: Backfill data
+        // 
+        // - ManualWorkflow: Manual workflow
+        // 
+        // - TriggerWorkflow: Trigger-based workflow
         shared_ptr<string> type_ {};
+        // The unified workflow instance ID. All workflow instances within the same business date of a single trigger share the same value for this field.
         shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
         // The ID of the workflow to which the instance belongs.
         shared_ptr<int64_t> workflowId_ {};
@@ -391,9 +406,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
-      // The workflow instances.
+      // The list of workflow instances.
       shared_ptr<vector<PagingInfo::WorkflowInstances>> workflowInstances_ {};
     };
 
@@ -416,9 +431,9 @@ namespace Models
 
 
   protected:
-    // Pagination information.
+    // The pagination information.
     shared_ptr<ListWorkflowInstancesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
   };
 

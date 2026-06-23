@@ -94,8 +94,9 @@ namespace Models
       shared_ptr<vector<int64_t>> taskIds_ {};
       // The trigger mode of the data quality monitor. Valid values:
       // 
-      // *   ByManual: Manually triggered. Default setting.
-      // *   BySchedule: Triggered by a scheduled task instance.
+      // - ByManual: Manually triggered. Default setting.
+      // 
+      // - BySchedule: Triggered by a scheduled task instance.
       shared_ptr<string> type_ {};
     };
 
@@ -242,7 +243,7 @@ namespace Models
       shared_ptr<string> condition_ {};
       // The type of the hook. Valid values:
       // 
-      // *   BlockTaskInstance: Block the scheduling of the task instance.
+      // - BlockTaskInstance: Block the scheduling of the task instance.
       shared_ptr<string> type_ {};
     };
 
@@ -322,9 +323,11 @@ namespace Models
       protected:
         // The engine type. These settings are only supported for the EMR compute engine.This setting? Valid values:
         // 
-        // *   Hive: Hive SQL
-        // *   Spark: Spark SQL
-        // *   Kyuubi
+        // - Hive: Hive SQL
+        // 
+        // - Spark: Spark SQL
+        // 
+        // - Kyuubi
         shared_ptr<string> engine_ {};
         // Additional Hive engine parameters. Currently, only the mapreduce.job.queuename parameter is supported.
         Darabonba::Json hiveConf_ {};
@@ -360,8 +363,9 @@ namespace Models
     protected:
       // Workspace environment of the compute engine. Valid values:
       // 
-      // *   Prod
-      // *   Dev
+      // - Prod
+      // 
+      // - Dev
       shared_ptr<string> envType_ {};
       // The name of the compute engine, which is a unique identifier.
       shared_ptr<string> name_ {};

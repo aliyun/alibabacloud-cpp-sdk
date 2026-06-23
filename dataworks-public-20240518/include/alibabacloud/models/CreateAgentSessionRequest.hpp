@@ -58,10 +58,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Meta& obj) { 
           DARABONBA_PTR_TO_JSON(Agent, agent_);
           DARABONBA_PTR_TO_JSON(Config, config_);
+          DARABONBA_PTR_TO_JSON(InitialConfigOptions, initialConfigOptions_);
         };
         friend void from_json(const Darabonba::Json& j, Meta& obj) { 
           DARABONBA_PTR_FROM_JSON(Agent, agent_);
           DARABONBA_PTR_FROM_JSON(Config, config_);
+          DARABONBA_PTR_FROM_JSON(InitialConfigOptions, initialConfigOptions_);
         };
         Meta() = default ;
         Meta(const Meta &) = default ;
@@ -74,6 +76,48 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class InitialConfigOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const InitialConfigOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(ExecutionLane, executionLane_);
+            DARABONBA_PTR_TO_JSON(Mode, mode_);
+          };
+          friend void from_json(const Darabonba::Json& j, InitialConfigOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(ExecutionLane, executionLane_);
+            DARABONBA_PTR_FROM_JSON(Mode, mode_);
+          };
+          InitialConfigOptions() = default ;
+          InitialConfigOptions(const InitialConfigOptions &) = default ;
+          InitialConfigOptions(InitialConfigOptions &&) = default ;
+          InitialConfigOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~InitialConfigOptions() = default ;
+          InitialConfigOptions& operator=(const InitialConfigOptions &) = default ;
+          InitialConfigOptions& operator=(InitialConfigOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->executionLane_ == nullptr
+        && this->mode_ == nullptr; };
+          // executionLane Field Functions 
+          bool hasExecutionLane() const { return this->executionLane_ != nullptr;};
+          void deleteExecutionLane() { this->executionLane_ = nullptr;};
+          inline string getExecutionLane() const { DARABONBA_PTR_GET_DEFAULT(executionLane_, "") };
+          inline InitialConfigOptions& setExecutionLane(string executionLane) { DARABONBA_PTR_SET_VALUE(executionLane_, executionLane) };
+
+
+          // mode Field Functions 
+          bool hasMode() const { return this->mode_ != nullptr;};
+          void deleteMode() { this->mode_ = nullptr;};
+          inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+          inline InitialConfigOptions& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+        protected:
+          shared_ptr<string> executionLane_ {};
+          shared_ptr<string> mode_ {};
+        };
+
         class Config : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Config& obj) { 
@@ -123,6 +167,7 @@ namespace Models
 
 
           protected:
+            // The session tag. You can use session tags to filter sessions. For example, if your application calls the API with a fixed RAM sub-account but maintains its own user account system, you can pass a user\\"s account ID as a tag. This allows you to filter the session list by your internal account IDs. The tag can be up to 128 characters and can contain letters, digits, hyphens (-), and underscores (_).
             shared_ptr<string> sessionTagCode_ {};
           };
 
@@ -145,7 +190,9 @@ namespace Models
 
 
         protected:
+          // The identifier for the session source. This allows you to search for sessions by their source. For example, if you use an agent on multiple pages, such as Page A and Page B, you can use this parameter to filter and display only the sessions created on Page A. The identifier can be up to 128 characters and can contain letters, digits, hyphens (-), and underscores (_).
           shared_ptr<string> sessionSource_ {};
+          // A list of session tags. You can use these tags to search and filter sessions.
           shared_ptr<vector<Config::SessionTags>> sessionTags_ {};
         };
 
@@ -177,11 +224,12 @@ namespace Models
 
 
         protected:
+          // The agent name to bind to the session. This parameter is required.
           shared_ptr<string> agentName_ {};
         };
 
         virtual bool empty() const override { return this->agent_ == nullptr
-        && this->config_ == nullptr; };
+        && this->config_ == nullptr && this->initialConfigOptions_ == nullptr; };
         // agent Field Functions 
         bool hasAgent() const { return this->agent_ != nullptr;};
         void deleteAgent() { this->agent_ = nullptr;};
@@ -200,9 +248,21 @@ namespace Models
         inline Meta& setConfig(Meta::Config && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
 
 
+        // initialConfigOptions Field Functions 
+        bool hasInitialConfigOptions() const { return this->initialConfigOptions_ != nullptr;};
+        void deleteInitialConfigOptions() { this->initialConfigOptions_ = nullptr;};
+        inline const Meta::InitialConfigOptions & getInitialConfigOptions() const { DARABONBA_PTR_GET_CONST(initialConfigOptions_, Meta::InitialConfigOptions) };
+        inline Meta::InitialConfigOptions getInitialConfigOptions() { DARABONBA_PTR_GET(initialConfigOptions_, Meta::InitialConfigOptions) };
+        inline Meta& setInitialConfigOptions(const Meta::InitialConfigOptions & initialConfigOptions) { DARABONBA_PTR_SET_VALUE(initialConfigOptions_, initialConfigOptions) };
+        inline Meta& setInitialConfigOptions(Meta::InitialConfigOptions && initialConfigOptions) { DARABONBA_PTR_SET_RVALUE(initialConfigOptions_, initialConfigOptions) };
+
+
       protected:
+        // The agent configuration for this session. The value must be one of the agents returned by the `ListAgents` API.
         shared_ptr<Meta::Agent> agent_ {};
+        // The configuration parameters for the session, such as filters based on session source and session tags.
         shared_ptr<Meta::Config> config_ {};
+        shared_ptr<Meta::InitialConfigOptions> initialConfigOptions_ {};
       };
 
       virtual bool empty() const override { return this->meta_ == nullptr; };
@@ -216,6 +276,7 @@ namespace Models
 
 
     protected:
+      // The extended metadata, which includes information such as agent binding, session source, and session tags.
       shared_ptr<Params::Meta> meta_ {};
     };
 
@@ -245,8 +306,11 @@ namespace Models
 
 
   protected:
+    // The request ID provided by the client. This ID is returned in the response without modification.
     shared_ptr<string> id_ {};
+    // The JSON-RPC version. The value is fixed at `2.0`.
     shared_ptr<string> jsonrpc_ {};
+    // The business parameters.
     shared_ptr<CreateAgentSessionRequest::Params> params_ {};
   };
 

@@ -545,8 +545,9 @@ namespace Models
           shared_ptr<string> description_ {};
           // The environment in which the data source is used. Valid values:
           // 
-          // *   Dev
-          // *   Prod
+          // - Dev
+          // 
+          // - Prod
           shared_ptr<string> envType_ {};
           // The time when the instance finished running.
           shared_ptr<int64_t> finishedTime_ {};
@@ -576,15 +577,23 @@ namespace Models
           shared_ptr<int64_t> startedTime_ {};
           // The status of the instance. Valid values:
           // 
-          // *   NotRun: The instance is not run.
-          // *   Running: The instance is running.
-          // *   WaitTime: The instance is waiting for the scheduling time to arrive.
-          // *   CheckingCondition: Branch conditions are being checked for the instance.
-          // *   WaitResource: The instance is waiting for resources.
-          // *   Failure: The instance fails to be run.
-          // *   Success: The instance is successfully run.
-          // *   Checking: Data quality is being checked for the instance.
-          // *   WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
+          // - NotRun: The instance is not run.
+          // 
+          // - Running: The instance is running.
+          // 
+          // - WaitTime: The instance is waiting for the scheduling time to arrive.
+          // 
+          // - CheckingCondition: Branch conditions are being checked for the instance.
+          // 
+          // - WaitResource: The instance is waiting for resources.
+          // 
+          // - Failure: The instance fails to be run.
+          // 
+          // - Success: The instance is successfully run.
+          // 
+          // - Checking: Data quality is being checked for the instance.
+          // 
+          // - WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
           shared_ptr<string> status_ {};
           // The ID of the task for which the instance is generated.
           shared_ptr<int64_t> taskId_ {};
@@ -598,16 +607,19 @@ namespace Models
           shared_ptr<int32_t> timeout_ {};
           // The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
           // 
-          // *   Pause
-          // *   Skip
-          // *   Normal
+          // - Pause
+          // 
+          // - Skip
+          // 
+          // - Normal
           shared_ptr<string> triggerRecurrence_ {};
           // The scheduling time.
           shared_ptr<int64_t> triggerTime_ {};
           // The trigger type. Valid values:
           // 
-          // *   Scheduler: scheduling cycle-based trigger
-          // *   Manual: manual trigger
+          // - Scheduler: scheduling cycle-based trigger
+          // 
+          // - Manual: manual trigger
           shared_ptr<string> triggerType_ {};
           // The ID of the workflow to which the instance belongs.
           shared_ptr<int64_t> workflowId_ {};
@@ -615,11 +627,15 @@ namespace Models
           shared_ptr<int64_t> workflowInstanceId_ {};
           // The type of the workflow instance. Valid values:
           // 
-          // *   Normal
-          // *   Manual
-          // *   SmokeTest
-          // *   SupplementData
-          // *   ManualWorkflow
+          // - Normal
+          // 
+          // - Manual
+          // 
+          // - SmokeTest
+          // 
+          // - SupplementData
+          // 
+          // - ManualWorkflow
           shared_ptr<string> workflowInstanceType_ {};
           // The name of the workflow to which the instance belongs.
           shared_ptr<string> workflowName_ {};
@@ -646,8 +662,9 @@ namespace Models
       protected:
         // The scheduling dependency type. Valid values:
         // 
-        // *   Normal
-        // *   CrossCycle
+        // - Normal
+        // 
+        // - CrossCycle
         shared_ptr<string> dependencyType_ {};
         // The information about a task instance.
         shared_ptr<UpstreamTaskInstances::TaskInstance> taskInstance_ {};
@@ -1136,8 +1153,9 @@ namespace Models
         shared_ptr<string> description_ {};
         // The environment of the workspace. Valid values:
         // 
-        // *   Prod
-        // *   Dev
+        // - Prod
+        // 
+        // - Dev
         shared_ptr<string> envType_ {};
         // The time when the instance finished running.
         shared_ptr<int64_t> finishedTime_ {};
@@ -1155,16 +1173,19 @@ namespace Models
         shared_ptr<int32_t> priority_ {};
         // The environment of the workspace. Valid values:
         // 
-        // *   Prod: production environment
-        // *   Dev: development environment
+        // - Prod: production environment
+        // 
+        // - Dev: development environment
         shared_ptr<string> projectEnv_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
         // The rerun mode. Valid values:
         // 
-        // *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-        // *   FailureAllowed: The task can be rerun only after it fails to run.
-        // *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+        // - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+        // 
+        // - FailureAllowed: The task can be rerun only after it fails to run.
+        // 
+        // - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
         shared_ptr<string> rerunMode_ {};
         // The number of times the instance is run. By default, the value starts from 1.
         shared_ptr<int32_t> runNumber_ {};
@@ -1176,19 +1197,27 @@ namespace Models
         shared_ptr<int64_t> startedTime_ {};
         // The status of the instance. Valid values:
         // 
-        // *   NotRun: The instance is not run.
-        // *   Running: The instance is running.
-        // *   WaitTime: The instance is waiting for the scheduling time to arrive.
-        // *   CheckingCondition: Branch conditions are being checked for the instance.
-        // *   WaitResource: The instance is waiting for resources.
-        // *   Failure: The instance fails to be run.
-        // *   Success: The instance is successfully run.
-        // *   Checking: Data quality is being checked for the instance.
+        // - NotRun: The instance is not run.
+        // 
+        // - Running: The instance is running.
+        // 
+        // - WaitTime: The instance is waiting for the scheduling time to arrive.
+        // 
+        // - CheckingCondition: Branch conditions are being checked for the instance.
+        // 
+        // - WaitResource: The instance is waiting for resources.
+        // 
+        // - Failure: The instance fails to be run.
+        // 
+        // - Success: The instance is successfully run.
+        // 
+        // - Checking: Data quality is being checked for the instance.
         shared_ptr<string> status_ {};
         // The scheduling dependency type. Valid values:
         // 
-        // *   Normal: same-cycle scheduling dependency
-        // *   CrossCycle: cross-cycle scheduling dependency
+        // - Normal: same-cycle scheduling dependency
+        // 
+        // - CrossCycle: cross-cycle scheduling dependency
         shared_ptr<string> stepType_ {};
         // The ID of the task for which the instance is generated.
         shared_ptr<int64_t> taskId_ {};
@@ -1200,16 +1229,19 @@ namespace Models
         shared_ptr<int32_t> timeout_ {};
         // The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
         // 
-        // *   Pause
-        // *   Skip
-        // *   Normal
+        // - Pause
+        // 
+        // - Skip
+        // 
+        // - Normal
         shared_ptr<string> triggerRecurrence_ {};
         // The scheduling time.
         shared_ptr<int64_t> triggerTime_ {};
         // The trigger type. Valid values:
         // 
-        // *   Scheduler: scheduling cycle-based trigger
-        // *   Manual: manual trigger
+        // - Scheduler: scheduling cycle-based trigger
+        // 
+        // - Manual: manual trigger
         shared_ptr<string> triggerType_ {};
         // The ID of the workflow to which the instance belongs.
         shared_ptr<int64_t> workflowId_ {};
@@ -1217,12 +1249,17 @@ namespace Models
         shared_ptr<int64_t> workflowInstanceId_ {};
         // The type of the workflow instance. Valid values:
         // 
-        // *   SmokeTest
-        // *   SupplementData
-        // *   Manual
-        // *   ManualWorkflow
-        // *   Normal
-        // *   ManualFlow
+        // - SmokeTest
+        // 
+        // - SupplementData
+        // 
+        // - Manual
+        // 
+        // - ManualWorkflow
+        // 
+        // - Normal
+        // 
+        // - ManualFlow
         shared_ptr<string> workflowInstanceType_ {};
         // The name of the workflow to which the instance belongs.
         shared_ptr<string> workflowName_ {};

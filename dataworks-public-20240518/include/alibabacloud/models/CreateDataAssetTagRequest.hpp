@@ -90,10 +90,13 @@ namespace Models
     shared_ptr<vector<string>> managers_ {};
     // The type of the tag value. Valid values:
     // 
-    // *   Boolean
-    // *   Int
-    // *   String
-    // *   Double
+    // - Boolean
+    // 
+    // - Int
+    // 
+    // - String
+    // 
+    // - Double
     shared_ptr<string> valueType_ {};
     // The tag values.
     shared_ptr<vector<string>> values_ {};

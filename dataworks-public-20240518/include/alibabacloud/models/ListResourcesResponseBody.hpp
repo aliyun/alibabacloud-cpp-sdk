@@ -183,7 +183,7 @@ namespace Models
         protected:
           // The ID of the script.
           // 
-          // >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+          // > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
           shared_ptr<string> id_ {};
           // The script path.
           shared_ptr<string> path_ {};
@@ -341,7 +341,7 @@ namespace Models
         shared_ptr<Resources::DataSource> dataSource_ {};
         // The unique identifier of the file resource.
         // 
-        // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+        // > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
         shared_ptr<string> id_ {};
         // The timestamp when the file resource was last modified.
         shared_ptr<int64_t> modifyTime_ {};
@@ -359,8 +359,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Local
-        // *   OSS
+        // - Local
+        // 
+        // - OSS
         shared_ptr<string> sourceType_ {};
         // The destination storage path.
         shared_ptr<string> targetPath_ {};
@@ -368,18 +369,23 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Gateway
-        // *   OSS
-        // *   HDFS
+        // - Gateway
+        // 
+        // - OSS
+        // 
+        // - HDFS
         shared_ptr<string> targetType_ {};
         // The resource type.
         // 
         // Valid values:
         // 
-        // *   Python
-        // *   Jar
-        // *   Archive
-        // *   File
+        // - Python
+        // 
+        // - Jar
+        // 
+        // - Archive
+        // 
+        // - File
         shared_ptr<string> type_ {};
       };
 

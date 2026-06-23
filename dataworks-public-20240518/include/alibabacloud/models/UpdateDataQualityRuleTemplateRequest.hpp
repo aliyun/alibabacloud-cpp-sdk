@@ -86,27 +86,26 @@ namespace Models
 
 
     protected:
-      // The metrics used for sampling. Valid values:
-      // 
-      // *   Count: the number of rows in the table.
-      // *   Min: the minimum value of the field.
-      // *   Max: the maximum value of the field.
-      // *   Avg: the average value of the field.
-      // *   DistinctCount: the number of unique values of the field after deduplication.
-      // *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
-      // *   DuplicatedCount: the number of duplicated values of the field.
-      // *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
-      // *   TableSize: the table size.
-      // *   NullValueCount: the number of rows in which the field value is null.
-      // *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
-      // *   GroupCount: the field value and the number of rows for each field value.
-      // *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
-      // *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
-      // *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+      // The name of the metric to be sampled. Valid values:
+      // - Count: the number of table rows.
+      // - Min: the minimum value of a field.
+      // - Max: the maximum value of a field.
+      // - Avg: the average value of a field.
+      // - DistinctCount: the number of distinct values of a field.
+      // - DistinctPercent: the ratio of the number of distinct values of a field to the number of data rows.
+      // - DuplicatedCount: the number of duplicate values of a field.
+      // - DuplicatedPercent: the ratio of the number of duplicate values of a field to the number of data rows.
+      // - TableSize: the size of the table.
+      // - NullValueCount: the number of rows in which the field is null.
+      // - NullValuePercent: the percentage of rows in which the field is null.
+      // - GroupCount: the number of data rows corresponding to each value after the field values are aggregated.
+      // - CountNotIn: the number of rows whose values do not match the enumerated values.
+      // - CountDistinctNotIn: the number of distinct values that do not match the enumerated values.
+      // - UserDefinedSql: sample collection by using custom SQL.
       shared_ptr<string> metric_ {};
-      // The parameters required for sampling.
+      // The parameters required for sample collection.
       shared_ptr<string> metricParameters_ {};
-      // The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+      // The runtime parameter setting statements that are inserted and executed before the sampling statements are executed. The statements can be up to 1,000 characters in length. Only MaxCompute is supported.
       shared_ptr<string> settingConfig_ {};
     };
 
@@ -148,11 +147,11 @@ namespace Models
 
 
     protected:
-      // The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to specify the query method of referenced samples.
+      // For some types of thresholds, you must query reference samples and then aggregate the values of the reference samples to obtain the threshold used for comparison. An expression is used here to indicate the query method of reference samples.
       shared_ptr<string> referencedSamplesFilter_ {};
       // The type of the monitored object. Valid values:
       // 
-      // *   Table
+      // - Table
       shared_ptr<string> type_ {};
     };
 
@@ -205,23 +204,23 @@ namespace Models
 
 
   protected:
-    // The check settings for sample data.
+    // The settings for sample validation.
     shared_ptr<UpdateDataQualityRuleTemplateRequest::CheckingConfig> checkingConfig_ {};
-    // The code for the template.
+    // The code of the rule template.
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+    // The category directory in which the custom template is stored. Levels are separated by forward slashes (/). The name of each level can be up to 1024 characters in length and cannot contain whitespace characters or forward slashes (/).
     shared_ptr<string> directoryPath_ {};
-    // The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+    // The name of the rule template. The name can contain digits, letters, Chinese characters, and half-width and full-width punctuation marks. The name can be up to 512 characters in length.
     shared_ptr<string> name_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the ID.
     // 
-    // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+    // This parameter specifies the DataWorks workspace used for this API call.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The sampling settings.
+    // The settings required for sample collection.
     shared_ptr<UpdateDataQualityRuleTemplateRequest::SamplingConfig> samplingConfig_ {};
   };
 

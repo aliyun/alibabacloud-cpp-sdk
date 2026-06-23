@@ -103,28 +103,29 @@ namespace Models
 
 
   protected:
-    // The destination entity ID. For more information, see the table ID or field ID in the response returned by the ListTables or ListColumns operation. You can also specify a custom entity ID.
+    // The ID of the destination entity. You can get the ID for a table or column from the response of the `ListTables` or `ListColumns` operation, or specify the ID of a custom entity.
     // 
     // This parameter is required.
     shared_ptr<string> dstEntityId_ {};
-    // The destination entity name. Supports fuzzy matching.
+    // The name of the destination entity. Supports fuzzy matching.
     shared_ptr<string> dstEntityName_ {};
-    // The order in which schemas are sorted. Default value: Asc. Valid values:
+    // The sort order. The default value is `Asc`. Valid values:
     // 
-    // *   Asc: ascending.
-    // *   Desc: descending.
+    // - `Asc`: ascending order
+    // 
+    // - `Desc`: descending order
     shared_ptr<string> order_ {};
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The page size. The default value is 10. The maximum value is 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort field. Default value: Name.
+    // The field to sort the results by. The default value is `Name`.
     shared_ptr<string> sortBy_ {};
-    // The source entity ID. For more information, see the table ID or field ID in the response returned by the ListTables or ListColumns operation. You can also specify a custom entity ID.
+    // The ID of the source entity. You can get the ID for a table or column from the response of the `ListTables` or `ListColumns` operation, or specify the ID of a custom entity.
     // 
     // This parameter is required.
     shared_ptr<string> srcEntityId_ {};
-    // The source entity name. Supports fuzzy matching.
+    // The name of the source entity. Supports fuzzy matching.
     shared_ptr<string> srcEntityName_ {};
   };
 

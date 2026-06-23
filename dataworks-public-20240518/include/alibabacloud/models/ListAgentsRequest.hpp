@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // The exact agent name to filter by. If not specified, all agents are returned.
       shared_ptr<string> agentName_ {};
+      // The number of entries per page. Default value: 50.
       shared_ptr<int32_t> maxResults_ {};
+      // The token for the next page, following the Alibaba Cloud OpenAPI convention. Do not specify this parameter for the first page. For subsequent pages, pass in the nextToken value returned in the previous response.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -111,8 +114,11 @@ namespace Models
 
 
   protected:
+    // The request ID passed in by the caller. The value is returned as-is in the response.
     shared_ptr<string> id_ {};
+    // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};
+    // The parameters for this request.
     shared_ptr<ListAgentsRequest::Params> params_ {};
   };
 

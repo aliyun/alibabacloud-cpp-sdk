@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the security strategy.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
   };

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Whether the image was successfully disassociated from the workspace.
     shared_ptr<bool> data_ {};
+    // The request ID. Use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

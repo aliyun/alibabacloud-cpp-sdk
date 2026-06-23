@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The certificate file to upload. Upload method: Upload the file by creating an InputStream.
+    // The certificate file to upload. Construct an InputStream to upload the file.
     // 
     // This parameter is required.
     shared_ptr<Darabonba::IStream> certificateFileObject_ {};
-    // The description of the task.
+    // The description of the file.
     shared_ptr<string> description_ {};
-    // The certificate file name. In a project workspace, certificate file names must be unique.
+    // The name of the certificate file. The name must be unique within a project.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the workspace to which the certificate file belongs.
+    // The ID of the project to which the certificate file belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

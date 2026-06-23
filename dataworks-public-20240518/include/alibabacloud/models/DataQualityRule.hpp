@@ -349,6 +349,7 @@ namespace Models
 
 
         protected:
+          // 阈值表达式
           shared_ptr<string> expression_ {};
           // The comparison operator. Valid values:
           // 
@@ -410,6 +411,7 @@ namespace Models
 
 
         protected:
+          // 阈值表达式
           shared_ptr<string> expression_ {};
           // The comparison operator. Valid values:
           // 
@@ -471,6 +473,7 @@ namespace Models
 
 
         protected:
+          // 校验表达式
           shared_ptr<string> expression_ {};
           // The comparison operator. Valid values:
           // 

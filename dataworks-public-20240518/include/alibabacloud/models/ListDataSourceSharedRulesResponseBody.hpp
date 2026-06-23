@@ -141,7 +141,9 @@ namespace Models
       // The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
       shared_ptr<int64_t> dataSourceId_ {};
       // The environment to which the target data source belongs. The values are as follows:
+      // 
       // - Dev: the development environment.
+      // 
       // - Prod: the production environment.
       shared_ptr<string> envType_ {};
       // The rule ID.

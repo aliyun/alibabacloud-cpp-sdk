@@ -114,8 +114,11 @@ namespace Models
 
 
       protected:
+        // The destination entity.
         shared_ptr<LineageEntity> dstEntity_ {};
+        // A list of lineage relationships.
         shared_ptr<vector<LineageRelationship>> relationships_ {};
+        // The source entity.
         shared_ptr<LineageEntity> srcEntity_ {};
       };
 
@@ -152,9 +155,13 @@ namespace Models
 
 
     protected:
+      // A list of lineage information.
       shared_ptr<vector<PagingInfo::Lineages>> lineages_ {};
+      // The page number of the returned data.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned on the current page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -184,8 +191,11 @@ namespace Models
 
 
   protected:
+    // The pagination details.
     shared_ptr<ListLineagesResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

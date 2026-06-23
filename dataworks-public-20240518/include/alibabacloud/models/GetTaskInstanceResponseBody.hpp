@@ -386,10 +386,13 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
-          // *   Constant: constant
-          // *   PassThrough: node output
-          // *   System: variable
-          // *   NodeOutput: script output
+          // - Constant: constant
+          // 
+          // - PassThrough: node output
+          // 
+          // - System: variable
+          // 
+          // - NodeOutput: script output
           shared_ptr<string> type_ {};
           // The value of the variable.
           shared_ptr<string> value_ {};
@@ -524,10 +527,13 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
-          // *   Constant: constant
-          // *   PassThrough: node output
-          // *   System: variable
-          // *   NodeOutput: script output
+          // - Constant: constant
+          // 
+          // - PassThrough: node output
+          // 
+          // - System: variable
+          // 
+          // - NodeOutput: script output
           shared_ptr<string> type_ {};
           // The value of the variable.
           shared_ptr<string> value_ {};
@@ -909,16 +915,19 @@ namespace Models
       shared_ptr<int32_t> priority_ {};
       // The environment of the workspace. Valid values:
       // 
-      // *   Prod: production environment
-      // *   Dev: development environment
+      // - Prod: production environment
+      // 
+      // - Dev: development environment
       shared_ptr<string> projectEnv_ {};
       // The workspace ID.
       shared_ptr<int64_t> projectId_ {};
       // The rerun mode. Valid values:
       // 
-      // *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-      // *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
-      // *   FailureAllowed: The task can be rerun only after it fails to run.
+      // - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+      // 
+      // - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+      // 
+      // - FailureAllowed: The task can be rerun only after it fails to run.
       shared_ptr<string> rerunMode_ {};
       // The number of times the instance is run. By default, the value starts from 1.
       shared_ptr<int32_t> runNumber_ {};
@@ -932,14 +941,21 @@ namespace Models
       shared_ptr<int64_t> startedTime_ {};
       // The status of the instance. Valid values:
       // 
-      // *   NotRun: The instance is not run.
-      // *   Running: The instance is running.
-      // *   WaitTime: The instance is waiting for the scheduling time to arrive.
-      // *   CheckingCondition: Branch conditions are being checked for the instance.
-      // *   WaitResource: The instance is waiting for resources.
-      // *   Failure: The instance fails to be run.
-      // *   Success: The instance is successfully run.
-      // *   Checking: Data quality is being checked for the instance.
+      // - NotRun: The instance is not run.
+      // 
+      // - Running: The instance is running.
+      // 
+      // - WaitTime: The instance is waiting for the scheduling time to arrive.
+      // 
+      // - CheckingCondition: Branch conditions are being checked for the instance.
+      // 
+      // - WaitResource: The instance is waiting for resources.
+      // 
+      // - Failure: The instance fails to be run.
+      // 
+      // - Success: The instance is successfully run.
+      // 
+      // - Checking: Data quality is being checked for the instance.
       shared_ptr<string> status_ {};
       // The tags of the task.
       shared_ptr<vector<TaskInstance::Tags>> tags_ {};
@@ -955,17 +971,21 @@ namespace Models
       shared_ptr<int32_t> timeout_ {};
       // The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
       // 
-      // *   Pause
-      // *   Skip
-      // *   Normal
+      // - Pause
+      // 
+      // - Skip
+      // 
+      // - Normal
       shared_ptr<string> triggerRecurrence_ {};
       // The scheduling time.
       shared_ptr<int64_t> triggerTime_ {};
       // The method to trigger instance scheduling. The value of the Trigger.Type parameter in the response of the GetTask operation is used. Valid values:
       // 
-      // *   Scheduler
-      // *   Manual
+      // - Scheduler
+      // 
+      // - Manual
       shared_ptr<string> triggerType_ {};
+      // Unified workflow instance ID. All task instances triggered under the same data timestamp share the same value for this field.
       shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
       // The timestamp for when it started waiting for resources.
       shared_ptr<int64_t> waitingResourceTime_ {};
@@ -977,12 +997,17 @@ namespace Models
       shared_ptr<int64_t> workflowInstanceId_ {};
       // The type of the workflow instance. Valid values:
       // 
-      // *   SmokeTest
-      // *   SupplementData
-      // *   Manual
-      // *   ManualWorkflow
-      // *   Normal
-      // *   ManualFlow
+      // - SmokeTest
+      // 
+      // - SupplementData
+      // 
+      // - Manual
+      // 
+      // - ManualWorkflow
+      // 
+      // - Normal
+      // 
+      // - ManualFlow
       shared_ptr<string> workflowInstanceType_ {};
       // The name of the workflow to which the instance belongs.
       shared_ptr<string> workflowName_ {};

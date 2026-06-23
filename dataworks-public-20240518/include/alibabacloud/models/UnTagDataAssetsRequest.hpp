@@ -132,15 +132,17 @@ namespace Models
     shared_ptr<vector<string>> dataAssetIds_ {};
     // The type of the data asset. Valid values:
     // 
-    // *   ACS::DataWorks::Table
-    // *   ACS::DataWorks::Task
+    // - ACS::DataWorks::Table
+    // 
+    // - ACS::DataWorks::Task
     // 
     // This parameter is required.
     shared_ptr<string> dataAssetType_ {};
     // The environment of the workspace to which the data asset belongs. Valid values:
     // 
-    // *   Dev: development environment
-    // *   Prod: production environment
+    // - Dev: development environment
+    // 
+    // - Prod: production environment
     shared_ptr<string> envType_ {};
     // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};

@@ -112,15 +112,25 @@ namespace Models
 
 
   protected:
+    // Conditions for filtering entities by entity attributes. The `AND` operator is used between different filters, and the `OR` operator is used for multiple values within a single filter.
     shared_ptr<string> attributeFiltersShrink_ {};
+    // Filters entities by comment. This is a token-based match.
     shared_ptr<string> comment_ {};
+    // Conditions for filtering entities by custom attributes. The `AND` operator is used between different filters, and the `OR` operator is used for multiple values within a single filter. This parameter supports only `ENUM` custom attributes.
     shared_ptr<string> customAttributeFiltersShrink_ {};
+    // The type of the entity to list.
+    // 
     // This parameter is required.
     shared_ptr<string> entityType_ {};
+    // The maximum number of results to return per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // Filters entities by name. This is a containment match.
     shared_ptr<string> name_ {};
+    // The pagination token that specifies the next page of results. To retrieve the first page, do not specify this parameter. To retrieve subsequent pages, set this parameter to the `NextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
+    // The sort order. Valid values: `Asc` and `Desc`.
     shared_ptr<string> order_ {};
+    // The field to use for sorting the results.
     shared_ptr<string> sortBy_ {};
   };
 

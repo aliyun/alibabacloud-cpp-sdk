@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // A client token to ensure request idempotence.
     shared_ptr<string> clientToken_ {};
+    // The policy content, which is constrained by the `SecurityStrategySchema`.
+    // 
     // This parameter is required.
     shared_ptr<string> contentShrink_ {};
+    // **The policy description.**
     shared_ptr<string> description_ {};
+    // **The policy ID.**
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // **The policy name.**
     shared_ptr<string> name_ {};
+    // **A list of associated workspace IDs.**
     shared_ptr<string> workspacesShrink_ {};
   };
 

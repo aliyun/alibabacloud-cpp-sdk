@@ -87,8 +87,9 @@ namespace Models
     shared_ptr<string> projectIdentifier_ {};
     // Whether to skip the pre-deployment check after the file is submitted:
     // 
-    // *   false: Do not skip. After the file is submitted, the system automatically triggers the pre-deployment check. The file becomes available for deployment only after the check is passed.
-    // *   true: Skip. After the file is submitted, the system does not trigger the pre-deployment check. The file can proceed directly to deployment.
+    // - false: Do not skip. After the file is submitted, the system automatically triggers the pre-deployment check. The file becomes available for deployment only after the check is passed.
+    // 
+    // - true: Skip. After the file is submitted, the system does not trigger the pre-deployment check. The file can proceed directly to deployment.
     shared_ptr<bool> skipAllDeployFileExtensions_ {};
   };
 

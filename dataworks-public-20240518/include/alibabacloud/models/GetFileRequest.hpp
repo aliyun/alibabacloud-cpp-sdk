@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID.
+    // The ID of the file. You can invoke the [ListFiles](https://help.aliyun.com/document_detail/173942.html) API to query the ID of the corresponding file.
     shared_ptr<int64_t> fileId_ {};
-    // The ID of the node that is scheduled. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID.
+    // The ID of the scheduling node. You can invoke the [ListFiles](https://help.aliyun.com/document_detail/173942.html) API to obtain the node ID.
     shared_ptr<int64_t> nodeId_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console), and go to the workspace configuration page to obtain the workspace ID.
     // 
-    // You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+    // You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace for this API call.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the name.
+    // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console), and go to the workspace configuration page to obtain the workspace name.
     // 
-    // You must configure either this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
+    // You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};
   };
 

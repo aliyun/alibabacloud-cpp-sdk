@@ -82,6 +82,7 @@ namespace Models
 
 
       protected:
+        // The ID of the created session.
         shared_ptr<string> sessionId_ {};
       };
 
@@ -111,8 +112,11 @@ namespace Models
 
 
     protected:
+      // The request ID provided by the client. This ID is returned in the response without modification.
       shared_ptr<string> id_ {};
+      // The JSON-RPC version. The value is fixed at `2.0`.
       shared_ptr<string> jsonrpc_ {};
+      // The business data. This field is `null` if an error occurs.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 
@@ -135,8 +139,9 @@ namespace Models
 
 
   protected:
+    // The JSON-RPC response.
     shared_ptr<CreateAgentSessionResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

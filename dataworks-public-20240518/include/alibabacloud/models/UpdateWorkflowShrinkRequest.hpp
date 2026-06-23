@@ -157,8 +157,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // The project environment.
     // 
-    // *   Prod
-    // *   Dev
+    // - Prod
+    // 
+    // - Dev
     shared_ptr<string> envType_ {};
     // The workflow ID.
     // 
@@ -166,8 +167,9 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The instance generation mode.
     // 
-    // *   T+1: the next day
-    // *   Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
+    // - T+1: the next day
+    // 
+    // - Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
     shared_ptr<string> instanceMode_ {};
     // The name of the workflow.
     // 

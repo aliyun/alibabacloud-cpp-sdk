@@ -130,38 +130,36 @@ namespace Models
 
 
   protected:
-    // The list of monitoring rules that are associated with the monitor.
+    // List of data quality rules associated with the data quality monitoring.
     shared_ptr<string> dataQualityRulesShrink_ {};
-    // The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
+    // Data source ID. You can call [ListDataSources](https://help.aliyun.com/document_detail/211431.html) to obtain the data source ID.
     shared_ptr<int64_t> dataSourceId_ {};
-    // The description of the monitor.
+    // Description of the quality monitoring task
     shared_ptr<string> description_ {};
-    // The hook.
+    // Callback settings
     shared_ptr<string> hooksShrink_ {};
-    // The ID of the monitor.
+    // Data quality monitoring ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The name of the monitor.
+    // Name of the quality monitoring task
     shared_ptr<string> name_ {};
-    // The configurations of alert notifications.
+    // Notification subscription configuration
     shared_ptr<string> notificationsShrink_ {};
-    // The ID of the DataWorks workspace.
+    // Workspace ID
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The extended configurations in JSON-formatted strings. You can use this parameter only for monitors that are used to monitor the quality of E-MapReduce (EMR) data.
+    // Extended configuration. A JSON-formatted string. Takes effect only for EMR-type data quality monitoring.
     // 
-    // *   queue: The Yarn queue used when a monitor checks the quality of EMR data. By default, the queue configured for the current workspace is used.
-    // 
-    // *   sqlEngine: The SQL engine used when a monitor checks the quality of EMR data.
-    // 
-    //     *   HIVE_SQL
-    //     *   SPARK_SQL
+    // - queue: The YARN queue used when executing EMR data quality validation. Defaults to the queue configured for the current project.
+    // - sqlEngine: The SQL engine used when executing EMR data validation.
+    //   + HIVE_SQL
+    //   + SPARK_SQL
     shared_ptr<string> runtimeConf_ {};
-    // The monitored object of the data quality monitoring task.
+    // Data quality monitoring object
     shared_ptr<string> targetShrink_ {};
-    // The trigger configuration of the monitor.
+    // Trigger configuration of the data quality validation task
     shared_ptr<string> triggerShrink_ {};
   };
 

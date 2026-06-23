@@ -135,10 +135,11 @@ namespace Models
           shared_ptr<string> code_ {};
           // The name of the role.
           shared_ptr<string> name_ {};
-          // The type of the role. Valid values:
+          // The type of the role.
           // 
-          // *   UserCustom: user-defined role
-          // *   System: system role
+          // - `UserCustom`: A user-defined role.
+          // 
+          // - `System`: A system role.
           shared_ptr<string> type_ {};
         };
 
@@ -182,17 +183,19 @@ namespace Models
 
 
       protected:
-        // The ID of the DataWorks workspace.
+        // The ID of the DataWorks Workspace.
         shared_ptr<int64_t> projectId_ {};
-        // The roles that are assigned to the member.
+        // The roles assigned to the Workspace member.
         shared_ptr<vector<ProjectMembers::Roles>> roles_ {};
-        // The status of the member. Valid values:
+        // The status of the Workspace member.
         // 
-        // *   Normal
-        // *   Forbidden
+        // - `Normal`: The member is active.
+        // 
+        // - `Forbidden`: The member is disabled.
         shared_ptr<string> status_ {};
-        // The ID of the account used by the member.
+        // The ID of the DataWorks user.
         shared_ptr<string> userId_ {};
+        // The name of the DataWorks user.
         shared_ptr<string> userName_ {};
       };
 
@@ -231,11 +234,11 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of entries to return on each page.
       shared_ptr<int32_t> pageSize_ {};
-      // The members in the workspace.
+      // The list of Workspace members.
       shared_ptr<vector<PagingInfo::ProjectMembers>> projectMembers_ {};
-      // The total number of entries returned.
+      // The total number of matching entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -258,9 +261,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paging information.
     shared_ptr<ListProjectMembersResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. You can use the ID to query logs and troubleshoot issues.
+    // The unique ID of the request, used to track logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

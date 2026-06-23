@@ -93,8 +93,11 @@ namespace Models
 
 
     protected:
+      // The name of the resource schema (`ResourceSchema.name`) required for resource parsing.
       shared_ptr<string> defSchema_ {};
+      // The version of the resource schema (`ResourceSchema.version`) required for resource parsing.
       shared_ptr<string> defVersion_ {};
+      // The resource metadata. The content is constrained by the `ResourceSchema`.
       Darabonba::Json metaData_ {};
     };
 
@@ -164,17 +167,43 @@ namespace Models
 
 
   protected:
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> defSchema_ {};
+    // The end time of the application, specified as a Unix timestamp in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // A token that you can use in a subsequent request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to return on each page. Default value: 10. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The search criteria for the resource.
     shared_ptr<ListMyApplicationsRequest::Resource> resource_ {};
+    // The name of the leaf node that specifies the resource type. You can specify multiple resource types. Note that different leaf node names can map to the same business logic.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceType_ {};
+    // The start time of the application, specified as a Unix timestamp in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // The approval statuses for filtering. Valid values:
+    // 
+    // - `WaitApproval`: Pending approval
+    // 
+    // - `Confirmed`: Pending authorization
+    // 
+    // - `RejectApproval`: Approval rejected
+    // 
+    // - `AuthorizeSucceed`: Authorization succeeded
+    // 
+    // - `AuthorizeFailed`: Authorization failed
+    // 
+    // - `Deleted`: The application was deleted.
+    // 
+    // - `Canceled`: The application was canceled.
     shared_ptr<vector<string>> statuses_ {};
   };
 

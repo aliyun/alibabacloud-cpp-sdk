@@ -128,8 +128,9 @@ namespace Models
   protected:
     // The environment of the workspace. Valid values:
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // - Prod: production environment
+    // 
+    // - Dev: development environment
     shared_ptr<string> envType_ {};
     // The IDs of the workflows. You can query multiple workflows at a time by workflow ID.
     shared_ptr<vector<int64_t>> ids_ {};
@@ -147,18 +148,23 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
     // 
-    // *   ModifyTime (Desc/Asc)
-    // *   CreateTime (Desc/Asc)
-    // *   Id (Desc/Asc)
+    // - ModifyTime (Desc/Asc)
+    // 
+    // - CreateTime (Desc/Asc)
+    // 
+    // - Id (Desc/Asc)
     // 
     // Default value: Id Desc.
     shared_ptr<string> sortBy_ {};
+    // List of tags. A result is returned if it matches any one of the specified tags.
     shared_ptr<vector<string>> tags_ {};
     // The trigger type.
     // 
-    // *   Scheduler
-    // *   Manual
-    // *   TriggerWorkflow
+    // - Scheduler
+    // 
+    // - Manual
+    // 
+    // - TriggerWorkflow
     shared_ptr<string> triggerType_ {};
   };
 

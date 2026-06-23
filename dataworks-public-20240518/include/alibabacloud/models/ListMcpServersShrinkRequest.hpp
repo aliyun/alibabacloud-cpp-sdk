@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The next page token from a previous response. Use this token to retrieve the next page of results. Leave this parameter empty for the first request.
     shared_ptr<string> nextToken_ {};
+    // The search keyword for a fuzzy search on MCP Server names.
     shared_ptr<string> q_ {};
+    // The visibility level for filtering the results.
     shared_ptr<string> visibilityShrink_ {};
   };
 

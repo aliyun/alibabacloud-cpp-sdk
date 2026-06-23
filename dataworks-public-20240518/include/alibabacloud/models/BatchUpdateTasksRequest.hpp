@@ -146,16 +146,19 @@ namespace Models
         shared_ptr<string> endTime_ {};
         // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
         // 
-        // *   Pause
-        // *   Skip
-        // *   Normal
+        // - Pause
+        // 
+        // - Skip
+        // 
+        // - Normal
         shared_ptr<string> recurrence_ {};
         // The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
         shared_ptr<string> startTime_ {};
         // The trigger type. Valid values:
         // 
-        // *   Scheduler: periodically triggered
-        // *   Manual
+        // - Scheduler: periodically triggered
+        // 
+        // - Manual
         shared_ptr<string> type_ {};
       };
 
@@ -402,8 +405,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The project environment.
       // 
-      // *   Prod: Production
-      // *   Dev: Development
+      // - Prod: Production
+      // 
+      // - Dev: Development
       shared_ptr<string> envType_ {};
       // The task ID.
       // 
@@ -417,9 +421,11 @@ namespace Models
       shared_ptr<int32_t> rerunInterval_ {};
       // The rerun mode. Valid values:
       // 
-      // *   AllDenied: The task cannot be rerun.
-      // *   FailureAllowed: The task can be rerun only after it fails.
-      // *   AllAllowed: The task can always be rerun.
+      // - AllDenied: The task cannot be rerun.
+      // 
+      // - FailureAllowed: The task can be rerun only after it fails.
+      // 
+      // - AllAllowed: The task can always be rerun.
       shared_ptr<string> rerunMode_ {};
       // The number of retry attempts. Takes effect when the task is configured to allow reruns.
       shared_ptr<int32_t> rerunTimes_ {};

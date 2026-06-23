@@ -222,11 +222,15 @@ namespace Models
         shared_ptr<string> status_ {};
         // The type of the alert event.
         // 
-        // *   Heartbeat
-        // *   Delay
-        // *   FailoverCount
-        // *   DdlReport
-        // *   ResourceUtilization
+        // - Heartbeat
+        // 
+        // - Delay
+        // 
+        // - FailoverCount
+        // 
+        // - DdlReport
+        // 
+        // - ResourceUtilization
         shared_ptr<string> type_ {};
       };
 

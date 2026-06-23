@@ -94,8 +94,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Asc: Ascending.
-    // *   Desc: Descending.
+    // - Asc: Ascending.
+    // 
+    // - Desc: Descending.
     shared_ptr<string> order_ {};
     // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -105,9 +106,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   ModifyTime: Modification time.
-    // *   CreateTime: Creation time.
-    // *   VersionNumber: Version number.
+    // - ModifyTime: Modification time.
+    // 
+    // - CreateTime: Creation time.
+    // 
+    // - VersionNumber: Version number.
     shared_ptr<string> sortBy_ {};
   };
 

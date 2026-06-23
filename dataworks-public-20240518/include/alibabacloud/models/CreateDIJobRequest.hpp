@@ -118,66 +118,89 @@ namespace Models
     protected:
       // The action type. Valid values:
       // 
-      // *   DefinePrimaryKey
-      // *   Rename
-      // *   AddColumn
-      // *   HandleDml
-      // *   DefineIncrementalCondition
-      // *   DefineCycleScheduleSettings
-      // *   DefinePartitionKey
+      // - `DefinePrimaryKey`: Defines a primary key.
+      // 
+      // - `Rename`: Renames an object.
+      // 
+      // - `AddColumn`: Adds a column.
+      // 
+      // - `HandleDml`: Handles DML operations.
+      // 
+      // - `DefineIncrementalCondition`: Defines an incremental condition.
+      // 
+      // - `DefineCycleScheduleSettings`: Defines periodic scheduling settings.
+      // 
+      // - `DefinePartitionKey`: Defines a partition key.
       shared_ptr<string> ruleActionType_ {};
-      // The rule expression in JSON string format.
+      // The rule expression, specified as a JSON string.
       // 
-      // 1.  Rename rule
+      // 1. Renaming rule (`Rename`)
       // 
-      // *   Example: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }
-      // *   expression: The rename transformation expression. Supported variables include: ${srcDatasourceName} (source data source name), ${srcDatabaseName} (source database name), and ${srcTableName} (source table name).
+      // - Example: `{"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }`
       // 
-      // 2.  AddColumn rule
+      // - `expression`: The renaming expression. You can use the following variables: `${srcDatasourceName}` (name of the source data source), `${srcDatabaseName}` (name of the source database), and `${srcTableName}` (name of the source table).
       // 
-      // *   Example: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
-      // *   If not specified, the default behavior is to not add columns.
-      // *   columnName: The name of the column to add.
-      // *   columnValueType: The value type of the column to add. Valid values: Constant and Variable.
-      // *   columnValue: The value of the column to add. When columnValueType is set to Constant, the value is a custom constant of the string type. When columnValueType is set to Variable, the value is a built-in variable. Built-in variables include: EXECUTE_TIME (execution time, long type), DB_NAME_SRC (source database name, string type), DATASOURCE_NAME_SRC (source data source name, string type), TABLE_NAME_SRC (source table name, string type), DB_NAME_DEST (destination database name, string type), DATASOURCE_NAME_DEST (destination data source name, string type), TABLE_NAME_DEST (destination table name, string type), and DB_NAME_SRC_TRANSED (transformed source database name, string type).
+      // 2. Rule for adding a column (`AddColumn`)
       // 
-      // 3.  DefinePrimaryKey
+      // - Example: `{"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}`
       // 
-      // *   Example: {"columns":["ukcolumn1","ukcolumn2"]}
-      // *   If not specified, the source primary key columns are used by default.
-      // *   When the destination table already exists: Data Integration does not modify the destination table structure. If the specified primary key columns are not in the destination table, the task fails to start.
-      // *   When the destination table is auto-created: Data Integration automatically creates the destination table structure with the defined primary key columns. If the specified primary key columns are not in the destination table, the task fails to start.
+      // - If you do not specify this rule, no columns are added.
       // 
-      // 4.  HandleDml rule
+      // - `columnName`: The name of the column to add.
       // 
-      // *   Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
-      // *   If not specified, the default rule is Normal for Insert, Update, and Delete.
-      // *   dmlType: The DML operation type. Valid values: Insert, Update, and Delete.
-      // *   dmlAction: The DML handling policy. Valid values: Normal, Ignore, Filter (conditional processing, used when dmlType is Update or Delete), and LogicalDelete.
-      // *   filterCondition: The DML filter condition. This parameter is used when dmlAction is set to Filter.
+      // - `columnValueType`: The value type of the added column. Valid values: `Constant` and `Variable`.
       // 
-      // 5.  DefineIncrementalCondition
+      // - `columnValue`: The value of the added column. If `columnValueType` is `Constant`, the value is a custom string constant. If `columnValueType` is `Variable`, the value is a built-in variable. Valid built-in variables include: `EXECUTE_TIME` (execution time, Long), `DB_NAME_SRC` (source database name, String), `DATASOURCE_NAME_SRC` (source data source name, String), `TABLE_NAME_SRC` (source table name, String), `DB_NAME_DEST` (destination database name, String), `DATASOURCE_NAME_DEST` (destination data source name, String), `TABLE_NAME_DEST` (destination table name, String), and `DB_NAME_SRC_TRANSED` (transformed database name, String).
       // 
-      // *   Example: {"where":"id > 0"}
-      // *   Specifies the incremental filter condition.
+      // 3. Rule for defining the primary key columns of a destination table (`DefinePrimaryKey`)
       // 
-      // 6.  DefineCycleScheduleSettings
+      // - Example: `{"columns":["ukcolumn1","ukcolumn2"]}`
       // 
-      // *   Example: {"cronExpress":" \\* \\* \\* \\* \\* \\*", "cycleType":"1"}
-      // *   Specifies the scheduled task parameters.
+      // - If you do not specify this rule, the primary key columns of the source table are used by default.
       // 
-      // 7.  DefinePartitionKey
+      // - If the destination is an existing table, Data Integration does not modify its schema. If a specified primary key column does not exist in the destination table, the job fails to start and an error is reported.
       // 
-      // *   Example: {"columns":["id"]}
-      // *   Specifies the partition key.
+      // - If the destination table is automatically created, Data Integration automatically creates its schema with the defined primary key columns. If a specified primary key column does not exist in the source table, the job fails to start and an error is reported.
+      // 
+      // 4. DML handling rule (`HandleDml`)
+      // 
+      // - Example: `{"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}`
+      // 
+      // - If you do not specify this rule, the default `dmlAction` is `Normal` for `Insert`, `Update`, and `Delete` operations.
+      // 
+      // - `dmlType`: The DML operation type. Valid values: `Insert`, `Update`, and `Delete`.
+      // 
+      // - `dmlAction`: The DML handling policy. Valid values: `Normal` (normal processing), `Ignore`, `Filter` (conditional processing, used when `dmlType` is `Update` or `Delete`), and `LogicalDelete` (logical deletion).
+      // 
+      // - `filterCondition`: The DML filter condition, used when `dmlAction` is `Filter`.
+      // 
+      // 5. Incremental condition (`DefineIncrementalCondition`)
+      // 
+      // - Example: `{"where":"id > 0"}`
+      // 
+      // - Specifies the filter condition for incremental synchronization.
+      // 
+      // 6. Parameters for periodic scheduling (`DefineCycleScheduleSettings`)
+      // 
+      // - Example: `{"cronExpress":" * * * * * *", "cycleType":"1"}`
+      // 
+      // - Specifies the parameters for periodically scheduling a job.
+      // 
+      // 7. Rule to define a partition key (`DefinePartitionKey`)
+      // 
+      // - Example: `{"columns":["id"]}`
+      // 
+      // - Specifies a partition key.
       shared_ptr<string> ruleExpression_ {};
-      // The rule name. When the action type and target type are the same, the rule name must be unique. The name cannot exceed 50 characters.
+      // The name of the rule. The rule name must be unique for a specific action type and target object type. Maximum length: 50 characters.
       shared_ptr<string> ruleName_ {};
-      // The target type for the action. Valid values:
+      // The type of the object to which the action applies. Valid values:
       // 
-      // *   Table
-      // *   Schema
-      // *   Database
+      // - `Table`
+      // 
+      // - `Schema`
+      // 
+      // - `Database`
       shared_ptr<string> ruleTargetType_ {};
     };
 
@@ -251,21 +274,29 @@ namespace Models
       protected:
         // The action type. Valid values:
         // 
-        // *   DefinePrimaryKey
-        // *   Rename
-        // *   AddColumn
-        // *   HandleDml
-        // *   DefineIncrementalCondition
-        // *   DefineCycleScheduleSettings
-        // *   DefinePartitionKey
-        shared_ptr<string> ruleActionType_ {};
-        // The rule name. The rule name must be unique for a given combination of action type and target type. The name cannot exceed 50 characters.
-        shared_ptr<string> ruleName_ {};
-        // The target type for the action. Valid values:
+        // - `DefinePrimaryKey`: Defines a primary key.
         // 
-        // *   Table
-        // *   Schema
-        // *   Database
+        // - `Rename`: Renames an object.
+        // 
+        // - `AddColumn`: Adds a column.
+        // 
+        // - `HandleDml`: Handles DML operations.
+        // 
+        // - `DefineIncrementalCondition`: Defines an incremental condition.
+        // 
+        // - `DefineCycleScheduleSettings`: Defines periodic scheduling settings.
+        // 
+        // - `DefinePartitionKey`: Defines a partition key.
+        shared_ptr<string> ruleActionType_ {};
+        // The name of the transformation rule. The rule name must be unique for a specific action type and target object type. Maximum length: 50 characters.
+        shared_ptr<string> ruleName_ {};
+        // The type of the object to which the action applies. Valid values:
+        // 
+        // - `Table`
+        // 
+        // - `Schema`
+        // 
+        // - `Database`
         shared_ptr<string> ruleTargetType_ {};
       };
 
@@ -325,17 +356,19 @@ namespace Models
 
 
       protected:
-        // The selection action. Valid values: Include and Exclude.
+        // The selection action. Valid values: `Include` and `Exclude`.
         shared_ptr<string> action_ {};
         // The expression.
         shared_ptr<string> expression_ {};
-        // The expression type. Valid values: Exact and Regex.
+        // The expression type. Valid values: `Exact` and `Regex`.
         shared_ptr<string> expressionType_ {};
         // The object type. Valid values:
         // 
-        // *   Table
-        // *   Schema
-        // *   Database
+        // - `Table`
+        // 
+        // - `Schema`
+        // 
+        // - `Database`
         shared_ptr<string> objectType_ {};
       };
 
@@ -360,9 +393,9 @@ namespace Models
 
 
     protected:
-      // Each rule can select a set of source objects to synchronize. Multiple rules together select a table.
+      // Each rule can select a set of source objects to synchronize. Multiple rules combine to select one table.
       shared_ptr<vector<TableMappings::SourceObjectSelectionRules>> sourceObjectSelectionRules_ {};
-      // The list of synchronization object transformation rule definitions. Each element represents a single transformation rule definition.
+      // The names of the transformation rules to apply to the selected objects.
       shared_ptr<vector<TableMappings::TransformationRules>> transformationRules_ {};
     };
 
@@ -434,8 +467,11 @@ namespace Models
 
 
       protected:
+        // Custom connection settings for the data source, such as instance ID, access credentials, and instance region. You must specify this parameter or `DataSourceName`.
+        // 
+        // This parameter applies only when the data source is configured in instance mode (`ConnectionPropertiesMode`). The property format varies by data source. For more information, see [ConnectionProperties for data sources](https://help.aliyun.com/document_detail/2852465.html).
         shared_ptr<string> connectionProperties_ {};
-        // The database encoding.
+        // The database encoding format.
         shared_ptr<string> encoding_ {};
         // The time zone.
         shared_ptr<string> timezone_ {};
@@ -460,9 +496,9 @@ namespace Models
 
 
     protected:
-      // The data source name.
+      // The name of the data source.
       shared_ptr<string> dataSourceName_ {};
-      // The data source properties.
+      // The properties of the data source.
       shared_ptr<SourceDataSourceSettings::DataSourceProperties> dataSourceProperties_ {};
     };
 
@@ -527,9 +563,9 @@ namespace Models
 
 
       protected:
-        // The CU of the scheduling resource group for batch synchronization tasks.
+        // The number of CUs for the scheduling resource group that is used for batch synchronization jobs.
         shared_ptr<double> requestedCu_ {};
-        // The name of the scheduling resource group for batch synchronization tasks.
+        // The identifier of the scheduling resource group used for batch synchronization jobs.
         shared_ptr<string> resourceGroupIdentifier_ {};
       };
 
@@ -571,9 +607,9 @@ namespace Models
 
 
       protected:
-        // The CU of the Data Integration resource group used for real-time synchronization.
+        // The number of CUs for the resource group for data integration that is used for real-time synchronization.
         shared_ptr<double> requestedCu_ {};
-        // The name of the Data Integration resource group used for real-time synchronization.
+        // The identifier of the resource group for data integration used for real-time synchronization.
         shared_ptr<string> resourceGroupIdentifier_ {};
       };
 
@@ -615,9 +651,9 @@ namespace Models
 
 
       protected:
-        // The CU of the Data Integration resource group used for batch synchronization.
+        // The number of CUs for the resource group for data integration that is used for batch synchronization.
         shared_ptr<double> requestedCu_ {};
-        // The name of the Data Integration resource group used for batch synchronization.
+        // The identifier of the resource group for data integration used for batch synchronization.
         shared_ptr<string> resourceGroupIdentifier_ {};
       };
 
@@ -651,9 +687,9 @@ namespace Models
 
 
     protected:
-      // The batch synchronization resources.
+      // Resource settings for batch synchronization.
       shared_ptr<ResourceSettings::OfflineResourceSettings> offlineResourceSettings_ {};
-      // The real-time synchronization resources.
+      // The resources for real-time synchronization.
       shared_ptr<ResourceSettings::RealtimeResourceSettings> realtimeResourceSettings_ {};
       // The scheduling resources.
       shared_ptr<ResourceSettings::ScheduleResourceSettings> scheduleResourceSettings_ {};
@@ -724,18 +760,25 @@ namespace Models
 
 
       protected:
-        // The setting name. Valid values:
+        // The name of the setting. Valid values:
         // 
-        // *   src.offline.datasource.max.connection: Specifies the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
-        // *   dst.offline.truncate: Specifies whether to clear the destination table before data writing.
-        // *   runtime.offline.speed.limit.enable: Specifies whether throttling is enabled for a batch synchronization task.
-        // *   runtime.offline.concurrent: Specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
-        // *   runtime.enable.auto.create.schema: Specifies whether schemas are automatically created in the destination of a synchronization task.
-        // *   runtime.realtime.concurrent: Specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
-        // *   runtime.realtime.failover.minute.dataxcdc: Specifies the maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
-        // *   runtime.realtime.failover.times.dataxcdc: Specifies the maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
+        // - `src.offline.datasource.max.connection`: The maximum number of connections to the source of a batch synchronization job.
+        // 
+        // - `dst.offline.truncate`: Specifies whether to truncate the destination table before a batch job starts.
+        // 
+        // - `runtime.offline.speed.limit.enable`: Specifies whether to enable throttling for a batch synchronization job.
+        // 
+        // - `runtime.offline.concurrent`: The concurrency level of a batch synchronization job.
+        // 
+        // - `runtime.enable.auto.create.schema`: Specifies whether to automatically create a destination schema.
+        // 
+        // - `runtime.realtime.concurrent`: The concurrency level of a real-time synchronization job.
+        // 
+        // - `runtime.realtime.failover.minute.dataxcdc`: The wait time in minutes for a failover restart.
+        // 
+        // - `runtime.realtime.failover.times.dataxcdc`: The number of failover restart attempts.
         shared_ptr<string> name_ {};
-        // The setting value.
+        // The value of the setting.
         shared_ptr<string> value_ {};
       };
 
@@ -777,21 +820,29 @@ namespace Models
 
 
       protected:
-        // Valid values:
+        // The handling action. Valid values:
         // 
-        // *   Ignore
-        // *   Critical: Fail the task
-        // *   Normal
+        // - `Ignore`: Ignores the DDL message.
+        // 
+        // - `Critical`: Reports an error.
+        // 
+        // - `Normal`: Processes the DDL message normally.
         shared_ptr<string> action_ {};
         // The DDL type. Valid values:
         // 
-        // *   RenameColumn
-        // *   ModifyColumn
-        // *   CreateTable
-        // *   TruncateTable
-        // *   DropTable
-        // *   DropColumn
-        // *   AddColumn
+        // - `RenameColumn`: Renames a column.
+        // 
+        // - `ModifyColumn`: Modifies a column.
+        // 
+        // - `CreateTable`: Creates a table.
+        // 
+        // - `TruncateTable`: Truncates a table.
+        // 
+        // - `DropTable`: Drops a table.
+        // 
+        // - `DropColumn`: Drops a column.
+        // 
+        // - `AddColumn`: Adds a column.
         shared_ptr<string> type_ {};
       };
 
@@ -833,10 +884,11 @@ namespace Models
 
 
       protected:
-        // The synchronization type that requires scheduling. Valid values:
+        // The synchronization type for periodic scheduling. Valid values:
         // 
-        // *   Full: Full synchronization
-        // *   OfflineIncremental: Batch incremental synchronization
+        // - `Full`: Full synchronization.
+        // 
+        // - `OfflineIncremental`: Incremental synchronization in batch mode.
         shared_ptr<string> cycleMigrationType_ {};
         // The scheduling parameters.
         shared_ptr<string> scheduleParameters_ {};
@@ -880,9 +932,9 @@ namespace Models
 
 
       protected:
-        // The destination type, such as bigint, boolean, string, text, datetime, timestamp, decimal, or binary. Different data sources may have different types.
+        // The destination data type. For example: `bigint`, `boolean`, `string`, `text`, `datetime`, `timestamp`, `decimal`, or `binary`. Available data types vary by data source.
         shared_ptr<string> destinationDataType_ {};
-        // The source type, such as bigint, boolean, string, text, datetime, timestamp, decimal, or binary. Different data sources may have different types.
+        // The source data type. For example: `bigint`, `boolean`, `string`, `text`, `datetime`, `timestamp`, `decimal`, or `binary`. Available data types vary by data source.
         shared_ptr<string> sourceDataType_ {};
       };
 
@@ -932,30 +984,36 @@ namespace Models
 
 
     protected:
-      // The channel-specific settings. You can configure special settings for specific channels. Currently supported: Holo2Holo (Hologres to Hologres) and Holo2Kafka (Hologres to Kafka).
+      // Settings for data synchronization channels. You can configure special settings for specific channels. The following channels are supported: synchronization from Hologres to Hologres (Holo2Holo) and from Hologres to Kafka (Holo2Kafka).
       // 
-      // 1.  Holo2Kafka
+      // 1. Holo2Kafka
       // 
-      // *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}} kafkaClientProperties: Kafka producer parameters used when writing to Kafka.
-      // *   keyColumns: The columns to write to Kafka.
-      // *   writeMode: The Kafka write format. Valid values: json and canal.
+      // - Example: `{"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}`
+      //   `kafkaClientProperties`: Parameters for the Kafka producer.
       // 
-      // 2.  Holo2Holo
+      // - `keyColumns`: The columns whose values are used as keys for data written to Kafka.
       // 
-      // *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
-      // *   conflictMode: The conflict handling policy when writing to Hologres. Valid values: replace (overwrite) and ignore.
-      // *   writeMode: The write mode for Hologres. Valid values: replay and insert.
-      // *   dynamicColumnAction: The dynamic column handling mode when writing to Hologres. Valid values: replay, insert, and ignore.
+      // - `writeMode`: The data format for writing to Kafka. Valid values: `json` and `canal`.
+      // 
+      // 2. Holo2Holo
+      // 
+      // - Example: `{"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}`
+      // 
+      // - `conflictMode`: The conflict handling policy for writing data to Hologres. Valid values: `replace` (overwrite) and `ignore`.
+      // 
+      // - `writeMode`: The method for writing data to Hologres. Valid values: `replay` and `insert`.
+      // 
+      // - `dynamicColumnAction`: The method for handling dynamic columns when writing data to Hologres. Valid values: `replay`, `insert`, and `ignore`.
       shared_ptr<string> channelSettings_ {};
-      // The array of column type mappings.
+      // Column data type mappings.
       // 
-      // >  ["ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
+      // > "ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
       shared_ptr<vector<JobSettings::ColumnDataTypeSettings>> columnDataTypeSettings_ {};
-      // The scheduled task settings.
+      // The periodic scheduling settings.
       shared_ptr<JobSettings::CycleScheduleSettings> cycleScheduleSettings_ {};
-      // The array of DDL handling settings.
+      // DDL handling settings.
       // 
-      // >  ["DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
+      // > "DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
       shared_ptr<vector<JobSettings::DdlHandlingSettings>> ddlHandlingSettings_ {};
       // The runtime settings.
       shared_ptr<vector<JobSettings::RuntimeSettings>> runtimeSettings_ {};
@@ -1010,6 +1068,9 @@ namespace Models
 
 
       protected:
+        // Custom connection settings for the data source, such as instance ID, access credentials, and instance region. You must specify this parameter or `DataSourceName`.
+        // 
+        // This parameter applies only when the data source is configured in instance mode (`ConnectionPropertiesMode`). The property format varies by data source. For more information, see [ConnectionProperties for data sources](https://help.aliyun.com/document_detail/2852465.html).
         shared_ptr<string> connectionProperties_ {};
       };
 
@@ -1032,8 +1093,9 @@ namespace Models
 
 
     protected:
-      // The data source name.
+      // The name of the data source.
       shared_ptr<string> dataSourceName_ {};
+      // The properties of the data source.
       shared_ptr<DestinationDataSourceSettings::DataSourceProperties> dataSourceProperties_ {};
     };
 
@@ -1166,52 +1228,57 @@ namespace Models
 
 
   protected:
-    // The task description.
+    // The description of the job.
     shared_ptr<string> description_ {};
-    // The list of destination data source settings.
+    // Settings for the destination data sources.
     shared_ptr<vector<CreateDIJobRequest::DestinationDataSourceSettings>> destinationDataSourceSettings_ {};
-    // The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB for MySQL, Kafka, and Hive.
+    // The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB for MySQL`, `Kafka`, and `Hive`.
     shared_ptr<string> destinationDataSourceType_ {};
+    // The code for a job created in script mode.
     shared_ptr<string> fileSpec_ {};
-    // This parameter is deprecated and is replaced by the Name parameter.
+    // This parameter is deprecated. Use the `Name` parameter instead.
     shared_ptr<string> jobName_ {};
-    // The task-level settings, including DDL handling policies, column data type mapping between source and destination, and runtime parameters.
+    // The settings for the synchronization job, including DDL processing policies, data type mappings between source and destination columns, and runtime parameters.
     shared_ptr<CreateDIJobRequest::JobSettings> jobSettings_ {};
-    // The type of the synchronization task. Valid values:
+    // The job type. Valid values:
     // 
-    // *   DatabaseRealtimeMigration: A real-time synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases in the source.
-    // *   DatabaseOfflineMigration: A batch synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases in the source.
-    // *   SingleTableRealtimeMigration: A real-time synchronization task used to synchronize data only in a single table in the source.
+    // - `DatabaseRealtimeMigration`: Synchronizes multiple tables from multiple source databases in real time (stream synchronization). This type supports full, incremental, or both full and incremental synchronization.
+    // 
+    // - `DatabaseOfflineMigration`: Synchronizes multiple tables from multiple source databases in batches. This type supports full, incremental, or both full and incremental synchronization.
+    // 
+    // - `SingleTableRealtimeMigration`: Synchronizes a single source table in real time (stream synchronization).
     shared_ptr<string> jobType_ {};
     // The synchronization type. Valid values:
     // 
-    // *   FullAndRealtimeIncremental
-    // *   RealtimeIncremental
-    // *   Full
-    // *   OfflineIncremental
-    // *   FullAndOfflineIncremental
-    shared_ptr<string> migrationType_ {};
-    // The name of the synchronization task.
-    shared_ptr<string> name_ {};
-    // The task owner.
-    shared_ptr<string> owner_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
+    // - `FullAndRealtimeIncremental`: Full and real-time incremental synchronization for an entire database.
     // 
-    // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+    // - `RealtimeIncremental`: Real-time incremental synchronization for a single table.
+    // 
+    // - `Full`: Full batch synchronization for an entire database.
+    // 
+    // - `OfflineIncremental`: Incremental synchronization in batch mode.
+    // 
+    // - `FullAndOfflineIncremental`: Full and incremental batch synchronization for an entire database.
+    shared_ptr<string> migrationType_ {};
+    // The name of the job.
+    shared_ptr<string> name_ {};
+    // The job owner.
+    shared_ptr<string> owner_ {};
+    // The ID of the DataWorks workspace for this API call. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page.
     shared_ptr<int64_t> projectId_ {};
     // The resource settings.
     shared_ptr<CreateDIJobRequest::ResourceSettings> resourceSettings_ {};
-    // The list of source data source settings.
+    // Settings for the source data sources.
     shared_ptr<vector<CreateDIJobRequest::SourceDataSourceSettings>> sourceDataSourceSettings_ {};
-    // The source type. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, Redshift, Hive, SQL Server, Doris, and ClickHouse.
+    // The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `Redshift`, `Hive`, `SQL Server`, `Doris`, and `ClickHouse`.
     shared_ptr<string> sourceDataSourceType_ {};
-    // The list of synchronization object transformation mappings. Each element describes a set of source object selection rules and the transformation rules applied to those objects.
+    // Transformation mappings for the objects to be synchronized. Each mapping defines selection rules for a group of source objects and the transformation rules to apply to them.
     // 
-    // >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
+    // > [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
     shared_ptr<vector<CreateDIJobRequest::TableMappings>> tableMappings_ {};
-    // The list of synchronization object transformation rule definitions.
+    // A list of transformation rules for the objects to be synchronized.
     // 
-    // >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
+    // > [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{\\\\"expression\\\\":\\\\"${srcDatasoureName}_${srcDatabaseName}\\\\"}" } ]
     shared_ptr<vector<CreateDIJobRequest::TransformationRules>> transformationRules_ {};
   };
 

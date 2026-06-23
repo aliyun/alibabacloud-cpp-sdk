@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // An array of project IDs for the associated workspaces.
     shared_ptr<vector<int64_t>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

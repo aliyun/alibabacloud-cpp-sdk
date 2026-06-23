@@ -93,9 +93,13 @@ namespace Models
 
 
     protected:
+      // A list of custom attribute objects.
       shared_ptr<vector<CustomAttribute>> customAttributes_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -125,9 +129,11 @@ namespace Models
 
 
   protected:
+    // The paging information.
     shared_ptr<ListCustomAttributesResponseBody::PagingInfo> pagingInfo_ {};
-    // RequestId
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

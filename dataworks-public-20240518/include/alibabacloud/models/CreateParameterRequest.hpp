@@ -80,7 +80,13 @@ namespace Models
 
 
     protected:
+      // The environment.
+      // 
+      // - `Prod`: production environment
+      // 
+      // - `Dev`: development environment
       shared_ptr<string> envType_ {};
+      // The value of the parameter. The value can contain Chinese characters, letters, digits, and the following special characters: /, :, ., [, ], ,, \\, \\", ", _, =, ?, space, carriage return, line feed, +, -, \\*, %, &, @, !, $, #, {, and }.
       shared_ptr<string> value_ {};
     };
 
@@ -139,16 +145,34 @@ namespace Models
 
 
   protected:
+    // The description of the parameter.
     shared_ptr<string> description_ {};
+    // The parameter name. It must be unique within the workspace, be prefixed with `workspace.`, and not exceed 255 characters. The part of the name after the prefix must start with a letter and can contain only letters, digits, and underscores (_).
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The account ID of the owner.
+    // 
     // This parameter is required.
     shared_ptr<string> owner_ {};
+    // The workspace ID. This parameter is required when `Scope` is set to `Project`.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
+    // The value configurations for the parameter. A configuration for the production environment is required. If you provide duplicate configurations for an environment, only the first one is used.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateParameterRequest::Properties>> properties_ {};
+    // The scope of the parameter. The default value is `Project`. No other values are currently supported.
     shared_ptr<string> scope_ {};
+    // The type of the parameter.
+    // 
+    // - `PlainConstant`: plaintext constant.
+    // 
+    // - `SecretConstant`: secret constant.
+    // 
+    // - `Variable`: variable.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

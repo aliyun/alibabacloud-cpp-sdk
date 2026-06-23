@@ -93,11 +93,13 @@ namespace Models
 
 
     protected:
+      // Page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The schemas.
       shared_ptr<vector<Schema>> schemas_ {};
+      // Total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 

@@ -74,7 +74,13 @@ namespace Models
 
 
     protected:
+      // The project environment.
+      // 
+      // - `Prod`: the production environment
+      // 
+      // - `Dev`: the development environment
       shared_ptr<string> envType_ {};
+      // The parameter value.
       shared_ptr<string> value_ {};
     };
 
@@ -111,10 +117,15 @@ namespace Models
 
 
   protected:
+    // The parameter description.
     shared_ptr<string> description_ {};
+    // The parameter ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The owner\\"s account ID.
     shared_ptr<string> owner_ {};
+    // The parameter value configuration. This parameter is required for the production environment. If you specify the same environment multiple times, only the first configuration is used.
     shared_ptr<vector<UpdateParameterRequest::Properties>> properties_ {};
   };
 

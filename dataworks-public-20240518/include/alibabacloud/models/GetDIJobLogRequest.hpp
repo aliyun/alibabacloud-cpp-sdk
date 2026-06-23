@@ -94,8 +94,9 @@ namespace Models
     shared_ptr<int64_t> instanceId_ {};
     // The type of the node. This parameter is applicable only to the tasks that are run on serverless resource groups. Valid values:
     // 
-    // *   **MASTER**: the master node, which is used to query the logs of JobManagers.
-    // *   **WORKER**: the worker node, which is used to query the logs of TaskManagers.
+    // - **MASTER**: the master node, which is used to query the logs of JobManagers.
+    // 
+    // - **WORKER**: the worker node, which is used to query the logs of TaskManagers.
     shared_ptr<string> nodeType_ {};
     // The page number of the pagination query. The value is a positive integer greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};

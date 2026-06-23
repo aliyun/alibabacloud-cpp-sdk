@@ -105,15 +105,17 @@ namespace Models
   protected:
     // The environment type of the computing resource. Valid values:
     // 
-    // *   Dev
-    // *   Prod
+    // - Dev
+    // 
+    // - Prod
     shared_ptr<string> envType_ {};
     // The name of the computing resource.
     shared_ptr<string> name_ {};
     // The sort direction of the computing resource list. Valid values:
     // 
-    // *   Desc: descending order.
-    // *   Asc: ascending order.
+    // - Desc: descending order.
+    // 
+    // - Asc: ascending order.
     // 
     // Default value: Desc
     shared_ptr<string> order_ {};
@@ -127,10 +129,13 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The field to sort the computing resource list by. Supported fields include name, creation time, and computing resource ID.
     // 
-    // *   CreateTime: Sorts by creation time
-    // *   Id: Sorts by computing resource ID
-    // *   Name: Sorts by computing resource name.
-    // *   CreateTimeWithDefaultFirst: Sorts based on whether it is the default resource and by creation time, with the default computing resource listed first.
+    // - CreateTime: Sorts by creation time
+    // 
+    // - Id: Sorts by computing resource ID
+    // 
+    // - Name: Sorts by computing resource name.
+    // 
+    // - CreateTimeWithDefaultFirst: Sorts based on whether it is the default resource and by creation time, with the default computing resource listed first.
     // 
     // Default value: CreateTime
     shared_ptr<string> sortBy_ {};

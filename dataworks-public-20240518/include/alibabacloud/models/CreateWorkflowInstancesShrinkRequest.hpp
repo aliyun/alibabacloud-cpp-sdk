@@ -157,8 +157,9 @@ namespace Models
     shared_ptr<string> defaultRunPropertiesShrink_ {};
     // The project environment. Valid values:
     // 
-    // *   Prod
-    // *   Dev
+    // - Prod
+    // 
+    // - Dev
     shared_ptr<string> envType_ {};
     // The name.
     // 
@@ -172,8 +173,9 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The tag creation policy. Valid values:
     // 
-    // *   Append: New tags are added on top of the existing tags of the manual workflow.
-    // *   Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
+    // - Append: New tags are added on top of the existing tags of the manual workflow.
+    // 
+    // - Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
     shared_ptr<string> tagCreationPolicy_ {};
     // The task tag list.
     shared_ptr<string> tagsShrink_ {};
@@ -181,11 +183,15 @@ namespace Models
     shared_ptr<string> taskParameters_ {};
     // The type of the workflow instance. Valid values:
     // 
-    // *   SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
-    // *   ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
-    // *   Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
-    // *   SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
-    // *   TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
+    // - SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
+    // 
+    // - ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
+    // 
+    // - Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
+    // 
+    // - SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
+    // 
+    // - TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

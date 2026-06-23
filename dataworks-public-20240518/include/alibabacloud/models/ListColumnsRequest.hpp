@@ -94,25 +94,27 @@ namespace Models
 
 
   protected:
-    // The comment. Fuzzy match is supported.
+    // The column comment. Supports fuzzy match.
     shared_ptr<string> comment_ {};
-    // The name. Fuzzy match is supported.
+    // The column name. Supports fuzzy match.
     shared_ptr<string> name_ {};
-    // The sort order. Default value: Asc. Valid values:
+    // The sort order. Default: Asc. Valid values:
     // 
-    // *   Asc
-    // *   Desc
+    // - Asc
+    // 
+    // - Desc
     shared_ptr<string> order_ {};
-    // The page number. Default value: 1.
+    // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page. Default value: 10. Maximum value: 100.
+    // The page size. Default: 10. Maximum: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort field. Default value: Position. Valid values:
+    // The sort field. Default: Position. Valid values:
     // 
-    // *   Name
-    // *   Position
+    // - Name
+    // 
+    // - Position
     shared_ptr<string> sortBy_ {};
-    // The table ID. You can refer to the return result of the ListTables operation. and the [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+    // The table ID. Call the ListTables operation or refer to [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html) to obtain this value.
     // 
     // This parameter is required.
     shared_ptr<string> tableId_ {};

@@ -95,11 +95,11 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of data tables.
+      // The list of tables.
       shared_ptr<vector<Table>> tables_ {};
-      // The total number of records returned.
+      // The total count of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The pagination result.
+    // The pagination information.
     shared_ptr<ListTablesResponseBody::PagingInfo> pagingInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

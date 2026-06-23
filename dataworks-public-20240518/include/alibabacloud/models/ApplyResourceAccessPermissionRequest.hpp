@@ -110,9 +110,13 @@ namespace Models
 
 
       protected:
+        // The resource type.
+        // 
         // This parameter is required.
         shared_ptr<string> defSchema_ {};
+        // The version of `ResourceSchema` that is required to parse the resource.
         shared_ptr<string> defVersion_ {};
+        // The resource metadata. The content is constrained by `ResourceSchema`.
         Darabonba::Json metaData_ {};
       };
 
@@ -154,8 +158,24 @@ namespace Models
 
 
       protected:
+        // The ID of the principal. The value of this parameter depends on the `PrincipalType`:
+        // 
+        // - `RamUser`: The Dataworks user ID.
+        // 
+        // - `RamRole`: The Dataworks user ID, prefixed with `ROLE_`.
+        // 
+        // - `DlfRole`: The DlfNext role name.
+        // 
         // This parameter is required.
         shared_ptr<string> principalId_ {};
+        // The principal type. Valid values:
+        // 
+        // - RamRole
+        // 
+        // - RamUser
+        // 
+        // - DlfRole
+        // 
         // This parameter is required.
         shared_ptr<string> principalType_ {};
       };
@@ -204,12 +224,23 @@ namespace Models
 
 
     protected:
+      // The requested permissions.
+      // 
+      // Note: The supported permission types vary by resource level and are constrained by the `ResourceSchema` of the corresponding resource type.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> accessTypes_ {};
+      // The authorization method.
+      // 
+      // Note: This parameter is supported only for `SEVERLESS_STARROCKS` resources. Valid values are `ranger` and `starrocksManager`.
       shared_ptr<string> authMethod_ {};
+      // The permission expiration time, as a Unix timestamp in milliseconds.
       shared_ptr<int64_t> expirationTime_ {};
+      // The principal to which permissions are granted.
+      // 
       // This parameter is required.
       shared_ptr<ApplyContents::Grantee> grantee_ {};
+      // The resource for which permissions are requested.
       shared_ptr<ApplyContents::Resource> resource_ {};
     };
 
@@ -239,9 +270,14 @@ namespace Models
 
 
   protected:
+    // A list of permission requests.
+    // 
     // This parameter is required.
     shared_ptr<vector<ApplyResourceAccessPermissionRequest::ApplyContents>> applyContents_ {};
+    // The idempotency parameter, which prevents duplicate operations from repeated calls.
     shared_ptr<string> clientToken_ {};
+    // The reason for the request.
+    // 
     // This parameter is required.
     shared_ptr<string> reason_ {};
   };

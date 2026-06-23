@@ -222,8 +222,9 @@ namespace Models
         shared_ptr<int32_t> fileVersion_ {};
         // Indicates whether this file version is the latest version in the production environment.
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> isCurrentProd_ {};
         // The scheduling configuration for this file version.
         shared_ptr<string> nodeContent_ {};
@@ -337,8 +338,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call succeeded. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

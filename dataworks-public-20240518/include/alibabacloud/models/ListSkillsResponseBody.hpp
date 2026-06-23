@@ -131,12 +131,19 @@ namespace Models
 
 
       protected:
+        // **The creator ID.**
         shared_ptr<string> creatorId_ {};
+        // **The Skill description.**
         shared_ptr<string> description_ {};
+        // The creation time.
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtCreateTime_ {};
+        // **The modifier ID.**
         shared_ptr<string> modifierId_ {};
+        // **The Skill name.**
         shared_ptr<string> name_ {};
+        // **The visibility level.**
         shared_ptr<string> visibility_ {};
       };
 
@@ -173,9 +180,13 @@ namespace Models
 
 
     protected:
+      // The maximum number of results returned in this response.
       shared_ptr<int32_t> maxResults_ {};
+      // The token for the next page of results. This parameter is null or empty if all results have been returned.
       shared_ptr<string> nextToken_ {};
+      // The list of Skills.
       shared_ptr<vector<PagingInfo::Skills>> skills_ {};
+      // The total number of results that match the query.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -198,7 +209,9 @@ namespace Models
 
 
   protected:
+    // The pagination information.
     shared_ptr<ListSkillsResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -159,35 +159,44 @@ namespace Models
 
 
       protected:
-        // This parameter is deprecated. Use the Id parameter instead.
+        // This parameter is deprecated. Use the `Id` parameter instead.
         shared_ptr<int64_t> DIJobId_ {};
-        // The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, DataHub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive.
+        // The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB_For_MySQL`, `Kafka`, and `Hive`.
         shared_ptr<string> destinationDataSourceType_ {};
-        // The ID of the synchronization task.
+        // The ID of the Data Integration job.
         shared_ptr<int64_t> id_ {};
-        // The name of the synchronization task.
+        // The name of the job.
         shared_ptr<string> jobName_ {};
-        // The status of the synchronization task. Valid values:
+        // The job status. Valid values:
         // 
-        // *   Finished
-        // *   Initialized
-        // *   Stopped
-        // *   Failed
-        // *   Running
-        // *   Stopping
+        // - `Finished`: The job completed successfully.
+        // 
+        // - `Initialized`: The job is initialized.
+        // 
+        // - `Stopped`: The job is stopped.
+        // 
+        // - `Failed`: The job failed.
+        // 
+        // - `Running`: The job is running.
+        // 
+        // - `Stopping`: The job is being stopped.
         shared_ptr<string> jobStatus_ {};
         // The synchronization type. Valid values:
         // 
-        // *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-        // *   RealtimeIncremental: real-time incremental synchronization
-        // *   Full: full synchronization
-        // *   OfflineIncremental: batch incremental synchronization
-        // *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+        // - `FullAndRealtimeIncremental`: full and real-time incremental synchronization
+        // 
+        // - `RealtimeIncremental`: real-time incremental synchronization
+        // 
+        // - `Full`: full synchronization
+        // 
+        // - `OfflineIncremental`: offline incremental synchronization
+        // 
+        // - `FullAndOfflineIncremental`: full and offline incremental synchronization
         shared_ptr<string> migrationType_ {};
         shared_ptr<string> owner_ {};
-        // The ID of the DataWorks workspace to which the synchronization task belongs.
+        // The ID of the DataWorks workspace that contains the job.
         shared_ptr<int64_t> projectId_ {};
-        // The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse. If you do not configure this parameter, the API operation returns synchronization tasks that use all types of sources.
+        // The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SQLServer`, `Doris`, and `ClickHouse`.
         shared_ptr<string> sourceDataSourceType_ {};
       };
 
@@ -224,13 +233,13 @@ namespace Models
 
 
     protected:
-      // The synchronization tasks returned.
+      // A list of Data Integration jobs.
       shared_ptr<vector<PagingInfo::DIJobs>> DIJobs_ {};
-      // The page number.
+      // The returned page number.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the filter criteria.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -253,9 +262,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paging information.
     shared_ptr<ListDIJobsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

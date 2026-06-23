@@ -291,8 +291,9 @@ namespace Models
         shared_ptr<string> absoluteFolderPath_ {};
         // Specifies whether automatic parsing is enabled for the file. Valid values:
         // 
-        // *   true: The file automatically parses code.
-        // *   false: The file does not automatically parse code.
+        // - true: The file automatically parses code.
+        // 
+        // - false: The file does not automatically parse code.
         // 
         // This parameter corresponds to Analyze Code when you set Dependencies to Same Cycle in the scheduling configuration of a Data Studio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
         shared_ptr<bool> autoParsing_ {};
@@ -338,12 +339,17 @@ namespace Models
         shared_ptr<int64_t> parentId_ {};
         // The functional module to which the file belongs. Valid values:
         // 
-        // *   NORMAL: Data Studio
-        // *   MANUAL: Manually triggered node
-        // *   MANUAL_BIZ: Manually triggered workflow
-        // *   SKIP: Dry-run scheduling in Data Studio
-        // *   ADHOCQUERY: Ad hoc query
-        // *   COMPONENT: Component management
+        // - NORMAL: Data Studio
+        // 
+        // - MANUAL: Manually triggered node
+        // 
+        // - MANUAL_BIZ: Manually triggered workflow
+        // 
+        // - SKIP: Dry-run scheduling in Data Studio
+        // 
+        // - ADHOCQUERY: Ad hoc query
+        // 
+        // - COMPONENT: Component management
         shared_ptr<string> useType_ {};
       };
 
@@ -449,8 +455,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call succeeded. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The image ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

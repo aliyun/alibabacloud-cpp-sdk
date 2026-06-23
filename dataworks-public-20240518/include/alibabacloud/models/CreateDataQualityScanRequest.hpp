@@ -96,8 +96,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   ByManual: Manual trigger. This is the default setting.
-      // *   BySchedule: Triggered by a scheduled task instance.
+      // - ByManual: Manual trigger. This is the default setting.
+      // 
+      // - BySchedule: Triggered by a scheduled task instance.
       shared_ptr<string> type_ {};
     };
 
@@ -246,7 +247,7 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   BlockTaskInstance: Blocks the scheduling of the task instance.
+      // - BlockTaskInstance: Blocks the scheduling of the task instance.
       shared_ptr<string> type_ {};
     };
 
@@ -328,9 +329,11 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Hive: Hive SQL
-        // *   Spark: Spark SQL
-        // *   Kyuubi
+        // - Hive: Hive SQL
+        // 
+        // - Spark: Spark SQL
+        // 
+        // - Kyuubi
         shared_ptr<string> engine_ {};
         // Additional Hive engine parameters. Currently, only the mapreduce.job.queuename parameter is supported.
         Darabonba::Json hiveConf_ {};
@@ -368,8 +371,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Prod: production environment .
-      // *   Dev: development environment.
+      // - Prod: production environment .
+      // 
+      // - Dev: development environment.
       shared_ptr<string> envType_ {};
       // The name of the compute engine, which is a unique identifier.
       shared_ptr<string> name_ {};

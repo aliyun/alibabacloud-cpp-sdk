@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // The ID of the serverless resource group.
+      // The unique identifier of the general-purpose resource group.
       shared_ptr<string> id_ {};
-      // The ID of the order that is used to create the serverless resource group.
+      // The ID of the resource group creation order.
       shared_ptr<int64_t> orderId_ {};
-      // The instance ID of the order that is used to create the serverless resource group.
+      // The instance ID of the resource group creation order.
       shared_ptr<string> orderInstanceId_ {};
     };
 
@@ -114,9 +114,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The information about the order that is used to create the serverless resource group.
+    // Information about the resource group creation order.
     shared_ptr<CreateResourceGroupResponseBody::ResourceGroupOrder> resourceGroupOrder_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

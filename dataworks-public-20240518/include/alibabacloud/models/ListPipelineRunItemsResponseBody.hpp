@@ -163,7 +163,7 @@ namespace Models
         shared_ptr<int64_t> createTime_ {};
         // The unique identifier of the deployment.
         // 
-        // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+        // > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
         shared_ptr<string> id_ {};
         // The error message if the deployment failed.
         shared_ptr<string> message_ {};
@@ -175,18 +175,25 @@ namespace Models
         shared_ptr<string> spec_ {};
         // The deployment status. Valid values:
         // 
-        // *   Init: Initializing
-        // *   Running
-        // *   Success
-        // *   Fail
-        // *   Termination
+        // - Init: Initializing
+        // 
+        // - Running
+        // 
+        // - Success
+        // 
+        // - Fail
+        // 
+        // - Termination
         shared_ptr<string> status_ {};
         // The deployment type. Valid values:
         // 
-        // *   Node
-        // *   WorkflowDefinition: Workflow definition.
-        // *   Resource
-        // *   Function: The object is a function.
+        // - Node
+        // 
+        // - WorkflowDefinition: Workflow definition.
+        // 
+        // - Resource
+        // 
+        // - Function: The object is a function.
         shared_ptr<string> type_ {};
         // The deployment version.
         shared_ptr<int64_t> version_ {};

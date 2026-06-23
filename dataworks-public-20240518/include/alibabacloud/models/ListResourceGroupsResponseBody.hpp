@@ -142,9 +142,9 @@ namespace Models
 
 
         protected:
-          // Quantity
+          // The number of resource units.
           shared_ptr<int32_t> amount_ {};
-          // Specification details
+          // The resource specifications.
           shared_ptr<string> standard_ {};
         };
 
@@ -186,9 +186,9 @@ namespace Models
 
 
         protected:
-          // Tag Key
+          // The tag key.
           shared_ptr<string> key_ {};
-          // Tag Value
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -299,51 +299,65 @@ namespace Models
 
 
       protected:
-        // Alibaba Cloud Resource Group ID
+        // The Alibaba Cloud resource group ID.
         shared_ptr<string> aliyunResourceGroupId_ {};
-        // Alibaba Cloud tag list
+        // A list of Alibaba Cloud tags.
         shared_ptr<vector<ResourceGroupList::AliyunResourceTags>> aliyunResourceTags_ {};
-        // The creation time, which is a 64-bit timestamp.
+        // The creation time of the resource group, as a 64-bit timestamp.
         shared_ptr<int64_t> createTime_ {};
-        // The ID of the user who created the resource group.
+        // The user ID of the creator.
         shared_ptr<string> createUser_ {};
-        // Default VPC ID bound to a common resource group
+        // The ID of the default Virtual Private Cloud (VPC) bound to the general-purpose resource group.
         shared_ptr<string> defaultVpcId_ {};
-        // The default switch ID bound to the common resource group.
+        // The ID of the default vSwitch bound to the general-purpose resource group.
         shared_ptr<string> defaultVswicthId_ {};
-        // Unique identifier of a resource group
+        // The unique identifier of the resource group.
         shared_ptr<string> id_ {};
         // The name of the resource group.
         shared_ptr<string> name_ {};
-        // The order instance ID of the resource group.
+        // The ID of the order for the resource group.
         shared_ptr<string> orderInstanceId_ {};
-        // The billing method of the resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+        // The billing method of the resource group. `PrePaid` indicates subscription and `PostPaid` indicates pay-as-you-go.
         shared_ptr<string> paymentType_ {};
-        // Remarks for resource groups
+        // The description of the resource group.
         shared_ptr<string> remark_ {};
-        // Resource group types:
+        // The type of the resource group. Valid values:
         // 
-        // *   CommonV2: Serverless resource group
-        // *   ExclusiveDataIntegration: Exclusive resource group for Data Integration
-        // *   ExclusiveScheduler: Exclusive resource group for scheduling
-        // *   ExclusiveDataService: Exclusive resource group for DataService Studio
+        // - `CommonV2`: The new general-purpose resource group.
+        // 
+        // - `ExclusiveDataIntegration`: The exclusive resource group for data integration.
+        // 
+        // - `ExclusiveScheduler`: The exclusive resource group for scheduling.
+        // 
+        // - `ExclusiveDataService`: The exclusive resource group for data services.
         shared_ptr<string> resourceGroupType_ {};
-        // Resource Group specifications
+        // The specifications of the resource group.
         shared_ptr<ResourceGroupList::Spec> spec_ {};
         // The status of the resource group. Valid values:
         // 
-        // *   Normal: The resource group is running or in use.
-        // *   Stop: The resource group is expired.
-        // *   Deleted: The resource group is released or destroyed.
-        // *   Creating: The resource group is being created.
-        // *   CreateFailed: The resource group fails to be created.
-        // *   Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
-        // *   UpdateFailed: The resource group fails to be scaled out or upgraded.
-        // *   Deleting: The resource group is being released or destroyed.
-        // *   DeleteFailed: The resource group fails to be released or destroyed.
-        // *   Timeout: The operations that are performed on the resource group time out.
-        // *   Freezed: The resource group is frozen.
-        // *   Starting: The resource group is being started.
+        // - `Normal`: Running.
+        // 
+        // - `Stop`: Frozen due to expiration.
+        // 
+        // - `Deleted`: Released.
+        // 
+        // - `Creating`: Creation in progress.
+        // 
+        // - `CreateFailed`: Creation failed.
+        // 
+        // - `Updating`: Update in progress.
+        // 
+        // - `UpdateFailed`: Update failed.
+        // 
+        // - `Deleting`: Release in progress.
+        // 
+        // - `DeleteFailed`: Release failed.
+        // 
+        // - `Timeout`: The operation timed out.
+        // 
+        // - `Freezed`: Frozen.
+        // 
+        // - `Starting`: Starting.
         shared_ptr<string> status_ {};
       };
 
@@ -384,9 +398,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The resource groups returned.
+      // The list of resource groups.
       shared_ptr<vector<PagingInfo::ResourceGroupList>> resourceGroupList_ {};
-      // All data entries
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -418,9 +432,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListResourceGroupsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. You can use the ID to query logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

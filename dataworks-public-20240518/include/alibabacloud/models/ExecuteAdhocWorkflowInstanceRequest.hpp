@@ -252,10 +252,13 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
-          // *   System
-          // *   Constant
-          // *   NodeOutput
-          // *   PassThrough
+          // - System
+          // 
+          // - Constant
+          // 
+          // - NodeOutput
+          // 
+          // - PassThrough
           shared_ptr<string> type_ {};
           // The value of the variable.
           shared_ptr<string> value_ {};
@@ -640,8 +643,9 @@ namespace Models
     shared_ptr<int64_t> bizDate_ {};
     // The environment of the workspace. Valid values:
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // - Prod: production environment
+    // 
+    // - Dev: development environment
     shared_ptr<string> envType_ {};
     // The name of the workflow instance.
     // 

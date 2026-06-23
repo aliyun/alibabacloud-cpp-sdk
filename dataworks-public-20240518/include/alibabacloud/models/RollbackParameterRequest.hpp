@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The parameter ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The rollback version.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> rollbackVersion_ {};
   };

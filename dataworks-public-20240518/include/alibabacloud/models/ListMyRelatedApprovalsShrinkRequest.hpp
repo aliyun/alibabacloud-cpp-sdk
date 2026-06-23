@@ -121,17 +121,43 @@ namespace Models
 
 
   protected:
+    // The permissions.
     shared_ptr<string> accessTypesShrink_ {};
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> defSchema_ {};
+    // The end of the application time range, specified as a millisecond timestamp.
     shared_ptr<int64_t> endTime_ {};
+    // Filters approvals by the specified principal.
     shared_ptr<string> granteeShrink_ {};
+    // The pagination token that acts as a cursor to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to return on each page. Default value: 10. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource declaration.
     shared_ptr<string> resourceShrink_ {};
+    // The resource type, specified as a leaf node name. Multiple values are supported because a single business semantic can be mapped to multiple leaf node names.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceTypeShrink_ {};
+    // The start of the application time range, specified as a millisecond timestamp.
     shared_ptr<int64_t> startTime_ {};
+    // Filters the results by approval status. Valid values:
+    // 
+    // - `WaitApproval`: Pending approval
+    // 
+    // - `Confirmed`: Pending authorization
+    // 
+    // - `RejectApproval`: Approval rejected
+    // 
+    // - `AuthorizeSucceed`: Authorization succeeded
+    // 
+    // - `AuthorizeFailed`: Authorization failed
+    // 
+    // - `Deleted`: Deleted
+    // 
+    // - `Canceled`: Withdrawn
     shared_ptr<string> statusesShrink_ {};
   };
 

@@ -100,9 +100,11 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The list of sorting fields. Supports fields such as last modified time and creation time. Format: "SortField+SortOrder (Desc/Asc)", where Asc is the default. Valid values:
     // 
-    // *   ModifyTime (Desc/Asc)
-    // *   CreateTime (Desc/Asc)
-    // *   Id (Desc/Asc)
+    // - ModifyTime (Desc/Asc)
+    // 
+    // - CreateTime (Desc/Asc)
+    // 
+    // - Id (Desc/Asc)
     shared_ptr<string> sortBy_ {};
     // Fuzzy match for the monitored table name.
     shared_ptr<string> table_ {};

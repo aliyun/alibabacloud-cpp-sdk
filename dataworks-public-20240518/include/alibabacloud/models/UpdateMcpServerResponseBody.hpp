@@ -78,10 +78,15 @@ namespace Models
 
 
     protected:
+      // The creation time. This value is a millisecond timestamp.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
+      // **The last modification time. This value is a millisecond timestamp.**
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // **The name of the MCP Server.**
       shared_ptr<string> name_ {};
     };
 
@@ -104,7 +109,9 @@ namespace Models
 
 
   protected:
+    // - The details of the updated MCP Server.
     shared_ptr<UpdateMcpServerResponseBody::McpServer> mcpServer_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The idempotence token. A UUID is recommended.
     shared_ptr<string> clientToken_ {};
+    // **process definition ID**
     shared_ptr<string> id_ {};
   };
 

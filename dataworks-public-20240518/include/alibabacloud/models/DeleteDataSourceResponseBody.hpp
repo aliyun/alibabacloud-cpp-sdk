@@ -51,7 +51,9 @@ namespace Models
     // The request ID. You can locate logs and troubleshoot issues based on the ID.
     shared_ptr<string> requestId_ {};
     // Whether the call is successful.
+    // 
     // - true: Successful
+    // 
     // - false: Failed
     shared_ptr<bool> success_ {};
   };

@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the process.
+    // The unique identifier of the Publishing Pipeline.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. You can find this ID on the Workspace Management page in the [DataWorks console](https://workbench.data.aliyun.com/console).
     // 
-    // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+    // This parameter specifies the DataWorks workspace for the API call.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

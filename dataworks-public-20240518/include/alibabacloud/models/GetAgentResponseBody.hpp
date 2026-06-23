@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // A list of project IDs that can view the agent.
         shared_ptr<vector<string>> projectIds_ {};
+        // A list of user IDs that can view the agent.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -185,9 +187,13 @@ namespace Models
 
 
       protected:
+        // **The name of the built-in tool. This parameter applies only when `Kind` is set to `builtin`.**
         shared_ptr<string> builtinName_ {};
+        // **The tool type.**
         shared_ptr<string> kind_ {};
+        // **The selected MCP tool items. This parameter applies only when `Kind` is set to `mcp`.**
         shared_ptr<vector<string>> mcpItems_ {};
+        // **The name of the associated MCP server. This parameter applies only when `Kind` is set to `mcp`.**
         shared_ptr<string> mcpServerName_ {};
       };
 
@@ -229,7 +235,9 @@ namespace Models
 
 
       protected:
+        // The skill name.
         shared_ptr<string> name_ {};
+        // The skill version.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -309,11 +317,17 @@ namespace Models
 
 
       protected:
+        // Additional configuration for the model.
         Darabonba::Json config_ {};
+        // The maximum number of tokens to generate in one response.
         shared_ptr<int32_t> maxTokens_ {};
+        // The model name.
         shared_ptr<string> modelName_ {};
+        // Indicates whether streaming output is enabled.
         shared_ptr<bool> stream_ {};
+        // The temperature.
         shared_ptr<double> temperature_ {};
+        // The top-p.
         shared_ptr<double> topP_ {};
       };
 
@@ -373,9 +387,13 @@ namespace Models
 
 
       protected:
+        // The sub-agent display name.
         shared_ptr<string> displayName_ {};
+        // The sub-agent name.
         shared_ptr<string> name_ {};
+        // The sub-agent source.
         shared_ptr<string> source_ {};
+        // The sub-agent version.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -510,23 +528,41 @@ namespace Models
 
 
     protected:
+      // A list of callable sub-agents.
       shared_ptr<vector<Agent::CallableAgents>> callableAgents_ {};
+      // The creator ID.
       shared_ptr<string> creatorId_ {};
+      // **The description.**
       shared_ptr<string> description_ {};
+      // **The display name.**
       shared_ptr<string> displayName_ {};
+      // The creation time, as a Unix timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
+      // The last modification time, as a Unix timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // **Additional metadata.**
       Darabonba::Json metadata_ {};
+      // **The model configuration.**
       shared_ptr<Agent::Model> model_ {};
+      // The ID of the last modifier.
       shared_ptr<string> modifierId_ {};
+      // **The agent name.**
       shared_ptr<string> name_ {};
+      // The runtime dependencies.
       shared_ptr<vector<string>> requiredRuntime_ {};
+      // A list of skills.
       shared_ptr<vector<Agent::Skills>> skills_ {};
+      // **The system prompt.**
       shared_ptr<string> systemPrompt_ {};
+      // **A list of tools.**
       shared_ptr<vector<Agent::Tools>> tools_ {};
+      // **The visibility level.**
       shared_ptr<string> visibility_ {};
+      // The visibility scope.
       shared_ptr<Agent::VisibilityScope> visibilityScope_ {};
     };
 
@@ -549,7 +585,9 @@ namespace Models
 
 
   protected:
+    // The agent details.
     shared_ptr<GetAgentResponseBody::Agent> agent_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

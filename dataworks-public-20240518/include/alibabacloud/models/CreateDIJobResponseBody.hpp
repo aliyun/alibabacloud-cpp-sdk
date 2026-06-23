@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated and is replaced by the Id parameter.
+    // This field is deprecated. Use the `Id` field instead.
     shared_ptr<int64_t> DIJobId_ {};
-    // The ID of the synchronization task.
+    // The data integration job ID.
     shared_ptr<int64_t> id_ {};
-    // The request ID. You can use the ID to query logs and troubleshoot issues.
+    // The request ID. Use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

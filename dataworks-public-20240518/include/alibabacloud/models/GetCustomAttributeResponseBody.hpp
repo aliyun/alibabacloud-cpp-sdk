@@ -60,9 +60,11 @@ namespace Models
 
 
   protected:
+    // The custom attribute definition.
     shared_ptr<CustomAttribute> customAttribute_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

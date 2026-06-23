@@ -71,7 +71,9 @@ namespace Models
 
 
     protected:
+      // The ID of the entity.
       shared_ptr<string> id_ {};
+      // Indicates whether the update was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -101,9 +103,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The result of the update operation.
     shared_ptr<UpdateMetaEntityResponseBody::Result> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

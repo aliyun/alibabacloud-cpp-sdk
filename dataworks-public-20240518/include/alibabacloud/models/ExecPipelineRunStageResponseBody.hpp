@@ -52,13 +52,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
+    // - true
     // 
-    // *   false
+    // - false
     // 
-    //     **
+    //   \\*\\*
     // 
-    //     **Note:** The value of this parameter indicates only whether the stage is triggered but does not indicate whether the execution of the stage is successful.
+    //   **Note:** The value of this parameter indicates only whether the stage is triggered but does not indicate whether the execution of the stage is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -121,32 +121,31 @@ namespace Models
 
 
   protected:
-    // The check settings for sample data.
+    // The sample check settings.
     shared_ptr<string> checkingConfigShrink_ {};
-    // The description of the rule. The description can be up to 500 characters in length.
+    // The description of the rule. The maximum length is 500 characters.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the monitoring rule.
+    // Specifies whether to enable the data quality rule.
     shared_ptr<bool> enabled_ {};
-    // The operations that you can perform after the rule-based check fails.
+    // The list of issue handlers for the data quality rule check.
     shared_ptr<string> errorHandlersShrink_ {};
     // The name of the rule.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The sampling settings.
+    // The settings required for sample collection.
     shared_ptr<string> samplingConfigShrink_ {};
-    // The strength of the rule. Valid values:
-    // 
-    // *   Normal
-    // *   High
+    // The severity of the rule for the business (corresponding to the strong/weak rule on the page). Valid values:
+    // - Normal
+    // - High
     shared_ptr<string> severity_ {};
-    // The monitored object of the rule.
+    // The object monitored by the rule.
     shared_ptr<string> targetShrink_ {};
-    // The ID of the template used by the rule.
+    // The unique identifier of the rule template that the rule references.
     shared_ptr<string> templateCode_ {};
   };
 

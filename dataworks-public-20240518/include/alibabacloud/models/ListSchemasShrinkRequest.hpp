@@ -109,8 +109,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The order in which schemas are sorted. Default value: Asc. Valid values:
     // 
-    // *   Asc: ascending order
-    // *   Desc: descending order
+    // - Asc: ascending order
+    // 
+    // - Desc: descending order
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -120,16 +121,19 @@ namespace Models
     // 
     // Configure the `ParentMetaEntityId` parameter in the `${EntityType}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}` format. If a level does not exist, leave the level empty.
     // 
-    // >  If you want to query the information about a MaxCompute schema, specify an empty string at the Instance ID level as a placeholder and a MaxCompute project name at the Database name level. Make sure that the schema feature is enabled for the MaxCompute project.
+    // > If you want to query the information about a MaxCompute schema, specify an empty string at the Instance ID level as a placeholder and a MaxCompute project name at the Database name level. Make sure that the schema feature is enabled for the MaxCompute project.
     // 
     // This parameter is required.
     shared_ptr<string> parentMetaEntityId_ {};
     // The field used for sorting. Default value: CreateTime. Valid values:
     // 
-    // *   CreateTime
-    // *   ModifyTime
-    // *   Name
-    // *   Type
+    // - CreateTime
+    // 
+    // - ModifyTime
+    // 
+    // - Name
+    // 
+    // - Type
     shared_ptr<string> sortBy_ {};
     // The types. Exact match is supported. If this parameter is left empty, all types are queried.
     shared_ptr<string> typesShrink_ {};

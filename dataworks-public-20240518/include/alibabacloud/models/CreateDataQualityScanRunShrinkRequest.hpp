@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the data quality monitor.
+    // The data quality scan ID.
     shared_ptr<int64_t> dataQualityScanId_ {};
-    // The parameter settings used during the actual run. The `triggerTime` parameter is required.
+    // The parameters for the run. The `triggerTime` parameter is required.
     shared_ptr<string> parametersShrink_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
-    // The scheduling resource group used when running the data quality monitor. This resource group uses the same data structure as in the scheduling API.
+    // Specifies the scheduling resource group used to run the data quality scan. This object uses the same data structure as the scheduling API.
     shared_ptr<string> runtimeResourceShrink_ {};
   };
 

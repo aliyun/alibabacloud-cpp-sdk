@@ -135,26 +135,26 @@ namespace Models
 
 
         protected:
-          // The name of the sampled metric.
-          // - Count: number of table rows
-          // - Min: minimum value of the field
-          // - Max: The maximum value of the field.
-          // - Avg: field mean
-          // - DistinctCount: number of unique field values
-          // - DistinctPercent: the ratio of the number of unique field values to the number of data rows.
-          // - DuplicatedCount: number of duplicate field values
-          // - DuplicatedPercent: the ratio of the number of duplicate field values to the number of data rows.
-          // - TableSize: table size
-          // - NullValueCount: number of rows with empty fields
-          // - NullValuePercent: the proportion of fields that are empty.
-          // - GroupCount: aggregate each value by field value and the corresponding number of data rows
-          // - CountNotIn: the enumerated value does not match the number of rows.
-          // - CountDistinctNotIn: the number of unique values that the enumerated values do not match.
-          // - UserDefinedSql: use custom SQL to collect samples
+          // The name of the sampling metric.
+          // - Count: the number of table rows
+          // - Min: the minimum value of the field
+          // - Max: the maximum value of the field
+          // - Avg: the average value of the field
+          // - DistinctCount: the number of unique values of the field
+          // - DistinctPercent: the ratio of the number of unique values of the field to the number of data rows
+          // - DuplicatedCount: the number of duplicate values of the field
+          // - DuplicatedPercent: the ratio of the number of duplicate values of the field to the number of data rows
+          // - TableSize: the size of the table
+          // - NullValueCount: the number of rows in which the field is null
+          // - NullValuePercent: the ratio of rows in which the field is null
+          // - GroupCount: each value and the corresponding number of data rows after aggregation by field value
+          // - CountNotIn: the number of rows in which the enumeration value does not match
+          // - CountDistinctNotIn: the number of unique values in which the enumeration value does not match
+          // - UserDefinedSql: collect samples by using custom SQL
           shared_ptr<string> metric_ {};
-          // Parameters required for sample collection
+          // The parameters required for sample collection.
           shared_ptr<string> metricParameters_ {};
-          // Before executing the sample statement, insert some runtime parameter setting statements, which can be up to 1000 characters in length. Currently, only MaxCompute are supported.
+          // The runtime parameter setting statements that are inserted and executed before the sampling statement is executed. This parameter can be up to 1,000 characters in length. Currently, only MaxCompute is supported.
           shared_ptr<string> settingConfig_ {};
         };
 
@@ -196,9 +196,9 @@ namespace Models
 
 
         protected:
-          // Some types of thresholds need to query some reference samples, and then summarize the values of the reference samples to obtain the threshold for comparison. Here, an expression is used to represent the query method of the reference samples.
+          // Some types of thresholds require reference samples to be queried, and then the values of the reference samples are aggregated to obtain the threshold for comparison. An expression is used here to indicate the query method of the reference samples.
           shared_ptr<string> referencedSamplesFilter_ {};
-          // Threshold Calculation method
+          // The threshold calculation method.
           // - Fixed
           // - Fluctation
           // - FluctationDiscreate
@@ -265,21 +265,21 @@ namespace Models
 
 
       protected:
-        // Sample verification settings
+        // The sample verification settings.
         shared_ptr<DataQualityRuleTemplates::CheckingConfig> checkingConfig_ {};
-        // Rule template Code
+        // The code of the rule template.
         shared_ptr<string> code_ {};
-        // The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+        // The category directory in which the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1,024 characters in length and cannot contain whitespace characters or slashes.
         shared_ptr<string> directoryPath_ {};
-        // The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+        // The name of the rule template. It can be a combination of digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 512 characters in length.
         shared_ptr<string> name_ {};
-        // DataWorks workspace ID
+        // The DataWorks workspace ID.
         shared_ptr<int64_t> projectId_ {};
-        // Settings required for sample collection
+        // The settings required for sample collection.
         shared_ptr<DataQualityRuleTemplates::SamplingConfig> samplingConfig_ {};
-        // Available range of templates:
-        // - Tenant: all tenants are available
-        // - Project: only available in the current Project
+        // The available scope of the template:
+        // - Tenant: available to all tenants
+        // - Project: available only in the current project
         shared_ptr<string> visibleScope_ {};
       };
 
@@ -316,13 +316,13 @@ namespace Models
 
 
     protected:
-      // The templates.
+      // The list of rule templates.
       shared_ptr<vector<PagingInfo::DataQualityRuleTemplates>> dataQualityRuleTemplates_ {};
-      // Page number
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // Page size
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of entries
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -345,9 +345,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paginated query result of data quality rule templates.
     shared_ptr<ListDataQualityRuleTemplatesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

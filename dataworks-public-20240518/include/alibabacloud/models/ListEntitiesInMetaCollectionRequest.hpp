@@ -115,8 +115,9 @@ namespace Models
     shared_ptr<string> id_ {};
     // The sort order. Valid values:
     // 
-    // *   Asc (default): ascending order.
-    // *   Desc
+    // - Asc (default): ascending order.
+    // 
+    // - Desc
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -124,8 +125,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The sort field. Valid values:
     // 
-    // *   Name (default)
-    // *   CreateTime
+    // - Name (default)
+    // 
+    // - CreateTime
     shared_ptr<string> sortBy_ {};
   };
 

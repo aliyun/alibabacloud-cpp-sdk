@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of application IDs.
     shared_ptr<vector<string>> data_ {};
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

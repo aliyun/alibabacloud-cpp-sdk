@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the cloned data source.
     shared_ptr<int64_t> id_ {};
-    // The ID of the request. It is used to locate logs and troubleshoot problems.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -56,8 +56,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // - Prod: production environment
+    // 
+    // - Dev: development environment
     shared_ptr<string> projectEnv_ {};
   };
 

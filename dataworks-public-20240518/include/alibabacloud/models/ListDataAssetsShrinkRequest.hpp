@@ -98,13 +98,15 @@ namespace Models
     shared_ptr<string> dataAssetIdsShrink_ {};
     // The type of the data asset. Valid values:
     // 
-    // *   ACS::DataWorks::Table
-    // *   ACS::DataWorks::Task
+    // - ACS::DataWorks::Table
+    // 
+    // - ACS::DataWorks::Task
     shared_ptr<string> dataAssetType_ {};
     // The environment of the workspace to which the data asset belongs. Valid values:
     // 
-    // *   Dev: development environment
-    // *   Prod: production environment
+    // - Dev: development environment
+    // 
+    // - Prod: production environment
     shared_ptr<string> envType_ {};
     // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -114,8 +116,9 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The tags that are added to data assets. This parameter specifies a filter condition.
     // 
-    // *   You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
-    // *   If you do not configure this parameter, tag-based filtering is not performed.
+    // - You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
+    // 
+    // - If you do not configure this parameter, tag-based filtering is not performed.
     // 
     // This parameter is required.
     shared_ptr<string> tagsShrink_ {};

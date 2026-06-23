@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // The Compute Resources (CUs) reserved for running the data quality monitor in the resource group.
+      // The number of compute units (CUs) to reserve from the resource group for the data quality scan.
       shared_ptr<float> cu_ {};
       // The resource group ID.
       shared_ptr<string> id_ {};
-      // The image settings used when running the data quality monitor in the resource group.
+      // The image configuration for running the data quality scan on the resource group.
       shared_ptr<string> image_ {};
     };
 
@@ -129,9 +129,15 @@ namespace Models
 
 
     protected:
-      // The parameter name.
+      // The name of the parameter. The only supported value is:
+      // 
+      // - triggerTime
+      // 
+      // No other scheduling parameters are currently supported.
       shared_ptr<string> name_ {};
-      // The parameter value. You can use a scheduling time expression.
+      // The parameter value.
+      // 
+      // - If the parameter name is triggerTime, this value must be the trigger time as a timestamp.
       shared_ptr<string> value_ {};
     };
 
@@ -170,13 +176,13 @@ namespace Models
 
 
   protected:
-    // The ID of the data quality monitor.
+    // The data quality scan ID.
     shared_ptr<int64_t> dataQualityScanId_ {};
-    // The parameter settings used during the actual run. The `triggerTime` parameter is required.
+    // The parameters for the run. The `triggerTime` parameter is required.
     shared_ptr<vector<CreateDataQualityScanRunRequest::Parameters>> parameters_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
-    // The scheduling resource group used when running the data quality monitor. This resource group uses the same data structure as in the scheduling API.
+    // Specifies the scheduling resource group used to run the data quality scan. This object uses the same data structure as the scheduling API.
     shared_ptr<CreateDataQualityScanRunRequest::RuntimeResource> runtimeResource_ {};
   };
 

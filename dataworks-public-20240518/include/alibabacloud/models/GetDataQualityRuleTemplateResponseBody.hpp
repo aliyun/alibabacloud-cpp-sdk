@@ -109,27 +109,26 @@ namespace Models
 
 
       protected:
-        // The metrics used for sampling. Valid values:
-        // 
-        // *   Count: the number of rows in the table.
-        // *   Min: the minimum value of the field.
-        // *   Max: the maximum value of the field.
-        // *   Avg: the average value of the field.
-        // *   DistinctCount: the number of unique values of the field after deduplication.
-        // *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
-        // *   DuplicatedCount: the number of duplicated values of the field.
-        // *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
-        // *   TableSize: the table size.
-        // *   NullValueCount: the number of rows in which the field value is null.
-        // *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
-        // *   GroupCount: the field value and the number of rows for each field value.
-        // *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
-        // *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
-        // *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+        // The name of the metric to be sampled:
+        // - Count: the number of rows in the table.
+        // - Min: the minimum value of the field.
+        // - Max: the maximum value of the field.
+        // - Avg: the average value of the field.
+        // - DistinctCount: the number of distinct values of the field.
+        // - DistinctPercent: the ratio of the number of distinct values of the field to the number of data rows.
+        // - DuplicatedCount: the number of duplicate values of the field.
+        // - DuplicatedPercent: the ratio of the number of duplicate values of the field to the number of data rows.
+        // - TableSize: the size of the table.
+        // - NullValueCount: the number of rows in which the field is null.
+        // - NullValuePercent: the percentage of rows in which the field is null.
+        // - GroupCount: the number of data rows corresponding to each value after aggregation by field value.
+        // - CountNotIn: the number of rows whose enumerated values do not match.
+        // - CountDistinctNotIn: the number of distinct values whose enumerated values do not match.
+        // - UserDefinedSql: collects samples by using a custom SQL statement.
         shared_ptr<string> metric_ {};
-        // The parameters required for sampling.
+        // The parameters required for sample collection.
         shared_ptr<string> metricParameters_ {};
-        // The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+        // The runtime parameter setting statements that are inserted and executed before the specific sampling statement is executed. The setting can be a maximum of 1,000 characters in length. Only MaxCompute is supported.
         shared_ptr<string> settingConfig_ {};
       };
 
@@ -171,16 +170,15 @@ namespace Models
 
 
       protected:
-        // The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to indicate the query method of referenced samples.
+        // Some types of thresholds require you to query reference samples and aggregate the values of the reference samples to obtain the threshold for comparison. An expression is used to indicate the query method of reference samples.
         shared_ptr<string> referencedSamplesFilter_ {};
-        // The threshold calculation method. Valid values:
-        // 
-        // *   Fixed
-        // *   Fluctation
-        // *   FluctationDiscreate
-        // *   Auto
-        // *   Average
-        // *   Variance
+        // The threshold calculation method:
+        // - Fixed
+        // - Fluctation
+        // - FluctationDiscreate
+        // - Auto
+        // - Average
+        // - Variance
         shared_ptr<string> type_ {};
       };
 
@@ -241,21 +239,21 @@ namespace Models
 
 
     protected:
-      // The check settings for sample data.
+      // The sample verification settings.
       shared_ptr<DataQualityRuleTemplate::CheckingConfig> checkingConfig_ {};
-      // The code for the template.
+      // The code of the rule template.
       shared_ptr<string> code_ {};
-      // The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+      // The category directory in which the custom template is stored. Levels are separated by forward slashes (/). Each level name can be a maximum of 1,024 characters in length and cannot contain whitespace characters or forward slashes (/).
       shared_ptr<string> directoryPath_ {};
-      // The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+      // The name of the rule template. The name can be a combination of digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be a maximum of 512 characters in length.
       shared_ptr<string> name_ {};
-      // The DataWorks workspace ID.
+      // The ID of the DataWorks workspace.
       shared_ptr<int64_t> projectId_ {};
-      // The sampling settings.
+      // The settings required for sample collection.
       shared_ptr<DataQualityRuleTemplate::SamplingConfig> samplingConfig_ {};
-      // Available range of templates:
-      // - Tenant: all tenants are available
-      // - Project: only available in the current Project
+      // The scope in which the template is available:
+      // - Tenant: available to the entire tenant.
+      // - Project: available only in the current project.
       shared_ptr<string> visibleScope_ {};
     };
 
@@ -278,7 +276,7 @@ namespace Models
 
 
   protected:
-    // The information about the template.
+    // The details of the rule template.
     shared_ptr<GetDataQualityRuleTemplateResponseBody::DataQualityRuleTemplate> dataQualityRuleTemplate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

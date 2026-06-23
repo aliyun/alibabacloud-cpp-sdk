@@ -85,10 +85,13 @@ namespace Models
     shared_ptr<string> managersShrink_ {};
     // The type of the tag value. Valid values:
     // 
-    // *   Boolean
-    // *   Int
-    // *   String
-    // *   Double
+    // - Boolean
+    // 
+    // - Int
+    // 
+    // - String
+    // 
+    // - Double
     shared_ptr<string> valueType_ {};
     // The tag values.
     shared_ptr<string> valuesShrink_ {};

@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The connection configuration for the MCP Server.
     shared_ptr<string> configShrink_ {};
+    // The name of the MCP Server. The name must be unique at the tenant level. It must start with a lowercase letter and contain only characters from `a-z`, `0-9`, `_`, and `-`.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The visibility level.
     shared_ptr<string> visibility_ {};
+    // The visibility scope. The required fields depend on the value of the `Visibility` parameter.
     shared_ptr<string> visibilityScopeShrink_ {};
   };
 

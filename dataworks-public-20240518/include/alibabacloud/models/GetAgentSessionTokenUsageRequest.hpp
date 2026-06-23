@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The session ID. Required.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -90,8 +91,11 @@ namespace Models
 
 
   protected:
+    // The ID provided by the requester, which is echoed in the response.
     shared_ptr<string> id_ {};
+    // The JSON-RPC version. The value is always 2.0.
     shared_ptr<string> jsonrpc_ {};
+    // Business parameters.
     shared_ptr<GetAgentSessionTokenUsageRequest::Params> params_ {};
   };
 

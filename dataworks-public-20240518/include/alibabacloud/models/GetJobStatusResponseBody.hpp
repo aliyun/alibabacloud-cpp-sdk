@@ -115,16 +115,21 @@ namespace Models
       shared_ptr<string> jobId_ {};
       // The type of the asynchronous task. Valid values:
       // 
-      // *   **Create**: The asynchronous task is used to create an object.
-      // *   **Update**: The asynchronous task is used to update an object.
-      // *   **Cancel**: The asynchronous task is used to cancel an operation.
+      // - **Create**: The asynchronous task is used to create an object.
+      // 
+      // - **Update**: The asynchronous task is used to update an object.
+      // 
+      // - **Cancel**: The asynchronous task is used to cancel an operation.
       shared_ptr<string> jobType_ {};
       // The status of the asynchronous task. Valid values:
       // 
-      // *   **Success**
-      // *   **Fail**
-      // *   **Cancel**
-      // *   **Running**
+      // - **Success**
+      // 
+      // - **Fail**
+      // 
+      // - **Cancel**
+      // 
+      // - **Running**
       shared_ptr<string> status_ {};
     };
 

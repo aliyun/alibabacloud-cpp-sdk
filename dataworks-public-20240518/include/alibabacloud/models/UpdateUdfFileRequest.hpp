@@ -162,9 +162,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   ALL_ALLOWD
-    // *   FAILURE_ALLOWED
-    // *   ALL_DENIED
+    // - ALL_ALLOWD
+    // 
+    // - FAILURE_ALLOWED
+    // 
+    // - ALL_DENIED
     shared_ptr<string> parameterDescription_ {};
     // The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
     shared_ptr<int64_t> projectId_ {};

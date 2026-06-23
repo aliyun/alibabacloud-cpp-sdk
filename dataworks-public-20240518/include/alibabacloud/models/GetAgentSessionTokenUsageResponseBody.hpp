@@ -119,10 +119,15 @@ namespace Models
 
 
       protected:
+        // The cumulative number of cache-hit tokens.
         shared_ptr<int64_t> cachedTokens_ {};
+        // **Cumulative number of completion tokens generated.**
         shared_ptr<int64_t> completionTokens_ {};
+        // **Cumulative number of prompt tokens consumed.**
         shared_ptr<int64_t> promptTokens_ {};
+        // Cumulative number of tokens used for thoughts.
         shared_ptr<int64_t> thoughtsTokens_ {};
+        // The cumulative number of all tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -152,8 +157,11 @@ namespace Models
 
 
     protected:
+      // The ID provided by the requester, which is echoed in the response.
       shared_ptr<string> id_ {};
+      // The JSON-RPC version. The value is always 2.0.
       shared_ptr<string> jsonrpc_ {};
+      // Token usage result.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 
@@ -176,8 +184,9 @@ namespace Models
 
 
   protected:
+    // The JSON-RPC result.
     shared_ptr<GetAgentSessionTokenUsageResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

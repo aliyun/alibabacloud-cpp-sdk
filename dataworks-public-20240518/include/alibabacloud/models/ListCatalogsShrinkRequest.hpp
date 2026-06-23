@@ -109,8 +109,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The order in which the tables are sorted. Default value: Asc. Valid values:
     // 
-    // *   Asc: ascending order.
-    // *   Desc: descending order.
+    // - Asc: ascending order.
+    // 
+    // - Desc: descending order.
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -120,21 +121,24 @@ namespace Models
     // 
     // Currently, only the DLF and StarRocks types are supported.
     // 
-    // *   For the DLF type, you can query all catalog lists. The format of `ParentMetaEntityId` is `DLF`.
-    // *   For the StarRocks type, you can query the catalogs of a specific instance. The format of `ParentMetaEntityId` `is StarRocks:(instance_id|encoded_jdbc_url)`.
+    // - For the DLF type, you can query all catalog lists. The format of `ParentMetaEntityId` is `DLF`.
     // 
-    // > \\
-    // `instance_id`: The instance ID. Required if the data source is registered in instance mode.\\
-    // `encoded_jdbc_url`: The JDBC connection string encoded with URL encoding. Required if the data source is registered in connection-string mode.
+    // - For the StarRocks type, you can query the catalogs of a specific instance. The format of `ParentMetaEntityId` `is StarRocks:(instance_id|encoded_jdbc_url)`.
+    // 
+    // > <br>`instance_id`: The instance ID. Required if the data source is registered in instance mode.<br>
+    // > `encoded_jdbc_url`: The JDBC connection string encoded with URL encoding. Required if the data source is registered in connection-string mode.
     // 
     // This parameter is required.
     shared_ptr<string> parentMetaEntityId_ {};
     // The sort field. Default value: CreateTime. Valid values:
     // 
-    // *   CreateTime
-    // *   ModifyTime
-    // *   Name
-    // *   Type
+    // - CreateTime
+    // 
+    // - ModifyTime
+    // 
+    // - Name
+    // 
+    // - Type
     shared_ptr<string> sortBy_ {};
     // The type. Supports exact match. If left empty, all types are queried.
     shared_ptr<string> typesShrink_ {};

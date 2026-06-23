@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the new monitor.
+    // The ID of the newly created data quality monitor.
     shared_ptr<int64_t> id_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

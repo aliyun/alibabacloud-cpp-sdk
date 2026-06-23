@@ -84,29 +84,35 @@ namespace Models
 
 
   protected:
-    // The ID of the user who creates the processes. This parameter specifies a filter condition.
+    // Filters the results by the creator of the pipeline.
     shared_ptr<string> creator_ {};
+    // The ID of the artifact.
     shared_ptr<string> objectId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. You can obtain this ID from the Workspace Management page in the [DataWorks console](https://workbench.data.aliyun.com/console).
     // 
-    // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+    // This parameter specifies the DataWorks workspace to use for the API call.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The status of the processes. This parameter specifies a filter condition.
+    // Filters the results by the current status of the pipeline.
     // 
     // Valid values:
     // 
-    // *   Init
-    // *   Running
-    // *   Success
-    // *   Fail
-    // *   Termination
-    // *   Cancel
+    // - `Init`: initializing
+    // 
+    // - `Running`: running
+    // 
+    // - `Success`: succeeded
+    // 
+    // - `Fail`: failed
+    // 
+    // - `Termination`: terminated
+    // 
+    // - `Cancel`: canceled
     shared_ptr<string> status_ {};
   };
 

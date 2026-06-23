@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the update operation was successful.
     shared_ptr<bool> result_ {};
+    // Whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

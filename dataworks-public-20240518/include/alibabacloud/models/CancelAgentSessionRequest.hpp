@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The ID of the session to cancel. This parameter is required.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -90,8 +91,11 @@ namespace Models
 
 
   protected:
+    // The ID passed by the requester. The value is returned as-is in the response.
     shared_ptr<string> id_ {};
+    // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};
+    // The business parameters of the request.
     shared_ptr<CancelAgentSessionRequest::Params> params_ {};
   };
 

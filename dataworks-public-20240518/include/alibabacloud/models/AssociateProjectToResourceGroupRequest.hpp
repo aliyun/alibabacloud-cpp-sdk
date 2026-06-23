@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the DataWorks workspace with which you want to associate the resource group.
+    // The ID of the workspace to associate.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The ID of the resource group.
+    // The unique identifier of the resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

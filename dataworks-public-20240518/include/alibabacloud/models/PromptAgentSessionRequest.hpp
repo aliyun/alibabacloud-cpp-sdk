@@ -120,6 +120,7 @@ namespace Models
 
 
         protected:
+          // Specifies whether to hide the prompt from the user. For example, if a user asks "Sales amount in the last 7 days" in a chat dialog, the calling system may use RAG to retrieve relevant business domain knowledge and append it to the agent context before calling the API. If you do not want to display this supplemental information to the user, set this parameter to true.
           shared_ptr<bool> hide_ {};
         };
 
@@ -192,14 +193,23 @@ namespace Models
 
 
       protected:
+        // The description of the file.
         shared_ptr<string> description_ {};
+        // The prompt metadata extended by DataWorks.
         shared_ptr<Prompt::Meta> meta_ {};
+        // The MIME type of the file.
         shared_ptr<string> mimeType_ {};
+        // The file name.
         shared_ptr<string> name_ {};
+        // The size of the file. Unit: bytes.
         shared_ptr<int64_t> size_ {};
+        // **The text content.**
         shared_ptr<string> text_ {};
+        // The title of the file.
         shared_ptr<string> title_ {};
+        // **The content block type.**
         shared_ptr<string> type_ {};
+        // The URI of the file.
         shared_ptr<string> uri_ {};
       };
 
@@ -233,6 +243,7 @@ namespace Models
 
 
       protected:
+        // A Map-type value. In custom agent scenarios, you can use this parameter to replace placeholder parameters.
         Darabonba::Json context_ {};
       };
 
@@ -264,8 +275,11 @@ namespace Models
 
 
     protected:
+      // The extended metadata.
       shared_ptr<Params::Meta> meta_ {};
+      // The array of user message content blocks. For more information, see https\\://agentclientprotocol.com/protocol/content
       shared_ptr<vector<Params::Prompt>> prompt_ {};
+      // The ID of the target session. If the session does not exist, an SSE error frame is returned.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -295,8 +309,11 @@ namespace Models
 
 
   protected:
+    // The ID passed in by the caller. The value is returned as-is in the response.
     shared_ptr<string> id_ {};
+    // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};
+    // The business parameters.
     shared_ptr<PromptAgentSessionRequest::Params> params_ {};
   };
 

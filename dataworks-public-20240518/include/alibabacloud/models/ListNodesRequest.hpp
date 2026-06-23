@@ -103,35 +103,45 @@ namespace Models
 
 
   protected:
-    // Leave this parameter empty if not specified. Filter condition: within a specified container. Specify the container ID. This parameter is independent of the resource group ID (ResourceGroupId).
+    // The ID of the container. If you specify this parameter, only nodes in the specified container are returned. This parameter is independent of the resource group (ResourceGroupId).
     // 
-    // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+    // >Notice: 
+    // 
+    // This parameter is of the Long type in SDK versions earlier than 8.0.0 and of the String type in SDK 8.0.0 and later. **This change does not affect SDK usage. The parameter is returned in the type defined for your SDK version.** The type change may cause compilation errors only when you upgrade the SDK across version 8.0.0. In this case, you must manually correct the data type.
     shared_ptr<string> containerId_ {};
-    // The name of the node. Fuzzy search is supported.
+    // The node name. Fuzzy search is supported.
     shared_ptr<string> name_ {};
-    // The page number of the data to retrieve, used for pagination.
+    // The page number of the results to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page number of the data to retrieve, used for pagination.
+    // The number of entries per page. Default: 10. Maximum: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. To find this ID, log in to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // Leave this parameter empty if not specified. Filter condition: within a specified container. Specify the container ID. This parameter is independent of the resource group ID (ResourceGroupId).
+    // Filters nodes by their scheduling type. Valid values:
     // 
-    // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+    // - Normal: The node runs as scheduled.
+    // 
+    // - Pause: The node is paused and blocks its dependent downstream nodes.
+    // 
+    // - Skip: The node is skipped, and the system immediately returns a success status with a 0-second execution time. This action does not block downstream nodes or consume resources.
     shared_ptr<string> recurrence_ {};
-    // The rerun property, which is a filter condition. If you do not want to use this condition for filtering, you do not need to configure this parameter. Valid values:
+    // The rerun mode. Valid values:
     // 
-    // *   Allowed: The nodes can be rerun regardless of whether they are successfully run or fail to run.
-    // *   FailureAllowed: The nodes can be rerun only after they fail to run.
-    // *   Denied: The nodes cannot be rerun regardless of whether they are successfully run or fail to run.
+    // - Allowed: The node can be rerun regardless of whether it succeeded or failed.
+    // 
+    // - FailureAllowed: The node can be rerun only if its previous run failed.
+    // 
+    // - Denied: The node cannot be rerun regardless of whether it succeeded or failed.
     shared_ptr<string> rerunMode_ {};
-    // The location of the nodes in the left-side navigation pane of the Data Studio page, which is a filter condition. If you do not want to use this condition for filtering, you do not need to configure this parameter. Valid values:
+    // The context for filtering nodes. In data development, this corresponds to the sections in the directory tree on the left. If you omit this parameter, no filtering is applied. Valid values:
     // 
-    // *   DataworksProject
-    // *   DataworksManualWorkflow
-    // *   DataworksManualTask
+    // - DataworksProject: Nodes in the project directory.
+    // 
+    // - DataworksManualWorkflow: manual workflow
+    // 
+    // - DataworksManualTask: manual task
     shared_ptr<string> scene_ {};
   };
 

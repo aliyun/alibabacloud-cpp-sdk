@@ -112,18 +112,42 @@ namespace Models
 
 
   protected:
+    // The list of approval nodes.
+    // 
     // This parameter is required.
     shared_ptr<string> approvalNodesShrink_ {};
+    // The idempotency token. We recommend that you use a UUID.
     shared_ptr<string> clientToken_ {};
+    // The description of the process definition.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable the process definition.
     shared_ptr<bool> enabled_ {};
+    // The name of the process definition.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The notification service declarations.
     shared_ptr<string> notificationServicesShrink_ {};
+    // The list of condition rules.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleConditionsShrink_ {};
+    // The subtype. Valid values:
+    // 
+    // - Table
+    // - Column
+    // - Database
+    // - Schema
+    // - Default
     shared_ptr<string> subType_ {};
+    // The type of the process definition. Valid values:
+    // 
+    // 1. MaxCompute
+    // 2. DataService
+    // 3. Extension
+    // 4. Hologres
     shared_ptr<string> type_ {};
   };
 

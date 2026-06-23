@@ -112,14 +112,27 @@ namespace Models
 
 
   protected:
+    // The ID of the destination entity. This can be a table or column ID returned by the `ListTables` or `ListColumns` API, or the ID of a custom entity.
     shared_ptr<string> dstEntityId_ {};
+    // The name of the destination entity. This parameter supports fuzzy matching.
     shared_ptr<string> dstEntityName_ {};
+    // Specifies whether to include lineage relationships. Default: false.
     shared_ptr<bool> needAttachRelationship_ {};
+    // The sort order. Default: `Asc`. Valid values:
+    // 
+    // - `Asc`: ascending
+    // 
+    // - `Desc`: descending
     shared_ptr<string> order_ {};
+    // The page number to retrieve. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default: 10. Maximum: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The field to sort the results by. The default is `Name`, which sorts by entity name.
     shared_ptr<string> sortBy_ {};
+    // The ID of the source entity. This can be a table or column ID returned by the `ListTables` or `ListColumns` API, or the ID of a custom entity.
     shared_ptr<string> srcEntityId_ {};
+    // The name of the source entity. This parameter supports fuzzy matching.
     shared_ptr<string> srcEntityName_ {};
   };
 

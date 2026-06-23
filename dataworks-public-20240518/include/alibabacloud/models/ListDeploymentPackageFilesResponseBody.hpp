@@ -244,9 +244,11 @@ namespace Models
       protected:
         // The change type, which is an integer. Valid values:
         // 
-        // *   0: addition
-        // *   1: update
-        // *   2: deletion
+        // - 0: addition
+        // 
+        // - 1: update
+        // 
+        // - 2: deletion
         shared_ptr<int32_t> changeType_ {};
         // The comment for committing.
         shared_ptr<string> comment_ {};
@@ -278,31 +280,49 @@ namespace Models
         shared_ptr<string> smokeTestStatus_ {};
         // The status of the code file of the current version. Valid values:
         // 
-        // *   2: Commit check in progress.
-        // *   3: Commit check passed.
-        // *   4: Commit check failed.
-        // *   10: Committing.
-        // *   11: Committed.
-        // *   20: Approved.
-        // *   21: Rejected.
-        // *   22: Warning detected during checking.
-        // *   23: Under code review.
-        // *   24: Code review rejected.
-        // *   80: Deployment package created.
-        // *   100: Deploying.
-        // *   101: Deployed to the production environment.
-        // *   200: Cancelled.
+        // - 2: Commit check in progress.
+        // 
+        // - 3: Commit check passed.
+        // 
+        // - 4: Commit check failed.
+        // 
+        // - 10: Committing.
+        // 
+        // - 11: Committed.
+        // 
+        // - 20: Approved.
+        // 
+        // - 21: Rejected.
+        // 
+        // - 22: Warning detected during checking.
+        // 
+        // - 23: Under code review.
+        // 
+        // - 24: Code review rejected.
+        // 
+        // - 80: Deployment package created.
+        // 
+        // - 100: Deploying.
+        // 
+        // - 101: Deployed to the production environment.
+        // 
+        // - 200: Cancelled.
         shared_ptr<int32_t> status_ {};
         // The DataWorks tenant ID.
         shared_ptr<int64_t> tenantId_ {};
         // The module to which the file belongs. Valid values:
         // 
-        // *   NORMAL: The file is used for DataStudio.
-        // *   MANUAL: The file is used for a manually triggered node.
-        // *   MANUAL_BIZ: The file is used for a manually triggered workflow.
-        // *   SKIP: The file is used for a dry-run node in DataStudio.
-        // *   ADHOCQUERY: The file is used for an ad hoc query.
-        // *   COMPONENT: The file is used for a script template.
+        // - NORMAL: The file is used for DataStudio.
+        // 
+        // - MANUAL: The file is used for a manually triggered node.
+        // 
+        // - MANUAL_BIZ: The file is used for a manually triggered workflow.
+        // 
+        // - SKIP: The file is used for a dry-run node in DataStudio.
+        // 
+        // - ADHOCQUERY: The file is used for an ad hoc query.
+        // 
+        // - COMPONENT: The file is used for a script template.
         shared_ptr<string> useType_ {};
       };
 

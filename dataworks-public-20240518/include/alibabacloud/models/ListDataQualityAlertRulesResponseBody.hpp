@@ -204,14 +204,21 @@ namespace Models
             shared_ptr<string> extension_ {};
             // The type of alert recipients.
             // 
-            // *   ShiftSchedule
-            // *   WebhookUrl
-            // *   FeishuUrl
-            // *   TaskOwner
-            // *   WeixinUrl
-            // *   DingdingUrl
-            // *   DataQualityScanOwner
-            // *   AliUid
+            // - ShiftSchedule
+            // 
+            // - WebhookUrl
+            // 
+            // - FeishuUrl
+            // 
+            // - TaskOwner
+            // 
+            // - WeixinUrl
+            // 
+            // - DingdingUrl
+            // 
+            // - DataQualityScanOwner
+            // 
+            // - AliUid
             shared_ptr<string> receiverType_ {};
             // The value of alert recipients.
             shared_ptr<vector<string>> receiverValues_ {};

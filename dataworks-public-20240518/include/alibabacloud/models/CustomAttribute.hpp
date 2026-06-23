@@ -126,15 +126,33 @@ namespace Models
 
 
   protected:
+    // Description of the custom attribute. It must be fewer than 256 characters.
     shared_ptr<string> comment_ {};
+    // Creation time as a millisecond UNIX timestamp.
     shared_ptr<int64_t> createTime_ {};
+    // Indicates whether this attribute is displayed on the page. Default is true.
     shared_ptr<bool> displayEnabled_ {};
+    // Display name for the custom attribute. It must be fewer than 128 characters.
     shared_ptr<string> displayName_ {};
+    // List of applicable entity types. Supports exact entity types and wildcard patterns such as `*-table` and `*-column`, for example:
+    // 
+    // - dataworks-project
+    // 
+    // - dataworks-dataset
+    // 
+    // - maxcompute-table
+    // 
+    // - maxcompute-column
     shared_ptr<vector<string>> entityTypes_ {};
+    // Custom attribute ID. It must match the regular expression ^custom-attribute:[A-Za-z][A-Za-z0-9_]{0,98}$. The part after `custom-attribute:` must be fewer than 100 characters.
     shared_ptr<string> id_ {};
+    // Modification time as a millisecond UNIX timestamp.
     shared_ptr<int64_t> modifyTime_ {};
+    // Indicates whether this attribute can be used as a filter on the search page (only affects search in Data Map). Only ENUM attributes can be set to true. Default is false.
     shared_ptr<bool> searchFilterEnabled_ {};
+    // Custom attribute type. Supported types are ENUM, TEXT, and HYPERLINK.
     shared_ptr<string> type_ {};
+    // Enumeration values. Required when Type is ENUM. Not supported for TEXT or HYPERLINK types.
     shared_ptr<vector<string>> valueEnums_ {};
   };
 

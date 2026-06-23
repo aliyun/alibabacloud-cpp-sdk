@@ -280,8 +280,9 @@ namespace Models
       shared_ptr<string> createUser_ {};
       // The environment of the workspace. Valid values:
       // 
-      // *   Prod
-      // *   Dev
+      // - Prod
+      // 
+      // - Dev
       shared_ptr<string> envType_ {};
       // The time when the instance finished running.
       shared_ptr<int64_t> finishedTime_ {};
@@ -301,26 +302,39 @@ namespace Models
       shared_ptr<int64_t> startedTime_ {};
       // The status of the workflow instance. Valid values:
       // 
-      // *   NotRun: The instance is not run.
-      // *   Running: The instance is running.
-      // *   WaitTime: The instance is waiting for the scheduling time to arrive.
-      // *   CheckingCondition: Branch conditions are being checked for the instance.
-      // *   WaitResource: The instance is waiting for resources.
-      // *   Failure: The instance fails to be run.
-      // *   Success: The instance is successfully run.
-      // *   Checking: Data quality is being checked for the instance.
+      // - NotRun: The instance is not run.
+      // 
+      // - Running: The instance is running.
+      // 
+      // - WaitTime: The instance is waiting for the scheduling time to arrive.
+      // 
+      // - CheckingCondition: Branch conditions are being checked for the instance.
+      // 
+      // - WaitResource: The instance is waiting for resources.
+      // 
+      // - Failure: The instance fails to be run.
+      // 
+      // - Success: The instance is successfully run.
+      // 
+      // - Checking: Data quality is being checked for the instance.
       shared_ptr<string> status_ {};
       // The task tag.
       shared_ptr<vector<WorkflowInstance::Tags>> tags_ {};
       // The type of the workflow instance. Valid values:
       // 
-      // *   Normal: Scheduled execution
-      // *   Manual: Manually triggered node
-      // *   SmokeTest: Testing
-      // *   SupplementData: Data backfill
-      // *   ManualWorkflow: Manually triggered workflow
-      // *   TriggerWorkflow: Triggered Workflow
+      // - Normal: Scheduled execution
+      // 
+      // - Manual: Manually triggered node
+      // 
+      // - SmokeTest: Testing
+      // 
+      // - SupplementData: Data backfill
+      // 
+      // - ManualWorkflow: Manually triggered workflow
+      // 
+      // - TriggerWorkflow: Triggered Workflow
       shared_ptr<string> type_ {};
+      // The unified pipeline instance ID. For all pipeline instances triggered under the same data timestamp in a single trigger, this field value is identical.
       shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
       // The ID of the workflow to which the instance belongs.
       shared_ptr<int64_t> workflowId_ {};

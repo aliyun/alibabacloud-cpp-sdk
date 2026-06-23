@@ -154,8 +154,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Success
-    // *   Failure
+    // - Success
+    // 
+    // - Failure
     shared_ptr<string> status_ {};
     // The type of the workflow instance. Valid values:
     // 

@@ -318,8 +318,9 @@ namespace Models
         shared_ptr<string> startTime_ {};
         // The time period type. This parameter is required if you configure the RunPolicy parameter. Valid values:
         // 
-        // *   Daily
-        // *   Weekend
+        // - Daily
+        // 
+        // - Weekend
         shared_ptr<string> type_ {};
       };
 
@@ -407,15 +408,19 @@ namespace Models
       protected:
         // The alert notification method. Valid values:
         // 
-        // *   Sms: SMS only.
-        // *   Mail: Mail only.
-        // *   SmsMail: SMS and mail.
+        // - Sms: SMS only.
+        // 
+        // - Mail: Mail only.
+        // 
+        // - SmsMail: SMS and mail.
         shared_ptr<string> noticeType_ {};
         // The alerting policy. Valid values:
         // 
-        // *   Success: Alerts on success.
-        // *   Failure: Alerts on failure.
-        // *   SuccessFailure: Alerts on both success and failure.
+        // - Success: Alerts on success.
+        // 
+        // - Failure: Alerts on failure.
+        // 
+        // - SuccessFailure: Alerts on both success and failure.
         shared_ptr<string> type_ {};
       };
 
@@ -552,15 +557,19 @@ namespace Models
       shared_ptr<vector<int64_t>> includeTaskIds_ {};
       // The data backfill mode. Default value: ManualSelection. Required when Type is set to SupplementData.
       // 
-      // *   General: You can specify only one value for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it\\"s not specified, it defaults to including `RootTaskIds`.
-      // *   ManualSelection: You can specify multiple values for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it is not specified, it defaults to including `RootTaskIds`.
-      // *   Chain: If you set the Mode parameter to Chain, leave the `RootTaskIds` parameter empty and set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
-      // *   AllDownstream: Only one `RootTaskId` can be specified.
+      // - General: You can specify only one value for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it\\"s not specified, it defaults to including `RootTaskIds`.
+      // 
+      // - ManualSelection: You can specify multiple values for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it is not specified, it defaults to including `RootTaskIds`.
+      // 
+      // - Chain: If you set the Mode parameter to Chain, leave the `RootTaskIds` parameter empty and set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
+      // 
+      // - AllDownstream: Only one `RootTaskId` can be specified.
       shared_ptr<string> mode_ {};
       // The execution order. Default value: Asc.
       // 
-      // *   Asc: ascending by business date.
-      // *   Desc: descending by business date.
+      // - Asc: ascending by business date.
+      // 
+      // - Desc: descending by business date.
       shared_ptr<string> order_ {};
       // The task concurrency. Values from 2 to 10 indicate concurrency. A value of 1 indicates sequential execution. Required when Type = SupplementData.
       shared_ptr<int32_t> parallelism_ {};
@@ -568,15 +577,19 @@ namespace Models
       shared_ptr<int32_t> priority_ {};
       // The priority weighting policy.
       // 
-      // *   `Disable` (default): Do not enable.
-      // *   `Upstream`: The priority is based on the total weight of upstream nodes. The deeper the hierarchy, the higher the weight.
+      // - `Disable` (default): Do not enable.
+      // 
+      // - `Upstream`: The priority is based on the total weight of upstream nodes. The deeper the hierarchy, the higher the weight.
       shared_ptr<string> priorityWeightStrategy_ {};
       // The list of root task IDs.
       // 
-      // *   When Type is set to SupplementData, RootTaskIds is required unless Mode is set to Chain.
-      // *   When Type is set to ManualWorkflow, RootTaskIds is optional. If it is not specified, the default root nodes of the manual workflow are used.
-      // *   When Type is set to Manual, RootTaskIds is required and specifies the list of manual tasks to run.
-      // *   When Type is set to SmokeTest, RootTaskIds is required and specifies the list of test tasks to run.
+      // - When Type is set to SupplementData, RootTaskIds is required unless Mode is set to Chain.
+      // 
+      // - When Type is set to ManualWorkflow, RootTaskIds is optional. If it is not specified, the default root nodes of the manual workflow are used.
+      // 
+      // - When Type is set to Manual, RootTaskIds is required and specifies the list of manual tasks to run.
+      // 
+      // - When Type is set to SmokeTest, RootTaskIds is required and specifies the list of test tasks to run.
       shared_ptr<vector<int64_t>> rootTaskIds_ {};
       // The run policy. If the parameter is left empty, the task configuration is used.
       shared_ptr<DefaultRunProperties::RunPolicy> runPolicy_ {};
@@ -694,8 +707,9 @@ namespace Models
     shared_ptr<CreateWorkflowInstancesRequest::DefaultRunProperties> defaultRunProperties_ {};
     // The project environment. Valid values:
     // 
-    // *   Prod
-    // *   Dev
+    // - Prod
+    // 
+    // - Dev
     shared_ptr<string> envType_ {};
     // The name.
     // 
@@ -709,8 +723,9 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The tag creation policy. Valid values:
     // 
-    // *   Append: New tags are added on top of the existing tags of the manual workflow.
-    // *   Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
+    // - Append: New tags are added on top of the existing tags of the manual workflow.
+    // 
+    // - Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
     shared_ptr<string> tagCreationPolicy_ {};
     // The task tag list.
     shared_ptr<vector<CreateWorkflowInstancesRequest::Tags>> tags_ {};
@@ -718,11 +733,15 @@ namespace Models
     shared_ptr<string> taskParameters_ {};
     // The type of the workflow instance. Valid values:
     // 
-    // *   SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
-    // *   ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
-    // *   Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
-    // *   SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
-    // *   TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
+    // - SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
+    // 
+    // - ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
+    // 
+    // - Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
+    // 
+    // - SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
+    // 
+    // - TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

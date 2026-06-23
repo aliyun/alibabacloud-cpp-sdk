@@ -90,8 +90,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   CycleWorkflow
-    // *   ManualWorkflow
+    // - CycleWorkflow
+    // 
+    // - ManualWorkflow
     shared_ptr<string> owner_ {};
     // The page number of the data to retrieve, used for pagination.
     shared_ptr<int32_t> pageNumber_ {};
@@ -107,8 +108,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   CycleWorkflow
-    // *   ManualWorkflow
+    // - CycleWorkflow
+    // 
+    // - ManualWorkflow
     shared_ptr<string> type_ {};
   };
 

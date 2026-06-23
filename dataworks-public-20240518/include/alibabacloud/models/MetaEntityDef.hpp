@@ -107,13 +107,21 @@ namespace Models
 
 
   protected:
+    // A list of entity attribute definition objects.
     shared_ptr<vector<MetaEntityAttributeDef>> attributeDefs_ {};
+    // The time when the definition was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // The entity type.
     shared_ptr<string> entityType_ {};
+    // The extension mode. Valid values: NONE and TABLE. NONE indicates a custom type. TABLE indicates that the type extends a table type.
     shared_ptr<string> extend_ {};
+    // The time when the definition was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> modifyTime_ {};
+    // The name of the type definition.
     shared_ptr<string> name_ {};
   };
 

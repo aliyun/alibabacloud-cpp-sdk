@@ -154,8 +154,9 @@ namespace Models
           shared_ptr<vector<int64_t>> taskIds_ {};
           // The trigger method of the data quality monitor.
           // 
-          // *   ByManual
-          // *   BySchedule
+          // - ByManual
+          // 
+          // - BySchedule
           shared_ptr<string> type_ {};
         };
 
@@ -298,11 +299,11 @@ namespace Models
         protected:
           // The hook trigger condition. Currently, only one type of expression syntax is supported:
           // 
-          // *   Specify combinations of severity levels and validation statuses for multiple rules, such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This means the hook is triggered if any executed rule has Fail with Normal severity, Error with High severity, or Warn with High severity. In the conditional expression, the severity value matches that in the Spec code, and the status value matches that in DataQualityResult.
+          // - Specify combinations of severity levels and validation statuses for multiple rules, such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This means the hook is triggered if any executed rule has Fail with Normal severity, Error with High severity, or Warn with High severity. In the conditional expression, the severity value matches that in the Spec code, and the status value matches that in DataQualityResult.
           shared_ptr<string> condition_ {};
           // The type of the hook.
           // 
-          // *   BlockTaskInstance
+          // - BlockTaskInstance
           shared_ptr<string> type_ {};
         };
 
@@ -382,9 +383,11 @@ namespace Models
           protected:
             // The type of the compute engine. Only EMR compute engines support these settings.
             // 
-            // *   Hive
-            // *   Spark
-            // *   Kyuubi
+            // - Hive
+            // 
+            // - Spark
+            // 
+            // - Kyuubi
             shared_ptr<string> engine_ {};
             // Additional parameters for the Hive engine. Currently, only mapreduce.job.queuename is supported to specify the queue.
             Darabonba::Json hiveConf_ {};
@@ -420,8 +423,9 @@ namespace Models
         protected:
           // The workspace environment to which the compute engine belongs.
           // 
-          // *   Prod
-          // *   Dev
+          // - Prod
+          // 
+          // - Dev
           shared_ptr<string> envType_ {};
           // The name of the computing resource, which corresponds to the Name attribute in the ComputeResource data structure of the computing resource API.
           shared_ptr<string> name_ {};
@@ -661,10 +665,13 @@ namespace Models
           shared_ptr<string> referenceValue_ {};
           // The final comparison result status.
           // 
-          // *   Pass
-          // *   Error
-          // *   Warn
-          // *   Fail
+          // - Pass
+          // 
+          // - Error
+          // 
+          // - Warn
+          // 
+          // - Fail
           shared_ptr<string> status_ {};
         };
 
@@ -718,11 +725,15 @@ namespace Models
         shared_ptr<string> sample_ {};
         // The validation result status.
         // 
-        // *   Pass
-        // *   Running
-        // *   Error
-        // *   Warn
-        // *   Fail
+        // - Pass
+        // 
+        // - Running
+        // 
+        // - Error
+        // 
+        // - Warn
+        // 
+        // - Fail
         shared_ptr<string> status_ {};
       };
 
@@ -843,11 +854,15 @@ namespace Models
       shared_ptr<DataQualityScanRun::Scan> scan_ {};
       // The current running status.
       // 
-      // *   Pass
-      // *   Running
-      // *   Error
-      // *   Warn
-      // *   Fail
+      // - Pass
+      // 
+      // - Running
+      // 
+      // - Error
+      // 
+      // - Warn
+      // 
+      // - Fail
       shared_ptr<string> status_ {};
     };
 

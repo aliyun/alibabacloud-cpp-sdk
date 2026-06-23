@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The module ID.
         shared_ptr<int64_t> moduleId_ {};
+        // The module name.
         shared_ptr<string> moduleName_ {};
+        // The permission type.
         shared_ptr<string> permissionType_ {};
       };
 
@@ -151,17 +154,21 @@ namespace Models
 
 
     protected:
-      // The code of the role in the DataWorks workspace.
+      // The code of the workspace role.
       shared_ptr<string> code_ {};
+      // The permissions for the modules in the workspace.
       shared_ptr<vector<ProjectRole::ModulePermissions>> modulePermissions_ {};
-      // The name of the role in the DataWorks workspace.
+      // The name of the workspace role.
       shared_ptr<string> name_ {};
-      // The DataWorks workspace ID.
-      shared_ptr<int64_t> projectId_ {};
-      // The type of the role in the DataWorks workspace. Valid values:
+      // The ID of the DataWorks workspace.
       // 
-      // *   UserCustom: user-defined role
-      // *   System: system role
+      // Note: A fixed value of -1 is returned for a system role.
+      shared_ptr<int64_t> projectId_ {};
+      // The type of the workspace role. Valid values:
+      // 
+      // - UserCustom: a custom role
+      // 
+      // - System: a system role
       shared_ptr<string> type_ {};
     };
 
@@ -184,7 +191,7 @@ namespace Models
 
 
   protected:
-    // The role in the DataWorks workspace.
+    // The details of the workspace role.
     shared_ptr<GetProjectRoleResponseBody::ProjectRole> projectRole_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The lineage ID.
+    // The lineage relationship ID.
     shared_ptr<string> id_ {};
-    // The request ID. The unique identifier of a request.
+    // The request ID. A unique identifier for the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

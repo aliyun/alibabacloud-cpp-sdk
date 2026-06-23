@@ -115,11 +115,15 @@ namespace Models
     shared_ptr<bool> enabled_ {};
     // The metric type in the alert rule. Valid values:
     // 
-    // *   Heartbeat
-    // *   FailoverCount
-    // *   Delay
-    // *   DdlReport
-    // *   ResourceUtilization
+    // - Heartbeat
+    // 
+    // - FailoverCount
+    // 
+    // - Delay
+    // 
+    // - DdlReport
+    // 
+    // - ResourceUtilization
     // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};

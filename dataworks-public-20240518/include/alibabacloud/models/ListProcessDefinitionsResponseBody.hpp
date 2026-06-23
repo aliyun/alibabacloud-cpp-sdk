@@ -157,14 +157,59 @@ namespace Models
 
 
       protected:
+        // The description of the process definition.
         shared_ptr<string> description_ {};
+        // Indicates whether the process definition is enabled.
         shared_ptr<bool> enabled_ {};
+        // The ID of the process definition.
         shared_ptr<string> id_ {};
+        // Indicates whether this is a default system policy. System policies have restricted update capabilities.
         shared_ptr<bool> isSystem_ {};
+        // The name of the process definition.
         shared_ptr<string> name_ {};
+        // The priority. A smaller value indicates a higher priority.
         shared_ptr<string> priority_ {};
+        // The phases in which the rule is effective. Valid values:
+        // 
+        // - `Deployment`: The policy is checked when an application is submitted.
+        // 
+        // - `Running`: The policy is checked during process execution to determine if approval can be skipped. (Supported only for the MaxCompute type)
         shared_ptr<vector<string>> scopes_ {};
+        // The subtype. Valid values:
+        // 
+        // - Table
+        // 
+        // - Column
+        // 
+        // - Database
+        // 
+        // - Schema
+        // 
+        // - Default
         shared_ptr<string> subType_ {};
+        // The type of the process definition. Valid values:
+        // 
+        // - MaxCompute
+        // 
+        // - DataService
+        // 
+        // - Extension
+        // 
+        // - Hologres
+        // 
+        // - DlfV1 (You cannot create custom definitions for this type.)
+        // 
+        // - EMR (You cannot create custom definitions for this type.)
+        // 
+        // - DataAssetGovernance (You cannot create custom definitions for this type.)
+        // 
+        // - Lindorm (You cannot create custom definitions for this type.)
+        // 
+        // - StarRocks (You cannot create custom definitions for this type.)
+        // 
+        // - DlfNext (You cannot create custom definitions for this type.)
+        // 
+        // - DataWorks (You cannot create custom definitions for this type.)
         shared_ptr<string> type_ {};
       };
 
@@ -187,7 +232,9 @@ namespace Models
 
 
     protected:
+      // A list of process definitions. For more information, see the `ProcessDefinition` object.
       shared_ptr<vector<PagingInfo::ProcessDefinitions>> processDefinitions_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -210,7 +257,9 @@ namespace Models
 
 
   protected:
+    // The pagination information.
     shared_ptr<ListProcessDefinitionsResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

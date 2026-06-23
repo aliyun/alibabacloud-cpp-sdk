@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The new custom request headers, specified as key-value pairs.
     shared_ptr<string> customHeadersShrink_ {};
+    // The name of the MCP Server to update.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The new transport protocol.
     shared_ptr<string> transport_ {};
+    // The new service address. The address must start with`https://`.
     shared_ptr<string> url_ {};
+    // The new visibility level.
     shared_ptr<string> visibility_ {};
+    // The new visibility scope. The fields in this object depend on the value of the `Visibility` parameter.
     shared_ptr<string> visibilityScopeShrink_ {};
   };
 

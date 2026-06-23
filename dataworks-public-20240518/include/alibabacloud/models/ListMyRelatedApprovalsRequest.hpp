@@ -97,8 +97,11 @@ namespace Models
 
 
     protected:
+      // The `name` of the `ResourceSchema` used to parse the resource.
       shared_ptr<string> defSchema_ {};
+      // The `version` of the `ResourceSchema` used to parse the resource.
       shared_ptr<string> defVersion_ {};
+      // The resource metadata. The `ResourceSchema` defines its content.
       Darabonba::Json metaData_ {};
     };
 
@@ -140,7 +143,37 @@ namespace Models
 
 
     protected:
+      // The ID of the principal. The format varies based on the value of `PrincipalType`.
+      // 
+      // - If `PrincipalType` is `RamUser`, this parameter is the Dataworks user ID.
+      // 
+      // - If `PrincipalType` is `RamRole`, this parameter is a Dataworks user ID that starts with `ROLE_`.
+      // 
+      // - If `PrincipalType` is `DataworksTenantMember`, this parameter is the Dataworks user ID.
+      // 
+      // - If `PrincipalType` is `DataworksTenantRole`, this parameter is the Dataworks tenant `roleCode`.
+      // 
+      // - If `PrincipalType` is `DataworksProjectRole`, this parameter is the Dataworks workspace `roleCode`.
+      // 
+      // - If `PrincipalType` is `DataworksProjectMember`, this parameter is the Dataworks user ID.
+      // 
+      // - If `PrincipalType` is `DlfRole`, this parameter is the DlfNext role name.
       shared_ptr<string> principalId_ {};
+      // The type of the principal. Valid values:
+      // 
+      // - `RamRole`
+      // 
+      // - `RamUser`
+      // 
+      // - `DataworksTenantMember`
+      // 
+      // - `DataworksTenantRole`
+      // 
+      // - `DataworksProjectMember`
+      // 
+      // - `DataworksProjectRole`
+      // 
+      // - `DlfRole`
       shared_ptr<string> principalType_ {};
     };
 
@@ -228,17 +261,43 @@ namespace Models
 
 
   protected:
+    // The permissions.
     shared_ptr<vector<string>> accessTypes_ {};
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> defSchema_ {};
+    // The end of the application time range, specified as a millisecond timestamp.
     shared_ptr<int64_t> endTime_ {};
+    // Filters approvals by the specified principal.
     shared_ptr<ListMyRelatedApprovalsRequest::Grantee> grantee_ {};
+    // The pagination token that acts as a cursor to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to return on each page. Default value: 10. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource declaration.
     shared_ptr<ListMyRelatedApprovalsRequest::Resource> resource_ {};
+    // The resource type, specified as a leaf node name. Multiple values are supported because a single business semantic can be mapped to multiple leaf node names.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceType_ {};
+    // The start of the application time range, specified as a millisecond timestamp.
     shared_ptr<int64_t> startTime_ {};
+    // Filters the results by approval status. Valid values:
+    // 
+    // - `WaitApproval`: Pending approval
+    // 
+    // - `Confirmed`: Pending authorization
+    // 
+    // - `RejectApproval`: Approval rejected
+    // 
+    // - `AuthorizeSucceed`: Authorization succeeded
+    // 
+    // - `AuthorizeFailed`: Authorization failed
+    // 
+    // - `Deleted`: Deleted
+    // 
+    // - `Canceled`: Withdrawn
     shared_ptr<vector<string>> statuses_ {};
   };
 

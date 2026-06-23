@@ -134,11 +134,12 @@ namespace Models
 
 
         protected:
-          // The IDs of the auto triggered nodes of which the instances are successfully run. This parameter takes effect only if the Type parameter is set to ByScheduledTaskInstance.
+          // type=ByScheduledTaskInstance时生效
+          // ,具体指明哪些调度节点的实例执行成功后可以触发
           shared_ptr<vector<int64_t>> taskIds_ {};
-          // The trigger condition of the task. Valid values:
+          // 何种事件可以触发质量校验任务执行
           // 
-          // *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+          // - ByScheduledTaskInstance：调度实例运行成功
           shared_ptr<string> type_ {};
         };
 
@@ -198,23 +199,22 @@ namespace Models
 
 
         protected:
-          // The type of the database to which the table belongs. Valid values:
-          // 
-          // *   maxcompute
-          // *   emr
-          // *   cdh
-          // *   hologres
-          // *   analyticdb_for_postgresql
-          // *   analyticdb_for_mysql
-          // *   starrocks
+          // 表类型的数据集，表所属的数据库类型
+          // - maxcompute
+          // - emr
+          // - cdh
+          // - hologres
+          // - analyticdb_for_postgresql
+          // - analyticdb_for_mysql
+          // - starrocks
           shared_ptr<string> databaseType_ {};
-          // The configuration of the partitioned table.
+          // 分区表的分区设置
           shared_ptr<string> partitionSpec_ {};
-          // The ID of the table in Data Map.
+          // 表在数据地图中的唯一ID
           shared_ptr<string> tableGuid_ {};
-          // The type of the monitored object. Valid values:
+          // 监控对象类型
           // 
-          // *   Table
+          // - Table
           shared_ptr<string> type_ {};
         };
 
@@ -309,17 +309,16 @@ namespace Models
 
 
             protected:
-              // The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+              // 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
               shared_ptr<string> extension_ {};
-              // The type of the alert recipient. Valid values:
-              // 
-              // *   AliUid: Alibaba Cloud account ID
-              // *   WebhookUrl: URL of a custom webhook
-              // *   DingdingUrl: DingTalk chatbot URL
-              // *   FeishuUrl: Lark chatbot URL
-              // *   WeixinUrl: WeCom chatbot URL
+              // 告警接收人类型
+              // - AliUid - 阿里云账号Uid
+              // - WebhookUrl - 自定义 webhook URL
+              // - DingdingUrl - 钉钉机器人Url
+              // - FeishuUrl - 飞书机器人Url
+              // - WeixinUrl - 企微机器人Url
               shared_ptr<string> receiverType_ {};
-              // The alert recipients.
+              // 告警接收人具体值
               shared_ptr<vector<string>> receiverValues_ {};
             };
 
@@ -353,7 +352,7 @@ namespace Models
 
 
             protected:
-              // The alert notification methods.
+              // 告警方式
               shared_ptr<vector<string>> channels_ {};
             };
 
@@ -378,9 +377,9 @@ namespace Models
 
 
           protected:
-            // The alert notification methods.
+            // 告警方式配置
             shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
-            // The alert recipients.
+            // 告警接收人配置
             shared_ptr<vector<NotificationsItem::NotificationReceivers>> notificationReceivers_ {};
           };
 
@@ -403,9 +402,9 @@ namespace Models
 
 
         protected:
-          // The trigger condition of the alert notification.
+          // Notification触发条件
           shared_ptr<string> condition_ {};
-          // The configurations for the alert notification.
+          // 具体的告警设置
           shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
         };
 
@@ -447,11 +446,10 @@ namespace Models
 
 
         protected:
-          // The trigger configuration of the callback event.
+          // Hook触发条件
           shared_ptr<string> condition_ {};
-          // The type of the callback event. Valid values:
-          // 
-          // *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+          // 后续处理动作类型
+          // - BlockTaskInstance：阻塞DataWorks任务实例执行
           shared_ptr<string> type_ {};
         };
 
@@ -538,23 +536,23 @@ namespace Models
 
       protected:
         shared_ptr<int64_t> dataSourceId_ {};
-        // The description of the data quality monitoring task. The description can be up to 65,535 characters in length.
+        // 数据质量校验任务描述，最长65535个字符
         shared_ptr<string> description_ {};
-        // The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+        // 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
         shared_ptr<vector<DataQualityEvaluationTasks::Hooks>> hooks_ {};
-        // The ID of the data quality monitoring task.
+        // 数据质量校验任务ID
         shared_ptr<int64_t> id_ {};
-        // The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+        // 数据质量校验任务名称，数字、英文字母、汉字、半角全角标点符号组合，最长255个字符。
         shared_ptr<string> name_ {};
-        // The configurations for alert notifications.
+        // 告警配置
         shared_ptr<DataQualityEvaluationTasks::Notifications> notifications_ {};
-        // The DataWorks workspace ID.
+        // DataWorks工作空间ID
         shared_ptr<int64_t> projectId_ {};
-        // The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
+        // 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时SQL引擎指定为SPARK_SQL|KYUUBI|PRESTO_SQL|HIVE_SQL
         shared_ptr<string> runtimeConf_ {};
-        // The monitored object of the task.
+        // 数据质量校验任务的监控对象
         shared_ptr<DataQualityEvaluationTasks::Target> target_ {};
-        // The trigger configuration of the task.
+        // 数据质量校验任务的触发配置
         shared_ptr<DataQualityEvaluationTasks::Trigger> trigger_ {};
       };
 
@@ -591,13 +589,13 @@ namespace Models
 
 
     protected:
-      // The data quality monitoring tasks.
+      // 质量校验任务
       shared_ptr<vector<PagingInfo::DataQualityEvaluationTasks>> dataQualityEvaluationTasks_ {};
-      // The page number.
+      // 页码
       shared_ptr<string> pageNumber_ {};
-      // The number of entries per page.
+      // 页大小
       shared_ptr<string> pageSize_ {};
-      // The total number of entries returned.
+      // 总条数
       shared_ptr<string> totalCount_ {};
     };
 
@@ -620,9 +618,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // 质量校验任务分页查询结果
     shared_ptr<ListDataQualityEvaluationTasksResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // API请求ID
     shared_ptr<string> requestId_ {};
   };
 

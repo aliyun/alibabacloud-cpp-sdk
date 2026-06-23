@@ -179,9 +179,11 @@ namespace Models
         shared_ptr<string> parentId_ {};
         // The collection type. Valid values:
         // 
-        // *   Category
-        // *   Album
-        // *   AlbumCategory: Album subcategory
+        // - Category
+        // 
+        // - Album
+        // 
+        // - AlbumCategory: Album subcategory
         shared_ptr<string> type_ {};
       };
 

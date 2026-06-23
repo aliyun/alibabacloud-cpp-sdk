@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // The custom headers.
           Darabonba::Json customHeaders_ {};
+          // The transport protocol.
           shared_ptr<string> transport_ {};
+          // The service address of the MCP Server.
           shared_ptr<string> url_ {};
         };
 
@@ -197,14 +200,23 @@ namespace Models
 
 
       protected:
+        // The connection configuration of the MCP Server.
         shared_ptr<McpServers::Config> config_ {};
+        // The creator ID.
         shared_ptr<string> creatorId_ {};
+        // The creation time, as a millisecond timestamp.****
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtCreateTime_ {};
+        // The last modified time, as a millisecond timestamp.****
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtModifiedTime_ {};
+        // The ID of the user who last modified the server.
         shared_ptr<string> modifierId_ {};
+        // The name of the MCP Server.
         shared_ptr<string> name_ {};
+        // The visibility level.****
         shared_ptr<string> visibility_ {};
       };
 
@@ -241,9 +253,13 @@ namespace Models
 
 
     protected:
+      // The maximum number of results returned on the current page.****
       shared_ptr<int32_t> maxResults_ {};
+      // A list of MCP Server objects.
       shared_ptr<vector<PagingInfo::McpServers>> mcpServers_ {};
+      // The token for the next page of results. A null value indicates that all results have been returned.****
       shared_ptr<string> nextToken_ {};
+      // The total count of entries that match the filter criteria.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -266,7 +282,9 @@ namespace Models
 
 
   protected:
+    // The paging information.
     shared_ptr<ListMcpServersResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

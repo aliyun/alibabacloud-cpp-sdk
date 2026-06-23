@@ -152,8 +152,9 @@ namespace Models
           shared_ptr<string> comment_ {};
           // Indicates whether the column is a partition key column. Valid values:
           // 
-          // *   true
-          // *   false
+          // - true
+          // 
+          // - false
           shared_ptr<bool> isPartitionColumn_ {};
         };
 
@@ -220,8 +221,9 @@ namespace Models
         shared_ptr<string> dataSourceName_ {};
         // The environment in which the table is used. Valid values:
         // 
-        // *   DEV
-        // *   PROD
+        // - DEV
+        // 
+        // - PROD
         shared_ptr<string> env_ {};
         // The lifecycle of the table. Unit: day.
         shared_ptr<int64_t> lifeCycle_ {};
@@ -451,12 +453,17 @@ namespace Models
         shared_ptr<int64_t> parentFileId_ {};
         // The module to which the file belongs. Valid values:
         // 
-        // *   NORMAL: The file is used for DataStudio.
-        // *   MANUAL: The file is used for a manually triggered node.
-        // *   MANUAL_BIZ: The file is used for a manually triggered workflow.
-        // *   SKIP: The file is used for a dry-run node in DataStudio.
-        // *   ADHOCQUERY: The file is used for an ad hoc query.
-        // *   COMPONENT: The file is used for a script template.
+        // - NORMAL: The file is used for DataStudio.
+        // 
+        // - MANUAL: The file is used for a manually triggered node.
+        // 
+        // - MANUAL_BIZ: The file is used for a manually triggered workflow.
+        // 
+        // - SKIP: The file is used for a dry-run node in DataStudio.
+        // 
+        // - ADHOCQUERY: The file is used for an ad hoc query.
+        // 
+        // - COMPONENT: The file is used for a script template.
         shared_ptr<string> useType_ {};
       };
 
@@ -632,8 +639,9 @@ namespace Models
             shared_ptr<string> input_ {};
             // The mode of the configuration file dependency. Valid values:
             // 
-            // *   MANUAL: Scheduling dependencies are manually configured.
-            // *   AUTO: Scheduling dependencies are automatically parsed.
+            // - MANUAL: Scheduling dependencies are manually configured.
+            // 
+            // - AUTO: Scheduling dependencies are automatically parsed.
             shared_ptr<string> parseType_ {};
           };
 
@@ -746,10 +754,13 @@ namespace Models
           shared_ptr<string> dependentNodeIdList_ {};
           // The type of the cross-cycle scheduling dependency of the node. Valid values:
           // 
-          // *   SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle.
-          // *   CHILD: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle.
-          // *   USER_DEFINE: The instance generated for the node in the current cycle depends on the instances generated for one or more specified nodes in the previous cycle.
-          // *   NONE: No cross-cycle scheduling dependency type is selected for the node.
+          // - SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle.
+          // 
+          // - CHILD: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle.
+          // 
+          // - USER_DEFINE: The instance generated for the node in the current cycle depends on the instances generated for one or more specified nodes in the previous cycle.
+          // 
+          // - NONE: No cross-cycle scheduling dependency type is selected for the node.
           shared_ptr<string> dependentType_ {};
           // The output information about the parent files on which the current file depends.
           shared_ptr<vector<NodeConfiguration::InputList>> inputList_ {};
@@ -761,9 +772,11 @@ namespace Models
           shared_ptr<string> paraValue_ {};
           // Indicates whether the node that corresponds to the file can be rerun. Valid values:
           // 
-          // *   ALL_ALLOWED: The node can be rerun regardless of whether it is successfully run or fails to run.
-          // *   FAILURE_ALLOWED: The node can be rerun only after it fails to run.
-          // *   ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
+          // - ALL_ALLOWED: The node can be rerun regardless of whether it is successfully run or fails to run.
+          // 
+          // - FAILURE_ALLOWED: The node can be rerun only after it fails to run.
+          // 
+          // - ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
           // 
           // This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
           shared_ptr<string> rerunMode_ {};
@@ -771,10 +784,13 @@ namespace Models
           shared_ptr<int64_t> resourceGroupId_ {};
           // The scheduling type of the node. Valid values:
           // 
-          // *   NORMAL: The node is an auto triggered node.
-          // *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
-          // *   PAUSE: The node is a paused node.
-          // *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
+          // - NORMAL: The node is an auto triggered node.
+          // 
+          // - MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
+          // 
+          // - PAUSE: The node is a paused node.
+          // 
+          // - SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
           shared_ptr<string> schedulerType_ {};
         };
 
@@ -973,12 +989,17 @@ namespace Models
         shared_ptr<int64_t> nodeId_ {};
         // The module to which the file belongs. Valid values:
         // 
-        // *   NORMAL: The file is used for DataStudio.
-        // *   MANUAL: The file is used for a manually triggered node.
-        // *   MANUAL_BIZ: The file is used for a manually triggered workflow.
-        // *   SKIP: The file is used for a dry-run node in DataStudio.
-        // *   ADHOCQUERY: The file is used for an ad hoc query.
-        // *   COMPONENT: The file is used for a script template.
+        // - NORMAL: The file is used for DataStudio.
+        // 
+        // - MANUAL: The file is used for a manually triggered node.
+        // 
+        // - MANUAL_BIZ: The file is used for a manually triggered workflow.
+        // 
+        // - SKIP: The file is used for a dry-run node in DataStudio.
+        // 
+        // - ADHOCQUERY: The file is used for an ad hoc query.
+        // 
+        // - COMPONENT: The file is used for a script template.
         shared_ptr<string> useType_ {};
       };
 

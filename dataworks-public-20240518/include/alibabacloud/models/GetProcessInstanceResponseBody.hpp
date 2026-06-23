@@ -144,7 +144,9 @@ namespace Models
 
 
         protected:
+          // The name of the approver.
           shared_ptr<string> memberName_ {};
+          // The user ID of the approver.
           shared_ptr<string> memberUserId_ {};
         };
 
@@ -206,9 +208,49 @@ namespace Models
 
 
         protected:
+          // The type of the approver for the node. Valid values:
+          // 
+          // - `DataWorksProjectRole`: A workspace role
+          // 
+          // - `DataWorksProjectMember`: A workspace member
+          // 
+          // - `TableAdministrator`: A table administrator
+          // 
+          // - `TableOrProjectAdministrator`: A table or workspace administrator
+          // 
+          // - `AliyunResourceOwner`: An Alibaba Cloud account
+          // 
+          // - `MaxComputeRole`: A MaxCompute role
+          // 
+          // - `DLFAdmin`: A DlfLegacy administrator
+          // 
+          // - `DLFNextAdmin`: A DLFNext administrator
+          // 
+          // - `TenantRole`: A tenant role
+          // 
+          // - `EmrAdministrator`: An Emr administrator
+          // 
+          // - `LindormAdministrator`: A Lindorm administrator
+          // 
+          // - `AliyunRamUser`: A RAM user
           shared_ptr<string> accountType_ {};
+          // The specified approvers.
+          // 
+          // The contents of this parameter depend on the `AccountType` value:
+          // 
+          // - If `AccountType` is `DataWorksProjectMember`, this parameter contains the user IDs of workspace members.
+          // 
+          // - If `AccountType` is `DataWorksProjectRole`, this parameter contains the codes of workspace roles.
+          // 
+          // - If `AccountType` is `MaxComputeRole`, this parameter contains the MaxCompute roles.
+          // 
+          // - If `AccountType` is `TenantRole`, this parameter contains the codes of tenant roles.
+          // 
+          // - If `AccountType` is `AliyunRamUser`, this parameter contains the user IDs of RAM users.
           shared_ptr<vector<string>> assignees_ {};
+          // The node ID.
           shared_ptr<string> id_ {};
+          // The node name.
           shared_ptr<string> name_ {};
         };
 
@@ -290,15 +332,35 @@ namespace Models
 
 
       protected:
+        // The approval comment.
         shared_ptr<string> approvalComment_ {};
+        // The approval decision. Valid values:
+        // 
+        // - `Agree`
+        // 
+        // - `Deny`
         shared_ptr<string> approvalDecision_ {};
+        // The approval node from the corresponding approval policy.
         shared_ptr<ApprovalTasks::ApprovalNode> approvalNode_ {};
+        // The user ID of the actual approver.
         shared_ptr<string> assignee_ {};
+        // The name of the actual approver.
         shared_ptr<string> assigneeName_ {};
+        // The time when the task was completed.
         shared_ptr<int64_t> completeTime_ {};
+        // The time when the task was created.
         shared_ptr<int64_t> createTime_ {};
+        // The approval task ID.
         shared_ptr<string> id_ {};
+        // The status of the task. Valid values:
+        // 
+        // - `Completed`: The task is complete.
+        // 
+        // - `Pending`: The task is pending.
+        // 
+        // - `Aborted`: The task is aborted.
         shared_ptr<string> status_ {};
+        // The candidate approvers for the task.
         shared_ptr<vector<ApprovalTasks::TaskCandidates>> taskCandidates_ {};
       };
 
@@ -384,8 +446,25 @@ namespace Models
 
 
         protected:
+          // The expression of the rule condition. Format: `((#type==\\"typeValue\\"))`.
           shared_ptr<string> expression_ {};
+          // The rule scope. Valid values:
+          // 
+          // - `Deployment`: Determines whether the policy applies when a request is submitted.
+          // 
+          // - `Running`: Determines whether to skip approval while the process instance runs. This value is supported only for MaxCompute approval policies.
           shared_ptr<string> scope_ {};
+          // The type of the rule condition. Valid values:
+          // 
+          // - `odpsProject`: Applies to a specific MaxCompute project.
+          // 
+          // - `hologresInstanceId`: Applies to a specific Hologres instance.
+          // 
+          // - `sensibleLevel`: Applies to a specific security level.
+          // 
+          // - `tableGuid`: Applies to a specific table.
+          // 
+          // - `projectId`: Applies to a specific workspace.
           shared_ptr<string> type_ {};
         };
 
@@ -436,8 +515,19 @@ namespace Models
 
 
         protected:
+          // The notification channel. Valid values:
+          // 
+          // - `Mail`
+          // 
+          // - `Sms`
+          // 
+          // - `DingRobot`
+          // 
+          // - `Weixin`
           shared_ptr<string> channel_ {};
+          // Additional information in JSON format. For example, `{"atAll":"true"}` indicates whether to @all members.
           shared_ptr<string> extension_ {};
+          // If `Channel` is set to `DingRobot` or `Weixin`, the value of this parameter must be the webhook URL.
           shared_ptr<string> receiver_ {};
         };
 
@@ -508,10 +598,51 @@ namespace Models
 
 
         protected:
+          // The type of the approver for the node. Valid values:
+          // 
+          // - `DataWorksProjectRole`: A workspace role
+          // 
+          // - `DataWorksProjectMember`: A workspace member
+          // 
+          // - `TableAdministrator`: A table administrator
+          // 
+          // - `TableOrProjectAdministrator`: A table or workspace administrator
+          // 
+          // - `AliyunResourceOwner`: An Alibaba Cloud account
+          // 
+          // - `MaxComputeRole`: A MaxCompute role
+          // 
+          // - `DLFAdmin`: A DlfLegacy administrator
+          // 
+          // - `DLFNextAdmin`: A DLFNext administrator
+          // 
+          // - `TenantRole`: A tenant role
+          // 
+          // - `EmrAdministrator`: An Emr administrator
+          // 
+          // - `LindormAdministrator`: A Lindorm administrator
+          // 
+          // - `AliyunRamUser`: A RAM user
           shared_ptr<string> accountType_ {};
+          // The specified approvers.
+          // 
+          // The contents of this parameter depend on the `AccountType` value:
+          // 
+          // - If `AccountType` is `DataWorksProjectMember`, this parameter contains the user IDs of workspace members.
+          // 
+          // - If `AccountType` is `DataWorksProjectRole`, this parameter contains the codes of workspace roles.
+          // 
+          // - If `AccountType` is `MaxComputeRole`, this parameter contains the MaxCompute roles.
+          // 
+          // - If `AccountType` is `TenantRole`, this parameter contains the codes of tenant roles.
+          // 
+          // - If `AccountType` is `AliyunRamUser`, this parameter contains the user IDs of RAM users.
           shared_ptr<vector<string>> assignees_ {};
+          // The extended description of the approval node.
           shared_ptr<string> extensionProperties_ {};
+          // The node ID.
           shared_ptr<string> id_ {};
+          // The node name.
           shared_ptr<string> name_ {};
         };
 
@@ -588,14 +719,55 @@ namespace Models
 
 
       protected:
+        // The approval nodes.
         shared_ptr<vector<ApprovalProcessDefinition::ApprovalNodes>> approvalNodes_ {};
+        // The description of the approval policy.
         shared_ptr<string> description_ {};
+        // Indicates whether the policy is enabled.
         shared_ptr<bool> enabled_ {};
+        // The approval policy ID.
         shared_ptr<string> id_ {};
+        // The name of the approval policy.
         shared_ptr<string> name_ {};
+        // The notification services.
         shared_ptr<vector<ApprovalProcessDefinition::NotificationServices>> notificationServices_ {};
+        // The rules that determine when the approval policy takes effect.
         shared_ptr<vector<ApprovalProcessDefinition::RuleConditions>> ruleConditions_ {};
+        // The subtype of the approval policy. Valid values:
+        // 
+        // - `Table`
+        // 
+        // - `Column`
+        // 
+        // - `Database`
+        // 
+        // - `Schema`
+        // 
+        // - `Default`
         shared_ptr<string> subType_ {};
+        // The type of the approval policy. Valid values:
+        // 
+        // - `MaxCompute`
+        // 
+        // - `DataService`
+        // 
+        // - `DlfV1` (Custom creation is not supported)
+        // 
+        // - `Extension`
+        // 
+        // - `Hologres`
+        // 
+        // - `Emr` (Custom creation is not supported)
+        // 
+        // - `DataAssetGovernance` (Custom creation is not supported)
+        // 
+        // - `Lindorm` (Custom creation is not supported)
+        // 
+        // - `StarRocks` (Custom creation is not supported)
+        // 
+        // - `DlfNext` (Custom creation is not supported)
+        // 
+        // - `DataWorks` (Custom creation is not supported)
         shared_ptr<string> type_ {};
       };
 
@@ -679,15 +851,33 @@ namespace Models
 
 
     protected:
+      // The user ID of the applicant.
       shared_ptr<string> applicator_ {};
+      // The username of the applicant\\"s Alibaba Cloud account.
       shared_ptr<string> applicatorName_ {};
+      // The approval policy applied to this process instance.
       shared_ptr<ProcessInstance::ApprovalProcessDefinition> approvalProcessDefinition_ {};
+      // The approval tasks.
       shared_ptr<vector<ProcessInstance::ApprovalTasks>> approvalTasks_ {};
+      // The authorization failure message.
+      // 
+      // **Note**: This parameter is returned only if the authorization fails.
       shared_ptr<string> authErrorMessage_ {};
+      // The process instance ID.
       shared_ptr<string> id_ {};
+      // The reason for the request.
       shared_ptr<string> reason_ {};
+      // The time when the approval process started.
       Darabonba::Json startTime_ {};
+      // The status of the process instance. Valid values:
+      // 
+      // - `Completed`: The request is approved.
+      // 
+      // - `Running`: The request is in the approval process.
+      // 
+      // - `Aborted`: The request is withdrawn.
       shared_ptr<string> status_ {};
+      // The name of the process instance.
       shared_ptr<string> title_ {};
     };
 
@@ -710,7 +900,9 @@ namespace Models
 
 
   protected:
+    // Details of the approval process instance.
     shared_ptr<GetProcessInstanceResponseBody::ProcessInstance> processInstance_ {};
+    // The request ID. Use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

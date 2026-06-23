@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The image ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
   };

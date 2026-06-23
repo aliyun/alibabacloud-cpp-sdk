@@ -144,9 +144,11 @@ namespace Models
     shared_ptr<int64_t> businessId_ {};
     // The change type. Valid values:
     // 
-    // *   0: addition
-    // *   1: update
-    // *   2: deletion
+    // - 0: addition
+    // 
+    // - 1: update
+    // 
+    // - 2: deletion
     shared_ptr<int32_t> changeType_ {};
     // The start date for committing. Specify the date in the yyyy-MM-dd format.
     shared_ptr<string> commitFrom_ {};

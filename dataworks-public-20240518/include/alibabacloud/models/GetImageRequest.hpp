@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The image ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The image version. If you do not specify this parameter, the latest version is returned.
     shared_ptr<string> imageVersion_ {};
   };
 

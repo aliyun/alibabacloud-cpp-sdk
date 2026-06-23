@@ -95,8 +95,11 @@ namespace Models
 
 
     protected:
+      // The `name` of the `ResourceSchema` used to parse the resource.
       shared_ptr<string> defSchema_ {};
+      // The `version` of the `ResourceSchema` used to parse the resource.
       shared_ptr<string> defVersion_ {};
+      // The resource metadata. Its content is constrained by the `ResourceSchema`.
       Darabonba::Json metaData_ {};
     };
 
@@ -138,7 +141,9 @@ namespace Models
 
 
     protected:
+      // The ID of the principal.
       shared_ptr<string> principalId_ {};
+      // The type of principal.
       shared_ptr<string> principalType_ {};
     };
 
@@ -217,16 +222,27 @@ namespace Models
 
 
   protected:
+    // The access types.
     shared_ptr<vector<string>> accessTypes_ {};
+    // The resource schema type.
+    // 
     // This parameter is required.
     shared_ptr<string> defSchema_ {};
+    // The end time of the query range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The grantee object used to filter results.
     shared_ptr<ListPendingApprovalsRequest::Grantee> grantee_ {};
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to return per page. Default: 10. Maximum: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The criteria to filter resources.
     shared_ptr<ListPendingApprovalsRequest::Resource> resource_ {};
+    // The resource type, which corresponds to a leaf node name. You can specify multiple values. A business context can map to multiple leaf node names.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceType_ {};
+    // The start time of the query range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

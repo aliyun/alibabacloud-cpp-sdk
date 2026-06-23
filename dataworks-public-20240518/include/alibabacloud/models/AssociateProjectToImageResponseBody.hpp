@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The result of the API request.
     shared_ptr<bool> data_ {};
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

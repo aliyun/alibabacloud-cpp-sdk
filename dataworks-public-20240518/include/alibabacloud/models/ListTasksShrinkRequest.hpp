@@ -163,8 +163,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Prod
-    // *   Dev
+    // - Prod
+    // 
+    // - Dev
     shared_ptr<string> projectEnv_ {};
     // The workspace ID.
     // 
@@ -174,51 +175,73 @@ namespace Models
     shared_ptr<string> runtimeResource_ {};
     // The field that is used to sort tasks. This parameter is configured in the format of "Sorting field Sorting order". You can set the sorting order to Desc or Asc. If you do not specify the sorting order, Asc is used by default. Valid values:
     // 
-    // *   `ModifyTime (Desc/Asc)`
+    // - `ModifyTime (Desc/Asc)`
     // 
-    // *   `CreateTime (Desc/Asc)`
+    // - `CreateTime (Desc/Asc)`
     // 
-    // *   `Id (Desc/Asc)`
+    // - `Id (Desc/Asc)`
     // 
-    //     Default value: `Id Desc`.
+    //   Default value: `Id Desc`.
     shared_ptr<string> sortBy_ {};
     // The type of the task. Valid values:
     // 
-    // *   ODPS_SQL
-    // *   SPARK
-    // *   PY_ODPS
-    // *   PY_ODPS3
-    // *   ODPS_SCRIPT
-    // *   ODPS_MR
-    // *   COMPONENT_SQL
-    // *   EMR_HIVE
-    // *   EMR_MR
-    // *   EMR_SPARK_SQL
-    // *   EMR_SPARK
-    // *   EMR_SHELL
-    // *   EMR_PRESTO
-    // *   EMR_IMPALA
-    // *   SPARK_STREAMING
-    // *   EMR_KYUUBI
-    // *   EMR_TRINO
-    // *   HOLOGRES_SQL
-    // *   HOLOGRES_SYNC_DDL
-    // *   HOLOGRES_SYNC_DATA
+    // - ODPS_SQL
+    // 
+    // - SPARK
+    // 
+    // - PY_ODPS
+    // 
+    // - PY_ODPS3
+    // 
+    // - ODPS_SCRIPT
+    // 
+    // - ODPS_MR
+    // 
+    // - COMPONENT_SQL
+    // 
+    // - EMR_HIVE
+    // 
+    // - EMR_MR
+    // 
+    // - EMR_SPARK_SQL
+    // 
+    // - EMR_SPARK
+    // 
+    // - EMR_SHELL
+    // 
+    // - EMR_PRESTO
+    // 
+    // - EMR_IMPALA
+    // 
+    // - SPARK_STREAMING
+    // 
+    // - EMR_KYUUBI
+    // 
+    // - EMR_TRINO
+    // 
+    // - HOLOGRES_SQL
+    // 
+    // - HOLOGRES_SYNC_DDL
+    // 
+    // - HOLOGRES_SYNC_DATA
     shared_ptr<string> taskType_ {};
     // The run mode when triggered. Valid only if TriggerType is Scheduler.
     // 
     // Valid values:
     // 
-    // *   Pause
-    // *   Skip
-    // *   Normal
+    // - Pause
+    // 
+    // - Skip
+    // 
+    // - Normal
     shared_ptr<string> triggerRecurrence_ {};
     // The trigger type.
     // 
     // Valid values:
     // 
-    // *   Scheduler: Triggered by schedule.
-    // *   Manual: Triggered manually.
+    // - Scheduler: Triggered by schedule.
+    // 
+    // - Manual: Triggered manually.
     shared_ptr<string> triggerType_ {};
     // The ID of the workflow to which the task belongs.
     shared_ptr<int64_t> workflowId_ {};

@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The lineage structure.
+    // The lineage relationship object.
     shared_ptr<LineageRelationship> lineageRelationship_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

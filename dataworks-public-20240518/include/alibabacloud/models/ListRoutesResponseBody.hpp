@@ -135,15 +135,15 @@ namespace Models
       protected:
         // The creation time, which is a 64-bit timestamp.
         shared_ptr<int64_t> createTime_ {};
-        // Route destination CIDR
+        // The destination CIDR block of the route.
         shared_ptr<string> destinationCidr_ {};
-        // Route ID
+        // The route ID.
         shared_ptr<int64_t> id_ {};
-        // Network Resource ID
+        // The network resource ID.
         shared_ptr<int64_t> networkId_ {};
-        // Unique identifier of the resource group to which it belongs
+        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // Unique identifier of network resource
+        // The ID of the network resource.
         shared_ptr<string> resourceId_ {};
       };
 
@@ -184,9 +184,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of network resource routing information obtained.
+      // The routes of the network resource.
       shared_ptr<vector<PagingInfo::RouteList>> routeList_ {};
-      // All data entries
+      // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 

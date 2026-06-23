@@ -104,25 +104,24 @@ namespace Models
 
 
     protected:
-      // The type of the database to which the table belongs. Valid values:
-      // 
-      // *   maxcompute
-      // *   emr
-      // *   cdh
-      // *   hologres
-      // *   analyticdb_for_postgresql
-      // *   analyticdb_for_mysql
-      // *   starrocks
+      // For a table-type dataset, the type of database to which the table belongs.
+      // - maxcompute
+      // - emr
+      // - cdh
+      // - hologres
+      // - analyticdb_for_postgresql
+      // - analyticdb_for_mysql
+      // - starrocks
       shared_ptr<string> databaseType_ {};
-      // The configuration of the partitioned table.
+      // The partition settings of the partitioned table.
       shared_ptr<string> partitionSpec_ {};
-      // The ID of the table that is limited by the rule in Data Map.
+      // The unique ID of the table in Data Map on which the rule operates.
       // 
       // This parameter is required.
       shared_ptr<string> tableGuid_ {};
-      // The type of the monitored object. Valid values:
+      // The type of the monitored object.
       // 
-      // *   Table
+      // - Table
       shared_ptr<string> type_ {};
     };
 
@@ -182,29 +181,28 @@ namespace Models
 
 
     protected:
-      // The metrics used for sampling. You can leave this parameter empty if you use a rule template. Valid values:
-      // 
-      // *   Count: the number of rows in the table.
-      // *   Min: the minimum value of the field.
-      // *   Max: the maximum value of the field.
-      // *   Avg: the average value of the field.
-      // *   DistinctCount: the number of unique values of the field after deduplication.
-      // *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
-      // *   DuplicatedCount: the number of duplicated values of the field.
-      // *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
-      // *   TableSize: the table size.
-      // *   NullValueCount: the number of rows in which the field value is null.
-      // *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
-      // *   GroupCount: the field value and the number of rows for each field value.
-      // *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
-      // *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
-      // *   UserDefinedSql: specifies that data is sampled by executing custom SQL statements.
+      // The name of the metric to be sampled. You do not need to specify this parameter when a template is used.
+      // - Count: the number of rows in the table.
+      // - Min: the minimum value of the field.
+      // - Max: the maximum value of the field.
+      // - Avg: the average value of the field.
+      // - DistinctCount: the number of distinct values of the field.
+      // - DistinctPercent: the ratio of the number of distinct values of the field to the number of data rows.
+      // - DuplicatedCount: the number of duplicate values of the field.
+      // - DuplicatedPercent: the ratio of the number of duplicate values of the field to the number of data rows.
+      // - TableSize: the size of the table.
+      // - NullValueCount: the number of rows in which the field is null.
+      // - NullValuePercent: the ratio of rows in which the field is null.
+      // - GroupCount: the values aggregated by field value and the corresponding number of data rows for each value.
+      // - CountNotIn: the number of rows whose enum values do not match.
+      // - CountDistinctNotIn: the number of distinct values that do not match the enum values.
+      // - UserDefinedSql: collects samples by using a custom SQL statement.
       shared_ptr<string> metric_ {};
-      // The parameters required for sampling.
+      // The parameters required during sample collection.
       shared_ptr<string> metricParameters_ {};
-      // The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+      // The condition used to perform a secondary filter on the irrelevant data during sampling. The maximum length is 16777215 characters.
       shared_ptr<string> samplingFilter_ {};
-      // The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+      // The runtime parameter setting statements to be inserted and executed before the sampling statement is executed. The maximum length is 1000 characters. Only MaxCompute is supported.
       shared_ptr<string> settingConfig_ {};
     };
 
@@ -246,11 +244,10 @@ namespace Models
 
 
     protected:
-      // The SQL statement that is used to filter failed tasks. If you define the rule by using custom SQL statements, you must specify an SQL statement to filter failed tasks.
+      // For a custom SQL rule, you must specify an SQL statement to filter problematic data.
       shared_ptr<string> errorDataFilter_ {};
-      // The type of the operation. Valid values:
-      // 
-      // *   SaveErrorData
+      // The handler type:
+      // - SaveErrorData
       shared_ptr<string> type_ {};
     };
 
@@ -349,22 +346,21 @@ namespace Models
         protected:
           // The threshold expression.
           // 
-          // If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Example:
+          // For a fluctuation-type rule, you must use an expression to represent the fluctuation threshold. Examples:
           // 
-          // *   $checkValue > 0.01
-          // *   $checkValue < -0.01
-          // *   abs($checkValue) > 0.01
+          // - Fluctuation rises above 0.01: $checkValue > 0.01 
+          // - Fluctuation drops below -0.01: $checkValue < -0.01 
+          // - Absolute value of the fluctuation: abs($checkValue) > 0.01
           // 
-          // If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+          // For a fixed-value type rule, you can also use an expression to configure the threshold. If both are configured at the same time, the expression takes precedence over Operator and Value.
           shared_ptr<string> expression_ {};
-          // The comparison operator. Valid values:
-          // 
-          // *   \\>
-          // *   \\>=
-          // *   <
-          // *   <=
-          // *   !=
-          // *   \\=
+          // The comparison operator:
+          // - \\>
+          // - \\>=
+          // - \\<
+          // - \\<=
+          // - !=
+          // - =
           shared_ptr<string> operator_ {};
           // The threshold value.
           shared_ptr<string> value_ {};
@@ -419,22 +415,21 @@ namespace Models
         protected:
           // The threshold expression.
           // 
-          // If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Example:
+          // For a fluctuation-type rule, you must use an expression to represent the fluctuation threshold. Examples:
           // 
-          // *   $checkValue > 0.01
-          // *   $checkValue < -0.01
-          // *   abs($checkValue) > 0.01
+          // - Fluctuation rises above 0.01: $checkValue > 0.01 
+          // - Fluctuation drops below -0.01: $checkValue < -0.01 
+          // - Absolute value of the fluctuation: abs($checkValue) > 0.01
           // 
-          // If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+          // For a fixed-value type rule, you can also use an expression to configure the threshold. If both are configured at the same time, the expression takes precedence over Operator and Value.
           shared_ptr<string> expression_ {};
-          // The comparison operator. Valid values:
-          // 
-          // *   \\>
-          // *   \\>=
-          // *   <
-          // *   <=
-          // *   !=
-          // *   \\=
+          // The comparison operator:
+          // - \\>
+          // - \\>=
+          // - \\<
+          // - \\<=
+          // - !=
+          // - =
           shared_ptr<string> operator_ {};
           // The threshold value.
           shared_ptr<string> value_ {};
@@ -489,22 +484,21 @@ namespace Models
         protected:
           // The threshold expression.
           // 
-          // If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Example:
+          // For a fluctuation-type rule, you must use an expression to represent the fluctuation threshold. Examples:
           // 
-          // *   $checkValue > 0.01
-          // *   $checkValue < -0.01
-          // *   abs($checkValue) > 0.01
+          // - Fluctuation rises above 0.01: $checkValue > 0.01 
+          // - Fluctuation drops below -0.01: $checkValue < -0.01 
+          // - Absolute value of the fluctuation: abs($checkValue) > 0.01
           // 
-          // If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+          // For a fixed-value type rule, you can also use an expression to configure the threshold. If both are configured at the same time, the expression takes precedence over Operator and Value.
           shared_ptr<string> expression_ {};
-          // The comparison operator. Valid values:
-          // 
-          // *   \\>
-          // *   \\>=
-          // *   <
-          // *   <=
-          // *   !=
-          // *   \\=
+          // The comparison operator:
+          // - \\>
+          // - \\>=
+          // - \\<
+          // - \\<=
+          // - !=
+          // - =
           shared_ptr<string> operator_ {};
           // The threshold value.
           shared_ptr<string> value_ {};
@@ -540,11 +534,11 @@ namespace Models
 
 
       protected:
-        // The threshold settings for critical alerts.
+        // The threshold settings for a critical warning.
         shared_ptr<Thresholds::Critical> critical_ {};
-        // The expected threshold setting.
+        // The expected threshold settings.
         shared_ptr<Thresholds::Expected> expected_ {};
-        // The threshold settings for normal alerts.
+        // The threshold settings for a normal warning.
         shared_ptr<Thresholds::Warned> warned_ {};
       };
 
@@ -574,18 +568,17 @@ namespace Models
 
 
     protected:
-      // The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to specify the query method of referenced samples.
+      // Some types of thresholds require querying for reference samples and then summarizing the values of the reference samples to derive the threshold to be compared. An expression is used here to represent the query method for the reference samples.
       shared_ptr<string> referencedSamplesFilter_ {};
       // The threshold settings.
       shared_ptr<CheckingConfig::Thresholds> thresholds_ {};
-      // The method that is used to calculate a threshold. You can leave this parameter empty if you use a rule template. Valid values:
-      // 
-      // *   Fixed
-      // *   Fluctation
-      // *   FluctationDiscreate
-      // *   Auto
-      // *   Average
-      // *   Variance
+      // The threshold calculation method. You do not need to specify this parameter when a template is used.
+      // - Fixed
+      // - Fluctation
+      // - FluctationDiscreate
+      // - Auto
+      // - Average
+      // - Variance
       shared_ptr<string> type_ {};
     };
 
@@ -671,32 +664,31 @@ namespace Models
 
 
   protected:
-    // The check settings for sample data.
+    // The sample check settings.
     shared_ptr<CreateDataQualityRuleRequest::CheckingConfig> checkingConfig_ {};
-    // The description of the rule. The description can be up to 500 characters in length.
+    // The description of the rule. The maximum length is 500 characters.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the monitoring rule.
+    // Specifies whether to enable the data quality rule.
     shared_ptr<bool> enabled_ {};
-    // The operations that you can perform after the rule-based check fails.
+    // The list of issue handlers for the data quality rule check.
     shared_ptr<vector<CreateDataQualityRuleRequest::ErrorHandlers>> errorHandlers_ {};
     // The name of the rule.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The sampling settings.
+    // The settings required for sample collection.
     shared_ptr<CreateDataQualityRuleRequest::SamplingConfig> samplingConfig_ {};
-    // The strength of the rule. Valid values:
-    // 
-    // *   Normal
-    // *   High
+    // The severity of the rule for the business (corresponding to the strong/weak rule on the page). Valid values:
+    // - Normal
+    // - High
     shared_ptr<string> severity_ {};
-    // The monitored object of the rule.
+    // The object monitored by the rule.
     shared_ptr<CreateDataQualityRuleRequest::Target> target_ {};
-    // The ID of the template used by the rule.
+    // The unique identifier of the rule template that the rule references.
     shared_ptr<string> templateCode_ {};
   };
 

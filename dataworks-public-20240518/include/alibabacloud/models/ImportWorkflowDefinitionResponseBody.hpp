@@ -136,23 +136,27 @@ namespace Models
       shared_ptr<int32_t> progress_ {};
       // The response.
       // 
-      // >  The workflow ID is returned.
+      // > The workflow ID is returned.
       shared_ptr<string> response_ {};
       // The status of the asynchronous task.
       // 
       // Valid values:
       // 
-      // *   Running: The asynchronous task is running.
-      // *   Success: The asynchronous task is complete.
-      // *   Fail: The asynchronous task fails.
-      // *   Cancel: The asynchronous task is canceled.
+      // - Running: The asynchronous task is running.
+      // 
+      // - Success: The asynchronous task is complete.
+      // 
+      // - Fail: The asynchronous task fails.
+      // 
+      // - Cancel: The asynchronous task is canceled.
       shared_ptr<string> status_ {};
       // The type of the asynchronous task.
       // 
       // Valid values:
       // 
-      // *   Create: The asynchronous task is used to create an object.
-      // *   Cancel: The asynchronous task is used to cancel an operation.
+      // - Create: The asynchronous task is used to create an object.
+      // 
+      // - Cancel: The asynchronous task is used to cancel an operation.
       shared_ptr<string> type_ {};
     };
 

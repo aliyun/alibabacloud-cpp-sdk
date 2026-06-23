@@ -112,14 +112,35 @@ namespace Models
 
 
   protected:
+    // A list of parameter IDs.
     shared_ptr<string> idsShrink_ {};
+    // A list of parameter names.
     shared_ptr<string> namesShrink_ {};
+    // The account ID of the owner.
     shared_ptr<string> owner_ {};
+    // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The workspace ID. Call the ListProjects operation to get the workspace ID.
     shared_ptr<int64_t> projectId_ {};
+    // The scope of the parameter. The default value is Project. Other values are not supported.
     shared_ptr<string> scope_ {};
+    // The field to sort the parameters by. Specify the value in the "FieldName SortOrder" format. The Asc sort order is optional. Supported values are:
+    // 
+    // - ModifyTime (Desc/Asc)
+    // 
+    // - CreateTime (Desc/Asc)
+    // 
+    // - Name (Desc/Asc)
     shared_ptr<string> sortBy_ {};
+    // The type of the parameter. Valid values:
+    // 
+    // - PlainConstant: A plaintext constant.
+    // 
+    // - SecretConstant: A secret constant.
+    // 
+    // - Variable: A variable.
     shared_ptr<string> type_ {};
   };
 

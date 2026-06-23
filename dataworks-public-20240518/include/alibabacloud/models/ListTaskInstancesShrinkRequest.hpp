@@ -236,6 +236,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> bizdate_ {};
+    // The filter. It is in JSON format, and multiple filter conditions are combined with a logical AND. Currently supported fields include: `startedTimeStart`, `startedTimeEnd`, `finishedTimeStart`, `finishedTimeEnd`, `createTimeStart`, `createTimeEnd`.
     shared_ptr<string> filter_ {};
     // The ID of the instance. The instance may be rerun. If the instance is rerun and you configure this parameter, the system returns the historical information of the instance, including the rerun information. You can use the RunNumber parameter to distinguish each entry in the historical information.
     shared_ptr<int64_t> id_ {};
@@ -249,8 +250,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The environment of the workspace. Valid values:
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // - Prod: production environment
+    // 
+    // - Dev: development environment
     shared_ptr<string> projectEnv_ {};
     // The DataWorks workspace ID.
     // 
@@ -260,26 +262,31 @@ namespace Models
     shared_ptr<string> runtimeResource_ {};
     // The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
     // 
-    // *   `TriggerTime (Desc/Asc)`
+    // - `TriggerTime (Desc/Asc)`
     // 
-    // *   `StartedTime (Desc/Asc)`
+    // - `StartedTime (Desc/Asc)`
     // 
-    // *   `FinishedTime (Desc/Asc)`
+    // - `FinishedTime (Desc/Asc)`
     // 
-    // *   `CreateTime (Desc/Asc)`
+    // - `CreateTime (Desc/Asc)`
     // 
-    // *   `Id (Desc/Asc)`
+    // - `Id (Desc/Asc)`
     // 
-    //     Default value: `Id Desc`.
+    //   Default value: `Id Desc`.
     shared_ptr<string> sortBy_ {};
     // The status of the task instance.
     // 
-    // *   `NotRun`: Not started
-    // *   `Running`
-    // *   `Failure`
-    // *   `Success`
-    // *   `WaitTime`: Awaiting scheduled time
-    // *   `WaitResource`: Awaiting resources
+    // - `NotRun`: Not started
+    // 
+    // - `Running`
+    // 
+    // - `Failure`
+    // 
+    // - `Success`
+    // 
+    // - `WaitTime`: Awaiting scheduled time
+    // 
+    // - `WaitResource`: Awaiting resources
     shared_ptr<string> status_ {};
     // The ID of the task for which the instance is generated.
     shared_ptr<int64_t> taskId_ {};
@@ -291,15 +298,19 @@ namespace Models
     shared_ptr<string> taskType_ {};
     // The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
     // 
-    // *   Pause
-    // *   Skip
-    // *   Normal
+    // - Pause
+    // 
+    // - Skip
+    // 
+    // - Normal
     shared_ptr<string> triggerRecurrence_ {};
     // The trigger type. Valid values:
     // 
-    // *   Scheduler: scheduling cycle-based trigger
-    // *   Manual: manual trigger
+    // - Scheduler: scheduling cycle-based trigger
+    // 
+    // - Manual: manual trigger
     shared_ptr<string> triggerType_ {};
+    // The unified workflow instance ID. For all task instances under a specific data timestamp within a single trigger, this field has the same value.
     shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
     // The ID of the workflow to which the instance belongs.
     shared_ptr<int64_t> workflowId_ {};
@@ -307,12 +318,17 @@ namespace Models
     shared_ptr<int64_t> workflowInstanceId_ {};
     // The type of the workflow instance. Valid values:
     // 
-    // *   SmokeTest: Testing
-    // *   Manual: Manually triggered node
-    // *   SupplementData: Data backfill
-    // *   ManualWorkflow: Manually triggered workflow
-    // *   Normal: Scheduled execution
-    // *   TriggerWorkflow: Triggered Workflow
+    // - SmokeTest: Testing
+    // 
+    // - Manual: Manually triggered node
+    // 
+    // - SupplementData: Data backfill
+    // 
+    // - ManualWorkflow: Manually triggered workflow
+    // 
+    // - Normal: Scheduled execution
+    // 
+    // - TriggerWorkflow: Triggered Workflow
     shared_ptr<string> workflowInstanceType_ {};
   };
 

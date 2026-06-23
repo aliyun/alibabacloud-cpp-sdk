@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The specific file stream or OSS download link contained in the resource.
     // 
-    // >  This field allows users to provide a file stream or an OSS download link. When providing an OSS download link, ensure that the OSS link is publicly accessible. A presigned URL is recommended.
+    // > This field allows users to provide a file stream or an OSS download link. When providing an OSS download link, ensure that the OSS link is publicly accessible. A presigned URL is recommended.
     shared_ptr<Darabonba::IStream> resourceFileObject_ {};
     // The ID of the DataWorks workspace. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
     // 

@@ -93,9 +93,13 @@ namespace Models
 
 
     protected:
+      // The maximum number of entries per page.
       shared_ptr<int32_t> maxResults_ {};
+      // A list of metadata entities.
       shared_ptr<vector<MetaEntity>> metaEntities_ {};
+      // The token used to retrieve the next page of results. If this parameter is empty, no more results are available.
       shared_ptr<string> nextToken_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -125,9 +129,11 @@ namespace Models
 
 
   protected:
+    // Pagination information.
     shared_ptr<ListMetaEntitiesResponseBody::PagingInfo> pagingInfo_ {};
-    // RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

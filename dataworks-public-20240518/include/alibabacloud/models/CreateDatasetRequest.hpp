@@ -183,13 +183,19 @@ namespace Models
     shared_ptr<string> comment_ {};
     // The data type. Valid values:
     // 
-    // *   COMMON: Common (Default)
-    // *   PIC
-    // *   TEXT
-    // *   TABLE
-    // *   VIDEO
-    // *   AUDIO
-    // *   INDEX
+    // - COMMON: Common (Default)
+    // 
+    // - PIC
+    // 
+    // - TEXT
+    // 
+    // - TABLE
+    // 
+    // - VIDEO
+    // 
+    // - AUDIO
+    // 
+    // - INDEX
     shared_ptr<string> dataType_ {};
     // The initial version of the dataset.
     // 
@@ -207,20 +213,29 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The storage type. Currently supported values:
     // 
-    // *   OSS
-    // *   NAS: General-purpose NAS file systems
-    // *   EXTREMENAS: Extreme NAS file systems
-    // *   DLF_LANCE: Data Lake Formation
+    // - OSS
+    // 
+    // - NAS: General-purpose NAS file systems
+    // 
+    // - EXTREMENAS: Extreme NAS file systems
+    // 
+    // - DLF_LANCE: Data Lake Formation
     // 
     // Valid values:
     // 
-    // *   NAS: General-purpose NAS file systems
-    // *   MAXCOMPUTE: MaxCompute table
-    // *   CPFS: Cloud Parallel File Storage
-    // *   BMCPFS: CPFS for Lingjun
-    // *   EXTREMENAS: Extreme NAS file systems
-    // *   OSS: Object Storage Service
-    // *   DLF_LANCE: Data Lake Formation.
+    // - NAS: General-purpose NAS file systems
+    // 
+    // - MAXCOMPUTE: MaxCompute table
+    // 
+    // - CPFS: Cloud Parallel File Storage
+    // 
+    // - BMCPFS: CPFS for Lingjun
+    // 
+    // - EXTREMENAS: Extreme NAS file systems
+    // 
+    // - OSS: Object Storage Service
+    // 
+    // - DLF_LANCE: Data Lake Formation.
     // 
     // This parameter is required.
     shared_ptr<string> storageType_ {};

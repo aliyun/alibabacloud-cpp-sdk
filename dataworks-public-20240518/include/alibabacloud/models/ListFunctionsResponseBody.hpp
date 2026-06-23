@@ -201,7 +201,7 @@ namespace Models
         protected:
           // The ID of the script.
           // 
-          // >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
+          // > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
           shared_ptr<string> id_ {};
           // The script path.
           shared_ptr<string> path_ {};
@@ -472,18 +472,23 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Python2
-        // *   Python3
-        // *   Java8
-        // *   Java11
-        // *   Java17
+        // - Python2
+        // 
+        // - Python3
+        // 
+        // - Java8
+        // 
+        // - Java11
+        // 
+        // - Java17
         shared_ptr<string> embeddedCodeType_ {};
         // The nested resource type.
         // 
         // Valid values:
         // 
-        // *   File: General resource file.
-        // *   Embedded: Embedded resource.
+        // - File: General resource file.
+        // 
+        // - Embedded: Embedded resource.
         shared_ptr<string> embeddedResourceType_ {};
         // The example description.
         shared_ptr<string> exampleDescription_ {};
@@ -491,7 +496,7 @@ namespace Models
         shared_ptr<string> fileResource_ {};
         // The unique identifier of the UDF.
         // 
-        // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+        // > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
         shared_ptr<string> id_ {};
         // The modification time.
         shared_ptr<int64_t> modifyTime_ {};
@@ -513,12 +518,17 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Math: Mathematical operation functions
-        // *   Aggregate: Aggregation functions
-        // *   String: String processing functions
-        // *   Date: Date functions
-        // *   Analytic: Window functions
-        // *   Other: Other functions
+        // - Math: Mathematical operation functions
+        // 
+        // - Aggregate: Aggregation functions
+        // 
+        // - String: String processing functions
+        // 
+        // - Date: Date functions
+        // 
+        // - Analytic: Window functions
+        // 
+        // - Other: Other functions
         shared_ptr<string> type_ {};
       };
 

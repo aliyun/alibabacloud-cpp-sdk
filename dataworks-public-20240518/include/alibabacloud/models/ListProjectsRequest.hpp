@@ -180,13 +180,15 @@ namespace Models
     shared_ptr<vector<ListProjectsRequest::AliyunResourceTags>> aliyunResourceTags_ {};
     // Specifies whether the development environment is enabled. Valid values:
     // 
-    // *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in a workspace.
-    // *   false: The development environment is disabled. In this case, only the production environment is used in a workspace.
+    // - true: The development environment is enabled. In this case, the development environment is isolated from the production environment in a workspace.
+    // 
+    // - false: The development environment is disabled. In this case, only the production environment is used in a workspace.
     shared_ptr<bool> devEnvironmentEnabled_ {};
     // Specifies whether the Develop role is disabled. Valid values:
     // 
-    // *   false (default)
-    // *   true
+    // - false (default)
+    // 
+    // - true
     shared_ptr<bool> devRoleDisabled_ {};
     // The IDs of the DataWorks workspaces.
     shared_ptr<vector<int64_t>> ids_ {};
@@ -198,20 +200,29 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether scheduling of Platform for AI (PAI) tasks is enabled. Valid values:
     // 
-    // *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
-    // *   false: Scheduling of PAI tasks is disabled.
+    // - true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+    // 
+    // - false: Scheduling of PAI tasks is disabled.
     shared_ptr<bool> paiTaskEnabled_ {};
     // The status of the workspaces. Valid values:
     // 
-    // *   Available
-    // *   Initializing
-    // *   InitFailed
-    // *   Forbidden
-    // *   Deleting
-    // *   DeleteFailed
-    // *   Frozen
-    // *   Updating
-    // *   UpdateFailed
+    // - Available
+    // 
+    // - Initializing
+    // 
+    // - InitFailed
+    // 
+    // - Forbidden
+    // 
+    // - Deleting
+    // 
+    // - DeleteFailed
+    // 
+    // - Frozen
+    // 
+    // - Updating
+    // 
+    // - UpdateFailed
     shared_ptr<string> status_ {};
   };
 

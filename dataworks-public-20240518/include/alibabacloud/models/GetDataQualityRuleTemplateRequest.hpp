@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The code for the template.
+    // The code of the rule template.
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};

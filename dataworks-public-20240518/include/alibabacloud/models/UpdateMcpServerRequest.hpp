@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The list of workspace IDs that can access the MCP Server. This parameter takes effect only when `Visibility` is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
+      // The list of user IDs that can access the MCP Server. This parameter takes effect only when `Visibility` is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -135,12 +137,19 @@ namespace Models
 
 
   protected:
+    // The new custom request headers, specified as key-value pairs.
     Darabonba::Json customHeaders_ {};
+    // The name of the MCP Server to update.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The new transport protocol.
     shared_ptr<string> transport_ {};
+    // The new service address. The address must start with`https://`.
     shared_ptr<string> url_ {};
+    // The new visibility level.
     shared_ptr<string> visibility_ {};
+    // The new visibility scope. The fields in this object depend on the value of the `Visibility` parameter.
     shared_ptr<UpdateMcpServerRequest::VisibilityScope> visibilityScope_ {};
   };
 

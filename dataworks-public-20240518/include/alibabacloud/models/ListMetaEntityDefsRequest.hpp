@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // A keyword to search for in the description. The system performs a fuzzy match.
     shared_ptr<string> description_ {};
+    // The display name of the type definition. This parameter supports partial matching.
     shared_ptr<string> displayName_ {};
+    // Filters the results by extension mode. Valid values: `NONE` and `TABLE`.
     shared_ptr<string> extend_ {};
+    // The sort order. Valid values: `Asc` and `Desc`.
     shared_ptr<string> order_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The sort field. Valid values: `Name`, `CreateTime`, and `ModifyTime`.
     shared_ptr<string> sortBy_ {};
   };
 

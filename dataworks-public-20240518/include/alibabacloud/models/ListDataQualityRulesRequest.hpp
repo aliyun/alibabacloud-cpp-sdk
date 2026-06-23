@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the data quality monitoring task that is associated with the rule.
+    // ID of the associated data quality evaluation task.
     shared_ptr<int64_t> dataQualityEvaluationTaskId_ {};
-    // The name of the rule. Fuzzy match is supported.
+    // Rule name for fuzzy matching.
     shared_ptr<string> name_ {};
-    // The page number. Default value: 1.
+    // Page number for paginated query. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 200.
+    // Number of entries per page. Default value: 10. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID.
+    // DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // The ID of the table that is limited by the rule in Data Map.
+    // The unique identifier of the table to which the rule applies in Data Map.
     shared_ptr<string> tableGuid_ {};
   };
 

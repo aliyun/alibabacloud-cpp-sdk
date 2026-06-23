@@ -54,8 +54,9 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The environment of the workspace. Valid values:
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // - Prod: production environment
+    // 
+    // - Dev: development environment
     shared_ptr<string> projectEnv_ {};
   };
 

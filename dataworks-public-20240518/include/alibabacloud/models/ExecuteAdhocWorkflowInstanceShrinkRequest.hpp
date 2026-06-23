@@ -88,8 +88,9 @@ namespace Models
     shared_ptr<int64_t> bizDate_ {};
     // The environment of the workspace. Valid values:
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // - Prod: production environment
+    // 
+    // - Dev: development environment
     shared_ptr<string> envType_ {};
     // The name of the workflow instance.
     // 

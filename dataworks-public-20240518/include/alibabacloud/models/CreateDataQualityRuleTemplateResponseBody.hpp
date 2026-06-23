@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The Code of the rule template.
+    // The rule template Code.
     shared_ptr<string> code_ {};
-    // The request ID.
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

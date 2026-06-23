@@ -121,14 +121,17 @@ namespace Models
       shared_ptr<int64_t> duration_ {};
       // The severity level. Valid values:
       // 
-      // *   Warning
-      // *   Critical
+      // - Warning
+      // 
+      // - Critical
       shared_ptr<string> severity_ {};
       // The alert threshold.
       // 
-      // *   If the alert rule is for task status, you do not need to specify a threshold.
-      // *   If the alert rule is for failovers, you must specify the number of failovers.
-      // *   If the alert rule is for latency, you must specify the latency duration, in seconds.
+      // - If the alert rule is for task status, you do not need to specify a threshold.
+      // 
+      // - If the alert rule is for failovers, you must specify the number of failovers.
+      // 
+      // - If the alert rule is for latency, you must specify the latency duration, in seconds.
       shared_ptr<int64_t> threshold_ {};
     };
 
@@ -201,8 +204,9 @@ namespace Models
         shared_ptr<string> receiverType_ {};
         // The recipient.
         // 
-        // *   If the ReceiverType parameter is set to AliyunUid, set this parameter to the Alibaba Cloud account ID of a user.
-        // *   If the ReceiverType parameter is set to DingToken, set this parameter to the token of a DingTalk chatbot.
+        // - If the ReceiverType parameter is set to AliyunUid, set this parameter to the Alibaba Cloud account ID of a user.
+        // 
+        // - If the ReceiverType parameter is set to DingToken, set this parameter to the token of a DingTalk chatbot.
         shared_ptr<vector<string>> receiverValues_ {};
       };
 
@@ -248,15 +252,19 @@ namespace Models
       protected:
         // The alert notification method. Valid values:
         // 
-        // *   Mail
-        // *   Phone
-        // *   Sms
-        // *   Ding
+        // - Mail
+        // 
+        // - Phone
+        // 
+        // - Sms
+        // 
+        // - Ding
         shared_ptr<vector<string>> channels_ {};
         // The severity level. Valid values:
         // 
-        // *   Warning
-        // *   Critical
+        // - Warning
+        // 
+        // - Critical
         shared_ptr<string> severity_ {};
       };
 
@@ -381,11 +389,15 @@ namespace Models
     shared_ptr<bool> enabled_ {};
     // The metric type in the alert rule. Valid values:
     // 
-    // *   Heartbeat
-    // *   FailoverCount
-    // *   Delay
-    // *   DdlReport
-    // *   ResourceUtilization
+    // - Heartbeat
+    // 
+    // - FailoverCount
+    // 
+    // - Delay
+    // 
+    // - DdlReport
+    // 
+    // - ResourceUtilization
     // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};

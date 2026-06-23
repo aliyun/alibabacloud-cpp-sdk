@@ -188,8 +188,9 @@ namespace Models
           Darabonba::Json connectionProperties_ {};
           // The specific connection configuration details for the computing resource, including the connection address, access identity, and environment information. envType, which specifies the computing resource environment, is a property of this object. Valid values:
           // 
-          // *   Dev
-          // *   Prod Different types of computing resources have different attribute specifications under different configuration modes (ConnectionPropertiesMode).
+          // - Dev
+          // 
+          // - Prod Different types of computing resources have different attribute specifications under different configuration modes (ConnectionPropertiesMode).
           shared_ptr<string> connectionPropertiesMode_ {};
           // The creation time (timestamp).
           shared_ptr<int64_t> createTime_ {};

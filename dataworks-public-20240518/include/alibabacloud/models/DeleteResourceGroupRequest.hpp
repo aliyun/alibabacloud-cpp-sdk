@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the resource group.
+    // The unique identifier of the resource group.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

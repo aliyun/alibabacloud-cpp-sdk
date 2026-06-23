@@ -303,19 +303,33 @@ namespace Models
 
 
           protected:
+            // **Basic Edition default value**
             Darabonba::Json basicEditionDefaultValue_ {};
+            // Basic Edition valid value range [min, max].
             shared_ptr<vector<int32_t>> basicEditionIntervalValue_ {};
+            // Controller identifier. For values, see the controller list of each Schema.
             shared_ptr<string> controller_ {};
+            // **Value type (Boolean/Integer/Long/String)**
             shared_ptr<string> controllerValueType_ {};
+            // Display name.
             shared_ptr<string> displayName_ {};
+            // **English display name**
             shared_ptr<string> displayNameEn_ {};
+            // **Whether this controller is enabled**
             shared_ptr<bool> enable_ {};
+            // Enterprise Edition default value.
             Darabonba::Json enterpriseEditionDefaultValue_ {};
+            // Enterprise Edition valid value range [min, max].
             shared_ptr<vector<int32_t>> enterpriseEditionIntervalValue_ {};
+            // Professional Edition default value.
             Darabonba::Json professionalEditionDefaultValue_ {};
+            // Professional Edition valid value range [min, max].
             shared_ptr<vector<int32_t>> professionalEditionIntervalValue_ {};
+            // **Standard Edition default value**
             Darabonba::Json standardEditionDefaultValue_ {};
+            // Standard Edition valid value range [min, max].
             shared_ptr<vector<int32_t>> standardEditionIntervalValue_ {};
+            // **User-configured value. The type depends on ControllerValueType.**
             Darabonba::Json userConfigValue_ {};
           };
 
@@ -388,14 +402,25 @@ namespace Models
 
 
         protected:
+          // **Control scope**
           shared_ptr<string> controlDwScope_ {};
+          // **Control module**
           shared_ptr<string> controlModule_ {};
+          // **Control sub-module**
           shared_ptr<string> controlSubModule_ {};
+          // Controller list.
+          // 
+          // Note: Valid controllers depend on the selected Schema. Refer to the Controller definition and the controller list of each Schema.
           shared_ptr<vector<Content::Controllers>> controllers_ {};
+          // **Display name**
           shared_ptr<string> displayName_ {};
+          // **English display name**
           shared_ptr<string> displayNameEn_ {};
+          // **Schema name**
           shared_ptr<string> name_ {};
+          // System policy display name.
           shared_ptr<string> systemPolicyDisplayName_ {};
+          // System policy name (when not empty, the system automatically creates a default policy).
           shared_ptr<string> systemPolicyName_ {};
         };
 
@@ -513,20 +538,35 @@ namespace Models
 
 
       protected:
+        // **Policy content**. Refer to the StrategyContent definition.
         shared_ptr<SecurityStrategy::Content> content_ {};
+        // **Control scope** (Workspace/Tenant).
         shared_ptr<string> controlDwScope_ {};
+        // **Control module**
         shared_ptr<string> controlModule_ {};
+        // **Control sub-module**
         shared_ptr<string> controlSubModule_ {};
+        // Creation time.
         shared_ptr<string> createTime_ {};
+        // Creator user ID.
         shared_ptr<string> creator_ {};
+        // **Policy description**
         shared_ptr<string> description_ {};
+        // **Whether enabled**
         shared_ptr<bool> enabled_ {};
+        // **Policy ID**
         shared_ptr<int64_t> id_ {};
+        // **Policy name**
         shared_ptr<string> name_ {};
+        // System default policy source ID.
         shared_ptr<int64_t> originPolicyId_ {};
+        // **Schema template name**
         shared_ptr<string> schemaName_ {};
+        // Update time.
         shared_ptr<string> updateTime_ {};
+        // Last updater user ID.
         shared_ptr<string> updater_ {};
+        // **Associated workspace ID list**
         shared_ptr<vector<int64_t>> workspaces_ {};
       };
 
@@ -556,8 +596,11 @@ namespace Models
 
 
     protected:
+      // Purchased DataWorks edition.
       shared_ptr<string> edition_ {};
+      // Purchased DataWorks edition name.
       shared_ptr<string> editionDisplayName_ {};
+      // Security policy.
       shared_ptr<Data::SecurityStrategy> securityStrategy_ {};
     };
 
@@ -580,7 +623,9 @@ namespace Models
 
 
   protected:
+    // Data object.
     shared_ptr<FindBestMatchSecurityStrategyResponseBody::Data> data_ {};
+    // **API request ID**
     shared_ptr<string> requestId_ {};
   };
 

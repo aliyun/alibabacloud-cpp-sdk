@@ -225,19 +225,33 @@ namespace Models
 
 
       protected:
+        // The default value for the Basic edition.
         Darabonba::Json basicEditionDefaultValue_ {};
+        // The value range for the Basic edition, specified as `[min, max]`.
         shared_ptr<vector<int32_t>> basicEditionIntervalValue_ {};
+        // The controller identifier. For valid values, see the list of controllers for each schema.
         shared_ptr<string> controller_ {};
+        // The data type of the controller\\"s value. Valid values: `Boolean`, `Integer`, `Long`, and `String`.
         shared_ptr<string> controllerValueType_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The English display name.
         shared_ptr<string> displayNameEn_ {};
+        // Indicates whether the controller is enabled.
         shared_ptr<bool> enable_ {};
+        // The default value for the Enterprise edition.
         Darabonba::Json enterpriseEditionDefaultValue_ {};
+        // The value range for the Enterprise edition, specified as `[min, max]`.
         shared_ptr<vector<int32_t>> enterpriseEditionIntervalValue_ {};
+        // The default value for the Professional edition.
         Darabonba::Json professionalEditionDefaultValue_ {};
+        // The value range for the Professional edition, specified as `[min, max]`.
         shared_ptr<vector<int32_t>> professionalEditionIntervalValue_ {};
+        // The default value for the Standard edition.
         Darabonba::Json standardEditionDefaultValue_ {};
+        // The value range for the Standard edition, specified as `[min, max]`.
         shared_ptr<vector<int32_t>> standardEditionIntervalValue_ {};
+        // The user-configured value. The type of this value is determined by the `ControllerValueType` parameter.
         Darabonba::Json userConfigValue_ {};
       };
 
@@ -252,6 +266,10 @@ namespace Models
 
 
     protected:
+      // A list of controllers.
+      // 
+      // Note: The valid controllers depend on the selected schema. For more information, see the controller definition and the list of controllers for each schema.
+      // 
       // This parameter is required.
       shared_ptr<vector<Content::Controllers>> controllers_ {};
     };
@@ -305,13 +323,21 @@ namespace Models
 
 
   protected:
+    // A client token to ensure request idempotence.
     shared_ptr<string> clientToken_ {};
+    // The policy content, which is constrained by the `SecurityStrategySchema`.
+    // 
     // This parameter is required.
     shared_ptr<UpdateSecurityStrategyRequest::Content> content_ {};
+    // **The policy description.**
     shared_ptr<string> description_ {};
+    // **The policy ID.**
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // **The policy name.**
     shared_ptr<string> name_ {};
+    // **A list of associated workspace IDs.**
     shared_ptr<vector<int64_t>> workspaces_ {};
   };
 

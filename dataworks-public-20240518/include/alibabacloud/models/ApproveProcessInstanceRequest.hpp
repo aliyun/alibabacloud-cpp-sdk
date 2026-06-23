@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApprovalAction, approvalAction_);
       DARABONBA_PTR_TO_JSON(ApprovalComment, approvalComment_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(NewExpiration, newExpiration_);
       DARABONBA_PTR_TO_JSON(ProcessInstanceId, processInstanceId_);
     };
     friend void from_json(const Darabonba::Json& j, ApproveProcessInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApprovalAction, approvalAction_);
       DARABONBA_PTR_FROM_JSON(ApprovalComment, approvalComment_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(NewExpiration, newExpiration_);
       DARABONBA_PTR_FROM_JSON(ProcessInstanceId, processInstanceId_);
     };
     ApproveProcessInstanceRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->approvalAction_ == nullptr
-        && this->approvalComment_ == nullptr && this->clientToken_ == nullptr && this->processInstanceId_ == nullptr; };
+        && this->approvalComment_ == nullptr && this->clientToken_ == nullptr && this->newExpiration_ == nullptr && this->processInstanceId_ == nullptr; };
     // approvalAction Field Functions 
     bool hasApprovalAction() const { return this->approvalAction_ != nullptr;};
     void deleteApprovalAction() { this->approvalAction_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ApproveProcessInstanceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
+    // newExpiration Field Functions 
+    bool hasNewExpiration() const { return this->newExpiration_ != nullptr;};
+    void deleteNewExpiration() { this->newExpiration_ = nullptr;};
+    inline int64_t getNewExpiration() const { DARABONBA_PTR_GET_DEFAULT(newExpiration_, 0L) };
+    inline ApproveProcessInstanceRequest& setNewExpiration(int64_t newExpiration) { DARABONBA_PTR_SET_VALUE(newExpiration_, newExpiration) };
+
+
     // processInstanceId Field Functions 
     bool hasProcessInstanceId() const { return this->processInstanceId_ != nullptr;};
     void deleteProcessInstanceId() { this->processInstanceId_ = nullptr;};
@@ -66,11 +75,24 @@ namespace Models
 
 
   protected:
+    // The approval action. Valid values:
+    // 
+    // - Agree: Approved.
+    // 
+    // - Deny: Rejected.
+    // 
     // This parameter is required.
     shared_ptr<string> approvalAction_ {};
+    // The approval comment.
+    // 
     // This parameter is required.
     shared_ptr<string> approvalComment_ {};
+    // The idempotency token. We recommend that you use a UUID.
     shared_ptr<string> clientToken_ {};
+    // The new authorization expiration time. Unit: milliseconds (UNIX timestamp).
+    shared_ptr<int64_t> newExpiration_ {};
+    // The process instance ID. Both new and legacy Security Center approval forms are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> processInstanceId_ {};
   };

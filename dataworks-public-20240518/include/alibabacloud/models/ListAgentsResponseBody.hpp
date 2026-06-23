@@ -108,6 +108,7 @@ namespace Models
 
 
         protected:
+          // The agent name.
           shared_ptr<string> agentName_ {};
         };
 
@@ -144,9 +145,13 @@ namespace Models
 
 
       protected:
+        // The list of agents.
         shared_ptr<vector<Result::Agents>> agents_ {};
+        // The actual number of entries per page that takes effect.
         shared_ptr<int32_t> maxResults_ {};
+        // The token for the next page. The value is null when the current page is the last page or no data is available.
         shared_ptr<string> nextToken_ {};
+        // The total number of agents that match the filter criteria.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -176,8 +181,11 @@ namespace Models
 
 
     protected:
+      // The request ID passed in by the caller. The value is returned as-is in the response.
       shared_ptr<string> id_ {};
+      // The JSON-RPC version. Fixed value: 2.0.
       shared_ptr<string> jsonrpc_ {};
+      // The paginated query result for agents.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 
@@ -200,6 +208,7 @@ namespace Models
 
 
   protected:
+    // The response object that conforms to the JSON-RPC specification.
     shared_ptr<ListAgentsResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

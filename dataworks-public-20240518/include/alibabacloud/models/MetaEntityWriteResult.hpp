@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The entity type.
     shared_ptr<string> entityType_ {};
+    // The error message if the operation fails for the entity.
     shared_ptr<string> errorMessage_ {};
+    // The entity ID.
     shared_ptr<string> id_ {};
+    // The entity name.
     shared_ptr<string> name_ {};
+    // Indicates whether the operation succeeded for the entity.
     shared_ptr<bool> success_ {};
   };
 

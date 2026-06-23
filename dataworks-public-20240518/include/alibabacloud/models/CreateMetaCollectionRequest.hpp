@@ -76,9 +76,11 @@ namespace Models
     shared_ptr<string> parentId_ {};
     // The collection name.
     // 
-    // *   Category
-    // *   Album
-    // *   AlbumCategory: Album subcategory.
+    // - Category
+    // 
+    // - Album
+    // 
+    // - AlbumCategory: Album subcategory.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

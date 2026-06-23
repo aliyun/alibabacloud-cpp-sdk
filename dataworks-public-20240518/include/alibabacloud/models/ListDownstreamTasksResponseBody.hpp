@@ -206,9 +206,11 @@ namespace Models
           // 
           // Valid values:
           // 
-          // *   Pause
-          // *   Skip
-          // *   Normal
+          // - Pause
+          // 
+          // - Skip
+          // 
+          // - Normal
           shared_ptr<string> recurrence_ {};
           // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
           shared_ptr<string> startTime_ {};
@@ -218,8 +220,9 @@ namespace Models
           // 
           // Valid values:
           // 
-          // *   Scheduler: scheduling cycle-based trigger
-          // *   Manual: manual trigger
+          // - Scheduler: scheduling cycle-based trigger
+          // 
+          // - Manual: manual trigger
           shared_ptr<string> type_ {};
         };
 
@@ -503,15 +506,17 @@ namespace Models
         shared_ptr<string> description_ {};
         // The environment of the workspace. Valid values:
         // 
-        // *   Prod
-        // *   Dev
+        // - Prod
+        // 
+        // - Dev
         shared_ptr<string> envType_ {};
         // The task ID.
         shared_ptr<int64_t> id_ {};
         // The instance generation mode. Valid values:
         // 
-        // *   T+1
-        // *   Immediately
+        // - T+1
+        // 
+        // - Immediately
         shared_ptr<string> instanceMode_ {};
         // The modification time.
         shared_ptr<int64_t> modifyTime_ {};
@@ -527,8 +532,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Prod
-        // *   Dev
+        // - Prod
+        // 
+        // - Dev
         shared_ptr<string> projectEnv_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
@@ -538,9 +544,11 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
-        // *   FailureAllowed: The task can be rerun only after it fails to run.
-        // *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+        // - AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+        // 
+        // - FailureAllowed: The task can be rerun only after it fails to run.
+        // 
+        // - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
         shared_ptr<string> rerunMode_ {};
         // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
         shared_ptr<int32_t> rerunTimes_ {};
@@ -548,8 +556,9 @@ namespace Models
         shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
         // The scheduling dependency type. Valid values:
         // 
-        // *   Normal: same-cycle scheduling dependency
-        // *   CrossCycle: cross-cycle scheduling dependency
+        // - Normal: same-cycle scheduling dependency
+        // 
+        // - CrossCycle: cross-cycle scheduling dependency
         shared_ptr<string> stepType_ {};
         // The timeout period of task running. Unit: seconds.
         shared_ptr<int32_t> timeout_ {};
@@ -723,9 +732,11 @@ namespace Models
             shared_ptr<string> endTime_ {};
             // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
             // 
-            // *   Pause
-            // *   Skip
-            // *   Normal
+            // - Pause
+            // 
+            // - Skip
+            // 
+            // - Normal
             shared_ptr<string> recurrence_ {};
             // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
             shared_ptr<string> startTime_ {};
@@ -733,8 +744,9 @@ namespace Models
             shared_ptr<string> timezone_ {};
             // The trigger type. Valid values:
             // 
-            // *   Scheduler: scheduling cycle-based trigger
-            // *   Manual: manual trigger
+            // - Scheduler: scheduling cycle-based trigger
+            // 
+            // - Manual: manual trigger
             shared_ptr<string> type_ {};
           };
 
@@ -1004,15 +1016,17 @@ namespace Models
           shared_ptr<string> description_ {};
           // The environment of the workspace. Valid values:
           // 
-          // *   Prod
-          // *   Dev
+          // - Prod
+          // 
+          // - Dev
           shared_ptr<string> envType_ {};
           // The task ID.
           shared_ptr<int64_t> id_ {};
           // The instance generation mode. Valid values:
           // 
-          // *   T+1
-          // *   Immediately
+          // - T+1
+          // 
+          // - Immediately
           shared_ptr<string> instanceMode_ {};
           // The modification time.
           shared_ptr<int64_t> modifyTime_ {};
@@ -1030,9 +1044,11 @@ namespace Models
           shared_ptr<int32_t> rerunInterval_ {};
           // The rerun mode. Valid values:
           // 
-          // *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-          // *   FailureAllowed: The task can be rerun only after it fails to run.
-          // *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+          // - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+          // 
+          // - FailureAllowed: The task can be rerun only after it fails to run.
+          // 
+          // - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
           shared_ptr<string> rerunMode_ {};
           // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
           shared_ptr<int32_t> rerunTimes_ {};
@@ -1069,8 +1085,9 @@ namespace Models
       protected:
         // The scheduling dependency type. Valid values:
         // 
-        // *   Normal: same-cycle scheduling dependency
-        // *   CrossCycle: cross-cycle scheduling dependency
+        // - Normal: same-cycle scheduling dependency
+        // 
+        // - CrossCycle: cross-cycle scheduling dependency
         shared_ptr<string> dependencyType_ {};
         // The information about the task.
         shared_ptr<DownstreamTasks::Task> task_ {};

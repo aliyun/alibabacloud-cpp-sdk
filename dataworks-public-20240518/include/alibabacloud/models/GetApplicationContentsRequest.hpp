@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the approval process instance.
+    // 
     // This parameter is required.
     shared_ptr<string> processInstanceId_ {};
   };

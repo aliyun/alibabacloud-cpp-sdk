@@ -79,11 +79,22 @@ namespace Models
 
 
   protected:
+    // A list of attribute definitions for the pure custom type. Do not specify this parameter if the `Extend` parameter is set to `TABLE`.
     shared_ptr<vector<MetaEntityAttributeDef>> attributeDefs_ {};
+    // A description of the entity definition.
     shared_ptr<string> description_ {};
+    // The display name. The maximum length is 32 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
+    // The extension mode. Valid values:
+    // 
+    // - `NONE`: The default value. Specifies a pure custom type with user-defined attributes.
+    // 
+    // - `TABLE`: Specifies an extended table type that references an existing table type in Data Map. Attribute definitions are not required for this type. You can create corresponding `Database` and `Table` objects for it.
     shared_ptr<string> extend_ {};
+    // The type definition name. For a pure custom type, the name must match `^[a-z0-9][a-z0-9_]*$`. For an extended table type, the name must match `^[a-z0-9][a-z0-9_]*-table$`.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

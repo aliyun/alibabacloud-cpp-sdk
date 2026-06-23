@@ -176,8 +176,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Normal
-        // *   System
+        // - Normal
+        // 
+        // - System
         shared_ptr<string> category_ {};
         // The time when the tag was created.
         shared_ptr<int64_t> createTime_ {};

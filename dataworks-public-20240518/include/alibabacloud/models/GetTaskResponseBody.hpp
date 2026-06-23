@@ -178,16 +178,19 @@ namespace Models
         shared_ptr<string> endTime_ {};
         // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
         // 
-        // *   Pause
-        // *   Skip
-        // *   Normal
+        // - Pause
+        // 
+        // - Skip
+        // 
+        // - Normal
         shared_ptr<string> recurrence_ {};
         // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
         shared_ptr<string> startTime_ {};
         // The trigger type. Valid values:
         // 
-        // *   Scheduler: periodic scheduling
-        // *   Manual: manual scheduling
+        // - Scheduler: periodic scheduling
+        // 
+        // - Manual: manual scheduling
         shared_ptr<string> type_ {};
       };
 
@@ -388,16 +391,19 @@ namespace Models
             shared_ptr<string> endTime_ {};
             // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
             // 
-            // *   Pause
-            // *   Skip
-            // *   Normal
+            // - Pause
+            // 
+            // - Skip
+            // 
+            // - Normal
             shared_ptr<string> recurrence_ {};
             // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
             shared_ptr<string> startTime_ {};
             // The trigger type. Valid values:
             // 
-            // *   Scheduler: periodic scheduling
-            // *   Manual: manual scheduling
+            // - Scheduler: periodic scheduling
+            // 
+            // - Manual: manual scheduling
             shared_ptr<string> type_ {};
           };
 
@@ -667,8 +673,9 @@ namespace Models
           shared_ptr<string> description_ {};
           // The environment of the workspace. Valid values:
           // 
-          // *   Prod: production environment
-          // *   Dev: development environment
+          // - Prod: production environment
+          // 
+          // - Dev: development environment
           shared_ptr<string> envType_ {};
           // The task ID.
           shared_ptr<int64_t> id_ {};
@@ -684,8 +691,9 @@ namespace Models
           shared_ptr<int32_t> priority_ {};
           // The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
           // 
-          // *   Prod: production environment
-          // *   Dev: development environment
+          // - Prod: production environment
+          // 
+          // - Dev: development environment
           shared_ptr<string> projectEnv_ {};
           // The workspace ID.
           shared_ptr<int64_t> projectId_ {};
@@ -693,9 +701,11 @@ namespace Models
           shared_ptr<int32_t> rerunInterval_ {};
           // The rerun mode. Valid values:
           // 
-          // *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
-          // *   FailureAllowed: The task can be rerun only after it fails to be run.
-          // *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
+          // - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
+          // 
+          // - FailureAllowed: The task can be rerun only after it fails to be run.
+          // 
+          // - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
           shared_ptr<string> rerunMode_ {};
           // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
           shared_ptr<int32_t> rerunTimes_ {};
@@ -734,9 +744,11 @@ namespace Models
         shared_ptr<vector<SubTasks::SubTasksItem>> subTasks_ {};
         // The type of the subtask. Valid values:
         // 
-        // *   DoWhile: do-while node
-        // *   Combined: node group
-        // *   ForEach: for-each node
+        // - DoWhile: do-while node
+        // 
+        // - Combined: node group
+        // 
+        // - ForEach: for-each node
         shared_ptr<string> type_ {};
       };
 
@@ -911,10 +923,13 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
-          // *   Constant: constant
-          // *   PassThrough: node output
-          // *   System: variable
-          // *   NodeOutput: script output
+          // - Constant: constant
+          // 
+          // - PassThrough: node output
+          // 
+          // - System: variable
+          // 
+          // - NodeOutput: script output
           shared_ptr<string> type_ {};
           // The value of the variable.
           shared_ptr<string> value_ {};
@@ -1049,10 +1064,13 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
-          // *   Constant: constant
-          // *   PassThrough: node output
-          // *   System: variable
-          // *   NodeOutput: script output
+          // - Constant: constant
+          // 
+          // - PassThrough: node output
+          // 
+          // - System: variable
+          // 
+          // - NodeOutput: script output
           shared_ptr<string> type_ {};
           // The value of the variable.
           shared_ptr<string> value_ {};
@@ -1122,10 +1140,13 @@ namespace Models
       protected:
         // The dependency type. Valid values:
         // 
-        // *   CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
-        // *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
-        // *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-        // *   Normal: same-cycle scheduling dependency
+        // - CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
+        // 
+        // - CrossCycleDependsOnSelf: cross-cycle dependency on the current node
+        // 
+        // - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+        // 
+        // - Normal: same-cycle scheduling dependency
         shared_ptr<string> type_ {};
         // The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
         shared_ptr<string> upstreamOutput_ {};
@@ -1408,8 +1429,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The environment of the workspace. Valid values:
       // 
-      // *   Prod: production environment
-      // *   Dev: development environment
+      // - Prod: production environment
+      // 
+      // - Dev: development environment
       shared_ptr<string> envType_ {};
       // The instance ID.
       shared_ptr<int64_t> id_ {};
@@ -1417,8 +1439,9 @@ namespace Models
       shared_ptr<Task::Inputs> inputs_ {};
       // The instance generation mode. Valid values:
       // 
-      // *   T+1
-      // *   Immediately
+      // - T+1
+      // 
+      // - Immediately
       shared_ptr<string> instanceMode_ {};
       // The modification time.
       shared_ptr<int64_t> modifyTime_ {};
@@ -1434,8 +1457,9 @@ namespace Models
       shared_ptr<int32_t> priority_ {};
       // The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
       // 
-      // *   Prod: production environment
-      // *   Dev: development environment
+      // - Prod: production environment
+      // 
+      // - Dev: development environment
       shared_ptr<string> projectEnv_ {};
       // The workspace ID.
       shared_ptr<int64_t> projectId_ {};
@@ -1443,9 +1467,11 @@ namespace Models
       shared_ptr<int32_t> rerunInterval_ {};
       // The rerun mode. Valid values:
       // 
-      // *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
-      // *   FailureAllowed: The task can be rerun only after it fails to be run.
-      // *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
+      // - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
+      // 
+      // - FailureAllowed: The task can be rerun only after it fails to be run.
+      // 
+      // - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
       shared_ptr<string> rerunMode_ {};
       // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
       shared_ptr<int32_t> rerunTimes_ {};

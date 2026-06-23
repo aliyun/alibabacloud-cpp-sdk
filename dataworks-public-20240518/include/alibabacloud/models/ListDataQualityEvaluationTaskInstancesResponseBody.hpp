@@ -165,11 +165,10 @@ namespace Models
 
 
           protected:
-            // The IDs of the auto triggered nodes of which the instances are successfully run.
+            // The IDs of scheduled task nodes.
             shared_ptr<vector<int64_t>> taskIds_ {};
-            // The trigger condition of the task. Valid values:
-            // 
-            // *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+            // The type of event that can trigger the execution of the quality evaluation task.
+            // - ByScheduledTaskInstance: A scheduled instance runs successfully.
             shared_ptr<string> type_ {};
           };
 
@@ -229,23 +228,21 @@ namespace Models
 
 
           protected:
-            // The type of the database to which the table belongs. Valid values:
-            // 
-            // *   maxcompute
-            // *   emr
-            // *   cdh
-            // *   hologres
-            // *   analyticdb_for_postgresql
-            // *   analyticdb_for_mysql
-            // *   starrocks
+            // For a dataset of table type, the database type to which the table belongs.
+            // - maxcompute
+            // - emr
+            // - cdh
+            // - hologres
+            // - analyticdb_for_postgresql
+            // - analyticdb_for_mysql
+            // - starrocks
             shared_ptr<string> databaseType_ {};
-            // The configuration of the partitioned table.
+            // The partition settings of the partitioned table.
             shared_ptr<string> partitionSpec_ {};
-            // The ID of the table in Data Map.
+            // The unique ID of the table in Data Map.
             shared_ptr<string> tableGuid_ {};
-            // The type of the monitored object. Valid values:
-            // 
-            // *   Table
+            // The type of the monitoring object.
+            // - Table
             shared_ptr<string> type_ {};
           };
 
@@ -321,7 +318,7 @@ namespace Models
 
 
               protected:
-                // The alert notification methods.
+                // The alert method.
                 shared_ptr<vector<string>> channels_ {};
               };
 
@@ -374,17 +371,16 @@ namespace Models
 
 
               protected:
-                // The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+                // The extension information, in JSON format. For example, a DingTalk bot supports at-all.
                 shared_ptr<string> extension_ {};
-                // The type of the alert recipient. Valid values:
-                // 
-                // *   AliUid: Alibaba Cloud account ID
-                // *   WebhookUrl: URL of a custom webhook
-                // *   DingdingUrl: DingTalk chatbot URL
-                // *   FeishuUrl: Lark chatbot URL
-                // *   WeixinUrl: WeCom chatbot URL
+                // The type of the alert recipient.
+                // - AliUid - The UID of the Alibaba Cloud account
+                // - WebhookUrl - A custom webhook URL
+                // - DingdingUrl - The URL of a DingTalk bot
+                // - FeishuUrl - The URL of a Lark bot
+                // - WeixinUrl - The URL of a WeCom bot
                 shared_ptr<string> receiverType_ {};
-                // The alert recipients.
+                // The alert recipient.
                 shared_ptr<vector<string>> receiverValues_ {};
               };
 
@@ -409,9 +405,9 @@ namespace Models
 
 
             protected:
-              // The alert recipients.
+              // The alert recipient settings.
               shared_ptr<vector<NotificationsItem::NofiticationReceivers>> nofiticationReceivers_ {};
-              // The alert notification methods.
+              // The alert method.
               shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
             };
 
@@ -434,9 +430,9 @@ namespace Models
 
 
           protected:
-            // The trigger condition of the alert notification.
+            // The trigger condition of the notification.
             shared_ptr<string> condition_ {};
-            // The configurations for the alert notification.
+            // The notification settings.
             shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
           };
 
@@ -478,11 +474,10 @@ namespace Models
 
 
           protected:
-            // The trigger configuration of the callback event.
+            // The trigger condition of the Hook.
             shared_ptr<string> condition_ {};
-            // The type of the callback event. Valid values:
-            // 
-            // *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+            // The type of the subsequent processing action.
+            // - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
             shared_ptr<string> type_ {};
           };
 
@@ -561,25 +556,25 @@ namespace Models
 
 
         protected:
-          // The description of the task.
+          // The description of the quality monitoring task.
           shared_ptr<string> description_ {};
-          // The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+          // The callback settings in the lifecycle of the data quality evaluation task instance. Currently, only one Hook for blocking scheduled tasks is supported.
           shared_ptr<vector<Task::Hooks>> hooks_ {};
-          // The task ID.
+          // The ID of the data quality evaluation task.
           shared_ptr<int64_t> id_ {};
-          // The name of the monitor.
+          // The name of the quality monitoring task.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The configurations for alert notifications.
+          // The notification subscription configuration.
           shared_ptr<Task::Notifications> notifications_ {};
-          // The workspace ID.
+          // The ID of the project workspace.
           shared_ptr<int64_t> projectId_ {};
-          // The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
+          // Settings used when accessing data sources. Currently, only specifying the YARN queue of EMR and specifying the SQL engine as SPARK_SQL|KYUUBI|PRESTO_SQL|HIVE_SQL when collecting EMR tables are supported.
           shared_ptr<string> runtimeConf_ {};
-          // The monitored object of the task.
+          // The monitoring object of the data quality evaluation task.
           shared_ptr<Task::Target> target_ {};
-          // The trigger configuration of the task.
+          // The trigger configuration of the data quality evaluation task.
           shared_ptr<Task::Trigger> trigger_ {};
         };
 
@@ -645,27 +640,26 @@ namespace Models
 
 
       protected:
-        // The time at which the instance was generated.
+        // The creation time of the task instance.
         shared_ptr<int64_t> createTime_ {};
-        // The time at which the instance finished running.
+        // The end time of the task instance.
         shared_ptr<int64_t> finishTime_ {};
-        // The ID of the instance.
+        // The ID of the quality check task instance.
         shared_ptr<int64_t> id_ {};
-        // The parameters configured for the instance.
+        // The parameter settings used during the actual runtime.
         shared_ptr<string> parameters_ {};
-        // The DataWorks workspace ID.
+        // The ID of the DataWorks project workspace.
         shared_ptr<int64_t> projectId_ {};
-        // The status of the instance. Valid values:
-        // 
-        // *   Running
-        // *   Error
-        // *   Passed
-        // *   Warned
-        // *   Critical
+        // The current running status.
+        // - Running
+        // - Error
+        // - Passed
+        // - Warned
+        // - Critical
         shared_ptr<string> status_ {};
-        // The snapshot of the configurations for the task when the task starts.
+        // The snapshot of the data quality evaluation task when the evaluation starts.
         shared_ptr<DataQualityEvaluationTaskInstances::Task> task_ {};
-        // The information about the trigger module of the instance.
+        // The context information when the instance is triggered.
         shared_ptr<string> triggerContext_ {};
       };
 
@@ -702,13 +696,13 @@ namespace Models
 
 
     protected:
-      // The instances generated by the task.
+      // The successfully triggered TaskInstance.
       shared_ptr<vector<PagingInfo::DataQualityEvaluationTaskInstances>> dataQualityEvaluationTaskInstances_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -731,9 +725,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The pagination query result of quality evaluation task instances.
     shared_ptr<ListDataQualityEvaluationTaskInstancesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

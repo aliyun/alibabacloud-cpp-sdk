@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // **A list of project IDs that can access the Skill.**
         shared_ptr<vector<string>> projectIds_ {};
+        // A list of user IDs that can access the Skill.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -191,17 +193,29 @@ namespace Models
 
 
     protected:
+      // **The content of the SKILL.md file.**
       shared_ptr<string> body_ {};
+      // A temporary download link for `bundle.zip`, which does not require authentication and will expire.
       shared_ptr<string> bundleUrl_ {};
+      // The ID of the user who created the Skill.
       shared_ptr<string> creatorId_ {};
+      // **The Skill description.**
       shared_ptr<string> description_ {};
+      // The time the Skill was created, provided as a UNIX timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
+      // The time the Skill was last modified, provided as a UNIX timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // The ID of the user who last modified the Skill.
       shared_ptr<string> modifierId_ {};
+      // **The name of the Skill.**
       shared_ptr<string> name_ {};
+      // **The visibility level.**
       shared_ptr<string> visibility_ {};
+      // **The visibility scope.**
       shared_ptr<Skill::VisibilityScope> visibilityScope_ {};
     };
 
@@ -224,7 +238,9 @@ namespace Models
 
 
   protected:
+    // The unique ID for the request.
     shared_ptr<string> requestId_ {};
+    // The returned Skill object.
     shared_ptr<GetSkillResponseBody::Skill> skill_ {};
   };
 

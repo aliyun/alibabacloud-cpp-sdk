@@ -102,10 +102,13 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Python
-    // *   Jar
-    // *   Archive
-    // *   File
+    // - Python
+    // 
+    // - Jar
+    // 
+    // - Archive
+    // 
+    // - File
     shared_ptr<string> type_ {};
   };
 

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // A token to ensure that the request is idempotent. We recommend that you use a universally unique identifier (UUID).
     shared_ptr<string> clientToken_ {};
+    // The process instance ID. This operation supports approval forms from both the old and new versions of Security Center.
+    // 
     // This parameter is required.
     shared_ptr<string> processInstanceId_ {};
   };

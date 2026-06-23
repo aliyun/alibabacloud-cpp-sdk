@@ -103,31 +103,35 @@ namespace Models
 
 
   protected:
-    // The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, Datahub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive. If you do not configure this parameter, the API operation queries synchronization tasks that use all type of destinations.
+    // The type of the destination data source. If you do not specify this parameter, jobs are not filtered by this criterion. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB_For_MySQL`, `Kafka`, and `Hive`.
     shared_ptr<string> destinationDataSourceType_ {};
     // The synchronization type. Valid values:
     // 
-    // *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-    // *   RealtimeIncremental: real-time incremental synchronization
-    // *   Full: full synchronization
-    // *   OfflineIncremental: batch incremental synchronization
-    // *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
-    shared_ptr<string> migrationType_ {};
-    // The name of the export task.
+    // - `FullAndRealtimeIncremental`: full and real-time incremental synchronization
     // 
-    // The name of each export task must be unique. You must make sure that the names of the export tasks in the current workspace are unique.
+    // - `RealtimeIncremental`: real-time incremental synchronization
+    // 
+    // - `Full`: full synchronization
+    // 
+    // - `OfflineIncremental`: offline incremental synchronization
+    // 
+    // - `FullAndOfflineIncremental`: full and offline incremental synchronization
+    shared_ptr<string> migrationType_ {};
+    // The name of the Data Integration job.
+    // 
+    // The name must be unique within the DataWorks workspace.
     shared_ptr<string> name_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages are numbered starting from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default: 10. Maximum: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse. If you do not configure this parameter, the API operation queries synchronization tasks that use all types of sources.
+    // The type of the source data source. If you do not specify this parameter, jobs are not filtered by this criterion. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SQLServer`, `Doris`, and `ClickHouse`.
     shared_ptr<string> sourceDataSourceType_ {};
-    // The task configuration specification type. Valid values: FILESPEC, CLASSIC, ALL. FILESPEC: New-style task based on structured filespec; CLASSIC: Task using traditional configuration mode.
+    // The configuration type of the job. Valid values: `FILESPEC`, `CLASSIC`, and `ALL`. `FILESPEC` indicates a new job type configured based on a structured file specification. `CLASSIC` indicates a job configured in the traditional mode. If you set this parameter to `ALL`, jobs of both types are returned.
     shared_ptr<string> specType_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the file that is created.
+    // The ID of the file after successful creation.
     shared_ptr<int64_t> data_ {};
-    // The request ID.
+    // The unique ID of this request. If an error occurs, you can use this ID to troubleshoot the issue.
     shared_ptr<string> requestId_ {};
   };
 

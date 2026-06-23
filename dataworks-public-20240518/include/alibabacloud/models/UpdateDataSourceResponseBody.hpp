@@ -53,6 +53,7 @@ namespace Models
     // Whether the data source has been modified:
     // 
     // - true: Yes
+    // 
     // - false: no
     shared_ptr<bool> success_ {};
   };

@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the created entity type.
     shared_ptr<string> entityType_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

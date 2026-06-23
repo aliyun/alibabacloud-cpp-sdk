@@ -138,7 +138,13 @@ namespace Models
 
 
         protected:
+          // The environment type. Valid values:
+          // 
+          // - `Prod`: production environment
+          // 
+          // - `Dev`: development environment
           shared_ptr<string> envType_ {};
+          // The parameter value.
           shared_ptr<string> value_ {};
         };
 
@@ -240,18 +246,37 @@ namespace Models
 
 
       protected:
+        // The time when the parameter was created. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
+        // The Alibaba Cloud account ID of the creator.
         shared_ptr<string> createUser_ {};
+        // The parameter description.
         shared_ptr<string> description_ {};
+        // The parameter ID.
         shared_ptr<int64_t> id_ {};
+        // The time when the parameter was last modified. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> modifyTime_ {};
+        // The Alibaba Cloud account ID of the user who last modified the parameter.
         shared_ptr<string> modifyUser_ {};
+        // The parameter name.
         shared_ptr<string> name_ {};
+        // The Alibaba Cloud account ID of the owner.
         shared_ptr<string> owner_ {};
+        // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
+        // The environment-specific values for the parameter.
         shared_ptr<vector<Parameters::Properties>> properties_ {};
+        // The parameter scope.
         shared_ptr<string> scope_ {};
+        // The parameter type. Valid values:
+        // 
+        // - `PlainConstant`: a plaintext constant
+        // 
+        // - `SecretConstant`: an encrypted constant
+        // 
+        // - `Variable`: a variable
         shared_ptr<string> type_ {};
+        // The version number.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -288,9 +313,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // A list of parameters.
       shared_ptr<vector<PagingInfo::Parameters>> parameters_ {};
+      // The total number of parameters.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -313,7 +342,9 @@ namespace Models
 
 
   protected:
+    // The pagination information.
     shared_ptr<ListParametersResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

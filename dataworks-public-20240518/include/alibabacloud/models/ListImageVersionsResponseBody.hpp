@@ -170,7 +170,11 @@ namespace Models
 
 
         protected:
+          // The supported module. Valid value:
+          // 
+          // - `Scheduler`: The scheduler module.
           shared_ptr<string> module_ {};
+          // The supported task types.
           shared_ptr<vector<string>> taskTypes_ {};
         };
 
@@ -233,7 +237,9 @@ namespace Models
 
 
           protected:
+            // The script content. Separate multiple package names with a comma (,).
             shared_ptr<string> content_ {};
+            // The script type.
             shared_ptr<string> type_ {};
           };
 
@@ -256,7 +262,9 @@ namespace Models
 
 
         protected:
+          // The build type.
           shared_ptr<string> buildType_ {};
+          // The pre-installation scripts.
           shared_ptr<vector<BuildConfig::PackageInstallationScripts>> packageInstallationScripts_ {};
         };
 
@@ -461,33 +469,101 @@ namespace Models
 
 
       protected:
+        // The accessibility of the image. Valid values:
+        // 
+        // - `Public`: The image is visible to all users.
+        // 
+        // - `Private`: The image is visible only to the creator.
         shared_ptr<string> accessibility_ {};
+        // The ID of the VPC associated with the ACR instance.
         shared_ptr<string> acrAssociatedVpcId_ {};
-        // ACR Endpoint
+        // The ACR endpoint.
         shared_ptr<string> acrEndpoint_ {};
+        // The ACR instance ID.
         shared_ptr<string> acrInstanceId_ {};
+        // The image build configuration.
         shared_ptr<ImageVersions::BuildConfig> buildConfig_ {};
+        // The time when the image was created, as a 64-bit timestamp.
         shared_ptr<int64_t> createdTime_ {};
+        // The ID of the user who created the image.
         shared_ptr<string> creator_ {};
+        // The image description.
         shared_ptr<string> description_ {};
+        // Indicates whether MaxCompute synchronization is enabled.
         shared_ptr<bool> enableSyncMaxCompute_ {};
+        // The image ID.
         shared_ptr<string> id_ {};
+        // The image tag.
         shared_ptr<string> imageTag_ {};
+        // The image URI.
         shared_ptr<string> imageUri_ {};
+        // The VPC URI of the image.
         shared_ptr<string> imageVpcUri_ {};
+        // Indicates whether the image is the default image.
         shared_ptr<bool> isDefault_ {};
+        // The time when the image was last modified, as a 64-bit timestamp.
         shared_ptr<int64_t> lastModifiedTime_ {};
+        // The ID of the user who last modified the image.
         shared_ptr<string> modifier_ {};
+        // The image name.
         shared_ptr<string> name_ {};
+        // The namespace.
         shared_ptr<string> namespace_ {};
+        // Indicates whether the image is an official image.
         shared_ptr<bool> official_ {};
+        // The ID of the image from the provider.
         shared_ptr<string> providerImageId_ {};
+        // The type of the image provider. Valid values:
+        // 
+        // - `ACR`: The image is from an ACR repository.
+        // 
+        // - `DataWorks`: The image is an official image provided by DataWorks.
         shared_ptr<string> providerType_ {};
+        // The publishing stage of the image. Valid values:
+        // 
+        // - `Untest`: Not tested.
+        // 
+        // - `Testing`: Being tested.
+        // 
+        // - `TestFailed`: Test failed.
+        // 
+        // - `Unpublished`: Not published.
+        // 
+        // - `Publishing`: Being published.
+        // 
+        // - `Published`: Published.
+        // 
+        // - `PublishFailed`: Publishing failed.
+        // 
+        // - `Building`: Being built.
+        // 
+        // - `BuildSuccess`: Build succeeded.
+        // 
+        // - `BuildFailed`: Build failed.
+        // 
+        // - `Accelerating`: Being accelerated.
+        // 
+        // - `AccelerateSuccess`: Acceleration succeeded.
+        // 
+        // - `AccelerateFailed`: Acceleration failed.
         shared_ptr<string> publishStage_ {};
+        // The repository name.
         shared_ptr<string> repositoryName_ {};
+        // The image size.
         shared_ptr<string> size_ {};
+        // The status of the image. Valid values:
+        // 
+        // - `Disabled`: The image is disabled.
+        // 
+        // - `Expired`: The image is expired.
+        // 
+        // - `Available`: The image is available.
+        // 
+        // - `ReadOnly`: The image is read-only.
         shared_ptr<string> status_ {};
+        // The supported modules and task types.
         shared_ptr<ImageVersions::Supported> supported_ {};
+        // The image version.
         shared_ptr<string> version_ {};
       };
 
@@ -524,9 +600,13 @@ namespace Models
 
 
     protected:
+      // A list of image version details.
       shared_ptr<vector<PagingInfo::ImageVersions>> imageVersions_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -556,8 +636,11 @@ namespace Models
 
 
   protected:
+    // The pagination details.
     shared_ptr<ListImageVersionsResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID, used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

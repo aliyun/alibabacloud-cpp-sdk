@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The project IDs to which the MCP Server is visible. This parameter is required only when `Visibility` is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
+      // The user IDs to which the MCP Server is visible. This parameter is required only when `Visibility` is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -131,8 +133,11 @@ namespace Models
 
 
     protected:
+      // The custom request headers, specified as key-value pairs. You cannot override reserved headers.
       Darabonba::Json customHeaders_ {};
+      // The transport protocol.
       shared_ptr<string> transport_ {};
+      // The service address of the MCP Server. It must start with `https://`.
       shared_ptr<string> url_ {};
     };
 
@@ -171,10 +176,15 @@ namespace Models
 
 
   protected:
+    // The connection configuration for the MCP Server.
     shared_ptr<CreateMcpServerRequest::Config> config_ {};
+    // The name of the MCP Server. The name must be unique at the tenant level. It must start with a lowercase letter and contain only characters from `a-z`, `0-9`, `_`, and `-`.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The visibility level.
     shared_ptr<string> visibility_ {};
+    // The visibility scope. The required fields depend on the value of the `Visibility` parameter.
     shared_ptr<CreateMcpServerRequest::VisibilityScope> visibilityScope_ {};
   };
 

@@ -144,23 +144,27 @@ namespace Models
       shared_ptr<string> cron_ {};
       // Cycle type. This parameter takes effect only when Type is set to Scheduler and the cron expression specifies hourly scheduling. Default value: Daily
       // 
-      // *   Daily: Schedules jobs on a daily basis.
-      // *   NotDaily: Schedules jobs on an hourly basis.
+      // - Daily: Schedules jobs on a daily basis.
+      // 
+      // - NotDaily: Schedules jobs on an hourly basis.
       shared_ptr<string> cycleType_ {};
       // The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
       shared_ptr<string> endTime_ {};
       // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
       // 
-      // *   Pause
-      // *   Skip
-      // *   Normal
+      // - Pause
+      // 
+      // - Skip
+      // 
+      // - Normal
       shared_ptr<string> recurrence_ {};
       // The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
       shared_ptr<string> startTime_ {};
       // The triggering type. Valid values:
       // 
-      // *   Scheduler: periodically triggered
-      // *   Manual
+      // - Scheduler: periodically triggered
+      // 
+      // - Manual
       shared_ptr<string> type_ {};
     };
 
@@ -381,10 +385,13 @@ namespace Models
         shared_ptr<string> name_ {};
         // The type. Valid values:
         // 
-        // *   Constant: constant value.
-        // *   PassThrough: node output.
-        // *   System: variable.
-        // *   NodeOutput: script output.
+        // - Constant: constant value.
+        // 
+        // - PassThrough: node output.
+        // 
+        // - System: variable.
+        // 
+        // - NodeOutput: script output.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -521,10 +528,13 @@ namespace Models
         shared_ptr<string> name_ {};
         // The type. Valid values:
         // 
-        // *   Constant: constant value.
-        // *   PassThrough: node output.
-        // *   System: variable.
-        // *   NodeOutput: script output.
+        // - Constant: constant value.
+        // 
+        // - PassThrough: node output.
+        // 
+        // - System: variable.
+        // 
+        // - NodeOutput: script output.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -596,10 +606,13 @@ namespace Models
     protected:
       // The dependency type. Valid values:
       // 
-      // *   CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
-      // *   CrossCycleDependsOnSelf: Depends on itself across cycles.
-      // *   CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
-      // *   Normal: Depends on nodes in the same cycle.
+      // - CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
+      // 
+      // - CrossCycleDependsOnSelf: Depends on itself across cycles.
+      // 
+      // - CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
+      // 
+      // - Normal: Depends on nodes in the same cycle.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -806,8 +819,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // The project environment.
     // 
-    // *   Prod
-    // *   Dev
+    // - Prod
+    // 
+    // - Dev
     shared_ptr<string> envType_ {};
     // The task ID.
     // 
@@ -817,8 +831,9 @@ namespace Models
     shared_ptr<UpdateTaskRequest::Inputs> inputs_ {};
     // The instance generation mode.
     // 
-    // *   T+1: the next day
-    // *   Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
+    // - T+1: the next day
+    // 
+    // - Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
     shared_ptr<string> instanceMode_ {};
     // Name.
     shared_ptr<string> name_ {};
@@ -830,9 +845,11 @@ namespace Models
     shared_ptr<int32_t> rerunInterval_ {};
     // The rerun mode. Valid values:
     // 
-    // *   AllDenied: The task cannot be rerun.
-    // *   FailureAllowed: The task can be rerun only after it fails.
-    // *   AllAllowed: The task can always be rerun.
+    // - AllDenied: The task cannot be rerun.
+    // 
+    // - FailureAllowed: The task can be rerun only after it fails.
+    // 
+    // - AllAllowed: The task can always be rerun.
     shared_ptr<string> rerunMode_ {};
     // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
     shared_ptr<int32_t> rerunTimes_ {};
