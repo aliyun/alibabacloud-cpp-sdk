@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether a service-linked role is created for ApsaraDB for ClickHouse.
+    // Indicates whether the service-linked role exists.
     shared_ptr<bool> hasServiceLinkedRole_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

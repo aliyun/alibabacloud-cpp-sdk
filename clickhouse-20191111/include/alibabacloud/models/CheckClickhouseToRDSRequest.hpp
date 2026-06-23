@@ -158,41 +158,41 @@ namespace Models
 
 
   protected:
-    // The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+    // The password for the ApsaraDB for ClickHouse database account.
     // 
     // This parameter is required.
     shared_ptr<string> ckPassword_ {};
-    // The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+    // The database account for the ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ckUserName_ {};
     // The port number of the ApsaraDB for ClickHouse cluster.
     shared_ptr<int64_t> clickhousePort_ {};
-    // The ID of the ApsaraDB for ClickHouse cluster.
+    // The ID of the community-compatible ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> dbClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the ApsaraDB RDS for MySQL instance.
+    // The ID of the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsId_ {};
-    // The password of the account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+    // The password for the ApsaraDB RDS database account.
     // 
     // This parameter is required.
     shared_ptr<string> rdsPassword_ {};
-    // The port number of the ApsaraDB RDS for MySQL instance.
+    // The port number of the ApsaraDB RDS instance.
     shared_ptr<int64_t> rdsPort_ {};
-    // The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+    // The database account for the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsUserName_ {};
-    // The ID of the VPC in which the ApsaraDB RDS for MySQL instance is deployed.
+    // The VPC ID of the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsVpcId_ {};
-    // The internal endpoint of the ApsaraDB RDS for MySQL instance.
+    // The internal endpoint of the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsVpcUrl_ {};

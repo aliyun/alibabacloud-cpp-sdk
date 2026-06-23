@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to view cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to view the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The product code.
     shared_ptr<string> product_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The information about the parameter settings of the cluster.
+    // The parameter configuration of the cluster.
     shared_ptr<string> config_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

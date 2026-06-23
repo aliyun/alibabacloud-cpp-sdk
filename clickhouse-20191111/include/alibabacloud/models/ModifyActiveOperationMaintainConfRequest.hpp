@@ -121,15 +121,32 @@ namespace Models
 
 
   protected:
+    // The day of the recurrence cycle.
+    // 
+    // - If CycleType is set to Month, this parameter specifies the day of the month. Valid values are 1 to 28. Use a comma (,) to separate multiple days.
+    // 
+    // - If CycleType is set to Week, this parameter specifies the day of the week. Valid values are 1 to 7. Use a comma (,) to separate multiple days.
     shared_ptr<string> cycleTime_ {};
+    // The recurrence cycle. Valid values:
+    // 
+    // - Month: monthly
+    // 
+    // - Week: weekly
     shared_ptr<string> cycleType_ {};
+    // The end time of the maintenance window. Use the HH:mmZ format. The time is in UTC.
     shared_ptr<string> maintainEndTime_ {};
+    // The start time of the maintenance window. Use the HH:mmZ format. The time is in UTC.
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // Specifies whether the configuration is enabled. Valid values:
+    // 
+    // - **1**: Enabled.
+    // 
+    // - **2**: Disabled.
     shared_ptr<int32_t> status_ {};
   };
 

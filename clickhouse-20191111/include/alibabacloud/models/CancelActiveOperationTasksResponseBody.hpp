@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The IDs of the O\\&M tasks that were canceled. Multiple IDs are separated by a comma (,).
     shared_ptr<string> ids_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

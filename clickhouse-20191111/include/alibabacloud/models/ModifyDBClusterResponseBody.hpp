@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The clusters.
+    // The cluster.
     shared_ptr<ModifyDBClusterResponseBody::DBCluster> DBCluster_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

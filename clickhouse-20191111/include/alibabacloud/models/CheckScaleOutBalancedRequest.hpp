@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(ScalingType, scalingType_);
     };
     friend void from_json(const Darabonba::Json& j, CheckScaleOutBalancedRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(ScalingType, scalingType_);
     };
     CheckScaleOutBalancedRequest() = default ;
     CheckScaleOutBalancedRequest(const CheckScaleOutBalancedRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
         && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->scalingType_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline CheckScaleOutBalancedRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // scalingType Field Functions 
+    bool hasScalingType() const { return this->scalingType_ != nullptr;};
+    void deleteScalingType() { this->scalingType_ = nullptr;};
+    inline string getScalingType() const { DARABONBA_PTR_GET_DEFAULT(scalingType_, "") };
+    inline CheckScaleOutBalancedRequest& setScalingType(string scalingType) { DARABONBA_PTR_SET_VALUE(scalingType_, scalingType) };
+
+
   protected:
     // The cluster ID.
     // 
@@ -109,20 +118,20 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of pages to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Default value: 30. Valid values:
-    // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // The number of entries per page. Valid values:
+    // - **30** (default)
+    // - **50**
+    // - **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> scalingType_ {};
   };
 
   } // namespace Models

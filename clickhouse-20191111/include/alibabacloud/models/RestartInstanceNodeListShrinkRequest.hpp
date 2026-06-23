@@ -121,16 +121,31 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The list of nodes to restart.
     shared_ptr<string> nodeListShrink_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values:
+    // 
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The scheduled restart time. The time is in the yyyy-MM-ddTHH:mmZ format and is in UTC.
+    // 
+    // > If this parameter is left empty or set to a time earlier than the current time, the cluster restarts immediately.
     shared_ptr<string> restartTime_ {};
   };
 

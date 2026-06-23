@@ -102,11 +102,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The database name. You can call the [DescribeSchemas](https://help.aliyun.com/document_detail/350931.html) operation to query database names.
+    // The name of the database. You can call the [DescribeSchemas](https://help.aliyun.com/document_detail/350931.html) operation to query database names.
     // 
     // This parameter is required.
     shared_ptr<string> schemaName_ {};
-    // The table name. You can call the [DescribeTables](https://help.aliyun.com/document_detail/350932.html) operation to query table names.
+    // The name of the table. You can call the [DescribeTables](https://help.aliyun.com/document_detail/350932.html) operation to query table names.
     // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};

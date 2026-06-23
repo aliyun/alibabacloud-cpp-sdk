@@ -94,7 +94,11 @@ namespace Models
 
 
   protected:
-    // The dictionary configuration.
+    // The dictionary configuration items.
+    // 
+    // > The value of the Config parameter overwrites the existing configuration. To delete a dictionary configuration, remove it from the request.
+    // 
+    // Call the [DescribeDBConfig](https://help.aliyun.com/document_detail/2360627.html) operation to query the dictionary configuration of the target instance.
     shared_ptr<string> config_ {};
     // The cluster ID.
     // 
@@ -102,7 +106,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // The ID of the region. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the IDs of available regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

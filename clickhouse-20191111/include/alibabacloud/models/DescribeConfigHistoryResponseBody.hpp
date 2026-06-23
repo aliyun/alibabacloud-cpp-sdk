@@ -99,16 +99,17 @@ namespace Models
     protected:
       // The ID of the change record.
       shared_ptr<string> changeId_ {};
-      // The user ID (UID) of the Alibaba Cloud account.
+      // The UID of the Alibaba Cloud account.
       shared_ptr<string> ownerId_ {};
-      // The reason for the setting modification of the configuration parameters.
+      // The reason for the parameter change.
       shared_ptr<string> reason_ {};
-      // Indicates whether the setting modification of the configuration parameters took effect. Valid values:
+      // Indicates whether the parameter change took effect. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The change took effect.
+      // 
+      // - **false**: The change did not take effect.
       shared_ptr<bool> success_ {};
-      // The time when the values of the configuration parameters were changed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the change was made. Use the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
       shared_ptr<string> time_ {};
     };
 
@@ -131,7 +132,7 @@ namespace Models
 
 
   protected:
-    // The change records of the configuration parameters.
+    // The change history of the configuration parameters.
     shared_ptr<vector<DescribeConfigHistoryResponseBody::ConfigHistoryItems>> configHistoryItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

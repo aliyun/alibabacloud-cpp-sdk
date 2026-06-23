@@ -114,7 +114,7 @@ namespace Models
 
 
         protected:
-          // The values of a metric.
+          // The value of the performance metric.
           shared_ptr<vector<string>> point_ {};
         };
 
@@ -137,9 +137,9 @@ namespace Models
 
 
       protected:
-        // The name of the list of performance metric values.
+        // The name of the time series.
         shared_ptr<string> name_ {};
-        // The values of the performance parameter. Each value of the performance parameter is collected at a point in time.
+        // The values of the performance metrics, each associated with a sampling timestamp.
         shared_ptr<vector<Series::Values>> values_ {};
       };
 
@@ -178,11 +178,11 @@ namespace Models
     protected:
       // The name of the performance metric.
       shared_ptr<string> key_ {};
-      // The name of the performance metric value.
+      // The name of the performance metric.
       shared_ptr<string> name_ {};
-      // The queried performance pamaters.
+      // The time series data for the metric.
       shared_ptr<vector<Performances::Series>> series_ {};
-      // The unit of the performance metric.
+      // The unit of the metric.
       shared_ptr<string> unit_ {};
     };
 
@@ -228,13 +228,13 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in Coordinated Universal Time (UTC).
+    // The end of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
     shared_ptr<string> endTime_ {};
-    // The values of the queried performance metrics of the cluster.
+    // The list of performance metrics for the cluster.
     shared_ptr<vector<DescribeDBClusterPerformanceResponseBody::Performances>> performances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+    // The beginning of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
     shared_ptr<string> startTime_ {};
   };
 

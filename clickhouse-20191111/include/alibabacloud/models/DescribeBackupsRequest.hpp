@@ -121,13 +121,13 @@ namespace Models
 
 
   protected:
-    // The backup task ID.
+    // The data backup task ID.
     shared_ptr<string> backupId_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+    // The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -137,13 +137,15 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

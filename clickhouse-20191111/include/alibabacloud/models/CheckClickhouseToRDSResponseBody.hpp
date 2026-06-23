@@ -57,15 +57,17 @@ namespace Models
 
 
   protected:
-    // *   When the value **true** is returned for the **Status** parameter, the system does not return the ErrorCode parameter.
-    // *   When the value **false** is returned for the **Status** parameter, the system returns for the ErrorCode parameter the reason why the ApsaraDB for ClickHouse cluster cannot be connected to the ApsaraDB RDS for MySQL instance.
+    // - This parameter is returned only if the connection fails (**Status** is **false**).
+    // 
+    // - It indicates the reason for the connection failure.
     shared_ptr<string> errorCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the ApsaraDB for ClickHouse cluster can be connected to the ApsaraDB RDS for MySQL instance.
+    // Indicates whether a connection can be established. Valid values:
     // 
-    // *   **true**: The ApsaraDB for ClickHouse cluster can be connected to the ApsaraDB RDS for MySQL instance.
-    // *   **false**: The ApsaraDB for ClickHouse cluster cannot be connected to the ApsaraDB RDS for MySQL instance.
+    // - **true**: A connection can be established.
+    // 
+    // - **false**: A connection cannot be established.
     shared_ptr<bool> status_ {};
   };
 

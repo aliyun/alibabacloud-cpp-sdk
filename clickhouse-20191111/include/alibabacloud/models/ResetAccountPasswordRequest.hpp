@@ -94,18 +94,17 @@ namespace Models
 
 
   protected:
-    // The name of the database account.
+    // The database account.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
     // The new password for the database account.
     // 
-    // > 
+    // > - The password must contain characters from at least three of the following types: uppercase letters, lowercase letters, digits, and special characters.
     // 
-    // *   The password must contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters.
+    // - The special characters are !@#$%^&\\*()_+-=
     // 
-    // *   The password can contain the following special characters: ! @ # $ % ^ & \\* ( ) _ + - =
-    // *   The password must be 8 to 32 characters in length.
+    // - The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};

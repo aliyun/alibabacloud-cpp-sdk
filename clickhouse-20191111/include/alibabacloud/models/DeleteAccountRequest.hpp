@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The name of the database account.
+    // The database account.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};

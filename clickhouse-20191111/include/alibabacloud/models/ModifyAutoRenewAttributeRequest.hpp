@@ -112,14 +112,33 @@ namespace Models
 
 
   protected:
+    // The cluster ID. To specify multiple cluster IDs, separate them with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterIds_ {};
+    // The renewal duration. The default value is **1**.
+    // 
+    // - If you set \\`PeriodUnit\\` to **Month**, valid values are integers from 1 to 11.
+    // 
+    // - If you set \\`PeriodUnit\\` to **Year**, valid values are 1, 2, 3, and 5.
+    // 
+    // > A longer subscription period offers a better price. For example, a one-year subscription is more cost-effective than a 10-month or 11-month subscription.
     shared_ptr<string> duration_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The unit of the renewal duration specified by the \\`Duration\\` parameter. Valid values: Month and Year.
     shared_ptr<string> periodUnit_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The renewal method. Valid values:
+    // 
+    // - **AutoRenewal**: Auto-renewal.
+    // 
+    // - **Normal**: Manual renewal.
+    // 
+    // - **NotRenewal**: The cluster is not renewed after it expires.
     shared_ptr<string> renewalStatus_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

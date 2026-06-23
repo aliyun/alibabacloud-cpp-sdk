@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The tag name.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -187,31 +187,37 @@ namespace Models
 
 
   protected:
-    // The description of the cluster.
+    // The cluster description.
     shared_ptr<string> DBClusterDescription_ {};
     // The cluster ID.
     // 
-    // >  If you do not specify this parameter, the information about all clusters is queried.
+    // > If you do not specify this parameter, information about all clusters is queried by default.
     shared_ptr<string> DBClusterIds_ {};
     // The state of the cluster. Valid values:
     // 
-    // *   **Preparing**: The cluster is being prepared.
-    // *   **Creating**: The cluster is being created.
-    // *   **Running**: The cluster is running.
-    // *   **Deleting**: The cluster is being deleted.
-    // *   **SCALING_OUT**: The storage capacity of the cluster is being expanded.
+    // - **Preparing**: The cluster is being prepared.
+    // 
+    // - **Creating**: The cluster is being created.
+    // 
+    // - **Running**: The cluster is running.
+    // 
+    // - **Deleting**: The cluster is being deleted.
+    // 
+    // - **SCALING_OUT**: The cluster is being scaled out.
     shared_ptr<string> DBClusterStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (Default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

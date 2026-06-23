@@ -280,13 +280,13 @@ namespace Models
 
 
       protected:
-        // The progress of the data migration task in percentage.
+        // The data migration progress, as a percentage.
         // 
-        // >  This parameter is returned only when the cluster is in the SCALING_OUT state.
+        // > This parameter is returned only when the cluster is in the `SCALING_OUT` state.
         shared_ptr<string> progress_ {};
-        // The progress of the data migration task. This value is displayed in the following format: Data volume that has been migrated/Total data volume.
+        // The data migration progress, displayed as `Amount of data migrated/Total data amount`.
         // 
-        // >  This parameter is returned only when the cluster is in the SCALING_OUT state.
+        // > This parameter is returned only when the cluster is in the `SCALING_OUT` state.
         shared_ptr<string> ratio_ {};
       };
 
@@ -725,204 +725,265 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
+      // Specifies whether to stop write operations during a primary/secondary switchover. Valid values:
+      // 
+      // - `true`: Write operations are stopped for the instance during the switchover.
+      // 
+      // - `false`: Write operations are not stopped for the instance during the switchover.
       shared_ptr<bool> appointmentElectZookeeperDisableWrite_ {};
+      // The scheduled time for a primary/secondary switchover. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is in UTC.
       shared_ptr<string> appointmentElectZookeeperTime_ {};
+      // A list of nodes that are scheduled for a restart.
       shared_ptr<string> appointmentRestartNodeList_ {};
+      // The scheduled time to restart specific nodes. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is in UTC.
       shared_ptr<string> appointmentRestartNodeTime_ {};
-      // The scheduled restart time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+      // The scheduled restart time. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is in UTC.
       shared_ptr<string> appointmentRestartTime_ {};
-      // The major engine versions available for upgrades.
+      // The available major versions to which the cluster can be upgraded, and their latest minor versions.
       Darabonba::Json availableUpgradeMajorVersion_ {};
       // The site ID. Valid values:
       // 
-      // *   **26842**: the China site (aliyun.com)
-      // *   **26888**: the international site (alibabacloud.com)
+      // - `26842`: China site (aliyun.com).
+      // 
+      // - `26888`: international site (alibabacloud.com).
       shared_ptr<string> bid_ {};
       // The edition of the cluster. Valid values:
       // 
-      // *   **Basic**: Single-replica Edition
-      // *   **HighAvailability**: Double-replica Edition
-      shared_ptr<string> category_ {};
-      // The commodity code of the cluster.
-      shared_ptr<string> commodityCode_ {};
-      // The VPC endpoint of the cluster.
-      shared_ptr<string> connectionString_ {};
-      // The version of the ApsaraDB for ClickHouse console that is used to manage the cluster. Valid values:
+      // - `Basic`: single-replica edition.
       // 
-      // *   **v1**
-      // *   **v2**
+      // - `HighAvailability`: dual-replica edition.
+      shared_ptr<string> category_ {};
+      // The commodity code.
+      shared_ptr<string> commodityCode_ {};
+      // The VPC endpoint.
+      shared_ptr<string> connectionString_ {};
+      // The version of the backend management system. Valid values:
+      // 
+      // - `v1`
+      // 
+      // - `v2`
       shared_ptr<string> controlVersion_ {};
-      // The time when the cluster was created. The value is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The creation time of the cluster, in `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
       shared_ptr<string> createTime_ {};
-      // The description of the cluster.
+      // The cluster description.
       shared_ptr<string> DBClusterDescription_ {};
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The network type of the cluster. Only VPC is supported.
+      // The network type. Only VPC is supported.
       shared_ptr<string> DBClusterNetworkType_ {};
-      // The cluster state. Valid values:
+      // The cluster status. Valid values:
       // 
-      // *   **Preparing**: The cluster is being prepared.
-      // *   **Creating**: The cluster is being created.
-      // *   **Running**: The cluster is running.
-      // *   **Deleting**: The cluster is being deleted.
-      // *   **SCALING_OUT**: The storage capacity of the cluster is being expanded.
+      // - `Preparing`: The cluster is being prepared.
+      // 
+      // - `Creating`: The cluster is being created.
+      // 
+      // - `Running`: The cluster is running.
+      // 
+      // - `Deleting`: The cluster is being deleted.
+      // 
+      // - `SCALING_OUT`: The cluster is being scaled out.
       shared_ptr<string> DBClusterStatus_ {};
-      // The type of the cluster. Valid values:
+      // The cluster type. Valid values:
       // 
-      // *   **Common**: a common cluster
-      // *   **Readonly**: a read-only cluster
-      // *   **Guard**: a disaster recovery cluster
+      // - `Common`: a standard cluster.
+      // 
+      // - `Readonly`: a read-only cluster.
+      // 
+      // - `Guard`: a disaster recovery cluster.
       shared_ptr<string> DBClusterType_ {};
-      // The specifications of the cluster.
+      // The instance type of the cluster nodes.
       // 
-      // *   Valid values when the cluster is of Single-replica Edition:
+      // - Valid values for a single-replica edition:
       // 
-      //     *   **S4-NEW**
-      //     *   **S8**
-      //     *   **S16**
-      //     *   **S32**
-      //     *   **S64**
-      //     *   **S104**
+      //   - `S4-NEW`
       // 
-      // *   Valid values when the cluster is of Double-replica Edition:
+      //   - `S8`
       // 
-      //     *   **C4-NEW**
-      //     *   **C8**
-      //     *   **C16**
-      //     *   **C32**
-      //     *   **C64**
-      //     *   **C104**
+      //   - `S16`
+      // 
+      //   - `S32`
+      // 
+      //   - `S64`
+      // 
+      //   - `S104`
+      // 
+      // - Valid values for a dual-replica edition:
+      // 
+      //   - `C4-NEW`
+      // 
+      //   - `C8`
+      // 
+      //   - `C16`
+      // 
+      //   - `C32`
+      // 
+      //   - `C64`
+      // 
+      //   - `C104`
       shared_ptr<string> DBNodeClass_ {};
-      // The number of nodes.
+      // The number of nodes in the cluster.
       // 
-      // *   Valid values when the cluster is of Single-replica Edition: 1 to 48.
-      // *   Valid values when the cluster is of Double-replica Edition: 1 to 24.
+      // - For a single-replica edition, the value range is 1 to 48.
+      // 
+      // - For a dual-replica edition, the value range is 1 to 24.
       shared_ptr<int64_t> DBNodeCount_ {};
-      // The storage capacity of a single node of the cluster. Unit: GB.
+      // The storage capacity per node, in GB.
       // 
-      // Valid values: 100 to 32000.
+      // The value can range from 100 to 32000.
       // 
-      // >  This value is a multiple of 100.
+      // > The value must be a multiple of 100.
       shared_ptr<int64_t> DBNodeStorage_ {};
-      // The Key Management Service (KMS) key that is used to encrypt data.
+      // The Key Management Service (KMS) key ID.
       // 
-      // >  If the value of the EncryptionType parameter is off, an empty string is returned for this parameter.
+      // > This parameter is empty if `EncryptionType` is set to `off`.
       shared_ptr<string> encryptionKey_ {};
       // The encryption type. Valid values:
       // 
-      // *   **CloudDisk**: Disk encryption is enabled.
-      // *   **off**: Data is not encrypted.
+      // - `CloudDisk`: disk encryption.
+      // 
+      // - `off`: Encryption is disabled.
       shared_ptr<string> encryptionType_ {};
-      // The type of the database engine.
+      // The database engine.
       shared_ptr<string> engine_ {};
-      // The latest minor version to which the cluster can be updated.
+      // The latest minor version to which the cluster can be upgraded.
       shared_ptr<string> engineLatestMinorVersion_ {};
-      // The current minor version.
+      // The engine\\"s current minor version.
       shared_ptr<string> engineMinorVersion_ {};
       // The engine version.
       shared_ptr<string> engineVersion_ {};
-      // The time when the cluster expired. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The expiration time of the cluster, in `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
       // 
-      // >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
+      // > This parameter is empty for pay-as-you-go clusters.
       shared_ptr<string> expireTime_ {};
-      // The extended storage space. Unit: GB.
+      // The extended storage capacity, in GB.
       shared_ptr<int32_t> extStorageSize_ {};
       // The extended storage type. Valid values:
       // 
-      // *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
-      // *   **CloudESSD_PL2**: The cluster uses an ESSD of PL 2.
-      // *   **CloudESSD_PL3**: The cluster uses an ESSD of PL 3.
-      // *   **CloudEfficiency**: The cluster uses an ultra disk.
-      shared_ptr<string> extStorageType_ {};
-      // Indicates whether the cluster has expired. Valid values:
+      // <props="china">
       // 
-      // *   **true**
-      // *   **false**
+      // - `CloudESSD_PL0`: ESSD PL0 disk.
+      // 
+      // 
+      // 
+      // 
+      // - `CloudESSD`: ESSD PL1 disk.
+      // 
+      // - `CloudESSD_PL2`: ESSD PL2 disk.
+      // 
+      // - `CloudESSD_PL3`: ESSD PL3 disk.
+      // 
+      // - `CloudEfficiency`: Ultra disk.
+      shared_ptr<string> extStorageType_ {};
+      // Whether the cluster has expired. Valid values:
+      // 
+      // - `true`: The cluster has expired.
+      // 
+      // - `false`: The cluster has not expired.
       shared_ptr<string> isExpired_ {};
+      // The type of the load balancer.
       shared_ptr<string> lbKind_ {};
       // The lock mode of the cluster. Valid values:
       // 
-      // *   **Unlock**: The cluster is not locked.
-      // *   **ManualLock**: The cluster is manually locked.
-      // *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
-      // *   **LockByRestoration**: The cluster is automatically locked because the cluster is about to be rolled back.
-      // *   **LockByDiskQuota**: The cluster is automatically locked because the disk space is exhausted.
+      // - `Unlock`: The cluster is not locked.
+      // 
+      // - `ManualLock`: The cluster is manually locked.
+      // 
+      // - `LockByExpiration`: The cluster is automatically locked upon expiration.
+      // 
+      // - `LockByRestoration`: The cluster is automatically locked before a rollback.
+      // 
+      // - `LockByDiskQuota`: The cluster is automatically locked because the storage is full.
       shared_ptr<string> lockMode_ {};
-      // The cause why the cluster was locked.
+      // The reason the cluster was locked.
       // 
-      // >  If the value of the LockMode parameter is Unlock, an empty string is returned for this parameter.
+      // > This parameter is empty if `LockMode` is set to `Unlock`.
       shared_ptr<string> lockReason_ {};
-      // The update type. If the value of the parameter is **false**, it indicates a manual update.
+      // The upgrade method. A value of `false` indicates that upgrades must be performed manually.
       shared_ptr<bool> maintainAutoType_ {};
-      // The maintenance window of the cluster. The value is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
+      // The maintenance window of the cluster. The time is in the `HH:mmZ-HH:mmZ` format and is in UTC.
       // 
-      // For example, if you set the maintenance window to 00:00Z-01:00Z, the cluster can be maintained from 08:00 (UTC+8) to 09:00 (UTC+8).
+      // For example, `00:00Z-01:00Z` indicates that the maintenance window is from 00:00 to 01:00 (UTC), which corresponds to 08:00 to 09:00 in Beijing time (UTC+8).
       shared_ptr<string> maintainTime_ {};
-      // The billing method of the cluster. Valid values:
+      // The billing method. Valid values:
       // 
-      // *   **Postpaid**: indicates the pay-as-you-go billing method.
-      // *   **Prepaid**: indicates the subscription billing method.
+      // - `Postpaid`: pay-as-you-go.
+      // 
+      // - `Prepaid`: subscription.
       shared_ptr<string> payType_ {};
-      // The HTTP port number.
+      // The HTTP port.
       shared_ptr<int32_t> port_ {};
       // The public endpoint.
       shared_ptr<string> publicConnectionString_ {};
-      // The IP address that is used to connect to the cluster over the Internet.
+      // The IP address of the public endpoint.
       shared_ptr<string> publicIpAddr_ {};
-      // The TCP port number in the public endpoint.
+      // The public TCP port.
       shared_ptr<string> publicPort_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the data migration task.
+      // The data migration status.
       shared_ptr<DBCluster::ScaleOutStatus> scaleOutStatus_ {};
-      // The storage type of the cluster. Valid values:
+      // The storage type. Valid values:
       // 
-      // *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
-      // *   **CloudESSD_PL2**: The cluster uses an ESSD of PL 2.
-      // *   **CloudESSD_PL3**: The cluster uses an ESSD of PL 3.
-      // *   **CloudEfficiency**: The cluster uses an ultra disk.
+      // <props="china">
+      // 
+      // - `CloudESSD_PL0`: ESSD PL0 disk.
+      // 
+      // 
+      // 
+      // 
+      // - `CloudESSD`: ESSD PL1 disk.
+      // 
+      // - `CloudESSD_PL2`: ESSD PL2 disk.
+      // 
+      // - `CloudESSD_PL3`: ESSD PL3 disk.
+      // 
+      // - `CloudEfficiency`: Ultra disk.
       shared_ptr<string> storageType_ {};
-      // Indicates whether data backup is supported. Valid values:
+      // Whether the cluster supports data backup. Valid values:
       // 
-      // *   **1**: Data backup is supported.
-      // *   **2**: Data backup is not supported.
+      // - `1`: Supported.
+      // 
+      // - `2`: Not supported.
       shared_ptr<int32_t> supportBackup_ {};
-      // Indicates whether HTTPS ports are supported. Valid values:
+      // Whether the HTTPS port is supported. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - `true`: Supported.
+      // 
+      // - `false`: Not supported.
       shared_ptr<bool> supportHttpsPort_ {};
-      // Indicates whether the cluster supports a MySQL port. Valid values:
+      // Whether the MySQL port is supported. Valid values:
       // 
-      // *   **true**: A MySQL port is supported.
-      // *   **false**: A MySQL port is not supported.
+      // - `true`: Supported.
+      // 
+      // - `false`: Not supported.
       shared_ptr<bool> supportMysqlPort_ {};
-      // Indicates whether tiered storage of hot data and cold data is supported. Valid values:
+      // Whether the cluster supports tiered storage for hot and cold data. Valid values:
       // 
-      // *   **1**: Tiered storage of hot data and cold data is supported.
-      // *   **2**: Tiered storage of hot data and cold data is not supported.
+      // - `1`: Supported.
+      // 
+      // - `2`: Not supported.
       shared_ptr<int32_t> supportOss_ {};
+      // The tags of the cluster.
       shared_ptr<DBCluster::Tags> tags_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC in which the cluster is deployed.
+      // The VPC ID.
       shared_ptr<string> vpcCloudInstanceId_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The IP address that is used to connect to the cluster over the VPC.
+      // The IP address of the VPC endpoint.
       shared_ptr<string> vpcIpAddr_ {};
       shared_ptr<string> webUISnatStatus_ {};
       shared_ptr<string> webUIStatus_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
-      // The list of vSwitch IDs in multi-zone clusters.
+      // A map of zone IDs to vSwitch IDs for a multi-zone cluster.
       Darabonba::Json zoneIdVswitchMap_ {};
-      // The ZooKeeper specifications.
+      // The specifications of the ZooKeeper nodes.
       shared_ptr<string> zookeeperClass_ {};
     };
 
@@ -945,7 +1006,7 @@ namespace Models
 
 
   protected:
-    // The information about the cluster.
+    // Details about the cluster.
     shared_ptr<DescribeDBClusterAttributeResponseBody::DBCluster> DBCluster_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

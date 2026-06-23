@@ -119,27 +119,31 @@ namespace Models
   protected:
     // Specifies whether to remove all tags from the cluster. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**
     // 
-    // >  This parameter is valid only when **TagKey.N** is left empty.
+    // - **false** (default)
+    // 
+    // > This parameter is valid only when the **TagKey.N** parameter is empty.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource ID.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **CLUSTER**.
+    // The resource type. Set the value to **DBCLUSTER**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The tag key.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

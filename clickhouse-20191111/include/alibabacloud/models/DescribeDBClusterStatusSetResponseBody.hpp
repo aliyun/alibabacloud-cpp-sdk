@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The set of instance statuses.
     shared_ptr<vector<string>> statusSet_ {};
   };
 

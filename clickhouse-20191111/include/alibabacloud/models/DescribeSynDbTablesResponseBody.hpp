@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried tables.
+    // The tables.
     shared_ptr<vector<string>> tables_ {};
   };
 

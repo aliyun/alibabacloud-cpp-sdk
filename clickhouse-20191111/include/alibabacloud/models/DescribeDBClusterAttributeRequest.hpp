@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the details of all clusters in a region, including their IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

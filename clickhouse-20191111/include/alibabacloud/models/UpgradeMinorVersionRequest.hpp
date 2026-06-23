@@ -111,22 +111,23 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to update the minor engine version of the ApsaraDB for ClickHouse cluster immediately. Valid values:
+    // Specifies whether to upgrade the minor engine version immediately. Valid values:
     // 
-    // *   **true**: updates the minor engine version of the ApsaraDB for ClickHouse cluster immediately.
-    // *   **false**: updates the minor engine version of the ApsaraDB for ClickHouse cluster at the specified time or within the specified maintenance window.
+    // - **true**: The minor engine version is upgraded immediately.
     // 
-    // >  If you want to update the minor engine version of the ApsaraDB for ClickHouse cluster at the specified time, **UpgradeTime** is required.
+    // - **false**: The minor engine version is upgraded at a specified time or within the maintenance window.
+    // 
+    // > The **UpgradeTime** parameter is required if you want to upgrade the minor engine version at a specified time.
     // 
     // This parameter is required.
     shared_ptr<bool> upgradeImmediately_ {};
-    // The update time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in Coordinated Universal Time (UTC).
+    // The time to perform the upgrade. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
-    // >  If you do not set this parameter, the minor engine version of an ApsaraDB for ClickHouse cluster is updated within the specified maintenance window.
+    // > If you do not specify this parameter, the ApsaraDB for ClickHouse cluster is upgraded within the maintenance window.
     shared_ptr<string> upgradeTime_ {};
-    // The minor engine version to which you want to update.
+    // The minor engine version to which you want to upgrade.
     // 
-    // >  By default, UpgradeVersion is not set and the minor engine version of the ApsaraDB for ClickHouse cluster is updated to the latest version.
+    // > If you do not specify this parameter, the cluster is upgraded to the latest minor engine version.
     shared_ptr<string> upgradeVersion_ {};
   };
 

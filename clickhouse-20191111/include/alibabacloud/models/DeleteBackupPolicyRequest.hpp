@@ -75,9 +75,15 @@ namespace Models
 
 
   protected:
+    // A client token used to ensure the idempotence of the request. The value must be a string that contains a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The cluster ID.
+    // 
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the destination region, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
+    // The number of records to return on each page. Valid values: 1 to **100**. Default value: **30**.
     shared_ptr<int32_t> maxResults_ {};
+    // The product name.
     shared_ptr<string> product_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

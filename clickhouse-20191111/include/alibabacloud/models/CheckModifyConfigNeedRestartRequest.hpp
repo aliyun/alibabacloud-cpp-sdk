@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The configuration parameters whose settings are modified.
+    // The configuration parameters to change.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the information of all clusters in the target region, including the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

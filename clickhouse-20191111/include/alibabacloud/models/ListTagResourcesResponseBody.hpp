@@ -90,13 +90,19 @@ namespace Models
 
 
     protected:
+      // <props="china">
+      // 
       // The cluster ID.
+      // 
+      // 
+      // 
+      // <props="intl">
       shared_ptr<string> resourceId_ {};
-      // The type of the resource. Only **CLUSTER** is returned.
+      // The resource type. The value is **DBCLUSTER**.
       shared_ptr<string> resourceType_ {};
-      // The key of the tag that is added to the resource.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag that is added to the resource.
+      // The value of the tag.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -126,11 +132,11 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If not all results are returned in one query, you can pass in the NextToken value returned for the query to perform the next query.
+    // The token that is used to retrieve the next page of results. This parameter is returned only if the results are not fully returned in the current request. You can use this token in a subsequent request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags that are added to clusters.
+    // Information about the clusters and their tags.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

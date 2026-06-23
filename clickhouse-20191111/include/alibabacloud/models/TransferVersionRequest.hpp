@@ -176,49 +176,52 @@ namespace Models
 
 
   protected:
-    // The ID of the source ApsaraDB for ClickHouse cluster.
+    // The ID of the source cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The time window during which write operations are stopped.
+    // The time windows during which writes are disabled.
     shared_ptr<string> disableWriteWindows_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (Default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // The ID of the region. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent list of regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The database account that is used to log on to the database in the source ApsaraDB for ClickHouse cluster.
+    // The source account.
     // 
     // This parameter is required.
     shared_ptr<string> sourceAccount_ {};
-    // The name of the self-managed ClickHouse cluster. You can execute the `SELECT * FROM system.clusters` statement to query the cluster name.
+    // The name of the self-managed ClickHouse cluster.
+    // To obtain the name, execute `SELECT * FROM system.clusters`.
     shared_ptr<string> sourceClusterName_ {};
-    // The password that corresponds to the database account for logging on to the database in the source ApsaraDB for ClickHouse cluster.
+    // The password of the source account.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePassword_ {};
-    // The endpoint and TCP port of the self-managed ClickHouse cluster.
+    // The addresses and TCP ports of the shards in the self-managed ClickHouse cluster.
     shared_ptr<string> sourceShards_ {};
-    // The database account that is used to log on to the database in the destination ApsaraDB for ClickHouse cluster.
+    // The destination account.
     // 
     // This parameter is required.
     shared_ptr<string> targetAccount_ {};
-    // The ID of the destination ApsaraDB for ClickHouse cluster.
+    // The ID of the destination cluster.
     // 
     // This parameter is required.
     shared_ptr<string> targetDbClusterId_ {};
-    // The password that corresponds to the database account for logging on to the database in the destination ApsaraDB for ClickHouse cluster.
+    // The password of the destination account.
     // 
     // This parameter is required.
     shared_ptr<string> targetPassword_ {};

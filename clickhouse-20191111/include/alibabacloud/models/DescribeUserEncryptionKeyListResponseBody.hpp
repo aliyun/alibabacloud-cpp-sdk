@@ -60,6 +60,7 @@ namespace Models
 
 
     protected:
+      // The key ID.
       shared_ptr<string> keyId_ {};
     };
 
@@ -82,7 +83,9 @@ namespace Models
 
 
   protected:
+    // The list of KMS keys.
     shared_ptr<vector<DescribeUserEncryptionKeyListResponseBody::KmsKeys>> kmsKeys_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

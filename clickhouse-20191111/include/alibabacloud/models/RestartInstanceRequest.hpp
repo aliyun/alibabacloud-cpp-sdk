@@ -112,29 +112,31 @@ namespace Models
 
 
   protected:
-    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+    // The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the destination region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of pages to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Default value: 30. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // *   30
-    // *   50
-    // *   100
+    // - 30 (default)
+    // 
+    // - 50
+    // 
+    // - 100
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The scheduled restart time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in Coordinated Universal Time (UTC).
+    // The scheduled restart time. The time must be in the yyyy-MM-ddTHH:mmZ format and in UTC.
     // 
-    // >  If this parameter is left empty or the time specified by this parameter is earlier than the current time, the cluster is immediately restarted.
+    // > If this parameter is empty or specifies a time earlier than the current time, the cluster is restarted immediately.
     shared_ptr<string> restartTime_ {};
   };
 

@@ -112,17 +112,26 @@ namespace Models
 
 
   protected:
+    // The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in a specific region, including cluster IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The end of the time range to query. Specify the time in the \\`yyyy-MM-dd hh:mm:ss\\` format. The time is in UTC.
+    // 
+    // > The end time must be later than the start time. The time range cannot exceed 7 days.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The execution duration of slow SQL queries. Minimum value: **1000**. Default value: **1000**. Unit: milliseconds. Slow SQL queries that last longer than the specified duration are returned in response parameters.
+    // The execution duration of a slow SQL query, in milliseconds. The minimum value is **1000**. The default value is **1000**. The operation returns slow SQL queries that take longer than this duration to execute.
     shared_ptr<int32_t> queryDurationMs_ {};
+    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The beginning of the time range to query. Specify the time in the \\`yyyy-MM-dd hh:mm:ss\\` format. The time is in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

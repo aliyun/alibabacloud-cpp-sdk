@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the database in the ApsaraDB RDS for MySQL instance. The database is used for data synchronization.
+    // The ApsaraDB RDS for MySQL database.
     // 
     // This parameter is required.
     shared_ptr<string> synDb_ {};

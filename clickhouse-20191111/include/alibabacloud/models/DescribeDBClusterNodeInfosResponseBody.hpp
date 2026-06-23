@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether a disaster recovery test is in progress.
       shared_ptr<bool> failoverTesting_ {};
+      // The node name.
       shared_ptr<string> nodeName_ {};
+      // The ZooKeeper node ID.
       shared_ptr<string> replicaId_ {};
     };
 
@@ -157,10 +160,15 @@ namespace Models
 
 
     protected:
+      // Indicates whether a disaster recovery test is in progress.
       shared_ptr<bool> failoverTesting_ {};
+      // The IP address of the node.
       shared_ptr<string> nodeIp_ {};
+      // The node name.
       shared_ptr<string> nodeName_ {};
+      // The node ID.
       shared_ptr<string> replicaId_ {};
+      // The shard ID.
       shared_ptr<string> shardId_ {};
     };
 
@@ -213,11 +221,23 @@ namespace Models
 
 
   protected:
+    // The information about the ClickHouse nodes.
     shared_ptr<vector<DescribeDBClusterNodeInfosResponseBody::NodeInfos>> nodeInfos_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of nodes.
     shared_ptr<int32_t> totalNodeCount_ {};
+    // The information about the ZooKeeper nodes.
     shared_ptr<vector<DescribeDBClusterNodeInfosResponseBody::ZkNodeInfos>> zkNodeInfos_ {};
   };
 

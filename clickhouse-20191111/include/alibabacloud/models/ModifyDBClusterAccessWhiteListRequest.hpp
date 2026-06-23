@@ -112,38 +112,39 @@ namespace Models
 
 
   protected:
-    // The attribute of the IP address whitelist. By default, this parameter is **empty**.
+    // The attribute of the whitelist group. The default value is **empty**.
     shared_ptr<string> DBClusterIPArrayAttribute_ {};
-    // The name of the IP address whitelist that you want to modify.
+    // The name of the whitelist group to modify.
     // 
-    // >  If you do not specify this parameter, the default IP address whitelist is modified.
+    // > If you do not specify this parameter, the whitelist of the default group is modified.
     shared_ptr<string> DBClusterIPArrayName_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The method that is used to modify the IP address whitelist. Valid values:
+    // The modification method. Valid values:
     // 
-    // *   **Cover**: overwrites the original IP address whitelist.
-    // *   **Append**: appends the specified IP addresses to the original IP address whitelist.
-    // *   **Delete**: deletes the original IP address whitelist.
+    // - **Cover**: Overwrites the whitelist.
     // 
-    // >  If you do not specify this parameter, the default value of Cover is used.
+    // - **Append**: Adds IP addresses to the whitelist.
+    // 
+    // - **Delete**: Removes IP addresses from the whitelist.
+    // 
+    // > If you do not specify this parameter, the Cover method is used by default.
     shared_ptr<string> modifyMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IP addresses in the IP address whitelist. You can specify IP addresses in the following formats:
+    // The IP address whitelist. The following formats are supported:
     // 
-    // *   IP address. For example, you can set SecurityIps to 192.168.0.1. This allows you to use this IP address to access your ApsaraDB for ClickHouse cluster.
-    // *   CIDR block. For example, you can set SecurityIps to 192.168.0.0/24. This allows you to use the IP addresses from 192.168.0.1 to 192.168.0.255 to access your ApsaraDB for ClickHouse cluster.
+    // - IP address: For example, 192.168.0.1. This allows the specified IP address to access the ApsaraDB for ClickHouse cluster.
     // 
-    // > 
+    // - CIDR block: For example, 192.168.0.0/24. This allows IP addresses from 192.168.0.1 to 192.168.0.255 to access the ApsaraDB for ClickHouse cluster.
     // 
-    // *   Do not set SecurityIps to 0.0.0.0.
+    // > * Do not enter 0.0.0.0.
     // 
-    // *   If you set SecurityIps to 127.0.0.1, all IP addresses are blocked from accessing your ApsaraDB for ClickHouse cluster.
+    // - Set this parameter to 127.0.0.1 to block access from all IP addresses.
     // 
     // This parameter is required.
     shared_ptr<string> securityIps_ {};

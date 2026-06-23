@@ -84,6 +84,8 @@ namespace Models
 
 
   protected:
+    // The O\\&M task IDs. Separate multiple IDs with a comma (,).
+    // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
     shared_ptr<string> ownerAccount_ {};

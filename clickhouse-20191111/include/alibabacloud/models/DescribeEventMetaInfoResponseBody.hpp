@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The code of the O\\&M task.
       shared_ptr<string> code_ {};
+      // The type of the O\\&M task.
       shared_ptr<string> sourceCode_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // The metadata of O\\&M tasks.
     shared_ptr<vector<DescribeEventMetaInfoResponseBody::Items>> items_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

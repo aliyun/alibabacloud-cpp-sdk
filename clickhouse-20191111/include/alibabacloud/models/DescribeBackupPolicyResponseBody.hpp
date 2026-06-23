@@ -84,28 +84,35 @@ namespace Models
 
 
   protected:
-    // The retention period for the backup data. By default, the backup data is retained for seven days. Valid values: 7 to 730. Unit: day.
+    // The backup retention period. Default value: 7. Valid values: 7 to 730. Unit: day.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
-    // The size of the backup data. Unit: MB.
+    // The backup size. Unit: MB.
     shared_ptr<string> backupSize_ {};
-    // The day of a week when the system regularly backs up data. Valid values:
+    // The backup cycle. Valid values:
     // 
-    // *   **Monday**
-    // *   **Tuesday**
-    // *   **Wednesday**
-    // *   **Thursday**
-    // *   **Friday**
-    // *   **Saturday**
-    // *   **Sunday**
+    // - **Monday**
+    // 
+    // - **Tuesday**
+    // 
+    // - **Wednesday**
+    // 
+    // - **Thursday**
+    // 
+    // - **Friday**
+    // 
+    // - **Saturday**
+    // 
+    // - **Sunday**
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The backup window. The time is displayed in Coordinated Universal Time (UTC).
+    // The backup time in UTC.
     shared_ptr<string> preferredBackupTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the backup feature is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The backup feature is enabled.
+    // 
+    // - **false**: The backup feature is disabled.
     shared_ptr<string> switch_ {};
   };
 

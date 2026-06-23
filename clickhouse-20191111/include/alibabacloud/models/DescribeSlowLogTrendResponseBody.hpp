@@ -181,8 +181,11 @@ namespace Models
 
 
       protected:
+        // The amount of data read. Unit: bytes.
         shared_ptr<int32_t> bytesRead_ {};
+        // The query execution duration. Unit: seconds.
         shared_ptr<float> elapsedTime_ {};
+        // The number of rows read.
         shared_ptr<int32_t> rowsRead_ {};
       };
 
@@ -336,8 +339,11 @@ namespace Models
 
     protected:
       shared_ptr<SlowLogTrend::Data> data_ {};
+      // The number of rows in the result set.
       shared_ptr<string> rows_ {};
+      // The minimum number of rows that are returned before the \\`LIMIT\\` clause is applied.
       shared_ptr<string> rowsBeforeLimitAtLeast_ {};
+      // The statistics of the query results.
       shared_ptr<SlowLogTrend::Statistics> statistics_ {};
       shared_ptr<SlowLogTrend::TableSchema> tableSchema_ {};
     };
@@ -361,7 +367,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result set of the slow SQL queries.
     shared_ptr<DescribeSlowLogTrendResponseBody::SlowLogTrend> slowLogTrend_ {};
   };
 

@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the cluster was restarted after you modified the configuration parameters. Valid values:
+    // 变更配置参数后是否重启。取值说明：
     // 
-    // *   **true**: The cluster was restarted.
-    // *   **false**: The cluster was not restarted.
+    // - **true**：重启。
+    // 
+    // - **false**：不重启。
     shared_ptr<bool> needRestart_ {};
-    // The request ID.
+    // 请求 ID。
     shared_ptr<string> requestId_ {};
   };
 

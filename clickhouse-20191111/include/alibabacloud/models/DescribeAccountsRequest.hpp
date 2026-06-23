@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The name of the database account.
     // 
-    // >  If you do not specify this parameter, the information about all database accounts in the ApsaraDB for ClickHouse cluster is queried by default.
+    // > If this parameter is not specified, the operation queries information about all database accounts.
     shared_ptr<string> accountName_ {};
     // The cluster ID.
     // 
@@ -113,13 +113,15 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from 1. Default value: **1**.
+    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

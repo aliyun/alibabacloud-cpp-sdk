@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ID of the pay-as-you-go ApsaraDB for ClickHouse cluster.
+    // The ID of the pay-as-you-go cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

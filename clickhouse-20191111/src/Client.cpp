@@ -62,7 +62,19 @@ AlibabaCloud::Clickhouse20191111::Client::Client(Config &config): OpenApiClient(
     {"me-east-1" , "clickhouse.aliyuncs.com"},
     {"rus-west-1-pop" , "clickhouse.aliyuncs.com"},
     {"us-east-1" , "clickhouse.aliyuncs.com"},
-    {"us-west-1" , "clickhouse.aliyuncs.com"}
+    {"us-west-1" , "clickhouse.aliyuncs.com"},
+    {"me-central-1" , "clickhouse.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "clickhouse.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "clickhouse.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "clickhouse.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "clickhouse.aliyuncs.com"},
+    {"cn-huhehaote" , "clickhouse.cn-huhehaote.aliyuncs.com"},
+    {"cn-guangzhou" , "clickhouse.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "clickhouse.cn-chengdu.aliyuncs.com"},
+    {"ap-southeast-6" , "clickhouse.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "clickhouse.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "clickhouse.aliyuncs.com"},
+    {"ap-northeast-1" , "clickhouse.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("clickhouse", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -82,7 +94,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
+ * @summary Allocates a public endpoint for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request AllocateClusterPublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -133,7 +145,7 @@ AllocateClusterPublicConnectionResponse Client::allocateClusterPublicConnectionW
 }
 
 /**
- * @summary Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
+ * @summary Allocates a public endpoint for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request AllocateClusterPublicConnectionRequest
  * @return AllocateClusterPublicConnectionResponse
@@ -144,7 +156,7 @@ AllocateClusterPublicConnectionResponse Client::allocateClusterPublicConnection(
 }
 
 /**
- * @summary 取消运维事件任务
+ * @summary Cancels tasks for O&M events.
  *
  * @param request CancelActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -195,7 +207,7 @@ CancelActiveOperationTasksResponse Client::cancelActiveOperationTasksWithOptions
 }
 
 /**
- * @summary 取消运维事件任务
+ * @summary Cancels tasks for O&M events.
  *
  * @param request CancelActiveOperationTasksRequest
  * @return CancelActiveOperationTasksResponse
@@ -206,7 +218,7 @@ CancelActiveOperationTasksResponse Client::cancelActiveOperationTasks(const Canc
 }
 
 /**
- * @summary 取消预约Zookeeper切主
+ * @summary Cancels a scheduled ZooKeeper leader switchover on a community-compatible ClickHouse instance.
  *
  * @param request CancelAppointmentElectZookeeperLeaderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -265,7 +277,7 @@ CancelAppointmentElectZookeeperLeaderResponse Client::cancelAppointmentElectZook
 }
 
 /**
- * @summary 取消预约Zookeeper切主
+ * @summary Cancels a scheduled ZooKeeper leader switchover on a community-compatible ClickHouse instance.
  *
  * @param request CancelAppointmentElectZookeeperLeaderRequest
  * @return CancelAppointmentElectZookeeperLeaderResponse
@@ -276,7 +288,7 @@ CancelAppointmentElectZookeeperLeaderResponse Client::cancelAppointmentElectZook
 }
 
 /**
- * @summary 取消预约重启节点列表
+ * @summary Cancels the scheduled restart on the specified ClickHouse nodes.
  *
  * @param request CancelAppointmentRestartInstanceNodeListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -335,7 +347,7 @@ CancelAppointmentRestartInstanceNodeListResponse Client::cancelAppointmentRestar
 }
 
 /**
- * @summary 取消预约重启节点列表
+ * @summary Cancels the scheduled restart on the specified ClickHouse nodes.
  *
  * @param request CancelAppointmentRestartInstanceNodeListRequest
  * @return CancelAppointmentRestartInstanceNodeListResponse
@@ -346,7 +358,7 @@ CancelAppointmentRestartInstanceNodeListResponse Client::cancelAppointmentRestar
 }
 
 /**
- * @summary Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
+ * @summary Cancels a scheduled restart for a specific community-compatible ApsaraDB for ClickHouse cluster.
  *
  * @param request CancelRestartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -409,7 +421,7 @@ CancelRestartInstanceResponse Client::cancelRestartInstanceWithOptions(const Can
 }
 
 /**
- * @summary Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
+ * @summary Cancels a scheduled restart for a specific community-compatible ApsaraDB for ClickHouse cluster.
  *
  * @param request CancelRestartInstanceRequest
  * @return CancelRestartInstanceResponse
@@ -420,7 +432,7 @@ CancelRestartInstanceResponse Client::cancelRestartInstance(const CancelRestartI
 }
 
 /**
- * @summary 资源转组
+ * @summary Changes the resource group of a community-edition compatible ClickHouse cluster.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -459,7 +471,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary 资源转组
+ * @summary Changes the resource group of a community-edition compatible ClickHouse cluster.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -470,7 +482,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+ * @summary Call the CheckClickhouseToRDS operation to verify the connectivity between a community-compatible ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
  *
  * @param request CheckClickhouseToRDSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -553,7 +565,7 @@ CheckClickhouseToRDSResponse Client::checkClickhouseToRDSWithOptions(const Check
 }
 
 /**
- * @summary Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+ * @summary Call the CheckClickhouseToRDS operation to verify the connectivity between a community-compatible ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
  *
  * @param request CheckClickhouseToRDSRequest
  * @return CheckClickhouseToRDSResponse
@@ -564,9 +576,9 @@ CheckClickhouseToRDSResponse Client::checkClickhouseToRDS(const CheckClickhouseT
 }
 
 /**
- * @summary Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
+ * @summary Queries whether changing the configuration parameters of an ApsaraDB for ClickHouse community-compatible cluster in XML mode requires a restart.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > 该接口仅支持 2021 年 12 月 01 日之后创建的社区兼容版集群。
  *
  * @param request CheckModifyConfigNeedRestartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -601,9 +613,9 @@ CheckModifyConfigNeedRestartResponse Client::checkModifyConfigNeedRestartWithOpt
 }
 
 /**
- * @summary Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
+ * @summary Queries whether changing the configuration parameters of an ApsaraDB for ClickHouse community-compatible cluster in XML mode requires a restart.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > 该接口仅支持 2021 年 12 月 01 日之后创建的社区兼容版集群。
  *
  * @param request CheckModifyConfigNeedRestartRequest
  * @return CheckModifyConfigNeedRestartResponse
@@ -614,7 +626,9 @@ CheckModifyConfigNeedRestartResponse Client::checkModifyConfigNeedRestart(const 
 }
 
 /**
- * @summary Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
+ * @summary Call the CheckMonitorAlert operation to check whether the alert monitoring feature of Application Real-Time Monitoring Service (ARMS) is enabled for a specified ApsaraDB for ClickHouse cluster.
+ *
+ * @description > This operation applies only to community-compatible clusters of version 20.8 or later that were created after December 1, 2021.
  *
  * @param request CheckMonitorAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -665,7 +679,9 @@ CheckMonitorAlertResponse Client::checkMonitorAlertWithOptions(const CheckMonito
 }
 
 /**
- * @summary Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
+ * @summary Call the CheckMonitorAlert operation to check whether the alert monitoring feature of Application Real-Time Monitoring Service (ARMS) is enabled for a specified ApsaraDB for ClickHouse cluster.
+ *
+ * @description > This operation applies only to community-compatible clusters of version 20.8 or later that were created after December 1, 2021.
  *
  * @param request CheckMonitorAlertRequest
  * @return CheckMonitorAlertResponse
@@ -676,7 +692,7 @@ CheckMonitorAlertResponse Client::checkMonitorAlert(const CheckMonitorAlertReque
 }
 
 /**
- * @summary Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
+ * @summary Performs a migration scale-out check on a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request CheckScaleOutBalancedRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -717,6 +733,10 @@ CheckScaleOutBalancedResponse Client::checkScaleOutBalancedWithOptions(const Che
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
+  if (!!request.hasScalingType()) {
+    query["ScalingType"] = request.getScalingType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -735,7 +755,7 @@ CheckScaleOutBalancedResponse Client::checkScaleOutBalancedWithOptions(const Che
 }
 
 /**
- * @summary Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
+ * @summary Performs a migration scale-out check on a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request CheckScaleOutBalancedRequest
  * @return CheckScaleOutBalancedResponse
@@ -746,7 +766,7 @@ CheckScaleOutBalancedResponse Client::checkScaleOutBalanced(const CheckScaleOutB
 }
 
 /**
- * @summary Queries the service-linked role of ApsaraDB for ClickHouse.
+ * @summary Queries the service-linked role for ApsaraDB for ClickHouse.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -789,7 +809,7 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRoleWithOptions(const C
 }
 
 /**
- * @summary Queries the service-linked role of ApsaraDB for ClickHouse.
+ * @summary Queries the service-linked role for ApsaraDB for ClickHouse.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @return CheckServiceLinkedRoleResponse
@@ -870,7 +890,9 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary Creates an account and grants permissions to the account.
+ * @summary Creates a database account and grants permissions.
+ *
+ * @description This API is available only for cluster versions 21.8 and earlier. For newer versions, use a high-privilege account and SQL statements to modify user permissions.
  *
  * @param request CreateAccountAndAuthorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -957,7 +979,9 @@ CreateAccountAndAuthorityResponse Client::createAccountAndAuthorityWithOptions(c
 }
 
 /**
- * @summary Creates an account and grants permissions to the account.
+ * @summary Creates a database account and grants permissions.
+ *
+ * @description This API is available only for cluster versions 21.8 and earlier. For newer versions, use a high-privilege account and SQL statements to modify user permissions.
  *
  * @param request CreateAccountAndAuthorityRequest
  * @return CreateAccountAndAuthorityResponse
@@ -970,7 +994,7 @@ CreateAccountAndAuthorityResponse Client::createAccountAndAuthority(const Create
 /**
  * @summary Creates a backup policy.
  *
- * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+ * @description > ApsaraDB for ClickHouse supports data backup for clusters that run version 20.3, 20.8, or 21.8.
  *
  * @param request CreateBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1035,7 +1059,7 @@ CreateBackupPolicyResponse Client::createBackupPolicyWithOptions(const CreateBac
 /**
  * @summary Creates a backup policy.
  *
- * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+ * @description > ApsaraDB for ClickHouse supports data backup for clusters that run version 20.3, 20.8, or 21.8.
  *
  * @param request CreateBackupPolicyRequest
  * @return CreateBackupPolicyResponse
@@ -1046,9 +1070,9 @@ CreateBackupPolicyResponse Client::createBackupPolicy(const CreateBackupPolicyRe
 }
 
 /**
- * @summary Creates an ApsaraDB for ClickHouse cluster.
+ * @summary Create an Alibaba Cloud ClickHouse cluster.
  *
- * @description Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+ * @description Before you call this API, make sure that you understand the billing method and [price](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
  *
  * @param request CreateDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1199,9 +1223,9 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 }
 
 /**
- * @summary Creates an ApsaraDB for ClickHouse cluster.
+ * @summary Create an Alibaba Cloud ClickHouse cluster.
  *
- * @description Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+ * @description Before you call this API, make sure that you understand the billing method and [price](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
  *
  * @param request CreateDBInstanceRequest
  * @return CreateDBInstanceResponse
@@ -1212,7 +1236,7 @@ CreateDBInstanceResponse Client::createDBInstance(const CreateDBInstanceRequest 
 }
 
 /**
- * @summary Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
+ * @summary Creates a monitoring data report.
  *
  * @param request CreateMonitorDataReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1287,7 @@ CreateMonitorDataReportResponse Client::createMonitorDataReportWithOptions(const
 }
 
 /**
- * @summary Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
+ * @summary Creates a monitoring data report.
  *
  * @param request CreateMonitorDataReportRequest
  * @return CreateMonitorDataReportResponse
@@ -1274,9 +1298,9 @@ CreateMonitorDataReportResponse Client::createMonitorDataReport(const CreateMoni
 }
 
 /**
- * @summary Creates a storage task for cold data.
+ * @summary Creates a cold storage space.
  *
- * @description Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+ * @description The tiered storage of hot and cold data feature is supported only by community-compatible clusters that run version 20.8 or later. For clusters that run an earlier version, you must migrate data to a cluster that runs version 20.8 or later before you can configure tiered storage. For more information about data migration, see [Data migration between ApsaraDB for ClickHouse instances](https://help.aliyun.com/document_detail/276926.html).
  *
  * @param request CreateOSSStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1327,9 +1351,9 @@ CreateOSSStorageResponse Client::createOSSStorageWithOptions(const CreateOSSStor
 }
 
 /**
- * @summary Creates a storage task for cold data.
+ * @summary Creates a cold storage space.
  *
- * @description Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+ * @description The tiered storage of hot and cold data feature is supported only by community-compatible clusters that run version 20.8 or later. For clusters that run an earlier version, you must migrate data to a cluster that runs version 20.8 or later before you can configure tiered storage. For more information about data migration, see [Data migration between ApsaraDB for ClickHouse instances](https://help.aliyun.com/document_detail/276926.html).
  *
  * @param request CreateOSSStorageRequest
  * @return CreateOSSStorageResponse
@@ -1340,9 +1364,9 @@ CreateOSSStorageResponse Client::createOSSStorage(const CreateOSSStorageRequest 
 }
 
 /**
- * @summary Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
+ * @summary Enables the MySQL or HTTPS port for a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+ * @description > You must manually enable the MySQL port for community-compatible clusters of version 20.8 or later that were created before December 1, 2021. For clusters created on or after this date, the MySQL port is enabled automatically.
  *
  * @param request CreatePortsForClickHouseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1397,9 +1421,9 @@ CreatePortsForClickHouseResponse Client::createPortsForClickHouseWithOptions(con
 }
 
 /**
- * @summary Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
+ * @summary Enables the MySQL or HTTPS port for a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+ * @description > You must manually enable the MySQL port for community-compatible clusters of version 20.8 or later that were created before December 1, 2021. For clusters created on or after this date, the MySQL port is enabled automatically.
  *
  * @param request CreatePortsForClickHouseRequest
  * @return CreatePortsForClickHouseResponse
@@ -1410,9 +1434,9 @@ CreatePortsForClickHouseResponse Client::createPortsForClickHouse(const CreatePo
 }
 
 /**
- * @summary Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the CreateRDSToClickhouseDb operation to create a sync task for an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
  *
- * @description >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+ * @description > This operation applies only to ApsaraDB for ClickHouse Community-Compatible Edition clusters.
  *
  * @param request CreateRDSToClickhouseDbRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1507,9 +1531,9 @@ CreateRDSToClickhouseDbResponse Client::createRDSToClickhouseDbWithOptions(const
 }
 
 /**
- * @summary Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the CreateRDSToClickhouseDb operation to create a sync task for an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
  *
- * @description >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+ * @description > This operation applies only to ApsaraDB for ClickHouse Community-Compatible Edition clusters.
  *
  * @param request CreateRDSToClickhouseDbRequest
  * @return CreateRDSToClickhouseDbResponse
@@ -1520,10 +1544,10 @@ CreateRDSToClickhouseDbResponse Client::createRDSToClickhouseDb(const CreateRDST
 }
 
 /**
- * @summary Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+ * @summary Calls the CreateSLB operation to attach a Server Load Balancer (SLB) instance to a specified ApsaraDB for ClickHouse Community-Compatible Edition cluster.
  *
- * @description ## [](#)Description
- * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+ * @description ## Usage notes
+ * An SLB instance is a network-layer dependency that provides services for external connections and supports failover. It attaches a domain name to the IP addresses of ClickHouse nodes. The SLB instance balances and forwards cluster requests to internal nodes to distribute traffic in a multi-node deployment. It also performs health checks on backend nodes. If a node becomes unavailable, the SLB instance checks its health status and automatically isolates it. This ensures that request traffic is distributed to active nodes.
  *
  * @param request CreateSLBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1562,10 +1586,10 @@ CreateSLBResponse Client::createSLBWithOptions(const CreateSLBRequest &request, 
 }
 
 /**
- * @summary Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+ * @summary Calls the CreateSLB operation to attach a Server Load Balancer (SLB) instance to a specified ApsaraDB for ClickHouse Community-Compatible Edition cluster.
  *
- * @description ## [](#)Description
- * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+ * @description ## Usage notes
+ * An SLB instance is a network-layer dependency that provides services for external connections and supports failover. It attaches a domain name to the IP addresses of ClickHouse nodes. The SLB instance balances and forwards cluster requests to internal nodes to distribute traffic in a multi-node deployment. It also performs health checks on backend nodes. If a node becomes unavailable, the SLB instance checks its health status and automatically isolates it. This ensures that request traffic is distributed to active nodes.
  *
  * @param request CreateSLBRequest
  * @return CreateSLBResponse
@@ -1576,9 +1600,9 @@ CreateSLBResponse Client::createSLB(const CreateSLBRequest &request) {
 }
 
 /**
- * @summary Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
+ * @summary Call the CreateSQLAccount operation to create a privileged or standard account for an ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+ * @description > This operation applies only to community-compatible clusters that run version 20.8 or later and were created after December 1, 2021.
  *
  * @param request CreateSQLAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1641,9 +1665,9 @@ CreateSQLAccountResponse Client::createSQLAccountWithOptions(const CreateSQLAcco
 }
 
 /**
- * @summary Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
+ * @summary Call the CreateSQLAccount operation to create a privileged or standard account for an ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+ * @description > This operation applies only to community-compatible clusters that run version 20.8 or later and were created after December 1, 2021.
  *
  * @param request CreateSQLAccountRequest
  * @return CreateSQLAccountResponse
@@ -1708,9 +1732,9 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRole(const CreateServ
 }
 
 /**
- * @summary Deletes a database account of an ApsaraDB for ClickHouse cluster.
+ * @summary Deletes a database account from an ApsaraDB for ClickHouse cluster.
  *
- * @description >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+ * @description > After a database account is deleted, you cannot use it to connect to ApsaraDB for ClickHouse. Proceed with caution.
  *
  * @param request DeleteAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1761,9 +1785,9 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
 }
 
 /**
- * @summary Deletes a database account of an ApsaraDB for ClickHouse cluster.
+ * @summary Deletes a database account from an ApsaraDB for ClickHouse cluster.
  *
- * @description >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+ * @description > After a database account is deleted, you cannot use it to connect to ApsaraDB for ClickHouse. Proceed with caution.
  *
  * @param request DeleteAccountRequest
  * @return DeleteAccountResponse
@@ -1774,7 +1798,9 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
- * @summary 删除备份策略
+ * @summary Deletes the backup policy for a community-compatible ApsaraDB for ClickHouse cluster.
+ *
+ * @description > The data backup feature is available only for ApsaraDB for ClickHouse clusters running version 21.8 or later.
  *
  * @param request DeleteBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1821,7 +1847,9 @@ DeleteBackupPolicyResponse Client::deleteBackupPolicyWithOptions(const DeleteBac
 }
 
 /**
- * @summary 删除备份策略
+ * @summary Deletes the backup policy for a community-compatible ApsaraDB for ClickHouse cluster.
+ *
+ * @description > The data backup feature is available only for ApsaraDB for ClickHouse clusters running version 21.8 or later.
  *
  * @param request DeleteBackupPolicyRequest
  * @return DeleteBackupPolicyResponse
@@ -1832,9 +1860,10 @@ DeleteBackupPolicyResponse Client::deleteBackupPolicy(const DeleteBackupPolicyRe
 }
 
 /**
- * @summary Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
+ * @summary Deletes a specified pay-as-you-go ApsaraDB for ClickHouse cluster.
  *
- * @description **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+ * @description >Warning: 
+ * After a cluster is deleted, all data in the cluster is deleted and cannot be recovered. Proceed with caution.
  *
  * @param request DeleteDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1881,9 +1910,10 @@ DeleteDBClusterResponse Client::deleteDBClusterWithOptions(const DeleteDBCluster
 }
 
 /**
- * @summary Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
+ * @summary Deletes a specified pay-as-you-go ApsaraDB for ClickHouse cluster.
  *
- * @description **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+ * @description >Warning: 
+ * After a cluster is deleted, all data in the cluster is deleted and cannot be recovered. Proceed with caution.
  *
  * @param request DeleteDBClusterRequest
  * @return DeleteDBClusterResponse
@@ -1894,10 +1924,10 @@ DeleteDBClusterResponse Client::deleteDBCluster(const DeleteDBClusterRequest &re
 }
 
 /**
- * @summary Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+ * @summary Releases a Server Load Balancer (SLB) instance for a specified ApsaraDB for ClickHouse Community-Compatible cluster.
  *
- * @description ## [](#)Description
- * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+ * @description ## Usage notes
+ * After you release the SLB instance, the system performs simple load balancing based on the domain name. Health checks are no longer performed on nodes at the request routing layer. This may cause normal requests to be routed to unavailable nodes, which can result in read and write failures.
  *
  * @param request DeleteSLBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1932,10 +1962,10 @@ DeleteSLBResponse Client::deleteSLBWithOptions(const DeleteSLBRequest &request, 
 }
 
 /**
- * @summary Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+ * @summary Releases a Server Load Balancer (SLB) instance for a specified ApsaraDB for ClickHouse Community-Compatible cluster.
  *
- * @description ## [](#)Description
- * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+ * @description ## Usage notes
+ * After you release the SLB instance, the system performs simple load balancing based on the domain name. Health checks are no longer performed on nodes at the request routing layer. This may cause normal requests to be routed to unavailable nodes, which can result in read and write failures.
  *
  * @param request DeleteSLBRequest
  * @return DeleteSLBResponse
@@ -1946,7 +1976,7 @@ DeleteSLBResponse Client::deleteSLB(const DeleteSLBRequest &request) {
 }
 
 /**
- * @summary Deletes a database used for data synchronization.
+ * @summary Deletes a database synchronization task.
  *
  * @param request DeleteSyndbRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1997,7 +2027,7 @@ DeleteSyndbResponse Client::deleteSyndbWithOptions(const DeleteSyndbRequest &req
 }
 
 /**
- * @summary Deletes a database used for data synchronization.
+ * @summary Deletes a database synchronization task.
  *
  * @param request DeleteSyndbRequest
  * @return DeleteSyndbResponse
@@ -2008,7 +2038,9 @@ DeleteSyndbResponse Client::deleteSyndb(const DeleteSyndbRequest &request) {
 }
 
 /**
- * @summary Queries the permissions of an account.
+ * @summary Queries the permissions of a database account.
+ *
+ * @description This API applies only to clusters of v21.8 or earlier. For clusters running a later version, you must use a privileged account and execute SQL statements to modify the permissions of a regular user.
  *
  * @param request DescribeAccountAuthorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2063,7 +2095,9 @@ DescribeAccountAuthorityResponse Client::describeAccountAuthorityWithOptions(con
 }
 
 /**
- * @summary Queries the permissions of an account.
+ * @summary Queries the permissions of a database account.
+ *
+ * @description This API applies only to clusters of v21.8 or earlier. For clusters running a later version, you must use a privileged account and execute SQL statements to modify the permissions of a regular user.
  *
  * @param request DescribeAccountAuthorityRequest
  * @return DescribeAccountAuthorityResponse
@@ -2074,7 +2108,7 @@ DescribeAccountAuthorityResponse Client::describeAccountAuthority(const Describe
 }
 
 /**
- * @summary Queries the information about the database accounts of an ApsaraDB for ClickHouse cluster.
+ * @summary Describes the database accounts of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2133,7 +2167,7 @@ DescribeAccountsResponse Client::describeAccountsWithOptions(const DescribeAccou
 }
 
 /**
- * @summary Queries the information about the database accounts of an ApsaraDB for ClickHouse cluster.
+ * @summary Describes the database accounts of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeAccountsRequest
  * @return DescribeAccountsResponse
@@ -2144,7 +2178,7 @@ DescribeAccountsResponse Client::describeAccounts(const DescribeAccountsRequest 
 }
 
 /**
- * @summary 主动运维
+ * @summary Queries the active Operations and Maintenance (O&M) configuration of a ClickHouse instance.
  *
  * @param request DescribeActiveOperationMaintainConfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2191,7 +2225,7 @@ DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaint
 }
 
 /**
- * @summary 主动运维
+ * @summary Queries the active Operations and Maintenance (O&M) configuration of a ClickHouse instance.
  *
  * @param request DescribeActiveOperationMaintainConfRequest
  * @return DescribeActiveOperationMaintainConfResponse
@@ -2202,6 +2236,8 @@ DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaint
 }
 
 /**
+ * @summary Queries the active operation tasks of a ClickHouse instance.
+ *
  * @param request DescribeActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeActiveOperationTasksResponse
@@ -2291,6 +2327,8 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasksWithOpt
 }
 
 /**
+ * @summary Queries the active operation tasks of a ClickHouse instance.
+ *
  * @param request DescribeActiveOperationTasksRequest
  * @return DescribeActiveOperationTasksResponse
  */
@@ -2300,7 +2338,7 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasks(const 
 }
 
 /**
- * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
+ * @summary Describes all databases, tables, and columns in an instance.
  *
  * @param request DescribeAllDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2355,7 +2393,7 @@ DescribeAllDataSourceResponse Client::describeAllDataSourceWithOptions(const Des
 }
 
 /**
- * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
+ * @summary Describes all databases, tables, and columns in an instance.
  *
  * @param request DescribeAllDataSourceRequest
  * @return DescribeAllDataSourceResponse
@@ -2366,7 +2404,7 @@ DescribeAllDataSourceResponse Client::describeAllDataSource(const DescribeAllDat
 }
 
 /**
- * @summary Queries the data sources of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the details of all data sources.
  *
  * @param request DescribeAllDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2421,7 +2459,7 @@ DescribeAllDataSourcesResponse Client::describeAllDataSourcesWithOptions(const D
 }
 
 /**
- * @summary Queries the data sources of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the details of all data sources.
  *
  * @param request DescribeAllDataSourcesRequest
  * @return DescribeAllDataSourcesResponse
@@ -2432,6 +2470,8 @@ DescribeAllDataSourcesResponse Client::describeAllDataSources(const DescribeAllD
 }
 
 /**
+ * @summary Queries the auto-renewal status of a ClickHouse Community-Compatible cluster.
+ *
  * @param request DescribeAutoRenewAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAutoRenewAttributeResponse
@@ -2489,6 +2529,8 @@ DescribeAutoRenewAttributeResponse Client::describeAutoRenewAttributeWithOptions
 }
 
 /**
+ * @summary Queries the auto-renewal status of a ClickHouse Community-Compatible cluster.
+ *
  * @param request DescribeAutoRenewAttributeRequest
  * @return DescribeAutoRenewAttributeResponse
  */
@@ -2498,9 +2540,9 @@ DescribeAutoRenewAttributeResponse Client::describeAutoRenewAttribute(const Desc
 }
 
 /**
- * @summary Queries the backup settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the backup settings for a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+ * @description > Data backup is supported for ApsaraDB for ClickHouse clusters running version 20.3, 20.8, or 21.8.
  *
  * @param request DescribeBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2547,9 +2589,9 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 }
 
 /**
- * @summary Queries the backup settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the backup settings for a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+ * @description > Data backup is supported for ApsaraDB for ClickHouse clusters running version 20.3, 20.8, or 21.8.
  *
  * @param request DescribeBackupPolicyRequest
  * @return DescribeBackupPolicyResponse
@@ -2560,9 +2602,9 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the backup sets of a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is available only for ApsaraDB for ClickHouse clusters of version 21.8 and later.
+ * @description > The data backup feature is available only on ApsaraDB for ClickHouse clusters running version 21.8 or later.
  *
  * @param request DescribeBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2629,9 +2671,9 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 }
 
 /**
- * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the backup sets of a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is available only for ApsaraDB for ClickHouse clusters of version 21.8 and later.
+ * @description > The data backup feature is available only on ApsaraDB for ClickHouse clusters running version 21.8 or later.
  *
  * @param request DescribeBackupsRequest
  * @return DescribeBackupsResponse
@@ -2642,7 +2684,7 @@ DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &re
 }
 
 /**
- * @summary Queries information about columns.
+ * @summary You can view columns.
  *
  * @param request DescribeColumnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2697,7 +2739,7 @@ DescribeColumnsResponse Client::describeColumnsWithOptions(const DescribeColumns
 }
 
 /**
- * @summary Queries information about columns.
+ * @summary You can view columns.
  *
  * @param request DescribeColumnsRequest
  * @return DescribeColumnsResponse
@@ -2708,9 +2750,9 @@ DescribeColumnsResponse Client::describeColumns(const DescribeColumnsRequest &re
 }
 
 /**
- * @summary Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
+ * @summary Call the DescribeConfigHistory operation to view the configuration parameter change history of a community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation supports only community-compatible clusters that are created after December 1, 2021.
  *
  * @param request DescribeConfigHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2737,9 +2779,9 @@ DescribeConfigHistoryResponse Client::describeConfigHistoryWithOptions(const Des
 }
 
 /**
- * @summary Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
+ * @summary Call the DescribeConfigHistory operation to view the configuration parameter change history of a community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation supports only community-compatible clusters that are created after December 1, 2021.
  *
  * @param request DescribeConfigHistoryRequest
  * @return DescribeConfigHistoryResponse
@@ -2750,9 +2792,9 @@ DescribeConfigHistoryResponse Client::describeConfigHistory(const DescribeConfig
 }
 
 /**
- * @summary Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
+ * @summary Call the DescribeConfigVersionDifference operation to compare the parameter values of an ApsaraDB for ClickHouse community-compatible cluster before and after a configuration change.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation applies only to community-compatible clusters that were created after December 1, 2021.
  *
  * @param request DescribeConfigVersionDifferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2779,9 +2821,9 @@ DescribeConfigVersionDifferenceResponse Client::describeConfigVersionDifferenceW
 }
 
 /**
- * @summary Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
+ * @summary Call the DescribeConfigVersionDifference operation to compare the parameter values of an ApsaraDB for ClickHouse community-compatible cluster before and after a configuration change.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation applies only to community-compatible clusters that were created after December 1, 2021.
  *
  * @param request DescribeConfigVersionDifferenceRequest
  * @return DescribeConfigVersionDifferenceResponse
@@ -2792,7 +2834,7 @@ DescribeConfigVersionDifferenceResponse Client::describeConfigVersionDifference(
 }
 
 /**
- * @summary Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the IP address whitelist of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBClusterAccessWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2839,7 +2881,7 @@ DescribeDBClusterAccessWhiteListResponse Client::describeDBClusterAccessWhiteLis
 }
 
 /**
- * @summary Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the IP address whitelist of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBClusterAccessWhiteListRequest
  * @return DescribeDBClusterAccessWhiteListResponse
@@ -2850,7 +2892,7 @@ DescribeDBClusterAccessWhiteListResponse Client::describeDBClusterAccessWhiteLis
 }
 
 /**
- * @summary Queries the information about an ApsaraDB for ClickHouse cluster.
+ * @summary Retrieves details for a specific ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBClusterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2897,7 +2939,7 @@ DescribeDBClusterAttributeResponse Client::describeDBClusterAttributeWithOptions
 }
 
 /**
- * @summary Queries the information about an ApsaraDB for ClickHouse cluster.
+ * @summary Retrieves details for a specific ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBClusterAttributeRequest
  * @return DescribeDBClusterAttributeResponse
@@ -2908,7 +2950,7 @@ DescribeDBClusterAttributeResponse Client::describeDBClusterAttribute(const Desc
 }
 
 /**
- * @summary Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
+ * @summary The DescribeDBClusterConfig operation queries the parameter configuration of a community-compatible ClickHouse cluster.
  *
  * @param request DescribeDBClusterConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2959,7 +3001,7 @@ DescribeDBClusterConfigResponse Client::describeDBClusterConfigWithOptions(const
 }
 
 /**
- * @summary Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
+ * @summary The DescribeDBClusterConfig operation queries the parameter configuration of a community-compatible ClickHouse cluster.
  *
  * @param request DescribeDBClusterConfigRequest
  * @return DescribeDBClusterConfigResponse
@@ -2970,9 +3012,9 @@ DescribeDBClusterConfigResponse Client::describeDBClusterConfig(const DescribeDB
 }
 
 /**
- * @summary Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the DescribeDBClusterConfigInXML operation to query the configuration parameters of an ApsaraDB for ClickHouse Community-Compatible Edition cluster in XML format.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation supports only Community-Compatible Edition clusters that are created after December 1, 2021.
  *
  * @param request DescribeDBClusterConfigInXMLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3007,9 +3049,9 @@ DescribeDBClusterConfigInXMLResponse Client::describeDBClusterConfigInXMLWithOpt
 }
 
 /**
- * @summary Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the DescribeDBClusterConfigInXML operation to query the configuration parameters of an ApsaraDB for ClickHouse Community-Compatible Edition cluster in XML format.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation supports only Community-Compatible Edition clusters that are created after December 1, 2021.
  *
  * @param request DescribeDBClusterConfigInXMLRequest
  * @return DescribeDBClusterConfigInXMLResponse
@@ -3020,7 +3062,7 @@ DescribeDBClusterConfigInXMLResponse Client::describeDBClusterConfigInXML(const 
 }
 
 /**
- * @summary Queries the network information about an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the network information for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBClusterNetInfoItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3067,7 +3109,7 @@ DescribeDBClusterNetInfoItemsResponse Client::describeDBClusterNetInfoItemsWithO
 }
 
 /**
- * @summary Queries the network information about an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the network information for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBClusterNetInfoItemsRequest
  * @return DescribeDBClusterNetInfoItemsResponse
@@ -3078,7 +3120,7 @@ DescribeDBClusterNetInfoItemsResponse Client::describeDBClusterNetInfoItems(cons
 }
 
 /**
- * @summary 获取实例节点信息
+ * @summary Queries node information for a ClickHouse Community-Compatible instance.
  *
  * @param request DescribeDBClusterNodeInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3137,7 +3179,7 @@ DescribeDBClusterNodeInfosResponse Client::describeDBClusterNodeInfosWithOptions
 }
 
 /**
- * @summary 获取实例节点信息
+ * @summary Queries node information for a ClickHouse Community-Compatible instance.
  *
  * @param request DescribeDBClusterNodeInfosRequest
  * @return DescribeDBClusterNodeInfosResponse
@@ -3148,10 +3190,10 @@ DescribeDBClusterNodeInfosResponse Client::describeDBClusterNodeInfos(const Desc
 }
 
 /**
- * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
+ * @summary Views the performance data of an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
  *
- * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
- * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+ * @description You can view the performance monitoring data for a specified cluster within a time range based on performance metrics. The data is collected every 30 seconds.
+ * > This operation supports only ApsaraDB for ClickHouse Community-Compatible Edition clusters that were created before December 1, 2021.
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3210,10 +3252,10 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformanceWithOpt
 }
 
 /**
- * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
+ * @summary Views the performance data of an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
  *
- * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
- * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+ * @description You can view the performance monitoring data for a specified cluster within a time range based on performance metrics. The data is collected every 30 seconds.
+ * > This operation supports only ApsaraDB for ClickHouse Community-Compatible Edition clusters that were created before December 1, 2021.
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @return DescribeDBClusterPerformanceResponse
@@ -3224,6 +3266,8 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformance(const 
 }
 
 /**
+ * @summary This operation queries the status set of a ClickHouse Community-Compatible Edition cluster.
+ *
  * @param request DescribeDBClusterStatusSetRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDBClusterStatusSetResponse
@@ -3269,6 +3313,8 @@ DescribeDBClusterStatusSetResponse Client::describeDBClusterStatusSetWithOptions
 }
 
 /**
+ * @summary This operation queries the status set of a ClickHouse Community-Compatible Edition cluster.
+ *
  * @param request DescribeDBClusterStatusSetRequest
  * @return DescribeDBClusterStatusSetResponse
  */
@@ -3278,7 +3324,7 @@ DescribeDBClusterStatusSetResponse Client::describeDBClusterStatusSet(const Desc
 }
 
 /**
- * @summary Queries the information about ApsaraDB for ClickHouse clusters in a region.
+ * @summary Describes ApsaraDB for ClickHouse clusters in a specified region.
  *
  * @param request DescribeDBClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3353,7 +3399,7 @@ DescribeDBClustersResponse Client::describeDBClustersWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the information about ApsaraDB for ClickHouse clusters in a region.
+ * @summary Describes ApsaraDB for ClickHouse clusters in a specified region.
  *
  * @param request DescribeDBClustersRequest
  * @return DescribeDBClustersResponse
@@ -3364,7 +3410,7 @@ DescribeDBClustersResponse Client::describeDBClusters(const DescribeDBClustersRe
 }
 
 /**
- * @summary Queries configuration information about an ApsaraDB for ClickHouse cluster.
+ * @summary The DescribeDBConfig operation queries the configuration of a community-compatible cluster.
  *
  * @param request DescribeDBConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3415,7 +3461,7 @@ DescribeDBConfigResponse Client::describeDBConfigWithOptions(const DescribeDBCon
 }
 
 /**
- * @summary Queries configuration information about an ApsaraDB for ClickHouse cluster.
+ * @summary The DescribeDBConfig operation queries the configuration of a community-compatible cluster.
  *
  * @param request DescribeDBConfigRequest
  * @return DescribeDBConfigResponse
@@ -3426,7 +3472,7 @@ DescribeDBConfigResponse Client::describeDBConfig(const DescribeDBConfigRequest 
 }
 
 /**
- * @summary DescribeEventMetaInfo
+ * @summary Queries the metadata of Operations and Maintenance (O&M) events for a ClickHouse-compatible cluster.
  *
  * @param request DescribeEventMetaInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3465,7 +3511,7 @@ DescribeEventMetaInfoResponse Client::describeEventMetaInfoWithOptions(const Des
 }
 
 /**
- * @summary DescribeEventMetaInfo
+ * @summary Queries the metadata of Operations and Maintenance (O&M) events for a ClickHouse-compatible cluster.
  *
  * @param request DescribeEventMetaInfoRequest
  * @return DescribeEventMetaInfoResponse
@@ -3476,7 +3522,7 @@ DescribeEventMetaInfoResponse Client::describeEventMetaInfo(const DescribeEventM
 }
 
 /**
- * @summary Queries the storage of cold data.
+ * @summary Queries cold storage information.
  *
  * @param request DescribeOSSStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3527,7 +3573,7 @@ DescribeOSSStorageResponse Client::describeOSSStorageWithOptions(const DescribeO
 }
 
 /**
- * @summary Queries the storage of cold data.
+ * @summary Queries cold storage information.
  *
  * @param request DescribeOSSStorageRequest
  * @return DescribeOSSStorageResponse
@@ -3538,7 +3584,7 @@ DescribeOSSStorageResponse Client::describeOSSStorage(const DescribeOSSStorageRe
 }
 
 /**
- * @summary Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
+ * @summary Call the DescribeProcessList operation to retrieve running queries on an ApsaraDB for ClickHouse Community-Compatible cluster.
  *
  * @param request DescribeProcessListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3617,7 +3663,7 @@ DescribeProcessListResponse Client::describeProcessListWithOptions(const Describ
 }
 
 /**
- * @summary Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
+ * @summary Call the DescribeProcessList operation to retrieve running queries on an ApsaraDB for ClickHouse Community-Compatible cluster.
  *
  * @param request DescribeProcessListRequest
  * @return DescribeProcessListResponse
@@ -3628,7 +3674,7 @@ DescribeProcessListResponse Client::describeProcessList(const DescribeProcessLis
 }
 
 /**
- * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
+ * @summary Queries the available regions and zones for ApsaraDB for ClickHouse.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3671,7 +3717,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
+ * @summary Queries the available regions and zones for ApsaraDB for ClickHouse.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -3682,7 +3728,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
+ * @summary Queries all databases in an instance.
  *
  * @param request DescribeSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3729,7 +3775,7 @@ DescribeSchemasResponse Client::describeSchemasWithOptions(const DescribeSchemas
 }
 
 /**
- * @summary Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
+ * @summary Queries all databases in an instance.
  *
  * @param request DescribeSchemasRequest
  * @return DescribeSchemasResponse
@@ -3740,7 +3786,7 @@ DescribeSchemasResponse Client::describeSchemas(const DescribeSchemasRequest &re
 }
 
 /**
- * @summary Queries the details about slow query logs.
+ * @summary Queries the details of slow query logs.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3811,7 +3857,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecordsWithOptions(const D
 }
 
 /**
- * @summary Queries the details about slow query logs.
+ * @summary Queries the details of slow query logs.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @return DescribeSlowLogRecordsResponse
@@ -3822,7 +3868,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecords(const DescribeSlow
 }
 
 /**
- * @summary Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+ * @summary Queries statistics about the slow log trends for a cluster.
  *
  * @param request DescribeSlowLogTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3885,7 +3931,7 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrendWithOptions(const Descr
 }
 
 /**
- * @summary Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+ * @summary Queries statistics about the slow log trends for a cluster.
  *
  * @param request DescribeSlowLogTrendRequest
  * @return DescribeSlowLogTrendResponse
@@ -3896,7 +3942,7 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrend(const DescribeSlowLogT
 }
 
 /**
- * @summary Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+ * @summary Queries synchronized databases and tables.
  *
  * @param request DescribeSynDbTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3947,7 +3993,7 @@ DescribeSynDbTablesResponse Client::describeSynDbTablesWithOptions(const Describ
 }
 
 /**
- * @summary Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+ * @summary Queries synchronized databases and tables.
  *
  * @param request DescribeSynDbTablesRequest
  * @return DescribeSynDbTablesResponse
@@ -3958,7 +4004,7 @@ DescribeSynDbTablesResponse Client::describeSynDbTables(const DescribeSynDbTable
 }
 
 /**
- * @summary Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+ * @summary Queries information about synchronized databases.
  *
  * @param request DescribeSynDbsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4013,7 +4059,7 @@ DescribeSynDbsResponse Client::describeSynDbsWithOptions(const DescribeSynDbsReq
 }
 
 /**
- * @summary Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+ * @summary Queries information about synchronized databases.
  *
  * @param request DescribeSynDbsRequest
  * @return DescribeSynDbsResponse
@@ -4024,7 +4070,7 @@ DescribeSynDbsResponse Client::describeSynDbs(const DescribeSynDbsRequest &reque
 }
 
 /**
- * @summary Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the DescribeTables operation to query tables in a community-compatible cluster.
  *
  * @param request DescribeTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4075,7 +4121,7 @@ DescribeTablesResponse Client::describeTablesWithOptions(const DescribeTablesReq
 }
 
 /**
- * @summary Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the DescribeTables operation to query tables in a community-compatible cluster.
  *
  * @param request DescribeTablesRequest
  * @return DescribeTablesResponse
@@ -4086,9 +4132,9 @@ DescribeTablesResponse Client::describeTables(const DescribeTablesRequest &reque
 }
 
 /**
- * @summary Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version
+ * @summary View migration history.
  *
- * @description >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+ * @description > This API operation is used only to query data migrations between Alibaba Cloud ClickHouse clusters during version upgrades.
  *
  * @param request DescribeTransferHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4135,9 +4181,9 @@ DescribeTransferHistoryResponse Client::describeTransferHistoryWithOptions(const
 }
 
 /**
- * @summary Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version
+ * @summary View migration history.
  *
- * @description >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+ * @description > This API operation is used only to query data migrations between Alibaba Cloud ClickHouse clusters during version upgrades.
  *
  * @param request DescribeTransferHistoryRequest
  * @return DescribeTransferHistoryResponse
@@ -4148,6 +4194,8 @@ DescribeTransferHistoryResponse Client::describeTransferHistory(const DescribeTr
 }
 
 /**
+ * @summary Retrieves a list of your KMS keys.
+ *
  * @param request DescribeUserEncryptionKeyListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUserEncryptionKeyListResponse
@@ -4185,6 +4233,8 @@ DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyListWithO
 }
 
 /**
+ * @summary Retrieves a list of your KMS keys.
+ *
  * @param request DescribeUserEncryptionKeyListRequest
  * @return DescribeUserEncryptionKeyListResponse
  */
@@ -4194,7 +4244,7 @@ DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyList(cons
 }
 
 /**
- * @summary Zookeeper主动切主
+ * @summary Switches the ZooKeeper leader for a community-compatible ClickHouse instance.
  *
  * @param request ElectZookeeperLeaderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4261,7 +4311,7 @@ ElectZookeeperLeaderResponse Client::electZookeeperLeaderWithOptions(const Elect
 }
 
 /**
- * @summary Zookeeper主动切主
+ * @summary Switches the ZooKeeper leader for a community-compatible ClickHouse instance.
  *
  * @param request ElectZookeeperLeaderRequest
  * @return ElectZookeeperLeaderResponse
@@ -4272,7 +4322,7 @@ ElectZookeeperLeaderResponse Client::electZookeeperLeader(const ElectZookeeperLe
 }
 
 /**
- * @summary Terminates an ongoing task.
+ * @summary Stops ongoing tasks.
  *
  * @param request KillProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4327,7 +4377,7 @@ KillProcessResponse Client::killProcessWithOptions(const KillProcessRequest &req
 }
 
 /**
- * @summary Terminates an ongoing task.
+ * @summary Stops ongoing tasks.
  *
  * @param request KillProcessRequest
  * @return KillProcessResponse
@@ -4338,7 +4388,7 @@ KillProcessResponse Client::killProcess(const KillProcessRequest &request) {
 }
 
 /**
- * @summary Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+ * @summary Lists the tags that are attached to ApsaraDB for ClickHouse clusters.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4401,7 +4451,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+ * @summary Lists the tags that are attached to ApsaraDB for ClickHouse clusters.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -4412,7 +4462,9 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Modifies the permissions of an account.
+ * @summary Modifies the permissions of a database account.
+ *
+ * @description This API operation applies only to cluster versions 21.8 and earlier. For cluster versions later than 21.8, you must use a high-privilege account to run SQL statements to modify the permissions of standard users.
  *
  * @param request ModifyAccountAuthorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4491,7 +4543,9 @@ ModifyAccountAuthorityResponse Client::modifyAccountAuthorityWithOptions(const M
 }
 
 /**
- * @summary Modifies the permissions of an account.
+ * @summary Modifies the permissions of a database account.
+ *
+ * @description This API operation applies only to cluster versions 21.8 and earlier. For cluster versions later than 21.8, you must use a high-privilege account to run SQL statements to modify the permissions of standard users.
  *
  * @param request ModifyAccountAuthorityRequest
  * @return ModifyAccountAuthorityResponse
@@ -4502,7 +4556,7 @@ ModifyAccountAuthorityResponse Client::modifyAccountAuthority(const ModifyAccoun
 }
 
 /**
- * @summary Modifies the description of a database account of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the description of a database account in an ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyAccountDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4557,7 +4611,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescriptionWithOptions(con
 }
 
 /**
- * @summary Modifies the description of a database account of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the description of a database account in an ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyAccountDescriptionRequest
  * @return ModifyAccountDescriptionResponse
@@ -4568,7 +4622,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
- * @summary 修改主动运维设置
+ * @summary Modifies the configuration of active O&M tasks on a community-compatible ClickHouse cluster.
  *
  * @param request ModifyActiveOperationMaintainConfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4635,7 +4689,7 @@ ModifyActiveOperationMaintainConfResponse Client::modifyActiveOperationMaintainC
 }
 
 /**
- * @summary 修改主动运维设置
+ * @summary Modifies the configuration of active O&M tasks on a community-compatible ClickHouse cluster.
  *
  * @param request ModifyActiveOperationMaintainConfRequest
  * @return ModifyActiveOperationMaintainConfResponse
@@ -4646,6 +4700,8 @@ ModifyActiveOperationMaintainConfResponse Client::modifyActiveOperationMaintainC
 }
 
 /**
+ * @summary Modifies the switch time for operations and maintenance (O&M) events on a ClickHouse Community-compatible cluster.
+ *
  * @param request ModifyActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyActiveOperationTasksResponse
@@ -4703,6 +4759,8 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions
 }
 
 /**
+ * @summary Modifies the switch time for operations and maintenance (O&M) events on a ClickHouse Community-compatible cluster.
+ *
  * @param request ModifyActiveOperationTasksRequest
  * @return ModifyActiveOperationTasksResponse
  */
@@ -4712,6 +4770,8 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasks(const Modi
 }
 
 /**
+ * @summary Modifies the auto-renewal status of a ClickHouse Community-Compatible cluster.
+ *
  * @param request ModifyAutoRenewAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAutoRenewAttributeResponse
@@ -4773,6 +4833,8 @@ ModifyAutoRenewAttributeResponse Client::modifyAutoRenewAttributeWithOptions(con
 }
 
 /**
+ * @summary Modifies the auto-renewal status of a ClickHouse Community-Compatible cluster.
+ *
  * @param request ModifyAutoRenewAttributeRequest
  * @return ModifyAutoRenewAttributeResponse
  */
@@ -4782,9 +4844,9 @@ ModifyAutoRenewAttributeResponse Client::modifyAutoRenewAttribute(const ModifyAu
 }
 
 /**
- * @summary Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the backup settings of a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+ * @description > Data backup is supported for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
  *
  * @param request ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4843,9 +4905,9 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 }
 
 /**
- * @summary Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the backup settings of a specified ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+ * @description > Data backup is supported for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse
@@ -4856,7 +4918,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
- * @summary Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the specifications of a cluster.
  *
  * @param request ModifyDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4927,7 +4989,7 @@ ModifyDBClusterResponse Client::modifyDBClusterWithOptions(const ModifyDBCluster
 }
 
 /**
- * @summary Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the specifications of a cluster.
  *
  * @param request ModifyDBClusterRequest
  * @return ModifyDBClusterResponse
@@ -4938,7 +5000,7 @@ ModifyDBClusterResponse Client::modifyDBCluster(const ModifyDBClusterRequest &re
 }
 
 /**
- * @summary Modifies the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the IP address whitelist for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyDBClusterAccessWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5001,7 +5063,7 @@ ModifyDBClusterAccessWhiteListResponse Client::modifyDBClusterAccessWhiteListWit
 }
 
 /**
- * @summary Modifies the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the IP address whitelist for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyDBClusterAccessWhiteListRequest
  * @return ModifyDBClusterAccessWhiteListResponse
@@ -5012,7 +5074,7 @@ ModifyDBClusterAccessWhiteListResponse Client::modifyDBClusterAccessWhiteList(co
 }
 
 /**
- * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the configuration of a cluster.
  *
  * @param request ModifyDBClusterConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5071,7 +5133,7 @@ ModifyDBClusterConfigResponse Client::modifyDBClusterConfigWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the configuration of a cluster.
  *
  * @param request ModifyDBClusterConfigRequest
  * @return ModifyDBClusterConfigResponse
@@ -5082,9 +5144,9 @@ ModifyDBClusterConfigResponse Client::modifyDBClusterConfig(const ModifyDBCluste
 }
 
 /**
- * @summary Changes the configuration parameters of an ApsaraDB for ClickHouse cluster that runs Community-compatible Edition.
+ * @summary Modifies the configuration parameters of a specified community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation supports only community-compatible clusters created after December 1, 2021.
  *
  * @param request ModifyDBClusterConfigInXMLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5127,9 +5189,9 @@ ModifyDBClusterConfigInXMLResponse Client::modifyDBClusterConfigInXMLWithOptions
 }
 
 /**
- * @summary Changes the configuration parameters of an ApsaraDB for ClickHouse cluster that runs Community-compatible Edition.
+ * @summary Modifies the configuration parameters of a specified community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+ * @description > This operation supports only community-compatible clusters created after December 1, 2021.
  *
  * @param request ModifyDBClusterConfigInXMLRequest
  * @return ModifyDBClusterConfigInXMLResponse
@@ -5140,7 +5202,7 @@ ModifyDBClusterConfigInXMLResponse Client::modifyDBClusterConfigInXML(const Modi
 }
 
 /**
- * @summary Changes the name of an ApsaraDB for ClickHouse cluster.
+ * @summary Changes the description of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyDBClusterDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5191,7 +5253,7 @@ ModifyDBClusterDescriptionResponse Client::modifyDBClusterDescriptionWithOptions
 }
 
 /**
- * @summary Changes the name of an ApsaraDB for ClickHouse cluster.
+ * @summary Changes the description of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyDBClusterDescriptionRequest
  * @return ModifyDBClusterDescriptionResponse
@@ -5202,7 +5264,7 @@ ModifyDBClusterDescriptionResponse Client::modifyDBClusterDescription(const Modi
 }
 
 /**
- * @summary Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the maintenance window for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyDBClusterMaintainTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5253,7 +5315,7 @@ ModifyDBClusterMaintainTimeResponse Client::modifyDBClusterMaintainTimeWithOptio
 }
 
 /**
- * @summary Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the maintenance window for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ModifyDBClusterMaintainTimeRequest
  * @return ModifyDBClusterMaintainTimeResponse
@@ -5264,7 +5326,10 @@ ModifyDBClusterMaintainTimeResponse Client::modifyDBClusterMaintainTime(const Mo
 }
 
 /**
- * @summary Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
+ * @summary The ModifyDBConfig operation modifies the dictionary configuration of a community-compatible cluster.
+ *
+ * @description >Notice: 
+ * This API applies only to clusters with a kernel version of 20.8 or earlier.
  *
  * @param request ModifyDBConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5319,7 +5384,10 @@ ModifyDBConfigResponse Client::modifyDBConfigWithOptions(const ModifyDBConfigReq
 }
 
 /**
- * @summary Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
+ * @summary The ModifyDBConfig operation modifies the dictionary configuration of a community-compatible cluster.
+ *
+ * @description >Notice: 
+ * This API applies only to clusters with a kernel version of 20.8 or earlier.
  *
  * @param request ModifyDBConfigRequest
  * @return ModifyDBConfigResponse
@@ -5330,7 +5398,7 @@ ModifyDBConfigResponse Client::modifyDBConfig(const ModifyDBConfigRequest &reque
 }
 
 /**
- * @summary Modifies the type of a minor version update in ApsaraDB for ClickHouse.
+ * @summary Modifies the upgrade type for a ClickHouse minor version to automatic or manual.
  *
  * @param request ModifyMinorVersionGreadeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5381,7 +5449,7 @@ ModifyMinorVersionGreadeTypeResponse Client::modifyMinorVersionGreadeTypeWithOpt
 }
 
 /**
- * @summary Modifies the type of a minor version update in ApsaraDB for ClickHouse.
+ * @summary Modifies the upgrade type for a ClickHouse minor version to automatic or manual.
  *
  * @param request ModifyMinorVersionGreadeTypeRequest
  * @return ModifyMinorVersionGreadeTypeResponse
@@ -5392,9 +5460,9 @@ ModifyMinorVersionGreadeTypeResponse Client::modifyMinorVersionGreadeType(const 
 }
 
 /**
- * @summary Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the sync task of a community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+ * @description > This operation applies only to community-compatible ApsaraDB for ClickHouse clusters.
  *
  * @param request ModifyRDSToClickhouseDbRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5489,9 +5557,9 @@ ModifyRDSToClickhouseDbResponse Client::modifyRDSToClickhouseDbWithOptions(const
 }
 
 /**
- * @summary Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the sync task of a community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+ * @description > This operation applies only to community-compatible ApsaraDB for ClickHouse clusters.
  *
  * @param request ModifyRDSToClickhouseDbRequest
  * @return ModifyRDSToClickhouseDbResponse
@@ -5502,7 +5570,7 @@ ModifyRDSToClickhouseDbResponse Client::modifyRDSToClickhouseDb(const ModifyRDST
 }
 
 /**
- * @summary Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
+ * @summary Releases the public endpoint of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ReleaseClusterPublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5549,7 +5617,7 @@ ReleaseClusterPublicConnectionResponse Client::releaseClusterPublicConnectionWit
 }
 
 /**
- * @summary Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
+ * @summary Releases the public endpoint of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ReleaseClusterPublicConnectionRequest
  * @return ReleaseClusterPublicConnectionResponse
@@ -5560,7 +5628,7 @@ ReleaseClusterPublicConnectionResponse Client::releaseClusterPublicConnection(co
 }
 
 /**
- * @summary Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
+ * @summary Resets the password of a database account in a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ResetAccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5615,7 +5683,7 @@ ResetAccountPasswordResponse Client::resetAccountPasswordWithOptions(const Reset
 }
 
 /**
- * @summary Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
+ * @summary Resets the password of a database account in a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request ResetAccountPasswordRequest
  * @return ResetAccountPasswordResponse
@@ -5626,7 +5694,7 @@ ResetAccountPasswordResponse Client::resetAccountPassword(const ResetAccountPass
 }
 
 /**
- * @summary Restarts an ApsaraDB for ClickHouse cluster.
+ * @summary Restarts a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request RestartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5689,7 +5757,7 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstance
 }
 
 /**
- * @summary Restarts an ApsaraDB for ClickHouse cluster.
+ * @summary Restarts a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request RestartInstanceRequest
  * @return RestartInstanceResponse
@@ -5700,7 +5768,7 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary 批量重启实例节点
+ * @summary Batch restart nodes of a ClickHouse Community-compatible Edition instance.
  *
  * @param tmpReq RestartInstanceNodeListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5773,7 +5841,7 @@ RestartInstanceNodeListResponse Client::restartInstanceNodeListWithOptions(const
 }
 
 /**
- * @summary 批量重启实例节点
+ * @summary Batch restart nodes of a ClickHouse Community-compatible Edition instance.
  *
  * @param request RestartInstanceNodeListRequest
  * @return RestartInstanceNodeListResponse
@@ -5784,7 +5852,7 @@ RestartInstanceNodeListResponse Client::restartInstanceNodeList(const RestartIns
 }
 
 /**
- * @summary Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+ * @summary Creates and attaches tags to one or more ApsaraDB for ClickHouse clusters.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5843,7 +5911,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+ * @summary Creates and attaches tags to one or more ApsaraDB for ClickHouse clusters.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -5854,12 +5922,12 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+ * @summary Migration between versions.
  *
- * @description ## [](#)Prerequisites
- * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
- * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
- * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+ * @description ## Prerequisites
+ * - Add the IP addresses of the source cluster to the whitelist of the destination cluster.
+ * - Add the IP addresses of the destination cluster to the whitelist of the source cluster.
+ * > You can execute the `select * from system.clusters;` statement to retrieve the IP addresses of an ApsaraDB for ClickHouse cluster.
  *
  * @param request TransferVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5950,12 +6018,12 @@ TransferVersionResponse Client::transferVersionWithOptions(const TransferVersion
 }
 
 /**
- * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+ * @summary Migration between versions.
  *
- * @description ## [](#)Prerequisites
- * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
- * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
- * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+ * @description ## Prerequisites
+ * - Add the IP addresses of the source cluster to the whitelist of the destination cluster.
+ * - Add the IP addresses of the destination cluster to the whitelist of the source cluster.
+ * > You can execute the `select * from system.clusters;` statement to retrieve the IP addresses of an ApsaraDB for ClickHouse cluster.
  *
  * @param request TransferVersionRequest
  * @return TransferVersionResponse
@@ -6040,9 +6108,9 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
+ * @summary The UpgradeMinorVersion operation upgrades the minor engine version of a specified community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+ * @description > Minor engine version upgrades are supported only for community-compatible clusters that are purchased after December 1, 2021.
  *
  * @param request UpgradeMinorVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6101,9 +6169,9 @@ UpgradeMinorVersionResponse Client::upgradeMinorVersionWithOptions(const Upgrade
 }
 
 /**
- * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
+ * @summary The UpgradeMinorVersion operation upgrades the minor engine version of a specified community-compatible ApsaraDB for ClickHouse cluster.
  *
- * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+ * @description > Minor engine version upgrades are supported only for community-compatible clusters that are purchased after December 1, 2021.
  *
  * @param request UpgradeMinorVersionRequest
  * @return UpgradeMinorVersionResponse

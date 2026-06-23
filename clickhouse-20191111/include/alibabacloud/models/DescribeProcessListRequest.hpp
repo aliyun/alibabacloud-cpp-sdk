@@ -149,36 +149,41 @@ namespace Models
 
 
   protected:
-    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to find information about all clusters in the destination region, including the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the query statement.
+    // The ID of the query.
     shared_ptr<string> initialQueryId_ {};
-    // The account that is used to log on to the database.
+    // The database account.
     shared_ptr<string> initialUser_ {};
-    // The keyword that is used to query.
+    // The keyword for the query.
     shared_ptr<string> keyword_ {};
-    // Sorting by the specified column name. Valid values:
+    // The column to use for sorting. Valid values:
     // 
-    // *   elapsed: the cumulative execution time
-    // *   written_rows: the number of written rows
-    // *   read_rows: the number of read rows
-    // *   memory_usage: the memory usage
+    // - elapsed: The total running time.
+    // 
+    // - written_rows: The number of rows written.
+    // 
+    // - read_rows: The number of rows read.
+    // 
+    // - memory_usage: The amount of memory used.
     shared_ptr<string> order_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Default value: 30. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **30** (Default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The minimum query duration. The minimum value is **1000**, and the default value is **1000**. Unit: milliseconds. Queries that last longer than this duration are returned in response parameters.
+    // The shortest query duration. The minimum value is **1000**. The default value is **1000**. The unit is milliseconds. The response returns queries that run longer than this duration.
     shared_ptr<int32_t> queryDurationMs_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to find the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

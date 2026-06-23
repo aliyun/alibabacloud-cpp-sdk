@@ -149,34 +149,37 @@ namespace Models
 
 
     protected:
-      // The end time of the backup task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+      // The end time of the backup. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
       shared_ptr<string> backupEndTime_ {};
-      // The backup task ID.
+      // The data backup task ID.
       shared_ptr<string> backupId_ {};
-      // The backup method. Valid values: Only **Physical** is returned. This value indicates that a physical backup was performed.
+      // The backup method. The value is always **Physical**, which indicates a physical backup.
       shared_ptr<string> backupMethod_ {};
-      // The number of nodes in the cluster.
+      // The number of cluster nodes.
       // 
-      // *   If the cluster is of Single-replica Edition, the value ranges from 1 to 48.
-      // *   If the cluster is of Double-replica Edition, the value ranges from 1 to 24.
+      // - For a single-replica edition cluster, the value is an integer from 1 to 48.
+      // 
+      // - For a double-replica edition cluster, the value is an integer from 1 to 24.
       shared_ptr<string> backupSetInfo_ {};
-      // The size of the backup set. Unit: MB.
+      // The backup size. Unit: MB.
       shared_ptr<int64_t> backupSize_ {};
-      // The start time of the backup task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+      // The start time of the backup. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
       shared_ptr<string> backupStartTime_ {};
       // The backup status. Valid values:
       // 
-      // *   **Success**
-      // *   **Failure**
+      // - **Success**: The backup is successful.
+      // 
+      // - **Failure**: The backup failed.
       shared_ptr<string> backupStatus_ {};
       // The backup type. Valid values:
       // 
-      // *   **FullBackup**
-      // *   **IncrementalBackup**
+      // - **FullBackup**: full backup.
+      // 
+      // - **IncrementalBackup**: incremental backup.
       shared_ptr<string> backupType_ {};
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The time when the backup set expired. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+      // The expiration time of the backup set. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
       shared_ptr<string> expireDate_ {};
     };
 
@@ -220,19 +223,21 @@ namespace Models
 
 
   protected:
-    // The backup sets.
+    // The list of backup sets.
     shared_ptr<vector<DescribeBackupsResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. Valid values: Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

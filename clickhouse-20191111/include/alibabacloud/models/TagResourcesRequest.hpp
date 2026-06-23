@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag to add to the resource. You can add N tag keys. N is an integer. Valid values of N: **1 to 20**.
+      // The tag key. You can add up to **20** tag keys.
       shared_ptr<string> key_ {};
-      // The value of the tag to add to the resource. You can add N tag values. N is an integer. Valid values of N: **1 to 20**.
+      // The value of the tag key. You can add up to **20** tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -154,20 +154,24 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region.
+    // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource ID.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **CLUSTER**.
+    // The resource type. The value must be **DBCLUSTER**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The list of tags.
+    // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };

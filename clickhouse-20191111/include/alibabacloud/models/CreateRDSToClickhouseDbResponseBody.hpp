@@ -69,17 +69,19 @@ namespace Models
 
 
   protected:
-    // If the value of the **Status** parameter is -1, the cause of the creation failure is returned.
+    // The reason for the creation failure. This parameter is returned only if the value of the Status parameter is **-1**.
     shared_ptr<string> errorMsg_ {};
-    // Duplicate tables in the synchronization task.
+    // The duplicate tables in the sync task.
     shared_ptr<vector<string>> repeatedDbs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the synchronization task was created. Valid values:
+    // Indicates whether the task was created. Valid values:
     // 
-    // *   **1**: Created.
-    // *   **0**: Creation failed. The tables in the synchronization task are duplicate. The duplicate tables are returned for the **RepeatedDbs** parameter.
-    // *   **-1**: Creation failed. The cause why the creation failed is returned for the **ErrorMsg** parameter.
+    // - **1**: The task was created.
+    // 
+    // - **0**: The task failed to be created because of duplicate tables. The duplicate tables are returned in the **RepeatedDbs** parameter.
+    // 
+    // - **-1**: The task failed to be created. The error message is returned in the **ErrorMsg** parameter.
     shared_ptr<int64_t> status_ {};
   };
 

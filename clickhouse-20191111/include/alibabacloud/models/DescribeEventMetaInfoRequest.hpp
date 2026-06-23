@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> securityToken_ {};
+    // The codes of O\\&M event types. Separate multiple codes with commas.
     shared_ptr<string> sourceCode_ {};
   };
 

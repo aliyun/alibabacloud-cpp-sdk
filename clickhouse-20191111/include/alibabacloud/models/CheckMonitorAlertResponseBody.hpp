@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The parameters that are used to configure the monitoring and alerting feature.
+    // The parameters for alert monitoring.
     shared_ptr<string> parameter_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the monitoring and alerting feature is enabled. Valid values:
+    // Indicates whether the alert monitoring feature is enabled. Valid values:
     // 
-    // *   **enable**: The monitoring and alerting feature is enabled.
-    // *   **disable**: The monitoring and alerting feature is disabled.
+    // - **enable**: The feature is enabled.
+    // 
+    // - **disable**: The feature is disabled.
     shared_ptr<string> state_ {};
   };
 

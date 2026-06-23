@@ -181,11 +181,11 @@ namespace Models
 
 
       protected:
-        // The total size of data that were read. Unit: bytes.
+        // The amount of data read, in bytes.
         shared_ptr<int32_t> bytesRead_ {};
-        // The time consumed by the slow query. Unit: milliseconds.
+        // The time elapsed for the slow query, in milliseconds.
         shared_ptr<float> elapsedTime_ {};
-        // The total number of rows that were read.
+        // The number of rows read.
         shared_ptr<int32_t> rowsRead_ {};
       };
 
@@ -402,9 +402,9 @@ namespace Models
       shared_ptr<SlowLogRecords::Data> data_ {};
       // The number of rows in the result set.
       shared_ptr<string> rows_ {};
-      // The number of entries per page.
+      // The number of entries on each page.
       shared_ptr<string> rowsBeforeLimitAtLeast_ {};
-      // The statistics of the results.
+      // The statistics of the query results.
       shared_ptr<SlowLogRecords::Statistics> statistics_ {};
       shared_ptr<SlowLogRecords::TableSchema> tableSchema_ {};
     };
@@ -430,7 +430,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details about the slow query logs.
+    // The details of the slow query logs.
     shared_ptr<DescribeSlowLogRecordsResponseBody::SlowLogRecords> slowLogRecords_ {};
   };
 

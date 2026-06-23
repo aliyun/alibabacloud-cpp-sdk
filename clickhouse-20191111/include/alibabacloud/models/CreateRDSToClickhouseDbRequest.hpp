@@ -186,11 +186,11 @@ namespace Models
 
 
   protected:
-    // The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+    // The password for the database account of the ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ckPassword_ {};
-    // The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+    // The database account of the ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ckUserName_ {};
@@ -200,7 +200,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbClusterId_ {};
-    // The maximum number of rows that can be synchronized per second.
+    // The maximum number of rows to sync per second.
     shared_ptr<int64_t> limitUpper_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -208,30 +208,31 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> rdsId_ {};
-    // The password of the account that is used to log on to the ApsaraDB RDS for MySQL instance.
+    // The password for the database account of the ApsaraDB RDS for MySQL instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsPassword_ {};
     // The port number of the ApsaraDB RDS for MySQL instance.
     shared_ptr<int64_t> rdsPort_ {};
-    // The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+    // The database account of the ApsaraDB RDS for MySQL instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsUserName_ {};
-    // The ID of the virtual private cloud (VPC) to which the ApsaraDB RDS for MySQL instance belongs.
+    // The VPC ID of the ApsaraDB RDS for MySQL instance.
     shared_ptr<string> rdsVpcId_ {};
-    // The private endpoint of the ApsaraDB RDS for MySQL instance.
+    // The internal endpoint of the ApsaraDB RDS instance.
     shared_ptr<string> rdsVpcUrl_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to ignore the table schemas that do not support synchronization. Valid values:
+    // Specifies whether to skip unsupported table schemas. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Skip.
+    // 
+    // - **false**: Do not skip.
     // 
     // This parameter is required.
     shared_ptr<bool> skipUnsupported_ {};
-    // The tables whose data you want to synchronize.
+    // The tables to sync.
     // 
     // This parameter is required.
     shared_ptr<string> synDbTables_ {};

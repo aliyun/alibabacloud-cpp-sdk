@@ -112,21 +112,23 @@ namespace Models
 
 
     protected:
-      // *   When the value **true** is returned for the **SynStatus** parameter, the system does not return the ErrorMsg parameter.
-      // *   When the value **false** is returned for the **SynStatus** parameter, the system returns for the ErrorMsg parameter the cause why the data synchronization failed.
+      // - This parameter is not returned if **SynStatus** is **true**.
+      // 
+      // - If **SynStatus** is **false**, this parameter indicates the reason for the synchronization failure.
       shared_ptr<string> errorMsg_ {};
-      // The ID of the ApsaraDB RDS for MySQL instance.
+      // The instance ID of the ApsaraDB RDS for MySQL instance.
       shared_ptr<string> rdsId_ {};
-      // The database account that is used to log on to the ApsaraDB RDS for MySQL instance.
+      // The database account for the ApsaraDB RDS for MySQL instance.
       shared_ptr<string> rdsUserName_ {};
       // The internal endpoint of the ApsaraDB RDS for MySQL instance.
       shared_ptr<string> rdsVpcUrl_ {};
-      // The name of the database in the ApsaraDB RDS for MySQL instance.
+      // The database in the ApsaraDB RDS for MySQL instance.
       shared_ptr<string> synDb_ {};
-      // Indicates whether the data synchronization succeeded. Valid values:
+      // Indicates whether the synchronization was successful. Valid values:
       // 
-      // *   **true**: The data synchronization succeeded.
-      // *   **false**: The data synchronization failed.
+      // - **true**: The synchronization was successful.
+      // 
+      // - **false**: The synchronization failed.
       shared_ptr<bool> synStatus_ {};
     };
 
@@ -170,15 +172,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about data synchronization between the ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+    // The synchronized data.
     shared_ptr<vector<DescribeSynDbsResponseBody::SynDbs>> synDbs_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

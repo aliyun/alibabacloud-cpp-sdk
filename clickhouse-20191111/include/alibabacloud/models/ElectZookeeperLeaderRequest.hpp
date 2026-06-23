@@ -121,14 +121,29 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to disable writes.
     shared_ptr<bool> disableWrite_ {};
+    // The time to perform the leader switchover.
     shared_ptr<string> electTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values:
+    // 
+    // - **30** (Default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
+    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
