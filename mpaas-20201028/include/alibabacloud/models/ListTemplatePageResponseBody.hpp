@@ -275,7 +275,6 @@ namespace Models
     shared_ptr<vector<ListTemplatePageResponseBody::Data>> data_ {};
     shared_ptr<string> msg_ {};
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<int32_t> totalSize_ {};

@@ -244,7 +244,6 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<GetTemplateResponseBody::Data> data_ {};
     shared_ptr<string> msg_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

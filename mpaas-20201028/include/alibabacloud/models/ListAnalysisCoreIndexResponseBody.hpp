@@ -153,21 +153,13 @@ namespace Models
 
 
       protected:
-        // 0
         shared_ptr<string> arrivalNum_ {};
-        // 0
         shared_ptr<string> arrivalRate_ {};
-        // 0
         shared_ptr<string> ignoreNum_ {};
-        // 0
         shared_ptr<string> ignoreRate_ {};
-        // 0
         shared_ptr<string> openNum_ {};
-        // 0
         shared_ptr<string> openRate_ {};
-        // 0
         shared_ptr<string> pushNum_ {};
-        // 0
         shared_ptr<string> pushTotalNum_ {};
       };
 

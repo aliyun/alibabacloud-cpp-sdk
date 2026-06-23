@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientType, clientType_);
       DARABONBA_PTR_TO_JSON(CpExtra, cpExtra_);
       DARABONBA_PTR_TO_JSON(CustomId, customId_);
+      DARABONBA_PTR_TO_JSON(ItemId, itemId_);
+      DARABONBA_PTR_TO_JSON(ItemTitle, itemTitle_);
       DARABONBA_PTR_TO_JSON(MiniProgramId, miniProgramId_);
       DARABONBA_PTR_TO_JSON(OpenUid, openUid_);
       DARABONBA_PTR_TO_JSON(PlatformId, platformId_);
@@ -34,6 +36,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientType, clientType_);
       DARABONBA_PTR_FROM_JSON(CpExtra, cpExtra_);
       DARABONBA_PTR_FROM_JSON(CustomId, customId_);
+      DARABONBA_PTR_FROM_JSON(ItemId, itemId_);
+      DARABONBA_PTR_FROM_JSON(ItemTitle, itemTitle_);
       DARABONBA_PTR_FROM_JSON(MiniProgramId, miniProgramId_);
       DARABONBA_PTR_FROM_JSON(OpenUid, openUid_);
       DARABONBA_PTR_FROM_JSON(PlatformId, platformId_);
@@ -53,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->appId_ == nullptr && this->bizOrderId_ == nullptr && this->bizOrderStatus_ == nullptr && this->clientType_ == nullptr && this->cpExtra_ == nullptr
-        && this->customId_ == nullptr && this->miniProgramId_ == nullptr && this->openUid_ == nullptr && this->platformId_ == nullptr && this->tenantId_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->customId_ == nullptr && this->itemId_ == nullptr && this->itemTitle_ == nullptr && this->miniProgramId_ == nullptr && this->openUid_ == nullptr
+        && this->platformId_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -104,6 +108,20 @@ namespace Models
     inline SaveOrderRelationInfoToMsenceRequest& setCustomId(string customId) { DARABONBA_PTR_SET_VALUE(customId_, customId) };
 
 
+    // itemId Field Functions 
+    bool hasItemId() const { return this->itemId_ != nullptr;};
+    void deleteItemId() { this->itemId_ = nullptr;};
+    inline string getItemId() const { DARABONBA_PTR_GET_DEFAULT(itemId_, "") };
+    inline SaveOrderRelationInfoToMsenceRequest& setItemId(string itemId) { DARABONBA_PTR_SET_VALUE(itemId_, itemId) };
+
+
+    // itemTitle Field Functions 
+    bool hasItemTitle() const { return this->itemTitle_ != nullptr;};
+    void deleteItemTitle() { this->itemTitle_ = nullptr;};
+    inline string getItemTitle() const { DARABONBA_PTR_GET_DEFAULT(itemTitle_, "") };
+    inline SaveOrderRelationInfoToMsenceRequest& setItemTitle(string itemTitle) { DARABONBA_PTR_SET_VALUE(itemTitle_, itemTitle) };
+
+
     // miniProgramId Field Functions 
     bool hasMiniProgramId() const { return this->miniProgramId_ != nullptr;};
     void deleteMiniProgramId() { this->miniProgramId_ = nullptr;};
@@ -147,6 +165,8 @@ namespace Models
     shared_ptr<string> clientType_ {};
     shared_ptr<string> cpExtra_ {};
     shared_ptr<string> customId_ {};
+    shared_ptr<string> itemId_ {};
+    shared_ptr<string> itemTitle_ {};
     shared_ptr<string> miniProgramId_ {};
     shared_ptr<string> openUid_ {};
     shared_ptr<string> platformId_ {};

@@ -109,7 +109,6 @@ namespace Models
 
   protected:
     shared_ptr<VirtualDeliveryToMsceneResponseBody::MpaasUserGamecenterPaymentVirtualdeliveryResponse> mpaasUserGamecenterPaymentVirtualdeliveryResponse_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultCode_ {};
     shared_ptr<string> resultMsg_ {};

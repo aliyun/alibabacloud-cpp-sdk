@@ -75,15 +75,10 @@ namespace Models
 
 
   protected:
-    // ApdidToken
     shared_ptr<string> apdidToken_ {};
-    // AppId
     shared_ptr<string> appId_ {};
-    // TenantId
     shared_ptr<string> tenantId_ {};
-    // TerminalType
     shared_ptr<string> terminalType_ {};
-    // WorkspaceId
     shared_ptr<string> workspaceId_ {};
   };
 

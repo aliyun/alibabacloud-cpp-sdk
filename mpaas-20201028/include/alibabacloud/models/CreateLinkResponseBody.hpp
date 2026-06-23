@@ -120,7 +120,6 @@ namespace Models
 
 
   protected:
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultCode_ {};
     shared_ptr<CreateLinkResponseBody::ResultContent> resultContent_ {};

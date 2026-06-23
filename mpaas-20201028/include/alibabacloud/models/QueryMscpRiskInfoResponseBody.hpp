@@ -77,15 +77,10 @@ namespace Models
 
 
   protected:
-    // Code
     shared_ptr<string> code_ {};
-    // Data
     Darabonba::Json data_ {};
-    // Msg
     shared_ptr<string> msg_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Success
     shared_ptr<bool> success_ {};
   };
 

@@ -101,7 +101,6 @@ namespace Models
 
     protected:
       shared_ptr<string> errorCode_ {};
-      // Id of the request
       shared_ptr<string> requestId_ {};
       shared_ptr<string> result_ {};
       shared_ptr<string> resultMsg_ {};

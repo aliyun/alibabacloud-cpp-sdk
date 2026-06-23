@@ -173,7 +173,6 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<PushQueryDeviceStateResponseBody::Data> data_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

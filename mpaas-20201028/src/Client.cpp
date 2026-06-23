@@ -7662,6 +7662,14 @@ SaveOrderRelationInfoToMsenceResponse Client::saveOrderRelationInfoToMsenceWithO
     body["CustomId"] = request.getCustomId();
   }
 
+  if (!!request.hasItemId()) {
+    body["ItemId"] = request.getItemId();
+  }
+
+  if (!!request.hasItemTitle()) {
+    body["ItemTitle"] = request.getItemTitle();
+  }
+
   if (!!request.hasMiniProgramId()) {
     body["MiniProgramId"] = request.getMiniProgramId();
   }

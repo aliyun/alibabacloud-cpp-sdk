@@ -131,7 +131,6 @@ namespace Models
 
   protected:
     shared_ptr<CreateMcubeHotpatchRollbackTaskResponseBody::CreateHotpatchRollbackTaskResult> createHotpatchRollbackTaskResult_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultCode_ {};
     shared_ptr<string> resultMessage_ {};
