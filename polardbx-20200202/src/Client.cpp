@@ -1155,6 +1155,56 @@ CreateDataImportTaskResponse Client::createDataImportTask(const CreateDataImport
 }
 
 /**
+ * @summary Creates an AI gateway consumer for a PolarDB-X instance.
+ *
+ * @description ****.
+ *
+ * @param request CreateGatewayConsumerForPolarDBXRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGatewayConsumerForPolarDBXResponse
+ */
+CreateGatewayConsumerForPolarDBXResponse Client::createGatewayConsumerForPolarDBXWithOptions(const CreateGatewayConsumerForPolarDBXRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateGatewayConsumerForPolarDBX"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGatewayConsumerForPolarDBXResponse>();
+}
+
+/**
+ * @summary Creates an AI gateway consumer for a PolarDB-X instance.
+ *
+ * @description ****.
+ *
+ * @param request CreateGatewayConsumerForPolarDBXRequest
+ * @return CreateGatewayConsumerForPolarDBXResponse
+ */
+CreateGatewayConsumerForPolarDBXResponse Client::createGatewayConsumerForPolarDBX(const CreateGatewayConsumerForPolarDBXRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGatewayConsumerForPolarDBXWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a Global Database Network (GDN) instance.
  *
  * @param request CreateGdnInstanceRequest

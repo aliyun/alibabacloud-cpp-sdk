@@ -35,6 +35,7 @@ namespace Models
     class DBInstance : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const DBInstance& obj) { 
+        DARABONBA_PTR_TO_JSON(AiGatewayEnabled, aiGatewayEnabled_);
         DARABONBA_PTR_TO_JSON(CanNotCreateColumnar, canNotCreateColumnar_);
         DARABONBA_PTR_TO_JSON(CnNodeClassCode, cnNodeClassCode_);
         DARABONBA_PTR_TO_JSON(CnNodeCount, cnNodeCount_);
@@ -96,6 +97,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
       };
       friend void from_json(const Darabonba::Json& j, DBInstance& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiGatewayEnabled, aiGatewayEnabled_);
         DARABONBA_PTR_FROM_JSON(CanNotCreateColumnar, canNotCreateColumnar_);
         DARABONBA_PTR_FROM_JSON(CnNodeClassCode, cnNodeClassCode_);
         DARABONBA_PTR_FROM_JSON(CnNodeCount, cnNodeCount_);
@@ -439,19 +441,26 @@ namespace Models
         shared_ptr<string> vpcInstanceId_ {};
       };
 
-      virtual bool empty() const override { return this->canNotCreateColumnar_ == nullptr
-        && this->cnNodeClassCode_ == nullptr && this->cnNodeCount_ == nullptr && this->columnarInstanceName_ == nullptr && this->columnarReadDBInstances_ == nullptr && this->commodityCode_ == nullptr
-        && this->connAddrs_ == nullptr && this->connectionString_ == nullptr && this->cpuType_ == nullptr && this->createTime_ == nullptr && this->DBInstanceType_ == nullptr
-        && this->DBNodeClass_ == nullptr && this->DBNodeCount_ == nullptr && this->DBNodes_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr
-        && this->description_ == nullptr && this->differentDNSpec_ == nullptr && this->dnNodeClassCode_ == nullptr && this->dnNodeCount_ == nullptr && this->dnStorageSpace_ == nullptr
-        && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->expireDate_ == nullptr && this->expired_ == nullptr && this->gdnInstanceName_ == nullptr
-        && this->gdnMemberList_ == nullptr && this->gdnRole_ == nullptr && this->id_ == nullptr && this->kindCode_ == nullptr && this->LTSVersions_ == nullptr
-        && this->latestMinorVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->minorVersion_ == nullptr
-        && this->network_ == nullptr && this->payType_ == nullptr && this->port_ == nullptr && this->primaryInstanceId_ == nullptr && this->primaryZone_ == nullptr
-        && this->readDBInstances_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->rightsSeparationEnabled_ == nullptr && this->rightsSeparationStatus_ == nullptr
-        && this->secondaryZone_ == nullptr && this->series_ == nullptr && this->specCategory_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr
-        && this->storageUsed_ == nullptr && this->tagSet_ == nullptr && this->tertiaryZone_ == nullptr && this->topologyType_ == nullptr && this->type_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+      virtual bool empty() const override { return this->aiGatewayEnabled_ == nullptr
+        && this->canNotCreateColumnar_ == nullptr && this->cnNodeClassCode_ == nullptr && this->cnNodeCount_ == nullptr && this->columnarInstanceName_ == nullptr && this->columnarReadDBInstances_ == nullptr
+        && this->commodityCode_ == nullptr && this->connAddrs_ == nullptr && this->connectionString_ == nullptr && this->cpuType_ == nullptr && this->createTime_ == nullptr
+        && this->DBInstanceType_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeCount_ == nullptr && this->DBNodes_ == nullptr && this->DBType_ == nullptr
+        && this->DBVersion_ == nullptr && this->description_ == nullptr && this->differentDNSpec_ == nullptr && this->dnNodeClassCode_ == nullptr && this->dnNodeCount_ == nullptr
+        && this->dnStorageSpace_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->expireDate_ == nullptr && this->expired_ == nullptr
+        && this->gdnInstanceName_ == nullptr && this->gdnMemberList_ == nullptr && this->gdnRole_ == nullptr && this->id_ == nullptr && this->kindCode_ == nullptr
+        && this->LTSVersions_ == nullptr && this->latestMinorVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
+        && this->minorVersion_ == nullptr && this->network_ == nullptr && this->payType_ == nullptr && this->port_ == nullptr && this->primaryInstanceId_ == nullptr
+        && this->primaryZone_ == nullptr && this->readDBInstances_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->rightsSeparationEnabled_ == nullptr
+        && this->rightsSeparationStatus_ == nullptr && this->secondaryZone_ == nullptr && this->series_ == nullptr && this->specCategory_ == nullptr && this->status_ == nullptr
+        && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->tagSet_ == nullptr && this->tertiaryZone_ == nullptr && this->topologyType_ == nullptr
+        && this->type_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+      // aiGatewayEnabled Field Functions 
+      bool hasAiGatewayEnabled() const { return this->aiGatewayEnabled_ != nullptr;};
+      void deleteAiGatewayEnabled() { this->aiGatewayEnabled_ = nullptr;};
+      inline string getAiGatewayEnabled() const { DARABONBA_PTR_GET_DEFAULT(aiGatewayEnabled_, "") };
+      inline DBInstance& setAiGatewayEnabled(string aiGatewayEnabled) { DARABONBA_PTR_SET_VALUE(aiGatewayEnabled_, aiGatewayEnabled) };
+
+
       // canNotCreateColumnar Field Functions 
       bool hasCanNotCreateColumnar() const { return this->canNotCreateColumnar_ != nullptr;};
       void deleteCanNotCreateColumnar() { this->canNotCreateColumnar_ = nullptr;};
@@ -880,6 +889,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> aiGatewayEnabled_ {};
       // Indicates whether the In-Memory Column Index feature is supported.
       shared_ptr<bool> canNotCreateColumnar_ {};
       // The CN node specifications. Valid values:
@@ -908,7 +918,7 @@ namespace Models
       // The internal network connection string.
       shared_ptr<string> connectionString_ {};
       shared_ptr<string> cpuType_ {};
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The instance type. Valid values:
       // 
@@ -923,9 +933,9 @@ namespace Models
       shared_ptr<vector<DBInstance::DBNodes>> DBNodes_ {};
       // The database type. The value is fixed as polarx.
       shared_ptr<string> DBType_ {};
-      // The database engine version.
+      // The database version.
       shared_ptr<string> DBVersion_ {};
-      // The description of the instance.
+      // The instance description.
       shared_ptr<string> description_ {};
       // Indicates whether the DN nodes of the instance have different specifications. Valid values:
       // 
@@ -951,45 +961,45 @@ namespace Models
       shared_ptr<string> dnNodeClassCode_ {};
       // The number of DN nodes.
       shared_ptr<int32_t> dnNodeCount_ {};
-      // The disk space of the DN data nodes, in GB.
+      // The disk space of the DN data node, in GB.
       shared_ptr<string> dnStorageSpace_ {};
       // The database type. The value is fixed as polarx.
       shared_ptr<string> engine_ {};
       shared_ptr<string> engineVersion_ {};
-      // The expiration time. The time is in the yyyy-MM-ddTHH:mm:ss.sss+0000 format (UTC).
+      // The expiration time. Format: yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC).
       shared_ptr<string> expireDate_ {};
       // Indicates whether the instance has expired. Valid values:
       // 
-      // - **true**: The instance has expired.
-      // - **false**: The instance is running normally.
+      // - **true**: Expired.
+      // - **false**: Not expired.
       shared_ptr<string> expired_ {};
       shared_ptr<string> gdnInstanceName_ {};
       shared_ptr<vector<DBInstance::GdnMemberList>> gdnMemberList_ {};
       shared_ptr<string> gdnRole_ {};
       // The ID of the primary instance. If this parameter is not returned, the instance is a primary instance.
       shared_ptr<string> id_ {};
-      // The instance DPI engine version code. This is an internal parameter.
+      // The engine version of the instance. This is an internal parameter.
       shared_ptr<int32_t> kindCode_ {};
       // This parameter is required.
       shared_ptr<vector<string>> LTSVersions_ {};
-      // The latest kernel version supported by the instance.
+      // The latest minor engine version supported by the instance.
       shared_ptr<string> latestMinorVersion_ {};
       // The lock mode of the instance. Valid values:
       // 
-      // - **Unlock**: The instance is running normally.
-      // - **ManualLock**: The instance is manually locked.
-      // - **LockByExpiration**: The instance is automatically locked due to expiration.
-      // - **LockByRestoration**: The instance is automatically locked before a rollback.
-      // - **LockByDiskQuota**: The instance is automatically locked because the storage is full.
-      // - **LockReadInstanceByDiskQuota**: The read-only instance is automatically locked because the storage is full.
+      // - **Unlock**: Normal.
+      // - **ManualLock**: Manually locked.
+      // - **LockByExpiration**: Automatically locked due to instance expiration.
+      // - **LockByRestoration**: Automatically locked before instance rollback.
+      // - **LockByDiskQuota**: Automatically locked due to insufficient disk space.
+      // - **LockReadInstanceByDiskQuota**: Read-only instance automatically locked due to insufficient disk space.
       shared_ptr<string> lockMode_ {};
       // The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainEndTime_ {};
       // The start time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainStartTime_ {};
-      // The current kernel version.
+      // The current minor engine version.
       shared_ptr<string> minorVersion_ {};
-      // The network type of the instance. Only VPC is supported, which indicates a virtual private cloud (VPC).
+      // The network type of the instance. Only VPC is supported, which indicates Virtual Private Cloud.
       shared_ptr<string> network_ {};
       // The billing method of the instance. Valid values:
       // 
@@ -1007,7 +1017,7 @@ namespace Models
       shared_ptr<vector<string>> readDBInstances_ {};
       // The region in which the instance resides.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The three-role mode status. Valid values:
       // 
@@ -1019,7 +1029,7 @@ namespace Models
       // - **disabled**: Disabled.
       // - **enabled**: Enabled.
       // - **processing**: Being processed.
-      // - **unknown**: Unknown. The instance may be disconnected.
+      // - **unknown**: Unknown. This may be caused by the instance being unreachable.
       shared_ptr<string> rightsSeparationStatus_ {};
       // The secondary zone.
       shared_ptr<string> secondaryZone_ {};
@@ -1036,7 +1046,7 @@ namespace Models
       shared_ptr<int64_t> storageUsed_ {};
       // The tag set.
       shared_ptr<vector<DBInstance::TagSet>> tagSet_ {};
-      // The third zone.
+      // The tertiary zone for Three-zone deployment.
       shared_ptr<string> tertiaryZone_ {};
       // The topology type. Valid values:
       // 

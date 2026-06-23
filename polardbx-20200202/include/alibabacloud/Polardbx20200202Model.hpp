@@ -51,6 +51,9 @@
 #include <alibabacloud/models/CreateDataImportTaskRequest.hpp>
 #include <alibabacloud/models/CreateDataImportTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateDataImportTaskResponse.hpp>
+#include <alibabacloud/models/CreateGatewayConsumerForPolarDBXRequest.hpp>
+#include <alibabacloud/models/CreateGatewayConsumerForPolarDBXResponseBody.hpp>
+#include <alibabacloud/models/CreateGatewayConsumerForPolarDBXResponse.hpp>
 #include <alibabacloud/models/CreateGdnInstanceRequest.hpp>
 #include <alibabacloud/models/CreateGdnInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateGdnInstanceResponse.hpp>

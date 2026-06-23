@@ -319,6 +319,27 @@ namespace Polardbx20200202
       Models::CreateDataImportTaskResponse createDataImportTask(const Models::CreateDataImportTaskRequest &request);
 
       /**
+       * @summary Creates an AI gateway consumer for a PolarDB-X instance.
+       *
+       * @description ****.
+       *
+       * @param request CreateGatewayConsumerForPolarDBXRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGatewayConsumerForPolarDBXResponse
+       */
+      Models::CreateGatewayConsumerForPolarDBXResponse createGatewayConsumerForPolarDBXWithOptions(const Models::CreateGatewayConsumerForPolarDBXRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an AI gateway consumer for a PolarDB-X instance.
+       *
+       * @description ****.
+       *
+       * @param request CreateGatewayConsumerForPolarDBXRequest
+       * @return CreateGatewayConsumerForPolarDBXResponse
+       */
+      Models::CreateGatewayConsumerForPolarDBXResponse createGatewayConsumerForPolarDBX(const Models::CreateGatewayConsumerForPolarDBXRequest &request);
+
+      /**
        * @summary Creates a Global Database Network (GDN) instance.
        *
        * @param request CreateGdnInstanceRequest
