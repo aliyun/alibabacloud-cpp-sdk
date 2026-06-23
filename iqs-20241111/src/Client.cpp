@@ -18,7 +18,10 @@ namespace IQS20241111
 {
 
 AlibabaCloud::IQS20241111::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-zhangjiakou" , "iqs.cn-zhangjiakou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("iqs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +40,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary AI搜索流式接口(废弃)
+ * @summary This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+ *
+ * @description Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
+ * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
  *
  * @param request AiSearchRequest
  * @param headers map
@@ -100,7 +106,10 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary AI搜索流式接口(废弃)
+ * @summary This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+ *
+ * @description Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
+ * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
  *
  * @param request AiSearchRequest
  * @param headers map
@@ -149,7 +158,10 @@ AiSearchResponse Client::aiSearchWithOptions(const AiSearchRequest &request, con
 }
 
 /**
- * @summary AI搜索流式接口(废弃)
+ * @summary This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+ *
+ * @description Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
+ * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
  *
  * @param request AiSearchRequest
  * @return AiSearchResponse
@@ -162,6 +174,8 @@ AiSearchResponse Client::aiSearch(const AiSearchRequest &request) {
 
 /**
  * @summary 自然语言通用查询
+ *
+ * @description 自然语言搜索通用接口
  *
  * @param request CommonQueryBySceneRequest
  * @param headers map
@@ -191,6 +205,8 @@ CommonQueryBySceneResponse Client::commonQueryBySceneWithOptions(const CommonQue
 /**
  * @summary 自然语言通用查询
  *
+ * @description 自然语言搜索通用接口
+ *
  * @param request CommonQueryBySceneRequest
  * @return CommonQueryBySceneResponse
  */
@@ -201,7 +217,9 @@ CommonQueryBySceneResponse Client::commonQueryByScene(const CommonQueryBySceneRe
 }
 
 /**
- * @summary 增强版通用搜索
+ * @summary This topic describes how to invoke the enhanced search operation (GenericAdvancedSearch) by using the Alibaba Cloud OpenAPI SDK, including the method and metric description. Compared with GenericSearch, GenericAdvancedSearch provides better recall of authoritative websites, with a maximum recall count of 40, delivering improved authoritativeness and data diversity. The response parameters and format of the enhanced operation are consistent with those of GenericAdvancedSearch.
+ *
+ * @description GenericAdvancedSearch is currently in the testing phase. New specifications will be available for purchase in the future.
  *
  * @param request GenericAdvancedSearchRequest
  * @param headers map
@@ -246,7 +264,9 @@ GenericAdvancedSearchResponse Client::genericAdvancedSearchWithOptions(const Gen
 }
 
 /**
- * @summary 增强版通用搜索
+ * @summary This topic describes how to invoke the enhanced search operation (GenericAdvancedSearch) by using the Alibaba Cloud OpenAPI SDK, including the method and metric description. Compared with GenericSearch, GenericAdvancedSearch provides better recall of authoritative websites, with a maximum recall count of 40, delivering improved authoritativeness and data diversity. The response parameters and format of the enhanced operation are consistent with those of GenericAdvancedSearch.
+ *
+ * @description GenericAdvancedSearch is currently in the testing phase. New specifications will be available for purchase in the future.
  *
  * @param request GenericAdvancedSearchRequest
  * @return GenericAdvancedSearchResponse
@@ -258,7 +278,7 @@ GenericAdvancedSearchResponse Client::genericAdvancedSearch(const GenericAdvance
 }
 
 /**
- * @summary 通用搜索
+ * @summary Performs a general-purpose search.
  *
  * @param tmpReq GenericSearchRequest
  * @param headers map
@@ -337,7 +357,7 @@ GenericSearchResponse Client::genericSearchWithOptions(const GenericSearchReques
 }
 
 /**
- * @summary 通用搜索
+ * @summary Performs a general-purpose search.
  *
  * @param request GenericSearchRequest
  * @return GenericSearchResponse
@@ -349,7 +369,7 @@ GenericSearchResponse Client::genericSearch(const GenericSearchRequest &request)
 }
 
 /**
- * @summary 信息查询服务接口日维度使用量查询
+ * @summary Query daily usage by dimension for the Information Query Service API
  *
  * @param request GetIqsUsageRequest
  * @param headers map
@@ -390,7 +410,7 @@ GetIqsUsageResponse Client::getIqsUsageWithOptions(const GetIqsUsageRequest &req
 }
 
 /**
- * @summary 信息查询服务接口日维度使用量查询
+ * @summary Query daily usage by dimension for the Information Query Service API
  *
  * @param request GetIqsUsageRequest
  * @return GetIqsUsageResponse
@@ -402,7 +422,9 @@ GetIqsUsageResponse Client::getIqsUsage(const GetIqsUsageRequest &request) {
 }
 
 /**
- * @summary 通晓搜索-出海版(全球信息搜索)
+ * @summary IQS Search - Global Edition (Global Information Search)
+ *
+ * @description This document describes the usage and parameter specifications of GlobalSearch, the global edition of IQS Search.
  *
  * @param request GlobalSearchRequest
  * @param headers map
@@ -447,7 +469,9 @@ GlobalSearchResponse Client::globalSearchWithOptions(const GlobalSearchRequest &
 }
 
 /**
- * @summary 通晓搜索-出海版(全球信息搜索)
+ * @summary IQS Search - Global Edition (Global Information Search)
+ *
+ * @description This document describes the usage and parameter specifications of GlobalSearch, the global edition of IQS Search.
  *
  * @param request GlobalSearchRequest
  * @return GlobalSearchResponse
@@ -459,7 +483,7 @@ GlobalSearchResponse Client::globalSearch(const GlobalSearchRequest &request) {
 }
 
 /**
- * @summary 医疗问答
+ * @summary Medical Q&A
  *
  * @param request MedicalAnswerRequest
  * @param headers map
@@ -487,7 +511,7 @@ MedicalAnswerResponse Client::medicalAnswerWithOptions(const MedicalAnswerReques
 }
 
 /**
- * @summary 医疗问答
+ * @summary Medical Q&A
  *
  * @param request MedicalAnswerRequest
  * @return MedicalAnswerResponse
@@ -499,7 +523,7 @@ MedicalAnswerResponse Client::medicalAnswer(const MedicalAnswerRequest &request)
 }
 
 /**
- * @summary 医疗图谱
+ * @summary Health Graph
  *
  * @param request MedicalKnowledgeRequest
  * @param headers map
@@ -527,7 +551,7 @@ MedicalKnowledgeResponse Client::medicalKnowledgeWithOptions(const MedicalKnowle
 }
 
 /**
- * @summary 医疗图谱
+ * @summary Health Graph
  *
  * @param request MedicalKnowledgeRequest
  * @return MedicalKnowledgeResponse
@@ -539,7 +563,7 @@ MedicalKnowledgeResponse Client::medicalKnowledge(const MedicalKnowledgeRequest 
 }
 
 /**
- * @summary 多模态搜索
+ * @summary Multimodal search
  *
  * @param request MultimodalSearchRequest
  * @param headers map
@@ -567,7 +591,7 @@ MultimodalSearchResponse Client::multimodalSearchWithOptions(const MultimodalSea
 }
 
 /**
- * @summary 多模态搜索
+ * @summary Multimodal search
  *
  * @param request MultimodalSearchRequest
  * @return MultimodalSearchResponse
@@ -579,7 +603,7 @@ MultimodalSearchResponse Client::multimodalSearch(const MultimodalSearchRequest 
 }
 
 /**
- * @summary 通用问答
+ * @summary This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
  *
  * @param request OmniAnswerRequest
  * @param headers map
@@ -621,7 +645,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 通用问答
+ * @summary This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
  *
  * @param request OmniAnswerRequest
  * @param headers map
@@ -649,7 +673,7 @@ OmniAnswerResponse Client::omniAnswerWithOptions(const OmniAnswerRequest &reques
 }
 
 /**
- * @summary 通用问答
+ * @summary This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
  *
  * @param request OmniAnswerRequest
  * @return OmniAnswerResponse
@@ -661,7 +685,11 @@ OmniAnswerResponse Client::omniAnswer(const OmniAnswerRequest &request) {
 }
 
 /**
- * @summary 页面读取
+ * @summary Quickly retrieve HTML and parse static web page content.
+ *
+ * @description 1. When the HTTP status code (httpcode) of the target address is less than 500, it is counted as one valid request.  
+ * 2. If the content type (Content-Type) in the response header of the target address is application/pdf, the system automatically triggers PDF parsing (PDF file size must not exceed 20 MB). This operation is counted as an additional valid request.  
+ * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
  *
  * @param request ReadPageBasicRequest
  * @param headers map
@@ -689,7 +717,11 @@ ReadPageBasicResponse Client::readPageBasicWithOptions(const ReadPageBasicReques
 }
 
 /**
- * @summary 页面读取
+ * @summary Quickly retrieve HTML and parse static web page content.
+ *
+ * @description 1. When the HTTP status code (httpcode) of the target address is less than 500, it is counted as one valid request.  
+ * 2. If the content type (Content-Type) in the response header of the target address is application/pdf, the system automatically triggers PDF parsing (PDF file size must not exceed 20 MB). This operation is counted as an additional valid request.  
+ * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
  *
  * @param request ReadPageBasicRequest
  * @return ReadPageBasicResponse
@@ -701,7 +733,12 @@ ReadPageBasicResponse Client::readPageBasic(const ReadPageBasicRequest &request)
 }
 
 /**
- * @summary 动态页面解析
+ * @summary 1. Read HTML and parse web page content through the browser sandbox environment.  
+ * 2. The API starts parsing after all resources on the target page are fully loaded (the maximum waiting duration can be adjusted via the pageTimeout parameter). The overall Duration of the API call is significantly affected by the resource loading performance of the target site.
+ *
+ * @description 1. A request is counted as valid when the HTTP status code (httpcode) of the target URL is less than 500.  
+ * 2. If the content type (Content-Type) in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (PDF files up to 20 MB are supported). This operation is counted as an additional valid request.  
+ * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
  *
  * @param request ReadPageScrapeRequest
  * @param headers map
@@ -729,7 +766,12 @@ ReadPageScrapeResponse Client::readPageScrapeWithOptions(const ReadPageScrapeReq
 }
 
 /**
- * @summary 动态页面解析
+ * @summary 1. Read HTML and parse web page content through the browser sandbox environment.  
+ * 2. The API starts parsing after all resources on the target page are fully loaded (the maximum waiting duration can be adjusted via the pageTimeout parameter). The overall Duration of the API call is significantly affected by the resource loading performance of the target site.
+ *
+ * @description 1. A request is counted as valid when the HTTP status code (httpcode) of the target URL is less than 500.  
+ * 2. If the content type (Content-Type) in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (PDF files up to 20 MB are supported). This operation is counted as an additional valid request.  
+ * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
  *
  * @param request ReadPageScrapeRequest
  * @return ReadPageScrapeResponse
@@ -781,7 +823,7 @@ ScanFileResponse Client::scanFile(const ScanFileRequest &request) {
 }
 
 /**
- * @summary 通晓统一搜索API
+ * @summary Provides access to the Tongxiao unified search API, enabling quick and easy integration of web-wide general search capabilities.
  *
  * @param request UnifiedSearchRequest
  * @param headers map
@@ -809,7 +851,7 @@ UnifiedSearchResponse Client::unifiedSearchWithOptions(const UnifiedSearchReques
 }
 
 /**
- * @summary 通晓统一搜索API
+ * @summary Provides access to the Tongxiao unified search API, enabling quick and easy integration of web-wide general search capabilities.
  *
  * @param request UnifiedSearchRequest
  * @return UnifiedSearchResponse

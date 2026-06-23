@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The detailed information in JSON format.
     shared_ptr<string> detail_ {};
+    // The type of the vertical data.
     shared_ptr<string> type_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The search request parameters.
     shared_ptr<UnifiedSearchInput> body_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // Alibaba
     shared_ptr<MultimodalOriginalQuery> originalQuery_ {};
   };
 

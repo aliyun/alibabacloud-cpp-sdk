@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether rewriting is enabled.
     shared_ptr<bool> enabled_ {};
+    // The rewritten timeRange.
     shared_ptr<string> timeRange_ {};
   };
 

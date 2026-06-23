@@ -76,8 +76,11 @@ namespace Models
 
 
     protected:
+      // 页码
       shared_ptr<string> page_ {};
+      // 查询关键字
       shared_ptr<string> query_ {};
+      // 时间范围
       shared_ptr<string> timeRange_ {};
     };
 
@@ -92,6 +95,7 @@ namespace Models
 
 
   protected:
+    // The initial query condition.
     shared_ptr<GlobalQueryContext::OriginalQuery> originalQuery_ {};
   };
 

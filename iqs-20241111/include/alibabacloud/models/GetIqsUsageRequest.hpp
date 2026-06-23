@@ -58,7 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<string> callerId_ {};
+    // End Date.
     shared_ptr<string> endDate_ {};
+    // Start Date.
     shared_ptr<string> startDate_ {};
   };
 

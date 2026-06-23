@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request query.
     shared_ptr<string> query_ {};
+    // The publish time range.
     shared_ptr<string> timeRange_ {};
   };
 

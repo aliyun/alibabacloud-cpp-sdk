@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The value-added package - enhanced search.
     shared_ptr<int32_t> advanced_ {};
+    // The value-added package - enhanced summary.
     shared_ptr<int32_t> summary_ {};
   };
 

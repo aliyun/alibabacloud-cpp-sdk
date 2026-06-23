@@ -63,8 +63,11 @@ namespace Models
 
 
   protected:
+    // The search engine used.
     shared_ptr<string> engineType_ {};
+    // The initial request.
     shared_ptr<UnifiedOriginalQuery> originalQuery_ {};
+    // The rewritten result.
     shared_ptr<UnifiedRewrite> rewrite_ {};
   };
 

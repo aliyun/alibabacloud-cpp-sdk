@@ -100,9 +100,21 @@ namespace Models
 
 
     protected:
+      // 是否剔除所有图片
+      // 
+      // 默认值：false
       shared_ptr<bool> excludeAllImages_ {};
+      // 是否剔除所有链接
+      // 
+      // 默认值：false
       shared_ptr<bool> excludeAllLinks_ {};
+      // 指定排除的标签
       shared_ptr<vector<string>> excludedTags_ {};
+      // none：不删除信息，默认为 none
+      // 
+      // normal: 基于自研算法，剔除目标页面无关信息（页头/页脚，导航等）
+      // 
+      // article: 基于自研算法，获取站点主要正文内容(适用于博客、新闻站点，不适用于目录页、导航页)
       shared_ptr<string> readabilityMode_ {};
     };
 
@@ -163,12 +175,34 @@ namespace Models
 
 
   protected:
+    // The format of the parsing result.
+    // 
+    // - rawHtml: the HTML of the target site.
+    // - html: the page content processed based on readabilityMode.
+    // - markdown: the Markdown content converted from the HTML.
+    // - text: the text content extracted from the HTML.
+    // - screenshot: a screenshot of the target site.
     shared_ptr<vector<string>> formats_ {};
+    // This parameter does not need to be specified.
     shared_ptr<string> location_ {};
+    // The maximum cache validity period. Unit: seconds. Default value: 1296000.
+    // 1. If the cache duration is less than the value of maxAge, cached content is returned.
+    // 2. If maxAge is set to 0, caching is not used.
     shared_ptr<int32_t> maxAge_ {};
+    // The timeout period for waiting for the target site resources to fully load. The value of pageTimeout must be less than the value of timeout.
+    // 
+    // Default value: 15000.
     shared_ptr<int32_t> pageTimeout_ {};
+    // The readability configuration for the parsing result.
     shared_ptr<ReadPageScrapeBody::Readability> readability_ {};
+    // The end-to-end processing timeout period. Unit: ms.
+    // 
+    // Valid values: [0, 180000].
+    // 
+    // Default value: 60000.
     shared_ptr<int32_t> timeout_ {};
+    // The target URL to parse. The URL must start with http:// or https://.
+    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
   };

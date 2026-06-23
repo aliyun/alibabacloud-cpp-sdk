@@ -88,11 +88,15 @@ namespace Models
 
 
   protected:
+    // The list of web page content.
     shared_ptr<vector<GlobalPageItem>> pageItems_ {};
+    // The query context.
     shared_ptr<GlobalQueryContext> queryContext_ {};
-    // requestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The scenario-specific vertical API recall results.
     shared_ptr<vector<GlobalSceneItem>> sceneItems_ {};
+    // The search information.
     shared_ptr<GlobalSearchInformation> searchInformation_ {};
   };
 

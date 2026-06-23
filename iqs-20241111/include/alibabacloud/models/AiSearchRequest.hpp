@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The industry. After you specify an industry, only content from websites within the specified industry is recalled. Separate multiple industries with commas.
     shared_ptr<string> industry_ {};
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> page_ {};
+    // The query to search for.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The time range for filtering web page publication dates.
     shared_ptr<string> sessionId_ {};
+    // The session ID for multi-turn interactions.
     shared_ptr<string> timeRange_ {};
   };
 

@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The Base64 encoding of the image.
     shared_ptr<string> imageBase64_ {};
+    // The URL of the image.
     shared_ptr<string> imageUrl_ {};
+    // The scan parameters.
     shared_ptr<ScanFileInputConfig> scanFileInputConfig_ {};
   };
 

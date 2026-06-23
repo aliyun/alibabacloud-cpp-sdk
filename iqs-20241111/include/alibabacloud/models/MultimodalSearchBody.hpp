@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const MultimodalSearchBody& obj) { 
       DARABONBA_ANY_TO_JSON(advancedParams, advancedParams_);
+      DARABONBA_PTR_TO_JSON(engineType, engineType_);
       DARABONBA_PTR_TO_JSON(query, query_);
     };
     friend void from_json(const Darabonba::Json& j, MultimodalSearchBody& obj) { 
       DARABONBA_ANY_FROM_JSON(advancedParams, advancedParams_);
+      DARABONBA_PTR_FROM_JSON(engineType, engineType_);
       DARABONBA_PTR_FROM_JSON(query, query_);
     };
     MultimodalSearchBody() = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->advancedParams_ == nullptr
-        && this->query_ == nullptr; };
+        && this->engineType_ == nullptr && this->query_ == nullptr; };
     // advancedParams Field Functions 
     bool hasAdvancedParams() const { return this->advancedParams_ != nullptr;};
     void deleteAdvancedParams() { this->advancedParams_ = nullptr;};
@@ -40,6 +42,13 @@ namespace Models
     Darabonba::Json & getAdvancedParams() { DARABONBA_GET(advancedParams_) };
     inline MultimodalSearchBody& setAdvancedParams(const Darabonba::Json & advancedParams) { DARABONBA_SET_VALUE(advancedParams_, advancedParams) };
     inline MultimodalSearchBody& setAdvancedParams(Darabonba::Json && advancedParams) { DARABONBA_SET_RVALUE(advancedParams_, advancedParams) };
+
+
+    // engineType Field Functions 
+    bool hasEngineType() const { return this->engineType_ != nullptr;};
+    void deleteEngineType() { this->engineType_ = nullptr;};
+    inline string getEngineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
+    inline MultimodalSearchBody& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
 
 
     // query Field Functions 
@@ -50,7 +59,10 @@ namespace Models
 
 
   protected:
+    // Additional query parameters, such as blocked sites
     Darabonba::Json advancedParams_ {};
+    shared_ptr<string> engineType_ {};
+    // Query content
     shared_ptr<string> query_ {};
   };
 

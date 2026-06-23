@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of scan result objects.
     shared_ptr<vector<ScanFileInfo>> scanFileInfoList_ {};
+    // The search execution information.
     shared_ptr<UnifiedSearchInformation> searchInformation_ {};
   };
 

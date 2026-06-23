@@ -21,7 +21,10 @@ namespace IQS20241111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary AI搜索流式接口(废弃)
+       * @summary This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+       *
+       * @description Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
+       * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
        *
        * @param request AiSearchRequest
        * @param headers map
@@ -31,7 +34,10 @@ namespace IQS20241111
       FutureGenerator<Models::AiSearchResponse> aiSearchWithSSE(const Models::AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI搜索流式接口(废弃)
+       * @summary This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+       *
+       * @description Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
+       * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
        *
        * @param request AiSearchRequest
        * @param headers map
@@ -41,7 +47,10 @@ namespace IQS20241111
       Models::AiSearchResponse aiSearchWithOptions(const Models::AiSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI搜索流式接口(废弃)
+       * @summary This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+       *
+       * @description Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
+       * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
        *
        * @param request AiSearchRequest
        * @return AiSearchResponse
@@ -50,6 +59,8 @@ namespace IQS20241111
 
       /**
        * @summary 自然语言通用查询
+       *
+       * @description 自然语言搜索通用接口
        *
        * @param request CommonQueryBySceneRequest
        * @param headers map
@@ -61,13 +72,17 @@ namespace IQS20241111
       /**
        * @summary 自然语言通用查询
        *
+       * @description 自然语言搜索通用接口
+       *
        * @param request CommonQueryBySceneRequest
        * @return CommonQueryBySceneResponse
        */
       Models::CommonQueryBySceneResponse commonQueryByScene(const Models::CommonQueryBySceneRequest &request);
 
       /**
-       * @summary 增强版通用搜索
+       * @summary This topic describes how to invoke the enhanced search operation (GenericAdvancedSearch) by using the Alibaba Cloud OpenAPI SDK, including the method and metric description. Compared with GenericSearch, GenericAdvancedSearch provides better recall of authoritative websites, with a maximum recall count of 40, delivering improved authoritativeness and data diversity. The response parameters and format of the enhanced operation are consistent with those of GenericAdvancedSearch.
+       *
+       * @description GenericAdvancedSearch is currently in the testing phase. New specifications will be available for purchase in the future.
        *
        * @param request GenericAdvancedSearchRequest
        * @param headers map
@@ -77,7 +92,9 @@ namespace IQS20241111
       Models::GenericAdvancedSearchResponse genericAdvancedSearchWithOptions(const Models::GenericAdvancedSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增强版通用搜索
+       * @summary This topic describes how to invoke the enhanced search operation (GenericAdvancedSearch) by using the Alibaba Cloud OpenAPI SDK, including the method and metric description. Compared with GenericSearch, GenericAdvancedSearch provides better recall of authoritative websites, with a maximum recall count of 40, delivering improved authoritativeness and data diversity. The response parameters and format of the enhanced operation are consistent with those of GenericAdvancedSearch.
+       *
+       * @description GenericAdvancedSearch is currently in the testing phase. New specifications will be available for purchase in the future.
        *
        * @param request GenericAdvancedSearchRequest
        * @return GenericAdvancedSearchResponse
@@ -85,7 +102,7 @@ namespace IQS20241111
       Models::GenericAdvancedSearchResponse genericAdvancedSearch(const Models::GenericAdvancedSearchRequest &request);
 
       /**
-       * @summary 通用搜索
+       * @summary Performs a general-purpose search.
        *
        * @param tmpReq GenericSearchRequest
        * @param headers map
@@ -95,7 +112,7 @@ namespace IQS20241111
       Models::GenericSearchResponse genericSearchWithOptions(const Models::GenericSearchRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用搜索
+       * @summary Performs a general-purpose search.
        *
        * @param request GenericSearchRequest
        * @return GenericSearchResponse
@@ -103,7 +120,7 @@ namespace IQS20241111
       Models::GenericSearchResponse genericSearch(const Models::GenericSearchRequest &request);
 
       /**
-       * @summary 信息查询服务接口日维度使用量查询
+       * @summary Query daily usage by dimension for the Information Query Service API
        *
        * @param request GetIqsUsageRequest
        * @param headers map
@@ -113,7 +130,7 @@ namespace IQS20241111
       Models::GetIqsUsageResponse getIqsUsageWithOptions(const Models::GetIqsUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 信息查询服务接口日维度使用量查询
+       * @summary Query daily usage by dimension for the Information Query Service API
        *
        * @param request GetIqsUsageRequest
        * @return GetIqsUsageResponse
@@ -121,7 +138,9 @@ namespace IQS20241111
       Models::GetIqsUsageResponse getIqsUsage(const Models::GetIqsUsageRequest &request);
 
       /**
-       * @summary 通晓搜索-出海版(全球信息搜索)
+       * @summary IQS Search - Global Edition (Global Information Search)
+       *
+       * @description This document describes the usage and parameter specifications of GlobalSearch, the global edition of IQS Search.
        *
        * @param request GlobalSearchRequest
        * @param headers map
@@ -131,7 +150,9 @@ namespace IQS20241111
       Models::GlobalSearchResponse globalSearchWithOptions(const Models::GlobalSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通晓搜索-出海版(全球信息搜索)
+       * @summary IQS Search - Global Edition (Global Information Search)
+       *
+       * @description This document describes the usage and parameter specifications of GlobalSearch, the global edition of IQS Search.
        *
        * @param request GlobalSearchRequest
        * @return GlobalSearchResponse
@@ -139,7 +160,7 @@ namespace IQS20241111
       Models::GlobalSearchResponse globalSearch(const Models::GlobalSearchRequest &request);
 
       /**
-       * @summary 医疗问答
+       * @summary Medical Q&A
        *
        * @param request MedicalAnswerRequest
        * @param headers map
@@ -149,7 +170,7 @@ namespace IQS20241111
       Models::MedicalAnswerResponse medicalAnswerWithOptions(const Models::MedicalAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 医疗问答
+       * @summary Medical Q&A
        *
        * @param request MedicalAnswerRequest
        * @return MedicalAnswerResponse
@@ -157,7 +178,7 @@ namespace IQS20241111
       Models::MedicalAnswerResponse medicalAnswer(const Models::MedicalAnswerRequest &request);
 
       /**
-       * @summary 医疗图谱
+       * @summary Health Graph
        *
        * @param request MedicalKnowledgeRequest
        * @param headers map
@@ -167,7 +188,7 @@ namespace IQS20241111
       Models::MedicalKnowledgeResponse medicalKnowledgeWithOptions(const Models::MedicalKnowledgeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 医疗图谱
+       * @summary Health Graph
        *
        * @param request MedicalKnowledgeRequest
        * @return MedicalKnowledgeResponse
@@ -175,7 +196,7 @@ namespace IQS20241111
       Models::MedicalKnowledgeResponse medicalKnowledge(const Models::MedicalKnowledgeRequest &request);
 
       /**
-       * @summary 多模态搜索
+       * @summary Multimodal search
        *
        * @param request MultimodalSearchRequest
        * @param headers map
@@ -185,7 +206,7 @@ namespace IQS20241111
       Models::MultimodalSearchResponse multimodalSearchWithOptions(const Models::MultimodalSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 多模态搜索
+       * @summary Multimodal search
        *
        * @param request MultimodalSearchRequest
        * @return MultimodalSearchResponse
@@ -193,7 +214,7 @@ namespace IQS20241111
       Models::MultimodalSearchResponse multimodalSearch(const Models::MultimodalSearchRequest &request);
 
       /**
-       * @summary 通用问答
+       * @summary This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
        *
        * @param request OmniAnswerRequest
        * @param headers map
@@ -203,7 +224,7 @@ namespace IQS20241111
       FutureGenerator<Models::OmniAnswerResponse> omniAnswerWithSSE(const Models::OmniAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用问答
+       * @summary This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
        *
        * @param request OmniAnswerRequest
        * @param headers map
@@ -213,7 +234,7 @@ namespace IQS20241111
       Models::OmniAnswerResponse omniAnswerWithOptions(const Models::OmniAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用问答
+       * @summary This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
        *
        * @param request OmniAnswerRequest
        * @return OmniAnswerResponse
@@ -221,7 +242,11 @@ namespace IQS20241111
       Models::OmniAnswerResponse omniAnswer(const Models::OmniAnswerRequest &request);
 
       /**
-       * @summary 页面读取
+       * @summary Quickly retrieve HTML and parse static web page content.
+       *
+       * @description 1. When the HTTP status code (httpcode) of the target address is less than 500, it is counted as one valid request.  
+       * 2. If the content type (Content-Type) in the response header of the target address is application/pdf, the system automatically triggers PDF parsing (PDF file size must not exceed 20 MB). This operation is counted as an additional valid request.  
+       * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
        *
        * @param request ReadPageBasicRequest
        * @param headers map
@@ -231,7 +256,11 @@ namespace IQS20241111
       Models::ReadPageBasicResponse readPageBasicWithOptions(const Models::ReadPageBasicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 页面读取
+       * @summary Quickly retrieve HTML and parse static web page content.
+       *
+       * @description 1. When the HTTP status code (httpcode) of the target address is less than 500, it is counted as one valid request.  
+       * 2. If the content type (Content-Type) in the response header of the target address is application/pdf, the system automatically triggers PDF parsing (PDF file size must not exceed 20 MB). This operation is counted as an additional valid request.  
+       * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
        *
        * @param request ReadPageBasicRequest
        * @return ReadPageBasicResponse
@@ -239,7 +268,12 @@ namespace IQS20241111
       Models::ReadPageBasicResponse readPageBasic(const Models::ReadPageBasicRequest &request);
 
       /**
-       * @summary 动态页面解析
+       * @summary 1. Read HTML and parse web page content through the browser sandbox environment.  
+       * 2. The API starts parsing after all resources on the target page are fully loaded (the maximum waiting duration can be adjusted via the pageTimeout parameter). The overall Duration of the API call is significantly affected by the resource loading performance of the target site.
+       *
+       * @description 1. A request is counted as valid when the HTTP status code (httpcode) of the target URL is less than 500.  
+       * 2. If the content type (Content-Type) in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (PDF files up to 20 MB are supported). This operation is counted as an additional valid request.  
+       * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
        *
        * @param request ReadPageScrapeRequest
        * @param headers map
@@ -249,7 +283,12 @@ namespace IQS20241111
       Models::ReadPageScrapeResponse readPageScrapeWithOptions(const Models::ReadPageScrapeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 动态页面解析
+       * @summary 1. Read HTML and parse web page content through the browser sandbox environment.  
+       * 2. The API starts parsing after all resources on the target page are fully loaded (the maximum waiting duration can be adjusted via the pageTimeout parameter). The overall Duration of the API call is significantly affected by the resource loading performance of the target site.
+       *
+       * @description 1. A request is counted as valid when the HTTP status code (httpcode) of the target URL is less than 500.  
+       * 2. If the content type (Content-Type) in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (PDF files up to 20 MB are supported). This operation is counted as an additional valid request.  
+       * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
        *
        * @param request ReadPageScrapeRequest
        * @return ReadPageScrapeResponse
@@ -275,7 +314,7 @@ namespace IQS20241111
       Models::ScanFileResponse scanFile(const Models::ScanFileRequest &request);
 
       /**
-       * @summary 通晓统一搜索API
+       * @summary Provides access to the Tongxiao unified search API, enabling quick and easy integration of web-wide general search capabilities.
        *
        * @param request UnifiedSearchRequest
        * @param headers map
@@ -285,7 +324,7 @@ namespace IQS20241111
       Models::UnifiedSearchResponse unifiedSearchWithOptions(const Models::UnifiedSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通晓统一搜索API
+       * @summary Provides access to the Tongxiao unified search API, enabling quick and easy integration of web-wide general search capabilities.
        *
        * @param request UnifiedSearchRequest
        * @return UnifiedSearchResponse

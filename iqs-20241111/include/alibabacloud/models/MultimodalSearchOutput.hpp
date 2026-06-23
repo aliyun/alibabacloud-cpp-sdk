@@ -76,9 +76,13 @@ namespace Models
 
 
   protected:
+    // Image List
     shared_ptr<vector<UnifiedImageItem>> imageItems_ {};
+    // Query context information
     shared_ptr<MultimodalQueryContext> queryContext_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Search basic information
     shared_ptr<SearchInformation> searchInformation_ {};
   };
 

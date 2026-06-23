@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Height
     shared_ptr<int32_t> height_ {};
+    // URL of the web page to which the image belongs
     shared_ptr<string> hostPageUrl_ {};
+    // Image URL
     shared_ptr<string> imageUrl_ {};
+    // Web page published time, in ISO time format
     shared_ptr<string> publishedTime_ {};
+    // Image title
     shared_ptr<string> title_ {};
+    // Image width
     shared_ptr<int32_t> width_ {};
   };
 

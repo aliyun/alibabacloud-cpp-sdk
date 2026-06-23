@@ -183,18 +183,29 @@ namespace Models
   protected:
     shared_ptr<int32_t> correlationTag_ {};
     shared_ptr<double> hostAuthorityScore_ {};
+    // The site logo.
     shared_ptr<string> hostLogo_ {};
+    // The site name.
     shared_ptr<string> hostname_ {};
+    // The images in the search result URL. A maximum of three images are returned.
     shared_ptr<vector<string>> images_ {};
+    // The full URL that the search result points to.
     shared_ptr<string> link_ {};
+    // The full text of the searched web page.
     shared_ptr<string> mainText_ {};
+    // The Markdown content.
     shared_ptr<string> markdownText_ {};
+    // The time when the web page was published, in ISO time format.
     shared_ptr<string> publishedTime_ {};
+    // The rerank score.
     shared_ptr<double> rerankScore_ {};
     shared_ptr<string> richMainBody_ {};
+    // The text summary.
     shared_ptr<string> snippet_ {};
+    // The enhanced summary, which contains 400 or more characters.
     shared_ptr<string> summary_ {};
     Darabonba::Json tags_ {};
+    // The full URL that the search result points to.
     shared_ptr<string> title_ {};
     shared_ptr<int32_t> websiteAuthorityScore_ {};
   };

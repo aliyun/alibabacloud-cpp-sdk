@@ -132,15 +132,26 @@ namespace Models
   protected:
     shared_ptr<string> advancedParamsShrink_ {};
     shared_ptr<bool> enableRerank_ {};
+    // The industry. After you specify an industry, only site content related to the specified industry is recalled. Separate multiple industries with commas.
     shared_ptr<string> industry_ {};
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> page_ {};
+    // The search keyword.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
     shared_ptr<bool> returnMainText_ {};
     shared_ptr<bool> returnMarkdownText_ {};
     shared_ptr<bool> returnRichMainBody_ {};
     shared_ptr<bool> returnSummary_ {};
+    // The session ID for multi-turn interaction.
     shared_ptr<string> sessionId_ {};
+    // The time range for filtering results. Valid values:
+    // - OneDay: last day
+    // - OneWeek: last week
+    // - OneMonth: last month
+    // - OneYear: last year
+    // - NoLimit: no limit.
     shared_ptr<string> timeRange_ {};
   };
 

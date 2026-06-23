@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The image rotation angle.
     shared_ptr<int32_t> angle_ {};
+    // The image height.
     shared_ptr<int32_t> height_ {};
+    // The Base64 encoding of the image.
     shared_ptr<string> imageBase64_ {};
+    // The image width.
     shared_ptr<int32_t> width_ {};
   };
 

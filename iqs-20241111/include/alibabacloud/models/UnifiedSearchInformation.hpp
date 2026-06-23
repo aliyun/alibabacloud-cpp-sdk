@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The search duration, in ms.
     shared_ptr<int64_t> searchTime_ {};
   };
 

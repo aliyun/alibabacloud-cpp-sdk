@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The basic search service metering.
     shared_ptr<SearchCredits> search_ {};
+    // The value-added service metering.
     shared_ptr<ValueAddedCredits> valueAdded_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // Search information
     shared_ptr<OmniSearchQuery> body_ {};
   };
 

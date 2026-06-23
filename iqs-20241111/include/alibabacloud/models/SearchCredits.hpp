@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of basic edition text search requests.
     shared_ptr<int32_t> genericTextSearch_ {};
+    // The number of LiteAdvanced search requests.
     shared_ptr<int32_t> liteAdvancedTextSearch_ {};
   };
 

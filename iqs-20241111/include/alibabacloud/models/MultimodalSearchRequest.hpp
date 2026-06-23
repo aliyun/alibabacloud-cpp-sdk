@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // Query parameters and site blocking parameters
     shared_ptr<MultimodalSearchBody> body_ {};
   };
 

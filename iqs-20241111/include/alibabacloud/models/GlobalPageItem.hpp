@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The full URL that the search result points to.
+    // 
     // This parameter is required.
     shared_ptr<string> link_ {};
+    // The description excerpt of the search result in text format.
     shared_ptr<string> snippet_ {};
+    // The title of the search result in plain text.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };
