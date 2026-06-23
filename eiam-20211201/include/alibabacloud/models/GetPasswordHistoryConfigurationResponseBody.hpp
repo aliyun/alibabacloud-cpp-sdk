@@ -69,12 +69,11 @@ namespace Models
 
 
     protected:
-      // The maximum number of recent passwords that are retained.
+      // The maximum number of recent password records to retain.
       shared_ptr<int32_t> passwordHistoryMaxRetention_ {};
-      // Indicates whether the password history feature is enabled. Valid values:
-      // 
-      // *   enabled
-      // *   disabled
+      // The status of the password history configuration. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> passwordHistoryStatus_ {};
     };
 
@@ -97,7 +96,7 @@ namespace Models
 
 
   protected:
-    // The password history configurations.
+    // The password history check configuration.
     shared_ptr<GetPasswordHistoryConfigurationResponseBody::PasswordHistoryConfiguration> passwordHistoryConfiguration_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

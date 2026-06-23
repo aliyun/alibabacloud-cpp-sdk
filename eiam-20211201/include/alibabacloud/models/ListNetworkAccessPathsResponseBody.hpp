@@ -134,31 +134,28 @@ namespace Models
 
 
     protected:
-      // The time when the dedicated network endpoint access path was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the dedicated network access endpoint access path was created, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the dedicated network endpoint.
+      // The dedicated network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The ID of the dedicated network endpoint access path.
+      // The ID of the dedicated network access endpoint access path.
       shared_ptr<string> networkAccessPathId_ {};
-      // The ID of the ENI that is used by the dedicated network endpoint access path.
+      // The ENI ID used by the dedicated network access endpoint access path.
       shared_ptr<string> networkInterfaceId_ {};
-      // The private IP address of the ENI that is used by the dedicated network endpoint access path.
+      // The private endpoint of the ENI used by the dedicated network access endpoint access path on the private network.
       shared_ptr<string> privateIpAddress_ {};
-      // The status of the dedicated network endpoint access path. Valid values:
-      // 
-      // - pending: The path is being initialized.
-      // 
-      // - creating: The path is being created.
-      // 
-      // - running: The path is running.
-      // 
-      // - deleting: The path is being deleted.
+      // The status of the dedicated network access endpoint access path. Valid values:
+      //  
+      // - pending: pending initialization.
+      // - creating: being created.
+      // - running: running.
+      // - deleting: being deleted.
       shared_ptr<string> status_ {};
-      // The time when the dedicated network endpoint access path was last updated. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the dedicated network access endpoint access path was last updated, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The ID of the vSwitch to which the ENI of the dedicated network endpoint access path belongs.
+      // The vSwitch ID to which the ENI of the dedicated network access endpoint access path belongs.
       shared_ptr<string> vSwitchId_ {};
     };
 
@@ -181,7 +178,7 @@ namespace Models
 
 
   protected:
-    // The list of network endpoint access paths.
+    // The list of network access endpoint access paths.
     shared_ptr<vector<ListNetworkAccessPathsResponseBody::NetworkAccessPaths>> networkAccessPaths_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

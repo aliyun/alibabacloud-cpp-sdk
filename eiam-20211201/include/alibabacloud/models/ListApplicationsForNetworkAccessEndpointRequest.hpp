@@ -70,13 +70,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in a paged query.
     shared_ptr<int64_t> maxResults_ {};
     // The network access endpoint ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // The token for the next page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
   };
 

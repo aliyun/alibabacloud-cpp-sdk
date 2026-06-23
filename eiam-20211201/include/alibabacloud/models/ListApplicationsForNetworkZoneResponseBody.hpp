@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> applicationName_ {};
-      // The ID of the IDaaS EIAM instance.
+      // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -144,15 +144,15 @@ namespace Models
   protected:
     // The list of applications.
     shared_ptr<vector<ListApplicationsForNetworkZoneResponseBody::Applications>> applications_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned for the next query.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // The token returned for the previous query.
+    // The pagination token returned by this call.
     shared_ptr<string> previousToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

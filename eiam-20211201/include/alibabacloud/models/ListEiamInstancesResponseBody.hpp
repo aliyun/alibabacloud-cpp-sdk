@@ -143,29 +143,23 @@ namespace Models
 
 
     protected:
-      // The instance description.
+      // The description of the instance.
       shared_ptr<string> description_ {};
-      // The private domain name of the instance Developer API.
+      // The private domain name of the developer API for the instance.
       shared_ptr<string> developerAPIPrivateDomain_ {};
-      // The public domain of the instance Developer API.
+      // The public domain name of the developer API for the instance.
       shared_ptr<string> developerAPIPublicDomain_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance status.
       shared_ptr<string> instanceStatus_ {};
       // The instance version.
-      // 
-      // Valid values:
-      // 
-      // - EIAM 2.0
-      // 
-      // - EIAM 1.0
       shared_ptr<string> instanceVersion_ {};
-      // The private domain of the instance OpenAPI.
+      // The private domain name of the OpenAPI for the instance.
       shared_ptr<string> openAPIPrivateDomain_ {};
-      // The public domain of the instance OpenAPI.
+      // The public domain name of the OpenAPI for the instance.
       shared_ptr<string> openAPIPublicDomain_ {};
-      // The single sign-on (SSO) domain of the instance.
+      // The SSO domain name of the instance.
       shared_ptr<string> SSODomain_ {};
       // The time when the instance was created.
       shared_ptr<int64_t> startTime_ {};
@@ -190,7 +184,7 @@ namespace Models
 
 
   protected:
-    // The instance list.
+    // The list of instances.
     shared_ptr<vector<ListEiamInstancesResponseBody::Instances>> instances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

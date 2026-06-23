@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the conditional access policy.
+    // The conditional access policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> conditionalAccessPolicyId_ {};

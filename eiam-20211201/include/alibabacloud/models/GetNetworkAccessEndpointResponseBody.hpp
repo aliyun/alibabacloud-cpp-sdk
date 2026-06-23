@@ -177,43 +177,39 @@ namespace Models
 
 
     protected:
-      // The time when the baseline was created.
+      // The time when the network access endpoint was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Public egress ip address range of the dedicated network endpoint This field is returned only when NetworkEndpointType is set to private.
+      // The private egress IP addresses of the dedicated network access endpoint. This parameter is returned only when NetworkEndpointType is set to private.
       shared_ptr<vector<string>> egressPrivateIpAddresses_ {};
-      // Public egress ip address range of the shared network endpoint This field is returned only when networkEndpointType is set to shared.
+      // The public egress IP addresses of the shared network access endpoint. This parameter is returned only when NetworkEndpointType is set to shared.
       shared_ptr<vector<string>> egressPublicIpAddresses_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The unique identifier of the network access endpoint.
+      // The dedicated network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // Private network endpoint name.
+      // The name of the dedicated network access endpoint.
       shared_ptr<string> networkAccessEndpointName_ {};
-      // Type of the Network Endpoint Possible values:
+      // The type of the network access endpoint. Valid values:
       // 
-      // shared: Shared network endpoint
-      // 
-      // private: Dedicated network endpoint
+      // - shared: shared network access endpoint.
+      // - private: dedicated network access endpoint.
       shared_ptr<string> networkAccessEndpointType_ {};
-      // The ID of the destination security group.
+      // The ID of the security group used by the dedicated network access endpoint.
       shared_ptr<string> securityGroupId_ {};
-      // Status of the Network Endpoint Possible values:
+      // The status of the network access endpoint. Valid values:
       // 
-      // pending: Pending initialization
-      // 
-      // creating: Being created
-      // 
-      // running: Running
-      // 
-      // deleting: Being deleted
+      // - pending: pending initialization.
+      // - creating: being created.
+      // - running: running.
+      // - deleting: being deleted.
       shared_ptr<string> status_ {};
-      // The time when the endpoint was updated.
+      // The time when the dedicated network access endpoint was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // List of specified vSwitches associated with the dedicated network endpoint connection.
+      // The list of vSwitches to which the dedicated network access endpoint is connected.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The ID of the VPC to which the dedicated network access endpoint is connected.
       shared_ptr<string> vpcId_ {};
-      // The region ID of the outbound virtual private cloud (VPC).
+      // The region of the VPC to which the dedicated network access endpoint is connected.
       shared_ptr<string> vpcRegionId_ {};
     };
 
@@ -236,9 +232,9 @@ namespace Models
 
 
   protected:
-    // Network endpoint information.
+    // The network access endpoint information.
     shared_ptr<GetNetworkAccessEndpointResponseBody::NetworkAccessEndpoint> networkAccessEndpoint_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

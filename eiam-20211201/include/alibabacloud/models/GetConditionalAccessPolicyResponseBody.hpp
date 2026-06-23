@@ -142,15 +142,15 @@ namespace Models
 
 
       protected:
-        // Indicates whether session reuse is enabled.
+        // Whether session reuse is enabled.
         shared_ptr<string> activeSessionReuseStatus_ {};
-        // The decision action of the conditional access policy.
+        // Decision action of the conditional access policy.
         shared_ptr<string> effect_ {};
-        // The interval in seconds at which re-authentication is required for the conditional access policy.
+        // Re-authentication interval (seconds) of the conditional access policy.
         shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};
-        // The MFA methods that are allowed by the conditional access policy.
+        // Allowed MFA types of the conditional access policy.
         shared_ptr<vector<string>> mfaAuthenticationMethods_ {};
-        // The multi-factor authentication (MFA) type of the conditional access policy.
+        // MFA authentication type of the conditional access policy.
         shared_ptr<string> mfaType_ {};
       };
 
@@ -263,17 +263,17 @@ namespace Models
 
 
         protected:
-          // The excluded user groups.
+          // Excluded user groups.
           shared_ptr<vector<string>> excludeGroups_ {};
-          // The excluded organizations.
+          // Excluded organizations.
           shared_ptr<vector<string>> excludeOrganizationalUnits_ {};
-          // The excluded users.
+          // Excluded users.
           shared_ptr<vector<string>> excludeUsers_ {};
-          // The selected user groups.
+          // Included user groups.
           shared_ptr<vector<string>> includeGroups_ {};
-          // The selected organizations.
+          // Included organizations.
           shared_ptr<vector<string>> includeOrganizationalUnits_ {};
-          // The selected users.
+          // Included users.
           shared_ptr<vector<string>> includeUsers_ {};
         };
 
@@ -319,9 +319,9 @@ namespace Models
 
 
         protected:
-          // The excluded network zones.
+          // Excluded network ranges.
           shared_ptr<vector<string>> excludeNetworkZones_ {};
-          // The selected network zones.
+          // Included network ranges.
           shared_ptr<vector<string>> includeNetworkZones_ {};
         };
 
@@ -367,9 +367,9 @@ namespace Models
 
 
         protected:
-          // The excluded applications.
+          // Excluded applications.
           shared_ptr<vector<string>> excludeApplications_ {};
-          // The selected applications.
+          // Included applications.
           shared_ptr<vector<string>> includeApplications_ {};
         };
 
@@ -403,11 +403,11 @@ namespace Models
 
 
       protected:
-        // The applications to which the conditional access policy applies.
+        // Target applications of the conditional access policy.
         shared_ptr<ConditionsConfig::Applications> applications_ {};
-        // The network zones of the conditional access policy.
+        // Network zones of the conditional access policy.
         shared_ptr<ConditionsConfig::NetworkZones> networkZones_ {};
-        // The users to whom the conditional access policy applies.
+        // Target users of the conditional access policy.
         shared_ptr<ConditionsConfig::Users> users_ {};
       };
 
@@ -511,31 +511,31 @@ namespace Models
 
 
     protected:
-      // The ID of the conditional access policy.
+      // Conditional access policy ID.
       shared_ptr<string> conditionalAccessPolicyId_ {};
-      // The name of the conditional access policy.
+      // Conditional access policy name.
       shared_ptr<string> conditionalAccessPolicyName_ {};
-      // The type of the conditional access policy.
+      // Conditional access policy type.
       shared_ptr<string> conditionalAccessPolicyType_ {};
-      // The content of the conditional access policy.
+      // Conditional access policy content.
       shared_ptr<ConditionalAccessPolicy::ConditionsConfig> conditionsConfig_ {};
-      // The time when the policy was created.
+      // Creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The action of the conditional access policy.
+      // Execution action of the conditional access policy.
       shared_ptr<ConditionalAccessPolicy::DecisionConfig> decisionConfig_ {};
-      // The execution type of the conditional access policy.
+      // Execution type of the conditional access policy.
       shared_ptr<string> decisionType_ {};
-      // The description of the conditional access policy.
+      // Conditional access policy description.
       shared_ptr<string> description_ {};
-      // The policy enforcement point of the conditional access policy.
+      // Evaluation point of the conditional access policy.
       shared_ptr<string> evaluateAt_ {};
-      // The instance ID.
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the policy was last updated.
+      // Update time.
       shared_ptr<int64_t> lastUpdatedTime_ {};
-      // The priority.
+      // Priority.
       shared_ptr<int32_t> priority_ {};
-      // The status of the conditional access policy.
+      // Enabled or disabled status of the conditional access policy.
       shared_ptr<string> status_ {};
     };
 
@@ -558,9 +558,9 @@ namespace Models
 
 
   protected:
-    // The details of the conditional access policy.
+    // Details of the conditional access policy.
     shared_ptr<GetConditionalAccessPolicyResponseBody::ConditionalAccessPolicy> conditionalAccessPolicy_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -194,11 +194,11 @@ namespace Models
 
 
       protected:
-        // The default domain of the instance.
+        // The default domain name of the instance.
         shared_ptr<string> defaultDomain_ {};
-        // The initialization domain of the instance.
+        // The initialization domain name of the instance.
         shared_ptr<string> initDomain_ {};
-        // The auto-redirect status of the initialization domain. Valid values:
+        // The automatic redirect status of the initialization domain name. Valid values:
         // - enabled: Enabled.
         // 
         // - disabled: Disabled.
@@ -243,9 +243,9 @@ namespace Models
 
 
       protected:
-        // The endpoint address of the instance.
+        // The domain name of the instance.
         shared_ptr<string> endpoint_ {};
-        // The status of the instance endpoint. Valid values:
+        // The status of the instance domain name. Valid values:
         // - resolved: Resolved.
         // - unresolved: Not resolved.
         shared_ptr<string> status_ {};
@@ -355,25 +355,25 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created, in Unix timestamp format, measured in milliseconds.
+      // The time when the instance was created. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       shared_ptr<string> crossRegionReplication_ {};
       shared_ptr<string> crossRegionReplicationRole_ {};
-      // The default endpoint of the instance. This field is no longer maintained. Use the DomainConfig related fields or refer to the domain list query API instead.
+      // The default domain name of the instance. This field is no longer maintained. Use the DomainConfig fields or refer to the query domain name list operation instead.
       shared_ptr<Instance::DefaultEndpoint> defaultEndpoint_ {};
       // The description of the instance.
       shared_ptr<string> description_ {};
-      // The domain-related configuration of the instance.
+      // The domain name configuration of the instance.
       shared_ptr<Instance::DomainConfig> domainConfig_ {};
-      // The egress public IP address ranges of the instance. For example, during AD account synchronization, the EIAM instance accesses your AD service through these public IP address ranges.
+      // The public egress CIDR blocks of the instance. For example, during Active Directory (AD) account synchronization, the EIAM instance accesses your AD server through these public CIDR blocks.
       shared_ptr<vector<string>> egressAddresses_ {};
       shared_ptr<string> instanceFailoverStatus_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The service code of the cloud service that manages the instance.
+      // The ServiceCode of the Alibaba Cloud service that manages the instance.
       shared_ptr<string> managedServiceCode_ {};
       shared_ptr<Instance::ReplicationConfiguration> replicationConfiguration_ {};
-      // Indicates whether the instance is managed by a cloud service.
+      // Indicates whether the instance is managed by an Alibaba Cloud service.
       shared_ptr<bool> serviceManaged_ {};
       // The instance status. Valid values:
       // - creating: Being created.

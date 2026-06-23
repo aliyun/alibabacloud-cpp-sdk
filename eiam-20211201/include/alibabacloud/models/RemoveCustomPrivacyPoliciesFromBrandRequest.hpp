@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The branding ID.
+    // The brand ID.
     // 
     // This parameter is required.
     shared_ptr<string> brandId_ {};
-    // A list of policy IDs.
+    // The list of term IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> customPrivacyPolicyIds_ {};

@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The identifier for the secondary module.
+    // The secondary module identifier.
     shared_ptr<string> featureKey_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The identifier for the primary module.
+    // The primary module identifier.
     // 
     // This parameter is required.
     shared_ptr<string> moduleKey_ {};
-    // The identifier for the tertiary module.
+    // The tertiary module identifier.
     shared_ptr<string> subFeatureKey_ {};
   };
 

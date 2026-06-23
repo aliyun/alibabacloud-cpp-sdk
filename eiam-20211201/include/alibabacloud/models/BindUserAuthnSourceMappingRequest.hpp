@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The external mapping ID.
+    // The external association ID.
     // 
     // This parameter is required.
     shared_ptr<string> userExternalId_ {};

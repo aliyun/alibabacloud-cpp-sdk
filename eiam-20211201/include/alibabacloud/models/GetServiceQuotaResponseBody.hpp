@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The service quota.
     shared_ptr<GetServiceQuotaResponseBody::ServiceQuota> serviceQuota_ {};

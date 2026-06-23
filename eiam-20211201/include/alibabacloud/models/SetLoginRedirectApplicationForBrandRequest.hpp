@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // Application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The brand ID.
+    // Brand ID.
     // 
     // This parameter is required.
     shared_ptr<string> brandId_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

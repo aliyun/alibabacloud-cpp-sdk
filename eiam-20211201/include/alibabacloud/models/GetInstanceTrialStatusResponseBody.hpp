@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The trial status of the instance.
     shared_ptr<bool> trialStatus_ {};

@@ -87,23 +87,23 @@ namespace Models
 
 
   protected:
-    // Idempotent token.
+    // Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
     shared_ptr<string> clientToken_ {};
-    // The region ID of the VPC.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Private network endpoint name.
+    // Network access endpoint name.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointName_ {};
-    // The IDs of vSwitches.
+    // List of specified vSwitches connected to the network access endpoint.
     shared_ptr<vector<string>> vSwitchIds_ {};
-    // The ID of the VPC.
+    // VPC ID connected to the network access endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The region ID of the outbound VPC.
+    // Region of the VPC ID connected to the network access endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> vpcRegionId_ {};

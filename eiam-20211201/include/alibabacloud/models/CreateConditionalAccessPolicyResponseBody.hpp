@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Conditional Access Policy ID
+    // Conditional access policy ID.
     shared_ptr<string> conditionalAccessPolicyId_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};

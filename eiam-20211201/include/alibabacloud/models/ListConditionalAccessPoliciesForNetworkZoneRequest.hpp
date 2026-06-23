@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Application ID associated with the conditional access policy
+    // The network zone ID associated with the conditional access policy.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneId_ {};

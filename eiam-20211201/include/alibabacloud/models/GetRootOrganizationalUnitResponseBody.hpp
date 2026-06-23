@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // The time when the organizational unit was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the organizational unit was created, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the organizational unit.
       shared_ptr<string> description_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the organizational unit.
+      // The organizational unit ID.
       shared_ptr<string> organizationalUnitId_ {};
-      // The name of the organization.
+      // The organizational unit name.
       shared_ptr<string> organizationalUnitName_ {};
-      // The time when the organizational unit was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the organizational unit was last updated, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
   protected:
-    // The data object of the organizational unit.
+    // The organizational unit data object.
     shared_ptr<GetRootOrganizationalUnitResponseBody::OrganizationalUnit> organizationalUnit_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

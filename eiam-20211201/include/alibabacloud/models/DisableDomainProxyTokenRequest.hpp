@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the domain name.
+    // The domain ID.
     // 
     // This parameter is required.
     shared_ptr<string> domainId_ {};
-    // The ID of the proxy token of the domain name.
+    // The domain proxy token ID.
     // 
     // This parameter is required.
     shared_ptr<string> domainProxyTokenId_ {};

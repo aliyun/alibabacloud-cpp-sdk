@@ -113,11 +113,11 @@ namespace Models
 
 
     protected:
-      // The name of the control item.
+      // The name of the instance control element.
       shared_ptr<string> elementName_ {};
-      // The CAPTCHA configuration.
+      // The CAPTCHA authenticate configuration.
       shared_ptr<ControlElements::HumanVerificationConfig> humanVerificationConfig_ {};
-      // The status of the control item.
+      // The status of the instance control element.
       shared_ptr<string> status_ {};
     };
 
@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The control items for the instance.
+    // The instance control elements.
     shared_ptr<vector<SetInstanceControlConfigurationRequest::ControlElements>> controlElements_ {};
     // The instance ID.
     // 

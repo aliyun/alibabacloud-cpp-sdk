@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The information about the post-logon redirect application for the brand.
+    // The brand logon redirect application information.
     shared_ptr<GetLoginRedirectApplicationForBrandResponseBody::BrandLoginRedirectApplication> brandLoginRedirectApplication_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

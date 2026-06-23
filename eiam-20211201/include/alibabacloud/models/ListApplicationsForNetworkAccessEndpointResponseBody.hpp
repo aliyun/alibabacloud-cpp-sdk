@@ -124,13 +124,13 @@ namespace Models
 
 
   protected:
-    // The collection of applications for the network access endpoint.
+    // The collection of applications under the network access endpoint.
     shared_ptr<vector<ListApplicationsForNetworkAccessEndpointResponseBody::ApplicationsForNetworkAccessEndpoint>> applicationsForNetworkAccessEndpoint_ {};
-    // The token for the next page of results.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

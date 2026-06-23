@@ -60,9 +60,13 @@ namespace Models
 
 
   protected:
-    // The authentication channels. Valid values: email and sms.
+    // The list of authentication channels. Valid values:
+    // - email: email.
+    // - sms: text message.
     shared_ptr<vector<string>> authenticationChannels_ {};
-    // The status of the forgot password feature. Valid values: enabled and disabled.
+    // The forgot password configuration status. Valid values:
+    // - enabled: enabled.
+    // - disabled: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> forgetPasswordStatus_ {};

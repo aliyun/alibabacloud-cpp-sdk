@@ -129,19 +129,19 @@ namespace Models
 
 
     protected:
-      // The description of the network zone.
+      // The network zone description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The IPv4 CIDR blocks.
+      // The IPv4 CIDR blocks of the network zone.
       shared_ptr<vector<string>> ipv4Cidrs_ {};
-      // The IPv6 CIDR blocks.
+      // The IPv6 CIDR blocks of the network zone.
       shared_ptr<vector<string>> ipv6Cidrs_ {};
       // The network zone ID.
       shared_ptr<string> networkZoneId_ {};
-      // The name of the network zone.
+      // The network zone name.
       shared_ptr<string> networkZoneName_ {};
-      // The type of the network zone.
+      // The network zone type.
       shared_ptr<string> networkZoneType_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};

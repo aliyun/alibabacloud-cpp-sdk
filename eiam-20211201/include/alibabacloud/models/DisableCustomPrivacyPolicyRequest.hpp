@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the custom privacy policy.
+    // The ID of the custom term.
     // 
     // This parameter is required.
     shared_ptr<string> customPrivacyPolicyId_ {};

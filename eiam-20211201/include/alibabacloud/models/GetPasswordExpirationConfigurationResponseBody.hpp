@@ -129,41 +129,37 @@ namespace Models
 
 
     protected:
-      // The list of valid authentication IDs. The default is all ["ia_all"]
+      // The list of effective authentication source IDs. Default value: ["ia_all"].
       // 
-      // ia_all: All. If you fill in this value, you cannot fill in other values
-      // 
-      // ia_password: Account password login
-      // 
-      // ia_otp_sms: SMS verification code login method
-      // 
-      // ia_webauthn: WebAuthn authenticator login method
-      // 
-      // idp_xxx: Specific identity provider authentication method
+      // - ia_all: All authentication sources. If this value is specified, no other values can be specified.
+      // - ia_password: Account password logon.
+      // - ia_otp_sms: SMS verification code logon.
+      // - ia_webauthn: WebAuthn authenticator logon.
+      // - idp_xxx: Authentication method of a specific identity provider.
       shared_ptr<vector<string>> effectiveAuthenticationSourceIds_ {};
       // The action to take when a password expires. Valid values:
       // 
-      // *   forbid_login: Prohibit the user from using the password to log on to IDaaS.
-      // *   force_update_password: Force the user to change the password.
-      // *   remind_update_password: Remind the user to change the password.
+      // - forbid_login: Forbid logon.
+      // - force_update_password: Force password change.
+      // - remind_update_password: Remind password change.
       shared_ptr<string> passwordExpirationAction_ {};
-      // The methods for receiving password expiration notifications.
+      // The list of password expiration notification channels.
       shared_ptr<vector<string>> passwordExpirationNotificationChannels_ {};
-      // The number of days before the expiration date during which password expiration notifications are sent. Unit: day.
+      // The advance notice period before password expiration. Unit: days.
       shared_ptr<int32_t> passwordExpirationNotificationDuration_ {};
-      // Indicates whether the password expiration notification feature is enabled. Valid values:
+      // The status of password expiration notification. Valid values:
       // 
-      // *   enabled
-      // *   disabled
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> passwordExpirationNotificationStatus_ {};
-      // Indicates whether the password expiration feature is enabled. Valid values:
+      // The status of the password expiration configuration. Valid values:
       // 
-      // *   enabled
-      // *   disabled
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> passwordExpirationStatus_ {};
-      // The number of days before which users must change the password to prevent password expiration. Unit: day.
+      // The grace period for forced password change after expiration. Unit: days.
       shared_ptr<int32_t> passwordForcedUpdateDuration_ {};
-      // The validity period of a password. Unit: day.
+      // The maximum validity period of a password. Unit: days.
       shared_ptr<int32_t> passwordValidMaxDay_ {};
     };
 
@@ -186,9 +182,9 @@ namespace Models
 
 
   protected:
-    // The password expiration configurations.
+    // The password expiration configuration.
     shared_ptr<GetPasswordExpirationConfigurationResponseBody::PasswordExpirationConfiguration> passwordExpirationConfiguration_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

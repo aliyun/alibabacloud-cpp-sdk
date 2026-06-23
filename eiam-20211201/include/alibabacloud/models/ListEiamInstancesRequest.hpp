@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The instance ID list.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The region in which the instance resides.
+    // The region to which the instances belong.
     shared_ptr<string> instanceRegionId_ {};
   };
 

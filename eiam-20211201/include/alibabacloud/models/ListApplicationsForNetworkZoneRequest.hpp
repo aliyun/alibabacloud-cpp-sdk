@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The ID of the network domain associated with the application.
+    // The ID of the network zone associated with the application.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneId_ {};
-    // The token used for the next query.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The token used to query the previous page.
+    // The pagination token for the previous page.
     shared_ptr<string> previousToken_ {};
   };
 

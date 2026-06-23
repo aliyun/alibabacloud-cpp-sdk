@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language.
+    // The language type.
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};

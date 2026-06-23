@@ -78,27 +78,24 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to enable forcible password change upon first logon. Valid values:
-    // 
-    // *   enabled
-    // *   disabled
+    // The password forced update status. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     shared_ptr<string> passwordForcedUpdateStatus_ {};
-    // The methods for receiving password initialization notifications.
+    // The list of password initialization notification channels.
     shared_ptr<vector<string>> passwordInitializationNotificationChannels_ {};
-    // Specifies whether to enable password initialization. Valid values:
-    // 
-    // *   enabled
-    // *   disabled
+    // The password initialization configuration status. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> passwordInitializationStatus_ {};
-    // The password initialization method. This parameter is required when PasswordInitializationStatus is set to enabled. Set the value to random.
-    // 
-    // *   random: A randomly generated password is used.
+    // The password initialization method. This parameter is required when PasswordInitializationStatus is set to enabled. Valid values:
+    // - random: Random.
     shared_ptr<string> passwordInitializationType_ {};
   };
 

@@ -96,15 +96,15 @@ namespace Models
 
 
     protected:
-      // The brand ID.
+      // Brand ID.
       shared_ptr<string> brandId_ {};
-      // The brand name.
+      // Brand name.
       shared_ptr<string> brandName_ {};
-      // The brand type.
+      // Brand type.
       shared_ptr<string> brandType_ {};
-      // The instance ID.
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
-      // The brand status.
+      // Brand status.
       shared_ptr<string> status_ {};
     };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
   protected:
-    // The brand.
+    // Brand.
     shared_ptr<GetBrandResponseBody::Brand> brand_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

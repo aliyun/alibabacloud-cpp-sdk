@@ -168,7 +168,7 @@ namespace Models
 
 
       protected:
-        // A list of field configuration items.
+        // The list of field configuration items.
         shared_ptr<vector<FieldDataConfig::Items>> items_ {};
       };
 
@@ -299,17 +299,17 @@ namespace Models
 
 
     protected:
-      // The creation time of the custom field, in UNIX timestamp format in milliseconds.
+      // The time when the extended field was created, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The default value of the field.
       shared_ptr<string> defaultValue_ {};
-      // The description of the custom field.
+      // The description of the extended field.
       shared_ptr<string> description_ {};
       // Indicates whether the field is encrypted.
       shared_ptr<bool> encrypted_ {};
       // The entity type to which the field belongs.
       shared_ptr<string> entityType_ {};
-      // Field value configuration items.
+      // The field value configuration items.
       shared_ptr<CustomField::FieldDataConfig> fieldDataConfig_ {};
       // The data type.
       shared_ptr<string> fieldDataType_ {};
@@ -325,13 +325,13 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // Indicates whether the field is required.
       shared_ptr<bool> required_ {};
-      // The status of the custom field.
+      // The status of the extended field.
       shared_ptr<string> status_ {};
       // Indicates whether the field is unique.
       shared_ptr<bool> unique_ {};
-      // The last update time of the custom field, in UNIX timestamp format in milliseconds.
+      // The time when the extended field was last updated, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // User-side (portal) permissions.
+      // The user-side (portal-side) permission.
       shared_ptr<string> userPermission_ {};
     };
 
@@ -354,7 +354,7 @@ namespace Models
 
 
   protected:
-    // Custom field information.
+    // The custom field information.
     shared_ptr<GetCustomFieldResponseBody::CustomField> customField_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

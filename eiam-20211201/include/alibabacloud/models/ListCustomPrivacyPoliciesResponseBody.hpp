@@ -114,17 +114,17 @@ namespace Models
 
 
     protected:
-      // The ID of the custom privacy policy.
+      // The custom term ID.
       shared_ptr<string> customPrivacyPolicyId_ {};
-      // The name of the custom privacy policy.
+      // The custom term name.
       shared_ptr<string> customPrivacyPolicyName_ {};
-      // The default language of the policy. The value is the LanguageCode returned by the ListLanguages operation.
+      // The default language term entry. The value is obtained from the LanguageCode field returned by the ListLanguages operation.
       shared_ptr<string> defaultLanguageCode_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the custom privacy policy.
+      // The custom term status.
       shared_ptr<string> status_ {};
-      // The user consent type for the policy.
+      // The consent type of the custom term.
       shared_ptr<string> userConsentType_ {};
     };
 
@@ -175,17 +175,17 @@ namespace Models
 
 
   protected:
-    // A list of custom privacy policies.
+    // The list of custom terms.
     shared_ptr<vector<ListCustomPrivacyPoliciesResponseBody::CustomPrivacyPolicies>> customPrivacyPolicies_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // The token that is used to retrieve the previous page of results.
+    // The pagination token returned by this call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

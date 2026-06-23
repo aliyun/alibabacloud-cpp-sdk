@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The language and time zone configuration for the instance.
+    // The language and time zone configuration of the instance.
     shared_ptr<GetInstanceGlobalizationConfigResponseBody::GlobalizationConfig> globalizationConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

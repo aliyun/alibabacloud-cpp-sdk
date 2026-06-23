@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the proxy token of the domain name.
+    // The domain proxy token ID.
     shared_ptr<string> domainProxyTokenId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

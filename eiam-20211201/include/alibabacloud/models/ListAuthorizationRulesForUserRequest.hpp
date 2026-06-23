@@ -70,15 +70,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return on a single page.
+    // The maximum number of entries per page.
     // 
-    // - The default value is 20.
+    // - Default value: 20.
     // 
-    // - The maximum value is 100.
+    // - Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the start of the next page for a paged query.
+    // The pagination token that indicates the start position of the next page.
     // 
-    // - If you do not specify this parameter, the query starts from the first page.
+    // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};
     // The account ID.
     // 

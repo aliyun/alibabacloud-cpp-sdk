@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the license.
+    // The unique identifier of the License.
     shared_ptr<string> licenseId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

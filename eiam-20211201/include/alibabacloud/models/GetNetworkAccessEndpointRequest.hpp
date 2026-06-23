@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The unique identifier of the network access endpoint.
+    // The dedicated network access endpoint ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointId_ {};

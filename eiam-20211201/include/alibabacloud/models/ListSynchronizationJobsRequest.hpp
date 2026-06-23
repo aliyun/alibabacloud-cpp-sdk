@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The name of the dynamic parameter.
+      // Dynamic parameter name
       shared_ptr<string> key_ {};
-      // The values of the dynamic parameter.
+      // Dynamic parameter values
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -191,49 +191,49 @@ namespace Models
 
 
   protected:
-    // The direction of the sync task. Valid values:
+    // Synchronization job direction. Valid values:
     // 
-    // - ingress: Inbound.
+    // - ingress: inbound
     // 
-    // - egress: Outbound.
+    // - egress: outbound
     shared_ptr<string> direction_ {};
-    // The synchronization end time. The value is a UNIX timestamp. Unit: milliseconds.
+    // Synchronization end time in Unix timestamp format, in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The filter parameters.
+    // Filter parameters
     shared_ptr<vector<ListSynchronizationJobsRequest::Filters>> filters_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries to return on each page. The maximum value is 100.
+    // Number of rows per page for paginated queries. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The token to retrieve the next page of results. If no more pages exist, this parameter is not returned.
+    // Token for querying the next page. This parameter is not returned when there are no more pages.
     shared_ptr<string> nextToken_ {};
-    // The page number. The value starts from 1.
+    // Page number, starting from 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. The maximum value is 100.
+    // Page size. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The synchronization start time. The value is a UNIX timestamp. Unit: milliseconds.
+    // Synchronization start time in Unix timestamp format, in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the sync task. Valid values:
+    // Synchronization job status. Valid values:
     // 
-    // - pending: The task is pending.
+    // - pending: initial state
     // 
-    // - running: The task is running.
+    // - running: running
     // 
-    // - failed: The task failed.
+    // - failed: failed
     // 
-    // - partial_success: The task is partially successful.
+    // - partial_success: partially succeeded
     // 
-    // - success: The task is successful.
+    // - success: succeeded
     shared_ptr<string> status_ {};
-    // A list of synchronization target IDs. For example, \\`[idp_111XXXX,idp_222XXXX]\\`.
+    // List of synchronization target IDs. [idp_111XXXX,idp_222XXXX]
     shared_ptr<vector<string>> targetIds_ {};
-    // The type of the synchronization target. Valid values:
+    // Synchronization target type. Valid values:
     // 
-    // - identity_provider: Identity provider.
+    // - identity_provider: identity provider
     // 
-    // - application: Application.
+    // - application: application
     shared_ptr<string> targetType_ {};
   };
 

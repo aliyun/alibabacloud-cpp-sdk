@@ -102,7 +102,7 @@ namespace Models
 
 
         protected:
-          // The human verification type.
+          // The CAPTCHA type.
           shared_ptr<string> humanVerificationType_ {};
         };
 
@@ -132,11 +132,11 @@ namespace Models
 
 
       protected:
-        // The element name.
+        // The name of the instance control item.
         shared_ptr<string> elementName_ {};
-        // The human verification configuration.
+        // The Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) authenticate configuration.
         shared_ptr<ControlElements::HumanVerificationConfig> humanVerificationConfig_ {};
-        // The status of the control element.
+        // The status of the instance control item.
         shared_ptr<string> status_ {};
       };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
     protected:
-      // The list of control elements.
+      // The instance control configuration.
       shared_ptr<vector<InstanceControlConfiguration::ControlElements>> controlElements_ {};
     };
 

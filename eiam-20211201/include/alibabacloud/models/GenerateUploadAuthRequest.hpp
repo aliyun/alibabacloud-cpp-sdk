@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The purpose of the file.
+    // File purpose.
     shared_ptr<string> purpose_ {};
-    // The file type.
+    // File type.
     shared_ptr<string> type_ {};
   };
 

@@ -112,17 +112,16 @@ namespace Models
 
 
     protected:
-      // The ID of the associated resource entity.
+      // The resource entity ID associated with the authorization resource.
       shared_ptr<string> authorizationResourceEntityId_ {};
-      // The type of the associated resource entity. Valid values:
-      // 
-      // - cloud_account_role: A cloud role.
+      // The resource entity type associated with the authorization resource. Valid values:
+      // - cloud_account_role: cloud role.
       shared_ptr<string> authorizationResourceEntityType_ {};
-      // The authorized resource ID.
+      // The authorization resource ID.
       shared_ptr<string> authorizationResourceId_ {};
       // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // The ID of the Alibaba Cloud account that owns the associated resource entity.
+      // The cloud account ID to which the resource entity associated with the authorization resource belongs.
       shared_ptr<string> cloudAccountId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -168,15 +167,15 @@ namespace Models
 
 
   protected:
-    // A list of authorized resources.
+    // The list of authorization resources.
     shared_ptr<vector<ListAuthorizationResourcesResponseBody::AuthorizationResources>> authorizationResources_ {};
-    // The number of entries per page.
+    // The number of entries per page in the paged query. This is the paging size.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. This parameter is returned when the results are paged.
+    // The pagination token returned in this call. Use this token for the next page query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

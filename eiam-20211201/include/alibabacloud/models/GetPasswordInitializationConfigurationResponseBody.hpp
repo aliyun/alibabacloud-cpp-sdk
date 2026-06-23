@@ -90,21 +90,21 @@ namespace Models
 
 
     protected:
-      // Indicates whether forcible password change upon first logon is enabled. Valid values:
+      // The status of forced password update. Valid values:
       // 
-      // *   enabled
-      // *   disabled
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> passwordForcedUpdateStatus_ {};
-      // The methods for receiving password initialization notifications.
+      // The list of password initialization notification channels.
       shared_ptr<vector<string>> passwordInitializationNotificationChannels_ {};
-      // Indicates whether the password initialization feature is enabled. Valid values:
+      // The status of the password initialization configuration. Valid values:
       // 
-      // *   enabled
-      // *   disabled
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> passwordInitializationStatus_ {};
-      // The password initialization method. Set the value to random.
+      // The password initialization method. Valid values:
       // 
-      // *   random: A randomly generated password is used.
+      // - random: Random.
       shared_ptr<string> passwordInitializationType_ {};
     };
 
@@ -127,7 +127,7 @@ namespace Models
 
 
   protected:
-    // The password initialization configurations.
+    // The password initialization configuration.
     shared_ptr<GetPasswordInitializationConfigurationResponseBody::PasswordInitializationConfiguration> passwordInitializationConfiguration_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The name of the field to filter. Valid value:
+      // The name of the filter field. Valid values:
       // 
-      // - UserId: The account ID.
+      // - UserId: the account ID.
       shared_ptr<string> name_ {};
-      // The list of values for the filter field.
+      // The values of the filter field.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -136,15 +136,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return on each page.
+    // The maximum number of entries per page.
     // 
-    // - The default value is 20.
+    // - Default value: 20.
     // 
-    // - The maximum value is 100.
+    // - Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the start of the next page for a paged query.
+    // The token that marks the starting position for the next page of results.
     // 
-    // - If this parameter is not specified, the query starts from the first page.
+    // - If not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};
   };
 

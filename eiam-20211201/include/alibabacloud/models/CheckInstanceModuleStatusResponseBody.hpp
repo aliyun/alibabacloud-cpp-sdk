@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The status of the module.
+      // The module status.
       shared_ptr<string> moduleStatus_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // Status update information.
+    // The module status information.
     shared_ptr<CheckInstanceModuleStatusResponseBody::Module> module_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

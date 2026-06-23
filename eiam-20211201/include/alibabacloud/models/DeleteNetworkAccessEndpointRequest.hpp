@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Network Access Endpoint ID.
+    // The ID of the dedicated network access endpoint. Only network access endpoints whose NetworkEndpointType is private can be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> networkAccessEndpointId_ {};

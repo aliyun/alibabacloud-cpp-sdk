@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The branding ID.
+    // The brand ID.
     // 
     // This parameter is required.
     shared_ptr<string> brandId_ {};

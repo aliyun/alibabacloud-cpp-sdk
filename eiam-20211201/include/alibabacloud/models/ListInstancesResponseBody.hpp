@@ -276,7 +276,7 @@ namespace Models
 
 
     protected:
-      // The creation time of the instance, in Unix timestamp format, in milliseconds.
+      // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       shared_ptr<string> crossRegionReplication_ {};
       shared_ptr<string> crossRegionReplicationRole_ {};
@@ -285,14 +285,14 @@ namespace Models
       // The description of the instance.
       shared_ptr<string> description_ {};
       shared_ptr<string> instanceFailoverStatus_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The service code of the cloud service that manages the instance.
+      // The service code of the Alibaba Cloud service that manages the instance.
       shared_ptr<string> managedServiceCode_ {};
       shared_ptr<Instances::ReplicationConfiguration> replicationConfiguration_ {};
-      // Indicates whether the instance is managed by a cloud service.
+      // Indicates whether the instance is managed by an Alibaba Cloud service.
       shared_ptr<bool> serviceManaged_ {};
-      // Instance status. Valid values:
+      // The instance status. Valid values:
       // - creating: Being created.
       // - running: Running.
       shared_ptr<string> status_ {};
@@ -326,9 +326,9 @@ namespace Models
   protected:
     // The list of instance information.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

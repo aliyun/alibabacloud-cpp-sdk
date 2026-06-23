@@ -108,27 +108,27 @@ namespace Models
 
 
   protected:
-    // The idempotence token.
+    // Idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The description of the network zone.
+    // Network zone description.
     shared_ptr<string> description_ {};
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IPv4 CIDR blocks of the network zone.
+    // Network zone IPv4 CIDR blocks.
     shared_ptr<vector<string>> ipv4Cidrs_ {};
-    // The IPv6 CIDR blocks of the network zone.
+    // Network zone IPv6 CIDR blocks.
     shared_ptr<vector<string>> ipv6Cidrs_ {};
-    // The name of the network zone.
+    // Network zone name.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneName_ {};
-    // The type of the network zone.
+    // Network zone type.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneType_ {};
-    // The ID of the VPC.
+    // VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -100,11 +100,11 @@ namespace Models
 
 
       protected:
-        // The URL of a helpful console page.
+        // The console URL that provides helpful information.
         shared_ptr<string> helpfulConsoleUrl_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The reason for the restriction.
+        // The restriction reason.
         shared_ptr<string> restrictReason_ {};
       };
 
@@ -129,7 +129,7 @@ namespace Models
     protected:
       // Indicates whether the instance can be deleted.
       shared_ptr<bool> deletable_ {};
-      // The restriction information that prevents deletion.
+      // The restriction information for instances that cannot be deleted.
       shared_ptr<vector<CheckInstanceResult::RestrictScenarios>> restrictScenarios_ {};
     };
 
@@ -152,7 +152,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The check result.
     shared_ptr<CheckInstanceForDeleteResponseBody::CheckInstanceResult> checkInstanceResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

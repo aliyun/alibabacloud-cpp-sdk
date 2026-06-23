@@ -88,20 +88,20 @@ namespace Models
 
   protected:
     shared_ptr<string> crossRegionReplication_ {};
-    // The edition of the license. Valid values:
-    // - free: Free edition.
-    // - trial: Trial edition.
-    // - scalability: Scalability edition.
-    // - standard: Standard edition.
-    // - enterprise: Enterprise edition.
+    // The license edition. Valid values:
+    // - free: Free Edition.
+    // - trial: Trial Edition.
+    // - scalability: Capability Expansion Edition.
+    // - standard: Standard Edition.
+    // - enterprise: Enterprise Edition.
     shared_ptr<string> edition_ {};
-    // Instance ID list.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // Instance status. Valid values:
+    // The instance status. Valid values:
     // - creating: Being created.
     // - running: Running.
     shared_ptr<string> status_ {};

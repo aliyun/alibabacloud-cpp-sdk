@@ -61,12 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of recent passwords that can be retained. This parameter must be specified when PasswordHistoryStatus is set to enabled.
+    // The number of recent password records to retain. This parameter is required when PasswordHistoryStatus is set to enabled.
     shared_ptr<int32_t> passwordHistoryMaxRetention_ {};
-    // Specifies whether to enable the password history feature. Valid values:
-    // 
-    // *   enabled
-    // *   disabled
+    // The status of the password history configuration. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> passwordHistoryStatus_ {};

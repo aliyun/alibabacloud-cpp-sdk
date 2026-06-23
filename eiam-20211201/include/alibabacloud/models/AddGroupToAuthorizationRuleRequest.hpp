@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The end time of the validity period. This is a UNIX timestamp. Unit: milliseconds.
+      // The end time of the validity period. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The start time of the validity period. This is a UNIX timestamp. Unit: milliseconds.
+      // The start time of the validity period. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -134,7 +134,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
-    // A client token that you generate to ensure the idempotence of the request. Make sure that the value of this parameter is unique across different requests. The client token can contain only ASCII characters and must be no more than 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
@@ -148,11 +148,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
     shared_ptr<AddGroupToAuthorizationRuleRequest::ValidityPeriod> validityPeriod_ {};
-    // The type of the validity period. Valid values:
-    // 
-    // - permanent: The relationship is permanent.
-    // 
-    // - time_bound: The relationship is valid for a custom time range.
+    // The validity type of the relationship. Valid values:
+    // - permanent: permanent
+    // - time_bound: custom time range.
     // 
     // This parameter is required.
     shared_ptr<string> validityType_ {};

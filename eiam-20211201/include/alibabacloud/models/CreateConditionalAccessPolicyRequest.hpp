@@ -115,35 +115,28 @@ namespace Models
 
 
     protected:
-      // Whether to enable session reuse
+      // Specifies whether to enable session reuse.
       shared_ptr<string> activeSessionReuseStatus_ {};
-      // Decision action for the conditional access policy, with the following options:
+      // Conditional access policy decision action. Valid values:
       // 
-      // - allow: Allow.
-      // 
-      // - deny: Deny.
+      // - allow: allow.
+      // - deny: deny.
       shared_ptr<string> effect_ {};
-      // Re-authentication interval (in seconds) for the conditional access policy
+      // Conditional access policy re-authentication interval (seconds).
       // 
-      // - Maximum MFA re-authentication interval: 86400
-      // 
-      // - Minimum MFA re-authentication interval: 300
+      // - Maximum MFA authentication interval: 86400.
+      // - Minimum MFA authentication interval: 300.
       shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};
-      // Allowed MFA types for the conditional access policy, with the following options:
-      // 
-      // - ia_otp_sms: SMS verification code
-      // 
-      // - ia_otp_email: Email verification code
-      // 
-      // - ia_totp: OTP dynamic password
-      // 
-      // - ia_webauthn: WebAuthn
+      // MFA types allowed by the conditional access policy. Valid values:
+      // - ia_otp_sms: SMS verification code.
+      // - ia_otp_email: email verification code.
+      // - ia_totp: OTP dynamic password.
+      // - ia_webauthn: WebAuthn.
       shared_ptr<vector<string>> mfaAuthenticationMethods_ {};
-      // MFA type for the conditional access policy, with the following options:
+      // Conditional access policy MFA type. Valid values:
       // 
-      // - directly_access: Direct access
-      // 
-      // - mfa_required: MFA required
+      // - directly_access: direct access.
+      // - mfa_required: MFA required.
       shared_ptr<string> mfaType_ {};
     };
 
@@ -256,17 +249,17 @@ namespace Models
 
 
       protected:
-        // Excluded user groups
+        // Excluded user groups.
         shared_ptr<vector<string>> excludeGroups_ {};
-        // Excluded organizations
+        // Excluded organizational units.
         shared_ptr<vector<string>> excludeOrganizationalUnits_ {};
-        // Excluded users
+        // Excluded users.
         shared_ptr<vector<string>> excludeUsers_ {};
-        // Included user groups
+        // Included user groups.
         shared_ptr<vector<string>> includeGroups_ {};
-        // Included organizations
+        // Included organizational units.
         shared_ptr<vector<string>> includeOrganizationalUnits_ {};
-        // Selected user
+        // Included users.
         shared_ptr<vector<string>> includeUsers_ {};
       };
 
@@ -312,9 +305,9 @@ namespace Models
 
 
       protected:
-        // Excluded network zones
+        // Excluded network zones.
         shared_ptr<vector<string>> excludeNetworkZones_ {};
-        // Included network zones
+        // Included network zones.
         shared_ptr<vector<string>> includeNetworkZones_ {};
       };
 
@@ -360,9 +353,9 @@ namespace Models
 
 
       protected:
-        // Excluded applications
+        // Excluded applications.
         shared_ptr<vector<string>> excludeApplications_ {};
-        // Included applications
+        // Included applications.
         shared_ptr<vector<string>> includeApplications_ {};
       };
 
@@ -396,11 +389,11 @@ namespace Models
 
 
     protected:
-      // Target applications for the conditional access policy
+      // Conditional access policy target applications.
       shared_ptr<ConditionsConfig::Applications> applications_ {};
-      // Network zones for conditional access policy
+      // Conditional access policy network zones.
       shared_ptr<ConditionsConfig::NetworkZones> networkZones_ {};
-      // Target users of the conditional access policy
+      // Conditional access policy target users.
       shared_ptr<ConditionsConfig::Users> users_ {};
     };
 
@@ -482,33 +475,33 @@ namespace Models
 
 
   protected:
-    // Idempotent token.
+    // Idempotency token.
     shared_ptr<string> clientToken_ {};
-    // Conditional access policy name
+    // Conditional access policy name.
     // 
     // This parameter is required.
     shared_ptr<string> conditionalAccessPolicyName_ {};
-    // Type of the conditional access policy, with the following options:
+    // Conditional access policy type. Valid values:
     // 
-    // arn:alibaba:idaas:authn:access:policy:system: System policy.
+    // arn:alibaba:idaas:authn:access:policy:system: system policy.
     // 
     // This parameter is required.
     shared_ptr<string> conditionalAccessPolicyType_ {};
-    // Condition content configuration for the conditional access policy
+    // Conditional access policy condition configuration.
     shared_ptr<CreateConditionalAccessPolicyRequest::ConditionsConfig> conditionsConfig_ {};
-    // Action configuration for the conditional access policy
+    // Conditional access policy action configuration.
     shared_ptr<CreateConditionalAccessPolicyRequest::DecisionConfig> decisionConfig_ {};
-    // Execution type of the conditional access policy, with the following options:
+    // Conditional access policy execution type. Valid values:
     // 
-    // enforcement: Enforce the policy.
+    // enforcement: enforcement policy.
     // 
     // This parameter is required.
     shared_ptr<string> decisionType_ {};
-    // Description of the conditional access policy
+    // Conditional access policy description.
     shared_ptr<string> description_ {};
-    // Execution point of the conditional access policy, with the following options:
+    // Conditional access policy evaluation point. Valid values:
     // 
-    // - arn:alibaba:idaas:authn:access:rule:eval_at:after_step1: Allow.
+    // - arn:alibaba:idaas:authn:access:rule:eval_at:after_step1: allow.
     // 
     // This parameter is required.
     shared_ptr<string> evaluateAt_ {};
@@ -516,7 +509,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Priority of the conditional access policy, lower values indicate higher priority Minimum value: 1 Maximum value: 100
+    // Conditional access policy priority. A smaller value indicates a higher priority.
+    // Minimum value: 1.
+    // Maximum value: 100.
     shared_ptr<int32_t> priority_ {};
   };
 

@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // The ID of the resource entity that is associated with the authorized resource.
+      // The ID of the resource entity associated with the authorized resource.
       shared_ptr<string> authorizationResourceEntityId_ {};
-      // The type of the resource entity that is associated with the authorized resource. Valid value:
+      // The type of the resource entity associated with the authorized resource. Valid values:
       // 
-      // - cloud_account_role: a cloud role
+      // - cloud_account_role: cloud role.
       shared_ptr<string> authorizationResourceEntityType_ {};
       // The authorization resource ID.
       shared_ptr<string> authorizationResourceId_ {};
       // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // The ID of the Alibaba Cloud account to which the resource entity that is associated with the authorized resource belongs.
+      // The ID of the cloud account to which the resource entity associated with the authorized resource belongs.
       shared_ptr<string> cloudAccountId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};

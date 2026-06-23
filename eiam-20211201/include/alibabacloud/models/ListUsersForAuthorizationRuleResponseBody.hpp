@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The end time of the validity period. This is a UNIX timestamp in milliseconds.
+        // The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // The start time of the validity period. This is a UNIX timestamp in milliseconds.
+        // The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -144,13 +144,11 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The account ID.
       shared_ptr<string> userId_ {};
-      // The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
+      // The time range of the validity period. This parameter takes effect only when ValidityType is set to time_bound.
       shared_ptr<Users::ValidityPeriod> validityPeriod_ {};
-      // The type of the validity period for the relationship. Valid values:
-      // 
+      // The validity type of the relationship. Valid values:
       // - permanent: permanent
-      // 
-      // - time_bound: custom time range
+      // - time_bound: custom time range.
       shared_ptr<string> validityType_ {};
     };
 
@@ -194,15 +192,15 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page in a paged query. This is the paging size.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned from the current call. Use this token to start the next paged query.
+    // The token returned for the next page of results. Use this token in the next request to retrieve the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The list of accounts.
+    // The list of account data.
     shared_ptr<vector<ListUsersForAuthorizationRuleResponseBody::Users>> users_ {};
   };
 

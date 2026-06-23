@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the region that supports exclusive network endpoints.
+    // The ID of the region supported by dedicated network endpoints.
     // 
     // This parameter is required.
     shared_ptr<string> naeRegionId_ {};

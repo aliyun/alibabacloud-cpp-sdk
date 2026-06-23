@@ -452,6 +452,9 @@
 #include <alibabacloud/models/GetAuthorizationRuleRequest.hpp>
 #include <alibabacloud/models/GetAuthorizationRuleResponseBody.hpp>
 #include <alibabacloud/models/GetAuthorizationRuleResponse.hpp>
+#include <alibabacloud/models/GetAuthorizationServerRequest.hpp>
+#include <alibabacloud/models/GetAuthorizationServerResponseBody.hpp>
+#include <alibabacloud/models/GetAuthorizationServerResponse.hpp>
 #include <alibabacloud/models/GetBrandRequest.hpp>
 #include <alibabacloud/models/GetBrandResponseBody.hpp>
 #include <alibabacloud/models/GetBrandResponse.hpp>
@@ -632,6 +635,9 @@
 #include <alibabacloud/models/ListAuthorizationRulesForUserRequest.hpp>
 #include <alibabacloud/models/ListAuthorizationRulesForUserResponseBody.hpp>
 #include <alibabacloud/models/ListAuthorizationRulesForUserResponse.hpp>
+#include <alibabacloud/models/ListAuthorizationServersRequest.hpp>
+#include <alibabacloud/models/ListAuthorizationServersResponseBody.hpp>
+#include <alibabacloud/models/ListAuthorizationServersResponse.hpp>
 #include <alibabacloud/models/ListBrandsRequest.hpp>
 #include <alibabacloud/models/ListBrandsResponseBody.hpp>
 #include <alibabacloud/models/ListBrandsResponse.hpp>
@@ -947,6 +953,12 @@
 #include <alibabacloud/models/UpdateAuthorizationRuleUserAttachmentRequest.hpp>
 #include <alibabacloud/models/UpdateAuthorizationRuleUserAttachmentResponseBody.hpp>
 #include <alibabacloud/models/UpdateAuthorizationRuleUserAttachmentResponse.hpp>
+#include <alibabacloud/models/UpdateAuthorizationServerRequest.hpp>
+#include <alibabacloud/models/UpdateAuthorizationServerResponseBody.hpp>
+#include <alibabacloud/models/UpdateAuthorizationServerResponse.hpp>
+#include <alibabacloud/models/UpdateAuthorizationServerDescriptionRequest.hpp>
+#include <alibabacloud/models/UpdateAuthorizationServerDescriptionResponseBody.hpp>
+#include <alibabacloud/models/UpdateAuthorizationServerDescriptionResponse.hpp>
 #include <alibabacloud/models/UpdateBrandRequest.hpp>
 #include <alibabacloud/models/UpdateBrandResponseBody.hpp>
 #include <alibabacloud/models/UpdateBrandResponse.hpp>
