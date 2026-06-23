@@ -409,10 +409,9 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If no value is returned for **NextToken**, no next queries are sent.
-    // *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+    // Indicates whether a next query token (Token) exists. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** has a returned value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

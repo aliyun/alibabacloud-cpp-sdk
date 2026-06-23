@@ -94,21 +94,19 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A client token that ensures the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Your client generates this value, which must be unique for each request and have a maximum length of 64 ASCII characters.
     // 
-    // >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. Each API request has a unique **RequestId**.
     shared_ptr<string> clientToken_ {};
-    // The ID of the Express Connect circuit.
+    // The ID of the physical connection instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the Express Connect circuit.
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The ID of the region where the physical connection is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to get a list of available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

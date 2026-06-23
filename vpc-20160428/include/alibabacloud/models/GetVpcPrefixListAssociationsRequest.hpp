@@ -103,22 +103,21 @@ namespace Models
 
 
   protected:
-    // The number of entries to return in each call. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page in a paged query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - Leave this parameter empty for the first query or if no subsequent query is required.
+    // - If a subsequent query is required, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the prefix list that you want to query.
+    // The instance ID of the prefix list to query.
     // 
     // This parameter is required.
     shared_ptr<string> prefixListId_ {};
-    // The region ID of the prefix list.
+    // The region ID of the prefix list to query.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

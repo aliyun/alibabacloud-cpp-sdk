@@ -140,13 +140,13 @@ namespace Models
 
 
     protected:
-      // List of CIDR addresses where the prefix list is effective in the currently associated resources.
+      // The list of CIDR blocks in the prefix list that are effective for the associated resource.
       shared_ptr<string> cidrList_ {};
-      // The ID of the Alibaba Cloud account to which the prefix list belongs.
+      // The ID of the Alibaba Cloud account that owns the prefix list.
       shared_ptr<string> ownerId_ {};
-      // The prefix list ID.
+      // The instance ID of the prefix list.
       shared_ptr<string> prefixListId_ {};
-      // The reason why the association failed.
+      // The reason for the association failure.
       shared_ptr<string> reason_ {};
       // The region ID of the prefix list.
       shared_ptr<string> regionId_ {};
@@ -154,19 +154,19 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The type of the associated resource. Valid values:
       // 
-      // *   **vpcRouteTable**: virtual private cloud (VPC) route table.
-      // *   **trRouteTable**: route table of a transit router.
+      // - **vpcRouteTable**: VPC route table.
+      // - **trRouteTable**: transit router route table.
       shared_ptr<string> resourceType_ {};
-      // The ID of the Alibaba Cloud account to which the resource associated with the prefix list belongs.
+      // The ID of the Alibaba Cloud account that owns the resource associated with the prefix list.
       shared_ptr<string> resourceUid_ {};
-      // The status of the prefix list. Valid values:
+      // The association status of the prefix list. Valid values:
       // 
-      // *   **Created**
-      // *   **ModifyFailed**
-      // *   **Creating**
-      // *   **Modifying**
-      // *   **Deleting**
-      // *   **Deleted**
+      // - **Created**: The association is created.
+      // - **ModifyFailed**: The association is not updated to the latest version.
+      // - **Creating**: The association is being created.
+      // - **Modifying**: The association is being modified.
+      // - **Deleting**: The association is being deleted.
+      // - **Deleted**: The association is deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -210,18 +210,17 @@ namespace Models
 
 
   protected:
-    // The number of entries.
+    // The number of entries returned.
     shared_ptr<int64_t> count_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The information about the network instances that are associated with the prefix list.
+    // The association information of the prefix list.
     shared_ptr<vector<GetVpcPrefixListAssociationsResponseBody::PrefixListAssociation>> prefixListAssociation_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

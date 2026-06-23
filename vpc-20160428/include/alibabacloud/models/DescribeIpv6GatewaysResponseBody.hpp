@@ -343,9 +343,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeIpv6GatewaysResponseBody::Ipv6Gateways> ipv6Gateways_ {};
-    // The page number.
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

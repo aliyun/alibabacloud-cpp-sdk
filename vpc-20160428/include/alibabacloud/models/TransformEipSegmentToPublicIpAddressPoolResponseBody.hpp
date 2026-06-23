@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the IP address pool.
+    // The instance ID of the IP address pool.
     shared_ptr<string> publicIpAddressPoolId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the IP address pool belongs.
+    // The resource group ID of the IP address pool.
     shared_ptr<string> resourceGroupId_ {};
   };
 

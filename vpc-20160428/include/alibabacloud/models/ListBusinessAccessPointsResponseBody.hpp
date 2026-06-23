@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The model of the optical module.
         shared_ptr<string> opticalModuleModel_ {};
+        // The port type.
         shared_ptr<string> portType_ {};
       };
 
@@ -173,35 +175,47 @@ namespace Models
       shared_ptr<string> accessPointId_ {};
       // The name of the access point.
       shared_ptr<string> accessPointName_ {};
-      // The ID of the cloud box.
+      // The ID of the Cloud Box instance.
       // 
-      // >  You can query this parameter if the Express Connect circuits and access points are of the cloud box type.
+      // > This parameter is returned only for access points that are associated with Cloud Box instances.
       shared_ptr<string> cloudBoxInstanceIds_ {};
       // The latitude of the access point.
       shared_ptr<double> latitude_ {};
       // The longitude of the access point.
       shared_ptr<double> longitude_ {};
+      // The supported model of the optical module.
       shared_ptr<vector<BusinessAccessPoints::OpticalModuleModels>> opticalModuleModels_ {};
-      // The connectivity provider of the Express Connect circuit. Valid values:
+      // The connectivity provider for the Express Connect circuit. Valid values:
       // 
-      // *   **CT**: China Telecom.
-      // *   **CU**: China Unicom.
-      // *   **CM**: China Mobile.
-      // *   **CO**: other connectivity providers in the Chinese mainland.
-      // *   **Equinix**: Equinix.
-      // *   **Other**: other connectivity providers outside the Chinese mainland.
+      // - **CT**: China Telecom.
+      // 
+      // - **CU**: China Unicom.
+      // 
+      // - **CM**: China Mobile.
+      // 
+      // - **CO**: other connectivity providers in the Chinese mainland.
+      // 
+      // - **Equinix**: Equinix.
+      // 
+      // - **Other**: other connectivity providers outside the Chinese mainland.
       shared_ptr<string> supportLineOperator_ {};
-      // The port type supported by the access point. Valid values:
+      // The port types supported by the access point. Valid values:
       // 
-      // *   **100Base-T**: 100 Mbit/s copper Ethernet port
-      // *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
-      // *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
-      // *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
-      // *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
-      // *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
-      // *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+      // - **100Base-T**: 100 Mbit/s copper port.
       // 
-      // >  To use ports 40GBase-LR and 100GBase-LR, you must first contact your account manager.
+      // - **1000Base-T**: 1,000 Mbit/s copper port.
+      // 
+      // - **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km).
+      // 
+      // - **10GBase-T**: 10,000 Mbit/s copper port.
+      // 
+      // - **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km).
+      // 
+      // - **40GBase-LR**: 40,000 Mbit/s single-mode optical port.
+      // 
+      // - **100GBase-LR**: 100,000 Mbit/s single-mode optical port.
+      // 
+      // > The 40GBase-LR and 100GBase-LR port types are subject to availability. To use these port types, contact your account manager.
       shared_ptr<string> supportPortTypes_ {};
     };
 
@@ -224,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The list of access points.
+    // A list of access points.
     shared_ptr<vector<ListBusinessAccessPointsResponseBody::BusinessAccessPoints>> businessAccessPoints_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

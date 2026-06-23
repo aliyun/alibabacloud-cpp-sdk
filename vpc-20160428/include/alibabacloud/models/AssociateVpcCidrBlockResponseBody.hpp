@@ -57,12 +57,9 @@ namespace Models
 
 
   protected:
-    // The IPv4 CIDR block to be added.
+    // The secondary CIDR block added to the VPC.
     shared_ptr<string> cidrBlock_ {};
-    // The version of the IP address. Valid values:
-    // 
-    // *   **IPV4**: the IPv4 address.
-    // *   **IPV6**: the IPv6 address.
+    // The IP address type of the secondary CIDR block.
     shared_ptr<string> ipVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

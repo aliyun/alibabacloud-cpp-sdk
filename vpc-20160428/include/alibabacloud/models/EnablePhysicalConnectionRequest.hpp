@@ -103,26 +103,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether to skip the order lifecycle. Valid values:
+    // Specifies whether to bypass the service provider (SP) subscription lifecycle. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: Bypasses the SP subscription lifecycle. This means the instance is no longer managed by the Alibaba Cloud subscription system.
     // 
-    // >  To use this feature, you must contact your account manager.
+    // - **false** (default): Does not bypass the SP subscription lifecycle.
+    // 
+    // > To use this feature, contact your account manager.
     shared_ptr<bool> byPassSp_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // A client-generated token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The token must be unique across requests. The token can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the Express Connect circuit.
+    // The ID of the physical connection.
     // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
-    // The region where the Express Connect circuit is deployed.
+    // The ID of the region where the physical connection is located.
     // 
-    // You can call the DescribeRegions operation to query the most recent region list.
+    // You can call `DescribeRegions` to get the latest region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

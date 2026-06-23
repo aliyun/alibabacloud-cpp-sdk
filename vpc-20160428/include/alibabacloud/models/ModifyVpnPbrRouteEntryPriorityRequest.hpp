@@ -151,9 +151,9 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
     // The new priority of the policy-based route. Valid values: **1** to **100**.
     // 
@@ -171,9 +171,9 @@ namespace Models
     // 
     // A smaller value indicates a higher priority.
     shared_ptr<int32_t> priority_ {};
-    // The ID of the region where the VPN gateway is created.
+    // The region ID of the VPN gateway instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -187,11 +187,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> routeSource_ {};
-    // The ID of the VPN gateway.
+    // The ID of the VPN gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};
-    // The weight of the policy-based route. Valid values:
+    // The weight of the policy-based route.
     // 
     // This parameter is required.
     shared_ptr<int32_t> weight_ {};

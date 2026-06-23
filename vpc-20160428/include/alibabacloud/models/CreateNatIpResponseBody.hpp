@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The Ipv4Prefix of the created NatIpList list is returned when Ipv4Preix is created.
+      // The IPv4 prefix in the list of NAT IP addresses created by using an IPv4 prefix.
       shared_ptr<string> ipv4Prefix_ {};
-      // Returns the NatIp address of the created NatIpList list when Ipv4Preix is created.
+      // The NAT IP address in the list of NAT IP addresses created by using an IPv4 prefix.
       shared_ptr<string> natIp_ {};
-      // Returns the NatIpId of the created NatIpList list when Ipv4Preix is created.
+      // The NAT IP address ID in the list of NAT IP addresses created by using an IPv4 prefix.
       shared_ptr<string> natIpId_ {};
     };
 
@@ -133,13 +133,13 @@ namespace Models
 
 
   protected:
-    // The IPv4Prefix returned by the previous API is obsolete.
+    // The IPv4 prefix returned by the legacy operation. This parameter is deprecated.
     shared_ptr<string> ipv4Prefix_ {};
-    // The NAT IP address.
+    // The created NAT IP address.
     shared_ptr<string> natIp_ {};
-    // The ID of the NAT IP address.
+    // The instance ID of the created NAT IP address.
     shared_ptr<string> natIpId_ {};
-    // The NatIp parameter that is returned after you create a NatIp. If you use IPv4Prefix to create a NatIp, the information about all NatIp is returned. We recommend that you use this parameter to obtain the information about a NatIp when you create a NatIp.
+    // The NAT IP address information returned after the NAT IP address is created. When you create a NAT IP address by using an IPv4 prefix, all NAT IP address information is returned. When you create a single NAT IP address, we recommend that you use this parameter to obtain the NAT IP address information.
     shared_ptr<vector<CreateNatIpResponseBody::NatIps>> natIps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

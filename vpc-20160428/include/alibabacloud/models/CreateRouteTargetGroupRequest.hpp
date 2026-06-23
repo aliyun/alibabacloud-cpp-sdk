@@ -84,13 +84,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. Up to 20 tag keys are supported. If you need to pass this value, you cannot input an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // A tag key can have up to 128 characters and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. Up to 20 tag values are supported. If you need to pass this value, you can input an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // A tag value can have up to 128 characters and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -145,22 +145,22 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> memberId_ {};
-      // The type of the route target group member.
+      // The member type of the route target group.
       // 
-      // Currently supported types:
+      // Supported type:
       // 
       // - **GatewayLoadBalancerEndpoint**
       // 
-      // In Active-Standby mode, all members of the route target group must have the same type.
+      // In active/standby mode, all members of the route target group must be of the same type.
       // 
       // This parameter is required.
       shared_ptr<string> memberType_ {};
-      // The weight value of the route target group member. Values:
+      // The weight of the route target group member. Valid values:
       // 
-      // - **100**: Indicates the member is a primary instance.
-      // - **0**: Indicates the member is a standby instance.
+      // - **100**: The member is the active instance.
+      // - **0**: The member is the standby instance.
       // 
-      // The weight value can only be set during creation and cannot be modified.
+      // The weight can only be set during creation and cannot be modified.
       // 
       // This parameter is required.
       shared_ptr<int32_t> weight_ {};
@@ -237,36 +237,35 @@ namespace Models
 
 
   protected:
-    // Client token used to ensure the idempotence of the request. Generate a parameter value from your client to ensure that it is unique across different requests. ClientToken supports only ASCII characters. Note: If you do not specify this, the system automatically uses the RequestId of the API request as the ClientToken identifier. Each API request has a different RequestId.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters. If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value is different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The configuration mode of the route target group. Supported modes:
+    // The configuration mode of the route target group. Valid values:
     // 
-    // - **Active-Standby**: Active-Standby mode.
+    // - **Active-Standby**: active/standby mode.
     // 
     // This parameter is required.
     shared_ptr<string> configMode_ {};
-    // The region ID to which the route target group belongs. You can obtain the region ID by calling the DescribeRegions interface.
+    // The region ID of the route target group. You can call the DescribeRegions operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     // 
-    // For more information about resource groups, see [What is a Resource Group](https://help.aliyun.com/document_detail/2381067.html).
+    // For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
     shared_ptr<string> resourceGroupId_ {};
     // The description of the route target group.
-    // 
-    // The description length must be between 1 and 256 characters, and cannot start with http:// or https://.
+    // The description must be 1 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> routeTargetGroupDescription_ {};
     // The name of the route target group.
     // 
-    // The name length must be between 1 and 128 characters, and cannot start with http:// or https://.
+    // The name must be 1 to 128 characters in length and cannot start with http:// or https://.
     shared_ptr<string> routeTargetGroupName_ {};
     // The member list of the route target group.
     // 
-    // In Active-Standby mode, the following restrictions apply to the members of the route target group:
+    // In active/standby mode, the following limits apply to route target group members:
     // 
     // 1. The number of route target group members must be 2.
-    // 2. The route target group members must belong to different availability zones.
+    // 2. The route target group members must be in different zones.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateRouteTargetGroupRequest::RouteTargetMemberList>> routeTargetMemberList_ {};

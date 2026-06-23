@@ -203,20 +203,25 @@ namespace Models
 
 
     protected:
-      // The peak bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
+      // The peak bandwidth of the Internet Shared Bandwidth instance on the queried date. Unit: Mbps.
       shared_ptr<int64_t> bandwidth_ {};
-      // The daily peak bandwidth. Unit: Mbit/s.
-      // <props="china"> For more information, see [Daily peak bandwidth](https://help.aliyun.com/document_detail/89729.html).
+      // The daily peak bandwidth. Unit: Mbps.
+      // 
+      // <props="china">
+      // 
+      // For more information, see [Daily peak bandwidth](https://help.aliyun.com/document_detail/89729.html).
       shared_ptr<string> fifthPeakBandwidth_ {};
       // The resource ID.
       shared_ptr<string> instanceId_ {};
-      // The metering method of the Internet Shared Bandwidth instance. Valid values:
+      // The billing method of the Internet Shared Bandwidth instance on the queried date. Valid values:
       // 
-      // *   PayBy95: pay-by-enhanced-95th-percentile
-      // *   PayByBandwidth: pay-by-bandwidth
-      // *   PayByDominantTraffic: pay-by-dominant-traffic
+      // - **PayBy95**: pay-by-enhanced-95th-percentile
+      // 
+      // - **PayByBandwidth**: pay-by-bandwidth
+      // 
+      // - **PayByDominantTraffic**: pay-by-dominant-traffic
       shared_ptr<string> internetChargeType_ {};
-      // The guaranteed bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
+      // The minimum bandwidth commitment of the Internet Shared Bandwidth instance on the queried date. Unit: Mbps.
       shared_ptr<string> minimumConsumeBandwidth_ {};
       shared_ptr<Traffic95Summary::Traffic95DetailList> traffic95DetailList_ {};
     };
@@ -242,7 +247,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information returned.
+    // The bandwidth statistics for Internet Shared Bandwidth billed by enhanced 95th percentile.
     shared_ptr<Describe95TrafficResponseBody::Traffic95Summary> traffic95Summary_ {};
   };
 

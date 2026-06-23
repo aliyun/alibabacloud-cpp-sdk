@@ -114,24 +114,24 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to enable IPv6. Valid values:
+    // Specifies whether to enable the IPv6 CIDR block. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): does not enable the IPv6 CIDR block.
+    // - **true**: enables the IPv6 CIDR block.
     shared_ptr<bool> enableIpv6_ {};
     // The IPv6 CIDR block of the default VPC.
     // 
-    // > When **EnableIpv6** is set to **true**, this parameter is required.
+    // > This parameter is required when **EnableIpv6** is set to **true**.
     shared_ptr<string> ipv6CidrBlock_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the default VPC belongs.
+    // The region ID of the default VPC.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

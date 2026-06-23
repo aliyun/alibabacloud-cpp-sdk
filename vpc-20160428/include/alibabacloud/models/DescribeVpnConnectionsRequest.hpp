@@ -90,17 +90,17 @@ namespace Models
 
 
     protected:
-      // The tag key. The tag key cannot be an empty string.
+      // The tag key. If you specify this parameter, the value cannot be an empty string.
       // 
-      // It can be at most 64 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
-      // You can specify at most 20 tag keys in each call.
+      // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // The tag value can be an empty string and cannot exceed 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       // 
-      // Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
+      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -199,13 +199,13 @@ namespace Models
     shared_ptr<string> customerGatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries per page for paging queries. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the IPsec-VPN connection is created.
+    // The region ID of the IPsec-VPN connection. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -215,15 +215,13 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag value.
+    // The list of tags bound to the IPsec-VPN connection.
     // 
-    // The tag value can be an empty string and cannot exceed 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-    // 
-    // Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
+    // You can specify up to 20 tags at a time.
     shared_ptr<vector<DescribeVpnConnectionsRequest::Tag>> tag_ {};
     // The ID of the IPsec-VPN connection.
     shared_ptr<string> vpnConnectionId_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

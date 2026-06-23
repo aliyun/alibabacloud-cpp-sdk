@@ -121,7 +121,15 @@ namespace Models
 
 
   protected:
+    // A client token used to ensure the idempotence of the request.
+    // 
+    // Generate a unique value from your client for this parameter to guarantee uniqueness across different requests. ClientToken supports only ASCII characters.
+    // 
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform a dry run of the request. Valid values:
+    // - **true**: Sends a dry run request without creating any resource (performing the API operation). The system checks whether required parameters are specified, whether the request format is valid, and whether business limits are met. If the check fails, an error is returned. If the check passes, the error code `DryRunOperation` is returned.
+    // - **false** (default): Sends a normal request. If the check passes, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

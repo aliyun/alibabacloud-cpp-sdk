@@ -140,14 +140,14 @@ namespace Models
 
 
   protected:
-    // The ID of the instance that is associated with the IPv6 address to which the egress-only rule is applied.
+    // The ID of the IPv6 address for which the IPv6 egress-only rule is configured.
     shared_ptr<string> instanceId_ {};
-    // The type of the instance to which you want to apply the egress-only rule. Valid values:
+    // The type of the instance for which you want to configure an IPv6 egress-only rule. Valid values:
     // 
-    // *   IPv6Address (default)
-    // *   IPv6Prefix
+    // - IPv6Address (default): The instance is a single IPv6 address.
+    // - IPv6Prefix: The instance is an IPv6 CIDR block.
     shared_ptr<string> instanceType_ {};
-    // The ID of the egress-only rule that you want to query.
+    // The ID of the IPv6 egress-only rule to query.
     shared_ptr<string> ipv6EgressOnlyRuleId_ {};
     // The ID of the IPv6 gateway.
     // 
@@ -157,11 +157,11 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

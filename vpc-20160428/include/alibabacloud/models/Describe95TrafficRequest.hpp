@@ -103,7 +103,9 @@ namespace Models
 
 
   protected:
-    // The date in UTC+8. Format: year-month-day.
+    // The date to query, in UTC+8. Format: YYYY-MM-DD.
+    // 
+    // > You can query only data from last month or earlier.
     // 
     // This parameter is required.
     shared_ptr<string> day_ {};
@@ -115,13 +117,13 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the resource.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type. Set the value to cbwp, which specifies Internet Shared Bandwidth.
+    // The resource type. Only **cbwp** is supported, which represents Internet Shared Bandwidth.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

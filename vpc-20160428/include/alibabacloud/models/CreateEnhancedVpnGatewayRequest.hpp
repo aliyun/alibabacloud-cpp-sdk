@@ -158,22 +158,63 @@ namespace Models
 
 
   protected:
+    // A client token used to ensure request idempotence.
+    // 
+    // You can generate this token from your client. Make sure that the token is unique for each request. The client token can contain only ASCII characters.
+    // 
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. Each request may have a different **RequestId**.
     shared_ptr<string> clientToken_ {};
+    // The ID of the second vSwitch to associate with the enhanced VPN gateway for high availability.
+    // 
+    // -
+    // 
+    // - For zone-level disaster recovery, the two vSwitches must be in different availability zones within the same VPC.
+    // 
+    // - In regions with only one availability zone, zone-level disaster recovery is not supported. To ensure high availability, specify two different vSwitches from that zone. You can also specify the same vSwitch for both the **VSwitchId** and **DisasterRecoveryVSwitchId** parameters.
     shared_ptr<string> disasterRecoveryVSwitchId_ {};
+    // The type of the enhanced VPN gateway. Valid value:
+    // 
+    // - **Enhanced.SiteToSite**: an enhanced site-to-site VPN gateway that supports only the IPsec feature.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayType_ {};
+    // The name of the enhanced VPN gateway. If you do not specify this parameter, the gateway ID is used as the name.
+    // 
+    // The name must be 2 to 100 characters long, start with a letter, and not start with http\\:// or https\\://. It can contain only letters, digits, underscores (_), hyphens (-), and periods (.).
     shared_ptr<string> name_ {};
+    // The network type of the VPN gateway. Valid value:
+    // 
+    // - **public** (default): a public VPN gateway.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where you want to create the enhanced VPN gateway.
+    // 
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to get the region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group to which you want to assign the enhanced VPN gateway.
+    // 
+    // - You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
+    // 
+    // - If you do not specify this parameter, the enhanced VPN gateway is added to the Default Resource Group.
+    // 
+    // - Associated IPsec connections are automatically added to the same resource group as the enhanced VPN gateway. You cannot directly change the resource group of an IPsec connection. If you change the resource group of the gateway, the resource group of its associated IPsec connections is also updated.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the vSwitch to associate with the enhanced VPN gateway.
+    // 
+    // -
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the VPC where you want to create the enhanced VPN gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The type of the enhanced VPN gateway. Valid value:
+    // 
+    // - **Normal** (default): standard type.
     shared_ptr<string> vpnType_ {};
   };
 

@@ -302,6 +302,9 @@ namespace Models
     shared_ptr<int64_t> minRxInterval_ {};
     // The time interval to send BFD packets. Valid values: **200 to 1000**. Unit: milliseconds.
     shared_ptr<int64_t> minTxInterval_ {};
+    // The MTU value supported by the VBR. Valid values: 1500 and 8500.
+    // 
+    // This value can be set only when the VBR is attached to an ECR. The value also affects all other VBRs and VPCs in the same ECR.
     shared_ptr<int32_t> mtu_ {};
     // The name of the VBR.
     // 

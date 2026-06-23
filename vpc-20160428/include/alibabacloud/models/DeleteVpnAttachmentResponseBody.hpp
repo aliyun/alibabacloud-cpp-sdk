@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The status code returned by the current operation. **200** indicates that the operation is successful.
+    // The status code returned by the current task. A value of **200** indicates that the task is successful.
     shared_ptr<string> code_ {};
-    // The information returned by the current operation.
+    // The message returned by the current task.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the current operation is successful.
+    // Indicates whether the current task is successfully executed.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The task is successfully executed.
+    // - **false**: The task failed to be executed.
     shared_ptr<bool> success_ {};
   };
 

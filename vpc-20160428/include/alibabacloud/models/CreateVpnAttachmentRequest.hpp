@@ -739,6 +739,10 @@ namespace Models
     // 
     // >  This parameter is required only when you create a single-tunnel IPsec-VPN connection.
     shared_ptr<string> customerGatewayId_ {};
+    // Specifies whether to perform a dry run of the request. Valid values:
+    // 
+    // - **true**: Sends a dry run request without creating the IPsec-VPN connection. The system checks whether required parameters are specified, whether the request format is valid, and whether business limits are met. If the check fails, an error is returned. If the check passes, the error code `DryRunOperation` is returned.
+    // - **false** (default): Sends a normal request. If the check passes, the IPsec-VPN connection is created immediately.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to immediately start IPsec negotiations after the configuration takes effect. Valid values:
     // 
@@ -873,6 +877,9 @@ namespace Models
     // 
     // Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
     shared_ptr<vector<CreateVpnAttachmentRequest::Tags>> tags_ {};
+    // Specifies the bandwidth specification for a single VPN tunnel. Valid values:
+    // Standard (Default Value): medium, with a default bandwidth of 1 Gbps
+    // Large: large, with a default bandwidth of 3 Gbps
     shared_ptr<string> tunnelBandwidth_ {};
     // The tunnel configurations.
     // 

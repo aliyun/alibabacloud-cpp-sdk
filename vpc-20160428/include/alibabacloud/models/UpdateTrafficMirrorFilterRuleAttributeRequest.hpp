@@ -171,18 +171,19 @@ namespace Models
     // 
     // You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    // > If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The new destination CIDR block of the inbound or outbound traffic.
     shared_ptr<string> destinationCidrBlock_ {};
     // The new destination port range of the inbound or outbound traffic.
     // 
-    // >  If you set **Protocol** to **ICMP**, you cannot change the port range.
+    // > If you set **Protocol** to **ICMP**, you cannot change the port range.
     shared_ptr<string> destinationPortRange_ {};
     // Specifies whether to check the request without performing the operation. Valid values:
     // 
-    // *   **true**: only checks the API request. The configuration of the inbound or outbound rule is not modified. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-    // *   **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
+    // - **true**: only checks the API request. The configuration of the inbound or outbound rule is not modified. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+    // 
+    // - **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -190,10 +191,13 @@ namespace Models
     shared_ptr<int32_t> priority_ {};
     // The new protocol that is used by the traffic to be mirrored by the inbound or outbound rule. Valid values:
     // 
-    // *   **ALL**: all protocols
-    // *   **ICMP**: Internet Control Message Protocol (ICMP)
-    // *   **TCP**: TCP
-    // *   **UDP**: User Datagram Protocol (UDP)
+    // - **ALL**: all protocols
+    // 
+    // - **ICMP**: Internet Control Message Protocol (ICMP)
+    // 
+    // - **TCP**: TCP
+    // 
+    // - **UDP**: User Datagram Protocol (UDP)
     shared_ptr<string> protocol_ {};
     // The ID of the region to which the mirrored traffic belongs.
     // 
@@ -205,14 +209,15 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The new action of the inbound or outbound rule. Valid values:
     // 
-    // *   **accept**: accepts network traffic.
-    // *   **drop**: drops network traffic.
+    // - **accept**: accepts network traffic.
+    // 
+    // - **drop**: drops network traffic.
     shared_ptr<string> ruleAction_ {};
     // The new source CIDR block of the inbound or outbound traffic.
     shared_ptr<string> sourceCidrBlock_ {};
     // The new source port range of the inbound or outbound traffic.
     // 
-    // >  If you set **Protocol** to **ICMP**, you cannot change the port range.
+    // > If you set **Protocol** to **ICMP**, you cannot change the port range.
     shared_ptr<string> sourcePortRange_ {};
     // The ID of the inbound or outbound rule.
     // 

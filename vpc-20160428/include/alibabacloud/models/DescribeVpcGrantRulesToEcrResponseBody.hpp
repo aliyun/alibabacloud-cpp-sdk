@@ -120,22 +120,23 @@ namespace Models
 
 
     protected:
-      // The creation time in milliseconds.
+      // The time when the authorization was created.
       shared_ptr<string> creationTime_ {};
-      // The ECR ID.
+      // The ID of the Express Connect Router.
       shared_ptr<string> ecrId_ {};
-      // The ID of the Alibaba Cloud account to which the ECR belongs.
+      // The ID of the Alibaba Cloud account (main account) that owns the Express Connect Router.
       shared_ptr<int64_t> ecrOwnerId_ {};
       // The ID of the network instance.
       shared_ptr<string> instanceId_ {};
-      // The ID of the Alibaba Cloud account to which the instance belongs.
+      // The ID of the Alibaba Cloud account (main account) that owns the network instance.
       shared_ptr<int64_t> instanceUid_ {};
-      // The ID of the region where the instance is deployed.
+      // The ID of the region where the network instance is located.
       shared_ptr<string> regionNo_ {};
-      // The type of instance. Valid values:
+      // The type of the network instance. Valid values:
       // 
-      // *   **VBR**: queries the permissions that are granted to a VBR.
-      // *   **VPC**: queries the permissions that are granted from a VPC.
+      // - **VBR**: virtual border router
+      // 
+      // - **VPC**: Virtual Private Cloud
       shared_ptr<string> type_ {};
     };
 
@@ -172,16 +173,17 @@ namespace Models
 
 
   protected:
-    // The authorization information.
+    // A list of authorization rules.
     shared_ptr<vector<DescribeVpcGrantRulesToEcrResponseBody::GrantRuleModels>> grantRuleModels_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The pagination token for the next page of results. A non-empty value indicates that more results are available. If this parameter is not returned or is empty, all results have been retrieved.
     // 
-    // *   If **NextToken** is empty, there is no next page.
-    // *   ****
+    // - If **NextToken** is empty, there are no more queries.
+    // 
+    // - If **NextToken** has a value, the value is the token to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The unique ID that Alibaba Cloud generates for the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of instances queried. If you specify the MaxResults and NextToken request parameters to perform a paged query, the value of the TotalCount response parameter is invalid.
+    // The total number of entries. Note: When you perform a paged query by using the `MaxResults` and `NextToken` parameters, the value of this parameter is for reference only.
     shared_ptr<string> totalCount_ {};
   };
 

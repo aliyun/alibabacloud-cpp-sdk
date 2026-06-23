@@ -112,24 +112,23 @@ namespace Models
 
 
   protected:
-    // The destination CIDR block of the route entry in the gateway route table.
+    // The destination CIDR block of the route entry in the gateway route table that you want to query.
     shared_ptr<string> destinationCidrBlock_ {};
-    // The ID of the gateway route table that you want to query.
+    // The ID of the gateway route table to query.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayRouteTableId_ {};
-    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **10**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - If this is the first query or no subsequent query exists, leave this parameter empty.
+    // - If a subsequent query exists, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the gateway route table.
+    // The region ID of the gateway route table that you want to query.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent list of regions.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -135,27 +135,27 @@ namespace Models
 
 
     protected:
-      // The SSL client certificate used by the client.
+      // The SSL client certificate used by the client to establish the SSL-VPN connection to Alibaba Cloud.
       // 
-      // >  If the client uses two-factor authentication to establish an SSL-VPN connection to Alibaba Cloud, the return value is the username of the client.
+      // > If the client uses two-factor identity authentication to establish the SSL-VPN connection to Alibaba Cloud, the value of this parameter is the username of the client.
       shared_ptr<string> commonName_ {};
-      // The timestamp that indicates when the client connected to Alibaba Cloud through an SSL-VPN connection. Unit: milliseconds.
+      // The timestamp when the client established the SSL-VPN connection to Alibaba Cloud. Unit: milliseconds.
       // 
-      // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the SSL-VPN connection was established.
       shared_ptr<int64_t> connectedTime_ {};
-      // The actual public IP address used by the client when the client established an SSL-VPN connection to Alibaba Cloud.
+      // The public IP address that the client used to establish the SSL-VPN connection to Alibaba Cloud.
       shared_ptr<string> ip_ {};
-      // The port used by the client when the client established an SSL-VPN connection to Alibaba Cloud.
+      // The port number that the client used to establish the SSL-VPN connection to Alibaba Cloud.
       shared_ptr<string> port_ {};
-      // The private IP address allocated to the client by the VPN gateway when the client established an SSL-VPN connection to Alibaba Cloud.
+      // The private IP address that the VPN gateway assigned to the client when the client established an SSL-VPN connection to Alibaba Cloud.
       shared_ptr<string> privateIp_ {};
-      // The amount of data transferred from the client to the VPN gateway through the SSL-VPN connection. Unit: bytes.
+      // The traffic that the VPN gateway received from the client over the SSL-VPN connection. Unit: bytes.
       shared_ptr<int64_t> receiveBytes_ {};
-      // The amount of data transferred from the VPN gateway to the client through the SSL-VPN connection. Unit: bytes.
+      // The traffic that the VPN gateway sent to the client over the SSL-VPN connection. Unit: bytes.
       shared_ptr<int64_t> sendBytes_ {};
       // The status of the SSL-VPN connection.
       // 
-      // The value is set to **online**, which indicates that the client has connected to Alibaba Cloud through an SSL-VPN connection.
+      // Valid values: **online**, which indicates that the client has successfully established an SSL-VPN connection to Alibaba Cloud.
       shared_ptr<string> status_ {};
     };
 
@@ -214,19 +214,19 @@ namespace Models
 
 
   protected:
-    // The list of clients.
+    // The list of client information.
     shared_ptr<vector<DescribeSslVpnClientsResponseBody::ClientInfoList>> clientInfoList_ {};
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
+    // The region ID of the VPN gateway instance.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of returned entries.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
-    // The ID of the VPN gateway.
+    // The VPN gateway instance ID.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

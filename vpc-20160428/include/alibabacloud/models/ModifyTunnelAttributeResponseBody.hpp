@@ -229,23 +229,23 @@ namespace Models
       shared_ptr<int64_t> ikeLifetime_ {};
       // The IKE negotiation mode.
       // 
-      // *   **main:** This mode offers higher security during negotiations.
-      // *   **aggressive**: This mode is faster and has a higher success rate.
+      // - **main**: main mode. This mode offers high security during negotiations.
+      // - **aggressive**: aggressive mode. This mode supports fast negotiations and a higher success rate.
       shared_ptr<string> ikeMode_ {};
       // The DH group.
       shared_ptr<string> ikePfs_ {};
-      // The IKE version.
+      // The IKE protocol version.
       // 
-      // *   **ikev1**
-      // *   **ikev2**
+      // - **ikev1**
+      // - **ikev2**
       // 
-      // Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios with multiple CIDR blocks.
+      // Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for multi-CIDR-block scenarios.
       shared_ptr<string> ikeVersion_ {};
-      // The tunnel identifier. The identifier supports FQDNs and IP addresses. The default value is the tunnel IP address.
+      // The identifier of the local end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the current tunnel.
       shared_ptr<string> localId_ {};
       // The pre-shared key.
       shared_ptr<string> psk_ {};
-      // The peer identifier. The identifier supports FQDNs and IP addresses. The default identifier is the IP address of the customer gateway associated with the tunnel.
+      // The identifier of the peer end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the customer gateway instance associated with the tunnel.
       shared_ptr<string> remoteId_ {};
     };
 
@@ -323,20 +323,21 @@ namespace Models
 
 
     protected:
-      // Indicates whether the BGP feature is enabled. Valid values:
+      // The enabling status of BGP.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> enableBgp_ {};
-      // The local ASN.
+      // The autonomous system number (ASN) of the local end of the tunnel.
       shared_ptr<int64_t> localAsn_ {};
-      // The BGP IP address of the tunnel.
+      // The BGP IP address of the local end of the tunnel.
       shared_ptr<string> localBgpIp_ {};
-      // The peer ASN.
+      // The autonomous system number (ASN) of the peer end of the tunnel.
       shared_ptr<int64_t> peerAsn_ {};
-      // The BGP IP address of the peer.
+      // The BGP IP address of the peer end of the tunnel.
       shared_ptr<string> peerBgpIp_ {};
-      // The CIDR block to which the tunnel BGP IP address belongs.
+      // The CIDR block of the tunnel BGP IP address.
       shared_ptr<string> tunnelCidr_ {};
     };
 
@@ -442,44 +443,46 @@ namespace Models
 
 
   protected:
-    // The ID of the customer gateway associated with the customer gateway.
+    // The instance ID of the customer gateway associated with the tunnel.
     shared_ptr<string> customerGatewayId_ {};
-    // Indicates whether DPD is enabled. Valid values:
+    // Indicates whether the Dead Peer Detection (DPD) feature is enabled.
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**: disabled.
+    // 
+    // - **true**: enabled.
     shared_ptr<bool> enableDpd_ {};
     // Indicates whether NAT traversal is enabled. Valid values:
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**: disabled.
+    // 
+    // - **true**: enabled.
     shared_ptr<bool> enableNatTraversal_ {};
-    // The tunnel IP address.
+    // The IP address of the tunnel.
     shared_ptr<string> internetIp_ {};
-    // The peer CA certificate when a VPN gateway that uses an SM certificate is used to create the IPsec connection.
+    // The CA certificate of the peer when an IPsec-VPN connection is created with a Chinese SM VPN gateway.
     shared_ptr<string> remoteCaCertificate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tunnel role. Valid values:
+    // The role of the tunnel.
     // 
-    // *   **master**
-    // *   **slave**
+    // - **master**: the active tunnel.
+    // - **slave**: the standby tunnel.
     shared_ptr<string> role_ {};
-    // The tunnel status. Valid values:
+    // The status of the tunnel.
     // 
-    // *   **active**
-    // *   **updating**
-    // *   **deleting**
+    // - **active**: available.
+    // - **updating**: being updated.
+    // - **deleting**: being deleted.
     shared_ptr<string> state_ {};
-    // The BGP configuration.
+    // The BGP configuration of the tunnel.
     shared_ptr<ModifyTunnelAttributeResponseBody::TunnelBgpConfig> tunnelBgpConfig_ {};
     // The tunnel ID.
     shared_ptr<string> tunnelId_ {};
-    // The Phase 1 configuration.
+    // The IKE phase (Phase 1) configuration of the tunnel.
     shared_ptr<ModifyTunnelAttributeResponseBody::TunnelIkeConfig> tunnelIkeConfig_ {};
-    // The configurations of IPsec Phase 2.
+    // The IPsec phase (Phase 2) configuration of the tunnel.
     shared_ptr<ModifyTunnelAttributeResponseBody::TunnelIpsecConfig> tunnelIpsecConfig_ {};
-    // The tunnel zone.
+    // The zone of the tunnel.
     shared_ptr<string> zoneNo_ {};
   };
 

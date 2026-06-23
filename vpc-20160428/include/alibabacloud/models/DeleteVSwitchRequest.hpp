@@ -95,19 +95,18 @@ namespace Models
 
   protected:
     // Specifies whether to perform a dry run. Valid values:
-    // 
-    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): sends the request directly without performing a dry run. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: Sends a check request without deleting the VSwitch. The check items include whether required parameters are specified, the request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+    // - **false** (default): Sends a normal request. After the check succeeds, an HTTP 2xx status code is returned and the VSwitch is directly deleted.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the vSwitch.
+    // The region ID of the VSwitch to delete.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the vSwitch that you want to delete.
+    // The ID of the VSwitch to delete.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

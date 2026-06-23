@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Express Connect circuit.
+    // The instance ID of the Express Connect circuit.
     shared_ptr<string> physicalConnectionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

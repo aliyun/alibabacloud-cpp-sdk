@@ -96,17 +96,17 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the Express Connect circuit.
+    // The instance ID of the Express Connect circuit instance.
     // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
-    // The region ID of the Express Connect circuit.
+    // The region ID of the Express Connect circuit. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

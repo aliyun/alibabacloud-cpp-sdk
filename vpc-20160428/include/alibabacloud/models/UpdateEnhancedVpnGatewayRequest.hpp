@@ -121,16 +121,38 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic route propagation for the enhanced VPN gateway. Valid values:
+    // 
+    // - **true**<br>
+    //   The enhanced VPN gateway automatically learns system routes from the system route table of the VPC and propagates routes from the on-premises data center to the system route table of the VPC.<br>
+    // 
+    // - **false**<br>
+    //   Automatic route propagation is disabled. Before you disable this feature, make sure that BGP dynamic routing is disabled for all IPsec-VPN connections of the enhanced VPN gateway.<br>
     shared_ptr<bool> autoPropagate_ {};
+    // The client token that is used to ensure the idempotence of the request.
+    // 
+    // You can generate a token from your client to make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // 
+    // > If you do not specify a `ClientToken`, the system automatically uses the `RequestId` of the API request as the `ClientToken`. Each API request has a different `RequestId`.
     shared_ptr<string> clientToken_ {};
+    // The new description of the enhanced VPN gateway.
+    // 
+    // The description must be 1 to 100 characters in length.
     shared_ptr<string> description_ {};
+    // The new name of the enhanced VPN gateway.
+    // 
+    // The name must be 2 to 100 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the enhanced VPN gateway is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the enhanced VPN gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};
   };

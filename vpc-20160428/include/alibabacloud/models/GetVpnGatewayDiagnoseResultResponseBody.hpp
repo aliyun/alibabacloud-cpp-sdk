@@ -97,67 +97,55 @@ namespace Models
     protected:
       // The diagnostic item.
       // 
-      // *   **RouteEntryConflict**: route conflicts.
-      // *   **VpnRouteQuota**: the quota of destination-based routes for the VPN gateway.
-      // *   **VpnIPsecQuota**: the quota of IPsec-VPN connections for the VPN gateway.
-      // *   **VpnPbrRouteQuota**: the quota of policy-based routes for the VPN gateway.
-      // *   **VcoConfigConsistency**: the consistency of the IPsec-VPN connection.
-      // *   **VcoUserInternetIpConnectivity**: Internet connectivity of the customer gateway.
-      // *   **VcoPrivateConnectivity**: private network connectivity.
+      // - **RouteEntryConflict**: route conflict.
+      // - **VpnRouteQuota**: VPN gateway destination route quota.
+      // - **VpnIPsecQuota**: VPN gateway IPsec-VPN connection quota.
+      // - **VpnPbrRouteQuota**: VPN gateway policy-based route quota.
+      // - **VcoConfigConsistency**: IPsec configuration consistency.
+      // - **VcoUserInternetIpConnectivity**: public connectivity of the customer gateway.
+      // - **VcoPrivateConnectivity**: private network connectivity.
       // 
-      // For more information about the diagnostic items, see [Background information about quick diagnostics](https://help.aliyun.com/document_detail/190330.html).
+      // For more information about each diagnostic item, see [One-click diagnostics background information](https://help.aliyun.com/document_detail/190330.html).
       shared_ptr<string> diagnoseName_ {};
-      // The diagnostic result.
+      // The diagnostic result of the diagnostic item.
       // 
-      // The system returns different results for each diagnostic item.
+      // The operation returns different information for each diagnostic item:
       // 
-      // *   **RouteEntryConflict**: information about route conflicts.
-      // 
-      // *   **VpnRouteQuota**:
-      // 
-      //     *   **quotaName**: the quota ID of destination-based routes.
-      //     *   **quantity**: the quota of destination-based routes for the VPN gateway.
-      //     *   **used**: the number of destination-based routes created for the VPN gateway.
-      // 
-      // *   **VpnIPsecQuota**:
-      // 
-      //     *   **quotaName**: the quota ID of IPsec-VPN connections.
-      //     *   **quantity**: the quota of IPsec-VPN connections for the VPN gateway.
-      //     *   **used**: the number of IPsec-VPN connections created for the VPN gateway.
-      // 
-      // *   **VpnPbrRouteQuota**:
-      // 
-      //     *   **quotaName**: the quota ID of policy-based routes.
-      //     *   **quantity**: the quota of policy-based routes for the VPN gateway.
-      //     *   **used**: the number of policy-based routes created for the VPN gateway.
-      // 
-      // *   **VcoConfigConsistency**:
-      // 
-      //     *   **vcoLackConf**: The system cannot obtain the configuration of the peer of the IPsec-VPN connection.
-      //     *   **vcoRunningConf**: the configurations that have been added to the peer of the IPsec-VPN connection.
-      //     *   **vcoDiffConf**: the configurations that are inconsistent between the local end and the peer.
-      //     *   **vcoConf**: the configurations that have been added to the local end.
-      // 
-      // *   **VcoUserInternetIpConnectivity**:
-      // 
-      //     *   **targetIp**: the public IP address of the customer gateway.
-      //     *   **rtt**: the latency when the system accesses the public IP address of the customer gateway. Unit: milliseconds.
-      //     *   **lossRate**: the packet loss when the system accesses the public IP address of the customer gateway.
-      // 
-      // *   **VcoPrivateConnectivity**:
-      // 
-      //     *   **targetIp**: the source IP address.
-      //     *   **srcIp**: the destination IP address.
-      //     *   **rtt**: the latency when the source IP address accesses the destination IP address. Unit: milliseconds.
-      //     *   **lossRate**: the packet loss when the source IP address accesses the destination IP address.
+      // - **RouteEntryConflict**: The system returns information about the route conflict.
+      // - **VpnRouteQuota**:
+      //     - **quotaName**: the ID of the destination route quota.
+      //     - **quantity**: the number of destination routes that the current VPN gateway instance supports.
+      //     - **used**: the number of destination routes that have been created for the current VPN gateway instance.
+      // - **VpnIPsecQuota**:
+      //     - **quotaName**: the ID of the IPsec-VPN connection quota.
+      //     - **quantity**: the number of IPsec-VPN connections that the current VPN gateway instance supports.
+      //     - **used**: the number of IPsec-VPN connections that have been created for the current VPN gateway instance.
+      // - **VpnPbrRouteQuota**:
+      //     - **quotaName**: the ID of the policy-based route quota.
+      //     - **quantity**: the number of policy-based routes that the current VPN gateway instance supports.
+      //     - **used**: the number of policy-based routes that have been created for the current VPN gateway instance.
+      // - **VcoConfigConsistency**:
+      //     - **vcoLackConf**: the system cannot obtain the configuration of the peer end of the IPsec-VPN connection.
+      //     - **vcoRunningConf**: the configuration that has been added to the peer end of the IPsec-VPN connection.
+      //     - **vcoDiffConf**: the list of configurations that are inconsistent between the local end and the peer end of the IPsec-VPN connection.
+      //     - **vcoConf**: the configuration that has been added to the local end of the IPsec-VPN connection.
+      // - **VcoUserInternetIpConnectivity**:
+      //     - **targetIp**: the public IP address of the customer gateway.
+      //     - **rtt**: the latency when the system accesses the public IP address of the customer gateway. Unit: ms.
+      //     - **lossRate**: the packet loss rate when the system accesses the public IP address of the customer gateway.
+      // - **VcoPrivateConnectivity**:
+      //     - **targetIp**: the source IP address.
+      //     - **srcIp**: the destination IP address.
+      //     - **rtt**: the latency when the source IP address accesses the destination IP address. Unit: ms.
+      //     - **lossRate**: the packet loss rate when the source IP address accesses the destination IP address.
       shared_ptr<string> diagnoseResultDescription_ {};
-      // The diagnostic result level.
+      // The diagnostic result level of the diagnostic item.
       // 
-      // *   **normal**
-      // *   **warning**
-      // *   **error**
+      // - **normal**: Normal.
+      // - **warning**: Warning.
+      // - **error**: Error.
       // 
-      // For more information, see [Background information about quick diagnostics](https://help.aliyun.com/document_detail/190330.html).
+      // For more information about the diagnostic result levels of each diagnostic item, see [One-click diagnostics background information](https://help.aliyun.com/document_detail/190330.html).
       shared_ptr<string> diagnoseResultLevel_ {};
     };
 
@@ -239,29 +227,29 @@ namespace Models
   protected:
     // The time when the diagnostic started.
     // 
-    // The time follows the ISO8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
     shared_ptr<string> beginTime_ {};
-    // The ID of the diagnostic.
+    // The diagnostic ID.
     shared_ptr<string> diagnoseId_ {};
-    // The information about the diagnostic items.
+    // The list of diagnostic items.
     shared_ptr<vector<GetVpnGatewayDiagnoseResultResponseBody::DiagnoseResult>> diagnoseResult_ {};
-    // The timestamp when the system finishes diagnosing the item.
+    // The time when the diagnostic ended.
     // 
-    // The time follows the ISO8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
     shared_ptr<string> finishTime_ {};
-    // The number of diagnostic items that have been diagnosed.
+    // The number of diagnostic items that have been completed.
     shared_ptr<int32_t> finishedCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource that is diagnosed.
+    // The ID of the diagnosed resource.
     shared_ptr<string> resourceInstanceId_ {};
-    // The type of the resource.
+    // The type of the diagnosed resource.
     // 
-    // The value is set to **IPsec**, which indicates an IPsec-VPN connection.
+    // Valid values: **IPsec**, which indicates an IPsec-VPN connection.
     shared_ptr<string> resourceType_ {};
     // The total number of diagnostic items.
     shared_ptr<int32_t> totalCount_ {};
-    // The ID of the VPN gateway.
+    // The VPN gateway instance ID.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

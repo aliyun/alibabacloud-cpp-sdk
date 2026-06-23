@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The ID of the associated instance.
+      // The instance ID of the associated instance.
       shared_ptr<string> instanceId_ {};
-      // The type of the associated instance. Set the value to **PHYSICALCONNECTION**.
+      // The type of the associated instance. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
       shared_ptr<string> instanceType_ {};
     };
 
@@ -130,9 +130,9 @@ namespace Models
 
 
     protected:
-      // The ID of the instance to be associated.
+      // The instance ID of the instance to associate.
       shared_ptr<string> instanceId_ {};
-      // The type of instance to be associated. Set the value to **PHYSICALCONNECTION**.
+      // The type of the instance to associate. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
       shared_ptr<string> instanceType_ {};
     };
 
@@ -214,31 +214,35 @@ namespace Models
 
 
   protected:
-    // The instances to be added. Ignore this parameter if no instances are to be added.
+    // The list of instances to add in this update. You do not need to specify this parameter if no instances need to be added.
     shared_ptr<vector<ModifyExpressConnectTrafficQosRequest::AddInstanceList>> addInstanceList_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The description of the QoS policy.
+    // 
+    // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> qosDescription_ {};
     // The ID of the QoS policy.
     // 
     // This parameter is required.
     shared_ptr<string> qosId_ {};
     // The name of the QoS policy.
-    shared_ptr<string> qosName_ {};
-    // The region ID of the resource.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+    shared_ptr<string> qosName_ {};
+    // The region ID of the QoS policy.
+    // 
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The instances to be removed. Ignore this parameter if no instances are to be removed.
+    // The list of instances to remove in this update. You do not need to specify this parameter if no instances need to be removed.
     shared_ptr<vector<ModifyExpressConnectTrafficQosRequest::RemoveInstanceList>> removeInstanceList_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
   };

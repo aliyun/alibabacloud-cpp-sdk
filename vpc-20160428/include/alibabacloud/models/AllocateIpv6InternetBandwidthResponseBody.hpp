@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Internet bandwidth that you purchased for the IPv6 gateway.
+    // The instance ID of the Internet bandwidth associated with the IPv6 gateway after Internet bandwidth is allocated.
     shared_ptr<string> internetBandwidthId_ {};
     // The ID of the IPv6 address.
     shared_ptr<string> ipv6AddressId_ {};

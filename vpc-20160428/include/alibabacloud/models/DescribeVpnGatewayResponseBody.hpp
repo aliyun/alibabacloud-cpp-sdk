@@ -143,9 +143,7 @@ namespace Models
 
 
       protected:
-        // 标签键。
         shared_ptr<string> key_ {};
-        // 标签值。
         shared_ptr<string> value_ {};
       };
 
@@ -247,34 +245,39 @@ namespace Models
 
 
     protected:
-      // If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter specifies the time when the temporary upgrade expires.
+      // If the pending order type is **TEMP_UPGRADE** (temporary upgrade), this parameter indicates the revert time for the temporary upgrade.
       // 
-      // If the order type is **RENEWCHANGE** (renewal with a specification change) or **RENEW** (renewal), this parameter indicates the time when the renewal or renewal with a specification change takes effect.
+      // If the pending order type is **RENEWCHANGE** (renewal with specification change) or **RENEW** (renewal), this parameter indicates the effective period when the renewal or renewal with specification change takes effect.
       shared_ptr<string> reservationEndTime_ {};
-      // The IPsec-VPN status of the pending order. Valid values:
+      // The enabling status of the IPsec-VPN feature for the pending order. Valid values:
       // 
-      // *   **enable**
-      // *   **disable**
+      // - **enable**: enabled.
+      // 
+      // - **disable**: disabled.
       shared_ptr<string> reservationIpsec_ {};
       // The maximum number of concurrent SSL-VPN connections of the pending order.
       shared_ptr<int32_t> reservationMaxConnections_ {};
       // The type of the pending order. Valid values:
       // 
-      // *   **RENEWCHANGE**: renewal with upgrade or downgrade
-      // *   **TEMP_UPGRADE**: temporary upgrade
-      // *   **RENEW**: renewal
-      shared_ptr<string> reservationOrderType_ {};
-      // The bandwidth of the pending order. Unit: Mbit/s.
-      shared_ptr<string> reservationSpec_ {};
-      // The SSL-VPN status of the pending order. Valid values:
+      // - **RENEWCHANGE**: renewal with specification change.
       // 
-      // *   **enable**
-      // *   **disable**
+      // - **TEMP_UPGRADE**: temporary upgrade.
+      // 
+      // - **RENEW**: renewal.
+      shared_ptr<string> reservationOrderType_ {};
+      // The bandwidth specification of the pending order. Unit: Mbit/s.
+      shared_ptr<string> reservationSpec_ {};
+      // The enabling status of the SSL-VPN feature for the pending order. Valid values:
+      // 
+      // - **enable**: enabled.
+      // 
+      // - **disable**: disabled.
       shared_ptr<string> reservationSsl_ {};
       // The status of the pending order. Valid values:
       // 
-      // *   **1**: indicates that the order of the renewal or specification change has not taken effect.
-      // *   **2**: indicates that the order is an order for temporary upgrade and the order has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
+      // - **1**: The renewal or renewal with specification change order has not taken effect.
+      // 
+      // - **2**: The temporary upgrade order has taken effect. After the restoration time is reached, the system restores the VPN gateway to the specification before the temporary upgrade. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the specifications before the temporary upgrade.
       shared_ptr<string> status_ {};
     };
 
@@ -528,136 +531,148 @@ namespace Models
 
 
   protected:
-    // Indicates whether BGP routes are automatically advertised to the VPC. Valid values:
+    // Indicates whether the routing automatic propagation feature is enabled for the VPN gateway. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: enabled.
+    // 
+    // - **false**: disabled.
     shared_ptr<bool> autoPropagate_ {};
     // The payment status of the VPN gateway. Valid values:
     // 
-    // *   **Normal**
-    // *   **FinancialLocked**
-    shared_ptr<string> businessStatus_ {};
-    // The billing method. Valid value:
+    // - **Normal**: Normal.
     // 
-    // **POSTPAY**: pay-as-you-go
+    // - **FinancialLocked**: locked due to overdue payment.
+    shared_ptr<string> businessStatus_ {};
+    // The billing method. Value:
+    // 
+    // <props="intl">**POSTPAY**: pay-as-you-go billing method.
+    // 
+    // <props="partner">**POSTPAY**: pay-as-you-go billing method.
+    // 
+    // <props="china">**Prepay**: subscription.
     shared_ptr<string> chargeType_ {};
     // The timestamp when the VPN gateway was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX time format, which represents the total number of milliseconds elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
     // The description of the VPN gateway.
     shared_ptr<string> description_ {};
-    // The second IP address assigned by the system to create an IPsec-VPN connection.
+    // The second IP address assigned by the system to the VPN gateway instance for creating IPsec-VPN connections.
     // 
-    // This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
+    // This parameter is returned only for VPN gateway instances that support creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> disasterRecoveryInternetIp_ {};
-    // The ID of the second vSwitch associated with the VPN gateway.
+    // The ID of the second vSwitch associated with the VPN gateway instance.
     // 
-    // This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
+    // This parameter is returned only for VPN gateway instances that support creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> disasterRecoveryVSwitchId_ {};
-    // Indicates whether BGP is enabled for the VPN gateway. Valid values:
+    // The enabling status of the BGP feature for the VPN gateway. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: enabled.
+    // 
+    // - **false**: disabled.
     shared_ptr<bool> enableBgp_ {};
-    // The timestamp when the VPN gateway expires. Unit: milliseconds.
+    // The expiration timestamp of the VPN gateway. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX time format, which represents the total number of milliseconds elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
     shared_ptr<DescribeVpnGatewayResponseBody::EniInstanceIds> eniInstanceIds_ {};
-    // Type of VPN gateway:
-    // - **Traditional**: Traditional-type VPN gateway, supports both IPSec and SSL.
-    // - **Enhanced.SiteToSite**: Enhanced Site-to-Site VPN gateway, only supports IPSec.
+    // The type of the VPN gateway. Valid values:
+    // - **Traditional**: traditional VPN gateway that supports both IPsec and SSL features.
+    // - **Enhanced.SiteToSite**: enhanced site-to-cloud VPN gateway that supports only the IPsec feature.
     shared_ptr<string> gatewayType_ {};
-    // *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+    // - If the VPN gateway instance supports creating single-tunnel IPsec-VPN connections, this address is the IP address of the VPN gateway instance and can be used to create IPsec-VPN connections or SSL-VPN connections.
     // 
-    // *   If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the address is the first IP address used to create an IPsec-VPN connection. The address cannot be used to create an SSL-VPN connection.
+    // - If the VPN gateway instance supports creating dual-tunnel IPsec-VPN connections, this address is the first IP address used to create IPsec-VPN connections and cannot be used to create SSL-VPN connections.
     // 
-    //     If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
+    //     If the VPN gateway instance supports creating dual-tunnel IPsec-VPN connections, the system assigns two IPsec IP addresses to the VPN gateway instance for creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> internetIp_ {};
     // Indicates whether the IPsec-VPN feature is enabled. Valid values:
     // 
-    // *   **enable**
-    // *   **disable**
+    // - **enable**: enabled.
+    // 
+    // - **disable**: disabled.
     shared_ptr<string> ipsecVpn_ {};
     // The name of the VPN gateway.
     shared_ptr<string> name_ {};
     // The network type of the VPN gateway.
     // 
-    // *   **public**
-    // *   **private**
+    // - **public**: public VPN gateway.
+    // - **private**: private VPN gateway.
     shared_ptr<string> networkType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about pending orders.
+    // The pending order data.
     // 
-    // > This set of parameters is returned only when **IncludeReservationData** is set to **true**.
+    // >This parameter is returned only when **IncludeReservationData** is set to **true**.
     shared_ptr<DescribeVpnGatewayResponseBody::ReservationData> reservationData_ {};
     // The ID of the resource group to which the VPN gateway belongs.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
-    // The maximum bandwidth of the VPN gateway. Unit: Mbit/s.
+    // The bandwidth specification of the VPN gateway. Unit: Mbit/s.
     shared_ptr<string> spec_ {};
     // The maximum number of concurrent SSL-VPN connections.
     shared_ptr<int64_t> sslMaxConnections_ {};
-    // The status of the SSL-VPN feature. Valid values:
+    // The enabling status of the SSL-VPN feature. Valid values:
     // 
-    // *   **enable**
-    // *   **disable**
+    // - **enable**: enabled.
+    // 
+    // - **disable**: disabled.
     shared_ptr<string> sslVpn_ {};
     // The IP address of the SSL-VPN connection.
     // 
-    // This parameter is returned only when the VPN gateway is a public VPN gateway and supports only the single-tunnel mode. In addition, the VPN gateway must have the SSL-VPN feature enabled.
+    // This parameter is returned only when the SSL-VPN feature is enabled on a VPN gateway instance of the public network type that supports creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> sslVpnInternetIp_ {};
     // The status of the VPN gateway. Valid values:
     // 
-    // *   **init**
-    // *   **provisioning**
-    // *   **active**
-    // *   **updating**
-    // *   **deleting**
+    // - **init**: initializing.
+    // 
+    // - **provisioning**: preparing.
+    // 
+    // - **active**: Normal.
+    // 
+    // - **updating**: updating.
+    // 
+    // - **deleting**: deleting.
     shared_ptr<string> status_ {};
-    // The tag that is automatically generated for the VPN gateway. The tag consists of the following parameters:
+    // The labels automatically generated by the system for the VPN gateway.
     // 
-    // *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
-    // 
-    //     *   **true**
-    //     *   **false**
-    // 
-    // *   **VisuallySsl**: indicates whether the VPN gateway allows you to view the connection information of SSL clients. Valid values:
-    // 
-    //     *   **true**
-    //     *   **false**
-    // 
-    // *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes. Valid values:
-    // 
-    //     *   **true**
-    //     *   **false**
-    // 
-    // *   **VpnNewImage**: indicates whether the VPN gateway is upgraded. Valid values:
-    // 
-    //     *   **true**
-    //     *   **false**
-    // 
-    // *   **description**: the description of the VPN gateway. This parameter is only for internal use.
-    // 
-    // *   **VpnVersion**: the version of the VPN gateway.
-    // 
-    // *   **IDaaSNewVersion**: indicates whether the VPN gateway can be associated with an EIAM 2.0 instance.
-    // 
-    //     *   **true**
-    //     *   **false**
+    // - **VpnEnableBgp**: indicates whether the VPN gateway supports the BGP feature.
+    //     - **true**: Supported.
+    //     - **false**: Not supported.
+    // - **VisuallySsl**: indicates whether the VPN gateway supports viewing connection information of SSL clients.
+    //     - **true**: Supported.
+    //     - **false**: Not supported.
+    // - **PbrPriority**: indicates whether the VPN gateway supports configuring policy priority for policy-based routing.
+    //     - **true**: Supported.
+    //     - **false**: Not supported.
+    // - **VpnNewImage**: indicates whether the VPN gateway is a new-generation VPN gateway.
+    //     - **true**: Yes.
+    //     - **false**: No.
+    // - **description**: the description of the VPN gateway, which is used only for internal system purposes.
+    // - **VpnVersion**: the version number of the VPN gateway.
+    // - **IDaaSNewVersion**: indicates whether the VPN gateway supports attaching to an EIAM 2.0 instance.
+    //     - **true**: Supported.
+    //     - **false**: Not supported.
     shared_ptr<string> tag_ {};
     shared_ptr<DescribeVpnGatewayResponseBody::Tags> tags_ {};
     // The ID of the vSwitch to which the VPN gateway belongs.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC to which the VPN gateway belongs.
     shared_ptr<string> vpcId_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     shared_ptr<string> vpnGatewayId_ {};
-    // The type of VPN gateway. Only **Normal** may be returned, which indicates a standard VPN gateway.
+    // <props="intl">The type of the VPN gateway. Value: **Normal**, which indicates a standard VPN gateway.
+    // 
+    // <props="china">
+    // 
+    // The type of the VPN gateway. Valid values:
+    // 
+    // - **Normal**: standard.
+    // 
+    // - **NationalStandard**: Chinese SM algorithm-based.
+    // 
+    // .
     shared_ptr<string> vpnType_ {};
   };
 

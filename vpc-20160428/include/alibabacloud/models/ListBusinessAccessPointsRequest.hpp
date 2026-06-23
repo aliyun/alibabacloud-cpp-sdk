@@ -40,7 +40,7 @@ namespace Models
   protected:
     // The region ID of the Express Connect circuit.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     shared_ptr<string> regionId_ {};
   };
 

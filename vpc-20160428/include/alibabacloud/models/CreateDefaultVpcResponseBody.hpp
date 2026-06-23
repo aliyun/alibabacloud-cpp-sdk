@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The route table ID that is automatically created by the system after you create a default VPC.
+    // The ID of the route table that the system automatically creates after the default VPC is created.
     shared_ptr<string> routeTableId_ {};
-    // The vRouter ID that is automatically created by the system after you create a default VPC.
+    // The ID of the vRouter that the system automatically creates after the default VPC is created.
     shared_ptr<string> VRouterId_ {};
-    // The ID of the default VPC.
+    // The ID of the default VPC that is created.
     shared_ptr<string> vpcId_ {};
   };
 

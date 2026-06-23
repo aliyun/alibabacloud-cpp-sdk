@@ -86,13 +86,13 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You must specify at least 1 tag key and can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The key cannot exceed 128 characters in length, and cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value cannot exceed 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -136,17 +136,23 @@ namespace Models
 
 
     protected:
-      // The filter conditions. You can specify up to five filter conditions. Valid values:
+      // The filter condition. You can specify up to 5 filter conditions. The following filter conditions are supported:
       // 
-      // *   **PhysicalConnectionId**: Filter by Express Connect circuit ID.
-      // *   **VbrId**: Filter by VBR ID.
-      // *   **Status**: Filter by VBR status.
-      // *   **Name**: Filter by VBR name.
-      // *   **AccessPointId**: Filter by access point ID.
-      // *   **eccId:** Filter by Express Cloud Connect (ECC) instance ID.
-      // *   **type**: Filter by Express Connect circuit type.
+      // * **PhysicalConnectionId**: instance ID of the Express Connect circuit instance.
+      // 
+      // * **VbrId**: instance ID of the Virtual Border Router instance.
+      // 
+      // * **Status**: the status of the Virtual Border Router.
+      // 
+      // * **Name**: the name of the Virtual Border Router.
+      // 
+      // * **AccessPointId**: instance ID of the access point.
+      // 
+      // * **eccId**: instance ID of the Express Cloud Connect instance.
+      // 
+      // * **type**: the type of the Express Connect circuit.
       shared_ptr<string> key_ {};
-      // The filter values for keys. You can specify multiple filter values for one key. The logical operator between filter values is OR. If one filter value is matched, the filter condition is matched.
+      // The filter value based on the specified Key. You can specify multiple filter values for a Key. The relationship between filter values is OR, which means that a match is found if any of the filter values is met.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -228,29 +234,30 @@ namespace Models
 
 
   protected:
-    // The information about the filter.
+    // The filter information.
     shared_ptr<vector<DescribeVirtualBorderRoutersRequest::Filter>> filter_ {};
-    // Specifies whether cross-account VBRs are included.
+    // Specifies whether to include cross-account Virtual Border Routers.
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: Included.
+    // 
+    // - **false** (default): Not included.
     shared_ptr<bool> includeCrossAccountVbr_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which the VBR is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // The region ID of the VBR. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     // 
-    // For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
+    // For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The list of tags.
+    // The tags of the resource.
     shared_ptr<vector<DescribeVirtualBorderRoutersRequest::Tags>> tags_ {};
   };
 

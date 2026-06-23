@@ -154,7 +154,12 @@ namespace Models
     // *   **true**: yes Make sure that you have a sufficient balance in your account. Otherwise, your order becomes invalid and is automatically canceled.
     // *   **false**: disables automatic payment. This is the default value.
     shared_ptr<bool> autoPay_ {};
+    // Whether to enable auto-renewal. Valid values:
+    // 
+    // - **false** (**default**): disable auto-renewal.
+    // - **true**: enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
+    // The auto-renewal duration. Unit: months. Valid values: **0** to **2147483647**. Default Value: **1**.
     shared_ptr<int32_t> autoRenewDuration_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 

@@ -104,7 +104,7 @@ namespace Models
 
 
   protected:
-    // The zones.
+    // The list of zones.
     shared_ptr<vector<DescribeVpnGatewayAvailableZonesResponseBody::AvailableZoneIdList>> availableZoneIdList_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

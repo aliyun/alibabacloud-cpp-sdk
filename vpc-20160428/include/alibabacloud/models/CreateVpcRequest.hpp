@@ -275,14 +275,15 @@ namespace Models
   protected:
     // VPC CIDR.
     // 
-    // *   We recommend using the private IPv4 address specified in RFC 1918 as the primary IPv4 CIDR block of the VPC with a recommended mask length of 16 to 28 bits. For example, 10.0.0.0/16, 172.16.0.0/16, and 192.168.0.0/16.
-    // *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the primary IPv4 CIDR block.
+    // - We recommend using the private IPv4 address specified in RFC 1918 as the primary IPv4 CIDR block of the VPC with a recommended mask length of 16 to 28 bits. For example, 10.0.0.0/16, 172.16.0.0/16, and 192.168.0.0/16.
+    // 
+    // - You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the primary IPv4 CIDR block.
     shared_ptr<string> cidrBlock_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
     shared_ptr<string> clientToken_ {};
     // The description of the VPC.
     // 
@@ -290,19 +291,24 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to perform a dry run, without performing the actual request. Valid values:
     // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     // Whether to enable the DNS hostname feature. Values:
-    // - **false** (default): Not enabled. 
+    // 
+    // - **false** (default): Not enabled.
+    // 
     // - **true**: Enabled.
     shared_ptr<bool> enableDnsHostname_ {};
     // Indicates whether IPv6 is enabled. Valid values:
     // 
-    // *   **false** (default): disabled.
-    // *   **true**: enabled.
+    // - **false** (default): disabled.
+    // 
+    // - **true**: enabled.
     shared_ptr<bool> enableIpv6_ {};
     // Allocate VPC from the IPAM address pool by inputting a mask.
+    // 
     // > When creating a VPC with a specified IPAM address pool, at least one of the parameters CidrBlock or Ipv4CidrMask must be provided.
     shared_ptr<int32_t> ipv4CidrMask_ {};
     // The ID of the IP Address Manager (IPAM) pool of the IPv4 type.
@@ -315,12 +321,15 @@ namespace Models
     shared_ptr<string> ipv6IpamPoolId_ {};
     // The type of the IPv6 CIDR block of the VPC. Valid values:
     // 
-    // *   **BGP** (default)
-    // *   **ChinaMobile**
-    // *   **ChinaUnicom**
-    // *   **ChinaTelecom**
+    // - **BGP** (default)
     // 
-    // >  If you are allowed to use single-ISP bandwidth, you can set the value to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
+    // - **ChinaMobile**
+    // 
+    // - **ChinaUnicom**
+    // 
+    // - **ChinaTelecom**
+    // 
+    // > If you are allowed to use single-ISP bandwidth, you can set the value to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
     shared_ptr<string> ipv6Isp_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

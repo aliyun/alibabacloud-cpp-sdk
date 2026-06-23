@@ -70,11 +70,12 @@ namespace Models
     shared_ptr<string> name_ {};
     // The order ID.
     // 
-    // If automatic payment is disabled, you must manually complete the payment for the VPN gateway in the [Alibaba Cloud Management console](https://usercenter2-intl.aliyun.com/billing/#/account/overview).
+    // <props="china">If you did not enable automatic payment for the VPN gateway bill, go to [Expenses and Costs](https://usercenter2.aliyun.com/home) to complete the payment.
+    // <props="intl">If you did not enable automatic payment for the VPN gateway bill, go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/billing/#/account/overview) to complete the payment..
     shared_ptr<int64_t> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

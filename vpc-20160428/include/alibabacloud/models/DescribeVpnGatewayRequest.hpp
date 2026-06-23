@@ -94,22 +94,23 @@ namespace Models
 
 
   protected:
-    // Specifies whether to include the data about pending orders. Valid values:
+    // Specifies whether to include pending order data. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): does not include pending order data.
+    // 
+    // - **true**: includes pending order data.
     shared_ptr<bool> includeReservationData_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the VPN gateway.
+    // The region ID of the VPN gateway. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};

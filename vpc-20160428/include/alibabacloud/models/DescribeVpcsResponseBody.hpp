@@ -708,11 +708,11 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<DescribeVpcsResponseBody::Vpcs> vpcs_ {};
   };

@@ -94,13 +94,22 @@ namespace Models
 
 
   protected:
+    // The client token used to ensure the idempotence of the request.<br> You can generate this token by using your client, but you must ensure that it is unique for each request. The token can contain only ASCII characters and must not exceed 64 characters in length.<br>
+    // 
+    // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the enhanced VPN gateway is deployed.
+    // 
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the enhanced VPN gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};
   };

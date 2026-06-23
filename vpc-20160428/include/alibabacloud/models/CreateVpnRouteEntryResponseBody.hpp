@@ -112,31 +112,32 @@ namespace Models
 
 
   protected:
-    // The timestamp when the destination-based route was created. Unit: milliseconds.
+    // The timestamp when the destination route was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The description of the destination-based route.
+    // The description of the destination route.
     shared_ptr<string> description_ {};
-    // The next hop of the destination-based route.
+    // The next hop of the destination route.
     shared_ptr<string> nextHop_ {};
-    // The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
+    // The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
     shared_ptr<string> overlayMode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The destination CIDR block of the destination-based route.
+    // The destination CIDR block of the destination route.
     shared_ptr<string> routeDest_ {};
-    // The status of the destination-based route.
+    // The publish status of the destination route.
     // 
-    // *   **published**: advertised to the VPC route table.
-    // *   **normal**: not advertised to the VPC route table.
+    // - **published**: The destination route has been published to the route table of the VPC.
+    // 
+    // - **normal**: The destination route has not been published to the route table of the VPC.
     shared_ptr<string> state_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     shared_ptr<string> vpnInstanceId_ {};
-    // The weight of the destination-based route. Valid values:
+    // The weight of the destination route. Valid values:
     // 
-    // *   **100**: a high priority
-    // *   **0**: a low priority
+    // - **100**: The destination route has a high priority.
+    // - **0**: The destination route has a low priority.
     shared_ptr<int32_t> weight_ {};
   };
 

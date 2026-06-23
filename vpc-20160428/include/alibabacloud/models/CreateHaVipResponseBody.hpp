@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the HaVip.
+    // The ID of the HAVIP.
     shared_ptr<string> haVipId_ {};
-    // The IP address of the HaVip.
+    // The IP address of the HAVIP.
     shared_ptr<string> ipAddress_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

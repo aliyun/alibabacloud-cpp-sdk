@@ -183,7 +183,7 @@ namespace Models
   protected:
     shared_ptr<CreateNatGatewayResponseBody::ForwardTableIds> forwardTableIds_ {};
     shared_ptr<CreateNatGatewayResponseBody::FullNatTableIds> fullNatTableIds_ {};
-    // The ID of the NAT gateway.
+    // The instance ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

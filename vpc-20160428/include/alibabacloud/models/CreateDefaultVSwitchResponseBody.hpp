@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the default vSwitch.
+    // The ID of the default vSwitch that was created.
     shared_ptr<string> vSwitchId_ {};
   };
 

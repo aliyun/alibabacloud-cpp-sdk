@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The EIP ID.
+    // The ID of the Elastic IP Address (EIP).
     shared_ptr<string> allocationId_ {};
-    // The IP address that is allocated to the EIP. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
+    // The IP address of the EIP. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
     shared_ptr<string> eipAddress_ {};
     // The order ID.
-    // 
-    // This parameter is returned when InstanceChargeType is set to PrePaid. If AutoPay is set to false, you must manually complete the payment in the [Order Center](https://usercenter2-intl.aliyun.com/order/list).
+    // <props="china">This parameter is returned when `InstanceChargeType` is set to `PrePaid` (subscription). If `AutoPay` is set to `false`, go to the [Order Center](https://usercenter2.aliyun.com/order/list) to complete the payment.
+    // <props="intl">This parameter is returned when `InstanceChargeType` is set to `PrePaid` (subscription). If `AutoPay` is set to `false`, go to the [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
     shared_ptr<int64_t> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

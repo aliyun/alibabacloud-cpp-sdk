@@ -974,13 +974,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeNatGatewaysResponseBody::NatGateways> natGateways_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of NAT gateway entries that are returned.
+    // The total number of entries in the NAT gateway list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

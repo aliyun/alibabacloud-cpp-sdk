@@ -75,14 +75,34 @@ namespace Models
 
 
   protected:
+    // The key secret. This parameter accepts only hexadecimal characters. Lowercase letters are automatically converted to uppercase. The cipher suite determines the required length of the key secret: 32 hexadecimal characters for GCM-AES-128 or GCM-AES-XPN-128, and 64 hexadecimal characters for GCM-AES-256 or GCM-AES-XPN-256.
+    // 
     // This parameter is required.
     shared_ptr<string> cak_ {};
+    // The cipher suite. Valid values:
+    // 
+    // - GCM-AES-128
+    // 
+    // - GCM-AES-XPN-128
+    // 
+    // - GCM-AES-256
+    // 
+    // - GCM-AES-XPN-256
+    // 
     // This parameter is required.
     shared_ptr<string> cipherSuite_ {};
+    // The key name. This parameter accepts only hexadecimal characters. Lowercase letters are automatically converted to uppercase. The cipher suite determines the required length of the key name: 32 hexadecimal characters for GCM-AES-128 or GCM-AES-XPN-128, and 64 hexadecimal characters for GCM-AES-256 or GCM-AES-XPN-256.
+    // 
     // This parameter is required.
     shared_ptr<string> ckn_ {};
+    // The ID of the Express Connect physical connection.
+    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
+    // The region ID of the Express Connect physical connection.
+    // 
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

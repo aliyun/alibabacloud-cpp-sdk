@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The IPv6 address.
     shared_ptr<string> ipv6Address_ {};
-    // The ID of the IPv6 address.
+    // The instance ID of the IPv6 address.
     shared_ptr<string> ipv6AddressId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the NAT CIDR block.
+    // The instance ID of the NAT CIDR block.
     shared_ptr<string> natIpCidrId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

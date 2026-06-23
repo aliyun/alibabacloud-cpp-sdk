@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The tag key You can specify at most 20 tag keys. It cannot be an empty string,
+      // The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag key. You can specify at most 20 tag keys. It cannot be an empty string.
+      // The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -138,21 +138,16 @@ namespace Models
 
 
     protected:
-      // The filter key.
+      // The key of the filter. Valid values:
       // 
-      // *   ResourceId
-      // 
-      // >  Specify the service resource ID in the Value field.
-      // 
-      // *   NetworkInterfaceId
-      // 
-      // >  Specify the ENI ID in the Value field.
-      // 
-      // *   ResourceOwnerId
-      // 
-      // >  Specify the UID of the account to which the service resource belongs.
+      // - ResourceId
+      // >Set Value to the ID of the EPS resource that you want to query.
+      // - NetworkInterfaceId
+      // >Set Value to the ID of the elastic network interface (ENI) that you want to query.
+      // - ResourceOwnerId
+      // >Set Value to the UID of the user to whom the EPS resource belongs for resource ownership query.
       shared_ptr<string> key_ {};
-      // Separate multiple values with commas (,).
+      // The filter value. You can specify multiple values separated by commas (,).
       shared_ptr<string> value_ {};
     };
 
@@ -251,28 +246,29 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, the value of **RequestId** is used.**** The **RequestId** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The filter information. You can specify a filter key and a filter value.
+    // The filter information. You can specify key-value pairs to filter the query results.
     shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequest::Filter>> filter_ {};
-    // The number of entries to return per page. Valid values: **1 to 100**. Default value: **20**.
+    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT gateway to query.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid value:
+    // The pagination token. Valid values:
     // 
-    // *   If no value is returned for NetToken, you do not need to specify this parameter.
-    // *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
+    // - If this is the first query or no subsequent query is required, you do not need to specify this parameter.
+    // 
+    // - If a subsequent query is required, set the value to the **NextToken** value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the Internet NAT gateway.
+    // The region ID of the NAT gateway.
     // 
-    // Call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -280,7 +276,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The information about resource tags.
+    // The list of resource tags.
     shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequest::Tag>> tag_ {};
   };
 

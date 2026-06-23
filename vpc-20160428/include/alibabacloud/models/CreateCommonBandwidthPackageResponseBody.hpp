@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> bandwidthPackageId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

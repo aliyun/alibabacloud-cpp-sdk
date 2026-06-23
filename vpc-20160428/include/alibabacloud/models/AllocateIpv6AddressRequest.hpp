@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the resource. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. Do not pass in an empty string.
       // 
-      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. You can pass in an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+      // The tag value can be up to 128 characters in length and cannot start with aliyun or acs:, or contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -211,23 +211,28 @@ namespace Models
   protected:
     // The type of the IPv6 address. Valid values:
     // 
-    // *   IPv6Address (default): an IPv6 address.
-    // *   IPv6Prefix: an IPv6 CIDR block.
+    // * IPv6Address (default): The instance is a single IPv6 address.
+    // * IPv6Prefix: The instance is an IPv6 prefix CIDR block.
     shared_ptr<string> addressType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-    // *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - true: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code DryRunOperation is returned.
+    // 
+    // - false (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
-    // The IPv6 address. The IPv6 address must be an idle one that falls within the vSwitch CIDR block.
+    // The IPv6 address to allocate. The specified IPv6 address must be an idle address within the CIDR block of the vSwitch.
     shared_ptr<string> ipv6Address_ {};
-    // The description of the IPv6 address.
+    // The description of the IPv6 address instance.
+    // 
+    // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> ipv6AddressDescription_ {};
-    // The name of the IPv6 address.
+    // The name of the IPv6 address instance.
+    // 
+    // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> ipv6AddressName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -235,11 +240,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. For more information about resource groups, see related documentation.
+    // The resource group ID. For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag list.
+    // The list of tags for the resource.
     shared_ptr<vector<AllocateIpv6AddressRequest::Tag>> tag_ {};
     // The ID of the vSwitch to which the IPv6 address belongs.
     // 

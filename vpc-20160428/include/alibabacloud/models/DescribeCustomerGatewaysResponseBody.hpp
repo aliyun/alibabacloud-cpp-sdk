@@ -302,13 +302,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCustomerGatewaysResponseBody::CustomerGateways> customerGateways_ {};
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of returned entries.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

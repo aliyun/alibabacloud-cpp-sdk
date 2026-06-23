@@ -125,23 +125,23 @@ namespace Models
       protected:
         // Indicates whether the route is available. Valid values:
         // 
-        // *   **0**: unavailable
-        // *   **1**: available
+        // - **0**: unavailable.
+        // - **1**: available.
         shared_ptr<string> enabled_ {};
-        // The ID of the next hop.
+        // The instance ID of the next hop.
         shared_ptr<string> nextHopId_ {};
-        // The type of the next hop. Valid values:
+        // The next hop type. Valid values:
         // 
-        // *   **Instance** (default): an ECS instance
-        // *   **HaVip**: a high-availability virtual IP address (HaVip).
-        // *   **VpnGateway**: a VPN gateway
-        // *   **NatGateway**: a NAT gateway
-        // *   **NetworkInterface**: a secondary ENI
-        // *   **RouterInterface**: a router interface
-        // *   **IPv6Gateway**: an IPv6 gateway
-        // *   **Attachment**: a transit router
+        // - **Instance** (default): ECS instance.
+        // - **HaVip**: high-availability virtual IP address (HaVip).
+        // - **VpnGateway**: VPN gateway.
+        // - **NatGateway**: NAT gateway.
+        // - **NetworkInterface**: secondary elastic network interfaces (ENIs).
+        // - **RouterInterface**: vRouter interface.
+        // - **IPv6Gateway**: IPv6 gateway.
+        // - **Attachment**: transit router.
         shared_ptr<string> nextHopType_ {};
-        // The weight of the route.
+        // The weight of the route entry.
         shared_ptr<string> weight_ {};
       };
 
@@ -200,29 +200,29 @@ namespace Models
 
 
     protected:
-      // The name of the route entry.
+      // The description of the route entry.
       shared_ptr<string> description_ {};
-      // The destination CIDR block of the route.
+      // The destination CIDR block of the route entry.
       shared_ptr<string> destinationCidrBlock_ {};
       // The name of the route entry.
       // 
-      // The name must be 2 to 128 characters in length and can contain letter, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+      // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
       shared_ptr<string> name_ {};
-      // The ID of the next hop.
+      // The instance ID of the next hop.
       shared_ptr<string> nextHopId_ {};
-      // The type of the next hop. Valid values:
+      // The next hop type. Valid values:
       // 
-      // *   **EcsInstance**: Elastic Compute Service (ECS) instance
-      // *   **NetworkInterface**: elastic network interfaces (ENIs).
-      // *   **Local**: local next hop
+      // - **EcsInstance**: ECS instance.
+      // - **NetworkInterface**: elastic network interfaces (ENIs).
+      // - **Local**: local.
       shared_ptr<string> nextHopType_ {};
-      // The information about the next hop.
+      // The next hop information.
       shared_ptr<vector<GatewayRouteEntryModels::NextHops>> nextHops_ {};
-      // The status of the route entry. Valid values:
+      // The status of the route entry.
       // 
-      // *   **Pending**
-      // *   **Available**
-      // *   **Modifying**
+      // - **Pending**: being configured.
+      // - **Available**: available.
+      // - **Modifying**: being modified.
       shared_ptr<string> status_ {};
     };
 
@@ -259,12 +259,11 @@ namespace Models
 
 
   protected:
-    // The details of the routes in the gateway route table.
+    // The details of route entries in the gateway route table.
     shared_ptr<vector<ListGatewayRouteTableEntriesResponseBody::GatewayRouteEntryModels>> gatewayRouteEntryModels_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

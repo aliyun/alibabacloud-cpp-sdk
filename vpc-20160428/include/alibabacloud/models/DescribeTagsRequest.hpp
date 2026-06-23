@@ -86,13 +86,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag that is added to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys.
       // 
-      // The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot be an empty string or start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag that is added to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values.
       // 
-      // The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+      // A tag value can be up to 128 characters in length. It can be an empty string but cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -176,34 +176,45 @@ namespace Models
   protected:
     // The number of entries per page. Valid values: 1 to 50. Default value: 50.
     shared_ptr<int32_t> maxResult_ {};
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If this is your first query or no next query is to be sent, ignore this parameter.
-    // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+    // The pagination token. Valid values:
+    // - If this is the first query or no subsequent query exists, leave this parameter empty.
+    // - If a subsequent query exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the resource belongs.
+    // The region ID of the resource.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs.
+    // The resource ID. You can specify up to 50 resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The resource type. Valid values:
+    // - **VPC**: virtual private cloud (VPC) instance.
+    // - **VSWITCH**: virtual switch instance.
+    // - **ROUTETABLE**: route table instance.
+    // - **EIP**: elastic IP address (EIP) instance.
+    // - **VPNGATEWAY**: VPN gateway instance.
+    // - **NATGATEWAY**: NAT gateway instance.
+    // - **COMMONBANDWIDTHPACKAGE**: Internet Shared Bandwidth instance.
+    // - **PREFIXLIST**: prefix list instance.
+    // - **PUBLICIPADDRESSPOOL**: IP address pool instance.
+    // - **IPV4GATEWAY**: IPv4 gateway instance.
+    // - **IPV6GATEWAY**: IPv6 gateway instance.
+    // - **NETWORKACL**: network ACL instance.
+    // - **TRAFFICMIRRORFILTER**: traffic mirror filter instance.
+    // - **TRAFFICMIRRORSESSION**: traffic mirror session instance.
+    // - **FLOWLOG**: flow log instance.
+    // - **HAVIP**: high-availability virtual IP address instance.
+    // - **DHCPOPTIONSSET**: DHCP options set instance.
+    // - **GATEWAYENDPOINT**: gateway endpoint instance.
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VSWITCH**: vSwitch
-    // *   **ROUTETABLE**: route table
-    // *   **EIP**: elastic IP address (EIP)
-    // *   **VpnGateway**: VPN gateway
-    // *   **NATGATEWAY**: NAT gateway
-    // *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
+    // > The resource type value is case-insensitive.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The tags of the resource.
     shared_ptr<vector<DescribeTagsRequest::Tag>> tag_ {};
   };
 

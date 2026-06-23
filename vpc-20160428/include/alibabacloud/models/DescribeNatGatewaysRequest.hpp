@@ -106,13 +106,13 @@ namespace Models
 
 
     protected:
-      // The tag keys of the NAT gateway. You can specify up to 20 tag keys.
+      // The tag key of the NAT gateway instance. You can specify up to 20 tag keys.
       // 
-      // Each tag key cannot exceed 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag values of the NAT gateway. You can specify up to 20 tag values.
+      // The tag value of the NAT gateway instance. You can specify up to 20 tag values.
       // 
-      // The tag value cannot exceed 128 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -267,57 +267,75 @@ namespace Models
     shared_ptr<string> availabilityMode_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run. The system prechecks whether your AccessKey pair is valid, whether the RAM user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - **true**: performs a dry run without querying resource status. The check items include whether the AccessKey pair is valid, whether the RAM user is authorized, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+    // 
+    // - **false** (default): performs a normal request. After the check succeeds, a 2xx HTTP status code is returned and the resource status is queried directly.
     shared_ptr<bool> dryRun_ {};
-    // The billing method of the NAT gateway. Set the value to **PostPaid**, which specifies the pay-as-you-go billing method.
+    // <props="china">The billing method of the NAT gateway instance to query. Valid values:
+    // 
+    // <props="china">
+    // - **PostPaid**: pay-as-you-go.
+    // - **PrePaid**: the legacy subscription billing method. The subscription billing method is no longer available for new purchases.
+    // 
+    // 
+    // 
+    // <props="intl">The billing method of the NAT gateway instance to query. Valid value: **PostPaid** (pay-as-you-go).
     shared_ptr<string> instanceChargeType_ {};
-    // The name of the NAT gateway. 
+    // The name of the NAT gateway to query.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`. 
-    // 
-    // If this parameter is not set, the system automatically assigns a name to the NAT gateway.
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT gateway to query.
     shared_ptr<string> natGatewayId_ {};
-    // The type of NAT gateway. Set the value to **Enhanced** (enhanced NAT gateway).
+    // The type of the NAT gateway. Valid value: **Enhanced** (enhanced NAT gateway).
     shared_ptr<string> natType_ {};
-    // The type of the NAT gateway. Valid values:
+    // The type of the NAT gateway to query. Valid values:
     // 
-    // *   **internet**: an Internet NAT gateway
-    // *   **intranet**: a VPC NAT gateway
+    // - **internet**: Internet NAT gateway.
+    // - **intranet**: VPC NAT gateway.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for paginated queries. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the NAT gateways that you want to query.
+    // The region ID of the NAT gateway to query.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the NAT gateway belongs.
+    // The ID of the resource group to which the NAT gateway to query belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The size of the NAT gateway. Ignore this parameter.
-    shared_ptr<string> spec_ {};
-    // The status of the NAT gateway. Valid values:
+    // <props="china">The specification of the Internet NAT gateway. Only when **InstanceChargeType** is **PrePaid** (legacy subscription Internet NAT gateway), creating a NAT gateway by fixed specification is supported. Valid values:
     // 
-    // *   **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the **Creating** state until the operation is completed.
-    // *   **Available**: The NAT gateway remains in a stable state after the NAT gateway is created.
-    // *   **Modifying**: After you send a request to modify a NAT gateway, the system modifies the NAT gateway in the background. The NAT gateway remains in the **Modifying** state until the operation is completed.
-    // *   **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the **Deleting** state until the operation is completed.
-    // *   **Converting**: After you send a request to upgrade a standard NAT gateway to an enhanced NAT gateway, the system upgrades the NAT gateway in the background. The NAT gateway remains in the **Converting** state until the operation is completed.
+    // <props="china">
+    // - **Small** (default): small.
+    // - **Middle**: medium.
+    // - **Large**: large.
+    // 
+    // 
+    // <props="intl">The specification of the NAT gateway. Leave this parameter empty.
+    shared_ptr<string> spec_ {};
+    // The status of the NAT gateway to query. Valid values:
+    // - **Creating**: Creating a NAT gateway is an asynchronous operation. The status is **Creating** before the creation is complete.
+    // 
+    // - **Available**: The status after the NAT gateway is created. This is a stable status.
+    // 
+    // - **Modifying**: Modifying a NAT gateway is an asynchronous operation. The status is **Modifying** during the modification process.
+    // 
+    // - **Deleting**: Deleting a NAT gateway is an asynchronous operation. The status is **Deleting** during the deletion process.
+    // 
+    // - **Converting**: Converting a standard NAT gateway to an enhanced NAT gateway is an asynchronous operation. The status is **Converting** during the conversion process.
     shared_ptr<string> status_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeNatGatewaysRequest::Tag>> tag_ {};
-    // The ID of the VPC to which the NAT gateway belongs.
+    // The ID of the VPC to which the NAT gateway to query belongs.
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone to which the NAT gateway belongs.
+    // The ID of the zone where the NAT gateway is deployed.
     shared_ptr<string> zoneId_ {};
   };
 

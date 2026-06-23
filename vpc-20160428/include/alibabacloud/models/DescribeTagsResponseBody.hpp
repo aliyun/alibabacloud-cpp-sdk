@@ -135,12 +135,11 @@ namespace Models
 
 
   protected:
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
-    // *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeTagsResponseBody::TagResources> tagResources_ {};
   };

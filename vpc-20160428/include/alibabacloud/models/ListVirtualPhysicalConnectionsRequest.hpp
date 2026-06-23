@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the resource. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The key of the tag. You can specify up to 20 tags. The tag key cannot be an empty string.
       // 
-      // It can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+      // The value of the tag. You can specify up to 20 tags. The tag value can be an empty string.
       // 
-      // It can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -199,45 +199,47 @@ namespace Models
 
 
   protected:
-    // Specifies whether the hosted connection is accepted by the tenant. Valid values:
+    // Indicates whether the tenant has accepted the virtual physical connection. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The connection has been accepted.
+    // 
+    // - **false**: The connection has not been accepted.
     shared_ptr<bool> isConfirmed_ {};
-    // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token used to retrieve the next page of results. Valid values:
     // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of NextToken.
+    // - Leave this parameter empty for the first request.
+    // 
+    // - For subsequent requests, set this parameter to the `NextToken` value returned from the previous request.
     shared_ptr<string> nextToken_ {};
-    // The ID of the Express Connect circuit over which the hosted connections are created.
-    // 
-    // Express Connect circuits in this topic refer to Express Connect circuits over which hosted connections are created.
+    // The ID of the physical connection associated with the virtual physical connection.
     shared_ptr<string> physicalConnectionId_ {};
-    // The region ID of the hosted connection.
+    // The ID of the region where the virtual physical connection is located.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the latest list of regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the hosted connection belongs.
+    // The ID of the resource group to which the virtual physical connection belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The tag list.
+    // The list of tags.
     shared_ptr<vector<ListVirtualPhysicalConnectionsRequest::Tags>> tags_ {};
-    // The information about the Alibaba Cloud account that owns the hosted connection.
+    // The Alibaba Cloud accounts that own the virtual physical connections.
     shared_ptr<vector<string>> virtualPhysicalConnectionAliUids_ {};
-    // The business status of the hosted connection. Valid values:
+    // The business status of the virtual physical connection. Valid values:
     // 
-    // *   **Normal**
-    // *   **FinancialLocked**
-    // *   **SecurityLocked**
+    // - **Normal**: The connection is operating normally.
+    // 
+    // - **FinancialLocked**: The connection is locked due to an overdue payment.
+    // 
+    // - **SecurityLocked**: The connection is locked for security reasons.
     shared_ptr<string> virtualPhysicalConnectionBusinessStatus_ {};
-    // The information about the hosted connection.
+    // The IDs of the virtual physical connections.
     shared_ptr<vector<string>> virtualPhysicalConnectionIds_ {};
-    // The business status of the hosted connection.
+    // The business statuses of the virtual physical connections.
     shared_ptr<vector<string>> virtualPhysicalConnectionStatuses_ {};
-    // The VLAN ID of the hosted connection.
+    // The VLAN IDs of the virtual physical connections.
     shared_ptr<vector<string>> vlanIds_ {};
   };
 

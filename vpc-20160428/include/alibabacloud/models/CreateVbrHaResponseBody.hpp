@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the VBR failover group.
+    // The instance ID of the VBR failover group.
     shared_ptr<string> vbrHaId_ {};
   };
 

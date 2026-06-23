@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the route target group instance.
+    // The instance ID of the route target group.
     shared_ptr<string> routeTargetGroupId_ {};
   };
 

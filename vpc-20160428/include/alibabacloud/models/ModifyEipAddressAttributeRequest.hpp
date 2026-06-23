@@ -118,8 +118,9 @@ namespace Models
     shared_ptr<string> allocationId_ {};
     // The new maximum bandwidth of the EIP. Valid values:
     // 
-    // *   **1** to **200** if the metering method is pay-by-data-transfer. Unit: Mbit/s.
-    // *   **1** to **500** if the metering method is pay-by-bandwidth. Unit: Mbit/s.
+    // - **1** to **200** if the metering method is pay-by-data-transfer. Unit: Mbit/s.
+    // 
+    // - **1** to **500** if the metering method is pay-by-bandwidth. Unit: Mbit/s.
     shared_ptr<string> bandwidth_ {};
     // The new description of the EIP.
     // 

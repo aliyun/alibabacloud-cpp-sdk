@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You must specify at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key. The tag key cannot be an empty string.
       // 
-      // A tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can enter a maximum of 20 tag values. The tag value can be an empty string.
+      // The tag value. The tag value can be an empty string.
       // 
-      // The tag key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -200,29 +200,31 @@ namespace Models
 
 
   protected:
-    // The ID of the ECR that you want to query.
+    // The ID of the Express Connect Router.
     shared_ptr<string> ecrInstanceId_ {};
-    // The ID of the Alibaba Cloud account to which the ECR belongs.
+    // The ID of the Alibaba Cloud account (main account) that owns the Express Connect Router.
     // 
-    // > If you want to connect to a network instance that belongs to a different account, this parameter is required.
+    // > This parameter is required when querying a cross-account network instance.
     shared_ptr<int64_t> ecrOwnerId_ {};
     // The ID of the network instance.
     shared_ptr<string> instanceId_ {};
-    // The type of instance. Valid values:
+    // The type of instance whose authorization rules you want to query. Valid values:
     // 
-    // *   **VBR**: queries the permissions that are granted to a VBR.
-    // *   **VPC**: queries the permissions that are granted from a VPC.
+    // - **VBR**: Set the value to **VBR** to query the Virtual Private Cloud (VPC) instances authorized to connect to the specified virtual border router (VBR).
+    // 
+    // - **VPC**: Set the value to **VPC** to query the VBRs to which the specified VPC has granted authorization.
     shared_ptr<string> instanceType_ {};
-    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **10**.
+    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **100**.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The token used to retrieve the next page of results. Valid values:
     // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
+    // - Omit this parameter for the first request.
+    // 
+    // - For subsequent requests, set this to the **NextToken** value from the previous response.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the network instance that you want to query.
+    // The ID of the region where the network instance is located.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -230,7 +232,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag.
+    // The tags. You can specify up to 20 tags.
     shared_ptr<vector<DescribeVpcGrantRulesToEcrRequest::Tags>> tags_ {};
   };
 
