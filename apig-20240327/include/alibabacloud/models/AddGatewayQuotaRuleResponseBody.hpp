@@ -87,10 +87,14 @@ namespace Models
         class Items : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Items& obj) { 
+            DARABONBA_PTR_TO_JSON(conflictPeriodType, conflictPeriodType_);
+            DARABONBA_PTR_TO_JSON(conflictType, conflictType_);
             DARABONBA_PTR_TO_JSON(consumerId, consumerId_);
             DARABONBA_PTR_TO_JSON(consumerName, consumerName_);
           };
           friend void from_json(const Darabonba::Json& j, Items& obj) { 
+            DARABONBA_PTR_FROM_JSON(conflictPeriodType, conflictPeriodType_);
+            DARABONBA_PTR_FROM_JSON(conflictType, conflictType_);
             DARABONBA_PTR_FROM_JSON(consumerId, consumerId_);
             DARABONBA_PTR_FROM_JSON(consumerName, consumerName_);
           };
@@ -105,8 +109,22 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->consumerId_ == nullptr
-        && this->consumerName_ == nullptr; };
+          virtual bool empty() const override { return this->conflictPeriodType_ == nullptr
+        && this->conflictType_ == nullptr && this->consumerId_ == nullptr && this->consumerName_ == nullptr; };
+          // conflictPeriodType Field Functions 
+          bool hasConflictPeriodType() const { return this->conflictPeriodType_ != nullptr;};
+          void deleteConflictPeriodType() { this->conflictPeriodType_ = nullptr;};
+          inline string getConflictPeriodType() const { DARABONBA_PTR_GET_DEFAULT(conflictPeriodType_, "") };
+          inline Items& setConflictPeriodType(string conflictPeriodType) { DARABONBA_PTR_SET_VALUE(conflictPeriodType_, conflictPeriodType) };
+
+
+          // conflictType Field Functions 
+          bool hasConflictType() const { return this->conflictType_ != nullptr;};
+          void deleteConflictType() { this->conflictType_ = nullptr;};
+          inline string getConflictType() const { DARABONBA_PTR_GET_DEFAULT(conflictType_, "") };
+          inline Items& setConflictType(string conflictType) { DARABONBA_PTR_SET_VALUE(conflictType_, conflictType) };
+
+
           // consumerId Field Functions 
           bool hasConsumerId() const { return this->consumerId_ != nullptr;};
           void deleteConsumerId() { this->consumerId_ = nullptr;};
@@ -122,6 +140,8 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> conflictPeriodType_ {};
+          shared_ptr<string> conflictType_ {};
           shared_ptr<string> consumerId_ {};
           shared_ptr<string> consumerName_ {};
         };
@@ -162,8 +182,8 @@ namespace Models
       // accepted Field Functions 
       bool hasAccepted() const { return this->accepted_ != nullptr;};
       void deleteAccepted() { this->accepted_ = nullptr;};
-      inline string getAccepted() const { DARABONBA_PTR_GET_DEFAULT(accepted_, "") };
-      inline Data& setAccepted(string accepted) { DARABONBA_PTR_SET_VALUE(accepted_, accepted) };
+      inline bool getAccepted() const { DARABONBA_PTR_GET_DEFAULT(accepted_, false) };
+      inline Data& setAccepted(bool accepted) { DARABONBA_PTR_SET_VALUE(accepted_, accepted) };
 
 
       // conflictPreview Field Functions 
@@ -190,7 +210,7 @@ namespace Models
 
 
     protected:
-      shared_ptr<string> accepted_ {};
+      shared_ptr<bool> accepted_ {};
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
       shared_ptr<bool> dryRun_ {};
       shared_ptr<string> ruleId_ {};

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(consumerIds, consumerIds_);
       DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(overwrite, overwrite_);
+      DARABONBA_PTR_TO_JSON(periodMultiplier, periodMultiplier_);
       DARABONBA_PTR_TO_JSON(periodType, periodType_);
       DARABONBA_PTR_TO_JSON(quotaDimension, quotaDimension_);
       DARABONBA_PTR_TO_JSON(quotaLimit, quotaLimit_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(consumerIds, consumerIds_);
       DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(overwrite, overwrite_);
+      DARABONBA_PTR_FROM_JSON(periodMultiplier, periodMultiplier_);
       DARABONBA_PTR_FROM_JSON(periodType, periodType_);
       DARABONBA_PTR_FROM_JSON(quotaDimension, quotaDimension_);
       DARABONBA_PTR_FROM_JSON(quotaLimit, quotaLimit_);
@@ -51,8 +53,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conflictHash_ == nullptr
-        && this->consumerGroupIds_ == nullptr && this->consumerIds_ == nullptr && this->dryRun_ == nullptr && this->overwrite_ == nullptr && this->periodType_ == nullptr
-        && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleName_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
+        && this->consumerGroupIds_ == nullptr && this->consumerIds_ == nullptr && this->dryRun_ == nullptr && this->overwrite_ == nullptr && this->periodMultiplier_ == nullptr
+        && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleName_ == nullptr && this->timezone_ == nullptr
+        && this->windowAlignment_ == nullptr; };
     // conflictHash Field Functions 
     bool hasConflictHash() const { return this->conflictHash_ != nullptr;};
     void deleteConflictHash() { this->conflictHash_ = nullptr;};
@@ -90,6 +93,13 @@ namespace Models
     void deleteOverwrite() { this->overwrite_ = nullptr;};
     inline bool getOverwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, false) };
     inline AddGatewayQuotaRuleRequest& setOverwrite(bool overwrite) { DARABONBA_PTR_SET_VALUE(overwrite_, overwrite) };
+
+
+    // periodMultiplier Field Functions 
+    bool hasPeriodMultiplier() const { return this->periodMultiplier_ != nullptr;};
+    void deletePeriodMultiplier() { this->periodMultiplier_ = nullptr;};
+    inline int64_t getPeriodMultiplier() const { DARABONBA_PTR_GET_DEFAULT(periodMultiplier_, 0L) };
+    inline AddGatewayQuotaRuleRequest& setPeriodMultiplier(int64_t periodMultiplier) { DARABONBA_PTR_SET_VALUE(periodMultiplier_, periodMultiplier) };
 
 
     // periodType Field Functions 
@@ -140,6 +150,7 @@ namespace Models
     shared_ptr<vector<string>> consumerIds_ {};
     shared_ptr<bool> dryRun_ {};
     shared_ptr<bool> overwrite_ {};
+    shared_ptr<int64_t> periodMultiplier_ {};
     // This parameter is required.
     shared_ptr<string> periodType_ {};
     // This parameter is required.

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETGATEWAYQUOTARULERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETGATEWAYQUOTARULERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,6 +41,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(baseTimestamp, baseTimestamp_);
         DARABONBA_PTR_TO_JSON(consumerCount, consumerCount_);
+        DARABONBA_PTR_TO_JSON(consumers, consumers_);
         DARABONBA_PTR_TO_JSON(periodType, periodType_);
         DARABONBA_PTR_TO_JSON(quotaDimension, quotaDimension_);
         DARABONBA_PTR_TO_JSON(quotaLimit, quotaLimit_);
@@ -52,6 +54,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(baseTimestamp, baseTimestamp_);
         DARABONBA_PTR_FROM_JSON(consumerCount, consumerCount_);
+        DARABONBA_PTR_FROM_JSON(consumers, consumers_);
         DARABONBA_PTR_FROM_JSON(periodType, periodType_);
         DARABONBA_PTR_FROM_JSON(quotaDimension, quotaDimension_);
         DARABONBA_PTR_FROM_JSON(quotaLimit, quotaLimit_);
@@ -72,9 +75,51 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Consumers : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Consumers& obj) { 
+          DARABONBA_PTR_TO_JSON(id, id_);
+          DARABONBA_PTR_TO_JSON(name, name_);
+        };
+        friend void from_json(const Darabonba::Json& j, Consumers& obj) { 
+          DARABONBA_PTR_FROM_JSON(id, id_);
+          DARABONBA_PTR_FROM_JSON(name, name_);
+        };
+        Consumers() = default ;
+        Consumers(const Consumers &) = default ;
+        Consumers(Consumers &&) = default ;
+        Consumers(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Consumers() = default ;
+        Consumers& operator=(const Consumers &) = default ;
+        Consumers& operator=(Consumers &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->id_ == nullptr
+        && this->name_ == nullptr; };
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline Consumers& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Consumers& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      protected:
+        shared_ptr<string> id_ {};
+        shared_ptr<string> name_ {};
+      };
+
       virtual bool empty() const override { return this->baseTimestamp_ == nullptr
-        && this->consumerCount_ == nullptr && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleId_ == nullptr
-        && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
+        && this->consumerCount_ == nullptr && this->consumers_ == nullptr && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
       // baseTimestamp Field Functions 
       bool hasBaseTimestamp() const { return this->baseTimestamp_ != nullptr;};
       void deleteBaseTimestamp() { this->baseTimestamp_ = nullptr;};
@@ -87,6 +132,15 @@ namespace Models
       void deleteConsumerCount() { this->consumerCount_ = nullptr;};
       inline int64_t getConsumerCount() const { DARABONBA_PTR_GET_DEFAULT(consumerCount_, 0L) };
       inline Data& setConsumerCount(int64_t consumerCount) { DARABONBA_PTR_SET_VALUE(consumerCount_, consumerCount) };
+
+
+      // consumers Field Functions 
+      bool hasConsumers() const { return this->consumers_ != nullptr;};
+      void deleteConsumers() { this->consumers_ = nullptr;};
+      inline const vector<Data::Consumers> & getConsumers() const { DARABONBA_PTR_GET_CONST(consumers_, vector<Data::Consumers>) };
+      inline vector<Data::Consumers> getConsumers() { DARABONBA_PTR_GET(consumers_, vector<Data::Consumers>) };
+      inline Data& setConsumers(const vector<Data::Consumers> & consumers) { DARABONBA_PTR_SET_VALUE(consumers_, consumers) };
+      inline Data& setConsumers(vector<Data::Consumers> && consumers) { DARABONBA_PTR_SET_RVALUE(consumers_, consumers) };
 
 
       // periodType Field Functions 
@@ -148,6 +202,7 @@ namespace Models
     protected:
       shared_ptr<int64_t> baseTimestamp_ {};
       shared_ptr<int64_t> consumerCount_ {};
+      shared_ptr<vector<Data::Consumers>> consumers_ {};
       shared_ptr<string> periodType_ {};
       shared_ptr<string> quotaDimension_ {};
       shared_ptr<int64_t> quotaLimit_ {};

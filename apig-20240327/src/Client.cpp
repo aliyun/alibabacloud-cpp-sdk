@@ -104,6 +104,10 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
     body["overwrite"] = request.getOverwrite();
   }
 
+  if (!!request.hasPeriodMultiplier()) {
+    body["periodMultiplier"] = request.getPeriodMultiplier();
+  }
+
   if (!!request.hasPeriodType()) {
     body["periodType"] = request.getPeriodType();
   }
@@ -5173,6 +5177,10 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
     body["overwrite"] = request.getOverwrite();
   }
 
+  if (!!request.hasPeriodMultiplier()) {
+    body["periodMultiplier"] = request.getPeriodMultiplier();
+  }
+
   if (!!request.hasPeriodType()) {
     body["periodType"] = request.getPeriodType();
   }
@@ -5183,6 +5191,10 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
 
   if (!!request.hasTimezone()) {
     body["timezone"] = request.getTimezone();
+  }
+
+  if (!!request.hasWindowAlignment()) {
+    body["windowAlignment"] = request.getWindowAlignment();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

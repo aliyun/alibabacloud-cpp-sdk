@@ -115,10 +115,8 @@ namespace Models
     shared_ptr<vector<string>> consumerGroupIds_ {};
     shared_ptr<bool> dryRun_ {};
     shared_ptr<bool> overwrite_ {};
-    // This parameter is required.
     shared_ptr<int64_t> quotaLimit_ {};
     shared_ptr<vector<string>> removeIds_ {};
-    // This parameter is required.
     shared_ptr<string> ruleName_ {};
   };
 
