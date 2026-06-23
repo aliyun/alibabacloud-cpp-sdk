@@ -72,8 +72,12 @@ namespace Models
 
 
     protected:
+      // The answer.
+      // 
       // This parameter is required.
       shared_ptr<string> answer_ {};
+      // The question.
+      // 
       // This parameter is required.
       shared_ptr<string> question_ {};
     };
@@ -104,9 +108,14 @@ namespace Models
 
 
   protected:
+    // A list of parsed Q\\&A pair results.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateQaLibraryRequest::ParseQaResults>> parseQaResults_ {};
+    // The ID of the Q\\&A library.
     shared_ptr<string> qaLibraryId_ {};
+    // The request ID.
+    // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
   };

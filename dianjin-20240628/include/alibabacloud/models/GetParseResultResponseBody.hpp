@@ -119,11 +119,17 @@ namespace Models
 
 
     protected:
+      // The file type.
       shared_ptr<string> fileType_ {};
+      // The provider type.
       shared_ptr<string> providerType_ {};
+      // The request ID.
       shared_ptr<string> requestId_ {};
+      // The parsing result.
       Darabonba::Json result_ {};
+      // The parsing result returned as a URL. You can download it directly. Note: Only PDF, DOC, DOCX, PPT, and PPTX file types have parsing results.
       shared_ptr<string> resultUrl_ {};
+      // The document parsing status.
       shared_ptr<string> status_ {};
     };
 
@@ -189,13 +195,21 @@ namespace Models
 
 
   protected:
+    // The time consumed.
     shared_ptr<int64_t> cost_ {};
+    // The response data.
     shared_ptr<GetParseResultResponseBody::Data> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

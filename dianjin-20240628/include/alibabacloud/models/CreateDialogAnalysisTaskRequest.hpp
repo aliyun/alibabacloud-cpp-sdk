@@ -95,8 +95,12 @@ namespace Models
 
 
       protected:
+        // The content of the dialogue.
+        // 
         // This parameter is required.
         shared_ptr<string> content_ {};
+        // The role.
+        // 
         // This parameter is required.
         shared_ptr<string> role_ {};
       };
@@ -112,6 +116,8 @@ namespace Models
 
 
     protected:
+      // A list of dialogues.
+      // 
       // This parameter is required.
       shared_ptr<vector<ConversationList::DialogueList>> dialogueList_ {};
     };
@@ -160,12 +166,28 @@ namespace Models
 
 
   protected:
+    // A list of analysis nodes. If you leave this parameter empty, all nodes are analyzed. You can specify one or more nodes.
     shared_ptr<vector<string>> analysisNodes_ {};
+    // The session content. You can specify multiple sessions.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateDialogAnalysisTaskRequest::ConversationList>> conversationList_ {};
+    // The metadata. This includes business-related properties that are used during session analysis. The business system passes these properties in real time when it initiates the analysis task.
+    // 
+    // ```
+    // {
+    //   "labels": "XXX",  // Tags
+    //   "summaryConstraints": "XXX",   // Summary dimensions
+    //   "sopInfo": "XXX"  // SOP information
+    // }
+    // ```
     Darabonba::Json metaData_ {};
+    // The session scenario code, which is associated with the session analysis configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> playCode_ {};
+    // The request ID.
+    // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
   };

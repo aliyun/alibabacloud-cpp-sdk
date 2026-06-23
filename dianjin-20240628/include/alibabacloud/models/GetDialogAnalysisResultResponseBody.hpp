@@ -157,7 +157,9 @@ namespace Models
 
 
           protected:
+            // Label name
             shared_ptr<string> name_ {};
+            // Label value
             shared_ptr<string> value_ {};
           };
 
@@ -212,11 +214,17 @@ namespace Models
 
 
         protected:
+          // Session execution plan
           shared_ptr<string> dialogExecPlan_ {};
+          // List of session labels
           shared_ptr<vector<AnalysisResp::DialogLabels>> dialogLabels_ {};
+          // Session open analysis
           Darabonba::Json dialogOpenAnalysis_ {};
+          // Session process analysis
           Darabonba::Json dialogProcessAnalysis_ {};
+          // Session SOP
           shared_ptr<string> dialogSop_ {};
+          // Session summary
           shared_ptr<string> dialogSummary_ {};
         };
 
@@ -260,10 +268,25 @@ namespace Models
 
 
       protected:
+        // Session analysis result
         shared_ptr<DialogAnalysisRespList::AnalysisResp> analysisResp_ {};
+        // Session creation time
         shared_ptr<string> gmtCreate_ {};
+        // OSS URL for the session analysis result. The URL expires in one hour.
         shared_ptr<string> ossUrl_ {};
+        // Session ID
         shared_ptr<string> sessionId_ {};
+        // Task execution status for session analysis.
+        // 
+        // - init means the task has not started
+        // 
+        // - pending means the task is queued
+        // 
+        // - running means the task is in progress
+        // 
+        // - error means the task failed
+        // 
+        // - success means the task completed successfully
         shared_ptr<string> status_ {};
       };
 
@@ -278,6 +301,7 @@ namespace Models
 
 
     protected:
+      // List of session analysis results
       shared_ptr<vector<Data::DialogAnalysisRespList>> dialogAnalysisRespList_ {};
     };
 
@@ -343,13 +367,21 @@ namespace Models
 
 
   protected:
+    // Processing time in milliseconds
     shared_ptr<int64_t> cost_ {};
+    // Response data
     shared_ptr<GetDialogAnalysisResultResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

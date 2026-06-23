@@ -105,15 +105,25 @@ namespace Models
 
 
   protected:
+    // Agent ID
+    // 
     // This parameter is required.
     shared_ptr<string> botId_ {};
+    // Model ID. Optional. If empty, the agent uses the model from its configuration.
     shared_ptr<string> modelId_ {};
+    // Enable streaming. Default is true.
     shared_ptr<bool> stream_ {};
+    // Thread ID. Optional. If empty, a new thread starts.
     shared_ptr<string> threadId_ {};
+    // Use the draft version. Drafts are unpublished versions in the editor. They are unstable. Default is false.
     shared_ptr<bool> useDraft_ {};
+    // User input
+    // 
     // This parameter is required.
     shared_ptr<string> userContent_ {};
+    // More complex user-defined input parameters
     Darabonba::Json userInputs_ {};
+    // Version ID to run
     shared_ptr<string> versionId_ {};
   };
 

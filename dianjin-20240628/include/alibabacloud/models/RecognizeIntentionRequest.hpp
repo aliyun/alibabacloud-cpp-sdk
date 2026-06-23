@@ -102,9 +102,13 @@ namespace Models
 
 
     protected:
+      // Intent description.
       shared_ptr<string> description_ {};
+      // Intent name.
       shared_ptr<string> intention_ {};
+      // Intent code.
       shared_ptr<string> intentionCode_ {};
+      // Intent script.
       shared_ptr<string> intentionScript_ {};
     };
 
@@ -164,9 +168,13 @@ namespace Models
 
 
     protected:
+      // Intent description.
       shared_ptr<string> description_ {};
+      // Intent name.
       shared_ptr<string> intention_ {};
+      // Intent code.
       shared_ptr<string> intentionCode_ {};
+      // Intent script.
       shared_ptr<string> intentionScript_ {};
     };
 
@@ -226,9 +234,13 @@ namespace Models
 
 
     protected:
+      // Intent description.
       shared_ptr<string> description_ {};
+      // Intent name.
       shared_ptr<string> intention_ {};
+      // Intent code.
       shared_ptr<string> intentionCode_ {};
+      // Intent script.
       shared_ptr<string> intentionScript_ {};
     };
 
@@ -305,16 +317,27 @@ namespace Models
 
 
   protected:
+    // Enable analysis.
     shared_ptr<bool> analysis_ {};
+    // Business type.
+    // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
+    // Conversation text.
+    // 
     // This parameter is required.
     shared_ptr<string> conversation_ {};
+    // Global intent list. Required when opType is hierarchical.
     shared_ptr<vector<RecognizeIntentionRequest::GlobalIntentionList>> globalIntentionList_ {};
+    // Hierarchical intent list. Required when opType is hierarchical.
     shared_ptr<vector<RecognizeIntentionRequest::HierarchicalIntentionList>> hierarchicalIntentionList_ {};
+    // Intent library: Local intent library code.
     shared_ptr<string> intentionDomainCode_ {};
+    // Intent list. Required when bizType is not attitude.
     shared_ptr<vector<RecognizeIntentionRequest::IntentionList>> intentionList_ {};
+    // Operation type.
     shared_ptr<string> opType_ {};
+    // Recommend intent.
     shared_ptr<bool> recommend_ {};
   };
 

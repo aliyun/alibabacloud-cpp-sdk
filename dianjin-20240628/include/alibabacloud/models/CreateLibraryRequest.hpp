@@ -129,10 +129,15 @@ namespace Models
 
 
       protected:
+        // Vector index source. Only ADB is supported.
         shared_ptr<string> category_ {};
+        // Text embedding type for vector indexing
         shared_ptr<string> embeddingType_ {};
+        // Enable vector indexing
         shared_ptr<bool> enable_ {};
+        // Vector index ranking threshold
         shared_ptr<double> rankThreshold_ {};
+        // Number of final vector index results
         shared_ptr<int32_t> topK_ {};
       };
 
@@ -210,11 +215,17 @@ namespace Models
 
 
       protected:
+        // Text index type. Only ElasticSearch is supported.
         shared_ptr<string> category_ {};
+        // Enable text indexing
         shared_ptr<bool> enable_ {};
+        // Text index analyzer: Standard, IkMaxWord, or IkSmart
         shared_ptr<string> indexAnalyzer_ {};
+        // Text index ranking threshold
         shared_ptr<double> rankThreshold_ {};
+        // Text index search analyzer: Standard, IkMaxWord, or IkSmart
         shared_ptr<string> searchAnalyzer_ {};
+        // Number of final text index results
         shared_ptr<int32_t> topK_ {};
       };
 
@@ -256,7 +267,9 @@ namespace Models
 
 
       protected:
+        // Merge and sort policy
         shared_ptr<string> documentRankType_ {};
+        // Number of results from two-way merge and summarization
         shared_ptr<int32_t> limit_ {};
       };
 
@@ -344,12 +357,19 @@ namespace Models
 
 
       protected:
+        // Rewrite queries using history
         shared_ptr<bool> enableFollowUp_ {};
+        // Use Large Language Models (LLMs) to decompose queries
         shared_ptr<bool> enableMultiQuery_ {};
+        // Use LLMs to answer queries
         shared_ptr<bool> enableOpenQa_ {};
+        // Enable query rewriting
         shared_ptr<bool> enableQueryRewrite_ {};
+        // Enable multi-turn conversations
         shared_ptr<bool> enableSession_ {};
+        // Document library ID for knowledge rewriting
         shared_ptr<string> localKnowledgeId_ {};
+        // Include document references in responses
         shared_ptr<bool> withDocumentReference_ {};
       };
 
@@ -391,7 +411,11 @@ namespace Models
 
 
       protected:
+        // Control the randomness and diversity of model responses. Higher values flatten the probability distribution over candidate tokens, increasing diversity. Lower values sharpen the distribution, increasing determinism.
+        // 
+        // Valid range: [0, 2). Avoid 0.
         shared_ptr<double> temperature_ {};
+        // Probability threshold for nucleus sampling. For example, with a value of 0.8, only the smallest set of most likely tokens whose cumulative probability is at least 0.8 is used. Higher values increase randomness. Lower values increase determinism.
         shared_ptr<double> topP_ {};
       };
 
@@ -497,14 +521,23 @@ namespace Models
 
 
       protected:
+        // Layout-based chunking
         shared_ptr<bool> docTreeSplit_ {};
+        // Layout-based chunk size
         shared_ptr<int32_t> docTreeSplitSize_ {};
+        // Parse images in documents
         shared_ptr<bool> enhanceGraph_ {};
+        // Parse tables in documents
         shared_ptr<bool> enhanceTable_ {};
+        // Chunk overlap length
         shared_ptr<int32_t> overlap_ {};
+        // Split by sentence
         shared_ptr<bool> sentenceSplit_ {};
+        // Sentence-based chunk size
         shared_ptr<int32_t> sentenceSplitSize_ {};
+        // Chunk size
         shared_ptr<int32_t> size_ {};
+        // Enable chunking
         shared_ptr<bool> split_ {};
       };
 
@@ -573,12 +606,19 @@ namespace Models
 
 
     protected:
+      // Chunking strategy
       shared_ptr<IndexSetting::ChunkStrategy> chunkStrategy_ {};
+      // Model configuration
       shared_ptr<IndexSetting::ModelConfig> modelConfig_ {};
+      // Prompt role style. Specify a role and tone to guide response quality. Examples: Document analysis expert, friendly customer service agent, professional financial analyst.
       shared_ptr<string> promptRoleStyle_ {};
+      // Query enhancement configuration
       shared_ptr<IndexSetting::QueryEnhancer> queryEnhancer_ {};
+      // Retrieval strategy
       shared_ptr<IndexSetting::RecallStrategy> recallStrategy_ {};
+      // Text index configuration
       shared_ptr<IndexSetting::TextIndexSetting> textIndexSetting_ {};
+      // Vector index settings
       shared_ptr<IndexSetting::VectorIndexSetting> vectorIndexSetting_ {};
     };
 
@@ -608,9 +648,14 @@ namespace Models
 
 
   protected:
+    // Document library description
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // Index settings for the document library
     shared_ptr<CreateLibraryRequest::IndexSetting> indexSetting_ {};
+    // Document library name
+    // 
     // This parameter is required.
     shared_ptr<string> libraryName_ {};
   };

@@ -126,7 +126,9 @@ namespace Models
 
 
         protected:
+          // Properties.
           Darabonba::Json properties_ {};
+          // Type.
           shared_ptr<string> type_ {};
         };
 
@@ -165,9 +167,13 @@ namespace Models
 
 
       protected:
+        // A string describing the tool function. This helps the model decide when and how to call it.
         shared_ptr<string> description_ {};
+        // A string representing the tool function name. It must contain only letters, digits, underscores, and hyphens. Maximum length is 64 characters.
         shared_ptr<string> name_ {};
+        // An object describing the tool parameters. It must be a valid JSON Schema.
         shared_ptr<Function::Parameters> parameters_ {};
+        // List of required parameters.
         shared_ptr<vector<string>> required_ {};
       };
 
@@ -190,7 +196,9 @@ namespace Models
 
 
     protected:
+      // An object containing name, description, and parameters.
       shared_ptr<Tools::Function> function_ {};
+      // A string indicating the tool type. Currently, only "function" is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -232,7 +240,9 @@ namespace Models
 
 
     protected:
+      // Message content.
       shared_ptr<string> content_ {};
+      // Message role.
       shared_ptr<string> role_ {};
     };
 
@@ -287,13 +297,21 @@ namespace Models
 
 
   protected:
+    // Hyperparameters used for inference.
     Darabonba::Json inferenceParameters_ {};
+    // Messages to input into the model.
+    // 
     // This parameter is required.
     shared_ptr<vector<RunChatResultGenerationRequest::Messages>> messages_ {};
+    // The model service type. Get this value from the /api/app/config API endpoint in the llmHelperTypeList field.
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
+    // Session ID. Use this to mark a conversation.
     shared_ptr<string> sessionId_ {};
+    // Streaming mode. Set to true for streaming responses. Set to false for full responses. Default is false.
     shared_ptr<bool> stream_ {};
+    // Tool information. Specify a list of tools the model can call. When multiple tools are provided, the model selects one to generate a response.
     shared_ptr<vector<RunChatResultGenerationRequest::Tools>> tools_ {};
   };
 

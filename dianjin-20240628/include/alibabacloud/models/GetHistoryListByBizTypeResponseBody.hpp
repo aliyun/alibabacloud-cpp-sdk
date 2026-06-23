@@ -193,16 +193,27 @@ namespace Models
 
 
       protected:
+        // Business ID
         shared_ptr<string> bizId_ {};
+        // Business type
         shared_ptr<string> bizType_ {};
+        // Extension information
         Darabonba::Json extraMessage_ {};
+        // Creation time
         shared_ptr<string> gmtCreate_ {};
+        // Last modified time
         shared_ptr<string> gmtModified_ {};
+        // History record ID
         shared_ptr<int64_t> id_ {};
+        // Large Language Model (LLM) response
         shared_ptr<string> llmAnswer_ {};
+        // Prompt for the Large Language Model (LLM)
         shared_ptr<string> llmPrompt_ {};
+        // Large Language Model (LLM) type
         shared_ptr<string> llmType_ {};
+        // Session ID
         shared_ptr<string> sessionId_ {};
+        // User query
         shared_ptr<string> userQuery_ {};
       };
 
@@ -246,10 +257,15 @@ namespace Models
 
 
     protected:
+      // Current page number
       shared_ptr<int64_t> currentPage_ {};
+      // Number of records per page
       shared_ptr<int64_t> pageSize_ {};
+      // Records
       shared_ptr<vector<Data::Records>> records_ {};
+      // Total number of pages
       shared_ptr<int64_t> totalPages_ {};
+      // Total number of records
       shared_ptr<int64_t> totalRecords_ {};
     };
 
@@ -315,13 +331,21 @@ namespace Models
 
 
   protected:
+    // Response time in milliseconds
     shared_ptr<int64_t> cost_ {};
+    // Response data
     shared_ptr<GetHistoryListByBizTypeResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

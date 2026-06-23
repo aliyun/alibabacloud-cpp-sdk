@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Page number
     shared_ptr<int32_t> page_ {};
+    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
+    // Search keywords. Supports document library names and descriptions.
     shared_ptr<string> query_ {};
   };
 

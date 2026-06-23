@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // The metadata for the document chunk.
       Darabonba::Json chunkMeta_ {};
+      // The order of the chunk. This parameter is optional.
       shared_ptr<int32_t> chunkOrder_ {};
+      // The text content of the document chunk.
       shared_ptr<string> chunkText_ {};
+      // The type of the document chunk.
       shared_ptr<string> chunkType_ {};
     };
 
@@ -135,9 +139,13 @@ namespace Models
 
 
   protected:
+    // A list of document chunks.
     shared_ptr<vector<CreatePredefinedDocumentRequest::Chunks>> chunks_ {};
+    // The ID of the document library.
     shared_ptr<string> libraryId_ {};
+    // The metadata.
     Darabonba::Json metadata_ {};
+    // The title of the document.
     shared_ptr<string> title_ {};
   };
 

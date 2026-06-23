@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // Question content
         shared_ptr<string> content_ {};
+        // Original question time
         shared_ptr<string> gmtCreate_ {};
+        // Original question
         shared_ptr<string> oriContent_ {};
+        // Reply content
         shared_ptr<string> reply_ {};
+        // Session ID
         shared_ptr<string> sessionId_ {};
+        // Question type [PRODUCT_QA (Audio submission), GOSSIP (Operation submission), UNKNOWN (Unknown)]
         shared_ptr<string> type_ {};
+        // Unique ID of the user who asked the question in the live channel.
         shared_ptr<string> userId_ {};
+        // Name of the user who asked the question in the live channel.
         shared_ptr<string> userName_ {};
       };
 
@@ -187,7 +195,9 @@ namespace Models
 
 
     protected:
+      // Current state [INIT (Initialization), PROCESSING (Processing), COMPLETED (Completed)]
       shared_ptr<string> currentState_ {};
+      // Question list
       shared_ptr<vector<Data::QuestionList>> questionList_ {};
     };
 
@@ -253,13 +263,21 @@ namespace Models
 
 
   protected:
+    // Time consumed
     shared_ptr<int64_t> cost_ {};
+    // Response data
     shared_ptr<GetChatQuestionRespResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

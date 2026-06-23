@@ -124,16 +124,28 @@ namespace Models
 
 
     protected:
+      // Question content
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // Original question time
+      // 
       // This parameter is required.
       shared_ptr<string> gmtCreate_ {};
+      // Reply content
       shared_ptr<string> reply_ {};
+      // Session ID
+      // 
       // This parameter is required.
       shared_ptr<string> sessionId_ {};
+      // Question type: PRODUCT_QA (audio submission), GOSSIP (operation submission), UNKNOWN (unknown)
       shared_ptr<string> type_ {};
+      // Unique ID of the user asking questions in the live channel
+      // 
       // This parameter is required.
       shared_ptr<string> userId_ {};
+      // Name of the user asking questions in the live channel
+      // 
       // This parameter is required.
       shared_ptr<string> userName_ {};
     };
@@ -185,15 +197,26 @@ namespace Models
 
 
   protected:
+    // Current time
+    // 
     // This parameter is required.
     shared_ptr<string> gmtService_ {};
+    // Live channel script
+    // 
     // This parameter is required.
     shared_ptr<string> liveScriptContent_ {};
+    // Enable small talk. Default is true.
     shared_ptr<bool> openSmallTalk_ {};
+    // Question list
+    // 
     // This parameter is required.
     shared_ptr<vector<SubmitChatQuestionRequest::QuestionList>> questionList_ {};
+    // Request ID
+    // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
+    // Session ID
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
   };

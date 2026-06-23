@@ -103,17 +103,29 @@ namespace Models
 
 
   protected:
+    // Document ID
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // Enable table
+    // 
     // This parameter is required.
     shared_ptr<bool> enableTable_ {};
+    // End page
     shared_ptr<int32_t> endPage_ {};
+    // Instruction
     shared_ptr<string> instruction_ {};
+    // Document library ID
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
+    // Model ID
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
+    // Start page
     shared_ptr<int32_t> startPage_ {};
+    // Task type. Optional. Defaults to finance_report. If you set this to custom, provide an instruction.
     shared_ptr<string> taskType_ {};
   };
 

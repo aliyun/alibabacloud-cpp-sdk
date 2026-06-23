@@ -70,8 +70,12 @@ namespace Models
 
 
     protected:
+      // Document chunk ID.
+      // 
       // This parameter is required.
       shared_ptr<string> chunkId_ {};
+      // Document chunk text.
+      // 
       // This parameter is required.
       shared_ptr<string> chunkText_ {};
     };
@@ -95,8 +99,12 @@ namespace Models
 
 
   protected:
+    // List of document chunks.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateDocumentChunkRequest::Chunks>> chunks_ {};
+    // Library ID.
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
   };

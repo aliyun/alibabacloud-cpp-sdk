@@ -51,8 +51,12 @@ namespace Models
 
 
   protected:
+    // List of document IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> docIds_ {};
+    // Document library ID.
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
   };

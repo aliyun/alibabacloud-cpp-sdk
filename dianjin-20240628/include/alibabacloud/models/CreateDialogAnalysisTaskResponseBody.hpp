@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The time consumed by the request.
     shared_ptr<int64_t> cost_ {};
+    // The response data, which is a list of session IDs.
     shared_ptr<vector<string>> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

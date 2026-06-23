@@ -103,13 +103,21 @@ namespace Models
 
 
     protected:
+      // Document ID
+      // 
       // This parameter is required.
       shared_ptr<string> docId_ {};
+      // Document year
+      // 
       // This parameter is required.
       shared_ptr<int32_t> docYear_ {};
+      // End page number
       shared_ptr<int32_t> endPage_ {};
+      // Document library ID
+      // 
       // This parameter is required.
       shared_ptr<string> libraryId_ {};
+      // Start page number
       shared_ptr<int32_t> startPage_ {};
     };
 
@@ -155,12 +163,20 @@ namespace Models
 
 
   protected:
+    // List of years to analyze
+    // 
     // This parameter is required.
     shared_ptr<vector<int32_t>> anaYears_ {};
+    // List of document information
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateAnnualDocSummaryTaskRequest::DocInfos>> docInfos_ {};
+    // Enable table extraction. Default is true.
     shared_ptr<bool> enableTable_ {};
+    // Instruction
     shared_ptr<string> instruction_ {};
+    // Model ID
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
   };

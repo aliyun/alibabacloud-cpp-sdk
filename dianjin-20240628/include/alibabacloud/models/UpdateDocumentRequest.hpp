@@ -68,11 +68,17 @@ namespace Models
 
 
   protected:
+    // Document ID.
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // Document library ID.
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
+    // Document metadata.
     Darabonba::Json meta_ {};
+    // Document title.
     shared_ptr<string> title_ {};
   };
 

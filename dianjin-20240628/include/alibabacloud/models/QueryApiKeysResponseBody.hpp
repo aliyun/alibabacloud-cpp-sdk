@@ -126,7 +126,6 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       shared_ptr<string> gmtModified_ {};
       shared_ptr<string> keyHash_ {};
-      // **API Key ID**
       shared_ptr<string> keyId_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> tenantId_ {};

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Document library ID
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
   };

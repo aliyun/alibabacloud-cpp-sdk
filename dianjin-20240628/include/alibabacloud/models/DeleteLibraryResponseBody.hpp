@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

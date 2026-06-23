@@ -105,13 +105,21 @@ namespace Models
 
 
   protected:
+    // Response time in milliseconds.
     shared_ptr<int64_t> cost_ {};
+    // Response data.
     Darabonba::Json data_ {};
+    // Data type.
     shared_ptr<string> dataType_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
+    // Timestamp in YYYY-MM-DD HH:MM:SS format.
     shared_ptr<string> time_ {};
   };
 

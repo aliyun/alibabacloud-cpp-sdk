@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The document library ID.
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
+    // The page number.
     shared_ptr<int32_t> page_ {};
+    // The page number.
     shared_ptr<int32_t> pageSize_ {};
+    // The document status.
     shared_ptr<string> status_ {};
   };
 

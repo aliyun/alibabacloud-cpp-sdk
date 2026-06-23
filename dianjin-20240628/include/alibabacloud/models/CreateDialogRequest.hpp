@@ -99,15 +99,25 @@ namespace Models
 
 
   protected:
+    // The channel.
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // Specifies whether to enable the intent library.
     shared_ptr<bool> enableLibrary_ {};
+    // Other information.
     Darabonba::Json metaData_ {};
+    // The playbook code.
+    // 
     // This parameter is required.
     shared_ptr<string> playCode_ {};
+    // A list of Q\\&A library IDs.
     shared_ptr<vector<string>> qaLibraryList_ {};
+    // The request ID.
+    // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
+    // Specifies whether to enable autonomous Q\\&A.
     shared_ptr<bool> selfDirected_ {};
   };
 

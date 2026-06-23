@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The document ID.
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // The document library ID.
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
+    // Specifies whether to return the result as a URL. If true, the parsing result is in resultUrl, and result is empty. If false, the parsing result is in result, and resultUrl is empty.
     shared_ptr<bool> useUrlResult_ {};
   };
 

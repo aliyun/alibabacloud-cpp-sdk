@@ -161,17 +161,30 @@ namespace Models
 
 
     protected:
+      // The start time of the sentence, in milliseconds, relative to the start of the session.
       shared_ptr<int32_t> begin_ {};
+      // The start time of this sentence.
       shared_ptr<string> beginTime_ {};
+      // The specific content of the conversation.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The unique ID of the conversation role. This parameter is **required**.
       shared_ptr<string> customerId_ {};
+      // The ID of the customer service representative. This parameter is **required**.
       shared_ptr<string> customerServiceId_ {};
+      // The type of the customer service representative. 0: bot, 1: human.
       shared_ptr<string> customerServiceType_ {};
+      // The end time of the sentence, in milliseconds, relative to the start of the session.
       shared_ptr<int32_t> end_ {};
+      // The intent code.
       shared_ptr<string> intentionCode_ {};
+      // The role. 0 indicates the customer, and 1 indicates the customer service representative.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> role_ {};
+      // The type of the conversation content. Valid values: text, audio, and image.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -261,18 +274,31 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform analysis.
     shared_ptr<bool> analysis_ {};
+    // The business type. The default value is mixIntentChat.
     shared_ptr<string> bizType_ {};
+    // The list of conversations.
+    // 
     // This parameter is required.
     shared_ptr<vector<RealTimeDialogRequest::ConversationModel>> conversationModel_ {};
+    // The number of historical conversation turns to include.
     shared_ptr<int32_t> dialogMemoryTurns_ {};
+    // The metadata used to encapsulate prompts.
     Darabonba::Json metaData_ {};
+    // The operation type. Only common and hierarchical are supported.
     shared_ptr<string> opType_ {};
+    // The recommended intent.
     shared_ptr<bool> recommend_ {};
+    // The part of the previous script from the customer service representative that has been played.
     shared_ptr<string> scriptContentPlayed_ {};
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Specifies whether to return the response in a stream.
     shared_ptr<bool> stream_ {};
+    // Specifies whether the user interrupted the conversation.
     shared_ptr<bool> userVad_ {};
   };
 

@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // Request parameters.
     Darabonba::Json params_ {};
+    // The plugin ID.
     shared_ptr<string> pluginId_ {};
   };
 

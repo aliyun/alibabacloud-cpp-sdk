@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Return code
     shared_ptr<string> code_ {};
+    // Return message
     shared_ptr<string> message_ {};
+    // Indicates whether the operation can be retried
     shared_ptr<bool> retryAble_ {};
+    // Indicates whether the operation succeeded
     shared_ptr<bool> success_ {};
   };
 

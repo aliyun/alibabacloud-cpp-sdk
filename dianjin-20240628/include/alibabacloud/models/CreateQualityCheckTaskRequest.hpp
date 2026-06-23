@@ -176,16 +176,28 @@ namespace Models
 
 
       protected:
+        // The start time of this sentence. This is the offset time in milliseconds from the start of the conversation.
         shared_ptr<int32_t> begin_ {};
+        // The start time of this sentence.
         shared_ptr<string> beginTime_ {};
+        // The specific content of the dialogue.
+        // 
         // This parameter is required.
         shared_ptr<string> content_ {};
+        // The unique identifier of the dialogue role.
         shared_ptr<string> customerId_ {};
+        // The customer service ID.
         shared_ptr<string> customerServiceId_ {};
+        // Agent type:
         shared_ptr<string> customerServiceType_ {};
+        // The end time of this sentence. This is the offset time in milliseconds from the start of the conversation.
         shared_ptr<int32_t> end_ {};
+        // Role:
+        // 
         // This parameter is required.
         shared_ptr<string> role_ {};
+        // Dialogue content type:
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -245,13 +257,21 @@ namespace Models
 
 
     protected:
+      // Call type:
       shared_ptr<string> callType_ {};
+      // The Customer ID.
       shared_ptr<string> customerId_ {};
+      // The customer name.
       shared_ptr<string> customerName_ {};
+      // The customer service ID.
       shared_ptr<string> customerServiceId_ {};
+      // The customer service name.
       shared_ptr<string> customerServiceName_ {};
+      // The list of dialogue details.
+      // 
       // This parameter is required.
       shared_ptr<vector<ConversationList::DialogueList>> dialogueList_ {};
+      // The conversation time.
       shared_ptr<string> gmtService_ {};
     };
 
@@ -314,15 +334,26 @@ namespace Models
 
 
   protected:
+    // The conversation content. If associated with a quality check scenario, pass multiple conversations. Otherwise, pass only one.
+    // 
     // This parameter is required.
     shared_ptr<CreateQualityCheckTaskRequest::ConversationList> conversationList_ {};
+    // The business occurrence time. The system uses this to record submission time, make task scheduling priority decisions, and so on.
+    // 
     // This parameter is required.
     shared_ptr<string> gmtService_ {};
+    // The metadata. These are properties related to business that rules consume during execution. The business system passes these in real-time when initiating a quality check.
     shared_ptr<map<string, string>> metaData_ {};
+    // The quality check rule group.
     shared_ptr<vector<string>> qualityGroup_ {};
+    // The request ID.
+    // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
+    // The scenario code.
     shared_ptr<string> sceneCode_ {};
+    // Quality check type:
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

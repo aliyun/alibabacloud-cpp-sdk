@@ -71,6 +71,7 @@ namespace Models
 
 
     protected:
+      // The ID of the Q\\&A library.
       shared_ptr<string> qaLibraryId_ {};
     };
 
@@ -136,13 +137,21 @@ namespace Models
 
 
   protected:
+    // The time consumed.
     shared_ptr<int64_t> cost_ {};
+    // The response data.
     shared_ptr<UpdateQaLibraryResponseBody::Data> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

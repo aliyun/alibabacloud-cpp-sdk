@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // The answer.
         shared_ptr<string> answer_ {};
+        // The question.
         shared_ptr<string> question_ {};
       };
 
@@ -144,9 +146,13 @@ namespace Models
 
 
     protected:
+      // The current status. Valid values: \\`INIT\\`, \\`PROCESSING\\`, \\`COMPLETED\\`, and \\`FAIL\\`.
       shared_ptr<string> currentStatus_ {};
+      // The document ID.
       shared_ptr<string> docId_ {};
+      // The document library ID.
       shared_ptr<string> libraryId_ {};
+      // The results of the Q\\&A pair parsing.
       shared_ptr<vector<Data::ParseQaResults>> parseQaResults_ {};
     };
 
@@ -212,13 +218,21 @@ namespace Models
 
 
   protected:
+    // The time consumed.
     shared_ptr<int64_t> cost_ {};
+    // The response data.
     shared_ptr<GenDocQaResultResponseBody::Data> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

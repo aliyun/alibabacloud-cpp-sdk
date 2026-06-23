@@ -105,13 +105,31 @@ namespace Models
 
 
   protected:
+    // The time consumed.
     shared_ptr<int64_t> cost_ {};
+    // The result of the asynchronous task.
+    // 
+    // ## PDF translation task
+    // 
+    // The returned file_url is a downloadable file address.
+    // 
+    // ```
+    // {
+    //   "file_url": "https://finllmworks.oss-cn-zhangjiakou.aliyuncs.com/render_pdf/5336180997111160501.pdf"
+    // }
+    // ```
     Darabonba::Json data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

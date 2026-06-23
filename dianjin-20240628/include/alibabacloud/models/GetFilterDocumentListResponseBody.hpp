@@ -175,14 +175,23 @@ namespace Models
 
 
       protected:
+        // Document ID.
         shared_ptr<string> docId_ {};
+        // Document metadata.
         Darabonba::Json documentMeta_ {};
+        // File type.
         shared_ptr<string> fileType_ {};
+        // Creation time.
         shared_ptr<string> gmtCreate_ {};
+        // Modification time.
         shared_ptr<string> gmtModified_ {};
+        // Document library ID.
         shared_ptr<string> libraryId_ {};
+        // Document status. Valid values: WaitRefresh (waiting for refresh), InQueue (pending), FetchingData (retrieving data), Embedding (processing document), Error (failed), Completed (active), Null (unknown).
         shared_ptr<string> statusCode_ {};
+        // Document title.
         shared_ptr<string> title_ {};
+        // Document URL.
         shared_ptr<string> url_ {};
       };
 
@@ -226,10 +235,15 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int64_t> currentPage_ {};
+      // Number of records per page.
       shared_ptr<int64_t> pageSize_ {};
+      // Records.
       shared_ptr<vector<Data::Records>> records_ {};
+      // Total number of pages.
       shared_ptr<int64_t> totalPages_ {};
+      // Total number of records.
       shared_ptr<int64_t> totalRecords_ {};
     };
 
@@ -295,13 +309,21 @@ namespace Models
 
 
   protected:
+    // Time spent on the request, in milliseconds.
     shared_ptr<int64_t> cost_ {};
+    // Response data.
     shared_ptr<GetFilterDocumentListResponseBody::Data> data_ {};
+    // Data type.
     shared_ptr<string> dataType_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // Timestamp.
     shared_ptr<string> time_ {};
   };
 

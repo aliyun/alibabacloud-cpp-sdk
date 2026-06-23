@@ -149,11 +149,17 @@ namespace Models
 
 
       protected:
+        // Specific content of the dialog
         shared_ptr<string> content_ {};
+        // Unique identity of the dialog role
         shared_ptr<string> customerId_ {};
+        // Customer service ID
         shared_ptr<string> customerServiceId_ {};
+        // Agent type. 0: Robot, 1: Human.
         shared_ptr<string> customerServiceType_ {};
+        // Role. 0 indicates customer, 1 indicates agent.
         shared_ptr<string> role_ {};
+        // Type of dialog content
         shared_ptr<string> type_ {};
       };
 
@@ -213,9 +219,13 @@ namespace Models
 
 
       protected:
+        // Recommended flow
         shared_ptr<string> assistSop_ {};
+        // Intent encoding
         shared_ptr<string> intentCode_ {};
+        // Intent name
         shared_ptr<string> intentName_ {};
+        // Indicates whether the intent is to escape.
         shared_ptr<bool> isDefault_ {};
       };
 
@@ -284,10 +294,15 @@ namespace Models
 
 
       protected:
+        // Recommended utterance
         shared_ptr<string> assistScript_ {};
+        // Intent encoding
         shared_ptr<string> intentCode_ {};
+        // Intent labels
         shared_ptr<string> intentLabels_ {};
+        // Intent name
         shared_ptr<string> intentName_ {};
+        // Whether intent escaped
         shared_ptr<bool> isDefault_ {};
       };
 
@@ -350,12 +365,19 @@ namespace Models
 
 
     protected:
+      // Analysis process
       shared_ptr<string> analysisProcess_ {};
+      // List of dialog assist results
       shared_ptr<vector<Data::AssistScripts>> assistScripts_ {};
+      // List of flow assist results
       shared_ptr<vector<Data::AssistSop>> assistSop_ {};
+      // Current dialog content
       shared_ptr<vector<Data::ConversationModel>> conversationModel_ {};
+      // Whether interrupted
       shared_ptr<bool> interrupt_ {};
+      // Unique request ID. This request ID matches the request ID in the input parameter.
       shared_ptr<string> requestId_ {};
+      // Session ID
       shared_ptr<string> sessionId_ {};
     };
 
@@ -421,13 +443,21 @@ namespace Models
 
 
   protected:
+    // Time consumed
     shared_ptr<int64_t> cost_ {};
+    // Response data
     shared_ptr<RealtimeDialogAssistResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID. This is the system-recorded request ID. If issues arise, provide this ID to the Model Studio DianJin R\\&D team for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Whether successful
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

@@ -71,6 +71,7 @@ find_package(CURL REQUIRED)
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Target Setup >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 set(SOURCE_FILES
     src/Client.cpp
+    src/EndToEndRealTimeDialog.cpp
 )
 
 # Create library target

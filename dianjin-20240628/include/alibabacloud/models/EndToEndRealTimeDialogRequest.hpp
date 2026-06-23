@@ -112,14 +112,32 @@ namespace Models
 
 
   protected:
+    // The ID of the speech recognition model. The default value is nls-base. Supported models include paraformer-realtime-v2 and paraformer-realtime-8k-v2.
     shared_ptr<string> asrModelId_ {};
+    // The input audio format. Supported formats are pcm, wav, and mp3.
     shared_ptr<string> inputFormat_ {};
+    // The output audio format.
     shared_ptr<string> outputFormat_ {};
+    // The pitch rate.
+    // ● If \\`ttsModelId\\` is \\`nls-base\\`:
+    // The value ranges from -500 to 500. The default is 0.
+    // ● If \\`ttsModelId\\` is \\`cosyvoice-v2\\`: Specifies the pitch of the synthesized audio. The value ranges from 0.5 to 2.
     shared_ptr<int32_t> pitchRate_ {};
+    // The sample rate.
     shared_ptr<string> sampleRate_ {};
+    // The speech rate.
+    // ● If \\`ttsModelId\\` is \\`nls-base\\`: The value ranges from -500 to 500. The default is 0.
+    // ● If \\`ttsModelId\\` is \\`cosyvoice-v2\\`:
+    // Specifies the speech rate of the synthesized audio. The value ranges from 0.5 to 2.
+    // ○ 0.5: Half the default speed.
+    // ○ 1: The default speed. The default speed is the model\\"s standard output speed and may vary slightly by speaker. It is about four characters per second.
+    // ○ 2: Twice the default speed.
     shared_ptr<int32_t> speechRate_ {};
+    // The ID of the speech synthesis model. The default value is nls-base. The cosyvoice-v2 model is supported.
     shared_ptr<string> ttsModelId_ {};
+    // The voice parameter. This is available only for models that support word-level or sentence-level timestamps.
     shared_ptr<string> voiceCode_ {};
+    // The volume. The value ranges from 0 to 100. This parameter is optional. The default value is 50.
     shared_ptr<int32_t> volume_ {};
   };
 

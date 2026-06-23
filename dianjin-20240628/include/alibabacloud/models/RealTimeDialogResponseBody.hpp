@@ -193,18 +193,29 @@ namespace Models
 
 
       protected:
+        // The analysis process.
         shared_ptr<string> analysisProcess_ {};
-        // time
+        // The time.
         shared_ptr<string> callTime_ {};
+        // Hang up the dialog.
         shared_ptr<bool> hangUpDialog_ {};
+        // The intent code.
         shared_ptr<string> intentionCode_ {};
+        // The intent name.
         shared_ptr<string> intentionName_ {};
+        // The intent script.
         shared_ptr<string> intentionScript_ {};
+        // Specifies whether the conversation was interrupted.
         shared_ptr<bool> interrupt_ {};
+        // The recommended intent.
         shared_ptr<string> recommendIntention_ {};
+        // The recommended script.
         shared_ptr<string> recommendScript_ {};
+        // The script for the Q\\&A pair. This is incremental data. This is empty for streaming responses.
         shared_ptr<string> selfDirectedScript_ {};
+        // The script for the Q\\&A pair. This is the full data.
         shared_ptr<string> selfDirectedScriptFullContent_ {};
+        // Specifies whether to skip the current recognition.
         shared_ptr<bool> skipCurrentRecognize_ {};
       };
 
@@ -338,18 +349,29 @@ namespace Models
 
 
       protected:
+        // The analysis process.
         shared_ptr<string> analysisProcess_ {};
-        // time
+        // The time.
         shared_ptr<string> callTime_ {};
+        // Hangs up the dialog.
         shared_ptr<bool> hangUpDialog_ {};
+        // The intent code.
         shared_ptr<string> intentionCode_ {};
+        // The intent name.
         shared_ptr<string> intentionName_ {};
+        // The intent script.
         shared_ptr<string> intentionScript_ {};
+        // Specifies whether the conversation was interrupted.
         shared_ptr<bool> interrupt_ {};
+        // The recommended intent.
         shared_ptr<string> recommendIntention_ {};
+        // The recommended script.
         shared_ptr<string> recommendScript_ {};
+        // The script for the Q\\&A pair. This is incremental data.
         shared_ptr<string> selfDirectedScript_ {};
+        // The script for the Q\\&A pair. This is the full data.
         shared_ptr<string> selfDirectedScriptFullContent_ {};
+        // Specifies whether to skip the current recognition.
         shared_ptr<bool> skipCurrentRecognize_ {};
       };
 
@@ -388,9 +410,13 @@ namespace Models
 
 
     protected:
+      // The incremental result returned for streaming responses. This is empty for non-streaming responses.
       shared_ptr<Choices::Delta> delta_ {};
+      // The value is \\`stop\\` if the session ends. The value is \\`null\\` if the session is in progress. If \\`success\\` is \\`false\\`, this parameter returns an error message.
       shared_ptr<string> finishReason_ {};
+      // The sequence number in the choices list.
       shared_ptr<int32_t> index_ {};
+      // The full result returned for non-streaming responses. This is empty for streaming responses.
       shared_ptr<Choices::Message> message_ {};
     };
 
@@ -434,10 +460,15 @@ namespace Models
 
 
   protected:
+    // An array of generated content. It can contain one or more choice objects.
     shared_ptr<vector<RealTimeDialogResponseBody::Choices>> choices_ {};
+    // The timestamp when this request was created.
     shared_ptr<string> created_ {};
+    // The unique identifier for this call. Each chunk object has the same ID.
     shared_ptr<string> id_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

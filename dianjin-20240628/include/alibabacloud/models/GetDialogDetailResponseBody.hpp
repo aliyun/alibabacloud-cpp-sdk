@@ -191,16 +191,35 @@ namespace Models
 
 
       protected:
+        // Dialogue content
         shared_ptr<string> content_ {};
+        // Customer ID
         shared_ptr<string> customerId_ {};
+        // Agent ID
         shared_ptr<string> customerServiceId_ {};
+        // Agent type:
+        // 
+        // - 0: Bot
+        // 
+        // - 1: Human
         shared_ptr<string> customerServiceType_ {};
+        // Indicates whether the session ended with this message
         shared_ptr<bool> hangUpDialog_ {};
+        // Unique identifier for this message. Assigned internally. May be empty. Use recordId instead.
         shared_ptr<int64_t> id_ {};
+        // Intent code
         shared_ptr<string> intentCode_ {};
+        // Intent name
         shared_ptr<string> intentName_ {};
+        // Unique identifier for this message. Assigned internally. String type.
         shared_ptr<string> recordId_ {};
+        // Role:
+        // 
+        // - 0: Customer
+        // 
+        // - 1: Agent
         shared_ptr<string> role_ {};
+        // Content type: text, audio, or image. Only text is supported.
         shared_ptr<string> type_ {};
       };
 
@@ -244,10 +263,15 @@ namespace Models
 
 
     protected:
+      // List of dialogue details
       shared_ptr<vector<Data::DialogueList>> dialogueList_ {};
+      // Session time
       shared_ptr<string> gmtCreate_ {};
+      // Session status
       shared_ptr<string> status_ {};
+      // Total conversation rounds. Each round counts one exchange between AI and the customer. Multiple consecutive messages from either side count as one round. If the last message is from the AI and is not a hang-up, subtract one from the total round count.
       shared_ptr<int32_t> totalDialogTurns_ {};
+      // Valid conversation rounds. Each valid round counts one question-and-answer pair between AI and the customer. This differs from the total round count method.
       shared_ptr<int32_t> validDialogTurns_ {};
     };
 
@@ -313,13 +337,21 @@ namespace Models
 
 
   protected:
+    // Processing time in milliseconds
     shared_ptr<int64_t> cost_ {};
+    // Response data
     shared_ptr<GetDialogDetailResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

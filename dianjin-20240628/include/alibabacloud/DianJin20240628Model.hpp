@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_DIANJIN20240628MODEL_HPP_
 #define ALIBABACLOUD_DIANJIN20240628MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CommercializeFetchRequest.hpp>
+#include <alibabacloud/models/CommercializeFetchResponse.hpp>
 #include <alibabacloud/models/CreateAnnualDocSummaryTaskRequest.hpp>
 #include <alibabacloud/models/CreateAnnualDocSummaryTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateAnnualDocSummaryTaskResponse.hpp>
@@ -106,6 +108,12 @@
 #include <alibabacloud/models/GetQualityCheckTaskResultRequest.hpp>
 #include <alibabacloud/models/GetQualityCheckTaskResultResponseBody.hpp>
 #include <alibabacloud/models/GetQualityCheckTaskResultResponse.hpp>
+#include <alibabacloud/models/GetReportResponseRequest.hpp>
+#include <alibabacloud/models/GetReportResponseResponseBody.hpp>
+#include <alibabacloud/models/GetReportResponseResponse.hpp>
+#include <alibabacloud/models/GetReportTaskStatusRequest.hpp>
+#include <alibabacloud/models/GetReportTaskStatusResponseBody.hpp>
+#include <alibabacloud/models/GetReportTaskStatusResponse.hpp>
 #include <alibabacloud/models/GetSummaryTaskResultRequest.hpp>
 #include <alibabacloud/models/GetSummaryTaskResultResponseBody.hpp>
 #include <alibabacloud/models/GetSummaryTaskResultResponse.hpp>
@@ -155,6 +163,9 @@
 #include <alibabacloud/models/RecognizeIntentionRequest.hpp>
 #include <alibabacloud/models/RecognizeIntentionResponseBody.hpp>
 #include <alibabacloud/models/RecognizeIntentionResponse.hpp>
+#include <alibabacloud/models/RetryReportTaskRequest.hpp>
+#include <alibabacloud/models/RetryReportTaskResponseBody.hpp>
+#include <alibabacloud/models/RetryReportTaskResponse.hpp>
 #include <alibabacloud/models/RunAgentRequest.hpp>
 #include <alibabacloud/models/RunAgentResponseBody.hpp>
 #include <alibabacloud/models/RunAgentResponse.hpp>

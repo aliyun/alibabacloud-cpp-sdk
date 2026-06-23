@@ -92,6 +92,7 @@ namespace Models
 
 
     protected:
+      // The number of rows to return.
       shared_ptr<int32_t> limit_ {};
     };
 
@@ -133,7 +134,9 @@ namespace Models
 
 
     protected:
+      // The number of rows to return.
       shared_ptr<int32_t> limit_ {};
+      // The search tokenizer. Valid values: \\`Standard\\`, \\`IkMaxWord\\`, and \\`IkSmart\\`. Configure this parameter as needed. If left empty, the tokenizer attached to the document library is used.
       shared_ptr<string> searchAnalyzerType_ {};
     };
 
@@ -214,9 +217,23 @@ namespace Models
 
 
       protected:
+        // The weight of the tag. A value less than 1 decreases the weight of the corresponding keyword. A value greater than 1 increases the weight.
         shared_ptr<float> boost_ {};
+        // The key of the tag.
         shared_ptr<string> key_ {};
+        // The operator for the tag. It specifies the relationship between the metadata key\\"s stored value and your input value.
+        // 
+        // - eq: Equal to.
+        // 
+        // - lte: Less than or equal to.
+        // 
+        // - gte: Greater than or equal to.
+        // 
+        // - lt: Less than.
+        // 
+        // - gt: Greater than.
         shared_ptr<string> operator_ {};
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -276,9 +293,23 @@ namespace Models
 
 
       protected:
+        // The weight of the tag. A value less than 1 decreases the weight of the corresponding keyword. A value greater than 1 increases the weight.
         shared_ptr<float> boost_ {};
+        // The key of the tag.
         shared_ptr<string> key_ {};
+        // The operator for the tag. It specifies the relationship between the metadata key\\"s stored value and your input value.
+        // 
+        // - eq: Equal to.
+        // 
+        // - lte: Less than or equal to.
+        // 
+        // - gte: Greater than or equal to.
+        // 
+        // - lt: Less than.
+        // 
+        // - gt: Greater than.
         shared_ptr<string> operator_ {};
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -303,7 +334,9 @@ namespace Models
 
 
     protected:
+      // The \\`and\\` expression, used to filter documents or document chunks.
       shared_ptr<vector<QueryCriteria::And>> and_ {};
+      // The \\`or\\` expression, used to filter documents or document chunks.
       shared_ptr<vector<QueryCriteria::Or>> or_ {};
     };
 
@@ -449,27 +482,47 @@ namespace Models
 
 
   protected:
+    // A list of document IDs.
     shared_ptr<vector<string>> docIdList_ {};
+    // Specifies whether to enable multi-turn enhancement.
     shared_ptr<bool> enableFollowUp_ {};
+    // Specifies whether to enable query splitting.
     shared_ptr<bool> enableMultiQuery_ {};
+    // Specifies whether to enable openQA.
     shared_ptr<bool> enableOpenQa_ {};
+    // The Large Language Model (LLM) used for multi-turn query enhancement.
     shared_ptr<string> followUpLlm_ {};
+    // The ID of the document library.
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
+    // The type of the LLM.
+    // 
     // This parameter is required.
     shared_ptr<string> llmType_ {};
+    // The LLM used for query splitting.
     shared_ptr<string> multiQueryLlm_ {};
+    // The query entered by the user.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The property filter.
     shared_ptr<RunLibraryChatGenerationRequest::QueryCriteria> queryCriteria_ {};
+    // The type of the sort policy. Valid values: \\`linear\\` and \\`model\\`. \\`linear\\`: rule-based sorting. \\`model\\`: model-based sorting (LLM).
     shared_ptr<string> rerankType_ {};
-    // sessionId
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    // Specifies whether to use streaming or non-streaming mode.
     shared_ptr<bool> stream_ {};
+    // A list of subqueries.
     shared_ptr<vector<string>> subQueryList_ {};
+    // Search engine parameters: text search parameters.
     shared_ptr<RunLibraryChatGenerationRequest::TextSearchParameter> textSearchParameter_ {};
+    // The final number of retrieved corpus entries.
     shared_ptr<int32_t> topK_ {};
+    // Search engine parameters: vector search parameters.
     shared_ptr<RunLibraryChatGenerationRequest::VectorSearchParameter> vectorSearchParameter_ {};
+    // Specifies whether to return document references.
     shared_ptr<bool> withDocumentReference_ {};
   };
 

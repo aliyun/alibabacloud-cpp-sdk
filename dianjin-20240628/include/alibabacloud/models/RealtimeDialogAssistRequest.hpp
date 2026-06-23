@@ -150,16 +150,27 @@ namespace Models
 
 
     protected:
+      // Start time of this utterance, offset in milliseconds from the session start.
       shared_ptr<int32_t> begin_ {};
+      // Start time of this utterance
       shared_ptr<string> beginTime_ {};
+      // Specific content of the dialog
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // Unique identity of the dialog role
       shared_ptr<string> customerId_ {};
+      // Customer service ID
       shared_ptr<string> customerServiceId_ {};
+      // Agent type. 0: Robot, 1: Human.
       shared_ptr<string> customerServiceType_ {};
+      // End time of this utterance, offset in milliseconds from the session start.
       shared_ptr<int32_t> end_ {};
+      // Role. 0 indicates customer, 1 indicates agent.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> role_ {};
+      // Type of dialog content. Currently, only text is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -241,20 +252,33 @@ namespace Models
 
 
   protected:
+    // Whether to analyze
     shared_ptr<bool> analysis_ {};
+    // Business type. Currently, only dialogAssist is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
+    // Dialog list
+    // 
     // This parameter is required.
     shared_ptr<vector<RealtimeDialogAssistRequest::ConversationModel>> conversationModel_ {};
+    // Number of historical dialog turns included
     shared_ptr<int32_t> dialogMemoryTurns_ {};
+    // Hang up the session
     shared_ptr<bool> hangUpDialog_ {};
     // metaData
     Darabonba::Json metaData_ {};
+    // Request ID
+    // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
+    // Portion of the previous agent utterance already broadcast
     shared_ptr<string> scriptContentPlayed_ {};
+    // Session ID
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Whether the user interrupted
     shared_ptr<bool> userVad_ {};
   };
 

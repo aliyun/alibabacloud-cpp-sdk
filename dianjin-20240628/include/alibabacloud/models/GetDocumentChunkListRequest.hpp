@@ -106,15 +106,25 @@ namespace Models
 
 
   protected:
+    // List of document chunk IDs
     shared_ptr<vector<string>> chunkIdList_ {};
+    // Document ID
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // Library ID
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
+    // Sorting method
     shared_ptr<string> order_ {};
+    // Sort field
     shared_ptr<string> orderBy_ {};
+    // Page number
     shared_ptr<int32_t> page_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    // Search query keyword
     shared_ptr<string> searchQuery_ {};
   };
 

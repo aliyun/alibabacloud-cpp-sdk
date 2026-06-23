@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The time spent, in milliseconds.
     shared_ptr<int64_t> cost_ {};
+    // The download URL for the document. The URL expires in 1 hour.
     shared_ptr<string> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
+    // The UNIX timestamp.
     shared_ptr<string> time_ {};
   };
 

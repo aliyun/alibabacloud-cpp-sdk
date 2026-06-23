@@ -170,10 +170,15 @@ namespace Models
 
 
         protected:
+          // The vector index source. We recommend ADB.
           shared_ptr<string> category_ {};
+          // The text embedding model for the vector index.
           shared_ptr<string> embeddingType_ {};
+          // Enable vector indexing.
           shared_ptr<bool> enable_ {};
+          // The ranking threshold for vector indexing.
           shared_ptr<double> rankThreshold_ {};
+          // Number of final results returned by the vector index.
           shared_ptr<int32_t> topK_ {};
         };
 
@@ -251,11 +256,17 @@ namespace Models
 
 
         protected:
+          // The text index type.
           shared_ptr<string> category_ {};
+          // Enable text indexing.
           shared_ptr<bool> enable_ {};
+          // The text index analyzer: Standard, IkMaxWord, or IkSmart.
           shared_ptr<string> indexAnalyzer_ {};
+          // The ranking threshold for text indexing.
           shared_ptr<double> rankThreshold_ {};
+          // The text index search analyzer: Standard, IkMaxWord, or IkSmart.
           shared_ptr<string> searchAnalyzer_ {};
+          // The number of final summary results from text indexing.
           shared_ptr<int32_t> topK_ {};
         };
 
@@ -297,7 +308,9 @@ namespace Models
 
 
         protected:
+          // The merge and sort policy.
           shared_ptr<string> documentRankType_ {};
+          // The number of results returned after merging two recall paths.
           shared_ptr<int32_t> limit_ {};
         };
 
@@ -385,12 +398,19 @@ namespace Models
 
 
         protected:
+          // Enable multi-turn query enhancement.
           shared_ptr<bool> enableFollowUp_ {};
+          // Use Large Language Model (LLM) knowledge to decompose queries.
           shared_ptr<bool> enableMultiQuery_ {};
+          // Use Large Language Model (LLM) knowledge to answer questions.
           shared_ptr<bool> enableOpenQa_ {};
+          // Rewrite queries using domain-specific knowledge.
           shared_ptr<bool> enableQueryRewrite_ {};
+          // Record session history.
           shared_ptr<bool> enableSession_ {};
+          // The document library ID used for knowledge rewriting.
           shared_ptr<string> localKnowledgeId_ {};
+          // Include document references in responses.
           shared_ptr<bool> withDocumentReference_ {};
         };
 
@@ -432,6 +452,7 @@ namespace Models
 
 
         protected:
+          // temperature
           shared_ptr<double> temperature_ {};
           // topP
           shared_ptr<double> topP_ {};
@@ -539,14 +560,23 @@ namespace Models
 
 
         protected:
+          // Enable layout-based splitting.
           shared_ptr<bool> docTreeSplit_ {};
+          // The layout-based splitting size.
           shared_ptr<int32_t> docTreeSplitSize_ {};
+          // Enhance images.
           shared_ptr<bool> enhanceGraph_ {};
+          // Enhance tables.
           shared_ptr<bool> enhanceTable_ {};
+          // The overlap length between chunks.
           shared_ptr<int32_t> overlap_ {};
+          // Split by sentence.
           shared_ptr<bool> sentenceSplit_ {};
+          // The sentence-based splitting size.
           shared_ptr<int32_t> sentenceSplitSize_ {};
+          // The chunk size.
           shared_ptr<int32_t> size_ {};
+          // Enable chunking.
           shared_ptr<bool> split_ {};
         };
 
@@ -615,12 +645,19 @@ namespace Models
 
 
       protected:
+        // The chunking strategy.
         shared_ptr<IndexSetting::ChunkStrategy> chunkStrategy_ {};
+        // Model configuration.
         shared_ptr<IndexSetting::ModelConfig> modelConfig_ {};
+        // The prompt role style.
         shared_ptr<string> promptRoleStyle_ {};
+        // Query enhancement settings.
         shared_ptr<IndexSetting::QueryEnhancer> queryEnhancer_ {};
+        // The recall strategy.
         shared_ptr<IndexSetting::RecallStrategy> recallStrategy_ {};
+        // Text index settings.
         shared_ptr<IndexSetting::TextIndexSetting> textIndexSetting_ {};
+        // Vector index settings.
         shared_ptr<IndexSetting::VectorIndexSetting> vectorIndexSetting_ {};
       };
 
@@ -679,12 +716,19 @@ namespace Models
 
 
     protected:
+      // The document library description.
       shared_ptr<string> description_ {};
+      // The number of documents in the library.
       shared_ptr<int64_t> documentCount_ {};
+      // Creation time
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time in YYYY-MM-DD HH:MM:SS format.
       shared_ptr<string> gmtModified_ {};
+      // The document library ID.
       shared_ptr<string> id_ {};
+      // The document library index settings.
       shared_ptr<Data::IndexSetting> indexSetting_ {};
+      // The document library name.
       shared_ptr<string> libraryName_ {};
     };
 
@@ -750,13 +794,21 @@ namespace Models
 
 
   protected:
+    // Response time in milliseconds.
     shared_ptr<int64_t> cost_ {};
+    // The response data object.
     shared_ptr<GetLibraryResponseBody::Data> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // Fault type
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // UNIX timestamp
     shared_ptr<string> time_ {};
   };
 

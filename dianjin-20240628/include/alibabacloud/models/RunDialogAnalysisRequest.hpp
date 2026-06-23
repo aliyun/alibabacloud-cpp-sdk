@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
   };

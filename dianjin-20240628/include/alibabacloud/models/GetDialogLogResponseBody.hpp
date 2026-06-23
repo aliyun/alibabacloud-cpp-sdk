@@ -120,8 +120,11 @@ namespace Models
 
 
       protected:
+        // The `description` field provides a detailed description of the user\\"s intent.
         shared_ptr<string> description_ {};
+        // The intent name.
         shared_ptr<string> intentionName_ {};
+        // The `intentionScript` field contains the service agent\\"s reply script for the user\\"s intent.
         shared_ptr<string> intentionScript_ {};
       };
 
@@ -172,8 +175,11 @@ namespace Models
 
 
       protected:
+        // A description of the customer\\"s intent.
         shared_ptr<string> description_ {};
+        // The intent name.
         shared_ptr<string> intentionName_ {};
+        // The scripted reply based on the customer\\"s intent.
         shared_ptr<string> intentionScript_ {};
       };
 
@@ -226,11 +232,17 @@ namespace Models
 
 
     protected:
+      // The analysis process. This field has a value if the analysis process is enabled during the real-time conversation.
       shared_ptr<string> analysisProcess_ {};
+      // The `conversationList` field records the conversation content.
       shared_ptr<string> conversationList_ {};
+      // The list of hit intents.
       shared_ptr<vector<Data::HitIntentionList>> hitIntentionList_ {};
+      // The intent list.
       shared_ptr<vector<Data::IntentionList>> intentionList_ {};
+      // The model processing time, in milliseconds.
       shared_ptr<int64_t> modelCostTime_ {};
+      // The recall list.
       shared_ptr<string> recallList_ {};
     };
 
@@ -296,13 +308,21 @@ namespace Models
 
 
   protected:
+    // The processing time.
     shared_ptr<int64_t> cost_ {};
+    // The response data.
     shared_ptr<GetDialogLogResponseBody::Data> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

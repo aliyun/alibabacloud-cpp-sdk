@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The \\`id\\` field returned by the real-time conversation API.
     shared_ptr<string> id_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
   };
 

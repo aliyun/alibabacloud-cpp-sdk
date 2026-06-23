@@ -103,13 +103,33 @@ namespace Models
 
 
   protected:
+    // Execution time, in milliseconds
     shared_ptr<int64_t> cost_ {};
+    // Response data. The current status of the task.
+    // 
+    // - invalid: Parameters or dependent resources are unavailable.
+    // 
+    // - success: The task completed successfully.
+    // 
+    // - evict: The task was canceled.
+    // 
+    // - error: The task failed.
+    // 
+    // - running: The task is running.
+    // 
+    // - pending: The task is queued.
     shared_ptr<string> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

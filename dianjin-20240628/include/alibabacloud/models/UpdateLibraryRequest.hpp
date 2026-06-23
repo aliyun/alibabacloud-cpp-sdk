@@ -131,10 +131,15 @@ namespace Models
 
 
       protected:
+        // Vector index source. We recommend ADB
         shared_ptr<string> category_ {};
+        // Text embedding model for vector indexing
         shared_ptr<string> embeddingType_ {};
+        // Enable vector indexing
         shared_ptr<bool> enable_ {};
+        // Vector index ranking threshold
         shared_ptr<double> rankThreshold_ {};
+        // Number of final summarized results from vector indexing
         shared_ptr<int32_t> topK_ {};
       };
 
@@ -212,11 +217,17 @@ namespace Models
 
 
       protected:
+        // Text index type
         shared_ptr<string> category_ {};
+        // Enable text indexing
         shared_ptr<bool> enable_ {};
+        // Text index analyzer: Standard, IkMaxWord, or IkSmart
         shared_ptr<string> indexAnalyzer_ {};
+        // Text index ranking threshold
         shared_ptr<double> rankThreshold_ {};
+        // Text index search analyzer: Standard, IkMaxWord, or IkSmart
         shared_ptr<string> searchAnalyzer_ {};
+        // Number of final summarized results from text indexing
         shared_ptr<int32_t> topK_ {};
       };
 
@@ -258,7 +269,9 @@ namespace Models
 
 
       protected:
+        // Merge and sort strategy
         shared_ptr<string> documentRankType_ {};
+        // Number of results from two-way merge and summarization
         shared_ptr<int32_t> limit_ {};
       };
 
@@ -346,12 +359,19 @@ namespace Models
 
 
       protected:
+        // Multi-turn enhancement
         shared_ptr<bool> enableFollowUp_ {};
+        // Use Large Language Models (LLMs) to decompose queries
         shared_ptr<bool> enableMultiQuery_ {};
+        // Use Large Language Models (LLMs) to answer queries
         shared_ptr<bool> enableOpenQa_ {};
+        // Rewrite queries using domain knowledge
         shared_ptr<bool> enableQueryRewrite_ {};
+        // Record session history
         shared_ptr<bool> enableSession_ {};
+        // Document library ID used for query rewriting
         shared_ptr<string> localKnowledgeId_ {};
+        // Include document references in responses
         shared_ptr<bool> withDocumentReference_ {};
       };
 
@@ -393,8 +413,9 @@ namespace Models
 
 
       protected:
+        // Temperature
         shared_ptr<double> temperature_ {};
-        // topP
+        // Top P
         shared_ptr<double> topP_ {};
       };
 
@@ -500,14 +521,23 @@ namespace Models
 
 
       protected:
+        // Layout-based chunking
         shared_ptr<bool> docTreeSplit_ {};
+        // Layout-based chunking size
         shared_ptr<int32_t> docTreeSplitSize_ {};
+        // Enhance images
         shared_ptr<bool> enhanceGraph_ {};
+        // Enhance tables
         shared_ptr<bool> enhanceTable_ {};
+        // Chunk overlap length
         shared_ptr<int32_t> overlap_ {};
+        // Split by sentence. Default is true
         shared_ptr<bool> sentenceSplit_ {};
+        // Average sentence-based chunking length
         shared_ptr<int32_t> sentenceSplitSize_ {};
+        // Fixed-length chunking size
         shared_ptr<int32_t> size_ {};
+        // Enable chunking
         shared_ptr<bool> split_ {};
       };
 
@@ -576,12 +606,19 @@ namespace Models
 
 
     protected:
+      // Chunking strategy
       shared_ptr<IndexSetting::ChunkStrategy> chunkStrategy_ {};
+      // Model configuration
       shared_ptr<IndexSetting::ModelConfig> modelConfig_ {};
+      // Prompt role style
       shared_ptr<string> promptRoleStyle_ {};
+      // Query enhancement
       shared_ptr<IndexSetting::QueryEnhancer> queryEnhancer_ {};
+      // Retrieval strategy
       shared_ptr<IndexSetting::RecallStrategy> recallStrategy_ {};
+      // Text index settings
       shared_ptr<IndexSetting::TextIndexSetting> textIndexSetting_ {};
+      // Vector index settings
       shared_ptr<IndexSetting::VectorIndexSetting> vectorIndexSetting_ {};
     };
 
@@ -618,10 +655,15 @@ namespace Models
 
 
   protected:
+    // Document library description
     shared_ptr<string> description_ {};
+    // Document library index configuration
     shared_ptr<UpdateLibraryRequest::IndexSetting> indexSetting_ {};
+    // Document library ID
+    // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
+    // Document library name
     shared_ptr<string> libraryName_ {};
   };
 

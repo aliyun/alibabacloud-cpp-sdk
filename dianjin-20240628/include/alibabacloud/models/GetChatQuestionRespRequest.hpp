@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Question batch ID
+    // 
     // This parameter is required.
     shared_ptr<string> batchId_ {};
+    // Session ID
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
   };

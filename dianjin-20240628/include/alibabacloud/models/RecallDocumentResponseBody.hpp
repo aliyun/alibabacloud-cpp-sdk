@@ -177,8 +177,11 @@ namespace Models
 
 
         protected:
+          // Coordinates.
           shared_ptr<vector<double>> axisArray_ {};
+          // Page number.
           shared_ptr<int32_t> page_ {};
+          // Text highlight area, used for text-type file highlighting.
           shared_ptr<vector<int32_t>> textHighlightArea_ {};
         };
 
@@ -289,19 +292,33 @@ namespace Models
 
 
       protected:
+        // Document chunk ID.
         shared_ptr<string> chunkId_ {};
+        // Document chunk metadata.
         Darabonba::Json chunkMeta_ {};
+        // Document chunk OSS address.
         shared_ptr<string> chunkOssUrl_ {};
+        // Document chunk text.
         shared_ptr<string> chunkText_ {};
+        // Document chunk type.
         shared_ptr<string> chunkType_ {};
+        // Document ID.
         shared_ptr<string> docId_ {};
+        // Document type.
         shared_ptr<string> fileType_ {};
+        // Document library ID.
         shared_ptr<string> libraryId_ {};
+        // Document library name.
         shared_ptr<string> libraryName_ {};
+        // Next document chunk ID.
         shared_ptr<string> nextChunkId_ {};
+        // Document chunk position.
         shared_ptr<vector<VectorChunkList::Pos>> pos_ {};
+        // Previous document chunk ID.
         shared_ptr<string> preChunkId_ {};
+        // Document chunk score.
         shared_ptr<float> score_ {};
+        // Document title.
         shared_ptr<string> title_ {};
       };
 
@@ -401,8 +418,11 @@ namespace Models
 
 
         protected:
+          // Coordinates.
           shared_ptr<vector<double>> axisArray_ {};
+          // Page number.
           shared_ptr<int32_t> page_ {};
+          // Text highlight area, used for text-type file highlighting.
           shared_ptr<vector<int32_t>> textHighlightArea_ {};
         };
 
@@ -513,19 +533,33 @@ namespace Models
 
 
       protected:
+        // Document chunk ID.
         shared_ptr<string> chunkId_ {};
+        // Document chunk metadata.
         Darabonba::Json chunkMeta_ {};
+        // Document chunk OSS address.
         shared_ptr<string> chunkOssUrl_ {};
+        // Document chunk text.
         shared_ptr<string> chunkText_ {};
+        // Document chunk type.
         shared_ptr<string> chunkType_ {};
+        // Document ID.
         shared_ptr<string> docId_ {};
+        // Document type.
         shared_ptr<string> fileType_ {};
+        // Document library ID.
         shared_ptr<string> libraryId_ {};
+        // Document library name.
         shared_ptr<string> libraryName_ {};
+        // Next document chunk ID.
         shared_ptr<string> nextChunkId_ {};
+        // Document chunk position.
         shared_ptr<vector<TextChunkList::Pos>> pos_ {};
+        // Previous document chunk ID.
         shared_ptr<string> preChunkId_ {};
+        // Document chunk score.
         shared_ptr<float> score_ {};
+        // Document title.
         shared_ptr<string> title_ {};
       };
 
@@ -615,12 +649,19 @@ namespace Models
 
 
       protected:
+        // Document ID.
         shared_ptr<string> docId_ {};
+        // Document metadata.
         Darabonba::Json documentMeta_ {};
+        // Document type.
         shared_ptr<string> fileType_ {};
+        // Creation time.
         shared_ptr<string> gmtCreate_ {};
+        // Document library ID.
         shared_ptr<string> libraryId_ {};
+        // Document title.
         shared_ptr<string> title_ {};
+        // Document link.
         shared_ptr<string> url_ {};
       };
 
@@ -720,8 +761,11 @@ namespace Models
 
 
         protected:
+          // Coordinates.
           shared_ptr<vector<double>> axisArray_ {};
+          // Page number.
           shared_ptr<int32_t> page_ {};
+          // Text highlight area, used for text-type file highlighting.
           shared_ptr<vector<int32_t>> textHighlightArea_ {};
         };
 
@@ -832,19 +876,33 @@ namespace Models
 
 
       protected:
+        // Document chunk ID.
         shared_ptr<string> chunkId_ {};
+        // Document chunk metadata.
         Darabonba::Json chunkMeta_ {};
+        // Document chunk OSS address.
         shared_ptr<string> chunkOssUrl_ {};
+        // Document chunk text.
         shared_ptr<string> chunkText_ {};
+        // Document chunk type.
         shared_ptr<string> chunkType_ {};
+        // Document ID.
         shared_ptr<string> docId_ {};
+        // Document type.
         shared_ptr<string> fileType_ {};
+        // Document library ID.
         shared_ptr<string> libraryId_ {};
+        // Document library name.
         shared_ptr<string> libraryName_ {};
+        // Next document chunk ID.
         shared_ptr<string> nextChunkId_ {};
+        // Document chunk position.
         shared_ptr<vector<ChunkPartList::Pos>> pos_ {};
+        // Previous document chunk ID.
         shared_ptr<string> preChunkId_ {};
+        // Document chunk score.
         shared_ptr<float> score_ {};
+        // Document title.
         shared_ptr<string> title_ {};
       };
 
@@ -944,8 +1002,11 @@ namespace Models
 
 
         protected:
+          // Coordinates.
           shared_ptr<vector<double>> axisArray_ {};
+          // Page number.
           shared_ptr<int32_t> page_ {};
+          // Text highlight area, used for text-type file highlighting.
           shared_ptr<vector<int32_t>> textHighlightArea_ {};
         };
 
@@ -1056,19 +1117,33 @@ namespace Models
 
 
       protected:
+        // Document chunk ID.
         shared_ptr<string> chunkId_ {};
+        // Document chunk metadata.
         Darabonba::Json chunkMeta_ {};
+        // Document chunk OSS address.
         shared_ptr<string> chunkOssUrl_ {};
+        // Document chunk text.
         shared_ptr<string> chunkText_ {};
+        // Document chunk type.
         shared_ptr<string> chunkType_ {};
+        // Document ID.
         shared_ptr<string> docId_ {};
+        // Document type.
         shared_ptr<string> fileType_ {};
+        // Document library ID.
         shared_ptr<string> libraryId_ {};
+        // Document library name.
         shared_ptr<string> libraryName_ {};
+        // Next document chunk ID.
         shared_ptr<string> nextChunkId_ {};
+        // Document chunk position.
         shared_ptr<vector<ChunkList::Pos>> pos_ {};
+        // Previous document chunk ID.
         shared_ptr<string> preChunkId_ {};
+        // Document chunk score.
         shared_ptr<float> score_ {};
+        // Document title.
         shared_ptr<string> title_ {};
       };
 
@@ -1158,15 +1233,25 @@ namespace Models
 
 
     protected:
+      // Chunk list.
       shared_ptr<vector<Data::ChunkList>> chunkList_ {};
+      // Chunk part (layout recognition result) list.
       shared_ptr<vector<Data::ChunkPartList>> chunkPartList_ {};
+      // Chunk text list.
       shared_ptr<vector<string>> chunkTextList_ {};
+      // Document list.
       shared_ptr<vector<Data::Documents>> documents_ {};
+      // Vector computation time elapsed.
       shared_ptr<int64_t> embeddingElapsedMs_ {};
+      // List of chunks retrieved from the text index.
       shared_ptr<vector<Data::TextChunkList>> textChunkList_ {};
+      // Text search time elapsed.
       shared_ptr<int64_t> textSearchElapsedMs_ {};
+      // Total time elapsed, including vector computation time, vector search time, and text search time (depending on retrieval parameters).
       shared_ptr<int64_t> totalElapsedMs_ {};
+      // List of chunks retrieved from the vector index.
       shared_ptr<vector<Data::VectorChunkList>> vectorChunkList_ {};
+      // Vector search time elapsed.
       shared_ptr<int64_t> vectorSearchElapsedMs_ {};
     };
 
@@ -1232,13 +1317,21 @@ namespace Models
 
 
   protected:
+    // Time elapsed.
     shared_ptr<int64_t> cost_ {};
+    // Response data.
     shared_ptr<RecallDocumentResponseBody::Data> data_ {};
+    // Data type.
     shared_ptr<string> dataType_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Success.
     shared_ptr<bool> success_ {};
+    // Timestamp.
     shared_ptr<string> time_ {};
   };
 

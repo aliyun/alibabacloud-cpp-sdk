@@ -99,9 +99,13 @@ namespace Models
 
 
     protected:
+      // Preview type.
       shared_ptr<string> previewType_ {};
+      // Document title.
       shared_ptr<string> title_ {};
+      // Upload time.
       shared_ptr<string> uploadTime_ {};
+      // Document URL.
       shared_ptr<string> url_ {};
     };
 
@@ -167,13 +171,21 @@ namespace Models
 
 
   protected:
+    // Time consumed.
     shared_ptr<int64_t> cost_ {};
+    // Returned data.
     shared_ptr<PreviewDocumentResponseBody::Data> data_ {};
+    // Data type.
     shared_ptr<string> dataType_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Is successful.
     shared_ptr<bool> success_ {};
+    // Time.
     shared_ptr<string> time_ {};
   };
 

@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // Unique business identifier. When bizType is LibraryChat, bizId is the document library ID.
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // Business type. Supported values are LlmChat and LibraryChat.
+    // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
+    // Page number
     shared_ptr<int32_t> page_ {};
+    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
   };
 

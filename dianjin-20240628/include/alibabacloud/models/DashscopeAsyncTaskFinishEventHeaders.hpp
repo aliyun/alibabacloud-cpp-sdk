@@ -52,6 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
+    // Indicates whether the request is part of a stress test
     shared_ptr<bool> xLoadTest_ {};
   };
 

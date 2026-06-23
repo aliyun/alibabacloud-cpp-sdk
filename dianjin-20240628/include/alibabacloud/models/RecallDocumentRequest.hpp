@@ -121,9 +121,25 @@ namespace Models
 
 
       protected:
+        // Keyword weight.
         shared_ptr<float> boost_ {};
+        // The key of the metadata in the document library.
         shared_ptr<string> key_ {};
+        // The relationship between the value stored in the document library metadata key and the value you enter.
+        // 
+        // - eq: The value stored in the document library metadata key equals the value you enter.
+        // 
+        // - lte: The value stored in the document library metadata key is less than or equal to the value you enter.
+        // 
+        // - gte: The value stored in the document library metadata key is greater than or equal to the value you enter.
+        // 
+        // - lt: The value stored in the document library metadata key is less than the value you enter.
+        // 
+        // - gt: The value stored in the document library metadata key is greater than the value you enter.
+        // 
+        // - contains: The list of values stored in the document library metadata key contains the value you enter.
         shared_ptr<string> operator_ {};
+        // The value of the metadata you enter.
         shared_ptr<string> value_ {};
       };
 
@@ -183,9 +199,25 @@ namespace Models
 
 
       protected:
+        // Keyword weight.
         shared_ptr<float> boost_ {};
+        // The key of the metadata in the document library.
         shared_ptr<string> key_ {};
+        // The relationship between the value stored in the document library metadata key and the value you enter.
+        // 
+        // - eq: The value stored in the document library metadata key equals the value you enter.
+        // 
+        // - lte: The value stored in the document library metadata key is less than or equal to the value you enter.
+        // 
+        // - gte: The value stored in the document library metadata key is greater than or equal to the value you enter.
+        // 
+        // - lt: The value stored in the document library metadata key is less than the value you enter.
+        // 
+        // - gt: The value stored in the document library metadata key is greater than the value you enter.
+        // 
+        // - contains: The list of values stored in the document library metadata key contains the value you enter.
         shared_ptr<string> operator_ {};
+        // The value of the metadata you enter.
         shared_ptr<string> value_ {};
       };
 
@@ -242,12 +274,19 @@ namespace Models
 
 
     protected:
+      // AND expression, used to filter documents/document chunks.
       shared_ptr<vector<Filters::And>> and_ {};
+      // Document chunk type, used to filter document chunks, such as: Text, Graph, Table, FAQ.
       shared_ptr<string> chunkType_ {};
+      // Document ID list, used to filter documents/document chunks.
       shared_ptr<vector<string>> docIdList_ {};
+      // Document library ID, used to filter documents/document chunks.
+      // 
       // This parameter is required.
       shared_ptr<string> libraryId_ {};
+      // OR expression, used to filter documents/document chunks.
       shared_ptr<vector<Filters::Or>> or_ {};
+      // Document status list, used to filter documents.
       shared_ptr<vector<string>> status_ {};
     };
 
@@ -284,10 +323,17 @@ namespace Models
 
 
   protected:
+    // Metadata filter conditions.
     shared_ptr<vector<RecallDocumentRequest::Filters>> filters_ {};
+    // Text.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // Enable parent-child document chunk retrieval.
+    // 
+    // - Parent-child document chunks: During document parsing, a complete semantic block, such as a paragraph or a section, might split into multiple document chunks. This depends on your chunking strategy. When you enable parent-child document retrieval, the system attempts to complete the semantic block of the retrieved document chunk. This makes the corpus more semantically complete when constructing prompts, improving answer completeness and accuracy.
     shared_ptr<bool> rearrangement_ {};
+    // The number of document chunks to retrieve.
     shared_ptr<int32_t> topK_ {};
   };
 

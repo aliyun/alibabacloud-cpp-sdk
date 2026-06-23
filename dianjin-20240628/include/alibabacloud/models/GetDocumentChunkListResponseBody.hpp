@@ -167,8 +167,11 @@ namespace Models
 
 
         protected:
+          // Coordinate
           shared_ptr<vector<double>> axisArray_ {};
+          // Page number
           shared_ptr<int32_t> page_ {};
+          // Text highlight area, used for highlighting text-type files
           shared_ptr<vector<int32_t>> textHighlightArea_ {};
         };
 
@@ -279,19 +282,33 @@ namespace Models
 
 
       protected:
+        // Document chunk ID
         shared_ptr<string> chunkId_ {};
+        // Document chunk metadata
         Darabonba::Json chunkMeta_ {};
+        // Document chunk OSS address
         shared_ptr<string> chunkOssUrl_ {};
+        // Document chunk text
         shared_ptr<string> chunkText_ {};
+        // Document chunk type
         shared_ptr<string> chunkType_ {};
+        // Document ID
         shared_ptr<string> docId_ {};
+        // Document type
         shared_ptr<string> fileType_ {};
+        // Library ID
         shared_ptr<string> libraryId_ {};
+        // Library name
         shared_ptr<string> libraryName_ {};
+        // Next document chunk ID
         shared_ptr<string> nextChunkId_ {};
+        // Document chunk position
         shared_ptr<vector<Records::Pos>> pos_ {};
+        // Previous document chunk ID
         shared_ptr<string> preChunkId_ {};
+        // Document chunk score
         shared_ptr<float> score_ {};
+        // Document title
         shared_ptr<string> title_ {};
       };
 
@@ -335,10 +352,15 @@ namespace Models
 
 
     protected:
+      // Current page
       shared_ptr<int64_t> currentPage_ {};
+      // Records per page
       shared_ptr<int64_t> pageSize_ {};
+      // Records
       shared_ptr<vector<Data::Records>> records_ {};
+      // Total pages
       shared_ptr<int64_t> totalPages_ {};
+      // Total records
       shared_ptr<int64_t> totalRecords_ {};
     };
 
@@ -404,13 +426,21 @@ namespace Models
 
 
   protected:
+    // Time consumed
     shared_ptr<int64_t> cost_ {};
+    // Response data
     shared_ptr<GetDocumentChunkListResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Success status
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

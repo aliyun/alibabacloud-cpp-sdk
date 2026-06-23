@@ -131,11 +131,17 @@ namespace Models
 
 
     protected:
+      // Embedding type list
       shared_ptr<vector<map<string, string>>> embeddingTypeList_ {};
+      // Frontend configuration
       shared_ptr<map<string, bool>> frontendConfig_ {};
+      // Document library status list
       shared_ptr<vector<map<string, string>>> libraryDocumentStatusList_ {};
+      // Large Language Model (LLM) type list
       shared_ptr<vector<map<string, string>>> llmHelperTypeList_ {};
+      // Text index category list
       shared_ptr<vector<string>> textIndexCategoryList_ {};
+      // Vector index category list
       shared_ptr<vector<string>> vectorIndexCategoryList_ {};
     };
 
@@ -201,13 +207,21 @@ namespace Models
 
 
   protected:
+    // Time consumed
     shared_ptr<int64_t> cost_ {};
+    // Returned data
     shared_ptr<GetAppConfigResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Is successful
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

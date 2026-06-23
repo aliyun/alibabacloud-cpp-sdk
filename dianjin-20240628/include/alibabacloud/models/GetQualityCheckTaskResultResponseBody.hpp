@@ -231,15 +231,25 @@ namespace Models
 
 
         protected:
+          // Start time of this utterance, in milliseconds relative to the start of the conversation
           shared_ptr<int32_t> begin_ {};
+          // Start time of this utterance
           shared_ptr<string> beginTime_ {};
+          // Dialogue content
           shared_ptr<string> content_ {};
+          // Unique identifier for the dialogue role
           shared_ptr<string> customerId_ {};
+          // Agent ID
           shared_ptr<string> customerServiceId_ {};
+          // Agent type
           shared_ptr<string> customerServiceType_ {};
+          // End time of this utterance, in milliseconds relative to the start of the conversation
           shared_ptr<int32_t> end_ {};
+          // Unique identifier for this utterance. Assigned internally
           shared_ptr<int32_t> id_ {};
+          // Role
           shared_ptr<string> role_ {};
+          // Content type
           shared_ptr<string> type_ {};
         };
 
@@ -350,19 +360,33 @@ namespace Models
 
 
       protected:
+        // Rule business type
         shared_ptr<string> bizType_ {};
+        // Reason for passing or failing the quality check
         shared_ptr<string> checkExplanation_ {};
+        // Whether the quality check passed
         shared_ptr<string> checkPassed_ {};
+        // Description of the quality check process
         shared_ptr<string> checkProcess_ {};
+        // Whether the rule matched
         shared_ptr<string> checked_ {};
+        // Quality check completion time
         shared_ptr<string> gmtEnd_ {};
+        // Quality check start time
         shared_ptr<string> gmtStart_ {};
+        // Internal quality check mode
         shared_ptr<string> mode_ {};
+        // Original dialogue list
         shared_ptr<vector<QualityCheckList::OriginDialogue>> originDialogue_ {};
+        // Quality check group ID
         shared_ptr<string> qualityGroupId_ {};
+        // Quality check item description
         shared_ptr<string> ruleDescription_ {};
+        // Quality check item ID
         shared_ptr<string> ruleId_ {};
+        // Rule direction. 0: negative, 1: positive
         shared_ptr<string> ruleType_ {};
+        // Child node
         shared_ptr<vector<Darabonba::Json>> subNodeCol_ {};
       };
 
@@ -508,15 +532,25 @@ namespace Models
 
 
         protected:
+          // Start time of this utterance, in milliseconds relative to the start of the conversation
           shared_ptr<int32_t> begin_ {};
+          // Start time of this utterance
           shared_ptr<string> beginTime_ {};
+          // Dialogue content
           shared_ptr<string> content_ {};
+          // Unique identifier for the dialogue role
           shared_ptr<string> customerId_ {};
+          // Agent ID
           shared_ptr<string> customerServiceId_ {};
+          // Agent type
           shared_ptr<string> customerServiceType_ {};
+          // End time of this utterance, in milliseconds relative to the start of the conversation
           shared_ptr<int32_t> end_ {};
+          // Unique identifier for this utterance. Assigned internally
           shared_ptr<int32_t> id_ {};
+          // Role
           shared_ptr<string> role_ {};
+          // Content type
           shared_ptr<string> type_ {};
         };
 
@@ -575,12 +609,19 @@ namespace Models
 
 
       protected:
+        // Call type:
         shared_ptr<string> callType_ {};
+        // Customer ID
         shared_ptr<string> customerId_ {};
+        // Customer name
         shared_ptr<string> customerName_ {};
+        // Agent ID
         shared_ptr<string> customerServiceId_ {};
+        // Agent name
         shared_ptr<string> customerServiceName_ {};
+        // Dialogue details list
         shared_ptr<vector<ConversationList::DialogueList>> dialogueList_ {};
+        // Conversation time
         shared_ptr<string> gmtService_ {};
       };
 
@@ -641,12 +682,19 @@ namespace Models
 
 
     protected:
+      // Original conversation content
       shared_ptr<Data::ConversationList> conversationList_ {};
+      // Task creation time. This is when the task was submitted
       shared_ptr<string> gmtCreate_ {};
+      // System execution end time
       shared_ptr<string> gmtEnd_ {};
+      // System execution start time
       shared_ptr<string> gmtStart_ {};
+      // Quality check result set
       shared_ptr<vector<Data::QualityCheckList>> qualityCheckList_ {};
+      // Task status
       shared_ptr<string> status_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -712,13 +760,21 @@ namespace Models
 
 
   protected:
+    // Processing time, in milliseconds
     shared_ptr<int64_t> cost_ {};
+    // Response data
     shared_ptr<GetQualityCheckTaskResultResponseBody::Data> data_ {};
+    // Data type
     shared_ptr<string> dataType_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Timestamp
     shared_ptr<string> time_ {};
   };
 

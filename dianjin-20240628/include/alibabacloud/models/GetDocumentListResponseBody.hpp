@@ -175,14 +175,23 @@ namespace Models
 
 
       protected:
+        // The document ID.
         shared_ptr<string> docId_ {};
+        // The document metadata.
         Darabonba::Json documentMeta_ {};
+        // The document type.
         shared_ptr<string> fileType_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
+        // The ID of the library to which the document belongs.
         shared_ptr<string> libraryId_ {};
+        // The document status. Valid values: WaitRefresh (waiting for refresh), InQueue (pending), FetchingData (retrieving data), Embedding (processing document), Error (error), Completed (available), and Null (unknown).
         shared_ptr<string> statusCode_ {};
+        // The document title.
         shared_ptr<string> title_ {};
+        // The document URL. This field will be deprecated. The value is empty. To get the document URL, use the GetDocumentUrl operation.
         shared_ptr<string> url_ {};
       };
 
@@ -226,10 +235,15 @@ namespace Models
 
 
     protected:
+      // The current page number. This is a paging parameter.
       shared_ptr<int64_t> currentPage_ {};
+      // The number of entries per page. This is a paging parameter.
       shared_ptr<int64_t> pageSize_ {};
+      // The records.
       shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of pages. This is a paging parameter.
       shared_ptr<int64_t> totalPages_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalRecords_ {};
     };
 
@@ -295,13 +309,21 @@ namespace Models
 
 
   protected:
+    // The time consumed.
     shared_ptr<int64_t> cost_ {};
+    // The response data.
     shared_ptr<GetDocumentListResponseBody::Data> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

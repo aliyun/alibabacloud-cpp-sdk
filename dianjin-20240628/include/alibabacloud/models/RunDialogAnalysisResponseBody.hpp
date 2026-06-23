@@ -157,7 +157,9 @@ namespace Models
 
 
           protected:
+            // The label name.
             shared_ptr<string> name_ {};
+            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -212,11 +214,17 @@ namespace Models
 
 
         protected:
+          // The session execution plan.
           shared_ptr<string> dialogExecPlan_ {};
+          // The list of session labels.
           shared_ptr<vector<AnalysisResp::DialogLabels>> dialogLabels_ {};
+          // The session open analysis.
           Darabonba::Json dialogOpenAnalysis_ {};
+          // The session process analysis.
           Darabonba::Json dialogProcessAnalysis_ {};
+          // The session SOP.
           shared_ptr<string> dialogSop_ {};
+          // The session summary.
           shared_ptr<string> dialogSummary_ {};
         };
 
@@ -262,10 +270,15 @@ namespace Models
 
 
       protected:
+        // The result of the session analysis.
         shared_ptr<DialogAnalysisRespList::AnalysisResp> analysisResp_ {};
+        // The list of failed nodes.
         shared_ptr<vector<string>> failNode_ {};
+        // The time when the session was created.
         shared_ptr<string> gmtCreate_ {};
+        // The session ID.
         shared_ptr<string> sessionId_ {};
+        // The execution status of the session analysis task.
         shared_ptr<string> status_ {};
       };
 
@@ -280,6 +293,7 @@ namespace Models
 
 
     protected:
+      // The list of session analysis results.
       shared_ptr<vector<Data::DialogAnalysisRespList>> dialogAnalysisRespList_ {};
     };
 
@@ -345,13 +359,21 @@ namespace Models
 
 
   protected:
+    // The time consumed, in milliseconds.
     shared_ptr<int64_t> cost_ {};
+    // The response data.
     shared_ptr<RunDialogAnalysisResponseBody::Data> data_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

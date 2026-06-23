@@ -109,10 +109,15 @@ namespace Models
 
 
     protected:
+      // Number of images. Returned by models such as wanx.
       shared_ptr<int32_t> imageCount_ {};
+      // Image tokens. Returned by models such as qwen-vl.
       shared_ptr<int32_t> imageTokens_ {};
+      // Input tokens.
       shared_ptr<int32_t> inputTokens_ {};
+      // Output tokens.
       shared_ptr<int32_t> outputTokens_ {};
+      // Total tokens.
       shared_ptr<int32_t> totalTokens_ {};
     };
 
@@ -188,8 +193,11 @@ namespace Models
 
 
       protected:
+        // Message content.
         shared_ptr<string> content_ {};
+        // Role.
         shared_ptr<string> role_ {};
+        // List of tool calls.
         shared_ptr<vector<Darabonba::Json>> toolCalls_ {};
       };
 
@@ -219,8 +227,17 @@ namespace Models
 
 
     protected:
+      // Three possible values:
+      // 
+      // - null while generating;
+      // 
+      // - "stop" if generation ends due to a stop condition in the input parameters;
+      // 
+      // - "length" if generation ends because the output is too long.
       shared_ptr<string> finishReason_ {};
+      // Sequence number of the generated result. Default is 0.
       shared_ptr<int32_t> index_ {};
+      // Chat message.
       shared_ptr<Choices::Message> message_ {};
     };
 
@@ -288,13 +305,21 @@ namespace Models
 
 
   protected:
+    // Details of the model-generated content.
     shared_ptr<vector<RunChatResultGenerationResponseBody::Choices>> choices_ {};
+    // Creation time.
     shared_ptr<int64_t> created_ {};
+    // Request identifier.
     shared_ptr<string> id_ {};
+    // Large Language Model (LLM) ID.
     shared_ptr<string> modelId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Timestamp.
     shared_ptr<string> time_ {};
+    // Total tokens.
     shared_ptr<int32_t> totalTokens_ {};
+    // Usage.
     shared_ptr<RunChatResultGenerationResponseBody::Usage> usage_ {};
   };
 
