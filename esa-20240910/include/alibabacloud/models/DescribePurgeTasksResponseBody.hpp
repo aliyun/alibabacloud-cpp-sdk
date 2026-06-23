@@ -122,15 +122,15 @@ namespace Models
 
 
     protected:
-      // The purged content.
+      // The refresh object.
       shared_ptr<string> content_ {};
-      // The time when the task was created.
+      // The creation time, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
       shared_ptr<string> createTime_ {};
-      // The error description returned when the purge task failed.
+      // The error description returned when the refresh task fails.
       shared_ptr<string> description_ {};
-      // The progress of the task, in percentage.
+      // The task completion progress in percentage.
       shared_ptr<string> process_ {};
-      // The task status.
+      // The task status. Valid values:
       // 
       // - **Complete**: The task is complete.
       // 
@@ -140,19 +140,13 @@ namespace Models
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The type of the purge task. Valid values:
-      // 
-      // - **file** (default): purges the cache by file.
-      // 
-      // - **cachetag**: purges the cache by cache tag.
-      // 
-      // - **directory**: purges the cache by directory.
-      // 
-      // - **ignoreParams**: purges the cache by URL with specified parameters ignored.
-      // 
-      // - **hostname**: purges the cache by hostname.
-      // 
-      // - **purgeall**: purges all cache.
+      // The refresh task type. Valid values:
+      // - **file** (default): file refresh.
+      // - **cachetag**: cache tag refresh.
+      // - **directory**: directory refresh.
+      // - **ignoreParams**: parameter-stripped refresh.
+      // - **hostname**: hostname refresh.
+      // - **purgeall**: refresh all cached content of the site.
       shared_ptr<string> type_ {};
     };
 
@@ -202,9 +196,9 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tasks.
+    // The task list.
     shared_ptr<vector<DescribePurgeTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

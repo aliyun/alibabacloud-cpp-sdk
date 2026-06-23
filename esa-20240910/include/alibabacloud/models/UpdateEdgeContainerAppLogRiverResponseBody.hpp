@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The log path of the container.
+    // The log file of the container.
     shared_ptr<string> path_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the standard output of the container is collected.
+    // Specifies whether to enable standard output collection for the container.
     shared_ptr<bool> stdout_ {};
   };
 

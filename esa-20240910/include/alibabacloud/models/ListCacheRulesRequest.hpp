@@ -96,25 +96,23 @@ namespace Models
   protected:
     // The configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The configuration type. You can use this parameter to retrieve the global configuration or rule configurations. Valid values:
+    // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
+    // - global: queries global configurations.
+    // - rule: queries rule configurations.
     // 
-    // - `global`: Returns the global configuration.
-    // 
-    // - `rule`: Returns rule configurations.
-    // 
-    // This parameter is optional. If you omit this parameter, both global and rule configurations are returned.
+    // This parameter is optional. If you do not specify this parameter, both global and rule configurations are returned.
     shared_ptr<string> configType_ {};
-    // The page number. The default value is 1.
+    // The page number for a paged query. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The maximum value is 500. The default value is 500.
+    // The number of entries per page for a paged query. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The rule name. This parameter is not required for a global configuration.
+    // The rule name. You do not need to set this parameter when you add a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The site ID. You can get this ID by calling the [ListSites](~~ListSites~~) API.
+    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The site version. For a site with version management enabled, this parameter specifies the version to which the configuration applies. The default value is 0.
+    // The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

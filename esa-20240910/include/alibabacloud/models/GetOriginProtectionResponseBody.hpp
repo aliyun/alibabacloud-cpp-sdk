@@ -111,9 +111,12 @@ namespace Models
 
 
       protected:
-        // The IPv6 CIDR block.
+        // IPv6 CIDR block.
         shared_ptr<string> cidr_ {};
-        // The IPv6 region.
+        // IPv6 region. Valid values:
+        // 
+        // - chinese_mainland: Chinese mainland.
+        // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
         shared_ptr<string> region_ {};
       };
 
@@ -155,9 +158,12 @@ namespace Models
 
 
       protected:
-        // The IPv4 CIDR block.
+        // IPv4 CIDR block.
         shared_ptr<string> cidr_ {};
-        // The IPv4 region.
+        // IPv4 region. Valid values:
+        // 
+        // - chinese_mainland: Chinese mainland.
+        // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
         shared_ptr<string> region_ {};
       };
 
@@ -182,9 +188,9 @@ namespace Models
 
 
     protected:
-      // The IPv4 CIDR blocks and regions in the latest regional back-to-origin IP address whitelist.
+      // The latest regional origin IP whitelist, IPv4 CIDR blocks and regions.
       shared_ptr<vector<RegionalLatestIPWhitelist::RegionalIPv4>> regionalIPv4_ {};
-      // The IPv6 CIDR blocks and regions in the latest regional back-to-origin IP address whitelist.
+      // The latest regional origin IP whitelist, IPv6 CIDR blocks and regions.
       shared_ptr<vector<RegionalLatestIPWhitelist::RegionalIPv6>> regionalIPv6_ {};
     };
 
@@ -270,9 +276,12 @@ namespace Models
 
 
         protected:
-          // The IPv6 CIDR block.
+          // IPv6 CIDR block.
           shared_ptr<string> cidr_ {};
-          // The IPv6 region.
+          // IPv6 region. Valid values:
+          // 
+          // - chinese_mainland: Chinese mainland.
+          // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
           shared_ptr<string> region_ {};
         };
 
@@ -314,9 +323,12 @@ namespace Models
 
 
         protected:
-          // The IPv4 CIDR block.
+          // IPv4 CIDR block.
           shared_ptr<string> cidr_ {};
-          // The IPv4 region.
+          // IPv4 region. Valid values:
+          // 
+          // - chinese_mainland: Chinese mainland.
+          // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
           shared_ptr<string> region_ {};
         };
 
@@ -341,9 +353,9 @@ namespace Models
 
 
       protected:
-        // The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+        // Regional origin IP whitelist, IPv4 CIDR blocks and regions.
         shared_ptr<vector<RemovedIPRegionWhitelist::RegionalIPv4>> regionalIPv4_ {};
-        // The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+        // Regional origin IP whitelist, IPv6 CIDR blocks and regions.
         shared_ptr<vector<RemovedIPRegionWhitelist::RegionalIPv6>> regionalIPv6_ {};
       };
 
@@ -406,9 +418,12 @@ namespace Models
 
 
         protected:
-          // The IPv6 CIDR block.
+          // IPv6 CIDR block.
           shared_ptr<string> cidr_ {};
-          // The IPv6 region.
+          // IPv6 region. Valid values:
+          // 
+          // - chinese_mainland: Chinese mainland.
+          // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
           shared_ptr<string> region_ {};
         };
 
@@ -450,9 +465,12 @@ namespace Models
 
 
         protected:
-          // The IPv4 CIDR block.
+          // IPv4 CIDR block.
           shared_ptr<string> cidr_ {};
-          // The IPv4 region.
+          // IPv4 region. Valid values:
+          // 
+          // - chinese_mainland: Chinese mainland.
+          // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
           shared_ptr<string> region_ {};
         };
 
@@ -477,9 +495,9 @@ namespace Models
 
 
       protected:
-        // The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+        // Regional origin IP whitelist, IPv4 CIDR blocks and regions.
         shared_ptr<vector<NoChangeIpWhitelist::RegionalIPv4>> regionalIPv4_ {};
-        // The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+        // Regional origin IP whitelist, IPv6 CIDR blocks and regions.
         shared_ptr<vector<NoChangeIpWhitelist::RegionalIPv6>> regionalIPv6_ {};
       };
 
@@ -542,9 +560,12 @@ namespace Models
 
 
         protected:
-          // The IPv6 CIDR block.
+          // IPv6 CIDR block.
           shared_ptr<string> cidr_ {};
-          // The IPv6 region.
+          // IPv6 region. Valid values:
+          // 
+          // - chinese_mainland: Chinese mainland.
+          // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
           shared_ptr<string> region_ {};
         };
 
@@ -586,9 +607,12 @@ namespace Models
 
 
         protected:
-          // The IPv4 CIDR block.
+          // IPv4 CIDR block.
           shared_ptr<string> cidr_ {};
-          // The IPv4 region.
+          // IPv4 region. Valid values:
+          // 
+          // - chinese_mainland: Chinese mainland.
+          // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
           shared_ptr<string> region_ {};
         };
 
@@ -613,9 +637,9 @@ namespace Models
 
 
       protected:
-        // The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+        // Regional origin IP whitelist, IPv4 CIDR blocks and regions.
         shared_ptr<vector<AddedIPRegionWhitelist::RegionalIPv4>> regionalIPv4_ {};
-        // The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+        // Regional origin IP whitelist, IPv6 CIDR blocks and regions.
         shared_ptr<vector<AddedIPRegionWhitelist::RegionalIPv6>> regionalIPv6_ {};
       };
 
@@ -649,11 +673,11 @@ namespace Models
 
 
     protected:
-      // The added regional back-to-origin IP address whitelist.
+      // The added regional origin IP whitelist entries.
       shared_ptr<RegionalDiffIPWhitelist::AddedIPRegionWhitelist> addedIPRegionWhitelist_ {};
-      // The unchanged regional back-to-origin IP address whitelist.
+      // The unchanged regional origin IP whitelist entries.
       shared_ptr<RegionalDiffIPWhitelist::NoChangeIpWhitelist> noChangeIpWhitelist_ {};
-      // The removed regional back-to-origin IP address whitelist.
+      // The removed regional origin IP whitelist entries.
       shared_ptr<RegionalDiffIPWhitelist::RemovedIPRegionWhitelist> removedIPRegionWhitelist_ {};
     };
 
@@ -716,9 +740,12 @@ namespace Models
 
 
       protected:
-        // The IPv6 CIDR block.
+        // IPv6 CIDR block.
         shared_ptr<string> cidr_ {};
-        // The IPv6 region.
+        // IPv6 region. Valid values:
+        // 
+        // - chinese_mainland: Chinese mainland.
+        // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
         shared_ptr<string> region_ {};
       };
 
@@ -760,9 +787,12 @@ namespace Models
 
 
       protected:
-        // The IPv4 CIDR block.
+        // IPv4 CIDR block.
         shared_ptr<string> cidr_ {};
-        // The IPv4 region.
+        // IPv4 region. Valid values:
+        // 
+        // - chinese_mainland: Chinese mainland.
+        // - global_excluding_chinese_mainland: Global (excluding Chinese mainland).
         shared_ptr<string> region_ {};
       };
 
@@ -787,9 +817,9 @@ namespace Models
 
 
     protected:
-      // The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist that the site currently uses.
+      // The regional origin IP whitelist currently used by the site, IPv4 CIDR blocks and regions.
       shared_ptr<vector<RegionalCurrentIPWhitelist::RegionalIPv4>> regionalIPv4_ {};
-      // The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist that the site currently uses.
+      // The regional origin IP whitelist currently used by the site, IPv6 CIDR blocks and regions.
       shared_ptr<vector<RegionalCurrentIPWhitelist::RegionalIPv6>> regionalIPv6_ {};
     };
 
@@ -835,9 +865,9 @@ namespace Models
 
 
     protected:
-      // The IPv4 addresses or CIDR blocks in the latest back-to-origin IP address whitelist.
+      // The latest origin IP whitelist, IPv4 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv4_ {};
-      // The IPv6 addresses or CIDR blocks in the latest back-to-origin IP address whitelist.
+      // The latest origin IP whitelist, IPv6 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv6_ {};
     };
 
@@ -906,9 +936,9 @@ namespace Models
 
 
       protected:
-        // The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist.
+        // Origin IP whitelist, IPv4 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv4_ {};
-        // The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist.
+        // Origin IP whitelist, IPv6 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv6_ {};
       };
 
@@ -954,9 +984,9 @@ namespace Models
 
 
       protected:
-        // The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist.
+        // Origin IP whitelist, IPv4 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv4_ {};
-        // The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist.
+        // Origin IP whitelist, IPv6 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv6_ {};
       };
 
@@ -1002,9 +1032,9 @@ namespace Models
 
 
       protected:
-        // The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist.
+        // Origin IP whitelist, IPv4 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv4_ {};
-        // The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist.
+        // Origin IP whitelist, IPv6 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv6_ {};
       };
 
@@ -1038,11 +1068,11 @@ namespace Models
 
 
     protected:
-      // The added back-to-origin IP address whitelist.
+      // The added origin IP whitelist entries.
       shared_ptr<DiffIPWhitelist::AddedIPWhitelist> addedIPWhitelist_ {};
-      // The unchanged back-to-origin IP address whitelist.
+      // The unchanged origin IP whitelist entries.
       shared_ptr<DiffIPWhitelist::NoChangeIpWhitelist> noChangeIpWhitelist_ {};
-      // The removed back-to-origin IP address whitelist.
+      // The removed origin IP whitelist entries.
       shared_ptr<DiffIPWhitelist::RemovedIPWhitelist> removedIPWhitelist_ {};
     };
 
@@ -1088,9 +1118,9 @@ namespace Models
 
 
     protected:
-      // The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist that the site currently uses.
+      // The current origin IP whitelist used by the site, IPv4 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv4_ {};
-      // The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist that the site currently uses.
+      // The current origin IP whitelist used by the site, IPv6 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv6_ {};
     };
 
@@ -1195,41 +1225,38 @@ namespace Models
 
 
   protected:
-    // Indicates whether the latest back-to-origin IP address list is automatically enabled.
+    // Automatically enable the latest origin IP list.
     shared_ptr<string> autoConfirmIPList_ {};
-    // The back-to-origin IP address whitelist that the site currently uses.
+    // The current origin IP whitelist used by the site.
     shared_ptr<GetOriginProtectionResponseBody::CurrentIPWhitelist> currentIPWhitelist_ {};
-    // The changes in the back-to-origin IP address whitelist.
+    // The changed origin IP whitelist.
     shared_ptr<GetOriginProtectionResponseBody::DiffIPWhitelist> diffIPWhitelist_ {};
-    // The latest back-to-origin IP address whitelist.
+    // The latest origin IP whitelist.
     shared_ptr<GetOriginProtectionResponseBody::LatestIPWhitelist> latestIPWhitelist_ {};
-    // Indicates whether the back-to-origin IP address whitelist needs to be updated. If the current whitelist differs from the latest one, this parameter returns true.
+    // Indicates whether the origin IP whitelist needs to be updated. When the current origin IP whitelist differs from the latest origin IP whitelist, an update is needed and this value returns true.
     // 
-    // - true: An update is required.
-    // 
-    // - false: No update is required.
+    // - true: Update is needed.
+    // - false: No update is needed.
     shared_ptr<bool> needUpdate_ {};
-    // The back-to-origin convergence switch.
+    // Origin convergence switch:
     // 
-    // - on: enabled.
-    // 
-    // - off: disabled.
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> originConverge_ {};
-    // The origin protection switch.
+    // Origin protection switch:
     // 
-    // - on: enabled.
-    // 
-    // - off: disabled.
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> originProtection_ {};
-    // The regional back-to-origin IP address whitelist that the site currently uses.
+    // The regional origin IP whitelist currently used by the site.
     shared_ptr<GetOriginProtectionResponseBody::RegionalCurrentIPWhitelist> regionalCurrentIPWhitelist_ {};
-    // The IP address whitelist for back-to-origin requests, differentiated by region.
+    // The changed regional origin IP whitelist.
     shared_ptr<GetOriginProtectionResponseBody::RegionalDiffIPWhitelist> regionalDiffIPWhitelist_ {};
-    // The latest regional back-to-origin IP address whitelist.
+    // The latest regional origin IP whitelist.
     shared_ptr<GetOriginProtectionResponseBody::RegionalLatestIPWhitelist> regionalLatestIPWhitelist_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The site ID.
+    // Site ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

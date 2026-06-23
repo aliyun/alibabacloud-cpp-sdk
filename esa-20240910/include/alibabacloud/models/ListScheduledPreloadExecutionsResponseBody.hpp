@@ -127,31 +127,26 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
-      // The end time of the execution plan.
+      // The end time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> endTime_ {};
-      // The ID of the execution plan.
+      // The ID of the prefetch plan.
       shared_ptr<string> id_ {};
-      // The execution interval between batches, in seconds.
+      // The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
-      // The ID of the scheduled preload task.
+      // The ID of the prefetch task.
       shared_ptr<string> jobId_ {};
-      // The number of URLs to preload in each batch.
+      // The number of URLs in each batch of the scheduled prefetch.
       shared_ptr<int32_t> sliceLen_ {};
-      // The start time of the execution plan.
+      // The start time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> startTime_ {};
-      // The status of the execution plan. Valid values:
-      // 
-      // - **waiting**: Pending execution.
-      // 
-      // - **running**: Executing.
-      // 
-      // - **finished**: Completed.
-      // 
-      // - **failed**: Failed.
-      // 
-      // - **stopped**: Paused.
+      // The status of the scheduled prefetch plan. Valid values:
+      // - **waiting**: Waiting to be executed.
+      // - **running**: Being executed.
+      // - **finished**: Execution completed.
+      // - **failed**: Execution failed.
+      // - **stopped**: Execution paused.
       shared_ptr<string> status_ {};
     };
 
@@ -181,11 +176,11 @@ namespace Models
 
 
   protected:
-    // A list of execution plans.
+    // The execution information.
     shared_ptr<vector<ListScheduledPreloadExecutionsResponseBody::Executions>> executions_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of execution plans.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

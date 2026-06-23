@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The total quota.
     shared_ptr<string> quota_ {};
-    // The total quota available in a 30-day period. A value of 0 indicates that this quota is not configured.
+    // The total quota at 30-day granularity. A value of 0 indicates that this quota is not configured.
     shared_ptr<string> quota30Day_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The used quota.
     shared_ptr<string> usage_ {};
-    // The quota used within the 30-day period.
+    // The used quota at 30-day granularity.
     shared_ptr<string> usage30Day_ {};
   };
 

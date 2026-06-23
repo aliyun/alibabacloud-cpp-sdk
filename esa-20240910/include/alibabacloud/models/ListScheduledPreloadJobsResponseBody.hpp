@@ -191,35 +191,35 @@ namespace Models
 
 
     protected:
-      // Alibaba Cloud account ID.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
-      // Job creation time.
+      // The task creation time in ISO 8601 format (e.g., 2024-01-01T00:00:00+Z).
       shared_ptr<string> createdAt_ {};
-      // List of domains to prefetch.
+      // The list of prefetch domains.
       shared_ptr<string> domains_ {};
-      // Error message.
+      // The error information.
       shared_ptr<string> errorInfo_ {};
-      // Number of prefetch schedules.
+      // The number of prefetch plans.
       shared_ptr<int32_t> executionCount_ {};
-      // The OSS address of the failed file.
+      // The OSS URL of the failed file.
       shared_ptr<string> failedFileOss_ {};
-      // URL list file ID (used for downloading).
+      // The URL list file ID (used for downloading).
       shared_ptr<string> fileId_ {};
-      // Job ID.
+      // The task ID.
       shared_ptr<string> id_ {};
-      // URL insertion method.
+      // The URL insertion method.
       shared_ptr<string> insertWay_ {};
-      // Job name.
+      // The task name.
       shared_ptr<string> name_ {};
-      // Site ID
+      // Site ID.
       shared_ptr<int64_t> siteId_ {};
-      // Number of URLs submitted to the system for prefetching.
+      // The number of URLs that have been submitted to the system for prefetch.
       shared_ptr<int32_t> taskSubmitted_ {};
-      // Task type (refresh or prefetch).
+      // The task type (refresh/prefetch).
       shared_ptr<string> taskType_ {};
-      // Total number of URLs.
+      // The total number of URLs.
       shared_ptr<int32_t> urlCount_ {};
-      // Number of URLs submitted.
+      // The number of submitted URLs.
       shared_ptr<int32_t> urlSubmitted_ {};
     };
 
@@ -249,11 +249,11 @@ namespace Models
 
 
   protected:
-    // List of prefetch job details.
+    // The list of prefetch task information.
     shared_ptr<vector<ListScheduledPreloadJobsResponseBody::Jobs>> jobs_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records after filtering.
+    // The total number of records after filtering.
     shared_ptr<string> totalCount_ {};
   };
 

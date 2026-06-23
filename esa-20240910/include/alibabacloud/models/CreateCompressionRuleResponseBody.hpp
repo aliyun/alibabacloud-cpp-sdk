@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The unique ID of the configuration.
+    // The configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

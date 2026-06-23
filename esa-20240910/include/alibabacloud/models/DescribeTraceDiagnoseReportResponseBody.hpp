@@ -326,7 +326,7 @@ namespace Models
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::ClientInfo> clientInfo_ {};
     // Client IP.
     shared_ptr<string> clientIp_ {};
-    // Creation time. Format: yyyy-MM-dd HH:mm:ss, timezone: +08:00.
+    // Creation time. Format: yyyy-MM-dd HH:mm:ss. Time zone: +08:00.
     shared_ptr<string> createTime_ {};
     // Diagnostic ID.
     shared_ptr<string> diagnoseId_ {};
@@ -338,17 +338,17 @@ namespace Models
     shared_ptr<string> domain_ {};
     // Expiration time. Timestamp in seconds.
     shared_ptr<int64_t> expireTime_ {};
-    // Remaining available diagnosis count.
+    // Remaining available diagnostic attempts.
     shared_ptr<int64_t> remainDiagnoseTimes_ {};
     // Diagnostic report details.
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::Report> report_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
     // Report generation status.
     // 
-    // 0: Success.
-    // 1: Failure.
-    // 2: Timeout.
+    // 0: Successful.
+    // 1: Failed.
+    // 2: Timed out.
     // 3: Running.
     // 4: Waiting.
     shared_ptr<string> state_ {};

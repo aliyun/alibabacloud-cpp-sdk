@@ -70,17 +70,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> contentShrink_ {};
-    // The effective period of the block, in seconds. Specify this parameter when Type is set to block.
+    // The effective period of the block, in seconds. This parameter is required when the type is set to block.
     shared_ptr<int32_t> maxage_ {};
-    // The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
     // The type. Valid values:
     // 
-    // - **block**: Blocks access.
-    // 
-    // - **unblock**: Unblocks access.
+    // - **block**: blocks the URLs.
+    // - **unblock**: unblocks the URLs.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

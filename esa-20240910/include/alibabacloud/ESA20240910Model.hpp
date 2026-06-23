@@ -427,6 +427,12 @@
 #include <alibabacloud/models/DescribeDDoSBpsListRequest.hpp>
 #include <alibabacloud/models/DescribeDDoSBpsListResponseBody.hpp>
 #include <alibabacloud/models/DescribeDDoSBpsListResponse.hpp>
+#include <alibabacloud/models/DescribeDDoSBpsMaxRequest.hpp>
+#include <alibabacloud/models/DescribeDDoSBpsMaxResponseBody.hpp>
+#include <alibabacloud/models/DescribeDDoSBpsMaxResponse.hpp>
+#include <alibabacloud/models/DescribeDDoSEventMaxRequest.hpp>
+#include <alibabacloud/models/DescribeDDoSEventMaxResponseBody.hpp>
+#include <alibabacloud/models/DescribeDDoSEventMaxResponse.hpp>
 #include <alibabacloud/models/DescribeDDoSL7QpsListRequest.hpp>
 #include <alibabacloud/models/DescribeDDoSL7QpsListResponseBody.hpp>
 #include <alibabacloud/models/DescribeDDoSL7QpsListResponse.hpp>
@@ -691,6 +697,9 @@
 #include <alibabacloud/models/GetRoutineCodeVersionRequest.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionResponse.hpp>
+#include <alibabacloud/models/GetRoutineCodeVersionInfoRequest.hpp>
+#include <alibabacloud/models/GetRoutineCodeVersionInfoResponseBody.hpp>
+#include <alibabacloud/models/GetRoutineCodeVersionInfoResponse.hpp>
 #include <alibabacloud/models/GetRoutineRouteRequest.hpp>
 #include <alibabacloud/models/GetRoutineRouteResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineRouteResponse.hpp>
@@ -1000,6 +1009,9 @@
 #include <alibabacloud/models/ListWaitingRoomsRequest.hpp>
 #include <alibabacloud/models/ListWaitingRoomsResponseBody.hpp>
 #include <alibabacloud/models/ListWaitingRoomsResponse.hpp>
+#include <alibabacloud/models/OpenEdgeContainerRequest.hpp>
+#include <alibabacloud/models/OpenEdgeContainerResponseBody.hpp>
+#include <alibabacloud/models/OpenEdgeContainerResponse.hpp>
 #include <alibabacloud/models/OpenErServiceRequest.hpp>
 #include <alibabacloud/models/OpenErServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenErServiceResponse.hpp>

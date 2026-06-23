@@ -38,7 +38,10 @@ namespace Models
 
 
   protected:
-    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+    // The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
+    // >Notice: This parameter is required. If this parameter is not specified, the API returns InvalidParameter.appid (400). You can call ListEdgeContainerApps to obtain a valid application ID.
+    // Dependency chain: CreateEdgeContainerApp (if not created) → CreateEdgeContainerAppVersion → PublishEdgeContainerAppVersion (environment=staging) → RebuildEdgeContainerAppStagingEnv
+    // </notice>
     shared_ptr<string> appId_ {};
   };
 

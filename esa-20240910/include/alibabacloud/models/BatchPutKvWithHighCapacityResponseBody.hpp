@@ -62,11 +62,11 @@ namespace Models
 
 
   protected:
-    // The keys that could not be written.
+    // The list of keys that failed to be written.
     shared_ptr<vector<string>> failKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The keys that were successfully written.
+    // The list of keys that were written.
     shared_ptr<vector<string>> successKeys_ {};
   };
 

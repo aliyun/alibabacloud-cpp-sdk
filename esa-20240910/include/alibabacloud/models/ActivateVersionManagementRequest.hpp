@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

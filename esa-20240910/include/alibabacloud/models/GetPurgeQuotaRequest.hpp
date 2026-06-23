@@ -48,23 +48,17 @@ namespace Models
 
 
   protected:
-    // The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The type of the purge task. Valid values:
-    // 
-    // - **file** (default): File purge.
-    // 
-    // - **cachetag**: Cache tag purge.
-    // 
-    // - **directory**: Directory purge.
-    // 
-    // - **ignoreParams**: Purge by ignoring parameters.
-    // 
-    // - **hostname**: Hostname purge.
-    // 
-    // - **purgeall**: Purges all cached content for the site.
+    // The refresh task type. Valid values:
+    // - **file** (default): file refresh.
+    // - **cachetag**: cache tag refresh.
+    // - **directory**: directory refresh.
+    // - **ignoreParams**: ignore-parameters refresh.
+    // - **hostname**: hostname refresh.
+    // - **purgeall**: purge all cache under the site.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -170,7 +170,10 @@ ActivateClientCertificateResponse Client::activateClientCertificate(const Activa
 }
 
 /**
- * @summary Enable Version Management
+ * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+ *
+ * @description Prerequisites for enabling site version management:
+ * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
  *
  * @param request ActivateVersionManagementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -201,7 +204,10 @@ ActivateVersionManagementResponse Client::activateVersionManagementWithOptions(c
 }
 
 /**
- * @summary Enable Version Management
+ * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+ *
+ * @description Prerequisites for enabling site version management:
+ * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
  *
  * @param request ActivateVersionManagementRequest
  * @return ActivateVersionManagementResponse
@@ -490,12 +496,14 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
 }
 
 /**
- * @summary Batch deletes key-value pairs in the specified KV namespace based on a specified list of key names. The maximum request body size allowed is 100 MB.
+ * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
  *
- * @description This operation has the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. When the request body is small, we recommend that you directly use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. Take the Golang SDK as an example. You need to use the BatchDeleteKvWithHighCapacityAdvance function to call it.
+ * @description >Notice: 
+ * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
+ * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchDeleteWithHighCapacity() error {
- * 	// Initialize configuration
+ * 	// Initialize the configuration
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -503,8 +511,8 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}
- * 	// Construct the request for the key-value pairs to be batch deleted
+ * 	runtime := &util.RuntimeOptions{}.
+ * 	// Construct the batch delete request for key-value pairs
  * 	namespace := "test_batch_put"
  * 	rawReq := BatchDeleteKvRequest{
  * 		Namespace: &namespace,
@@ -516,8 +524,8 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}
- * 	// If the payload is larger than 2 MB, call the high-capacity operation to perform deletion
+ * 	}.
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
  * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -527,7 +535,7 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
  * 		return err
  * 	}
  * 	return nil
- * }
+ * }.
  *
  * @param request BatchDeleteKvWithHighCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -562,12 +570,14 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
 }
 
 /**
- * @summary Batch deletes key-value pairs in the specified KV namespace based on a specified list of key names. The maximum request body size allowed is 100 MB.
+ * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
  *
- * @description This operation has the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. When the request body is small, we recommend that you directly use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. Take the Golang SDK as an example. You need to use the BatchDeleteKvWithHighCapacityAdvance function to call it.
+ * @description >Notice: 
+ * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
+ * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchDeleteWithHighCapacity() error {
- * 	// Initialize configuration
+ * 	// Initialize the configuration
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -575,8 +585,8 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}
- * 	// Construct the request for the key-value pairs to be batch deleted
+ * 	runtime := &util.RuntimeOptions{}.
+ * 	// Construct the batch delete request for key-value pairs
  * 	namespace := "test_batch_put"
  * 	rawReq := BatchDeleteKvRequest{
  * 		Namespace: &namespace,
@@ -588,8 +598,8 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}
- * 	// If the payload is larger than 2 MB, call the high-capacity operation to perform deletion
+ * 	}.
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
  * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -599,7 +609,7 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
  * 		return err
  * 	}
  * 	return nil
- * }
+ * }.
  *
  * @param request BatchDeleteKvWithHighCapacityRequest
  * @return BatchDeleteKvWithHighCapacityResponse
@@ -820,12 +830,12 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
 }
 
 /**
- * @summary Writes key-value pairs in a batch to a specified namespace. This API supports a request body of up to 100 MB.
+ * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
  *
- * @description This API is similar to the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API but supports a larger request body. For smaller request bodies, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API for faster server-side processing. You must use an SDK to call this API. For example, if you use the Go SDK, you must call the BatchPutKvWithHighCapacityAdvance function.
+ * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchPutKvWithHighCapacity() error {
- * 	// Initialize the configuration.
+ * 	// Initialize the configuration
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -833,8 +843,8 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}
- * 	// Construct the request for batch-uploading key-value pairs.
+ * 	runtime := &util.RuntimeOptions{}.
+ * 	// Construct the key-value pairs for batch upload
  * 	namespace := "test_batch_put"
  * 	numKv := 10000
  * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -850,12 +860,12 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
  * 	rawReq := BatchPutKvRequest{
  * 		Namespace: &namespace,
  * 		KvList:    kvList,
- * 	}
+ * 	}.
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}
- * 	// If the payload is larger than 2 MB, call the high-capacity API to upload it.
+ * 	}.
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
  * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -865,8 +875,7 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
  * 		return err
  * 	}
  * 	return nil
- * }
- * ```
+ * }.
  *
  * @param request BatchPutKvWithHighCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -901,12 +910,12 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
 }
 
 /**
- * @summary Writes key-value pairs in a batch to a specified namespace. This API supports a request body of up to 100 MB.
+ * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
  *
- * @description This API is similar to the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API but supports a larger request body. For smaller request bodies, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API for faster server-side processing. You must use an SDK to call this API. For example, if you use the Go SDK, you must call the BatchPutKvWithHighCapacityAdvance function.
+ * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchPutKvWithHighCapacity() error {
- * 	// Initialize the configuration.
+ * 	// Initialize the configuration
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -914,8 +923,8 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}
- * 	// Construct the request for batch-uploading key-value pairs.
+ * 	runtime := &util.RuntimeOptions{}.
+ * 	// Construct the key-value pairs for batch upload
  * 	namespace := "test_batch_put"
  * 	numKv := 10000
  * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -931,12 +940,12 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
  * 	rawReq := BatchPutKvRequest{
  * 		Namespace: &namespace,
  * 		KvList:    kvList,
- * 	}
+ * 	}.
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}
- * 	// If the payload is larger than 2 MB, call the high-capacity API to upload it.
+ * 	}.
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
  * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -946,8 +955,7 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
  * 		return err
  * 	}
  * 	return nil
- * }
- * ```
+ * }.
  *
  * @param request BatchPutKvWithHighCapacityRequest
  * @return BatchPutKvWithHighCapacityResponse
@@ -1328,7 +1336,7 @@ CheckUserProjectNameResponse Client::checkUserProjectName(const CheckUserProject
 }
 
 /**
- * @summary Submits the test (unstable) version code of an edge function (Routine) and generates a formal version.
+ * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
  *
  * @param request CommitRoutineStagingCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1367,7 +1375,7 @@ CommitRoutineStagingCodeResponse Client::commitRoutineStagingCodeWithOptions(con
 }
 
 /**
- * @summary Submits the test (unstable) version code of an edge function (Routine) and generates a formal version.
+ * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
  *
  * @param request CommitRoutineStagingCodeRequest
  * @return CommitRoutineStagingCodeResponse
@@ -1588,7 +1596,7 @@ CreateClientCertificateResponse Client::createClientCertificate(const CreateClie
 }
 
 /**
- * @summary Add a compression rule for a site.
+ * @summary Creates a compression rule configuration for a site.
  *
  * @param request CreateCompressionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1651,7 +1659,7 @@ CreateCompressionRuleResponse Client::createCompressionRuleWithOptions(const Cre
 }
 
 /**
- * @summary Add a compression rule for a site.
+ * @summary Creates a compression rule configuration for a site.
  *
  * @param request CreateCompressionRuleRequest
  * @return CreateCompressionRuleResponse
@@ -1662,10 +1670,10 @@ CreateCompressionRuleResponse Client::createCompressionRule(const CreateCompress
 }
 
 /**
- * @summary Creates a custom hostname for a site.
+ * @summary Creates a SaaS domain name for a site.
  *
- * @description - If you set the acceleration region to **Chinese mainland only** or **global**, your site must have an ICP filing.
- * - Each user can call this operation up to 100 times per hour.
+ * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+ * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateCustomHostnameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1728,10 +1736,10 @@ CreateCustomHostnameResponse Client::createCustomHostnameWithOptions(const Creat
 }
 
 /**
- * @summary Creates a custom hostname for a site.
+ * @summary Creates a SaaS domain name for a site.
  *
- * @description - If you set the acceleration region to **Chinese mainland only** or **global**, your site must have an ICP filing.
- * - Each user can call this operation up to 100 times per hour.
+ * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+ * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateCustomHostnameRequest
  * @return CreateCustomHostnameResponse
@@ -1742,7 +1750,7 @@ CreateCustomHostnameResponse Client::createCustomHostname(const CreateCustomHost
 }
 
 /**
- * @summary Add a custom response code configuration for a site.
+ * @summary Creates a custom response code rule for a site.
  *
  * @param request CreateCustomResponseCodeRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1801,7 +1809,7 @@ CreateCustomResponseCodeRuleResponse Client::createCustomResponseCodeRuleWithOpt
 }
 
 /**
- * @summary Add a custom response code configuration for a site.
+ * @summary Creates a custom response code rule for a site.
  *
  * @param request CreateCustomResponseCodeRuleRequest
  * @return CreateCustomResponseCodeRuleResponse
@@ -2132,7 +2140,7 @@ CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersion(cons
 }
 
 /**
- * @summary Adds a configuration for modifying a site\\"s HTTP inbound request headers.
+ * @summary Creates a configuration for modifying HTTP inbound request headers for a site.
  *
  * @param tmpReq CreateHttpIncomingRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2193,7 +2201,7 @@ CreateHttpIncomingRequestHeaderModificationRuleResponse Client::createHttpIncomi
 }
 
 /**
- * @summary Adds a configuration for modifying a site\\"s HTTP inbound request headers.
+ * @summary Creates a configuration for modifying HTTP inbound request headers for a site.
  *
  * @param request CreateHttpIncomingRequestHeaderModificationRuleRequest
  * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
@@ -2204,7 +2212,7 @@ CreateHttpIncomingRequestHeaderModificationRuleResponse Client::createHttpIncomi
 }
 
 /**
- * @summary Creates a configuration to modify HTTP inbound response headers for a site.
+ * @summary Creates a configuration for modifying HTTP inbound response headers for a site.
  *
  * @param tmpReq CreateHttpIncomingResponseHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2265,7 +2273,7 @@ CreateHttpIncomingResponseHeaderModificationRuleResponse Client::createHttpIncom
 }
 
 /**
- * @summary Creates a configuration to modify HTTP inbound response headers for a site.
+ * @summary Creates a configuration for modifying HTTP inbound response headers for a site.
  *
  * @param request CreateHttpIncomingResponseHeaderModificationRuleRequest
  * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
@@ -3892,7 +3900,7 @@ CreateRoutineWithAssetsCodeVersionResponse Client::createRoutineWithAssetsCodeVe
 }
 
 /**
- * @summary Plan to batch add scheduled prefetch tasks.
+ * @summary Creates execution plans for batch scheduled prefetch tasks.
  *
  * @param tmpReq CreateScheduledPreloadExecutionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3935,7 +3943,7 @@ CreateScheduledPreloadExecutionsResponse Client::createScheduledPreloadExecution
 }
 
 /**
- * @summary Plan to batch add scheduled prefetch tasks.
+ * @summary Creates execution plans for batch scheduled prefetch tasks.
  *
  * @param request CreateScheduledPreloadExecutionsRequest
  * @return CreateScheduledPreloadExecutionsResponse
@@ -3946,7 +3954,7 @@ CreateScheduledPreloadExecutionsResponse Client::createScheduledPreloadExecution
 }
 
 /**
- * @summary Create a scheduled prefetch task.
+ * @summary Add a scheduled prefetch task.
  *
  * @param request CreateScheduledPreloadJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3993,7 +4001,7 @@ CreateScheduledPreloadJobResponse Client::createScheduledPreloadJobWithOptions(c
 }
 
 /**
- * @summary Create a scheduled prefetch task.
+ * @summary Add a scheduled prefetch task.
  *
  * @param request CreateScheduledPreloadJobRequest
  * @return CreateScheduledPreloadJobResponse
@@ -4858,7 +4866,7 @@ CreateWafRulesetResponse Client::createWafRuleset(const CreateWafRulesetRequest 
 }
 
 /**
- * @summary Create a site waiting room.
+ * @summary Creates a waiting room for a website.
  *
  * @param tmpReq CreateWaitingRoomRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4959,7 +4967,7 @@ CreateWaitingRoomResponse Client::createWaitingRoomWithOptions(const CreateWaiti
 }
 
 /**
- * @summary Create a site waiting room.
+ * @summary Creates a waiting room for a website.
  *
  * @param request CreateWaitingRoomRequest
  * @return CreateWaitingRoomResponse
@@ -4970,9 +4978,9 @@ CreateWaitingRoomResponse Client::createWaitingRoom(const CreateWaitingRoomReque
 }
 
 /**
- * @summary Creates a waiting room event with options for queuing method and type.
+ * @summary Creates a waiting room event. You can specify the queuing method and type.
  *
- * @description Your site plan must be Advanced Edition or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+ * @description Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
  *
  * @param request CreateWaitingRoomEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5079,9 +5087,9 @@ CreateWaitingRoomEventResponse Client::createWaitingRoomEventWithOptions(const C
 }
 
 /**
- * @summary Creates a waiting room event with options for queuing method and type.
+ * @summary Creates a waiting room event. You can specify the queuing method and type.
  *
- * @description Your site plan must be Advanced Edition or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+ * @description Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
  *
  * @param request CreateWaitingRoomEventRequest
  * @return CreateWaitingRoomEventResponse
@@ -7674,7 +7682,7 @@ DescribeBotPriceResponse Client::describeBotPrice(const DescribeBotPriceRequest 
 }
 
 /**
- * @summary Invokes DescribeCacheReservePrice to query the query cache reserve instance price.
+ * @summary Invokes DescribeCacheReservePrice to query the price of a query cache reserve instance.
  *
  * @param request DescribeCacheReservePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7713,7 +7721,7 @@ DescribeCacheReservePriceResponse Client::describeCacheReservePriceWithOptions(c
 }
 
 /**
- * @summary Invokes DescribeCacheReservePrice to query the query cache reserve instance price.
+ * @summary Invokes DescribeCacheReservePrice to query the price of a query cache reserve instance.
  *
  * @param request DescribeCacheReservePriceRequest
  * @return DescribeCacheReservePriceResponse
@@ -7917,6 +7925,94 @@ DescribeDDoSBpsListResponse Client::describeDDoSBpsListWithOptions(const Describ
 DescribeDDoSBpsListResponse Client::describeDDoSBpsList(const DescribeDDoSBpsListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDDoSBpsListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+ *
+ * @param request DescribeDDoSBpsMaxRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDDoSBpsMaxResponse
+ */
+DescribeDDoSBpsMaxResponse Client::describeDDoSBpsMaxWithOptions(const DescribeDDoSBpsMaxRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDDoSBpsMax"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDDoSBpsMaxResponse>();
+}
+
+/**
+ * @summary Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+ *
+ * @param request DescribeDDoSBpsMaxRequest
+ * @return DescribeDDoSBpsMaxResponse
+ */
+DescribeDDoSBpsMaxResponse Client::describeDDoSBpsMax(const DescribeDDoSBpsMaxRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDDoSBpsMaxWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the peak values of DDoS attack events within a specified time range.
+ *
+ * @param request DescribeDDoSEventMaxRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDDoSEventMaxResponse
+ */
+DescribeDDoSEventMaxResponse Client::describeDDoSEventMaxWithOptions(const DescribeDDoSEventMaxRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDDoSEventMax"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDDoSEventMaxResponse>();
+}
+
+/**
+ * @summary Queries the peak values of DDoS attack events within a specified time range.
+ *
+ * @param request DescribeDDoSEventMaxRequest
+ * @return DescribeDDoSEventMaxResponse
+ */
+DescribeDDoSEventMaxResponse Client::describeDDoSEventMax(const DescribeDDoSEventMaxRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDDoSEventMaxWithOptions(request, runtime);
 }
 
 /**
@@ -8366,7 +8462,7 @@ DescribePreloadTasksResponse Client::describePreloadTasks(const DescribePreloadT
 }
 
 /**
- * @summary Queries purge tasks.
+ * @summary Queries the execution status of a refresh task.
  *
  * @param request DescribePurgeTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8393,7 +8489,7 @@ DescribePurgeTasksResponse Client::describePurgeTasksWithOptions(const DescribeP
 }
 
 /**
- * @summary Queries purge tasks.
+ * @summary Queries the execution status of a refresh task.
  *
  * @param request DescribePurgeTasksRequest
  * @return DescribePurgeTasksResponse
@@ -8786,9 +8882,9 @@ DescribeSiteTopDataResponse Client::describeSiteTopData(const DescribeSiteTopDat
 }
 
 /**
- * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+ * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
  *
- * @description >Notice: Please ensure that the Layer 4 acceleration service is activated before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+ * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
  *
  * @param request DescribeTraceDiagnoseReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8823,9 +8919,9 @@ DescribeTraceDiagnoseReportResponse Client::describeTraceDiagnoseReportWithOptio
 }
 
 /**
- * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+ * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
  *
- * @description >Notice: Please ensure that the Layer 4 acceleration service is activated before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+ * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
  *
  * @param request DescribeTraceDiagnoseReportRequest
  * @return DescribeTraceDiagnoseReportResponse
@@ -9892,7 +9988,7 @@ GetEdgeContainerAppResponse Client::getEdgeContainerApp(const GetEdgeContainerAp
 }
 
 /**
- * @summary Queries the log collection configuration of a containerized application.
+ * @summary Retrieves the log collection configuration of an edge container application.
  *
  * @param request GetEdgeContainerAppLogRiverRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9919,7 +10015,7 @@ GetEdgeContainerAppLogRiverResponse Client::getEdgeContainerAppLogRiverWithOptio
 }
 
 /**
- * @summary Queries the log collection configuration of a containerized application.
+ * @summary Retrieves the log collection configuration of an edge container application.
  *
  * @param request GetEdgeContainerAppLogRiverRequest
  * @return GetEdgeContainerAppLogRiverResponse
@@ -9930,7 +10026,7 @@ GetEdgeContainerAppLogRiverResponse Client::getEdgeContainerAppLogRiver(const Ge
 }
 
 /**
- * @summary Queries the resource capacity of a containerized application at the edge.
+ * @summary Get the resource capacity of an edge container application
  *
  * @param request GetEdgeContainerAppResourceCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9961,7 +10057,7 @@ GetEdgeContainerAppResourceCapacityResponse Client::getEdgeContainerAppResourceC
 }
 
 /**
- * @summary Queries the resource capacity of a containerized application at the edge.
+ * @summary Get the resource capacity of an edge container application
  *
  * @param request GetEdgeContainerAppResourceCapacityRequest
  * @return GetEdgeContainerAppResourceCapacityResponse
@@ -9972,7 +10068,7 @@ GetEdgeContainerAppResourceCapacityResponse Client::getEdgeContainerAppResourceC
 }
 
 /**
- * @summary Obtain the resource reservation configuration of the edge container.
+ * @summary Retrieves the resource reservation configuration of an edge container application.
  *
  * @param request GetEdgeContainerAppResourceReserveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10003,7 +10099,7 @@ GetEdgeContainerAppResourceReserveResponse Client::getEdgeContainerAppResourceRe
 }
 
 /**
- * @summary Obtain the resource reservation configuration of the edge container.
+ * @summary Retrieves the resource reservation configuration of an edge container application.
  *
  * @param request GetEdgeContainerAppResourceReserveRequest
  * @return GetEdgeContainerAppResourceReserveResponse
@@ -10140,7 +10236,7 @@ GetEdgeContainerAppVersionResponse Client::getEdgeContainerAppVersion(const GetE
 }
 
 /**
- * @summary Queries regions where a containerized application is deployed based on the application ID.
+ * @summary Retrieves the deployment regions of an edge container application by application ID.
  *
  * @param request GetEdgeContainerDeployRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10167,7 +10263,7 @@ GetEdgeContainerDeployRegionsResponse Client::getEdgeContainerDeployRegionsWithO
 }
 
 /**
- * @summary Queries regions where a containerized application is deployed based on the application ID.
+ * @summary Retrieves the deployment regions of an edge container application by application ID.
  *
  * @param request GetEdgeContainerDeployRegionsRequest
  * @return GetEdgeContainerDeployRegionsResponse
@@ -10178,7 +10274,7 @@ GetEdgeContainerDeployRegionsResponse Client::getEdgeContainerDeployRegions(cons
 }
 
 /**
- * @summary Queries Edge Container logs.
+ * @summary Retrieves log information for an edge container. You can specify the number of output lines.
  *
  * @param request GetEdgeContainerLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10205,7 +10301,7 @@ GetEdgeContainerLogsResponse Client::getEdgeContainerLogsWithOptions(const GetEd
 }
 
 /**
- * @summary Queries Edge Container logs.
+ * @summary Retrieves log information for an edge container. You can specify the number of output lines.
  *
  * @param request GetEdgeContainerLogsRequest
  * @return GetEdgeContainerLogsResponse
@@ -10216,7 +10312,7 @@ GetEdgeContainerLogsResponse Client::getEdgeContainerLogs(const GetEdgeContainer
 }
 
 /**
- * @summary Queries the deployment status of an application in the staging environment by using the application ID.
+ * @summary Retrieves the staging environment deployment status of an application by application ID.
  *
  * @param request GetEdgeContainerStagingDeployStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10243,7 +10339,7 @@ GetEdgeContainerStagingDeployStatusResponse Client::getEdgeContainerStagingDeplo
 }
 
 /**
- * @summary Queries the deployment status of an application in the staging environment by using the application ID.
+ * @summary Retrieves the staging environment deployment status of an application by application ID.
  *
  * @param request GetEdgeContainerStagingDeployStatusRequest
  * @return GetEdgeContainerStagingDeployStatusResponse
@@ -10254,7 +10350,7 @@ GetEdgeContainerStagingDeployStatusResponse Client::getEdgeContainerStagingDeplo
 }
 
 /**
- * @summary Queries the terminal information of a containerized application.
+ * @summary Retrieves terminal information of an edge container application.
  *
  * @param request GetEdgeContainerTerminalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10285,7 +10381,7 @@ GetEdgeContainerTerminalResponse Client::getEdgeContainerTerminalWithOptions(con
 }
 
 /**
- * @summary Queries the terminal information of a containerized application.
+ * @summary Retrieves terminal information of an edge container application.
  *
  * @param request GetEdgeContainerTerminalRequest
  * @return GetEdgeContainerTerminalResponse
@@ -11188,7 +11284,7 @@ GetOriginPoolResponse Client::getOriginPool(const GetOriginPoolRequest &request)
 }
 
 /**
- * @summary This operation queries the origin protection settings for a site. These settings include the origin protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP address whitelist requires an update. The response also includes details about the whitelist, such as the current list, the latest list, and the differences between them.
+ * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
  *
  * @param request GetOriginProtectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11215,7 +11311,7 @@ GetOriginProtectionResponse Client::getOriginProtectionWithOptions(const GetOrig
 }
 
 /**
- * @summary This operation queries the origin protection settings for a site. These settings include the origin protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP address whitelist requires an update. The response also includes details about the whitelist, such as the current list, the latest list, and the differences between them.
+ * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
  *
  * @param request GetOriginProtectionRequest
  * @return GetOriginProtectionResponse
@@ -11306,7 +11402,7 @@ GetPageResponse Client::getPage(const GetPageRequest &request) {
 }
 
 /**
- * @summary Retrieves the Collection Configuration for Data Quality.
+ * @summary Queries the data quality collection configuration.
  *
  * @param request GetPerformanceDataCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11337,7 +11433,7 @@ GetPerformanceDataCollectionResponse Client::getPerformanceDataCollectionWithOpt
 }
 
 /**
- * @summary Retrieves the Collection Configuration for Data Quality.
+ * @summary Queries the data quality collection configuration.
  *
  * @param request GetPerformanceDataCollectionRequest
  * @return GetPerformanceDataCollectionResponse
@@ -11348,7 +11444,7 @@ GetPerformanceDataCollectionResponse Client::getPerformanceDataCollection(const 
 }
 
 /**
- * @summary Retrieves the total and used quota for different purge types.
+ * @summary Retrieves the quota and used quota for different refresh types.
  *
  * @param request GetPurgeQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11383,7 +11479,7 @@ GetPurgeQuotaResponse Client::getPurgeQuotaWithOptions(const GetPurgeQuotaReques
 }
 
 /**
- * @summary Retrieves the total and used quota for different purge types.
+ * @summary Retrieves the quota and used quota for different refresh types.
  *
  * @param request GetPurgeQuotaRequest
  * @return GetPurgeQuotaResponse
@@ -11676,6 +11772,58 @@ GetRoutineCodeVersionResponse Client::getRoutineCodeVersion(const GetRoutineCode
 }
 
 /**
+ * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+ *
+ * @description ## Operation description
+ * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+ *
+ * @param request GetRoutineCodeVersionInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRoutineCodeVersionInfoResponse
+ */
+GetRoutineCodeVersionInfoResponse Client::getRoutineCodeVersionInfoWithOptions(const GetRoutineCodeVersionInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCodeVersion()) {
+    body["CodeVersion"] = request.getCodeVersion();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetRoutineCodeVersionInfo"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRoutineCodeVersionInfoResponse>();
+}
+
+/**
+ * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+ *
+ * @description ## Operation description
+ * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+ *
+ * @param request GetRoutineCodeVersionInfoRequest
+ * @return GetRoutineCodeVersionInfoResponse
+ */
+GetRoutineCodeVersionInfoResponse Client::getRoutineCodeVersionInfo(const GetRoutineCodeVersionInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRoutineCodeVersionInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves a specific edge function route configuration.
  *
  * @param request GetRoutineRouteRequest
@@ -11838,7 +11986,7 @@ GetRoutineUserInfoResponse Client::getRoutineUserInfo() {
 }
 
 /**
- * @summary Queries a single scheduled preload job by its task ID.
+ * @summary Queries a single scheduled prefetch task by task ID.
  *
  * @param request GetScheduledPreloadJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11865,7 +12013,7 @@ GetScheduledPreloadJobResponse Client::getScheduledPreloadJobWithOptions(const G
 }
 
 /**
- * @summary Queries a single scheduled preload job by its task ID.
+ * @summary Queries a single scheduled prefetch task by task ID.
  *
  * @param request GetScheduledPreloadJobRequest
  * @return GetScheduledPreloadJobResponse
@@ -12372,7 +12520,7 @@ GetTransportLayerApplicationResponse Client::getTransportLayerApplication(const 
 }
 
 /**
- * @summary Queries the execution status and running information of a file upload task based on the task ID.
+ * @summary Queries the execution status and runtime information of a file upload task by task ID.
  *
  * @param request GetUploadTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12399,7 +12547,7 @@ GetUploadTaskResponse Client::getUploadTaskWithOptions(const GetUploadTaskReques
 }
 
 /**
- * @summary Queries the execution status and running information of a file upload task based on the task ID.
+ * @summary Queries the execution status and runtime information of a file upload task by task ID.
  *
  * @param request GetUploadTaskRequest
  * @return GetUploadTaskResponse
@@ -12856,7 +13004,7 @@ ListCacheReserveInstancesResponse Client::listCacheReserveInstances(const ListCa
 }
 
 /**
- * @summary Lists cache configurations.
+ * @summary Queries multiple cache configurations.
  *
  * @param request ListCacheRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12883,7 +13031,7 @@ ListCacheRulesResponse Client::listCacheRulesWithOptions(const ListCacheRulesReq
 }
 
 /**
- * @summary Lists cache configurations.
+ * @summary Queries multiple cache configurations.
  *
  * @param request ListCacheRulesRequest
  * @return ListCacheRulesResponse
@@ -13452,7 +13600,7 @@ ListESAIPInfoResponse Client::listESAIPInfo(const ListESAIPInfoRequest &request)
 }
 
 /**
- * @summary Retrieve the list of image secrets for edge container applications
+ * @summary Retrieves the list of image secrets for an edge container application.
  *
  * @param request ListEdgeContainerAppImageSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13483,7 +13631,7 @@ ListEdgeContainerAppImageSecretsResponse Client::listEdgeContainerAppImageSecret
 }
 
 /**
- * @summary Retrieve the list of image secrets for edge container applications
+ * @summary Retrieves the list of image secrets for an edge container application.
  *
  * @param request ListEdgeContainerAppImageSecretsRequest
  * @return ListEdgeContainerAppImageSecretsResponse
@@ -14136,7 +14284,7 @@ ListKeylessServersResponse Client::listKeylessServers(const ListKeylessServersRe
 }
 
 /**
- * @summary Lists all key-value pairs in a specified namespace.
+ * @summary Lists all key-value pairs in a specified KV storage namespace under your account.
  *
  * @param request ListKvsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14163,7 +14311,7 @@ ListKvsResponse Client::listKvsWithOptions(const ListKvsRequest &request, const 
 }
 
 /**
- * @summary Lists all key-value pairs in a specified namespace.
+ * @summary Lists all key-value pairs in a specified KV storage namespace under your account.
  *
  * @param request ListKvsRequest
  * @return ListKvsResponse
@@ -14844,10 +14992,10 @@ ListRoutineCanaryAreasResponse Client::listRoutineCanaryAreas() {
 }
 
 /**
- * @summary Performs a paged query to retrieve the code version information of a specified Edge Routine program.
+ * @summary Queries the code version information of a specified Edge Routine program by paging.
  *
- * @description Queries the code version list of a specified Edge Routine program. This operation supports paged query and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy match on code version descriptions.
- * The response includes details of each code version, such as the revision number, description, and creation time.
+ * @description Queries the code version list of a specified Edge Routine program. This operation supports paging and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy matching against code version descriptions.
+ * The response includes detailed information about each code version, such as the revision number, description, and creation time.
  *
  * @param request ListRoutineCodeVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14890,10 +15038,10 @@ ListRoutineCodeVersionsResponse Client::listRoutineCodeVersionsWithOptions(const
 }
 
 /**
- * @summary Performs a paged query to retrieve the code version information of a specified Edge Routine program.
+ * @summary Queries the code version information of a specified Edge Routine program by paging.
  *
- * @description Queries the code version list of a specified Edge Routine program. This operation supports paged query and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy match on code version descriptions.
- * The response includes details of each code version, such as the revision number, description, and creation time.
+ * @description Queries the code version list of a specified Edge Routine program. This operation supports paging and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy matching against code version descriptions.
+ * The response includes detailed information about each code version, such as the revision number, description, and creation time.
  *
  * @param request ListRoutineCodeVersionsRequest
  * @return ListRoutineCodeVersionsResponse
@@ -15012,7 +15160,7 @@ ListRoutineRoutesResponse Client::listRoutineRoutes(const ListRoutineRoutesReque
 }
 
 /**
- * @summary Lists execution plans for a scheduled preload task.
+ * @summary Lists the execution plans of a specified scheduled prefetch task by task ID.
  *
  * @param request ListScheduledPreloadExecutionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15039,7 +15187,7 @@ ListScheduledPreloadExecutionsResponse Client::listScheduledPreloadExecutionsWit
 }
 
 /**
- * @summary Lists execution plans for a scheduled preload task.
+ * @summary Lists the execution plans of a specified scheduled prefetch task by task ID.
  *
  * @param request ListScheduledPreloadExecutionsRequest
  * @return ListScheduledPreloadExecutionsResponse
@@ -15050,7 +15198,7 @@ ListScheduledPreloadExecutionsResponse Client::listScheduledPreloadExecutions(co
 }
 
 /**
- * @summary Lists scheduled prefetch jobs for a site.
+ * @summary Lists scheduled prefetch tasks for a site.
  *
  * @param request ListScheduledPreloadJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15077,7 +15225,7 @@ ListScheduledPreloadJobsResponse Client::listScheduledPreloadJobsWithOptions(con
 }
 
 /**
- * @summary Lists scheduled prefetch jobs for a site.
+ * @summary Lists scheduled prefetch tasks for a site.
  *
  * @param request ListScheduledPreloadJobsRequest
  * @return ListScheduledPreloadJobsResponse
@@ -15448,7 +15596,7 @@ ListTransportLayerApplicationsResponse Client::listTransportLayerApplications(co
 }
 
 /**
- * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
+ * @summary Lists the execution status and runtime information of file upload tasks by time and type.
  *
  * @param request ListUploadTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15475,7 +15623,7 @@ ListUploadTasksResponse Client::listUploadTasksWithOptions(const ListUploadTasks
 }
 
 /**
- * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
+ * @summary Lists the execution status and runtime information of file upload tasks by time and type.
  *
  * @param request ListUploadTasksRequest
  * @return ListUploadTasksResponse
@@ -16324,6 +16472,48 @@ ListWaitingRoomsResponse Client::listWaitingRooms(const ListWaitingRoomsRequest 
 }
 
 /**
+ * @summary Activates the edge container service.
+ *
+ * @param request OpenEdgeContainerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenEdgeContainerResponse
+ */
+OpenEdgeContainerResponse Client::openEdgeContainerWithOptions(const OpenEdgeContainerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OpenEdgeContainer"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenEdgeContainerResponse>();
+}
+
+/**
+ * @summary Activates the edge container service.
+ *
+ * @param request OpenEdgeContainerRequest
+ * @return OpenEdgeContainerResponse
+ */
+OpenEdgeContainerResponse Client::openEdgeContainer(const OpenEdgeContainerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return openEdgeContainerWithOptions(request, runtime);
+}
+
+/**
  * @summary OpenErService
  *
  * @param request OpenErServiceRequest
@@ -16366,7 +16556,7 @@ OpenErServiceResponse Client::openErService(const OpenErServiceRequest &request)
 }
 
 /**
- * @summary Prefetches cache.
+ * @summary Prefetches resources.
  *
  * @param tmpReq PreloadCachesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16415,7 +16605,7 @@ PreloadCachesResponse Client::preloadCachesWithOptions(const PreloadCachesReques
 }
 
 /**
- * @summary Prefetches cache.
+ * @summary Prefetches resources.
  *
  * @param request PreloadCachesRequest
  * @return PreloadCachesResponse
@@ -16508,7 +16698,7 @@ PublishEdgeContainerAppVersionResponse Client::publishEdgeContainerAppVersion(co
 }
 
 /**
- * @summary 发布Routine某版本代码
+ * @summary Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
  *
  * @param request PublishRoutineCodeVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16547,7 +16737,7 @@ PublishRoutineCodeVersionResponse Client::publishRoutineCodeVersionWithOptions(c
 }
 
 /**
- * @summary 发布Routine某版本代码
+ * @summary Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
  *
  * @param request PublishRoutineCodeVersionRequest
  * @return PublishRoutineCodeVersionResponse
@@ -16708,7 +16898,7 @@ PurchaseRatePlanResponse Client::purchaseRatePlan(const PurchaseRatePlanRequest 
 }
 
 /**
- * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+ * @summary Refreshes file content on nodes. Supports refreshing by file, directory, cache tag, ignored parameters, hostname, and entire site.
  *
  * @param tmpReq PurgeCachesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16761,7 +16951,7 @@ PurgeCachesResponse Client::purgeCachesWithOptions(const PurgeCachesRequest &tmp
 }
 
 /**
- * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+ * @summary Refreshes file content on nodes. Supports refreshing by file, directory, cache tag, ignored parameters, hostname, and entire site.
  *
  * @param request PurgeCachesRequest
  * @return PurgeCachesResponse
@@ -16836,12 +17026,12 @@ PutKvResponse Client::putKv(const PutKvRequest &request) {
 }
 
 /**
- * @summary Set a single high-capacity key-value pair in a KV namespace. This operation supports values up to 25 MB.
+ * @summary Sets a single large-capacity key-value pair in a KV namespace. The maximum value size is 25 MB.
  *
- * @description This interface provides the same functionality as [PutKv](~~PutKv~~), but supports larger request bodies. If your request body is small, use the [PutKv](~~PutKv~~) interface instead to reduce server-side processing time. Call this interface using an SDK. For example, with the Go SDK, call the PutKvWithHighCapacityAdvance function.
+ * @description This operation provides the same functionality as [PutKv](~~PutKv~~), but allows you to upload a larger request body. If the request body is small, use the [PutKv](~~PutKv~~) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when you use the Golang SDK, call the PutKvWithHighCapacityAdvance function.
  * ```
  * func TestPutKvWithHighCapacity() {
- * 	// Configure initialization
+ * 	// Configuration initialization
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -16849,8 +17039,8 @@ PutKvResponse Client::putKv(const PutKvRequest &request) {
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}
- * 	// Construct the key-value pair request to be uploaded
+ * 	runtime := &util.RuntimeOptions{}.
+ * 	// Construct the key-value pair request to upload
  * 	namespace := "test-put-kv"
  * 	key := "test_PutKvWithHighCapacity_0"
  * 	value := strings.Repeat("t", 10*1024*1024)
@@ -16862,20 +17052,19 @@ PutKvResponse Client::putKv(const PutKvRequest &request) {
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}
- * 	// If the payload is larger than 2 MB, call the high-capacity interface to upload
+ * 	}.
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
  * 	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		Key:       &key,
  * 		UrlObject: bytes.NewReader([]byte(payload)),
- * 	}
+ * 	}.
  * 	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
  * 	if err != nil {
  * 		return err
  * 	}
  * 	return nil
- * }
- * ```
+ * }.
  *
  * @param request PutKvWithHighCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16914,12 +17103,12 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityWithOptions(const Put
 }
 
 /**
- * @summary Set a single high-capacity key-value pair in a KV namespace. This operation supports values up to 25 MB.
+ * @summary Sets a single large-capacity key-value pair in a KV namespace. The maximum value size is 25 MB.
  *
- * @description This interface provides the same functionality as [PutKv](~~PutKv~~), but supports larger request bodies. If your request body is small, use the [PutKv](~~PutKv~~) interface instead to reduce server-side processing time. Call this interface using an SDK. For example, with the Go SDK, call the PutKvWithHighCapacityAdvance function.
+ * @description This operation provides the same functionality as [PutKv](~~PutKv~~), but allows you to upload a larger request body. If the request body is small, use the [PutKv](~~PutKv~~) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when you use the Golang SDK, call the PutKvWithHighCapacityAdvance function.
  * ```
  * func TestPutKvWithHighCapacity() {
- * 	// Configure initialization
+ * 	// Configuration initialization
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -16927,8 +17116,8 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityWithOptions(const Put
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}
- * 	// Construct the key-value pair request to be uploaded
+ * 	runtime := &util.RuntimeOptions{}.
+ * 	// Construct the key-value pair request to upload
  * 	namespace := "test-put-kv"
  * 	key := "test_PutKvWithHighCapacity_0"
  * 	value := strings.Repeat("t", 10*1024*1024)
@@ -16940,20 +17129,19 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityWithOptions(const Put
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}
- * 	// If the payload is larger than 2 MB, call the high-capacity interface to upload
+ * 	}.
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
  * 	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		Key:       &key,
  * 		UrlObject: bytes.NewReader([]byte(payload)),
- * 	}
+ * 	}.
  * 	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
  * 	if err != nil {
  * 		return err
  * 	}
  * 	return nil
- * }
- * ```
+ * }.
  *
  * @param request PutKvWithHighCapacityRequest
  * @return PutKvWithHighCapacityResponse
@@ -17050,7 +17238,7 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityAdvance(const PutKvWi
 }
 
 /**
- * @summary Rebuilds the staging environment for containerized applications.
+ * @summary Rebuild the staging environment of an edge container application.
  *
  * @param request RebuildEdgeContainerAppStagingEnvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17081,7 +17269,7 @@ RebuildEdgeContainerAppStagingEnvResponse Client::rebuildEdgeContainerAppStaging
 }
 
 /**
- * @summary Rebuilds the staging environment for containerized applications.
+ * @summary Rebuild the staging environment of an edge container application.
  *
  * @param request RebuildEdgeContainerAppStagingEnvRequest
  * @return RebuildEdgeContainerAppStagingEnvResponse
@@ -17134,8 +17322,8 @@ ReleaseInstanceResponse Client::releaseInstance(const ReleaseInstanceRequest &re
 }
 
 /**
- * @summary Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
- * Prerequisites: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
+ * @summary Resets the progress of a scheduled preload job and restarts the preload from the beginning.
+ * Prerequisite: You must first create a scheduled preload job by calling CreateScheduledPreloadJob to obtain a valid job ID, and then pass it to this API for resetting.
  *
  * @param request ResetScheduledPreloadJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17166,8 +17354,8 @@ ResetScheduledPreloadJobResponse Client::resetScheduledPreloadJobWithOptions(con
 }
 
 /**
- * @summary Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
- * Prerequisites: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
+ * @summary Resets the progress of a scheduled preload job and restarts the preload from the beginning.
+ * Prerequisite: You must first create a scheduled preload job by calling CreateScheduledPreloadJob to obtain a valid job ID, and then pass it to this API for resetting.
  *
  * @param request ResetScheduledPreloadJobRequest
  * @return ResetScheduledPreloadJobResponse
@@ -17904,7 +18092,7 @@ SetOriginClientCertificateHostnamesResponse Client::setOriginClientCertificateHo
 }
 
 /**
- * @summary Start a scheduled prefetch using a prefetch plan ID.
+ * @summary Starts a scheduled prefetch based on the prefetch plan ID.
  *
  * @param request StartScheduledPreloadExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17935,7 +18123,7 @@ StartScheduledPreloadExecutionResponse Client::startScheduledPreloadExecutionWit
 }
 
 /**
- * @summary Start a scheduled prefetch using a prefetch plan ID.
+ * @summary Starts a scheduled prefetch based on the prefetch plan ID.
  *
  * @param request StartScheduledPreloadExecutionRequest
  * @return StartScheduledPreloadExecutionResponse
@@ -17947,7 +18135,7 @@ StartScheduledPreloadExecutionResponse Client::startScheduledPreloadExecution(co
 
 /**
  * @summary Stops a single scheduled prefetch plan by prefetch plan ID.
- * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the site to which it belongs has passed the access verification (site Status=active).
+ * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
  *
  * @param request StopScheduledPreloadExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17979,7 +18167,7 @@ StopScheduledPreloadExecutionResponse Client::stopScheduledPreloadExecutionWithO
 
 /**
  * @summary Stops a single scheduled prefetch plan by prefetch plan ID.
- * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the site to which it belongs has passed the access verification (site Status=active).
+ * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
  *
  * @param request StopScheduledPreloadExecutionRequest
  * @return StopScheduledPreloadExecutionResponse
@@ -18832,7 +19020,7 @@ UpdateDevelopmentModeResponse Client::updateDevelopmentMode(const UpdateDevelopm
 }
 
 /**
- * @summary Updates the log collection configuration of a containerized application.
+ * @summary Updates the log collection configuration of an edge container application.
  *
  * @param request UpdateEdgeContainerAppLogRiverRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18871,7 +19059,7 @@ UpdateEdgeContainerAppLogRiverResponse Client::updateEdgeContainerAppLogRiverWit
 }
 
 /**
- * @summary Updates the log collection configuration of a containerized application.
+ * @summary Updates the log collection configuration of an edge container application.
  *
  * @param request UpdateEdgeContainerAppLogRiverRequest
  * @return UpdateEdgeContainerAppLogRiverResponse
@@ -18882,7 +19070,7 @@ UpdateEdgeContainerAppLogRiverResponse Client::updateEdgeContainerAppLogRiver(co
 }
 
 /**
- * @summary Updates the resource reservation configuration of an edge container.
+ * @summary Updates the resource reservation configuration of an edge container application.
  *
  * @param tmpReq UpdateEdgeContainerAppResourceReserveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18935,7 +19123,7 @@ UpdateEdgeContainerAppResourceReserveResponse Client::updateEdgeContainerAppReso
 }
 
 /**
- * @summary Updates the resource reservation configuration of an edge container.
+ * @summary Updates the resource reservation configuration of an edge container application.
  *
  * @param request UpdateEdgeContainerAppResourceReserveRequest
  * @return UpdateEdgeContainerAppResourceReserveResponse
@@ -20744,7 +20932,7 @@ UpdateRoutineRouteResponse Client::updateRoutineRoute(const UpdateRoutineRouteRe
 }
 
 /**
- * @summary Updates a scheduled preload task based on the preload plan ID.
+ * @summary Updates a scheduled prefetch plan by prefetch plan ID.
  *
  * @param request UpdateScheduledPreloadExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20793,7 +20981,7 @@ UpdateScheduledPreloadExecutionResponse Client::updateScheduledPreloadExecutionW
 }
 
 /**
- * @summary Updates a scheduled preload task based on the preload plan ID.
+ * @summary Updates a scheduled prefetch plan by prefetch plan ID.
  *
  * @param request UpdateScheduledPreloadExecutionRequest
  * @return UpdateScheduledPreloadExecutionResponse
@@ -22194,10 +22382,10 @@ UploadClientCaCertificateResponse Client::uploadClientCaCertificate(const Upload
 }
 
 /**
- * @summary Uploads the file that contains resources to be purged or prefetched.
+ * @summary Uploads a refresh or prefetch file to improve access speed.
  *
  * @description > 
- * *   The file can be up to 10 MB in size.
+ * > - The maximum file size is 10 MB.
  *
  * @param request UploadFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22240,10 +22428,10 @@ UploadFileResponse Client::uploadFileWithOptions(const UploadFileRequest &reques
 }
 
 /**
- * @summary Uploads the file that contains resources to be purged or prefetched.
+ * @summary Uploads a refresh or prefetch file to improve access speed.
  *
  * @description > 
- * *   The file can be up to 10 MB in size.
+ * > - The maximum file size is 10 MB.
  *
  * @param request UploadFileRequest
  * @return UploadFileResponse

@@ -66,18 +66,21 @@ namespace Models
 
 
   protected:
-    // The time when the task ends. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
+    // The end time in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+    // >Notice: StartTime and EndTime must be provided together to define the query time window. An error is returned if either one is missing..
     shared_ptr<string> endTime_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // >Notice: This parameter is required when you call the ListUploadTasks operation..
     shared_ptr<int64_t> siteId_ {};
-    // The time when the task starts. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
+    // The start time in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+    // >Notice: StartTime and EndTime must be provided together to define the query time window. An error is returned if either one is missing..
     shared_ptr<string> startTime_ {};
     // The task type. Valid values:
     // 
-    // *   **file**: purges the cache by file URL.
-    // *   **preload**: prefetches files.
-    // *   **directory**: purges the cache by directory.
-    // *   **ignoreparams**: purges the cache by URL with specified parameters ignored.
+    // - **file**: URL file purge.
+    // - **preload**: resource prefetch.
+    // - **directory**: directory purge.
+    // - **ignoreparams**: purge with parameters ignored.
     shared_ptr<string> type_ {};
   };
 

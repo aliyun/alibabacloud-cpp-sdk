@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The task ID of the scheduled preload job.
+    // The ID of the scheduled prefetch task.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

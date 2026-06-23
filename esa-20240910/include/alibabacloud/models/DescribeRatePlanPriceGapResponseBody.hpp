@@ -198,7 +198,7 @@ namespace Models
       // - USD: US Dollar.
       // - CNY: Chinese Yuan.
       shared_ptr<string> currency_ {};
-      // The discount amount of the order.
+      // The order discount amount.
       shared_ptr<float> discountPrice_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -207,7 +207,7 @@ namespace Models
       shared_ptr<PriceModel::Rule> rule_ {};
       // The target plan code.
       shared_ptr<string> targetPlanCode_ {};
-      // The original order price, which equals the actual transaction price plus the discount amount.
+      // The original order price. Original order price = actual transaction price + discount amount.
       shared_ptr<float> totalPrice_ {};
     };
 

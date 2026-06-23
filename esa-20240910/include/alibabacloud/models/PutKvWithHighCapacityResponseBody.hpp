@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> length_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The content of the key. If the length exceeds 256 characters, the first 100 and last 100 characters are displayed, with the middle omitted.
+    // The content of the key. If the content exceeds 256 characters, the first 100 and last 100 characters are returned with the middle portion omitted.
     shared_ptr<string> value_ {};
   };
 

@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The version number of the code to publish.
     shared_ptr<string> codeVersion_ {};
+    // The environment name.
+    // 
     // This parameter is required.
     shared_ptr<string> env_ {};
+    // The name of the Edge Routine.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

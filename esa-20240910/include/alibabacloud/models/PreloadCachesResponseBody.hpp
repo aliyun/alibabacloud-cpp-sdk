@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The prefetch task ID.
+    // The task ID. A task ID is returned when you create a prefetch task.
     shared_ptr<string> taskId_ {};
   };
 

@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The name of the Edge Routine program.
+    // The name of the Edge Routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The keyword for fuzzy match.
+    // The keyword for fuzzy matching.
     shared_ptr<string> searchKeyWord_ {};
   };
 

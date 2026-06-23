@@ -48,9 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether Data Quality collection is enabled. Valid values: `true` and `false`.
+    // Indicates whether quality data collection is enabled. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> enable_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

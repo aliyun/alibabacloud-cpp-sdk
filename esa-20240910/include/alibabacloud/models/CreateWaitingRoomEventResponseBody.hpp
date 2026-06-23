@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The waiting room event ID. You can call the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the ID.
+    // The waiting room event ID. You can call the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the waiting room event ID.
     shared_ptr<int64_t> waitingRoomEventId_ {};
   };
 

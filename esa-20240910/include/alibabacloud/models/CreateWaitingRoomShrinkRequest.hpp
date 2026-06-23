@@ -190,32 +190,32 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cookieName_ {};
-    // The custom waiting room page content. This parameter is required when the waiting room type is custom. The content must be Base64-encoded.
+    // The custom waiting room page content. This parameter is required when the waiting room type is set to custom. The content must use Base64 encoding.
     shared_ptr<string> customPageHtml_ {};
     // The description of the waiting room.
     shared_ptr<string> description_ {};
-    // Disable session renewal. Valid values:
+    // Specifies whether to disable session renewal. Valid values:
     // 
-    // - **on**: enabled.
-    // - **off**: disabled.
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> disableSessionRenewalEnable_ {};
-    // The waiting room switch. Valid values:
+    // Specifies whether to enable the waiting room. Valid values:
     // 
-    // - **on**: enabled.
-    // - **off**: disabled.
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
-    // The hostnames and paths.
+    // The hostname and path configurations.
     // 
     // This parameter is required.
     shared_ptr<string> hostNameAndPathShrink_ {};
-    // JSON response. After this feature is enabled, a JSON response is returned if the Accept request header contains "application/json". Valid values:
+    // Specifies whether to enable JSON response. When enabled, requests with an Accept header containing "application/json" return JSON data. Valid values:
     // 
-    // - **on**: enabled.
-    // - **off**: disabled.
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> jsonResponseEnable_ {};
-    // The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
+    // The language of the waiting room page. This parameter is required when the waiting room type is set to default. Valid values:
     // - **enus**: English.
     // - **zhcn**: Simplified Chinese.
     // - **zhhk**: Traditional Chinese.
@@ -228,17 +228,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> newUsersPerMinute_ {};
-    // Queue all. Valid values:
+    // Specifies whether to queue all visitors. Valid values:
     // 
-    // - **on**: enabled.
-    // - **off**: disabled.
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> queueAllEnable_ {};
     // The queuing method. Valid values:
     // 
-    // - **random**: random.
-    // - **fifo**: first-in, first-out.
-    // - **passthrough**: passthrough.
-    // - **reject-all**: reject all.
+    // - **random**: Random.
+    // - **fifo**: First in, first out.
+    // - **passthrough**: Passthrough.
+    // - **reject-all**: Reject all.
     // 
     // This parameter is required.
     shared_ptr<string> queuingMethod_ {};
@@ -246,7 +246,7 @@ namespace Models
     // 
     // - **200**
     // - **202**
-    // - **429**
+    // - **429**.
     // 
     // This parameter is required.
     shared_ptr<string> queuingStatusCode_ {};
@@ -254,7 +254,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sessionDuration_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
@@ -264,8 +264,8 @@ namespace Models
     shared_ptr<string> totalActiveUsers_ {};
     // The type of the waiting room. Valid values:
     // 
-    // - **default**: default type.
-    // - **custom**: custom type.
+    // - **default**: Default type.
+    // - **custom**: Custom type.
     // 
     // This parameter is required.
     shared_ptr<string> waitingRoomType_ {};

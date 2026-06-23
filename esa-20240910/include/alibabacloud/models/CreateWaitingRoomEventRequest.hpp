@@ -213,19 +213,19 @@ namespace Models
 
 
   protected:
-    // The custom waiting room page content. This parameter is required when the waiting room type is custom. The content must use Base64 encoding.
+    // The custom waiting room page content. This parameter is required when the waiting room type is set to custom. The content must use Base64 encoding.
     shared_ptr<string> customPageHtml_ {};
     // The description of the waiting room.
     shared_ptr<string> description_ {};
     // Specifies whether to disable session renewal. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: enabled.
+    // - **off**: disabled.
     shared_ptr<string> disableSessionRenewalEnable_ {};
     // The waiting room switch. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: enabled.
+    // - **off**: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
@@ -235,10 +235,10 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // Specifies whether to enable JSON response. When enabled, requests with an Accept header containing "application/json" return JSON data. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: enabled.
+    // - **off**: disabled.
     shared_ptr<string> jsonResponseEnable_ {};
-    // The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
+    // The language of the waiting room page. This parameter is required when the waiting room type is set to default. Valid values:
     // 
     // - **enus**: English.
     // - **zhcn**: Simplified Chinese.
@@ -254,8 +254,8 @@ namespace Models
     shared_ptr<string> newUsersPerMinute_ {};
     // Specifies whether to enable pre-queuing. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: enabled.
+    // - **off**: disabled.
     shared_ptr<string> preQueueEnable_ {};
     // The pre-queuing start timestamp, which must be at least 5 minutes earlier than the event start timestamp, such as 1705044735.
     shared_ptr<string> preQueueStartTime_ {};
@@ -278,8 +278,8 @@ namespace Models
     shared_ptr<string> queuingStatusCode_ {};
     // Specifies whether to enable random pre-queuing. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: enabled.
+    // - **off**: disabled.
     shared_ptr<string> randomPreQueueEnable_ {};
     // The session duration, in minutes.
     // 
@@ -299,7 +299,7 @@ namespace Models
     shared_ptr<string> totalActiveUsers_ {};
     // The waiting room ID. You can call the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the waiting room ID. The waiting room must belong to the site specified by SiteId.
     shared_ptr<string> waitingRoomId_ {};
-    // The waiting room type. Valid values:
+    // The type of the waiting room. Valid values:
     // 
     // - **default**: default type.
     // - **custom**: custom type.

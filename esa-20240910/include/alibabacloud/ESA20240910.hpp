@@ -40,7 +40,10 @@ namespace ESA20240910
       Models::ActivateClientCertificateResponse activateClientCertificate(const Models::ActivateClientCertificateRequest &request);
 
       /**
-       * @summary Enable Version Management
+       * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+       *
+       * @description Prerequisites for enabling site version management:
+       * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
        *
        * @param request ActivateVersionManagementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,7 +52,10 @@ namespace ESA20240910
       Models::ActivateVersionManagementResponse activateVersionManagementWithOptions(const Models::ActivateVersionManagementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enable Version Management
+       * @summary Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+       *
+       * @description Prerequisites for enabling site version management:
+       * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
        *
        * @param request ActivateVersionManagementRequest
        * @return ActivateVersionManagementResponse
@@ -148,12 +154,14 @@ namespace ESA20240910
       Models::BatchDeleteKvResponse batchDeleteKv(const Models::BatchDeleteKvRequest &request);
 
       /**
-       * @summary Batch deletes key-value pairs in the specified KV namespace based on a specified list of key names. The maximum request body size allowed is 100 MB.
+       * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
        *
-       * @description This operation has the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. When the request body is small, we recommend that you directly use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. Take the Golang SDK as an example. You need to use the BatchDeleteKvWithHighCapacityAdvance function to call it.
+       * @description >Notice: 
+       * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
+       * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
        * ```
        * func TestBatchDeleteWithHighCapacity() error {
-       * 	// Initialize configuration
+       * 	// Initialize the configuration
        * 	cfg := new(openapi.Config)
        * 	cfg.SetAccessKeyId("xxxxxxxxx")
        * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -161,8 +169,8 @@ namespace ESA20240910
        * 	if err != nil {
        * 		return err
        * 	}
-       * 	runtime := &util.RuntimeOptions{}
-       * 	// Construct the request for the key-value pairs to be batch deleted
+       * 	runtime := &util.RuntimeOptions{}.
+       * 	// Construct the batch delete request for key-value pairs
        * 	namespace := "test_batch_put"
        * 	rawReq := BatchDeleteKvRequest{
        * 		Namespace: &namespace,
@@ -174,8 +182,8 @@ namespace ESA20240910
        * 	payload, err := json.Marshal(rawReq)
        * 	if err != nil {
        * 		return err
-       * 	}
-       * 	// If the payload is larger than 2 MB, call the high-capacity operation to perform deletion
+       * 	}.
+       * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
        * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
        * 		Namespace: &namespace,
        * 		UrlObject: bytes.NewReader(payload),
@@ -185,7 +193,7 @@ namespace ESA20240910
        * 		return err
        * 	}
        * 	return nil
-       * }
+       * }.
        *
        * @param request BatchDeleteKvWithHighCapacityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -194,12 +202,14 @@ namespace ESA20240910
       Models::BatchDeleteKvWithHighCapacityResponse batchDeleteKvWithHighCapacityWithOptions(const Models::BatchDeleteKvWithHighCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch deletes key-value pairs in the specified KV namespace based on a specified list of key names. The maximum request body size allowed is 100 MB.
+       * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
        *
-       * @description This operation has the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. When the request body is small, we recommend that you directly use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. Take the Golang SDK as an example. You need to use the BatchDeleteKvWithHighCapacityAdvance function to call it.
+       * @description >Notice: 
+       * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
+       * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
        * ```
        * func TestBatchDeleteWithHighCapacity() error {
-       * 	// Initialize configuration
+       * 	// Initialize the configuration
        * 	cfg := new(openapi.Config)
        * 	cfg.SetAccessKeyId("xxxxxxxxx")
        * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -207,8 +217,8 @@ namespace ESA20240910
        * 	if err != nil {
        * 		return err
        * 	}
-       * 	runtime := &util.RuntimeOptions{}
-       * 	// Construct the request for the key-value pairs to be batch deleted
+       * 	runtime := &util.RuntimeOptions{}.
+       * 	// Construct the batch delete request for key-value pairs
        * 	namespace := "test_batch_put"
        * 	rawReq := BatchDeleteKvRequest{
        * 		Namespace: &namespace,
@@ -220,8 +230,8 @@ namespace ESA20240910
        * 	payload, err := json.Marshal(rawReq)
        * 	if err != nil {
        * 		return err
-       * 	}
-       * 	// If the payload is larger than 2 MB, call the high-capacity operation to perform deletion
+       * 	}.
+       * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
        * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
        * 		Namespace: &namespace,
        * 		UrlObject: bytes.NewReader(payload),
@@ -231,7 +241,7 @@ namespace ESA20240910
        * 		return err
        * 	}
        * 	return nil
-       * }
+       * }.
        *
        * @param request BatchDeleteKvWithHighCapacityRequest
        * @return BatchDeleteKvWithHighCapacityResponse
@@ -275,12 +285,12 @@ namespace ESA20240910
       Models::BatchPutKvResponse batchPutKv(const Models::BatchPutKvRequest &request);
 
       /**
-       * @summary Writes key-value pairs in a batch to a specified namespace. This API supports a request body of up to 100 MB.
+       * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
        *
-       * @description This API is similar to the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API but supports a larger request body. For smaller request bodies, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API for faster server-side processing. You must use an SDK to call this API. For example, if you use the Go SDK, you must call the BatchPutKvWithHighCapacityAdvance function.
+       * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
        * ```
        * func TestBatchPutKvWithHighCapacity() error {
-       * 	// Initialize the configuration.
+       * 	// Initialize the configuration
        * 	cfg := new(openapi.Config)
        * 	cfg.SetAccessKeyId("xxxxxxxxx")
        * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -288,8 +298,8 @@ namespace ESA20240910
        * 	if err != nil {
        * 		return err
        * 	}
-       * 	runtime := &util.RuntimeOptions{}
-       * 	// Construct the request for batch-uploading key-value pairs.
+       * 	runtime := &util.RuntimeOptions{}.
+       * 	// Construct the key-value pairs for batch upload
        * 	namespace := "test_batch_put"
        * 	numKv := 10000
        * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -305,12 +315,12 @@ namespace ESA20240910
        * 	rawReq := BatchPutKvRequest{
        * 		Namespace: &namespace,
        * 		KvList:    kvList,
-       * 	}
+       * 	}.
        * 	payload, err := json.Marshal(rawReq)
        * 	if err != nil {
        * 		return err
-       * 	}
-       * 	// If the payload is larger than 2 MB, call the high-capacity API to upload it.
+       * 	}.
+       * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
        * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
        * 		Namespace: &namespace,
        * 		UrlObject: bytes.NewReader(payload),
@@ -320,8 +330,7 @@ namespace ESA20240910
        * 		return err
        * 	}
        * 	return nil
-       * }
-       * ```
+       * }.
        *
        * @param request BatchPutKvWithHighCapacityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -330,12 +339,12 @@ namespace ESA20240910
       Models::BatchPutKvWithHighCapacityResponse batchPutKvWithHighCapacityWithOptions(const Models::BatchPutKvWithHighCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Writes key-value pairs in a batch to a specified namespace. This API supports a request body of up to 100 MB.
+       * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
        *
-       * @description This API is similar to the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API but supports a larger request body. For smaller request bodies, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) API for faster server-side processing. You must use an SDK to call this API. For example, if you use the Go SDK, you must call the BatchPutKvWithHighCapacityAdvance function.
+       * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
        * ```
        * func TestBatchPutKvWithHighCapacity() error {
-       * 	// Initialize the configuration.
+       * 	// Initialize the configuration
        * 	cfg := new(openapi.Config)
        * 	cfg.SetAccessKeyId("xxxxxxxxx")
        * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -343,8 +352,8 @@ namespace ESA20240910
        * 	if err != nil {
        * 		return err
        * 	}
-       * 	runtime := &util.RuntimeOptions{}
-       * 	// Construct the request for batch-uploading key-value pairs.
+       * 	runtime := &util.RuntimeOptions{}.
+       * 	// Construct the key-value pairs for batch upload
        * 	namespace := "test_batch_put"
        * 	numKv := 10000
        * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -360,12 +369,12 @@ namespace ESA20240910
        * 	rawReq := BatchPutKvRequest{
        * 		Namespace: &namespace,
        * 		KvList:    kvList,
-       * 	}
+       * 	}.
        * 	payload, err := json.Marshal(rawReq)
        * 	if err != nil {
        * 		return err
-       * 	}
-       * 	// If the payload is larger than 2 MB, call the high-capacity API to upload it.
+       * 	}.
+       * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
        * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
        * 		Namespace: &namespace,
        * 		UrlObject: bytes.NewReader(payload),
@@ -375,8 +384,7 @@ namespace ESA20240910
        * 		return err
        * 	}
        * 	return nil
-       * }
-       * ```
+       * }.
        *
        * @param request BatchPutKvWithHighCapacityRequest
        * @return BatchPutKvWithHighCapacityResponse
@@ -486,7 +494,7 @@ namespace ESA20240910
       Models::CheckUserProjectNameResponse checkUserProjectName(const Models::CheckUserProjectNameRequest &request);
 
       /**
-       * @summary Submits the test (unstable) version code of an edge function (Routine) and generates a formal version.
+       * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -495,7 +503,7 @@ namespace ESA20240910
       Models::CommitRoutineStagingCodeResponse commitRoutineStagingCodeWithOptions(const Models::CommitRoutineStagingCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits the test (unstable) version code of an edge function (Routine) and generates a formal version.
+       * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @return CommitRoutineStagingCodeResponse
@@ -537,7 +545,7 @@ namespace ESA20240910
       Models::CreateClientCertificateResponse createClientCertificate(const Models::CreateClientCertificateRequest &request);
 
       /**
-       * @summary Add a compression rule for a site.
+       * @summary Creates a compression rule configuration for a site.
        *
        * @param request CreateCompressionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -546,7 +554,7 @@ namespace ESA20240910
       Models::CreateCompressionRuleResponse createCompressionRuleWithOptions(const Models::CreateCompressionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add a compression rule for a site.
+       * @summary Creates a compression rule configuration for a site.
        *
        * @param request CreateCompressionRuleRequest
        * @return CreateCompressionRuleResponse
@@ -554,10 +562,10 @@ namespace ESA20240910
       Models::CreateCompressionRuleResponse createCompressionRule(const Models::CreateCompressionRuleRequest &request);
 
       /**
-       * @summary Creates a custom hostname for a site.
+       * @summary Creates a SaaS domain name for a site.
        *
-       * @description - If you set the acceleration region to **Chinese mainland only** or **global**, your site must have an ICP filing.
-       * - Each user can call this operation up to 100 times per hour.
+       * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+       * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateCustomHostnameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -566,10 +574,10 @@ namespace ESA20240910
       Models::CreateCustomHostnameResponse createCustomHostnameWithOptions(const Models::CreateCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom hostname for a site.
+       * @summary Creates a SaaS domain name for a site.
        *
-       * @description - If you set the acceleration region to **Chinese mainland only** or **global**, your site must have an ICP filing.
-       * - Each user can call this operation up to 100 times per hour.
+       * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+       * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateCustomHostnameRequest
        * @return CreateCustomHostnameResponse
@@ -577,7 +585,7 @@ namespace ESA20240910
       Models::CreateCustomHostnameResponse createCustomHostname(const Models::CreateCustomHostnameRequest &request);
 
       /**
-       * @summary Add a custom response code configuration for a site.
+       * @summary Creates a custom response code rule for a site.
        *
        * @param request CreateCustomResponseCodeRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,7 +594,7 @@ namespace ESA20240910
       Models::CreateCustomResponseCodeRuleResponse createCustomResponseCodeRuleWithOptions(const Models::CreateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add a custom response code configuration for a site.
+       * @summary Creates a custom response code rule for a site.
        *
        * @param request CreateCustomResponseCodeRuleRequest
        * @return CreateCustomResponseCodeRuleResponse
@@ -679,7 +687,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersion(const Models::CreateEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary Adds a configuration for modifying a site\\"s HTTP inbound request headers.
+       * @summary Creates a configuration for modifying HTTP inbound request headers for a site.
        *
        * @param tmpReq CreateHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -688,7 +696,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a configuration for modifying a site\\"s HTTP inbound request headers.
+       * @summary Creates a configuration for modifying HTTP inbound request headers for a site.
        *
        * @param request CreateHttpIncomingRequestHeaderModificationRuleRequest
        * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
@@ -696,7 +704,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRule(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary Creates a configuration to modify HTTP inbound response headers for a site.
+       * @summary Creates a configuration for modifying HTTP inbound response headers for a site.
        *
        * @param tmpReq CreateHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -705,7 +713,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingResponseHeaderModificationRuleResponse createHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a configuration to modify HTTP inbound response headers for a site.
+       * @summary Creates a configuration for modifying HTTP inbound response headers for a site.
        *
        * @param request CreateHttpIncomingResponseHeaderModificationRuleRequest
        * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
@@ -1094,7 +1102,7 @@ namespace ESA20240910
       Models::CreateRoutineWithAssetsCodeVersionResponse createRoutineWithAssetsCodeVersion(const Models::CreateRoutineWithAssetsCodeVersionRequest &request);
 
       /**
-       * @summary Plan to batch add scheduled prefetch tasks.
+       * @summary Creates execution plans for batch scheduled prefetch tasks.
        *
        * @param tmpReq CreateScheduledPreloadExecutionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1103,7 +1111,7 @@ namespace ESA20240910
       Models::CreateScheduledPreloadExecutionsResponse createScheduledPreloadExecutionsWithOptions(const Models::CreateScheduledPreloadExecutionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Plan to batch add scheduled prefetch tasks.
+       * @summary Creates execution plans for batch scheduled prefetch tasks.
        *
        * @param request CreateScheduledPreloadExecutionsRequest
        * @return CreateScheduledPreloadExecutionsResponse
@@ -1111,7 +1119,7 @@ namespace ESA20240910
       Models::CreateScheduledPreloadExecutionsResponse createScheduledPreloadExecutions(const Models::CreateScheduledPreloadExecutionsRequest &request);
 
       /**
-       * @summary Create a scheduled prefetch task.
+       * @summary Add a scheduled prefetch task.
        *
        * @param request CreateScheduledPreloadJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1120,7 +1128,7 @@ namespace ESA20240910
       Models::CreateScheduledPreloadJobResponse createScheduledPreloadJobWithOptions(const Models::CreateScheduledPreloadJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a scheduled prefetch task.
+       * @summary Add a scheduled prefetch task.
        *
        * @param request CreateScheduledPreloadJobRequest
        * @return CreateScheduledPreloadJobResponse
@@ -1369,7 +1377,7 @@ namespace ESA20240910
       Models::CreateWafRulesetResponse createWafRuleset(const Models::CreateWafRulesetRequest &request);
 
       /**
-       * @summary Create a site waiting room.
+       * @summary Creates a waiting room for a website.
        *
        * @param tmpReq CreateWaitingRoomRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1378,7 +1386,7 @@ namespace ESA20240910
       Models::CreateWaitingRoomResponse createWaitingRoomWithOptions(const Models::CreateWaitingRoomRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a site waiting room.
+       * @summary Creates a waiting room for a website.
        *
        * @param request CreateWaitingRoomRequest
        * @return CreateWaitingRoomResponse
@@ -1386,9 +1394,9 @@ namespace ESA20240910
       Models::CreateWaitingRoomResponse createWaitingRoom(const Models::CreateWaitingRoomRequest &request);
 
       /**
-       * @summary Creates a waiting room event with options for queuing method and type.
+       * @summary Creates a waiting room event. You can specify the queuing method and type.
        *
-       * @description Your site plan must be Advanced Edition or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+       * @description Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
        *
        * @param request CreateWaitingRoomEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1397,9 +1405,9 @@ namespace ESA20240910
       Models::CreateWaitingRoomEventResponse createWaitingRoomEventWithOptions(const Models::CreateWaitingRoomEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a waiting room event with options for queuing method and type.
+       * @summary Creates a waiting room event. You can specify the queuing method and type.
        *
-       * @description Your site plan must be Advanced Edition or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+       * @description Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
        *
        * @param request CreateWaitingRoomEventRequest
        * @return CreateWaitingRoomEventResponse
@@ -2400,7 +2408,7 @@ namespace ESA20240910
       Models::DescribeBotPriceResponse describeBotPrice(const Models::DescribeBotPriceRequest &request);
 
       /**
-       * @summary Invokes DescribeCacheReservePrice to query the query cache reserve instance price.
+       * @summary Invokes DescribeCacheReservePrice to query the price of a query cache reserve instance.
        *
        * @param request DescribeCacheReservePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2409,7 +2417,7 @@ namespace ESA20240910
       Models::DescribeCacheReservePriceResponse describeCacheReservePriceWithOptions(const Models::DescribeCacheReservePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes DescribeCacheReservePrice to query the query cache reserve instance price.
+       * @summary Invokes DescribeCacheReservePrice to query the price of a query cache reserve instance.
        *
        * @param request DescribeCacheReservePriceRequest
        * @return DescribeCacheReservePriceResponse
@@ -2483,6 +2491,40 @@ namespace ESA20240910
        * @return DescribeDDoSBpsListResponse
        */
       Models::DescribeDDoSBpsListResponse describeDDoSBpsList(const Models::DescribeDDoSBpsListRequest &request);
+
+      /**
+       * @summary Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+       *
+       * @param request DescribeDDoSBpsMaxRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDDoSBpsMaxResponse
+       */
+      Models::DescribeDDoSBpsMaxResponse describeDDoSBpsMaxWithOptions(const Models::DescribeDDoSBpsMaxRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+       *
+       * @param request DescribeDDoSBpsMaxRequest
+       * @return DescribeDDoSBpsMaxResponse
+       */
+      Models::DescribeDDoSBpsMaxResponse describeDDoSBpsMax(const Models::DescribeDDoSBpsMaxRequest &request);
+
+      /**
+       * @summary Queries the peak values of DDoS attack events within a specified time range.
+       *
+       * @param request DescribeDDoSEventMaxRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDDoSEventMaxResponse
+       */
+      Models::DescribeDDoSEventMaxResponse describeDDoSEventMaxWithOptions(const Models::DescribeDDoSEventMaxRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the peak values of DDoS attack events within a specified time range.
+       *
+       * @param request DescribeDDoSEventMaxRequest
+       * @return DescribeDDoSEventMaxResponse
+       */
+      Models::DescribeDDoSEventMaxResponse describeDDoSEventMax(const Models::DescribeDDoSEventMaxRequest &request);
 
       /**
        * @summary DDoS Analysis Layer 7 QPS Trend Chart API
@@ -2653,7 +2695,7 @@ namespace ESA20240910
       Models::DescribePreloadTasksResponse describePreloadTasks(const Models::DescribePreloadTasksRequest &request);
 
       /**
-       * @summary Queries purge tasks.
+       * @summary Queries the execution status of a refresh task.
        *
        * @param request DescribePurgeTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2662,7 +2704,7 @@ namespace ESA20240910
       Models::DescribePurgeTasksResponse describePurgeTasksWithOptions(const Models::DescribePurgeTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries purge tasks.
+       * @summary Queries the execution status of a refresh task.
        *
        * @param request DescribePurgeTasksRequest
        * @return DescribePurgeTasksResponse
@@ -2818,9 +2860,9 @@ namespace ESA20240910
       Models::DescribeSiteTopDataResponse describeSiteTopData(const Models::DescribeSiteTopDataRequest &request);
 
       /**
-       * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+       * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
        *
-       * @description >Notice: Please ensure that the Layer 4 acceleration service is activated before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+       * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
        *
        * @param request DescribeTraceDiagnoseReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2829,9 +2871,9 @@ namespace ESA20240910
       Models::DescribeTraceDiagnoseReportResponse describeTraceDiagnoseReportWithOptions(const Models::DescribeTraceDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+       * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
        *
-       * @description >Notice: Please ensure that the Layer 4 acceleration service is activated before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain TaskId/TraceId. 4. Call this API to get the report.
+       * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
        *
        * @param request DescribeTraceDiagnoseReportRequest
        * @return DescribeTraceDiagnoseReportResponse
@@ -3262,7 +3304,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResponse getEdgeContainerApp(const Models::GetEdgeContainerAppRequest &request);
 
       /**
-       * @summary Queries the log collection configuration of a containerized application.
+       * @summary Retrieves the log collection configuration of an edge container application.
        *
        * @param request GetEdgeContainerAppLogRiverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3271,7 +3313,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiverWithOptions(const Models::GetEdgeContainerAppLogRiverRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log collection configuration of a containerized application.
+       * @summary Retrieves the log collection configuration of an edge container application.
        *
        * @param request GetEdgeContainerAppLogRiverRequest
        * @return GetEdgeContainerAppLogRiverResponse
@@ -3279,7 +3321,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiver(const Models::GetEdgeContainerAppLogRiverRequest &request);
 
       /**
-       * @summary Queries the resource capacity of a containerized application at the edge.
+       * @summary Get the resource capacity of an edge container application
        *
        * @param request GetEdgeContainerAppResourceCapacityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3288,7 +3330,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceCapacityResponse getEdgeContainerAppResourceCapacityWithOptions(const Models::GetEdgeContainerAppResourceCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resource capacity of a containerized application at the edge.
+       * @summary Get the resource capacity of an edge container application
        *
        * @param request GetEdgeContainerAppResourceCapacityRequest
        * @return GetEdgeContainerAppResourceCapacityResponse
@@ -3296,7 +3338,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceCapacityResponse getEdgeContainerAppResourceCapacity(const Models::GetEdgeContainerAppResourceCapacityRequest &request);
 
       /**
-       * @summary Obtain the resource reservation configuration of the edge container.
+       * @summary Retrieves the resource reservation configuration of an edge container application.
        *
        * @param request GetEdgeContainerAppResourceReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3305,7 +3347,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceReserveResponse getEdgeContainerAppResourceReserveWithOptions(const Models::GetEdgeContainerAppResourceReserveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain the resource reservation configuration of the edge container.
+       * @summary Retrieves the resource reservation configuration of an edge container application.
        *
        * @param request GetEdgeContainerAppResourceReserveRequest
        * @return GetEdgeContainerAppResourceReserveResponse
@@ -3364,7 +3406,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppVersionResponse getEdgeContainerAppVersion(const Models::GetEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary Queries regions where a containerized application is deployed based on the application ID.
+       * @summary Retrieves the deployment regions of an edge container application by application ID.
        *
        * @param request GetEdgeContainerDeployRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3373,7 +3415,7 @@ namespace ESA20240910
       Models::GetEdgeContainerDeployRegionsResponse getEdgeContainerDeployRegionsWithOptions(const Models::GetEdgeContainerDeployRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries regions where a containerized application is deployed based on the application ID.
+       * @summary Retrieves the deployment regions of an edge container application by application ID.
        *
        * @param request GetEdgeContainerDeployRegionsRequest
        * @return GetEdgeContainerDeployRegionsResponse
@@ -3381,7 +3423,7 @@ namespace ESA20240910
       Models::GetEdgeContainerDeployRegionsResponse getEdgeContainerDeployRegions(const Models::GetEdgeContainerDeployRegionsRequest &request);
 
       /**
-       * @summary Queries Edge Container logs.
+       * @summary Retrieves log information for an edge container. You can specify the number of output lines.
        *
        * @param request GetEdgeContainerLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3390,7 +3432,7 @@ namespace ESA20240910
       Models::GetEdgeContainerLogsResponse getEdgeContainerLogsWithOptions(const Models::GetEdgeContainerLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Edge Container logs.
+       * @summary Retrieves log information for an edge container. You can specify the number of output lines.
        *
        * @param request GetEdgeContainerLogsRequest
        * @return GetEdgeContainerLogsResponse
@@ -3398,7 +3440,7 @@ namespace ESA20240910
       Models::GetEdgeContainerLogsResponse getEdgeContainerLogs(const Models::GetEdgeContainerLogsRequest &request);
 
       /**
-       * @summary Queries the deployment status of an application in the staging environment by using the application ID.
+       * @summary Retrieves the staging environment deployment status of an application by application ID.
        *
        * @param request GetEdgeContainerStagingDeployStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3407,7 +3449,7 @@ namespace ESA20240910
       Models::GetEdgeContainerStagingDeployStatusResponse getEdgeContainerStagingDeployStatusWithOptions(const Models::GetEdgeContainerStagingDeployStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the deployment status of an application in the staging environment by using the application ID.
+       * @summary Retrieves the staging environment deployment status of an application by application ID.
        *
        * @param request GetEdgeContainerStagingDeployStatusRequest
        * @return GetEdgeContainerStagingDeployStatusResponse
@@ -3415,7 +3457,7 @@ namespace ESA20240910
       Models::GetEdgeContainerStagingDeployStatusResponse getEdgeContainerStagingDeployStatus(const Models::GetEdgeContainerStagingDeployStatusRequest &request);
 
       /**
-       * @summary Queries the terminal information of a containerized application.
+       * @summary Retrieves terminal information of an edge container application.
        *
        * @param request GetEdgeContainerTerminalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3424,7 +3466,7 @@ namespace ESA20240910
       Models::GetEdgeContainerTerminalResponse getEdgeContainerTerminalWithOptions(const Models::GetEdgeContainerTerminalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the terminal information of a containerized application.
+       * @summary Retrieves terminal information of an edge container application.
        *
        * @param request GetEdgeContainerTerminalRequest
        * @return GetEdgeContainerTerminalResponse
@@ -3825,7 +3867,7 @@ namespace ESA20240910
       Models::GetOriginPoolResponse getOriginPool(const Models::GetOriginPoolRequest &request);
 
       /**
-       * @summary This operation queries the origin protection settings for a site. These settings include the origin protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP address whitelist requires an update. The response also includes details about the whitelist, such as the current list, the latest list, and the differences between them.
+       * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
        *
        * @param request GetOriginProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3834,7 +3876,7 @@ namespace ESA20240910
       Models::GetOriginProtectionResponse getOriginProtectionWithOptions(const Models::GetOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation queries the origin protection settings for a site. These settings include the origin protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP address whitelist requires an update. The response also includes details about the whitelist, such as the current list, the latest list, and the differences between them.
+       * @summary Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
        *
        * @param request GetOriginProtectionRequest
        * @return GetOriginProtectionResponse
@@ -3876,7 +3918,7 @@ namespace ESA20240910
       Models::GetPageResponse getPage(const Models::GetPageRequest &request);
 
       /**
-       * @summary Retrieves the Collection Configuration for Data Quality.
+       * @summary Queries the data quality collection configuration.
        *
        * @param request GetPerformanceDataCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3885,7 +3927,7 @@ namespace ESA20240910
       Models::GetPerformanceDataCollectionResponse getPerformanceDataCollectionWithOptions(const Models::GetPerformanceDataCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the Collection Configuration for Data Quality.
+       * @summary Queries the data quality collection configuration.
        *
        * @param request GetPerformanceDataCollectionRequest
        * @return GetPerformanceDataCollectionResponse
@@ -3893,7 +3935,7 @@ namespace ESA20240910
       Models::GetPerformanceDataCollectionResponse getPerformanceDataCollection(const Models::GetPerformanceDataCollectionRequest &request);
 
       /**
-       * @summary Retrieves the total and used quota for different purge types.
+       * @summary Retrieves the quota and used quota for different refresh types.
        *
        * @param request GetPurgeQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3902,7 +3944,7 @@ namespace ESA20240910
       Models::GetPurgeQuotaResponse getPurgeQuotaWithOptions(const Models::GetPurgeQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the total and used quota for different purge types.
+       * @summary Retrieves the quota and used quota for different refresh types.
        *
        * @param request GetPurgeQuotaRequest
        * @return GetPurgeQuotaResponse
@@ -4029,6 +4071,29 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionResponse getRoutineCodeVersion(const Models::GetRoutineCodeVersionRequest &request);
 
       /**
+       * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+       *
+       * @description ## Operation description
+       * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+       *
+       * @param request GetRoutineCodeVersionInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRoutineCodeVersionInfoResponse
+       */
+      Models::GetRoutineCodeVersionInfoResponse getRoutineCodeVersionInfoWithOptions(const Models::GetRoutineCodeVersionInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+       *
+       * @description ## Operation description
+       * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+       *
+       * @param request GetRoutineCodeVersionInfoRequest
+       * @return GetRoutineCodeVersionInfoResponse
+       */
+      Models::GetRoutineCodeVersionInfoResponse getRoutineCodeVersionInfo(const Models::GetRoutineCodeVersionInfoRequest &request);
+
+      /**
        * @summary Retrieves a specific edge function route configuration.
        *
        * @param request GetRoutineRouteRequest
@@ -4099,7 +4164,7 @@ namespace ESA20240910
       Models::GetRoutineUserInfoResponse getRoutineUserInfo();
 
       /**
-       * @summary Queries a single scheduled preload job by its task ID.
+       * @summary Queries a single scheduled prefetch task by task ID.
        *
        * @param request GetScheduledPreloadJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4108,7 +4173,7 @@ namespace ESA20240910
       Models::GetScheduledPreloadJobResponse getScheduledPreloadJobWithOptions(const Models::GetScheduledPreloadJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a single scheduled preload job by its task ID.
+       * @summary Queries a single scheduled prefetch task by task ID.
        *
        * @param request GetScheduledPreloadJobRequest
        * @return GetScheduledPreloadJobResponse
@@ -4348,7 +4413,7 @@ namespace ESA20240910
       Models::GetTransportLayerApplicationResponse getTransportLayerApplication(const Models::GetTransportLayerApplicationRequest &request);
 
       /**
-       * @summary Queries the execution status and running information of a file upload task based on the task ID.
+       * @summary Queries the execution status and runtime information of a file upload task by task ID.
        *
        * @param request GetUploadTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4357,7 +4422,7 @@ namespace ESA20240910
       Models::GetUploadTaskResponse getUploadTaskWithOptions(const Models::GetUploadTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution status and running information of a file upload task based on the task ID.
+       * @summary Queries the execution status and runtime information of a file upload task by task ID.
        *
        * @param request GetUploadTaskRequest
        * @return GetUploadTaskResponse
@@ -4549,7 +4614,7 @@ namespace ESA20240910
       Models::ListCacheReserveInstancesResponse listCacheReserveInstances(const Models::ListCacheReserveInstancesRequest &request);
 
       /**
-       * @summary Lists cache configurations.
+       * @summary Queries multiple cache configurations.
        *
        * @param request ListCacheRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4558,7 +4623,7 @@ namespace ESA20240910
       Models::ListCacheRulesResponse listCacheRulesWithOptions(const Models::ListCacheRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists cache configurations.
+       * @summary Queries multiple cache configurations.
        *
        * @param request ListCacheRulesRequest
        * @return ListCacheRulesResponse
@@ -4757,7 +4822,7 @@ namespace ESA20240910
       Models::ListESAIPInfoResponse listESAIPInfo(const Models::ListESAIPInfoRequest &request);
 
       /**
-       * @summary Retrieve the list of image secrets for edge container applications
+       * @summary Retrieves the list of image secrets for an edge container application.
        *
        * @param request ListEdgeContainerAppImageSecretsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4766,7 +4831,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppImageSecretsResponse listEdgeContainerAppImageSecretsWithOptions(const Models::ListEdgeContainerAppImageSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the list of image secrets for edge container applications
+       * @summary Retrieves the list of image secrets for an edge container application.
        *
        * @param request ListEdgeContainerAppImageSecretsRequest
        * @return ListEdgeContainerAppImageSecretsResponse
@@ -5048,7 +5113,7 @@ namespace ESA20240910
       Models::ListKeylessServersResponse listKeylessServers(const Models::ListKeylessServersRequest &request);
 
       /**
-       * @summary Lists all key-value pairs in a specified namespace.
+       * @summary Lists all key-value pairs in a specified KV storage namespace under your account.
        *
        * @param request ListKvsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5057,7 +5122,7 @@ namespace ESA20240910
       Models::ListKvsResponse listKvsWithOptions(const Models::ListKvsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all key-value pairs in a specified namespace.
+       * @summary Lists all key-value pairs in a specified KV storage namespace under your account.
        *
        * @param request ListKvsRequest
        * @return ListKvsResponse
@@ -5359,10 +5424,10 @@ namespace ESA20240910
       Models::ListRoutineCanaryAreasResponse listRoutineCanaryAreas();
 
       /**
-       * @summary Performs a paged query to retrieve the code version information of a specified Edge Routine program.
+       * @summary Queries the code version information of a specified Edge Routine program by paging.
        *
-       * @description Queries the code version list of a specified Edge Routine program. This operation supports paged query and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy match on code version descriptions.
-       * The response includes details of each code version, such as the revision number, description, and creation time.
+       * @description Queries the code version list of a specified Edge Routine program. This operation supports paging and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy matching against code version descriptions.
+       * The response includes detailed information about each code version, such as the revision number, description, and creation time.
        *
        * @param request ListRoutineCodeVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5371,10 +5436,10 @@ namespace ESA20240910
       Models::ListRoutineCodeVersionsResponse listRoutineCodeVersionsWithOptions(const Models::ListRoutineCodeVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query to retrieve the code version information of a specified Edge Routine program.
+       * @summary Queries the code version information of a specified Edge Routine program by paging.
        *
-       * @description Queries the code version list of a specified Edge Routine program. This operation supports paged query and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy match on code version descriptions.
-       * The response includes details of each code version, such as the revision number, description, and creation time.
+       * @description Queries the code version list of a specified Edge Routine program. This operation supports paging and fuzzy search. You can set the Name parameter to specify the Edge Routine program name, use PageNumber and PageSize for paging control, and use SearchKeyWord for fuzzy matching against code version descriptions.
+       * The response includes detailed information about each code version, such as the revision number, description, and creation time.
        *
        * @param request ListRoutineCodeVersionsRequest
        * @return ListRoutineCodeVersionsResponse
@@ -5420,7 +5485,7 @@ namespace ESA20240910
       Models::ListRoutineRoutesResponse listRoutineRoutes(const Models::ListRoutineRoutesRequest &request);
 
       /**
-       * @summary Lists execution plans for a scheduled preload task.
+       * @summary Lists the execution plans of a specified scheduled prefetch task by task ID.
        *
        * @param request ListScheduledPreloadExecutionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5429,7 +5494,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadExecutionsResponse listScheduledPreloadExecutionsWithOptions(const Models::ListScheduledPreloadExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists execution plans for a scheduled preload task.
+       * @summary Lists the execution plans of a specified scheduled prefetch task by task ID.
        *
        * @param request ListScheduledPreloadExecutionsRequest
        * @return ListScheduledPreloadExecutionsResponse
@@ -5437,7 +5502,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadExecutionsResponse listScheduledPreloadExecutions(const Models::ListScheduledPreloadExecutionsRequest &request);
 
       /**
-       * @summary Lists scheduled prefetch jobs for a site.
+       * @summary Lists scheduled prefetch tasks for a site.
        *
        * @param request ListScheduledPreloadJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5446,7 +5511,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadJobsResponse listScheduledPreloadJobsWithOptions(const Models::ListScheduledPreloadJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists scheduled prefetch jobs for a site.
+       * @summary Lists scheduled prefetch tasks for a site.
        *
        * @param request ListScheduledPreloadJobsRequest
        * @return ListScheduledPreloadJobsResponse
@@ -5573,7 +5638,7 @@ namespace ESA20240910
       Models::ListTransportLayerApplicationsResponse listTransportLayerApplications(const Models::ListTransportLayerApplicationsRequest &request);
 
       /**
-       * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
+       * @summary Lists the execution status and runtime information of file upload tasks by time and type.
        *
        * @param request ListUploadTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5582,7 +5647,7 @@ namespace ESA20240910
       Models::ListUploadTasksResponse listUploadTasksWithOptions(const Models::ListUploadTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
+       * @summary Lists the execution status and runtime information of file upload tasks by time and type.
        *
        * @param request ListUploadTasksRequest
        * @return ListUploadTasksResponse
@@ -5875,6 +5940,23 @@ namespace ESA20240910
       Models::ListWaitingRoomsResponse listWaitingRooms(const Models::ListWaitingRoomsRequest &request);
 
       /**
+       * @summary Activates the edge container service.
+       *
+       * @param request OpenEdgeContainerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OpenEdgeContainerResponse
+       */
+      Models::OpenEdgeContainerResponse openEdgeContainerWithOptions(const Models::OpenEdgeContainerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Activates the edge container service.
+       *
+       * @param request OpenEdgeContainerRequest
+       * @return OpenEdgeContainerResponse
+       */
+      Models::OpenEdgeContainerResponse openEdgeContainer(const Models::OpenEdgeContainerRequest &request);
+
+      /**
        * @summary OpenErService
        *
        * @param request OpenErServiceRequest
@@ -5892,7 +5974,7 @@ namespace ESA20240910
       Models::OpenErServiceResponse openErService(const Models::OpenErServiceRequest &request);
 
       /**
-       * @summary Prefetches cache.
+       * @summary Prefetches resources.
        *
        * @param tmpReq PreloadCachesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5901,7 +5983,7 @@ namespace ESA20240910
       Models::PreloadCachesResponse preloadCachesWithOptions(const Models::PreloadCachesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Prefetches cache.
+       * @summary Prefetches resources.
        *
        * @param request PreloadCachesRequest
        * @return PreloadCachesResponse
@@ -5926,7 +6008,7 @@ namespace ESA20240910
       Models::PublishEdgeContainerAppVersionResponse publishEdgeContainerAppVersion(const Models::PublishEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 发布Routine某版本代码
+       * @summary Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
        *
        * @param request PublishRoutineCodeVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5935,7 +6017,7 @@ namespace ESA20240910
       Models::PublishRoutineCodeVersionResponse publishRoutineCodeVersionWithOptions(const Models::PublishRoutineCodeVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布Routine某版本代码
+       * @summary Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
        *
        * @param request PublishRoutineCodeVersionRequest
        * @return PublishRoutineCodeVersionResponse
@@ -5983,7 +6065,7 @@ namespace ESA20240910
       Models::PurchaseRatePlanResponse purchaseRatePlan(const Models::PurchaseRatePlanRequest &request);
 
       /**
-       * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+       * @summary Refreshes file content on nodes. Supports refreshing by file, directory, cache tag, ignored parameters, hostname, and entire site.
        *
        * @param tmpReq PurgeCachesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5992,7 +6074,7 @@ namespace ESA20240910
       Models::PurgeCachesResponse purgeCachesWithOptions(const Models::PurgeCachesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+       * @summary Refreshes file content on nodes. Supports refreshing by file, directory, cache tag, ignored parameters, hostname, and entire site.
        *
        * @param request PurgeCachesRequest
        * @return PurgeCachesResponse
@@ -6017,12 +6099,12 @@ namespace ESA20240910
       Models::PutKvResponse putKv(const Models::PutKvRequest &request);
 
       /**
-       * @summary Set a single high-capacity key-value pair in a KV namespace. This operation supports values up to 25 MB.
+       * @summary Sets a single large-capacity key-value pair in a KV namespace. The maximum value size is 25 MB.
        *
-       * @description This interface provides the same functionality as [PutKv](~~PutKv~~), but supports larger request bodies. If your request body is small, use the [PutKv](~~PutKv~~) interface instead to reduce server-side processing time. Call this interface using an SDK. For example, with the Go SDK, call the PutKvWithHighCapacityAdvance function.
+       * @description This operation provides the same functionality as [PutKv](~~PutKv~~), but allows you to upload a larger request body. If the request body is small, use the [PutKv](~~PutKv~~) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when you use the Golang SDK, call the PutKvWithHighCapacityAdvance function.
        * ```
        * func TestPutKvWithHighCapacity() {
-       * 	// Configure initialization
+       * 	// Configuration initialization
        * 	cfg := new(openapi.Config)
        * 	cfg.SetAccessKeyId("xxxxxxxxx")
        * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -6030,8 +6112,8 @@ namespace ESA20240910
        * 	if err != nil {
        * 		return err
        * 	}
-       * 	runtime := &util.RuntimeOptions{}
-       * 	// Construct the key-value pair request to be uploaded
+       * 	runtime := &util.RuntimeOptions{}.
+       * 	// Construct the key-value pair request to upload
        * 	namespace := "test-put-kv"
        * 	key := "test_PutKvWithHighCapacity_0"
        * 	value := strings.Repeat("t", 10*1024*1024)
@@ -6043,20 +6125,19 @@ namespace ESA20240910
        * 	payload, err := json.Marshal(rawReq)
        * 	if err != nil {
        * 		return err
-       * 	}
-       * 	// If the payload is larger than 2 MB, call the high-capacity interface to upload
+       * 	}.
+       * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
        * 	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
        * 		Namespace: &namespace,
        * 		Key:       &key,
        * 		UrlObject: bytes.NewReader([]byte(payload)),
-       * 	}
+       * 	}.
        * 	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
        * 	if err != nil {
        * 		return err
        * 	}
        * 	return nil
-       * }
-       * ```
+       * }.
        *
        * @param request PutKvWithHighCapacityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6065,12 +6146,12 @@ namespace ESA20240910
       Models::PutKvWithHighCapacityResponse putKvWithHighCapacityWithOptions(const Models::PutKvWithHighCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Set a single high-capacity key-value pair in a KV namespace. This operation supports values up to 25 MB.
+       * @summary Sets a single large-capacity key-value pair in a KV namespace. The maximum value size is 25 MB.
        *
-       * @description This interface provides the same functionality as [PutKv](~~PutKv~~), but supports larger request bodies. If your request body is small, use the [PutKv](~~PutKv~~) interface instead to reduce server-side processing time. Call this interface using an SDK. For example, with the Go SDK, call the PutKvWithHighCapacityAdvance function.
+       * @description This operation provides the same functionality as [PutKv](~~PutKv~~), but allows you to upload a larger request body. If the request body is small, use the [PutKv](~~PutKv~~) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when you use the Golang SDK, call the PutKvWithHighCapacityAdvance function.
        * ```
        * func TestPutKvWithHighCapacity() {
-       * 	// Configure initialization
+       * 	// Configuration initialization
        * 	cfg := new(openapi.Config)
        * 	cfg.SetAccessKeyId("xxxxxxxxx")
        * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -6078,8 +6159,8 @@ namespace ESA20240910
        * 	if err != nil {
        * 		return err
        * 	}
-       * 	runtime := &util.RuntimeOptions{}
-       * 	// Construct the key-value pair request to be uploaded
+       * 	runtime := &util.RuntimeOptions{}.
+       * 	// Construct the key-value pair request to upload
        * 	namespace := "test-put-kv"
        * 	key := "test_PutKvWithHighCapacity_0"
        * 	value := strings.Repeat("t", 10*1024*1024)
@@ -6091,20 +6172,19 @@ namespace ESA20240910
        * 	payload, err := json.Marshal(rawReq)
        * 	if err != nil {
        * 		return err
-       * 	}
-       * 	// If the payload is larger than 2 MB, call the high-capacity interface to upload
+       * 	}.
+       * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
        * 	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
        * 		Namespace: &namespace,
        * 		Key:       &key,
        * 		UrlObject: bytes.NewReader([]byte(payload)),
-       * 	}
+       * 	}.
        * 	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
        * 	if err != nil {
        * 		return err
        * 	}
        * 	return nil
-       * }
-       * ```
+       * }.
        *
        * @param request PutKvWithHighCapacityRequest
        * @return PutKvWithHighCapacityResponse
@@ -6114,7 +6194,7 @@ namespace ESA20240910
       Models::PutKvWithHighCapacityResponse putKvWithHighCapacityAdvance(const Models::PutKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Rebuilds the staging environment for containerized applications.
+       * @summary Rebuild the staging environment of an edge container application.
        *
        * @param request RebuildEdgeContainerAppStagingEnvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6123,7 +6203,7 @@ namespace ESA20240910
       Models::RebuildEdgeContainerAppStagingEnvResponse rebuildEdgeContainerAppStagingEnvWithOptions(const Models::RebuildEdgeContainerAppStagingEnvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Rebuilds the staging environment for containerized applications.
+       * @summary Rebuild the staging environment of an edge container application.
        *
        * @param request RebuildEdgeContainerAppStagingEnvRequest
        * @return RebuildEdgeContainerAppStagingEnvResponse
@@ -6148,8 +6228,8 @@ namespace ESA20240910
       Models::ReleaseInstanceResponse releaseInstance(const Models::ReleaseInstanceRequest &request);
 
       /**
-       * @summary Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
-       * Prerequisites: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
+       * @summary Resets the progress of a scheduled preload job and restarts the preload from the beginning.
+       * Prerequisite: You must first create a scheduled preload job by calling CreateScheduledPreloadJob to obtain a valid job ID, and then pass it to this API for resetting.
        *
        * @param request ResetScheduledPreloadJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6158,8 +6238,8 @@ namespace ESA20240910
       Models::ResetScheduledPreloadJobResponse resetScheduledPreloadJobWithOptions(const Models::ResetScheduledPreloadJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
-       * Prerequisites: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
+       * @summary Resets the progress of a scheduled preload job and restarts the preload from the beginning.
+       * Prerequisite: You must first create a scheduled preload job by calling CreateScheduledPreloadJob to obtain a valid job ID, and then pass it to this API for resetting.
        *
        * @param request ResetScheduledPreloadJobRequest
        * @return ResetScheduledPreloadJobResponse
@@ -6388,7 +6468,7 @@ namespace ESA20240910
       Models::SetOriginClientCertificateHostnamesResponse setOriginClientCertificateHostnames(const Models::SetOriginClientCertificateHostnamesRequest &request);
 
       /**
-       * @summary Start a scheduled prefetch using a prefetch plan ID.
+       * @summary Starts a scheduled prefetch based on the prefetch plan ID.
        *
        * @param request StartScheduledPreloadExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6397,7 +6477,7 @@ namespace ESA20240910
       Models::StartScheduledPreloadExecutionResponse startScheduledPreloadExecutionWithOptions(const Models::StartScheduledPreloadExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Start a scheduled prefetch using a prefetch plan ID.
+       * @summary Starts a scheduled prefetch based on the prefetch plan ID.
        *
        * @param request StartScheduledPreloadExecutionRequest
        * @return StartScheduledPreloadExecutionResponse
@@ -6406,7 +6486,7 @@ namespace ESA20240910
 
       /**
        * @summary Stops a single scheduled prefetch plan by prefetch plan ID.
-       * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the site to which it belongs has passed the access verification (site Status=active).
+       * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
        *
        * @param request StopScheduledPreloadExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6416,7 +6496,7 @@ namespace ESA20240910
 
       /**
        * @summary Stops a single scheduled prefetch plan by prefetch plan ID.
-       * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the site to which it belongs has passed the access verification (site Status=active).
+       * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
        *
        * @param request StopScheduledPreloadExecutionRequest
        * @return StopScheduledPreloadExecutionResponse
@@ -6645,7 +6725,7 @@ namespace ESA20240910
       Models::UpdateDevelopmentModeResponse updateDevelopmentMode(const Models::UpdateDevelopmentModeRequest &request);
 
       /**
-       * @summary Updates the log collection configuration of a containerized application.
+       * @summary Updates the log collection configuration of an edge container application.
        *
        * @param request UpdateEdgeContainerAppLogRiverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6654,7 +6734,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppLogRiverResponse updateEdgeContainerAppLogRiverWithOptions(const Models::UpdateEdgeContainerAppLogRiverRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the log collection configuration of a containerized application.
+       * @summary Updates the log collection configuration of an edge container application.
        *
        * @param request UpdateEdgeContainerAppLogRiverRequest
        * @return UpdateEdgeContainerAppLogRiverResponse
@@ -6662,7 +6742,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppLogRiverResponse updateEdgeContainerAppLogRiver(const Models::UpdateEdgeContainerAppLogRiverRequest &request);
 
       /**
-       * @summary Updates the resource reservation configuration of an edge container.
+       * @summary Updates the resource reservation configuration of an edge container application.
        *
        * @param tmpReq UpdateEdgeContainerAppResourceReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6671,7 +6751,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppResourceReserveResponse updateEdgeContainerAppResourceReserveWithOptions(const Models::UpdateEdgeContainerAppResourceReserveRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the resource reservation configuration of an edge container.
+       * @summary Updates the resource reservation configuration of an edge container application.
        *
        * @param request UpdateEdgeContainerAppResourceReserveRequest
        * @return UpdateEdgeContainerAppResourceReserveResponse
@@ -7107,7 +7187,7 @@ namespace ESA20240910
       Models::UpdateRoutineRouteResponse updateRoutineRoute(const Models::UpdateRoutineRouteRequest &request);
 
       /**
-       * @summary Updates a scheduled preload task based on the preload plan ID.
+       * @summary Updates a scheduled prefetch plan by prefetch plan ID.
        *
        * @param request UpdateScheduledPreloadExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7116,7 +7196,7 @@ namespace ESA20240910
       Models::UpdateScheduledPreloadExecutionResponse updateScheduledPreloadExecutionWithOptions(const Models::UpdateScheduledPreloadExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a scheduled preload task based on the preload plan ID.
+       * @summary Updates a scheduled prefetch plan by prefetch plan ID.
        *
        * @param request UpdateScheduledPreloadExecutionRequest
        * @return UpdateScheduledPreloadExecutionResponse
@@ -7530,10 +7610,10 @@ namespace ESA20240910
       Models::UploadClientCaCertificateResponse uploadClientCaCertificate(const Models::UploadClientCaCertificateRequest &request);
 
       /**
-       * @summary Uploads the file that contains resources to be purged or prefetched.
+       * @summary Uploads a refresh or prefetch file to improve access speed.
        *
        * @description > 
-       * *   The file can be up to 10 MB in size.
+       * > - The maximum file size is 10 MB.
        *
        * @param request UploadFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7542,10 +7622,10 @@ namespace ESA20240910
       Models::UploadFileResponse uploadFileWithOptions(const Models::UploadFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads the file that contains resources to be purged or prefetched.
+       * @summary Uploads a refresh or prefetch file to improve access speed.
        *
        * @description > 
-       * *   The file can be up to 10 MB in size.
+       * > - The maximum file size is 10 MB.
        *
        * @param request UploadFileRequest
        * @return UploadFileResponse

@@ -182,7 +182,7 @@ namespace Models
       shared_ptr<string> codeVersion_ {};
       // The configuration items of the code version.
       shared_ptr<CodeVersions::ConfOptions> confOptions_ {};
-      // The time when the code version was created.
+      // The time when the code version was created, in RFC 3339 format in the UTC time zone.
       shared_ptr<string> createTime_ {};
       // The deployment environment. Valid values:
       // - **staging**: staging environment.

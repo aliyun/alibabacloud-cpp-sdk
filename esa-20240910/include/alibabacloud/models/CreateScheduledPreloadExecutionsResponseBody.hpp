@@ -133,31 +133,26 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
-      // The end time of the scheduled prefetch plan.
+      // The end time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> endTime_ {};
-      // The ID of the prefetch plan.
+      // The prefetch plan ID.
       shared_ptr<string> id_ {};
-      // The interval at which batches of a scheduled prefetch plan are executed. Unit: seconds.
+      // The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
-      // The ID of the prefetch task.
+      // The prefetch task ID.
       shared_ptr<string> jobId_ {};
-      // The number of URLs to prefetch in each batch.
+      // The number of URLs to prefetch per batch.
       shared_ptr<int32_t> sliceLen_ {};
-      // The start time of the scheduled prefetch plan.
+      // The start time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> startTime_ {};
       // The status of the scheduled prefetch plan. Valid values:
-      // 
-      // - **waiting**: The plan is waiting to be executed.
-      // 
-      // - **running**: The plan is being executed.
-      // 
-      // - **finished**: The plan is executed.
-      // 
-      // - **failed**: The plan failed to be executed.
-      // 
-      // - **stopped**: The execution of the plan is paused.
+      // - **waiting**: Waiting to be executed.
+      // - **running**: Being executed.
+      // - **finished**: Execution completed.
+      // - **failed**: Execution failed.
+      // - **stopped**: Execution paused.
       shared_ptr<string> status_ {};
     };
 
@@ -254,31 +249,26 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
-      // The end time of the scheduled prefetch plan.
+      // The end time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> endTime_ {};
-      // The ID of the prefetch plan.
+      // The prefetch plan ID.
       shared_ptr<string> id_ {};
-      // The interval at which batches of a scheduled prefetch plan are executed. Unit: seconds.
+      // The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
-      // The ID of the prefetch task.
+      // The prefetch task ID.
       shared_ptr<string> jobId_ {};
-      // The number of URLs to prefetch in each batch.
+      // The number of URLs to prefetch per batch.
       shared_ptr<int32_t> sliceLen_ {};
-      // The start time of the scheduled prefetch plan.
+      // The start time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> startTime_ {};
       // The status of the scheduled prefetch plan. Valid values:
-      // 
-      // - **waiting**: The plan is waiting to be executed.
-      // 
-      // - **running**: The plan is being executed.
-      // 
-      // - **finished**: The plan is executed.
-      // 
-      // - **failed**: The plan failed to be executed.
-      // 
-      // - **stopped**: The execution of the plan is paused.
+      // - **waiting**: Waiting to be executed.
+      // - **running**: Being executed.
+      // - **finished**: Execution completed.
+      // - **failed**: Execution failed.
+      // - **stopped**: Execution paused.
       shared_ptr<string> status_ {};
     };
 
@@ -333,17 +323,17 @@ namespace Models
 
 
   protected:
-    // The information about the prefetch plans that failed to be added.
+    // The information about prefetch plans that failed to be added.
     shared_ptr<vector<CreateScheduledPreloadExecutionsResponseBody::FailedExecutions>> failedExecutions_ {};
-    // The list of error messages for the plans that failed to be added.
+    // The list of failure messages for plans that failed to be added.
     shared_ptr<vector<string>> failedMessages_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The number of prefetch plans that were successfully added.
     shared_ptr<int32_t> successCount_ {};
-    // The information about the prefetch plans that were successfully added.
+    // The information about prefetch plans that were successfully added.
     shared_ptr<vector<CreateScheduledPreloadExecutionsResponseBody::SuccessExecutions>> successExecutions_ {};
-    // The total number of plans that you requested to add.
+    // The total number of plans requested to be added.
     shared_ptr<int32_t> totalCount_ {};
   };
 

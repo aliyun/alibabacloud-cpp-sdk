@@ -112,42 +112,35 @@ namespace Models
 
 
   protected:
-    // The ID of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
+    // The SSL Certificates Service certificate ID. This parameter is required when CertType is set to cas.
     shared_ptr<int64_t> casId_ {};
-    // The region of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
-    // 
-    // - For accounts on the China site, set this parameter to `cn-hangzhou`.
-    // 
-    // - For accounts on the International site, set this parameter to `ap-southeast-1`.
+    // The region of the SSL Certificates Service certificate. This parameter is required when CertType is set to cas.
+    // - For Chinese site accounts, set this parameter to cn-hangzhou.
+    // - For International site accounts, set this parameter to ap-southeast-1.
     shared_ptr<string> casRegion_ {};
-    // The certificate type. This parameter is required if `SslFlag` is set to `on`. Valid values:
-    // 
-    // - **free**: A free certificate.
-    // 
-    // - **upload**: A user-uploaded certificate.
-    // 
-    // - **cas**: A CAS certificate.
+    // The certificate type. This parameter is required when SslFlag is set to on. Valid values:
+    // - **free**: free certificate.
+    // - **upload**: uploaded certificate.
+    // - **cas**: SSL Certificates Service certificate.
     shared_ptr<string> certType_ {};
-    // The content of the certificate. This parameter is required if `CertType` is set to `upload`.
+    // The certificate content. This parameter is required when CertType is set to upload.
     shared_ptr<string> certificate_ {};
-    // The custom hostname.
+    // The SaaS domain name.
     // 
     // This parameter is required.
     shared_ptr<string> hostname_ {};
-    // The private key of the certificate. This parameter is required if `CertType` is set to `upload`.
+    // The certificate private key. This parameter is required when CertType is set to upload.
     shared_ptr<string> privateKey_ {};
-    // The ID of the record to bind. Call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to get this ID.
+    // The ID of the record to bind. You can call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to obtain the record ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> recordId_ {};
-    // The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get this ID.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
     // Specifies whether to enable SSL. Valid values:
-    // 
     // - **on**: Enable SSL.
-    // 
     // - **off**: Disable SSL.
     // 
     // This parameter is required.
