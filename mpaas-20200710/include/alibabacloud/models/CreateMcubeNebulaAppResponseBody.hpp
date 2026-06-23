@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEMCUBENEBULAAPPRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATEMCUBENEBULAAPPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,43 +35,105 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CreateNebulaAppResult : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CreateNebulaAppResult& obj) { 
+        DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+        DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+        DARABONBA_PTR_TO_JSON(ResultMsg, resultMsg_);
+        DARABONBA_PTR_TO_JSON(Success, success_);
+      };
+      friend void from_json(const Darabonba::Json& j, CreateNebulaAppResult& obj) { 
+        DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+        DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+        DARABONBA_PTR_FROM_JSON(ResultMsg, resultMsg_);
+        DARABONBA_PTR_FROM_JSON(Success, success_);
+      };
+      CreateNebulaAppResult() = default ;
+      CreateNebulaAppResult(const CreateNebulaAppResult &) = default ;
+      CreateNebulaAppResult(CreateNebulaAppResult &&) = default ;
+      CreateNebulaAppResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CreateNebulaAppResult() = default ;
+      CreateNebulaAppResult& operator=(const CreateNebulaAppResult &) = default ;
+      CreateNebulaAppResult& operator=(CreateNebulaAppResult &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->errorCode_ == nullptr
+        && this->requestId_ == nullptr && this->resultMsg_ == nullptr && this->success_ == nullptr; };
+      // errorCode Field Functions 
+      bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+      void deleteErrorCode() { this->errorCode_ = nullptr;};
+      inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+      inline CreateNebulaAppResult& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+      // requestId Field Functions 
+      bool hasRequestId() const { return this->requestId_ != nullptr;};
+      void deleteRequestId() { this->requestId_ = nullptr;};
+      inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+      inline CreateNebulaAppResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+      // resultMsg Field Functions 
+      bool hasResultMsg() const { return this->resultMsg_ != nullptr;};
+      void deleteResultMsg() { this->resultMsg_ = nullptr;};
+      inline string getResultMsg() const { DARABONBA_PTR_GET_DEFAULT(resultMsg_, "") };
+      inline CreateNebulaAppResult& setResultMsg(string resultMsg) { DARABONBA_PTR_SET_VALUE(resultMsg_, resultMsg) };
+
+
+      // success Field Functions 
+      bool hasSuccess() const { return this->success_ != nullptr;};
+      void deleteSuccess() { this->success_ = nullptr;};
+      inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+      inline CreateNebulaAppResult& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+    protected:
+      shared_ptr<string> errorCode_ {};
+      shared_ptr<string> requestId_ {};
+      shared_ptr<string> resultMsg_ {};
+      shared_ptr<bool> success_ {};
+    };
+
     virtual bool empty() const override { return this->createNebulaAppResult_ == nullptr
-        && return this->requestId_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr; };
+        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
     // createNebulaAppResult Field Functions 
     bool hasCreateNebulaAppResult() const { return this->createNebulaAppResult_ != nullptr;};
     void deleteCreateNebulaAppResult() { this->createNebulaAppResult_ = nullptr;};
-    inline const CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult & createNebulaAppResult() const { DARABONBA_PTR_GET_CONST(createNebulaAppResult_, CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult) };
-    inline CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult createNebulaAppResult() { DARABONBA_PTR_GET(createNebulaAppResult_, CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult) };
-    inline CreateMcubeNebulaAppResponseBody& setCreateNebulaAppResult(const CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult & createNebulaAppResult) { DARABONBA_PTR_SET_VALUE(createNebulaAppResult_, createNebulaAppResult) };
-    inline CreateMcubeNebulaAppResponseBody& setCreateNebulaAppResult(CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult && createNebulaAppResult) { DARABONBA_PTR_SET_RVALUE(createNebulaAppResult_, createNebulaAppResult) };
+    inline const CreateMcubeNebulaAppResponseBody::CreateNebulaAppResult & getCreateNebulaAppResult() const { DARABONBA_PTR_GET_CONST(createNebulaAppResult_, CreateMcubeNebulaAppResponseBody::CreateNebulaAppResult) };
+    inline CreateMcubeNebulaAppResponseBody::CreateNebulaAppResult getCreateNebulaAppResult() { DARABONBA_PTR_GET(createNebulaAppResult_, CreateMcubeNebulaAppResponseBody::CreateNebulaAppResult) };
+    inline CreateMcubeNebulaAppResponseBody& setCreateNebulaAppResult(const CreateMcubeNebulaAppResponseBody::CreateNebulaAppResult & createNebulaAppResult) { DARABONBA_PTR_SET_VALUE(createNebulaAppResult_, createNebulaAppResult) };
+    inline CreateMcubeNebulaAppResponseBody& setCreateNebulaAppResult(CreateMcubeNebulaAppResponseBody::CreateNebulaAppResult && createNebulaAppResult) { DARABONBA_PTR_SET_RVALUE(createNebulaAppResult_, createNebulaAppResult) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateMcubeNebulaAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultCode Field Functions 
     bool hasResultCode() const { return this->resultCode_ != nullptr;};
     void deleteResultCode() { this->resultCode_ = nullptr;};
-    inline string resultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
+    inline string getResultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
     inline CreateMcubeNebulaAppResponseBody& setResultCode(string resultCode) { DARABONBA_PTR_SET_VALUE(resultCode_, resultCode) };
 
 
     // resultMessage Field Functions 
     bool hasResultMessage() const { return this->resultMessage_ != nullptr;};
     void deleteResultMessage() { this->resultMessage_ = nullptr;};
-    inline string resultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
+    inline string getResultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
     inline CreateMcubeNebulaAppResponseBody& setResultMessage(string resultMessage) { DARABONBA_PTR_SET_VALUE(resultMessage_, resultMessage) };
 
 
   protected:
-    std::shared_ptr<CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult> createNebulaAppResult_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> resultCode_ = nullptr;
-    std::shared_ptr<string> resultMessage_ = nullptr;
+    shared_ptr<CreateMcubeNebulaAppResponseBody::CreateNebulaAppResult> createNebulaAppResult_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> resultCode_ {};
+    shared_ptr<string> resultMessage_ {};
   };
 
   } // namespace Models

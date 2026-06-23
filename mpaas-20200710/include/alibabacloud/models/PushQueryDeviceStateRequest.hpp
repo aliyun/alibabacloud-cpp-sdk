@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->target_ == nullptr && return this->targetType_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->target_ == nullptr && this->targetType_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline PushQueryDeviceStateRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline PushQueryDeviceStateRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline int32_t targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, 0) };
+    inline int32_t getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, 0) };
     inline PushQueryDeviceStateRequest& setTargetType(int32_t targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline PushQueryDeviceStateRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline PushQueryDeviceStateRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> target_ = nullptr;
-    std::shared_ptr<int32_t> targetType_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> target_ {};
+    shared_ptr<int32_t> targetType_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

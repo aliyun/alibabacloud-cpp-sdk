@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->type_ == nullptr && return this->uniqueIds_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->type_ == nullptr && this->uniqueIds_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CancelMpsSchedulerRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline CancelMpsSchedulerRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // uniqueIds Field Functions 
     bool hasUniqueIds() const { return this->uniqueIds_ != nullptr;};
     void deleteUniqueIds() { this->uniqueIds_ = nullptr;};
-    inline string uniqueIds() const { DARABONBA_PTR_GET_DEFAULT(uniqueIds_, "") };
+    inline string getUniqueIds() const { DARABONBA_PTR_GET_DEFAULT(uniqueIds_, "") };
     inline CancelMpsSchedulerRequest& setUniqueIds(string uniqueIds) { DARABONBA_PTR_SET_VALUE(uniqueIds_, uniqueIds) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CancelMpsSchedulerRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<int32_t> type_ {};
     // This parameter is required.
-    std::shared_ptr<string> uniqueIds_ = nullptr;
+    shared_ptr<string> uniqueIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

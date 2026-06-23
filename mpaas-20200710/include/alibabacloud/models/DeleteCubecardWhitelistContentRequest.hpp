@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->tenantId_ == nullptr && return this->whitelistId_ == nullptr && return this->whitelistValue_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->tenantId_ == nullptr && this->whitelistId_ == nullptr && this->whitelistValue_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DeleteCubecardWhitelistContentRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline DeleteCubecardWhitelistContentRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
     // whitelistId Field Functions 
     bool hasWhitelistId() const { return this->whitelistId_ != nullptr;};
     void deleteWhitelistId() { this->whitelistId_ = nullptr;};
-    inline string whitelistId() const { DARABONBA_PTR_GET_DEFAULT(whitelistId_, "") };
+    inline string getWhitelistId() const { DARABONBA_PTR_GET_DEFAULT(whitelistId_, "") };
     inline DeleteCubecardWhitelistContentRequest& setWhitelistId(string whitelistId) { DARABONBA_PTR_SET_VALUE(whitelistId_, whitelistId) };
 
 
     // whitelistValue Field Functions 
     bool hasWhitelistValue() const { return this->whitelistValue_ != nullptr;};
     void deleteWhitelistValue() { this->whitelistValue_ = nullptr;};
-    inline string whitelistValue() const { DARABONBA_PTR_GET_DEFAULT(whitelistValue_, "") };
+    inline string getWhitelistValue() const { DARABONBA_PTR_GET_DEFAULT(whitelistValue_, "") };
     inline DeleteCubecardWhitelistContentRequest& setWhitelistValue(string whitelistValue) { DARABONBA_PTR_SET_VALUE(whitelistValue_, whitelistValue) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DeleteCubecardWhitelistContentRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
-    std::shared_ptr<string> whitelistId_ = nullptr;
-    std::shared_ptr<string> whitelistValue_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> tenantId_ {};
+    shared_ptr<string> whitelistId_ {};
+    shared_ptr<string> whitelistValue_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYMCUBEVHOSTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYMCUBEVHOSTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/QueryMcubeVhostResponseBodyQueryVhostResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,43 +35,95 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class QueryVhostResult : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const QueryVhostResult& obj) { 
+        DARABONBA_PTR_TO_JSON(Data, data_);
+        DARABONBA_PTR_TO_JSON(ResultMsg, resultMsg_);
+        DARABONBA_PTR_TO_JSON(Success, success_);
+      };
+      friend void from_json(const Darabonba::Json& j, QueryVhostResult& obj) { 
+        DARABONBA_PTR_FROM_JSON(Data, data_);
+        DARABONBA_PTR_FROM_JSON(ResultMsg, resultMsg_);
+        DARABONBA_PTR_FROM_JSON(Success, success_);
+      };
+      QueryVhostResult() = default ;
+      QueryVhostResult(const QueryVhostResult &) = default ;
+      QueryVhostResult(QueryVhostResult &&) = default ;
+      QueryVhostResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~QueryVhostResult() = default ;
+      QueryVhostResult& operator=(const QueryVhostResult &) = default ;
+      QueryVhostResult& operator=(QueryVhostResult &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->data_ == nullptr
+        && this->resultMsg_ == nullptr && this->success_ == nullptr; };
+      // data Field Functions 
+      bool hasData() const { return this->data_ != nullptr;};
+      void deleteData() { this->data_ = nullptr;};
+      inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+      inline QueryVhostResult& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+
+
+      // resultMsg Field Functions 
+      bool hasResultMsg() const { return this->resultMsg_ != nullptr;};
+      void deleteResultMsg() { this->resultMsg_ = nullptr;};
+      inline string getResultMsg() const { DARABONBA_PTR_GET_DEFAULT(resultMsg_, "") };
+      inline QueryVhostResult& setResultMsg(string resultMsg) { DARABONBA_PTR_SET_VALUE(resultMsg_, resultMsg) };
+
+
+      // success Field Functions 
+      bool hasSuccess() const { return this->success_ != nullptr;};
+      void deleteSuccess() { this->success_ = nullptr;};
+      inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+      inline QueryVhostResult& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+    protected:
+      shared_ptr<string> data_ {};
+      shared_ptr<string> resultMsg_ {};
+      shared_ptr<bool> success_ {};
+    };
+
     virtual bool empty() const override { return this->queryVhostResult_ == nullptr
-        && return this->requestId_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr; };
+        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
     // queryVhostResult Field Functions 
     bool hasQueryVhostResult() const { return this->queryVhostResult_ != nullptr;};
     void deleteQueryVhostResult() { this->queryVhostResult_ = nullptr;};
-    inline const QueryMcubeVhostResponseBodyQueryVhostResult & queryVhostResult() const { DARABONBA_PTR_GET_CONST(queryVhostResult_, QueryMcubeVhostResponseBodyQueryVhostResult) };
-    inline QueryMcubeVhostResponseBodyQueryVhostResult queryVhostResult() { DARABONBA_PTR_GET(queryVhostResult_, QueryMcubeVhostResponseBodyQueryVhostResult) };
-    inline QueryMcubeVhostResponseBody& setQueryVhostResult(const QueryMcubeVhostResponseBodyQueryVhostResult & queryVhostResult) { DARABONBA_PTR_SET_VALUE(queryVhostResult_, queryVhostResult) };
-    inline QueryMcubeVhostResponseBody& setQueryVhostResult(QueryMcubeVhostResponseBodyQueryVhostResult && queryVhostResult) { DARABONBA_PTR_SET_RVALUE(queryVhostResult_, queryVhostResult) };
+    inline const QueryMcubeVhostResponseBody::QueryVhostResult & getQueryVhostResult() const { DARABONBA_PTR_GET_CONST(queryVhostResult_, QueryMcubeVhostResponseBody::QueryVhostResult) };
+    inline QueryMcubeVhostResponseBody::QueryVhostResult getQueryVhostResult() { DARABONBA_PTR_GET(queryVhostResult_, QueryMcubeVhostResponseBody::QueryVhostResult) };
+    inline QueryMcubeVhostResponseBody& setQueryVhostResult(const QueryMcubeVhostResponseBody::QueryVhostResult & queryVhostResult) { DARABONBA_PTR_SET_VALUE(queryVhostResult_, queryVhostResult) };
+    inline QueryMcubeVhostResponseBody& setQueryVhostResult(QueryMcubeVhostResponseBody::QueryVhostResult && queryVhostResult) { DARABONBA_PTR_SET_RVALUE(queryVhostResult_, queryVhostResult) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryMcubeVhostResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultCode Field Functions 
     bool hasResultCode() const { return this->resultCode_ != nullptr;};
     void deleteResultCode() { this->resultCode_ = nullptr;};
-    inline string resultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
+    inline string getResultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
     inline QueryMcubeVhostResponseBody& setResultCode(string resultCode) { DARABONBA_PTR_SET_VALUE(resultCode_, resultCode) };
 
 
     // resultMessage Field Functions 
     bool hasResultMessage() const { return this->resultMessage_ != nullptr;};
     void deleteResultMessage() { this->resultMessage_ = nullptr;};
-    inline string resultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
+    inline string getResultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
     inline QueryMcubeVhostResponseBody& setResultMessage(string resultMessage) { DARABONBA_PTR_SET_VALUE(resultMessage_, resultMessage) };
 
 
   protected:
-    std::shared_ptr<QueryMcubeVhostResponseBodyQueryVhostResult> queryVhostResult_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> resultCode_ = nullptr;
-    std::shared_ptr<string> resultMessage_ = nullptr;
+    shared_ptr<QueryMcubeVhostResponseBody::QueryVhostResult> queryVhostResult_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> resultCode_ {};
+    shared_ptr<string> resultMessage_ {};
   };
 
   } // namespace Models

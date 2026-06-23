@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTMCUBEMINITASKSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTMCUBEMINITASKSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListMcubeMiniTasksResponseBodyListMiniTaskResult.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,43 +36,292 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ListMiniTaskResult : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ListMiniTaskResult& obj) { 
+        DARABONBA_PTR_TO_JSON(MiniTaskList, miniTaskList_);
+        DARABONBA_PTR_TO_JSON(ResultMsg, resultMsg_);
+        DARABONBA_PTR_TO_JSON(Success, success_);
+      };
+      friend void from_json(const Darabonba::Json& j, ListMiniTaskResult& obj) { 
+        DARABONBA_PTR_FROM_JSON(MiniTaskList, miniTaskList_);
+        DARABONBA_PTR_FROM_JSON(ResultMsg, resultMsg_);
+        DARABONBA_PTR_FROM_JSON(Success, success_);
+      };
+      ListMiniTaskResult() = default ;
+      ListMiniTaskResult(const ListMiniTaskResult &) = default ;
+      ListMiniTaskResult(ListMiniTaskResult &&) = default ;
+      ListMiniTaskResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ListMiniTaskResult() = default ;
+      ListMiniTaskResult& operator=(const ListMiniTaskResult &) = default ;
+      ListMiniTaskResult& operator=(ListMiniTaskResult &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class MiniTaskList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const MiniTaskList& obj) { 
+          DARABONBA_PTR_TO_JSON(AppCode, appCode_);
+          DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
+          DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+          DARABONBA_PTR_TO_JSON(GreyConfigInfo, greyConfigInfo_);
+          DARABONBA_PTR_TO_JSON(GreyEndtime, greyEndtime_);
+          DARABONBA_PTR_TO_JSON(GreyEndtimeData, greyEndtimeData_);
+          DARABONBA_PTR_TO_JSON(GreyNum, greyNum_);
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(Memo, memo_);
+          DARABONBA_PTR_TO_JSON(PackageId, packageId_);
+          DARABONBA_PTR_TO_JSON(Platform, platform_);
+          DARABONBA_PTR_TO_JSON(ProductVersion, productVersion_);
+          DARABONBA_PTR_TO_JSON(PublishMode, publishMode_);
+          DARABONBA_PTR_TO_JSON(PublishType, publishType_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(TaskStatus, taskStatus_);
+          DARABONBA_PTR_TO_JSON(WhitelistIds, whitelistIds_);
+        };
+        friend void from_json(const Darabonba::Json& j, MiniTaskList& obj) { 
+          DARABONBA_PTR_FROM_JSON(AppCode, appCode_);
+          DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
+          DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+          DARABONBA_PTR_FROM_JSON(GreyConfigInfo, greyConfigInfo_);
+          DARABONBA_PTR_FROM_JSON(GreyEndtime, greyEndtime_);
+          DARABONBA_PTR_FROM_JSON(GreyEndtimeData, greyEndtimeData_);
+          DARABONBA_PTR_FROM_JSON(GreyNum, greyNum_);
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(Memo, memo_);
+          DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
+          DARABONBA_PTR_FROM_JSON(Platform, platform_);
+          DARABONBA_PTR_FROM_JSON(ProductVersion, productVersion_);
+          DARABONBA_PTR_FROM_JSON(PublishMode, publishMode_);
+          DARABONBA_PTR_FROM_JSON(PublishType, publishType_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(TaskStatus, taskStatus_);
+          DARABONBA_PTR_FROM_JSON(WhitelistIds, whitelistIds_);
+        };
+        MiniTaskList() = default ;
+        MiniTaskList(const MiniTaskList &) = default ;
+        MiniTaskList(MiniTaskList &&) = default ;
+        MiniTaskList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~MiniTaskList() = default ;
+        MiniTaskList& operator=(const MiniTaskList &) = default ;
+        MiniTaskList& operator=(MiniTaskList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->appCode_ == nullptr
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->greyConfigInfo_ == nullptr && this->greyEndtime_ == nullptr && this->greyEndtimeData_ == nullptr
+        && this->greyNum_ == nullptr && this->id_ == nullptr && this->memo_ == nullptr && this->packageId_ == nullptr && this->platform_ == nullptr
+        && this->productVersion_ == nullptr && this->publishMode_ == nullptr && this->publishType_ == nullptr && this->status_ == nullptr && this->taskStatus_ == nullptr
+        && this->whitelistIds_ == nullptr; };
+        // appCode Field Functions 
+        bool hasAppCode() const { return this->appCode_ != nullptr;};
+        void deleteAppCode() { this->appCode_ = nullptr;};
+        inline string getAppCode() const { DARABONBA_PTR_GET_DEFAULT(appCode_, "") };
+        inline MiniTaskList& setAppCode(string appCode) { DARABONBA_PTR_SET_VALUE(appCode_, appCode) };
+
+
+        // gmtCreate Field Functions 
+        bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+        void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+        inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+        inline MiniTaskList& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+        // gmtModified Field Functions 
+        bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+        void deleteGmtModified() { this->gmtModified_ = nullptr;};
+        inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+        inline MiniTaskList& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+        // greyConfigInfo Field Functions 
+        bool hasGreyConfigInfo() const { return this->greyConfigInfo_ != nullptr;};
+        void deleteGreyConfigInfo() { this->greyConfigInfo_ = nullptr;};
+        inline string getGreyConfigInfo() const { DARABONBA_PTR_GET_DEFAULT(greyConfigInfo_, "") };
+        inline MiniTaskList& setGreyConfigInfo(string greyConfigInfo) { DARABONBA_PTR_SET_VALUE(greyConfigInfo_, greyConfigInfo) };
+
+
+        // greyEndtime Field Functions 
+        bool hasGreyEndtime() const { return this->greyEndtime_ != nullptr;};
+        void deleteGreyEndtime() { this->greyEndtime_ = nullptr;};
+        inline string getGreyEndtime() const { DARABONBA_PTR_GET_DEFAULT(greyEndtime_, "") };
+        inline MiniTaskList& setGreyEndtime(string greyEndtime) { DARABONBA_PTR_SET_VALUE(greyEndtime_, greyEndtime) };
+
+
+        // greyEndtimeData Field Functions 
+        bool hasGreyEndtimeData() const { return this->greyEndtimeData_ != nullptr;};
+        void deleteGreyEndtimeData() { this->greyEndtimeData_ = nullptr;};
+        inline string getGreyEndtimeData() const { DARABONBA_PTR_GET_DEFAULT(greyEndtimeData_, "") };
+        inline MiniTaskList& setGreyEndtimeData(string greyEndtimeData) { DARABONBA_PTR_SET_VALUE(greyEndtimeData_, greyEndtimeData) };
+
+
+        // greyNum Field Functions 
+        bool hasGreyNum() const { return this->greyNum_ != nullptr;};
+        void deleteGreyNum() { this->greyNum_ = nullptr;};
+        inline int64_t getGreyNum() const { DARABONBA_PTR_GET_DEFAULT(greyNum_, 0L) };
+        inline MiniTaskList& setGreyNum(int64_t greyNum) { DARABONBA_PTR_SET_VALUE(greyNum_, greyNum) };
+
+
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+        inline MiniTaskList& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // memo Field Functions 
+        bool hasMemo() const { return this->memo_ != nullptr;};
+        void deleteMemo() { this->memo_ = nullptr;};
+        inline string getMemo() const { DARABONBA_PTR_GET_DEFAULT(memo_, "") };
+        inline MiniTaskList& setMemo(string memo) { DARABONBA_PTR_SET_VALUE(memo_, memo) };
+
+
+        // packageId Field Functions 
+        bool hasPackageId() const { return this->packageId_ != nullptr;};
+        void deletePackageId() { this->packageId_ = nullptr;};
+        inline int64_t getPackageId() const { DARABONBA_PTR_GET_DEFAULT(packageId_, 0L) };
+        inline MiniTaskList& setPackageId(int64_t packageId) { DARABONBA_PTR_SET_VALUE(packageId_, packageId) };
+
+
+        // platform Field Functions 
+        bool hasPlatform() const { return this->platform_ != nullptr;};
+        void deletePlatform() { this->platform_ = nullptr;};
+        inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+        inline MiniTaskList& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
+
+
+        // productVersion Field Functions 
+        bool hasProductVersion() const { return this->productVersion_ != nullptr;};
+        void deleteProductVersion() { this->productVersion_ = nullptr;};
+        inline string getProductVersion() const { DARABONBA_PTR_GET_DEFAULT(productVersion_, "") };
+        inline MiniTaskList& setProductVersion(string productVersion) { DARABONBA_PTR_SET_VALUE(productVersion_, productVersion) };
+
+
+        // publishMode Field Functions 
+        bool hasPublishMode() const { return this->publishMode_ != nullptr;};
+        void deletePublishMode() { this->publishMode_ = nullptr;};
+        inline int64_t getPublishMode() const { DARABONBA_PTR_GET_DEFAULT(publishMode_, 0L) };
+        inline MiniTaskList& setPublishMode(int64_t publishMode) { DARABONBA_PTR_SET_VALUE(publishMode_, publishMode) };
+
+
+        // publishType Field Functions 
+        bool hasPublishType() const { return this->publishType_ != nullptr;};
+        void deletePublishType() { this->publishType_ = nullptr;};
+        inline int64_t getPublishType() const { DARABONBA_PTR_GET_DEFAULT(publishType_, 0L) };
+        inline MiniTaskList& setPublishType(int64_t publishType) { DARABONBA_PTR_SET_VALUE(publishType_, publishType) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline MiniTaskList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // taskStatus Field Functions 
+        bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
+        void deleteTaskStatus() { this->taskStatus_ = nullptr;};
+        inline int64_t getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, 0L) };
+        inline MiniTaskList& setTaskStatus(int64_t taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
+
+
+        // whitelistIds Field Functions 
+        bool hasWhitelistIds() const { return this->whitelistIds_ != nullptr;};
+        void deleteWhitelistIds() { this->whitelistIds_ = nullptr;};
+        inline string getWhitelistIds() const { DARABONBA_PTR_GET_DEFAULT(whitelistIds_, "") };
+        inline MiniTaskList& setWhitelistIds(string whitelistIds) { DARABONBA_PTR_SET_VALUE(whitelistIds_, whitelistIds) };
+
+
+      protected:
+        shared_ptr<string> appCode_ {};
+        shared_ptr<string> gmtCreate_ {};
+        shared_ptr<string> gmtModified_ {};
+        shared_ptr<string> greyConfigInfo_ {};
+        shared_ptr<string> greyEndtime_ {};
+        shared_ptr<string> greyEndtimeData_ {};
+        shared_ptr<int64_t> greyNum_ {};
+        shared_ptr<int64_t> id_ {};
+        shared_ptr<string> memo_ {};
+        shared_ptr<int64_t> packageId_ {};
+        shared_ptr<string> platform_ {};
+        shared_ptr<string> productVersion_ {};
+        shared_ptr<int64_t> publishMode_ {};
+        shared_ptr<int64_t> publishType_ {};
+        shared_ptr<string> status_ {};
+        shared_ptr<int64_t> taskStatus_ {};
+        shared_ptr<string> whitelistIds_ {};
+      };
+
+      virtual bool empty() const override { return this->miniTaskList_ == nullptr
+        && this->resultMsg_ == nullptr && this->success_ == nullptr; };
+      // miniTaskList Field Functions 
+      bool hasMiniTaskList() const { return this->miniTaskList_ != nullptr;};
+      void deleteMiniTaskList() { this->miniTaskList_ = nullptr;};
+      inline const vector<ListMiniTaskResult::MiniTaskList> & getMiniTaskList() const { DARABONBA_PTR_GET_CONST(miniTaskList_, vector<ListMiniTaskResult::MiniTaskList>) };
+      inline vector<ListMiniTaskResult::MiniTaskList> getMiniTaskList() { DARABONBA_PTR_GET(miniTaskList_, vector<ListMiniTaskResult::MiniTaskList>) };
+      inline ListMiniTaskResult& setMiniTaskList(const vector<ListMiniTaskResult::MiniTaskList> & miniTaskList) { DARABONBA_PTR_SET_VALUE(miniTaskList_, miniTaskList) };
+      inline ListMiniTaskResult& setMiniTaskList(vector<ListMiniTaskResult::MiniTaskList> && miniTaskList) { DARABONBA_PTR_SET_RVALUE(miniTaskList_, miniTaskList) };
+
+
+      // resultMsg Field Functions 
+      bool hasResultMsg() const { return this->resultMsg_ != nullptr;};
+      void deleteResultMsg() { this->resultMsg_ = nullptr;};
+      inline string getResultMsg() const { DARABONBA_PTR_GET_DEFAULT(resultMsg_, "") };
+      inline ListMiniTaskResult& setResultMsg(string resultMsg) { DARABONBA_PTR_SET_VALUE(resultMsg_, resultMsg) };
+
+
+      // success Field Functions 
+      bool hasSuccess() const { return this->success_ != nullptr;};
+      void deleteSuccess() { this->success_ = nullptr;};
+      inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+      inline ListMiniTaskResult& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+    protected:
+      shared_ptr<vector<ListMiniTaskResult::MiniTaskList>> miniTaskList_ {};
+      shared_ptr<string> resultMsg_ {};
+      shared_ptr<bool> success_ {};
+    };
+
     virtual bool empty() const override { return this->listMiniTaskResult_ == nullptr
-        && return this->requestId_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr; };
+        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
     // listMiniTaskResult Field Functions 
     bool hasListMiniTaskResult() const { return this->listMiniTaskResult_ != nullptr;};
     void deleteListMiniTaskResult() { this->listMiniTaskResult_ = nullptr;};
-    inline const ListMcubeMiniTasksResponseBodyListMiniTaskResult & listMiniTaskResult() const { DARABONBA_PTR_GET_CONST(listMiniTaskResult_, ListMcubeMiniTasksResponseBodyListMiniTaskResult) };
-    inline ListMcubeMiniTasksResponseBodyListMiniTaskResult listMiniTaskResult() { DARABONBA_PTR_GET(listMiniTaskResult_, ListMcubeMiniTasksResponseBodyListMiniTaskResult) };
-    inline ListMcubeMiniTasksResponseBody& setListMiniTaskResult(const ListMcubeMiniTasksResponseBodyListMiniTaskResult & listMiniTaskResult) { DARABONBA_PTR_SET_VALUE(listMiniTaskResult_, listMiniTaskResult) };
-    inline ListMcubeMiniTasksResponseBody& setListMiniTaskResult(ListMcubeMiniTasksResponseBodyListMiniTaskResult && listMiniTaskResult) { DARABONBA_PTR_SET_RVALUE(listMiniTaskResult_, listMiniTaskResult) };
+    inline const ListMcubeMiniTasksResponseBody::ListMiniTaskResult & getListMiniTaskResult() const { DARABONBA_PTR_GET_CONST(listMiniTaskResult_, ListMcubeMiniTasksResponseBody::ListMiniTaskResult) };
+    inline ListMcubeMiniTasksResponseBody::ListMiniTaskResult getListMiniTaskResult() { DARABONBA_PTR_GET(listMiniTaskResult_, ListMcubeMiniTasksResponseBody::ListMiniTaskResult) };
+    inline ListMcubeMiniTasksResponseBody& setListMiniTaskResult(const ListMcubeMiniTasksResponseBody::ListMiniTaskResult & listMiniTaskResult) { DARABONBA_PTR_SET_VALUE(listMiniTaskResult_, listMiniTaskResult) };
+    inline ListMcubeMiniTasksResponseBody& setListMiniTaskResult(ListMcubeMiniTasksResponseBody::ListMiniTaskResult && listMiniTaskResult) { DARABONBA_PTR_SET_RVALUE(listMiniTaskResult_, listMiniTaskResult) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListMcubeMiniTasksResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultCode Field Functions 
     bool hasResultCode() const { return this->resultCode_ != nullptr;};
     void deleteResultCode() { this->resultCode_ = nullptr;};
-    inline string resultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
+    inline string getResultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
     inline ListMcubeMiniTasksResponseBody& setResultCode(string resultCode) { DARABONBA_PTR_SET_VALUE(resultCode_, resultCode) };
 
 
     // resultMessage Field Functions 
     bool hasResultMessage() const { return this->resultMessage_ != nullptr;};
     void deleteResultMessage() { this->resultMessage_ = nullptr;};
-    inline string resultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
+    inline string getResultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
     inline ListMcubeMiniTasksResponseBody& setResultMessage(string resultMessage) { DARABONBA_PTR_SET_VALUE(resultMessage_, resultMessage) };
 
 
   protected:
-    std::shared_ptr<ListMcubeMiniTasksResponseBodyListMiniTaskResult> listMiniTaskResult_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> resultCode_ = nullptr;
-    std::shared_ptr<string> resultMessage_ = nullptr;
+    shared_ptr<ListMcubeMiniTasksResponseBody::ListMiniTaskResult> listMiniTaskResult_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> resultCode_ {};
+    shared_ptr<string> resultMessage_ {};
   };
 
   } // namespace Models

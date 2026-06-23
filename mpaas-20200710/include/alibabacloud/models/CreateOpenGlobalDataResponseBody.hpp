@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->result_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr; };
+        && this->result_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateOpenGlobalDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline bool result() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
+    inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
     inline CreateOpenGlobalDataResponseBody& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // resultCode Field Functions 
     bool hasResultCode() const { return this->resultCode_ != nullptr;};
     void deleteResultCode() { this->resultCode_ = nullptr;};
-    inline string resultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
+    inline string getResultCode() const { DARABONBA_PTR_GET_DEFAULT(resultCode_, "") };
     inline CreateOpenGlobalDataResponseBody& setResultCode(string resultCode) { DARABONBA_PTR_SET_VALUE(resultCode_, resultCode) };
 
 
     // resultMessage Field Functions 
     bool hasResultMessage() const { return this->resultMessage_ != nullptr;};
     void deleteResultMessage() { this->resultMessage_ = nullptr;};
-    inline string resultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
+    inline string getResultMessage() const { DARABONBA_PTR_GET_DEFAULT(resultMessage_, "") };
     inline CreateOpenGlobalDataResponseBody& setResultMessage(string resultMessage) { DARABONBA_PTR_SET_VALUE(resultMessage_, resultMessage) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> result_ = nullptr;
-    std::shared_ptr<string> resultCode_ = nullptr;
-    std::shared_ptr<string> resultMessage_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> result_ {};
+    shared_ptr<string> resultCode_ {};
+    shared_ptr<string> resultMessage_ {};
   };
 
   } // namespace Models
