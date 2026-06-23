@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(order, order_);
+      DARABONBA_PTR_TO_JSON(orderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(skip, skip_);
       DARABONBA_PTR_TO_JSON(uid, uid_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(order, order_);
+      DARABONBA_PTR_FROM_JSON(orderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(skip, skip_);
       DARABONBA_PTR_FROM_JSON(uid, uid_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
@@ -42,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->description_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->skip_ == nullptr && this->uid_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->orderBy_ == nullptr
+        && this->skip_ == nullptr && this->uid_ == nullptr && this->workspaceId_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -72,6 +76,20 @@ namespace Models
     inline ListApiKeysRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // order Field Functions 
+    bool hasOrder() const { return this->order_ != nullptr;};
+    void deleteOrder() { this->order_ = nullptr;};
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline ListApiKeysRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
+
+
+    // orderBy Field Functions 
+    bool hasOrderBy() const { return this->orderBy_ != nullptr;};
+    void deleteOrderBy() { this->orderBy_ = nullptr;};
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline ListApiKeysRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
+
+
     // skip Field Functions 
     bool hasSkip() const { return this->skip_ != nullptr;};
     void deleteSkip() { this->skip_ = nullptr;};
@@ -98,6 +116,8 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> order_ {};
+    shared_ptr<string> orderBy_ {};
     shared_ptr<int32_t> skip_ {};
     shared_ptr<string> uid_ {};
     shared_ptr<string> workspaceId_ {};

@@ -107,6 +107,14 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
     query["nextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasOrder()) {
+    query["order"] = request.getOrder();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["orderBy"] = request.getOrderBy();
+  }
+
   if (!!request.hasSkip()) {
     query["skip"] = request.getSkip();
   }

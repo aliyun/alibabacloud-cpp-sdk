@@ -302,14 +302,12 @@ namespace Models
 
 
   protected:
-    // apiKey
     shared_ptr<vector<ListApiKeysResponseBody::ApiKeys>> apiKeys_ {};
     shared_ptr<string> code_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> message_ {};
     shared_ptr<string> nextToken_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<int32_t> totalCount_ {};
