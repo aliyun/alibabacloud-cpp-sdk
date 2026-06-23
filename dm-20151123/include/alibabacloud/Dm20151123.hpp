@@ -1369,7 +1369,7 @@ namespace Dm20151123
       Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
 
       /**
-       * @summary Validates an email address.
+       * @summary Validate an email address.
        *
        * @param request ValidateEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1378,7 +1378,7 @@ namespace Dm20151123
       Models::ValidateEmailResponse validateEmailWithOptions(const Models::ValidateEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Validates an email address.
+       * @summary Validate an email address.
        *
        * @param request ValidateEmailRequest
        * @return ValidateEmailResponse

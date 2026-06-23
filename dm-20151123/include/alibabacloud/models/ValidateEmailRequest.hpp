@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ValidateEmailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckGraylist, checkGraylist_);
       DARABONBA_PTR_TO_JSON(Email, email_);
+      DARABONBA_PTR_TO_JSON(ProbeType, probeType_);
       DARABONBA_PTR_TO_JSON(Timeout, timeout_);
     };
     friend void from_json(const Darabonba::Json& j, ValidateEmailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckGraylist, checkGraylist_);
       DARABONBA_PTR_FROM_JSON(Email, email_);
+      DARABONBA_PTR_FROM_JSON(ProbeType, probeType_);
       DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
     };
     ValidateEmailRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkGraylist_ == nullptr
-        && this->email_ == nullptr && this->timeout_ == nullptr; };
+        && this->email_ == nullptr && this->probeType_ == nullptr && this->timeout_ == nullptr; };
     // checkGraylist Field Functions 
     bool hasCheckGraylist() const { return this->checkGraylist_ != nullptr;};
     void deleteCheckGraylist() { this->checkGraylist_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline ValidateEmailRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
+    // probeType Field Functions 
+    bool hasProbeType() const { return this->probeType_ != nullptr;};
+    void deleteProbeType() { this->probeType_ = nullptr;};
+    inline string getProbeType() const { DARABONBA_PTR_GET_DEFAULT(probeType_, "") };
+    inline ValidateEmailRequest& setProbeType(string probeType) { DARABONBA_PTR_SET_VALUE(probeType_, probeType) };
+
+
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
@@ -57,13 +66,18 @@ namespace Models
 
 
   protected:
-    // Specifies whether to check the graylist. The default value is false. The result is sent through an asynchronous notification message from EventBridge.
+    // Specifies whether to check the graylist. Default value: false. Results will be sent as asynchronous notifications through EventBridge.
     shared_ptr<bool> checkGraylist_ {};
-    // The email address to validate.
+    // The email address to validate
     // 
     // This parameter is required.
     shared_ptr<string> email_ {};
-    // The timeout period. The default value is 60 seconds.
+    // The detection type:
+    // 
+    // - FULL: Enables all detection capabilities, including SMTP probing. Since SMTP probing involves remote connections, the overall latency is higher. This is suitable for scenarios that are not sensitive to response time. Each detection consumes 1 address validation quota.
+    // - BASIC_ONLY: Enables all detection capabilities except SMTP probing, with low latency. This is suitable for scenarios sensitive to response time, such as real-time validation during registration to check whether an email address is a disposable email or an abnormal address such as MX forwarding, to defend against mass registration by malicious actors. Each detection consumes 1/3 of an address validation quota.
+    shared_ptr<string> probeType_ {};
+    // Timeout period. Default value: 60 seconds.
     shared_ptr<int64_t> timeout_ {};
   };
 

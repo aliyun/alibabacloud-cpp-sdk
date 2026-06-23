@@ -2,12 +2,12 @@
 #include <alibabacloud/Dm20151123.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/policy/Retry.hpp>
 #include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
 #include <darabonba/http/Form.hpp>
-#include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
 #include <alibabacloud/credentials/Client.hpp>
@@ -28,7 +28,13 @@ namespace Dm20151123
 {
 
 AlibabaCloud::Dm20151123::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-east-1" , "dm.us-east-1.aliyuncs.com"},
+    {"eu-central-1" , "dm.eu-central-1.aliyuncs.com"},
+    {"cn-hangzhou" , "dm.aliyuncs.com"},
+    {"ap-southeast-1" , "dm.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dm", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -4870,7 +4876,7 @@ UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
 }
 
 /**
- * @summary Validates an email address.
+ * @summary Validate an email address.
  *
  * @param request ValidateEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4885,6 +4891,10 @@ ValidateEmailResponse Client::validateEmailWithOptions(const ValidateEmailReques
 
   if (!!request.hasEmail()) {
     query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasProbeType()) {
+    query["ProbeType"] = request.getProbeType();
   }
 
   if (!!request.hasTimeout()) {
@@ -4909,7 +4919,7 @@ ValidateEmailResponse Client::validateEmailWithOptions(const ValidateEmailReques
 }
 
 /**
- * @summary Validates an email address.
+ * @summary Validate an email address.
  *
  * @param request ValidateEmailRequest
  * @return ValidateEmailResponse

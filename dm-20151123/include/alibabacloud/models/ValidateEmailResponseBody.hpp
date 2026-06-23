@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // The domain part of the email address parsed from the syntax check. The domain part is converted to lowercase.
+    // The domain part of the email address parsed from syntax validation (lowercased)
     shared_ptr<string> domainPart_ {};
-    // Indicates whether the address is from a free email service.
+    // Indicates whether the address is a free email
     shared_ptr<bool> isFreeMail_ {};
-    // The local part of the email address parsed from the syntax check. The local part is converted to lowercase and the content after the plus sign (+) is removed.
+    // The local part of the email address parsed from syntax validation (lowercased with the plus sign portion removed)
     shared_ptr<string> localPart_ {};
-    // The email service provider of the address.
+    // Email provider classification of the address
     shared_ptr<string> provider_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The validation status of the email address.
+    // The email address status obtained from validation
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The detailed validation status of the email address. This provides more information about the Status.
+    // The email address sub-status obtained from validation, which provides a detailed description of the status
     // 
     // This parameter is required.
     shared_ptr<string> subStatus_ {};
