@@ -77,8 +77,9 @@ namespace Models
   protected:
     // Specifies whether to enable two-factor authentication. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: yes
+    // 
+    // - **false**: no
     shared_ptr<string> enableTwoFactor_ {};
     // The ID of the bastion host.
     // 
@@ -94,11 +95,15 @@ namespace Models
     shared_ptr<string> skipTwoFactorTime_ {};
     // The method used to send a verification code for two-factor authentication. If EnableTwoFactor is set to true, you must specify at least one method. Valid values:
     // 
-    // *   **sms:** text message.
-    // *   **email**: email.
-    // *   **dingtalk**: notice in DingTalk.
-    // *   **totp**: one-time password (OTP) token.
-    // *   **gmusbkey**: SM-based USB key.
+    // - **sms:** text message.
+    // 
+    // - **email**: email.
+    // 
+    // - **dingtalk**: notice in DingTalk.
+    // 
+    // - **totp**: one-time password (OTP) token.
+    // 
+    // - **gmusbkey**: SM-based USB key.
     shared_ptr<string> twoFactorMethods_ {};
   };
 

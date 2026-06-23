@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The information about regions where you can create bastion hosts.
+    // The regions that support Bastionhost instances.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
-    // The ID of request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

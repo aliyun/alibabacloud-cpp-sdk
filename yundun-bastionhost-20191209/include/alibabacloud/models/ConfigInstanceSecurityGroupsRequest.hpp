@@ -69,22 +69,23 @@ namespace Models
 
 
   protected:
-    // An array that consists of the IDs of authorized security groups.
+    // A list of authorized security group IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> authorizedSecurityGroups_ {};
-    // The ID of the bastion host.
+    // The ID of the Bastionhost instance.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. The default value is **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The region ID of the bastion host.
+    // The region ID of the Bastionhost instance.
     shared_ptr<string> regionId_ {};
   };
 

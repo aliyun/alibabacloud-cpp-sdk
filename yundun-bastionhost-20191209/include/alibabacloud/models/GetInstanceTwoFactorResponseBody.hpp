@@ -83,8 +83,9 @@ namespace Models
     protected:
       // Indicates whether two-factor authentication is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> enableTwoFactor_ {};
       // The duration within which two-factor authentication is not required after a local user passes two-factor authentication. Valid values: `0 to 168`. Unit: hours.
       // 

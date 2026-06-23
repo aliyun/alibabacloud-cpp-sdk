@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The host account IDs.
     // 
-    // >  You must specify this parameter. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to query the host account IDs.
+    // > You must specify this parameter. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to query the host account IDs.
     shared_ptr<string> hostAccountIds_ {};
     // The shared key ID.
     // 
-    // >  You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+    // > You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
     shared_ptr<string> hostShareKeyId_ {};
     // The ID of the bastion host. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 

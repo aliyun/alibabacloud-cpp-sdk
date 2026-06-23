@@ -108,8 +108,9 @@ namespace Models
       protected:
         // The scope of host accounts to which the control policy applies. Valid values:
         // 
-        // *   **All**: The control policy applies to all accounts of the host.
-        // *   **AccountId**: The control policy applies to specified accounts of the host.
+        // - **All**: The control policy applies to all accounts of the host.
+        // 
+        // - **AccountId**: The control policy applies to specified accounts of the host.
         shared_ptr<string> accountScopeType_ {};
         // The host accounts to which the control policy applies.
         shared_ptr<vector<string>> hostAccountIds_ {};
@@ -170,8 +171,9 @@ namespace Models
         shared_ptr<vector<string>> accountNames_ {};
         // The scope of asset accounts to which the control policy applies. Valid values:
         // 
-        // *   **All**: The control policy applies to all accounts in the asset group.
-        // *   **AccountName**: The control policy applies to specified accounts in the asset group.
+        // - **All**: The control policy applies to all accounts in the asset group.
+        // 
+        // - **AccountName**: The control policy applies to specified accounts in the asset group.
         shared_ptr<string> accountScopeType_ {};
         // The asset group ID.
         shared_ptr<string> hostGroupId_ {};
@@ -228,8 +230,9 @@ namespace Models
       protected:
         // The scope of database accounts to which the control policy applies. Valid values:
         // 
-        // *   **All**: The control policy applies to all database accounts of the database.
-        // *   **AccountId**: The control policy applies to specified database accounts of the database.
+        // - **All**: The control policy applies to all database accounts of the database.
+        // 
+        // - **AccountId**: The control policy applies to specified database accounts of the database.
         shared_ptr<string> accountScopeType_ {};
         // The IDs of database accounts to which the control policy applies.
         shared_ptr<vector<string>> databaseAccountIds_ {};
@@ -282,9 +285,9 @@ namespace Models
       shared_ptr<vector<AssetScope::Hosts>> hosts_ {};
       // The scope of assets to which the control policy applies.
       // 
-      // *   If **All** is returned for this parameter, the control policy applies to all assets.
+      // - If **All** is returned for this parameter, the control policy applies to all assets.
       // 
-      // *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of Databases, HostGroups, and Hosts.
+      // - If no value is returned for this parameter, the control policy applies to the assets specified in the return values of Databases, HostGroups, and Hosts.
       shared_ptr<string> scopeType_ {};
     };
 

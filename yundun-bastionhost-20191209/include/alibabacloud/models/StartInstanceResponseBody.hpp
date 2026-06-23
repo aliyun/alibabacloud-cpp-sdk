@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the bastion host that you enable.
+    // The ID of the bastion host that is enabled.
     shared_ptr<string> instanceId_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};

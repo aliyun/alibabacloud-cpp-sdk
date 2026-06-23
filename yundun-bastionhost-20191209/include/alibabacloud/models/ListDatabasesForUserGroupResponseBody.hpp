@@ -164,43 +164,49 @@ namespace Models
 
 
     protected:
-      // The address type of the database. Valid values:
+      // The type of the database address. Valid values:
       // 
-      // *   **Public**
-      // *   **Private**
+      // - **Public**: public address
+      // 
+      // - **Private**: private address
       shared_ptr<string> activeAddressType_ {};
-      // The remarks of the database.
+      // The description of the database instance.
       shared_ptr<string> comment_ {};
-      // The total number of database accounts returned.
+      // The total number of database accounts that are queried.
       shared_ptr<int64_t> databaseAccountCount_ {};
-      // The ID of the database to which the database account belongs.
+      // The ID of the database instance to which the database account belongs.
       shared_ptr<string> databaseId_ {};
-      // The name of the database.
+      // The name of the database instance.
       shared_ptr<string> databaseName_ {};
       // The port of the database.
       shared_ptr<int64_t> databasePort_ {};
-      // The internal address of the database. The value is a domain name or an IP address.
+      // The private endpoint of the database, which can be a domain name or an IP address.
       shared_ptr<string> databasePrivateAddress_ {};
-      // The public address of the database. The value is a domain name or an IP address.
+      // The public address of the database, which can be a domain name or an IP address.
       shared_ptr<string> databasePublicAddress_ {};
-      // The database engine. Valid values:
-      // 
-      // *   **MySQL**
-      // *   **Oracle**
-      // *   **PostgreSQL**
-      // *   **SQLServer**
-      shared_ptr<string> databaseType_ {};
-      // The ID of the network domain where the database resides.
-      shared_ptr<string> networkDomainId_ {};
       // The type of the database. Valid values:
       // 
-      // *   **Local**: on-premises database.
-      // *   **Rds**: ApsaraDB RDS instance.
-      // *   **PolarDB**: PolarDB cluster.
-      shared_ptr<string> source_ {};
-      // The ID of the ApsaraDB RDS instance or PolarDB cluster.
+      // - **MySQL**
       // 
-      // > No value is returned for this parameter if **Source** is set to **Local**.
+      // - **Oracle**
+      // 
+      // - **PostgreSQL**
+      // 
+      // - **SQLServer**
+      shared_ptr<string> databaseType_ {};
+      // The ID of the network domain to which the database belongs.
+      shared_ptr<string> networkDomainId_ {};
+      // The source of the database. Valid values:
+      // 
+      // - **Local**: local database instance
+      // 
+      // - **Rds**: RDS database instance
+      // 
+      // - **PolarDB**: PolarDB database instance
+      shared_ptr<string> source_ {};
+      // The ID of the RDS instance or PolarDB instance that corresponds to the database.
+      // 
+      // > If **Source** is set to **Local**, this parameter is empty.
       shared_ptr<string> sourceInstanceId_ {};
     };
 
@@ -230,11 +236,11 @@ namespace Models
 
 
   protected:
-    // The databases returned.
+    // The list of databases that are queried.
     shared_ptr<vector<ListDatabasesForUserGroupResponseBody::Databases>> databases_ {};
-    // The request ID.
+    // The unique ID that Alibaba Cloud generates for the request.
     shared_ptr<string> requestId_ {};
-    // The total number of databases returned.
+    // The total number of databases that are queried.
     shared_ptr<int64_t> totalCount_ {};
   };
 

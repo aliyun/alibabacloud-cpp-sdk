@@ -197,88 +197,94 @@ namespace Models
       protected:
         shared_ptr<string> allowDirectTcp_ {};
         shared_ptr<string> allowTcpForwarding_ {};
-        // Specifies whether to enable remote command execution. Valid values:
+        // Specifies whether to allow remote command execution. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> execCommand_ {};
-        // Specifies whether to enable SFTP channels. Valid values:
+        // Specifies whether to enable the SFTP channel. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > 
+        // - Disable
         // 
-        // *   If you do not specify this parameter, the default value Disable is used.
-        // 
-        // *   You must set at least one of the following parameters to Enable: SSHChannel and SFTPChannel.
-        // 
-        // *   If you select Enable Only SFTP Permission for a host account, do not set SSHChannel and SFTPChannel to Disable for the account. Otherwise, users of the bastion host cannot use the account to access the host.
+        // > * The default value is Disable.
+        // >
+        // > * At least one of the SSH channel and the SFTP channel must be enabled.
+        // >
+        // > * If you grant only SFTP permissions to a host account, do not disable the SSH and SFTP channels for that account in the control policy. Otherwise, you cannot use the host account to access the target server through Bastionhost.
         shared_ptr<string> SFTPChannel_ {};
-        // Specifies whether to enable file downloading during SFTP-based O\\&M. Valid values:
+        // Specifies whether to allow file downloads over SFTP. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> SFTPDownloadFile_ {};
-        // Specifies whether to enable folder creation during SFTP-based O\\&M. Valid values:
+        // Specifies whether to allow folder creation over SFTP. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> SFTPMkdir_ {};
-        // Specifies whether to enable file deletion during SFTP-based O\\&M. Valid values:
+        // Specifies whether to allow file deletions over SFTP. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> SFTPRemoveFile_ {};
-        // Specifies whether to enable file renaming during SFTP-based O\\&M. Valid values:
+        // Specifies whether to allow file renames over SFTP. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> SFTPRenameFile_ {};
-        // Specifies whether to enable folder deletion during SFTP-based O\\&M. Valid values:
+        // Specifies whether to allow folder deletion over SFTP. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> SFTPRmdir_ {};
-        // Specifies whether to enable file uploading during SFTP-based O\\&M. Valid values:
+        // Specifies whether to allow file uploads over SFTP. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> SFTPUploadFile_ {};
-        // Specifies whether to enable SSH channels. Valid values:
+        // Specifies whether to enable the SSH channel. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > 
+        // - Disable
         // 
-        // *   If you do not specify this parameter, the default value Disable is used.
-        // 
-        // *   You must set at least one of the following parameters to Enable: SSHChannel and SFTPChannel. If you set SSHChannel to Disable, SSH-based logon is disabled for the asset account. Proceed with caution.
-        // 
-        // *   If you select Enable Only SFTP Permission for a host account, do not set SSHChannel and SFTPChannel to Disable for the account. Otherwise, users of the bastion host cannot use the account to access the host.
+        // > * The default value is Disable.
+        // >
+        // > * At least one of the SSH channel and the SFTP channel must be enabled. If you disable the SSH channel, you cannot use SSH permissions to log on to the asset account. Configure this parameter with caution.
+        // >
+        // > * If you grant only SFTP permissions to a host account, do not disable the SSH and SFTP channels for that account in the control policy. Otherwise, you cannot use the host account to access the target server through Bastionhost.
         shared_ptr<string> SSHChannel_ {};
         shared_ptr<string> tcpForwarding_ {};
         // Specifies whether to enable X11 forwarding. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> x11Forwarding_ {};
       };
 
@@ -356,35 +362,39 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable downloading from the clipboard. Valid values:
+        // Specifies whether to allow clipboard content to be downloaded. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> clipboardDownload_ {};
-        // Specifies whether to enable uploading from the clipboard. Valid values:
+        // Specifies whether to allow clipboard content to be uploaded. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> clipboardUpload_ {};
-        // Specifies whether to enable driver mapping. Valid values:
+        // Specifies whether to enable drive and printer mapping. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> diskRedirection_ {};
         shared_ptr<string> diskRedirectionDownload_ {};
         shared_ptr<string> diskRedirectionUpload_ {};
-        // Specifies whether to enable keyboard operation recording. Valid values:
+        // Specifies whether to record keyboard input. Valid values:
         // 
-        // *   Enable
-        // *   Disable
+        // - Enable
         // 
-        // > If you do not specify this parameter, the default value Disable is used.
+        // - Disable
+        // 
+        // > The default value is Disable.
         shared_ptr<string> recordKeyboard_ {};
       };
 
@@ -409,9 +419,9 @@ namespace Models
 
 
     protected:
-      // The settings of the Remote Desktop Protocol (RDP) options.
+      // The RDP options.
       shared_ptr<ProtocolConfig::RDP> RDP_ {};
-      // The settings of the SSH and SSH Fine Transfer Protocol (SFTP) options.
+      // The SSH and SFTP options.
       shared_ptr<ProtocolConfig::SSH> SSH_ {};
     };
 
@@ -448,23 +458,23 @@ namespace Models
 
 
   protected:
-    // The bastion host ID.
+    // The ID of the Bastionhost instance.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
     // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // > Call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain the policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The protocol control settings.
+    // The protocol control configuration.
     // 
     // This parameter is required.
     shared_ptr<SetPolicyProtocolConfigRequest::ProtocolConfig> protocolConfig_ {};
-    // The region ID of the bastion host.
+    // The ID of the region where the Bastionhost instance resides.
     // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};

@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<string> databaseAccountName_ {};
     // The ID of the database whose database accounts you want to query.
     // 
-    // >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
     // 
     // This parameter is required.
     shared_ptr<string> databaseId_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The page number. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.\\
+    // The number of entries per page.<br>
     // Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
     // > We recommend that you do not leave this parameter empty.
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the user group to query. This operation returns whether the user group is authorized to manage each database account.
     // 
-    // >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
+    // > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};

@@ -143,27 +143,33 @@ namespace Models
 
 
   protected:
-    // An array that consists of the IDs of the bastion hosts.
+    // The IDs of the bastion host instances.
     shared_ptr<vector<string>> instanceId_ {};
-    // The status of the bastion host. Valid values:
+    // The status of the bastion host instance. Valid values:
     // 
-    // *   **PENDING**: The bastion host is not initialized.
-    // *   **CREATING**: The bastion host is being created.
-    // *   **RUNNING**: The bastion host is running.
-    // *   **EXPIRED**: The bastion host expired.
-    // *   **CREATE_FAILED**: The bastion host fails to be created.
-    // *   **UPGRADING**: The configurations of the bastion host are being changed.
-    // *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+    // - **PENDING**: The instance is not initialized.
+    // 
+    // - **CREATING**: The instance is being created.
+    // 
+    // - **RUNNING**: The instance is running.
+    // 
+    // - **EXPIRED**: The instance is expired.
+    // 
+    // - **CREATE_FAILED**: The instance creation failed.
+    // 
+    // - **UPGRADING**: The instance is being upgraded.
+    // 
+    // - **UPGRADE_FAILED**: The instance upgrade failed.
     shared_ptr<string> instanceStatus_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of bastion host instances to return on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the bastion host.
+    // The ID of the region in which the bastion host instances reside.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the bastion host belongs.
+    // The ID of the resource group to which the bastion host instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // An array consisting of the tags that are added to the bastion hosts.
+    // The tags attached to the bastion host instances.
     shared_ptr<vector<DescribeInstancesRequest::Tag>> tag_ {};
   };
 

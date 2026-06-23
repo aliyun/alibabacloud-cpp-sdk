@@ -120,8 +120,9 @@ namespace Models
     protected:
       // The endpoint type of the host. Valid values:
       // 
-      // *   **Public**: public endpoint
-      // *   **Private**: internal endpoint
+      // - **Public**: public endpoint
+      // 
+      // - **Private**: internal endpoint
       shared_ptr<string> activeAddressType_ {};
       // The description of the host.
       shared_ptr<string> comment_ {};
@@ -135,8 +136,9 @@ namespace Models
       shared_ptr<string> hostPublicAddress_ {};
       // The operating system of the host. Valid values:
       // 
-      // *   **Linux**
-      // *   **Windows**
+      // - **Linux**
+      // 
+      // - **Windows**
       shared_ptr<string> OSType_ {};
     };
 

@@ -172,8 +172,9 @@ namespace Models
     protected:
       // The address type of the database. Valid values:
       // 
-      // *   Public
-      // *   Private
+      // - Public
+      // 
+      // - Private
       shared_ptr<string> activeAddressType_ {};
       // The remarks of the database.
       shared_ptr<string> comment_ {};
@@ -189,18 +190,23 @@ namespace Models
       shared_ptr<string> databasePublicAddress_ {};
       // The database engine. Valid values:
       // 
-      // *   **mysql**
-      // *   **sqlserver**
-      // *   **postgresql**
-      // *   **oracle**
+      // - **mysql**
+      // 
+      // - **sqlserver**
+      // 
+      // - **postgresql**
+      // 
+      // - **oracle**
       shared_ptr<string> databaseType_ {};
       // The ID of the network domain to which the database belongs.
       shared_ptr<string> networkDomainId_ {};
       // The database type. Valid values:
       // 
-      // *   **Local**: on-premises database.
-      // *   **Rds**: ApsaraDB RDS instance.
-      // *   **PolarDB**: PolarDB cluster.
+      // - **Local**: on-premises database.
+      // 
+      // - **Rds**: ApsaraDB RDS instance.
+      // 
+      // - **PolarDB**: PolarDB cluster.
       shared_ptr<string> source_ {};
       // The ID of the ApsaraDB RDS instance or PolarDB cluster.
       // 
@@ -210,8 +216,9 @@ namespace Models
       shared_ptr<string> sourceInstanceRegionId_ {};
       // The status of the database. Valid values:
       // 
-      // *   **Normal**
-      // *   **Release**
+      // - **Normal**
+      // 
+      // - **Release**
       shared_ptr<string> sourceInstanceState_ {};
     };
 

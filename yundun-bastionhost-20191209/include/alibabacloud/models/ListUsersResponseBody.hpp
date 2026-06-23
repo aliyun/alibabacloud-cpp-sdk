@@ -226,61 +226,87 @@ namespace Models
       shared_ptr<string> email_ {};
       // This parameter is required if LanguageStatus is set to Custom. Valid values:
       // 
-      // *   **zh-cn**: simplified Chinese.
-      // *   **en**: English.
+      // - **zh-cn**: simplified Chinese.
+      // 
+      // - **en**: English.
       shared_ptr<string> language_ {};
       // Indicates whether notifications are sent in the language specified in the global settings or a custom language.
       // 
-      // *   **Global**
-      // *   **Custom**
+      // - **Global**
+      // 
+      // - **Custom**
       shared_ptr<string> languageStatus_ {};
       // The mobile phone number of the user.
       shared_ptr<string> mobile_ {};
       // The location where the mobile phone number of the user is registered. Valid values:
       // 
-      // *   **CN**: the Chinese mainland, whose international dialing code is +86.
-      // *   **HK**: Hong Kong (China), whose international dialing code is +852.
-      // *   **MO**: Macao (China), whose international dialing code is +853.
-      // *   **TW**: Taiwan (China), whose international dialing code is +886.
-      // *   **RU**: Russia, whose international dialing code is +7.
-      // *   **SG**: Singapore, whose international dialing code is +65.
-      // *   **MY**: Malaysia, whose international dialing code is +60.
-      // *   **ID**: Indonesia, whose international dialing code is +62.
-      // *   **DE**: Germany, whose international dialing code is +49.
-      // *   **AU**: Australia, whose international dialing code is +61.
-      // *   **US**: US, whose international dialing code is +1.
-      // *   **AE**: United Arab Emirates, whose international dialing code is +971.
-      // *   **JP:** Japan, whose international dialing code is +81.
-      // *   **GB**: UK, whose international dialing code is +44.
-      // *   **IN**: India, whose international dialing code is +91.
-      // *   **KR**: Republic of Korea, whose international dialing code is +82.
-      // *   **PH**: Philippines, whose international dialing code is +63.
-      // *   **CH**: Switzerland, whose international dialing code is +41.
-      // *   **SE**: Sweden, whose international dialing code is +46.
+      // - **CN**: the Chinese mainland, whose international dialing code is +86.
+      // 
+      // - **HK**: Hong Kong (China), whose international dialing code is +852.
+      // 
+      // - **MO**: Macao (China), whose international dialing code is +853.
+      // 
+      // - **TW**: Taiwan (China), whose international dialing code is +886.
+      // 
+      // - **RU**: Russia, whose international dialing code is +7.
+      // 
+      // - **SG**: Singapore, whose international dialing code is +65.
+      // 
+      // - **MY**: Malaysia, whose international dialing code is +60.
+      // 
+      // - **ID**: Indonesia, whose international dialing code is +62.
+      // 
+      // - **DE**: Germany, whose international dialing code is +49.
+      // 
+      // - **AU**: Australia, whose international dialing code is +61.
+      // 
+      // - **US**: US, whose international dialing code is +1.
+      // 
+      // - **AE**: United Arab Emirates, whose international dialing code is +971.
+      // 
+      // - **JP:** Japan, whose international dialing code is +81.
+      // 
+      // - **GB**: UK, whose international dialing code is +44.
+      // 
+      // - **IN**: India, whose international dialing code is +91.
+      // 
+      // - **KR**: Republic of Korea, whose international dialing code is +82.
+      // 
+      // - **PH**: Philippines, whose international dialing code is +63.
+      // 
+      // - **CH**: Switzerland, whose international dialing code is +41.
+      // 
+      // - **SE**: Sweden, whose international dialing code is +46.
       shared_ptr<string> mobileCountryCode_ {};
       // Indicates whether password reset is required upon the next logon. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> needResetPassword_ {};
       // The type of the user. Valid values:
       // 
-      // *   **Local**: a local user.
-      // *   **Ram**: a RAM user.
-      // *   **AD**: an AD-authenticated user.
-      // *   **LDAP**: an LDAP-authenticated user.
+      // - **Local**: a local user.
+      // 
+      // - **Ram**: a RAM user.
+      // 
+      // - **AD**: an AD-authenticated user.
+      // 
+      // - **LDAP**: an LDAP-authenticated user.
       shared_ptr<string> source_ {};
       // The unique ID of the user.
       // 
-      // >  This parameter uniquely identifies a RAM user of the bastion host. A value is returned for this parameter if **Source** is set to **Ram**. No value is returned for this parameter if **Source** is set to **Local**.
+      // > This parameter uniquely identifies a RAM user of the bastion host. A value is returned for this parameter if **Source** is set to **Ram**. No value is returned for this parameter if **Source** is set to **Local**.
       shared_ptr<string> sourceUserId_ {};
       // An array of the enabled two-factor authentication methods.
       shared_ptr<vector<string>> twoFactorMethods_ {};
       // Indicates whether two-factor authentication is enabled for the user. Valid values:
       // 
-      // *   **Global**: The global setting applies.
-      // *   **Disable**: Two-factor authentication is disabled.
-      // *   **Enable**: Two-factor authentication is enabled. The user-specific setting for the authentication method applies.
+      // - **Global**: The global setting applies.
+      // 
+      // - **Disable**: Two-factor authentication is disabled.
+      // 
+      // - **Enable**: Two-factor authentication is enabled. The user-specific setting for the authentication method applies.
       shared_ptr<string> twoFactorStatus_ {};
       // The user ID.
       shared_ptr<string> userId_ {};

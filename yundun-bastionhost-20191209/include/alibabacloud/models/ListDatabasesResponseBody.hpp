@@ -175,8 +175,9 @@ namespace Models
     protected:
       // The address type of the database. Valid values:
       // 
-      // * **Public**
-      // * **Private**
+      // - **Public**
+      // 
+      // - **Private**
       shared_ptr<string> activeAddressType_ {};
       // The remarks of the database.
       shared_ptr<string> comment_ {};
@@ -191,28 +192,36 @@ namespace Models
       // The public address of the database. The value is a domain name or an IP address.
       shared_ptr<string> databasePublicAddress_ {};
       // The database engine. Valid values:
-      // *   **MySQL**
-      // *   **Oracle**
-      // *   **PostgreSQL**
-      // *   **SQLServer**
+      // 
+      // - **MySQL**
+      // 
+      // - **Oracle**
+      // 
+      // - **PostgreSQL**
+      // 
+      // - **SQLServer**
       shared_ptr<string> databaseType_ {};
       // The ID of the network domain where the database resides.
       shared_ptr<string> networkDomainId_ {};
       // The type of the database. Valid values:
       // 
-      // * **Local**: on-premises database.
-      // * **Rds**: ApsaraDB for RDS instance.
-      // * **PolarDB**: PolarDB cluster
+      // - **Local**: on-premises database.
+      // 
+      // - **Rds**: ApsaraDB for RDS instance.
+      // 
+      // - **PolarDB**: PolarDB cluster
       shared_ptr<string> source_ {};
       // The ID of the ApsaraDB for RDS instance or PolarDB cluster.
+      // 
       // > No value is returned for this parameter if **Source** is set to **Local**.
       shared_ptr<string> sourceInstanceId_ {};
       // The region ID of the ApsaraDB for RDS instance or PolarDB cluster.
       shared_ptr<string> sourceInstanceRegionId_ {};
       // The status of the database. Valid values:
       // 
-      // * **Normal**
-      // * **Release**
+      // - **Normal**
+      // 
+      // - **Release**
       shared_ptr<string> sourceInstanceState_ {};
     };
 

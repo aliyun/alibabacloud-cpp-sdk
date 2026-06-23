@@ -69,7 +69,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the authorization rule to query.
     // 
-    // >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+    // > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};

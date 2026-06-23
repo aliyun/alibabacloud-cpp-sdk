@@ -100,7 +100,7 @@ namespace Models
     shared_ptr<string> databaseAccountName_ {};
     // The ID of the database for which you want to create a database account.
     // 
-    // >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
     // 
     // This parameter is required.
     shared_ptr<string> databaseId_ {};
@@ -114,8 +114,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The logon attribute. This parameter is required for Oracle databases. Valid values:
     // 
-    // *   SERVICENAME
-    // *   SID
+    // - SERVICENAME
+    // 
+    // - SID
     shared_ptr<string> loginAttribute_ {};
     // The password of the database account to be created.
     shared_ptr<string> password_ {};

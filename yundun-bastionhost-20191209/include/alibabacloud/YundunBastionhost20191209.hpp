@@ -21,9 +21,9 @@ namespace YundunBastionhost20191209
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
        *
-       * @description You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+       * @description Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request AcceptApproveCommandRequest
@@ -33,9 +33,9 @@ namespace YundunBastionhost20191209
       Models::AcceptApproveCommandResponse acceptApproveCommandWithOptions(const Models::AcceptApproveCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
        *
-       * @description You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+       * @description Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request AcceptApproveCommandRequest
@@ -44,9 +44,9 @@ namespace YundunBastionhost20191209
       Models::AcceptApproveCommandResponse acceptApproveCommand(const Models::AcceptApproveCommandRequest &request);
 
       /**
-       * @summary Approves an O\\\\\\\\\\\\\\\\\\\\&M application.
+       * @summary Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
        *
-       * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+       * @description Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request AcceptOperationTicketRequest
@@ -56,9 +56,9 @@ namespace YundunBastionhost20191209
       Models::AcceptOperationTicketResponse acceptOperationTicketWithOptions(const Models::AcceptOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Approves an O\\\\\\\\\\\\\\\\\\\\&M application.
+       * @summary Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
        *
-       * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+       * @description Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request AcceptOperationTicketRequest
@@ -86,7 +86,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Adds one or more hosts to the specified host group.
        *
-       * @description You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+       * @description Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
        *
@@ -99,7 +99,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Adds one or more hosts to the specified host group.
        *
-       * @description You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+       * @description Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
        *
@@ -109,7 +109,7 @@ namespace YundunBastionhost20191209
       Models::AddHostsToGroupResponse addHostsToGroup(const Models::AddHostsToGroupRequest &request);
 
       /**
-       * @summary 添加RD成员账号
+       * @summary Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
        *
        * @param request AddInstanceRdMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -118,7 +118,7 @@ namespace YundunBastionhost20191209
       Models::AddInstanceRdMemberResponse addInstanceRdMemberWithOptions(const Models::AddInstanceRdMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加RD成员账号
+       * @summary Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
        *
        * @param request AddInstanceRdMemberRequest
        * @return AddInstanceRdMemberResponse
@@ -129,7 +129,7 @@ namespace YundunBastionhost20191209
        * @summary Add one or more users to a user group.
        *
        * @description #
-       * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+       * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
        * # Limit
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -143,7 +143,7 @@ namespace YundunBastionhost20191209
        * @summary Add one or more users to a user group.
        *
        * @description #
-       * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+       * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
        * # Limit
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -151,6 +151,23 @@ namespace YundunBastionhost20191209
        * @return AddUsersToGroupResponse
        */
       Models::AddUsersToGroupResponse addUsersToGroup(const Models::AddUsersToGroupRequest &request);
+
+      /**
+       * @summary Approves an O&M task request.
+       *
+       * @param request AllowOperationTaskApprovalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AllowOperationTaskApprovalResponse
+       */
+      Models::AllowOperationTaskApprovalResponse allowOperationTaskApprovalWithOptions(const Models::AllowOperationTaskApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Approves an O&M task request.
+       *
+       * @param request AllowOperationTaskApprovalRequest
+       * @return AllowOperationTaskApprovalResponse
+       */
+      Models::AllowOperationTaskApprovalResponse allowOperationTaskApproval(const Models::AllowOperationTaskApprovalRequest &request);
 
       /**
        * @summary Authorizes a user to manage databases and database accounts.
@@ -170,7 +187,7 @@ namespace YundunBastionhost20191209
       Models::AttachDatabaseAccountsToUserResponse attachDatabaseAccountsToUser(const Models::AttachDatabaseAccountsToUserRequest &request);
 
       /**
-       * @summary Authorizes a user group to manage databases and database accounts.
+       * @summary Grants permissions on databases and database accounts to a user group.
        *
        * @param request AttachDatabaseAccountsToUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -179,7 +196,7 @@ namespace YundunBastionhost20191209
       Models::AttachDatabaseAccountsToUserGroupResponse attachDatabaseAccountsToUserGroupWithOptions(const Models::AttachDatabaseAccountsToUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes a user group to manage databases and database accounts.
+       * @summary Grants permissions on databases and database accounts to a user group.
        *
        * @param request AttachDatabaseAccountsToUserGroupRequest
        * @return AttachDatabaseAccountsToUserGroupResponse
@@ -204,7 +221,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToHostShareKeyResponse attachHostAccountsToHostShareKey(const Models::AttachHostAccountsToHostShareKeyRequest &request);
 
       /**
-       * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\&M operations on the assets.
+       * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
        *
        * @param request AttachHostAccountsToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -213,7 +230,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostAccountsToUserResponse attachHostAccountsToUserWithOptions(const Models::AttachHostAccountsToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\&M operations on the assets.
+       * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
        *
        * @param request AttachHostAccountsToUserRequest
        * @return AttachHostAccountsToUserResponse
@@ -276,7 +293,7 @@ namespace YundunBastionhost20191209
       Models::AttachHostGroupAccountsToUserGroupResponse attachHostGroupAccountsToUserGroup(const Models::AttachHostGroupAccountsToUserGroupRequest &request);
 
       /**
-       * @summary Configures security groups for a bastion host.
+       * @summary Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
        *
        * @param request ConfigInstanceSecurityGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +302,7 @@ namespace YundunBastionhost20191209
       Models::ConfigInstanceSecurityGroupsResponse configInstanceSecurityGroupsWithOptions(const Models::ConfigInstanceSecurityGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures security groups for a bastion host.
+       * @summary Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
        *
        * @param request ConfigInstanceSecurityGroupsRequest
        * @return ConfigInstanceSecurityGroupsResponse
@@ -293,12 +310,10 @@ namespace YundunBastionhost20191209
       Models::ConfigInstanceSecurityGroupsResponse configInstanceSecurityGroups(const Models::ConfigInstanceSecurityGroupsRequest &request);
 
       /**
-       * @summary Configures a whitelist of public IP addresses for a bastion host.
+       * @summary After enabling public network access for a Bastionhost instance, you can add IP addresses to a whitelist to control access.
        *
-       * @description ## Usage notes
-       * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
-       * ## Limits
-       * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation configures a public IP address whitelist for a Bastionhost instance. By default, instances accept traffic from all public IP addresses. To restrict access, add IP addresses to the whitelist. This ensures only traffic from whitelisted IP addresses can reach the instance.
+       * Each user is limited to 30 queries per second (QPS) for this operation. The system throttles API calls that exceed this limit. This may affect your services, so plan your calls accordingly.
        *
        * @param request ConfigInstanceWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -307,12 +322,10 @@ namespace YundunBastionhost20191209
       Models::ConfigInstanceWhiteListResponse configInstanceWhiteListWithOptions(const Models::ConfigInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a whitelist of public IP addresses for a bastion host.
+       * @summary After enabling public network access for a Bastionhost instance, you can add IP addresses to a whitelist to control access.
        *
-       * @description ## Usage notes
-       * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
-       * ## Limits
-       * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation configures a public IP address whitelist for a Bastionhost instance. By default, instances accept traffic from all public IP addresses. To restrict access, add IP addresses to the whitelist. This ensures only traffic from whitelisted IP addresses can reach the instance.
+       * Each user is limited to 30 queries per second (QPS) for this operation. The system throttles API calls that exceed this limit. This may affect your services, so plan your calls accordingly.
        *
        * @param request ConfigInstanceWhiteListRequest
        * @return ConfigInstanceWhiteListResponse
@@ -320,7 +333,7 @@ namespace YundunBastionhost20191209
       Models::ConfigInstanceWhiteListResponse configInstanceWhiteList(const Models::ConfigInstanceWhiteListRequest &request);
 
       /**
-       * @summary Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+       * @summary Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
        *
        * @param request CreateDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -329,7 +342,7 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseResponse createDatabaseWithOptions(const Models::CreateDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+       * @summary Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
        *
        * @param request CreateDatabaseRequest
        * @return CreateDatabaseResponse
@@ -337,7 +350,7 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseResponse createDatabase(const Models::CreateDatabaseRequest &request);
 
       /**
-       * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the database.
+       * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
        *
        * @param request CreateDatabaseAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -346,7 +359,7 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseAccountResponse createDatabaseAccountWithOptions(const Models::CreateDatabaseAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the database.
+       * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
        *
        * @param request CreateDatabaseAccountRequest
        * @return CreateDatabaseAccountResponse
@@ -354,7 +367,7 @@ namespace YundunBastionhost20191209
       Models::CreateDatabaseAccountResponse createDatabaseAccount(const Models::CreateDatabaseAccountRequest &request);
 
       /**
-       * @summary Creates a configuration backup export task. You can run only one configuration backup export task on a bastion host at a time.
+       * @summary Creates a configuration backup export task. Only one configuration backup export task can run at a time for a Bastionhost instance.
        *
        * @param request CreateExportConfigJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -363,7 +376,7 @@ namespace YundunBastionhost20191209
       Models::CreateExportConfigJobResponse createExportConfigJobWithOptions(const Models::CreateExportConfigJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a configuration backup export task. You can run only one configuration backup export task on a bastion host at a time.
+       * @summary Creates a configuration backup export task. Only one configuration backup export task can run at a time for a Bastionhost instance.
        *
        * @param request CreateExportConfigJobRequest
        * @return CreateExportConfigJobResponse
@@ -371,7 +384,7 @@ namespace YundunBastionhost20191209
       Models::CreateExportConfigJobResponse createExportConfigJob(const Models::CreateExportConfigJobRequest &request);
 
       /**
-       * @summary Bastionhost allows you to perform O\\\\\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\\\\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+       * @summary Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
        *
        * @param request CreateHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -380,7 +393,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostResponse createHostWithOptions(const Models::CreateHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Bastionhost allows you to perform O\\\\\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\\\\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+       * @summary Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
        *
        * @param request CreateHostRequest
        * @return CreateHostResponse
@@ -388,7 +401,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostResponse createHost(const Models::CreateHostRequest &request);
 
       /**
-       * @summary After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the host by using the bastion host.
+       * @summary Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
        *
        * @param request CreateHostAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -397,7 +410,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostAccountResponse createHostAccountWithOptions(const Models::CreateHostAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the host by using the bastion host.
+       * @summary Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
        *
        * @param request CreateHostAccountRequest
        * @return CreateHostAccountResponse
@@ -439,7 +452,7 @@ namespace YundunBastionhost20191209
       Models::CreateHostShareKeyResponse createHostShareKey(const Models::CreateHostShareKeyRequest &request);
 
       /**
-       * @summary If you want to perform O\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\&M operations on the assets by using the bastion host.
+       * @summary If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
        *
        * @param request CreateNetworkDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -448,7 +461,7 @@ namespace YundunBastionhost20191209
       Models::CreateNetworkDomainResponse createNetworkDomainWithOptions(const Models::CreateNetworkDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If you want to perform O\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\&M operations on the assets by using the bastion host.
+       * @summary If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
        *
        * @param request CreateNetworkDomainRequest
        * @return CreateNetworkDomainResponse
@@ -456,7 +469,7 @@ namespace YundunBastionhost20191209
       Models::CreateNetworkDomainResponse createNetworkDomain(const Models::CreateNetworkDomainRequest &request);
 
       /**
-       * @summary If a Bastionhost administrator turns on O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+       * @summary Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
        *
        * @param request CreateOperationTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -465,7 +478,7 @@ namespace YundunBastionhost20191209
       Models::CreateOperationTicketResponse createOperationTicketWithOptions(const Models::CreateOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If a Bastionhost administrator turns on O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+       * @summary Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
        *
        * @param request CreateOperationTicketRequest
        * @return CreateOperationTicketResponse
@@ -473,7 +486,7 @@ namespace YundunBastionhost20191209
       Models::CreateOperationTicketResponse createOperationTicket(const Models::CreateOperationTicketRequest &request);
 
       /**
-       * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\&M security.
+       * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
        *
        * @param request CreatePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -482,7 +495,7 @@ namespace YundunBastionhost20191209
       Models::CreatePolicyResponse createPolicyWithOptions(const Models::CreatePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\&M security.
+       * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
        *
        * @param request CreatePolicyRequest
        * @return CreatePolicyResponse
@@ -509,7 +522,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Adds a user to a bastion host.
        *
-       * @description You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+       * @description Adds local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After adding a user, O\\&M engineers can log on to the bastion host with that account to perform O\\&M operations on authorized hosts.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
        *
        * @param request CreateUserRequest
@@ -521,7 +534,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Adds a user to a bastion host.
        *
-       * @description You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+       * @description Adds local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After adding a user, O\\&M engineers can log on to the bastion host with that account to perform O\\&M operations on authorized hosts.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
        *
        * @param request CreateUserRequest
@@ -532,7 +545,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Creates a user group for a bastion host.
        *
-       * @description You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+       * @description Creates a user group for a bastion host as an administrator. After creating the group, use the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add multiple users at once, enabling centralized user authorization and management.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request CreateUserGroupRequest
@@ -544,7 +557,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Creates a user group for a bastion host.
        *
-       * @description You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+       * @description Creates a user group for a bastion host as an administrator. After creating the group, use the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add multiple users at once, enabling centralized user authorization and management.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request CreateUserGroupRequest
@@ -553,7 +566,7 @@ namespace YundunBastionhost20191209
       Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
 
       /**
-       * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\&M client.
+       * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M client.
        *
        * @description You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
        *
@@ -564,7 +577,7 @@ namespace YundunBastionhost20191209
       Models::CreateUserPublicKeyResponse createUserPublicKeyWithOptions(const Models::CreateUserPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\&M client.
+       * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M client.
        *
        * @description You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
        *
@@ -629,7 +642,7 @@ namespace YundunBastionhost20191209
        *
        * @description ## Usage notes
        * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-       * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
+       * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
        * ## QPS Limit
        * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
        *
@@ -644,7 +657,7 @@ namespace YundunBastionhost20191209
        *
        * @description ## Usage notes
        * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-       * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
+       * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
        * ## QPS Limit
        * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
        *
@@ -656,7 +669,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Deletes a host group.
        *
-       * @description You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+       * @description Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
        * ### Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -669,7 +682,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Deletes a host group.
        *
-       * @description You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+       * @description Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
        * ### Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -802,9 +815,7 @@ namespace YundunBastionhost20191209
       Models::DeleteUserPublicKeyResponse deleteUserPublicKey(const Models::DeleteUserPublicKeyRequest &request);
 
       /**
-       * @summary Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
-       *
-       * @description ****
+       * @summary Returns all instance attributes, such as its instance ID and description.
        *
        * @param request DescribeInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -813,9 +824,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstanceAttributeResponse describeInstanceAttributeWithOptions(const Models::DescribeInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
-       *
-       * @description ****
+       * @summary Returns all instance attributes, such as its instance ID and description.
        *
        * @param request DescribeInstanceAttributeRequest
        * @return DescribeInstanceAttributeResponse
@@ -823,7 +832,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstanceAttributeResponse describeInstanceAttribute(const Models::DescribeInstanceAttributeRequest &request);
 
       /**
-       * @summary Queries bastion hosts.
+       * @summary Retrieves a list of Bastionhost instances.
        *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -832,7 +841,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries bastion hosts.
+       * @summary Retrieves a list of Bastionhost instances.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -840,7 +849,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary Queries available regions where you can create bastion hosts.
+       * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -849,7 +858,7 @@ namespace YundunBastionhost20191209
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries available regions where you can create bastion hosts.
+       * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -961,8 +970,6 @@ namespace YundunBastionhost20191209
       /**
        * @summary Revokes permissions on one or more host groups and host accounts from a user group.
        *
-       * @description ****
-       *
        * @param request DetachHostGroupAccountsFromUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DetachHostGroupAccountsFromUserGroupResponse
@@ -972,15 +979,13 @@ namespace YundunBastionhost20191209
       /**
        * @summary Revokes permissions on one or more host groups and host accounts from a user group.
        *
-       * @description ****
-       *
        * @param request DetachHostGroupAccountsFromUserGroupRequest
        * @return DetachHostGroupAccountsFromUserGroupResponse
        */
       Models::DetachHostGroupAccountsFromUserGroupResponse detachHostGroupAccountsFromUserGroup(const Models::DetachHostGroupAccountsFromUserGroupRequest &request);
 
       /**
-       * @summary Disables Internet access to a bastion host.
+       * @summary Disables public network access for a Bastionhost instance.
        *
        * @param request DisableInstancePublicAccessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +994,7 @@ namespace YundunBastionhost20191209
       Models::DisableInstancePublicAccessResponse disableInstancePublicAccessWithOptions(const Models::DisableInstancePublicAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables Internet access to a bastion host.
+       * @summary Disables public network access for a Bastionhost instance.
        *
        * @param request DisableInstancePublicAccessRequest
        * @return DisableInstancePublicAccessResponse
@@ -1014,7 +1019,7 @@ namespace YundunBastionhost20191209
       Models::DisableRuleResponse disableRule(const Models::DisableRuleRequest &request);
 
       /**
-       * @summary Enables Internet access to a bastion host.
+       * @summary Enables public network access for a specified Bastionhost instance.
        *
        * @param request EnableInstancePublicAccessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1023,7 +1028,7 @@ namespace YundunBastionhost20191209
       Models::EnableInstancePublicAccessResponse enableInstancePublicAccessWithOptions(const Models::EnableInstancePublicAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables Internet access to a bastion host.
+       * @summary Enables public network access for a specified Bastionhost instance.
        *
        * @param request EnableInstancePublicAccessRequest
        * @return EnableInstancePublicAccessResponse
@@ -1048,7 +1053,7 @@ namespace YundunBastionhost20191209
       Models::EnableRuleResponse enableRule(const Models::EnableRuleRequest &request);
 
       /**
-       * @summary Applies for an O\\\\\\&M token.
+       * @summary Call this operation to request O&M tokens for bastions or databases, which allows you to manage assets.
        *
        * @param request GenerateAssetOperationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1057,12 +1062,29 @@ namespace YundunBastionhost20191209
       Models::GenerateAssetOperationTokenResponse generateAssetOperationTokenWithOptions(const Models::GenerateAssetOperationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies for an O\\\\\\&M token.
+       * @summary Call this operation to request O&M tokens for bastions or databases, which allows you to manage assets.
        *
        * @param request GenerateAssetOperationTokenRequest
        * @return GenerateAssetOperationTokenResponse
        */
       Models::GenerateAssetOperationTokenResponse generateAssetOperationToken(const Models::GenerateAssetOperationTokenRequest &request);
+
+      /**
+       * @summary Retrieves the details of a specified O&M task for an administrator.
+       *
+       * @param request GetAutoOpsTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAutoOpsTaskResponse
+       */
+      Models::GetAutoOpsTaskResponse getAutoOpsTaskWithOptions(const Models::GetAutoOpsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a specified O&M task for an administrator.
+       *
+       * @param request GetAutoOpsTaskRequest
+       * @return GetAutoOpsTaskResponse
+       */
+      Models::GetAutoOpsTaskResponse getAutoOpsTask(const Models::GetAutoOpsTaskRequest &request);
 
       /**
        * @summary Queries the detailed information about a database.
@@ -1099,7 +1121,7 @@ namespace YundunBastionhost20191209
       Models::GetDatabaseAccountResponse getDatabaseAccount(const Models::GetDatabaseAccountRequest &request);
 
       /**
-       * @summary null
+       * @summary Retrieves the details of a configuration export task for a Bastionhost instance.
        *
        * @param request GetExportConfigJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1108,7 +1130,7 @@ namespace YundunBastionhost20191209
       Models::GetExportConfigJobResponse getExportConfigJobWithOptions(const Models::GetExportConfigJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary null
+       * @summary Retrieves the details of a configuration export task for a Bastionhost instance.
        *
        * @param request GetExportConfigJobRequest
        * @return GetExportConfigJobResponse
@@ -1116,7 +1138,7 @@ namespace YundunBastionhost20191209
       Models::GetExportConfigJobResponse getExportConfigJob(const Models::GetExportConfigJobRequest &request);
 
       /**
-       * @summary Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+       * @summary Retrieves the details of a host, such as the name, source, address, protocol, and service port.
        *
        * @param request GetHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1125,7 +1147,7 @@ namespace YundunBastionhost20191209
       Models::GetHostResponse getHostWithOptions(const Models::GetHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+       * @summary Retrieves the details of a host, such as the name, source, address, protocol, and service port.
        *
        * @param request GetHostRequest
        * @return GetHostResponse
@@ -1133,7 +1155,7 @@ namespace YundunBastionhost20191209
       Models::GetHostResponse getHost(const Models::GetHostRequest &request);
 
       /**
-       * @summary Queries the details of a specified host account.
+       * @summary Retrieves the details of a host account on a host managed by a Bastionhost instance, such as the protocol type and account name.
        *
        * @param request GetHostAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1142,7 +1164,7 @@ namespace YundunBastionhost20191209
       Models::GetHostAccountResponse getHostAccountWithOptions(const Models::GetHostAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified host account.
+       * @summary Retrieves the details of a host account on a host managed by a Bastionhost instance, such as the protocol type and account name.
        *
        * @param request GetHostAccountRequest
        * @return GetHostAccountResponse
@@ -1150,7 +1172,7 @@ namespace YundunBastionhost20191209
       Models::GetHostAccountResponse getHostAccount(const Models::GetHostAccountRequest &request);
 
       /**
-       * @summary Queries the details of a specified host group.
+       * @summary Retrieves the details of a host group.
        *
        * @param request GetHostGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1159,7 +1181,7 @@ namespace YundunBastionhost20191209
       Models::GetHostGroupResponse getHostGroupWithOptions(const Models::GetHostGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified host group.
+       * @summary Retrieves the details of a host group.
        *
        * @param request GetHostGroupRequest
        * @return GetHostGroupResponse
@@ -1187,9 +1209,9 @@ namespace YundunBastionhost20191209
        * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
        *
        * @description ###
-       * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+       * Queries the Active Directory (AD) authentication settings of a bastion host. After you configure AD authentication, you can import AD-authenticated users into the bastion host. The imported users can then log on to the bastion host to perform O\\&M operations on servers.
        * ### Limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
        *
        * @param request GetInstanceADAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1201,9 +1223,9 @@ namespace YundunBastionhost20191209
        * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
        *
        * @description ###
-       * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+       * Queries the Active Directory (AD) authentication settings of a bastion host. After you configure AD authentication, you can import AD-authenticated users into the bastion host. The imported users can then log on to the bastion host to perform O\\&M operations on servers.
        * ### Limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
        *
        * @param request GetInstanceADAuthServerRequest
        * @return GetInstanceADAuthServerResponse
@@ -1228,7 +1250,7 @@ namespace YundunBastionhost20191209
       Models::GetInstanceLDAPAuthServerResponse getInstanceLDAPAuthServer(const Models::GetInstanceLDAPAuthServerRequest &request);
 
       /**
-       * @summary Queries the storage usage of a bastion host.
+       * @summary Queries the storage usage of a Bastionhost instance.
        *
        * @param request GetInstanceStoreInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1237,7 +1259,7 @@ namespace YundunBastionhost20191209
       Models::GetInstanceStoreInfoResponse getInstanceStoreInfoWithOptions(const Models::GetInstanceStoreInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the storage usage of a bastion host.
+       * @summary Queries the storage usage of a Bastionhost instance.
        *
        * @param request GetInstanceStoreInfoRequest
        * @return GetInstanceStoreInfoResponse
@@ -1247,9 +1269,9 @@ namespace YundunBastionhost20191209
       /**
        * @summary Queries the settings of two-factor authentication on a bastion host.
        *
-       * @description You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+       * @description Queries the two-factor authentication settings of a bastion host. When two-factor authentication is enabled, Bastionhost sends a verification code to a local user who logs on to the bastion host. The local user must enter a valid username, password, and verification code to log on, which reduces the security risks of account information leaks.
        * ### Limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
        *
        * @param request GetInstanceTwoFactorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1260,9 +1282,9 @@ namespace YundunBastionhost20191209
       /**
        * @summary Queries the settings of two-factor authentication on a bastion host.
        *
-       * @description You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+       * @description Queries the two-factor authentication settings of a bastion host. When two-factor authentication is enabled, Bastionhost sends a verification code to a local user who logs on to the bastion host. The local user must enter a valid username, password, and verification code to log on, which reduces the security risks of account information leaks.
        * ### Limit
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
        *
        * @param request GetInstanceTwoFactorRequest
        * @return GetInstanceTwoFactorResponse
@@ -1270,7 +1292,7 @@ namespace YundunBastionhost20191209
       Models::GetInstanceTwoFactorResponse getInstanceTwoFactor(const Models::GetInstanceTwoFactorRequest &request);
 
       /**
-       * @summary Queries the detailed information about a network domain.
+       * @summary Retrieves the details of a specified network domain.
        *
        * @param request GetNetworkDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1279,7 +1301,7 @@ namespace YundunBastionhost20191209
       Models::GetNetworkDomainResponse getNetworkDomainWithOptions(const Models::GetNetworkDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about a network domain.
+       * @summary Retrieves the details of a specified network domain.
        *
        * @param request GetNetworkDomainRequest
        * @return GetNetworkDomainResponse
@@ -1287,7 +1309,7 @@ namespace YundunBastionhost20191209
       Models::GetNetworkDomainResponse getNetworkDomain(const Models::GetNetworkDomainRequest &request);
 
       /**
-       * @summary Queries the detailed information about a control policy.
+       * @summary Gets the details of a specified control policy.
        *
        * @param request GetPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,7 +1318,7 @@ namespace YundunBastionhost20191209
       Models::GetPolicyResponse getPolicyWithOptions(const Models::GetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about a control policy.
+       * @summary Gets the details of a specified control policy.
        *
        * @param request GetPolicyRequest
        * @return GetPolicyResponse
@@ -1355,7 +1377,7 @@ namespace YundunBastionhost20191209
       Models::GetRuleResponse getRule(const Models::GetRuleRequest &request);
 
       /**
-       * @summary Queries the details of a user of the specified bastion host.
+       * @summary Retrieves the details of a user of a bastion host.
        *
        * @param request GetUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1364,7 +1386,7 @@ namespace YundunBastionhost20191209
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a user of the specified bastion host.
+       * @summary Retrieves the details of a user of a bastion host.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -1372,7 +1394,7 @@ namespace YundunBastionhost20191209
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
-       * @summary Queries the details of a user group in a bastion host.
+       * @summary Retrieves the details of a user group in a bastion host.
        *
        * @param request GetUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1381,7 +1403,7 @@ namespace YundunBastionhost20191209
       Models::GetUserGroupResponse getUserGroupWithOptions(const Models::GetUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a user group in a bastion host.
+       * @summary Retrieves the details of a user group in a bastion host.
        *
        * @param request GetUserGroupRequest
        * @return GetUserGroupResponse
@@ -1389,7 +1411,7 @@ namespace YundunBastionhost20191209
       Models::GetUserGroupResponse getUserGroup(const Models::GetUserGroupRequest &request);
 
       /**
-       * @summary 为当前主机导入 KMS 凭据
+       * @summary Imports KMS secrets for a specified host.
        *
        * @param tmpReq ImportKMSSecretsForHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1398,7 +1420,7 @@ namespace YundunBastionhost20191209
       Models::ImportKMSSecretsForHostResponse importKMSSecretsForHostWithOptions(const Models::ImportKMSSecretsForHostRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为当前主机导入 KMS 凭据
+       * @summary Imports KMS secrets for a specified host.
        *
        * @param request ImportKMSSecretsForHostRequest
        * @return ImportKMSSecretsForHostResponse
@@ -1408,7 +1430,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Queries commands to be reviewed.
        *
-       * @description You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+       * @description Queries commands pending review as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request ListApproveCommandsRequest
@@ -1420,7 +1442,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Queries commands to be reviewed.
        *
-       * @description You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+       * @description Queries commands pending review as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request ListApproveCommandsRequest
@@ -1514,7 +1536,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesForUserResponse listDatabasesForUser(const Models::ListDatabasesForUserRequest &request);
 
       /**
-       * @summary Queries the databases that a user group is authorized to manage.
+       * @summary Lists the databases that a user group is authorized to manage through a Bastionhost instance.
        *
        * @param request ListDatabasesForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1523,7 +1545,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesForUserGroupResponse listDatabasesForUserGroupWithOptions(const Models::ListDatabasesForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the databases that a user group is authorized to manage.
+       * @summary Lists the databases that a user group is authorized to manage through a Bastionhost instance.
        *
        * @param request ListDatabasesForUserGroupRequest
        * @return ListDatabasesForUserGroupResponse
@@ -1531,7 +1553,7 @@ namespace YundunBastionhost20191209
       Models::ListDatabasesForUserGroupResponse listDatabasesForUserGroup(const Models::ListDatabasesForUserGroupRequest &request);
 
       /**
-       * @summary Queries a list of host accounts.
+       * @summary Lists the host accounts that are configured for a host in a Bastionhost instance. Host accounts are the credentials used by O&M engineers to log on to the host.
        *
        * @param request ListHostAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1540,7 +1562,7 @@ namespace YundunBastionhost20191209
       Models::ListHostAccountsResponse listHostAccountsWithOptions(const Models::ListHostAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of host accounts.
+       * @summary Lists the host accounts that are configured for a host in a Bastionhost instance. Host accounts are the credentials used by O&M engineers to log on to the host.
        *
        * @param request ListHostAccountsRequest
        * @return ListHostAccountsResponse
@@ -1735,7 +1757,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsForUserResponse listHostsForUser(const Models::ListHostsForUserRequest &request);
 
       /**
-       * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+       * @summary Lists the authorized or unauthorized hosts for a bastion host user group.
        *
        * @param request ListHostsForUserGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1744,7 +1766,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsForUserGroupResponse listHostsForUserGroupWithOptions(const Models::ListHostsForUserGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+       * @summary Lists the authorized or unauthorized hosts for a bastion host user group.
        *
        * @param request ListHostsForUserGroupRequest
        * @return ListHostsForUserGroupResponse
@@ -1752,7 +1774,7 @@ namespace YundunBastionhost20191209
       Models::ListHostsForUserGroupResponse listHostsForUserGroup(const Models::ListHostsForUserGroupRequest &request);
 
       /**
-       * @summary 列出指定主机所有可导入的 KMS 凭据
+       * @summary Lists all importable KMS secrets for a specified host.
        *
        * @param request ListImportableKMSSecretsForHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1761,7 +1783,7 @@ namespace YundunBastionhost20191209
       Models::ListImportableKMSSecretsForHostResponse listImportableKMSSecretsForHostWithOptions(const Models::ListImportableKMSSecretsForHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出指定主机所有可导入的 KMS 凭据
+       * @summary Lists all importable KMS secrets for a specified host.
        *
        * @param request ListImportableKMSSecretsForHostRequest
        * @return ListImportableKMSSecretsForHostResponse
@@ -1769,7 +1791,7 @@ namespace YundunBastionhost20191209
       Models::ListImportableKMSSecretsForHostResponse listImportableKMSSecretsForHost(const Models::ListImportableKMSSecretsForHostRequest &request);
 
       /**
-       * @summary 获取RD成员账号列表
+       * @summary Lists the member accounts in a Resource Directory (RD).
        *
        * @param request ListInstanceRdMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1778,7 +1800,7 @@ namespace YundunBastionhost20191209
       Models::ListInstanceRdMembersResponse listInstanceRdMembersWithOptions(const Models::ListInstanceRdMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取RD成员账号列表
+       * @summary Lists the member accounts in a Resource Directory (RD).
        *
        * @param request ListInstanceRdMembersRequest
        * @return ListInstanceRdMembersResponse
@@ -1786,7 +1808,7 @@ namespace YundunBastionhost20191209
       Models::ListInstanceRdMembersResponse listInstanceRdMembers(const Models::ListInstanceRdMembersRequest &request);
 
       /**
-       * @summary Queries the network domains created in a bastion host.
+       * @summary Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
        *
        * @param request ListNetworkDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1795,7 +1817,7 @@ namespace YundunBastionhost20191209
       Models::ListNetworkDomainsResponse listNetworkDomainsWithOptions(const Models::ListNetworkDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the network domains created in a bastion host.
+       * @summary Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
        *
        * @param request ListNetworkDomainsRequest
        * @return ListNetworkDomainsResponse
@@ -1820,7 +1842,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationDatabaseAccountsResponse listOperationDatabaseAccounts(const Models::ListOperationDatabaseAccountsRequest &request);
 
       /**
-       * @summary Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Lists the databases that the current Resource Access Management (RAM) user is authorized to access.
        *
        * @param request ListOperationDatabasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1829,7 +1851,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationDatabasesResponse listOperationDatabasesWithOptions(const Models::ListOperationDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Lists the databases that the current Resource Access Management (RAM) user is authorized to access.
        *
        * @param request ListOperationDatabasesRequest
        * @return ListOperationDatabasesResponse
@@ -1854,7 +1876,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostAccountsResponse listOperationHostAccounts(const Models::ListOperationHostAccountsRequest &request);
 
       /**
-       * @summary Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Lists the hosts that the current Resource Access Management (RAM) user is authorized to perform O&M operations on through a Bastionhost instance.
        *
        * @param request ListOperationHostsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1863,7 +1885,7 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostsResponse listOperationHostsWithOptions(const Models::ListOperationHostsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+       * @summary Lists the hosts that the current Resource Access Management (RAM) user is authorized to perform O&M operations on through a Bastionhost instance.
        *
        * @param request ListOperationHostsRequest
        * @return ListOperationHostsResponse
@@ -1871,10 +1893,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostsResponse listOperationHosts(const Models::ListOperationHostsRequest &request);
 
       /**
-       * @summary Queries O\\\\\\\\\\\\&M applications to be reviewed.
+       * @summary Lists the O&M requests that require approval.
        *
-       * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
+       * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
        *
        * @param request ListOperationTicketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1883,10 +1905,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationTicketsResponse listOperationTicketsWithOptions(const Models::ListOperationTicketsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries O\\\\\\\\\\\\&M applications to be reviewed.
+       * @summary Lists the O&M requests that require approval.
        *
-       * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
+       * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
        *
        * @param request ListOperationTicketsRequest
        * @return ListOperationTicketsResponse
@@ -1928,7 +1950,7 @@ namespace YundunBastionhost20191209
       Models::ListRulesResponse listRules(const Models::ListRulesRequest &request);
 
       /**
-       * @summary Queries the tags that are added to a resource.
+       * @summary Queries the tag keys on resources.
        *
        * @param request ListTagKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1937,7 +1959,7 @@ namespace YundunBastionhost20191209
       Models::ListTagKeysResponse listTagKeysWithOptions(const Models::ListTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are added to a resource.
+       * @summary Queries the tag keys on resources.
        *
        * @param request ListTagKeysRequest
        * @return ListTagKeysResponse
@@ -1945,7 +1967,7 @@ namespace YundunBastionhost20191209
       Models::ListTagKeysResponse listTagKeys(const Models::ListTagKeysRequest &request);
 
       /**
-       * @summary Queries the tags that are added for one or more bastion hosts.
+       * @summary Lists the tags that are attached to one or more Bastionhost instances.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1954,12 +1976,29 @@ namespace YundunBastionhost20191209
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are added for one or more bastion hosts.
+       * @summary Lists the tags that are attached to one or more Bastionhost instances.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary Retrieves pending automated O&M approval requests.
+       *
+       * @param request ListTodoOpsTaskApprovalsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTodoOpsTaskApprovalsResponse
+       */
+      Models::ListTodoOpsTaskApprovalsResponse listTodoOpsTaskApprovalsWithOptions(const Models::ListTodoOpsTaskApprovalsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves pending automated O&M approval requests.
+       *
+       * @param request ListTodoOpsTaskApprovalsRequest
+       * @return ListTodoOpsTaskApprovalsResponse
+       */
+      Models::ListTodoOpsTaskApprovalsResponse listTodoOpsTaskApprovals(const Models::ListTodoOpsTaskApprovalsRequest &request);
 
       /**
        * @summary Queries a list of user groups on a bastion host.
@@ -1979,7 +2018,7 @@ namespace YundunBastionhost20191209
       Models::ListUserGroupsResponse listUserGroups(const Models::ListUserGroupsRequest &request);
 
       /**
-       * @summary Queries all public keys of the specified user.
+       * @summary Lists the SSH public keys that are configured for a Bastionhost user. Users can use these public keys for key-based authentication when logging on to hosts through Bastionhost.
        *
        * @param request ListUserPublicKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1988,7 +2027,7 @@ namespace YundunBastionhost20191209
       Models::ListUserPublicKeysResponse listUserPublicKeysWithOptions(const Models::ListUserPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all public keys of the specified user.
+       * @summary Lists the SSH public keys that are configured for a Bastionhost user. Users can use these public keys for key-based authentication when logging on to hosts through Bastionhost.
        *
        * @param request ListUserPublicKeysRequest
        * @return ListUserPublicKeysResponse
@@ -2016,7 +2055,7 @@ namespace YundunBastionhost20191209
        * @summary Locks one or more users of a bastion host.
        *
        * @description # Description
-       * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+       * Locks one or more bastion host users to prevent them from performing O\\&M operations. If a user does not need to use a bastion host within a specific period of time, lock the user account. Locked users cannot log on to or perform O\\&M operations on the hosts on which they have permissions. To unlock users later, use the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2030,7 +2069,7 @@ namespace YundunBastionhost20191209
        * @summary Locks one or more users of a bastion host.
        *
        * @description # Description
-       * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+       * Locks one or more bastion host users to prevent them from performing O\\&M operations. If a user does not need to use a bastion host within a specific period of time, lock the user account. Locked users cannot log on to or perform O\\&M operations on the hosts on which they have permissions. To unlock users later, use the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2097,7 +2136,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostResponse modifyHost(const Models::ModifyHostRequest &request);
 
       /**
-       * @summary Modifies the information about a host account, such as the username, password, and private key of the host account.
+       * @summary Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
        *
        * @param request ModifyHostAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2106,7 +2145,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostAccountResponse modifyHostAccountWithOptions(const Models::ModifyHostAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a host account, such as the username, password, and private key of the host account.
+       * @summary Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
        *
        * @param request ModifyHostAccountRequest
        * @return ModifyHostAccountResponse
@@ -2148,7 +2187,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostShareKeyResponse modifyHostShareKey(const Models::ModifyHostShareKeyRequest &request);
 
       /**
-       * @summary Changes the endpoint type of one or more hosts for O\\\\\\&M. Public and private IP addresses are supported.
+       * @summary Changes the endpoint type of one or more hosts for O\\\\\\\\\\\\\\\\\\\\\\\\&M. Public and private IP addresses are supported.
        *
        * @param request ModifyHostsActiveAddressTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2157,7 +2196,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsActiveAddressTypeResponse modifyHostsActiveAddressTypeWithOptions(const Models::ModifyHostsActiveAddressTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the endpoint type of one or more hosts for O\\\\\\&M. Public and private IP addresses are supported.
+       * @summary Changes the endpoint type of one or more hosts for O\\\\\\\\\\\\\\\\\\\\\\\\&M. Public and private IP addresses are supported.
        *
        * @param request ModifyHostsActiveAddressTypeRequest
        * @return ModifyHostsActiveAddressTypeResponse
@@ -2165,11 +2204,11 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsActiveAddressTypeResponse modifyHostsActiveAddressType(const Models::ModifyHostsActiveAddressTypeRequest &request);
 
       /**
-       * @summary Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+       * @summary Changes the port for the O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M protocol on one or more hosts.
        *
        * @description ## Usage notes
-       * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
-       * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
+       * Changes the port for the O\\&M protocol on one or more hosts. If the standard port for your O\\&M protocol is vulnerable to attacks, specify a custom port instead. For example, the standard SSH port is port 22.
+       * > Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O\\&M protocol to a reserved port.
        * ## QPS limit
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2180,11 +2219,11 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsPortResponse modifyHostsPortWithOptions(const Models::ModifyHostsPortRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+       * @summary Changes the port for the O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M protocol on one or more hosts.
        *
        * @description ## Usage notes
-       * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
-       * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
+       * Changes the port for the O\\&M protocol on one or more hosts. If the standard port for your O\\&M protocol is vulnerable to attacks, specify a custom port instead. For example, the standard SSH port is port 22.
+       * > Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O\\&M protocol to a reserved port.
        * ## QPS limit
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2194,7 +2233,7 @@ namespace YundunBastionhost20191209
       Models::ModifyHostsPortResponse modifyHostsPort(const Models::ModifyHostsPortRequest &request);
 
       /**
-       * @summary Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+       * @summary Updates the settings of the Active Directory (AD) authentication server of a bastion host.
        *
        * @param request ModifyInstanceADAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2203,7 +2242,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceADAuthServerResponse modifyInstanceADAuthServerWithOptions(const Models::ModifyInstanceADAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+       * @summary Updates the settings of the Active Directory (AD) authentication server of a bastion host.
        *
        * @param request ModifyInstanceADAuthServerRequest
        * @return ModifyInstanceADAuthServerResponse
@@ -2211,7 +2250,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceADAuthServerResponse modifyInstanceADAuthServer(const Models::ModifyInstanceADAuthServerRequest &request);
 
       /**
-       * @summary Modifies the information about a bastion host.
+       * @summary Modifies the attributes of a specified Bastionhost instance.
        *
        * @param request ModifyInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2220,7 +2259,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceAttributeResponse modifyInstanceAttributeWithOptions(const Models::ModifyInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a bastion host.
+       * @summary Modifies the attributes of a specified Bastionhost instance.
        *
        * @param request ModifyInstanceAttributeRequest
        * @return ModifyInstanceAttributeResponse
@@ -2228,7 +2267,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceAttributeResponse modifyInstanceAttribute(const Models::ModifyInstanceAttributeRequest &request);
 
       /**
-       * @summary Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+       * @summary Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
        *
        * @param request ModifyInstanceLDAPAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2237,7 +2276,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceLDAPAuthServerResponse modifyInstanceLDAPAuthServerWithOptions(const Models::ModifyInstanceLDAPAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+       * @summary Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
        *
        * @param request ModifyInstanceLDAPAuthServerRequest
        * @return ModifyInstanceLDAPAuthServerResponse
@@ -2398,7 +2437,7 @@ namespace YundunBastionhost20191209
       Models::MoveHostsToNetworkDomainResponse moveHostsToNetworkDomain(const Models::MoveHostsToNetworkDomainRequest &request);
 
       /**
-       * @summary Moves a bastion host from one resource group to another resource group.
+       * @summary Moves a Bastionhost instance to a specified resource group.
        *
        * @param request MoveResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2407,7 +2446,7 @@ namespace YundunBastionhost20191209
       Models::MoveResourceGroupResponse moveResourceGroupWithOptions(const Models::MoveResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves a bastion host from one resource group to another resource group.
+       * @summary Moves a Bastionhost instance to a specified resource group.
        *
        * @param request MoveResourceGroupRequest
        * @return MoveResourceGroupResponse
@@ -2415,9 +2454,9 @@ namespace YundunBastionhost20191209
       Models::MoveResourceGroupResponse moveResourceGroup(const Models::MoveResourceGroupRequest &request);
 
       /**
-       * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
        *
-       * @description You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+       * @description Rejects an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request RejectApproveCommandRequest
@@ -2427,9 +2466,9 @@ namespace YundunBastionhost20191209
       Models::RejectApproveCommandResponse rejectApproveCommandWithOptions(const Models::RejectApproveCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+       * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
        *
-       * @description You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+       * @description Rejects an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request RejectApproveCommandRequest
@@ -2438,9 +2477,26 @@ namespace YundunBastionhost20191209
       Models::RejectApproveCommandResponse rejectApproveCommand(const Models::RejectApproveCommandRequest &request);
 
       /**
-       * @summary If a Bastionhost administrator enables O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+       * @summary Rejects an O&M task approval.
        *
-       * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+       * @param request RejectOperationTaskApprovalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RejectOperationTaskApprovalResponse
+       */
+      Models::RejectOperationTaskApprovalResponse rejectOperationTaskApprovalWithOptions(const Models::RejectOperationTaskApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Rejects an O&M task approval.
+       *
+       * @param request RejectOperationTaskApprovalRequest
+       * @return RejectOperationTaskApprovalResponse
+       */
+      Models::RejectOperationTaskApprovalResponse rejectOperationTaskApproval(const Models::RejectOperationTaskApprovalRequest &request);
+
+      /**
+       * @summary If a Bastionhost administrator enables O\\\\\\\\\\\\\\\\\\\\\\\\&M Approval on the Create Control Policy page, O\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can log on to assets to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations only after the administrator approves their O\\\\\\\\\\\\\\\\\\\\\\\\&M applications.
+       *
+       * @description Rejects an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request RejectOperationTicketRequest
@@ -2450,9 +2506,9 @@ namespace YundunBastionhost20191209
       Models::RejectOperationTicketResponse rejectOperationTicketWithOptions(const Models::RejectOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If a Bastionhost administrator enables O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+       * @summary If a Bastionhost administrator enables O\\\\\\\\\\\\\\\\\\\\\\\\&M Approval on the Create Control Policy page, O\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can log on to assets to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations only after the administrator approves their O\\\\\\\\\\\\\\\\\\\\\\\\&M applications.
        *
-       * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+       * @description Rejects an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
        * @param request RejectOperationTicketRequest
@@ -2480,7 +2536,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Removes multiple hosts from an asset group at a time.
        *
-       * @description You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+       * @description Removes multiple hosts from an asset group. If certain hosts no longer need to be managed through an asset group, you can use this operation to remove them.
        * # [](#qps-)QPS limit
        * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -2493,7 +2549,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Removes multiple hosts from an asset group at a time.
        *
-       * @description You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+       * @description Removes multiple hosts from an asset group. If certain hosts no longer need to be managed through an asset group, you can use this operation to remove them.
        * # [](#qps-)QPS limit
        * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
@@ -2503,7 +2559,9 @@ namespace YundunBastionhost20191209
       Models::RemoveHostsFromGroupResponse removeHostsFromGroup(const Models::RemoveHostsFromGroupRequest &request);
 
       /**
-       * @summary 移除RD成员账号
+       * @summary Removes a Resource Directory (RD) member account from a Bastionhost instance. You must remove all assets of the member account from Bastionhost before you call this operation.
+       *
+       * @description Before removing a member account, you must purge the ECS, RDS, and PolarDB instance assets that belong to the member account from Bastionhost.
        *
        * @param request RemoveInstanceRdMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2512,7 +2570,9 @@ namespace YundunBastionhost20191209
       Models::RemoveInstanceRdMemberResponse removeInstanceRdMemberWithOptions(const Models::RemoveInstanceRdMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除RD成员账号
+       * @summary Removes a Resource Directory (RD) member account from a Bastionhost instance. You must remove all assets of the member account from Bastionhost before you call this operation.
+       *
+       * @description Before removing a member account, you must purge the ECS, RDS, and PolarDB instance assets that belong to the member account from Bastionhost.
        *
        * @param request RemoveInstanceRdMemberRequest
        * @return RemoveInstanceRdMemberResponse
@@ -2522,7 +2582,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Removes one or more users from a user group.
        *
-       * @description You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
+       * @description Removes one or more users from a user group at once. Use this operation when users transfer to new positions, resign, or switch to another user group.
        * ## QPS limit
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2535,7 +2595,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Removes one or more users from a user group.
        *
-       * @description You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
+       * @description Removes one or more users from a user group at once. Use this operation when users transfer to new positions, resign, or switch to another user group.
        * ## QPS limit
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2545,7 +2605,7 @@ namespace YundunBastionhost20191209
       Models::RemoveUsersFromGroupResponse removeUsersFromGroup(const Models::RemoveUsersFromGroupRequest &request);
 
       /**
-       * @summary Renews an O\\\\\\&M token for one hour.
+       * @summary Renews an O\\\\\\\\\\\\&M token for one hour.
        *
        * @param request RenewAssetOperationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2554,7 +2614,7 @@ namespace YundunBastionhost20191209
       Models::RenewAssetOperationTokenResponse renewAssetOperationTokenWithOptions(const Models::RenewAssetOperationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews an O\\\\\\&M token for one hour.
+       * @summary Renews an O\\\\\\\\\\\\&M token for one hour.
        *
        * @param request RenewAssetOperationTokenRequest
        * @return RenewAssetOperationTokenResponse
@@ -2562,7 +2622,7 @@ namespace YundunBastionhost20191209
       Models::RenewAssetOperationTokenResponse renewAssetOperationToken(const Models::RenewAssetOperationTokenRequest &request);
 
       /**
-       * @summary Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+       * @summary Clears the credential (password or SSH private key) for a specified host account.
        *
        * @param request ResetHostAccountCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2571,7 +2631,7 @@ namespace YundunBastionhost20191209
       Models::ResetHostAccountCredentialResponse resetHostAccountCredentialWithOptions(const Models::ResetHostAccountCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+       * @summary Clears the credential (password or SSH private key) for a specified host account.
        *
        * @param request ResetHostAccountCredentialRequest
        * @return ResetHostAccountCredentialResponse
@@ -2596,7 +2656,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyAccessTimeRangeConfigResponse setPolicyAccessTimeRangeConfig(const Models::SetPolicyAccessTimeRangeConfigRequest &request);
 
       /**
-       * @summary Configures the O\\&M approval setting in a control policy.
+       * @summary Configures the O\\\\&M approval setting in a control policy.
        *
        * @param tmpReq SetPolicyApprovalConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2605,7 +2665,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyApprovalConfigResponse setPolicyApprovalConfigWithOptions(const Models::SetPolicyApprovalConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the O\\&M approval setting in a control policy.
+       * @summary Configures the O\\\\&M approval setting in a control policy.
        *
        * @param request SetPolicyApprovalConfigRequest
        * @return SetPolicyApprovalConfigResponse
@@ -2664,7 +2724,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyIPAclConfigResponse setPolicyIPAclConfig(const Models::SetPolicyIPAclConfigRequest &request);
 
       /**
-       * @summary Configures the Remote Desktop Protocol (RDP) options, SSH options, and SSH Fine Transfer Protocol (SFTP) options for a control policy.
+       * @summary Sets the Remote Desktop Protocol (RDP), Secure Shell (SSH), and SSH File Transfer Protocol (SFTP) options for a control policy.
        *
        * @param tmpReq SetPolicyProtocolConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2673,7 +2733,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyProtocolConfigResponse setPolicyProtocolConfigWithOptions(const Models::SetPolicyProtocolConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the Remote Desktop Protocol (RDP) options, SSH options, and SSH Fine Transfer Protocol (SFTP) options for a control policy.
+       * @summary Sets the Remote Desktop Protocol (RDP), Secure Shell (SSH), and SSH File Transfer Protocol (SFTP) options for a control policy.
        *
        * @param request SetPolicyProtocolConfigRequest
        * @return SetPolicyProtocolConfigResponse
@@ -2698,7 +2758,7 @@ namespace YundunBastionhost20191209
       Models::SetPolicyUserScopeResponse setPolicyUserScope(const Models::SetPolicyUserScopeRequest &request);
 
       /**
-       * @summary Starts a bastion host.
+       * @summary Starts a specified Bastionhost instance.
        *
        * @param request StartInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2707,7 +2767,7 @@ namespace YundunBastionhost20191209
       Models::StartInstanceResponse startInstanceWithOptions(const Models::StartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a bastion host.
+       * @summary Starts a specified Bastionhost instance.
        *
        * @param request StartInstanceRequest
        * @return StartInstanceResponse
@@ -2715,7 +2775,7 @@ namespace YundunBastionhost20191209
       Models::StartInstanceResponse startInstance(const Models::StartInstanceRequest &request);
 
       /**
-       * @summary Creates and adds tags to specified bastion hosts.
+       * @summary Creates and attaches tags to one or more Bastionhost instances.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2724,7 +2784,7 @@ namespace YundunBastionhost20191209
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and adds tags to specified bastion hosts.
+       * @summary Creates and attaches tags to one or more Bastionhost instances.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2734,7 +2794,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Unlocks one or more users of a bastion host.
        *
-       * @description After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+       * @description Unlocks previously locked bastion host users, allowing them to resume O\\&M operations. Use this operation after locking users with the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2747,7 +2807,7 @@ namespace YundunBastionhost20191209
       /**
        * @summary Unlocks one or more users of a bastion host.
        *
-       * @description After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+       * @description Unlocks previously locked bastion host users, allowing them to resume O\\&M operations. Use this operation after locking users with the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation.
        * # Limits
        * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
@@ -2757,7 +2817,7 @@ namespace YundunBastionhost20191209
       Models::UnlockUsersResponse unlockUsers(const Models::UnlockUsersRequest &request);
 
       /**
-       * @summary Removes tags from the specified bastion host and deletes the tags at a time.
+       * @summary Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2766,7 +2826,7 @@ namespace YundunBastionhost20191209
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from the specified bastion host and deletes the tags at a time.
+       * @summary Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -2774,7 +2834,7 @@ namespace YundunBastionhost20191209
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 验证实例AD服务配置。
+       * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
        *
        * @param request VerifyInstanceADAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2783,7 +2843,7 @@ namespace YundunBastionhost20191209
       Models::VerifyInstanceADAuthServerResponse verifyInstanceADAuthServerWithOptions(const Models::VerifyInstanceADAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证实例AD服务配置。
+       * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
        *
        * @param request VerifyInstanceADAuthServerRequest
        * @return VerifyInstanceADAuthServerResponse
@@ -2791,7 +2851,7 @@ namespace YundunBastionhost20191209
       Models::VerifyInstanceADAuthServerResponse verifyInstanceADAuthServer(const Models::VerifyInstanceADAuthServerRequest &request);
 
       /**
-       * @summary 验证实例LDAP服务配置。
+       * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
        *
        * @param request VerifyInstanceLDAPAuthServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2800,7 +2860,7 @@ namespace YundunBastionhost20191209
       Models::VerifyInstanceLDAPAuthServerResponse verifyInstanceLDAPAuthServerWithOptions(const Models::VerifyInstanceLDAPAuthServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证实例LDAP服务配置。
+       * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
        *
        * @param request VerifyInstanceLDAPAuthServerRequest
        * @return VerifyInstanceLDAPAuthServerResponse

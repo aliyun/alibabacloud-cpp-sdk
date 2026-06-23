@@ -50,9 +50,11 @@ namespace Models
   protected:
     // The ID of the Bastionhost instance.
     // 
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the ID of the Bastionhost instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the region.
+    // The ID of the region in which the Bastionhost instance resides.
     shared_ptr<string> regionId_ {};
   };
 

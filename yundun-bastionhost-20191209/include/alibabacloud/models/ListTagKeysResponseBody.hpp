@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The total number of tag keys.
+      // The number of resources with this tag key.
       shared_ptr<int32_t> tagCount_ {};
-      // The name of the tag key.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
     };
 
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The returned page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of tags.
+    // An array of tag keys.
     shared_ptr<vector<ListTagKeysResponseBody::TagKeys>> tagKeys_ {};
-    // The total number of tags returned.
+    // The total number of tag keys.
     shared_ptr<int32_t> totalCount_ {};
   };
 

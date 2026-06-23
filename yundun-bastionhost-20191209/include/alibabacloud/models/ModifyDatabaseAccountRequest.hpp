@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The ID of the database account to modify.
     // 
-    // >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+    // > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
     // 
     // This parameter is required.
     shared_ptr<string> databaseAccountId_ {};
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> password_ {};
     // The region ID of the bastion host that manages the database account to modify.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

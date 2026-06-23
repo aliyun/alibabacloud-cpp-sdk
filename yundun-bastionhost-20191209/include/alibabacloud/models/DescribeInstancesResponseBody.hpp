@@ -219,56 +219,67 @@ namespace Models
 
 
     protected:
+      // The default bandwidth of the instance, in Mbit/s.
       shared_ptr<int64_t> bandWidth_ {};
-      // The remarks of the bastion host.
+      // The custom description of the Bastionhost instance.
       shared_ptr<string> description_ {};
-      // The timestamp when the bastion host expires. Unit: milliseconds.
+      // The expiration time of the Bastionhost instance, specified as a timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
-      // The image version of the bastion host.
+      // The image version of the Bastionhost instance.
       shared_ptr<string> imageVersion_ {};
-      // The bastion host ID.
+      // The ID of the Bastionhost instance.
       shared_ptr<string> instanceId_ {};
-      // The status of the bastion host. Valid values:
+      // The status of the Bastionhost instance. Valid values:
       // 
-      // *   **PENDING**: The bastion host is not initialized.
-      // *   **CREATING**: The bastion host is being created.
-      // *   **RUNNING**: The bastion host is running.
-      // *   **EXPIRED**: The bastion host expired.
-      // *   **CREATE_FAILED**: The bastion host fails to be created.
-      // *   **UPGRADING**: The configurations of the bastion host are being changed.
-      // *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+      // - **PENDING**: Not initialized
+      // 
+      // - **CREATING**: The instance is being created.
+      // 
+      // - **RUNNING**: The instance is running.
+      // 
+      // - **EXPIRED**: The instance has expired.
+      // 
+      // - **CREATE_FAILED**: Instance creation failed.
+      // 
+      // - **UPGRADING**: The instance is being upgraded.
+      // 
+      // - **UPGRADE_FAILED**: Instance upgrade failed.
       shared_ptr<string> instanceStatus_ {};
-      // The public O\\&M address of the bastion host.
+      // The public domain name of the Bastionhost instance.
       shared_ptr<string> internetEndpoint_ {};
-      // The private O\\&M address of the bastion host.
+      // The private domain name of the Bastionhost instance.
       shared_ptr<string> intranetEndpoint_ {};
-      // Indicates whether the bastion host runs an earlier version. Valid values:
+      // Indicates whether the Bastionhost instance is a legacy instance. Valid values:
       // 
-      // *   **true**: The bastion host runs V2 or V3.1.
-      // *   **false**: The bastion host runs V3.2.
+      // - **true**: The instance is of the V2 or V3.1 series.
+      // 
+      // - **false**: The instance is of the V3.2 series.
       shared_ptr<bool> legacy_ {};
-      // The license code of the bastion host.
+      // The license code of the Bastionhost instance.
       shared_ptr<string> licenseCode_ {};
-      // The edition of the bastion host. Valid values:
+      // The edition of the Bastionhost instance. Valid values:
       // 
-      // *   **cloudbastion**: Basic Edition.
-      // *   **cloudbastion_ha**: Enterprise Edition.
+      // - **cloudbastion**: Basic Edition
+      // 
+      // - **cloudbastion_ha**: Enterprise Edition
       shared_ptr<string> planCode_ {};
-      // Indicates whether the bastion host can be accessed from the Internet. Valid values:
+      // Indicates whether the Bastionhost instance is accessible over the Internet. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The instance is accessible over the Internet.
+      // 
+      // - **false**: The instance is not accessible over the Internet.
       shared_ptr<bool> publicNetworkAccess_ {};
-      // The region ID of the bastion host.
+      // The region ID of the Bastionhost instance.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the bastion host belongs.
+      // The ID of the resource group to which the Bastionhost instance belongs.
       shared_ptr<string> resourceGroupId_ {};
+      // The ID of the standby vSwitch to which the Bastionhost instance is attached.
       shared_ptr<string> slaveVswitchId_ {};
-      // The timestamp when the bastion host is purchased or renewed. Unit: milliseconds.
+      // The purchase or renewal time of the Bastionhost instance, specified as a timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The ID of the virtual private cloud (VPC) to which the bastion host belongs.
+      // The ID of the VPC to which the Bastionhost instance is attached.
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch to which the bastion host belongs.
+      // The ID of the vSwitch to which the Bastionhost instance is attached.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -298,11 +309,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the bastion hosts returned.
+    // An array of Bastionhost instances.
     shared_ptr<vector<DescribeInstancesResponseBody::Instances>> instances_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates this unique ID for troubleshooting purposes.
     shared_ptr<string> requestId_ {};
-    // The total number of bastion hosts that are queried.
+    // The total number of Bastionhost instances returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

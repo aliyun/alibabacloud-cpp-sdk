@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the host.
+    // The ID of the new host.
     shared_ptr<string> hostId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

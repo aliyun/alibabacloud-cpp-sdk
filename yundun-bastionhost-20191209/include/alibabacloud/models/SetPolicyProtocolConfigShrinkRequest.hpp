@@ -66,23 +66,23 @@ namespace Models
 
 
   protected:
-    // The bastion host ID.
+    // The ID of the Bastionhost instance.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
     // 
-    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // > Call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain the policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The protocol control settings.
+    // The protocol control configuration.
     // 
     // This parameter is required.
     shared_ptr<string> protocolConfigShrink_ {};
-    // The region ID of the bastion host.
+    // The ID of the region where the Bastionhost instance resides.
     // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};

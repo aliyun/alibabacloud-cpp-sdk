@@ -64,6 +64,7 @@ namespace Models
 
 
     protected:
+      // The UID of the member account.
       shared_ptr<string> memberId_ {};
     };
 
@@ -100,9 +101,13 @@ namespace Models
 
 
   protected:
+    // The value of MaxResults in the request. If you did not specify MaxResults, the default value is returned.
     shared_ptr<int32_t> maxResults_ {};
+    // A list of member accounts.
     shared_ptr<vector<ListInstanceRdMembersResponseBody::Members>> members_ {};
+    // The token for the next page of results. If the response is truncated, this parameter is returned. Use this token in your next request to retrieve the next page. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

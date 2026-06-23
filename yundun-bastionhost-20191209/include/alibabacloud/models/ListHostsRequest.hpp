@@ -146,8 +146,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The operating system of the host that you want to query. Valid values:
     // 
-    // *   **Linux**
-    // *   **Windows**
+    // - **Linux**
+    // 
+    // - **Windows**
     shared_ptr<string> OSType_ {};
     // The number of the page to return. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
@@ -161,16 +162,19 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The source of the host that you want to query. Valid values:
     // 
-    // *   **Local**: a host in a data center
-    // *   **Ecs**: an Elastic Compute Service (ECS) instance
-    // *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+    // - **Local**: a host in a data center
+    // 
+    // - **Ecs**: an Elastic Compute Service (ECS) instance
+    // 
+    // - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
     shared_ptr<string> source_ {};
     // The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster that you want to query. Only exact match is supported.
     shared_ptr<string> sourceInstanceId_ {};
     // The status of the host that you want to query. Valid values:
     // 
-    // *   **Normal**: normal
-    // *   **Release**: released
+    // - **Normal**: normal
+    // 
+    // - **Release**: released
     shared_ptr<string> sourceInstanceState_ {};
   };
 

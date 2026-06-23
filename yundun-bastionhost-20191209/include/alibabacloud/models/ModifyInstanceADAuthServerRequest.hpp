@@ -176,14 +176,15 @@ namespace Models
     shared_ptr<string> filter_ {};
     // The bastion host ID.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // Specifies whether SSL is supported. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     // 
     // This parameter is required.
     shared_ptr<string> isSSL_ {};
@@ -199,7 +200,7 @@ namespace Models
     shared_ptr<string> port_ {};
     // The region ID of the bastion host.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The address of the AD server.
     // 

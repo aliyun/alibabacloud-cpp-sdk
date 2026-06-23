@@ -75,24 +75,23 @@ namespace Models
 
 
   protected:
-    // The IP address of the asset that is contained in the O\\&M application to be reviewed.
+    // The address of the asset for which the O\\&M request is pending approval. This parameter supports exact match searches.
     shared_ptr<string> assetAddress_ {};
-    // The ID of the bastion host.
+    // The ID of the Bastionhost instance.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page. Default value: **1**.
+    // The page number for a paged query. The default value is **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.\\
-    // Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+    // The maximum number of entries to return on each page of a paged query.<br> The maximum value for the PageSize parameter is 1000. The default value is 20. If you leave this parameter empty, 20 entries are returned.<br><br>
     // 
-    // >  We recommend that you do not leave this parameter empty.
+    // > We recommend that you specify this parameter.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the bastion host.
+    // The region ID of the Bastionhost instance.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

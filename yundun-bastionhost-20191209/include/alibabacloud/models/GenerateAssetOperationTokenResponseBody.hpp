@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // The remaining number of times that you can use the O\\&M token.
+      // The number of remaining uses for the token.
       shared_ptr<int64_t> countLeft_ {};
-      // The time when the O\\&M token expires. The value is a UNIX timestamp.
+      // The expiration time of the token. This value is a UNIX timestamp.
       shared_ptr<int64_t> expireTime_ {};
-      // Indicates whether the number of times that you can use the O\\&M token is limited.
+      // Indicates whether the token has a use limit.
       shared_ptr<bool> hasCountLimit_ {};
-      // The maximum number of renewals. A value of 0 indicates that renewal is not supported.
+      // The maximum number of times the token can be renewed. A value of 0 indicates that the token cannot be renewed.
       shared_ptr<int64_t> maxRenewCount_ {};
-      // The number of times the O\\&M token is renewed.
+      // The number of times the token has been renewed.
       shared_ptr<int64_t> renewCount_ {};
       // The single sign-on (SSO) URL.
       shared_ptr<string> ssoUrl_ {};
-      // The O\\&M token that you apply for.
+      // The O\\&M token that is requested.
       shared_ptr<string> token_ {};
       // The ID of the O\\&M token.
       shared_ptr<string> tokenId_ {};
@@ -161,9 +161,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The asset operation token.
     shared_ptr<GenerateAssetOperationTokenResponseBody::AssetOperationToken> assetOperationToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

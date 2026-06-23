@@ -124,17 +124,19 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // Specifies the category of the hosts that you want to query. Valid values:
     // 
-    // *   **Authorized**: queries the hosts that the user is authorized to manage. This is the default value.
-    // *   **Unauthorized**: queries the hosts that the user is not authorized to manage.
+    // - **Authorized**: queries the hosts that the user is authorized to manage. This is the default value.
+    // 
+    // - **Unauthorized**: queries the hosts that the user is not authorized to manage.
     shared_ptr<string> mode_ {};
     // The operating system of the host that you want to query. Valid values:
     // 
-    // *   **Linux**
-    // *   **Windows**
+    // - **Linux**
+    // 
+    // - **Windows**
     shared_ptr<string> OSType_ {};
     // The number of the page. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.\\
+    // The number of entries per page.<br>
     // Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
     // 
     // > We recommend that you do not leave this parameter empty.

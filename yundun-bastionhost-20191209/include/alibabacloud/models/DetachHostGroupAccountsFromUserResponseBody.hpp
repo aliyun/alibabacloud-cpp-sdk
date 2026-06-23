@@ -108,11 +108,15 @@ namespace Models
       protected:
         // The return code that indicates whether permissions on the specified host account were revoked from the user. Valid values:
         // 
-        // *   **OK**: The call was successful.
-        // *   **UNEXPECTED**: An unknown error occurred.
-        // *   **INVALID_ARGUMENT**: A request parameter is invalid.
-        // *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-        // *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+        // - **OK**: The call was successful.
+        // 
+        // - **UNEXPECTED**: An unknown error occurred.
+        // 
+        // - **INVALID_ARGUMENT**: A request parameter is invalid.
+        // 
+        // - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+        // 
+        // - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
         shared_ptr<string> code_ {};
         // The name of the host account.
         shared_ptr<string> hostAccountName_ {};
@@ -162,11 +166,15 @@ namespace Models
     protected:
       // The return code that indicates whether the call was successful. Valid values:
       // 
-      // *   **OK**: The call was successful.
-      // *   **UNEXPECTED**: An unknown error occurred.
-      // *   **INVALID_ARGUMENT**: A request parameter is invalid.
-      // *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-      // *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+      // - **OK**: The call was successful.
+      // 
+      // - **UNEXPECTED**: An unknown error occurred.
+      // 
+      // - **INVALID_ARGUMENT**: A request parameter is invalid.
+      // 
+      // - **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+      // 
+      // - **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
       shared_ptr<string> code_ {};
       // The result of revoking permissions on the specified host accounts from the user.
       shared_ptr<vector<Results::HostAccountNames>> hostAccountNames_ {};

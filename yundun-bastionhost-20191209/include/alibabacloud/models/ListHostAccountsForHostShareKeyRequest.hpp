@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The shared key ID.
     // 
-    // >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+    // > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
     // 
     // This parameter is required.
     shared_ptr<string> hostShareKeyId_ {};
     // The bastion host ID.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -93,7 +93,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The region ID of the bastion host.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

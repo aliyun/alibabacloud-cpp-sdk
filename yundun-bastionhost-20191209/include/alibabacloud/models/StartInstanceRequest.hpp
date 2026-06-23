@@ -99,9 +99,11 @@ namespace Models
 
 
   protected:
+    // The IDs of the security groups for the endpoint that is used to access the bastion host over a private network.
     shared_ptr<vector<string>> clientSecurityGroupIds_ {};
+    // Specifies whether to enable the O\\&M portal of the bastion host to be accessed over a private network.
     shared_ptr<bool> enablePortalPrivateAccess_ {};
-    // The ID of the bastion host that you want to enable.
+    // The ID of the bastion host to start.
     // 
     // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
@@ -109,12 +111,13 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host.
     shared_ptr<string> regionId_ {};
-    // An array consisting of the IDs of security groups to which the bastion host is added.
+    // The IDs of the security groups to which the bastion host is bound.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> securityGroupIds_ {};
+    // The ID of the secondary vSwitch to which the bastion host is bound.
     shared_ptr<string> slaveVswitchId_ {};
-    // The ID of the vSwitch to which the bastion host belongs.
+    // The ID of the vSwitch to which the bastion host is bound.
     shared_ptr<string> vswitchId_ {};
   };
 

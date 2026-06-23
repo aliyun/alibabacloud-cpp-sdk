@@ -130,8 +130,9 @@ namespace Models
       shared_ptr<string> hasPassword_ {};
       // The logon attribute. One of the following values is returned if the database engine is Oracle:
       // 
-      // *   **SERVICENAME**
-      // *   **SID**
+      // - **SERVICENAME**
+      // 
+      // - **SID**
       shared_ptr<string> loginAttribute_ {};
       // The protocol that is used by the database account.
       shared_ptr<string> protocolName_ {};

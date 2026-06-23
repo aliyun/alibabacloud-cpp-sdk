@@ -120,8 +120,9 @@ namespace Models
       shared_ptr<string> address_ {};
       // The node type of the proxy server to modify. Valid values:
       // 
-      // *   **Master**: primary proxy server.
-      // *   **Slave**: secondary proxy server.
+      // - **Master**: primary proxy server.
+      // 
+      // - **Slave**: secondary proxy server.
       shared_ptr<string> nodeType_ {};
       // The new password of the proxy server account.
       shared_ptr<string> password_ {};
@@ -129,9 +130,11 @@ namespace Models
       shared_ptr<int32_t> port_ {};
       // The new proxy mode. Valid values:
       // 
-      // *   **SSHProxy**
-      // *   **HTTPProxy**
-      // *   **Socks5Proxy**
+      // - **SSHProxy**
+      // 
+      // - **HTTPProxy**
+      // 
+      // - **Socks5Proxy**
       shared_ptr<string> proxyType_ {};
       // The new username of the proxy server account.
       shared_ptr<string> user_ {};
@@ -208,8 +211,9 @@ namespace Models
     shared_ptr<string> networkDomainName_ {};
     // The new connection mode of the network domain. Valid values:
     // 
-    // *   **Direct**
-    // *   **Proxy**
+    // - **Direct**
+    // 
+    // - **Proxy**
     shared_ptr<string> networkDomainType_ {};
     // The information about the proxy servers in the network domain.
     shared_ptr<vector<ModifyNetworkDomainRequest::Proxies>> proxies_ {};

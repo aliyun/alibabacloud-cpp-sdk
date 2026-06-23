@@ -90,15 +90,15 @@ namespace Models
 
 
     protected:
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
+      // The resource type.
       // 
-      // The returned value is INSTANCE, which indicates that the resource is a Bastionhost instance.
+      // The only valid value is INSTANCE, which indicates a Bastionhost instance.
       shared_ptr<string> resourceType_ {};
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -128,13 +128,13 @@ namespace Models
 
 
   protected:
-    // The token for starting the next query.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about Bastionhost instances and the tags bound to Bastionhost instances.
+    // A list of Bastionhost instances and their tags.
     // 
-    // The following information is included: instance ID, resource type, tag key, and tag value.
+    // This list includes the instance ID, resource type, tag key, and tag value.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

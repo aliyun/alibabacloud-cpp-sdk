@@ -118,10 +118,13 @@ namespace Models
     shared_ptr<string> databaseName_ {};
     // The engine of the database to query. Valid values:
     // 
-    // *   **MySQL**
-    // *   **Oracle**
-    // *   **PostgreSQL**
-    // *   **SQLServer**
+    // - **MySQL**
+    // 
+    // - **Oracle**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **SQLServer**
     shared_ptr<string> databaseType_ {};
     // The bastion host ID.
     // 
@@ -133,7 +136,7 @@ namespace Models
     shared_ptr<string> networkDomainId_ {};
     // The page number. Default value: **1**. Pages start from page 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.\\
+    // The number of entries per page.<br>
     // Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
     // > We recommend that you do not leave this parameter empty.

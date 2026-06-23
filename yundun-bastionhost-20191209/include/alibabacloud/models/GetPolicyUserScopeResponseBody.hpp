@@ -84,9 +84,10 @@ namespace Models
 
     protected:
       // The scope of users to whom the control policy applies.
-      // *   If **All** is returned for this parameter, the control policy applies to all users.
       // 
-      // *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of UserGroupIds and UserIds.
+      // - If **All** is returned for this parameter, the control policy applies to all users.
+      // 
+      // - If no value is returned for this parameter, the control policy applies to the assets specified in the return values of UserGroupIds and UserIds.
       shared_ptr<string> scopeType_ {};
       // The user groups to which the control policy applies.
       shared_ptr<vector<string>> userGroupIds_ {};

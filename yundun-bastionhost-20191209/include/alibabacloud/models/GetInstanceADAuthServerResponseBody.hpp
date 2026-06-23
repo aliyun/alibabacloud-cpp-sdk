@@ -173,13 +173,15 @@ namespace Models
       shared_ptr<string> filter_ {};
       // Indicates whether passwords are required. Valid values:
       // 
-      // *   **true**:
-      // *   **false**
+      // - **true**:
+      // 
+      // - **false**
       shared_ptr<bool> hasPassword_ {};
       // Indicates whether SSL is supported. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isSSL_ {};
       // The field that is used to indicate the mobile phone number of a user on the AD server.
       shared_ptr<string> mobileMapping_ {};

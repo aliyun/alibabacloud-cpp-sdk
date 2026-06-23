@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The bastion host ID.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

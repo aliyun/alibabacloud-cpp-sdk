@@ -48,11 +48,13 @@ namespace Models
 
 
   protected:
-    // The natural language in which responses are returned. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh-CN**: Chinese. This is the default value.
-    // *   **en-US**: English.
-    // *   **ja**: Japanese.
+    // - **zh-CN** (default): Chinese
+    // 
+    // - **en-US**: English
+    // 
+    // - **ja**: Japanese
     shared_ptr<string> acceptLanguage_ {};
     // The ID of the region.
     shared_ptr<string> regionId_ {};

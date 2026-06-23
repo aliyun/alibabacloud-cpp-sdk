@@ -59,16 +59,17 @@ namespace Models
   protected:
     // The bastion host ID.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host.
+    // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The ID of the O\\&M token that you want to renew.
     // 
-    // >  You can call the [GenerateAssetOperationToken](https://help.aliyun.com/document_detail/2758861.html) operation to query the O\\&M token ID.
+    // > You can call the [GenerateAssetOperationToken](https://help.aliyun.com/document_detail/2758861.html) operation to query the O\\&M token ID.
     shared_ptr<string> tokenId_ {};
   };
 

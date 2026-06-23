@@ -147,15 +147,19 @@ namespace Models
     shared_ptr<string> networkDomainId_ {};
     // The new operating system of the host. Valid values:
     // 
-    // *   **Linux**
-    // *   **Windows**
+    // - **Linux**
+    // 
+    // - **Windows**
     shared_ptr<string> OSType_ {};
     // The preferred key exchange algorithm of the host. If you set OSType to Linux, you can modify this parameter. Valid values:
     // 
-    // *   **default**
-    // *   **diffie-hellman-group1-sha1**
-    // *   **diffie-hellman-group14-sha1**
-    // *   **diffie-hellman-group-exchange-sha1**
+    // - **default**
+    // 
+    // - **diffie-hellman-group1-sha1**
+    // 
+    // - **diffie-hellman-group14-sha1**
+    // 
+    // - **diffie-hellman-group-exchange-sha1**
     shared_ptr<string> prefKex_ {};
     // The region ID of the bastion host on which you want to modify the information about the host.
     // 

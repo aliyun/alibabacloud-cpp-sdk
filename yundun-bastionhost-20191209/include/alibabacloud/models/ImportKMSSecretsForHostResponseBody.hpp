@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The status code.
       shared_ptr<string> code_ {};
+      // The result message.
       shared_ptr<string> message_ {};
+      // The name of the secret.
       shared_ptr<string> secretName_ {};
     };
 
@@ -112,9 +115,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The import result for each secret.
     shared_ptr<vector<ImportKMSSecretsForHostResponseBody::Results>> results_ {};
+    // The number of secrets that were successfully imported.
     shared_ptr<int64_t> successCount_ {};
   };
 

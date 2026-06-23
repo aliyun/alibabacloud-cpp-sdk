@@ -120,8 +120,9 @@ namespace Models
       shared_ptr<string> ruleName_ {};
       // The state of the authorization rule.
       // 
-      // *   **Enabled**
-      // *   **Disabled**
+      // - **Enabled**
+      // 
+      // - **Disabled**
       shared_ptr<string> ruleState_ {};
     };
 

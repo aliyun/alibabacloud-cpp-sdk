@@ -104,13 +104,16 @@ namespace Models
       shared_ptr<string> databaseSchema_ {};
       // Indicates whether the database account has a password.
       // Valid values:
-      // * true
-      // * false
+      // 
+      // - true
+      // 
+      // - false
       shared_ptr<bool> hasPassword_ {};
       // The logon attribute. A value is returned for this parameter if the database engine is Oracle. Valid values:
       // 
-      // *   SERVICENAME
-      // *   SID
+      // - SERVICENAME
+      // 
+      // - SID
       shared_ptr<string> loginAttribute_ {};
     };
 

@@ -83,8 +83,13 @@ namespace Models
 
 
     protected:
+      // The name of the secret.
       shared_ptr<string> secretName_ {};
+      // The type of the secret. Valid value:
+      // 
+      // - `ECS`: an ECS secret.
       shared_ptr<string> secretType_ {};
+      // The tags associated with the secret.
       shared_ptr<string> tags_ {};
     };
 
@@ -121,10 +126,13 @@ namespace Models
 
 
   protected:
+    // The value of the `MaxResults` parameter in the request. If the parameter was not specified, the default value of 20 is returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this field is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A list of importable secrets.
     shared_ptr<vector<ListImportableKMSSecretsForHostResponseBody::Secrets>> secrets_ {};
   };
 

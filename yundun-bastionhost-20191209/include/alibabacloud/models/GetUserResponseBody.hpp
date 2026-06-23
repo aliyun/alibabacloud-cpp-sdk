@@ -225,46 +225,68 @@ namespace Models
       // This parameter is required if LanguageStatus is set to Custom.
       // 
       // - **zh-cn**: simplified Chinese.
+      // 
       // - **en**: English.
       shared_ptr<string> language_ {};
       // Indicates whether notifications are sent in the language specified in the global settings or a custom language.
       // 
-      // *   **Global**: Global
-      // *   **Custom**: Custom
+      // - **Global**: Global
+      // 
+      // - **Custom**: Custom
       shared_ptr<string> languageStatus_ {};
       // The mobile phone number of the user.
       shared_ptr<string> mobile_ {};
       // The location in which the mobile number of the user is registered. Valid values:
       // 
-      // *   **CN**: the Chinese mainland, whose country calling code is +86
-      // *   **HK**: Hong Kong (China), whose country calling code is +852
-      // *   **MO**: Macao (China), whose country calling code is +853
-      // *   **TW**: Taiwan (China), whose country calling code is +886
-      // *   **RU**: Russia, whose country calling code is +7
-      // *   **SG**: Singapore, whose country calling code is +65
-      // *   **MY**: Malaysia, whose country calling code is +60
-      // *   **ID**: Indonesia, whose country calling code is +62
-      // *   **DE**: Germany, whose country calling code is +49
-      // *   **AU**: Australia, whose country calling code is +61
-      // *   **US**: US, whose country calling code is +1
-      // *   **AE**: United Arab Emirates, whose country calling code is +971
-      // *   **JP:** Japan, whose country calling code is +81
-      // *   **GB**: UK, whose country calling code is +44
-      // *   **IN**: India, whose country calling code is +91
-      // *   **KR**: Republic of Korea, whose country calling code is +82
-      // *   **PH**: Philippines, whose country calling code is +63
-      // *   **CH**: Switzerland, whose country calling code is +41
-      // *   **SE**: Sweden, whose country calling code is +46
+      // - **CN**: the Chinese mainland, whose country calling code is +86
+      // 
+      // - **HK**: Hong Kong (China), whose country calling code is +852
+      // 
+      // - **MO**: Macao (China), whose country calling code is +853
+      // 
+      // - **TW**: Taiwan (China), whose country calling code is +886
+      // 
+      // - **RU**: Russia, whose country calling code is +7
+      // 
+      // - **SG**: Singapore, whose country calling code is +65
+      // 
+      // - **MY**: Malaysia, whose country calling code is +60
+      // 
+      // - **ID**: Indonesia, whose country calling code is +62
+      // 
+      // - **DE**: Germany, whose country calling code is +49
+      // 
+      // - **AU**: Australia, whose country calling code is +61
+      // 
+      // - **US**: US, whose country calling code is +1
+      // 
+      // - **AE**: United Arab Emirates, whose country calling code is +971
+      // 
+      // - **JP:** Japan, whose country calling code is +81
+      // 
+      // - **GB**: UK, whose country calling code is +44
+      // 
+      // - **IN**: India, whose country calling code is +91
+      // 
+      // - **KR**: Republic of Korea, whose country calling code is +82
+      // 
+      // - **PH**: Philippines, whose country calling code is +63
+      // 
+      // - **CH**: Switzerland, whose country calling code is +41
+      // 
+      // - **SE**: Sweden, whose country calling code is +46
       shared_ptr<string> mobileCountryCode_ {};
       // Specifies whether password reset is required upon the next logon. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes
+      // 
+      // - **false**: no
       shared_ptr<bool> needResetPassword_ {};
       // The source of the user. Valid values:
       // 
-      // *   **Local**: a local user
-      // *   **Ram**: a RAM user
+      // - **Local**: a local user
+      // 
+      // - **Ram**: a RAM user
       shared_ptr<string> source_ {};
       // The unique ID of the user.
       // 
@@ -274,9 +296,11 @@ namespace Models
       shared_ptr<vector<string>> twoFactorMethods_ {};
       // The two-factor authentication status of the user. Valid values:
       // 
-      // *   **Global**: The global settings are used.
-      // *   **Disable**: The two-factor authentication is disabled.
-      // *   **Enable**: The two-factor authentication is enabled and the user-specific setting is used.
+      // - **Global**: The global settings are used.
+      // 
+      // - **Disable**: The two-factor authentication is disabled.
+      // 
+      // - **Enable**: The two-factor authentication is enabled and the user-specific setting is used.
       shared_ptr<string> twoFactorStatus_ {};
       // The ID of the user.
       shared_ptr<string> userId_ {};

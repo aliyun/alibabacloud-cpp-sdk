@@ -107,13 +107,15 @@ namespace Models
       shared_ptr<string> hostId_ {};
       // Indicates whether the user is authorized to manage the host account. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: yes
+      // 
+      // - **false**: no
       shared_ptr<bool> isAuthorized_ {};
       // The protocol that is used by the host. Valid values:
       // 
-      // *   **SSH**
-      // *   **RDP**
+      // - **SSH**
+      // 
+      // - **RDP**
       shared_ptr<string> protocolName_ {};
     };
 

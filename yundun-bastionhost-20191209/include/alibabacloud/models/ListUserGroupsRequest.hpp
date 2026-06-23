@@ -76,16 +76,17 @@ namespace Models
 
   protected:
     // The ID of the bastion host on which you want to query user groups.
-    //  >You can call the [DescribeInstances ](https://help.aliyun.com/document_detail/462953.html)operation to query the ID of the bastion host.
+    // 
+    // > You can call the [DescribeInstances ](https://help.aliyun.com/document_detail/462953.html)operation to query the ID of the bastion host.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The number of the page to return. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.
-    // Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     shared_ptr<string> pageSize_ {};
     // The region ID of the bastion host on which you want to query user groups.
+    // 
     // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/462924.html).
     shared_ptr<string> regionId_ {};
     // The name of the user group that you want to query. Only exact match is supported.

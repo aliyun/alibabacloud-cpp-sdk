@@ -110,8 +110,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The number of the page to return. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.\\
-    // Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+    // The number of entries to return on each page.<br> Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
     // > We recommend that you do not leave this parameter empty.
     shared_ptr<string> pageSize_ {};

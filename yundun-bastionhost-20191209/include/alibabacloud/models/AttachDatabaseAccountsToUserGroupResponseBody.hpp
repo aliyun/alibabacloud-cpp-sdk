@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+        // The error code. If the value is \\`OK\\`, the authorization was successful. Other values indicate that the authorization failed.
         shared_ptr<string> code_ {};
-        // The database account ID.
+        // The ID of the database account.
         shared_ptr<string> databaseAccountId_ {};
-        // The error message returned.
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -154,15 +154,15 @@ namespace Models
 
 
     protected:
-      // The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+      // The error code. If the value is \\`OK\\`, the authorization was successful. Other values indicate that the authorization failed.
       shared_ptr<string> code_ {};
-      // A list that shows the authorization results of the database accounts.
+      // A list of database account information.
       shared_ptr<vector<Results::DatabaseAccounts>> databaseAccounts_ {};
-      // The database ID.
+      // The ID of the database instance.
       shared_ptr<string> databaseId_ {};
-      // The error message returned.
+      // The error message.
       shared_ptr<string> message_ {};
-      // The user group ID.
+      // The ID of the user group.
       shared_ptr<string> userGroupId_ {};
     };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of the call.
+    // The results of the call.
     shared_ptr<vector<AttachDatabaseAccountsToUserGroupResponseBody::Results>> results_ {};
   };
 

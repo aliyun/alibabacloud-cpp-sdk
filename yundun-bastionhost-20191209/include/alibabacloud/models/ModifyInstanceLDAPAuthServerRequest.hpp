@@ -172,14 +172,15 @@ namespace Models
     shared_ptr<string> filter_ {};
     // The bastion host ID.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // Specifies whether to support SSL. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> isSSL_ {};
     // The field that is used to indicate the logon name of a user on the LDAP server.
     shared_ptr<string> loginNameMapping_ {};
@@ -195,7 +196,7 @@ namespace Models
     shared_ptr<string> port_ {};
     // The region ID of the bastion host.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The address of the LDAP server.
     // 

@@ -20,6 +20,9 @@
 #include <alibabacloud/models/AddUsersToGroupRequest.hpp>
 #include <alibabacloud/models/AddUsersToGroupResponseBody.hpp>
 #include <alibabacloud/models/AddUsersToGroupResponse.hpp>
+#include <alibabacloud/models/AllowOperationTaskApprovalRequest.hpp>
+#include <alibabacloud/models/AllowOperationTaskApprovalResponseBody.hpp>
+#include <alibabacloud/models/AllowOperationTaskApprovalResponse.hpp>
 #include <alibabacloud/models/AttachDatabaseAccountsToUserRequest.hpp>
 #include <alibabacloud/models/AttachDatabaseAccountsToUserResponseBody.hpp>
 #include <alibabacloud/models/AttachDatabaseAccountsToUserResponse.hpp>
@@ -170,6 +173,9 @@
 #include <alibabacloud/models/GenerateAssetOperationTokenRequest.hpp>
 #include <alibabacloud/models/GenerateAssetOperationTokenResponseBody.hpp>
 #include <alibabacloud/models/GenerateAssetOperationTokenResponse.hpp>
+#include <alibabacloud/models/GetAutoOpsTaskRequest.hpp>
+#include <alibabacloud/models/GetAutoOpsTaskResponseBody.hpp>
+#include <alibabacloud/models/GetAutoOpsTaskResponse.hpp>
 #include <alibabacloud/models/GetDatabaseRequest.hpp>
 #include <alibabacloud/models/GetDatabaseResponseBody.hpp>
 #include <alibabacloud/models/GetDatabaseResponse.hpp>
@@ -324,6 +330,9 @@
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ListTodoOpsTaskApprovalsRequest.hpp>
+#include <alibabacloud/models/ListTodoOpsTaskApprovalsResponseBody.hpp>
+#include <alibabacloud/models/ListTodoOpsTaskApprovalsResponse.hpp>
 #include <alibabacloud/models/ListUserGroupsRequest.hpp>
 #include <alibabacloud/models/ListUserGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListUserGroupsResponse.hpp>
@@ -402,6 +411,9 @@
 #include <alibabacloud/models/RejectApproveCommandRequest.hpp>
 #include <alibabacloud/models/RejectApproveCommandResponseBody.hpp>
 #include <alibabacloud/models/RejectApproveCommandResponse.hpp>
+#include <alibabacloud/models/RejectOperationTaskApprovalRequest.hpp>
+#include <alibabacloud/models/RejectOperationTaskApprovalResponseBody.hpp>
+#include <alibabacloud/models/RejectOperationTaskApprovalResponse.hpp>
 #include <alibabacloud/models/RejectOperationTicketRequest.hpp>
 #include <alibabacloud/models/RejectOperationTicketResponseBody.hpp>
 #include <alibabacloud/models/RejectOperationTicketResponse.hpp>

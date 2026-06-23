@@ -103,13 +103,15 @@ namespace Models
       protected:
         // The node type of the proxy server. Valid values:
         // 
-        // *   **Master**: primary proxy server.
-        // *   **Slave**: secondary proxy server.
-        shared_ptr<string> nodeType_ {};
-        // The status of the proxy server.
+        // - **Master**: the master proxy server
         // 
-        // *   **Available**
-        // *   **Unavailable**
+        // - **Slave**: the slave proxy server
+        shared_ptr<string> nodeType_ {};
+        // The status of the proxy server. Valid values:
+        // 
+        // - **Available**
+        // 
+        // - **Unavailable**
         shared_ptr<string> proxyState_ {};
       };
 
@@ -160,22 +162,25 @@ namespace Models
 
 
     protected:
-      // The remarks of the network domain.
+      // The comments on the network domain.
       shared_ptr<string> comment_ {};
-      // Indicates whether the network domain is built-in.
+      // Indicates whether the network domain is a built-in domain.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: yes
+      // 
+      // - **false**: no
       shared_ptr<bool> default_ {};
-      // The network domain ID.
+      // The ID of the network domain.
       shared_ptr<string> networkDomainId_ {};
       // The name of the network domain.
       shared_ptr<string> networkDomainName_ {};
-      // The connection mode of the network domain. Valid values:
+      // The type of the network domain. Valid values:
       // 
-      // *   **Direct**
-      // *   **Proxy**
+      // - **Direct**: direct connection
+      // 
+      // - **Proxy**: proxy connection
       shared_ptr<string> networkDomainType_ {};
+      // The information about the proxy servers.
       shared_ptr<vector<NetworkDomains::ProxiesState>> proxiesState_ {};
     };
 
@@ -205,11 +210,11 @@ namespace Models
 
 
   protected:
-    // The network domains that are returned.
+    // The list of network domains.
     shared_ptr<vector<ListNetworkDomainsResponseBody::NetworkDomains>> networkDomains_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of network domains that are returned.
+    // The total number of network domains.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -117,21 +117,21 @@ namespace Models
   protected:
     // An array that consists of database objects.
     // 
-    // >  You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user is authorized to manage only the databases.
+    // > You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user is authorized to manage only the databases.
     shared_ptr<vector<AttachDatabaseAccountsToUserRequest::Databases>> databases_ {};
     // The ID of the bastion host whose user you want to grant permissions.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The ID of the user to be authorized.
     // 
-    // >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+    // > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

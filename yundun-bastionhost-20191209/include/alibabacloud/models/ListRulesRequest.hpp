@@ -92,21 +92,22 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The page number. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.\\
+    // The number of entries per page.<br>
     // Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
     // > We recommend that you do not leave this parameter empty.
     shared_ptr<string> pageSize_ {};
     // The region ID of the bastion host.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The name of the authorization rule to query. Only exact match is supported.
     shared_ptr<string> ruleName_ {};
     // The state of the authorization rule to query.
     // 
-    // *   **Enabled**
-    // *   **Disabled**
+    // - **Enabled**
+    // 
+    // - **Disabled**
     shared_ptr<string> ruleState_ {};
   };
 

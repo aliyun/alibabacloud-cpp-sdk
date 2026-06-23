@@ -66,10 +66,19 @@ namespace Models
 
 
   protected:
+    // The ID of the Bastionhost instance.
+    // 
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of RD member accounts to return. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for a paged query. If this is your first query, leave this parameter empty.
     shared_ptr<string> nextToken_ {};
+    // The region ID of the Bastionhost instance.
+    // 
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

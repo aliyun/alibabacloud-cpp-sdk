@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The description of this whitelist rule.
       shared_ptr<string> description_ {};
+      // The IP addresses to add to the whitelist. You can specify up to 50 IP addresses, separated by a comma.
       shared_ptr<string> entry_ {};
     };
 
@@ -113,16 +115,17 @@ namespace Models
 
 
   protected:
-    // The ID of the bastion host for which you want to configure a whitelist of public IP addresses.
+    // The ID of the Bastionhost instance to configure.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > To obtain the instance ID, call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host.
+    // The region ID of the Bastionhost instance.
     shared_ptr<string> regionId_ {};
-    // The IP address whitelist that you want to configure.
+    // The list of IP addresses to add to the whitelist.
     shared_ptr<vector<string>> whiteList_ {};
+    // The policies for the public IP address whitelist.
     shared_ptr<vector<ConfigInstanceWhiteListRequest::WhiteListPolicies>> whiteListPolicies_ {};
   };
 

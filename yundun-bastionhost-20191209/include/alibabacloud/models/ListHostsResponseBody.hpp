@@ -156,8 +156,9 @@ namespace Models
     protected:
       // The address type of the host. Valid values:
       // 
-      // *   **Public**: a public address
-      // *   **Private**: a private address
+      // - **Public**: a public address
+      // 
+      // - **Private**: a private address
       shared_ptr<string> activeAddressType_ {};
       // The description of the host.
       shared_ptr<string> comment_ {};
@@ -173,14 +174,17 @@ namespace Models
       shared_ptr<string> hostPublicAddress_ {};
       // The operating system of the host. Valid values:
       // 
-      // *   **Linux**
-      // *   **Windows**
+      // - **Linux**
+      // 
+      // - **Windows**
       shared_ptr<string> OSType_ {};
       // The source of the host. Valid values:
       // 
-      // *   **Local**: a host in a data center
-      // *   **Ecs**: an ECS instance
-      // *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+      // - **Local**: a host in a data center
+      // 
+      // - **Ecs**: an ECS instance
+      // 
+      // - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
       shared_ptr<string> source_ {};
       // The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
       // 
@@ -188,8 +192,9 @@ namespace Models
       shared_ptr<string> sourceInstanceId_ {};
       // The status of the host. Valid values:
       // 
-      // *   **Normal**: normal
-      // *   **Release**: released
+      // - **Normal**: normal
+      // 
+      // - **Release**: released
       shared_ptr<string> sourceInstanceState_ {};
     };
 

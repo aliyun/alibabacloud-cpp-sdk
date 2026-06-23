@@ -109,8 +109,9 @@ namespace Models
       shared_ptr<string> databaseSchema_ {};
       // Indicates whether the database account has a password. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<string> hasPassword_ {};
     };
 

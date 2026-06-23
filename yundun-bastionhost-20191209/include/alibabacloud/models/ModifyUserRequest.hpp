@@ -178,87 +178,109 @@ namespace Models
   protected:
     // The new remarks of the user. The remarks can be up to 500 characters in length.
     // 
-    // >  Leave this parameter empty if you do not want to change the remarks of the user.
+    // > Leave this parameter empty if you do not want to change the remarks of the user.
     shared_ptr<string> comment_ {};
     // The new display name of the user. The display name can be up to 128 characters in length.
     // 
-    // >  Leave this parameter empty if you do not want to change the display name of the user.
+    // > Leave this parameter empty if you do not want to change the display name of the user.
     shared_ptr<string> displayName_ {};
     // The end time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
     // 
-    // >  Leave this parameter empty if you do not want to change the end time of the validity period.
+    // > Leave this parameter empty if you do not want to change the end time of the validity period.
     shared_ptr<int64_t> effectiveEndTime_ {};
     // The start time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
     // 
-    // >  Leave this parameter empty if you do not want to change the start time of the validity period.
+    // > Leave this parameter empty if you do not want to change the start time of the validity period.
     shared_ptr<int64_t> effectiveStartTime_ {};
     // The new email address of the user.
     // 
-    // > 
+    // >
     // 
-    // *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to email, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to email in the global two-factor authentication settings.
+    // - This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to email, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to email in the global two-factor authentication settings.
     // 
-    // *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+    // - You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
     // 
-    // *   Leave this parameter empty if you do not want to change the email address of the user.
+    // - Leave this parameter empty if you do not want to change the email address of the user.
     shared_ptr<string> email_ {};
     // The ID of the bastion host on which you want to modify the information about the user.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // This parameter is required if LanguageStatus is set to Custom.
     // 
     // - **zh-cn**: simplified Chinese
+    // 
     // - **en**: English
     shared_ptr<string> language_ {};
     // Specifies whether to send notifications in the language specified in the global settings or a custom language.
     // 
-    // *   **Global**
-    // *   **Custom**
+    // - **Global**
     // 
-    // >  Leave this parameter empty if you do not want to change the natural language used to notify the user.
+    // - **Custom**
+    // 
+    // > Leave this parameter empty if you do not want to change the natural language used to notify the user.
     shared_ptr<string> languageStatus_ {};
     // The new mobile phone number of the user.
     // 
-    // > 
+    // >
     // 
-    // *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to sms or dingtalk, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to sms or dingtalk in the global two-factor authentication settings.
+    // - This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to sms or dingtalk, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to sms or dingtalk in the global two-factor authentication settings.
     // 
-    // *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+    // - You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
     // 
-    // *   Leave this parameter empty if you do not want to change the mobile phone number of the user.
+    // - Leave this parameter empty if you do not want to change the mobile phone number of the user.
     shared_ptr<string> mobile_ {};
     // The country where the new mobile number of the user is registered. Valid values:
     // 
-    // *   **CN:** the Chinese mainland, whose country calling code is +86
-    // *   **HK:** Hong Kong (China), whose country calling code is +852
-    // *   **MO:** Macao (China), whose country calling code is +853
-    // *   **TW:** Taiwan (China), whose country calling code is +886
-    // *   **RU:** Russia, whose country calling code is +7
-    // *   **SG:** Singapore, whose country calling code is +65
-    // *   **MY:** Malaysia, whose country calling code is +60
-    // *   **ID:** Indonesia, whose country calling code is +62
-    // *   **DE:** Germany, whose country calling code is +49
-    // *   **AU:** Australia, whose country calling code is +61
-    // *   **US:** US, whose country calling code is +1
-    // *   **AE:** United Arab Emirates, whose country calling code is +971
-    // *   **JP:** Japan, whose country calling code is +81
-    // *   **GB:** UK, whose country calling code is +44
-    // *   **IN:** India, whose country calling code is +91
-    // *   **KR:** Republic of Korea, whose country calling code is +82
-    // *   **PH:** Philippines, whose country calling code is +63
-    // *   **CH:** Switzerland, whose country calling code is +41
-    // *   **SE:** Sweden, whose country calling code is +46
-    // *   **SA:** Saudi Arabia, whose country calling code is +966
+    // - **CN:** the Chinese mainland, whose country calling code is +86
+    // 
+    // - **HK:** Hong Kong (China), whose country calling code is +852
+    // 
+    // - **MO:** Macao (China), whose country calling code is +853
+    // 
+    // - **TW:** Taiwan (China), whose country calling code is +886
+    // 
+    // - **RU:** Russia, whose country calling code is +7
+    // 
+    // - **SG:** Singapore, whose country calling code is +65
+    // 
+    // - **MY:** Malaysia, whose country calling code is +60
+    // 
+    // - **ID:** Indonesia, whose country calling code is +62
+    // 
+    // - **DE:** Germany, whose country calling code is +49
+    // 
+    // - **AU:** Australia, whose country calling code is +61
+    // 
+    // - **US:** US, whose country calling code is +1
+    // 
+    // - **AE:** United Arab Emirates, whose country calling code is +971
+    // 
+    // - **JP:** Japan, whose country calling code is +81
+    // 
+    // - **GB:** UK, whose country calling code is +44
+    // 
+    // - **IN:** India, whose country calling code is +91
+    // 
+    // - **KR:** Republic of Korea, whose country calling code is +82
+    // 
+    // - **PH:** Philippines, whose country calling code is +63
+    // 
+    // - **CH:** Switzerland, whose country calling code is +41
+    // 
+    // - **SE:** Sweden, whose country calling code is +46
+    // 
+    // - **SA:** Saudi Arabia, whose country calling code is +966
     shared_ptr<string> mobileCountryCode_ {};
     // Specifies whether password reset is required upon the next logon. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
     // 
-    // >  Leave this parameter empty if you do not want to change the password reset settings for the user.
+    // - **false**
+    // 
+    // > Leave this parameter empty if you do not want to change the password reset settings for the user.
     shared_ptr<bool> needResetPassword_ {};
     // The new password of the user. The password must be 8 to 128 characters in length. It must contain uppercase letters, lowercase letters, digits, and special characters.
     // 
@@ -266,28 +288,33 @@ namespace Models
     shared_ptr<string> password_ {};
     // The region ID of the bastion host on which you want to modify the information about the user.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The two-factor authentication method. You can select only one method. Valid values:
     // 
-    // *   **sms**: text message-based two-factor authentication.
-    // *   **email**: email-based two-factor authentication.
-    // *   **dingtalk**: DingTalk-based two-factor authentication.
-    // *   **totp OTP:** one-time password (OTP) token-based two-factor authentication.
+    // - **sms**: text message-based two-factor authentication.
     // 
-    // >  If TwoFactorStatus is set to Enable, you must specify one of the valid values as TwoFactorMethods.
+    // - **email**: email-based two-factor authentication.
+    // 
+    // - **dingtalk**: DingTalk-based two-factor authentication.
+    // 
+    // - **totp OTP:** one-time password (OTP) token-based two-factor authentication.
+    // 
+    // > If TwoFactorStatus is set to Enable, you must specify one of the valid values as TwoFactorMethods.
     shared_ptr<string> twoFactorMethods_ {};
     // Specifies whether two-factor authentication is enabled for the user. Valid values:
     // 
-    // *   **Global**: The global settings apply.
-    // *   **Disable**: Two-factor authentication is disabled.
-    // *   **Enable**: Two-factor authentication is enabled and user-specific settings apply.
+    // - **Global**: The global settings apply.
     // 
-    // >  Leave this parameter empty if you do not want to change the two-factory authentication settings for the user.
+    // - **Disable**: Two-factor authentication is disabled.
+    // 
+    // - **Enable**: Two-factor authentication is enabled and user-specific settings apply.
+    // 
+    // > Leave this parameter empty if you do not want to change the two-factory authentication settings for the user.
     shared_ptr<string> twoFactorStatus_ {};
     // The ID of the user whose information you want to modify.
     // 
-    // >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+    // > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

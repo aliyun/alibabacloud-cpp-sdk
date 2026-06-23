@@ -123,44 +123,49 @@ namespace Models
   protected:
     // The address of the database.
     shared_ptr<string> databaseAddress_ {};
-    // The name of the database instance. The system supports exact search.
+    // The name of the database. This parameter supports only exact matches.
     shared_ptr<string> databaseName_ {};
-    // The type of the database. Valid values:
+    // The database type. Valid values:
     // 
-    // *   **MySQL**
-    // *   **SQLServer**
-    // *   **Oracle**
-    // *   **PostgreSQL**
+    // - **MySQL**
+    // 
+    // - **SQLServer**
+    // 
+    // - **Oracle**
+    // 
+    // - **PostgreSQL**
     shared_ptr<string> databaseType_ {};
-    // The bastion host ID.
+    // The ID of the Bastionhost instance.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: **1**.
+    // The page number. The default value is **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.\\
-    // Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+    // The number of entries to return on each page.<br>The maximum value is 100. The default value is 20. If you do not specify this parameter, 20 entries are returned.<br>
     // 
-    // >  We recommend that you do not leave this parameter empty.
+    // > Specify a value for this parameter.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the bastion host.
+    // The region ID of the Bastionhost instance.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The source of the database instance. Valid values:
+    // The source of the database. Valid values:
     // 
-    // *   **Local**
-    // *   **Rds**
-    // *   **PolarDB**
+    // - **Local**: a local database
+    // 
+    // - **Rds**: an ApsaraDB RDS database
+    // 
+    // - **PolarDB**: a PolarDB database
     shared_ptr<string> source_ {};
-    // The ID of the ApsaraDB RDS instance. The system supports exact search.
+    // The ID of the source instance. This parameter supports only exact matches.
     shared_ptr<string> sourceInstanceId_ {};
-    // The instance state.
+    // The status of the source instance. You can use this parameter to filter the results.
     // 
-    // *   **Normal**
-    // *   **RemoteRelease**
+    // - **Normal**: The instance is running.
+    // 
+    // - **RemoteRelease**: The instance is released.
     shared_ptr<string> sourceInstanceState_ {};
   };
 

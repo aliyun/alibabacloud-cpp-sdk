@@ -171,13 +171,15 @@ namespace Models
       shared_ptr<string> filter_ {};
       // Indicates whether passwords are required. Valid values:
       // 
-      // *   **true**: required
-      // *   **false**: not required
+      // - **true**: required
+      // 
+      // - **false**: not required
       shared_ptr<string> hasPassword_ {};
       // Indicates whether SSL is supported. Valid values:
       // 
-      // *   **true**: supported
-      // *   **false**: not supported
+      // - **true**: supported
+      // 
+      // - **false**: not supported
       shared_ptr<bool> isSSL_ {};
       // The field that is used to indicate the logon name of a user on the LDAP server.
       shared_ptr<string> loginNameMapping_ {};

@@ -132,8 +132,9 @@ namespace Models
   protected:
     // The new address type of the database. Valid values:
     // 
-    // *   **Public**
-    // *   **Private**
+    // - **Public**
+    // 
+    // - **Private**
     shared_ptr<string> activeAddressType_ {};
     // The new remarks of the database.
     shared_ptr<string> comment_ {};
@@ -157,7 +158,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The ID of the new network domain for the database.
     // 
-    // >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+    // > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
     shared_ptr<string> networkDomainId_ {};
     // The region ID of the bastion host that manages the database to modify.
     // 

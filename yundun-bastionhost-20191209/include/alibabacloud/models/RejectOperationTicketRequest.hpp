@@ -70,19 +70,19 @@ namespace Models
     shared_ptr<string> comment_ {};
     // The ID of the bastion host.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The ID of the O\\&M application that you want to reject.
     // 
-    // >  You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query the IDs of all O\\&M applications that require review.
+    // > You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query the IDs of all O\\&M applications that require review.
     // 
     // This parameter is required.
     shared_ptr<string> operationTicketId_ {};
     // The region ID of the bastion host.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

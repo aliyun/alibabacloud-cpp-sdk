@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set the value to **CreateHostAccount**.
+    // The ID of the host account.
     shared_ptr<string> hostAccountId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

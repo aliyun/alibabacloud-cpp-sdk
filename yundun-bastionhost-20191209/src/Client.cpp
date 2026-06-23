@@ -77,7 +77,10 @@ AlibabaCloud::YundunBastionhost20191209::Client::Client(Config &config): OpenApi
     {"cn-zhangjiakou-na62-a01" , "yundun-bastionhost.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "yundun-bastionhost.aliyuncs.com"},
     {"eu-west-1-oxs" , "yundun-bastionhost.aliyuncs.com"},
-    {"rus-west-1-pop" , "yundun-bastionhost.aliyuncs.com"}
+    {"rus-west-1-pop" , "yundun-bastionhost.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "yundun-bastionhost.aliyuncs.com"},
+    {"ap-southeast-6" , "bastionhost.ap-southeast-6.aliyuncs.com"},
+    {"ap-northeast-2" , "bastionhost.ap-northeast-2.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("yundun-bastionhost", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -97,9 +100,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+ * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
  *
- * @description You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+ * @description Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request AcceptApproveCommandRequest
@@ -139,9 +142,9 @@ AcceptApproveCommandResponse Client::acceptApproveCommandWithOptions(const Accep
 }
 
 /**
- * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+ * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
  *
- * @description You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+ * @description Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request AcceptApproveCommandRequest
@@ -153,9 +156,9 @@ AcceptApproveCommandResponse Client::acceptApproveCommand(const AcceptApproveCom
 }
 
 /**
- * @summary Approves an O\\\\\\\\\\\\\\\\\\\\&M application.
+ * @summary Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
  *
- * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+ * @description Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request AcceptOperationTicketRequest
@@ -211,9 +214,9 @@ AcceptOperationTicketResponse Client::acceptOperationTicketWithOptions(const Acc
 }
 
 /**
- * @summary Approves an O\\\\\\\\\\\\\\\\\\\\&M application.
+ * @summary Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
  *
- * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+ * @description Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request AcceptOperationTicketRequest
@@ -281,7 +284,7 @@ AddDatabasesToGroupResponse Client::addDatabasesToGroup(const AddDatabasesToGrou
 /**
  * @summary Adds one or more hosts to the specified host group.
  *
- * @description You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+ * @description Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
  * # Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
  *
@@ -328,7 +331,7 @@ AddHostsToGroupResponse Client::addHostsToGroupWithOptions(const AddHostsToGroup
 /**
  * @summary Adds one or more hosts to the specified host group.
  *
- * @description You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+ * @description Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
  * # Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
  *
@@ -341,7 +344,7 @@ AddHostsToGroupResponse Client::addHostsToGroup(const AddHostsToGroupRequest &re
 }
 
 /**
- * @summary 添加RD成员账号
+ * @summary Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
  *
  * @param request AddInstanceRdMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -380,7 +383,7 @@ AddInstanceRdMemberResponse Client::addInstanceRdMemberWithOptions(const AddInst
 }
 
 /**
- * @summary 添加RD成员账号
+ * @summary Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
  *
  * @param request AddInstanceRdMemberRequest
  * @return AddInstanceRdMemberResponse
@@ -394,7 +397,7 @@ AddInstanceRdMemberResponse Client::addInstanceRdMember(const AddInstanceRdMembe
  * @summary Add one or more users to a user group.
  *
  * @description #
- * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+ * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
  * # Limit
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -442,7 +445,7 @@ AddUsersToGroupResponse Client::addUsersToGroupWithOptions(const AddUsersToGroup
  * @summary Add one or more users to a user group.
  *
  * @description #
- * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+ * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
  * # Limit
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -452,6 +455,56 @@ AddUsersToGroupResponse Client::addUsersToGroupWithOptions(const AddUsersToGroup
 AddUsersToGroupResponse Client::addUsersToGroup(const AddUsersToGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addUsersToGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Approves an O&M task request.
+ *
+ * @param request AllowOperationTaskApprovalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AllowOperationTaskApprovalResponse
+ */
+AllowOperationTaskApprovalResponse Client::allowOperationTaskApprovalWithOptions(const AllowOperationTaskApprovalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApproveId()) {
+    query["ApproveId"] = request.getApproveId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AllowOperationTaskApproval"},
+    {"version" , "2019-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AllowOperationTaskApprovalResponse>();
+}
+
+/**
+ * @summary Approves an O&M task request.
+ *
+ * @param request AllowOperationTaskApprovalRequest
+ * @return AllowOperationTaskApprovalResponse
+ */
+AllowOperationTaskApprovalResponse Client::allowOperationTaskApproval(const AllowOperationTaskApprovalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return allowOperationTaskApprovalWithOptions(request, runtime);
 }
 
 /**
@@ -509,7 +562,7 @@ AttachDatabaseAccountsToUserResponse Client::attachDatabaseAccountsToUser(const 
 }
 
 /**
- * @summary Authorizes a user group to manage databases and database accounts.
+ * @summary Grants permissions on databases and database accounts to a user group.
  *
  * @param request AttachDatabaseAccountsToUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -552,7 +605,7 @@ AttachDatabaseAccountsToUserGroupResponse Client::attachDatabaseAccountsToUserGr
 }
 
 /**
- * @summary Authorizes a user group to manage databases and database accounts.
+ * @summary Grants permissions on databases and database accounts to a user group.
  *
  * @param request AttachDatabaseAccountsToUserGroupRequest
  * @return AttachDatabaseAccountsToUserGroupResponse
@@ -617,7 +670,7 @@ AttachHostAccountsToHostShareKeyResponse Client::attachHostAccountsToHostShareKe
 }
 
 /**
- * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\&M operations on the assets.
+ * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
  *
  * @param request AttachHostAccountsToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -660,7 +713,7 @@ AttachHostAccountsToUserResponse Client::attachHostAccountsToUserWithOptions(con
 }
 
 /**
- * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\&M operations on the assets.
+ * @summary After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
  *
  * @param request AttachHostAccountsToUserRequest
  * @return AttachHostAccountsToUserResponse
@@ -837,7 +890,7 @@ AttachHostGroupAccountsToUserGroupResponse Client::attachHostGroupAccountsToUser
 }
 
 /**
- * @summary Configures security groups for a bastion host.
+ * @summary Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
  *
  * @param request ConfigInstanceSecurityGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +933,7 @@ ConfigInstanceSecurityGroupsResponse Client::configInstanceSecurityGroupsWithOpt
 }
 
 /**
- * @summary Configures security groups for a bastion host.
+ * @summary Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
  *
  * @param request ConfigInstanceSecurityGroupsRequest
  * @return ConfigInstanceSecurityGroupsResponse
@@ -891,12 +944,10 @@ ConfigInstanceSecurityGroupsResponse Client::configInstanceSecurityGroups(const 
 }
 
 /**
- * @summary Configures a whitelist of public IP addresses for a bastion host.
+ * @summary After enabling public network access for a Bastionhost instance, you can add IP addresses to a whitelist to control access.
  *
- * @description ## Usage notes
- * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
- * ## Limits
- * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation configures a public IP address whitelist for a Bastionhost instance. By default, instances accept traffic from all public IP addresses. To restrict access, add IP addresses to the whitelist. This ensures only traffic from whitelisted IP addresses can reach the instance.
+ * Each user is limited to 30 queries per second (QPS) for this operation. The system throttles API calls that exceed this limit. This may affect your services, so plan your calls accordingly.
  *
  * @param request ConfigInstanceWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -939,12 +990,10 @@ ConfigInstanceWhiteListResponse Client::configInstanceWhiteListWithOptions(const
 }
 
 /**
- * @summary Configures a whitelist of public IP addresses for a bastion host.
+ * @summary After enabling public network access for a Bastionhost instance, you can add IP addresses to a whitelist to control access.
  *
- * @description ## Usage notes
- * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.  
- * ## Limits
- * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation configures a public IP address whitelist for a Bastionhost instance. By default, instances accept traffic from all public IP addresses. To restrict access, add IP addresses to the whitelist. This ensures only traffic from whitelisted IP addresses can reach the instance.
+ * Each user is limited to 30 queries per second (QPS) for this operation. The system throttles API calls that exceed this limit. This may affect your services, so plan your calls accordingly.
  *
  * @param request ConfigInstanceWhiteListRequest
  * @return ConfigInstanceWhiteListResponse
@@ -955,7 +1004,7 @@ ConfigInstanceWhiteListResponse Client::configInstanceWhiteList(const ConfigInst
 }
 
 /**
- * @summary Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+ * @summary Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
  *
  * @param request CreateDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1042,7 +1091,7 @@ CreateDatabaseResponse Client::createDatabaseWithOptions(const CreateDatabaseReq
 }
 
 /**
- * @summary Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+ * @summary Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
  *
  * @param request CreateDatabaseRequest
  * @return CreateDatabaseResponse
@@ -1053,7 +1102,7 @@ CreateDatabaseResponse Client::createDatabase(const CreateDatabaseRequest &reque
 }
 
 /**
- * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the database.
+ * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
  *
  * @param request CreateDatabaseAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1108,7 +1157,7 @@ CreateDatabaseAccountResponse Client::createDatabaseAccountWithOptions(const Cre
 }
 
 /**
- * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the database.
+ * @summary After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
  *
  * @param request CreateDatabaseAccountRequest
  * @return CreateDatabaseAccountResponse
@@ -1119,7 +1168,7 @@ CreateDatabaseAccountResponse Client::createDatabaseAccount(const CreateDatabase
 }
 
 /**
- * @summary Creates a configuration backup export task. You can run only one configuration backup export task on a bastion host at a time.
+ * @summary Creates a configuration backup export task. Only one configuration backup export task can run at a time for a Bastionhost instance.
  *
  * @param request CreateExportConfigJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1154,7 +1203,7 @@ CreateExportConfigJobResponse Client::createExportConfigJobWithOptions(const Cre
 }
 
 /**
- * @summary Creates a configuration backup export task. You can run only one configuration backup export task on a bastion host at a time.
+ * @summary Creates a configuration backup export task. Only one configuration backup export task can run at a time for a Bastionhost instance.
  *
  * @param request CreateExportConfigJobRequest
  * @return CreateExportConfigJobResponse
@@ -1165,7 +1214,7 @@ CreateExportConfigJobResponse Client::createExportConfigJob(const CreateExportCo
 }
 
 /**
- * @summary Bastionhost allows you to perform O\\\\\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\\\\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+ * @summary Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
  *
  * @param request CreateHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1244,7 +1293,7 @@ CreateHostResponse Client::createHostWithOptions(const CreateHostRequest &reques
 }
 
 /**
- * @summary Bastionhost allows you to perform O\\\\\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\\\\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+ * @summary Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
  *
  * @param request CreateHostRequest
  * @return CreateHostResponse
@@ -1255,7 +1304,7 @@ CreateHostResponse Client::createHost(const CreateHostRequest &request) {
 }
 
 /**
- * @summary After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the host by using the bastion host.
+ * @summary Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
  *
  * @param request CreateHostAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1326,7 +1375,7 @@ CreateHostAccountResponse Client::createHostAccountWithOptions(const CreateHostA
 }
 
 /**
- * @summary After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the host by using the bastion host.
+ * @summary Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
  *
  * @param request CreateHostAccountRequest
  * @return CreateHostAccountResponse
@@ -1449,7 +1498,7 @@ CreateHostShareKeyResponse Client::createHostShareKey(const CreateHostShareKeyRe
 }
 
 /**
- * @summary If you want to perform O\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\&M operations on the assets by using the bastion host.
+ * @summary If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
  *
  * @param request CreateNetworkDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1500,7 +1549,7 @@ CreateNetworkDomainResponse Client::createNetworkDomainWithOptions(const CreateN
 }
 
 /**
- * @summary If you want to perform O\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\&M operations on the assets by using the bastion host.
+ * @summary If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
  *
  * @param request CreateNetworkDomainRequest
  * @return CreateNetworkDomainResponse
@@ -1511,7 +1560,7 @@ CreateNetworkDomainResponse Client::createNetworkDomain(const CreateNetworkDomai
 }
 
 /**
- * @summary If a Bastionhost administrator turns on O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+ * @summary Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
  *
  * @param request CreateOperationTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1574,7 +1623,7 @@ CreateOperationTicketResponse Client::createOperationTicketWithOptions(const Cre
 }
 
 /**
- * @summary If a Bastionhost administrator turns on O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+ * @summary Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
  *
  * @param request CreateOperationTicketRequest
  * @return CreateOperationTicketResponse
@@ -1585,7 +1634,7 @@ CreateOperationTicketResponse Client::createOperationTicket(const CreateOperatio
 }
 
 /**
- * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\&M security.
+ * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
  *
  * @param request CreatePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1632,7 +1681,7 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
 }
 
 /**
- * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\&M security.
+ * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
  *
  * @param request CreatePolicyRequest
  * @return CreatePolicyResponse
@@ -1727,7 +1776,7 @@ CreateRuleResponse Client::createRule(const CreateRuleRequest &request) {
 /**
  * @summary Adds a user to a bastion host.
  *
- * @description You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+ * @description Adds local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After adding a user, O\\&M engineers can log on to the bastion host with that account to perform O\\&M operations on authorized hosts.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
  *
  * @param request CreateUserRequest
@@ -1829,7 +1878,7 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 /**
  * @summary Adds a user to a bastion host.
  *
- * @description You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+ * @description Adds local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After adding a user, O\\&M engineers can log on to the bastion host with that account to perform O\\&M operations on authorized hosts.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
  *
  * @param request CreateUserRequest
@@ -1843,7 +1892,7 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 /**
  * @summary Creates a user group for a bastion host.
  *
- * @description You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+ * @description Creates a user group for a bastion host as an administrator. After creating the group, use the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add multiple users at once, enabling centralized user authorization and management.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request CreateUserGroupRequest
@@ -1889,7 +1938,7 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
 /**
  * @summary Creates a user group for a bastion host.
  *
- * @description You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+ * @description Creates a user group for a bastion host as an administrator. After creating the group, use the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add multiple users at once, enabling centralized user authorization and management.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request CreateUserGroupRequest
@@ -1901,7 +1950,7 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
- * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\&M client.
+ * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M client.
  *
  * @description You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
  *
@@ -1954,7 +2003,7 @@ CreateUserPublicKeyResponse Client::createUserPublicKeyWithOptions(const CreateU
 }
 
 /**
- * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\&M client.
+ * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M client.
  *
  * @description You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
  *
@@ -2121,7 +2170,7 @@ DeleteHostResponse Client::deleteHost(const DeleteHostRequest &request) {
  *
  * @description ## Usage notes
  * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
- * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
+ * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
  * ## QPS Limit
  * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
  *
@@ -2166,7 +2215,7 @@ DeleteHostAccountResponse Client::deleteHostAccountWithOptions(const DeleteHostA
  *
  * @description ## Usage notes
  * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
- * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.  
+ * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
  * ## QPS Limit
  * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
  *
@@ -2181,7 +2230,7 @@ DeleteHostAccountResponse Client::deleteHostAccount(const DeleteHostAccountReque
 /**
  * @summary Deletes a host group.
  *
- * @description You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+ * @description Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
  * ### Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -2224,7 +2273,7 @@ DeleteHostGroupResponse Client::deleteHostGroupWithOptions(const DeleteHostGroup
 /**
  * @summary Deletes a host group.
  *
- * @description You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+ * @description Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
  * ### Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -2591,9 +2640,7 @@ DeleteUserPublicKeyResponse Client::deleteUserPublicKey(const DeleteUserPublicKe
 }
 
 /**
- * @summary Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
- *
- * @description ****
+ * @summary Returns all instance attributes, such as its instance ID and description.
  *
  * @param request DescribeInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2628,9 +2675,7 @@ DescribeInstanceAttributeResponse Client::describeInstanceAttributeWithOptions(c
 }
 
 /**
- * @summary Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
- *
- * @description ****
+ * @summary Returns all instance attributes, such as its instance ID and description.
  *
  * @param request DescribeInstanceAttributeRequest
  * @return DescribeInstanceAttributeResponse
@@ -2641,7 +2686,7 @@ DescribeInstanceAttributeResponse Client::describeInstanceAttribute(const Descri
 }
 
 /**
- * @summary Queries bastion hosts.
+ * @summary Retrieves a list of Bastionhost instances.
  *
  * @param request DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2700,7 +2745,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary Queries bastion hosts.
+ * @summary Retrieves a list of Bastionhost instances.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -2711,7 +2756,7 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary Queries available regions where you can create bastion hosts.
+ * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2746,7 +2791,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries available regions where you can create bastion hosts.
+ * @summary Queries the Alibaba Cloud regions that support Bastionhost instances.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -3083,8 +3128,6 @@ DetachHostGroupAccountsFromUserResponse Client::detachHostGroupAccountsFromUser(
 /**
  * @summary Revokes permissions on one or more host groups and host accounts from a user group.
  *
- * @description ****
- *
  * @param request DetachHostGroupAccountsFromUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DetachHostGroupAccountsFromUserGroupResponse
@@ -3128,8 +3171,6 @@ DetachHostGroupAccountsFromUserGroupResponse Client::detachHostGroupAccountsFrom
 /**
  * @summary Revokes permissions on one or more host groups and host accounts from a user group.
  *
- * @description ****
- *
  * @param request DetachHostGroupAccountsFromUserGroupRequest
  * @return DetachHostGroupAccountsFromUserGroupResponse
  */
@@ -3139,7 +3180,7 @@ DetachHostGroupAccountsFromUserGroupResponse Client::detachHostGroupAccountsFrom
 }
 
 /**
- * @summary Disables Internet access to a bastion host.
+ * @summary Disables public network access for a Bastionhost instance.
  *
  * @param request DisableInstancePublicAccessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3174,7 +3215,7 @@ DisableInstancePublicAccessResponse Client::disableInstancePublicAccessWithOptio
 }
 
 /**
- * @summary Disables Internet access to a bastion host.
+ * @summary Disables public network access for a Bastionhost instance.
  *
  * @param request DisableInstancePublicAccessRequest
  * @return DisableInstancePublicAccessResponse
@@ -3235,7 +3276,7 @@ DisableRuleResponse Client::disableRule(const DisableRuleRequest &request) {
 }
 
 /**
- * @summary Enables Internet access to a bastion host.
+ * @summary Enables public network access for a specified Bastionhost instance.
  *
  * @param request EnableInstancePublicAccessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3270,7 +3311,7 @@ EnableInstancePublicAccessResponse Client::enableInstancePublicAccessWithOptions
 }
 
 /**
- * @summary Enables Internet access to a bastion host.
+ * @summary Enables public network access for a specified Bastionhost instance.
  *
  * @param request EnableInstancePublicAccessRequest
  * @return EnableInstancePublicAccessResponse
@@ -3331,7 +3372,7 @@ EnableRuleResponse Client::enableRule(const EnableRuleRequest &request) {
 }
 
 /**
- * @summary Applies for an O\\\\\\&M token.
+ * @summary Call this operation to request O&M tokens for bastions or databases, which allows you to manage assets.
  *
  * @param request GenerateAssetOperationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3410,7 +3451,7 @@ GenerateAssetOperationTokenResponse Client::generateAssetOperationTokenWithOptio
 }
 
 /**
- * @summary Applies for an O\\\\\\&M token.
+ * @summary Call this operation to request O&M tokens for bastions or databases, which allows you to manage assets.
  *
  * @param request GenerateAssetOperationTokenRequest
  * @return GenerateAssetOperationTokenResponse
@@ -3418,6 +3459,58 @@ GenerateAssetOperationTokenResponse Client::generateAssetOperationTokenWithOptio
 GenerateAssetOperationTokenResponse Client::generateAssetOperationToken(const GenerateAssetOperationTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return generateAssetOperationTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a specified O&M task for an administrator.
+ *
+ * @param request GetAutoOpsTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAutoOpsTaskResponse
+ */
+GetAutoOpsTaskResponse Client::getAutoOpsTaskWithOptions(const GetAutoOpsTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAutoOpsTask"},
+    {"version" , "2019-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAutoOpsTaskResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a specified O&M task for an administrator.
+ *
+ * @param request GetAutoOpsTaskRequest
+ * @return GetAutoOpsTaskResponse
+ */
+GetAutoOpsTaskResponse Client::getAutoOpsTask(const GetAutoOpsTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAutoOpsTaskWithOptions(request, runtime);
 }
 
 /**
@@ -3521,7 +3614,7 @@ GetDatabaseAccountResponse Client::getDatabaseAccount(const GetDatabaseAccountRe
 }
 
 /**
- * @summary null
+ * @summary Retrieves the details of a configuration export task for a Bastionhost instance.
  *
  * @param request GetExportConfigJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3560,7 +3653,7 @@ GetExportConfigJobResponse Client::getExportConfigJobWithOptions(const GetExport
 }
 
 /**
- * @summary null
+ * @summary Retrieves the details of a configuration export task for a Bastionhost instance.
  *
  * @param request GetExportConfigJobRequest
  * @return GetExportConfigJobResponse
@@ -3571,7 +3664,7 @@ GetExportConfigJobResponse Client::getExportConfigJob(const GetExportConfigJobRe
 }
 
 /**
- * @summary Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+ * @summary Retrieves the details of a host, such as the name, source, address, protocol, and service port.
  *
  * @param request GetHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3610,7 +3703,7 @@ GetHostResponse Client::getHostWithOptions(const GetHostRequest &request, const 
 }
 
 /**
- * @summary Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+ * @summary Retrieves the details of a host, such as the name, source, address, protocol, and service port.
  *
  * @param request GetHostRequest
  * @return GetHostResponse
@@ -3621,7 +3714,7 @@ GetHostResponse Client::getHost(const GetHostRequest &request) {
 }
 
 /**
- * @summary Queries the details of a specified host account.
+ * @summary Retrieves the details of a host account on a host managed by a Bastionhost instance, such as the protocol type and account name.
  *
  * @param request GetHostAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3660,7 +3753,7 @@ GetHostAccountResponse Client::getHostAccountWithOptions(const GetHostAccountReq
 }
 
 /**
- * @summary Queries the details of a specified host account.
+ * @summary Retrieves the details of a host account on a host managed by a Bastionhost instance, such as the protocol type and account name.
  *
  * @param request GetHostAccountRequest
  * @return GetHostAccountResponse
@@ -3671,7 +3764,7 @@ GetHostAccountResponse Client::getHostAccount(const GetHostAccountRequest &reque
 }
 
 /**
- * @summary Queries the details of a specified host group.
+ * @summary Retrieves the details of a host group.
  *
  * @param request GetHostGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3710,7 +3803,7 @@ GetHostGroupResponse Client::getHostGroupWithOptions(const GetHostGroupRequest &
 }
 
 /**
- * @summary Queries the details of a specified host group.
+ * @summary Retrieves the details of a host group.
  *
  * @param request GetHostGroupRequest
  * @return GetHostGroupResponse
@@ -3774,9 +3867,9 @@ GetHostShareKeyResponse Client::getHostShareKey(const GetHostShareKeyRequest &re
  * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
  *
  * @description ###
- * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+ * Queries the Active Directory (AD) authentication settings of a bastion host. After you configure AD authentication, you can import AD-authenticated users into the bastion host. The imported users can then log on to the bastion host to perform O\\&M operations on servers.
  * ### Limit
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
  *
  * @param request GetInstanceADAuthServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3814,9 +3907,9 @@ GetInstanceADAuthServerResponse Client::getInstanceADAuthServerWithOptions(const
  * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
  *
  * @description ###
- * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+ * Queries the Active Directory (AD) authentication settings of a bastion host. After you configure AD authentication, you can import AD-authenticated users into the bastion host. The imported users can then log on to the bastion host to perform O\\&M operations on servers.
  * ### Limit
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
  *
  * @param request GetInstanceADAuthServerRequest
  * @return GetInstanceADAuthServerResponse
@@ -3873,7 +3966,7 @@ GetInstanceLDAPAuthServerResponse Client::getInstanceLDAPAuthServer(const GetIns
 }
 
 /**
- * @summary Queries the storage usage of a bastion host.
+ * @summary Queries the storage usage of a Bastionhost instance.
  *
  * @param request GetInstanceStoreInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3908,7 +4001,7 @@ GetInstanceStoreInfoResponse Client::getInstanceStoreInfoWithOptions(const GetIn
 }
 
 /**
- * @summary Queries the storage usage of a bastion host.
+ * @summary Queries the storage usage of a Bastionhost instance.
  *
  * @param request GetInstanceStoreInfoRequest
  * @return GetInstanceStoreInfoResponse
@@ -3921,9 +4014,9 @@ GetInstanceStoreInfoResponse Client::getInstanceStoreInfo(const GetInstanceStore
 /**
  * @summary Queries the settings of two-factor authentication on a bastion host.
  *
- * @description You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+ * @description Queries the two-factor authentication settings of a bastion host. When two-factor authentication is enabled, Bastionhost sends a verification code to a local user who logs on to the bastion host. The local user must enter a valid username, password, and verification code to log on, which reduces the security risks of account information leaks.
  * ### Limit
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
  *
  * @param request GetInstanceTwoFactorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3960,9 +4053,9 @@ GetInstanceTwoFactorResponse Client::getInstanceTwoFactorWithOptions(const GetIn
 /**
  * @summary Queries the settings of two-factor authentication on a bastion host.
  *
- * @description You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+ * @description Queries the two-factor authentication settings of a bastion host. When two-factor authentication is enabled, Bastionhost sends a verification code to a local user who logs on to the bastion host. The local user must enter a valid username, password, and verification code to log on, which reduces the security risks of account information leaks.
  * ### Limit
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * This operation can be called up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered and your business may be affected. Take note of this limit when you call this operation.
  *
  * @param request GetInstanceTwoFactorRequest
  * @return GetInstanceTwoFactorResponse
@@ -3973,7 +4066,7 @@ GetInstanceTwoFactorResponse Client::getInstanceTwoFactor(const GetInstanceTwoFa
 }
 
 /**
- * @summary Queries the detailed information about a network domain.
+ * @summary Retrieves the details of a specified network domain.
  *
  * @param request GetNetworkDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4016,7 +4109,7 @@ GetNetworkDomainResponse Client::getNetworkDomainWithOptions(const GetNetworkDom
 }
 
 /**
- * @summary Queries the detailed information about a network domain.
+ * @summary Retrieves the details of a specified network domain.
  *
  * @param request GetNetworkDomainRequest
  * @return GetNetworkDomainResponse
@@ -4027,7 +4120,7 @@ GetNetworkDomainResponse Client::getNetworkDomain(const GetNetworkDomainRequest 
 }
 
 /**
- * @summary Queries the detailed information about a control policy.
+ * @summary Gets the details of a specified control policy.
  *
  * @param request GetPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4066,7 +4159,7 @@ GetPolicyResponse Client::getPolicyWithOptions(const GetPolicyRequest &request, 
 }
 
 /**
- * @summary Queries the detailed information about a control policy.
+ * @summary Gets the details of a specified control policy.
  *
  * @param request GetPolicyRequest
  * @return GetPolicyResponse
@@ -4227,7 +4320,7 @@ GetRuleResponse Client::getRule(const GetRuleRequest &request) {
 }
 
 /**
- * @summary Queries the details of a user of the specified bastion host.
+ * @summary Retrieves the details of a user of a bastion host.
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4266,7 +4359,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary Queries the details of a user of the specified bastion host.
+ * @summary Retrieves the details of a user of a bastion host.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -4277,7 +4370,7 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
- * @summary Queries the details of a user group in a bastion host.
+ * @summary Retrieves the details of a user group in a bastion host.
  *
  * @param request GetUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4316,7 +4409,7 @@ GetUserGroupResponse Client::getUserGroupWithOptions(const GetUserGroupRequest &
 }
 
 /**
- * @summary Queries the details of a user group in a bastion host.
+ * @summary Retrieves the details of a user group in a bastion host.
  *
  * @param request GetUserGroupRequest
  * @return GetUserGroupResponse
@@ -4327,7 +4420,7 @@ GetUserGroupResponse Client::getUserGroup(const GetUserGroupRequest &request) {
 }
 
 /**
- * @summary 为当前主机导入 KMS 凭据
+ * @summary Imports KMS secrets for a specified host.
  *
  * @param tmpReq ImportKMSSecretsForHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4376,7 +4469,7 @@ ImportKMSSecretsForHostResponse Client::importKMSSecretsForHostWithOptions(const
 }
 
 /**
- * @summary 为当前主机导入 KMS 凭据
+ * @summary Imports KMS secrets for a specified host.
  *
  * @param request ImportKMSSecretsForHostRequest
  * @return ImportKMSSecretsForHostResponse
@@ -4389,7 +4482,7 @@ ImportKMSSecretsForHostResponse Client::importKMSSecretsForHost(const ImportKMSS
 /**
  * @summary Queries commands to be reviewed.
  *
- * @description You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+ * @description Queries commands pending review as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request ListApproveCommandsRequest
@@ -4435,7 +4528,7 @@ ListApproveCommandsResponse Client::listApproveCommandsWithOptions(const ListApp
 /**
  * @summary Queries commands to be reviewed.
  *
- * @description You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+ * @description Queries commands pending review as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request ListApproveCommandsRequest
@@ -4785,7 +4878,7 @@ ListDatabasesForUserResponse Client::listDatabasesForUser(const ListDatabasesFor
 }
 
 /**
- * @summary Queries the databases that a user group is authorized to manage.
+ * @summary Lists the databases that a user group is authorized to manage through a Bastionhost instance.
  *
  * @param request ListDatabasesForUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4848,7 +4941,7 @@ ListDatabasesForUserGroupResponse Client::listDatabasesForUserGroupWithOptions(c
 }
 
 /**
- * @summary Queries the databases that a user group is authorized to manage.
+ * @summary Lists the databases that a user group is authorized to manage through a Bastionhost instance.
  *
  * @param request ListDatabasesForUserGroupRequest
  * @return ListDatabasesForUserGroupResponse
@@ -4859,7 +4952,7 @@ ListDatabasesForUserGroupResponse Client::listDatabasesForUserGroup(const ListDa
 }
 
 /**
- * @summary Queries a list of host accounts.
+ * @summary Lists the host accounts that are configured for a host in a Bastionhost instance. Host accounts are the credentials used by O&M engineers to log on to the host.
  *
  * @param request ListHostAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4918,7 +5011,7 @@ ListHostAccountsResponse Client::listHostAccountsWithOptions(const ListHostAccou
 }
 
 /**
- * @summary Queries a list of host accounts.
+ * @summary Lists the host accounts that are configured for a host in a Bastionhost instance. Host accounts are the credentials used by O&M engineers to log on to the host.
  *
  * @param request ListHostAccountsRequest
  * @return ListHostAccountsResponse
@@ -5627,7 +5720,7 @@ ListHostsForUserResponse Client::listHostsForUser(const ListHostsForUserRequest 
 }
 
 /**
- * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+ * @summary Lists the authorized or unauthorized hosts for a bastion host user group.
  *
  * @param request ListHostsForUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5690,7 +5783,7 @@ ListHostsForUserGroupResponse Client::listHostsForUserGroupWithOptions(const Lis
 }
 
 /**
- * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+ * @summary Lists the authorized or unauthorized hosts for a bastion host user group.
  *
  * @param request ListHostsForUserGroupRequest
  * @return ListHostsForUserGroupResponse
@@ -5701,7 +5794,7 @@ ListHostsForUserGroupResponse Client::listHostsForUserGroup(const ListHostsForUs
 }
 
 /**
- * @summary 列出指定主机所有可导入的 KMS 凭据
+ * @summary Lists all importable KMS secrets for a specified host.
  *
  * @param request ListImportableKMSSecretsForHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5752,7 +5845,7 @@ ListImportableKMSSecretsForHostResponse Client::listImportableKMSSecretsForHostW
 }
 
 /**
- * @summary 列出指定主机所有可导入的 KMS 凭据
+ * @summary Lists all importable KMS secrets for a specified host.
  *
  * @param request ListImportableKMSSecretsForHostRequest
  * @return ListImportableKMSSecretsForHostResponse
@@ -5763,7 +5856,7 @@ ListImportableKMSSecretsForHostResponse Client::listImportableKMSSecretsForHost(
 }
 
 /**
- * @summary 获取RD成员账号列表
+ * @summary Lists the member accounts in a Resource Directory (RD).
  *
  * @param request ListInstanceRdMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5806,7 +5899,7 @@ ListInstanceRdMembersResponse Client::listInstanceRdMembersWithOptions(const Lis
 }
 
 /**
- * @summary 获取RD成员账号列表
+ * @summary Lists the member accounts in a Resource Directory (RD).
  *
  * @param request ListInstanceRdMembersRequest
  * @return ListInstanceRdMembersResponse
@@ -5817,7 +5910,7 @@ ListInstanceRdMembersResponse Client::listInstanceRdMembers(const ListInstanceRd
 }
 
 /**
- * @summary Queries the network domains created in a bastion host.
+ * @summary Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
  *
  * @param request ListNetworkDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5868,7 +5961,7 @@ ListNetworkDomainsResponse Client::listNetworkDomainsWithOptions(const ListNetwo
 }
 
 /**
- * @summary Queries the network domains created in a bastion host.
+ * @summary Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
  *
  * @param request ListNetworkDomainsRequest
  * @return ListNetworkDomainsResponse
@@ -5941,7 +6034,7 @@ ListOperationDatabaseAccountsResponse Client::listOperationDatabaseAccounts(cons
 }
 
 /**
- * @summary Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+ * @summary Lists the databases that the current Resource Access Management (RAM) user is authorized to access.
  *
  * @param request ListOperationDatabasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6008,7 +6101,7 @@ ListOperationDatabasesResponse Client::listOperationDatabasesWithOptions(const L
 }
 
 /**
- * @summary Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+ * @summary Lists the databases that the current Resource Access Management (RAM) user is authorized to access.
  *
  * @param request ListOperationDatabasesRequest
  * @return ListOperationDatabasesResponse
@@ -6081,7 +6174,7 @@ ListOperationHostAccountsResponse Client::listOperationHostAccounts(const ListOp
 }
 
 /**
- * @summary Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+ * @summary Lists the hosts that the current Resource Access Management (RAM) user is authorized to perform O&M operations on through a Bastionhost instance.
  *
  * @param request ListOperationHostsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6148,7 +6241,7 @@ ListOperationHostsResponse Client::listOperationHostsWithOptions(const ListOpera
 }
 
 /**
- * @summary Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+ * @summary Lists the hosts that the current Resource Access Management (RAM) user is authorized to perform O&M operations on through a Bastionhost instance.
  *
  * @param request ListOperationHostsRequest
  * @return ListOperationHostsResponse
@@ -6159,10 +6252,10 @@ ListOperationHostsResponse Client::listOperationHosts(const ListOperationHostsRe
 }
 
 /**
- * @summary Queries O\\\\\\\\\\\\&M applications to be reviewed.
+ * @summary Lists the O&M requests that require approval.
  *
- * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
+ * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
  *
  * @param request ListOperationTicketsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6209,10 +6302,10 @@ ListOperationTicketsResponse Client::listOperationTicketsWithOptions(const ListO
 }
 
 /**
- * @summary Queries O\\\\\\\\\\\\&M applications to be reviewed.
+ * @summary Lists the O&M requests that require approval.
  *
- * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
+ * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
  *
  * @param request ListOperationTicketsRequest
  * @return ListOperationTicketsResponse
@@ -6343,7 +6436,7 @@ ListRulesResponse Client::listRules(const ListRulesRequest &request) {
 }
 
 /**
- * @summary Queries the tags that are added to a resource.
+ * @summary Queries the tag keys on resources.
  *
  * @param request ListTagKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6390,7 +6483,7 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
 }
 
 /**
- * @summary Queries the tags that are added to a resource.
+ * @summary Queries the tag keys on resources.
  *
  * @param request ListTagKeysRequest
  * @return ListTagKeysResponse
@@ -6401,7 +6494,7 @@ ListTagKeysResponse Client::listTagKeys(const ListTagKeysRequest &request) {
 }
 
 /**
- * @summary Queries the tags that are added for one or more bastion hosts.
+ * @summary Lists the tags that are attached to one or more Bastionhost instances.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6452,7 +6545,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are added for one or more bastion hosts.
+ * @summary Lists the tags that are attached to one or more Bastionhost instances.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -6460,6 +6553,68 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves pending automated O&M approval requests.
+ *
+ * @param request ListTodoOpsTaskApprovalsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTodoOpsTaskApprovalsResponse
+ */
+ListTodoOpsTaskApprovalsResponse Client::listTodoOpsTaskApprovalsWithOptions(const ListTodoOpsTaskApprovalsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasScheduleType()) {
+    query["ScheduleType"] = request.getScheduleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTodoOpsTaskApprovals"},
+    {"version" , "2019-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTodoOpsTaskApprovalsResponse>();
+}
+
+/**
+ * @summary Retrieves pending automated O&M approval requests.
+ *
+ * @param request ListTodoOpsTaskApprovalsRequest
+ * @return ListTodoOpsTaskApprovalsResponse
+ */
+ListTodoOpsTaskApprovalsResponse Client::listTodoOpsTaskApprovals(const ListTodoOpsTaskApprovalsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTodoOpsTaskApprovalsWithOptions(request, runtime);
 }
 
 /**
@@ -6521,7 +6676,7 @@ ListUserGroupsResponse Client::listUserGroups(const ListUserGroupsRequest &reque
 }
 
 /**
- * @summary Queries all public keys of the specified user.
+ * @summary Lists the SSH public keys that are configured for a Bastionhost user. Users can use these public keys for key-based authentication when logging on to hosts through Bastionhost.
  *
  * @param request ListUserPublicKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6568,7 +6723,7 @@ ListUserPublicKeysResponse Client::listUserPublicKeysWithOptions(const ListUserP
 }
 
 /**
- * @summary Queries all public keys of the specified user.
+ * @summary Lists the SSH public keys that are configured for a Bastionhost user. Users can use these public keys for key-based authentication when logging on to hosts through Bastionhost.
  *
  * @param request ListUserPublicKeysRequest
  * @return ListUserPublicKeysResponse
@@ -6664,7 +6819,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
  * @summary Locks one or more users of a bastion host.
  *
  * @description # Description
- * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+ * Locks one or more bastion host users to prevent them from performing O\\&M operations. If a user does not need to use a bastion host within a specific period of time, lock the user account. Locked users cannot log on to or perform O\\&M operations on the hosts on which they have permissions. To unlock users later, use the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
  * # Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -6708,7 +6863,7 @@ LockUsersResponse Client::lockUsersWithOptions(const LockUsersRequest &request, 
  * @summary Locks one or more users of a bastion host.
  *
  * @description # Description
- * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+ * Locks one or more bastion host users to prevent them from performing O\\&M operations. If a user does not need to use a bastion host within a specific period of time, lock the user account. Locked users cannot log on to or perform O\\&M operations on the hosts on which they have permissions. To unlock users later, use the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
  * # Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -6949,7 +7104,7 @@ ModifyHostResponse Client::modifyHost(const ModifyHostRequest &request) {
 }
 
 /**
- * @summary Modifies the information about a host account, such as the username, password, and private key of the host account.
+ * @summary Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
  *
  * @param request ModifyHostAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7016,7 +7171,7 @@ ModifyHostAccountResponse Client::modifyHostAccountWithOptions(const ModifyHostA
 }
 
 /**
- * @summary Modifies the information about a host account, such as the username, password, and private key of the host account.
+ * @summary Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
  *
  * @param request ModifyHostAccountRequest
  * @return ModifyHostAccountResponse
@@ -7147,7 +7302,7 @@ ModifyHostShareKeyResponse Client::modifyHostShareKey(const ModifyHostShareKeyRe
 }
 
 /**
- * @summary Changes the endpoint type of one or more hosts for O\\\\\\&M. Public and private IP addresses are supported.
+ * @summary Changes the endpoint type of one or more hosts for O\\\\\\\\\\\\\\\\\\\\\\\\&M. Public and private IP addresses are supported.
  *
  * @param request ModifyHostsActiveAddressTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7190,7 +7345,7 @@ ModifyHostsActiveAddressTypeResponse Client::modifyHostsActiveAddressTypeWithOpt
 }
 
 /**
- * @summary Changes the endpoint type of one or more hosts for O\\\\\\&M. Public and private IP addresses are supported.
+ * @summary Changes the endpoint type of one or more hosts for O\\\\\\\\\\\\\\\\\\\\\\\\&M. Public and private IP addresses are supported.
  *
  * @param request ModifyHostsActiveAddressTypeRequest
  * @return ModifyHostsActiveAddressTypeResponse
@@ -7201,11 +7356,11 @@ ModifyHostsActiveAddressTypeResponse Client::modifyHostsActiveAddressType(const 
 }
 
 /**
- * @summary Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+ * @summary Changes the port for the O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M protocol on one or more hosts.
  *
  * @description ## Usage notes
- * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
- * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
+ * Changes the port for the O\\&M protocol on one or more hosts. If the standard port for your O\\&M protocol is vulnerable to attacks, specify a custom port instead. For example, the standard SSH port is port 22.
+ * > Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O\\&M protocol to a reserved port.
  * ## QPS limit
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -7254,11 +7409,11 @@ ModifyHostsPortResponse Client::modifyHostsPortWithOptions(const ModifyHostsPort
 }
 
 /**
- * @summary Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+ * @summary Changes the port for the O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M protocol on one or more hosts.
  *
  * @description ## Usage notes
- * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.  
- * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.  
+ * Changes the port for the O\\&M protocol on one or more hosts. If the standard port for your O\\&M protocol is vulnerable to attacks, specify a custom port instead. For example, the standard SSH port is port 22.
+ * > Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O\\&M protocol to a reserved port.
  * ## QPS limit
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -7271,7 +7426,7 @@ ModifyHostsPortResponse Client::modifyHostsPort(const ModifyHostsPortRequest &re
 }
 
 /**
- * @summary Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+ * @summary Updates the settings of the Active Directory (AD) authentication server of a bastion host.
  *
  * @param request ModifyInstanceADAuthServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7354,7 +7509,7 @@ ModifyInstanceADAuthServerResponse Client::modifyInstanceADAuthServerWithOptions
 }
 
 /**
- * @summary Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+ * @summary Updates the settings of the Active Directory (AD) authentication server of a bastion host.
  *
  * @param request ModifyInstanceADAuthServerRequest
  * @return ModifyInstanceADAuthServerResponse
@@ -7365,7 +7520,7 @@ ModifyInstanceADAuthServerResponse Client::modifyInstanceADAuthServer(const Modi
 }
 
 /**
- * @summary Modifies the information about a bastion host.
+ * @summary Modifies the attributes of a specified Bastionhost instance.
  *
  * @param request ModifyInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7404,7 +7559,7 @@ ModifyInstanceAttributeResponse Client::modifyInstanceAttributeWithOptions(const
 }
 
 /**
- * @summary Modifies the information about a bastion host.
+ * @summary Modifies the attributes of a specified Bastionhost instance.
  *
  * @param request ModifyInstanceAttributeRequest
  * @return ModifyInstanceAttributeResponse
@@ -7415,7 +7570,7 @@ ModifyInstanceAttributeResponse Client::modifyInstanceAttribute(const ModifyInst
 }
 
 /**
- * @summary Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+ * @summary Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
  *
  * @param request ModifyInstanceLDAPAuthServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7498,7 +7653,7 @@ ModifyInstanceLDAPAuthServerResponse Client::modifyInstanceLDAPAuthServerWithOpt
 }
 
 /**
- * @summary Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+ * @summary Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
  *
  * @param request ModifyInstanceLDAPAuthServerRequest
  * @return ModifyInstanceLDAPAuthServerResponse
@@ -8111,7 +8266,7 @@ MoveHostsToNetworkDomainResponse Client::moveHostsToNetworkDomain(const MoveHost
 }
 
 /**
- * @summary Moves a bastion host from one resource group to another resource group.
+ * @summary Moves a Bastionhost instance to a specified resource group.
  *
  * @param request MoveResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8154,7 +8309,7 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourc
 }
 
 /**
- * @summary Moves a bastion host from one resource group to another resource group.
+ * @summary Moves a Bastionhost instance to a specified resource group.
  *
  * @param request MoveResourceGroupRequest
  * @return MoveResourceGroupResponse
@@ -8165,9 +8320,9 @@ MoveResourceGroupResponse Client::moveResourceGroup(const MoveResourceGroupReque
 }
 
 /**
- * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+ * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
  *
- * @description You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+ * @description Rejects an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request RejectApproveCommandRequest
@@ -8207,9 +8362,9 @@ RejectApproveCommandResponse Client::rejectApproveCommandWithOptions(const Rejec
 }
 
 /**
- * @summary If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+ * @summary If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
  *
- * @description You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+ * @description Rejects an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request RejectApproveCommandRequest
@@ -8221,9 +8376,59 @@ RejectApproveCommandResponse Client::rejectApproveCommand(const RejectApproveCom
 }
 
 /**
- * @summary If a Bastionhost administrator enables O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+ * @summary Rejects an O&M task approval.
  *
- * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+ * @param request RejectOperationTaskApprovalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RejectOperationTaskApprovalResponse
+ */
+RejectOperationTaskApprovalResponse Client::rejectOperationTaskApprovalWithOptions(const RejectOperationTaskApprovalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApproveId()) {
+    query["ApproveId"] = request.getApproveId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RejectOperationTaskApproval"},
+    {"version" , "2019-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RejectOperationTaskApprovalResponse>();
+}
+
+/**
+ * @summary Rejects an O&M task approval.
+ *
+ * @param request RejectOperationTaskApprovalRequest
+ * @return RejectOperationTaskApprovalResponse
+ */
+RejectOperationTaskApprovalResponse Client::rejectOperationTaskApproval(const RejectOperationTaskApprovalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rejectOperationTaskApprovalWithOptions(request, runtime);
+}
+
+/**
+ * @summary If a Bastionhost administrator enables O\\\\\\\\\\\\\\\\\\\\\\\\&M Approval on the Create Control Policy page, O\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can log on to assets to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations only after the administrator approves their O\\\\\\\\\\\\\\\\\\\\\\\\&M applications.
+ *
+ * @description Rejects an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request RejectOperationTicketRequest
@@ -8267,9 +8472,9 @@ RejectOperationTicketResponse Client::rejectOperationTicketWithOptions(const Rej
 }
 
 /**
- * @summary If a Bastionhost administrator enables O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
+ * @summary If a Bastionhost administrator enables O\\\\\\\\\\\\\\\\\\\\\\\\&M Approval on the Create Control Policy page, O\\\\\\\\\\\\\\\\\\\\\\\\&M engineers can log on to assets to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations only after the administrator approves their O\\\\\\\\\\\\\\\\\\\\\\\\&M applications.
  *
- * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+ * @description Rejects an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
  * @param request RejectOperationTicketRequest
@@ -8337,7 +8542,7 @@ RemoveDatabasesFromGroupResponse Client::removeDatabasesFromGroup(const RemoveDa
 /**
  * @summary Removes multiple hosts from an asset group at a time.
  *
- * @description You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+ * @description Removes multiple hosts from an asset group. If certain hosts no longer need to be managed through an asset group, you can use this operation to remove them.
  * # [](#qps-)QPS limit
  * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
  *
@@ -8384,7 +8589,7 @@ RemoveHostsFromGroupResponse Client::removeHostsFromGroupWithOptions(const Remov
 /**
  * @summary Removes multiple hosts from an asset group at a time.
  *
- * @description You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+ * @description Removes multiple hosts from an asset group. If certain hosts no longer need to be managed through an asset group, you can use this operation to remove them.
  * # [](#qps-)QPS limit
  * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
  *
@@ -8397,7 +8602,9 @@ RemoveHostsFromGroupResponse Client::removeHostsFromGroup(const RemoveHostsFromG
 }
 
 /**
- * @summary 移除RD成员账号
+ * @summary Removes a Resource Directory (RD) member account from a Bastionhost instance. You must remove all assets of the member account from Bastionhost before you call this operation.
+ *
+ * @description Before removing a member account, you must purge the ECS, RDS, and PolarDB instance assets that belong to the member account from Bastionhost.
  *
  * @param request RemoveInstanceRdMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8436,7 +8643,9 @@ RemoveInstanceRdMemberResponse Client::removeInstanceRdMemberWithOptions(const R
 }
 
 /**
- * @summary 移除RD成员账号
+ * @summary Removes a Resource Directory (RD) member account from a Bastionhost instance. You must remove all assets of the member account from Bastionhost before you call this operation.
+ *
+ * @description Before removing a member account, you must purge the ECS, RDS, and PolarDB instance assets that belong to the member account from Bastionhost.
  *
  * @param request RemoveInstanceRdMemberRequest
  * @return RemoveInstanceRdMemberResponse
@@ -8449,7 +8658,7 @@ RemoveInstanceRdMemberResponse Client::removeInstanceRdMember(const RemoveInstan
 /**
  * @summary Removes one or more users from a user group.
  *
- * @description You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
+ * @description Removes one or more users from a user group at once. Use this operation when users transfer to new positions, resign, or switch to another user group.
  * ## QPS limit
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -8496,7 +8705,7 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroupWithOptions(const Remov
 /**
  * @summary Removes one or more users from a user group.
  *
- * @description You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.  
+ * @description Removes one or more users from a user group at once. Use this operation when users transfer to new positions, resign, or switch to another user group.
  * ## QPS limit
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -8509,7 +8718,7 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroup(const RemoveUsersFromG
 }
 
 /**
- * @summary Renews an O\\\\\\&M token for one hour.
+ * @summary Renews an O\\\\\\\\\\\\&M token for one hour.
  *
  * @param request RenewAssetOperationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8548,7 +8757,7 @@ RenewAssetOperationTokenResponse Client::renewAssetOperationTokenWithOptions(con
 }
 
 /**
- * @summary Renews an O\\\\\\&M token for one hour.
+ * @summary Renews an O\\\\\\\\\\\\&M token for one hour.
  *
  * @param request RenewAssetOperationTokenRequest
  * @return RenewAssetOperationTokenResponse
@@ -8559,7 +8768,7 @@ RenewAssetOperationTokenResponse Client::renewAssetOperationToken(const RenewAss
 }
 
 /**
- * @summary Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+ * @summary Clears the credential (password or SSH private key) for a specified host account.
  *
  * @param request ResetHostAccountCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8602,7 +8811,7 @@ ResetHostAccountCredentialResponse Client::resetHostAccountCredentialWithOptions
 }
 
 /**
- * @summary Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+ * @summary Clears the credential (password or SSH private key) for a specified host account.
  *
  * @param request ResetHostAccountCredentialRequest
  * @return ResetHostAccountCredentialResponse
@@ -8673,7 +8882,7 @@ SetPolicyAccessTimeRangeConfigResponse Client::setPolicyAccessTimeRangeConfig(co
 }
 
 /**
- * @summary Configures the O\\&M approval setting in a control policy.
+ * @summary Configures the O\\\\&M approval setting in a control policy.
  *
  * @param tmpReq SetPolicyApprovalConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8722,7 +8931,7 @@ SetPolicyApprovalConfigResponse Client::setPolicyApprovalConfigWithOptions(const
 }
 
 /**
- * @summary Configures the O\\&M approval setting in a control policy.
+ * @summary Configures the O\\\\&M approval setting in a control policy.
  *
  * @param request SetPolicyApprovalConfigRequest
  * @return SetPolicyApprovalConfigResponse
@@ -8919,7 +9128,7 @@ SetPolicyIPAclConfigResponse Client::setPolicyIPAclConfig(const SetPolicyIPAclCo
 }
 
 /**
- * @summary Configures the Remote Desktop Protocol (RDP) options, SSH options, and SSH Fine Transfer Protocol (SFTP) options for a control policy.
+ * @summary Sets the Remote Desktop Protocol (RDP), Secure Shell (SSH), and SSH File Transfer Protocol (SFTP) options for a control policy.
  *
  * @param tmpReq SetPolicyProtocolConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8968,7 +9177,7 @@ SetPolicyProtocolConfigResponse Client::setPolicyProtocolConfigWithOptions(const
 }
 
 /**
- * @summary Configures the Remote Desktop Protocol (RDP) options, SSH options, and SSH Fine Transfer Protocol (SFTP) options for a control policy.
+ * @summary Sets the Remote Desktop Protocol (RDP), Secure Shell (SSH), and SSH File Transfer Protocol (SFTP) options for a control policy.
  *
  * @param request SetPolicyProtocolConfigRequest
  * @return SetPolicyProtocolConfigResponse
@@ -9041,7 +9250,7 @@ SetPolicyUserScopeResponse Client::setPolicyUserScope(const SetPolicyUserScopeRe
 }
 
 /**
- * @summary Starts a bastion host.
+ * @summary Starts a specified Bastionhost instance.
  *
  * @param request StartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9096,7 +9305,7 @@ StartInstanceResponse Client::startInstanceWithOptions(const StartInstanceReques
 }
 
 /**
- * @summary Starts a bastion host.
+ * @summary Starts a specified Bastionhost instance.
  *
  * @param request StartInstanceRequest
  * @return StartInstanceResponse
@@ -9107,7 +9316,7 @@ StartInstanceResponse Client::startInstance(const StartInstanceRequest &request)
 }
 
 /**
- * @summary Creates and adds tags to specified bastion hosts.
+ * @summary Creates and attaches tags to one or more Bastionhost instances.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9150,7 +9359,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates and adds tags to specified bastion hosts.
+ * @summary Creates and attaches tags to one or more Bastionhost instances.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -9163,7 +9372,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 /**
  * @summary Unlocks one or more users of a bastion host.
  *
- * @description After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+ * @description Unlocks previously locked bastion host users, allowing them to resume O\\&M operations. Use this operation after locking users with the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation.
  * # Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -9206,7 +9415,7 @@ UnlockUsersResponse Client::unlockUsersWithOptions(const UnlockUsersRequest &req
 /**
  * @summary Unlocks one or more users of a bastion host.
  *
- * @description After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+ * @description Unlocks previously locked bastion host users, allowing them to resume O\\&M operations. Use this operation after locking users with the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation.
  * # Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
@@ -9219,7 +9428,7 @@ UnlockUsersResponse Client::unlockUsers(const UnlockUsersRequest &request) {
 }
 
 /**
- * @summary Removes tags from the specified bastion host and deletes the tags at a time.
+ * @summary Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9266,7 +9475,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from the specified bastion host and deletes the tags at a time.
+ * @summary Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -9277,7 +9486,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary 验证实例AD服务配置。
+ * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
  *
  * @param request VerifyInstanceADAuthServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9348,7 +9557,7 @@ VerifyInstanceADAuthServerResponse Client::verifyInstanceADAuthServerWithOptions
 }
 
 /**
- * @summary 验证实例AD服务配置。
+ * @summary Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
  *
  * @param request VerifyInstanceADAuthServerRequest
  * @return VerifyInstanceADAuthServerResponse
@@ -9359,7 +9568,7 @@ VerifyInstanceADAuthServerResponse Client::verifyInstanceADAuthServer(const Veri
 }
 
 /**
- * @summary 验证实例LDAP服务配置。
+ * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
  *
  * @param request VerifyInstanceLDAPAuthServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9426,7 +9635,7 @@ VerifyInstanceLDAPAuthServerResponse Client::verifyInstanceLDAPAuthServerWithOpt
 }
 
 /**
- * @summary 验证实例LDAP服务配置。
+ * @summary Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
  *
  * @param request VerifyInstanceLDAPAuthServerRequest
  * @return VerifyInstanceLDAPAuthServerResponse

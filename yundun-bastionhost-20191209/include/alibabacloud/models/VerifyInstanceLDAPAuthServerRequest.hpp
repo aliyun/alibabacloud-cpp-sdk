@@ -121,20 +121,39 @@ namespace Models
 
 
   protected:
+    // The account of the server.
+    // 
     // This parameter is required.
     shared_ptr<string> account_ {};
+    // The Base DN.
+    // 
     // This parameter is required.
     shared_ptr<string> baseDN_ {};
+    // The filter condition for users.
     shared_ptr<string> filter_ {};
+    // The ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether SSL is supported. Valid values:
+    // 
+    // - **true**: supported
+    // 
+    // - **false**: not supported
     shared_ptr<string> isSSL_ {};
+    // The password of the server account.
     shared_ptr<string> password_ {};
+    // The port used to access the server.
+    // 
     // This parameter is required.
     shared_ptr<string> port_ {};
+    // The region ID of the Bastionhost instance. For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
+    // The address of the server.
+    // 
     // This parameter is required.
     shared_ptr<string> server_ {};
+    // The address of the standby server.
     shared_ptr<string> standbyServer_ {};
   };
 

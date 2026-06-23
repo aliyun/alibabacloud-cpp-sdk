@@ -175,8 +175,9 @@ namespace Models
     protected:
       // Indicates whether a password is configured for the host account.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> hasPassword_ {};
       // The host account ID.
       shared_ptr<string> hostAccountId_ {};
@@ -190,8 +191,9 @@ namespace Models
       shared_ptr<string> privateKeyFingerprint_ {};
       // The protocol that is used by the host account.
       // 
-      // *   **SSH**
-      // *   **RDP**
+      // - **SSH**
+      // 
+      // - **RDP**
       shared_ptr<string> protocolName_ {};
       // Indicates whether the Secure File Transfer Protocol (SFTP) channels or the SSH channels are enabled for the host account that uses the SSH protocol.
       shared_ptr<HostAccounts::SSHConfig> SSHConfig_ {};

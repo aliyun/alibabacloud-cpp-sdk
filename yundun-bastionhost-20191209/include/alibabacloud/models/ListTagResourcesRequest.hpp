@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The key of tag N.
+      // The tag key.
       // 
       // Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The value of tag N.
+      // The tag value.
       // 
       // Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
@@ -137,22 +137,22 @@ namespace Models
 
 
   protected:
-    // The token for starting the next query.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID of the Bastionhost instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
-    // The IDs of instances.
+    // The resource ID.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource.
+    // The type of resource.
     // 
-    // Set the value to INSTANCE, which indicates that the resource is a Bastionhost instance.
+    // The only valid value is INSTANCE, which indicates a Bastionhost instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

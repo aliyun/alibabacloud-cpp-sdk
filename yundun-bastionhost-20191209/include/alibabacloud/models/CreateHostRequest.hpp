@@ -149,64 +149,69 @@ namespace Models
 
 
   protected:
-    // The endpoint type of the host that you want to create. Valid values:
+    // The address type of the host. Valid values:
     // 
-    // *   **Public**: public endpoint
-    // *   **Private**: internal endpoint
+    // - **Public**: a public address
+    // 
+    // - **Private**: a private address
     // 
     // This parameter is required.
     shared_ptr<string> activeAddressType_ {};
-    // The description of the host that you want to create. The value can be up to 500 characters in length.
+    // The comment for the host. The comment can be up to 500 characters in length.
     shared_ptr<string> comment_ {};
-    // The name of the host that you want to create. The name can be up to 128 characters in length.
+    // The name of the host. The name can be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> hostName_ {};
-    // The internal endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
+    // The private address of the host. You can use a domain name or an IP address.
     // 
-    // > This parameter is required if the **ActiveAddressType** parameter is set to **Private**.
+    // > This parameter is required when **ActiveAddressType** is set to **Private**.
     shared_ptr<string> hostPrivateAddress_ {};
-    // The public endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
+    // The public address of the host. You can use a domain name or an IP address.
     // 
-    // > This parameter is required if the **ActiveAddressType** parameter is set to **Public**.
+    // > This parameter is required when **ActiveAddressType** is set to **Public**.
     shared_ptr<string> hostPublicAddress_ {};
-    // The ID of the bastion host in which you want to create the host.
+    // The ID of the Bastionhost instance where you want to create the host.
     // 
-    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the Alibaba Cloud account to which the ECS instance belongs.
     shared_ptr<int64_t> instanceMemberId_ {};
-    // The ID of the region to which the ECS instance or the host in an ApsaraDB MyBase dedicated cluster belongs.
+    // The region ID of the ECS instance or the host in the dedicated cluster.
     // 
-    // > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+    // > This parameter is required when **Source** is set to **Ecs** or **Rds**.
     shared_ptr<string> instanceRegionId_ {};
-    // The ID of the network domain to which the host to be imported belongs.
+    // The ID of the network domain to which the host belongs.
     // 
-    // > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+    // > Call the [ListNetworkDomains ](https://help.aliyun.com/document_detail/2758827.html)operation to obtain this parameter.
     shared_ptr<string> networkDomainId_ {};
-    // The operating system of the host that you want to create. Valid values:
+    // The operating system of the host. Valid values:
     // 
-    // *   **Linux**
-    // *   **Windows**
+    // - **Linux**
+    // 
+    // - **Windows**
     // 
     // This parameter is required.
     shared_ptr<string> OSType_ {};
-    // The region ID of the bastion host to which you want to import the host.
+    // The region ID of the Bastionhost instance where you want to create the host.
     // 
-    // > For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The source of the host that you want to create. Valid values:
+    // The source of the host. Valid values:
     // 
-    // *   **Local**: a host in a data center
-    // *   **Ecs**: an Elastic Compute Service (ECS) instance
-    // *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+    // - **Local**: a local host
+    // 
+    // - **Ecs**: an ECS instance
+    // 
+    // - **Rds**: a host in an ApsaraDB RDS dedicated cluster
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};
-    // The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
+    // The ID of the ECS instance or the host in the dedicated cluster.
     // 
-    // > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+    // > This parameter is required when **Source** is set to **Ecs** or **Rds**.
     shared_ptr<string> sourceInstanceId_ {};
   };
 

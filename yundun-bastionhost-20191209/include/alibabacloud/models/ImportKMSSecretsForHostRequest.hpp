@@ -74,7 +74,11 @@ namespace Models
 
 
     protected:
+      // The name of the KMS secret.
       shared_ptr<string> secretName_ {};
+      // The type of the KMS secret. Valid values:
+      // 
+      // - **ECS**: an ECS credential.
       shared_ptr<string> secretType_ {};
     };
 
@@ -111,10 +115,21 @@ namespace Models
 
 
   protected:
+    // The ID of the host to import the KMS secrets to.
+    // 
+    // > Only ECS hosts can import KMS secrets. You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain this parameter.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> hostId_ {};
+    // The ID of the Bastionhost instance.
+    // 
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     shared_ptr<string> instanceId_ {};
+    // The region ID of the Bastionhost instance.
+    // 
+    // > For more information about region IDs and names, see [Regions and availability zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
+    // The KMS secrets to import.
     shared_ptr<vector<ImportKMSSecretsForHostRequest::Secrets>> secrets_ {};
   };
 

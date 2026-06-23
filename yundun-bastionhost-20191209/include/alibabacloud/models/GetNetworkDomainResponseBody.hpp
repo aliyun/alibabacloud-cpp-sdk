@@ -154,36 +154,45 @@ namespace Models
 
 
       protected:
-        // The IP address of the proxy server.
+        // The address of the proxy server.
         shared_ptr<string> address_ {};
-        // Indicates whether the proxy server has a password. Valid values:
+        // Specifies whether a password is set for the proxy server. Valid values:
         // 
-        // - **true**
-        // - **false**
+        // - **true**: A password is set.
+        // 
+        // - **false**: No password is set.
         shared_ptr<bool> hasPassword_ {};
         // The node type of the proxy server. Valid values:
-        // - **Master**: primary proxy server.
-        // - **Slave**: secondary proxy server.
+        // 
+        // - Master: primary proxy server
+        // 
+        // - Slave: secondary proxy server
         shared_ptr<string> nodeType_ {};
         // The port of the proxy server.
         shared_ptr<int32_t> port_ {};
-        // The status of the proxy server.
+        // The status of the proxy server. Valid values:
         // 
-        // - **Available**
-        // - **Unavailable**
+        // - **Available**: available
+        // 
+        // - **Unavailable**: unavailable
         shared_ptr<string> proxyState_ {};
-        // The error code that indicates the status of the proxy server.
+        // The error code that is returned if the proxy server is unavailable. Valid values:
         // 
-        // - **CHECK_PWD_FAILED**: The password is invalid.
-        // - **CHECK_PWD_TIMEOUT**: The password verification session timed out.
-        // - **CHECK_PWD_NETWORK_ERR**: A network error occurred.
-        // - **UNEXPECTED**: An unknown error occurred.
+        // - **CHECK_PWD_FAILED**: Incorrect password.
+        // 
+        // - **CHECK_PWD_TIMEOUT**: Password verification timeout.
+        // 
+        // - **CHECK_PWD_NETWORK_ERR**: Network error.
+        // 
+        // - **UNEXPECTED**: Unknown error.
         shared_ptr<string> proxyStateErrorCode_ {};
-        // The proxy type. Valid values:
+        // The proxy method. Valid values:
         // 
-        // - **SSHProxy**
-        // - **HTTPProxy**
-        // - **Socks5Proxy**
+        // - SSHProxy: SSH proxy
+        // 
+        // - HTTPProxy: HTTP proxy
+        // 
+        // - Socks5Proxy: SOCKS5 proxy
         shared_ptr<string> proxyType_ {};
         // The username of the proxy server.
         shared_ptr<string> user_ {};
@@ -236,23 +245,25 @@ namespace Models
 
 
     protected:
-      // The remarks of the network domain.
+      // The comment for the network domain.
       shared_ptr<string> comment_ {};
-      // Indicates whether the network domain is a built-in network domain.
+      // Specifies whether the network domain is built-in. Valid values:
       // 
-      // * **true**
-      // * **false**
+      // - **true**: Yes
+      // 
+      // - **false**: No
       shared_ptr<bool> default_ {};
-      // The network domain ID.
+      // The ID of the network domain.
       shared_ptr<string> networkDomainId_ {};
       // The name of the network domain.
       shared_ptr<string> networkDomainName_ {};
-      // The connection mode of the network domain. Valid values:
+      // The type of the network domain. Valid values:
       // 
-      // * Direct
-      // * Proxy
+      // - Direct: direct connection
+      // 
+      // - Proxy: proxy
       shared_ptr<string> networkDomainType_ {};
-      // The information about the proxy servers.
+      // A list of proxy servers.
       shared_ptr<vector<NetworkDomain::Proxies>> proxies_ {};
     };
 
@@ -275,9 +286,9 @@ namespace Models
 
 
   protected:
-    // The detailed information about the network domain.
+    // The details of the network domain.
     shared_ptr<GetNetworkDomainResponseBody::NetworkDomain> networkDomain_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

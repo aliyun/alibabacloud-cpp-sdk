@@ -65,11 +65,11 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
     // The ID of the authorization rule to be disabled.
     // 
-    // >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID to be disabled.
+    // > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID to be disabled.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};

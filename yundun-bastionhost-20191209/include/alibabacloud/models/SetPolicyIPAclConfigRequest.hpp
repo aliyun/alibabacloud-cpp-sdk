@@ -78,18 +78,19 @@ namespace Models
     protected:
       // The mode of access control on source IP addresses. Valid values:
       // 
-      // *   **black**: blacklist mode.
-      // *   **white**: whitelist mode.
+      // - **black**: blacklist mode.
+      // 
+      // - **white**: whitelist mode.
       // 
       // This parameter is required.
       shared_ptr<string> aclType_ {};
       // The source IP addresses in the blacklist or whitelist.
       // 
-      // > 
+      // >
       // 
-      // *   This parameter is required if AclType is set to white.
+      // - This parameter is required if AclType is set to white.
       // 
-      // *   If AclType is set to black but you do not want to add IP addresses to the blacklist, you can leave IPs empty.
+      // - If AclType is set to black but you do not want to add IP addresses to the blacklist, you can leave IPs empty.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> IPs_ {};
@@ -140,7 +141,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The ID of the control policy that you want to modify.
     // 
-    // >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+    // > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};

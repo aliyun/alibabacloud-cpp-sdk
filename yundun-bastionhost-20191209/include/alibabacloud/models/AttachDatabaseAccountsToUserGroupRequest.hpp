@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // An array that consists of database account IDs.
+      // An array of database account IDs.
       shared_ptr<vector<string>> databaseAccountIds_ {};
-      // The ID of the database that you want to authorize the user group to manage.
+      // The ID of the database instance on which you want to grant permissions.
       shared_ptr<string> databaseId_ {};
     };
 
@@ -115,20 +115,22 @@ namespace Models
 
 
   protected:
-    // An array that consists of the database objects.
+    // An array of database objects.
     // 
-    // >  You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user group is authorized to manage only the databases.
+    // > You can specify up to 10 databases and 10 database accounts. If you do not specify any database accounts, permissions are granted on the entire database.
     shared_ptr<vector<AttachDatabaseAccountsToUserGroupRequest::Databases>> databases_ {};
-    // The bastion host ID.
+    // The ID of the Bastionhost instance.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the bastion host.
+    // The region ID of the Bastionhost instance.
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
+    // The ID of the user group to which to grant the permissions.
+    // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};
   };

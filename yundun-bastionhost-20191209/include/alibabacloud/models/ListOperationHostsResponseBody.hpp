@@ -145,37 +145,41 @@ namespace Models
 
 
     protected:
-      // The address type of the host. Valid values:
+      // The address type of the host.
       // 
-      // *   **Public**
-      // *   **Private**
+      // - **Public**: The public endpoint is used.
+      // 
+      // - **Private**: The private endpoint is used.
       shared_ptr<string> activeAddressType_ {};
-      // The remarks of the host.
+      // The comments on the host.
       shared_ptr<string> comment_ {};
-      // The host ID.
+      // The ID of the host.
       shared_ptr<string> hostId_ {};
-      // The host name.
+      // The name of the host.
       shared_ptr<string> hostName_ {};
-      // The private IP address of the host.
+      // The private address of the host.
       shared_ptr<string> hostPrivateAddress_ {};
-      // The public IP address of the host.
+      // The public address of the host.
       shared_ptr<string> hostPublicAddress_ {};
-      // The host OS.
+      // The operating system of the host.
       // 
-      // *   **Linux**
-      // *   **Windows**
+      // - **Linux**
+      // 
+      // - **Windows**
       shared_ptr<string> OSType_ {};
-      // The host type. Valid values:
+      // The source of the host.
       // 
-      // *   **Local**: on-premises host.
-      // *   **Ecs**: Elastic Compute Service (ECS) instance.
+      // - **Local**: a local host
+      // 
+      // - **Ecs**: an ECS instance
       shared_ptr<string> source_ {};
-      // The ECS instance ID.
+      // The ID of the ECS instance.
       shared_ptr<string> sourceInstanceId_ {};
-      // The host status. Valid values:
+      // The state of the host.
       // 
-      // *   **Normal**
-      // *   **Release**
+      // - **Normal**: The host is running.
+      // 
+      // - **Release**: The host is released.
       shared_ptr<string> sourceInstanceState_ {};
     };
 
@@ -205,11 +209,11 @@ namespace Models
 
 
   protected:
-    // The hosts returned.
+    // A list of the hosts.
     shared_ptr<vector<ListOperationHostsResponseBody::Hosts>> hosts_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of hosts returned.
+    // The total number of hosts.
     shared_ptr<int64_t> totalCount_ {};
   };
 

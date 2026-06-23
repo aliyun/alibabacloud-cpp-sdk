@@ -107,15 +107,19 @@ namespace Models
       shared_ptr<string> databaseId_ {};
       // Indicates whether the user is authorized to manage the database account. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isAuthorized_ {};
       // The protocol used by the database account. Valid values:
       // 
-      // *   **MySQL**
-      // *   **Oracle**
-      // *   **PostgreSQL**
-      // *   **SQLServer**
+      // - **MySQL**
+      // 
+      // - **Oracle**
+      // 
+      // - **PostgreSQL**
+      // 
+      // - **SQLServer**
       shared_ptr<string> protocolName_ {};
     };
 

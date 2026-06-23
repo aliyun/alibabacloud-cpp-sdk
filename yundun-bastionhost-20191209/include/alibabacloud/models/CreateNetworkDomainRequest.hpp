@@ -119,6 +119,7 @@ namespace Models
       // The node type of the proxy server. Valid values:
       // 
       // - **Master**: primary proxy server.
+      // 
       // - **Slave**: secondary proxy server.
       shared_ptr<string> nodeType_ {};
       // The Base64-encoded password of the proxy server.
@@ -128,7 +129,9 @@ namespace Models
       // The proxy type. Valid values:
       // 
       // - **SSHProxy**
+      // 
       // - **HTTPProxy**
+      // 
       // - **Socks5Proxy**
       shared_ptr<string> proxyType_ {};
       // The username of the proxy server.
@@ -196,8 +199,9 @@ namespace Models
     shared_ptr<string> networkDomainName_ {};
     // The connection mode of the network domain to be created. Valid values:
     // 
-    // *   Direct
-    // *   Proxy
+    // - Direct
+    // 
+    // - Proxy
     // 
     // This parameter is required.
     shared_ptr<string> networkDomainType_ {};

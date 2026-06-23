@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the configuration backup export task.
+    // 
+    // > You can call the GetExportConfigJob operation to obtain the details of this task. Make sure to record the task ID.
     shared_ptr<string> jobId_ {};
+    // The unique identifier that Alibaba Cloud generates for the request.
     shared_ptr<string> requestId_ {};
   };
 

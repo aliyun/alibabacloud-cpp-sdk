@@ -164,44 +164,51 @@ namespace Models
 
 
     protected:
-      // The address type of the database. Valid values:
+      // The endpoint type of the database. Valid values:
       // 
-      // *   **Public**
-      // *   **Private**
+      // - **Public**: a public endpoint
+      // 
+      // - **Private**: a private endpoint
       shared_ptr<string> activeAddressType_ {};
-      // The remarks of the database.
+      // The comment on the database.
       shared_ptr<string> comment_ {};
-      // The database ID.
+      // The ID of the database.
       shared_ptr<string> databaseId_ {};
-      // The database name.
+      // The name of the database.
       shared_ptr<string> databaseName_ {};
-      // The port of the database.
+      // The database port.
       shared_ptr<int64_t> databasePort_ {};
-      // The private address of the database.
+      // The private endpoint of the database.
       shared_ptr<string> databasePrivateAddress_ {};
-      // The public address of the database.
+      // The public endpoint of the database.
       shared_ptr<string> databasePublicAddress_ {};
-      // The database engine. Valid values:
-      // 
-      // *   **MySQL**
-      // *   **PostgreSQL**
-      // *   **Oracle**
-      // *   **SQLServer**
-      shared_ptr<string> databaseType_ {};
       // The database type. Valid values:
       // 
-      // *   **Local**: on-premises database.
-      // *   **Rds**: ApsaraDB RDS instance.
-      // *   **PolarDB**: PolarDB cluster.
-      shared_ptr<string> source_ {};
-      // The ID of the ApsaraDB RDS instance.
-      shared_ptr<string> sourceInstanceId_ {};
-      // The region ID of the ApsaraDB RDS instance.
-      shared_ptr<string> sourceInstanceRegionId_ {};
-      // The database status. Valid values:
+      // - **MySQL**
       // 
-      // *   **Normal**
-      // *   **Release**
+      // - **PostgreSQL**
+      // 
+      // - **Oracle**
+      // 
+      // - **SQLServer**
+      shared_ptr<string> databaseType_ {};
+      // The source of the database.
+      // 
+      // - **Local**: a local database
+      // 
+      // - **Rds**: an ApsaraDB RDS database
+      // 
+      // - **PolarDB**: a PolarDB database
+      shared_ptr<string> source_ {};
+      // The ID of the source instance.
+      shared_ptr<string> sourceInstanceId_ {};
+      // The region ID of the source instance.
+      shared_ptr<string> sourceInstanceRegionId_ {};
+      // The status of the source instance:
+      // 
+      // - **Normal**: The instance is running.
+      // 
+      // - **Release**: The instance is released.
       shared_ptr<string> sourceInstanceState_ {};
     };
 
@@ -231,11 +238,11 @@ namespace Models
 
 
   protected:
-    // The databases returned.
+    // The databases.
     shared_ptr<vector<ListOperationDatabasesResponseBody::Databases>> databases_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of databases.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The ID of the asset group to which you want to add hosts.
     // 
-    // >You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+    // > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
     // 
     // This parameter is required.
     shared_ptr<string> hostGroupId_ {};

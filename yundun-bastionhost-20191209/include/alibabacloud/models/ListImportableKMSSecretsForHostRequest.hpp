@@ -84,12 +84,27 @@ namespace Models
 
 
   protected:
+    // The ID of the host.
+    // 
+    // > Call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to get this ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> hostId_ {};
+    // The ID of the bastion host instance.
+    // 
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to get this ID.
     shared_ptr<string> instanceId_ {};
+    // The name of the secret to search for. Fuzzy matching is supported.
     shared_ptr<string> keyword_ {};
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
+    // 
+    // > You do not need to specify this parameter for the first request. For subsequent requests, use the `NextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
+    // The region ID of the bastion host.
+    // 
+    // > For details about the mapping between region IDs and region names, see [Regions and availability zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the O\\&M ticket.
     shared_ptr<string> operationTicketId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

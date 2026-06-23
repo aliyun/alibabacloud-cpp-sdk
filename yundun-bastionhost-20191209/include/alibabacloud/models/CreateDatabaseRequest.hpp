@@ -167,71 +167,79 @@ namespace Models
 
 
   protected:
-    // The address type of the database to add. Valid values:
+    // The address type of the new database. Valid values:
     // 
-    // *   Public
-    // *   Private
+    // - Public: a public endpoint
+    // 
+    // - Private: a private endpoint
     // 
     // This parameter is required.
     shared_ptr<string> activeAddressType_ {};
-    // The remarks of the database to add. The remarks can be up to 500 characters in length.
+    // The comments on the new database. The comments can be up to 500 characters in length.
     shared_ptr<string> comment_ {};
-    // The name of the database to add. This parameter is required if Source is set to **Local**.
+    // The name of the new database instance. This parameter is required if you set Source to **Local**.
     shared_ptr<string> databaseName_ {};
-    // The port of the database. This parameter is required if Source is set to **Local**.
+    // The port used to connect to the database. This parameter is required if you set Source to **Local**.
     shared_ptr<int32_t> databasePort_ {};
-    // The internal IP address of the database. Specify an IPv4 address or a domain name.
+    // The private endpoint of the database. You can use an IPv4 address or a domain name.
     // 
-    // >  This parameter is required if ActiveAddressType is set to Private.
+    // > This parameter is required if you set ActiveAddressType to Private.
     shared_ptr<string> databasePrivateAddress_ {};
-    // The public IP address of the database. Specify an IPv4 address or a domain name.
+    // The public endpoint of the database. You can use an IPv4 address or a domain name.
     // 
-    // >  This parameter is required if ActiveAddressType is set to Public.
+    // > This parameter is required if you set ActiveAddressType to Public.
     shared_ptr<string> databasePublicAddress_ {};
-    // The type of the database engine. Valid values:
+    // The type of the database. Valid values:
     // 
-    // *   **MySQL**
-    // *   **Oracle**
-    // *   **PostgreSQL**
-    // *   **SQLServer**
+    // - **MySQL**
+    // 
+    // - **Oracle**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **SQLServer**
     // 
     // This parameter is required.
     shared_ptr<string> databaseType_ {};
-    // The bastion host ID.
+    // The ID of the Bastionhost instance.
     // 
-    // >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+    // > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the Alibaba Cloud account to which the new RDS or PolarDB database instance belongs.
     shared_ptr<int64_t> instanceMemberId_ {};
-    // The ID of the network domain to which the database to add belongs.
+    // The ID of the network domain for the new database.
     // 
-    // >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+    // > Call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to obtain this parameter.
     shared_ptr<string> networkDomainId_ {};
-    // The endpoint type of the PolarDB database. This parameter is required if Source is set to PolarDB. Valid values:
+    // This parameter is required if you set Source to PolarDB. This parameter specifies the endpoint type of the PolarDB database. Valid values:
     // 
-    // *   Cluster
-    // *   Primary
+    // - Cluster: a cluster endpoint
+    // 
+    // - Primary: a primary endpoint
     shared_ptr<string> polarDBEndpointType_ {};
-    // The region ID of the bastion host.
+    // The region ID of the Bastionhost instance.
     // 
-    // > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For a list of region IDs and their corresponding region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
-    // The type of the database to add. Valid values:
+    // The source of the new database. Valid values:
     // 
-    // *   Local: on-premises database.
-    // *   Rds: ApsaraDB RDS instance.
-    // *   PolarDB: PolarDB cluster.
+    // - Local: a local database instance
+    // 
+    // - Rds: an RDS database instance
+    // 
+    // - PolarDB: a PolarDB database instance
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};
-    // The instance ID of the database to add.
+    // The ID of the database instance.
+    // 
+    // > This parameter is required if you set **Source** to **Rds** or **PolarDB**.
+    shared_ptr<string> sourceInstanceId_ {};
+    // The region ID of the database instance.
     // 
     // > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
-    shared_ptr<string> sourceInstanceId_ {};
-    // The region ID of the database to add.
-    // 
-    // >  This parameter is required if **Source** is set to **Rds** or **PolarDB**.
     shared_ptr<string> sourceInstanceRegionId_ {};
   };
 

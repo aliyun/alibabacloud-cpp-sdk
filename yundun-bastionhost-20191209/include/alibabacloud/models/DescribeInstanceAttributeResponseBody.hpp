@@ -163,7 +163,9 @@ namespace Models
 
 
       protected:
+        // The description of the whitelist rule.
         shared_ptr<string> description_ {};
+        // An IP address or CIDR block in the whitelist.
         shared_ptr<string> entry_ {};
       };
 
@@ -205,15 +207,17 @@ namespace Models
 
 
       protected:
-        // The custom port.
+        // The custom O\\&M port.
         // 
-        // > Only the SSH and RDP ports can be changed. If no custom O\\&M port is specified for the bastion host, the value of StandardPort is returned.
+        // > Only SSH and RDP ports can be customized. If no custom port is set, this parameter returns the value of the `StandardPort` parameter.
         shared_ptr<int32_t> customPort_ {};
-        // The standard port of the bastion host. Valid values:
+        // The standard O\\&M port number. The following are the default standard ports for specific protocols:
         // 
-        // *   **SSH**: 60022.
-        // *   **RDP**: 63389.
-        // *   **HTTPS**: 443.
+        // - **SSH**: 60022
+        // 
+        // - **RDP**: 63389
+        // 
+        // - **HTTPS**: 443
         shared_ptr<int32_t> standardPort_ {};
       };
 
@@ -513,89 +517,115 @@ namespace Models
 
 
     protected:
+      // Indicates whether the application O\\&M module is enabled. Valid values are `Enable` and `Disable`.
       shared_ptr<string> appOperationModule_ {};
-      // The IDs of authorized security groups.
+      // A list of authorized security group IDs.
       shared_ptr<vector<string>> authorizedSecurityGroups_ {};
-      // The total bandwidth of the bastion host.
+      // The total bandwidth of the Bastionhost instance, in Mbit/s.
       shared_ptr<string> bandwidth_ {};
-      // The bandwidth plan ID.
+      // The extra bandwidth package of the Bastionhost instance, in Mbit/s.
       shared_ptr<string> bandwidthPackage_ {};
-      // The status of the database O&M feature.
+      // The status of the database O\\&M feature.
+      // 
+      // - **Enable**: The database O\\&M feature is enabled.
+      // 
+      // - **Disable**: The database O\\&M feature is disabled.
       shared_ptr<string> dbOperationModule_ {};
       // The description of the instance.
       shared_ptr<string> description_ {};
-      // The ID of the Elastic Network Interface (ENI).
+      // The ID of the elastic network interface (ENI).
       shared_ptr<string> eniInstanceId_ {};
-      // The time when the instance expires.
+      // The expiration timestamp, in milliseconds, of the Bastionhost instance.
       shared_ptr<int64_t> expireTime_ {};
+      // Indicates whether the Bastionhost instance is integrated with a Hardware Security Module (HSM).
       shared_ptr<string> HSMModule_ {};
+      // Indicates whether the IDaaS integration module is enabled. Valid values are `Enable` and `Disable`.
       shared_ptr<string> IDaaSModule_ {};
       // The ID of the instance.
       shared_ptr<string> instanceId_ {};
       // The status of the instance. Valid values:
       // 
-      // *   PENDING: The instance is not initialized.
-      // *   CREATING: The instance is being created.
-      // *   RUNNING: The instance is running.
-      // *   EXPIRED: The instance expired.
-      // *   CREATE_FAILED: The instance fails to be created.
-      // *   UPGRADING: The configurations of the instance are being changed.
-      // *   UPGRADE_FAILED: The configurations of the instance fail to be changed.
+      // - **PENDING**: The instance is being initialized.
+      // 
+      // - **CREATING**: The instance is being created.
+      // 
+      // - **RUNNING**: The instance is running.
+      // 
+      // - **EXPIRED**: The instance has expired.
+      // 
+      // - **CREATE_FAILED**: Instance creation failed.
+      // 
+      // - **UPGRADING**: The instance is being upgraded.
+      // 
+      // - **UPGRADE_FAILED**: Instance upgrade failed.
       shared_ptr<string> instanceStatus_ {};
-      // The public endpoint.
+      // The public domain name of the instance.
       shared_ptr<string> internetEndpoint_ {};
-      // The private endpoint.
+      // The internal endpoint of the instance.
       shared_ptr<string> intranetEndpoint_ {};
+      // Indicates whether the instance is integrated with Key Management Service (KMS) and Secrets Manager. Valid values are `Enable` and `Disable`.
       shared_ptr<string> kmsSecretModule_ {};
       // The license code.
       shared_ptr<string> licenseCode_ {};
-      // The status of the automatic password change feature.
+      // The status of the password change feature.
       // 
-      // - **Enable**
-      // - **Disable**
+      // - **Enable**: The feature is enabled.
+      // 
+      // - **Disable**: The feature is disabled.
       shared_ptr<string> modifyPasswordModule_ {};
-      // The status of the network domain feature.
+      // The status of the network domain proxy feature.
       // 
-      // - **Enable**
-      // - **Disable**
+      // - **Enable**: The network domain proxy feature is enabled.
+      // 
+      // - **Disable**: The network domain proxy feature is disabled.
       shared_ptr<string> networkProxyModule_ {};
-      // An array that consists of the O&M ports of the bastion host.
+      // The O\\&M ports of the Bastionhost instance.
       shared_ptr<vector<InstanceAttribute::Ports>> ports_ {};
-      // An array that consists of the egress private IP addresses of the bastion host.
+      // A list of private egress IP addresses of the Bastionhost instance.
       shared_ptr<vector<string>> privateExportIps_ {};
-      // The private IP addresses that are allowed to access the instance.
+      // The private whitelist of the instance.
       shared_ptr<vector<string>> privateWhiteList_ {};
-      // An array that consists of the egress public IP addresses of the bastion host.
+      // A list of public egress IP addresses of the Bastionhost instance.
       shared_ptr<vector<string>> publicExportIps_ {};
-      // The public IP address.
+      // A list of public IP addresses of the Bastionhost instance.
       shared_ptr<vector<string>> publicIps_ {};
-      // Indicates whether the Bastionhost instance can be accessed over the Internet.
+      // Indicates whether the Bastionhost instance is accessible over the public network. Valid values:
+      // 
+      // - **true**: The Bastionhost instance is accessible over the public network.
+      // 
+      // - **false**: The Bastionhost instance is not accessible over the public network.
       shared_ptr<bool> publicNetworkAccess_ {};
-      // The public IP addresses that are allowed to access the instance.
+      // The public whitelist of the Bastionhost instance.
       shared_ptr<vector<string>> publicWhiteList_ {};
+      // Indicates whether the multi-account module is enabled. Valid values are `Enable` and `Disable`.
       shared_ptr<string> RDModule_ {};
-      // The region ID of the instance.
+      // The ID of the region where the Bastionhost instance is located.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the instance belongs.
+      // The ID of the instance\\"s resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // A list of routing rules for the Bastionhost instance.
       shared_ptr<vector<string>> routerRules_ {};
+      // Indicates whether the script-based O\\&M module is enabled. Valid values are `Enable` and `Disable`.
       shared_ptr<string> scriptDeliverModule_ {};
-      // The IDs of the security groups to which the instance belongs.
+      // A list of the instance\\"s security group IDs.
       shared_ptr<vector<string>> securityGroupIds_ {};
+      // The ID of the standby VSwitch for the Bastionhost instance.
       shared_ptr<string> slaveVswitchId_ {};
-      // The time when the instance started.
+      // The timestamp, in milliseconds, when the Bastionhost instance was purchased or renewed.
       shared_ptr<int64_t> startTime_ {};
-      // The storage capacity of the bastion host. Unit: bytes.
+      // The total storage capacity of the Bastionhost instance, in bytes.
       shared_ptr<int64_t> storage_ {};
-      // The ID of the VPC to which the instance belongs.
+      // The ID of the instance\\"s Virtual Private Cloud (VPC).
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch to which the instance connects.
+      // The ID of the instance\\"s VSwitch.
       shared_ptr<string> vswitchId_ {};
       // The status of the web terminal.
       // 
-      // - **Enable**
-      // - **Disable**
+      // - **Enable**: Supports web-based remote connections.
+      // 
+      // - **Disable**: Does not support web-based remote connections.
       shared_ptr<string> webTerminalModule_ {};
+      // The configured IP address whitelist policies.
       shared_ptr<vector<InstanceAttribute::WhiteListPolicies>> whiteListPolicies_ {};
     };
 
@@ -618,9 +648,9 @@ namespace Models
 
 
   protected:
-    // The attribute information about the bastion host.
+    // The attributes of the instance.
     shared_ptr<DescribeInstanceAttributeResponseBody::InstanceAttribute> instanceAttribute_ {};
-    // The ID of the request.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 
