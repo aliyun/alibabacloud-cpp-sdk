@@ -62,11 +62,11 @@ namespace Models
   protected:
     // The list of disabled inspection items.
     shared_ptr<vector<string>> disabledCheckItems_ {};
-    // Specifies whether to enable cluster inspection.
+    // Specifies whether to enable inspection.
     // 
     // This parameter is required.
     shared_ptr<bool> enabled_ {};
-    // The inspection period defined using RFC5545 Recurrence Rule. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT or UNTIL is not supported.
+    // The inspection cycle defined using RFC 5545 Recurrence Rule syntax. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT and UNTIL are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> recurrence_ {};

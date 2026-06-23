@@ -57,29 +57,11 @@ namespace Models
 
 
   protected:
-    // The language in which the results are returned.
-    // 
-    // Valid values:
-    // 
-    // *   zh-CN
-    // *   en-US
+    // Filters the results by language (Chinese or English).
     shared_ptr<string> acceptLanguage_ {};
-    // The type of the cluster.
-    // 
-    // Valid values:
-    // 
-    // *   ExternalKubernetes: registered clusters.
-    // *   ManagedKubernetes: managed clusters.
-    // *   Kubernetes: dedicated clusters.
+    // The cluster type.
     shared_ptr<string> clusterType_ {};
-    // The subtype of the managed cluster.
-    // 
-    // Valid values:
-    // 
-    // *   Lingjun: ACK Lingjun clusters.
-    // *   Serverless: ACK serverless clusters.
-    // *   Default: ACK managed clusters.
-    // *   Edge: ACK Edge clusters.
+    // The subtype of managed clusters.
     shared_ptr<string> profile_ {};
   };
 

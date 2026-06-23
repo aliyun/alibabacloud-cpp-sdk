@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // The namespace to which the resource belongs.
+    // The namespace of the resource.
     shared_ptr<string> namespace_ {};
-    // Indicates the status of deletion protection. A value of true indicates that deletion protection is enabled and a value of false indicates that deletion protection is disabled.
+    // The deletion protection status of the resource.
     shared_ptr<string> protection_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The type of resource for which deletion protection is enabled or disabled.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // The list of resources whose deletion protection status is updated.
+    // The list of resources for which the deletion protection status is updated.
     shared_ptr<vector<string>> resources_ {};
   };
 

@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The actions performed by the trigger.
+    // The trigger action.
     shared_ptr<string> action_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
     // The trigger ID.
     shared_ptr<string> id_ {};
-    // The name of the trigger project.
+    // The trigger project name.
     shared_ptr<string> projectId_ {};
     // The trigger type.
     shared_ptr<string> type_ {};

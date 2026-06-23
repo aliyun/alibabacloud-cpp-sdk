@@ -79,13 +79,13 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return per page.
+    // The maximum number of results to return per page.
     // 
-    // Valid values: 1 to 100.
+    // Valid values: [1,100].
     // 
     // Default value: 50.
     shared_ptr<int64_t> pageSize_ {};
-    // The task ID. If specified, only events associated with this task are returned.
+    // The ID of the task to query.
     shared_ptr<string> taskId_ {};
   };
 

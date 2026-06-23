@@ -98,19 +98,19 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster check task.
+    // The check ID.
     shared_ptr<string> checkId_ {};
-    // A list of check items.
+    // The check items.
     shared_ptr<map<string, vector<Darabonba::Json>>> checkItems_ {};
-    // The time when the cluster check task was created.
+    // The creation time.
     shared_ptr<string> createdAt_ {};
-    // The time when the cluster check task was completed.
+    // The completion time.
     shared_ptr<string> finishedAt_ {};
-    // The message that indicates the status of the cluster check task.
+    // The check status message.
     shared_ptr<string> message_ {};
-    // The status of the cluster check.
+    // The check status.
     shared_ptr<string> status_ {};
-    // The check method.
+    // The check type.
     shared_ptr<string> type_ {};
   };
 

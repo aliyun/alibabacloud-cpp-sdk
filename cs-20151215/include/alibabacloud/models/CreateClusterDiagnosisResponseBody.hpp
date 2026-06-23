@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The diagnostic ID.
+    // The diagnosis ID.
     shared_ptr<string> diagnosisId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

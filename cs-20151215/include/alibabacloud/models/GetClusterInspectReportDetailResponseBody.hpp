@@ -109,15 +109,15 @@ namespace Models
 
 
     protected:
-      // The number of check items whose inspection result is advice.
+      // The number of check items with a result of advice.
       shared_ptr<int32_t> adviceCount_ {};
-      // Check the status code of the inspection task.
+      // The status code of the check task result.
       shared_ptr<string> code_ {};
-      // The number of check items whose inspection result is error.
+      // The number of check items with a result of error.
       shared_ptr<int32_t> errorCount_ {};
-      // The number of check items whose inspection result is normal.
+      // The number of check items with a result of normal.
       shared_ptr<int32_t> normalCount_ {};
-      // The number of check items whose inspection result is warning.
+      // The number of check items with a result of warning.
       shared_ptr<int32_t> warnCount_ {};
     };
 
@@ -226,37 +226,34 @@ namespace Models
 
     protected:
       // The category of the inspection item. Valid values:
-      // 
-      // *   security: Security compliance
-      // *   performance: Performance efficiency
-      // *   stability: Business stability
-      // *   limitation: Service limits
-      // *   cost: Cost optimization
+      // - security: security and compliance
+      // - performance: performance and efficiency 
+      // - stability: business stability
+      // - limitation: service limits 
+      // - cost: cost optimization.
       shared_ptr<string> category_ {};
       // The unique identifier of the inspection item.
       shared_ptr<string> checkItemUid_ {};
-      // The description of the inspection item.
+      // The description of the check item.
       shared_ptr<string> description_ {};
-      // The fixing suggestion.
+      // The fix suggestion.
       shared_ptr<string> fix_ {};
       // The level of the inspection item. Valid values:
-      // 
-      // *   advice: Suggestions
-      // *   warning: Low severity
-      // *   error: Medium severity
-      // *   critical: High severity
+      // - advice: suggestion
+      // - warning: low-risk
+      // - error: medium-risk
+      // - critical: high-risk.
       shared_ptr<string> level_ {};
-      // The name of the inspection item.
+      // The name of the check item.
       shared_ptr<string> name_ {};
-      // The inspection results. Valid values:
-      // 
-      // *   true: The inspection item is abnormal.
-      // *   false: The inspection item is normal.
-      // *   disable: The inspection item is not enabled.
+      // The check result. Valid values:
+      // - true: The check item is abnormal.
+      // - false: The check item is normal.
+      // - disable: The check item is not enabled.
       shared_ptr<string> result_ {};
-      // The resource type of the inspection object.
+      // The resource type of the check target.
       shared_ptr<string> targetType_ {};
-      // The inspection objects.
+      // The list of check targets.
       shared_ptr<vector<string>> targets_ {};
     };
 
@@ -324,24 +321,23 @@ namespace Models
 
 
   protected:
-    // The results.
+    // The list of results.
     shared_ptr<vector<GetClusterInspectReportDetailResponseBody::CheckItemResults>> checkItemResults_ {};
     // The completion time of the inspection report.
     shared_ptr<string> endTime_ {};
-    // The token that is used to display the returned tags on multiple pages.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The ID of the inspection report.
+    // The inspection report ID.
     shared_ptr<string> reportId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The start time of the inspection report.
     shared_ptr<string> startTime_ {};
-    // The status of the inspection report. Valid values:
-    // 
-    // *   completed: The inspection report is generated.
-    // *   running: The inspection report is generating.
+    // The generation status of the inspection report. Valid values:
+    // - completed: Completed.
+    // - running: In progress.
     shared_ptr<string> status_ {};
-    // Overview of inspection reports.
+    // The inspection report summary.
     shared_ptr<GetClusterInspectReportDetailResponseBody::Summary> summary_ {};
   };
 

@@ -69,13 +69,25 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable deletion protection. Set the value to true to enable deletion protection and set the value to false to disable deletion protection.
+    // Specifies whether to enable deletion protection for the resource. Valid values:
+    // 
+    // - true: Enables deletion protection. After deletion protection is enabled, you must manually disable deletion protection before you can delete the specified resource.
+    // 
+    // - false: Disables deletion protection.
+    // 
+    // Default value: false.
     shared_ptr<bool> enable_ {};
-    // The namespace to which the resource belongs.
+    // The namespace of the resource.
+    // 
+    // Default value: default.
     shared_ptr<string> namespace_ {};
-    // The type of resource for which deletion protection is enabled or disabled. You can specify namespaces or Services.
+    // The type of resource to update. Valid values:
+    // 
+    // - namespaces: namespace.
+    // 
+    // - services: service.
     shared_ptr<string> resourceType_ {};
-    // The resources list.
+    // The list of target resources.
     shared_ptr<vector<string>> resources_ {};
   };
 

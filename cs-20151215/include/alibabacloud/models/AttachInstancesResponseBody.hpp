@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The code that indicates the task result.
+      // The status code of the node addition result.
       shared_ptr<string> code_ {};
-      // The ID of the ECS instance.
+      // The ECS instance ID.
       shared_ptr<string> instanceId_ {};
-      // Indicates whether the ECS instance is successfully added to the ACK cluster.
+      // The description of the node addition result.
       shared_ptr<string> message_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The details of the added nodes.
+    // The list of node addition information.
     shared_ptr<vector<AttachInstancesResponseBody::List>> list_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

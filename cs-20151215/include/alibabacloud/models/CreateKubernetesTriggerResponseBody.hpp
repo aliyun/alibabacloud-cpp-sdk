@@ -75,20 +75,21 @@ namespace Models
 
 
   protected:
-    // The action that the trigger performs. For example, a value of `redeploy` indicates that the trigger redeploys the application.
+    // The trigger action. For example, `redeploy`: redeploy.
     shared_ptr<string> action_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The ID of the trigger.
+    // The trigger ID.
     shared_ptr<string> id_ {};
-    // The name of the trigger project.
+    // The trigger project name.
     shared_ptr<string> projectId_ {};
-    // The type of trigger.
+    // The trigger type.
     // 
     // Valid values:
     // 
-    // *   `deployment`: performs actions on Deployments.
-    // *   `application`: performs actions on applications that are deployed in Application Center.
+    // - `deployment`: a trigger for stateless applications. 
+    // 
+    // - `application`: a trigger for Application Center applications.
     shared_ptr<string> type_ {};
   };
 

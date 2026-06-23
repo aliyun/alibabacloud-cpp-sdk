@@ -91,18 +91,17 @@ namespace Models
 
 
     protected:
-      // The resource name.
+      // The name of the queried resource.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The namespace to which the resource belongs.
+      // The namespace of the queried resource.
       shared_ptr<string> namespace_ {};
-      // The type of the resource.
+      // The type of the queried resource.
       shared_ptr<string> resource_ {};
       // Indicates whether deletion protection is enabled.
-      // 
-      // *   true: deletion protection is enabled.
-      // *   false: deletion protection is disabled.
+      // - true: enabled.
+      // - false: disabled.
       shared_ptr<bool> protection_ {};
     };
 

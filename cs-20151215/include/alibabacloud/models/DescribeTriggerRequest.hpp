@@ -74,20 +74,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The type of trigger. Valid values:
+    // The trigger type. Valid values:
     // 
-    // *   `deployment`: performs actions on Deployments.
-    // *   `application`: performs actions on applications that are deployed in Application Center.
+    // - `deployment`: a trigger for a stateless application. 
+    // 
+    // - `application`: a trigger for an application in Open Applications.
     // 
     // Default value: `deployment`.
     // 
-    // If you do not set this parameter, triggers are not filtered by type.
+    // If you do not specify a trigger type, the query results are not filtered by trigger type.
     shared_ptr<string> type_ {};
-    // The action that the trigger performs. Set the value to redeploy.
+    // The trigger action. Valid values:
     // 
-    // `redeploy`: redeploys the resources specified by `project_id`.
+    // `redeploy`: redeploys the application.
     // 
-    // If you do not specify this parameter, triggers are not filtered by action.
+    // If you do not specify a trigger action, the query results are not filtered by trigger action.
     shared_ptr<string> action_ {};
   };
 

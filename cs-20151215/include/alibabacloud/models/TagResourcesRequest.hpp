@@ -72,23 +72,25 @@ namespace Models
 
 
   protected:
-    // The ID of the region in which the resource resides.
+    // The region ID of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of resource IDs.
+    // The list of resource IDs. You can specify up to 50 resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The type of resources that you want to label. Set the value to `CLUSTER`.
+    // The resource type.
+    // 
+    // CLUSTER: cluster.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags that you want to add to the resources in key-value pairs. You can add up to 20 key-value pairs. Note:
+    // The tag key-value pairs of the resource. You can specify up to 20 tag key-value pairs. Note:
     // 
-    // *   The values cannot be empty strings. A value must be 1 to 128 characters in length.
-    // *   A key or value cannot start with `aliyun` or `acs:`.
-    // *   A key or value cannot contain `http://` or `https://`.
+    // - If you specify this parameter, the value cannot be an empty string and can contain up to 128 characters.
+    // - The value cannot start with `aliyun` or `acs:`.
+    // - The value cannot contain `http://` or `https://`.
     // 
     // This parameter is required.
     shared_ptr<vector<Tag>> tags_ {};

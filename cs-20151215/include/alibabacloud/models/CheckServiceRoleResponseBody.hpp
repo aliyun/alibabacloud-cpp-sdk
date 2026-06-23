@@ -77,16 +77,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the service role is assigned to ACK.
-      // 
-      // Valid values:
-      // 
-      // *   true: The role is assigned to ACK.
-      // *   false: The role is not assigned to ACK.
+      // Indicates whether the service role has been granted.
       shared_ptr<bool> granted_ {};
-      // The message that is displayed for a role that is not assigned to ACK.
+      // The prompt message returned when the service role is not granted.
       shared_ptr<string> message_ {};
-      // The name of the service role.
+      // The service role name.
       shared_ptr<string> name_ {};
     };
 
@@ -101,7 +96,7 @@ namespace Models
 
 
   protected:
-    // The check results.
+    // The service role check results.
     shared_ptr<vector<CheckServiceRoleResponseBody::Roles>> roles_ {};
   };
 

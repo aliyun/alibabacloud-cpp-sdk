@@ -65,7 +65,9 @@ namespace Models
 
 
     protected:
-      // The maximum number of nodes concurrently upgraded per batch.
+      // The maximum number of worker nodes that can be upgraded in parallel per batch.
+      // 
+      // During the worker node upgrade, nodes are upgraded in batches based on the specified maximum parallelism. The number of nodes upgraded in each batch increases as follows: 1, 2, 4, 8, and so on until the maximum parallelism is reached. After the maximum parallelism is reached, each subsequent batch upgrades the maximum number of nodes.
       shared_ptr<int32_t> maxParallelism_ {};
     };
 
@@ -109,18 +111,17 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated. No need to pass values.
+    // [This parameter is deprecated] No value is required.
     shared_ptr<string> componentName_ {};
-    // Specifies whether to upgrade only master nodes. Valid values:
-    // 
-    // *   true: upgrades master nodes only.
-    // *   false: upgrades both master and worker nodes.
+    // Specifies whether to upgrade only the control plane. Valid values:
+    // - true: upgrades only the control plane.
+    // - false: upgrades both the control plane and worker nodes.
     shared_ptr<bool> masterOnly_ {};
-    // The target Kubernetes version for cluster upgrade.
+    // The target version to which the cluster is upgraded.
     shared_ptr<string> nextVersion_ {};
-    // The rolling update configuration.
+    // The rolling upgrade configuration.
     shared_ptr<UpgradeClusterRequest::RollingPolicy> rollingPolicy_ {};
-    // This parameter is deprecated. Use next_version to specify the upgrade target Kubernetes version.
+    // [This parameter is deprecated] Use the `next_version` parameter instead.
     shared_ptr<string> version_ {};
   };
 

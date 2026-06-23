@@ -89,15 +89,22 @@ namespace Models
 
 
     protected:
-      // The update interval between batches takes effect only when the pause policy is set to NotPause. Unit: minutes. Valid values: 5 to 120.
-      shared_ptr<int32_t> batchInterval_ {};
-      // The maximum number of nodes per batch.
-      shared_ptr<int32_t> maxParallelism_ {};
-      // The policy used to pause the update. Valid values:
+      // The interval between batches during the upgrade. This parameter takes effect only when the pause policy is set to `NotPause`.
       // 
-      // *   FirstBatch: pauses after the first batch is updated.
-      // *   EveryBatch: pauses after each batch is updated.
-      // *   NotPause: does not pause.
+      // Valid values: [5,120]. Unit: minutes.
+      // 
+      // You can set this parameter to 0 to specify no interval between batches.
+      shared_ptr<int32_t> batchInterval_ {};
+      // The maximum number of nodes that can be upgraded in parallel per batch. Nodes in the node pool are upgraded in batches.
+      // 
+      // Valid values: [1,10].
+      // 
+      // Default value: 10.
+      shared_ptr<int32_t> maxParallelism_ {};
+      // The automatic pause policy during node upgrades. Valid values:
+      // - FirstBatch: pauses after the first batch is completed.
+      // - EveryBatch: pauses after each batch is completed.
+      // - NotPause: does not pause.
       shared_ptr<string> pausePolicy_ {};
     };
 
@@ -158,22 +165,21 @@ namespace Models
 
 
   protected:
-    // The ID of the OS image used by the nodes.
+    // The system image ID of the node.
     shared_ptr<string> imageId_ {};
-    // The Kubernetes version used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the Kubernetes version of the current cluster in the current_version field.
+    // The Kubernetes version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the current cluster version information from the `KubernetesVersion` field.
     shared_ptr<string> kubernetesVersion_ {};
-    // The nodes you want to update. If you do not specify this parameter, all nodes in the node pool are updated by default.
+    // The list of nodes to upgrade. If this parameter is not specified, all nodes in the node pool are upgraded.
     shared_ptr<vector<string>> nodeNames_ {};
     // The rolling update configuration.
     shared_ptr<UpgradeClusterNodepoolRequest::RollingPolicy> rollingPolicy_ {};
-    // The runtime type. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the runtime information in the runtime field.
+    // The runtime type. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the runtime information from the runtime field.
     shared_ptr<string> runtimeType_ {};
-    // The version of the container runtime used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the runtime version in the runtime field.
+    // The runtime version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the runtime version information from the runtime field.
     shared_ptr<string> runtimeVersion_ {};
-    // Specifies whether to perform the update by replacing the system disk. Valid values:
-    // 
-    // *   true: replaces the system disk.
-    // *   false: does not replace the system disk.
+    // Specifies whether to use system cloud disk replacement for the upgrade. Valid values:
+    // - true: Uses system cloud disk replacement to upgrade the node pool. ACK reinitializes the nodes based on the current node pool configurations, such as the logon method, labels, taints, operating system image, and runtime version.
+    // - false: Does not use system cloud disk replacement.
     // 
     // Default value: false.
     shared_ptr<bool> useReplace_ {};

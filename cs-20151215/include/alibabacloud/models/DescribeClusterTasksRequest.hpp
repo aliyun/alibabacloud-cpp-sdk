@@ -68,7 +68,7 @@ namespace Models
   protected:
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

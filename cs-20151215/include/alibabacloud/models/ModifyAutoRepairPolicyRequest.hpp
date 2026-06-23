@@ -139,9 +139,9 @@ namespace Models
 
 
           protected:
-            // The label `key`.
+            // The label key value.
             shared_ptr<string> key_ {};
-            // The label `value`.
+            // The label value.
             shared_ptr<string> value_ {};
           };
 
@@ -183,9 +183,9 @@ namespace Models
 
 
           protected:
-            // The label `key`.
+            // The label key value.
             shared_ptr<string> key_ {};
-            // The label `value`.
+            // The label value.
             shared_ptr<string> value_ {};
           };
 
@@ -224,13 +224,13 @@ namespace Models
 
 
         protected:
-          // The label configuration for authorization confirmation. Add this label to the node to authorize ACK to proceed with this stage. After the stage completes, ACK automatically removes the inquiry and confirmation labels. If you do not add this label in time, ACK will not proceed with this or subsequent stages, leaving the node in an unhealthy state.
+          // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to perform the operations in this phase. After completing the phase operations, ACK automatically removes the authorization inquiry and authorization confirmation labels for this phase. If you do not promptly add the following labels for authorization, ACK does not perform the actions in this phase or subsequent phases, and the node may remain in a damaged state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
           // Specifies whether to enable manual approval.
           shared_ptr<bool> enable_ {};
-          // The label configuration for the authorization inquiry. At this stage, ACK adds this label to the node and waits for your authorization before proceeding.
+          // The label configuration for authorization inquiry. When this phase is reached, ACK adds the following labels to your node and waits for you to authorize the execution of the phase action.
           shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
-          // The approval type.
+          // The type of approval.
           shared_ptr<string> type_ {};
         };
 
@@ -262,11 +262,11 @@ namespace Models
 
 
       protected:
-        // Configuration parameters for the procedure.
+        // The parameter settings of the flow.
         Darabonba::Json config_ {};
-        // The configuration for the manual intervention procedure.
+        // The configuration for manual intervention in the procedure.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};
-        // The procedure name.
+        // The name of the procedure.
         shared_ptr<string> name_ {};
       };
 
@@ -308,9 +308,9 @@ namespace Models
 
 
       protected:
-        // The incident name.
+        // The fault name.
         shared_ptr<string> name_ {};
-        // The incident type.
+        // The type of manual approval.
         shared_ptr<string> type_ {};
       };
 
@@ -335,9 +335,9 @@ namespace Models
 
 
     protected:
-      // A list of identified incidents.
+      // The list of identified faults.
       shared_ptr<vector<Rules::Incidents>> incidents_ {};
-      // A list of repair procedures.
+      // The repair procedure.
       shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};
     };
 
@@ -362,7 +362,7 @@ namespace Models
   protected:
     // The name of the self-healing rule.
     shared_ptr<string> name_ {};
-    // A list of self-healing sub-rules.
+    // The list of self-healing sub-rules.
     shared_ptr<vector<ModifyAutoRepairPolicyRequest::Rules>> rules_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the policy instance.
+    // The instance ID of the policy rule.
     shared_ptr<string> instanceName_ {};
   };
 

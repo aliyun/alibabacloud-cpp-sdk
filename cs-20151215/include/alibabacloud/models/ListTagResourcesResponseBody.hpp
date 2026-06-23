@@ -109,13 +109,13 @@ namespace Models
 
 
       protected:
-        // The ID of the resource.
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource. For more information, see [Labels](https://help.aliyun.com/document_detail/110425.html).
+        // The resource type.
         shared_ptr<string> resourceType_ {};
-        // The key of the label.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The value of the label.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -130,7 +130,7 @@ namespace Models
 
 
     protected:
-      // The resource and label.
+      // The tag resource.
       shared_ptr<vector<TagResources::TagResource>> tagResource_ {};
     };
 
@@ -160,11 +160,11 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that determines the start point of the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the queried labels and resources.
+    // The collection of tag resources.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

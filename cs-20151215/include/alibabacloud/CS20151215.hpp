@@ -21,9 +21,9 @@ namespace CS20151215
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. When you need to add an ECS instance as a worker node to an ACK cluster or re-add a worker node to the cluster, you can call this operation.
+       * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. You can call the AttachInstances operation to add ECS instances to an ACK cluster as worker nodes after purchasing the instances, or to re-add node instances to a node pool after they are removed.
        *
-       * @description 调用本接口前，请仔细阅读[使用限制](https://help.aliyun.com/document_detail/86919.html)，确保待添加的ECS实例满足条件。
+       * @description Before you invoke this operation, read [Limits](https://help.aliyun.com/document_detail/86919.html) to make sure that the ECS instances to be added meet the requirements.
        *
        * @param request AttachInstancesRequest
        * @param headers map
@@ -33,9 +33,9 @@ namespace CS20151215
       Models::AttachInstancesResponse attachInstancesWithOptions(const string &ClusterId, const Models::AttachInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. When you need to add an ECS instance as a worker node to an ACK cluster or re-add a worker node to the cluster, you can call this operation.
+       * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. You can call the AttachInstances operation to add ECS instances to an ACK cluster as worker nodes after purchasing the instances, or to re-add node instances to a node pool after they are removed.
        *
-       * @description 调用本接口前，请仔细阅读[使用限制](https://help.aliyun.com/document_detail/86919.html)，确保待添加的ECS实例满足条件。
+       * @description Before you invoke this operation, read [Limits](https://help.aliyun.com/document_detail/86919.html) to make sure that the ECS instances to be added meet the requirements.
        *
        * @param request AttachInstancesRequest
        * @return AttachInstancesResponse
@@ -43,7 +43,7 @@ namespace CS20151215
       Models::AttachInstancesResponse attachInstances(const string &ClusterId, const Models::AttachInstancesRequest &request);
 
       /**
-       * @summary Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
+       * @summary Adds existing ECS instances to a node pool in an ACK cluster. You can call this operation to add existing ECS instances as worker nodes to an ACK cluster or to re-add node instances to a node pool after they have been removed.
        *
        * @param request AttachInstancesToNodePoolRequest
        * @param headers map
@@ -53,7 +53,7 @@ namespace CS20151215
       Models::AttachInstancesToNodePoolResponse attachInstancesToNodePoolWithOptions(const string &ClusterId, const string &NodepoolId, const Models::AttachInstancesToNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
+       * @summary Adds existing ECS instances to a node pool in an ACK cluster. You can call this operation to add existing ECS instances as worker nodes to an ACK cluster or to re-add node instances to a node pool after they have been removed.
        *
        * @param request AttachInstancesToNodePoolRequest
        * @return AttachInstancesToNodePoolResponse
@@ -63,7 +63,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI CancelClusterUpgrade is deprecated
        *
-       * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+       * @summary Cancels the upgrade of an ACK cluster that is in the upgrading state.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -74,7 +74,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI CancelClusterUpgrade is deprecated
        *
-       * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+       * @summary Cancels the upgrade of an ACK cluster that is in the upgrading state.
        *
        * @return CancelClusterUpgradeResponse
        */
@@ -83,7 +83,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI CancelComponentUpgrade is deprecated
        *
-       * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+       * @summary Cancels the upgrade of a cluster component.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -94,14 +94,14 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI CancelComponentUpgrade is deprecated
        *
-       * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+       * @summary Cancels the upgrade of a cluster component.
        *
        * @return CancelComponentUpgradeResponse
        */
       Models::CancelComponentUpgradeResponse cancelComponentUpgrade(const string &clusterId, const string &componentId);
 
       /**
-       * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\\\\\\\\\&M plan.
+       * @summary Cancels an existing but unexecuted automated O&M task execution plan by calling CancelOperationPlan.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -110,7 +110,7 @@ namespace CS20151215
       Models::CancelOperationPlanResponse cancelOperationPlanWithOptions(const string &planId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\\\\\\\\\&M plan.
+       * @summary Cancels an existing but unexecuted automated O&M task execution plan by calling CancelOperationPlan.
        *
        * @return CancelOperationPlanResponse
        */
@@ -133,7 +133,7 @@ namespace CS20151215
       Models::CancelTaskResponse cancelTask(const string &taskId);
 
       /**
-       * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+       * @summary Queries the log configuration of control plane components for an ACK managed cluster. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager. You can call the CheckControlPlaneLogEnable operation to query the current log configuration of control plane components, including the log retention period and the components from which logs are collected.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -142,14 +142,14 @@ namespace CS20151215
       Models::CheckControlPlaneLogEnableResponse checkControlPlaneLogEnableWithOptions(const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+       * @summary Queries the log configuration of control plane components for an ACK managed cluster. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager. You can call the CheckControlPlaneLogEnable operation to query the current log configuration of control plane components, including the log retention period and the components from which logs are collected.
        *
        * @return CheckControlPlaneLogEnableResponse
        */
       Models::CheckControlPlaneLogEnableResponse checkControlPlaneLogEnable(const string &ClusterId);
 
       /**
-       * @summary Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+       * @summary Checks whether the current service account has been granted the specified service role permissions. Container Service for Kubernetes (ACK) can call other cloud services (such as ECS, OSS, NAS, and SLB) that are associated with service roles only after the corresponding role permissions are granted.
        *
        * @param request CheckServiceRoleRequest
        * @param headers map
@@ -159,7 +159,7 @@ namespace CS20151215
       Models::CheckServiceRoleResponse checkServiceRoleWithOptions(const Models::CheckServiceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+       * @summary Checks whether the current service account has been granted the specified service role permissions. Container Service for Kubernetes (ACK) can call other cloud services (such as ECS, OSS, NAS, and SLB) that are associated with service roles only after the corresponding role permissions are granted.
        *
        * @param request CheckServiceRoleRequest
        * @return CheckServiceRoleResponse
@@ -167,12 +167,11 @@ namespace CS20151215
       Models::CheckServiceRoleResponse checkServiceRole(const Models::CheckServiceRoleRequest &request);
 
       /**
-       * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
+       * @summary Cleans up KubeConfig credentials and RBAC permissions that have been issued to a specified user in a specified cluster. You can call this operation to revoke authorization for KubeConfig credentials that pose security risks.
        *
-       * @description > 
-       * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
-       * *   You cannot revoke the permissions of an Alibaba Cloud account.
-       * *   You cannot revoke the permissions of the account that you use to call this operation.
+       * @description > 1. You must have the permission to manage Container Service for Kubernetes (ACK) (AliyunCSFullAccess). 
+       * > 2. Cleaning up permissions of an Alibaba Cloud account is not supported.
+       * > 3. Cleaning up the permissions of the user who performs this operation is not supported.
        *
        * @param request CleanClusterUserPermissionsRequest
        * @param headers map
@@ -182,12 +181,11 @@ namespace CS20151215
       Models::CleanClusterUserPermissionsResponse cleanClusterUserPermissionsWithOptions(const string &ClusterId, const string &Uid, const Models::CleanClusterUserPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
+       * @summary Cleans up KubeConfig credentials and RBAC permissions that have been issued to a specified user in a specified cluster. You can call this operation to revoke authorization for KubeConfig credentials that pose security risks.
        *
-       * @description > 
-       * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
-       * *   You cannot revoke the permissions of an Alibaba Cloud account.
-       * *   You cannot revoke the permissions of the account that you use to call this operation.
+       * @description > 1. You must have the permission to manage Container Service for Kubernetes (ACK) (AliyunCSFullAccess). 
+       * > 2. Cleaning up permissions of an Alibaba Cloud account is not supported.
+       * > 3. Cleaning up the permissions of the user who performs this operation is not supported.
        *
        * @param request CleanClusterUserPermissionsRequest
        * @return CleanClusterUserPermissionsResponse
@@ -195,11 +193,11 @@ namespace CS20151215
       Models::CleanClusterUserPermissionsResponse cleanClusterUserPermissions(const string &ClusterId, const string &Uid, const Models::CleanClusterUserPermissionsRequest &request);
 
       /**
-       * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+       * @summary Cleans up KubeConfig credentials and revokes RBAC permissions for a specified user. If you want to clean up KubeConfig credentials and revoke authorization for risky users such as those who have left the organization or whose accounts have been frozen, call CleanUserPermissions to clean up the issued KubeConfig credentials and RBAC permissions for the specified user.
        *
-       * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
-       * > - You cannot revoke the permissions of an Alibaba Cloud account.
-       * > - You cannot revoke the permissions of the account that you use to call this operation.
+       * @description >- You must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
+       * >- Cleaning up permissions of an Alibaba Cloud account is not supported.
+       * >- Cleaning up the permissions of the user who performs this operation is not supported.
        *
        * @param tmpReq CleanUserPermissionsRequest
        * @param headers map
@@ -209,11 +207,11 @@ namespace CS20151215
       Models::CleanUserPermissionsResponse cleanUserPermissionsWithOptions(const string &Uid, const Models::CleanUserPermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+       * @summary Cleans up KubeConfig credentials and revokes RBAC permissions for a specified user. If you want to clean up KubeConfig credentials and revoke authorization for risky users such as those who have left the organization or whose accounts have been frozen, call CleanUserPermissions to clean up the issued KubeConfig credentials and RBAC permissions for the specified user.
        *
-       * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
-       * > - You cannot revoke the permissions of an Alibaba Cloud account.
-       * > - You cannot revoke the permissions of the account that you use to call this operation.
+       * @description >- You must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
+       * >- Cleaning up permissions of an Alibaba Cloud account is not supported.
+       * >- Cleaning up the permissions of the user who performs this operation is not supported.
        *
        * @param request CleanUserPermissionsRequest
        * @return CleanUserPermissionsResponse
@@ -221,10 +219,9 @@ namespace CS20151215
       Models::CleanUserPermissionsResponse cleanUserPermissions(const string &Uid, const Models::CleanUserPermissionsRequest &request);
 
       /**
-       * @summary Create a self-healing rule.
+       * @summary Creates a self-healing rule.
        *
-       * @description >Notice: 
-       * This API is not yet available.
+       * @description >Notice: This API is not yet available. Stay tuned..
        *
        * @param request CreateAutoRepairPolicyRequest
        * @param headers map
@@ -234,10 +231,9 @@ namespace CS20151215
       Models::CreateAutoRepairPolicyResponse createAutoRepairPolicyWithOptions(const string &clusterId, const Models::CreateAutoRepairPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a self-healing rule.
+       * @summary Creates a self-healing rule.
        *
-       * @description >Notice: 
-       * This API is not yet available.
+       * @description >Notice: This API is not yet available. Stay tuned..
        *
        * @param request CreateAutoRepairPolicyRequest
        * @return CreateAutoRepairPolicyResponse
@@ -245,7 +241,7 @@ namespace CS20151215
       Models::CreateAutoRepairPolicyResponse createAutoRepairPolicy(const string &clusterId, const Models::CreateAutoRepairPolicyRequest &request);
 
       /**
-       * @summary Create an auto scaling policy to automatically add or remove compute resources based on configured scaling rules to handle your cluster\\"s workload. You can specify metrics and thresholds, scaling order, a cooldown period, and more.
+       * @summary Creates an elastic scaling configuration that allows the system to automatically increase or decrease compute resources based on the configured scaling rules to meet the workload demands of your cluster. During the creation procedure, you can specify scaling metrics and thresholds, scale-out order, cool-down period, and more.
        *
        * @param request CreateAutoscalingConfigRequest
        * @param headers map
@@ -255,7 +251,7 @@ namespace CS20151215
       Models::CreateAutoscalingConfigResponse createAutoscalingConfigWithOptions(const string &ClusterId, const Models::CreateAutoscalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an auto scaling policy to automatically add or remove compute resources based on configured scaling rules to handle your cluster\\"s workload. You can specify metrics and thresholds, scaling order, a cooldown period, and more.
+       * @summary Creates an elastic scaling configuration that allows the system to automatically increase or decrease compute resources based on the configured scaling rules to meet the workload demands of your cluster. During the creation procedure, you can specify scaling metrics and thresholds, scale-out order, cool-down period, and more.
        *
        * @param request CreateAutoscalingConfigRequest
        * @return CreateAutoscalingConfigResponse
@@ -263,16 +259,15 @@ namespace CS20151215
       Models::CreateAutoscalingConfigResponse createAutoscalingConfig(const string &ClusterId, const Models::CreateAutoscalingConfigRequest &request);
 
       /**
-       * @summary Create an ACK cluster using OpenAPI. Supported cluster types include ACK managed clusters, ACK serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, configure the cluster information, components, and related Alibaba Cloud resources.
+       * @summary You can create ACK clusters through OpenAPI, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you will configure the cluster information, cluster components, and ACK-related cloud resources.
        *
-       * @description ### Generate OpenAPI request parameters in the console
-       * If your CreateCluster API call fails due to invalid parameter combinations, you can generate valid request parameters directly in the console. Follow these steps:
-       * 1. Log on to the [Container Service for Kubernetes console](https://csnew.console.aliyun.com). In the left navigation pane, select **Clusters**.
-       * 2. On the **Clusters** page, click **Cluster Templates**.
-       * 3. In the dialog box, select the cluster type you want to create and click Create. Then configure your cluster on the cluster configuration page.
-       * 4. After completing your configuration, go to the **Review Configuration** page and click **Equivalent Code** in the upper-right corner. The dialog box displays the required parameter combination for cluster creation. Copy and use it as needed.
-       * >Notice: 
-       * Starting July 4, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameters, see [Announcement on Changes and Deprecation of OpenAPI Parameters for ACK Cluster Management](https://help.aliyun.com/document_detail/2932733.html).
+       * @description ### Generate OpenAPI request parameters through the console
+       * When calling the CreateCluster API to create a cluster, if the API call fails due to incorrect request parameter combinations, you can generate the required request parameter combinations through the console. Follow these steps:
+       * 1. Log in to the [Container Service management console](https://csnew.console.aliyun.com) and choose **Clusters** in the left navigation pane.
+       * 1. On the **Clusters** page, click **Cluster Template**.
+       * 1. In the dialog box, select the cluster type to create, click Create, and then configure the cluster information on the cluster configuration page.
+       * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box will display the parameter combinations required for creating the cluster, which you can copy and use.
+       * >Notice: Starting from July 4, 2026, some request parameters will no longer take effect. For change details and alternative parameter descriptions, see [Announcement on OpenAPI parameter changes and API deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
        *
        * @param request CreateClusterRequest
        * @param headers map
@@ -282,16 +277,15 @@ namespace CS20151215
       Models::CreateClusterResponse createClusterWithOptions(const Models::CreateClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an ACK cluster using OpenAPI. Supported cluster types include ACK managed clusters, ACK serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, configure the cluster information, components, and related Alibaba Cloud resources.
+       * @summary You can create ACK clusters through OpenAPI, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you will configure the cluster information, cluster components, and ACK-related cloud resources.
        *
-       * @description ### Generate OpenAPI request parameters in the console
-       * If your CreateCluster API call fails due to invalid parameter combinations, you can generate valid request parameters directly in the console. Follow these steps:
-       * 1. Log on to the [Container Service for Kubernetes console](https://csnew.console.aliyun.com). In the left navigation pane, select **Clusters**.
-       * 2. On the **Clusters** page, click **Cluster Templates**.
-       * 3. In the dialog box, select the cluster type you want to create and click Create. Then configure your cluster on the cluster configuration page.
-       * 4. After completing your configuration, go to the **Review Configuration** page and click **Equivalent Code** in the upper-right corner. The dialog box displays the required parameter combination for cluster creation. Copy and use it as needed.
-       * >Notice: 
-       * Starting July 4, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameters, see [Announcement on Changes and Deprecation of OpenAPI Parameters for ACK Cluster Management](https://help.aliyun.com/document_detail/2932733.html).
+       * @description ### Generate OpenAPI request parameters through the console
+       * When calling the CreateCluster API to create a cluster, if the API call fails due to incorrect request parameter combinations, you can generate the required request parameter combinations through the console. Follow these steps:
+       * 1. Log in to the [Container Service management console](https://csnew.console.aliyun.com) and choose **Clusters** in the left navigation pane.
+       * 1. On the **Clusters** page, click **Cluster Template**.
+       * 1. In the dialog box, select the cluster type to create, click Create, and then configure the cluster information on the cluster configuration page.
+       * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box will display the parameter combinations required for creating the cluster, which you can copy and use.
+       * >Notice: Starting from July 4, 2026, some request parameters will no longer take effect. For change details and alternative parameter descriptions, see [Announcement on OpenAPI parameter changes and API deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
        *
        * @param request CreateClusterRequest
        * @return CreateClusterResponse
@@ -299,7 +293,7 @@ namespace CS20151215
       Models::CreateClusterResponse createCluster(const Models::CreateClusterRequest &request);
 
       /**
-       * @summary Starts a cluster diagnostic.
+       * @summary Initiates a cluster diagnosis.
        *
        * @param request CreateClusterDiagnosisRequest
        * @param headers map
@@ -309,7 +303,7 @@ namespace CS20151215
       Models::CreateClusterDiagnosisResponse createClusterDiagnosisWithOptions(const string &clusterId, const Models::CreateClusterDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a cluster diagnostic.
+       * @summary Initiates a cluster diagnosis.
        *
        * @param request CreateClusterDiagnosisRequest
        * @return CreateClusterDiagnosisResponse
@@ -317,7 +311,7 @@ namespace CS20151215
       Models::CreateClusterDiagnosisResponse createClusterDiagnosis(const string &clusterId, const Models::CreateClusterDiagnosisRequest &request);
 
       /**
-       * @summary Configures cluster inspection.
+       * @summary Creates a cluster inspection configuration.
        *
        * @param request CreateClusterInspectConfigRequest
        * @param headers map
@@ -327,7 +321,7 @@ namespace CS20151215
       Models::CreateClusterInspectConfigResponse createClusterInspectConfigWithOptions(const string &clusterId, const Models::CreateClusterInspectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures cluster inspection.
+       * @summary Creates a cluster inspection configuration.
        *
        * @param request CreateClusterInspectConfigRequest
        * @return CreateClusterInspectConfigResponse
@@ -335,7 +329,7 @@ namespace CS20151215
       Models::CreateClusterInspectConfigResponse createClusterInspectConfig(const string &clusterId, const Models::CreateClusterInspectConfigRequest &request);
 
       /**
-       * @summary A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
+       * @summary A node pool is a logical collection of nodes that share the same attributes. Node pools allow unified management and operations, such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
        *
        * @param request CreateClusterNodePoolRequest
        * @param headers map
@@ -345,7 +339,7 @@ namespace CS20151215
       Models::CreateClusterNodePoolResponse createClusterNodePoolWithOptions(const string &ClusterId, const Models::CreateClusterNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
+       * @summary A node pool is a logical collection of nodes that share the same attributes. Node pools allow unified management and operations, such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
        *
        * @param request CreateClusterNodePoolRequest
        * @return CreateClusterNodePoolResponse
@@ -355,7 +349,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
        *
-       * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+       * @summary Creates a trigger for an application.
        *
        * @param request CreateKubernetesTriggerRequest
        * @param headers map
@@ -367,7 +361,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
        *
-       * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+       * @summary Creates a trigger for an application.
        *
        * @param request CreateKubernetesTriggerRequest
        * @return CreateKubernetesTriggerResponse
@@ -375,7 +369,7 @@ namespace CS20151215
       Models::CreateKubernetesTriggerResponse createKubernetesTrigger(const Models::CreateKubernetesTriggerRequest &request);
 
       /**
-       * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can use these templates to automate the deployment and cluster management of resources, such as Pods, Services, Deployments, ConfigMaps, and PersistentVolumes. You can invoke the CreateTemplate operation to create an orchestration template.
        *
        * @param request CreateTemplateRequest
        * @param headers map
@@ -385,7 +379,7 @@ namespace CS20151215
       Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can use these templates to automate the deployment and cluster management of resources, such as Pods, Services, Deployments, ConfigMaps, and PersistentVolumes. You can invoke the CreateTemplate operation to create an orchestration template.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -393,9 +387,9 @@ namespace CS20151215
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
-       * @summary Creates a trigger for an application to redeploy the application pods when specific conditions are met.
+       * @summary Configures a trigger for a cluster application. The trigger redeploys pods when specified conditions are met.
        *
-       * @description > 创建触发器仅支持Pod的重新部署。
+       * @description > Creating a trigger only supports pod redeployment.
        *
        * @param request CreateTriggerRequest
        * @param headers map
@@ -405,9 +399,9 @@ namespace CS20151215
       Models::CreateTriggerResponse createTriggerWithOptions(const string &clusterId, const Models::CreateTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a trigger for an application to redeploy the application pods when specific conditions are met.
+       * @summary Configures a trigger for a cluster application. The trigger redeploys pods when specified conditions are met.
        *
-       * @description > 创建触发器仅支持Pod的重新部署。
+       * @description > Creating a trigger only supports pod redeployment.
        *
        * @param request CreateTriggerRequest
        * @return CreateTriggerResponse
@@ -415,7 +409,7 @@ namespace CS20151215
       Models::CreateTriggerResponse createTrigger(const string &clusterId, const Models::CreateTriggerRequest &request);
 
       /**
-       * @summary Deletes ACK alert contacts.
+       * @summary Deletes alert contacts from ACK.
        *
        * @param tmpReq DeleteAlertContactRequest
        * @param headers map
@@ -425,7 +419,7 @@ namespace CS20151215
       Models::DeleteAlertContactResponse deleteAlertContactWithOptions(const Models::DeleteAlertContactRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes ACK alert contacts.
+       * @summary Deletes alert contacts from ACK.
        *
        * @param request DeleteAlertContactRequest
        * @return DeleteAlertContactResponse
@@ -433,7 +427,7 @@ namespace CS20151215
       Models::DeleteAlertContactResponse deleteAlertContact(const Models::DeleteAlertContactRequest &request);
 
       /**
-       * @summary Deletes an ACK alert contact group.
+       * @summary Delete ACK alert contact group
        *
        * @param tmpReq DeleteAlertContactGroupRequest
        * @param headers map
@@ -443,7 +437,7 @@ namespace CS20151215
       Models::DeleteAlertContactGroupResponse deleteAlertContactGroupWithOptions(const Models::DeleteAlertContactGroupRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an ACK alert contact group.
+       * @summary Delete ACK alert contact group
        *
        * @param request DeleteAlertContactGroupRequest
        * @return DeleteAlertContactGroupResponse
@@ -451,10 +445,9 @@ namespace CS20151215
       Models::DeleteAlertContactGroupResponse deleteAlertContactGroup(const Models::DeleteAlertContactGroupRequest &request);
 
       /**
-       * @summary Deletes an auto repair policy.
+       * @summary Deletes an automatic fault recovery rule.
        *
-       * @description >Notice: 
-       * This API is not yet publicly available.
+       * @description >Notice: This API is not yet available. Stay tuned..
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -463,24 +456,23 @@ namespace CS20151215
       Models::DeleteAutoRepairPolicyResponse deleteAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an auto repair policy.
+       * @summary Deletes an automatic fault recovery rule.
        *
-       * @description >Notice: 
-       * This API is not yet publicly available.
+       * @description >Notice: This API is not yet available. Stay tuned..
        *
        * @return DeleteAutoRepairPolicyResponse
        */
       Models::DeleteAutoRepairPolicyResponse deleteAutoRepairPolicy(const string &clusterId, const string &policyId);
 
       /**
-       * @summary When you no longer need a cluster, you can delete it and choose whether to delete or retain its associated resources. Before deleting a cluster, you must manually remove its workloads, such as stateless applications, stateful applications, jobs, and cronjobs. Otherwise, the deletion might fail.
+       * @summary If you no longer need a cluster, delete the cluster and choose whether to delete or retain the associated resources. Before you delete a cluster, manually clean up workloads (Deployments, StatefulSets, Jobs, and CronJobs). Otherwise, the cluster deletion may fail.
        *
-       * @description Important
-       * - Subscription-based resources, such as ECS instances and Lingjun computing nodes, are not automatically released. You must manually release them to avoid unnecessary charges. For more details, see Cluster deletion and node release rules.
-       * - Subscription-based APIServer SLB resources are not automatically released. You must manually release them to avoid unnecessary charges.
-       * - If resources such as VPCs, VSwitches, security groups, and RAM roles are in use by other resources, they are retained by default. You must release them manually.
-       * - ECIs created with virtual nodes are automatically released.
-       * - Some cloud resources created with the cluster are not automatically released when you delete the cluster and continue to incur charges. You can choose to retain or release them. These resources include SLS projects automatically created by the cluster and cloud disks purchased via dynamic volumes.
+       * @description Risk notice:
+       * - Subscription ECS instances, Lingjun compute nodes, and other subscription resources in the cluster cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources. For more information, refer to Cluster deletion and node release rules.
+       * - Subscription APIServer SLB resources cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources.
+       * - VPCs, vSwitches, security groups, and RAM roles that are used by other resources cannot be deleted and are retained by default. Perform manual release of these resources.
+       * - Elastic Container Instances (ECIs) created through virtual nodes are subject to automatic release.
+       * - Some cloud resources created through the cluster are not subject to automatic release when the cluster is deleted. These resources continue to incur billing after the cluster is deleted. Release or retain them as needed. These resources include: Simple Log Service (SLS) projects automatically created by the cluster, and cloud disks purchased through dynamic storage volumes.
        *
        * @param tmpReq DeleteClusterRequest
        * @param headers map
@@ -490,14 +482,14 @@ namespace CS20151215
       Models::DeleteClusterResponse deleteClusterWithOptions(const string &ClusterId, const Models::DeleteClusterRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When you no longer need a cluster, you can delete it and choose whether to delete or retain its associated resources. Before deleting a cluster, you must manually remove its workloads, such as stateless applications, stateful applications, jobs, and cronjobs. Otherwise, the deletion might fail.
+       * @summary If you no longer need a cluster, delete the cluster and choose whether to delete or retain the associated resources. Before you delete a cluster, manually clean up workloads (Deployments, StatefulSets, Jobs, and CronJobs). Otherwise, the cluster deletion may fail.
        *
-       * @description Important
-       * - Subscription-based resources, such as ECS instances and Lingjun computing nodes, are not automatically released. You must manually release them to avoid unnecessary charges. For more details, see Cluster deletion and node release rules.
-       * - Subscription-based APIServer SLB resources are not automatically released. You must manually release them to avoid unnecessary charges.
-       * - If resources such as VPCs, VSwitches, security groups, and RAM roles are in use by other resources, they are retained by default. You must release them manually.
-       * - ECIs created with virtual nodes are automatically released.
-       * - Some cloud resources created with the cluster are not automatically released when you delete the cluster and continue to incur charges. You can choose to retain or release them. These resources include SLS projects automatically created by the cluster and cloud disks purchased via dynamic volumes.
+       * @description Risk notice:
+       * - Subscription ECS instances, Lingjun compute nodes, and other subscription resources in the cluster cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources. For more information, refer to Cluster deletion and node release rules.
+       * - Subscription APIServer SLB resources cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources.
+       * - VPCs, vSwitches, security groups, and RAM roles that are used by other resources cannot be deleted and are retained by default. Perform manual release of these resources.
+       * - Elastic Container Instances (ECIs) created through virtual nodes are subject to automatic release.
+       * - Some cloud resources created through the cluster are not subject to automatic release when the cluster is deleted. These resources continue to incur billing after the cluster is deleted. Release or retain them as needed. These resources include: Simple Log Service (SLS) projects automatically created by the cluster, and cloud disks purchased through dynamic storage volumes.
        *
        * @param request DeleteClusterRequest
        * @return DeleteClusterResponse
@@ -505,7 +497,7 @@ namespace CS20151215
       Models::DeleteClusterResponse deleteCluster(const string &ClusterId, const Models::DeleteClusterRequest &request);
 
       /**
-       * @summary Deletes cluster inspection configurations.
+       * @summary Deletes a cluster inspection configuration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -514,14 +506,14 @@ namespace CS20151215
       Models::DeleteClusterInspectConfigResponse deleteClusterInspectConfigWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes cluster inspection configurations.
+       * @summary Deletes a cluster inspection configuration.
        *
        * @return DeleteClusterInspectConfigResponse
        */
       Models::DeleteClusterInspectConfigResponse deleteClusterInspectConfig(const string &clusterId);
 
       /**
-       * @summary Deletes unused node pools. Deleting a node pool terminates all pods on its nodes, which triggers pod rescheduling. Insufficient cluster resources may cause scheduling failures and business impact.
+       * @summary Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on the nodes are deleted, which may trigger descheduling. If descheduling cannot be performed, your services may be affected. Make sure that the cluster has sufficient resources for descheduling.
        *
        * @param request DeleteClusterNodepoolRequest
        * @param headers map
@@ -531,7 +523,7 @@ namespace CS20151215
       Models::DeleteClusterNodepoolResponse deleteClusterNodepoolWithOptions(const string &ClusterId, const string &NodepoolId, const Models::DeleteClusterNodepoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes unused node pools. Deleting a node pool terminates all pods on its nodes, which triggers pod rescheduling. Insufficient cluster resources may cause scheduling failures and business impact.
+       * @summary Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on the nodes are deleted, which may trigger descheduling. If descheduling cannot be performed, your services may be affected. Make sure that the cluster has sufficient resources for descheduling.
        *
        * @param request DeleteClusterNodepoolRequest
        * @return DeleteClusterNodepoolResponse
@@ -539,14 +531,14 @@ namespace CS20151215
       Models::DeleteClusterNodepoolResponse deleteClusterNodepool(const string &ClusterId, const string &NodepoolId, const Models::DeleteClusterNodepoolRequest &request);
 
       /**
-       * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
+       * @summary When you no longer need cluster nodes to continue working, you can call the DeleteClusterNodes operation to remove nodes from the cluster. When removing nodes, you can choose whether to simultaneously release the ECS instances and whether to automatically drain the nodes.
        *
-       * @description *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
-       * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
-       * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
-       * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
-       * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
-       * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
+       * @description - When removing nodes, use this API or the [Container Service console](https://cs.console.aliyun.com) to perform standardized operations. Do not manually remove nodes by using the `kubectl delete node` command.
+       * - Do not directly release nodes, remove instances in the ECS or ESS console (or through related APIs), or allow nodes to be passively released due to the expiration of subscription instances. In these cases, the nodes will be directly shut down and automatically removed from the Container Service management console.
+       * - If the node pool has a desired number of nodes configured, the node pool will automatically scale out other instances according to the corresponding configuration to always maintain the node count at the desired number.
+       * - Removing nodes involves Pod migration, which may affect your business. Perform this operation during off-peak hours. Unexpected risks may exist during the operation, so back up relevant data in advance.
+       * - When removing nodes, ACK performs a drain operation. Ensure that the resources on other nodes in the cluster are sufficient to prevent business Pods from being unable to be scheduled.
+       * - Check the node affinity rules and scheduling policies of the Pods on the nodes to be removed to ensure that Pods can still be scheduled to other nodes after node removal.
        *
        * @param request DeleteClusterNodesRequest
        * @param headers map
@@ -556,14 +548,14 @@ namespace CS20151215
       Models::DeleteClusterNodesResponse deleteClusterNodesWithOptions(const string &ClusterId, const Models::DeleteClusterNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
+       * @summary When you no longer need cluster nodes to continue working, you can call the DeleteClusterNodes operation to remove nodes from the cluster. When removing nodes, you can choose whether to simultaneously release the ECS instances and whether to automatically drain the nodes.
        *
-       * @description *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
-       * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
-       * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
-       * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
-       * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
-       * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
+       * @description - When removing nodes, use this API or the [Container Service console](https://cs.console.aliyun.com) to perform standardized operations. Do not manually remove nodes by using the `kubectl delete node` command.
+       * - Do not directly release nodes, remove instances in the ECS or ESS console (or through related APIs), or allow nodes to be passively released due to the expiration of subscription instances. In these cases, the nodes will be directly shut down and automatically removed from the Container Service management console.
+       * - If the node pool has a desired number of nodes configured, the node pool will automatically scale out other instances according to the corresponding configuration to always maintain the node count at the desired number.
+       * - Removing nodes involves Pod migration, which may affect your business. Perform this operation during off-peak hours. Unexpected risks may exist during the operation, so back up relevant data in advance.
+       * - When removing nodes, ACK performs a drain operation. Ensure that the resources on other nodes in the cluster are sufficient to prevent business Pods from being unable to be scheduled.
+       * - Check the node affinity rules and scheduling policies of the Pods on the nodes to be removed to ensure that Pods can still be scheduled to other nodes after node removal.
        *
        * @param request DeleteClusterNodesRequest
        * @return DeleteClusterNodesResponse
@@ -573,7 +565,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
        *
-       * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+       * @summary Deletes an application trigger by trigger ID.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -584,14 +576,14 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
        *
-       * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+       * @summary Deletes an application trigger by trigger ID.
        *
        * @return DeleteKubernetesTriggerResponse
        */
       Models::DeleteKubernetesTriggerResponse deleteKubernetesTrigger(const string &Id);
 
       /**
-       * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Deletes a policy rule instance from a specified cluster.
        *
        * @param request DeletePolicyInstanceRequest
        * @param headers map
@@ -601,7 +593,7 @@ namespace CS20151215
       Models::DeletePolicyInstanceResponse deletePolicyInstanceWithOptions(const string &clusterId, const string &policyName, const Models::DeletePolicyInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Deletes a policy rule instance from a specified cluster.
        *
        * @param request DeletePolicyInstanceRequest
        * @return DeletePolicyInstanceResponse
@@ -609,7 +601,7 @@ namespace CS20151215
       Models::DeletePolicyInstanceResponse deletePolicyInstance(const string &clusterId, const string &policyName, const Models::DeletePolicyInstanceRequest &request);
 
       /**
-       * @summary Deletes the orchestration templates that you no longer need.
+       * @summary Deletes an orchestration template when you no longer need it.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -618,14 +610,14 @@ namespace CS20151215
       Models::DeleteTemplateResponse deleteTemplateWithOptions(const string &TemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the orchestration templates that you no longer need.
+       * @summary Deletes an orchestration template when you no longer need it.
        *
        * @return DeleteTemplateResponse
        */
       Models::DeleteTemplateResponse deleteTemplate(const string &TemplateId);
 
       /**
-       * @summary Deletes an application trigger.
+       * @summary Deletes an application trigger when it is no longer needed.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -634,14 +626,14 @@ namespace CS20151215
       Models::DeleteTriggerResponse deleteTriggerWithOptions(const string &clusterId, const string &Id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application trigger.
+       * @summary Deletes an application trigger when it is no longer needed.
        *
        * @return DeleteTriggerResponse
        */
       Models::DeleteTriggerResponse deleteTrigger(const string &clusterId, const string &Id);
 
       /**
-       * @summary Call the `DeployPolicyInstance` operation to deploy a policy instance to specified namespaces in an ACK cluster. To create a policy instance, select a security policy, configure a governance action (alert or deny), and specify the target namespaces for the policy.
+       * @summary Deploys a policy instance in a specified namespace of a specified cluster. You can select a security policy type in an ACK cluster, configure the governance action (alerting or blocking) and the namespace scope for the policy instance to create and deploy a policy instance.
        *
        * @param request DeployPolicyInstanceRequest
        * @param headers map
@@ -651,7 +643,7 @@ namespace CS20151215
       Models::DeployPolicyInstanceResponse deployPolicyInstanceWithOptions(const string &clusterId, const string &policyName, const Models::DeployPolicyInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the `DeployPolicyInstance` operation to deploy a policy instance to specified namespaces in an ACK cluster. To create a policy instance, select a security policy, configure a governance action (alert or deny), and specify the target namespaces for the policy.
+       * @summary Deploys a policy instance in a specified namespace of a specified cluster. You can select a security policy type in an ACK cluster, configure the governance action (alerting or blocking) and the namespace scope for the policy instance to create and deploy a policy instance.
        *
        * @param request DeployPolicyInstanceRequest
        * @return DeployPolicyInstanceResponse
@@ -659,7 +651,7 @@ namespace CS20151215
       Models::DeployPolicyInstanceResponse deployPolicyInstance(const string &clusterId, const string &policyName, const Models::DeployPolicyInstanceRequest &request);
 
       /**
-       * @summary Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
+       * @summary You can call the DescribeAddon operation to query information about a specified component based on parameters such as region, cluster type, cluster subtype (profile), cluster version, and component name. The returned information includes whether the component is managed, component category, supported custom parameter schema, compatible OS architectures, and the minimum cluster version required by the component version.
        *
        * @param request DescribeAddonRequest
        * @param headers map
@@ -669,7 +661,7 @@ namespace CS20151215
       Models::DescribeAddonResponse describeAddonWithOptions(const string &addonName, const Models::DescribeAddonRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
+       * @summary You can call the DescribeAddon operation to query information about a specified component based on parameters such as region, cluster type, cluster subtype (profile), cluster version, and component name. The returned information includes whether the component is managed, component category, supported custom parameter schema, compatible OS architectures, and the minimum cluster version required by the component version.
        *
        * @param request DescribeAddonRequest
        * @return DescribeAddonResponse
@@ -679,7 +671,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeAddons is deprecated
        *
-       * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+       * @summary Queries the details of all components supported by the platform.
        *
        * @param request DescribeAddonsRequest
        * @param headers map
@@ -691,7 +683,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeAddons is deprecated
        *
-       * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+       * @summary Queries the details of all components supported by the platform.
        *
        * @param request DescribeAddonsRequest
        * @return DescribeAddonsResponse
@@ -699,10 +691,9 @@ namespace CS20151215
       Models::DescribeAddonsResponse describeAddons(const Models::DescribeAddonsRequest &request);
 
       /**
-       * @summary View self-healing rules.
+       * @summary Queries an auto-repair rule.
        *
-       * @description >Notice: 
-       * This API is not yet available.
+       * @description >Notice: This API is not yet available. Stay tuned.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -711,10 +702,9 @@ namespace CS20151215
       Models::DescribeAutoRepairPolicyResponse describeAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View self-healing rules.
+       * @summary Queries an auto-repair rule.
        *
-       * @description >Notice: 
-       * This API is not yet available.
+       * @description >Notice: This API is not yet available. Stay tuned.
        *
        * @return DescribeAutoRepairPolicyResponse
        */
@@ -723,7 +713,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
        *
-       * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+       * @summary Calls DescribeClusterAddonInstance to query information about an installed cluster component, such as its version, status, and configuration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -734,7 +724,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
        *
-       * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+       * @summary Calls DescribeClusterAddonInstance to query information about an installed cluster component, such as its version, status, and configuration.
        *
        * @return DescribeClusterAddonInstanceResponse
        */
@@ -743,7 +733,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
        *
-       * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+       * @summary Queries the version information of a specified component that can be used in a specific cluster, including the component version and configurable parameters.
        *
        * @param request DescribeClusterAddonMetadataRequest
        * @param headers map
@@ -755,7 +745,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
        *
-       * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+       * @summary Queries the version information of a specified component that can be used in a specific cluster, including the component version and configurable parameters.
        *
        * @param request DescribeClusterAddonMetadataRequest
        * @return DescribeClusterAddonMetadataResponse
@@ -765,7 +755,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
        *
-       * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+       * @summary Queries the upgrade status of a cluster component by calling DescribeClusterAddonUpgradeStatus.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -776,7 +766,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
        *
-       * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+       * @summary Queries the upgrade status of a cluster component by calling DescribeClusterAddonUpgradeStatus.
        *
        * @return DescribeClusterAddonUpgradeStatusResponse
        */
@@ -785,7 +775,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
        *
-       * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+       * @summary Queries the upgrade status of a component by component name.
        *
        * @param tmpReq DescribeClusterAddonsUpgradeStatusRequest
        * @param headers map
@@ -797,7 +787,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
        *
-       * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+       * @summary Queries the upgrade status of a component by component name.
        *
        * @param request DescribeClusterAddonsUpgradeStatusRequest
        * @return DescribeClusterAddonsUpgradeStatusResponse
@@ -807,7 +797,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
        *
-       * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+       * @summary Queries the details of all installed components in a cluster by cluster ID.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -818,14 +808,14 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
        *
-       * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+       * @summary Queries the details of all installed components in a cluster by cluster ID.
        *
        * @return DescribeClusterAddonsVersionResponse
        */
       Models::DescribeClusterAddonsVersionResponse describeClusterAddonsVersion(const string &ClusterId);
 
       /**
-       * @summary To manually add existing ECS instances to an ACK cluster as worker nodes or add nodes back to a node pool, call the DescribeClusterAttachScripts operation to obtain the required attachment script.
+       * @summary If you need to add existing ECS instances to an ACK cluster as worker nodes, or re-add node instances to a node pool after they are removed, ACK allows you to manually add existing nodes to a node pool. Calls the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
        *
        * @param request DescribeClusterAttachScriptsRequest
        * @param headers map
@@ -835,7 +825,7 @@ namespace CS20151215
       Models::DescribeClusterAttachScriptsResponse describeClusterAttachScriptsWithOptions(const string &ClusterId, const Models::DescribeClusterAttachScriptsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary To manually add existing ECS instances to an ACK cluster as worker nodes or add nodes back to a node pool, call the DescribeClusterAttachScripts operation to obtain the required attachment script.
+       * @summary If you need to add existing ECS instances to an ACK cluster as worker nodes, or re-add node instances to a node pool after they are removed, ACK allows you to manually add existing nodes to a node pool. Calls the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
        *
        * @param request DescribeClusterAttachScriptsRequest
        * @return DescribeClusterAttachScriptsResponse
@@ -843,7 +833,7 @@ namespace CS20151215
       Models::DescribeClusterAttachScriptsResponse describeClusterAttachScripts(const string &ClusterId, const Models::DescribeClusterAttachScriptsRequest &request);
 
       /**
-       * @summary You can call the DescribeClusterDetail operation to query detailed information about a specified cluster by its cluster ID.
+       * @summary You can call the DescribeClusterDetail API to query the detailed information of a specified cluster by cluster ID.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -852,14 +842,14 @@ namespace CS20151215
       Models::DescribeClusterDetailResponse describeClusterDetailWithOptions(const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the DescribeClusterDetail operation to query detailed information about a specified cluster by its cluster ID.
+       * @summary You can call the DescribeClusterDetail API to query the detailed information of a specified cluster by cluster ID.
        *
        * @return DescribeClusterDetailResponse
        */
       Models::DescribeClusterDetailResponse describeClusterDetail(const string &ClusterId);
 
       /**
-       * @summary Cluster operation events include cluster creation, modification, and upgrades, node pool creation and scale-out, and add-on installations. You can call the `DescribeClusterEvents` operation to retrieve events for a specified cluster and query their details, such as the severity level, status, and time.
+       * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeClusterEvents operation to retrieve the list of events that occurred in a specified cluster and query event details, including the event level, event status, and event time.
        *
        * @param request DescribeClusterEventsRequest
        * @param headers map
@@ -869,7 +859,7 @@ namespace CS20151215
       Models::DescribeClusterEventsResponse describeClusterEventsWithOptions(const string &ClusterId, const Models::DescribeClusterEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cluster operation events include cluster creation, modification, and upgrades, node pool creation and scale-out, and add-on installations. You can call the `DescribeClusterEvents` operation to retrieve events for a specified cluster and query their details, such as the severity level, status, and time.
+       * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeClusterEvents operation to retrieve the list of events that occurred in a specified cluster and query event details, including the event level, event status, and event time.
        *
        * @param request DescribeClusterEventsRequest
        * @return DescribeClusterEventsResponse
@@ -877,7 +867,7 @@ namespace CS20151215
       Models::DescribeClusterEventsResponse describeClusterEvents(const string &ClusterId, const Models::DescribeClusterEventsRequest &request);
 
       /**
-       * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+       * @summary Retrieves the log data of a cluster for root cause analysis and tracing when cluster issues occur.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -886,14 +876,14 @@ namespace CS20151215
       Models::DescribeClusterLogsResponse describeClusterLogsWithOptions(const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+       * @summary Retrieves the log data of a cluster for root cause analysis and tracing when cluster issues occur.
        *
        * @return DescribeClusterLogsResponse
        */
       Models::DescribeClusterLogsResponse describeClusterLogs(const string &ClusterId);
 
       /**
-       * @summary You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
+       * @summary Queries the configuration of a specified node pool in a cluster by node pool ID.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -902,14 +892,14 @@ namespace CS20151215
       Models::DescribeClusterNodePoolDetailResponse describeClusterNodePoolDetailWithOptions(const string &ClusterId, const string &NodepoolId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
+       * @summary Queries the configuration of a specified node pool in a cluster by node pool ID.
        *
        * @return DescribeClusterNodePoolDetailResponse
        */
       Models::DescribeClusterNodePoolDetailResponse describeClusterNodePoolDetail(const string &ClusterId, const string &NodepoolId);
 
       /**
-       * @summary Queries the node pools in a cluster.
+       * @summary Queries the list of all node pools in a cluster.
        *
        * @param request DescribeClusterNodePoolsRequest
        * @param headers map
@@ -919,7 +909,7 @@ namespace CS20151215
       Models::DescribeClusterNodePoolsResponse describeClusterNodePoolsWithOptions(const string &ClusterId, const Models::DescribeClusterNodePoolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the node pools in a cluster.
+       * @summary Queries the list of all node pools in a cluster.
        *
        * @param request DescribeClusterNodePoolsRequest
        * @return DescribeClusterNodePoolsResponse
@@ -927,7 +917,7 @@ namespace CS20151215
       Models::DescribeClusterNodePoolsResponse describeClusterNodePools(const string &ClusterId, const Models::DescribeClusterNodePoolsRequest &request);
 
       /**
-       * @summary null
+       * @summary Queries the list of nodes that meet the specified conditions in a cluster.
        *
        * @param request DescribeClusterNodesRequest
        * @param headers map
@@ -937,7 +927,7 @@ namespace CS20151215
       Models::DescribeClusterNodesResponse describeClusterNodesWithOptions(const string &ClusterId, const Models::DescribeClusterNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary null
+       * @summary Queries the list of nodes that meet the specified conditions in a cluster.
        *
        * @param request DescribeClusterNodesRequest
        * @return DescribeClusterNodesResponse
@@ -945,7 +935,7 @@ namespace CS20151215
       Models::DescribeClusterNodesResponse describeClusterNodes(const string &ClusterId, const Models::DescribeClusterNodesRequest &request);
 
       /**
-       * @summary Container Service for Kubernetes uses other Alibaba Cloud resources, such as VPCs and SLBs. To query the resources associated with a specific cluster, call the `DescribeClusterResources` operation. To query node pools or nodes, call the `DescribeClusterNodePools` or `DescribeClusterNodes` operations.
+       * @summary When you use Container Service for Kubernetes (ACK), you also use resources from other associated Alibaba Cloud services. You can call the DescribeClusterResources operation to query the associated resources of a specified cluster, such as VPCs and SLBs. To query node pool or node resources, call the DescribeClusterNodePools or DescribeClusterNodes operation.
        *
        * @param request DescribeClusterResourcesRequest
        * @param headers map
@@ -955,7 +945,7 @@ namespace CS20151215
       Models::DescribeClusterResourcesResponse describeClusterResourcesWithOptions(const string &ClusterId, const Models::DescribeClusterResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Container Service for Kubernetes uses other Alibaba Cloud resources, such as VPCs and SLBs. To query the resources associated with a specific cluster, call the `DescribeClusterResources` operation. To query node pools or nodes, call the `DescribeClusterNodePools` or `DescribeClusterNodes` operations.
+       * @summary When you use Container Service for Kubernetes (ACK), you also use resources from other associated Alibaba Cloud services. You can call the DescribeClusterResources operation to query the associated resources of a specified cluster, such as VPCs and SLBs. To query node pool or node resources, call the DescribeClusterNodePools or DescribeClusterNodes operation.
        *
        * @param request DescribeClusterResourcesRequest
        * @return DescribeClusterResourcesResponse
@@ -963,7 +953,7 @@ namespace CS20151215
       Models::DescribeClusterResourcesResponse describeClusterResources(const string &ClusterId, const Models::DescribeClusterResourcesRequest &request);
 
       /**
-       * @summary Lists the tasks in a specified cluster.
+       * @summary Queries the task list of a cluster by calling the DescribeClusterTasks operation.
        *
        * @param request DescribeClusterTasksRequest
        * @param headers map
@@ -973,7 +963,7 @@ namespace CS20151215
       Models::DescribeClusterTasksResponse describeClusterTasksWithOptions(const string &clusterId, const Models::DescribeClusterTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the tasks in a specified cluster.
+       * @summary Queries the task list of a cluster by calling the DescribeClusterTasks operation.
        *
        * @param request DescribeClusterTasksRequest
        * @return DescribeClusterTasksResponse
@@ -981,10 +971,10 @@ namespace CS20151215
       Models::DescribeClusterTasksResponse describeClusterTasks(const string &clusterId, const Models::DescribeClusterTasksRequest &request);
 
       /**
-       * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+       * @summary KubeConfig is used to configure access credentials for ACK clusters on the client. It contains identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of a specified cluster.
        *
-       * @description *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
-       * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+       * @description - The default validity period of the certificate issued by KubeConfig is 3 years. Within 180 days before the certificate expires, you can obtain a rotated and refreshed KubeConfig by using the Container Service console or the DescribeClusterUserKubeconfig operation. The new KubeConfig certificate is valid for 3 years. The old KubeConfig credential remains valid until the certificate expires. Obtain the rotated credential promptly based on the KubeConfig expiration time displayed in the console or returned by the operation.
+       * - Properly manage the KubeConfig credentials of your cluster and revoke them when they are no longer needed to avoid security risks such as sensitive data leakage caused by KubeConfig exposure.
        *
        * @param request DescribeClusterUserKubeconfigRequest
        * @param headers map
@@ -994,10 +984,10 @@ namespace CS20151215
       Models::DescribeClusterUserKubeconfigResponse describeClusterUserKubeconfigWithOptions(const string &ClusterId, const Models::DescribeClusterUserKubeconfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+       * @summary KubeConfig is used to configure access credentials for ACK clusters on the client. It contains identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of a specified cluster.
        *
-       * @description *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
-       * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+       * @description - The default validity period of the certificate issued by KubeConfig is 3 years. Within 180 days before the certificate expires, you can obtain a rotated and refreshed KubeConfig by using the Container Service console or the DescribeClusterUserKubeconfig operation. The new KubeConfig certificate is valid for 3 years. The old KubeConfig credential remains valid until the certificate expires. Obtain the rotated credential promptly based on the KubeConfig expiration time displayed in the console or returned by the operation.
+       * - Properly manage the KubeConfig credentials of your cluster and revoke them when they are no longer needed to avoid security risks such as sensitive data leakage caused by KubeConfig exposure.
        *
        * @param request DescribeClusterUserKubeconfigRequest
        * @return DescribeClusterUserKubeconfigResponse
@@ -1007,7 +997,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
        *
-       * @summary Obtain the kubeconfig API for a cluster
+       * @summary Retrieves the kubeconfig file for a cluster.
        *
        * @param request DescribeClusterV2UserKubeconfigRequest
        * @param headers map
@@ -1019,7 +1009,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
        *
-       * @summary Obtain the kubeconfig API for a cluster
+       * @summary Retrieves the kubeconfig file for a cluster.
        *
        * @param request DescribeClusterV2UserKubeconfigRequest
        * @return DescribeClusterV2UserKubeconfigResponse
@@ -1027,7 +1017,7 @@ namespace CS20151215
       Models::DescribeClusterV2UserKubeconfigResponse describeClusterV2UserKubeconfig(const string &ClusterId, const Models::DescribeClusterV2UserKubeconfigRequest &request);
 
       /**
-       * @summary Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+       * @summary You can call the DescribeClusterVuls operation to query the details of security vulnerabilities in a cluster by cluster ID, including vulnerability names, types, and severity levels. Regularly scan your cluster for security vulnerabilities to improve cluster security.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1036,7 +1026,7 @@ namespace CS20151215
       Models::DescribeClusterVulsResponse describeClusterVulsWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+       * @summary You can call the DescribeClusterVuls operation to query the details of security vulnerabilities in a cluster by cluster ID, including vulnerability names, types, and severity levels. Regularly scan your cluster for security vulnerabilities to improve cluster security.
        *
        * @return DescribeClusterVulsResponse
        */
@@ -1045,7 +1035,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusters is deprecated
        *
-       * @summary View all clusters (including Swarm and Kubernetes clusters) created in the container service.
+       * @summary View all clusters created in Container Service (including Swarm and Kubernetes clusters).
        *
        * @param request DescribeClustersRequest
        * @param headers map
@@ -1057,7 +1047,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusters is deprecated
        *
-       * @summary View all clusters (including Swarm and Kubernetes clusters) created in the container service.
+       * @summary View all clusters created in Container Service (including Swarm and Kubernetes clusters).
        *
        * @param request DescribeClustersRequest
        * @return DescribeClustersResponse
@@ -1065,7 +1055,7 @@ namespace CS20151215
       Models::DescribeClustersResponse describeClusters(const Models::DescribeClustersRequest &request);
 
       /**
-       * @summary Lists all clusters in a specified region.
+       * @summary Queries all clusters in a specified region.
        *
        * @param request DescribeClustersForRegionRequest
        * @param headers map
@@ -1075,7 +1065,7 @@ namespace CS20151215
       Models::DescribeClustersForRegionResponse describeClustersForRegionWithOptions(const string &regionId, const Models::DescribeClustersForRegionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all clusters in a specified region.
+       * @summary Queries all clusters in a specified region.
        *
        * @param request DescribeClustersForRegionRequest
        * @return DescribeClustersForRegionResponse
@@ -1083,7 +1073,7 @@ namespace CS20151215
       Models::DescribeClustersForRegionResponse describeClustersForRegion(const string &regionId, const Models::DescribeClustersForRegionRequest &request);
 
       /**
-       * @summary Use the DescribeClustersV1 API to list ACK clusters by criteria such as cluster type and cluster specification.
+       * @summary You can invoke the DescribeClustersV1 operation to query the list of ACK clusters that meet conditional criteria (such as cluster type and cluster specification) under the current account.
        *
        * @param request DescribeClustersV1Request
        * @param headers map
@@ -1093,7 +1083,7 @@ namespace CS20151215
       Models::DescribeClustersV1Response describeClustersV1WithOptions(const Models::DescribeClustersV1Request &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use the DescribeClustersV1 API to list ACK clusters by criteria such as cluster type and cluster specification.
+       * @summary You can invoke the DescribeClustersV1 operation to query the list of ACK clusters that meet conditional criteria (such as cluster type and cluster specification) under the current account.
        *
        * @param request DescribeClustersV1Request
        * @return DescribeClustersV1Response
@@ -1101,7 +1091,7 @@ namespace CS20151215
       Models::DescribeClustersV1Response describeClustersV1(const Models::DescribeClustersV1Request &request);
 
       /**
-       * @summary Cluster operation events include cluster creation, cluster changes, node pool creation, node pool scale-out, add-on installation, and cluster upgrade. Use the `DescribeEvents` API to query details for a specific event type, including its level, status, and timestamp.
+       * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeEvents operation to query the details of a specific type of event, including the event level, event status, and event time.
        *
        * @param request DescribeEventsRequest
        * @param headers map
@@ -1111,7 +1101,7 @@ namespace CS20151215
       Models::DescribeEventsResponse describeEventsWithOptions(const Models::DescribeEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cluster operation events include cluster creation, cluster changes, node pool creation, node pool scale-out, add-on installation, and cluster upgrade. Use the `DescribeEvents` API to query details for a specific event type, including its level, status, and timestamp.
+       * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeEvents operation to query the details of a specific type of event, including the event level, event status, and event time.
        *
        * @param request DescribeEventsRequest
        * @return DescribeEventsResponse
@@ -1119,7 +1109,7 @@ namespace CS20151215
       Models::DescribeEventsResponse describeEvents(const Models::DescribeEventsRequest &request);
 
       /**
-       * @summary Retrieves a list of events in a specified region.
+       * @summary Queries all events in a specified region.
        *
        * @param request DescribeEventsForRegionRequest
        * @param headers map
@@ -1129,7 +1119,7 @@ namespace CS20151215
       Models::DescribeEventsForRegionResponse describeEventsForRegionWithOptions(const string &regionId, const Models::DescribeEventsForRegionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of events in a specified region.
+       * @summary Queries all events in a specified region.
        *
        * @param request DescribeEventsForRegionRequest
        * @return DescribeEventsForRegionResponse
@@ -1139,9 +1129,9 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeExternalAgent is deprecated
        *
-       * @summary Queries the proxy configurations of a registered cluster by cluster ID.
+       * @summary Queries the agent configuration for a registered cluster by cluster ID.
        *
-       * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+       * @description For more information about cluster registration, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
        *
        * @param request DescribeExternalAgentRequest
        * @param headers map
@@ -1153,9 +1143,9 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeExternalAgent is deprecated
        *
-       * @summary Queries the proxy configurations of a registered cluster by cluster ID.
+       * @summary Queries the agent configuration for a registered cluster by cluster ID.
        *
-       * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+       * @description For more information about cluster registration, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
        *
        * @param request DescribeExternalAgentRequest
        * @return DescribeExternalAgentResponse
@@ -1163,7 +1153,7 @@ namespace CS20151215
       Models::DescribeExternalAgentResponse describeExternalAgent(const string &ClusterId, const Models::DescribeExternalAgentRequest &request);
 
       /**
-       * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+       * @summary You can call the DescribeKubernetesVersionMetadata operation to query detailed information about Kubernetes versions, including version information, release dates and expiration dates, compatible operating systems, and container runtimes.
        *
        * @param request DescribeKubernetesVersionMetadataRequest
        * @param headers map
@@ -1173,7 +1163,7 @@ namespace CS20151215
       Models::DescribeKubernetesVersionMetadataResponse describeKubernetesVersionMetadataWithOptions(const Models::DescribeKubernetesVersionMetadataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+       * @summary You can call the DescribeKubernetesVersionMetadata operation to query detailed information about Kubernetes versions, including version information, release dates and expiration dates, compatible operating systems, and container runtimes.
        *
        * @param request DescribeKubernetesVersionMetadataRequest
        * @return DescribeKubernetesVersionMetadataResponse
@@ -1181,7 +1171,7 @@ namespace CS20151215
       Models::DescribeKubernetesVersionMetadataResponse describeKubernetesVersionMetadata(const Models::DescribeKubernetesVersionMetadataRequest &request);
 
       /**
-       * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+       * @summary Queries the security vulnerability details of a node pool by node pool ID by calling the DescribeNodePoolVuls operation. The details include vulnerability names and severity levels. Regularly scan node pools for security vulnerabilities to improve cluster security.
        *
        * @param request DescribeNodePoolVulsRequest
        * @param headers map
@@ -1191,7 +1181,7 @@ namespace CS20151215
       Models::DescribeNodePoolVulsResponse describeNodePoolVulsWithOptions(const string &clusterId, const string &nodepoolId, const Models::DescribeNodePoolVulsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+       * @summary Queries the security vulnerability details of a node pool by node pool ID by calling the DescribeNodePoolVuls operation. The details include vulnerability names and severity levels. Regularly scan node pools for security vulnerabilities to improve cluster security.
        *
        * @param request DescribeNodePoolVulsRequest
        * @return DescribeNodePoolVulsResponse
@@ -1199,7 +1189,7 @@ namespace CS20151215
       Models::DescribeNodePoolVulsResponse describeNodePoolVuls(const string &clusterId, const string &nodepoolId, const Models::DescribeNodePoolVulsRequest &request);
 
       /**
-       * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
+       * @summary ACK cluster container security policies provide a comprehensive built-in rule library that includes Compliance, Infra, K8s-general, and PSP categories to ensure the secure operation of containers in production environments. You can call the DescribePolicies operation to query the list of policy governance rule libraries.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1208,14 +1198,14 @@ namespace CS20151215
       Models::DescribePoliciesResponse describePoliciesWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
+       * @summary ACK cluster container security policies provide a comprehensive built-in rule library that includes Compliance, Infra, K8s-general, and PSP categories to ensure the secure operation of containers in production environments. You can call the DescribePolicies operation to query the list of policy governance rule libraries.
        *
        * @return DescribePoliciesResponse
        */
       Models::DescribePoliciesResponse describePolicies();
 
       /**
-       * @summary Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
+       * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyDetails operation to query the details of a specified policy governance rule, such as the rule template description, governance action, and governance severity level.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1224,14 +1214,14 @@ namespace CS20151215
       Models::DescribePolicyDetailsResponse describePolicyDetailsWithOptions(const string &policyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
+       * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyDetails operation to query the details of a specified policy governance rule, such as the rule template description, governance action, and governance severity level.
        *
        * @return DescribePolicyDetailsResponse
        */
       Models::DescribePolicyDetailsResponse describePolicyDetails(const string &policyName);
 
       /**
-       * @summary Container security policies for ACK clusters provide a rich set of built-in rule libraries, including `Compliance`, `Infra`, `K8s-general`, and `PSP`, to secure containers in a production environment. Call the `DescribePolicyGovernanceInCluster` API to retrieve policy governance details for a target cluster, such as policy statistics by severity, audit logs, and interception and alert events.
+       * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyGovernanceInCluster operation to query detailed policy governance information for a specified cluster, such as the count of enabled policies at different severity levels, policy governance audit logs, and interception and alert details.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1240,14 +1230,14 @@ namespace CS20151215
       Models::DescribePolicyGovernanceInClusterResponse describePolicyGovernanceInClusterWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Container security policies for ACK clusters provide a rich set of built-in rule libraries, including `Compliance`, `Infra`, `K8s-general`, and `PSP`, to secure containers in a production environment. Call the `DescribePolicyGovernanceInCluster` API to retrieve policy governance details for a target cluster, such as policy statistics by severity, audit logs, and interception and alert events.
+       * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyGovernanceInCluster operation to query detailed policy governance information for a specified cluster, such as the count of enabled policies at different severity levels, policy governance audit logs, and interception and alert details.
        *
        * @return DescribePolicyGovernanceInClusterResponse
        */
       Models::DescribePolicyGovernanceInClusterResponse describePolicyGovernanceInCluster(const string &clusterId);
 
       /**
-       * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+       * @summary You can select a security policy type in an ACK cluster, configure the related enforcement actions and scope, and create and deploy a policy instance. You can call the DescribePolicyInstances operation to retrieve the details of specified policy instances in a cluster, such as the policy description and governance level.
        *
        * @param request DescribePolicyInstancesRequest
        * @param headers map
@@ -1257,7 +1247,7 @@ namespace CS20151215
       Models::DescribePolicyInstancesResponse describePolicyInstancesWithOptions(const string &clusterId, const Models::DescribePolicyInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+       * @summary You can select a security policy type in an ACK cluster, configure the related enforcement actions and scope, and create and deploy a policy instance. You can call the DescribePolicyInstances operation to retrieve the details of specified policy instances in a cluster, such as the policy description and governance level.
        *
        * @param request DescribePolicyInstancesRequest
        * @return DescribePolicyInstancesResponse
@@ -1265,7 +1255,7 @@ namespace CS20151215
       Models::DescribePolicyInstancesResponse describePolicyInstances(const string &clusterId, const Models::DescribePolicyInstancesRequest &request);
 
       /**
-       * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+       * @summary Queries the deployment status of policy instances for different policy types in a cluster, including the number of enabled instances for each policy rule and the number of enabled policy types at different governance levels.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1274,14 +1264,14 @@ namespace CS20151215
       Models::DescribePolicyInstancesStatusResponse describePolicyInstancesStatusWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+       * @summary Queries the deployment status of policy instances for different policy types in a cluster, including the number of enabled instances for each policy rule and the number of enabled policy types at different governance levels.
        *
        * @return DescribePolicyInstancesStatusResponse
        */
       Models::DescribePolicyInstancesStatusResponse describePolicyInstancesStatus(const string &clusterId);
 
       /**
-       * @summary Queries the list of available regions.
+       * @summary Queries the list of regions.
        *
        * @param request DescribeRegionsRequest
        * @param headers map
@@ -1291,7 +1281,7 @@ namespace CS20151215
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of available regions.
+       * @summary Queries the list of regions.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -1299,7 +1289,7 @@ namespace CS20151215
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
+       * @summary Queries whether deletion protection is enabled for a specified resource in a cluster. Resources that support deletion protection include namespaces and services.
        *
        * @param request DescribeResourcesDeleteProtectionRequest
        * @param headers map
@@ -1309,7 +1299,7 @@ namespace CS20151215
       Models::DescribeResourcesDeleteProtectionResponse describeResourcesDeleteProtectionWithOptions(const string &ClusterId, const string &ResourceType, const Models::DescribeResourcesDeleteProtectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
+       * @summary Queries whether deletion protection is enabled for a specified resource in a cluster. Resources that support deletion protection include namespaces and services.
        *
        * @param request DescribeResourcesDeleteProtectionRequest
        * @return DescribeResourcesDeleteProtectionResponse
@@ -1317,9 +1307,9 @@ namespace CS20151215
       Models::DescribeResourcesDeleteProtectionResponse describeResourcesDeleteProtection(const string &ClusterId, const string &ResourceType, const Models::DescribeResourcesDeleteProtectionRequest &request);
 
       /**
-       * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
+       * @summary As a cluster permission management administrator, you can use an Alibaba Cloud account to issue KubeConfig credentials that contain identity information for a specified Resource Access Management (RAM) user or RAM role within the account. These credentials are used to connect to ACK clusters. You can invoke the DescribeSubaccountK8sClusterUserConfig operation to issue or retrieve the KubeConfig for any RAM user or role within the account.
        *
-       * @description You can call this operation only by using an Alibaba Cloud account.
+       * @description This operation can be called only by an Alibaba Cloud account.
        *
        * @param request DescribeSubaccountK8sClusterUserConfigRequest
        * @param headers map
@@ -1329,9 +1319,9 @@ namespace CS20151215
       Models::DescribeSubaccountK8sClusterUserConfigResponse describeSubaccountK8sClusterUserConfigWithOptions(const string &ClusterId, const string &Uid, const Models::DescribeSubaccountK8sClusterUserConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
+       * @summary As a cluster permission management administrator, you can use an Alibaba Cloud account to issue KubeConfig credentials that contain identity information for a specified Resource Access Management (RAM) user or RAM role within the account. These credentials are used to connect to ACK clusters. You can invoke the DescribeSubaccountK8sClusterUserConfig operation to issue or retrieve the KubeConfig for any RAM user or role within the account.
        *
-       * @description You can call this operation only by using an Alibaba Cloud account.
+       * @description This operation can be called only by an Alibaba Cloud account.
        *
        * @param request DescribeSubaccountK8sClusterUserConfigRequest
        * @return DescribeSubaccountK8sClusterUserConfigResponse
@@ -1339,7 +1329,7 @@ namespace CS20151215
       Models::DescribeSubaccountK8sClusterUserConfigResponse describeSubaccountK8sClusterUserConfig(const string &ClusterId, const string &Uid, const Models::DescribeSubaccountK8sClusterUserConfigRequest &request);
 
       /**
-       * @summary Use the DescribeTaskInfo operation to query details about a cluster task, such as its task type, running state, and running stage.
+       * @summary Queries the details of a cluster task, such as the task type, running status, and running stage.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1348,14 +1338,14 @@ namespace CS20151215
       Models::DescribeTaskInfoResponse describeTaskInfoWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use the DescribeTaskInfo operation to query details about a cluster task, such as its task type, running state, and running stage.
+       * @summary Queries the details of a cluster task, such as the task type, running status, and running stage.
        *
        * @return DescribeTaskInfoResponse
        */
       Models::DescribeTaskInfoResponse describeTaskInfo(const string &taskId);
 
       /**
-       * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplateAttribute operation to query the details of a specified orchestration template, including access permissions, YAML content, and labels.
        *
        * @param request DescribeTemplateAttributeRequest
        * @param headers map
@@ -1365,7 +1355,7 @@ namespace CS20151215
       Models::DescribeTemplateAttributeResponse describeTemplateAttributeWithOptions(const string &TemplateId, const Models::DescribeTemplateAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplateAttribute operation to query the details of a specified orchestration template, including access permissions, YAML content, and labels.
        *
        * @param request DescribeTemplateAttributeRequest
        * @return DescribeTemplateAttributeResponse
@@ -1373,7 +1363,7 @@ namespace CS20151215
       Models::DescribeTemplateAttributeResponse describeTemplateAttribute(const string &TemplateId, const Models::DescribeTemplateAttributeRequest &request);
 
       /**
-       * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplates operation to retrieve a list of created orchestration templates and query detailed information about the templates, including access permissions, YAML content, and tags.
        *
        * @param request DescribeTemplatesRequest
        * @param headers map
@@ -1383,7 +1373,7 @@ namespace CS20151215
       Models::DescribeTemplatesResponse describeTemplatesWithOptions(const Models::DescribeTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplates operation to retrieve a list of created orchestration templates and query detailed information about the templates, including access permissions, YAML content, and tags.
        *
        * @param request DescribeTemplatesRequest
        * @return DescribeTemplatesResponse
@@ -1391,7 +1381,7 @@ namespace CS20151215
       Models::DescribeTemplatesResponse describeTemplates(const Models::DescribeTemplatesRequest &request);
 
       /**
-       * @summary Queries triggers that match specific conditions.
+       * @summary Queries triggers that meet the specified conditions.
        *
        * @param request DescribeTriggerRequest
        * @param headers map
@@ -1401,7 +1391,7 @@ namespace CS20151215
       Models::DescribeTriggerResponse describeTriggerWithOptions(const string &clusterId, const Models::DescribeTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries triggers that match specific conditions.
+       * @summary Queries triggers that meet the specified conditions.
        *
        * @param request DescribeTriggerRequest
        * @return DescribeTriggerResponse
@@ -1409,7 +1399,7 @@ namespace CS20151215
       Models::DescribeTriggerResponse describeTrigger(const string &clusterId, const Models::DescribeTriggerRequest &request);
 
       /**
-       * @summary You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
+       * @summary In ACK clusters, you can use Kubernetes namespaces to achieve logically isolated permissions and resources for cluster users. Users who are granted RBAC permissions only for a specified namespace cannot access resources in other namespaces of the cluster. You can invoke the DescribeUserClusterNamespaces operation to query the namespaces for which the current Resource Access Management (RAM) user or role has been granted RBAC access permissions in a specified ACK cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1418,17 +1408,17 @@ namespace CS20151215
       Models::DescribeUserClusterNamespacesResponse describeUserClusterNamespacesWithOptions(const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
+       * @summary In ACK clusters, you can use Kubernetes namespaces to achieve logically isolated permissions and resources for cluster users. Users who are granted RBAC permissions only for a specified namespace cannot access resources in other namespaces of the cluster. You can invoke the DescribeUserClusterNamespaces operation to query the namespaces for which the current Resource Access Management (RAM) user or role has been granted RBAC access permissions in a specified ACK cluster.
        *
        * @return DescribeUserClusterNamespacesResponse
        */
       Models::DescribeUserClusterNamespacesResponse describeUserClusterNamespaces(const string &ClusterId);
 
       /**
-       * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+       * @summary In ACK clusters, you can create and assign different access permissions to different Resource Access Management (RAM) users or roles to ensure secure access control and resource isolation. You can invoke the DescribeUserPermission operation to query the details of cluster permissions granted to a RAM user or role, including accessible resources, permission scope, preset role types, and permission sources.
        *
-       * @description **Precautions**:
-       * *   If you call this operation as a Resource Access Management (RAM) user or by assuming a RAM role, only the permissions granted on the clusters on which the current account has the role-based access control (RBAC) administrator permissions are returned. If you want to query the permissions on all clusters, you must use an account that has the RBAC administrator permissions on all clusters.
+       * @description **Before you begin**:
+       * - If the account that invokes this API operation is a Resource Access Management (RAM) user or RAM role, the API operation returns only the permissions for clusters in which the calling account has RBAC administrator permissions. To list permissions for all clusters, the calling account must have RBAC administrator permissions on all clusters.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1437,17 +1427,17 @@ namespace CS20151215
       Models::DescribeUserPermissionResponse describeUserPermissionWithOptions(const string &uid, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+       * @summary In ACK clusters, you can create and assign different access permissions to different Resource Access Management (RAM) users or roles to ensure secure access control and resource isolation. You can invoke the DescribeUserPermission operation to query the details of cluster permissions granted to a RAM user or role, including accessible resources, permission scope, preset role types, and permission sources.
        *
-       * @description **Precautions**:
-       * *   If you call this operation as a Resource Access Management (RAM) user or by assuming a RAM role, only the permissions granted on the clusters on which the current account has the role-based access control (RBAC) administrator permissions are returned. If you want to query the permissions on all clusters, you must use an account that has the RBAC administrator permissions on all clusters.
+       * @description **Before you begin**:
+       * - If the account that invokes this API operation is a Resource Access Management (RAM) user or RAM role, the API operation returns only the permissions for clusters in which the calling account has RBAC administrator permissions. To list permissions for all clusters, the calling account must have RBAC administrator permissions on all clusters.
        *
        * @return DescribeUserPermissionResponse
        */
       Models::DescribeUserPermissionResponse describeUserPermission(const string &uid);
 
       /**
-       * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+       * @summary Queries the quotas of ACK clusters, node pools, and nodes. To increase a quota, go to Quota Center to submit a request.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1456,19 +1446,18 @@ namespace CS20151215
       Models::DescribeUserQuotaResponse describeUserQuotaWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+       * @summary Queries the quotas of ACK clusters, node pools, and nodes. To increase a quota, go to Quota Center to submit a request.
        *
        * @return DescribeUserQuotaResponse
        */
       Models::DescribeUserQuotaResponse describeUserQuota();
 
       /**
-       * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+       * @summary Alibaba Cloud security products periodically scan ECS nodes for security vulnerabilities and provide corresponding remediation suggestions and methods. Some CVE fixes may require node restarts. Ensure that the cluster has sufficient nodes for drain operations. You can call the FixNodePoolVuls operation to fix node security vulnerabilities in a specified cluster node pool and improve the security of cluster nodes.
        *
-       * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
-       * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
-       * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
-       * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+       * @description - CVE compatibility is ensured by Security Center. Make sure that you have activated the Ultimate edition of Security Center or [purchased vulnerability fixing (pay-as-you-go)](https://help.aliyun.com/document_detail/42308.html).
+       * - Some CVE fixes require node restarts. Container Service drains the node before restarting it. Ensure that the cluster has sufficient spare node resources for draining. For example, scale out the node pool in advance.
+       * - Pay attention to the compatibility between your applications and CVEs. CVE fixes are performed in batches. During the CVE fix process, you can pause or cancel the task. After you pause or cancel the task, batches that have already been dispatched continue to run until completion. Batches that have not been dispatched are paused or canceled.
        *
        * @param request FixNodePoolVulsRequest
        * @param headers map
@@ -1478,12 +1467,11 @@ namespace CS20151215
       Models::FixNodePoolVulsResponse fixNodePoolVulsWithOptions(const string &clusterId, const string &nodepoolId, const Models::FixNodePoolVulsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+       * @summary Alibaba Cloud security products periodically scan ECS nodes for security vulnerabilities and provide corresponding remediation suggestions and methods. Some CVE fixes may require node restarts. Ensure that the cluster has sufficient nodes for drain operations. You can call the FixNodePoolVuls operation to fix node security vulnerabilities in a specified cluster node pool and improve the security of cluster nodes.
        *
-       * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
-       * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
-       * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
-       * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+       * @description - CVE compatibility is ensured by Security Center. Make sure that you have activated the Ultimate edition of Security Center or [purchased vulnerability fixing (pay-as-you-go)](https://help.aliyun.com/document_detail/42308.html).
+       * - Some CVE fixes require node restarts. Container Service drains the node before restarting it. Ensure that the cluster has sufficient spare node resources for draining. For example, scale out the node pool in advance.
+       * - Pay attention to the compatibility between your applications and CVEs. CVE fixes are performed in batches. During the CVE fix process, you can pause or cancel the task. After you pause or cancel the task, batches that have already been dispatched continue to run until completion. Batches that have not been dispatched are paused or canceled.
        *
        * @param request FixNodePoolVulsRequest
        * @return FixNodePoolVulsResponse
@@ -1491,7 +1479,7 @@ namespace CS20151215
       Models::FixNodePoolVulsResponse fixNodePoolVuls(const string &clusterId, const string &nodepoolId, const Models::FixNodePoolVulsRequest &request);
 
       /**
-       * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+       * @summary Queries the details of a specified component instance in a cluster, including the version, parameter settings, and logging feature status of the component instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1500,14 +1488,14 @@ namespace CS20151215
       Models::GetClusterAddonInstanceResponse getClusterAddonInstanceWithOptions(const string &clusterId, const string &instanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+       * @summary Queries the details of a specified component instance in a cluster, including the version, parameter settings, and logging feature status of the component instance.
        *
        * @return GetClusterAddonInstanceResponse
        */
       Models::GetClusterAddonInstanceResponse getClusterAddonInstance(const string &clusterId, const string &instanceName);
 
       /**
-       * @summary You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
+       * @summary Queries whether the API server audit feature is enabled for a cluster and retrieves the Simple Log Service (SLS) project that stores the API server audit logs.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1516,14 +1504,14 @@ namespace CS20151215
       Models::GetClusterAuditProjectResponse getClusterAuditProjectWithOptions(const string &clusterid, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
+       * @summary Queries whether the API server audit feature is enabled for a cluster and retrieves the Simple Log Service (SLS) project that stores the API server audit logs.
        *
        * @return GetClusterAuditProjectResponse
        */
       Models::GetClusterAuditProjectResponse getClusterAuditProject(const string &clusterid);
 
       /**
-       * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+       * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the GetClusterCheck operation to query information about a specified check task based on the cluster ID and check task ID, such as the check status, specific check items, and check creation and completion time.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1532,14 +1520,14 @@ namespace CS20151215
       Models::GetClusterCheckResponse getClusterCheckWithOptions(const string &clusterId, const string &checkId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+       * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the GetClusterCheck operation to query information about a specified check task based on the cluster ID and check task ID, such as the check status, specific check items, and check creation and completion time.
        *
        * @return GetClusterCheckResponse
        */
       Models::GetClusterCheckResponse getClusterCheck(const string &clusterId, const string &checkId);
 
       /**
-       * @summary Queries cluster diagnostic items.
+       * @summary Retrieves the diagnostic check items of a cluster.
        *
        * @param request GetClusterDiagnosisCheckItemsRequest
        * @param headers map
@@ -1549,7 +1537,7 @@ namespace CS20151215
       Models::GetClusterDiagnosisCheckItemsResponse getClusterDiagnosisCheckItemsWithOptions(const string &clusterId, const string &diagnosisId, const Models::GetClusterDiagnosisCheckItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries cluster diagnostic items.
+       * @summary Retrieves the diagnostic check items of a cluster.
        *
        * @param request GetClusterDiagnosisCheckItemsRequest
        * @return GetClusterDiagnosisCheckItemsResponse
@@ -1557,7 +1545,7 @@ namespace CS20151215
       Models::GetClusterDiagnosisCheckItemsResponse getClusterDiagnosisCheckItems(const string &clusterId, const string &diagnosisId, const Models::GetClusterDiagnosisCheckItemsRequest &request);
 
       /**
-       * @summary Queries cluster diagnostic results.
+       * @summary Retrieves the diagnosis result of a cluster.
        *
        * @param request GetClusterDiagnosisResultRequest
        * @param headers map
@@ -1567,7 +1555,7 @@ namespace CS20151215
       Models::GetClusterDiagnosisResultResponse getClusterDiagnosisResultWithOptions(const string &clusterId, const string &diagnosisId, const Models::GetClusterDiagnosisResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries cluster diagnostic results.
+       * @summary Retrieves the diagnosis result of a cluster.
        *
        * @param request GetClusterDiagnosisResultRequest
        * @return GetClusterDiagnosisResultResponse
@@ -1575,7 +1563,7 @@ namespace CS20151215
       Models::GetClusterDiagnosisResultResponse getClusterDiagnosisResult(const string &clusterId, const string &diagnosisId, const Models::GetClusterDiagnosisResultRequest &request);
 
       /**
-       * @summary Retrieves cluster inspection configuration.
+       * @summary Retrieves the inspection configuration of a cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1584,14 +1572,14 @@ namespace CS20151215
       Models::GetClusterInspectConfigResponse getClusterInspectConfigWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves cluster inspection configuration.
+       * @summary Retrieves the inspection configuration of a cluster.
        *
        * @return GetClusterInspectConfigResponse
        */
       Models::GetClusterInspectConfigResponse getClusterInspectConfig(const string &clusterId);
 
       /**
-       * @summary Obtain the details of the inspection report for the cluster
+       * @summary Retrieves the details of a cluster inspection report.
        *
        * @param request GetClusterInspectReportDetailRequest
        * @param headers map
@@ -1601,7 +1589,7 @@ namespace CS20151215
       Models::GetClusterInspectReportDetailResponse getClusterInspectReportDetailWithOptions(const string &clusterId, const string &reportId, const Models::GetClusterInspectReportDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain the details of the inspection report for the cluster
+       * @summary Retrieves the details of a cluster inspection report.
        *
        * @param request GetClusterInspectReportDetailRequest
        * @return GetClusterInspectReportDetailResponse
@@ -1611,7 +1599,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI GetKubernetesTrigger is deprecated
        *
-       * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+       * @summary Queries the triggers of an application by application name.
        *
        * @param request GetKubernetesTriggerRequest
        * @param headers map
@@ -1623,7 +1611,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI GetKubernetesTrigger is deprecated
        *
-       * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+       * @summary Queries the triggers of an application by application name.
        *
        * @param request GetKubernetesTriggerRequest
        * @return GetKubernetesTriggerResponse
@@ -1633,7 +1621,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI GetUpgradeStatus is deprecated
        *
-       * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+       * @summary Queries the upgrade status of a cluster by cluster ID.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1644,17 +1632,17 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI GetUpgradeStatus is deprecated
        *
-       * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+       * @summary Queries the upgrade status of a cluster by cluster ID.
        *
        * @return GetUpgradeStatusResponse
        */
       Models::GetUpgradeStatusResponse getUpgradeStatus(const string &ClusterId);
 
       /**
-       * @summary By default, a RAM user or RAM role has no RBAC permissions in a cluster they did not create, unless granted permissions at the all-clusters scope. Call the GrantPermissions operation to update the RBAC permissions for a RAM user or RAM role. This operation lets you configure accessible resources, permission scopes, and predefined roles to manage cluster access control.
+       * @summary By default, Resource Access Management (RAM) users or roles that are not cluster creators and have not been granted access permissions across all cluster dimensions do not have any RBAC permissions in a cluster. You can invoke the GrantPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management security and access control.
        *
-       * @description - If you call this operation as a RAM user, you must have permission to modify the cluster permissions of other RAM users or RAM roles. Otherwise, the API call fails and returns the `StatusForbidden` or `ForbiddenGrantPermissions` error code. For more information, see [Authorize a RAM user to manage the RBAC permissions of other RAM users](https://help.aliyun.com/document_detail/119035.html).
-       * - This operation overwrites all existing cluster permissions for the specified RAM user or RAM role. Your request must include the complete set of permissions you want to grant.
+       * @description - If the account that invokes this API operation is a RAM user, make sure that the account has been granted the permission to modify the RBAC authorization information of other Resource Access Management (RAM) users or RAM roles. Otherwise, the API operation returns the `StatusForbidden` or `ForbiddenGrantPermissions` fault. For more information, see [Grant RBAC permissions to a RAM user](https://help.aliyun.com/document_detail/119035.html).
+       * - The operation of fully updating the RBAC authorization information of a RAM user or RAM role overwrites the existing cluster permissions of the target RAM user or RAM role. Include all permission configurations that you want to grant to the target RAM user or RAM role in the request.
        *
        * @param request GrantPermissionsRequest
        * @param headers map
@@ -1664,10 +1652,10 @@ namespace CS20151215
       Models::GrantPermissionsResponse grantPermissionsWithOptions(const string &uid, const Models::GrantPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary By default, a RAM user or RAM role has no RBAC permissions in a cluster they did not create, unless granted permissions at the all-clusters scope. Call the GrantPermissions operation to update the RBAC permissions for a RAM user or RAM role. This operation lets you configure accessible resources, permission scopes, and predefined roles to manage cluster access control.
+       * @summary By default, Resource Access Management (RAM) users or roles that are not cluster creators and have not been granted access permissions across all cluster dimensions do not have any RBAC permissions in a cluster. You can invoke the GrantPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management security and access control.
        *
-       * @description - If you call this operation as a RAM user, you must have permission to modify the cluster permissions of other RAM users or RAM roles. Otherwise, the API call fails and returns the `StatusForbidden` or `ForbiddenGrantPermissions` error code. For more information, see [Authorize a RAM user to manage the RBAC permissions of other RAM users](https://help.aliyun.com/document_detail/119035.html).
-       * - This operation overwrites all existing cluster permissions for the specified RAM user or RAM role. Your request must include the complete set of permissions you want to grant.
+       * @description - If the account that invokes this API operation is a RAM user, make sure that the account has been granted the permission to modify the RBAC authorization information of other Resource Access Management (RAM) users or RAM roles. Otherwise, the API operation returns the `StatusForbidden` or `ForbiddenGrantPermissions` fault. For more information, see [Grant RBAC permissions to a RAM user](https://help.aliyun.com/document_detail/119035.html).
+       * - The operation of fully updating the RBAC authorization information of a RAM user or RAM role overwrites the existing cluster permissions of the target RAM user or RAM role. Include all permission configurations that you want to grant to the target RAM user or RAM role in the request.
        *
        * @param request GrantPermissionsRequest
        * @return GrantPermissionsResponse
@@ -1675,7 +1663,7 @@ namespace CS20151215
       Models::GrantPermissionsResponse grantPermissions(const string &uid, const Models::GrantPermissionsRequest &request);
 
       /**
-       * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+       * @summary To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, application components, logging and monitoring components, networking components, storage components, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
        *
        * @param request InstallClusterAddonsRequest
        * @param headers map
@@ -1685,7 +1673,7 @@ namespace CS20151215
       Models::InstallClusterAddonsResponse installClusterAddonsWithOptions(const string &ClusterId, const Models::InstallClusterAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+       * @summary To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, application components, logging and monitoring components, networking components, storage components, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
        *
        * @param request InstallClusterAddonsRequest
        * @return InstallClusterAddonsResponse
@@ -1693,7 +1681,7 @@ namespace CS20151215
       Models::InstallClusterAddonsResponse installClusterAddons(const string &ClusterId, const Models::InstallClusterAddonsRequest &request);
 
       /**
-       * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
+       * @summary Installs components on nodes. You can configure and specify nodes on which to install components.
        *
        * @param request InstallNodePoolComponentsRequest
        * @param headers map
@@ -1703,7 +1691,7 @@ namespace CS20151215
       Models::InstallNodePoolComponentsResponse installNodePoolComponentsWithOptions(const string &clusterId, const string &nodePoolId, const Models::InstallNodePoolComponentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
+       * @summary Installs components on nodes. You can configure and specify nodes on which to install components.
        *
        * @param request InstallNodePoolComponentsRequest
        * @return InstallNodePoolComponentsResponse
@@ -1711,7 +1699,7 @@ namespace CS20151215
       Models::InstallNodePoolComponentsResponse installNodePoolComponents(const string &clusterId, const string &nodePoolId, const Models::InstallNodePoolComponentsRequest &request);
 
       /**
-       * @summary Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+       * @summary Queries the list of available components based on specified parameters such as region, cluster type, cluster subtype (profile), and cluster version. You can also retrieve detailed component information, including whether a component is managed, the schema of supported custom parameters, and compatible operating system architectures.
        *
        * @param request ListAddonsRequest
        * @param headers map
@@ -1721,7 +1709,7 @@ namespace CS20151215
       Models::ListAddonsResponse listAddonsWithOptions(const Models::ListAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+       * @summary Queries the list of available components based on specified parameters such as region, cluster type, cluster subtype (profile), and cluster version. You can also retrieve detailed component information, including whether a component is managed, the schema of supported custom parameters, and compatible operating system architectures.
        *
        * @param request ListAddonsRequest
        * @return ListAddonsResponse
@@ -1729,10 +1717,9 @@ namespace CS20151215
       Models::ListAddonsResponse listAddons(const Models::ListAddonsRequest &request);
 
       /**
-       * @summary Returns a list of self-healing rules.
+       * @summary Retrieves the list of auto-repair policies.
        *
-       * @description >Notice: 
-       * This API will be available in a future release.
+       * @description >Notice: This API is not yet available. Stay tuned.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1741,17 +1728,16 @@ namespace CS20151215
       Models::ListAutoRepairPoliciesResponse listAutoRepairPoliciesWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns a list of self-healing rules.
+       * @summary Retrieves the list of auto-repair policies.
        *
-       * @description >Notice: 
-       * This API will be available in a future release.
+       * @description >Notice: This API is not yet available. Stay tuned.
        *
        * @return ListAutoRepairPoliciesResponse
        */
       Models::ListAutoRepairPoliciesResponse listAutoRepairPolicies(const string &clusterId);
 
       /**
-       * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
+       * @summary Queries the list of resources contained in an installed cluster component instance, including Kubernetes cluster resources and Helm release instances.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1760,14 +1746,14 @@ namespace CS20151215
       Models::ListClusterAddonInstanceResourcesResponse listClusterAddonInstanceResourcesWithOptions(const string &clusterId, const string &instanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
+       * @summary Queries the list of resources contained in an installed cluster component instance, including Kubernetes cluster resources and Helm release instances.
        *
        * @return ListClusterAddonInstanceResourcesResponse
        */
       Models::ListClusterAddonInstanceResourcesResponse listClusterAddonInstanceResources(const string &clusterId, const string &instanceName);
 
       /**
-       * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
+       * @summary Lists the component instances installed in a specified cluster and queries related information about the component instances, such as the component version and status.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1776,14 +1762,14 @@ namespace CS20151215
       Models::ListClusterAddonInstancesResponse listClusterAddonInstancesWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
+       * @summary Lists the component instances installed in a specified cluster and queries related information about the component instances, such as the component version and status.
        *
        * @return ListClusterAddonInstancesResponse
        */
       Models::ListClusterAddonInstancesResponse listClusterAddonInstances(const string &clusterId);
 
       /**
-       * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+       * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the ListClusterChecks operation to query the list of cluster checks and related information by cluster ID, such as check type, status, creation time, and completion time.
        *
        * @param request ListClusterChecksRequest
        * @param headers map
@@ -1793,7 +1779,7 @@ namespace CS20151215
       Models::ListClusterChecksResponse listClusterChecksWithOptions(const string &clusterId, const Models::ListClusterChecksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+       * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the ListClusterChecks operation to query the list of cluster checks and related information by cluster ID, such as check type, status, creation time, and completion time.
        *
        * @param request ListClusterChecksRequest
        * @return ListClusterChecksResponse
@@ -1801,7 +1787,7 @@ namespace CS20151215
       Models::ListClusterChecksResponse listClusterChecks(const string &clusterId, const Models::ListClusterChecksRequest &request);
 
       /**
-       * @summary Obtains the details of the cluster inspection report.
+       * @summary Retrieves a list of cluster inspection reports.
        *
        * @param request ListClusterInspectReportsRequest
        * @param headers map
@@ -1811,7 +1797,7 @@ namespace CS20151215
       Models::ListClusterInspectReportsResponse listClusterInspectReportsWithOptions(const string &clusterId, const Models::ListClusterInspectReportsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of the cluster inspection report.
+       * @summary Retrieves a list of cluster inspection reports.
        *
        * @param request ListClusterInspectReportsRequest
        * @return ListClusterInspectReportsResponse
@@ -1819,10 +1805,10 @@ namespace CS20151215
       Models::ListClusterInspectReportsResponse listClusterInspectReports(const string &clusterId, const Models::ListClusterInspectReportsRequest &request);
 
       /**
-       * @summary If you need to view the access control status of the current cluster, you can invoke the ListClusterKubeconfigStates API to obtain the list and status of KubeConfig configurations that have been issued to users for the current cluster.
+       * @summary Queries the list and status of KubeConfigs that have been issued to users in a specified cluster. You can call this operation to view the access control status of the current cluster.
        *
-       * @description > - Invoking this API requires the ram:ListUsers and ram:ListRoles permissions.  
-       * > - Invoking this API requires permissions to manage Container Service (CS) (AliyunCSFullAccess).
+       * @description > - To call this operation, you must have the ram:ListUsers and ram:ListRoles permissions.
+       * > - To call this operation, you must have full access to Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
        *
        * @param request ListClusterKubeconfigStatesRequest
        * @param headers map
@@ -1832,10 +1818,10 @@ namespace CS20151215
       Models::ListClusterKubeconfigStatesResponse listClusterKubeconfigStatesWithOptions(const string &ClusterId, const Models::ListClusterKubeconfigStatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If you need to view the access control status of the current cluster, you can invoke the ListClusterKubeconfigStates API to obtain the list and status of KubeConfig configurations that have been issued to users for the current cluster.
+       * @summary Queries the list and status of KubeConfigs that have been issued to users in a specified cluster. You can call this operation to view the access control status of the current cluster.
        *
-       * @description > - Invoking this API requires the ram:ListUsers and ram:ListRoles permissions.  
-       * > - Invoking this API requires permissions to manage Container Service (CS) (AliyunCSFullAccess).
+       * @description > - To call this operation, you must have the ram:ListUsers and ram:ListRoles permissions.
+       * > - To call this operation, you must have full access to Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
        *
        * @param request ListClusterKubeconfigStatesRequest
        * @return ListClusterKubeconfigStatesResponse
@@ -1843,7 +1829,7 @@ namespace CS20151215
       Models::ListClusterKubeconfigStatesResponse listClusterKubeconfigStates(const string &ClusterId, const Models::ListClusterKubeconfigStatesRequest &request);
 
       /**
-       * @summary Queries the automated maintenance schedules of a cluster.
+       * @summary Retrieves a list of automated O&M execution plans.
        *
        * @param request ListOperationPlansRequest
        * @param headers map
@@ -1853,7 +1839,7 @@ namespace CS20151215
       Models::ListOperationPlansResponse listOperationPlansWithOptions(const Models::ListOperationPlansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the automated maintenance schedules of a cluster.
+       * @summary Retrieves a list of automated O&M execution plans.
        *
        * @param request ListOperationPlansRequest
        * @return ListOperationPlansResponse
@@ -1861,7 +1847,7 @@ namespace CS20151215
       Models::ListOperationPlansResponse listOperationPlans(const Models::ListOperationPlansRequest &request);
 
       /**
-       * @summary Query the list of the latest 100 automated O&M execution plans in a specified region. When features such as Auto Mode for Intelligent Cluster Management, automatic cluster upgrade, and node pool automated O&M are enabled, you can use this API to query O&M plans automatically generated by the System and their execution status, such as cluster upgrades or CVE fixes for node pools.
+       * @summary Queries the most recent 100 automated O&M execution plans in a specified region. When features such as cluster intelligent managed mode (Auto Mode), automatic cluster upgrade, or node pool automated O&M are enabled, you can call this operation to query the O&M plans automatically generated by the system and their execution status, such as cluster upgrades and node pool CVE fixes.
        *
        * @param request ListOperationPlansForRegionRequest
        * @param headers map
@@ -1871,7 +1857,7 @@ namespace CS20151215
       Models::ListOperationPlansForRegionResponse listOperationPlansForRegionWithOptions(const string &regionId, const Models::ListOperationPlansForRegionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of the latest 100 automated O&M execution plans in a specified region. When features such as Auto Mode for Intelligent Cluster Management, automatic cluster upgrade, and node pool automated O&M are enabled, you can use this API to query O&M plans automatically generated by the System and their execution status, such as cluster upgrades or CVE fixes for node pools.
+       * @summary Queries the most recent 100 automated O&M execution plans in a specified region. When features such as cluster intelligent managed mode (Auto Mode), automatic cluster upgrade, or node pool automated O&M are enabled, you can call this operation to query the O&M plans automatically generated by the system and their execution status, such as cluster upgrades and node pool CVE fixes.
        *
        * @param request ListOperationPlansForRegionRequest
        * @return ListOperationPlansForRegionResponse
@@ -1879,7 +1865,7 @@ namespace CS20151215
       Models::ListOperationPlansForRegionResponse listOperationPlansForRegion(const string &regionId, const Models::ListOperationPlansForRegionRequest &request);
 
       /**
-       * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+       * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can classify and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and multi-tenant data isolation. You can call the ListTagResources operation to obtain a list of resource tags and query detailed tag information, such as key-value pairs and associated clusters.
        *
        * @param tmpReq ListTagResourcesRequest
        * @param headers map
@@ -1889,7 +1875,7 @@ namespace CS20151215
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+       * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can classify and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and multi-tenant data isolation. You can call the ListTagResources operation to obtain a list of resource tags and query detailed tag information, such as key-value pairs and associated clusters.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1897,9 +1883,9 @@ namespace CS20151215
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+       * @summary Queries the KubeConfig status list of all clusters for the current user. If you want to view the KubeConfig issuance status of each cluster for the current user, you can call this operation to retrieve the KubeConfig status list of all clusters.
        *
-       * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+       * @description > To call this operation, you must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
        *
        * @param request ListUserKubeConfigStatesRequest
        * @param headers map
@@ -1909,9 +1895,9 @@ namespace CS20151215
       Models::ListUserKubeConfigStatesResponse listUserKubeConfigStatesWithOptions(const string &Uid, const Models::ListUserKubeConfigStatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+       * @summary Queries the KubeConfig status list of all clusters for the current user. If you want to view the KubeConfig issuance status of each cluster for the current user, you can call this operation to retrieve the KubeConfig status list of all clusters.
        *
-       * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+       * @description > To call this operation, you must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
        *
        * @param request ListUserKubeConfigStatesRequest
        * @return ListUserKubeConfigStatesResponse
@@ -1919,9 +1905,9 @@ namespace CS20151215
       Models::ListUserKubeConfigStatesResponse listUserKubeConfigStates(const string &Uid, const Models::ListUserKubeConfigStatesRequest &request);
 
       /**
-       * @summary The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
+       * @summary ACK ACK clusters are an evolution of ACK Basic clusters, inheriting all the advantages of managed clusters, such as managed control planes and high-availability control planes. ACK ACK clusters further enhance cluster reliability, security, and scheduling capabilities, and support SLAs with compensation standards. ACK ACK clusters are suitable for enterprise customers who run large-scale workloads in production environments and have high requirements for stability and security. You can call the MigrateCluster operation to migrate an ACK Basic cluster to an ACK ACK cluster.
        *
-       * @description ACK托管集群基础版迁移至ACK托管集群Pro版后，将新增[集群管理费用](https://help.aliyun.com/document_detail/462278.html)（由ACK收取），其他云资源计费保持不变。
+       * @description After you migrate an ACK managed Basic cluster to an ACK managed Pro cluster, a [cluster management fee](https://help.aliyun.com/document_detail/462278.html) charged by ACK is added. Billing for other cloud resources remains unchanged.
        *
        * @param request MigrateClusterRequest
        * @param headers map
@@ -1931,9 +1917,9 @@ namespace CS20151215
       Models::MigrateClusterResponse migrateClusterWithOptions(const string &clusterId, const Models::MigrateClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
+       * @summary ACK ACK clusters are an evolution of ACK Basic clusters, inheriting all the advantages of managed clusters, such as managed control planes and high-availability control planes. ACK ACK clusters further enhance cluster reliability, security, and scheduling capabilities, and support SLAs with compensation standards. ACK ACK clusters are suitable for enterprise customers who run large-scale workloads in production environments and have high requirements for stability and security. You can call the MigrateCluster operation to migrate an ACK Basic cluster to an ACK ACK cluster.
        *
-       * @description ACK托管集群基础版迁移至ACK托管集群Pro版后，将新增[集群管理费用](https://help.aliyun.com/document_detail/462278.html)（由ACK收取），其他云资源计费保持不变。
+       * @description After you migrate an ACK managed Basic cluster to an ACK managed Pro cluster, a [cluster management fee](https://help.aliyun.com/document_detail/462278.html) charged by ACK is added. Billing for other cloud resources remains unchanged.
        *
        * @param request MigrateClusterRequest
        * @return MigrateClusterResponse
@@ -1941,10 +1927,9 @@ namespace CS20151215
       Models::MigrateClusterResponse migrateCluster(const string &clusterId, const Models::MigrateClusterRequest &request);
 
       /**
-       * @summary Modify a self-healing rule
+       * @summary Modifies a self-healing rule.
        *
-       * @description >Notice: 
-       * This API is not yet available.
+       * @description >Notice: This API is not yet available. Stay tuned..
        *
        * @param request ModifyAutoRepairPolicyRequest
        * @param headers map
@@ -1954,10 +1939,9 @@ namespace CS20151215
       Models::ModifyAutoRepairPolicyResponse modifyAutoRepairPolicyWithOptions(const string &clusterId, const string &policyId, const Models::ModifyAutoRepairPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify a self-healing rule
+       * @summary Modifies a self-healing rule.
        *
-       * @description >Notice: 
-       * This API is not yet available.
+       * @description >Notice: This API is not yet available. Stay tuned..
        *
        * @param request ModifyAutoRepairPolicyRequest
        * @return ModifyAutoRepairPolicyResponse
@@ -1967,8 +1951,7 @@ namespace CS20151215
       /**
        * @summary You can call the ModifyCluster operation to modify the configuration of an ACK cluster.
        *
-       * @description >Notice: 
-       * Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on changes to input and output parameters and deprecation of OpenAPI operations related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).
+       * @description <notice>Starting from July 04, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on Changes to ACK Cluster Management OpenAPI Parameters and OpenAPI Deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
        *
        * @param request ModifyClusterRequest
        * @param headers map
@@ -1980,8 +1963,7 @@ namespace CS20151215
       /**
        * @summary You can call the ModifyCluster operation to modify the configuration of an ACK cluster.
        *
-       * @description >Notice: 
-       * Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on changes to input and output parameters and deprecation of OpenAPI operations related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).
+       * @description <notice>Starting from July 04, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on Changes to ACK Cluster Management OpenAPI Parameters and OpenAPI Deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
        *
        * @param request ModifyClusterRequest
        * @return ModifyClusterResponse
@@ -1989,12 +1971,12 @@ namespace CS20151215
       Models::ModifyClusterResponse modifyCluster(const string &ClusterId, const Models::ModifyClusterRequest &request);
 
       /**
-       * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+       * @summary Modifies the configuration of an installed cluster component instance. Modifying configurations may affect your services. Evaluate the impact before performing this operation during off-peak hours and back up relevant data in advance.
        *
-       * @description You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
-       * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
-       * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
-       * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+       * @description You can call this API operation to modify the configuration of common clusters components and the control plane parameter settings of ACK Pro clusters:
+       * - To query the configurable parameters of common components, call the DescribeClusterAddonMetadata API operation. For details, see [Query cluster component version metadata](https://help.aliyun.com/document_detail/2667944.html).
+       * - For the configurable control plane parameter settings of ACK Pro clusters, see [Customize control plane parameters of ACK Pro clusters](https://help.aliyun.com/document_detail/199588.html).
+       * Modifying configurations may cause the component to be redeployed and restarted. Evaluate the impact before performing this operation.
        *
        * @param request ModifyClusterAddonRequest
        * @param headers map
@@ -2004,12 +1986,12 @@ namespace CS20151215
       Models::ModifyClusterAddonResponse modifyClusterAddonWithOptions(const string &clusterId, const string &componentId, const Models::ModifyClusterAddonRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+       * @summary Modifies the configuration of an installed cluster component instance. Modifying configurations may affect your services. Evaluate the impact before performing this operation during off-peak hours and back up relevant data in advance.
        *
-       * @description You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
-       * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
-       * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
-       * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+       * @description You can call this API operation to modify the configuration of common clusters components and the control plane parameter settings of ACK Pro clusters:
+       * - To query the configurable parameters of common components, call the DescribeClusterAddonMetadata API operation. For details, see [Query cluster component version metadata](https://help.aliyun.com/document_detail/2667944.html).
+       * - For the configurable control plane parameter settings of ACK Pro clusters, see [Customize control plane parameters of ACK Pro clusters](https://help.aliyun.com/document_detail/199588.html).
+       * Modifying configurations may cause the component to be redeployed and restarted. Evaluate the impact before performing this operation.
        *
        * @param request ModifyClusterAddonRequest
        * @return ModifyClusterAddonResponse
@@ -2017,7 +1999,7 @@ namespace CS20151215
       Models::ModifyClusterAddonResponse modifyClusterAddon(const string &clusterId, const string &componentId, const Models::ModifyClusterAddonRequest &request);
 
       /**
-       * @summary Call the ModifyClusterNodePool operation to update the configurations of a node pool.
+       * @summary You can call the ModifyClusterNodePool API to update the configuration of a target node pool by specifying its node pool ID.
        *
        * @param request ModifyClusterNodePoolRequest
        * @param headers map
@@ -2027,7 +2009,7 @@ namespace CS20151215
       Models::ModifyClusterNodePoolResponse modifyClusterNodePoolWithOptions(const string &ClusterId, const string &NodepoolId, const Models::ModifyClusterNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the ModifyClusterNodePool operation to update the configurations of a node pool.
+       * @summary You can call the ModifyClusterNodePool API to update the configuration of a target node pool by specifying its node pool ID.
        *
        * @param request ModifyClusterNodePoolRequest
        * @return ModifyClusterNodePoolResponse
@@ -2035,9 +2017,9 @@ namespace CS20151215
       Models::ModifyClusterNodePoolResponse modifyClusterNodePool(const string &ClusterId, const string &NodepoolId, const Models::ModifyClusterNodePoolRequest &request);
 
       /**
-       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+       * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify cluster tags.
        *
-       * @description - 该API为全量更新，使用时请注意将完整的目标Tags设定为入参，避免丢失已有Tags。如需增量更新，请使用[TagResources接口为集群绑定标签](https://help.aliyun.com/document_detail/2667969.html)。
+       * @description - This operation performs a full update. When you call this operation, specify all target tags as input parameters to avoid losing existing tags. To perform an incremental update, use [TagResources to bind tags to a cluster](https://help.aliyun.com/document_detail/2667969.html).
        *
        * @param request ModifyClusterTagsRequest
        * @param headers map
@@ -2047,9 +2029,9 @@ namespace CS20151215
       Models::ModifyClusterTagsResponse modifyClusterTagsWithOptions(const string &ClusterId, const Models::ModifyClusterTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+       * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify cluster tags.
        *
-       * @description - 该API为全量更新，使用时请注意将完整的目标Tags设定为入参，避免丢失已有Tags。如需增量更新，请使用[TagResources接口为集群绑定标签](https://help.aliyun.com/document_detail/2667969.html)。
+       * @description - This operation performs a full update. When you call this operation, specify all target tags as input parameters to avoid losing existing tags. To perform an incremental update, use [TagResources to bind tags to a cluster](https://help.aliyun.com/document_detail/2667969.html).
        *
        * @param request ModifyClusterTagsRequest
        * @return ModifyClusterTagsResponse
@@ -2057,9 +2039,9 @@ namespace CS20151215
       Models::ModifyClusterTagsResponse modifyClusterTags(const string &ClusterId, const Models::ModifyClusterTagsRequest &request);
 
       /**
-       * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+       * @summary You can call the ModifyNodePoolNodeConfig operation to modify the node configuration in a cluster node pool, such as kubelet configuration and node rolling update configuration. Modifying node configuration changes the node configuration in batches and restarts kubelet, which may affect node operations and workload operations. We recommend that you perform this operation during off-peak hours.
        *
-       * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+       * @description > ACK allows you to modify the kubelet configuration of nodes in a node pool. After the modification is complete, the changes automatically take effect on the nodes in the node pool, and newly added nodes in the node pool also use the new configuration.
        *
        * @param request ModifyNodePoolNodeConfigRequest
        * @param headers map
@@ -2069,9 +2051,9 @@ namespace CS20151215
       Models::ModifyNodePoolNodeConfigResponse modifyNodePoolNodeConfigWithOptions(const string &ClusterId, const string &NodepoolId, const Models::ModifyNodePoolNodeConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+       * @summary You can call the ModifyNodePoolNodeConfig operation to modify the node configuration in a cluster node pool, such as kubelet configuration and node rolling update configuration. Modifying node configuration changes the node configuration in batches and restarts kubelet, which may affect node operations and workload operations. We recommend that you perform this operation during off-peak hours.
        *
-       * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+       * @description > ACK allows you to modify the kubelet configuration of nodes in a node pool. After the modification is complete, the changes automatically take effect on the nodes in the node pool, and newly added nodes in the node pool also use the new configuration.
        *
        * @param request ModifyNodePoolNodeConfigRequest
        * @return ModifyNodePoolNodeConfigResponse
@@ -2079,7 +2061,7 @@ namespace CS20151215
       Models::ModifyNodePoolNodeConfigResponse modifyNodePoolNodeConfig(const string &ClusterId, const string &NodepoolId, const Models::ModifyNodePoolNodeConfigRequest &request);
 
       /**
-       * @summary Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
+       * @summary Updates a policy rule instance in a specified cluster. You can modify the governance action (alert or block) and the scope of namespaces to which the policy instance applies.
        *
        * @param request ModifyPolicyInstanceRequest
        * @param headers map
@@ -2089,7 +2071,7 @@ namespace CS20151215
       Models::ModifyPolicyInstanceResponse modifyPolicyInstanceWithOptions(const string &clusterId, const string &policyName, const Models::ModifyPolicyInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
+       * @summary Updates a policy rule instance in a specified cluster. You can modify the governance action (alert or block) and the scope of namespaces to which the policy instance applies.
        *
        * @param request ModifyPolicyInstanceRequest
        * @return ModifyPolicyInstanceResponse
@@ -2097,10 +2079,10 @@ namespace CS20151215
       Models::ModifyPolicyInstanceResponse modifyPolicyInstance(const string &clusterId, const string &policyName, const Models::ModifyPolicyInstanceRequest &request);
 
       /**
-       * @summary When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
+       * @summary When you use Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
        *
-       * @description *   You can activate ACK by using Alibaba Cloud accounts.
-       * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+       * @description - An Alibaba Cloud account can activate ACK.
+       * - A Resource Access Management (RAM) user that has the AdministratorAccess permission can activate the service.
        *
        * @param request OpenAckServiceRequest
        * @param headers map
@@ -2110,10 +2092,10 @@ namespace CS20151215
       Models::OpenAckServiceResponse openAckServiceWithOptions(const Models::OpenAckServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
+       * @summary When you use Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
        *
-       * @description *   You can activate ACK by using Alibaba Cloud accounts.
-       * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+       * @description - An Alibaba Cloud account can activate ACK.
+       * - A Resource Access Management (RAM) user that has the AdministratorAccess permission can activate the service.
        *
        * @param request OpenAckServiceRequest
        * @return OpenAckServiceResponse
@@ -2123,7 +2105,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI PauseClusterUpgrade is deprecated
        *
-       * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+       * @summary Pauses a cluster upgrade.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2134,7 +2116,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI PauseClusterUpgrade is deprecated
        *
-       * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+       * @summary Pauses a cluster upgrade.
        *
        * @return PauseClusterUpgradeResponse
        */
@@ -2143,7 +2125,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI PauseComponentUpgrade is deprecated
        *
-       * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+       * @summary Pauses a component upgrade.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2154,14 +2136,14 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI PauseComponentUpgrade is deprecated
        *
-       * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+       * @summary Pauses a component upgrade.
        *
        * @return PauseComponentUpgradeResponse
        */
       Models::PauseComponentUpgradeResponse pauseComponentUpgrade(const string &clusterid, const string &componentid);
 
       /**
-       * @summary Pauses an on-going task.
+       * @summary You can call the PauseTask operation to pause a running cluster task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2170,7 +2152,7 @@ namespace CS20151215
       Models::PauseTaskResponse pauseTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pauses an on-going task.
+       * @summary You can call the PauseTask operation to pause a running cluster task.
        *
        * @return PauseTaskResponse
        */
@@ -2199,13 +2181,13 @@ namespace CS20151215
       Models::RemoveClusterNodesResponse removeClusterNodes(const string &ClusterId, const Models::RemoveClusterNodesRequest &request);
 
       /**
-       * @summary Removes nodes from a node pool.
+       * @summary Removes nodes from a node pool in a cluster and adjusts the expected number of nodes. When removing nodes, you can specify whether to release the associated ECS instances and whether to drain the nodes. Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours and back up your data in advance.
        *
-       * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-       * *   The operation may have unexpected risks. Back up the data before you perform this operation.
-       * *   Nodes remain in the Unschedulable state when they are being removed.
-       * *   The system removes only worker nodes. It does not remove master nodes.
-       * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
+       * @description - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours.
+       * - Unexpected risks may occur during the operation. Back up your data in advance.
+       * - During the operation, the nodes being removed are set to the unschedulable state in the background.
+       * - This operation removes only worker nodes, not master nodes.
+       *  - Even if you choose to release nodes (nodes for which `release_node` is set to `true`), subscription nodes are not released. After removing the nodes, release them in the [ECS console](https://ecs.console.aliyun.com/).
        *
        * @param tmpReq RemoveNodePoolNodesRequest
        * @param headers map
@@ -2215,13 +2197,13 @@ namespace CS20151215
       Models::RemoveNodePoolNodesResponse removeNodePoolNodesWithOptions(const string &ClusterId, const string &NodepoolId, const Models::RemoveNodePoolNodesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes nodes from a node pool.
+       * @summary Removes nodes from a node pool in a cluster and adjusts the expected number of nodes. When removing nodes, you can specify whether to release the associated ECS instances and whether to drain the nodes. Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours and back up your data in advance.
        *
-       * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-       * *   The operation may have unexpected risks. Back up the data before you perform this operation.
-       * *   Nodes remain in the Unschedulable state when they are being removed.
-       * *   The system removes only worker nodes. It does not remove master nodes.
-       * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
+       * @description - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours.
+       * - Unexpected risks may occur during the operation. Back up your data in advance.
+       * - During the operation, the nodes being removed are set to the unschedulable state in the background.
+       * - This operation removes only worker nodes, not master nodes.
+       *  - Even if you choose to release nodes (nodes for which `release_node` is set to `true`), subscription nodes are not released. After removing the nodes, release them in the [ECS console](https://ecs.console.aliyun.com/).
        *
        * @param request RemoveNodePoolNodesRequest
        * @return RemoveNodePoolNodesResponse
@@ -2229,7 +2211,7 @@ namespace CS20151215
       Models::RemoveNodePoolNodesResponse removeNodePoolNodes(const string &ClusterId, const string &NodepoolId, const Models::RemoveNodePoolNodesRequest &request);
 
       /**
-       * @summary Repairs a node pool.
+       * @summary Repairs nodes in a cluster node pool.
        *
        * @param request RepairClusterNodePoolRequest
        * @param headers map
@@ -2239,7 +2221,7 @@ namespace CS20151215
       Models::RepairClusterNodePoolResponse repairClusterNodePoolWithOptions(const string &clusterId, const string &nodepoolId, const Models::RepairClusterNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Repairs a node pool.
+       * @summary Repairs nodes in a cluster node pool.
        *
        * @param request RepairClusterNodePoolRequest
        * @return RepairClusterNodePoolResponse
@@ -2249,7 +2231,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
        *
-       * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+       * @summary Calls ResumeComponentUpgrade to restart a paused component upgrade task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2260,14 +2242,14 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
        *
-       * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+       * @summary Calls ResumeComponentUpgrade to restart a paused component upgrade task.
        *
        * @return ResumeComponentUpgradeResponse
        */
       Models::ResumeComponentUpgradeResponse resumeComponentUpgrade(const string &clusterid, const string &componentid);
 
       /**
-       * @summary Resumes a task.
+       * @summary Resumes a paused cluster task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2276,7 +2258,7 @@ namespace CS20151215
       Models::ResumeTaskResponse resumeTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes a task.
+       * @summary Resumes a paused cluster task.
        *
        * @return ResumeTaskResponse
        */
@@ -2285,7 +2267,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
        *
-       * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+       * @summary Resumes the upgrade of a cluster that is in the upgrade-paused state based on the cluster ID.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2296,14 +2278,14 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
        *
-       * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+       * @summary Resumes the upgrade of a cluster that is in the upgrade-paused state based on the cluster ID.
        *
        * @return ResumeUpgradeClusterResponse
        */
       Models::ResumeUpgradeClusterResponse resumeUpgradeCluster(const string &ClusterId);
 
       /**
-       * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
+       * @summary If you want to revoke the cluster KubeConfig credential owned by the currently logged-on Alibaba Cloud account or Resource Access Management (RAM) user, you can call the RevokeK8sClusterKubeConfig operation to revoke it. After the revocation succeeds, the cluster generates a new KubeConfig, and the original KubeConfig becomes invalid.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2312,14 +2294,14 @@ namespace CS20151215
       Models::RevokeK8sClusterKubeConfigResponse revokeK8sClusterKubeConfigWithOptions(const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
+       * @summary If you want to revoke the cluster KubeConfig credential owned by the currently logged-on Alibaba Cloud account or Resource Access Management (RAM) user, you can call the RevokeK8sClusterKubeConfig operation to revoke it. After the revocation succeeds, the cluster generates a new KubeConfig, and the original KubeConfig becomes invalid.
        *
        * @return RevokeK8sClusterKubeConfigResponse
        */
       Models::RevokeK8sClusterKubeConfigResponse revokeK8sClusterKubeConfig(const string &ClusterId);
 
       /**
-       * @summary Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
+       * @summary The intelligent O&M platform for containers provides a wide range of Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. Before an upgrade, migration, or installation operation is performed, the platform automatically triggers a check. You can perform the change operation only after the check is passed. You can also manually call the RunClusterCheck operation to perform a cluster check. Periodically check and maintain your clusters to prevent security risks.
        *
        * @param request RunClusterCheckRequest
        * @param headers map
@@ -2329,7 +2311,7 @@ namespace CS20151215
       Models::RunClusterCheckResponse runClusterCheckWithOptions(const string &clusterId, const Models::RunClusterCheckRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
+       * @summary The intelligent O&M platform for containers provides a wide range of Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. Before an upgrade, migration, or installation operation is performed, the platform automatically triggers a check. You can perform the change operation only after the check is passed. You can also manually call the RunClusterCheck operation to perform a cluster check. Periodically check and maintain your clusters to prevent security risks.
        *
        * @param request RunClusterCheckRequest
        * @return RunClusterCheckResponse
@@ -2337,7 +2319,7 @@ namespace CS20151215
       Models::RunClusterCheckResponse runClusterCheck(const string &clusterId, const Models::RunClusterCheckRequest &request);
 
       /**
-       * @summary Triggers a cluster inspection and generates a report.
+       * @summary Initiates a cluster inspection and creates an inspection report.
        *
        * @param request RunClusterInspectRequest
        * @param headers map
@@ -2347,7 +2329,7 @@ namespace CS20151215
       Models::RunClusterInspectResponse runClusterInspectWithOptions(const string &clusterId, const Models::RunClusterInspectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers a cluster inspection and generates a report.
+       * @summary Initiates a cluster inspection and creates an inspection report.
        *
        * @param request RunClusterInspectRequest
        * @return RunClusterInspectResponse
@@ -2373,7 +2355,7 @@ namespace CS20151215
       Models::RunNodeOperationResponse runNodeOperation(const string &clusterId, const string &nodepoolId, const string &nodeName, const Models::RunNodeOperationRequest &request);
 
       /**
-       * @summary Scales out a node pool.
+       * @summary Scales out a node pool by adding nodes to ensure that the number of nodes is sufficient to support your workloads.
        *
        * @param request ScaleClusterNodePoolRequest
        * @param headers map
@@ -2383,7 +2365,7 @@ namespace CS20151215
       Models::ScaleClusterNodePoolResponse scaleClusterNodePoolWithOptions(const string &ClusterId, const string &NodepoolId, const Models::ScaleClusterNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scales out a node pool.
+       * @summary Scales out a node pool by adding nodes to ensure that the number of nodes is sufficient to support your workloads.
        *
        * @param request ScaleClusterNodePoolRequest
        * @return ScaleClusterNodePoolResponse
@@ -2409,7 +2391,7 @@ namespace CS20151215
       Models::ScaleOutClusterResponse scaleOutCluster(const string &ClusterId, const Models::ScaleOutClusterRequest &request);
 
       /**
-       * @summary Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+       * @summary You can call the ScanClusterVuls operation to scan for potential security vulnerabilities in an ACK cluster, including container workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows operating system vulnerabilities. Regularly scan your cluster for security vulnerabilities to improve cluster security.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2418,14 +2400,14 @@ namespace CS20151215
       Models::ScanClusterVulsResponse scanClusterVulsWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+       * @summary You can call the ScanClusterVuls operation to scan for potential security vulnerabilities in an ACK cluster, including container workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows operating system vulnerabilities. Regularly scan your cluster for security vulnerabilities to improve cluster security.
        *
        * @return ScanClusterVulsResponse
        */
       Models::ScanClusterVulsResponse scanClusterVuls(const string &clusterId);
 
       /**
-       * @summary Activates the specified alert rule(s).
+       * @summary Starts a specified alert rule.
        *
        * @param request StartAlertRequest
        * @param headers map
@@ -2435,7 +2417,7 @@ namespace CS20151215
       Models::StartAlertResponse startAlertWithOptions(const string &ClusterId, const Models::StartAlertRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Activates the specified alert rule(s).
+       * @summary Starts a specified alert rule.
        *
        * @param request StartAlertRequest
        * @return StartAlertResponse
@@ -2443,7 +2425,7 @@ namespace CS20151215
       Models::StartAlertResponse startAlert(const string &ClusterId, const Models::StartAlertRequest &request);
 
       /**
-       * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+       * @summary Stops alert rules in the ACK alert center. You can stop an entire alert rule group or a single alert rule.
        *
        * @param request StopAlertRequest
        * @param headers map
@@ -2453,7 +2435,7 @@ namespace CS20151215
       Models::StopAlertResponse stopAlertWithOptions(const string &ClusterId, const Models::StopAlertRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+       * @summary Stops alert rules in the ACK alert center. You can stop an entire alert rule group or a single alert rule.
        *
        * @param request StopAlertRequest
        * @return StopAlertResponse
@@ -2461,7 +2443,7 @@ namespace CS20151215
       Models::StopAlertResponse stopAlert(const string &ClusterId, const Models::StopAlertRequest &request);
 
       /**
-       * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+       * @summary Synchronizes a cluster node pool, including node pool metadata and information about the nodes in the node pool.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2470,14 +2452,14 @@ namespace CS20151215
       Models::SyncClusterNodePoolResponse syncClusterNodePoolWithOptions(const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+       * @summary Synchronizes a cluster node pool, including node pool metadata and information about the nodes in the node pool.
        *
        * @return SyncClusterNodePoolResponse
        */
       Models::SyncClusterNodePoolResponse syncClusterNodePool(const string &ClusterId);
 
       /**
-       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+       * @summary Adds tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support monitoring, cost analysis, and tenant isolation requirements. You can call the TagResources operation to attach tags to clusters.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -2487,7 +2469,7 @@ namespace CS20151215
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+       * @summary Adds tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support monitoring, cost analysis, and tenant isolation requirements. You can call the TagResources operation to attach tags to clusters.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2495,7 +2477,7 @@ namespace CS20151215
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
+       * @summary Uninstalls specified components from a cluster when they are no longer needed, with the option to delete associated Alibaba Cloud resources.
        *
        * @param request UnInstallClusterAddonsRequest
        * @param headers map
@@ -2505,7 +2487,7 @@ namespace CS20151215
       Models::UnInstallClusterAddonsResponse unInstallClusterAddonsWithOptions(const string &ClusterId, const Models::UnInstallClusterAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
+       * @summary Uninstalls specified components from a cluster when they are no longer needed, with the option to delete associated Alibaba Cloud resources.
        *
        * @param request UnInstallClusterAddonsRequest
        * @return UnInstallClusterAddonsResponse
@@ -2513,7 +2495,7 @@ namespace CS20151215
       Models::UnInstallClusterAddonsResponse unInstallClusterAddons(const string &ClusterId, const Models::UnInstallClusterAddonsRequest &request);
 
       /**
-       * @summary If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+       * @summary Deletes resource tags when you no longer need the tag key-value pairs for a cluster. You can call the UntagResources operation to delete resource tags.
        *
        * @param tmpReq UntagResourcesRequest
        * @param headers map
@@ -2523,7 +2505,7 @@ namespace CS20151215
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+       * @summary Deletes resource tags when you no longer need the tag key-value pairs for a cluster. You can call the UntagResources operation to delete resource tags.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -2531,9 +2513,9 @@ namespace CS20151215
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+       * @summary When you need to record Kubernetes API requests and their results to trace cluster operation history or troubleshoot cluster issues, you can invoke the UpdateClusterAuditLogConfig operation to enable or shutdown the audit log feature for a specified ACK cluster and update the audit log configuration.
        *
-       * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
+       * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of <props="china">[Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls)<props="intl">[Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
        *
        * @param request UpdateClusterAuditLogConfigRequest
        * @param headers map
@@ -2543,9 +2525,9 @@ namespace CS20151215
       Models::UpdateClusterAuditLogConfigResponse updateClusterAuditLogConfigWithOptions(const string &clusterid, const Models::UpdateClusterAuditLogConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+       * @summary When you need to record Kubernetes API requests and their results to trace cluster operation history or troubleshoot cluster issues, you can invoke the UpdateClusterAuditLogConfig operation to enable or shutdown the audit log feature for a specified ACK cluster and update the audit log configuration.
        *
-       * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
+       * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of <props="china">[Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls)<props="intl">[Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
        *
        * @param request UpdateClusterAuditLogConfigRequest
        * @return UpdateClusterAuditLogConfigResponse
@@ -2553,7 +2535,7 @@ namespace CS20151215
       Models::UpdateClusterAuditLogConfigResponse updateClusterAuditLogConfig(const string &clusterid, const Models::UpdateClusterAuditLogConfigRequest &request);
 
       /**
-       * @summary Modifies cluster inspection configurations.
+       * @summary Updates the cluster inspection configuration.
        *
        * @param request UpdateClusterInspectConfigRequest
        * @param headers map
@@ -2563,7 +2545,7 @@ namespace CS20151215
       Models::UpdateClusterInspectConfigResponse updateClusterInspectConfigWithOptions(const string &clusterId, const Models::UpdateClusterInspectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies cluster inspection configurations.
+       * @summary Updates the cluster inspection configuration.
        *
        * @param request UpdateClusterInspectConfigRequest
        * @return UpdateClusterInspectConfigResponse
@@ -2571,7 +2553,7 @@ namespace CS20151215
       Models::UpdateClusterInspectConfigResponse updateClusterInspectConfig(const string &clusterId, const Models::UpdateClusterInspectConfigRequest &request);
 
       /**
-       * @summary You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
+       * @summary Updates the contact group for an alert rule set in an ACK cluster.
        *
        * @param request UpdateContactGroupForAlertRequest
        * @param headers map
@@ -2581,7 +2563,7 @@ namespace CS20151215
       Models::UpdateContactGroupForAlertResponse updateContactGroupForAlertWithOptions(const string &ClusterId, const Models::UpdateContactGroupForAlertRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
+       * @summary Updates the contact group for an alert rule set in an ACK cluster.
        *
        * @param request UpdateContactGroupForAlertRequest
        * @return UpdateContactGroupForAlertResponse
@@ -2589,7 +2571,7 @@ namespace CS20151215
       Models::UpdateContactGroupForAlertResponse updateContactGroupForAlert(const string &ClusterId, const Models::UpdateContactGroupForAlertRequest &request);
 
       /**
-       * @summary Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
+       * @summary ACK managed clusters support collecting control plane component logs and delivering them to your Simple Log Service (SLS) Log Project. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, Cloud Controller Manager, and other core components. You can call the UpdateControlPlaneLog operation to modify the control plane component log configuration, such as the log retention period and the components from which logs are collected.
        *
        * @param request UpdateControlPlaneLogRequest
        * @param headers map
@@ -2599,7 +2581,7 @@ namespace CS20151215
       Models::UpdateControlPlaneLogResponse updateControlPlaneLogWithOptions(const string &ClusterId, const Models::UpdateControlPlaneLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
+       * @summary ACK managed clusters support collecting control plane component logs and delivering them to your Simple Log Service (SLS) Log Project. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, Cloud Controller Manager, and other core components. You can call the UpdateControlPlaneLog operation to modify the control plane component log configuration, such as the log retention period and the components from which logs are collected.
        *
        * @param request UpdateControlPlaneLogRequest
        * @return UpdateControlPlaneLogResponse
@@ -2607,10 +2589,10 @@ namespace CS20151215
       Models::UpdateControlPlaneLogResponse updateControlPlaneLog(const string &ClusterId, const Models::UpdateControlPlaneLogRequest &request);
 
       /**
-       * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+       * @summary The default expiration time of the KubeConfig issued by an ACK cluster is 3 years. You can use an Alibaba Cloud account to customize the configuration by invoking the UpdateK8sClusterUserConfigExpire operation to specify the expiration time (1 to 876,000 hours) of the KubeConfig issued to a Resource Access Management (RAM) user or role in an ACK cluster.
        *
-       * @description *   You can call this operation only with an Alibaba Cloud account.
-       * *   If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+       * @description - This operation can be called only by an Alibaba Cloud account.
+       * - If you revoke the KubeConfig credential used in the cluster, the custom expiration time configured for the KubeConfig of the cluster is also reset. You must call this operation to reconfigure the expiration time.
        *
        * @param request UpdateK8sClusterUserConfigExpireRequest
        * @param headers map
@@ -2620,10 +2602,10 @@ namespace CS20151215
       Models::UpdateK8sClusterUserConfigExpireResponse updateK8sClusterUserConfigExpireWithOptions(const string &ClusterId, const Models::UpdateK8sClusterUserConfigExpireRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+       * @summary The default expiration time of the KubeConfig issued by an ACK cluster is 3 years. You can use an Alibaba Cloud account to customize the configuration by invoking the UpdateK8sClusterUserConfigExpire operation to specify the expiration time (1 to 876,000 hours) of the KubeConfig issued to a Resource Access Management (RAM) user or role in an ACK cluster.
        *
-       * @description *   You can call this operation only with an Alibaba Cloud account.
-       * *   If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+       * @description - This operation can be called only by an Alibaba Cloud account.
+       * - If you revoke the KubeConfig credential used in the cluster, the custom expiration time configured for the KubeConfig of the cluster is also reset. You must call this operation to reconfigure the expiration time.
        *
        * @param request UpdateK8sClusterUserConfigExpireRequest
        * @return UpdateK8sClusterUserConfigExpireResponse
@@ -2631,11 +2613,11 @@ namespace CS20151215
       Models::UpdateK8sClusterUserConfigExpireResponse updateK8sClusterUserConfigExpire(const string &ClusterId, const Models::UpdateK8sClusterUserConfigExpireRequest &request);
 
       /**
-       * @summary Update the configuration of the Secret-at-rest encryption feature for a specified cluster by cluster ID.
+       * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
        *
-       * @description * 开启或关闭落盘加密功能的过程中以及成功开启该功能后，请勿使用 KMS 控制台或 OpenAPI 禁用或删除该功能所使用的 KMS 密钥，否则会导致集群 API Server 不可用，继而无法正常获取 Secret 和 ServiceAccount 等对象，影响业务应用的正常运行。更多信息，请参见[使用阿里云KMS进行Secret的落盘加密](https://help.aliyun.com/document_detail/177372.html)。
-       * * 调用该 API 的用户或角色需要额外被授予所需的集群 RBAC 权限（需要被授予运维人员或管理员权限），否则将返回“ForbiddenUpdateKMSState”错误码。
-       * * 成功调用该 API 后，集群状态将被变更为“更新中”，待变更完成后集群状态将恢复为“运行中”。针对同一个集群的变更完成后，需要间隔 5 分钟以上才能再次调用该 API，否则将返回“409”状态码。
+       * @description * While enabling or disabling encryption at rest and after the feature is enabled, do not disable or delete the KMS key used by this feature in the KMS console or through OpenAPI. Otherwise, the cluster API Server becomes unavailable, which prevents normal retrieval of objects such as Secrets and ServiceAccounts and affects the normal operation of business applications. For more information, see [Encrypt Secrets at rest by using China KMS](https://help.aliyun.com/document_detail/177372.html).
+       * * The user or role that calls this API operation must be granted additional cluster RBAC permissions (O&M engineer or administrator permissions). Otherwise, the ForbiddenUpdateKMSState error code is returned.
+       * * After this API operation is successfully called, the cluster status changes to updating. After the update is complete, the cluster status changes back to running. After a change is complete for a cluster, wait at least 5 minutes before calling this API operation again. Otherwise, HTTP status code 409 is returned.
        *
        * @param request UpdateKMSEncryptionRequest
        * @param headers map
@@ -2645,11 +2627,11 @@ namespace CS20151215
       Models::UpdateKMSEncryptionResponse updateKMSEncryptionWithOptions(const string &ClusterId, const Models::UpdateKMSEncryptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the configuration of the Secret-at-rest encryption feature for a specified cluster by cluster ID.
+       * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
        *
-       * @description * 开启或关闭落盘加密功能的过程中以及成功开启该功能后，请勿使用 KMS 控制台或 OpenAPI 禁用或删除该功能所使用的 KMS 密钥，否则会导致集群 API Server 不可用，继而无法正常获取 Secret 和 ServiceAccount 等对象，影响业务应用的正常运行。更多信息，请参见[使用阿里云KMS进行Secret的落盘加密](https://help.aliyun.com/document_detail/177372.html)。
-       * * 调用该 API 的用户或角色需要额外被授予所需的集群 RBAC 权限（需要被授予运维人员或管理员权限），否则将返回“ForbiddenUpdateKMSState”错误码。
-       * * 成功调用该 API 后，集群状态将被变更为“更新中”，待变更完成后集群状态将恢复为“运行中”。针对同一个集群的变更完成后，需要间隔 5 分钟以上才能再次调用该 API，否则将返回“409”状态码。
+       * @description * While enabling or disabling encryption at rest and after the feature is enabled, do not disable or delete the KMS key used by this feature in the KMS console or through OpenAPI. Otherwise, the cluster API Server becomes unavailable, which prevents normal retrieval of objects such as Secrets and ServiceAccounts and affects the normal operation of business applications. For more information, see [Encrypt Secrets at rest by using China KMS](https://help.aliyun.com/document_detail/177372.html).
+       * * The user or role that calls this API operation must be granted additional cluster RBAC permissions (O&M engineer or administrator permissions). Otherwise, the ForbiddenUpdateKMSState error code is returned.
+       * * After this API operation is successfully called, the cluster status changes to updating. After the update is complete, the cluster status changes back to running. After a change is complete for a cluster, wait at least 5 minutes before calling this API operation again. Otherwise, HTTP status code 409 is returned.
        *
        * @param request UpdateKMSEncryptionRequest
        * @return UpdateKMSEncryptionResponse
@@ -2657,7 +2639,7 @@ namespace CS20151215
       Models::UpdateKMSEncryptionResponse updateKMSEncryption(const string &ClusterId, const Models::UpdateKMSEncryptionRequest &request);
 
       /**
-       * @summary Updates a specific component within a node pool, such as the kubelet.
+       * @summary Updates a node component.
        *
        * @param request UpdateNodePoolComponentRequest
        * @param headers map
@@ -2667,7 +2649,7 @@ namespace CS20151215
       Models::UpdateNodePoolComponentResponse updateNodePoolComponentWithOptions(const string &clusterId, const string &nodepoolId, const Models::UpdateNodePoolComponentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a specific component within a node pool, such as the kubelet.
+       * @summary Updates a node component.
        *
        * @param request UpdateNodePoolComponentRequest
        * @return UpdateNodePoolComponentResponse
@@ -2675,9 +2657,10 @@ namespace CS20151215
       Models::UpdateNodePoolComponentResponse updateNodePoolComponent(const string &clusterId, const string &nodepoolId, const Models::UpdateNodePoolComponentRequest &request);
 
       /**
-       * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
+       * @summary Updates the deletion protection status of a specified resource. Currently supported resource types include namespaces and services.
+       * You can call this operation to enable deletion protection for namespaces or services that involve critical business or sensitive data to avoid maintenance costs caused by accidental deletion.
        *
-       * @description 调用本接口前，您需要先为集群安装或升级安全策略组件。具体操作，请参见[启用安全策略管理](https://help.aliyun.com/document_detail/359818.html)。
+       * @description Before calling this operation, install or upgrade the security policy component for the cluster. For more information, see [Enable security policy management](https://help.aliyun.com/document_detail/359818.html).
        *
        * @param request UpdateResourcesDeleteProtectionRequest
        * @param headers map
@@ -2687,9 +2670,10 @@ namespace CS20151215
       Models::UpdateResourcesDeleteProtectionResponse updateResourcesDeleteProtectionWithOptions(const string &ClusterId, const Models::UpdateResourcesDeleteProtectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
+       * @summary Updates the deletion protection status of a specified resource. Currently supported resource types include namespaces and services.
+       * You can call this operation to enable deletion protection for namespaces or services that involve critical business or sensitive data to avoid maintenance costs caused by accidental deletion.
        *
-       * @description 调用本接口前，您需要先为集群安装或升级安全策略组件。具体操作，请参见[启用安全策略管理](https://help.aliyun.com/document_detail/359818.html)。
+       * @description Before calling this operation, install or upgrade the security policy component for the cluster. For more information, see [Enable security policy management](https://help.aliyun.com/document_detail/359818.html).
        *
        * @param request UpdateResourcesDeleteProtectionRequest
        * @return UpdateResourcesDeleteProtectionResponse
@@ -2697,7 +2681,7 @@ namespace CS20151215
       Models::UpdateResourcesDeleteProtectionResponse updateResourcesDeleteProtection(const string &ClusterId, const Models::UpdateResourcesDeleteProtectionRequest &request);
 
       /**
-       * @summary Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. Calls the UpdateTemplate operation to update an orchestration template configuration.
        *
        * @param request UpdateTemplateRequest
        * @param headers map
@@ -2707,7 +2691,7 @@ namespace CS20151215
       Models::UpdateTemplateResponse updateTemplateWithOptions(const string &TemplateId, const Models::UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
+       * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. Calls the UpdateTemplate operation to update an orchestration template configuration.
        *
        * @param request UpdateTemplateRequest
        * @return UpdateTemplateResponse
@@ -2715,10 +2699,9 @@ namespace CS20151215
       Models::UpdateTemplateResponse updateTemplate(const string &TemplateId, const Models::UpdateTemplateRequest &request);
 
       /**
-       * @summary In a Container Service for Kubernetes (ACK) cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles do not have any Role-Based Access Control (RBAC) permissions in the cluster by default. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+       * @summary In an ACK cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles have no RBAC permissions by default. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management and secure access control.
        *
-       * @description **Precautions**:
-       * *   You can update the permissions of a RAM user or RAM role on a cluster by using full update or incremental update. If you use full update, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation. If you use incremental update, you can grant permissions to or revoke permissions from the RAM user or RAM role on the cluster. In this case, only the permissions that you specify in the request parameters when you call the operation are granted or revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
+       * @description You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using full update or incremental update. A full update overwrites all existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. Only the cluster authorization information included in the request is changed, and other cluster permissions of the RAM user or RAM role are not affected.
        *
        * @param request UpdateUserPermissionsRequest
        * @param headers map
@@ -2728,10 +2711,9 @@ namespace CS20151215
       Models::UpdateUserPermissionsResponse updateUserPermissionsWithOptions(const string &uid, const Models::UpdateUserPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary In a Container Service for Kubernetes (ACK) cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles do not have any Role-Based Access Control (RBAC) permissions in the cluster by default. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+       * @summary In an ACK cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles have no RBAC permissions by default. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management and secure access control.
        *
-       * @description **Precautions**:
-       * *   You can update the permissions of a RAM user or RAM role on a cluster by using full update or incremental update. If you use full update, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation. If you use incremental update, you can grant permissions to or revoke permissions from the RAM user or RAM role on the cluster. In this case, only the permissions that you specify in the request parameters when you call the operation are granted or revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
+       * @description You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using full update or incremental update. A full update overwrites all existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. Only the cluster authorization information included in the request is changed, and other cluster permissions of the RAM user or RAM role are not affected.
        *
        * @param request UpdateUserPermissionsRequest
        * @return UpdateUserPermissionsResponse
@@ -2739,13 +2721,14 @@ namespace CS20151215
       Models::UpdateUserPermissionsResponse updateUserPermissions(const string &uid, const Models::UpdateUserPermissionsRequest &request);
 
       /**
-       * @summary Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
+       * @summary To avoid potential security and stability risks of expired cluster versions and to use new features of the latest cluster versions, upgrade your clusters in accordance with the ACK cluster version release schedule. You can call the UpgradeCluster operation to manually upgrade a cluster.
        *
-       * @description After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+       * @description After you successfully call the UpgradeCluster operation, the API returns the `task_id` of the upgrade task. You can manage the task by calling the following task API operations:
        * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
-       * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html) 
-       * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html) 
-       * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
+       * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+       * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+       * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
+       * >Notice: Starting July 4, 2026, the request parameters rolling_policy and rolling_policy.max_parallelism will no longer take effect. Use [UpgradeClusterNodepool](https://help.aliyun.com/document_detail/2667922.html) to upgrade worker nodes instead. For more information about the changes, see [Notice on changes to ACK cluster management OpenAPI request and response parameters and OpenAPI deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>.
        *
        * @param request UpgradeClusterRequest
        * @param headers map
@@ -2755,13 +2738,14 @@ namespace CS20151215
       Models::UpgradeClusterResponse upgradeClusterWithOptions(const string &ClusterId, const Models::UpgradeClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
+       * @summary To avoid potential security and stability risks of expired cluster versions and to use new features of the latest cluster versions, upgrade your clusters in accordance with the ACK cluster version release schedule. You can call the UpgradeCluster operation to manually upgrade a cluster.
        *
-       * @description After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+       * @description After you successfully call the UpgradeCluster operation, the API returns the `task_id` of the upgrade task. You can manage the task by calling the following task API operations:
        * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
-       * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html) 
-       * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html) 
-       * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
+       * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+       * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+       * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
+       * >Notice: Starting July 4, 2026, the request parameters rolling_policy and rolling_policy.max_parallelism will no longer take effect. Use [UpgradeClusterNodepool](https://help.aliyun.com/document_detail/2667922.html) to upgrade worker nodes instead. For more information about the changes, see [Notice on changes to ACK cluster management OpenAPI request and response parameters and OpenAPI deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>.
        *
        * @param request UpgradeClusterRequest
        * @return UpgradeClusterResponse
@@ -2769,11 +2753,11 @@ namespace CS20151215
       Models::UpgradeClusterResponse upgradeCluster(const string &ClusterId, const Models::UpgradeClusterRequest &request);
 
       /**
-       * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+       * @summary Upgrades the versions of cluster component instances so that you can benefit from the feature optimizations in the new versions.
        *
-       * @description - 升级集群组件实例版本可能会影响业务，请评估影响后在业务低峰期操作并提前做好相关的数据备份。
-       * - 升级组件前，请参考[组件发布记录](https://help.aliyun.com/document_detail/176087.html)了解指定组件的变更内容和变更影响。
-       * - 请依次逐个组件升级，确认一个组件升级成功后再升级下一个组件。
+       * @description - Upgrading cluster component instance versions may affect your services. Assess the impact before performing the upgrade during off-peak hours, and back up relevant data in advance.
+       * - Before upgrading a component, refer to [Component release notes](https://help.aliyun.com/document_detail/176087.html) to learn about the changes and their impact for the specified component.
+       * - Upgrade components one at a time. Confirm that one component has been upgraded successfully before upgrading the next one.
        *
        * @param request UpgradeClusterAddonsRequest
        * @param headers map
@@ -2783,11 +2767,11 @@ namespace CS20151215
       Models::UpgradeClusterAddonsResponse upgradeClusterAddonsWithOptions(const string &ClusterId, const Models::UpgradeClusterAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+       * @summary Upgrades the versions of cluster component instances so that you can benefit from the feature optimizations in the new versions.
        *
-       * @description - 升级集群组件实例版本可能会影响业务，请评估影响后在业务低峰期操作并提前做好相关的数据备份。
-       * - 升级组件前，请参考[组件发布记录](https://help.aliyun.com/document_detail/176087.html)了解指定组件的变更内容和变更影响。
-       * - 请依次逐个组件升级，确认一个组件升级成功后再升级下一个组件。
+       * @description - Upgrading cluster component instance versions may affect your services. Assess the impact before performing the upgrade during off-peak hours, and back up relevant data in advance.
+       * - Before upgrading a component, refer to [Component release notes](https://help.aliyun.com/document_detail/176087.html) to learn about the changes and their impact for the specified component.
+       * - Upgrade components one at a time. Confirm that one component has been upgraded successfully before upgrading the next one.
        *
        * @param request UpgradeClusterAddonsRequest
        * @return UpgradeClusterAddonsResponse
@@ -2795,9 +2779,13 @@ namespace CS20151215
       Models::UpgradeClusterAddonsResponse upgradeClusterAddons(const string &ClusterId, const Models::UpgradeClusterAddonsRequest &request);
 
       /**
-       * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+       * @summary Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
        *
-       * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+       * @description Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:
+       * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
+       * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+       * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+       * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
        *
        * @param request UpgradeClusterNodepoolRequest
        * @param headers map
@@ -2807,9 +2795,13 @@ namespace CS20151215
       Models::UpgradeClusterNodepoolResponse upgradeClusterNodepoolWithOptions(const string &ClusterId, const string &NodepoolId, const Models::UpgradeClusterNodepoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+       * @summary Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
        *
-       * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+       * @description Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:
+       * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
+       * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+       * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+       * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
        *
        * @param request UpgradeClusterNodepoolRequest
        * @return UpgradeClusterNodepoolResponse

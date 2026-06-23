@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the order.
+    // The order ID of the service activation.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

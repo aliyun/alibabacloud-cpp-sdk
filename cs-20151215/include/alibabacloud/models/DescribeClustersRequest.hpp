@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The cluster type.
     shared_ptr<string> clusterType_ {};
-    // The cluster name based on which the system performs fuzzy searches among the clusters that belong to the current Alibaba Cloud account.
+    // Perform a fuzzy match query based on the cluster name.
     shared_ptr<string> name_ {};
     shared_ptr<string> resourceGroupId_ {};
   };

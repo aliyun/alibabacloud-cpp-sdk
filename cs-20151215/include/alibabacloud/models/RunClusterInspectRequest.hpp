@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The idempotency token that ensures an API request completes no more than one time.
+    // The idempotence token.
     shared_ptr<string> clientToken_ {};
   };
 

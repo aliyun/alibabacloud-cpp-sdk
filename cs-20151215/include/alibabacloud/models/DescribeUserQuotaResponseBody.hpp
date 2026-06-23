@@ -152,18 +152,18 @@ namespace Models
 
 
   protected:
-    // The quota of Container Service for Kubernetes (ACK) managed clusters. Default value: 20. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The quota for managed clusters. Default value: 20. To request a quota increase beyond the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> amkClusterQuota_ {};
-    // The quota of ACK Serverless clusters. Default value: 20. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The quota for ASK clusters. Default value: 20. To request a quota increase beyond the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> askClusterQuota_ {};
-    // The quota of node pools in an ACK cluster. Default value: 20. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The node pool quota per cluster. Default value: 20. To request a quota increase beyond the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> clusterNodepoolQuota_ {};
-    // The quota of clusters that belong to an Alibaba Cloud account. Default value: 50. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The total cluster quota per account. Default value: 50. To request a quota increase beyond the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> clusterQuota_ {};
     shared_ptr<DescribeUserQuotaResponseBody::EdgeImprovedNodepoolQuota> edgeImprovedNodepoolQuota_ {};
-    // The quota of nodes in an ACK cluster. Default value: 100. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
+    // The node quota per cluster. Default value: 100. To request a quota increase beyond the default value, [submit a request on the Quota Center page](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> nodeQuota_ {};
-    // Information about the new quota.
+    // The new quota items. If this field is returned, the values in this field take precedence.
     shared_ptr<map<string, QuotasValue>> quotas_ {};
   };
 

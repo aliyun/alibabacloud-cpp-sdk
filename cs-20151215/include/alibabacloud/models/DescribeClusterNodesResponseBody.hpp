@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The maximum number of records that can be displayed on each page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -296,65 +296,78 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The error message generated when the node was created.
       shared_ptr<string> errorMessage_ {};
-      // The expiration date of the node.
+      // The time when the node expires.
       shared_ptr<string> expiredTime_ {};
-      // The name of the host.
+      // The hostname of the node.
       shared_ptr<string> hostName_ {};
-      // The ID of the system image that is used by the node.
+      // The ID of the system image used by the node.
       shared_ptr<string> imageId_ {};
       // The billing method of the node. Valid values:
       // 
-      // *   `PrePaid`: the subscription billing method. If the value is PrePaid, make sure that you have a sufficient balance or credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
-      // *   `PostPaid`: the pay-as-you-go billing method.
+      // - `PrePaid`: subscription.
+      // - `PostPaid`: pay-as-you-go.
       shared_ptr<string> instanceChargeType_ {};
-      // The ID of the instance.
+      // The instance ID of the node.
       shared_ptr<string> instanceId_ {};
-      // The name of the instance on which the node is deployed.
+      // The name of the node in the cluster.
       shared_ptr<string> instanceName_ {};
-      // The role of the node. Valid values:
+      // The role type of the node. Valid values:
       // 
-      // *   Master: master node
-      // *   Worker: worker node
+      // - Master: a master node of the cluster.
+      // - Worker: a worker node of the cluster.
       shared_ptr<string> instanceRole_ {};
-      // The status of the node.
-      shared_ptr<string> instanceStatus_ {};
-      // The type of the node.
-      shared_ptr<string> instanceType_ {};
-      // The ECS instance family of the node.
-      shared_ptr<string> instanceTypeFamily_ {};
-      // The IP address of the node.
-      shared_ptr<vector<string>> ipAddress_ {};
-      // Indicates whether the instance on which the node is deployed is provided by Alibaba Cloud. Valid values:
+      // The ECS status of the node. Valid values:
       // 
-      // *   `true`: The instance is provided by Alibaba Cloud.
-      // *   `false`: The instance is not provided by Alibaba Cloud.
+      // - `Pending`: being created.
+      // - `Running`: running.
+      // - `Starting`: being started.
+      // - `Stopping`: being stopped.
+      // - `Stopped`: stopped.
+      shared_ptr<string> instanceStatus_ {};
+      // The node specifications.
+      shared_ptr<string> instanceType_ {};
+      // The name of the ECS instance family to which the node belongs.
+      shared_ptr<string> instanceTypeFamily_ {};
+      // The IP addresses of the node.
+      shared_ptr<vector<string>> ipAddress_ {};
+      // Indicates whether the node is an Alibaba Cloud instance. Valid values:
+      // 
+      // - `true`: The node is an Alibaba Cloud instance.
+      // 
+      // - `false`: The node is not an Alibaba Cloud instance.
       shared_ptr<bool> isAliyunNode_ {};
-      // The name of the node. This name is the identifier of the node in the cluster.
+      // The node name, which is the identifier of the node in the cluster.
       shared_ptr<string> nodeName_ {};
       // Indicates whether the node is ready. Valid values:
       // 
-      // *   `Ready`: The node is ready.
-      // *   `NotReady`: The node is not ready.
-      // *   `Unknown`: The status of the node is unknown.
-      // *   `Offline`: The node is offline.
+      // - `Ready`: The node is ready.
+      // 
+      // - `NotReady`: The node is not ready.
+      // 
+      // - `Unknown`: The node status is unknown.
+      // 
+      // - `Offline`: The node is offline.
       shared_ptr<string> nodeStatus_ {};
       // The node pool ID.
       shared_ptr<string> nodepoolId_ {};
-      // Indicates how the node is initialized. A node can be manually created or created by using Resource Orchestration Service (ROS).
+      // The method used to initialize the node, such as manual creation or Resource Orchestration Service (ROS) creation.
       shared_ptr<string> source_ {};
-      // The type of preemptible instance. Valid values:
-      // 
-      // *   NoSpot: a non-preemptible instance.
-      // *   SpotWithPriceLimit: a preemptible instance that is configured with the highest bid price.
-      // *   SpotAsPriceGo: a preemptible instance for which the system automatically bids based on the current market price.
+      // The spot instance type. Valid values:
+      // - NoSpot: a non-spot instance.
+      // - SpotWithPriceLimit: a spot instance with a price limit.
+      // - SpotAsPriceGo: a spot instance priced at the market price at the time of purchase.
       shared_ptr<string> spotStrategy_ {};
-      // The status of the node. Valid values:
+      // The running status of the node. Valid values:
       // 
-      // *   `pending`: The node is being created.
-      // *   `running`: The node is running.
-      // *   `starting`: The node is being started.
-      // *   `stopping`: The node is being stopped.
-      // *   `stopped`: The node is stopped.
+      // - `pending`: being created.
+      // 
+      // - `running`: running.
+      // 
+      // - `starting`: being started.
+      // 
+      // - `stopping`: being stopped.
+      // 
+      // - `stopped`: stopped.
       shared_ptr<string> state_ {};
     };
 
@@ -379,7 +392,7 @@ namespace Models
 
 
   protected:
-    // The details of the nodes in the cluster.
+    // The list of node details.
     shared_ptr<vector<DescribeClusterNodesResponseBody::Nodes>> nodes_ {};
     // The pagination information.
     shared_ptr<DescribeClusterNodesResponseBody::Page> page_ {};

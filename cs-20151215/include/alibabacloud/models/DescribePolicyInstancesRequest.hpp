@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The name of the policy instance that you want to query.
+    // The name of the policy instance.
     shared_ptr<string> instanceName_ {};
-    // The name of the policy that you want to query.
+    // The name of the policy governance rule.
     shared_ptr<string> policyName_ {};
   };
 

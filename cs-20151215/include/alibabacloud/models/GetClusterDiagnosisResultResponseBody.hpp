@@ -112,40 +112,28 @@ namespace Models
 
 
   protected:
-    // The code that indicates the diagnostic result. Valid values:
-    // 
-    // *   0: the diagnostic is completed.
-    // *   1: the diagnostic failed.
+    // The diagnosis result code. Valid values:
+    // - 0: diagnosis completed.
+    // - 1: diagnosis failed.
     shared_ptr<int64_t> code_ {};
-    // The time when the diagnostic is initiated.
+    // The time when the diagnosis was initiated.
     shared_ptr<string> created_ {};
-    // The diagnostic ID.
+    // The diagnosis ID.
     shared_ptr<string> diagnosisId_ {};
-    // The time when the diagnostic is completed.
+    // The time when the diagnosis was completed.
     shared_ptr<string> finished_ {};
-    // The diagnostic status information.
+    // The diagnosis status message.
     shared_ptr<string> message_ {};
-    // The diagnostic result.
+    // The diagnosis result.
     shared_ptr<string> result_ {};
-    // The status of the diagnostic. Valid values:
-    // 
-    // *   0: The diagnostic is created.
-    // *   1: The diagnostic is running.
-    // *   2: The diagnostic is completed.
+    // The diagnosis status. Valid values:
+    // - 0: diagnosis created.
+    // - 1: diagnosis running.
+    // - 2: diagnosis completed.
     shared_ptr<int64_t> status_ {};
-    // The diagnostic object.
+    // The diagnosis target.
     shared_ptr<string> target_ {};
-    // The type of the diagnostic.
-    // 
-    // Valid values:
-    // 
-    // *   node
-    // *   ingress
-    // *   cluster
-    // *   memory
-    // *   pod
-    // *   service
-    // *   network
+    // The diagnosis type.
     shared_ptr<string> type_ {};
   };
 

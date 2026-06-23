@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the CVE patching task.
+    // The fix task ID.
     shared_ptr<string> taskId_ {};
   };
 

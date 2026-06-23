@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The agent configurations in the YAML format.
+    // The agent configuration in YAML format.
     shared_ptr<string> config_ {};
   };
 

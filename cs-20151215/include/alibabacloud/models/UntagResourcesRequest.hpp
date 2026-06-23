@@ -80,24 +80,26 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all custom labels. This parameter takes effect only when `tag_keys` is left empty. Valid values:
+    // Specifies whether to delete all custom tags. This parameter takes effect only when `tag_keys` is empty. Valid values:
     // 
-    // *   `true`: Remove all custom labels.
-    // *   `false`: Do not remove all custom labels.
+    // - `true`: Delete all tags.
+    // - `false`: Do not delete all tags.
     shared_ptr<bool> all_ {};
-    // The region ID of the resources.
+    // The region ID of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of resource IDs.
+    // The list of resource IDs. You can specify up to 50 resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The type of resource. Set the value to `CLUSTER`.
+    // The resource type.
+    // 
+    // CLUSTER: cluster.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of keys of the labels that you want to remove.
+    // The list of tag keys for the resource. You can specify up to 20 tag keys.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> tagKeys_ {};

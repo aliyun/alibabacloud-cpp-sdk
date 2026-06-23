@@ -112,7 +112,7 @@ namespace Models
 
 
         protected:
-          // Package name.
+          // The package name.
           shared_ptr<string> name_ {};
         };
 
@@ -165,23 +165,17 @@ namespace Models
 
 
       protected:
-        // The alias of the vulnerability.
+        // The vulnerability alias.
         shared_ptr<string> aliasName_ {};
-        // A list of CVE names corresponding to the vulnerabilities.
+        // The list of CVEs associated with the vulnerability.
         shared_ptr<vector<string>> cveList_ {};
-        // The name of the vulnerability.
+        // The vulnerability name.
         shared_ptr<string> name_ {};
-        // The severity level of the vulnerability.
-        // 
-        // Valid values:
-        // 
-        // *   nntf: You can ignore the vulnerability.
-        // *   later: You can fix the vulnerability later.
-        // *   asap: You need to fix the vulnerability at the earliest opportunity.
+        // The vulnerability severity level.
         shared_ptr<string> necessity_ {};
         // Indicates whether a restart is required.
         shared_ptr<bool> needReboot_ {};
-        // List of packages affected by the vulnerability.
+        // The list of packages affected by the vulnerability.
         shared_ptr<vector<VulList::PackageList>> packageList_ {};
       };
 
@@ -211,9 +205,9 @@ namespace Models
 
 
     protected:
-      // The ID of the node.
+      // The node instance ID.
       shared_ptr<string> instanceId_ {};
-      // The node name. This name is the identifier of the node in the cluster.
+      // The node name, which is the identifier of the node within the cluster.
       shared_ptr<string> nodeName_ {};
       // The list of vulnerabilities.
       shared_ptr<vector<VulRecords::VulList>> vulList_ {};
@@ -238,12 +232,13 @@ namespace Models
 
 
   protected:
-    // The vulnerability list of all node pools.
+    // The list of node pool vulnerabilities.
     shared_ptr<vector<DescribeNodePoolVulsResponseBody::VulRecords>> vulRecords_ {};
-    // Indicates whether the CVE vulnerability patching service provided by Security Center is purchased.
+    // Indicates whether the Security Center CVE fix service has been purchased.
     // 
-    // *   true: yes
-    // *   false: no
+    // - true: Purchased.
+    // 
+    // - false: Not purchased.
     shared_ptr<bool> vulsFixServicePurchased_ {};
   };
 

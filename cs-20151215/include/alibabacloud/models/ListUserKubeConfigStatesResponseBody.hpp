@@ -97,34 +97,33 @@ namespace Models
 
 
     protected:
-      // The expiration date of the certificate used in a kubeconfig file. Format: the UTC time in the RFC3339 format.
+      // The expiration time of the KubeConfig certificate. Format: UTC time in RFC 3339 format.
       shared_ptr<string> certExpireTime_ {};
-      // The current status of the certificate used in a kubeconfig file. Valid values:
+      // The current status of the KubeConfig certificate. Valid values:
       // 
-      // *   Expired: The certificate is expired.
-      // *   Unexpired: The certificate is not expired.
-      // *   Unissued: The certificate is not issued.
-      // *   Unknown: The status of the certificate is unknown.
-      // *   Removed: The certificate is removed. An issue record is found for the certificate.
+      // - Expired: The certificate has expired.
+      // - Unexpired: The certificate has not expired.
+      // - Unissued: The certificate has not been issued.
+      // - Unknown: The status is unknown.
+      // 
+      // - Removed: The certificate has been revoked. An issuance record exists for the certificate.
       shared_ptr<string> certState_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
-      // 
-      // The name must be 1 to 63 characters in length, and can contain digits, underscores (_), and hyphens (-). The name must start with a letter or number.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The status of the cluster. Valid values:
+      // The cluster status. Valid values:
       // 
-      // *   `initial`: The cluster is being created.
-      // *   `failed`: The cluster failed to be created.
-      // *   `running`: The cluster is running.
-      // *   `updating`: The cluster is being upgraded.
-      // *   `updating_failed`: The cluster failed to be updated.
-      // *   `scaling`: The cluster is being scaled.
-      // *   `stopped`: The cluster is stopped.
-      // *   `deleting`: The cluster is being deleted.
-      // *   `deleted`: The cluster is deleted.
-      // *   `delete_failed`: The cluster failed to be deleted.
+      // - `initial`: The cluster is being created.
+      // - `failed`: The cluster failed to be created.
+      // - `running`: The cluster is running.
+      // - `updating`: The cluster is being upgraded.
+      // - `updating_failed`: The cluster failed to be upgraded.
+      // - `scaling`: The cluster is being scaled.
+      // - `stopped`: The cluster has stopped running.
+      // - `deleting`: The cluster is being deleted.
+      // - `deleted`: The cluster has been deleted.
+      // - `delete_failed`: The cluster failed to be deleted.
       shared_ptr<string> clusterState_ {};
     };
 
@@ -175,11 +174,11 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of records returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -206,7 +205,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListUserKubeConfigStatesResponseBody::Page> page_ {};
-    // The status of the kubeconfig files.
+    // The KubeConfig status details of the user.
     shared_ptr<vector<ListUserKubeConfigStatesResponseBody::States>> states_ {};
   };
 

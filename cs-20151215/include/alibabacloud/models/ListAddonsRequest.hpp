@@ -84,17 +84,28 @@ namespace Models
 
 
   protected:
-    // The cluster ID. If you specify a cluster ID, only components used in the specified cluster are queried. Other parameters are ignored.
+    // The cluster ID.
+    // If you specify a cluster ID, the system queries the list of available components for the specified cluster, and all other parameters are ignored.
     shared_ptr<string> clusterId_ {};
-    // The specifications of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+    // The cluster specification.
+    // If cluster_id is specified, this parameter is ignored.
+    // The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
     shared_ptr<string> clusterSpec_ {};
-    // The type of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+    // The cluster type.
+    // If cluster_id is specified, this parameter is ignored.
+    // The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
     shared_ptr<string> clusterType_ {};
-    // The version of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+    // The cluster version.
+    // If cluster_id is specified, this parameter is ignored.
+    // The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
     shared_ptr<string> clusterVersion_ {};
-    // The subtype of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+    // The cluster subtype.
+    // If cluster_id is specified, this parameter is ignored.
+    // The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
     shared_ptr<string> profile_ {};
-    // The region of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+    // The region.
+    // If cluster_id is specified, this parameter is ignored.
+    // The region_id, cluster_type, profile, cluster_spec, and cluster_version parameters must be specified together.
     shared_ptr<string> regionId_ {};
   };
 

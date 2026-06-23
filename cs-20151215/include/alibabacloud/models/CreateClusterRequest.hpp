@@ -304,14 +304,13 @@ namespace Models
       // Whether to encrypt the data disk. Valid values:
       // 
       // - `true`: Encrypt the data disk.
-      // 
       // - `false`: Do not encrypt the data disk.
       // 
       // Default value: `false`.
       shared_ptr<string> encrypted_ {};
-      // Data disk performance level. Applies only to [ESSD](https://help.aliyun.com/document_detail/122389.html).
+      // Node data disk performance level. Only takes effect for [ESSD disks](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
-      // Data disk size in GiB. Valid range: 40–32767.
+      // Data disk size. Valid values: 40 to 32767. Unit: GiB.
       // 
       // This parameter is required.
       shared_ptr<string> size_ {};
@@ -345,7 +344,7 @@ namespace Models
 
 
     protected:
-      // Whether to enable RRSA.
+      // Whether to enable the RRSA feature.
       // 
       // - true: Enable.
       // 
@@ -411,12 +410,9 @@ namespace Models
 
       protected:
         // Cluster automatic upgrade frequency. Valid values:
-        // 
-        // - patch: Automatically upgrade to the latest patch version within the current minor version. New Kubernetes versions do not include breaking changes.
-        // 
-        // - stable: Automatically upgrade to the latest patch version of the second-newest minor version. New Kubernetes versions may include API and feature changes but have undergone extensive stability validation.
-        // 
-        // - rapid: Automatically upgrade to the latest patch version of the newest minor version to quickly access new Kubernetes community features.
+        // - patch: Automatically upgrade to an available patch version of the current minor version. The new Kubernetes version will not contain breaking changes.
+        // - stable: Automatically upgrade to the latest patch version of the second-newest minor version. The new Kubernetes version may involve API and feature changes, but its stability has been widely verified.
+        // - rapid: Automatically upgrade to the latest patch version of the latest minor version to get new features from the Kubernetes community faster.
         shared_ptr<string> channel_ {};
         // Whether to enable cluster automatic upgrade.
         // 
@@ -490,7 +486,7 @@ namespace Models
 
 
       protected:
-        // VPCs where the internal domain name resolution takes effect.
+        // VPCs where the internal DNS record resolution takes effect.
         shared_ptr<vector<string>> bindVpcs_ {};
       };
 
@@ -505,7 +501,7 @@ namespace Models
 
 
     protected:
-      // Internal domain name configuration for the cluster, applicable to ACK managed clusters. Internal domain names allow node-side system components such as kubelet and kube-proxy to access the API Server. Without internal domain name access, node-side components access the API Server through the CLB IP address.
+      // Internal DNS configuration for the cluster, applicable to ACK managed clusters. The internal DNS is used by node-side system components such as kubelet and kube-proxy to access the API Server. When internal DNS access is not enabled, node-side system components will access via CLB IP.
       shared_ptr<ControlPlaneEndpointsConfig::InternalDnsConfig> internalDnsConfig_ {};
     };
 
@@ -762,29 +758,26 @@ namespace Models
 
 
     protected:
-      // Whether to enable auto-renewal for control plane nodes. Valid only when charge_type is `PrePaid`.
-      // 
+      // Whether to enable auto-renewal for control plane nodes. Valid when the billing type is `PrePaid`.
       // - true: Enable auto-renewal.
-      // 
       // - false: Disable auto-renewal.
       // 
       // Default value: true.
       shared_ptr<bool> autoRenew_ {};
-      // Auto-renewal duration for control plane nodes in months.
+      // Auto-renewal duration for control plane nodes.
       // 
-      // Valid values: {1, 2, 3, 6, 12}.
+      // Valid values: {1, 2, 3, 6, 12}. Unit: months.
       // 
       // Default value: 1.
       shared_ptr<int64_t> autoRenewPeriod_ {};
       // Control plane node billing type.
       // 
       // - `PrePaid`: Subscription.
-      // 
       // - `PostPaid`: Pay-as-you-go.
       // 
       // Default value: `PostPaid`.
       shared_ptr<string> chargeType_ {};
-      // Whether to install Cloud Monitor on nodes.
+      // Whether to install CloudMonitor on nodes.
       // 
       // - true: Install the CloudMonitor agent.
       // 
@@ -794,9 +787,9 @@ namespace Models
       shared_ptr<bool> cloudMonitorFlags_ {};
       // Node CPU management policy.
       // 
-      // - static: Enhances CPU affinity and exclusivity for pods with specific resource characteristics on the node.
+      // - static: Allows enhancing CPU affinity and exclusivity for Pods with certain resource characteristics on the node.
       // 
-      // - none: Uses the default CPU affinity scheme.
+      // - none: Enables the existing default CPU affinity scheme.
       // 
       // Default value: none.
       shared_ptr<string> cpuPolicy_ {};
@@ -804,31 +797,31 @@ namespace Models
       shared_ptr<string> deploymentsetId_ {};
       // Image ID.
       shared_ptr<string> imageId_ {};
-      // Operating system image type.
+      // OS image type.
       shared_ptr<string> imageType_ {};
       // ECS instance metadata access configuration.
       shared_ptr<InstanceMetadataOptions> instanceMetadataOptions_ {};
       // Node instance types.
       shared_ptr<vector<string>> instanceTypes_ {};
-      // Key pair name. Choose either this parameter or login_password.
+      // Key pair name. Mutually exclusive with login_password.
       shared_ptr<string> keyPair_ {};
-      // SSH login password. Password rules: 8–30 characters, containing at least three of the following: uppercase letters, lowercase letters, digits, and special characters. Choose either this parameter or key_pair.
+      // SSH login password. The password must be 8 to 30 characters in length and contain at least three of the following: uppercase letters, lowercase letters, digits, and special characters. Mutually exclusive with key_pair.
       shared_ptr<string> loginPassword_ {};
-      // **[Deprecated]** Node service port range.
+      // [**This field is deprecated**] Node service port range.
       shared_ptr<string> nodePortRange_ {};
-      // Subscription duration for control plane nodes in months. Required and valid only when charge_type is `PrePaid`.
+      // Subscription duration for control plane nodes. Valid and required when the billing type is `PrePaid`.
       // 
-      // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
+      // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}. Unit: months.
       // 
       // Default value: 1.
       shared_ptr<int64_t> period_ {};
-      // Billing cycle unit for control plane nodes. Required and valid only when charge_type is `PrePaid`.
+      // Subscription period unit for control plane nodes. Valid and required when the billing type is `PrePaid`.
       // 
-      // Valid value: `Month`. Only monthly billing is supported.
+      // Valid value: `Month`. Currently, only month-based periods are supported.
       shared_ptr<string> periodUnit_ {};
-      // **[Deprecated]** Control plane node runtime name. Valid value:
+      // [**This field is deprecated**] Control plane node runtime name. Valid value:
       // 
-      // containerd: Containerd runtime, supported for all cluster versions.
+      // containerd: Containerd runtime, supported by all cluster versions.
       shared_ptr<string> runtime_ {};
       // Whether to enable Alibaba Cloud OS security hardening.
       // 
@@ -842,53 +835,49 @@ namespace Models
       // 
       // Valid values: `3` or `5`.
       shared_ptr<int64_t> size_ {};
-      // Whether to enable MLPS 2.0 security hardening.
+      // Whether to enable classified protection security hardening.
       // 
-      // - true: Enable MLPS 2.0 security hardening.
+      // - true: Enable classified protection hardening.
       // 
-      // - false: Disable MLPS 2.0 security hardening.
+      // - false: Disable classified protection hardening.
       // 
       // Default value: false.
       shared_ptr<bool> socEnabled_ {};
-      // Whether to enable performance burst for node system disks.
+      // Whether to enable burst (performance burst) for the node system disk.
       // 
       // - true: Enable.
       // 
       // - false: Disable.
       // 
-      // This parameter is supported only when `system_disk_category` is `cloud_auto`.
+      // This parameter is only supported when `system_disk_category` is set to `cloud_auto`.
       shared_ptr<bool> systemDiskBurstingEnabled_ {};
       // Node system disk type.
       // 
       // - `cloud_efficiency`: Ultra disk.
+      // - `cloud_ssd`: SSD disk.
+      // - `cloud_essd`: ESSD disk.
+      // - `cloud_auto`: ESSD AutoPL disk.
+      // - `cloud_essd_entry`: ESSD Entry disk.
       // 
-      // - `cloud_ssd`: Standard SSD.
-      // 
-      // - `cloud_essd`: ESSD.
-      // 
-      // - `cloud_auto`: ESSD AutoPL.
-      // 
-      // - `cloud_essd_entry`: ESSD Entry.
-      // 
-      // Default value: `cloud_ssd`. The default may vary by zone.
+      // Default value: `cloud_ssd`. The default value may vary across availability zones.
       shared_ptr<string> systemDiskCategory_ {};
-      // Node system disk performance level. Applies only to ESSD disks.
+      // Node system disk performance level. Only takes effect for ESSD disks.
       // 
-      // Disk performance levels depend on disk size. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+      // The performance level is related to the disk size. For more information, see [ESSD disk](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // Provisioned read/write IOPS for node system disks.
+      // Pre-provisioned read/write IOPS for the node system disk.
       // 
-      // Valid range: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50,000}.
+      // Valid values: 0 to min{50,000, 1000*capacity - baseline performance}. Baseline performance = min{1,800 + 50*capacity, 50000}.
       // 
-      // This parameter is supported only when `system_disk_category` is `cloud_auto`.
+      // This parameter is only supported when `system_disk_category` is set to `cloud_auto`.
       shared_ptr<int64_t> systemDiskProvisionedIops_ {};
-      // Node system disk size in GiB.
+      // Node system disk size.
       // 
-      // Valid range: [40,500].
+      // Valid values: [40, 500\\]. Unit: GiB.
       // 
       // Default value: `120`.
       shared_ptr<int64_t> systemDiskSize_ {};
-      // Automatic snapshot backup policy for node system disks.
+      // Node automatic snapshot backup policy.
       shared_ptr<string> systemDiskSnapshotPolicyId_ {};
     };
 
@@ -920,7 +909,7 @@ namespace Models
 
 
     protected:
-      // Whether to enable Intelligent Managed Mode.
+      // Whether to enable intelligent managed mode.
       // 
       // - true: Enable.
       // 
@@ -966,17 +955,17 @@ namespace Models
 
 
     protected:
-      // Whether to enable cluster audit logging.
+      // Whether to enable the cluster audit log feature.
       // 
       // - true: Enable.
       // 
       // - false: Disable.
       shared_ptr<bool> enabled_ {};
-      // The [SLS Project](https://help.aliyun.com/document_detail/48873.html) containing the [Logstore](https://help.aliyun.com/document_detail/48873.html) for cluster audit logs.
+      // The [SLS Project](https://help.aliyun.com/document_detail/48873.html) where the cluster audit log [Logstore](https://help.aliyun.com/document_detail/48873.html) is located.
       // 
       // - Default value: `k8s-log-{clusterid}`.
       // 
-      // - When audit logging is enabled, a Logstore for audit logs is created in the specified SLS Project.
+      // - After enabling the cluster audit log feature, a corresponding Logstore will be created under the specified SLS Project.
       shared_ptr<string> slsProjectName_ {};
     };
 
@@ -1776,198 +1765,181 @@ namespace Models
 
 
   protected:
-    // **[Deprecated]** Access control list for the registered cluster API Server SLB.
+    // [**This field is deprecated**] Registered cluster API Server SLB access control list.
     shared_ptr<vector<string>> accessControlList_ {};
-    // List of cluster components. Specify components to install during cluster creation using the `addons` parameter.
+    // List of cluster components. Specify the components to install when creating a cluster through `addons`.
     // 
-    // **Network components**: Required. Choose between Flannel and Terway:
+    // **Network component**: Required. Choose between Flannel and Terway network types when creating a cluster:
     // 
     // - Flannel network: [{"name":"flannel","config":""}].
+    // - Terway network: [{"name": "terway-eniip","config": ""}] .
     // 
-    // - Terway network: [{"name": "terway-eniip","config": ""}].
-    // 
-    // **Storage components**: Optional. Only `csi` is supported:
+    // **Storage component**: Optional. Only the `csi` type is supported:
     // 
     // `csi`: [{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}].
     // 
-    // **Logging components**: Optional. We recommend enabling this. Without SLS, you cannot use cluster audit features.
+    // **Log component**: Optional. Recommended to enable. If Log Service is not enabled, the cluster audit feature will be unavailable.
     // 
-    // - Use an existing `SLS Project`: [{"name": "loongcollector","config": "{"IngressDashboardEnabled":"true","sls_project_name":"your_sls_project_name"}"}].
+    // - Use an existing `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\",\\"sls_project_name\\":\\"your_sls_project_name\\"}"}] .
+    // - Create a new `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\"}"}] .
     // 
-    // - Create a new `SLS Project`: [{"name": "loongcollector","config": "{"IngressDashboardEnabled":"true"}"}].
+    // **Ingress component**: Optional. ACK dedicated clusters install the Ingress component `nginx-ingress-controller` by default.
     // 
-    // **Ingress components**: Optional. ACK dedicated clusters install the `nginx-ingress-controller` by default.
+    // - Install Ingress with public network access: [{"name":"nginx-ingress-controller","config":"{\\"IngressSlbNetworkType\\":\\"internet\\"}"}] .
+    // - Disable default Ingress installation: [{"name": "nginx-ingress-controller","config": "","disabled": true}] .
     // 
-    // - Install Ingress with public network access: [{"name":"nginx-ingress-controller","config":"{"IngressSlbNetworkType":"internet"}"}].
+    // **Event center**: Optional. Enabled by default.
     // 
-    // - Disable default Ingress installation: [{"name": "nginx-ingress-controller","config": "","disabled": true}].
+    // The event center provides capabilities for storing, querying, and alerting on Kubernetes events. The Logstore associated with the Kubernetes event center is free for 90 days. For more information about the free policy, see [Create and use the Kubernetes event center](https://help.aliyun.com/document_detail/150476.html).
     // 
-    // **Event Hub**: Optional. Enabled by default.
-    // 
-    // Event Hub provides storage, querying, and alerting for Kubernetes events. The associated Logstore is free for 90 days. For more information about the free policy, see [Create and use Kubernetes Event Hub](https://help.aliyun.com/document_detail/150476.html).
-    // 
-    // Example to enable Event Hub: [{"name":"ack-node-problem-detector","config":"{"sls_project_name":"your_sls_project_name"}"}].
+    // Example of enabling the event center: [{"name":"ack-node-problem-detector","config":"{\\"sls_project_name\\":\\"your_sls_project_name\\"}"}].
     shared_ptr<vector<Addon>> addons_ {};
-    // ServiceAccount is the access credential used by pods to communicate with the cluster API Server. The `api-audiences` specifies valid `token` identities for authenticating requests on the `apiserver` side. You can configure multiple `audience` values separated by commas (,).
+    // ServiceAccount is the access credential for communication between Pods and the cluster API Server. `api-audiences` defines the valid request `token` identities used by the `apiserver` to verify whether the request `token` is legitimate. Multiple `audience` values can be configured, separated by commas (,).
     // 
-    // For more information about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+    // For more details about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
     shared_ptr<string> apiAudiences_ {};
     // Cluster audit log configuration.
     shared_ptr<CreateClusterRequest::AuditLogConfig> auditLogConfig_ {};
-    // [Intelligent Managed Mode](https://help.aliyun.com/document_detail/2938898.html) configuration.
+    // [Intelligent managed mode](https://help.aliyun.com/document_detail/2938898.html) configuration.
     shared_ptr<CreateClusterRequest::AutoMode> autoMode_ {};
-    // **[Deprecated]**
+    // [**This field is deprecated**]
     // 
-    // Whether to enable auto-renewal. Valid only when `charge_type` is `PrePaid`. Valid values:
+    // Whether to enable auto-renewal. Only takes effect when `charge_type` is set to `PrePaid`. Valid values:
     // 
     // - `true`: Enable auto-renewal.
-    // 
     // - `false`: Disable auto-renewal.
     // 
     // Default value: `false`.
     // 
-    // This parameter changed on October 15, 2024. For more information, see [Announcement on Changes to CreateCluster API Parameters](https://help.aliyun.com/document_detail/2849194.html).
+    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<bool> autoRenew_ {};
-    // **[Deprecated]**
+    // [**This field is deprecated**]
     // 
-    // Auto-renewal period in months. Valid only when prepaid and auto-renewal are enabled. When `PeriodUnit=Month`, valid values are {1, 2, 3, 6, 12}.
+    // Auto-renewal period. Only takes effect when subscription and auto-renewal are selected. When `PeriodUnit=Month`, valid values: {1, 2, 3, 6, 12}.
     // 
     // Default value: 1.
     // 
-    // This parameter changed on October 15, 2024. For more information, see [Announcement on Changes to CreateCluster API Parameters](https://help.aliyun.com/document_detail/2849194.html).
+    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<int64_t> autoRenewPeriod_ {};
-    // **[Deprecated]**
+    // [**This field is deprecated**]
     // 
-    // Billing type for the CLB instance used by the API Server. Default value: PostPaid. Valid values:
-    // 
+    // Billing type of the CLB instance used by the API Server. Default value: PostPaid. Valid values:
     // - PostPaid: Pay-as-you-go.
-    // 
-    // - PrePaid: Subscription. New CLB instances no longer support subscription billing, but existing instances are unaffected.
+    // - PrePaid: Subscription. This billing type is no longer supported for newly created CLB instances. Existing instances are not affected.
     // 
     // >Notice: 
     // 
-    // - This parameter changed on October 15, 2024. For more information, see [Announcement on Changes to CreateCluster API Parameters](https://help.aliyun.com/document_detail/2849194.html).
-    // 
-    // - Starting December 1, 2024, new CLB instances will no longer support subscription billing and will incur an instance fee.
-    // 
-    // <props="china">For details, see [[Product Announcement\\] Discontinuation of Subscription Billing for API Server CLB in New Clusters](~~2851191~~) and [Adjustment of Classic Load Balancer Billing Items](https://help.aliyun.com/document_detail/2839797.html).
-    // <props="intl">For details, see [Adjustment of Classic Load Balancer Billing Items](https://help.aliyun.com/document_detail/2839797.html).
+    // - This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
+    // - Starting from December 1, 2024, newly created CLB instances no longer support the subscription billing type, and instance fees will be charged.
+    // </notice>
+    // <props="china">For details, see [Product announcement on canceling subscription billing for cluster API Server CLB](https://help.aliyun.com/document_detail/2851191.html) and [CLB billing adjustment announcement](https://help.aliyun.com/document_detail/2839797.html).
+    // <props="intl">For details, see [CLB billing adjustment announcement](https://help.aliyun.com/document_detail/2839797.html).
     shared_ptr<string> chargeType_ {};
-    // **[Deprecated]** For control plane configuration, use the `security_hardening_os` parameter under `control_plane_config`. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
     shared_ptr<bool> cisEnabled_ {};
-    // **[Deprecated]** For control plane node configuration, use the cloud_monitor_flags parameter under `control_plane_config`. For node pool configuration, use the `cms_enabled` parameter under `kubernetes_config` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane node configuration, use the `cloud_monitor_flags` parameter under `control_plane_config` instead. For node pool configuration, use the `cms_enabled` parameter under `kubernetes_config` in `nodepool` instead.
     // 
-    // Whether to install the CloudMonitor agent on the cluster. Valid values:
+    // Whether to install the CloudMonitor agent in the cluster. Valid values:
     // 
     // - `true`: Install the CloudMonitor agent.
-    // 
     // - `false`: Do not install the CloudMonitor agent.
     // 
     // Default value: `false`.
     shared_ptr<bool> cloudMonitorFlags_ {};
     // Cluster local domain name.
     // 
-    // Naming rules: The domain name consists of one or more parts separated by dots (.). Each part can be up to 63 characters long and can contain lowercase letters, digits, and hyphens (-). Each part must start and end with a lowercase letter or digit.
+    // Naming rules: The domain name consists of one or more parts separated by periods (.). Each part can be up to 63 characters long and can contain lowercase letters, digits, and hyphens (-). Each part must start and end with a lowercase letter or digit.
     shared_ptr<string> clusterDomain_ {};
-    // When you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specification. Valid values:
+    // After selecting `cluster_type` as `ManagedKubernetes` and configuring `profile`, you can further specify the cluster specification. Valid values:
     // 
-    // - `ack.standard`: Basic Edition (default when this parameter is empty)
-    // 
-    // - `ack.pro.small`: Pro Edition
-    // 
+    // - `ack.standard`: Basic edition (selected by default when the value is empty)
+    // - `ack.pro.small`: Pro edition
     // - `ack.pro.xlarge`: Pro XL
-    // 
     // - `ack.pro.2xlarge`: Pro 2XL
+    // - `ack.pro.4xlarge`: Pro 4XL (requires contacting customer service to enable allowlisting)
     // 
-    // - `ack.pro.4xlarge`: Pro 4XL (requires whitelist approval from customer service)
+    // Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). They pre-allocate and fix control plane resources to ensure that API concurrency and Pod scheduling capabilities always remain at a determined high level, suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
     // 
-    // Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). These tiers pre-allocate and dedicate control plane resources to ensure consistently high API concurrency and pod scheduling performance. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
-    // 
-    // For cluster management fees for Pro Edition and provisioned control plane clusters, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+    // For the cluster management fees of Pro edition and provisioned control plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
     shared_ptr<string> clusterSpec_ {};
     // - `Kubernetes`: ACK dedicated cluster.
-    // 
-    // - `ManagedKubernetes`: ACK managed clusters, including ACK managed clusters (Pro Edition, Basic Edition), ACK serverless clusters (Pro Edition, Basic Edition), ACK Edge clusters (Pro Edition, Basic Edition), and ACK LINGJUN clusters (Pro Edition).
-    // 
-    // - `ExternalKubernetes`: registered cluster.
+    // - `ManagedKubernetes`: ACK managed cluster types, including ACK managed cluster (Pro and Basic editions), ACK Serverless cluster (Pro and Basic editions), ACK Edge cluster (Pro and Basic editions), and ACK Lingjun cluster (Pro edition).
+    // - `ExternalKubernetes`: Registered cluster.
     shared_ptr<string> clusterType_ {};
-    // Pod network CIDR block. It must be a valid private CIDR block: 10.0.0.0/8, 172.16.0.0/12 to 172.31.0.0/16, or 192.168.0.0/16. It cannot overlap with the VPC or existing Kubernetes cluster CIDR blocks in the VPC. This cannot be modified after cluster creation.
+    // Pod network CIDR block. Must be a valid private CIDR block, specifically the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16. Cannot overlap with the VPC or CIDR blocks used by existing Kubernetes clusters in the VPC. Cannot be modified after creation.
     // 
-    // For cluster network planning, see [Network planning for ACK managed clusters](https://help.aliyun.com/document_detail/86500.html).
+    // For cluster network planning, see [ACK managed cluster network planning](https://help.aliyun.com/document_detail/86500.html).
     // 
     // > This field is required for Flannel clusters.
     shared_ptr<string> containerCidr_ {};
-    // Control plane configuration for ACK dedicated clusters.
+    // ACK dedicated cluster control plane configuration.
     shared_ptr<CreateClusterRequest::ControlPlaneConfig> controlPlaneConfig_ {};
     // Cluster connection configuration.
     shared_ptr<CreateClusterRequest::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};
-    // List of component names specifying which control plane component logs to collect.
+    // List of component names, specifying which control plane components\\" logs to collect.
     // 
-    // By default, logs are collected for kube-apiserver, kube-controller-manager, kube-scheduler, and cloud-controller-manager.
+    // By default, logs are collected from kube-apiserver, kube-controller-manager, kube-scheduler, and cloud-controller-manager.
     shared_ptr<vector<string>> controlplaneLogComponents_ {};
-    // SLS Project for control plane component logs. You can use an existing Project for log storage or let the system automatically create one. If auto-created, the Project name will be `k8s-log-{ClusterID}`.
+    // Log Service project for control plane component logs. You can use an existing project for log storage or let the system automatically create a project. If you choose to auto-create a Log Service project, a project named `k8s-log-{ClusterID}` will be automatically created.
     shared_ptr<string> controlplaneLogProject_ {};
     // Number of days to retain control plane component logs.
     shared_ptr<string> controlplaneLogTtl_ {};
-    // **[Deprecated]** For control plane configuration, use the `cpu_policy` parameter under `control_plane_config`. For node pool configuration, use the `cpu_policy` parameter under `kubernetes_config` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `cpu_policy` parameter under `control_plane_config` instead. For node pool configuration, use the `cpu_policy` parameter under `kubernetes_config` in `nodepool` instead.
     // 
-    // Node CPU management policy. Supported for cluster versions 1.12.6 and later:
+    // Node CPU management policy. The following two policies are supported when the cluster version is 1.12.6 or later:
     // 
-    // - `static`: Enhances CPU affinity and exclusivity for pods with specific resource characteristics on the node.
-    // 
-    // - `none`: Uses the default CPU affinity scheme.
+    // - `static`: Allows enhancing CPU affinity and exclusivity for Pods with certain resource characteristics on the node.
+    // - `none`: Enables the existing default CPU affinity scheme.
     // 
     // Default value: `none`.
     shared_ptr<string> cpuPolicy_ {};
-    // **[Deprecated]** Use the `extra_sans` parameter instead.
+    // [**This field is deprecated**] Use the `extra_sans` parameter instead.
     // 
-    // Custom certificate SAN. Separate multiple IP addresses or domain names with commas (,).
+    // Custom certificate SAN. Multiple IPs or domain names are separated by commas (,).
     shared_ptr<string> customSan_ {};
-    // Cluster deletion protection prevents accidental cluster deletion through the console or API. Valid values:
+    // Cluster deletion protection, which prevents accidental cluster deletion through the console or API. Valid values:
     // 
-    // - `true`: Enable deletion protection. You cannot delete the cluster through the console or API.
-    // 
-    // - `false`: Disable deletion protection. You can delete the cluster through the console or API.
+    // - `true`: Enable cluster deletion protection. The cluster cannot be deleted through the console or API.
+    // - `false`: Disable cluster deletion protection. The cluster can be deleted through the console or API.
     // 
     // Default value: `false`.
     shared_ptr<bool> deletionProtection_ {};
-    // **[Deprecated]** By default, clusters are not rolled back on creation failure. You must manually clean up failed clusters.
+    // [**This field is deprecated**] By default, no rollback is performed when cluster creation fails. You need to clean up the failed cluster yourself.
     // 
-    // Whether to roll back on cluster creation failure. Valid values:
+    // Whether to roll back when cluster creation fails. Valid values:
     // 
-    // - `true`: Roll back on failure.
+    // - `true`: Roll back when cluster creation fails.
+    // - `false`: Do not roll back when cluster creation fails.
     // 
-    // - `false`: Do not roll back on failure.
     // 
     // Default value: `true`.
     shared_ptr<bool> disableRollback_ {};
-    // **[Deprecated]** Use the `rrsa_config` parameter instead.
+    // [**This field is deprecated**] Use the `rrsa_config` parameter instead.
     // 
-    // Whether to enable RRSA.
+    // Whether to enable the RRSA feature.
     // 
     // - true: Enable.
     // 
     // - false: Disable.
     shared_ptr<bool> enableRrsa_ {};
-    // KMS key ID used to encrypt data disks. For more information, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
+    // KMS key ID. This key is used to encrypt data disks. For more details, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
     // 
-    // > This feature is available only for professional managed clusters (ACK Pro clusters).
+    // > This feature only takes effect in professional managed clusters (ACK Pro clusters).
     shared_ptr<string> encryptionProviderKey_ {};
-    // Whether to enable public network access. Expose the API Server through an EIP to allow public network access to the cluster.
+    // Whether to enable public access. Expose the API Server through an EIP to enable public access to the cluster.
     // 
-    // - `true`: Enable public network access.
-    // 
-    // - `false`: Disable public network access. If disabled, you cannot access the cluster API Server from external networks.
+    // - `true`: Enable public access.
+    // - `false`: Disable public access. When disabled, the cluster API Server cannot be accessed from the Internet.
     // 
     // Default value: `false`.
     shared_ptr<bool> endpointPublicAccess_ {};
     // Custom API Server certificate SAN (Subject Alternative Name).
     shared_ptr<vector<string>> extraSans_ {};
-    // **[Deprecated]** Adding existing nodes during cluster creation is not supported. To add existing nodes to a cluster, first create a node pool and then call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
+    // [**This field is deprecated**] Selecting existing nodes when creating a cluster is no longer supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
     // 
-    // When using existing instances to create a cluster, whether to mount data disks. Valid values:
+    // Whether to mount data disks on instances when creating a cluster with existing instances. Valid values:
     // 
-    // - `true`: Store containers and images on the data disk. Existing data on the data disk will be lost. Back up your data.
+    // - `true`: Store containers and images on the data disk. Existing data on the data disk will be lost. Please back up your data.
     // 
     // - `false`: Do not store containers and images on the data disk.
     // 
@@ -1975,489 +1947,440 @@ namespace Models
     // 
     // Data disk mounting rules:
     // 
-    // - If the ECS instance has a mounted data disk and the file system of the last data disk is uninitialized, the system automatically formats it as ext4 to store /var/lib/docker and /var/lib/kubelet.
-    // 
-    // - If the ECS instance has no mounted data disks, no new data disks are mounted.
+    // - If the ECS instance already has data disks mounted and the file system of the last data disk is not initialized, the system will automatically format the data disk as ext4 to store /var/lib/docker and /var/lib/kubelet.
+    // - If the ECS instance has no data disks mounted, no new data disk will be mounted.
     shared_ptr<bool> formatDisk_ {};
-    // **[Deprecated]** For control plane configuration, use the `image_id` parameter under `control_plane_config`. For node pool configuration, use the `image_id` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `image_id` parameter under `control_plane_config` instead. For node pool configuration, use the `image_id` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Custom node image. By default, the system image is used. When you select a custom image, it replaces the default system image. See [Custom images](https://help.aliyun.com/document_detail/146647.html).
+    // Custom node image. The system image is used by default. When a custom image is selected, it replaces the default system image. See [Custom images](https://help.aliyun.com/document_detail/146647.html).
     shared_ptr<string> imageId_ {};
-    // **[Deprecated]** For control plane configuration, use the `image_type` parameter under `control_plane_config`. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Operating system distribution type. We recommend using this parameter to specify the node operating system. Valid values:
+    // OS distribution type. It is recommended to use this field to specify the node OS. Valid values:
     // 
     // - CentOS
-    // 
     // - AliyunLinux
-    // 
     // - AliyunLinux Qboot
-    // 
     // - AliyunLinuxUEFI
-    // 
     // - AliyunLinux3
-    // 
     // - Windows
-    // 
     // - WindowsCore
-    // 
     // - AliyunLinux3Arm64
-    // 
     // - ContainerOS
     // 
     // Default value: `CentOS`.
     shared_ptr<string> imageType_ {};
-    // **[Deprecated]** Adding existing nodes during cluster creation is not supported. To add existing nodes to a cluster, first create a node pool and then call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
+    // [**This field is deprecated**] Selecting existing nodes when creating a cluster is no longer supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
     // 
-    // When using existing nodes to create a cluster, specify the ECS instance list. These instances are added as worker nodes to the cluster.
     // 
-    // > This field is required when using existing instances to create a cluster.
+    // When creating a cluster with existing nodes, you need to specify a list of ECS instances. These instances will join the cluster as Worker nodes.
+    // 
+    // > This field is required when creating a cluster with existing instances.
     shared_ptr<vector<string>> instances_ {};
     // Cluster IP stack.
     shared_ptr<string> ipStack_ {};
-    // Automatically create an advanced security group. This takes effect when `security_group_id` is empty.
+    // Automatically create an enterprise security group. Takes effect when `security_group_id` is empty.
     // 
-    // > With basic security groups, the total number of nodes and Terway pods in a cluster cannot exceed 2,000. We recommend using advanced security groups for Terway network clusters.
+    // > When using a basic security group, the total number of nodes and Terway Pods in the cluster cannot exceed 2000. Therefore, when creating a Terway network type cluster, it is recommended to use an enterprise security group.
     // 
-    // - `true`: Create and use an advanced security group.
-    // 
+    // - `true`: Create and use an enterprise security group.
     // - `false`: Use a basic security group.
     // 
     // Default value: `true`.
     shared_ptr<bool> isEnterpriseSecurityGroup_ {};
-    // **[Deprecated]** Adding existing nodes during cluster creation is not supported. To add existing nodes to a cluster, first create a node pool and then call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
+    // [**This field is deprecated**] Selecting existing nodes when creating a cluster is no longer supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
     // 
-    // When using existing instances to create a cluster, whether to keep the instance names.
+    // Whether to retain instance names when creating a cluster with existing instances.
     // 
-    // - `true`: Keep.
-    // 
-    // - `false`: Replace with system-generated names.
+    // - `true`: Retain.
+    // - `false`: Do not retain. Names will be replaced using system rules.
     // 
     // Default value: `true`.
     shared_ptr<bool> keepInstanceName_ {};
-    // **[Deprecated]** For control plane configuration, use the `key_pair` parameter under `control_plane_config`. For node pool configuration, use the `key_pair` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `key_pair` parameter under `control_plane_config` instead. For node pool configuration, use the `key_pair` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Key pair name. Choose either this parameter or `login_password`.
+    // Key pair name. Mutually exclusive with `login_password`.
     shared_ptr<string> keyPair_ {};
-    // Cluster version, aligned with the Kubernetes community baseline version. We recommend selecting the latest version. If not specified, the latest version is used by default.
+    // Cluster version, consistent with the Kubernetes community baseline version. We recommend selecting the latest version. If not specified, the latest version is used by default.
     // 
-    // You can create clusters using any of the three most recent versions. Use the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) API to query supported cluster versions.
+    // You can create clusters of the three most recent versions. You can query supported cluster versions through the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) API.
     // 
-    // For more information about Kubernetes versions supported by ACK, see [Overview of Kubernetes version releases](https://help.aliyun.com/document_detail/185269.html).
+    // For Kubernetes versions supported by ACK, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
     shared_ptr<string> kubernetesVersion_ {};
-    // Specify the CLB instance ID for API Server access. If specified, no new API Server CLB is automatically created.
-    // 
-    // > Ensure the CLB instance has no dependencies (such as listeners or backend servers). Shared and public CLB instances are not supported.
+    // Specify the CLB instance ID for API Server access. When this parameter is specified, an API Server CLB will not be automatically created.
+    // > Ensure that the CLB instance has no other dependencies (such as listeners or backend servers). Shared and public-network CLB instances are not supported.
     shared_ptr<string> loadBalancerId_ {};
-    // **[Deprecated]** CLB is billed based on usage. This parameter has no effect.
+    // [**This parameter is deprecated**] CLB is billed by usage. This parameter does not take effect.
     // 
-    // Load Balancer specification. Valid values:
-    // 
+    // Load balancer specification. Valid values:
     // - slb.s1.small
-    // 
     // - slb.s2.small
-    // 
     // - slb.s2.medium
-    // 
     // - slb.s3.small
-    // 
     // - slb.s3.medium
-    // 
     // - slb.s3.large
     // 
     // Default value: `slb.s2.small`.
     shared_ptr<string> loadBalancerSpec_ {};
-    // **[Deprecated]** Enables SLS for the cluster. Applies only to ACK Serverless clusters and must be set to `SLS`.
+    // [**This field is deprecated**] Enable Log Service for the cluster. Only takes effect for ACK Serverless clusters, and the value must be `SLS`.
     shared_ptr<string> loggingType_ {};
-    // **[Deprecated]** For control plane configuration, use the `login_password` parameter under `control_plane_config`. For node pool configuration, use the `login_password` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `login_password` parameter under `control_plane_config` instead. For node pool configuration, use the `login_password` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // SSH login password. Choose either this parameter or `key_pair`. Password rules: 8–30 characters, containing at least three of the following: uppercase letters, lowercase letters, digits, and special characters.
+    // SSH login password. Mutually exclusive with `key_pair`. The password must be 8 to 30 characters in length and contain at least three of the following: uppercase letters, lowercase letters, digits, and special characters.
     shared_ptr<string> loginPassword_ {};
     // Cluster maintenance window.
     shared_ptr<MaintenanceWindow> maintenanceWindow_ {};
-    // **[Deprecated]** For control plane configuration, use the `auto_renew` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `auto_renew` parameter under `control_plane_config` instead.
     // 
-    // Whether to enable auto-renewal for master nodes. Valid only when `master_instance_charge_type` is `PrePaid`. Valid values:
+    // Whether to enable auto-renewal for Master nodes. Only takes effect when `master_instance_charge_type` is set to `PrePaid`. Valid values:
     // 
     // - `true`: Enable auto-renewal.
-    // 
     // - `false`: Disable auto-renewal.
     // 
     // Default value: `true`.
     shared_ptr<bool> masterAutoRenew_ {};
-    // **[Deprecated]** For control plane configuration, use the `auto_renew_period` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `auto_renew_period` parameter under `control_plane_config` instead.
     // 
-    // Auto-renewal period for master nodes in months. Required and valid only when subscription billing is selected.
+    // Master node auto-renewal period. Only takes effect when subscription billing type is selected, and is a required value.
     // 
     // Valid values: {1, 2, 3, 6, 12}.
     // 
     // Default value: 1.
     shared_ptr<int64_t> masterAutoRenewPeriod_ {};
-    // **[Deprecated]** For control plane configuration, use the `size` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `size` parameter under `control_plane_config` instead.
     // 
-    // Number of master nodes. Valid values: `3` or `5`.
+    // Number of Master nodes. Valid values: `3` or `5`.
     // 
     // Default value: `3`.
     shared_ptr<int64_t> masterCount_ {};
-    // **[Deprecated]** For control plane configuration, use the `instance_charge_type` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `instance_charge_type` parameter under `control_plane_config` instead.
     // 
     // Master node billing type. Valid values:
     // 
     // - `PrePaid`: Subscription.
-    // 
     // - `PostPaid`: Pay-as-you-go.
     // 
     // Default value: `PostPaid`.
     shared_ptr<string> masterInstanceChargeType_ {};
-    // **[Deprecated]** For control plane configuration, use the `instance_types` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `instance_types` parameter under `control_plane_config` instead.
     // 
-    // Master node instance types. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+    // Master node instance types. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
     shared_ptr<vector<string>> masterInstanceTypes_ {};
-    // **[Deprecated]** For control plane configuration, use the `unit` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `unit` parameter under `control_plane_config` instead.
     // 
-    // Subscription duration for master nodes in months. Required and valid only when `master_instance_charge_type` is `PrePaid`.
+    // Master node subscription duration. Valid and required when `master_instance_charge_type` is set to `PrePaid`.
     // 
     // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
     // 
     // Default value: 1.
     shared_ptr<int64_t> masterPeriod_ {};
-    // **[Deprecated]** For control plane configuration, use the `period_unit` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `period_unit` parameter under `control_plane_config` instead.
     // 
-    // Master node billing cycle. Required when master_instance_charge_type is `PrePaid`.
+    // Master node billing period. Must be specified when the billing type is `PrePaid`.
     // 
-    // Valid value: `Month`. Only monthly billing is supported.
+    // Valid value: `Month`. Currently, only month-based periods are supported.
     shared_ptr<string> masterPeriodUnit_ {};
-    // **[Deprecated]** For control plane configuration, use the `system_disk_category` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_category` parameter under `control_plane_config` instead.
     // 
     // Master node system disk type. Valid values:
     // 
     // - `cloud_efficiency`: Ultra disk.
+    // - `cloud_ssd`: SSD disk.
+    // - `cloud_essd`: ESSD disk.
     // 
-    // - `cloud_ssd`: Standard SSD.
-    // 
-    // - `cloud_essd`: ESSD.
-    // 
-    // Default value: `cloud_ssd`. The default may vary by zone.
+    // Default value: `cloud_ssd`. The default value may vary across availability zones.
     shared_ptr<string> masterSystemDiskCategory_ {};
-    // **[Deprecated]** For control plane configuration, use the `system_disk_performance_level` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_performance_level` parameter under `control_plane_config` instead.
     // 
-    // Performance level for master node system disks. Applies only to ESSD disks. Disk performance levels depend on disk size. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+    // Cluster Master node system disk performance level. Only takes effect for ESSD disks. The performance level is related to the disk size. For more information, see [ESSD disk](https://help.aliyun.com/document_detail/122389.html).
     shared_ptr<string> masterSystemDiskPerformanceLevel_ {};
-    // **[Deprecated]** For control plane configuration, use the `system_disk_size` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_size` parameter under `control_plane_config` instead.
     // 
-    // Valid range: [40,500].
+    // Master node system disk size. Valid values: [40, 500\\]. Unit: GiB.
     // 
     // Default value: `120`.
     shared_ptr<int64_t> masterSystemDiskSize_ {};
-    // **[Deprecated]** For control plane configuration, use the `system_disk_snapshot_policy_id` parameter under `control_plane_config`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_snapshot_policy_id` parameter under `control_plane_config` instead.
     // 
-    // Automatic snapshot policy ID for master node system disks.
+    // Automatic snapshot policy ID for the Master node system disk.
     shared_ptr<string> masterSystemDiskSnapshotPolicyId_ {};
-    // **[Deprecated]** Use the `vswitch_ids` parameter instead.
+    // [**This field is deprecated**] Use the `vswitch_ids` parameter instead.
     // 
-    // List of master node vSwitch IDs. The number of vSwitches must be in the range [1,3]. For high availability, we recommend selecting three vSwitches in different zones.
+    // List of Master node vSwitch IDs. The number of vSwitches ranges from [1, 3\\]. To ensure high availability of the cluster, it is recommended to select 3 vSwitches distributed in different availability zones.
     // 
-    // The number of specified instance types must match `master_count` and correspond one-to-one with elements in `master_vswitch_ids`.
+    // The number of specified instance types must be consistent with `master_count` and correspond one-to-one with the elements in `master_vswitch_ids`.
     shared_ptr<vector<string>> masterVswitchIds_ {};
-    // Custom cluster name. It can contain digits, letters, Chinese characters, or hyphens (-). The name must be 1 to 63 characters long and cannot start with a hyphen (-).
+    // Custom cluster name. Consists of digits, Chinese characters, English characters, or hyphens (-), with a length of 1 to 63 characters, and cannot start with a hyphen (-).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // **[Deprecated]** Use the `snat_entry` parameter instead.
+    // [**This field is deprecated**] Use the `snat_entry` parameter instead.
     shared_ptr<bool> natGateway_ {};
-    // Number of node IP addresses, determined by the specified CIDR mask. This applies only to Flannel network clusters.
+    // Number of node IPs, determined by specifying the network CIDR. Only takes effect for Flannel network type clusters.
     // 
     // Default value: `26`.
     shared_ptr<string> nodeCidrMask_ {};
-    // **[Deprecated]** Use the `node_name_mode` parameter under `kubernetes_config` in `nodepool` instead.
+    // [**This field is deprecated**] For node pool configuration, use the `node_name_mode` parameter under `kubernetes_config` in `nodepool` instead.
     shared_ptr<string> nodeNameMode_ {};
-    // Node service port range: [30000,65535].
+    // Node service ports. Valid port range: [30000, 65535\\].
     // 
     // Default value: `30000-32767`.
     shared_ptr<string> nodePortRange_ {};
-    // List of node pools.
+    // Node pool list.
     shared_ptr<vector<Nodepool>> nodepools_ {};
-    // **[Deprecated]** For node pool configuration, use the `desired_size` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `desired_size` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Number of worker nodes. Range: [0,100].
+    // Number of Worker nodes. Range: [0, 100\\].
     shared_ptr<int64_t> numOfNodes_ {};
-    // Cluster automated operations policy.
+    // Cluster automatic O&M policy.
     shared_ptr<CreateClusterRequest::OperationPolicy> operationPolicy_ {};
-    // **[Deprecated]** For control plane node configuration, use the `image_type` parameter under `control_plane_config`. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane node configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Operating system platform type. Valid values:
-    // 
+    // OS platform type. Valid values:
     // - Windows
-    // 
     // - Linux
     // 
     // Default value: `Linux`.
     shared_ptr<string> osType_ {};
-    // **[Deprecated]**
+    // [**This field is deprecated**]
     // 
-    // Subscription duration in months. Required and valid only when charge_type is PrePaid.
+    // Purchase duration. Subscription duration. Valid and required when charge_type is set to PrePaid.
     // 
     // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
     // 
     // Default value: 1.
     // 
-    // This parameter changed on October 15, 2024. For more information, see [Announcement on Changes to CreateCluster API Parameters](https://help.aliyun.com/document_detail/2849194.html).
+    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<int64_t> period_ {};
-    // **[Deprecated]**
+    // [**This field is deprecated**]
     // 
-    // Billing cycle. Required when the billing type is PrePaid.
+    // Billing period. Must be specified when the billing type is PrePaid.
     // 
-    // Valid value: Month. Only monthly billing is supported.
+    // Valid value: Month. Currently, only month-based periods are supported.
     // 
-    // This parameter changed on October 15, 2024. For more information, see [Announcement on Changes to CreateCluster API Parameters](https://help.aliyun.com/document_detail/2849194.html).
+    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<string> periodUnit_ {};
-    // **[Deprecated]** For node pool configuration, use the `platform` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `platform` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Operating system distribution. Valid values:
+    // OS distribution. Valid values:
     // 
     // - CentOS
-    // 
     // - AliyunLinux
-    // 
     // - QbootAliyunLinux
-    // 
     // - Qboot
-    // 
     // - Windows
-    // 
     // - WindowsCore
     // 
     // Default value: `CentOS`.
     shared_ptr<string> platform_ {};
-    // **[Deprecated]** When using the Terway network plugin, specify virtual switches to assign IP addresses to pods. Each pod virtual switch corresponds to a worker node virtual switch, and both must be in the same zone.
-    // 
-    // > We recommend that the pod virtual switch CIDR mask not exceed /19 and must not exceed /25. Otherwise, the number of assignable pod IP addresses becomes very limited, affecting normal cluster operation.
+    // [**This field is deprecated**] When using the Terway network plugin, you need to specify vSwitches for Pod IP allocation. Each Pod vSwitch corresponds to a Worker node vSwitch, and the availability zones of Pod vSwitches and Worker node vSwitches must be consistent.
+    // > The CIDR mask of Pod vSwitches should not exceed 19 and must not exceed 25; otherwise, the available Pod IP addresses in the cluster network will be very limited, affecting normal cluster usage.
     shared_ptr<vector<string>> podVswitchIds_ {};
-    // When you set `cluster_type` to `ManagedKubernetes` (ACK managed cluster), you can further specify the cluster subtype.
-    // 
-    // - `Default`: ACK managed cluster, including ACK clusters (Pro Edition, Basic Edition).
-    // 
-    // - `Edge`: ACK Edge cluster, including ACK Edge clusters (Pro Edition, Basic Edition).
-    // 
-    // - `Serverless`: ACK serverless cluster, including ACK serverless clusters (Pro Edition, Basic Edition).
-    // 
-    // - `Lingjun`: ACK LINGJUN cluster, available only in Pro Edition.
+    // When `cluster_type` is set to `ManagedKubernetes`, you can further specify the cluster subtype.
+    // - `Default`: ACK managed cluster, including ACK cluster (Pro and Basic editions).
+    // - `Edge`: ACK Edge cluster, including ACK Edge cluster (Pro and Basic editions).
+    // - `Serverless`: ACK Serverless cluster, including ACK Serverless cluster (Pro and Basic editions).
+    // - `Lingjun`: ACK Lingjun cluster, available in Pro edition.
     shared_ptr<string> profile_ {};
-    // kube-proxy proxy mode
+    // kube-proxy mode
     // 
-    // - `iptables`: A mature and stable kube-proxy mode. Kubernetes Service discovery and load balancing use iptables rules. Performance is moderate and scales poorly with large numbers of Services. Suitable for clusters with few Services.
-    // 
-    // - `ipvs`: A high-performance kube-proxy mode. Kubernetes Service discovery and load balancing use the Linux IPVS module. Suitable for clusters with many Services requiring high-performance load balancing.
-    // 
-    // - `nftables`: A next-generation kube-proxy mode based on Linux nftables for Service discovery and load balancing. It is the modern replacement for iptables. Compared to iptables, nftables offers better network performance, faster rule updates, and superior scalability for large numbers of Services.<br>
-    //   Supported only for clusters running Kubernetes version 1.35 or later. The Kubernetes community deprecated IPVS starting in version 1.35. We recommend using nftables for new clusters to ensure long-term community support.<br>
+    // - `iptables`: A mature and stable kube-proxy mode. Kubernetes Service discovery and load balancing are configured using iptables rules. Performance is average and significantly affected by scale, suitable for clusters with a small number of Services.
+    // - `ipvs`: A high-performance kube-proxy mode. Kubernetes Service discovery and load balancing are configured using the Linux IPVS module, suitable for clusters with a large number of Services that require high-performance load balancing.
+    // - `nftables`: Next-generation kube-proxy mode based on Linux nftables for Service discovery and load balancing. It is a modern replacement for iptables. Compared to iptables, nftables performs better in network performance, rule update efficiency, and large-scale Service scenarios.  
+    // Only supported for clusters of version 1.35 and above. The Kubernetes community deprecated IPVS starting from version 1.35. It is recommended to use nftables for new clusters for longer-term community support.
     // 
     // Default value: `ipvs`.
     shared_ptr<string> proxyMode_ {};
-    // **[Deprecated]** For node pool configuration, use the `rds_instances` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `rds_instances` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // List of RDS instances to add to the whitelist. We recommend adding the pod and node CIDR blocks of your container cluster to the RDS whitelist. Setting RDS instances might fail if they are not in the Running state.
+    // List of RDS instances. Select the RDS instances you want to add to the whitelist. It is recommended to add the container Pod CIDR block and Node CIDR block in RDS. Setting RDS instances may fail to pop up due to non-running instance status.
     shared_ptr<vector<string>> rdsInstances_ {};
-    // The region ID where the cluster is deployed. For more information, see [Regions supported by Container Service for Kubernetes](https://help.aliyun.com/document_detail/216938.html).
+    // The region ID where the cluster is located. For details, see [Regions supported by Container Service](https://help.aliyun.com/document_detail/216938.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID to which the cluster belongs, used to isolate different resources.
+    // The resource group ID to which the cluster belongs, used for isolating different resources.
     shared_ptr<string> resourceGroupId_ {};
     // RRSA feature configuration.
     shared_ptr<CreateClusterRequest::RrsaConfig> rrsaConfig_ {};
-    // Container runtime for the cluster. Supports containerd, sandboxed containers, and Docker.
-    // 
+    // Container runtime in the cluster. Supports containerd, sandboxed containers, and Docker.
     // > Kubernetes 1.24 no longer supports Docker as a built-in container runtime.
     // 
     // For more information, see [Comparison of Docker, containerd, and sandboxed container runtimes](https://help.aliyun.com/document_detail/160313.html).
     shared_ptr<Runtime> runtime_ {};
-    // Specify an existing security group ID when creating a cluster. Choose either this parameter or `is_enterprise_security_group`. Cluster nodes are automatically added to this security group.
+    // Specify the security group ID when creating a cluster with an existing security group. Mutually exclusive with `is_enterprise_security_group`. Cluster nodes are automatically added to this security group.
     shared_ptr<string> securityGroupId_ {};
-    // **[Deprecated]** For control plane configuration, use the `security_hardening_os` parameter under `control_plane_config`. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane configuration, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
     // 
     // Alibaba Cloud OS security hardening. Valid values:
     // 
     // - `true`: Enable Alibaba Cloud OS security hardening.
-    // 
     // - `false`: Disable Alibaba Cloud OS security hardening.
     // 
     // Default value: `false`.
     shared_ptr<bool> securityHardeningOs_ {};
-    // ServiceAccount is the access credential used by pods to communicate with the cluster API Server. The `service-account-issuer` is the issuer identity in the `serviceaccount token`, represented by the `iss` field in the `token payload`.
+    // ServiceAccount is the access credential for communication between Pods and the cluster API Server. `service-account-issuer` is the issuer identity in the `serviceaccount token`, i.e., the `iss` field in the `token payload`.
     // 
-    // For more information about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+    // For more details about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
     shared_ptr<string> serviceAccountIssuer_ {};
-    // Service network CIDR block. Valid ranges: 10.0.0.0/16-24, 172.16.0.0/16-24 to 172.31.0.0/16-24, 192.168.0.0/16-24.
-    // It cannot overlap with the VPC CIDR block 10.1.0.0/21 or existing Kubernetes cluster CIDR blocks in the VPC. This cannot be modified after cluster creation.
+    // Service network CIDR block. Valid ranges: 10.0.0.0/16-24, 172.16-31.0.0/16-24, 192.168.0.0/16-24. Cannot overlap with VPC CIDR block 10.1.0.0/21 or CIDR blocks used by existing Kubernetes clusters in the VPC. Cannot be modified after creation.
     // 
     // Default value: 172.19.0.0/20.
     shared_ptr<string> serviceCidr_ {};
-    // **[Deprecated]** Service discovery type for the cluster, used to specify the service discovery method in `ACK Serverless` clusters.
+    // [**This field is deprecated**] Service discovery type within the cluster, used to specify the service discovery method in `ACK Serverless` clusters.
     // 
-    // - `CoreDNS`: Uses the standard Kubernetes service discovery component CoreDNS. Requires deploying a set of containers for DNS resolution. Defaults to two ECI instances with 0.25 vCPU and 512 MiB memory each.
+    // - `CoreDNS`: Uses the Kubernetes native standard service discovery component CoreDNS. A set of containers needs to be deployed in the cluster for DNS resolution. By default, two ECI instances with 0.25 Core 512 MiB specifications are used.
+    // - `PrivateZone`: Uses the Alibaba Cloud PrivateZone product for service discovery capabilities. The PrivateZone service needs to be enabled.
     // 
-    // - `PrivateZone`: Uses Alibaba Cloud PrivateZone for service discovery. Requires enabling the PrivateZone service.
-    // 
-    // Default value: Disabled.
+    // Default value: Not enabled.
     shared_ptr<vector<string>> serviceDiscoveryTypes_ {};
     // Configure SNAT for the VPC. Valid values:
     // 
-    // - `true`: Automatically create a NAT Gateway and configure SNAT rules. Set this to `true` if nodes or applications in the cluster need public network access.
+    // - `true`: Automatically create a NAT gateway and configure SNAT rules. Set to `true` if nodes and applications in the cluster need to access the Internet.
+    // - `false`: Do not create a NAT gateway or SNAT rules. Nodes and applications in the cluster will not be able to access the Internet.
     // 
-    // - `false`: Do not create a NAT Gateway or SNAT rules. Nodes and applications in the cluster cannot access the public network.
-    // 
-    // > If you do not enable this during cluster creation but later need public network access, you can [enable it manually](https://help.aliyun.com/document_detail/178480.html).
+    // > If not enabled during cluster creation and the business later requires Internet access, you can [manually enable it](https://help.aliyun.com/document_detail/178480.html).
     // 
     // Default value: `false`.
     shared_ptr<bool> snatEntry_ {};
-    // **[Deprecated]** For control plane node configuration, use the `soc_enabled` parameter under `control_plane_config`. For node pool configuration, use the `soc_enabled` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For cluster control plane node configuration, use the `soc_enabled` parameter under `control_plane_config` instead. For node pool configuration, use the `soc_enabled` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // MLPS 2.0 security hardening. For more information, see [Using MLPS 2.0 security hardening in ACK](https://help.aliyun.com/document_detail/196148.html).
+    // Classified protection hardening. For more information, see [ACK classified protection hardening user guide](https://help.aliyun.com/document_detail/196148.html).
     // 
     // Valid values:
-    // 
-    // - `true`: Enable MLPS 2.0 security hardening.
-    // 
-    // - `false`: Disable MLPS 2.0 security hardening.
+    // - `true`: Enable classified protection hardening.
+    // - `false`: Disable classified protection hardening.
     // 
     // Default value: `false`.
     shared_ptr<bool> socEnabled_ {};
-    // Whether to enable public SSH logon. Used to log on to master nodes of ACK dedicated clusters. This parameter does not take effect for managed clusters.
-    // 
+    // Whether to enable public SSH login. Used for logging in to Master nodes of ACK dedicated clusters. This parameter does not take effect in managed clusters.
     // - `true`: Enable.
-    // 
     // - `false`: Disable.
     // 
     // Default value: `false`.
     shared_ptr<bool> sshFlags_ {};
-    // Node labels. Label rules:
+    // Node tags. Tag definition rules:
     // 
-    // - Labels consist of case-sensitive key-value pairs. You can add up to 20 tags.
-    // 
-    // - Tag keys must be unique and up to 64 characters long. Tag values can be empty and up to 128 characters long. Neither tag keys nor tag values can start with "aliyun", "acs:", "https\\://", or "http\\://". For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+    // - Tags consist of case-sensitive key-value pairs. You can set up to 20 tags.
+    // - Tag keys cannot be duplicated, with a maximum length of 64 characters; tag values can be empty, with a maximum length of 128 characters. Neither tag keys nor tag values can start with “aliyun”, “acs:”, “https://”, or “http://”. For details, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
     shared_ptr<vector<Tag>> tags_ {};
-    // **[Deprecated]** For node pool configuration, use the `taints` parameter under `kubernetes_config` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `taints` parameter under `kubernetes_config` in `nodepool` instead.
     // 
-    // Node taint information. Taints and tolerations work together to prevent pods from being scheduled onto unsuitable nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+    // Node taint information. Taints and tolerations work together to prevent Pods from being scheduled on inappropriate nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
     shared_ptr<vector<Taint>> taints_ {};
-    // **[Deprecated]** By default, clusters are not rolled back on creation failure. You must manually clean up failed clusters.
+    // [**This field is deprecated**] By default, no rollback is performed when cluster creation fails. You need to clean up the failed cluster yourself.
     // 
-    // Cluster creation timeout in minutes.
+    // Cluster creation timeout. Unit: minutes.
     // 
     // Default value: `60`.
     shared_ptr<int64_t> timeoutMins_ {};
-    // Time zone used by the cluster. See [Supported time zones](https://help.aliyun.com/document_detail/354879.html).
+    // The timezone used by the cluster. See [Supported timezones](https://help.aliyun.com/document_detail/354879.html).
     shared_ptr<string> timezone_ {};
     // Custom cluster CA.
     shared_ptr<string> userCa_ {};
-    // **[Deprecated]** Custom node data.
+    // [**This field is deprecated**] Custom node data.
     shared_ptr<string> userData_ {};
-    // The VPC used by the cluster. You must provide this when creating a cluster.
+    // The VPC used by the cluster. Must be provided when creating a cluster.
     shared_ptr<string> vpcid_ {};
-    // Virtual switches for cluster nodes. This field is required when creating a zero-node managed cluster.
+    // vSwitches for cluster nodes. This field is required when creating a zero-node managed cluster.
     shared_ptr<vector<string>> vswitchIds_ {};
-    // **[Deprecated]** For node pool configuration, use the `auto_renew` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `auto_renew` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Whether to enable auto-renewal for worker nodes. Valid only when `worker_instance_charge_type` is `PrePaid`. Valid values:
+    // Whether to enable auto-renewal for Worker nodes. Only takes effect when `worker_instance_charge_type` is set to `PrePaid`. Valid values:
     // 
     // - `true`: Enable auto-renewal.
-    // 
     // - `false`: Disable auto-renewal.
     // 
     // Default value: `true`.
     shared_ptr<bool> workerAutoRenew_ {};
-    // **[Deprecated]** For node pool configuration, use the `auto_renew_period` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `auto_renew_period` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Auto-renewal period for worker nodes in months. Required and valid only when subscription billing is selected.
+    // 
+    // Worker node auto-renewal period. Only takes effect when subscription billing type is selected, and is a required value.
     // 
     // Valid values: {1, 2, 3, 6, 12}.
     shared_ptr<int64_t> workerAutoRenewPeriod_ {};
-    // **[Deprecated]** For node pool configuration, use the `data_disks` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `data_disks` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Configuration for worker node data disks, including type and size.
+    // Combination of Worker node data disk type, size, and other configurations.
     shared_ptr<vector<CreateClusterRequest::WorkerDataDisks>> workerDataDisks_ {};
-    // **[Deprecated]** For node pool configuration, use the `instance_charge_type` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `instance_charge_type` parameter under `scaling_group` in `nodepool` instead.
     // 
     // Worker node billing type. Valid values:
     // 
     // - `PrePaid`: Subscription.
-    // 
     // - `PostPaid`: Pay-as-you-go.
     // 
     // Default value: Pay-as-you-go.
     shared_ptr<string> workerInstanceChargeType_ {};
-    // **[Deprecated]** For node pool configuration, use the `instance_types` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `instance_types` parameter under `scaling_group` in `nodepool` instead.
     // 
     // Worker node instance configuration.
     shared_ptr<vector<string>> workerInstanceTypes_ {};
-    // **[Deprecated]** For node pool configuration, use the `period` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `period` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Subscription duration for worker nodes in months. Required and valid only when `worker_instance_charge_type` is `PrePaid`.
+    // Worker node subscription duration. Valid and required when `worker_instance_charge_type` is set to `PrePaid`.
     // 
     // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
     // 
     // Default value: 1.
     shared_ptr<int64_t> workerPeriod_ {};
-    // **[Deprecated]** For node pool configuration, use the `period_unit` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `period_unit` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Worker node billing cycle. Required when worker_instance_charge_type is `PrePaid`.
+    // Worker node billing period. Must be specified when the billing type is `PrePaid`.
     // 
-    // Valid value: `Month`. Only monthly billing is supported.
+    // Valid value: `Month`. Currently, only month-based periods are supported.
     shared_ptr<string> workerPeriodUnit_ {};
-    // **[Deprecated]** For node pool configuration, use the `system_disk_category` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `system_disk_category` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Worker node system disk type. For more information, see [Overview of Elastic Block Storage](https://help.aliyun.com/document_detail/63136.html).
+    // Worker node system disk type. For more information, see [Block storage overview](https://help.aliyun.com/document_detail/63136.html).
     // 
     // Valid values:
     // 
     // - `cloud_efficiency`: Ultra disk.
+    // - `cloud_ssd`: SSD disk.
     // 
-    // - `cloud_ssd`: Standard SSD.
     // 
     // Default value: `cloud_ssd`.
     shared_ptr<string> workerSystemDiskCategory_ {};
-    // **[Deprecated]** For node pool configuration, use the `system_disk_performance_level` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `system_disk_performance_level` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // When the system disk is an ESSD, you can set the performance level (PL). For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+    // When the system disk is an ESSD disk, you can set the Performance Level (PL) of the ESSD disk. For more information, see [ESSD disk](https://help.aliyun.com/document_detail/122389.html).
     // 
     // Valid values:
     // 
     // - PL0
-    // 
     // - PL1
-    // 
     // - PL2
-    // 
     // - PL3
     shared_ptr<string> workerSystemDiskPerformanceLevel_ {};
-    // **[Deprecated]** For node pool configuration, use the `system_disk_size` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `system_disk_size` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Worker node system disk size in GiB.
+    // Worker node system disk size. Unit: GiB.
     // 
-    // Valid range: [40,500].
+    // Valid values: [40, 500\\].
     // 
-    // This value must be greater than or equal to max{40, ImageSize}.
+    // The value must be greater than or equal to max{40, ImageSize}.
     // 
     // Default value: `120`.
     shared_ptr<int64_t> workerSystemDiskSize_ {};
-    // **[Deprecated]** For node pool configuration, use the `system_disk_snapshot_policy_id` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `system_disk_snapshot_policy_id` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Automatic snapshot policy ID for worker node system disks.
+    // Automatic snapshot policy ID for the Worker node system disk.
     shared_ptr<string> workerSystemDiskSnapshotPolicyId_ {};
-    // **[Deprecated]** For node pool configuration, use the `vswitch_ids` parameter under `scaling_group` in `nodepool`.
+    // [**This field is deprecated**] For node pool configuration, use the `vswitch_ids` parameter under `scaling_group` in `nodepool` instead.
     // 
     // List of vSwitches used by cluster nodes. One node corresponds to one value.
     // 
-    // When creating a zero-node managed cluster, `worker_vswitch_ids` is optional, but you must provide `vswitch_ids`.
+    // When creating a zero-node managed cluster, the `worker_vswitch_ids` field is not required, but `vswitch_ids` must be provided.
     shared_ptr<vector<string>> workerVswitchIds_ {};
-    // **[Deprecated]** Use the `zone_ids` parameter instead.
+    // [**This field is deprecated**] Use the `zone_ids` parameter instead.
     // 
-    // The zone ID in the cluster region. This parameter applies only to ACK managed clusters.
+    // Availability zone ID of the region where the cluster is located. This parameter is specific to ACK managed cluster types.
     // 
-    // When creating an ACK managed cluster, if you do not specify `vpc_id` and `vswitch_ids`, you must specify `zone_id` to automatically create VPC network resources in this zone. This parameter is ignored if you specify `vpc_id` and `vswitch_ids`.
+    // When creating an ACK managed cluster, if `vpc_id` and `vswitch_ids` are not specified, `zone_id` must be specified for the cluster to automatically create VPC network resources in this availability zone. This parameter is ignored when `vpc_id` and `vswitch_ids` are specified.
     shared_ptr<string> zoneId_ {};
-    // A list of zone IDs in the cluster region. This parameter applies only to ACK managed clusters.
+    // Multiple availability zone IDs of the region where the cluster is located. This parameter is specific to ACK managed cluster types.
     shared_ptr<vector<string>> zoneIds_ {};
   };
 

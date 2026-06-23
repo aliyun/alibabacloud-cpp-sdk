@@ -68,12 +68,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to clean up related cloud resources during uninstallation.
-      // 
-      // *   true: clean up
-      // *   false: retain
+      // Specifies whether to clean up associated cloud resources when uninstalling the component. Valid values:
+      // - true: Clean up.
+      // - false: Retain.
       shared_ptr<bool> cleanupCloudResources_ {};
-      // The name of the add-on to uninstall. You can call the [ListClusterAddonInstances](https://help.aliyun.com/document_detail/2667940.html) operation to query the installed add-ons.
+      // The name of the component to uninstall. You can call the [ListClusterAddonInstances](https://help.aliyun.com/document_detail/2667940.html) operation to query the components installed in a cluster.
       shared_ptr<string> name_ {};
     };
 
@@ -88,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The list of add-ons to uninstall.
+    // The list of components.
     shared_ptr<vector<UnInstallClusterAddonsRequest::Addons>> addons_ {};
   };
 

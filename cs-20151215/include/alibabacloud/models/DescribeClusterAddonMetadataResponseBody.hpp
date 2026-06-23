@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The component schema parameters.
+    // The component parameter schema.
     shared_ptr<string> configSchema_ {};
     // The component name.
     shared_ptr<string> name_ {};

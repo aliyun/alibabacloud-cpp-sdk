@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // Specifies the expiration time of the kubeconfig file. Unit: hours.
+    // The custom expiration time. Unit: hours.
     // 
-    // Valid values: [1, 1876000]. The maximum value is 100 years.
+    // Valid values: [1, 876000]. The maximum value is equivalent to 100 years.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireHour_ {};
-    // The RAM user ID.
+    // The Resource Access Management (RAM) user ID.
     // 
     // This parameter is required.
     shared_ptr<string> user_ {};

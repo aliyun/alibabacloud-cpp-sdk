@@ -99,9 +99,9 @@ namespace Models
     protected:
       // The Kubernetes API group to which the object belongs.
       shared_ptr<string> group_ {};
-      // The Kubernetes API type to which the object belongs.
+      // The Kubernetes API kind of the object.
       shared_ptr<string> kind_ {};
-      // The name of the Kubernetes object.
+      // The name of the object.
       shared_ptr<string> name_ {};
       // The namespace to which the object belongs.
       shared_ptr<string> namespace_ {};
@@ -165,11 +165,11 @@ namespace Models
 
 
     protected:
-      // The name of the Helm chart.
+      // The Helm chart name of the component.
       shared_ptr<string> chartName_ {};
-      // The version of the Helm chart.
+      // The Helm chart version of the component.
       shared_ptr<string> chartVersion_ {};
-      // The namespace where the Helm release is located.
+      // The namespace.
       shared_ptr<string> namespace_ {};
       // The name of the Helm release instance.
       shared_ptr<string> releaseName_ {};
@@ -196,9 +196,9 @@ namespace Models
 
 
   protected:
-    // Information about the Helm release instance corresponding to the add-on.
+    // The Helm release instance information of the component.
     shared_ptr<ListClusterAddonInstanceResourcesResponseBody::HelmRelease> helmRelease_ {};
-    // A list of Kubernetes objects associated with the add-on.
+    // The list of Kubernetes objects contained in the component.
     shared_ptr<vector<ListClusterAddonInstanceResourcesResponseBody::KubernetesObjects>> kubernetesObjects_ {};
   };
 

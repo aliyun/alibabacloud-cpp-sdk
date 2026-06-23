@@ -133,23 +133,17 @@ namespace Models
       shared_ptr<string> desc_ {};
       // The display name.
       shared_ptr<string> display_ {};
-      // The name of the group to which the check item belongs.
+      // The check item group.
       shared_ptr<string> group_ {};
-      // The severity level of the check result.
-      // 
-      // Valid values:
-      // 
-      // *   normal
-      // *   warning
-      // *   error
+      // The assessment result of the check item.
       shared_ptr<string> level_ {};
-      // The check result.
+      // The check result message.
       shared_ptr<string> message_ {};
-      // The name of the check item.
+      // The check item name.
       shared_ptr<string> name_ {};
       // The reference value.
       shared_ptr<string> refer_ {};
-      // The value of the check item.
+      // The check item value.
       shared_ptr<string> value_ {};
     };
 
@@ -186,7 +180,7 @@ namespace Models
 
 
   protected:
-    // The check item.
+    // The check items.
     shared_ptr<vector<GetClusterDiagnosisCheckItemsResponseBody::CheckItems>> checkItems_ {};
     // The status code.
     shared_ptr<string> code_ {};

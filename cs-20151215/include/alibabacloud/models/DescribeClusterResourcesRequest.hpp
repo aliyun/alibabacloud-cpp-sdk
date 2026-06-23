@@ -38,11 +38,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to query resources created by cluster add-ons.
+    // Specifies whether to also query resources created by cluster components.
     // 
-    // - true: Add-on resources are included.
+    // - true: queries the resources.
     // 
-    // - false: Add-on resources are not included.
+    // - false: does not query the resources.
     shared_ptr<bool> withAddonResources_ {};
   };
 

@@ -127,29 +127,38 @@ namespace Models
 
 
     protected:
-      // Architectures supported by the component. Valid values:
-      // 
-      // *   amd64
-      // *   arm64
+      // The CPU architectures supported by the component.
       shared_ptr<vector<string>> architecture_ {};
-      // The category of the component.
+      // The component categorization. Valid values:
+      // 
+      // - core: core component.
+      // - network: network type component.
+      // - security: security component.
+      // - storage: storage component.
+      // - monitor: logging and monitoring component.
+      // - application: application component.
+      // 
+      // An empty value indicates that the component belongs to another category.
       shared_ptr<string> category_ {};
-      // The schema of the custom parameters of the component.
+      // The schema of custom parameters for the component.
       shared_ptr<string> configSchema_ {};
-      // Indicates whether the component is automatically installed by default.
+      // Indicates whether the component is installed by default. Valid values:
+      // 
+      // - true: The component is installed by default when a cluster is created.
+      // 
+      // - false: The component is not installed by default.
       shared_ptr<bool> installByDefault_ {};
-      // Indicates whether the component is fully managed.
+      // Indicates whether the component is managed. Valid values:
+      // 
+      // - true: The component is managed.
+      // 
+      // - false: The component is not managed.
       shared_ptr<bool> managed_ {};
       // The component name.
       shared_ptr<string> name_ {};
-      // Operations supported by the component. Valid values:
-      // 
-      // *   Install
-      // *   Upgrade
-      // *   Modify
-      // *   Uninstall
+      // The operations supported by the component.
       shared_ptr<vector<string>> supportedActions_ {};
-      // The version number.
+      // The component version.
       shared_ptr<string> version_ {};
     };
 

@@ -14,6 +14,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeClusterNodesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(instanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(nodeIps, nodeIps_);
+      DARABONBA_PTR_TO_JSON(nodeLabels, nodeLabels_);
+      DARABONBA_PTR_TO_JSON(nodeNames, nodeNames_);
       DARABONBA_PTR_TO_JSON(nodepool_id, nodepoolId_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
@@ -21,6 +24,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeClusterNodesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(instanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(nodeIps, nodeIps_);
+      DARABONBA_PTR_FROM_JSON(nodeLabels, nodeLabels_);
+      DARABONBA_PTR_FROM_JSON(nodeNames, nodeNames_);
       DARABONBA_PTR_FROM_JSON(nodepool_id, nodepoolId_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
@@ -38,12 +44,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && this->nodepoolId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->state_ == nullptr; };
+        && this->nodeIps_ == nullptr && this->nodeLabels_ == nullptr && this->nodeNames_ == nullptr && this->nodepoolId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->state_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
     inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline DescribeClusterNodesRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
+
+
+    // nodeIps Field Functions 
+    bool hasNodeIps() const { return this->nodeIps_ != nullptr;};
+    void deleteNodeIps() { this->nodeIps_ = nullptr;};
+    inline string getNodeIps() const { DARABONBA_PTR_GET_DEFAULT(nodeIps_, "") };
+    inline DescribeClusterNodesRequest& setNodeIps(string nodeIps) { DARABONBA_PTR_SET_VALUE(nodeIps_, nodeIps) };
+
+
+    // nodeLabels Field Functions 
+    bool hasNodeLabels() const { return this->nodeLabels_ != nullptr;};
+    void deleteNodeLabels() { this->nodeLabels_ = nullptr;};
+    inline string getNodeLabels() const { DARABONBA_PTR_GET_DEFAULT(nodeLabels_, "") };
+    inline DescribeClusterNodesRequest& setNodeLabels(string nodeLabels) { DARABONBA_PTR_SET_VALUE(nodeLabels_, nodeLabels) };
+
+
+    // nodeNames Field Functions 
+    bool hasNodeNames() const { return this->nodeNames_ != nullptr;};
+    void deleteNodeNames() { this->nodeNames_ = nullptr;};
+    inline string getNodeNames() const { DARABONBA_PTR_GET_DEFAULT(nodeNames_, "") };
+    inline DescribeClusterNodesRequest& setNodeNames(string nodeNames) { DARABONBA_PTR_SET_VALUE(nodeNames_, nodeNames) };
 
 
     // nodepoolId Field Functions 
@@ -75,25 +103,28 @@ namespace Models
 
 
   protected:
-    // The IDs of the nodes that you want to query. Separate multiple node IDs with commas (,).
+    // The instance IDs of nodes. Separate multiple IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
+    shared_ptr<string> nodeIps_ {};
+    shared_ptr<string> nodeLabels_ {};
+    shared_ptr<string> nodeNames_ {};
     // The node pool ID.
     shared_ptr<string> nodepoolId_ {};
-    // The page number.
+    // The page number of the current query.
     // 
     // Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The maximum number of records that can be displayed on each page. Valid values: [1, 100].
     // 
     // Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // The node state that you want to use to filter nodes. Valid values:
+    // The status of cluster nodes. Used to filter by node running status. Valid values:
     // 
-    // *   `all`: query nodes in the following four states.
-    // *   `running`: query nodes in the running state.
-    // *   `removing`: query nodes that are being removed.
-    // *   `initial`: query nodes that are being initialized.
-    // *   `failed`: query nodes that fail to be created.
+    // - `all`: does not filter by running status. All nodes are returned.
+    // - `running`: running nodes.
+    // - `removing`: nodes that are being removed.
+    // - `initial`: nodes that are being initialized.
+    // - `failed`: nodes that failed to be created.
     // 
     // Default value: `all`.
     shared_ptr<string> state_ {};

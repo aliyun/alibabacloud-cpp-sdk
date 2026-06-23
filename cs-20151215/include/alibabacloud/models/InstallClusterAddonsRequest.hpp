@@ -77,13 +77,13 @@ namespace Models
 
 
     protected:
-      // 组件自定义参数，使用JSON字符串编码。
+      // The custom parameters of the component, encoded as a JSON string.
       shared_ptr<string> config_ {};
-      // 组件名称。您可以通过[ListAddons](https://help.aliyun.com/document_detail/2667939.html)接口查询可用组件的信息，包括组件名称及版本等。
+      // The component name. You can call the [ListAddons](https://help.aliyun.com/document_detail/2667939.html) operation to query information about available components, including component names and versions.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // 组件版本。您可以通过[ListAddons](https://help.aliyun.com/document_detail/2667939.html)接口查询可用组件的信息，包括组件名称及版本等。
+      // The component version. You can call the [ListAddons](https://help.aliyun.com/document_detail/2667939.html) operation to query information about available components, including component names and versions.
       // 
       // This parameter is required.
       shared_ptr<string> version_ {};
@@ -100,7 +100,7 @@ namespace Models
 
 
   protected:
-    // 请求体参数。
+    // The request body parameters.
     shared_ptr<vector<InstallClusterAddonsRequest::Body>> body_ {};
   };
 

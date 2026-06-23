@@ -49,7 +49,45 @@ AlibabaCloud::CS20151215::Client::Client(Config &config): OpenApiClient(config){
     {"cn-zhangjiakou-na62-a01" , "cs.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "cs.aliyuncs.com"},
     {"eu-west-1-oxs" , "cs.aliyuncs.com"},
-    {"rus-west-1-pop" , "cs.aliyuncs.com"}
+    {"rus-west-1-pop" , "cs.aliyuncs.com"},
+    {"us-west-1" , "cs.us-west-1.aliyuncs.com"},
+    {"us-southeast-1" , "cs.us-southeast-1.aliyuncs.com"},
+    {"us-east-1" , "cs.us-east-1.aliyuncs.com"},
+    {"na-south-1" , "cs.na-south-1.aliyuncs.com"},
+    {"me-east-1" , "cs.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "cs.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "cs.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "cs.eu-central-1.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "cs.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-zhangjiakou" , "cs.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "cs.cn-wulanchabu-gic-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "cs.cn-wulanchabu.aliyuncs.com"},
+    {"cn-wuhan-lr" , "cs.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "cs.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "cs.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "cs.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "cs.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "cs.cn-qingdao.aliyuncs.com"},
+    {"cn-nanjing" , "cs.cn-nanjing.aliyuncs.com"},
+    {"cn-huhehaote" , "cs.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "cs.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "cs.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-heyuan" , "cs.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "cs.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "cs.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "cs.cn-guangzhou.aliyuncs.com"},
+    {"cn-fuzhou" , "cs.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "cs.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "cs.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "cs.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "cs.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-5" , "cs.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "cs.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "cs.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "cs.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "cs.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2" , "cs.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "cs.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -69,9 +107,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. When you need to add an ECS instance as a worker node to an ACK cluster or re-add a worker node to the cluster, you can call this operation.
+ * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. You can call the AttachInstances operation to add ECS instances to an ACK cluster as worker nodes after purchasing the instances, or to re-add node instances to a node pool after they are removed.
  *
- * @description 调用本接口前，请仔细阅读[使用限制](https://help.aliyun.com/document_detail/86919.html)，确保待添加的ECS实例满足条件。
+ * @description Before you invoke this operation, read [Limits](https://help.aliyun.com/document_detail/86919.html) to make sure that the ECS instances to be added meet the requirements.
  *
  * @param request AttachInstancesRequest
  * @param headers map
@@ -152,9 +190,9 @@ AttachInstancesResponse Client::attachInstancesWithOptions(const string &Cluster
 }
 
 /**
- * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. When you need to add an ECS instance as a worker node to an ACK cluster or re-add a worker node to the cluster, you can call this operation.
+ * @summary Adds existing Elastic Compute Service (ECS) instances to a Container Service for Kubernetes (ACK) cluster. You can call the AttachInstances operation to add ECS instances to an ACK cluster as worker nodes after purchasing the instances, or to re-add node instances to a node pool after they are removed.
  *
- * @description 调用本接口前，请仔细阅读[使用限制](https://help.aliyun.com/document_detail/86919.html)，确保待添加的ECS实例满足条件。
+ * @description Before you invoke this operation, read [Limits](https://help.aliyun.com/document_detail/86919.html) to make sure that the ECS instances to be added meet the requirements.
  *
  * @param request AttachInstancesRequest
  * @return AttachInstancesResponse
@@ -166,7 +204,7 @@ AttachInstancesResponse Client::attachInstances(const string &ClusterId, const A
 }
 
 /**
- * @summary Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
+ * @summary Adds existing ECS instances to a node pool in an ACK cluster. You can call this operation to add existing ECS instances as worker nodes to an ACK cluster or to re-add node instances to a node pool after they have been removed.
  *
  * @param request AttachInstancesToNodePoolRequest
  * @param headers map
@@ -211,7 +249,7 @@ AttachInstancesToNodePoolResponse Client::attachInstancesToNodePoolWithOptions(c
 }
 
 /**
- * @summary Adds existing nodes to a specific node pool. You can add existing ECS instances to a specific node pool in a Container Service for Kubernetes (ACK) cluster as worker nodes. You can also add removed worker nodes back to the node pool.
+ * @summary Adds existing ECS instances to a node pool in an ACK cluster. You can call this operation to add existing ECS instances as worker nodes to an ACK cluster or to re-add node instances to a node pool after they have been removed.
  *
  * @param request AttachInstancesToNodePoolRequest
  * @return AttachInstancesToNodePoolResponse
@@ -225,7 +263,7 @@ AttachInstancesToNodePoolResponse Client::attachInstancesToNodePool(const string
 /**
  * @deprecated OpenAPI CancelClusterUpgrade is deprecated
  *
- * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+ * @summary Cancels the upgrade of an ACK cluster that is in the upgrading state.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -252,7 +290,7 @@ CancelClusterUpgradeResponse Client::cancelClusterUpgradeWithOptions(const strin
 /**
  * @deprecated OpenAPI CancelClusterUpgrade is deprecated
  *
- * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+ * @summary Cancels the upgrade of an ACK cluster that is in the upgrading state.
  *
  * @return CancelClusterUpgradeResponse
  */
@@ -265,7 +303,7 @@ CancelClusterUpgradeResponse Client::cancelClusterUpgrade(const string &ClusterI
 /**
  * @deprecated OpenAPI CancelComponentUpgrade is deprecated
  *
- * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+ * @summary Cancels the upgrade of a cluster component.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -292,7 +330,7 @@ CancelComponentUpgradeResponse Client::cancelComponentUpgradeWithOptions(const s
 /**
  * @deprecated OpenAPI CancelComponentUpgrade is deprecated
  *
- * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+ * @summary Cancels the upgrade of a cluster component.
  *
  * @return CancelComponentUpgradeResponse
  */
@@ -303,7 +341,7 @@ CancelComponentUpgradeResponse Client::cancelComponentUpgrade(const string &clus
 }
 
 /**
- * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\\\\\\\\\&M plan.
+ * @summary Cancels an existing but unexecuted automated O&M task execution plan by calling CancelOperationPlan.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -328,7 +366,7 @@ CancelOperationPlanResponse Client::cancelOperationPlanWithOptions(const string 
 }
 
 /**
- * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\\\\\\\\\&M plan.
+ * @summary Cancels an existing but unexecuted automated O&M task execution plan by calling CancelOperationPlan.
  *
  * @return CancelOperationPlanResponse
  */
@@ -375,7 +413,7 @@ CancelTaskResponse Client::cancelTask(const string &taskId) {
 }
 
 /**
- * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+ * @summary Queries the log configuration of control plane components for an ACK managed cluster. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager. You can call the CheckControlPlaneLogEnable operation to query the current log configuration of control plane components, including the log retention period and the components from which logs are collected.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -400,7 +438,7 @@ CheckControlPlaneLogEnableResponse Client::checkControlPlaneLogEnableWithOptions
 }
 
 /**
- * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+ * @summary Queries the log configuration of control plane components for an ACK managed cluster. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager. You can call the CheckControlPlaneLogEnable operation to query the current log configuration of control plane components, including the log retention period and the components from which logs are collected.
  *
  * @return CheckControlPlaneLogEnableResponse
  */
@@ -411,7 +449,7 @@ CheckControlPlaneLogEnableResponse Client::checkControlPlaneLogEnable(const stri
 }
 
 /**
- * @summary Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+ * @summary Checks whether the current service account has been granted the specified service role permissions. Container Service for Kubernetes (ACK) can call other cloud services (such as ECS, OSS, NAS, and SLB) that are associated with service roles only after the corresponding role permissions are granted.
  *
  * @param request CheckServiceRoleRequest
  * @param headers map
@@ -444,7 +482,7 @@ CheckServiceRoleResponse Client::checkServiceRoleWithOptions(const CheckServiceR
 }
 
 /**
- * @summary Checks whether the specified service roles are granted to Container Service for Kubernetes (ACK) within the current Alibaba Cloud account. ACK can access other cloud services, such as Elastic Compute Service (ECS), Object Storage Service (OSS), File Storage NAS (NAS), and Server Load Balancer (SLB), only after ACK is assigned the required service roles.
+ * @summary Checks whether the current service account has been granted the specified service role permissions. Container Service for Kubernetes (ACK) can call other cloud services (such as ECS, OSS, NAS, and SLB) that are associated with service roles only after the corresponding role permissions are granted.
  *
  * @param request CheckServiceRoleRequest
  * @return CheckServiceRoleResponse
@@ -456,12 +494,11 @@ CheckServiceRoleResponse Client::checkServiceRole(const CheckServiceRoleRequest 
 }
 
 /**
- * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
+ * @summary Cleans up KubeConfig credentials and RBAC permissions that have been issued to a specified user in a specified cluster. You can call this operation to revoke authorization for KubeConfig credentials that pose security risks.
  *
- * @description > 
- * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
- * *   You cannot revoke the permissions of an Alibaba Cloud account.
- * *   You cannot revoke the permissions of the account that you use to call this operation.
+ * @description > 1. You must have the permission to manage Container Service for Kubernetes (ACK) (AliyunCSFullAccess). 
+ * > 2. Cleaning up permissions of an Alibaba Cloud account is not supported.
+ * > 3. Cleaning up the permissions of the user who performs this operation is not supported.
  *
  * @param request CleanClusterUserPermissionsRequest
  * @param headers map
@@ -494,12 +531,11 @@ CleanClusterUserPermissionsResponse Client::cleanClusterUserPermissionsWithOptio
 }
 
 /**
- * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
+ * @summary Cleans up KubeConfig credentials and RBAC permissions that have been issued to a specified user in a specified cluster. You can call this operation to revoke authorization for KubeConfig credentials that pose security risks.
  *
- * @description > 
- * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
- * *   You cannot revoke the permissions of an Alibaba Cloud account.
- * *   You cannot revoke the permissions of the account that you use to call this operation.
+ * @description > 1. You must have the permission to manage Container Service for Kubernetes (ACK) (AliyunCSFullAccess). 
+ * > 2. Cleaning up permissions of an Alibaba Cloud account is not supported.
+ * > 3. Cleaning up the permissions of the user who performs this operation is not supported.
  *
  * @param request CleanClusterUserPermissionsRequest
  * @return CleanClusterUserPermissionsResponse
@@ -511,11 +547,11 @@ CleanClusterUserPermissionsResponse Client::cleanClusterUserPermissions(const st
 }
 
 /**
- * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+ * @summary Cleans up KubeConfig credentials and revokes RBAC permissions for a specified user. If you want to clean up KubeConfig credentials and revoke authorization for risky users such as those who have left the organization or whose accounts have been frozen, call CleanUserPermissions to clean up the issued KubeConfig credentials and RBAC permissions for the specified user.
  *
- * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
- * > - You cannot revoke the permissions of an Alibaba Cloud account.
- * > - You cannot revoke the permissions of the account that you use to call this operation.
+ * @description >- You must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
+ * >- Cleaning up permissions of an Alibaba Cloud account is not supported.
+ * >- Cleaning up the permissions of the user who performs this operation is not supported.
  *
  * @param tmpReq CleanUserPermissionsRequest
  * @param headers map
@@ -558,11 +594,11 @@ CleanUserPermissionsResponse Client::cleanUserPermissionsWithOptions(const strin
 }
 
 /**
- * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
+ * @summary Cleans up KubeConfig credentials and revokes RBAC permissions for a specified user. If you want to clean up KubeConfig credentials and revoke authorization for risky users such as those who have left the organization or whose accounts have been frozen, call CleanUserPermissions to clean up the issued KubeConfig credentials and RBAC permissions for the specified user.
  *
- * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
- * > - You cannot revoke the permissions of an Alibaba Cloud account.
- * > - You cannot revoke the permissions of the account that you use to call this operation.
+ * @description >- You must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
+ * >- Cleaning up permissions of an Alibaba Cloud account is not supported.
+ * >- Cleaning up the permissions of the user who performs this operation is not supported.
  *
  * @param request CleanUserPermissionsRequest
  * @return CleanUserPermissionsResponse
@@ -574,10 +610,9 @@ CleanUserPermissionsResponse Client::cleanUserPermissions(const string &Uid, con
 }
 
 /**
- * @summary Create a self-healing rule.
+ * @summary Creates a self-healing rule.
  *
- * @description >Notice: 
- * This API is not yet available.
+ * @description >Notice: This API is not yet available. Stay tuned..
  *
  * @param request CreateAutoRepairPolicyRequest
  * @param headers map
@@ -622,10 +657,9 @@ CreateAutoRepairPolicyResponse Client::createAutoRepairPolicyWithOptions(const s
 }
 
 /**
- * @summary Create a self-healing rule.
+ * @summary Creates a self-healing rule.
  *
- * @description >Notice: 
- * This API is not yet available.
+ * @description >Notice: This API is not yet available. Stay tuned..
  *
  * @param request CreateAutoRepairPolicyRequest
  * @return CreateAutoRepairPolicyResponse
@@ -637,7 +671,7 @@ CreateAutoRepairPolicyResponse Client::createAutoRepairPolicy(const string &clus
 }
 
 /**
- * @summary Create an auto scaling policy to automatically add or remove compute resources based on configured scaling rules to handle your cluster\\"s workload. You can specify metrics and thresholds, scaling order, a cooldown period, and more.
+ * @summary Creates an elastic scaling configuration that allows the system to automatically increase or decrease compute resources based on the configured scaling rules to meet the workload demands of your cluster. During the creation procedure, you can specify scaling metrics and thresholds, scale-out order, cool-down period, and more.
  *
  * @param request CreateAutoscalingConfigRequest
  * @param headers map
@@ -730,7 +764,7 @@ CreateAutoscalingConfigResponse Client::createAutoscalingConfigWithOptions(const
 }
 
 /**
- * @summary Create an auto scaling policy to automatically add or remove compute resources based on configured scaling rules to handle your cluster\\"s workload. You can specify metrics and thresholds, scaling order, a cooldown period, and more.
+ * @summary Creates an elastic scaling configuration that allows the system to automatically increase or decrease compute resources based on the configured scaling rules to meet the workload demands of your cluster. During the creation procedure, you can specify scaling metrics and thresholds, scale-out order, cool-down period, and more.
  *
  * @param request CreateAutoscalingConfigRequest
  * @return CreateAutoscalingConfigResponse
@@ -742,16 +776,15 @@ CreateAutoscalingConfigResponse Client::createAutoscalingConfig(const string &Cl
 }
 
 /**
- * @summary Create an ACK cluster using OpenAPI. Supported cluster types include ACK managed clusters, ACK serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, configure the cluster information, components, and related Alibaba Cloud resources.
+ * @summary You can create ACK clusters through OpenAPI, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you will configure the cluster information, cluster components, and ACK-related cloud resources.
  *
- * @description ### Generate OpenAPI request parameters in the console
- * If your CreateCluster API call fails due to invalid parameter combinations, you can generate valid request parameters directly in the console. Follow these steps:
- * 1. Log on to the [Container Service for Kubernetes console](https://csnew.console.aliyun.com). In the left navigation pane, select **Clusters**.
- * 2. On the **Clusters** page, click **Cluster Templates**.
- * 3. In the dialog box, select the cluster type you want to create and click Create. Then configure your cluster on the cluster configuration page.
- * 4. After completing your configuration, go to the **Review Configuration** page and click **Equivalent Code** in the upper-right corner. The dialog box displays the required parameter combination for cluster creation. Copy and use it as needed.
- * >Notice: 
- * Starting July 4, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameters, see [Announcement on Changes and Deprecation of OpenAPI Parameters for ACK Cluster Management](https://help.aliyun.com/document_detail/2932733.html).
+ * @description ### Generate OpenAPI request parameters through the console
+ * When calling the CreateCluster API to create a cluster, if the API call fails due to incorrect request parameter combinations, you can generate the required request parameter combinations through the console. Follow these steps:
+ * 1. Log in to the [Container Service management console](https://csnew.console.aliyun.com) and choose **Clusters** in the left navigation pane.
+ * 1. On the **Clusters** page, click **Cluster Template**.
+ * 1. In the dialog box, select the cluster type to create, click Create, and then configure the cluster information on the cluster configuration page.
+ * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box will display the parameter combinations required for creating the cluster, which you can copy and use.
+ * >Notice: Starting from July 4, 2026, some request parameters will no longer take effect. For change details and alternative parameter descriptions, see [Announcement on OpenAPI parameter changes and API deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
  *
  * @param request CreateClusterRequest
  * @param headers map
@@ -1192,16 +1225,15 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
 }
 
 /**
- * @summary Create an ACK cluster using OpenAPI. Supported cluster types include ACK managed clusters, ACK serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, configure the cluster information, components, and related Alibaba Cloud resources.
+ * @summary You can create ACK clusters through OpenAPI, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you will configure the cluster information, cluster components, and ACK-related cloud resources.
  *
- * @description ### Generate OpenAPI request parameters in the console
- * If your CreateCluster API call fails due to invalid parameter combinations, you can generate valid request parameters directly in the console. Follow these steps:
- * 1. Log on to the [Container Service for Kubernetes console](https://csnew.console.aliyun.com). In the left navigation pane, select **Clusters**.
- * 2. On the **Clusters** page, click **Cluster Templates**.
- * 3. In the dialog box, select the cluster type you want to create and click Create. Then configure your cluster on the cluster configuration page.
- * 4. After completing your configuration, go to the **Review Configuration** page and click **Equivalent Code** in the upper-right corner. The dialog box displays the required parameter combination for cluster creation. Copy and use it as needed.
- * >Notice: 
- * Starting July 4, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameters, see [Announcement on Changes and Deprecation of OpenAPI Parameters for ACK Cluster Management](https://help.aliyun.com/document_detail/2932733.html).
+ * @description ### Generate OpenAPI request parameters through the console
+ * When calling the CreateCluster API to create a cluster, if the API call fails due to incorrect request parameter combinations, you can generate the required request parameter combinations through the console. Follow these steps:
+ * 1. Log in to the [Container Service management console](https://csnew.console.aliyun.com) and choose **Clusters** in the left navigation pane.
+ * 1. On the **Clusters** page, click **Cluster Template**.
+ * 1. In the dialog box, select the cluster type to create, click Create, and then configure the cluster information on the cluster configuration page.
+ * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box will display the parameter combinations required for creating the cluster, which you can copy and use.
+ * >Notice: Starting from July 4, 2026, some request parameters will no longer take effect. For change details and alternative parameter descriptions, see [Announcement on OpenAPI parameter changes and API deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
  *
  * @param request CreateClusterRequest
  * @return CreateClusterResponse
@@ -1213,7 +1245,7 @@ CreateClusterResponse Client::createCluster(const CreateClusterRequest &request)
 }
 
 /**
- * @summary Starts a cluster diagnostic.
+ * @summary Initiates a cluster diagnosis.
  *
  * @param request CreateClusterDiagnosisRequest
  * @param headers map
@@ -1250,7 +1282,7 @@ CreateClusterDiagnosisResponse Client::createClusterDiagnosisWithOptions(const s
 }
 
 /**
- * @summary Starts a cluster diagnostic.
+ * @summary Initiates a cluster diagnosis.
  *
  * @param request CreateClusterDiagnosisRequest
  * @return CreateClusterDiagnosisResponse
@@ -1262,7 +1294,7 @@ CreateClusterDiagnosisResponse Client::createClusterDiagnosis(const string &clus
 }
 
 /**
- * @summary Configures cluster inspection.
+ * @summary Creates a cluster inspection configuration.
  *
  * @param request CreateClusterInspectConfigRequest
  * @param headers map
@@ -1303,7 +1335,7 @@ CreateClusterInspectConfigResponse Client::createClusterInspectConfigWithOptions
 }
 
 /**
- * @summary Configures cluster inspection.
+ * @summary Creates a cluster inspection configuration.
  *
  * @param request CreateClusterInspectConfigRequest
  * @return CreateClusterInspectConfigResponse
@@ -1315,7 +1347,7 @@ CreateClusterInspectConfigResponse Client::createClusterInspectConfig(const stri
 }
 
 /**
- * @summary A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
+ * @summary A node pool is a logical collection of nodes that share the same attributes. Node pools allow unified management and operations, such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
  *
  * @param request CreateClusterNodePoolRequest
  * @param headers map
@@ -1408,7 +1440,7 @@ CreateClusterNodePoolResponse Client::createClusterNodePoolWithOptions(const str
 }
 
 /**
- * @summary A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
+ * @summary A node pool is a logical collection of nodes that share the same attributes. Node pools allow unified management and operations, such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
  *
  * @param request CreateClusterNodePoolRequest
  * @return CreateClusterNodePoolResponse
@@ -1422,7 +1454,7 @@ CreateClusterNodePoolResponse Client::createClusterNodePool(const string &Cluste
 /**
  * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
  *
- * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+ * @summary Creates a trigger for an application.
  *
  * @param request CreateKubernetesTriggerRequest
  * @param headers map
@@ -1469,7 +1501,7 @@ CreateKubernetesTriggerResponse Client::createKubernetesTriggerWithOptions(const
 /**
  * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
  *
- * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+ * @summary Creates a trigger for an application.
  *
  * @param request CreateKubernetesTriggerRequest
  * @return CreateKubernetesTriggerResponse
@@ -1481,7 +1513,7 @@ CreateKubernetesTriggerResponse Client::createKubernetesTrigger(const CreateKube
 }
 
 /**
- * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can use these templates to automate the deployment and cluster management of resources, such as Pods, Services, Deployments, ConfigMaps, and PersistentVolumes. You can invoke the CreateTemplate operation to create an orchestration template.
  *
  * @param request CreateTemplateRequest
  * @param headers map
@@ -1530,7 +1562,7 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 }
 
 /**
- * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can use these templates to automate the deployment and cluster management of resources, such as Pods, Services, Deployments, ConfigMaps, and PersistentVolumes. You can invoke the CreateTemplate operation to create an orchestration template.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -1542,9 +1574,9 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 }
 
 /**
- * @summary Creates a trigger for an application to redeploy the application pods when specific conditions are met.
+ * @summary Configures a trigger for a cluster application. The trigger redeploys pods when specified conditions are met.
  *
- * @description > 创建触发器仅支持Pod的重新部署。
+ * @description > Creating a trigger only supports pod redeployment.
  *
  * @param request CreateTriggerRequest
  * @param headers map
@@ -1589,9 +1621,9 @@ CreateTriggerResponse Client::createTriggerWithOptions(const string &clusterId, 
 }
 
 /**
- * @summary Creates a trigger for an application to redeploy the application pods when specific conditions are met.
+ * @summary Configures a trigger for a cluster application. The trigger redeploys pods when specified conditions are met.
  *
- * @description > 创建触发器仅支持Pod的重新部署。
+ * @description > Creating a trigger only supports pod redeployment.
  *
  * @param request CreateTriggerRequest
  * @return CreateTriggerResponse
@@ -1603,7 +1635,7 @@ CreateTriggerResponse Client::createTrigger(const string &clusterId, const Creat
 }
 
 /**
- * @summary Deletes ACK alert contacts.
+ * @summary Deletes alert contacts from ACK.
  *
  * @param tmpReq DeleteAlertContactRequest
  * @param headers map
@@ -1642,7 +1674,7 @@ DeleteAlertContactResponse Client::deleteAlertContactWithOptions(const DeleteAle
 }
 
 /**
- * @summary Deletes ACK alert contacts.
+ * @summary Deletes alert contacts from ACK.
  *
  * @param request DeleteAlertContactRequest
  * @return DeleteAlertContactResponse
@@ -1654,7 +1686,7 @@ DeleteAlertContactResponse Client::deleteAlertContact(const DeleteAlertContactRe
 }
 
 /**
- * @summary Deletes an ACK alert contact group.
+ * @summary Delete ACK alert contact group
  *
  * @param tmpReq DeleteAlertContactGroupRequest
  * @param headers map
@@ -1693,7 +1725,7 @@ DeleteAlertContactGroupResponse Client::deleteAlertContactGroupWithOptions(const
 }
 
 /**
- * @summary Deletes an ACK alert contact group.
+ * @summary Delete ACK alert contact group
  *
  * @param request DeleteAlertContactGroupRequest
  * @return DeleteAlertContactGroupResponse
@@ -1705,10 +1737,9 @@ DeleteAlertContactGroupResponse Client::deleteAlertContactGroup(const DeleteAler
 }
 
 /**
- * @summary Deletes an auto repair policy.
+ * @summary Deletes an automatic fault recovery rule.
  *
- * @description >Notice: 
- * This API is not yet publicly available.
+ * @description >Notice: This API is not yet available. Stay tuned..
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1733,10 +1764,9 @@ DeleteAutoRepairPolicyResponse Client::deleteAutoRepairPolicyWithOptions(const s
 }
 
 /**
- * @summary Deletes an auto repair policy.
+ * @summary Deletes an automatic fault recovery rule.
  *
- * @description >Notice: 
- * This API is not yet publicly available.
+ * @description >Notice: This API is not yet available. Stay tuned..
  *
  * @return DeleteAutoRepairPolicyResponse
  */
@@ -1747,14 +1777,14 @@ DeleteAutoRepairPolicyResponse Client::deleteAutoRepairPolicy(const string &clus
 }
 
 /**
- * @summary When you no longer need a cluster, you can delete it and choose whether to delete or retain its associated resources. Before deleting a cluster, you must manually remove its workloads, such as stateless applications, stateful applications, jobs, and cronjobs. Otherwise, the deletion might fail.
+ * @summary If you no longer need a cluster, delete the cluster and choose whether to delete or retain the associated resources. Before you delete a cluster, manually clean up workloads (Deployments, StatefulSets, Jobs, and CronJobs). Otherwise, the cluster deletion may fail.
  *
- * @description Important
- * - Subscription-based resources, such as ECS instances and Lingjun computing nodes, are not automatically released. You must manually release them to avoid unnecessary charges. For more details, see Cluster deletion and node release rules.
- * - Subscription-based APIServer SLB resources are not automatically released. You must manually release them to avoid unnecessary charges.
- * - If resources such as VPCs, VSwitches, security groups, and RAM roles are in use by other resources, they are retained by default. You must release them manually.
- * - ECIs created with virtual nodes are automatically released.
- * - Some cloud resources created with the cluster are not automatically released when you delete the cluster and continue to incur charges. You can choose to retain or release them. These resources include SLS projects automatically created by the cluster and cloud disks purchased via dynamic volumes.
+ * @description Risk notice:
+ * - Subscription ECS instances, Lingjun compute nodes, and other subscription resources in the cluster cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources. For more information, refer to Cluster deletion and node release rules.
+ * - Subscription APIServer SLB resources cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources.
+ * - VPCs, vSwitches, security groups, and RAM roles that are used by other resources cannot be deleted and are retained by default. Perform manual release of these resources.
+ * - Elastic Container Instances (ECIs) created through virtual nodes are subject to automatic release.
+ * - Some cloud resources created through the cluster are not subject to automatic release when the cluster is deleted. These resources continue to incur billing after the cluster is deleted. Release or retain them as needed. These resources include: Simple Log Service (SLS) projects automatically created by the cluster, and cloud disks purchased through dynamic storage volumes.
  *
  * @param tmpReq DeleteClusterRequest
  * @param headers map
@@ -1809,14 +1839,14 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const string &ClusterId, 
 }
 
 /**
- * @summary When you no longer need a cluster, you can delete it and choose whether to delete or retain its associated resources. Before deleting a cluster, you must manually remove its workloads, such as stateless applications, stateful applications, jobs, and cronjobs. Otherwise, the deletion might fail.
+ * @summary If you no longer need a cluster, delete the cluster and choose whether to delete or retain the associated resources. Before you delete a cluster, manually clean up workloads (Deployments, StatefulSets, Jobs, and CronJobs). Otherwise, the cluster deletion may fail.
  *
- * @description Important
- * - Subscription-based resources, such as ECS instances and Lingjun computing nodes, are not automatically released. You must manually release them to avoid unnecessary charges. For more details, see Cluster deletion and node release rules.
- * - Subscription-based APIServer SLB resources are not automatically released. You must manually release them to avoid unnecessary charges.
- * - If resources such as VPCs, VSwitches, security groups, and RAM roles are in use by other resources, they are retained by default. You must release them manually.
- * - ECIs created with virtual nodes are automatically released.
- * - Some cloud resources created with the cluster are not automatically released when you delete the cluster and continue to incur charges. You can choose to retain or release them. These resources include SLS projects automatically created by the cluster and cloud disks purchased via dynamic volumes.
+ * @description Risk notice:
+ * - Subscription ECS instances, Lingjun compute nodes, and other subscription resources in the cluster cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources. For more information, refer to Cluster deletion and node release rules.
+ * - Subscription APIServer SLB resources cannot be subject to automatic release. To avoid unnecessary billing, perform manual release of these resources.
+ * - VPCs, vSwitches, security groups, and RAM roles that are used by other resources cannot be deleted and are retained by default. Perform manual release of these resources.
+ * - Elastic Container Instances (ECIs) created through virtual nodes are subject to automatic release.
+ * - Some cloud resources created through the cluster are not subject to automatic release when the cluster is deleted. These resources continue to incur billing after the cluster is deleted. Release or retain them as needed. These resources include: Simple Log Service (SLS) projects automatically created by the cluster, and cloud disks purchased through dynamic storage volumes.
  *
  * @param request DeleteClusterRequest
  * @return DeleteClusterResponse
@@ -1828,7 +1858,7 @@ DeleteClusterResponse Client::deleteCluster(const string &ClusterId, const Delet
 }
 
 /**
- * @summary Deletes cluster inspection configurations.
+ * @summary Deletes a cluster inspection configuration.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1853,7 +1883,7 @@ DeleteClusterInspectConfigResponse Client::deleteClusterInspectConfigWithOptions
 }
 
 /**
- * @summary Deletes cluster inspection configurations.
+ * @summary Deletes a cluster inspection configuration.
  *
  * @return DeleteClusterInspectConfigResponse
  */
@@ -1864,7 +1894,7 @@ DeleteClusterInspectConfigResponse Client::deleteClusterInspectConfig(const stri
 }
 
 /**
- * @summary Deletes unused node pools. Deleting a node pool terminates all pods on its nodes, which triggers pod rescheduling. Insufficient cluster resources may cause scheduling failures and business impact.
+ * @summary Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on the nodes are deleted, which may trigger descheduling. If descheduling cannot be performed, your services may be affected. Make sure that the cluster has sufficient resources for descheduling.
  *
  * @param request DeleteClusterNodepoolRequest
  * @param headers map
@@ -1897,7 +1927,7 @@ DeleteClusterNodepoolResponse Client::deleteClusterNodepoolWithOptions(const str
 }
 
 /**
- * @summary Deletes unused node pools. Deleting a node pool terminates all pods on its nodes, which triggers pod rescheduling. Insufficient cluster resources may cause scheduling failures and business impact.
+ * @summary Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on the nodes are deleted, which may trigger descheduling. If descheduling cannot be performed, your services may be affected. Make sure that the cluster has sufficient resources for descheduling.
  *
  * @param request DeleteClusterNodepoolRequest
  * @return DeleteClusterNodepoolResponse
@@ -1909,14 +1939,14 @@ DeleteClusterNodepoolResponse Client::deleteClusterNodepool(const string &Cluste
 }
 
 /**
- * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
+ * @summary When you no longer need cluster nodes to continue working, you can call the DeleteClusterNodes operation to remove nodes from the cluster. When removing nodes, you can choose whether to simultaneously release the ECS instances and whether to automatically drain the nodes.
  *
- * @description *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
- * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
- * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
- * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
- * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
- * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
+ * @description - When removing nodes, use this API or the [Container Service console](https://cs.console.aliyun.com) to perform standardized operations. Do not manually remove nodes by using the `kubectl delete node` command.
+ * - Do not directly release nodes, remove instances in the ECS or ESS console (or through related APIs), or allow nodes to be passively released due to the expiration of subscription instances. In these cases, the nodes will be directly shut down and automatically removed from the Container Service management console.
+ * - If the node pool has a desired number of nodes configured, the node pool will automatically scale out other instances according to the corresponding configuration to always maintain the node count at the desired number.
+ * - Removing nodes involves Pod migration, which may affect your business. Perform this operation during off-peak hours. Unexpected risks may exist during the operation, so back up relevant data in advance.
+ * - When removing nodes, ACK performs a drain operation. Ensure that the resources on other nodes in the cluster are sufficient to prevent business Pods from being unable to be scheduled.
+ * - Check the node affinity rules and scheduling policies of the Pods on the nodes to be removed to ensure that Pods can still be scheduled to other nodes after node removal.
  *
  * @param request DeleteClusterNodesRequest
  * @param headers map
@@ -1957,14 +1987,14 @@ DeleteClusterNodesResponse Client::deleteClusterNodesWithOptions(const string &C
 }
 
 /**
- * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
+ * @summary When you no longer need cluster nodes to continue working, you can call the DeleteClusterNodes operation to remove nodes from the cluster. When removing nodes, you can choose whether to simultaneously release the ECS instances and whether to automatically drain the nodes.
  *
- * @description *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
- * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
- * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
- * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
- * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
- * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
+ * @description - When removing nodes, use this API or the [Container Service console](https://cs.console.aliyun.com) to perform standardized operations. Do not manually remove nodes by using the `kubectl delete node` command.
+ * - Do not directly release nodes, remove instances in the ECS or ESS console (or through related APIs), or allow nodes to be passively released due to the expiration of subscription instances. In these cases, the nodes will be directly shut down and automatically removed from the Container Service management console.
+ * - If the node pool has a desired number of nodes configured, the node pool will automatically scale out other instances according to the corresponding configuration to always maintain the node count at the desired number.
+ * - Removing nodes involves Pod migration, which may affect your business. Perform this operation during off-peak hours. Unexpected risks may exist during the operation, so back up relevant data in advance.
+ * - When removing nodes, ACK performs a drain operation. Ensure that the resources on other nodes in the cluster are sufficient to prevent business Pods from being unable to be scheduled.
+ * - Check the node affinity rules and scheduling policies of the Pods on the nodes to be removed to ensure that Pods can still be scheduled to other nodes after node removal.
  *
  * @param request DeleteClusterNodesRequest
  * @return DeleteClusterNodesResponse
@@ -1978,7 +2008,7 @@ DeleteClusterNodesResponse Client::deleteClusterNodes(const string &ClusterId, c
 /**
  * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
  *
- * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+ * @summary Deletes an application trigger by trigger ID.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2005,7 +2035,7 @@ DeleteKubernetesTriggerResponse Client::deleteKubernetesTriggerWithOptions(const
 /**
  * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
  *
- * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+ * @summary Deletes an application trigger by trigger ID.
  *
  * @return DeleteKubernetesTriggerResponse
  */
@@ -2016,7 +2046,7 @@ DeleteKubernetesTriggerResponse Client::deleteKubernetesTrigger(const string &Id
 }
 
 /**
- * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Deletes a policy rule instance from a specified cluster.
  *
  * @param request DeletePolicyInstanceRequest
  * @param headers map
@@ -2049,7 +2079,7 @@ DeletePolicyInstanceResponse Client::deletePolicyInstanceWithOptions(const strin
 }
 
 /**
- * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Deletes a policy rule instance from a specified cluster.
  *
  * @param request DeletePolicyInstanceRequest
  * @return DeletePolicyInstanceResponse
@@ -2061,7 +2091,7 @@ DeletePolicyInstanceResponse Client::deletePolicyInstance(const string &clusterI
 }
 
 /**
- * @summary Deletes the orchestration templates that you no longer need.
+ * @summary Deletes an orchestration template when you no longer need it.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2086,7 +2116,7 @@ DeleteTemplateResponse Client::deleteTemplateWithOptions(const string &TemplateI
 }
 
 /**
- * @summary Deletes the orchestration templates that you no longer need.
+ * @summary Deletes an orchestration template when you no longer need it.
  *
  * @return DeleteTemplateResponse
  */
@@ -2097,7 +2127,7 @@ DeleteTemplateResponse Client::deleteTemplate(const string &TemplateId) {
 }
 
 /**
- * @summary Deletes an application trigger.
+ * @summary Deletes an application trigger when it is no longer needed.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2122,7 +2152,7 @@ DeleteTriggerResponse Client::deleteTriggerWithOptions(const string &clusterId, 
 }
 
 /**
- * @summary Deletes an application trigger.
+ * @summary Deletes an application trigger when it is no longer needed.
  *
  * @return DeleteTriggerResponse
  */
@@ -2133,7 +2163,7 @@ DeleteTriggerResponse Client::deleteTrigger(const string &clusterId, const strin
 }
 
 /**
- * @summary Call the `DeployPolicyInstance` operation to deploy a policy instance to specified namespaces in an ACK cluster. To create a policy instance, select a security policy, configure a governance action (alert or deny), and specify the target namespaces for the policy.
+ * @summary Deploys a policy instance in a specified namespace of a specified cluster. You can select a security policy type in an ACK cluster, configure the governance action (alerting or blocking) and the namespace scope for the policy instance to create and deploy a policy instance.
  *
  * @param request DeployPolicyInstanceRequest
  * @param headers map
@@ -2174,7 +2204,7 @@ DeployPolicyInstanceResponse Client::deployPolicyInstanceWithOptions(const strin
 }
 
 /**
- * @summary Call the `DeployPolicyInstance` operation to deploy a policy instance to specified namespaces in an ACK cluster. To create a policy instance, select a security policy, configure a governance action (alert or deny), and specify the target namespaces for the policy.
+ * @summary Deploys a policy instance in a specified namespace of a specified cluster. You can select a security policy type in an ACK cluster, configure the governance action (alerting or blocking) and the namespace scope for the policy instance to create and deploy a policy instance.
  *
  * @param request DeployPolicyInstanceRequest
  * @return DeployPolicyInstanceResponse
@@ -2186,7 +2216,7 @@ DeployPolicyInstanceResponse Client::deployPolicyInstance(const string &clusterI
 }
 
 /**
- * @summary Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
+ * @summary You can call the DescribeAddon operation to query information about a specified component based on parameters such as region, cluster type, cluster subtype (profile), cluster version, and component name. The returned information includes whether the component is managed, component category, supported custom parameter schema, compatible OS architectures, and the minimum cluster version required by the component version.
  *
  * @param request DescribeAddonRequest
  * @param headers map
@@ -2243,7 +2273,7 @@ DescribeAddonResponse Client::describeAddonWithOptions(const string &addonName, 
 }
 
 /**
- * @summary Queries the information about a component based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, cluster version, and component name. The information includes whether the component is managed, the component type, supported custom parameter schema, compatible operating system architecture, and earliest supported cluster version.
+ * @summary You can call the DescribeAddon operation to query information about a specified component based on parameters such as region, cluster type, cluster subtype (profile), cluster version, and component name. The returned information includes whether the component is managed, component category, supported custom parameter schema, compatible OS architectures, and the minimum cluster version required by the component version.
  *
  * @param request DescribeAddonRequest
  * @return DescribeAddonResponse
@@ -2257,7 +2287,7 @@ DescribeAddonResponse Client::describeAddon(const string &addonName, const Descr
 /**
  * @deprecated OpenAPI DescribeAddons is deprecated
  *
- * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+ * @summary Queries the details of all components supported by the platform.
  *
  * @param request DescribeAddonsRequest
  * @param headers map
@@ -2308,7 +2338,7 @@ DescribeAddonsResponse Client::describeAddonsWithOptions(const DescribeAddonsReq
 /**
  * @deprecated OpenAPI DescribeAddons is deprecated
  *
- * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+ * @summary Queries the details of all components supported by the platform.
  *
  * @param request DescribeAddonsRequest
  * @return DescribeAddonsResponse
@@ -2320,10 +2350,9 @@ DescribeAddonsResponse Client::describeAddons(const DescribeAddonsRequest &reque
 }
 
 /**
- * @summary View self-healing rules.
+ * @summary Queries an auto-repair rule.
  *
- * @description >Notice: 
- * This API is not yet available.
+ * @description >Notice: This API is not yet available. Stay tuned.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2348,10 +2377,9 @@ DescribeAutoRepairPolicyResponse Client::describeAutoRepairPolicyWithOptions(con
 }
 
 /**
- * @summary View self-healing rules.
+ * @summary Queries an auto-repair rule.
  *
- * @description >Notice: 
- * This API is not yet available.
+ * @description >Notice: This API is not yet available. Stay tuned.
  *
  * @return DescribeAutoRepairPolicyResponse
  */
@@ -2364,7 +2392,7 @@ DescribeAutoRepairPolicyResponse Client::describeAutoRepairPolicy(const string &
 /**
  * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
  *
- * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+ * @summary Calls DescribeClusterAddonInstance to query information about an installed cluster component, such as its version, status, and configuration.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2391,7 +2419,7 @@ DescribeClusterAddonInstanceResponse Client::describeClusterAddonInstanceWithOpt
 /**
  * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
  *
- * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+ * @summary Calls DescribeClusterAddonInstance to query information about an installed cluster component, such as its version, status, and configuration.
  *
  * @return DescribeClusterAddonInstanceResponse
  */
@@ -2404,7 +2432,7 @@ DescribeClusterAddonInstanceResponse Client::describeClusterAddonInstance(const 
 /**
  * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
  *
- * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+ * @summary Queries the version information of a specified component that can be used in a specific cluster, including the component version and configurable parameters.
  *
  * @param request DescribeClusterAddonMetadataRequest
  * @param headers map
@@ -2439,7 +2467,7 @@ DescribeClusterAddonMetadataResponse Client::describeClusterAddonMetadataWithOpt
 /**
  * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
  *
- * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+ * @summary Queries the version information of a specified component that can be used in a specific cluster, including the component version and configurable parameters.
  *
  * @param request DescribeClusterAddonMetadataRequest
  * @return DescribeClusterAddonMetadataResponse
@@ -2453,7 +2481,7 @@ DescribeClusterAddonMetadataResponse Client::describeClusterAddonMetadata(const 
 /**
  * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
  *
- * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+ * @summary Queries the upgrade status of a cluster component by calling DescribeClusterAddonUpgradeStatus.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2480,7 +2508,7 @@ DescribeClusterAddonUpgradeStatusResponse Client::describeClusterAddonUpgradeSta
 /**
  * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
  *
- * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+ * @summary Queries the upgrade status of a cluster component by calling DescribeClusterAddonUpgradeStatus.
  *
  * @return DescribeClusterAddonUpgradeStatusResponse
  */
@@ -2493,7 +2521,7 @@ DescribeClusterAddonUpgradeStatusResponse Client::describeClusterAddonUpgradeSta
 /**
  * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
  *
- * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+ * @summary Queries the upgrade status of a component by component name.
  *
  * @param tmpReq DescribeClusterAddonsUpgradeStatusRequest
  * @param headers map
@@ -2534,7 +2562,7 @@ DescribeClusterAddonsUpgradeStatusResponse Client::describeClusterAddonsUpgradeS
 /**
  * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
  *
- * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+ * @summary Queries the upgrade status of a component by component name.
  *
  * @param request DescribeClusterAddonsUpgradeStatusRequest
  * @return DescribeClusterAddonsUpgradeStatusResponse
@@ -2548,7 +2576,7 @@ DescribeClusterAddonsUpgradeStatusResponse Client::describeClusterAddonsUpgradeS
 /**
  * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
  *
- * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+ * @summary Queries the details of all installed components in a cluster by cluster ID.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2575,7 +2603,7 @@ DescribeClusterAddonsVersionResponse Client::describeClusterAddonsVersionWithOpt
 /**
  * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
  *
- * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+ * @summary Queries the details of all installed components in a cluster by cluster ID.
  *
  * @return DescribeClusterAddonsVersionResponse
  */
@@ -2586,7 +2614,7 @@ DescribeClusterAddonsVersionResponse Client::describeClusterAddonsVersion(const 
 }
 
 /**
- * @summary To manually add existing ECS instances to an ACK cluster as worker nodes or add nodes back to a node pool, call the DescribeClusterAttachScripts operation to obtain the required attachment script.
+ * @summary If you need to add existing ECS instances to an ACK cluster as worker nodes, or re-add node instances to a node pool after they are removed, ACK allows you to manually add existing nodes to a node pool. Calls the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
  *
  * @param request DescribeClusterAttachScriptsRequest
  * @param headers map
@@ -2647,7 +2675,7 @@ DescribeClusterAttachScriptsResponse Client::describeClusterAttachScriptsWithOpt
 }
 
 /**
- * @summary To manually add existing ECS instances to an ACK cluster as worker nodes or add nodes back to a node pool, call the DescribeClusterAttachScripts operation to obtain the required attachment script.
+ * @summary If you need to add existing ECS instances to an ACK cluster as worker nodes, or re-add node instances to a node pool after they are removed, ACK allows you to manually add existing nodes to a node pool. Calls the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
  *
  * @param request DescribeClusterAttachScriptsRequest
  * @return DescribeClusterAttachScriptsResponse
@@ -2659,7 +2687,7 @@ DescribeClusterAttachScriptsResponse Client::describeClusterAttachScripts(const 
 }
 
 /**
- * @summary You can call the DescribeClusterDetail operation to query detailed information about a specified cluster by its cluster ID.
+ * @summary You can call the DescribeClusterDetail API to query the detailed information of a specified cluster by cluster ID.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2684,7 +2712,7 @@ DescribeClusterDetailResponse Client::describeClusterDetailWithOptions(const str
 }
 
 /**
- * @summary You can call the DescribeClusterDetail operation to query detailed information about a specified cluster by its cluster ID.
+ * @summary You can call the DescribeClusterDetail API to query the detailed information of a specified cluster by cluster ID.
  *
  * @return DescribeClusterDetailResponse
  */
@@ -2695,7 +2723,7 @@ DescribeClusterDetailResponse Client::describeClusterDetail(const string &Cluste
 }
 
 /**
- * @summary Cluster operation events include cluster creation, modification, and upgrades, node pool creation and scale-out, and add-on installations. You can call the `DescribeClusterEvents` operation to retrieve events for a specified cluster and query their details, such as the severity level, status, and time.
+ * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeClusterEvents operation to retrieve the list of events that occurred in a specified cluster and query event details, including the event level, event status, and event time.
  *
  * @param request DescribeClusterEventsRequest
  * @param headers map
@@ -2744,7 +2772,7 @@ DescribeClusterEventsResponse Client::describeClusterEventsWithOptions(const str
 }
 
 /**
- * @summary Cluster operation events include cluster creation, modification, and upgrades, node pool creation and scale-out, and add-on installations. You can call the `DescribeClusterEvents` operation to retrieve events for a specified cluster and query their details, such as the severity level, status, and time.
+ * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeClusterEvents operation to retrieve the list of events that occurred in a specified cluster and query event details, including the event level, event status, and event time.
  *
  * @param request DescribeClusterEventsRequest
  * @return DescribeClusterEventsResponse
@@ -2756,7 +2784,7 @@ DescribeClusterEventsResponse Client::describeClusterEvents(const string &Cluste
 }
 
 /**
- * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+ * @summary Retrieves the log data of a cluster for root cause analysis and tracing when cluster issues occur.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2781,7 +2809,7 @@ DescribeClusterLogsResponse Client::describeClusterLogsWithOptions(const string 
 }
 
 /**
- * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+ * @summary Retrieves the log data of a cluster for root cause analysis and tracing when cluster issues occur.
  *
  * @return DescribeClusterLogsResponse
  */
@@ -2792,7 +2820,7 @@ DescribeClusterLogsResponse Client::describeClusterLogs(const string &ClusterId)
 }
 
 /**
- * @summary You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
+ * @summary Queries the configuration of a specified node pool in a cluster by node pool ID.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2817,7 +2845,7 @@ DescribeClusterNodePoolDetailResponse Client::describeClusterNodePoolDetailWithO
 }
 
 /**
- * @summary You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
+ * @summary Queries the configuration of a specified node pool in a cluster by node pool ID.
  *
  * @return DescribeClusterNodePoolDetailResponse
  */
@@ -2828,7 +2856,7 @@ DescribeClusterNodePoolDetailResponse Client::describeClusterNodePoolDetail(cons
 }
 
 /**
- * @summary Queries the node pools in a cluster.
+ * @summary Queries the list of all node pools in a cluster.
  *
  * @param request DescribeClusterNodePoolsRequest
  * @param headers map
@@ -2861,7 +2889,7 @@ DescribeClusterNodePoolsResponse Client::describeClusterNodePoolsWithOptions(con
 }
 
 /**
- * @summary Queries the node pools in a cluster.
+ * @summary Queries the list of all node pools in a cluster.
  *
  * @param request DescribeClusterNodePoolsRequest
  * @return DescribeClusterNodePoolsResponse
@@ -2873,7 +2901,7 @@ DescribeClusterNodePoolsResponse Client::describeClusterNodePools(const string &
 }
 
 /**
- * @summary null
+ * @summary Queries the list of nodes that meet the specified conditions in a cluster.
  *
  * @param request DescribeClusterNodesRequest
  * @param headers map
@@ -2885,6 +2913,18 @@ DescribeClusterNodesResponse Client::describeClusterNodesWithOptions(const strin
   json query = {};
   if (!!request.hasInstanceIds()) {
     query["instanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasNodeIps()) {
+    query["nodeIps"] = request.getNodeIps();
+  }
+
+  if (!!request.hasNodeLabels()) {
+    query["nodeLabels"] = request.getNodeLabels();
+  }
+
+  if (!!request.hasNodeNames()) {
+    query["nodeNames"] = request.getNodeNames();
   }
 
   if (!!request.hasNodepoolId()) {
@@ -2922,7 +2962,7 @@ DescribeClusterNodesResponse Client::describeClusterNodesWithOptions(const strin
 }
 
 /**
- * @summary null
+ * @summary Queries the list of nodes that meet the specified conditions in a cluster.
  *
  * @param request DescribeClusterNodesRequest
  * @return DescribeClusterNodesResponse
@@ -2934,7 +2974,7 @@ DescribeClusterNodesResponse Client::describeClusterNodes(const string &ClusterI
 }
 
 /**
- * @summary Container Service for Kubernetes uses other Alibaba Cloud resources, such as VPCs and SLBs. To query the resources associated with a specific cluster, call the `DescribeClusterResources` operation. To query node pools or nodes, call the `DescribeClusterNodePools` or `DescribeClusterNodes` operations.
+ * @summary When you use Container Service for Kubernetes (ACK), you also use resources from other associated Alibaba Cloud services. You can call the DescribeClusterResources operation to query the associated resources of a specified cluster, such as VPCs and SLBs. To query node pool or node resources, call the DescribeClusterNodePools or DescribeClusterNodes operation.
  *
  * @param request DescribeClusterResourcesRequest
  * @param headers map
@@ -2967,7 +3007,7 @@ DescribeClusterResourcesResponse Client::describeClusterResourcesWithOptions(con
 }
 
 /**
- * @summary Container Service for Kubernetes uses other Alibaba Cloud resources, such as VPCs and SLBs. To query the resources associated with a specific cluster, call the `DescribeClusterResources` operation. To query node pools or nodes, call the `DescribeClusterNodePools` or `DescribeClusterNodes` operations.
+ * @summary When you use Container Service for Kubernetes (ACK), you also use resources from other associated Alibaba Cloud services. You can call the DescribeClusterResources operation to query the associated resources of a specified cluster, such as VPCs and SLBs. To query node pool or node resources, call the DescribeClusterNodePools or DescribeClusterNodes operation.
  *
  * @param request DescribeClusterResourcesRequest
  * @return DescribeClusterResourcesResponse
@@ -2979,7 +3019,7 @@ DescribeClusterResourcesResponse Client::describeClusterResources(const string &
 }
 
 /**
- * @summary Lists the tasks in a specified cluster.
+ * @summary Queries the task list of a cluster by calling the DescribeClusterTasks operation.
  *
  * @param request DescribeClusterTasksRequest
  * @param headers map
@@ -3024,7 +3064,7 @@ DescribeClusterTasksResponse Client::describeClusterTasksWithOptions(const strin
 }
 
 /**
- * @summary Lists the tasks in a specified cluster.
+ * @summary Queries the task list of a cluster by calling the DescribeClusterTasks operation.
  *
  * @param request DescribeClusterTasksRequest
  * @return DescribeClusterTasksResponse
@@ -3036,10 +3076,10 @@ DescribeClusterTasksResponse Client::describeClusterTasks(const string &clusterI
 }
 
 /**
- * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+ * @summary KubeConfig is used to configure access credentials for ACK clusters on the client. It contains identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of a specified cluster.
  *
- * @description *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
- * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+ * @description - The default validity period of the certificate issued by KubeConfig is 3 years. Within 180 days before the certificate expires, you can obtain a rotated and refreshed KubeConfig by using the Container Service console or the DescribeClusterUserKubeconfig operation. The new KubeConfig certificate is valid for 3 years. The old KubeConfig credential remains valid until the certificate expires. Obtain the rotated credential promptly based on the KubeConfig expiration time displayed in the console or returned by the operation.
+ * - Properly manage the KubeConfig credentials of your cluster and revoke them when they are no longer needed to avoid security risks such as sensitive data leakage caused by KubeConfig exposure.
  *
  * @param request DescribeClusterUserKubeconfigRequest
  * @param headers map
@@ -3076,10 +3116,10 @@ DescribeClusterUserKubeconfigResponse Client::describeClusterUserKubeconfigWithO
 }
 
 /**
- * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+ * @summary KubeConfig is used to configure access credentials for ACK clusters on the client. It contains identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of a specified cluster.
  *
- * @description *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
- * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+ * @description - The default validity period of the certificate issued by KubeConfig is 3 years. Within 180 days before the certificate expires, you can obtain a rotated and refreshed KubeConfig by using the Container Service console or the DescribeClusterUserKubeconfig operation. The new KubeConfig certificate is valid for 3 years. The old KubeConfig credential remains valid until the certificate expires. Obtain the rotated credential promptly based on the KubeConfig expiration time displayed in the console or returned by the operation.
+ * - Properly manage the KubeConfig credentials of your cluster and revoke them when they are no longer needed to avoid security risks such as sensitive data leakage caused by KubeConfig exposure.
  *
  * @param request DescribeClusterUserKubeconfigRequest
  * @return DescribeClusterUserKubeconfigResponse
@@ -3093,7 +3133,7 @@ DescribeClusterUserKubeconfigResponse Client::describeClusterUserKubeconfig(cons
 /**
  * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
  *
- * @summary Obtain the kubeconfig API for a cluster
+ * @summary Retrieves the kubeconfig file for a cluster.
  *
  * @param request DescribeClusterV2UserKubeconfigRequest
  * @param headers map
@@ -3132,7 +3172,7 @@ DescribeClusterV2UserKubeconfigResponse Client::describeClusterV2UserKubeconfigW
 /**
  * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
  *
- * @summary Obtain the kubeconfig API for a cluster
+ * @summary Retrieves the kubeconfig file for a cluster.
  *
  * @param request DescribeClusterV2UserKubeconfigRequest
  * @return DescribeClusterV2UserKubeconfigResponse
@@ -3144,7 +3184,7 @@ DescribeClusterV2UserKubeconfigResponse Client::describeClusterV2UserKubeconfig(
 }
 
 /**
- * @summary Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+ * @summary You can call the DescribeClusterVuls operation to query the details of security vulnerabilities in a cluster by cluster ID, including vulnerability names, types, and severity levels. Regularly scan your cluster for security vulnerabilities to improve cluster security.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3169,7 +3209,7 @@ DescribeClusterVulsResponse Client::describeClusterVulsWithOptions(const string 
 }
 
 /**
- * @summary Queries the security vulnerability details of a cluster by cluster ID. The details include vulnerability name, vulnerability type, and vulnerability severity. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+ * @summary You can call the DescribeClusterVuls operation to query the details of security vulnerabilities in a cluster by cluster ID, including vulnerability names, types, and severity levels. Regularly scan your cluster for security vulnerabilities to improve cluster security.
  *
  * @return DescribeClusterVulsResponse
  */
@@ -3182,7 +3222,7 @@ DescribeClusterVulsResponse Client::describeClusterVuls(const string &clusterId)
 /**
  * @deprecated OpenAPI DescribeClusters is deprecated
  *
- * @summary View all clusters (including Swarm and Kubernetes clusters) created in the container service.
+ * @summary View all clusters created in Container Service (including Swarm and Kubernetes clusters).
  *
  * @param request DescribeClustersRequest
  * @param headers map
@@ -3225,7 +3265,7 @@ DescribeClustersResponse Client::describeClustersWithOptions(const DescribeClust
 /**
  * @deprecated OpenAPI DescribeClusters is deprecated
  *
- * @summary View all clusters (including Swarm and Kubernetes clusters) created in the container service.
+ * @summary View all clusters created in Container Service (including Swarm and Kubernetes clusters).
  *
  * @param request DescribeClustersRequest
  * @return DescribeClustersResponse
@@ -3237,7 +3277,7 @@ DescribeClustersResponse Client::describeClusters(const DescribeClustersRequest 
 }
 
 /**
- * @summary Lists all clusters in a specified region.
+ * @summary Queries all clusters in a specified region.
  *
  * @param request DescribeClustersForRegionRequest
  * @param headers map
@@ -3294,7 +3334,7 @@ DescribeClustersForRegionResponse Client::describeClustersForRegionWithOptions(c
 }
 
 /**
- * @summary Lists all clusters in a specified region.
+ * @summary Queries all clusters in a specified region.
  *
  * @param request DescribeClustersForRegionRequest
  * @return DescribeClustersForRegionResponse
@@ -3306,7 +3346,7 @@ DescribeClustersForRegionResponse Client::describeClustersForRegion(const string
 }
 
 /**
- * @summary Use the DescribeClustersV1 API to list ACK clusters by criteria such as cluster type and cluster specification.
+ * @summary You can invoke the DescribeClustersV1 operation to query the list of ACK clusters that meet conditional criteria (such as cluster type and cluster specification) under the current account.
  *
  * @param request DescribeClustersV1Request
  * @param headers map
@@ -3367,7 +3407,7 @@ DescribeClustersV1Response Client::describeClustersV1WithOptions(const DescribeC
 }
 
 /**
- * @summary Use the DescribeClustersV1 API to list ACK clusters by criteria such as cluster type and cluster specification.
+ * @summary You can invoke the DescribeClustersV1 operation to query the list of ACK clusters that meet conditional criteria (such as cluster type and cluster specification) under the current account.
  *
  * @param request DescribeClustersV1Request
  * @return DescribeClustersV1Response
@@ -3379,7 +3419,7 @@ DescribeClustersV1Response Client::describeClustersV1(const DescribeClustersV1Re
 }
 
 /**
- * @summary Cluster operation events include cluster creation, cluster changes, node pool creation, node pool scale-out, add-on installation, and cluster upgrade. Use the `DescribeEvents` API to query details for a specific event type, including its level, status, and timestamp.
+ * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeEvents operation to query the details of a specific type of event, including the event level, event status, and event time.
  *
  * @param request DescribeEventsRequest
  * @param headers map
@@ -3432,7 +3472,7 @@ DescribeEventsResponse Client::describeEventsWithOptions(const DescribeEventsReq
 }
 
 /**
- * @summary Cluster operation events include cluster creation, cluster changes, node pool creation, node pool scale-out, add-on installation, and cluster upgrade. Use the `DescribeEvents` API to query details for a specific event type, including its level, status, and timestamp.
+ * @summary Cluster operation events include cluster creation, cluster modification, node pool creation, node pool scale-out, addon installation, and cluster upgrade. You can call the DescribeEvents operation to query the details of a specific type of event, including the event level, event status, and event time.
  *
  * @param request DescribeEventsRequest
  * @return DescribeEventsResponse
@@ -3444,7 +3484,7 @@ DescribeEventsResponse Client::describeEvents(const DescribeEventsRequest &reque
 }
 
 /**
- * @summary Retrieves a list of events in a specified region.
+ * @summary Queries all events in a specified region.
  *
  * @param request DescribeEventsForRegionRequest
  * @param headers map
@@ -3493,7 +3533,7 @@ DescribeEventsForRegionResponse Client::describeEventsForRegionWithOptions(const
 }
 
 /**
- * @summary Retrieves a list of events in a specified region.
+ * @summary Queries all events in a specified region.
  *
  * @param request DescribeEventsForRegionRequest
  * @return DescribeEventsForRegionResponse
@@ -3507,9 +3547,9 @@ DescribeEventsForRegionResponse Client::describeEventsForRegion(const string &re
 /**
  * @deprecated OpenAPI DescribeExternalAgent is deprecated
  *
- * @summary Queries the proxy configurations of a registered cluster by cluster ID.
+ * @summary Queries the agent configuration for a registered cluster by cluster ID.
  *
- * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+ * @description For more information about cluster registration, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
  *
  * @param request DescribeExternalAgentRequest
  * @param headers map
@@ -3548,9 +3588,9 @@ DescribeExternalAgentResponse Client::describeExternalAgentWithOptions(const str
 /**
  * @deprecated OpenAPI DescribeExternalAgent is deprecated
  *
- * @summary Queries the proxy configurations of a registered cluster by cluster ID.
+ * @summary Queries the agent configuration for a registered cluster by cluster ID.
  *
- * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+ * @description For more information about cluster registration, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
  *
  * @param request DescribeExternalAgentRequest
  * @return DescribeExternalAgentResponse
@@ -3562,7 +3602,7 @@ DescribeExternalAgentResponse Client::describeExternalAgent(const string &Cluste
 }
 
 /**
- * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+ * @summary You can call the DescribeKubernetesVersionMetadata operation to query detailed information about Kubernetes versions, including version information, release dates and expiration dates, compatible operating systems, and container runtimes.
  *
  * @param request DescribeKubernetesVersionMetadataRequest
  * @param headers map
@@ -3619,7 +3659,7 @@ DescribeKubernetesVersionMetadataResponse Client::describeKubernetesVersionMetad
 }
 
 /**
- * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+ * @summary You can call the DescribeKubernetesVersionMetadata operation to query detailed information about Kubernetes versions, including version information, release dates and expiration dates, compatible operating systems, and container runtimes.
  *
  * @param request DescribeKubernetesVersionMetadataRequest
  * @return DescribeKubernetesVersionMetadataResponse
@@ -3631,7 +3671,7 @@ DescribeKubernetesVersionMetadataResponse Client::describeKubernetesVersionMetad
 }
 
 /**
- * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+ * @summary Queries the security vulnerability details of a node pool by node pool ID by calling the DescribeNodePoolVuls operation. The details include vulnerability names and severity levels. Regularly scan node pools for security vulnerabilities to improve cluster security.
  *
  * @param request DescribeNodePoolVulsRequest
  * @param headers map
@@ -3664,7 +3704,7 @@ DescribeNodePoolVulsResponse Client::describeNodePoolVulsWithOptions(const strin
 }
 
 /**
- * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+ * @summary Queries the security vulnerability details of a node pool by node pool ID by calling the DescribeNodePoolVuls operation. The details include vulnerability names and severity levels. Regularly scan node pools for security vulnerabilities to improve cluster security.
  *
  * @param request DescribeNodePoolVulsRequest
  * @return DescribeNodePoolVulsResponse
@@ -3676,7 +3716,7 @@ DescribeNodePoolVulsResponse Client::describeNodePoolVuls(const string &clusterI
 }
 
 /**
- * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
+ * @summary ACK cluster container security policies provide a comprehensive built-in rule library that includes Compliance, Infra, K8s-general, and PSP categories to ensure the secure operation of containers in production environments. You can call the DescribePolicies operation to query the list of policy governance rule libraries.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3701,7 +3741,7 @@ DescribePoliciesResponse Client::describePoliciesWithOptions(const map<string, s
 }
 
 /**
- * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
+ * @summary ACK cluster container security policies provide a comprehensive built-in rule library that includes Compliance, Infra, K8s-general, and PSP categories to ensure the secure operation of containers in production environments. You can call the DescribePolicies operation to query the list of policy governance rule libraries.
  *
  * @return DescribePoliciesResponse
  */
@@ -3712,7 +3752,7 @@ DescribePoliciesResponse Client::describePolicies() {
 }
 
 /**
- * @summary Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
+ * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyDetails operation to query the details of a specified policy governance rule, such as the rule template description, governance action, and governance severity level.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3737,7 +3777,7 @@ DescribePolicyDetailsResponse Client::describePolicyDetailsWithOptions(const str
 }
 
 /**
- * @summary Queries the detailed information about a policy. The information includes the content, action, and severity level of the policy. Container Service for Kubernetes (ACK) provides the following types of predefined security policies: Compliance, Infra, K8s-general, and pod security policy (PSP). These policies ensure that containers are running in the production environment in a secure manner.
+ * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyDetails operation to query the details of a specified policy governance rule, such as the rule template description, governance action, and governance severity level.
  *
  * @return DescribePolicyDetailsResponse
  */
@@ -3748,7 +3788,7 @@ DescribePolicyDetailsResponse Client::describePolicyDetails(const string &policy
 }
 
 /**
- * @summary Container security policies for ACK clusters provide a rich set of built-in rule libraries, including `Compliance`, `Infra`, `K8s-general`, and `PSP`, to secure containers in a production environment. Call the `DescribePolicyGovernanceInCluster` API to retrieve policy governance details for a target cluster, such as policy statistics by severity, audit logs, and interception and alert events.
+ * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyGovernanceInCluster operation to query detailed policy governance information for a specified cluster, such as the count of enabled policies at different severity levels, policy governance audit logs, and interception and alert details.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3773,7 +3813,7 @@ DescribePolicyGovernanceInClusterResponse Client::describePolicyGovernanceInClus
 }
 
 /**
- * @summary Container security policies for ACK clusters provide a rich set of built-in rule libraries, including `Compliance`, `Infra`, `K8s-general`, and `PSP`, to secure containers in a production environment. Call the `DescribePolicyGovernanceInCluster` API to retrieve policy governance details for a target cluster, such as policy statistics by severity, audit logs, and interception and alert events.
+ * @summary ACK cluster container security policies provide a rich set of built-in rule libraries, including Compliance, Infra, K8s-general, and PSP, to ensure the secure operation of containers in production environments. You can call the DescribePolicyGovernanceInCluster operation to query detailed policy governance information for a specified cluster, such as the count of enabled policies at different severity levels, policy governance audit logs, and interception and alert details.
  *
  * @return DescribePolicyGovernanceInClusterResponse
  */
@@ -3784,7 +3824,7 @@ DescribePolicyGovernanceInClusterResponse Client::describePolicyGovernanceInClus
 }
 
 /**
- * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+ * @summary You can select a security policy type in an ACK cluster, configure the related enforcement actions and scope, and create and deploy a policy instance. You can call the DescribePolicyInstances operation to retrieve the details of specified policy instances in a cluster, such as the policy description and governance level.
  *
  * @param request DescribePolicyInstancesRequest
  * @param headers map
@@ -3821,7 +3861,7 @@ DescribePolicyInstancesResponse Client::describePolicyInstancesWithOptions(const
 }
 
 /**
- * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+ * @summary You can select a security policy type in an ACK cluster, configure the related enforcement actions and scope, and create and deploy a policy instance. You can call the DescribePolicyInstances operation to retrieve the details of specified policy instances in a cluster, such as the policy description and governance level.
  *
  * @param request DescribePolicyInstancesRequest
  * @return DescribePolicyInstancesResponse
@@ -3833,7 +3873,7 @@ DescribePolicyInstancesResponse Client::describePolicyInstances(const string &cl
 }
 
 /**
- * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+ * @summary Queries the deployment status of policy instances for different policy types in a cluster, including the number of enabled instances for each policy rule and the number of enabled policy types at different governance levels.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3858,7 +3898,7 @@ DescribePolicyInstancesStatusResponse Client::describePolicyInstancesStatusWithO
 }
 
 /**
- * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+ * @summary Queries the deployment status of policy instances for different policy types in a cluster, including the number of enabled instances for each policy rule and the number of enabled policy types at different governance levels.
  *
  * @return DescribePolicyInstancesStatusResponse
  */
@@ -3869,7 +3909,7 @@ DescribePolicyInstancesStatusResponse Client::describePolicyInstancesStatus(cons
 }
 
 /**
- * @summary Queries the list of available regions.
+ * @summary Queries the list of regions.
  *
  * @param request DescribeRegionsRequest
  * @param headers map
@@ -3910,7 +3950,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries the list of available regions.
+ * @summary Queries the list of regions.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -3922,7 +3962,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
+ * @summary Queries whether deletion protection is enabled for a specified resource in a cluster. Resources that support deletion protection include namespaces and services.
  *
  * @param request DescribeResourcesDeleteProtectionRequest
  * @param headers map
@@ -3959,7 +3999,7 @@ DescribeResourcesDeleteProtectionResponse Client::describeResourcesDeleteProtect
 }
 
 /**
- * @summary Queries whether the deletion protection feature is enabled for the specified resources in the cluster. The resources that you can query include namespaces and Services.
+ * @summary Queries whether deletion protection is enabled for a specified resource in a cluster. Resources that support deletion protection include namespaces and services.
  *
  * @param request DescribeResourcesDeleteProtectionRequest
  * @return DescribeResourcesDeleteProtectionResponse
@@ -3971,9 +4011,9 @@ DescribeResourcesDeleteProtectionResponse Client::describeResourcesDeleteProtect
 }
 
 /**
- * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
+ * @summary As a cluster permission management administrator, you can use an Alibaba Cloud account to issue KubeConfig credentials that contain identity information for a specified Resource Access Management (RAM) user or RAM role within the account. These credentials are used to connect to ACK clusters. You can invoke the DescribeSubaccountK8sClusterUserConfig operation to issue or retrieve the KubeConfig for any RAM user or role within the account.
  *
- * @description You can call this operation only by using an Alibaba Cloud account.
+ * @description This operation can be called only by an Alibaba Cloud account.
  *
  * @param request DescribeSubaccountK8sClusterUserConfigRequest
  * @param headers map
@@ -4010,9 +4050,9 @@ DescribeSubaccountK8sClusterUserConfigResponse Client::describeSubaccountK8sClus
 }
 
 /**
- * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
+ * @summary As a cluster permission management administrator, you can use an Alibaba Cloud account to issue KubeConfig credentials that contain identity information for a specified Resource Access Management (RAM) user or RAM role within the account. These credentials are used to connect to ACK clusters. You can invoke the DescribeSubaccountK8sClusterUserConfig operation to issue or retrieve the KubeConfig for any RAM user or role within the account.
  *
- * @description You can call this operation only by using an Alibaba Cloud account.
+ * @description This operation can be called only by an Alibaba Cloud account.
  *
  * @param request DescribeSubaccountK8sClusterUserConfigRequest
  * @return DescribeSubaccountK8sClusterUserConfigResponse
@@ -4024,7 +4064,7 @@ DescribeSubaccountK8sClusterUserConfigResponse Client::describeSubaccountK8sClus
 }
 
 /**
- * @summary Use the DescribeTaskInfo operation to query details about a cluster task, such as its task type, running state, and running stage.
+ * @summary Queries the details of a cluster task, such as the task type, running status, and running stage.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4049,7 +4089,7 @@ DescribeTaskInfoResponse Client::describeTaskInfoWithOptions(const string &taskI
 }
 
 /**
- * @summary Use the DescribeTaskInfo operation to query details about a cluster task, such as its task type, running state, and running stage.
+ * @summary Queries the details of a cluster task, such as the task type, running status, and running stage.
  *
  * @return DescribeTaskInfoResponse
  */
@@ -4060,7 +4100,7 @@ DescribeTaskInfoResponse Client::describeTaskInfo(const string &taskId) {
 }
 
 /**
- * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplateAttribute operation to query the details of a specified orchestration template, including access permissions, YAML content, and labels.
  *
  * @param request DescribeTemplateAttributeRequest
  * @param headers map
@@ -4093,7 +4133,7 @@ DescribeTemplateAttributeResponse Client::describeTemplateAttributeWithOptions(c
 }
 
 /**
- * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplateAttribute operation to query the details of a specified orchestration template, including access permissions, YAML content, and labels.
  *
  * @param request DescribeTemplateAttributeRequest
  * @return DescribeTemplateAttributeResponse
@@ -4105,7 +4145,7 @@ DescribeTemplateAttributeResponse Client::describeTemplateAttribute(const string
 }
 
 /**
- * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplates operation to retrieve a list of created orchestration templates and query detailed information about the templates, including access permissions, YAML content, and tags.
  *
  * @param request DescribeTemplatesRequest
  * @param headers map
@@ -4146,7 +4186,7 @@ DescribeTemplatesResponse Client::describeTemplatesWithOptions(const DescribeTem
 }
 
 /**
- * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can call the DescribeTemplates operation to retrieve a list of created orchestration templates and query detailed information about the templates, including access permissions, YAML content, and tags.
  *
  * @param request DescribeTemplatesRequest
  * @return DescribeTemplatesResponse
@@ -4158,7 +4198,7 @@ DescribeTemplatesResponse Client::describeTemplates(const DescribeTemplatesReque
 }
 
 /**
- * @summary Queries triggers that match specific conditions.
+ * @summary Queries triggers that meet the specified conditions.
  *
  * @param request DescribeTriggerRequest
  * @param headers map
@@ -4203,7 +4243,7 @@ DescribeTriggerResponse Client::describeTriggerWithOptions(const string &cluster
 }
 
 /**
- * @summary Queries triggers that match specific conditions.
+ * @summary Queries triggers that meet the specified conditions.
  *
  * @param request DescribeTriggerRequest
  * @return DescribeTriggerResponse
@@ -4215,7 +4255,7 @@ DescribeTriggerResponse Client::describeTrigger(const string &clusterId, const D
 }
 
 /**
- * @summary You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
+ * @summary In ACK clusters, you can use Kubernetes namespaces to achieve logically isolated permissions and resources for cluster users. Users who are granted RBAC permissions only for a specified namespace cannot access resources in other namespaces of the cluster. You can invoke the DescribeUserClusterNamespaces operation to query the namespaces for which the current Resource Access Management (RAM) user or role has been granted RBAC access permissions in a specified ACK cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4240,7 +4280,7 @@ DescribeUserClusterNamespacesResponse Client::describeUserClusterNamespacesWithO
 }
 
 /**
- * @summary You can use Kubernetes namespaces to limit users from accessing resources in a Container Service for Kubernetes (ACK) cluster. Users that are granted Role-Based Access Control (RBAC) permissions only on one namespace cannot access resources in other namespaces. Queries the RBAC permissions that are granted to the current Resource Access Management (RAM) user or RAM role on an ACK cluster.
+ * @summary In ACK clusters, you can use Kubernetes namespaces to achieve logically isolated permissions and resources for cluster users. Users who are granted RBAC permissions only for a specified namespace cannot access resources in other namespaces of the cluster. You can invoke the DescribeUserClusterNamespaces operation to query the namespaces for which the current Resource Access Management (RAM) user or role has been granted RBAC access permissions in a specified ACK cluster.
  *
  * @return DescribeUserClusterNamespacesResponse
  */
@@ -4251,10 +4291,10 @@ DescribeUserClusterNamespacesResponse Client::describeUserClusterNamespaces(cons
 }
 
 /**
- * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+ * @summary In ACK clusters, you can create and assign different access permissions to different Resource Access Management (RAM) users or roles to ensure secure access control and resource isolation. You can invoke the DescribeUserPermission operation to query the details of cluster permissions granted to a RAM user or role, including accessible resources, permission scope, preset role types, and permission sources.
  *
- * @description **Precautions**:
- * *   If you call this operation as a Resource Access Management (RAM) user or by assuming a RAM role, only the permissions granted on the clusters on which the current account has the role-based access control (RBAC) administrator permissions are returned. If you want to query the permissions on all clusters, you must use an account that has the RBAC administrator permissions on all clusters.
+ * @description **Before you begin**:
+ * - If the account that invokes this API operation is a Resource Access Management (RAM) user or RAM role, the API operation returns only the permissions for clusters in which the calling account has RBAC administrator permissions. To list permissions for all clusters, the calling account must have RBAC administrator permissions on all clusters.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4279,10 +4319,10 @@ DescribeUserPermissionResponse Client::describeUserPermissionWithOptions(const s
 }
 
 /**
- * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+ * @summary In ACK clusters, you can create and assign different access permissions to different Resource Access Management (RAM) users or roles to ensure secure access control and resource isolation. You can invoke the DescribeUserPermission operation to query the details of cluster permissions granted to a RAM user or role, including accessible resources, permission scope, preset role types, and permission sources.
  *
- * @description **Precautions**:
- * *   If you call this operation as a Resource Access Management (RAM) user or by assuming a RAM role, only the permissions granted on the clusters on which the current account has the role-based access control (RBAC) administrator permissions are returned. If you want to query the permissions on all clusters, you must use an account that has the RBAC administrator permissions on all clusters.
+ * @description **Before you begin**:
+ * - If the account that invokes this API operation is a Resource Access Management (RAM) user or RAM role, the API operation returns only the permissions for clusters in which the calling account has RBAC administrator permissions. To list permissions for all clusters, the calling account must have RBAC administrator permissions on all clusters.
  *
  * @return DescribeUserPermissionResponse
  */
@@ -4293,7 +4333,7 @@ DescribeUserPermissionResponse Client::describeUserPermission(const string &uid)
 }
 
 /**
- * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+ * @summary Queries the quotas of ACK clusters, node pools, and nodes. To increase a quota, go to Quota Center to submit a request.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4318,7 +4358,7 @@ DescribeUserQuotaResponse Client::describeUserQuotaWithOptions(const map<string,
 }
 
 /**
- * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+ * @summary Queries the quotas of ACK clusters, node pools, and nodes. To increase a quota, go to Quota Center to submit a request.
  *
  * @return DescribeUserQuotaResponse
  */
@@ -4329,12 +4369,11 @@ DescribeUserQuotaResponse Client::describeUserQuota() {
 }
 
 /**
- * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+ * @summary Alibaba Cloud security products periodically scan ECS nodes for security vulnerabilities and provide corresponding remediation suggestions and methods. Some CVE fixes may require node restarts. Ensure that the cluster has sufficient nodes for drain operations. You can call the FixNodePoolVuls operation to fix node security vulnerabilities in a specified cluster node pool and improve the security of cluster nodes.
  *
- * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
- * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
- * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
- * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+ * @description - CVE compatibility is ensured by Security Center. Make sure that you have activated the Ultimate edition of Security Center or [purchased vulnerability fixing (pay-as-you-go)](https://help.aliyun.com/document_detail/42308.html).
+ * - Some CVE fixes require node restarts. Container Service drains the node before restarting it. Ensure that the cluster has sufficient spare node resources for draining. For example, scale out the node pool in advance.
+ * - Pay attention to the compatibility between your applications and CVEs. CVE fixes are performed in batches. During the CVE fix process, you can pause or cancel the task. After you pause or cancel the task, batches that have already been dispatched continue to run until completion. Batches that have not been dispatched are paused or canceled.
  *
  * @param request FixNodePoolVulsRequest
  * @param headers map
@@ -4379,12 +4418,11 @@ FixNodePoolVulsResponse Client::fixNodePoolVulsWithOptions(const string &cluster
 }
 
 /**
- * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+ * @summary Alibaba Cloud security products periodically scan ECS nodes for security vulnerabilities and provide corresponding remediation suggestions and methods. Some CVE fixes may require node restarts. Ensure that the cluster has sufficient nodes for drain operations. You can call the FixNodePoolVuls operation to fix node security vulnerabilities in a specified cluster node pool and improve the security of cluster nodes.
  *
- * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
- * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
- * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
- * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+ * @description - CVE compatibility is ensured by Security Center. Make sure that you have activated the Ultimate edition of Security Center or [purchased vulnerability fixing (pay-as-you-go)](https://help.aliyun.com/document_detail/42308.html).
+ * - Some CVE fixes require node restarts. Container Service drains the node before restarting it. Ensure that the cluster has sufficient spare node resources for draining. For example, scale out the node pool in advance.
+ * - Pay attention to the compatibility between your applications and CVEs. CVE fixes are performed in batches. During the CVE fix process, you can pause or cancel the task. After you pause or cancel the task, batches that have already been dispatched continue to run until completion. Batches that have not been dispatched are paused or canceled.
  *
  * @param request FixNodePoolVulsRequest
  * @return FixNodePoolVulsResponse
@@ -4396,7 +4434,7 @@ FixNodePoolVulsResponse Client::fixNodePoolVuls(const string &clusterId, const s
 }
 
 /**
- * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+ * @summary Queries the details of a specified component instance in a cluster, including the version, parameter settings, and logging feature status of the component instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4421,7 +4459,7 @@ GetClusterAddonInstanceResponse Client::getClusterAddonInstanceWithOptions(const
 }
 
 /**
- * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+ * @summary Queries the details of a specified component instance in a cluster, including the version, parameter settings, and logging feature status of the component instance.
  *
  * @return GetClusterAddonInstanceResponse
  */
@@ -4432,7 +4470,7 @@ GetClusterAddonInstanceResponse Client::getClusterAddonInstance(const string &cl
 }
 
 /**
- * @summary You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
+ * @summary Queries whether the API server audit feature is enabled for a cluster and retrieves the Simple Log Service (SLS) project that stores the API server audit logs.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4457,7 +4495,7 @@ GetClusterAuditProjectResponse Client::getClusterAuditProjectWithOptions(const s
 }
 
 /**
- * @summary You can call the GetClusterAuditProject operation to check whether the cluster has API Server auditing enabled and the corresponding Simple Log Service project that stores API Server audit logs.
+ * @summary Queries whether the API server audit feature is enabled for a cluster and retrieves the Simple Log Service (SLS) project that stores the API server audit logs.
  *
  * @return GetClusterAuditProjectResponse
  */
@@ -4468,7 +4506,7 @@ GetClusterAuditProjectResponse Client::getClusterAuditProject(const string &clus
 }
 
 /**
- * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+ * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the GetClusterCheck operation to query information about a specified check task based on the cluster ID and check task ID, such as the check status, specific check items, and check creation and completion time.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4493,7 +4531,7 @@ GetClusterCheckResponse Client::getClusterCheckWithOptions(const string &cluster
 }
 
 /**
- * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+ * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the GetClusterCheck operation to query information about a specified check task based on the cluster ID and check task ID, such as the check status, specific check items, and check creation and completion time.
  *
  * @return GetClusterCheckResponse
  */
@@ -4504,7 +4542,7 @@ GetClusterCheckResponse Client::getClusterCheck(const string &clusterId, const s
 }
 
 /**
- * @summary Queries cluster diagnostic items.
+ * @summary Retrieves the diagnostic check items of a cluster.
  *
  * @param request GetClusterDiagnosisCheckItemsRequest
  * @param headers map
@@ -4537,7 +4575,7 @@ GetClusterDiagnosisCheckItemsResponse Client::getClusterDiagnosisCheckItemsWithO
 }
 
 /**
- * @summary Queries cluster diagnostic items.
+ * @summary Retrieves the diagnostic check items of a cluster.
  *
  * @param request GetClusterDiagnosisCheckItemsRequest
  * @return GetClusterDiagnosisCheckItemsResponse
@@ -4549,7 +4587,7 @@ GetClusterDiagnosisCheckItemsResponse Client::getClusterDiagnosisCheckItems(cons
 }
 
 /**
- * @summary Queries cluster diagnostic results.
+ * @summary Retrieves the diagnosis result of a cluster.
  *
  * @param request GetClusterDiagnosisResultRequest
  * @param headers map
@@ -4582,7 +4620,7 @@ GetClusterDiagnosisResultResponse Client::getClusterDiagnosisResultWithOptions(c
 }
 
 /**
- * @summary Queries cluster diagnostic results.
+ * @summary Retrieves the diagnosis result of a cluster.
  *
  * @param request GetClusterDiagnosisResultRequest
  * @return GetClusterDiagnosisResultResponse
@@ -4594,7 +4632,7 @@ GetClusterDiagnosisResultResponse Client::getClusterDiagnosisResult(const string
 }
 
 /**
- * @summary Retrieves cluster inspection configuration.
+ * @summary Retrieves the inspection configuration of a cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4619,7 +4657,7 @@ GetClusterInspectConfigResponse Client::getClusterInspectConfigWithOptions(const
 }
 
 /**
- * @summary Retrieves cluster inspection configuration.
+ * @summary Retrieves the inspection configuration of a cluster.
  *
  * @return GetClusterInspectConfigResponse
  */
@@ -4630,7 +4668,7 @@ GetClusterInspectConfigResponse Client::getClusterInspectConfig(const string &cl
 }
 
 /**
- * @summary Obtain the details of the inspection report for the cluster
+ * @summary Retrieves the details of a cluster inspection report.
  *
  * @param request GetClusterInspectReportDetailRequest
  * @param headers map
@@ -4687,7 +4725,7 @@ GetClusterInspectReportDetailResponse Client::getClusterInspectReportDetailWithO
 }
 
 /**
- * @summary Obtain the details of the inspection report for the cluster
+ * @summary Retrieves the details of a cluster inspection report.
  *
  * @param request GetClusterInspectReportDetailRequest
  * @return GetClusterInspectReportDetailResponse
@@ -4701,7 +4739,7 @@ GetClusterInspectReportDetailResponse Client::getClusterInspectReportDetail(cons
 /**
  * @deprecated OpenAPI GetKubernetesTrigger is deprecated
  *
- * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+ * @summary Queries the triggers of an application by application name.
  *
  * @param request GetKubernetesTriggerRequest
  * @param headers map
@@ -4748,7 +4786,7 @@ GetKubernetesTriggerResponse Client::getKubernetesTriggerWithOptions(const strin
 /**
  * @deprecated OpenAPI GetKubernetesTrigger is deprecated
  *
- * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+ * @summary Queries the triggers of an application by application name.
  *
  * @param request GetKubernetesTriggerRequest
  * @return GetKubernetesTriggerResponse
@@ -4762,7 +4800,7 @@ GetKubernetesTriggerResponse Client::getKubernetesTrigger(const string &ClusterI
 /**
  * @deprecated OpenAPI GetUpgradeStatus is deprecated
  *
- * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+ * @summary Queries the upgrade status of a cluster by cluster ID.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4789,7 +4827,7 @@ GetUpgradeStatusResponse Client::getUpgradeStatusWithOptions(const string &Clust
 /**
  * @deprecated OpenAPI GetUpgradeStatus is deprecated
  *
- * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+ * @summary Queries the upgrade status of a cluster by cluster ID.
  *
  * @return GetUpgradeStatusResponse
  */
@@ -4800,10 +4838,10 @@ GetUpgradeStatusResponse Client::getUpgradeStatus(const string &ClusterId) {
 }
 
 /**
- * @summary By default, a RAM user or RAM role has no RBAC permissions in a cluster they did not create, unless granted permissions at the all-clusters scope. Call the GrantPermissions operation to update the RBAC permissions for a RAM user or RAM role. This operation lets you configure accessible resources, permission scopes, and predefined roles to manage cluster access control.
+ * @summary By default, Resource Access Management (RAM) users or roles that are not cluster creators and have not been granted access permissions across all cluster dimensions do not have any RBAC permissions in a cluster. You can invoke the GrantPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management security and access control.
  *
- * @description - If you call this operation as a RAM user, you must have permission to modify the cluster permissions of other RAM users or RAM roles. Otherwise, the API call fails and returns the `StatusForbidden` or `ForbiddenGrantPermissions` error code. For more information, see [Authorize a RAM user to manage the RBAC permissions of other RAM users](https://help.aliyun.com/document_detail/119035.html).
- * - This operation overwrites all existing cluster permissions for the specified RAM user or RAM role. Your request must include the complete set of permissions you want to grant.
+ * @description - If the account that invokes this API operation is a RAM user, make sure that the account has been granted the permission to modify the RBAC authorization information of other Resource Access Management (RAM) users or RAM roles. Otherwise, the API operation returns the `StatusForbidden` or `ForbiddenGrantPermissions` fault. For more information, see [Grant RBAC permissions to a RAM user](https://help.aliyun.com/document_detail/119035.html).
+ * - The operation of fully updating the RBAC authorization information of a RAM user or RAM role overwrites the existing cluster permissions of the target RAM user or RAM role. Include all permission configurations that you want to grant to the target RAM user or RAM role in the request.
  *
  * @param request GrantPermissionsRequest
  * @param headers map
@@ -4831,10 +4869,10 @@ GrantPermissionsResponse Client::grantPermissionsWithOptions(const string &uid, 
 }
 
 /**
- * @summary By default, a RAM user or RAM role has no RBAC permissions in a cluster they did not create, unless granted permissions at the all-clusters scope. Call the GrantPermissions operation to update the RBAC permissions for a RAM user or RAM role. This operation lets you configure accessible resources, permission scopes, and predefined roles to manage cluster access control.
+ * @summary By default, Resource Access Management (RAM) users or roles that are not cluster creators and have not been granted access permissions across all cluster dimensions do not have any RBAC permissions in a cluster. You can invoke the GrantPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management security and access control.
  *
- * @description - If you call this operation as a RAM user, you must have permission to modify the cluster permissions of other RAM users or RAM roles. Otherwise, the API call fails and returns the `StatusForbidden` or `ForbiddenGrantPermissions` error code. For more information, see [Authorize a RAM user to manage the RBAC permissions of other RAM users](https://help.aliyun.com/document_detail/119035.html).
- * - This operation overwrites all existing cluster permissions for the specified RAM user or RAM role. Your request must include the complete set of permissions you want to grant.
+ * @description - If the account that invokes this API operation is a RAM user, make sure that the account has been granted the permission to modify the RBAC authorization information of other Resource Access Management (RAM) users or RAM roles. Otherwise, the API operation returns the `StatusForbidden` or `ForbiddenGrantPermissions` fault. For more information, see [Grant RBAC permissions to a RAM user](https://help.aliyun.com/document_detail/119035.html).
+ * - The operation of fully updating the RBAC authorization information of a RAM user or RAM role overwrites the existing cluster permissions of the target RAM user or RAM role. Include all permission configurations that you want to grant to the target RAM user or RAM role in the request.
  *
  * @param request GrantPermissionsRequest
  * @return GrantPermissionsResponse
@@ -4846,7 +4884,7 @@ GrantPermissionsResponse Client::grantPermissions(const string &uid, const Grant
 }
 
 /**
- * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+ * @summary To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, application components, logging and monitoring components, networking components, storage components, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
  *
  * @param request InstallClusterAddonsRequest
  * @param headers map
@@ -4874,7 +4912,7 @@ InstallClusterAddonsResponse Client::installClusterAddonsWithOptions(const strin
 }
 
 /**
- * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+ * @summary To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, application components, logging and monitoring components, networking components, storage components, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
  *
  * @param request InstallClusterAddonsRequest
  * @return InstallClusterAddonsResponse
@@ -4886,7 +4924,7 @@ InstallClusterAddonsResponse Client::installClusterAddons(const string &ClusterI
 }
 
 /**
- * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
+ * @summary Installs components on nodes. You can configure and specify nodes on which to install components.
  *
  * @param request InstallNodePoolComponentsRequest
  * @param headers map
@@ -4927,7 +4965,7 @@ InstallNodePoolComponentsResponse Client::installNodePoolComponentsWithOptions(c
 }
 
 /**
- * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
+ * @summary Installs components on nodes. You can configure and specify nodes on which to install components.
  *
  * @param request InstallNodePoolComponentsRequest
  * @return InstallNodePoolComponentsResponse
@@ -4939,7 +4977,7 @@ InstallNodePoolComponentsResponse Client::installNodePoolComponents(const string
 }
 
 /**
- * @summary Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+ * @summary Queries the list of available components based on specified parameters such as region, cluster type, cluster subtype (profile), and cluster version. You can also retrieve detailed component information, including whether a component is managed, the schema of supported custom parameters, and compatible operating system architectures.
  *
  * @param request ListAddonsRequest
  * @param headers map
@@ -4992,7 +5030,7 @@ ListAddonsResponse Client::listAddonsWithOptions(const ListAddonsRequest &reques
 }
 
 /**
- * @summary Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
+ * @summary Queries the list of available components based on specified parameters such as region, cluster type, cluster subtype (profile), and cluster version. You can also retrieve detailed component information, including whether a component is managed, the schema of supported custom parameters, and compatible operating system architectures.
  *
  * @param request ListAddonsRequest
  * @return ListAddonsResponse
@@ -5004,10 +5042,9 @@ ListAddonsResponse Client::listAddons(const ListAddonsRequest &request) {
 }
 
 /**
- * @summary Returns a list of self-healing rules.
+ * @summary Retrieves the list of auto-repair policies.
  *
- * @description >Notice: 
- * This API will be available in a future release.
+ * @description >Notice: This API is not yet available. Stay tuned.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5032,10 +5069,9 @@ ListAutoRepairPoliciesResponse Client::listAutoRepairPoliciesWithOptions(const s
 }
 
 /**
- * @summary Returns a list of self-healing rules.
+ * @summary Retrieves the list of auto-repair policies.
  *
- * @description >Notice: 
- * This API will be available in a future release.
+ * @description >Notice: This API is not yet available. Stay tuned.
  *
  * @return ListAutoRepairPoliciesResponse
  */
@@ -5046,7 +5082,7 @@ ListAutoRepairPoliciesResponse Client::listAutoRepairPolicies(const string &clus
 }
 
 /**
- * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
+ * @summary Queries the list of resources contained in an installed cluster component instance, including Kubernetes cluster resources and Helm release instances.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5071,7 +5107,7 @@ ListClusterAddonInstanceResourcesResponse Client::listClusterAddonInstanceResour
 }
 
 /**
- * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
+ * @summary Queries the list of resources contained in an installed cluster component instance, including Kubernetes cluster resources and Helm release instances.
  *
  * @return ListClusterAddonInstanceResourcesResponse
  */
@@ -5082,7 +5118,7 @@ ListClusterAddonInstanceResourcesResponse Client::listClusterAddonInstanceResour
 }
 
 /**
- * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
+ * @summary Lists the component instances installed in a specified cluster and queries related information about the component instances, such as the component version and status.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5107,7 +5143,7 @@ ListClusterAddonInstancesResponse Client::listClusterAddonInstancesWithOptions(c
 }
 
 /**
- * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
+ * @summary Lists the component instances installed in a specified cluster and queries related information about the component instances, such as the component version and status.
  *
  * @return ListClusterAddonInstancesResponse
  */
@@ -5118,7 +5154,7 @@ ListClusterAddonInstancesResponse Client::listClusterAddonInstances(const string
 }
 
 /**
- * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+ * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the ListClusterChecks operation to query the list of cluster checks and related information by cluster ID, such as check type, status, creation time, and completion time.
  *
  * @param request ListClusterChecksRequest
  * @param headers map
@@ -5155,7 +5191,7 @@ ListClusterChecksResponse Client::listClusterChecksWithOptions(const string &clu
 }
 
 /**
- * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+ * @summary The intelligent O&M platform for containers provides comprehensive Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. You can call the ListClusterChecks operation to query the list of cluster checks and related information by cluster ID, such as check type, status, creation time, and completion time.
  *
  * @param request ListClusterChecksRequest
  * @return ListClusterChecksResponse
@@ -5167,7 +5203,7 @@ ListClusterChecksResponse Client::listClusterChecks(const string &clusterId, con
 }
 
 /**
- * @summary Obtains the details of the cluster inspection report.
+ * @summary Retrieves a list of cluster inspection reports.
  *
  * @param request ListClusterInspectReportsRequest
  * @param headers map
@@ -5204,7 +5240,7 @@ ListClusterInspectReportsResponse Client::listClusterInspectReportsWithOptions(c
 }
 
 /**
- * @summary Obtains the details of the cluster inspection report.
+ * @summary Retrieves a list of cluster inspection reports.
  *
  * @param request ListClusterInspectReportsRequest
  * @return ListClusterInspectReportsResponse
@@ -5216,10 +5252,10 @@ ListClusterInspectReportsResponse Client::listClusterInspectReports(const string
 }
 
 /**
- * @summary If you need to view the access control status of the current cluster, you can invoke the ListClusterKubeconfigStates API to obtain the list and status of KubeConfig configurations that have been issued to users for the current cluster.
+ * @summary Queries the list and status of KubeConfigs that have been issued to users in a specified cluster. You can call this operation to view the access control status of the current cluster.
  *
- * @description > - Invoking this API requires the ram:ListUsers and ram:ListRoles permissions.  
- * > - Invoking this API requires permissions to manage Container Service (CS) (AliyunCSFullAccess).
+ * @description > - To call this operation, you must have the ram:ListUsers and ram:ListRoles permissions.
+ * > - To call this operation, you must have full access to Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
  *
  * @param request ListClusterKubeconfigStatesRequest
  * @param headers map
@@ -5260,10 +5296,10 @@ ListClusterKubeconfigStatesResponse Client::listClusterKubeconfigStatesWithOptio
 }
 
 /**
- * @summary If you need to view the access control status of the current cluster, you can invoke the ListClusterKubeconfigStates API to obtain the list and status of KubeConfig configurations that have been issued to users for the current cluster.
+ * @summary Queries the list and status of KubeConfigs that have been issued to users in a specified cluster. You can call this operation to view the access control status of the current cluster.
  *
- * @description > - Invoking this API requires the ram:ListUsers and ram:ListRoles permissions.  
- * > - Invoking this API requires permissions to manage Container Service (CS) (AliyunCSFullAccess).
+ * @description > - To call this operation, you must have the ram:ListUsers and ram:ListRoles permissions.
+ * > - To call this operation, you must have full access to Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
  *
  * @param request ListClusterKubeconfigStatesRequest
  * @return ListClusterKubeconfigStatesResponse
@@ -5275,7 +5311,7 @@ ListClusterKubeconfigStatesResponse Client::listClusterKubeconfigStates(const st
 }
 
 /**
- * @summary Queries the automated maintenance schedules of a cluster.
+ * @summary Retrieves a list of automated O&M execution plans.
  *
  * @param request ListOperationPlansRequest
  * @param headers map
@@ -5312,7 +5348,7 @@ ListOperationPlansResponse Client::listOperationPlansWithOptions(const ListOpera
 }
 
 /**
- * @summary Queries the automated maintenance schedules of a cluster.
+ * @summary Retrieves a list of automated O&M execution plans.
  *
  * @param request ListOperationPlansRequest
  * @return ListOperationPlansResponse
@@ -5324,7 +5360,7 @@ ListOperationPlansResponse Client::listOperationPlans(const ListOperationPlansRe
 }
 
 /**
- * @summary Query the list of the latest 100 automated O&M execution plans in a specified region. When features such as Auto Mode for Intelligent Cluster Management, automatic cluster upgrade, and node pool automated O&M are enabled, you can use this API to query O&M plans automatically generated by the System and their execution status, such as cluster upgrades or CVE fixes for node pools.
+ * @summary Queries the most recent 100 automated O&M execution plans in a specified region. When features such as cluster intelligent managed mode (Auto Mode), automatic cluster upgrade, or node pool automated O&M are enabled, you can call this operation to query the O&M plans automatically generated by the system and their execution status, such as cluster upgrades and node pool CVE fixes.
  *
  * @param request ListOperationPlansForRegionRequest
  * @param headers map
@@ -5365,7 +5401,7 @@ ListOperationPlansForRegionResponse Client::listOperationPlansForRegionWithOptio
 }
 
 /**
- * @summary Query the list of the latest 100 automated O&M execution plans in a specified region. When features such as Auto Mode for Intelligent Cluster Management, automatic cluster upgrade, and node pool automated O&M are enabled, you can use this API to query O&M plans automatically generated by the System and their execution status, such as cluster upgrades or CVE fixes for node pools.
+ * @summary Queries the most recent 100 automated O&M execution plans in a specified region. When features such as cluster intelligent managed mode (Auto Mode), automatic cluster upgrade, or node pool automated O&M are enabled, you can call this operation to query the O&M plans automatically generated by the system and their execution status, such as cluster upgrades and node pool CVE fixes.
  *
  * @param request ListOperationPlansForRegionRequest
  * @return ListOperationPlansForRegionResponse
@@ -5377,7 +5413,7 @@ ListOperationPlansForRegionResponse Client::listOperationPlansForRegion(const st
 }
 
 /**
- * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+ * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can classify and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and multi-tenant data isolation. You can call the ListTagResources operation to obtain a list of resource tags and query detailed tag information, such as key-value pairs and associated clusters.
  *
  * @param tmpReq ListTagResourcesRequest
  * @param headers map
@@ -5436,7 +5472,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+ * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can classify and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and multi-tenant data isolation. You can call the ListTagResources operation to obtain a list of resource tags and query detailed tag information, such as key-value pairs and associated clusters.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -5448,9 +5484,9 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+ * @summary Queries the KubeConfig status list of all clusters for the current user. If you want to view the KubeConfig issuance status of each cluster for the current user, you can call this operation to retrieve the KubeConfig status list of all clusters.
  *
- * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+ * @description > To call this operation, you must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
  *
  * @param request ListUserKubeConfigStatesRequest
  * @param headers map
@@ -5487,9 +5523,9 @@ ListUserKubeConfigStatesResponse Client::listUserKubeConfigStatesWithOptions(con
 }
 
 /**
- * @summary You can call the ListUserKubeConfigStates operation to query the status of the kubeconfig files of all clusters managed by the current user.
+ * @summary Queries the KubeConfig status list of all clusters for the current user. If you want to view the KubeConfig issuance status of each cluster for the current user, you can call this operation to retrieve the KubeConfig status list of all clusters.
  *
- * @description >  To call this operation, make sure that you have the AliyunCSFullAccess permissions.
+ * @description > To call this operation, you must have full access permissions on Container Service for Kubernetes (ACK) (AliyunCSFullAccess).
  *
  * @param request ListUserKubeConfigStatesRequest
  * @return ListUserKubeConfigStatesResponse
@@ -5501,9 +5537,9 @@ ListUserKubeConfigStatesResponse Client::listUserKubeConfigStates(const string &
 }
 
 /**
- * @summary The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
+ * @summary ACK ACK clusters are an evolution of ACK Basic clusters, inheriting all the advantages of managed clusters, such as managed control planes and high-availability control planes. ACK ACK clusters further enhance cluster reliability, security, and scheduling capabilities, and support SLAs with compensation standards. ACK ACK clusters are suitable for enterprise customers who run large-scale workloads in production environments and have high requirements for stability and security. You can call the MigrateCluster operation to migrate an ACK Basic cluster to an ACK ACK cluster.
  *
- * @description ACK托管集群基础版迁移至ACK托管集群Pro版后，将新增[集群管理费用](https://help.aliyun.com/document_detail/462278.html)（由ACK收取），其他云资源计费保持不变。
+ * @description After you migrate an ACK managed Basic cluster to an ACK managed Pro cluster, a [cluster management fee](https://help.aliyun.com/document_detail/462278.html) charged by ACK is added. Billing for other cloud resources remains unchanged.
  *
  * @param request MigrateClusterRequest
  * @param headers map
@@ -5540,9 +5576,9 @@ MigrateClusterResponse Client::migrateClusterWithOptions(const string &clusterId
 }
 
 /**
- * @summary The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
+ * @summary ACK ACK clusters are an evolution of ACK Basic clusters, inheriting all the advantages of managed clusters, such as managed control planes and high-availability control planes. ACK ACK clusters further enhance cluster reliability, security, and scheduling capabilities, and support SLAs with compensation standards. ACK ACK clusters are suitable for enterprise customers who run large-scale workloads in production environments and have high requirements for stability and security. You can call the MigrateCluster operation to migrate an ACK Basic cluster to an ACK ACK cluster.
  *
- * @description ACK托管集群基础版迁移至ACK托管集群Pro版后，将新增[集群管理费用](https://help.aliyun.com/document_detail/462278.html)（由ACK收取），其他云资源计费保持不变。
+ * @description After you migrate an ACK managed Basic cluster to an ACK managed Pro cluster, a [cluster management fee](https://help.aliyun.com/document_detail/462278.html) charged by ACK is added. Billing for other cloud resources remains unchanged.
  *
  * @param request MigrateClusterRequest
  * @return MigrateClusterResponse
@@ -5554,10 +5590,9 @@ MigrateClusterResponse Client::migrateCluster(const string &clusterId, const Mig
 }
 
 /**
- * @summary Modify a self-healing rule
+ * @summary Modifies a self-healing rule.
  *
- * @description >Notice: 
- * This API is not yet available.
+ * @description >Notice: This API is not yet available. Stay tuned..
  *
  * @param request ModifyAutoRepairPolicyRequest
  * @param headers map
@@ -5594,10 +5629,9 @@ ModifyAutoRepairPolicyResponse Client::modifyAutoRepairPolicyWithOptions(const s
 }
 
 /**
- * @summary Modify a self-healing rule
+ * @summary Modifies a self-healing rule.
  *
- * @description >Notice: 
- * This API is not yet available.
+ * @description >Notice: This API is not yet available. Stay tuned..
  *
  * @param request ModifyAutoRepairPolicyRequest
  * @return ModifyAutoRepairPolicyResponse
@@ -5611,8 +5645,7 @@ ModifyAutoRepairPolicyResponse Client::modifyAutoRepairPolicy(const string &clus
 /**
  * @summary You can call the ModifyCluster operation to modify the configuration of an ACK cluster.
  *
- * @description >Notice: 
- * Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on changes to input and output parameters and deprecation of OpenAPI operations related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).
+ * @description <notice>Starting from July 04, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on Changes to ACK Cluster Management OpenAPI Parameters and OpenAPI Deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
  *
  * @param request ModifyClusterRequest
  * @param headers map
@@ -5723,8 +5756,7 @@ ModifyClusterResponse Client::modifyClusterWithOptions(const string &ClusterId, 
 /**
  * @summary You can call the ModifyCluster operation to modify the configuration of an ACK cluster.
  *
- * @description >Notice: 
- * Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on changes to input and output parameters and deprecation of OpenAPI operations related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).
+ * @description <notice>Starting from July 04, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For details about the changes, see [Announcement on Changes to ACK Cluster Management OpenAPI Parameters and OpenAPI Deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
  *
  * @param request ModifyClusterRequest
  * @return ModifyClusterResponse
@@ -5736,12 +5768,12 @@ ModifyClusterResponse Client::modifyCluster(const string &ClusterId, const Modif
 }
 
 /**
- * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+ * @summary Modifies the configuration of an installed cluster component instance. Modifying configurations may affect your services. Evaluate the impact before performing this operation during off-peak hours and back up relevant data in advance.
  *
- * @description You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
- * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
- * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
- * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+ * @description You can call this API operation to modify the configuration of common clusters components and the control plane parameter settings of ACK Pro clusters:
+ * - To query the configurable parameters of common components, call the DescribeClusterAddonMetadata API operation. For details, see [Query cluster component version metadata](https://help.aliyun.com/document_detail/2667944.html).
+ * - For the configurable control plane parameter settings of ACK Pro clusters, see [Customize control plane parameters of ACK Pro clusters](https://help.aliyun.com/document_detail/199588.html).
+ * Modifying configurations may cause the component to be redeployed and restarted. Evaluate the impact before performing this operation.
  *
  * @param request ModifyClusterAddonRequest
  * @param headers map
@@ -5774,12 +5806,12 @@ ModifyClusterAddonResponse Client::modifyClusterAddonWithOptions(const string &c
 }
 
 /**
- * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+ * @summary Modifies the configuration of an installed cluster component instance. Modifying configurations may affect your services. Evaluate the impact before performing this operation during off-peak hours and back up relevant data in advance.
  *
- * @description You can call this API operation to modify the component parameters of an ACK Basic cluster or the control plane parameters of an ACK Pro cluster:
- * *   To view the component parameters of an ACK Basic cluster, call the DescribeClusterAddonMetadata API operation. For more information, see [Query the metadata of a cluster component](https://help.aliyun.com/document_detail/2667944.html).
- * *   To view the control plane parameters of an ACK Pro cluster, see [Customize the control plane parameters of an ACK Pro cluster](https://help.aliyun.com/document_detail/199588.html).
- * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+ * @description You can call this API operation to modify the configuration of common clusters components and the control plane parameter settings of ACK Pro clusters:
+ * - To query the configurable parameters of common components, call the DescribeClusterAddonMetadata API operation. For details, see [Query cluster component version metadata](https://help.aliyun.com/document_detail/2667944.html).
+ * - For the configurable control plane parameter settings of ACK Pro clusters, see [Customize control plane parameters of ACK Pro clusters](https://help.aliyun.com/document_detail/199588.html).
+ * Modifying configurations may cause the component to be redeployed and restarted. Evaluate the impact before performing this operation.
  *
  * @param request ModifyClusterAddonRequest
  * @return ModifyClusterAddonResponse
@@ -5791,7 +5823,7 @@ ModifyClusterAddonResponse Client::modifyClusterAddon(const string &clusterId, c
 }
 
 /**
- * @summary Call the ModifyClusterNodePool operation to update the configurations of a node pool.
+ * @summary You can call the ModifyClusterNodePool API to update the configuration of a target node pool by specifying its node pool ID.
  *
  * @param request ModifyClusterNodePoolRequest
  * @param headers map
@@ -5852,7 +5884,7 @@ ModifyClusterNodePoolResponse Client::modifyClusterNodePoolWithOptions(const str
 }
 
 /**
- * @summary Call the ModifyClusterNodePool operation to update the configurations of a node pool.
+ * @summary You can call the ModifyClusterNodePool API to update the configuration of a target node pool by specifying its node pool ID.
  *
  * @param request ModifyClusterNodePoolRequest
  * @return ModifyClusterNodePoolResponse
@@ -5864,9 +5896,9 @@ ModifyClusterNodePoolResponse Client::modifyClusterNodePool(const string &Cluste
 }
 
 /**
- * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+ * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify cluster tags.
  *
- * @description - 该API为全量更新，使用时请注意将完整的目标Tags设定为入参，避免丢失已有Tags。如需增量更新，请使用[TagResources接口为集群绑定标签](https://help.aliyun.com/document_detail/2667969.html)。
+ * @description - This operation performs a full update. When you call this operation, specify all target tags as input parameters to avoid losing existing tags. To perform an incremental update, use [TagResources to bind tags to a cluster](https://help.aliyun.com/document_detail/2667969.html).
  *
  * @param request ModifyClusterTagsRequest
  * @param headers map
@@ -5894,9 +5926,9 @@ ModifyClusterTagsResponse Client::modifyClusterTagsWithOptions(const string &Clu
 }
 
 /**
- * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+ * @summary You can add tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support requirements such as monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify cluster tags.
  *
- * @description - 该API为全量更新，使用时请注意将完整的目标Tags设定为入参，避免丢失已有Tags。如需增量更新，请使用[TagResources接口为集群绑定标签](https://help.aliyun.com/document_detail/2667969.html)。
+ * @description - This operation performs a full update. When you call this operation, specify all target tags as input parameters to avoid losing existing tags. To perform an incremental update, use [TagResources to bind tags to a cluster](https://help.aliyun.com/document_detail/2667969.html).
  *
  * @param request ModifyClusterTagsRequest
  * @return ModifyClusterTagsResponse
@@ -5908,9 +5940,9 @@ ModifyClusterTagsResponse Client::modifyClusterTags(const string &ClusterId, con
 }
 
 /**
- * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+ * @summary You can call the ModifyNodePoolNodeConfig operation to modify the node configuration in a cluster node pool, such as kubelet configuration and node rolling update configuration. Modifying node configuration changes the node configuration in batches and restarts kubelet, which may affect node operations and workload operations. We recommend that you perform this operation during off-peak hours.
  *
- * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+ * @description > ACK allows you to modify the kubelet configuration of nodes in a node pool. After the modification is complete, the changes automatically take effect on the nodes in the node pool, and newly added nodes in the node pool also use the new configuration.
  *
  * @param request ModifyNodePoolNodeConfigRequest
  * @param headers map
@@ -5959,9 +5991,9 @@ ModifyNodePoolNodeConfigResponse Client::modifyNodePoolNodeConfigWithOptions(con
 }
 
 /**
- * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+ * @summary You can call the ModifyNodePoolNodeConfig operation to modify the node configuration in a cluster node pool, such as kubelet configuration and node rolling update configuration. Modifying node configuration changes the node configuration in batches and restarts kubelet, which may affect node operations and workload operations. We recommend that you perform this operation during off-peak hours.
  *
- * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+ * @description > ACK allows you to modify the kubelet configuration of nodes in a node pool. After the modification is complete, the changes automatically take effect on the nodes in the node pool, and newly added nodes in the node pool also use the new configuration.
  *
  * @param request ModifyNodePoolNodeConfigRequest
  * @return ModifyNodePoolNodeConfigResponse
@@ -5973,7 +6005,7 @@ ModifyNodePoolNodeConfigResponse Client::modifyNodePoolNodeConfig(const string &
 }
 
 /**
- * @summary Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
+ * @summary Updates a policy rule instance in a specified cluster. You can modify the governance action (alert or block) and the scope of namespaces to which the policy instance applies.
  *
  * @param request ModifyPolicyInstanceRequest
  * @param headers map
@@ -6018,7 +6050,7 @@ ModifyPolicyInstanceResponse Client::modifyPolicyInstanceWithOptions(const strin
 }
 
 /**
- * @summary Updates a policy in a specific Container Service for Kubernetes (ACK) cluster. You can modify the action of the policy such as alerting or denying and namespaces to which the policy applies.
+ * @summary Updates a policy rule instance in a specified cluster. You can modify the governance action (alert or block) and the scope of namespaces to which the policy instance applies.
  *
  * @param request ModifyPolicyInstanceRequest
  * @return ModifyPolicyInstanceResponse
@@ -6030,10 +6062,10 @@ ModifyPolicyInstanceResponse Client::modifyPolicyInstance(const string &clusterI
 }
 
 /**
- * @summary When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
+ * @summary When you use Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
  *
- * @description *   You can activate ACK by using Alibaba Cloud accounts.
- * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+ * @description - An Alibaba Cloud account can activate ACK.
+ * - A Resource Access Management (RAM) user that has the AdministratorAccess permission can activate the service.
  *
  * @param request OpenAckServiceRequest
  * @param headers map
@@ -6066,10 +6098,10 @@ OpenAckServiceResponse Client::openAckServiceWithOptions(const OpenAckServiceReq
 }
 
 /**
- * @summary When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
+ * @summary When you use Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
  *
- * @description *   You can activate ACK by using Alibaba Cloud accounts.
- * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+ * @description - An Alibaba Cloud account can activate ACK.
+ * - A Resource Access Management (RAM) user that has the AdministratorAccess permission can activate the service.
  *
  * @param request OpenAckServiceRequest
  * @return OpenAckServiceResponse
@@ -6083,7 +6115,7 @@ OpenAckServiceResponse Client::openAckService(const OpenAckServiceRequest &reque
 /**
  * @deprecated OpenAPI PauseClusterUpgrade is deprecated
  *
- * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+ * @summary Pauses a cluster upgrade.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6110,7 +6142,7 @@ PauseClusterUpgradeResponse Client::pauseClusterUpgradeWithOptions(const string 
 /**
  * @deprecated OpenAPI PauseClusterUpgrade is deprecated
  *
- * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+ * @summary Pauses a cluster upgrade.
  *
  * @return PauseClusterUpgradeResponse
  */
@@ -6123,7 +6155,7 @@ PauseClusterUpgradeResponse Client::pauseClusterUpgrade(const string &ClusterId)
 /**
  * @deprecated OpenAPI PauseComponentUpgrade is deprecated
  *
- * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+ * @summary Pauses a component upgrade.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6150,7 +6182,7 @@ PauseComponentUpgradeResponse Client::pauseComponentUpgradeWithOptions(const str
 /**
  * @deprecated OpenAPI PauseComponentUpgrade is deprecated
  *
- * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+ * @summary Pauses a component upgrade.
  *
  * @return PauseComponentUpgradeResponse
  */
@@ -6161,7 +6193,7 @@ PauseComponentUpgradeResponse Client::pauseComponentUpgrade(const string &cluste
 }
 
 /**
- * @summary Pauses an on-going task.
+ * @summary You can call the PauseTask operation to pause a running cluster task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6186,7 +6218,7 @@ PauseTaskResponse Client::pauseTaskWithOptions(const string &taskId, const map<s
 }
 
 /**
- * @summary Pauses an on-going task.
+ * @summary You can call the PauseTask operation to pause a running cluster task.
  *
  * @return PauseTaskResponse
  */
@@ -6254,13 +6286,13 @@ RemoveClusterNodesResponse Client::removeClusterNodes(const string &ClusterId, c
 }
 
 /**
- * @summary Removes nodes from a node pool.
+ * @summary Removes nodes from a node pool in a cluster and adjusts the expected number of nodes. When removing nodes, you can specify whether to release the associated ECS instances and whether to drain the nodes. Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours and back up your data in advance.
  *
- * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
- * *   The operation may have unexpected risks. Back up the data before you perform this operation.
- * *   Nodes remain in the Unschedulable state when they are being removed.
- * *   The system removes only worker nodes. It does not remove master nodes.
- * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
+ * @description - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours.
+ * - Unexpected risks may occur during the operation. Back up your data in advance.
+ * - During the operation, the nodes being removed are set to the unschedulable state in the background.
+ * - This operation removes only worker nodes, not master nodes.
+ *  - Even if you choose to release nodes (nodes for which `release_node` is set to `true`), subscription nodes are not released. After removing the nodes, release them in the [ECS console](https://ecs.console.aliyun.com/).
  *
  * @param tmpReq RemoveNodePoolNodesRequest
  * @param headers map
@@ -6319,13 +6351,13 @@ RemoveNodePoolNodesResponse Client::removeNodePoolNodesWithOptions(const string 
 }
 
 /**
- * @summary Removes nodes from a node pool.
+ * @summary Removes nodes from a node pool in a cluster and adjusts the expected number of nodes. When removing nodes, you can specify whether to release the associated ECS instances and whether to drain the nodes. Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours and back up your data in advance.
  *
- * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
- * *   The operation may have unexpected risks. Back up the data before you perform this operation.
- * *   Nodes remain in the Unschedulable state when they are being removed.
- * *   The system removes only worker nodes. It does not remove master nodes.
- * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
+ * @description - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours.
+ * - Unexpected risks may occur during the operation. Back up your data in advance.
+ * - During the operation, the nodes being removed are set to the unschedulable state in the background.
+ * - This operation removes only worker nodes, not master nodes.
+ *  - Even if you choose to release nodes (nodes for which `release_node` is set to `true`), subscription nodes are not released. After removing the nodes, release them in the [ECS console](https://ecs.console.aliyun.com/).
  *
  * @param request RemoveNodePoolNodesRequest
  * @return RemoveNodePoolNodesResponse
@@ -6337,7 +6369,7 @@ RemoveNodePoolNodesResponse Client::removeNodePoolNodes(const string &ClusterId,
 }
 
 /**
- * @summary Repairs a node pool.
+ * @summary Repairs nodes in a cluster node pool.
  *
  * @param request RepairClusterNodePoolRequest
  * @param headers map
@@ -6378,7 +6410,7 @@ RepairClusterNodePoolResponse Client::repairClusterNodePoolWithOptions(const str
 }
 
 /**
- * @summary Repairs a node pool.
+ * @summary Repairs nodes in a cluster node pool.
  *
  * @param request RepairClusterNodePoolRequest
  * @return RepairClusterNodePoolResponse
@@ -6392,7 +6424,7 @@ RepairClusterNodePoolResponse Client::repairClusterNodePool(const string &cluste
 /**
  * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
  *
- * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+ * @summary Calls ResumeComponentUpgrade to restart a paused component upgrade task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6419,7 +6451,7 @@ ResumeComponentUpgradeResponse Client::resumeComponentUpgradeWithOptions(const s
 /**
  * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
  *
- * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+ * @summary Calls ResumeComponentUpgrade to restart a paused component upgrade task.
  *
  * @return ResumeComponentUpgradeResponse
  */
@@ -6430,7 +6462,7 @@ ResumeComponentUpgradeResponse Client::resumeComponentUpgrade(const string &clus
 }
 
 /**
- * @summary Resumes a task.
+ * @summary Resumes a paused cluster task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6455,7 +6487,7 @@ ResumeTaskResponse Client::resumeTaskWithOptions(const string &taskId, const map
 }
 
 /**
- * @summary Resumes a task.
+ * @summary Resumes a paused cluster task.
  *
  * @return ResumeTaskResponse
  */
@@ -6468,7 +6500,7 @@ ResumeTaskResponse Client::resumeTask(const string &taskId) {
 /**
  * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
  *
- * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+ * @summary Resumes the upgrade of a cluster that is in the upgrade-paused state based on the cluster ID.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6495,7 +6527,7 @@ ResumeUpgradeClusterResponse Client::resumeUpgradeClusterWithOptions(const strin
 /**
  * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
  *
- * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+ * @summary Resumes the upgrade of a cluster that is in the upgrade-paused state based on the cluster ID.
  *
  * @return ResumeUpgradeClusterResponse
  */
@@ -6506,7 +6538,7 @@ ResumeUpgradeClusterResponse Client::resumeUpgradeCluster(const string &ClusterI
 }
 
 /**
- * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
+ * @summary If you want to revoke the cluster KubeConfig credential owned by the currently logged-on Alibaba Cloud account or Resource Access Management (RAM) user, you can call the RevokeK8sClusterKubeConfig operation to revoke it. After the revocation succeeds, the cluster generates a new KubeConfig, and the original KubeConfig becomes invalid.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6531,7 +6563,7 @@ RevokeK8sClusterKubeConfigResponse Client::revokeK8sClusterKubeConfigWithOptions
 }
 
 /**
- * @summary You can call the RevokeK8sClusterKubeConfig operation to revoke the kubeconfig file of a cluster that belongs to the current Alibaba Cloud account or RAM user. After the kubeconfig file is revoked, the cluster generates a new kubeconfig file, and the original kubeconfig file becomes invalid.
+ * @summary If you want to revoke the cluster KubeConfig credential owned by the currently logged-on Alibaba Cloud account or Resource Access Management (RAM) user, you can call the RevokeK8sClusterKubeConfig operation to revoke it. After the revocation succeeds, the cluster generates a new KubeConfig, and the original KubeConfig becomes invalid.
  *
  * @return RevokeK8sClusterKubeConfigResponse
  */
@@ -6542,7 +6574,7 @@ RevokeK8sClusterKubeConfigResponse Client::revokeK8sClusterKubeConfig(const stri
 }
 
 /**
- * @summary Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
+ * @summary The intelligent O&M platform for containers provides a wide range of Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. Before an upgrade, migration, or installation operation is performed, the platform automatically triggers a check. You can perform the change operation only after the check is passed. You can also manually call the RunClusterCheck operation to perform a cluster check. Periodically check and maintain your clusters to prevent security risks.
  *
  * @param request RunClusterCheckRequest
  * @param headers map
@@ -6583,7 +6615,7 @@ RunClusterCheckResponse Client::runClusterCheckWithOptions(const string &cluster
 }
 
 /**
- * @summary Container Intelligence Service (CIS) provides a variety of cluster check capabilities to allow you to perform cluster update check, cluster migration check, component installation check, component update check, and node pool check. A precheck is automatically triggered before an update, migration, or installation is performed. You can perform changes only if the cluster passes the precheck. You can also manually call the RunClusterCheck operation to initiate cluster checks. We recommend that you periodically check and maintain your cluster to mitigate potential risks.
+ * @summary The intelligent O&M platform for containers provides a wide range of Kubernetes cluster check capabilities, including cluster upgrade checks, cluster migration checks, component installation checks, component upgrade checks, and node pool checks. Before an upgrade, migration, or installation operation is performed, the platform automatically triggers a check. You can perform the change operation only after the check is passed. You can also manually call the RunClusterCheck operation to perform a cluster check. Periodically check and maintain your clusters to prevent security risks.
  *
  * @param request RunClusterCheckRequest
  * @return RunClusterCheckResponse
@@ -6595,7 +6627,7 @@ RunClusterCheckResponse Client::runClusterCheck(const string &clusterId, const R
 }
 
 /**
- * @summary Triggers a cluster inspection and generates a report.
+ * @summary Initiates a cluster inspection and creates an inspection report.
  *
  * @param request RunClusterInspectRequest
  * @param headers map
@@ -6628,7 +6660,7 @@ RunClusterInspectResponse Client::runClusterInspectWithOptions(const string &clu
 }
 
 /**
- * @summary Triggers a cluster inspection and generates a report.
+ * @summary Initiates a cluster inspection and creates an inspection report.
  *
  * @param request RunClusterInspectRequest
  * @return RunClusterInspectResponse
@@ -6689,7 +6721,7 @@ RunNodeOperationResponse Client::runNodeOperation(const string &clusterId, const
 }
 
 /**
- * @summary Scales out a node pool.
+ * @summary Scales out a node pool by adding nodes to ensure that the number of nodes is sufficient to support your workloads.
  *
  * @param request ScaleClusterNodePoolRequest
  * @param headers map
@@ -6722,7 +6754,7 @@ ScaleClusterNodePoolResponse Client::scaleClusterNodePoolWithOptions(const strin
 }
 
 /**
- * @summary Scales out a node pool.
+ * @summary Scales out a node pool by adding nodes to ensure that the number of nodes is sufficient to support your workloads.
  *
  * @param request ScaleClusterNodePoolRequest
  * @return ScaleClusterNodePoolResponse
@@ -6859,7 +6891,7 @@ ScaleOutClusterResponse Client::scaleOutCluster(const string &ClusterId, const S
 }
 
 /**
- * @summary Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+ * @summary You can call the ScanClusterVuls operation to scan for potential security vulnerabilities in an ACK cluster, including container workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows operating system vulnerabilities. Regularly scan your cluster for security vulnerabilities to improve cluster security.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6884,7 +6916,7 @@ ScanClusterVulsResponse Client::scanClusterVulsWithOptions(const string &cluster
 }
 
 /**
- * @summary Scans for vulnerabilities in a Container Service for Kubernetes (ACK) cluster, including workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows vulnerabilities. We recommend that you scan your cluster on a regular basis to ensure cluster security.
+ * @summary You can call the ScanClusterVuls operation to scan for potential security vulnerabilities in an ACK cluster, including container workload vulnerabilities, third-party software vulnerabilities, CVE vulnerabilities, WebCMS vulnerabilities, and Windows operating system vulnerabilities. Regularly scan your cluster for security vulnerabilities to improve cluster security.
  *
  * @return ScanClusterVulsResponse
  */
@@ -6895,7 +6927,7 @@ ScanClusterVulsResponse Client::scanClusterVuls(const string &clusterId) {
 }
 
 /**
- * @summary Activates the specified alert rule(s).
+ * @summary Starts a specified alert rule.
  *
  * @param request StartAlertRequest
  * @param headers map
@@ -6932,7 +6964,7 @@ StartAlertResponse Client::startAlertWithOptions(const string &ClusterId, const 
 }
 
 /**
- * @summary Activates the specified alert rule(s).
+ * @summary Starts a specified alert rule.
  *
  * @param request StartAlertRequest
  * @return StartAlertResponse
@@ -6944,7 +6976,7 @@ StartAlertResponse Client::startAlert(const string &ClusterId, const StartAlertR
 }
 
 /**
- * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+ * @summary Stops alert rules in the ACK alert center. You can stop an entire alert rule group or a single alert rule.
  *
  * @param request StopAlertRequest
  * @param headers map
@@ -6981,7 +7013,7 @@ StopAlertResponse Client::stopAlertWithOptions(const string &ClusterId, const St
 }
 
 /**
- * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+ * @summary Stops alert rules in the ACK alert center. You can stop an entire alert rule group or a single alert rule.
  *
  * @param request StopAlertRequest
  * @return StopAlertResponse
@@ -6993,7 +7025,7 @@ StopAlertResponse Client::stopAlert(const string &ClusterId, const StopAlertRequ
 }
 
 /**
- * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+ * @summary Synchronizes a cluster node pool, including node pool metadata and information about the nodes in the node pool.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -7018,7 +7050,7 @@ SyncClusterNodePoolResponse Client::syncClusterNodePoolWithOptions(const string 
 }
 
 /**
- * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+ * @summary Synchronizes a cluster node pool, including node pool metadata and information about the nodes in the node pool.
  *
  * @return SyncClusterNodePoolResponse
  */
@@ -7029,7 +7061,7 @@ SyncClusterNodePoolResponse Client::syncClusterNodePool(const string &ClusterId)
 }
 
 /**
- * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+ * @summary Adds tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support monitoring, cost analysis, and tenant isolation requirements. You can call the TagResources operation to attach tags to clusters.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -7074,7 +7106,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+ * @summary Adds tag key-value pairs to clusters so that cluster developers or O&M engineers can categorize and manage clusters more flexibly, and better support monitoring, cost analysis, and tenant isolation requirements. You can call the TagResources operation to attach tags to clusters.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -7086,7 +7118,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
+ * @summary Uninstalls specified components from a cluster when they are no longer needed, with the option to delete associated Alibaba Cloud resources.
  *
  * @param request UnInstallClusterAddonsRequest
  * @param headers map
@@ -7114,7 +7146,7 @@ UnInstallClusterAddonsResponse Client::unInstallClusterAddonsWithOptions(const s
 }
 
 /**
- * @summary Uninstalls components that you no longer need from a cluster. You must specify the name of the components and specify whether to release associated Alibaba Cloud resources from the cluster.
+ * @summary Uninstalls specified components from a cluster when they are no longer needed, with the option to delete associated Alibaba Cloud resources.
  *
  * @param request UnInstallClusterAddonsRequest
  * @return UnInstallClusterAddonsResponse
@@ -7126,7 +7158,7 @@ UnInstallClusterAddonsResponse Client::unInstallClusterAddons(const string &Clus
 }
 
 /**
- * @summary If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+ * @summary Deletes resource tags when you no longer need the tag key-value pairs for a cluster. You can call the UntagResources operation to delete resource tags.
  *
  * @param tmpReq UntagResourcesRequest
  * @param headers map
@@ -7185,7 +7217,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary If you no longer need the labels (key-value pairs) of a cluster, you can call the UntagResources operation to delete the labels.
+ * @summary Deletes resource tags when you no longer need the tag key-value pairs for a cluster. You can call the UntagResources operation to delete resource tags.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -7197,9 +7229,9 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+ * @summary When you need to record Kubernetes API requests and their results to trace cluster operation history or troubleshoot cluster issues, you can invoke the UpdateClusterAuditLogConfig operation to enable or shutdown the audit log feature for a specified ACK cluster and update the audit log configuration.
  *
- * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
+ * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of <props="china">[Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls)<props="intl">[Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
  *
  * @param request UpdateClusterAuditLogConfigRequest
  * @param headers map
@@ -7236,9 +7268,9 @@ UpdateClusterAuditLogConfigResponse Client::updateClusterAuditLogConfigWithOptio
 }
 
 /**
- * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
+ * @summary When you need to record Kubernetes API requests and their results to trace cluster operation history or troubleshoot cluster issues, you can invoke the UpdateClusterAuditLogConfig operation to enable or shutdown the audit log feature for a specified ACK cluster and update the audit log configuration.
  *
- * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
+ * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of <props="china">[Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls)<props="intl">[Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
  *
  * @param request UpdateClusterAuditLogConfigRequest
  * @return UpdateClusterAuditLogConfigResponse
@@ -7250,7 +7282,7 @@ UpdateClusterAuditLogConfigResponse Client::updateClusterAuditLogConfig(const st
 }
 
 /**
- * @summary Modifies cluster inspection configurations.
+ * @summary Updates the cluster inspection configuration.
  *
  * @param request UpdateClusterInspectConfigRequest
  * @param headers map
@@ -7291,7 +7323,7 @@ UpdateClusterInspectConfigResponse Client::updateClusterInspectConfigWithOptions
 }
 
 /**
- * @summary Modifies cluster inspection configurations.
+ * @summary Updates the cluster inspection configuration.
  *
  * @param request UpdateClusterInspectConfigRequest
  * @return UpdateClusterInspectConfigResponse
@@ -7303,7 +7335,7 @@ UpdateClusterInspectConfigResponse Client::updateClusterInspectConfig(const stri
 }
 
 /**
- * @summary You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
+ * @summary Updates the contact group for an alert rule set in an ACK cluster.
  *
  * @param request UpdateContactGroupForAlertRequest
  * @param headers map
@@ -7348,7 +7380,7 @@ UpdateContactGroupForAlertResponse Client::updateContactGroupForAlertWithOptions
 }
 
 /**
- * @summary You can call the UpdateContactGroupForAlert operation to specify a contact group for an alert rule in an ACK cluster.
+ * @summary Updates the contact group for an alert rule set in an ACK cluster.
  *
  * @param request UpdateContactGroupForAlertRequest
  * @return UpdateContactGroupForAlertResponse
@@ -7360,7 +7392,7 @@ UpdateContactGroupForAlertResponse Client::updateContactGroupForAlert(const stri
 }
 
 /**
- * @summary Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
+ * @summary ACK managed clusters support collecting control plane component logs and delivering them to your Simple Log Service (SLS) Log Project. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, Cloud Controller Manager, and other core components. You can call the UpdateControlPlaneLog operation to modify the control plane component log configuration, such as the log retention period and the components from which logs are collected.
  *
  * @param request UpdateControlPlaneLogRequest
  * @param headers map
@@ -7405,7 +7437,7 @@ UpdateControlPlaneLogResponse Client::updateControlPlaneLogWithOptions(const str
 }
 
 /**
- * @summary Modifies the log configurations of control plane components. The configurations include the log retention period and components whose logs that you want to collect. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube-apiserver, kube-scheduler, Kubernetes controller manager, and cloud controller manager (CCM).
+ * @summary ACK managed clusters support collecting control plane component logs and delivering them to your Simple Log Service (SLS) Log Project. Control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, Cloud Controller Manager, and other core components. You can call the UpdateControlPlaneLog operation to modify the control plane component log configuration, such as the log retention period and the components from which logs are collected.
  *
  * @param request UpdateControlPlaneLogRequest
  * @return UpdateControlPlaneLogResponse
@@ -7417,10 +7449,10 @@ UpdateControlPlaneLogResponse Client::updateControlPlaneLog(const string &Cluste
 }
 
 /**
- * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+ * @summary The default expiration time of the KubeConfig issued by an ACK cluster is 3 years. You can use an Alibaba Cloud account to customize the configuration by invoking the UpdateK8sClusterUserConfigExpire operation to specify the expiration time (1 to 876,000 hours) of the KubeConfig issued to a Resource Access Management (RAM) user or role in an ACK cluster.
  *
- * @description *   You can call this operation only with an Alibaba Cloud account.
- * *   If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+ * @description - This operation can be called only by an Alibaba Cloud account.
+ * - If you revoke the KubeConfig credential used in the cluster, the custom expiration time configured for the KubeConfig of the cluster is also reset. You must call this operation to reconfigure the expiration time.
  *
  * @param request UpdateK8sClusterUserConfigExpireRequest
  * @param headers map
@@ -7457,10 +7489,10 @@ UpdateK8sClusterUserConfigExpireResponse Client::updateK8sClusterUserConfigExpir
 }
 
 /**
- * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+ * @summary The default expiration time of the KubeConfig issued by an ACK cluster is 3 years. You can use an Alibaba Cloud account to customize the configuration by invoking the UpdateK8sClusterUserConfigExpire operation to specify the expiration time (1 to 876,000 hours) of the KubeConfig issued to a Resource Access Management (RAM) user or role in an ACK cluster.
  *
- * @description *   You can call this operation only with an Alibaba Cloud account.
- * *   If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+ * @description - This operation can be called only by an Alibaba Cloud account.
+ * - If you revoke the KubeConfig credential used in the cluster, the custom expiration time configured for the KubeConfig of the cluster is also reset. You must call this operation to reconfigure the expiration time.
  *
  * @param request UpdateK8sClusterUserConfigExpireRequest
  * @return UpdateK8sClusterUserConfigExpireResponse
@@ -7472,11 +7504,11 @@ UpdateK8sClusterUserConfigExpireResponse Client::updateK8sClusterUserConfigExpir
 }
 
 /**
- * @summary Update the configuration of the Secret-at-rest encryption feature for a specified cluster by cluster ID.
+ * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
  *
- * @description * 开启或关闭落盘加密功能的过程中以及成功开启该功能后，请勿使用 KMS 控制台或 OpenAPI 禁用或删除该功能所使用的 KMS 密钥，否则会导致集群 API Server 不可用，继而无法正常获取 Secret 和 ServiceAccount 等对象，影响业务应用的正常运行。更多信息，请参见[使用阿里云KMS进行Secret的落盘加密](https://help.aliyun.com/document_detail/177372.html)。
- * * 调用该 API 的用户或角色需要额外被授予所需的集群 RBAC 权限（需要被授予运维人员或管理员权限），否则将返回“ForbiddenUpdateKMSState”错误码。
- * * 成功调用该 API 后，集群状态将被变更为“更新中”，待变更完成后集群状态将恢复为“运行中”。针对同一个集群的变更完成后，需要间隔 5 分钟以上才能再次调用该 API，否则将返回“409”状态码。
+ * @description * While enabling or disabling encryption at rest and after the feature is enabled, do not disable or delete the KMS key used by this feature in the KMS console or through OpenAPI. Otherwise, the cluster API Server becomes unavailable, which prevents normal retrieval of objects such as Secrets and ServiceAccounts and affects the normal operation of business applications. For more information, see [Encrypt Secrets at rest by using China KMS](https://help.aliyun.com/document_detail/177372.html).
+ * * The user or role that calls this API operation must be granted additional cluster RBAC permissions (O&M engineer or administrator permissions). Otherwise, the ForbiddenUpdateKMSState error code is returned.
+ * * After this API operation is successfully called, the cluster status changes to updating. After the update is complete, the cluster status changes back to running. After a change is complete for a cluster, wait at least 5 minutes before calling this API operation again. Otherwise, HTTP status code 409 is returned.
  *
  * @param request UpdateKMSEncryptionRequest
  * @param headers map
@@ -7513,11 +7545,11 @@ UpdateKMSEncryptionResponse Client::updateKMSEncryptionWithOptions(const string 
 }
 
 /**
- * @summary Update the configuration of the Secret-at-rest encryption feature for a specified cluster by cluster ID.
+ * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
  *
- * @description * 开启或关闭落盘加密功能的过程中以及成功开启该功能后，请勿使用 KMS 控制台或 OpenAPI 禁用或删除该功能所使用的 KMS 密钥，否则会导致集群 API Server 不可用，继而无法正常获取 Secret 和 ServiceAccount 等对象，影响业务应用的正常运行。更多信息，请参见[使用阿里云KMS进行Secret的落盘加密](https://help.aliyun.com/document_detail/177372.html)。
- * * 调用该 API 的用户或角色需要额外被授予所需的集群 RBAC 权限（需要被授予运维人员或管理员权限），否则将返回“ForbiddenUpdateKMSState”错误码。
- * * 成功调用该 API 后，集群状态将被变更为“更新中”，待变更完成后集群状态将恢复为“运行中”。针对同一个集群的变更完成后，需要间隔 5 分钟以上才能再次调用该 API，否则将返回“409”状态码。
+ * @description * While enabling or disabling encryption at rest and after the feature is enabled, do not disable or delete the KMS key used by this feature in the KMS console or through OpenAPI. Otherwise, the cluster API Server becomes unavailable, which prevents normal retrieval of objects such as Secrets and ServiceAccounts and affects the normal operation of business applications. For more information, see [Encrypt Secrets at rest by using China KMS](https://help.aliyun.com/document_detail/177372.html).
+ * * The user or role that calls this API operation must be granted additional cluster RBAC permissions (O&M engineer or administrator permissions). Otherwise, the ForbiddenUpdateKMSState error code is returned.
+ * * After this API operation is successfully called, the cluster status changes to updating. After the update is complete, the cluster status changes back to running. After a change is complete for a cluster, wait at least 5 minutes before calling this API operation again. Otherwise, HTTP status code 409 is returned.
  *
  * @param request UpdateKMSEncryptionRequest
  * @return UpdateKMSEncryptionResponse
@@ -7529,7 +7561,7 @@ UpdateKMSEncryptionResponse Client::updateKMSEncryption(const string &ClusterId,
 }
 
 /**
- * @summary Updates a specific component within a node pool, such as the kubelet.
+ * @summary Updates a node component.
  *
  * @param request UpdateNodePoolComponentRequest
  * @param headers map
@@ -7582,7 +7614,7 @@ UpdateNodePoolComponentResponse Client::updateNodePoolComponentWithOptions(const
 }
 
 /**
- * @summary Updates a specific component within a node pool, such as the kubelet.
+ * @summary Updates a node component.
  *
  * @param request UpdateNodePoolComponentRequest
  * @return UpdateNodePoolComponentResponse
@@ -7594,9 +7626,10 @@ UpdateNodePoolComponentResponse Client::updateNodePoolComponent(const string &cl
 }
 
 /**
- * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
+ * @summary Updates the deletion protection status of a specified resource. Currently supported resource types include namespaces and services.
+ * You can call this operation to enable deletion protection for namespaces or services that involve critical business or sensitive data to avoid maintenance costs caused by accidental deletion.
  *
- * @description 调用本接口前，您需要先为集群安装或升级安全策略组件。具体操作，请参见[启用安全策略管理](https://help.aliyun.com/document_detail/359818.html)。
+ * @description Before calling this operation, install or upgrade the security policy component for the cluster. For more information, see [Enable security policy management](https://help.aliyun.com/document_detail/359818.html).
  *
  * @param request UpdateResourcesDeleteProtectionRequest
  * @param headers map
@@ -7641,9 +7674,10 @@ UpdateResourcesDeleteProtectionResponse Client::updateResourcesDeleteProtectionW
 }
 
 /**
- * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.
+ * @summary Updates the deletion protection status of a specified resource. Currently supported resource types include namespaces and services.
+ * You can call this operation to enable deletion protection for namespaces or services that involve critical business or sensitive data to avoid maintenance costs caused by accidental deletion.
  *
- * @description 调用本接口前，您需要先为集群安装或升级安全策略组件。具体操作，请参见[启用安全策略管理](https://help.aliyun.com/document_detail/359818.html)。
+ * @description Before calling this operation, install or upgrade the security policy component for the cluster. For more information, see [Enable security policy management](https://help.aliyun.com/document_detail/359818.html).
  *
  * @param request UpdateResourcesDeleteProtectionRequest
  * @return UpdateResourcesDeleteProtectionResponse
@@ -7655,7 +7689,7 @@ UpdateResourcesDeleteProtectionResponse Client::updateResourcesDeleteProtection(
 }
 
 /**
- * @summary Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. Calls the UpdateTemplate operation to update an orchestration template configuration.
  *
  * @param request UpdateTemplateRequest
  * @param headers map
@@ -7704,7 +7738,7 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const string &TemplateI
 }
 
 /**
- * @summary Updates the configurations of an orchestration template. An orchestration template defines and describes a group of Container Service for Kubernetes (ACK) resources. An orchestration template describes the configurations of an application or how an application runs in a declarative manner.
+ * @summary An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. Calls the UpdateTemplate operation to update an orchestration template configuration.
  *
  * @param request UpdateTemplateRequest
  * @return UpdateTemplateResponse
@@ -7716,10 +7750,9 @@ UpdateTemplateResponse Client::updateTemplate(const string &TemplateId, const Up
 }
 
 /**
- * @summary In a Container Service for Kubernetes (ACK) cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles do not have any Role-Based Access Control (RBAC) permissions in the cluster by default. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+ * @summary In an ACK cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles have no RBAC permissions by default. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management and secure access control.
  *
- * @description **Precautions**:
- * *   You can update the permissions of a RAM user or RAM role on a cluster by using full update or incremental update. If you use full update, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation. If you use incremental update, you can grant permissions to or revoke permissions from the RAM user or RAM role on the cluster. In this case, only the permissions that you specify in the request parameters when you call the operation are granted or revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
+ * @description You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using full update or incremental update. A full update overwrites all existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. Only the cluster authorization information included in the request is changed, and other cluster permissions of the RAM user or RAM role are not affected.
  *
  * @param request UpdateUserPermissionsRequest
  * @param headers map
@@ -7753,10 +7786,9 @@ UpdateUserPermissionsResponse Client::updateUserPermissionsWithOptions(const str
 }
 
 /**
- * @summary In a Container Service for Kubernetes (ACK) cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles do not have any Role-Based Access Control (RBAC) permissions in the cluster by default. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
+ * @summary In an ACK cluster, non-cluster creators, Resource Access Management (RAM) users, and RAM roles have no RBAC permissions by default. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or role, including accessible resources, permission scope, and preset role types, to better manage cluster management and secure access control.
  *
- * @description **Precautions**:
- * *   You can update the permissions of a RAM user or RAM role on a cluster by using full update or incremental update. If you use full update, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation. If you use incremental update, you can grant permissions to or revoke permissions from the RAM user or RAM role on the cluster. In this case, only the permissions that you specify in the request parameters when you call the operation are granted or revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
+ * @description You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using full update or incremental update. A full update overwrites all existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. Only the cluster authorization information included in the request is changed, and other cluster permissions of the RAM user or RAM role are not affected.
  *
  * @param request UpdateUserPermissionsRequest
  * @return UpdateUserPermissionsResponse
@@ -7768,13 +7800,14 @@ UpdateUserPermissionsResponse Client::updateUserPermissions(const string &uid, c
 }
 
 /**
- * @summary Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
+ * @summary To avoid potential security and stability risks of expired cluster versions and to use new features of the latest cluster versions, upgrade your clusters in accordance with the ACK cluster version release schedule. You can call the UpgradeCluster operation to manually upgrade a cluster.
  *
- * @description After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+ * @description After you successfully call the UpgradeCluster operation, the API returns the `task_id` of the upgrade task. You can manage the task by calling the following task API operations:
  * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
- * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html) 
- * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html) 
- * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
+ * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+ * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+ * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
+ * >Notice: Starting July 4, 2026, the request parameters rolling_policy and rolling_policy.max_parallelism will no longer take effect. Use [UpgradeClusterNodepool](https://help.aliyun.com/document_detail/2667922.html) to upgrade worker nodes instead. For more information about the changes, see [Notice on changes to ACK cluster management OpenAPI request and response parameters and OpenAPI deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>.
  *
  * @param request UpgradeClusterRequest
  * @param headers map
@@ -7823,13 +7856,14 @@ UpgradeClusterResponse Client::upgradeClusterWithOptions(const string &ClusterId
 }
 
 /**
- * @summary Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
+ * @summary To avoid potential security and stability risks of expired cluster versions and to use new features of the latest cluster versions, upgrade your clusters in accordance with the ACK cluster version release schedule. You can call the UpgradeCluster operation to manually upgrade a cluster.
  *
- * @description After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
+ * @description After you successfully call the UpgradeCluster operation, the API returns the `task_id` of the upgrade task. You can manage the task by calling the following task API operations:
  * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
- * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html) 
- * - [Call ResumeTask to resume a task that has been paused](https://help.aliyun.com/document_detail/2667987.html) 
- * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
+ * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+ * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+ * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
+ * >Notice: Starting July 4, 2026, the request parameters rolling_policy and rolling_policy.max_parallelism will no longer take effect. Use [UpgradeClusterNodepool](https://help.aliyun.com/document_detail/2667922.html) to upgrade worker nodes instead. For more information about the changes, see [Notice on changes to ACK cluster management OpenAPI request and response parameters and OpenAPI deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>.
  *
  * @param request UpgradeClusterRequest
  * @return UpgradeClusterResponse
@@ -7841,11 +7875,11 @@ UpgradeClusterResponse Client::upgradeCluster(const string &ClusterId, const Upg
 }
 
 /**
- * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+ * @summary Upgrades the versions of cluster component instances so that you can benefit from the feature optimizations in the new versions.
  *
- * @description - 升级集群组件实例版本可能会影响业务，请评估影响后在业务低峰期操作并提前做好相关的数据备份。
- * - 升级组件前，请参考[组件发布记录](https://help.aliyun.com/document_detail/176087.html)了解指定组件的变更内容和变更影响。
- * - 请依次逐个组件升级，确认一个组件升级成功后再升级下一个组件。
+ * @description - Upgrading cluster component instance versions may affect your services. Assess the impact before performing the upgrade during off-peak hours, and back up relevant data in advance.
+ * - Before upgrading a component, refer to [Component release notes](https://help.aliyun.com/document_detail/176087.html) to learn about the changes and their impact for the specified component.
+ * - Upgrade components one at a time. Confirm that one component has been upgraded successfully before upgrading the next one.
  *
  * @param request UpgradeClusterAddonsRequest
  * @param headers map
@@ -7873,11 +7907,11 @@ UpgradeClusterAddonsResponse Client::upgradeClusterAddonsWithOptions(const strin
 }
 
 /**
- * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+ * @summary Upgrades the versions of cluster component instances so that you can benefit from the feature optimizations in the new versions.
  *
- * @description - 升级集群组件实例版本可能会影响业务，请评估影响后在业务低峰期操作并提前做好相关的数据备份。
- * - 升级组件前，请参考[组件发布记录](https://help.aliyun.com/document_detail/176087.html)了解指定组件的变更内容和变更影响。
- * - 请依次逐个组件升级，确认一个组件升级成功后再升级下一个组件。
+ * @description - Upgrading cluster component instance versions may affect your services. Assess the impact before performing the upgrade during off-peak hours, and back up relevant data in advance.
+ * - Before upgrading a component, refer to [Component release notes](https://help.aliyun.com/document_detail/176087.html) to learn about the changes and their impact for the specified component.
+ * - Upgrade components one at a time. Confirm that one component has been upgraded successfully before upgrading the next one.
  *
  * @param request UpgradeClusterAddonsRequest
  * @return UpgradeClusterAddonsResponse
@@ -7889,9 +7923,13 @@ UpgradeClusterAddonsResponse Client::upgradeClusterAddons(const string &ClusterI
 }
 
 /**
- * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+ * @summary Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
  *
- * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+ * @description Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:
+ * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
+ * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+ * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+ * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
  *
  * @param request UpgradeClusterNodepoolRequest
  * @param headers map
@@ -7948,9 +7986,13 @@ UpgradeClusterNodepoolResponse Client::upgradeClusterNodepoolWithOptions(const s
 }
 
 /**
- * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+ * @summary Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
  *
- * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+ * @description Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:
+ * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
+ * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
+ * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
+ * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
  *
  * @param request UpgradeClusterNodepoolRequest
  * @return UpgradeClusterNodepoolResponse

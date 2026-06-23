@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The current page number.
+      // The page number for the paged query.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The maximum number of results per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries that match the query.
+      // The total number of results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -167,17 +167,14 @@ namespace Models
 
 
       protected:
-        // The severity level of the event. Valid values:
-        // 
-        // - info: An informational message.
-        // 
-        // - warning: A warning.
-        // 
-        // - error: An error.
+        // The event level. Valid values:
+        // - info: informational.
+        // - warning: warning.
+        // - error: error.
         shared_ptr<string> level_ {};
-        // A human-readable description of the event.
+        // The event details.
         shared_ptr<string> message_ {};
-        // A brief, machine-readable string that describes the reason for the event.
+        // The event status.
         shared_ptr<string> reason_ {};
       };
 
@@ -238,49 +235,33 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The event details.
+      // The event description.
       shared_ptr<Events::Data> data_ {};
       // The event ID.
       shared_ptr<string> eventId_ {};
-      // The source of the event.
+      // The event source.
       shared_ptr<string> source_ {};
-      // The object that the event is about.
+      // The event subject.
       shared_ptr<string> subject_ {};
-      // The event timestamp.
+      // The event start time.
       shared_ptr<string> time_ {};
       // The event type. Valid values:
-      // 
-      // - `cluster_create`: A cluster is created.
-      // 
-      // - `cluster_scaleout`: A cluster is scaled out.
-      // 
-      // - `cluster_attach`: An existing node is added.
-      // 
-      // - `cluster_delete`: A cluster is deleted.
-      // 
-      // - `cluster_upgrade`: A cluster is upgraded.
-      // 
-      // - `cluster_migrate`: A cluster is migrated.
-      // 
-      // - `cluster_node_delete`: A node is removed.
-      // 
-      // - `cluster_node_drain`: A node is drained.
-      // 
-      // - `cluster_modify`: A cluster is modified.
-      // 
-      // - `cluster_configuration_modify`: The control plane configuration of a cluster is modified.
-      // 
-      // - `cluster_addon_install`: An add-on is installed.
-      // 
-      // - `cluster_addon_upgrade`: An add-on is upgraded.
-      // 
-      // - `cluster_addon_uninstall`: An add-on is uninstalled.
-      // 
-      // - `runtime_upgrade`: The runtime is upgraded.
-      // 
-      // - `nodepool_upgrade`: A node pool is upgraded.
-      // 
-      // - `nodepool_update`: A node pool is updated.
+      // - `cluster_create`: creates a cluster.
+      // - `cluster_scaleout`: scales out a cluster.
+      // - `cluster_attach`: adds existing nodes.
+      // - `cluster_delete`: deletes a cluster.
+      // - `cluster_upgrade`: upgrades a cluster.
+      // - `cluster_migrate`: migrates a cluster.
+      // - `cluster_node_delete`: removes nodes.
+      // - `cluster_node_drain`: drains nodes.
+      // - `cluster_modify`: modifies a cluster.
+      // - `cluster_configuration_modify`: modifies cluster management configurations.
+      // - `cluster_addon_install`: installs a component.
+      // - `cluster_addon_upgrade`: upgrades a component.
+      // - `cluster_addon_uninstall`: uninstalls a component.
+      // - `runtime_upgrade`: upgrades the runtime.
+      // - `nodepool_upgrade`: upgrades a node pool.
+      // - `nodepool_update`: updates a node pool.
       shared_ptr<string> type_ {};
     };
 
@@ -312,9 +293,9 @@ namespace Models
 
 
   protected:
-    // A list of events.
+    // The event details.
     shared_ptr<vector<DescribeEventsResponseBody::Events>> events_ {};
-    // The token to retrieve the next page of results. If this parameter is absent from the response, all results have been returned.
+    // The query token. This value is the next_token value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The pagination information.
     shared_ptr<DescribeEventsResponseBody::PageInfo> pageInfo_ {};

@@ -81,9 +81,9 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The maximum number of results to return on each page.
     // 
-    // Valid values: 1 to 100.
+    // Valid values: [1,100].
     // 
     // Default value: 50.
     shared_ptr<int64_t> pageSize_ {};

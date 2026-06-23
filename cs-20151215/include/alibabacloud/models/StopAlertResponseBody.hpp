@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The error message returned if the call fails.
+    // The message returned when the execution fails.
     shared_ptr<string> msg_ {};
-    // The operation result. Valid values:
-    // 
-    // *   True: The operation is successful.
-    // *   False: The operation failed.
+    // The execution result status. Valid values:
+    // - True: The execution is successful.
+    // - False: The execution failed.
     shared_ptr<bool> status_ {};
   };
 

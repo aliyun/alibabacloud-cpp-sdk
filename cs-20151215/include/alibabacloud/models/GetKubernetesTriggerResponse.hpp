@@ -119,28 +119,29 @@ namespace Models
 
 
     protected:
-      // The ID of the trigger.
+      // The trigger ID.
       shared_ptr<string> id_ {};
-      // The name of the trigger.
+      // The trigger name.
       shared_ptr<string> name_ {};
-      // The ID of the associated cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the project.
+      // The trigger project name.
       // 
-      // The name consists of the namespace where the application is deployed and the name of the application. The format is `${namespace}/${name}`. Example: default/test-app.
+      // The value consists of the namespace and application name in the format of `${namespace}/${name}`. Example: default/test-app.
       shared_ptr<string> projectId_ {};
-      // The type of trigger.
+      // The trigger type.
       // 
       // Valid values:
       // 
-      // *   `deployment`: performs actions on Deployments.
-      // *   `application`: performs actions on applications that are deployed in Application Center.
+      // - `deployment`: a trigger for a stateless application. 
+      // 
+      // - `application`: a trigger for an application center application.
       // 
       // Default value: `deployment`.
       shared_ptr<string> type_ {};
-      // The action that the trigger performs. The value is set to redeploy.
+      // The trigger action. Valid values:
       // 
-      // `redeploy`: redeploys the resource specified by project_id.
+      // `redeploy`: redeploys the resources defined in project_id.
       shared_ptr<string> action_ {};
       // Token
       shared_ptr<string> token_ {};

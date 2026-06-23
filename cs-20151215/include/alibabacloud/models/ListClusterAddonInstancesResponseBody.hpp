@@ -79,14 +79,13 @@ namespace Models
     protected:
       // The component name.
       shared_ptr<string> name_ {};
-      // The status of the component. Valid values:
-      // 
-      // *   active: The component is installed.
-      // *   updating: The component is being modified.
-      // *   upgrading: The component is being updated.
-      // *   deleting: The component is being uninstalled.
+      // The component status. Valid values:
+      // - active: installed
+      // - updating: being modified
+      // - upgrading: being upgraded
+      // - deleting: being uninstalled.
       shared_ptr<string> state_ {};
-      // The version of the component.
+      // The component version.
       shared_ptr<string> version_ {};
     };
 
@@ -101,7 +100,7 @@ namespace Models
 
 
   protected:
-    // A list of components that are installed in the cluster.
+    // The list of installed component instances.
     shared_ptr<vector<ListClusterAddonInstancesResponseBody::Addons>> addons_ {};
   };
 

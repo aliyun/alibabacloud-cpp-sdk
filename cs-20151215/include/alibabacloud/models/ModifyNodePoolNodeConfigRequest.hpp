@@ -69,7 +69,11 @@ namespace Models
 
 
     protected:
-      // The maximum number of unavailable nodes.
+      // Node updates in the node pool are performed in batches. This parameter specifies the maximum number of nodes that can be updated in parallel per batch.
+      // 
+      // Valid values: [1,10].
+      // 
+      // Default value: 10.
       shared_ptr<int64_t> maxParallelism_ {};
     };
 
@@ -115,9 +119,9 @@ namespace Models
 
 
     protected:
-      // Hugepage configuration.
+      // The Hugepage configuration.
       shared_ptr<Hugepage> hugepage_ {};
-      // The sysctl configuration.
+      // The custom sysctl parameter configuration.
       Darabonba::Json sysctl_ {};
     };
 
@@ -171,13 +175,13 @@ namespace Models
   protected:
     // The containerd runtime configuration.
     shared_ptr<ContainerdConfig> containerdConfig_ {};
-    // The kubelet configurations.
+    // The kubelet parameter configuration.
     shared_ptr<KubeletConfig> kubeletConfig_ {};
-    // List of nodes to upgrade.
+    // The list of specified nodes to upgrade.
     shared_ptr<vector<string>> nodeNames_ {};
-    // The OS configuration.
+    // The operating system parameter configuration.
     shared_ptr<ModifyNodePoolNodeConfigRequest::OsConfig> osConfig_ {};
-    // The rolling policy configuration.
+    // The rolling update configuration.
     shared_ptr<ModifyNodePoolNodeConfigRequest::RollingPolicy> rollingPolicy_ {};
   };
 

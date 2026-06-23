@@ -74,9 +74,18 @@ namespace Models
 
 
     protected:
-      // The parameters of a repair operation.
+      // The list of repair operation parameters.
       shared_ptr<vector<string>> args_ {};
-      // The ID of a repair operation.
+      // The repair operation ID. Valid values:
+      // 
+      // - restart.kubelet: restart kubelet.
+      // - restart.docker: restart Docker.
+      // - restart.containerd: restart Containerd.
+      // - restart.ntp: restart ntpd or chronyd.
+      // - remove.containerdContainerInSandbox: delete a specified sandbox container under Containerd.
+      // - remove.dockerContainerInSandbox: delete a specified sandbox container under Docker.
+      // - remove.containerdContainer: delete a specified container under Containerd.
+      // - remove.dockerContainer: delete a specified container under Docker.
       shared_ptr<string> operationId_ {};
     };
 
@@ -108,15 +117,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic instance restart.
-    // 
-    // **
-    // 
-    // **Warning** This parameter is deprecated. Any configured values will be ignored.
+    // [This field is deprecated] Specifies whether to allow instance restart.
     shared_ptr<bool> autoRestart_ {};
-    // The list of nodes. If not specified, all nodes in the node pool are selected.
+    // The list of nodes.
     shared_ptr<vector<string>> nodes_ {};
-    // The list of repair operations to execute. If not specified, all repair operations are executed. Typically, you do not need to specify this parameter.
+    // The repair operations to perform. If not specified, all repair operations are performed by default. In most scenarios, you do not need to specify this parameter.
     shared_ptr<vector<RepairClusterNodePoolRequest::Operations>> operations_ {};
   };
 

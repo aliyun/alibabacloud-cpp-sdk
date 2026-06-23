@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the cluster auditing feature is enabled for the cluster. 
+    // Indicates whether the API server audit feature is enabled for the cluster. Valid values:
     // 
-    // * `true`: The cluster auditing feature is enabled for the cluster. 
-    // * `false`: The cluster auditing feature is disabled for the cluster.
+    // - `true`: Enabled.
+    // 
+    // - `false`: Not enabled.
     shared_ptr<bool> auditEnabled_ {};
-    // The SLS project in which the audit logs of the API server are stored.
+    // The SLS project that stores the API server audit logs of the cluster.
     shared_ptr<string> slsProjectName_ {};
   };
 

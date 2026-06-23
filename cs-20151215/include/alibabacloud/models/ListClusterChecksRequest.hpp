@@ -48,9 +48,16 @@ namespace Models
 
 
   protected:
-    // The targets to check.
+    // The check target to filter.
     shared_ptr<string> target_ {};
-    // The check method.
+    // The check type. Valid values:
+    // - ClusterMigrate: cluster migration.
+    // 
+    // - MasterUpgrade: cluster control plane upgrade.
+    // 
+    // - NodePoolUpgrade: node pool upgrade.
+    // 
+    // - ClusterUpgrade: cluster upgrade.
     shared_ptr<string> type_ {};
   };
 

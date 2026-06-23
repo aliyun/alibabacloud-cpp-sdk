@@ -119,30 +119,29 @@ namespace Models
 
 
     protected:
-      // The ID of the trigger.
+      // 触发器ID。
       shared_ptr<string> id_ {};
-      // The name of the trigger.
+      // 触发器名称。
       shared_ptr<string> name_ {};
-      // The ID of the associated cluster.
+      // 集群ID。
       shared_ptr<string> clusterId_ {};
-      // The name of the project.
+      // 触发器项目名称。
       // 
-      // The name consists of the namespace where the application is deployed and the name of the application. The format is `${namespace}/${name}`. Example: default/test-app.
+      // 由应用所在命名空间及应用名称组成，格式为`${namespace}/${name}`，取值示例：default/test-app。
       shared_ptr<string> projectId_ {};
-      // The type of trigger.
+      // 触发器类型。
       // 
-      // Valid values:
+      // 取值：
       // 
-      // *   `deployment`: performs actions on Deployments.
-      // *   `application`: performs actions on applications that are deployed in Application Center.
+      // - `deployment`：针对无状态应用的触发器。 
       // 
-      // Default value: `deployment`.
+      // - `application`：针对应用中心应用的触发器。
       shared_ptr<string> type_ {};
-      // The action that the trigger performs. The value is set to redeploy.
+      // 触发器行为，取值：
       // 
-      // `redeploy`: redeploys the resource specified by project_id.
+      // `redeploy`: 重新部署应用。
       shared_ptr<string> action_ {};
-      // The token information.
+      // Token信息。
       shared_ptr<string> token_ {};
     };
 

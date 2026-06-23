@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The operation plan type.
+    // The execution plan type.
     shared_ptr<string> type_ {};
   };
 

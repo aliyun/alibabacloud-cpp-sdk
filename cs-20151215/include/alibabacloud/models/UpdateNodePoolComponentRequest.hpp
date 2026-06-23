@@ -88,11 +88,11 @@ namespace Models
 
 
     protected:
-      // The time interval between update batches, in seconds.
+      // The interval between batches during the upgrade. Unit: seconds.
       shared_ptr<int64_t> batchInterval_ {};
-      // The maximum number of nodes that can be updated concurrently. Default: 1.
+      // The maximum number of nodes that can be updated in parallel per batch. Default value: 1.
       shared_ptr<int64_t> maxParallelism_ {};
-      // The automatic pause strategy during the update process. Valid values: NotPause, FirstBatchPause, EveryBatchPause.
+      // The automatic pause policy during node upgrades.
       shared_ptr<string> pausePolicy_ {};
     };
 
@@ -126,7 +126,7 @@ namespace Models
 
 
     protected:
-      // Custom configuration parameters for the component.
+      // The custom configuration of the component.
       shared_ptr<map<string, string>> customConfig_ {};
     };
 
@@ -181,17 +181,17 @@ namespace Models
 
 
   protected:
-    // The configuration details for the component update.
+    // The node component configuration.
     shared_ptr<UpdateNodePoolComponentRequest::Config> config_ {};
-    // Specifies whether to disable rolling updates. Default: false. If set to false, nodes will be rolled automatically to apply the new configuration.
+    // Specifies whether to disable rolling updates. Default value: false. When set to false, updating the baseline configuration triggers a rolling update of nodes.
     shared_ptr<bool> disableRolling_ {};
     // The name of the node component.
     shared_ptr<string> name_ {};
-    // A list of specific nodes to be rolled. If not specified, all nodes in the node pool will be updated.
+    // The list of nodes to be included in the rolling update. By default, all nodes are included.
     shared_ptr<vector<string>> nodeNames_ {};
     // The rolling update configuration.
     shared_ptr<UpdateNodePoolComponentRequest::RollingPolicy> rollingPolicy_ {};
-    // The version of the node component to be updated to.
+    // The version of the node component.
     shared_ptr<string> version_ {};
   };
 

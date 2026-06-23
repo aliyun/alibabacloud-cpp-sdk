@@ -164,44 +164,43 @@ namespace Models
 
 
       protected:
-        // The ID of the image.
+        // The image ID.
         shared_ptr<string> imageId_ {};
         // The image name.
         shared_ptr<string> imageName_ {};
-        // The OS platform. You can obtain the terminal ID by calling one of the following operations:
-        // 
-        // *   `AliyunLinux`
-        // *   `CentOS`
-        // *   `Windows`
-        // *   `WindowsCore`
+        // The operating system platform. Valid values:
+        // - `AliyunLinux`
+        // - `CentOS`
+        // - `Windows`
+        // - `WindowsCore`
         shared_ptr<string> platform_ {};
-        // The version of the image.
+        // The image version.
         shared_ptr<string> osVersion_ {};
-        // The type of operating system distribution that you want to use. We recommend that you use this parameter to specify the node operating system. You can obtain the terminal ID by calling one of the following operations:
+        // The type of the operating system distribution. We recommend that you use this field to specify the node operating system. Valid values:
         // 
-        // *   `CentOS`
-        // *   `AliyunLinux`
-        // *   `AliyunLinux Qboot`
-        // *   `AliyunLinuxUEFI`
-        // *   `AliyunLinux3`
-        // *   `Windows`
-        // *   `WindowsCore`
-        // *   `AliyunLinux3Arm64`
-        // *   `ContainerOS`
+        // - `CentOS`
+        // - `AliyunLinux`
+        // - `AliyunLinux Qboot`
+        // - `AliyunLinuxUEFI`
+        // - `AliyunLinux3`
+        // - `Windows`
+        // - `WindowsCore`
+        // - `AliyunLinux3Arm64`
+        // - `ContainerOS`
         shared_ptr<string> imageType_ {};
-        // The type of OS. Examples:
+        // The operating system type. Examples:
         // 
-        // *   `Windows`
-        // *   `Linux`
+        // - `Windows`
+        // - `Linux`
         shared_ptr<string> osType_ {};
-        // The type of image. Valid values:
+        // The image category. Partial valid values:
         // 
-        // *   `system`: public image
-        // *   `self`: custom image
-        // *   `others`: shared image from other Alibaba Cloud accounts
-        // *   `marketplace`: image from the marketplace
+        // - `system`: public image.
+        // - `self`: custom image.
+        // - `others`: shared image from other users.
+        // - `marketplace`: Alibaba Cloud Marketplace image.
         shared_ptr<string> imageCategory_ {};
-        // The architecture of the image.
+        // The image architecture.
         shared_ptr<string> architecture_ {};
       };
 
@@ -282,23 +281,23 @@ namespace Models
 
 
     protected:
-      // Features of the queried Kubernetes version.
+      // The feature capabilities of the Kubernetes version.
       Darabonba::Json capabilities_ {};
-      // The OS images that are returned.
+      // The list of system images.
       shared_ptr<vector<Body::Images>> images_ {};
       // The metadata of the Kubernetes version.
       Darabonba::Json metaData_ {};
       // The container runtime configurations.
       shared_ptr<vector<Runtime>> runtimes_ {};
-      // The Kubernetes version supported by ACK. For more information, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+      // The Kubernetes version released by ACK. For more information about versions, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
       shared_ptr<string> version_ {};
       // The release date of the Kubernetes version.
       shared_ptr<string> releaseDate_ {};
       // The expiration date of the Kubernetes version.
       shared_ptr<string> expirationDate_ {};
-      // Indicates whether you can create clusters that run the Kubernetes version.
+      // Indicates whether the Kubernetes version can be used to create clusters.
       shared_ptr<bool> creatable_ {};
-      // The list of available Kubernetes versions for updates.
+      // The list of upgradable versions.
       shared_ptr<vector<string>> upgradableVersions_ {};
     };
 

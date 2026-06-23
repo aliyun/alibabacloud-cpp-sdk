@@ -69,17 +69,17 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     shared_ptr<string> aliuid_ {};
-    // The control plane components for which you want to enable log collection.
+    // The list of components for which control plane logging is enabled.
     shared_ptr<vector<string>> components_ {};
-    // The name of the Simple Log Service Project that you want to use to store the logs of control plane components.
+    // The name of the SLS project used to store control plane component logs.
     // 
     // Default value: k8s-log-$Cluster ID.
     shared_ptr<string> logProject_ {};
-    // The retention period of the log data stored in the Logstore. Valid values: 1 to 3000. Unit: days.
+    // The retention period of logs in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
     // 
-    // Default value: 30.
+    // Default value: 30 days.
     shared_ptr<string> logTtl_ {};
   };
 

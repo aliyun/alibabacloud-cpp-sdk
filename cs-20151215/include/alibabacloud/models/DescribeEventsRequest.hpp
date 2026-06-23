@@ -86,51 +86,35 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The maximum number of results to return.
+    // The maximum number of results returned per request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of `NextToken` returned by the previous API call.
+    // The query token. Set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The number of the page to return.
+    // The page number for the paged query.
     shared_ptr<int64_t> pageNumber_ {};
-    // The maximum number of results per page.
+    // The maximum number of results to return per page.
     // 
     // Valid values: [1,100].
     // 
-    // Default: 50.
+    // Default value: 50.
     shared_ptr<int64_t> pageSize_ {};
-    // The event type. If you do not specify this parameter, events of all types are returned. Valid values:
-    // 
-    // - `cluster_create`: Create a cluster.
-    // 
-    // - `cluster_scaleout`: Scale out a cluster.
-    // 
-    // - `cluster_attach`: Attach an existing node.
-    // 
-    // - `cluster_delete`: Delete a cluster.
-    // 
-    // - `cluster_upgrade`: Upgrade a cluster.
-    // 
-    // - `cluster_migrate`: Migrate a cluster.
-    // 
-    // - `cluster_node_delete`: Remove a node.
-    // 
-    // - `cluster_node_drain`: Drain a node.
-    // 
-    // - `cluster_modify`: Modify a cluster.
-    // 
-    // - `cluster_configuration_modify`: Modify the control plane configuration of a cluster.
-    // 
-    // - `cluster_addon_install`: Install an add-on.
-    // 
-    // - `cluster_addon_upgrade`: Upgrade an add-on.
-    // 
-    // - `cluster_addon_uninstall`: Uninstall an add-on.
-    // 
-    // - `runtime_upgrade`: Upgrade the runtime.
-    // 
-    // - `nodepool_upgrade`: Upgrade a node pool.
-    // 
-    // - `nodepool_update`: Update a node pool.
+    // The event type. If you do not set this parameter, all types of events are queried. Valid values:
+    // - `cluster_create`: creates a cluster.
+    // - `cluster_scaleout`: scales out a cluster.
+    // - `cluster_attach`: adds existing nodes.
+    // - `cluster_delete`: deletes a cluster.
+    // - `cluster_upgrade`: upgrades a cluster.
+    // - `cluster_migrate`: migrates a cluster.
+    // - `cluster_node_delete`: removes nodes.
+    // - `cluster_node_drain`: drains nodes.
+    // - `cluster_modify`: modifies a cluster.
+    // - `cluster_configuration_modify`: modifies cluster management configurations.
+    // - `cluster_addon_install`: installs a component.
+    // - `cluster_addon_upgrade`: upgrades a component.
+    // - `cluster_addon_uninstall`: uninstalls a component.
+    // - `runtime_upgrade`: upgrades the runtime.
+    // - `nodepool_upgrade`: upgrades a node pool.
+    // - `nodepool_update`: updates a node pool.
     shared_ptr<string> type_ {};
   };
 

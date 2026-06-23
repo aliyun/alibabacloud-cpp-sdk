@@ -76,23 +76,25 @@ namespace Models
 
   protected:
     // The cluster type. Valid values:
-    // 
-    // *   `Default`: ACK managed cluster
-    // *   `Serverless`: ACK Serverless cluster
-    // *   `Edge`: ACK Edge cluster
+    // - `Default`: managed cluster.
+    // - `Serverless`: serverless cluster.
+    // - `Edge`: edge cluster.
     shared_ptr<string> clusterProfile_ {};
-    // If you set `cluster_type` to `ManagedKubernetes` and specify `profile`, you can further specify the edition of the cluster. Valid values:
+    // After you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specification.
     // 
-    // *   `ack.pro.small`: creates an ACK Pro cluster.
-    // *   `ack.standard`: creates an ACK Basic cluster. If you leave the parameter empty, an ACK Basic cluster is created.
+    // - `ack.pro.small`: Pro cluster.
+    // 
+    // - `ack.standard`: Basic cluster (selected by default if this parameter is left empty).
     shared_ptr<string> clusterSpec_ {};
-    // *   `Kubernetes`: ACK dedicated cluster.
-    // *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
-    // *   `ExternalKubernetes`: registered cluster.
+    // - `Kubernetes`: ACK dedicated cluster.
+    // 
+    // - `ManagedKubernetes`: ACK managed cluster types, including ACK managed clusters (ACK Pro and ACK Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
+    // 
+    // - `ExternalKubernetes`: registered cluster.
     shared_ptr<string> clusterType_ {};
     // The cluster version.
     shared_ptr<string> clusterVersion_ {};
-    // The region ID of the cluster.
+    // The ID of the region where the cluster resides.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};

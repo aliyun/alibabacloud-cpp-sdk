@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The custom parameter settings that you want to use.
+    // The custom parameter settings.
     shared_ptr<string> config_ {};
   };
 

@@ -143,9 +143,9 @@ namespace Models
 
 
           protected:
-            // The label key.
+            // The key of the label.
             shared_ptr<string> key_ {};
-            // The label value.
+            // The value of the label.
             shared_ptr<string> value_ {};
           };
 
@@ -187,9 +187,9 @@ namespace Models
 
 
           protected:
-            // The label key.
+            // The key of the label.
             shared_ptr<string> key_ {};
-            // The label value.
+            // The value of the label.
             shared_ptr<string> value_ {};
           };
 
@@ -228,13 +228,13 @@ namespace Models
 
 
         protected:
-          // The label that grants authorization for the repair step. To approve the step, add this label to the node. After the action is complete, ACK automatically removes both the inquiry and approval labels for this step. If this label is not added promptly, the repair procedure halts and the node remains impaired.
+          // The label configuration for authorization confirmation. When you add the following label to the node, you authorize ACK to execute the action in this stage. After completing the action in this stage, ACK automatically removes the authorization inquiry and authorization confirmation labels for this stage. If you do not add the following label to authorize the action promptly, ACK does not execute the action in this stage or subsequent actions, and the node may remain in a damaged state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
           // Specifies whether to enable manual approval.
           shared_ptr<bool> enable_ {};
-          // The label used to request authorization for the repair step. When this step begins, ACK applies this label to the node and waits for approval before performing the action.
+          // The label configuration for authorization inquiry. When this stage is reached, ACK adds the following label to your node and waits for you to authorize the execution of the action in this stage.
           shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
-          // The manual approval type.
+          // The type of manual approval.
           shared_ptr<string> type_ {};
         };
 
@@ -266,11 +266,11 @@ namespace Models
 
 
       protected:
-        // Configuration parameters for the repair step.
+        // The configuration parameters of the repair procedure.
         Darabonba::Json config_ {};
-        // Settings for manual intervention.
+        // The configuration for manual intervention in the procedure.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};
-        // The name of the repair step.
+        // The name of the procedure.
         shared_ptr<string> name_ {};
       };
 
@@ -312,9 +312,9 @@ namespace Models
 
 
       protected:
-        // The incident name.
+        // The name of the fault.
         shared_ptr<string> name_ {};
-        // The incident type.
+        // The type of the fault.
         shared_ptr<string> type_ {};
       };
 
@@ -339,7 +339,7 @@ namespace Models
 
 
     protected:
-      // The incidents that the rule detects.
+      // The list of identified faults.
       shared_ptr<vector<Rules::Incidents>> incidents_ {};
       // The repair procedure.
       shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};
@@ -378,13 +378,13 @@ namespace Models
 
 
   protected:
-    // The name of the auto repair policy.
+    // The name of the self-healing rule.
     shared_ptr<string> name_ {};
-    // The resource subtype to which the auto repair policy applies.
+    // The resource subtype that the self-healing rule can be bound to.
     shared_ptr<string> resourceSubType_ {};
-    // The resource type to which the auto repair policy applies.
+    // The resource type that the self-healing rule can be bound to.
     shared_ptr<string> resourceType_ {};
-    // The sub-rules for the auto repair policy.
+    // The list of self-healing sub-rules.
     shared_ptr<vector<CreateAutoRepairPolicyRequest::Rules>> rules_ {};
   };
 

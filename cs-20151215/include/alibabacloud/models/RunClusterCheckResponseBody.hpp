@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster check task.
+    // The check ID.
     shared_ptr<string> checkId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The name of the component.
+        // The component name.
         shared_ptr<string> name_ {};
       };
 
@@ -108,7 +108,7 @@ namespace Models
     protected:
       // The name of the component group.
       shared_ptr<string> groupName_ {};
-      // The names of the components in the component group.
+      // The component names included in this group.
       shared_ptr<vector<ComponentGroups::Items>> items_ {};
     };
 
@@ -133,9 +133,9 @@ namespace Models
 
 
   protected:
-    // The list of the returned components.
+    // The list of component groups.
     shared_ptr<vector<DescribeAddonsResponseBody::ComponentGroups>> componentGroups_ {};
-    // Standard components.
+    // The standard components.
     shared_ptr<map<string, StandardComponentsValue>> standardComponents_ {};
   };
 

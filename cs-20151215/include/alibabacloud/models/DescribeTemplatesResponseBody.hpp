@@ -143,34 +143,33 @@ namespace Models
 
 
     protected:
-      // The access control policy of the template. Valid values:
+      // The access permissions for the deployment template. Valid values:
       // 
-      // *   `private`: The template is private.
-      // *   `public`: The template is public.
-      // *   `shared`: The template can be shared.
-      // 
-      // Default value: `private`.
+      // - `private`: private.
+      // - `public`: public.
+      // - `shared`: shared.
       shared_ptr<string> acl_ {};
-      // The time when the template was created.
+      // The time when the orchestration template was created.
       shared_ptr<string> created_ {};
-      // The description of the template.
+      // The description of the orchestration template.
       shared_ptr<string> description_ {};
-      // The ID of the template.
+      // The ID of the orchestration template.
       shared_ptr<string> id_ {};
-      // The name of the template.
+      // The name of the orchestration template.
       shared_ptr<string> name_ {};
-      // The label of the template. By default, the value is the name of the template.
+      // The tag of the orchestration template. If not explicitly specified, the tag defaults to the template name.
       shared_ptr<string> tags_ {};
-      // The template content in the YAML format.
+      // The template content in YAML format.
       shared_ptr<string> template_ {};
-      // The type of template. This parameter can be set to a custom value.
+      // The templatetype.
       // 
-      // *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
-      // *   If the parameter is set to `compose`, the template is displayed on the Container Service - Swarm page in the console. However, Container Service for Swarm is deprecated.
+      // - If the value is set to kubernetes, the template is displayed on the Orchestration Templates page in the console.
+      // 
+      // - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
       shared_ptr<string> templateType_ {};
-      // The ID of the parent template. The value of `template_with_hist_id` is the same for each template version. This allows you to manage different template versions.
+      // The ID of the parent template associated with the template. This parameter is used to implement template versioning. Different versions of the same template share the same `template_with_hist_id` value.
       shared_ptr<string> templateWithHistId_ {};
-      // The time when the template was updated.
+      // The time when the orchestration template was last updated.
       shared_ptr<string> updated_ {};
     };
 
@@ -221,9 +220,9 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page.
+      // The maximum number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
@@ -252,7 +251,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeTemplatesResponseBody::PageInfo> pageInfo_ {};
-    // The list of returned templates.
+    // The list of templates.
     shared_ptr<vector<DescribeTemplatesResponseBody::Templates>> templates_ {};
   };
 

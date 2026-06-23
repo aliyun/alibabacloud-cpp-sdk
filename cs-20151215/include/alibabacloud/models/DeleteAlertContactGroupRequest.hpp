@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The list of alert contact group IDs.
+    // List of alert contact group IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> contactGroupIds_ {};

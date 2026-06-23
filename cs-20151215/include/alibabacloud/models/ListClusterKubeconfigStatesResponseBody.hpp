@@ -125,16 +125,16 @@ namespace Models
 
 
       protected:
-        // Indicates whether the content matches the default cluster role template.  
+        // Indicates whether the content matches the default cluster role template. Valid values:
         // 
-        // - true: Matches  
-        // - false: Does not match
+        // - true: The content matches the default template.
+        // - false: The content does not match the default template.
         shared_ptr<bool> isDefaultTemplate_ {};
-        // Name of the cluster role associated with the cluster cloud product service role.
+        // The name of the cluster role associated with the cloud service role.
         shared_ptr<string> roleName_ {};
-        // Namespace of the cluster role associated with the cluster cloud product service role.
+        // The namespace of the cluster role associated with the cloud service role.
         shared_ptr<string> roleNamespace_ {};
-        // The type of the cluster role associated with the cloud service role of the cluster.
+        // The type of the cluster role associated with the cloud service role.
         shared_ptr<string> type_ {};
       };
 
@@ -214,37 +214,41 @@ namespace Models
 
 
     protected:
-      // The displayed name or role name of the RAM user.
+      // The display name of the Resource Access Management (RAM) user or the role name.
       shared_ptr<string> accountDisplayName_ {};
-      // The ID of an Alibaba Cloud account, RAM user, or RAM role.
+      // The Alibaba Cloud account, Resource Access Management (RAM) user, or role ID.
       shared_ptr<string> accountId_ {};
-      // The logon name or role name of the RAM user.
+      // The logon name of the Resource Access Management (RAM) user or the role name.
       shared_ptr<string> accountName_ {};
-      // The status of the account.
+      // The account status. Valid values:
       // 
-      // *   Active: The account is active.
-      // *   InActive: The account is locked.
-      // *   Deleted: The account is deleted.
+      // - Active: The account is active.
+      // 
+      // - InActive: The account is frozen.
+      // 
+      // - Deleted: The account is deleted.
       shared_ptr<string> accountState_ {};
-      // The type of the account.
+      // The account type. Valid values:
       // 
-      // *   RootAccount: Alibaba Cloud account.
-      // *   RamUser: RAM user.
-      // *   RamRole: RAM role.
+      // - RootAccount: Alibaba Cloud account.
+      // - RamUser: Resource Access Management (RAM) user.
+      // - RamRole: RAM role.
       shared_ptr<string> accountType_ {};
-      // The expiration time of the client certificate for the kubeconfig file.
+      // The expiration time of the KubeConfig client certificate.
       shared_ptr<string> certExpireTime_ {};
-      // The status of the client certificate for the kubeconfig file.
+      // The status of the KubeConfig client certificate. Valid values:
       // 
-      // *   Unexpired: The certificate is not expired.
-      // *   Expired: The certificate is expired.
-      // *   Unknown: The status of the certificate is unknown.
+      // - Unexpired: The certificate has not expired.
+      // 
+      // - Expired: The certificate has expired.
+      // 
+      // - Unknown: The certificate status is unknown (abnormal state).
       shared_ptr<string> certState_ {};
-      // Cloud service name.
+      // The name of the cloud service.
       shared_ptr<string> cloudServiceName_ {};
-      // List of cluster roles associated with the cluster cloud product service roles.
+      // The list of cluster roles associated with the cloud service role.
       shared_ptr<vector<States::CloudServiceRoles>> cloudServiceRoles_ {};
-      // Indicates whether the client certificate for the kubeconfig file can be revoked.
+      // Indicates whether the KubeConfig client certificate can be revoked.
       shared_ptr<bool> revokable_ {};
     };
 
@@ -297,9 +301,9 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The maximum number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -326,7 +330,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListClusterKubeconfigStatesResponseBody::Page> page_ {};
-    // The status list of the kubeconfig files associated with the cluster.
+    // The list of KubeConfig states associated with the cluster.
     shared_ptr<vector<ListClusterKubeconfigStatesResponseBody::States>> states_ {};
   };
 

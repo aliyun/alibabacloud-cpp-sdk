@@ -156,17 +156,17 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The creation time.
       shared_ptr<string> created_ {};
-      // The error message.
+      // The node fault error message.
       shared_ptr<Tasks::Error> error_ {};
-      // The task state.
+      // The task status.
       shared_ptr<string> state_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
-      // The time when the task was updated.
+      // The update time.
       shared_ptr<string> updated_ {};
     };
 
@@ -219,9 +219,9 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -265,7 +265,7 @@ namespace Models
     shared_ptr<DescribeClusterTasksResponseBody::PageInfo> pageInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tasks.
+    // The task array.
     shared_ptr<vector<DescribeClusterTasksResponseBody::Tasks>> tasks_ {};
   };
 

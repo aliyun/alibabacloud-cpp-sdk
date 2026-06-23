@@ -126,15 +126,15 @@ namespace Models
 
 
       protected:
-        // The number of items whose result is advice.
+        // The number of check items with a result of advice.
         shared_ptr<int32_t> adviceCount_ {};
-        // Aggregated inspection task result code.
+        // The status code of the check task result.
         shared_ptr<string> code_ {};
-        // The number of items whose result is error.
+        // The number of check items with a result of error.
         shared_ptr<int32_t> errorCount_ {};
-        // The number of items whose result is normal.
+        // The number of check items with a result of normal.
         shared_ptr<int32_t> normalCount_ {};
-        // The number of items whose result is warning.
+        // The number of check items with a result of warning.
         shared_ptr<int32_t> warnCount_ {};
       };
 
@@ -178,15 +178,15 @@ namespace Models
 
 
     protected:
-      // The report completion time.
+      // The completion time of the inspection report.
       shared_ptr<string> endTime_ {};
-      // An inspection report ID.
+      // The inspection report ID.
       shared_ptr<string> reportId_ {};
-      // The report start time.
+      // The start time of the inspection report.
       shared_ptr<string> startTime_ {};
-      // The inspection report status.
+      // The generation status of the inspection report.
       shared_ptr<string> status_ {};
-      // The inspection summary.
+      // The inspection report summary.
       shared_ptr<Reports::Summary> summary_ {};
     };
 
@@ -218,7 +218,7 @@ namespace Models
   protected:
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The list of inspection reports.
+    // The inspection reports.
     shared_ptr<vector<ListClusterInspectReportsResponseBody::Reports>> reports_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

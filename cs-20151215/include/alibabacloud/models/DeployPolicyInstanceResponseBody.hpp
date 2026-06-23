@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The names of the deployed policy instances.
+    // The list of policy instances.
     shared_ptr<vector<string>> instances_ {};
   };
 
