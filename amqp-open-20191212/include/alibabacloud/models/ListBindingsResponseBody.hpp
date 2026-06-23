@@ -120,32 +120,37 @@ namespace Models
 
 
       protected:
-        // The x-match attribute. Valid values:
+        // The x-match property. Valid values:
         // 
-        // *   **all:** A headers exchange routes a message to a queue only if all binding attributes of the queue except for x-match match the headers attributes of the message. This value is the default value.
-        // *   **any:** A headers exchange routes a message to a queue if one or more binding attributes of the queue except for x-match match the headers attributes of the message.
+        // - **all**: The default value. All key-value pairs of the message header must match.
         // 
-        // This parameter is available only for headers exchanges.
+        // - **any**: At least one key-value pair of the message header must match.
+        // 
+        // This parameter is valid only for headers exchanges.
         shared_ptr<string> argument_ {};
         // The binding key.
         // 
-        // *   If the source exchange is not a topic exchange, the binding key must meet the following conventions:
+        // - If the source exchange is not a topic exchange:
         // 
-        //     *   The binding key can contain only letters, digits, hyphens (-), underscores (_), periods (.), forward slashes (/), and at signs (@).
-        //     *   The binding key must be 1 to 255 characters in length.
+        //   - The binding key can contain only letters, digits, hyphens (-), underscores (_), periods (.), forward slashes (/), and at signs (@).
         // 
-        // *   If the source exchange is a topic exchange, the binding key must meet the following conventions:
+        //   - The binding key must be 1 to 255 characters in length.
         // 
-        //     *   The binding key can contain letters, digits, hyphens (-), underscores (_), asterisks (\\*), periods (.), number signs (#), forward slashes (/), and at signs (@).
-        //     *   The binding key cannot start or end with a period (.). If a binding key starts with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be followed by a period (.). If the binding key ends with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be preceded by a period (.). If a number sign (#) or an asterisk (\\*) is used in the middle of a binding key, the number sign (#) or asterisk (\\*) must be preceded and followed by a period (.).
-        //     *   The binding key must be 1 to 255 characters in length.
+        // - If the source exchange is a topic exchange:
+        // 
+        //   - The binding key can contain letters, digits, hyphens (-), underscores (_), asterisks (\\*), periods (.), number signs (#), forward slashes (/), and at signs (@).
+        // 
+        //   - The binding key cannot start or end with a period (.). If the key starts with a number sign (#) or an asterisk (\\*), it must be followed by a period (.). If the key ends with a number sign (#) or an asterisk (\\*), it must be preceded by a period (.). If a number sign (#) or an asterisk (\\*) is in the middle of the key, it must be both preceded and followed by a period (.).
+        // 
+        //   - The binding key must be 1 to 255 characters in length.
         shared_ptr<string> bindingKey_ {};
-        // The type of the object to which the source exchange is bound. Valid values:
+        // The type of the destination object. Valid values:
         // 
-        // *   **QUEUE**
-        // *   **EXCHANGE**
+        // - **QUEUE**
+        // 
+        // - **EXCHANGE**
         shared_ptr<string> bindingType_ {};
-        // The name of the object to which the source exchange is bound.
+        // The name of the destination.
         shared_ptr<string> destinationName_ {};
         // The name of the source exchange.
         shared_ptr<string> sourceExchange_ {};
@@ -177,11 +182,11 @@ namespace Models
 
 
     protected:
-      // The bindings.
+      // The list of bindings.
       shared_ptr<vector<Data::Bindings>> bindings_ {};
-      // The maximum number of entries returned.
+      // The maximum number of entries returned for the current request.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+      // The position where the current query ends. An empty value indicates that all data is returned.
       shared_ptr<string> nextToken_ {};
     };
 

@@ -86,9 +86,9 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The returned data, which includes orderId and instanceId. Sample returned data:
+    // The returned data. It includes the order ID and instance ID. For example:
     // 
     // ```json
     // "Data": {
@@ -99,9 +99,9 @@ namespace Models
     Darabonba::Json data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The request ID. Each request has a unique ID. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The response code.
+    // The status code.
     shared_ptr<string> statusCode_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};

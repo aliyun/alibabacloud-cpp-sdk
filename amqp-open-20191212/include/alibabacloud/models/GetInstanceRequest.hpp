@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the Message Queue for RabbitMQ instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

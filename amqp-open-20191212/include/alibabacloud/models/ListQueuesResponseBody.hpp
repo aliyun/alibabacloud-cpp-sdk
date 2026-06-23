@@ -152,17 +152,17 @@ namespace Models
       protected:
         // The attributes.
         Darabonba::Json attributes_ {};
-        // Indicates whether the queue was automatically deleted.
+        // The auto-delete status.
         shared_ptr<bool> autoDeleteState_ {};
         // The time when the queue was created.
         shared_ptr<int64_t> createTime_ {};
         // Indicates whether the queue is an exclusive queue.
         shared_ptr<bool> exclusiveState_ {};
-        // The time when messages in the queue were last consumed.
+        // The last time a message was consumed from the queue.
         shared_ptr<int64_t> lastConsumeTime_ {};
         // The queue name.
         shared_ptr<string> name_ {};
-        // The ID of the ApsaraMQ for RabbitMQ instance to which the queue belongs.
+        // The ID of the instance to which the queue belongs.
         shared_ptr<string> ownerId_ {};
         // The vhost name.
         shared_ptr<string> VHostName_ {};
@@ -194,9 +194,9 @@ namespace Models
 
 
     protected:
-      // The maximum number of entries returned.
+      // The maximum number of results returned.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+      // The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
       shared_ptr<string> nextToken_ {};
       // The queues.
       shared_ptr<vector<Data::Queues>> queues_ {};

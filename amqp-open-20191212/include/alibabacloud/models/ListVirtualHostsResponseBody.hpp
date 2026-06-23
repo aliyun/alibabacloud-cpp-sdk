@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The vhost name.
+        // The name of the vhost.
         shared_ptr<string> name_ {};
       };
 
@@ -113,11 +113,11 @@ namespace Models
 
 
     protected:
-      // The maximum number of entries returned.
+      // The maximum number of results returned.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+      // The token that is used to retrieve the next page of results. If this parameter is not returned, all data has been returned.
       shared_ptr<string> nextToken_ {};
-      // The vhosts.
+      // The list of vhosts.
       shared_ptr<vector<Data::VirtualHosts>> virtualHosts_ {};
     };
 

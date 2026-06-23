@@ -121,16 +121,17 @@ namespace Models
 
 
     protected:
-      // The AccessKey ID that is used to create the password.
+      // The AccessKey ID that is used to create the username and password.
       shared_ptr<string> accessKey_ {};
-      // The timestamp that indicates when the password was created. Unit: milliseconds.
+      // The timestamp when the username and password were created. Unit: milliseconds.
       shared_ptr<int64_t> createTimeStamp_ {};
       // The ID of the ApsaraMQ for RabbitMQ instance.
       shared_ptr<string> instanceId_ {};
-      // The Alibaba Cloud account ID or RAM user to which the AccessKey pair that is used to create the static username and password belongs.
+      // The ID of the Alibaba Cloud account or RAM user that owns the AccessKey. The AccessKey is used to create the static username and password.
       shared_ptr<int64_t> masterUId_ {};
       // The created static password.
       shared_ptr<string> password_ {};
+      // The remarks.
       shared_ptr<string> remark_ {};
       // The created static username.
       shared_ptr<string> userName_ {};
@@ -176,7 +177,7 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<CreateAccountResponseBody::Data> data_ {};
@@ -184,7 +185,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

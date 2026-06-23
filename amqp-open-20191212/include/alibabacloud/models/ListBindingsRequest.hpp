@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+    // The token that marks the end of the current query. To retrieve the next page of results, pass the token that was returned in the previous call. For the first call or if the last page is returned, the value of this parameter is an empty string.
     shared_ptr<string> nextToken_ {};
     // The vhost name.
     // 

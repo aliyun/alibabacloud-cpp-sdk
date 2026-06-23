@@ -103,20 +103,21 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID or Resource Access Management (RAM) user to which the AccessKey pair that is used to create the static username and password belongs.
+    // The ID of the Alibaba Cloud account or RAM user that created the static username and password.
     shared_ptr<int64_t> masterUid_ {};
     // The ID of the ApsaraMQ for RabbitMQ instance.
     shared_ptr<string> cInstanceId_ {};
-    // The AccessKey ID that is used to create the static username and password.
+    // The AccessKey ID that was used to create the static username and password.
     shared_ptr<string> accessKey_ {};
     // The static username.
     shared_ptr<string> userName_ {};
     // The static password.
     shared_ptr<string> password_ {};
-    // The timestamp that indicates when the static username and password were deleted. Unit: milliseconds.
+    // The UNIX timestamp when the static username and password were deleted. Unit: milliseconds.
     shared_ptr<int64_t> deleted_ {};
-    // The timestamp that indicates when the static username and password were created. Unit: milliseconds.
+    // The UNIX timestamp when the static username and password were created. Unit: milliseconds.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The remark.
     shared_ptr<string> remark_ {};
   };
 

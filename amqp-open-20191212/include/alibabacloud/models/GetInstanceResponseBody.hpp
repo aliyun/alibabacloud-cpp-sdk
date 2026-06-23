@@ -149,7 +149,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -382,36 +384,108 @@ namespace Models
 
 
     protected:
+      // Indicates whether auto-renewal is enabled for the instance.
       shared_ptr<bool> autoRenewInstance_ {};
+      // The classic network endpoint. This parameter is deprecated.
       shared_ptr<string> classicEndpoint_ {};
+      // The deployment architecture. Valid values:
+      // 
+      // - shared: shared architecture, which is suitable for reserved and elastic (shared) instances and pay-as-you-go instances.
+      // 
+      // - dedicated: dedicated architecture, which is suitable for reserved and elastic (dedicated) instances.
       shared_ptr<string> edition_ {};
+      // Indicates whether storage encryption is enabled for the instance data.
       shared_ptr<bool> encryptedInstance_ {};
+      // The timestamp that indicates when the instance expires, in milliseconds.
+      // 
+      // > The value is a long integer. Handle it with care in certain programming languages to prevent precision loss.
       shared_ptr<int64_t> expireTime_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The name of the instance. A length of 64 characters or less is recommended.
       shared_ptr<string> instanceName_ {};
+      // The instance type.
+      // 
+      // - PROFESSIONAL: Professional Edition
+      // 
+      // - ENTERPRISE: Enterprise Edition
+      // 
+      // - VIP: Platinum Edition
+      // 
+      // - SERVERLESS: Serverless Edition
       shared_ptr<string> instanceType_ {};
+      // The KMS key ID of the cloud disk.
       shared_ptr<string> kmsKeyId_ {};
+      // The listener mode. A value of tcp_and_ssl enables both port 5672 and 5671, while ssl_only enables only port 5671.
       shared_ptr<string> listenerMode_ {};
+      // The maximum number of connections.
+      // 
+      // For valid values, see the [ApsaraMQ for RabbitMQ purchase page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
       shared_ptr<int32_t> maxConnections_ {};
+      // The peak public TPS.
+      // 
+      // For valid values, see the [ApsaraMQ for RabbitMQ purchase page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
       shared_ptr<int32_t> maxEipTps_ {};
+      // The maximum number of queues for the instance.
       shared_ptr<int32_t> maxQueue_ {};
+      // The peak private TPS.
       shared_ptr<int32_t> maxTps_ {};
+      // The maximum number of vhosts for the instance.
       shared_ptr<int32_t> maxVhost_ {};
+      // The timestamp that indicates when the order was created, in milliseconds.
+      // 
+      // > The value is a long integer. Handle it with care in certain programming languages to prevent precision loss.
       shared_ptr<int64_t> orderCreateTime_ {};
+      // The billing method.
+      // 
+      // - PRE_PAID: subscription
+      // 
+      // - POST_PAID: pay-as-you-go
       shared_ptr<string> orderType_ {};
+      // The VPC endpoint of the instance.
       shared_ptr<string> privateEndpoint_ {};
+      // The reserved TPS capacity for reserved and elastic instances.
       shared_ptr<int32_t> provisionedCapacity_ {};
+      // The public endpoint of the instance.
       shared_ptr<string> publicEndpoint_ {};
+      // The ID of the resource group for the instance.
       shared_ptr<string> resourceGroupId_ {};
+      // The security group ID used to create a PrivateLink endpoint for the instance.
       shared_ptr<string> securityGroupId_ {};
       shared_ptr<bool> serverlessSwitch_ {};
+      // The instance status. Valid values:
+      // 
+      // - DEPLOYING: The instance is being deployed.
+      // 
+      // - EXPIRED: The instance has expired.
+      // 
+      // - SERVING: The instance is in service.
+      // 
+      // - RELEASED: The instance has been released.
       shared_ptr<string> status_ {};
+      // The disk capacity. Unit: GB.
+      // 
+      // > For Professional and Enterprise Edition instances, this parameter returns **-1**.
       shared_ptr<int32_t> storageSize_ {};
+      // Indicates whether the instance supports EIPs.
       shared_ptr<bool> supportEIP_ {};
+      // Indicates whether the message trace feature is enabled.
       shared_ptr<bool> supportTracing_ {};
+      // The list of tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
+      // The retention period of message traces. Unit: days. Valid values:
+      // 
+      // - 3: 3 days
+      // 
+      // - 7: 7 days
+      // 
+      // - 15: 15 days
+      // 
+      // This parameter applies only when `SupportTracing` is set to true.
       shared_ptr<int32_t> tracingStorageTime_ {};
+      // The VPC ID used to create a PrivateLink endpoint for the instance.
       shared_ptr<string> vpcId_ {};
+      // The VSwitch IDs used to create a PrivateLink endpoint for the instance.
       shared_ptr<vector<string>> vswitchIds_ {};
     };
 
@@ -434,7 +508,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetInstanceResponseBody::Data> data_ {};
+    // The unique ID generated for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -18,6 +18,32 @@ namespace AmqpOpen20191212
 
 AlibabaCloud::AmqpOpen20191212::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "amqp-open.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "amqp-open.us-east-1.aliyuncs.com"},
+    {"me-central-1" , "amqp-open.me-central-1.aliyuncs.com"},
+    {"eu-central-1" , "amqp-open.eu-central-1.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "amqp-open.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-zhangjiakou" , "amqp-open.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "amqp-open.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "amqp-open.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "amqp-open.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "amqp-open.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "amqp-open.cn-qingdao.aliyuncs.com"},
+    {"cn-huhehaote" , "amqp-open.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "amqp-open.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "amqp-open.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "amqp-open.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "amqp-open.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "amqp-open.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "amqp-open.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "amqp-open.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "amqp-open.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "amqp-open.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "amqp-open.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "amqp-open.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "amqp-open.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("amqp-open", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +62,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 增加实例白名单
+ * @summary Adds an entry to the whitelist of an instance.
  *
  * @param tmpReq AddInstanceWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +107,7 @@ AddInstanceWhiteListResponse Client::addInstanceWhiteListWithOptions(const AddIn
 }
 
 /**
- * @summary 增加实例白名单
+ * @summary Adds an entry to the whitelist of an instance.
  *
  * @param request AddInstanceWhiteListRequest
  * @return AddInstanceWhiteListResponse
@@ -92,7 +118,7 @@ AddInstanceWhiteListResponse Client::addInstanceWhiteList(const AddInstanceWhite
 }
 
 /**
- * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+ * @summary When an open-source client accesses an ApsaraMQ for RabbitMQ server, it must provide a username and password for authentication. ApsaraMQ for RabbitMQ lets you generate a username and password from an AccessKey ID and AccessKey secret provided by Resource Access Management (RAM).
  *
  * @param request CreateAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -147,7 +173,7 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
 }
 
 /**
- * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+ * @summary When an open-source client accesses an ApsaraMQ for RabbitMQ server, it must provide a username and password for authentication. ApsaraMQ for RabbitMQ lets you generate a username and password from an AccessKey ID and AccessKey secret provided by Resource Access Management (RAM).
  *
  * @param request CreateAccountRequest
  * @return CreateAccountResponse
@@ -158,7 +184,7 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+ * @summary A producer sends a message to an exchange, which then routes the message to a specified queue or another exchange based on the binding and routing rules.
  *
  * @param request CreateBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -213,7 +239,7 @@ CreateBindingResponse Client::createBindingWithOptions(const CreateBindingReques
 }
 
 /**
- * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+ * @summary A producer sends a message to an exchange, which then routes the message to a specified queue or another exchange based on the binding and routing rules.
  *
  * @param request CreateBindingRequest
  * @return CreateBindingResponse
@@ -224,7 +250,7 @@ CreateBindingResponse Client::createBinding(const CreateBindingRequest &request)
 }
 
 /**
- * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+ * @summary A producer sends a message to an exchange. The exchange then routes the message to one or more queues based on the routing key and the binding key, or discards the message.
  *
  * @param request CreateExchangeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -283,7 +309,7 @@ CreateExchangeResponse Client::createExchangeWithOptions(const CreateExchangeReq
 }
 
 /**
- * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+ * @summary A producer sends a message to an exchange. The exchange then routes the message to one or more queues based on the routing key and the binding key, or discards the message.
  *
  * @param request CreateExchangeRequest
  * @return CreateExchangeResponse
@@ -295,8 +321,6 @@ CreateExchangeResponse Client::createExchange(const CreateExchangeRequest &reque
 
 /**
  * @summary Creates an ApsaraMQ for RabbitMQ instance.
- *
- * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
  *
  * @param tmpReq CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -459,8 +483,6 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 /**
  * @summary Creates an ApsaraMQ for RabbitMQ instance.
  *
- * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
- *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
  */
@@ -470,7 +492,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+ * @summary A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
  *
  * @param request CreateQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -541,7 +563,7 @@ CreateQueueResponse Client::createQueueWithOptions(const CreateQueueRequest &req
 }
 
 /**
- * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+ * @summary A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
  *
  * @param request CreateQueueRequest
  * @return CreateQueueResponse
@@ -598,7 +620,7 @@ CreateVirtualHostResponse Client::createVirtualHost(const CreateVirtualHostReque
 }
 
 /**
- * @summary Deletes a pair of username and password.
+ * @summary Deletes a static username and password.
  *
  * @param request DeleteAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -633,7 +655,7 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
 }
 
 /**
- * @summary Deletes a pair of username and password.
+ * @summary Deletes a static username and password.
  *
  * @param request DeleteAccountRequest
  * @return DeleteAccountResponse
@@ -644,7 +666,7 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
- * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+ * @summary The DeleteBinding operation detaches a source exchange from a target queue or another exchange.
  *
  * @param request DeleteBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +717,7 @@ DeleteBindingResponse Client::deleteBindingWithOptions(const DeleteBindingReques
 }
 
 /**
- * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+ * @summary The DeleteBinding operation detaches a source exchange from a target queue or another exchange.
  *
  * @param request DeleteBindingRequest
  * @return DeleteBindingResponse
@@ -708,9 +730,9 @@ DeleteBindingResponse Client::deleteBinding(const DeleteBindingRequest &request)
 /**
  * @summary Deletes an exchange.
  *
- * @description ## [](#)Usage notes
- * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
- * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+ * @description ## Usage notes
+ * - You cannot delete exchanges with the type **headers**.
+ * - You cannot delete the three built-in exchanges in a vhost: amq.direct, amq.topic, or amq.fanout.
  *
  * @param request DeleteExchangeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -751,9 +773,9 @@ DeleteExchangeResponse Client::deleteExchangeWithOptions(const DeleteExchangeReq
 /**
  * @summary Deletes an exchange.
  *
- * @description ## [](#)Usage notes
- * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
- * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+ * @description ## Usage notes
+ * - You cannot delete exchanges with the type **headers**.
+ * - You cannot delete the three built-in exchanges in a vhost: amq.direct, amq.topic, or amq.fanout.
  *
  * @param request DeleteExchangeRequest
  * @return DeleteExchangeResponse
@@ -816,7 +838,7 @@ DeleteQueueResponse Client::deleteQueue(const DeleteQueueRequest &request) {
 /**
  * @summary Deletes a virtual host (vhost).
  *
- * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+ * @description Before you delete a vhost, you must delete all exchanges and queues in it.
  *
  * @param request DeleteVirtualHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -853,7 +875,7 @@ DeleteVirtualHostResponse Client::deleteVirtualHostWithOptions(const DeleteVirtu
 /**
  * @summary Deletes a virtual host (vhost).
  *
- * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+ * @description Before you delete a vhost, you must delete all exchanges and queues in it.
  *
  * @param request DeleteVirtualHostRequest
  * @return DeleteVirtualHostResponse
@@ -864,7 +886,7 @@ DeleteVirtualHostResponse Client::deleteVirtualHost(const DeleteVirtualHostReque
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an ApsaraMQ for RabbitMQ instance.
  *
  * @param request GetInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -891,7 +913,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an ApsaraMQ for RabbitMQ instance.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -902,7 +924,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+ * @summary Queries the current and maximum numbers of vhosts, exchanges, and queues for a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request GetMetadataAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -929,7 +951,7 @@ GetMetadataAmountResponse Client::getMetadataAmountWithOptions(const GetMetadata
 }
 
 /**
- * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+ * @summary Queries the current and maximum numbers of vhosts, exchanges, and queues for a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request GetMetadataAmountRequest
  * @return GetMetadataAmountResponse
@@ -940,7 +962,7 @@ GetMetadataAmountResponse Client::getMetadataAmount(const GetMetadataAmountReque
 }
 
 /**
- * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+ * @summary Lists the usernames and passwords for a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -971,7 +993,7 @@ ListAccountsResponse Client::listAccountsWithOptions(const ListAccountsRequest &
 }
 
 /**
- * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+ * @summary Lists the usernames and passwords for a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListAccountsRequest
  * @return ListAccountsResponse
@@ -982,7 +1004,7 @@ ListAccountsResponse Client::listAccounts(const ListAccountsRequest &request) {
 }
 
 /**
- * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+ * @summary Queries all bindings that are created in a vhost of a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListBindingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1009,7 +1031,7 @@ ListBindingsResponse Client::listBindingsWithOptions(const ListBindingsRequest &
 }
 
 /**
- * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+ * @summary Queries all bindings that are created in a vhost of a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListBindingsRequest
  * @return ListBindingsResponse
@@ -1020,7 +1042,7 @@ ListBindingsResponse Client::listBindings(const ListBindingsRequest &request) {
 }
 
 /**
- * @summary Queries all exchanges or queues to which an exchange is bound.
+ * @summary Queries the exchanges or queues that are bound to a specified exchange.
  *
  * @param request ListDownStreamBindingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1047,7 +1069,7 @@ ListDownStreamBindingsResponse Client::listDownStreamBindingsWithOptions(const L
 }
 
 /**
- * @summary Queries all exchanges or queues to which an exchange is bound.
+ * @summary Queries the exchanges or queues that are bound to a specified exchange.
  *
  * @param request ListDownStreamBindingsRequest
  * @return ListDownStreamBindingsResponse
@@ -1058,7 +1080,7 @@ ListDownStreamBindingsResponse Client::listDownStreamBindings(const ListDownStre
 }
 
 /**
- * @summary Queries all queues or exchanges that are bound to an exchange.
+ * @summary Queries the queues or other exchanges that are bound to a specified exchange.
  *
  * @param request ListExchangeUpStreamBindingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1085,7 +1107,7 @@ ListExchangeUpStreamBindingsResponse Client::listExchangeUpStreamBindingsWithOpt
 }
 
 /**
- * @summary Queries all queues or exchanges that are bound to an exchange.
+ * @summary Queries the queues or other exchanges that are bound to a specified exchange.
  *
  * @param request ListExchangeUpStreamBindingsRequest
  * @return ListExchangeUpStreamBindingsResponse
@@ -1096,7 +1118,7 @@ ListExchangeUpStreamBindingsResponse Client::listExchangeUpStreamBindings(const 
 }
 
 /**
- * @summary Queries all exchanges that are created in a virtual host (vhost).
+ * @summary Lists all exchanges in a specified vhost of an instance.
  *
  * @param request ListExchangesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1123,7 +1145,7 @@ ListExchangesResponse Client::listExchangesWithOptions(const ListExchangesReques
 }
 
 /**
- * @summary Queries all exchanges that are created in a virtual host (vhost).
+ * @summary Lists all exchanges in a specified vhost of an instance.
  *
  * @param request ListExchangesRequest
  * @return ListExchangesResponse
@@ -1134,7 +1156,7 @@ ListExchangesResponse Client::listExchanges(const ListExchangesRequest &request)
 }
 
 /**
- * @summary 查询实例ip/vpc白名单
+ * @summary Queries the IP or VPC whitelist for an instance.
  *
  * @param request ListInstanceWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1191,7 @@ ListInstanceWhiteListResponse Client::listInstanceWhiteListWithOptions(const Lis
 }
 
 /**
- * @summary 查询实例ip/vpc白名单
+ * @summary Queries the IP or VPC whitelist for an instance.
  *
  * @param request ListInstanceWhiteListRequest
  * @return ListInstanceWhiteListResponse
@@ -1180,7 +1202,7 @@ ListInstanceWhiteListResponse Client::listInstanceWhiteList(const ListInstanceWh
 }
 
 /**
- * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+ * @summary Queries a list of ApsaraMQ for RabbitMQ instances in a specified region and returns basic information about each instance, such as its endpoints and specification limits.
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1207,7 +1229,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+ * @summary Queries a list of ApsaraMQ for RabbitMQ instances in a specified region and returns basic information about each instance, such as its endpoints and specification limits.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -1218,9 +1240,9 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Queries the online consumers of a queue.
+ * @summary Queries the online consumer clients of a specified queue.
  *
- * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+ * @description ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
  *
  * @param request ListQueueConsumersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,9 +1269,9 @@ ListQueueConsumersResponse Client::listQueueConsumersWithOptions(const ListQueue
 }
 
 /**
- * @summary Queries the online consumers of a queue.
+ * @summary Queries the online consumer clients of a specified queue.
  *
- * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+ * @description ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
  *
  * @param request ListQueueConsumersRequest
  * @return ListQueueConsumersResponse
@@ -1260,7 +1282,7 @@ ListQueueConsumersResponse Client::listQueueConsumers(const ListQueueConsumersRe
 }
 
 /**
- * @summary Queries the exchanges that are bound to a queue.
+ * @summary Queries the exchanges that are bound to a specified queue.
  *
  * @param request ListQueueUpStreamBindingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1287,7 +1309,7 @@ ListQueueUpStreamBindingsResponse Client::listQueueUpStreamBindingsWithOptions(c
 }
 
 /**
- * @summary Queries the exchanges that are bound to a queue.
+ * @summary Queries the exchanges that are bound to a specified queue.
  *
  * @param request ListQueueUpStreamBindingsRequest
  * @return ListQueueUpStreamBindingsResponse
@@ -1298,7 +1320,7 @@ ListQueueUpStreamBindingsResponse Client::listQueueUpStreamBindings(const ListQu
 }
 
 /**
- * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+ * @summary Queries information about all queues in a vhost on a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListQueuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1325,7 +1347,7 @@ ListQueuesResponse Client::listQueuesWithOptions(const ListQueuesRequest &reques
 }
 
 /**
- * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+ * @summary Queries information about all queues in a vhost on a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListQueuesRequest
  * @return ListQueuesResponse
@@ -1336,7 +1358,7 @@ ListQueuesResponse Client::listQueues(const ListQueuesRequest &request) {
 }
 
 /**
- * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+ * @summary Lists all vhosts in a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListVirtualHostsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1363,7 +1385,7 @@ ListVirtualHostsResponse Client::listVirtualHostsWithOptions(const ListVirtualHo
 }
 
 /**
- * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+ * @summary Lists all vhosts in a specified ApsaraMQ for RabbitMQ instance.
  *
  * @param request ListVirtualHostsRequest
  * @return ListVirtualHostsResponse
@@ -1374,7 +1396,7 @@ ListVirtualHostsResponse Client::listVirtualHosts(const ListVirtualHostsRequest 
 }
 
 /**
- * @summary 删除实例ip/vpc白名单
+ * @summary Removes an IP address or a VPC from an instance\\"s whitelist.
  *
  * @param request RemoveInstanceWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1413,7 +1435,7 @@ RemoveInstanceWhiteListResponse Client::removeInstanceWhiteListWithOptions(const
 }
 
 /**
- * @summary 删除实例ip/vpc白名单
+ * @summary Removes an IP address or a VPC from an instance\\"s whitelist.
  *
  * @param request RemoveInstanceWhiteListRequest
  * @return RemoveInstanceWhiteListResponse
@@ -1424,7 +1446,7 @@ RemoveInstanceWhiteListResponse Client::removeInstanceWhiteList(const RemoveInst
 }
 
 /**
- * @summary Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+ * @summary Upgrades or downgrades the specifications of an ApsaraMQ for RabbitMQ instance.
  *
  * @param request UpdateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1519,7 +1541,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
 }
 
 /**
- * @summary Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+ * @summary Upgrades or downgrades the specifications of an ApsaraMQ for RabbitMQ instance.
  *
  * @param request UpdateInstanceRequest
  * @return UpdateInstanceResponse
@@ -1530,7 +1552,7 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 }
 
 /**
- * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+ * @summary An ApsaraMQ for RabbitMQ instance is named after its instance ID by default. You can change the name for easier identification.
  *
  * @param request UpdateInstanceNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1565,7 +1587,7 @@ UpdateInstanceNameResponse Client::updateInstanceNameWithOptions(const UpdateIns
 }
 
 /**
- * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+ * @summary An ApsaraMQ for RabbitMQ instance is named after its instance ID by default. You can change the name for easier identification.
  *
  * @param request UpdateInstanceNameRequest
  * @return UpdateInstanceNameResponse
@@ -1573,6 +1595,56 @@ UpdateInstanceNameResponse Client::updateInstanceNameWithOptions(const UpdateIns
 UpdateInstanceNameResponse Client::updateInstanceName(const UpdateInstanceNameRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateInstanceNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the elastic scaling switch of a serverless instance.
+ *
+ * @param request UpdateInstanceServerlessSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInstanceServerlessSwitchResponse
+ */
+UpdateInstanceServerlessSwitchResponse Client::updateInstanceServerlessSwitchWithOptions(const UpdateInstanceServerlessSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasServerlessSwitch()) {
+    query["ServerlessSwitch"] = request.getServerlessSwitch();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateInstanceServerlessSwitch"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInstanceServerlessSwitchResponse>();
+}
+
+/**
+ * @summary Updates the elastic scaling switch of a serverless instance.
+ *
+ * @param request UpdateInstanceServerlessSwitchRequest
+ * @return UpdateInstanceServerlessSwitchResponse
+ */
+UpdateInstanceServerlessSwitchResponse Client::updateInstanceServerlessSwitch(const UpdateInstanceServerlessSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateInstanceServerlessSwitchWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AmqpOpen20191212

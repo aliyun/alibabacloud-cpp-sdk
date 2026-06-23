@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The name of the exchange that you want to delete.
+    // The name of the exchange to delete.
     // 
     // This parameter is required.
     shared_ptr<string> exchangeName_ {};
-    // The ID of the ApsaraMQ for RabbitMQ instance whose exchange you want to delete.
+    // The ID of the ApsaraMQ for RabbitMQ instance that contains the exchange.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The vhost to which the exchange that you want to delete belongs.
+    // The name of the vhost that contains the exchange.
     // 
     // This parameter is required.
     shared_ptr<string> virtualHost_ {};

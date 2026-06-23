@@ -86,11 +86,17 @@ namespace Models
 
 
   protected:
+    // The return code. A value of `200` indicates a successful request.
     shared_ptr<string> code_ {};
+    // The returned data, which is an array of whitelist entries. Each object in the array contains an `id` (a sequence number used for deletion) and a `value` (the actual entry, such as an IP address range or a VPC ID).
     Darabonba::Json data_ {};
+    // The error message returned on a failed request.
     shared_ptr<string> message_ {};
+    // The unique ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The HTTP status code. A value of `200` indicates a successful request.
     shared_ptr<string> statusCode_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

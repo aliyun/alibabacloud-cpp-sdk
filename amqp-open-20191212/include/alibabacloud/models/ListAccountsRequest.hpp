@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the ApsaraMQ for RabbitMQ instance for which you want to query the static username and password.
+    // The ID of the ApsaraMQ for RabbitMQ instance whose static usernames and passwords you want to list.
     shared_ptr<string> instanceId_ {};
   };
 

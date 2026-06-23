@@ -86,12 +86,17 @@ namespace Models
 
 
   protected:
+    // The status code. A value of `200` indicates a successful request.
     shared_ptr<string> code_ {};
+    // Data returned by the operation.
     Darabonba::Json data_ {};
+    // The message returned with the response. This is typically an error message if the request fails.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The HTTP status code for the response. A value of `200` indicates success.
     shared_ptr<string> statusCode_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

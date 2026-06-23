@@ -21,7 +21,7 @@ namespace AmqpOpen20191212
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 增加实例白名单
+       * @summary Adds an entry to the whitelist of an instance.
        *
        * @param tmpReq AddInstanceWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AmqpOpen20191212
       Models::AddInstanceWhiteListResponse addInstanceWhiteListWithOptions(const Models::AddInstanceWhiteListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加实例白名单
+       * @summary Adds an entry to the whitelist of an instance.
        *
        * @param request AddInstanceWhiteListRequest
        * @return AddInstanceWhiteListResponse
@@ -38,7 +38,7 @@ namespace AmqpOpen20191212
       Models::AddInstanceWhiteListResponse addInstanceWhiteList(const Models::AddInstanceWhiteListRequest &request);
 
       /**
-       * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+       * @summary When an open-source client accesses an ApsaraMQ for RabbitMQ server, it must provide a username and password for authentication. ApsaraMQ for RabbitMQ lets you generate a username and password from an AccessKey ID and AccessKey secret provided by Resource Access Management (RAM).
        *
        * @param request CreateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace AmqpOpen20191212
       Models::CreateAccountResponse createAccountWithOptions(const Models::CreateAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+       * @summary When an open-source client accesses an ApsaraMQ for RabbitMQ server, it must provide a username and password for authentication. ApsaraMQ for RabbitMQ lets you generate a username and password from an AccessKey ID and AccessKey secret provided by Resource Access Management (RAM).
        *
        * @param request CreateAccountRequest
        * @return CreateAccountResponse
@@ -55,7 +55,7 @@ namespace AmqpOpen20191212
       Models::CreateAccountResponse createAccount(const Models::CreateAccountRequest &request);
 
       /**
-       * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+       * @summary A producer sends a message to an exchange, which then routes the message to a specified queue or another exchange based on the binding and routing rules.
        *
        * @param request CreateBindingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace AmqpOpen20191212
       Models::CreateBindingResponse createBindingWithOptions(const Models::CreateBindingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+       * @summary A producer sends a message to an exchange, which then routes the message to a specified queue or another exchange based on the binding and routing rules.
        *
        * @param request CreateBindingRequest
        * @return CreateBindingResponse
@@ -72,7 +72,7 @@ namespace AmqpOpen20191212
       Models::CreateBindingResponse createBinding(const Models::CreateBindingRequest &request);
 
       /**
-       * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+       * @summary A producer sends a message to an exchange. The exchange then routes the message to one or more queues based on the routing key and the binding key, or discards the message.
        *
        * @param request CreateExchangeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace AmqpOpen20191212
       Models::CreateExchangeResponse createExchangeWithOptions(const Models::CreateExchangeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+       * @summary A producer sends a message to an exchange. The exchange then routes the message to one or more queues based on the routing key and the binding key, or discards the message.
        *
        * @param request CreateExchangeRequest
        * @return CreateExchangeResponse
@@ -90,8 +90,6 @@ namespace AmqpOpen20191212
 
       /**
        * @summary Creates an ApsaraMQ for RabbitMQ instance.
-       *
-       * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
        *
        * @param tmpReq CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,15 +100,13 @@ namespace AmqpOpen20191212
       /**
        * @summary Creates an ApsaraMQ for RabbitMQ instance.
        *
-       * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
-       *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
        */
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+       * @summary A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
        *
        * @param request CreateQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -119,7 +115,7 @@ namespace AmqpOpen20191212
       Models::CreateQueueResponse createQueueWithOptions(const Models::CreateQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+       * @summary A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
        *
        * @param request CreateQueueRequest
        * @return CreateQueueResponse
@@ -144,7 +140,7 @@ namespace AmqpOpen20191212
       Models::CreateVirtualHostResponse createVirtualHost(const Models::CreateVirtualHostRequest &request);
 
       /**
-       * @summary Deletes a pair of username and password.
+       * @summary Deletes a static username and password.
        *
        * @param request DeleteAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -153,7 +149,7 @@ namespace AmqpOpen20191212
       Models::DeleteAccountResponse deleteAccountWithOptions(const Models::DeleteAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a pair of username and password.
+       * @summary Deletes a static username and password.
        *
        * @param request DeleteAccountRequest
        * @return DeleteAccountResponse
@@ -161,7 +157,7 @@ namespace AmqpOpen20191212
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
-       * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+       * @summary The DeleteBinding operation detaches a source exchange from a target queue or another exchange.
        *
        * @param request DeleteBindingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +166,7 @@ namespace AmqpOpen20191212
       Models::DeleteBindingResponse deleteBindingWithOptions(const Models::DeleteBindingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+       * @summary The DeleteBinding operation detaches a source exchange from a target queue or another exchange.
        *
        * @param request DeleteBindingRequest
        * @return DeleteBindingResponse
@@ -180,9 +176,9 @@ namespace AmqpOpen20191212
       /**
        * @summary Deletes an exchange.
        *
-       * @description ## [](#)Usage notes
-       * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-       * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+       * @description ## Usage notes
+       * - You cannot delete exchanges with the type **headers**.
+       * - You cannot delete the three built-in exchanges in a vhost: amq.direct, amq.topic, or amq.fanout.
        *
        * @param request DeleteExchangeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -193,9 +189,9 @@ namespace AmqpOpen20191212
       /**
        * @summary Deletes an exchange.
        *
-       * @description ## [](#)Usage notes
-       * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-       * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+       * @description ## Usage notes
+       * - You cannot delete exchanges with the type **headers**.
+       * - You cannot delete the three built-in exchanges in a vhost: amq.direct, amq.topic, or amq.fanout.
        *
        * @param request DeleteExchangeRequest
        * @return DeleteExchangeResponse
@@ -222,7 +218,7 @@ namespace AmqpOpen20191212
       /**
        * @summary Deletes a virtual host (vhost).
        *
-       * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+       * @description Before you delete a vhost, you must delete all exchanges and queues in it.
        *
        * @param request DeleteVirtualHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -233,7 +229,7 @@ namespace AmqpOpen20191212
       /**
        * @summary Deletes a virtual host (vhost).
        *
-       * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+       * @description Before you delete a vhost, you must delete all exchanges and queues in it.
        *
        * @param request DeleteVirtualHostRequest
        * @return DeleteVirtualHostResponse
@@ -241,7 +237,7 @@ namespace AmqpOpen20191212
       Models::DeleteVirtualHostResponse deleteVirtualHost(const Models::DeleteVirtualHostRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an ApsaraMQ for RabbitMQ instance.
        *
        * @param request GetInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +246,7 @@ namespace AmqpOpen20191212
       Models::GetInstanceResponse getInstanceWithOptions(const Models::GetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an ApsaraMQ for RabbitMQ instance.
        *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
@@ -258,7 +254,7 @@ namespace AmqpOpen20191212
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
 
       /**
-       * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+       * @summary Queries the current and maximum numbers of vhosts, exchanges, and queues for a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request GetMetadataAmountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -267,7 +263,7 @@ namespace AmqpOpen20191212
       Models::GetMetadataAmountResponse getMetadataAmountWithOptions(const Models::GetMetadataAmountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+       * @summary Queries the current and maximum numbers of vhosts, exchanges, and queues for a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request GetMetadataAmountRequest
        * @return GetMetadataAmountResponse
@@ -275,7 +271,7 @@ namespace AmqpOpen20191212
       Models::GetMetadataAmountResponse getMetadataAmount(const Models::GetMetadataAmountRequest &request);
 
       /**
-       * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+       * @summary Lists the usernames and passwords for a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -284,7 +280,7 @@ namespace AmqpOpen20191212
       Models::ListAccountsResponse listAccountsWithOptions(const Models::ListAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+       * @summary Lists the usernames and passwords for a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListAccountsRequest
        * @return ListAccountsResponse
@@ -292,7 +288,7 @@ namespace AmqpOpen20191212
       Models::ListAccountsResponse listAccounts(const Models::ListAccountsRequest &request);
 
       /**
-       * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+       * @summary Queries all bindings that are created in a vhost of a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListBindingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -301,7 +297,7 @@ namespace AmqpOpen20191212
       Models::ListBindingsResponse listBindingsWithOptions(const Models::ListBindingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+       * @summary Queries all bindings that are created in a vhost of a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListBindingsRequest
        * @return ListBindingsResponse
@@ -309,7 +305,7 @@ namespace AmqpOpen20191212
       Models::ListBindingsResponse listBindings(const Models::ListBindingsRequest &request);
 
       /**
-       * @summary Queries all exchanges or queues to which an exchange is bound.
+       * @summary Queries the exchanges or queues that are bound to a specified exchange.
        *
        * @param request ListDownStreamBindingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,7 +314,7 @@ namespace AmqpOpen20191212
       Models::ListDownStreamBindingsResponse listDownStreamBindingsWithOptions(const Models::ListDownStreamBindingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all exchanges or queues to which an exchange is bound.
+       * @summary Queries the exchanges or queues that are bound to a specified exchange.
        *
        * @param request ListDownStreamBindingsRequest
        * @return ListDownStreamBindingsResponse
@@ -326,7 +322,7 @@ namespace AmqpOpen20191212
       Models::ListDownStreamBindingsResponse listDownStreamBindings(const Models::ListDownStreamBindingsRequest &request);
 
       /**
-       * @summary Queries all queues or exchanges that are bound to an exchange.
+       * @summary Queries the queues or other exchanges that are bound to a specified exchange.
        *
        * @param request ListExchangeUpStreamBindingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -335,7 +331,7 @@ namespace AmqpOpen20191212
       Models::ListExchangeUpStreamBindingsResponse listExchangeUpStreamBindingsWithOptions(const Models::ListExchangeUpStreamBindingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all queues or exchanges that are bound to an exchange.
+       * @summary Queries the queues or other exchanges that are bound to a specified exchange.
        *
        * @param request ListExchangeUpStreamBindingsRequest
        * @return ListExchangeUpStreamBindingsResponse
@@ -343,7 +339,7 @@ namespace AmqpOpen20191212
       Models::ListExchangeUpStreamBindingsResponse listExchangeUpStreamBindings(const Models::ListExchangeUpStreamBindingsRequest &request);
 
       /**
-       * @summary Queries all exchanges that are created in a virtual host (vhost).
+       * @summary Lists all exchanges in a specified vhost of an instance.
        *
        * @param request ListExchangesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,7 +348,7 @@ namespace AmqpOpen20191212
       Models::ListExchangesResponse listExchangesWithOptions(const Models::ListExchangesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all exchanges that are created in a virtual host (vhost).
+       * @summary Lists all exchanges in a specified vhost of an instance.
        *
        * @param request ListExchangesRequest
        * @return ListExchangesResponse
@@ -360,7 +356,7 @@ namespace AmqpOpen20191212
       Models::ListExchangesResponse listExchanges(const Models::ListExchangesRequest &request);
 
       /**
-       * @summary 查询实例ip/vpc白名单
+       * @summary Queries the IP or VPC whitelist for an instance.
        *
        * @param request ListInstanceWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -369,7 +365,7 @@ namespace AmqpOpen20191212
       Models::ListInstanceWhiteListResponse listInstanceWhiteListWithOptions(const Models::ListInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例ip/vpc白名单
+       * @summary Queries the IP or VPC whitelist for an instance.
        *
        * @param request ListInstanceWhiteListRequest
        * @return ListInstanceWhiteListResponse
@@ -377,7 +373,7 @@ namespace AmqpOpen20191212
       Models::ListInstanceWhiteListResponse listInstanceWhiteList(const Models::ListInstanceWhiteListRequest &request);
 
       /**
-       * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+       * @summary Queries a list of ApsaraMQ for RabbitMQ instances in a specified region and returns basic information about each instance, such as its endpoints and specification limits.
        *
        * @param request ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -386,7 +382,7 @@ namespace AmqpOpen20191212
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+       * @summary Queries a list of ApsaraMQ for RabbitMQ instances in a specified region and returns basic information about each instance, such as its endpoints and specification limits.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -394,9 +390,9 @@ namespace AmqpOpen20191212
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Queries the online consumers of a queue.
+       * @summary Queries the online consumer clients of a specified queue.
        *
-       * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+       * @description ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
        *
        * @param request ListQueueConsumersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -405,9 +401,9 @@ namespace AmqpOpen20191212
       Models::ListQueueConsumersResponse listQueueConsumersWithOptions(const Models::ListQueueConsumersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the online consumers of a queue.
+       * @summary Queries the online consumer clients of a specified queue.
        *
-       * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+       * @description ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
        *
        * @param request ListQueueConsumersRequest
        * @return ListQueueConsumersResponse
@@ -415,7 +411,7 @@ namespace AmqpOpen20191212
       Models::ListQueueConsumersResponse listQueueConsumers(const Models::ListQueueConsumersRequest &request);
 
       /**
-       * @summary Queries the exchanges that are bound to a queue.
+       * @summary Queries the exchanges that are bound to a specified queue.
        *
        * @param request ListQueueUpStreamBindingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -424,7 +420,7 @@ namespace AmqpOpen20191212
       Models::ListQueueUpStreamBindingsResponse listQueueUpStreamBindingsWithOptions(const Models::ListQueueUpStreamBindingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the exchanges that are bound to a queue.
+       * @summary Queries the exchanges that are bound to a specified queue.
        *
        * @param request ListQueueUpStreamBindingsRequest
        * @return ListQueueUpStreamBindingsResponse
@@ -432,7 +428,7 @@ namespace AmqpOpen20191212
       Models::ListQueueUpStreamBindingsResponse listQueueUpStreamBindings(const Models::ListQueueUpStreamBindingsRequest &request);
 
       /**
-       * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+       * @summary Queries information about all queues in a vhost on a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListQueuesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -441,7 +437,7 @@ namespace AmqpOpen20191212
       Models::ListQueuesResponse listQueuesWithOptions(const Models::ListQueuesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+       * @summary Queries information about all queues in a vhost on a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListQueuesRequest
        * @return ListQueuesResponse
@@ -449,7 +445,7 @@ namespace AmqpOpen20191212
       Models::ListQueuesResponse listQueues(const Models::ListQueuesRequest &request);
 
       /**
-       * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+       * @summary Lists all vhosts in a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListVirtualHostsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -458,7 +454,7 @@ namespace AmqpOpen20191212
       Models::ListVirtualHostsResponse listVirtualHostsWithOptions(const Models::ListVirtualHostsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+       * @summary Lists all vhosts in a specified ApsaraMQ for RabbitMQ instance.
        *
        * @param request ListVirtualHostsRequest
        * @return ListVirtualHostsResponse
@@ -466,7 +462,7 @@ namespace AmqpOpen20191212
       Models::ListVirtualHostsResponse listVirtualHosts(const Models::ListVirtualHostsRequest &request);
 
       /**
-       * @summary 删除实例ip/vpc白名单
+       * @summary Removes an IP address or a VPC from an instance\\"s whitelist.
        *
        * @param request RemoveInstanceWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +471,7 @@ namespace AmqpOpen20191212
       Models::RemoveInstanceWhiteListResponse removeInstanceWhiteListWithOptions(const Models::RemoveInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除实例ip/vpc白名单
+       * @summary Removes an IP address or a VPC from an instance\\"s whitelist.
        *
        * @param request RemoveInstanceWhiteListRequest
        * @return RemoveInstanceWhiteListResponse
@@ -483,7 +479,7 @@ namespace AmqpOpen20191212
       Models::RemoveInstanceWhiteListResponse removeInstanceWhiteList(const Models::RemoveInstanceWhiteListRequest &request);
 
       /**
-       * @summary Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+       * @summary Upgrades or downgrades the specifications of an ApsaraMQ for RabbitMQ instance.
        *
        * @param request UpdateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -492,7 +488,7 @@ namespace AmqpOpen20191212
       Models::UpdateInstanceResponse updateInstanceWithOptions(const Models::UpdateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+       * @summary Upgrades or downgrades the specifications of an ApsaraMQ for RabbitMQ instance.
        *
        * @param request UpdateInstanceRequest
        * @return UpdateInstanceResponse
@@ -500,7 +496,7 @@ namespace AmqpOpen20191212
       Models::UpdateInstanceResponse updateInstance(const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+       * @summary An ApsaraMQ for RabbitMQ instance is named after its instance ID by default. You can change the name for easier identification.
        *
        * @param request UpdateInstanceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -509,12 +505,29 @@ namespace AmqpOpen20191212
       Models::UpdateInstanceNameResponse updateInstanceNameWithOptions(const Models::UpdateInstanceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+       * @summary An ApsaraMQ for RabbitMQ instance is named after its instance ID by default. You can change the name for easier identification.
        *
        * @param request UpdateInstanceNameRequest
        * @return UpdateInstanceNameResponse
        */
       Models::UpdateInstanceNameResponse updateInstanceName(const Models::UpdateInstanceNameRequest &request);
+
+      /**
+       * @summary Updates the elastic scaling switch of a serverless instance.
+       *
+       * @param request UpdateInstanceServerlessSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInstanceServerlessSwitchResponse
+       */
+      Models::UpdateInstanceServerlessSwitchResponse updateInstanceServerlessSwitchWithOptions(const Models::UpdateInstanceServerlessSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the elastic scaling switch of a serverless instance.
+       *
+       * @param request UpdateInstanceServerlessSwitchRequest
+       * @return UpdateInstanceServerlessSwitchResponse
+       */
+      Models::UpdateInstanceServerlessSwitchResponse updateInstanceServerlessSwitch(const Models::UpdateInstanceServerlessSwitchRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AmqpOpen20191212

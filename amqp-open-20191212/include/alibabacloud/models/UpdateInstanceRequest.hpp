@@ -188,56 +188,77 @@ namespace Models
   protected:
     // The client token.
     shared_ptr<string> clientToken_ {};
+    // The deployment architecture of the Serverless instance. Valid values:
+    // 
+    // - shared: A shared architecture. This applies to reserved plus elastic (shared) and pay-as-you-go instances.
+    // 
+    // - dedicated: A dedicated architecture. This applies to reserved plus elastic (dedicated) instances.
     shared_ptr<string> edition_ {};
-    // 实例是否开通数据存储加密功能
+    // This feature is for dedicated instances only. Specifies whether to enable data encryption.
+    // 
+    // - You cannot change the EncryptedInstance and KmsKeyId properties of a dedicated instance. This includes changing its encryption status or downgrading it to a shared instance. Do not include the EncryptedInstance and KmsKeyId parameters when you call UpdateInstance to upgrade or downgrade a dedicated instance.
+    // 
+    // - The EncryptedInstance and KmsKeyId parameters are used only when you upgrade a shared instance to an encrypted dedicated instance.
     shared_ptr<bool> encryptedInstance_ {};
     // The ID of the ApsaraMQ for RabbitMQ instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The instance edition. Valid values for subscription instances:
+    // The instance type. This parameter is required for subscription instances. Valid values:
     // 
-    // *   professional: Professional Edition
-    // *   enterprise: Enterprise Edition
-    // *   vip: Enterprise Platinum Edition.
+    // - professional: Professional Edition
     // 
-    // If your instance is a pay-as-you-go instance, you do not need to configure this parameter.
+    // - enterprise: Enterprise Edition
+    // 
+    // - vip: Platinum Edition
+    // 
+    // You do not need to specify this parameter for pay-as-you-go instances.
     shared_ptr<string> instanceType_ {};
-    // 使用同地域下KMS密钥ID
-    shared_ptr<string> kmsKeyId_ {};
-    // The maximum number of connections that can be created on the instance.
-    shared_ptr<int32_t> maxConnections_ {};
-    // The peak TPS for accessing the instance over the Internet.
-    shared_ptr<int64_t> maxEipTps_ {};
-    // The peak transactions per second (TPS) for accessing the instance in a virtual private cloud (VPC).
-    shared_ptr<int64_t> maxPrivateTps_ {};
-    // The type of the configuration change. Valid values:
+    // This feature is for dedicated instances only. This parameter is required if EncryptedInstance is set to true.
+    // It specifies the ID of the KMS key used for data encryption.
+    // The key must meet the following requirements:
     // 
-    // *   UPGRADE
-    // *   DOWNGRADE
+    // - The KMS key must be in the same region as the ApsaraMQ for RabbitMQ instance.
+    // 
+    // - The key cannot be a service key.
+    // 
+    // - The key must be active.
+    // 
+    // - The key must be a symmetric key.
+    // 
+    // - The key must be used for encryption and decryption.
+    // 
+    // - If the KMS key expires or is deleted, data reads and writes will fail, and the ApsaraMQ for RabbitMQ instance will become unavailable.
+    shared_ptr<string> kmsKeyId_ {};
+    // The maximum number of connections.
+    shared_ptr<int32_t> maxConnections_ {};
+    // The peak TPS for public network traffic.
+    shared_ptr<int64_t> maxEipTps_ {};
+    // The peak transactions per second (TPS) for private network traffic.
+    shared_ptr<int64_t> maxPrivateTps_ {};
+    // The type of specification change. Valid values:
+    // 
+    // - UPGRADE: Upgrade
+    // 
+    // - DOWNGRADE: Downgrade
     // 
     // This parameter is required.
     shared_ptr<string> modifyType_ {};
+    // The provisioned TPS capacity for a reserved plus elastic instance.
     shared_ptr<int32_t> provisionedCapacity_ {};
-    // The maximum number of queues that can be created on the instance.
+    // The maximum number of queues.
     shared_ptr<int32_t> queueCapacity_ {};
-    // The billing method of the serverless instance. Valid values:
+    // The billing method of the pay-as-you-go (Serverless) instance. Valid value:
     // 
-    // *   onDemand: You are charged based on your actual usage.
+    // - onDemand: Pay-as-you-go
     shared_ptr<string> serverlessChargeType_ {};
-    // The size of the storage space that can be used to store messages.
+    // The message storage capacity. Unit: GB.
     shared_ptr<int32_t> storageSize_ {};
-    // Specifies whether elastic IP addresses (EIPs) are supported.
+    // Specifies whether to enable Internet access.
     shared_ptr<bool> supportEip_ {};
     // Specifies whether to enable the message trace feature.
     shared_ptr<bool> supportTracing_ {};
-    // The retention period of message traces.
-    // 
-    // Valid values:
-    // 
-    // *   3
-    // *   7
-    // *   15
+    // The retention period for message traces. Unit: days.
     shared_ptr<int32_t> tracingStorageTime_ {};
   };
 

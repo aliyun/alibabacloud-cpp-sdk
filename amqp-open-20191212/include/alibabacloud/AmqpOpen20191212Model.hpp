@@ -89,5 +89,8 @@
 #include <alibabacloud/models/UpdateInstanceNameRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceNameResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceNameResponse.hpp>
+#include <alibabacloud/models/UpdateInstanceServerlessSwitchRequest.hpp>
+#include <alibabacloud/models/UpdateInstanceServerlessSwitchResponseBody.hpp>
+#include <alibabacloud/models/UpdateInstanceServerlessSwitchResponse.hpp>
 
 #endif

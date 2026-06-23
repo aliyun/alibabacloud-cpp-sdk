@@ -60,10 +60,18 @@ namespace Models
 
 
   protected:
+    // The ID of the instance receiving the whitelist entry.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The IP addresses or VPC IDs to add to the whitelist. Specify IP addresses as CIDR blocks.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> whiteListItem_ {};
+    // The type of the whitelist. Set this parameter to `2` if `WhiteListItem` contains IP addresses, or to `1` if it contains VPC IDs.
+    // 
+    // You can add a VPC whitelist only to instances that have an `anytunnel` VPC endpoint. Newer instances use the `privateLink` endpoint type, which does not support this feature.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> whiteListType_ {};
   };

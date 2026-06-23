@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The timestamp that indicates when the pair of static username and password that you want to delete was created. Unit: milliseconds.
+    // The timestamp that indicates when the static username and password were created. Unit: milliseconds.
     // 
-    // You can call the [ListAccounts](https://help.aliyun.com/document_detail/472730.html) operation to view the timestamp.
+    // Call the [ListAccounts](https://help.aliyun.com/document_detail/472730.html) operation to find this value.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The pair of username and password that you want to delete.
+    // The static username to delete.
     // 
     // This parameter is required.
     shared_ptr<string> userName_ {};

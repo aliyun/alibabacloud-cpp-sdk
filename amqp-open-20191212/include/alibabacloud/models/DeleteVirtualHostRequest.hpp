@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the ApsaraMQ for RabbitMQ instance to which the vhost you want to delete belongs.
+    // The ID of the ApsaraMQ for RabbitMQ instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the vhost that you want to delete.
+    // The name of the vhost to delete.
     // 
     // This parameter is required.
     shared_ptr<string> virtualHost_ {};

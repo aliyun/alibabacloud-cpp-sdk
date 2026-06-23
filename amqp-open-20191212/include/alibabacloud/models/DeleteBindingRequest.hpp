@@ -86,14 +86,15 @@ namespace Models
   protected:
     // The binding key.
     shared_ptr<string> bindingKey_ {};
-    // The type of the object that you want to unbind from the source exchange. Valid values:
+    // The type of the destination object. Valid values:
     // 
-    // *   **QUEUE**
-    // *   **EXCHANGE**
+    // - **QUEUE**
+    // 
+    // - **EXCHANGE**
     // 
     // This parameter is required.
     shared_ptr<string> bindingType_ {};
-    // The name of the object that you want to unbind from the source exchange.
+    // The name of the destination object.
     // 
     // This parameter is required.
     shared_ptr<string> destinationName_ {};

@@ -77,15 +77,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the request is successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
     // The ID of the created instance.
     Darabonba::Json data_ {};
-    // The returned message.
+    // A message providing additional details about the response.
     shared_ptr<string> message_ {};
-    // The request ID. You can use the ID to troubleshoot issues. This parameter is a common parameter.
+    // The unique ID of the request. This is a common parameter used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

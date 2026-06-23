@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return. Valid values: 1 to 100.
+    // The maximum number of results to return. The recommended value is from 1 to 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+    // The token to retrieve the next page of results. If this is your first query, leave this parameter empty.
     shared_ptr<string> nextToken_ {};
-    // The ID of the resource group to which the instances belong.
+    // The ID of the resource group that contains the instance.
     shared_ptr<string> resourceGroupId_ {};
   };
 

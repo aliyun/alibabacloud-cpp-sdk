@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<string> data_ {};
-    // The error message that is returned when an error occurs during the update of the instance name.
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned message that indicates the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

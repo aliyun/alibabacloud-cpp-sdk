@@ -380,68 +380,88 @@ namespace Models
 
 
       protected:
-        // Indicates whether the instance is automatically renewed.
+        // Indicates whether auto-renewal is enabled for the instance.
         shared_ptr<bool> autoRenewInstance_ {};
-        // The endpoint that is used to access the instance over the classic network. This parameter is no longer available.
+        // The classic network endpoint. This parameter is deprecated.
         shared_ptr<string> classicEndpoint_ {};
+        // The deployment architecture, which is applicable only to Serverless Edition instances. Valid values:
+        // 
+        // - shared: A shared architecture, used for reserved, elastic (shared), and pay-as-you-go instances.
+        // 
+        // - dedicated: A dedicated architecture, used for reserved and elastic (dedicated) instances.
         shared_ptr<string> edition_ {};
-        // Indicates whether the encryption at rest feature is enabled for the instance.
+        // Indicates whether storage encryption is enabled for the instance.
         shared_ptr<bool> encryptedInstance_ {};
-        // The timestamp that indicates when the instance expires. Unit: milliseconds.
+        // The expiration timestamp of the instance, in milliseconds.
         shared_ptr<int64_t> expireTime_ {};
-        // The instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
         // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The instance type.
+        // The instance type. Valid values:
         // 
-        // *   PROFESSIONAL: Professional Edition
-        // *   ENTERPRISE: Enterprise Edition
-        // *   VIP: Enterprise Platinum Edition
+        // - professional: Professional Edition
+        // 
+        // - enterprise: Enterprise Edition
+        // 
+        // - vip: Platinum Edition
+        // 
+        // <props="china">
+        // 
+        // - serverless: Serverless Edition
         shared_ptr<string> instanceType_ {};
-        // The ID of the Key Management Service (KMS) key used for the data disk.
+        // The ID of the KMS key used for data disk encryption.
         shared_ptr<string> kmsKeyId_ {};
+        // The port listener mode of the instance. `tcp_and_ssl` enables both port `5672` and port `5671`, while `ssl_only` enables only port `5671`.
         shared_ptr<string> listenerMode_ {};
-        // The maximum number of Internet-based transactions per second (TPS) for the instance.
+        // The peak transactions per second (TPS) of the instance over the public network.
         shared_ptr<int32_t> maxEipTps_ {};
-        // The maximum number of queues on the instance.
+        // The maximum number of queues for the instance.
         shared_ptr<int32_t> maxQueue_ {};
-        // The maximum number of VPC-based TPS for the instance.
+        // The peak transactions per second (TPS) of the instance over the private network.
         shared_ptr<int32_t> maxTps_ {};
-        // The maximum number of vhosts on the instance.
+        // The maximum number of vhosts for the instance.
         shared_ptr<int32_t> maxVhost_ {};
-        // The timestamp that indicates when the order was created. Unit: milliseconds.
+        // The creation timestamp of the order, in milliseconds.
         shared_ptr<int64_t> orderCreateTime_ {};
         // The billing method. Valid values:
         // 
-        // *   PrePaid: the subscription billing method.
-        // *   POST_PAID: the pay-as-you-go billing method.
+        // - PRE_PAID: The instance uses the subscription billing method.
+        // 
+        // - POST_PAID: The instance uses the pay-as-you-go billing method.
         shared_ptr<string> orderType_ {};
-        // The virtual private cloud (VPC) endpoint of the instance.
+        // The VPC endpoint of the instance.
         shared_ptr<string> privateEndpoint_ {};
+        // The reserved TPS capacity for reserved and elastic instances.
         shared_ptr<int32_t> provisionedCapacity_ {};
         // The public endpoint of the instance.
         shared_ptr<string> publicEndpoint_ {};
-        // The ID of the resource group to which the instance belongs.
+        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
+        // The ID of the security group to which the instance belongs. This security group is used for PrivateLink endpoint creation.
         shared_ptr<string> securityGroupId_ {};
         shared_ptr<bool> serverlessSwitch_ {};
         // The instance status. Valid values:
         // 
-        // *   DEPLOYING: The instance is being deployed.
-        // *   EXPIRED: The instance is expired.
-        // *   SERVING: The instance is running.
-        // *   RELEASED: The instance is released.
-        shared_ptr<string> status_ {};
-        // The disk size. Unit: GB.
+        // - DEPLOYING: The instance is being deployed.
         // 
-        // >  For Professional Edition instances and Enterprise Edition instances, this parameter is unavailable and \\*\\*-1\\*\\* is returned.
+        // - EXPIRED: The instance has expired.
+        // 
+        // - SERVING: The instance is running.
+        // 
+        // - RELEASED: The instance is released.
+        shared_ptr<string> status_ {};
+        // The storage capacity of the disk. Unit: GB.
+        // 
+        // > This parameter returns a value of **-1** for Professional Edition and Enterprise Edition instances, to which it does not apply.
         shared_ptr<int32_t> storageSize_ {};
-        // Indicates whether the instance supports elastic IP addresses (EIPs).
+        // Indicates whether the instance supports EIPs.
         shared_ptr<bool> supportEIP_ {};
-        // The tags that are added to the instance.
+        // The tags attached to the instance.
         shared_ptr<vector<Instances::Tags>> tags_ {};
+        // The ID of the VPC in which the instance resides. This VPC is used for PrivateLink endpoint creation.
         shared_ptr<string> vpcId_ {};
+        // The IDs of the VSwitches to which the instance is connected. These VSwitches are used for PrivateLink endpoint creation.
         shared_ptr<vector<string>> vswitchIds_ {};
       };
 
@@ -471,11 +491,11 @@ namespace Models
 
 
     protected:
-      // The instances.
+      // A list of instances.
       shared_ptr<vector<Data::Instances>> instances_ {};
-      // The maximum number of entries returned.
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+      // The token for the next page of results. If this field is empty, it means all results have been returned.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -498,7 +518,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<ListInstancesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

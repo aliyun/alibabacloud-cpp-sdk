@@ -113,11 +113,11 @@ namespace Models
 
 
     protected:
-      // The consumers.
+      // The consumer information.
       shared_ptr<vector<Data::Consumers>> consumers_ {};
-      // The maximum number of entries returned.
+      // The maximum number of results.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+      // The token to retrieve the next page of results. An empty value indicates that all results have been returned.
       shared_ptr<string> nextToken_ {};
     };
 

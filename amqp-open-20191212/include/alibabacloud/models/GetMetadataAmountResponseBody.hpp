@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // The number of created exchanges on the ApsaraMQ for RabbitMQ instance.
+      // The number of existing exchanges.
       shared_ptr<int32_t> currentExchanges_ {};
-      // The number of created queues on the ApsaraMQ for RabbitMQ instance.
+      // The number of existing queues.
       shared_ptr<int32_t> currentQueues_ {};
-      // The number of created vhosts on the ApsaraMQ for RabbitMQ instance.
+      // The number of existing vhosts.
       shared_ptr<int32_t> currentVirtualHosts_ {};
-      // The maximum number of exchanges that can be created on the ApsaraMQ for RabbitMQ instance.
+      // The maximum number of exchanges that you can create.
       shared_ptr<int32_t> maxExchanges_ {};
-      // The maximum number of queues that can be created on the ApsaraMQ for RabbitMQ instance.
+      // The maximum number of queues that you can create.
       shared_ptr<int32_t> maxQueues_ {};
-      // The maximum number of vhosts that can be created on the ApsaraMQ for RabbitMQ instance.
+      // The maximum number of vhosts that you can create.
       shared_ptr<int32_t> maxVirtualHosts_ {};
     };
 

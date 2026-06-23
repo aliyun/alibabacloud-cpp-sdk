@@ -1,3 +1,7 @@
+2026-06-23 Version: 1.2.0
+- Support API UpdateInstanceServerlessSwitch.
+
+
 2026-05-29 Version: 1.1.0
 - Support API AddInstanceWhiteList.
 - Support API ListInstanceWhiteList.
